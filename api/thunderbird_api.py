@@ -24,7 +24,9 @@ import json
 import logging
 import os
 import secrets
+import subprocess
 import sys
+import threading
 import asyncio
 import requests as http_requests
 from pathlib import Path
@@ -1617,56 +1619,237 @@ Each score 0–3: 0=no signal, 1=slight, 2=clear, 3=strong. Most should be 0–1
 # ============================================================================
 # SMS INBOUND WEBHOOK — Twilio → Commander Google Messages two-way C2
 # Commander directive 2026-06-19: macro awareness via Google Messages
+# Full AI dispatch — same Claude engine as Telegram gateway.
 # ============================================================================
 
 COMMANDER_PHONES = {"+17192910742", "+1 719 291 0742", "17192910742"}
+_SMS_HISTORY_FILE = Path(__file__).parent.parent / "OpsCenter" / "state" / "sms_history.json"
+_SMS_HISTORY_LOCK = threading.Lock()
+_SMS_HISTORY_MAX_TURNS = 10  # keep last 10 exchanges per sender
 
-def _route_sms_command(body: str, from_num: str) -> str:
-    """Route inbound SMS from Commander as a Wing command. Returns reply text."""
-    text = body.strip()
-    lower = text.lower()
+# Haiku for speed ($0.0005/call), escalate to Sonnet if Commander prefixes "Sonnet:"
+_SMS_DEFAULT_MODEL = "claude-haiku-4-5-20251001"
+_SMS_SONNET_MODEL = "claude-sonnet-4-6"
+_SMS_ENGINE_TIMEOUT = 45  # seconds — SMS can afford slightly more than Telegram
 
-    # Status check
-    if any(w in lower for w in ["status", "brief", "sitrep", "health"]):
+
+def _load_sms_history(from_num: str) -> list[dict]:
+    """Load conversation history for a sender."""
+    with _SMS_HISTORY_LOCK:
+        if not _SMS_HISTORY_FILE.exists():
+            return []
         try:
-            hale_state_path = Path(__file__).parent.parent / "hale_state.json"
-            state = json.loads(hale_state_path.read_text())
+            data = json.loads(_SMS_HISTORY_FILE.read_text())
+            return data.get(from_num, [])[-_SMS_HISTORY_MAX_TURNS:]
+        except Exception:
+            return []
+
+
+def _save_sms_history(from_num: str, history: list[dict]):
+    """Persist conversation history for a sender."""
+    with _SMS_HISTORY_LOCK:
+        try:
+            _SMS_HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+            data = {}
+            if _SMS_HISTORY_FILE.exists():
+                try:
+                    data = json.loads(_SMS_HISTORY_FILE.read_text())
+                except Exception:
+                    pass
+            data[from_num] = history[-_SMS_HISTORY_MAX_TURNS:]
+            _SMS_HISTORY_FILE.write_text(json.dumps(data, indent=2))
+        except Exception as e:
+            logger.warning(f"SMS history save failed: {e}")
+
+
+def _build_sms_wing_context() -> str:
+    """Build compact Wing context for SMS Claude dispatch."""
+    tb = Path(__file__).parent.parent
+    lines = []
+
+    # Load hale_state summary
+    try:
+        state = json.loads((tb / "hale_state.json").read_text())
+        fp = state.get("financial_pulse", {})
+        open_tasks = len(state.get("open_tasks", []))
+        pipeline = fp.get("total_d2m_pipeline", 0)
+        lines.append(f"WING STATE: {open_tasks} open tasks | D2M pipeline ${pipeline:,.0f}")
+        # Top 3 open tasks
+        tasks = state.get("open_tasks", [])[:3]
+        for t in tasks:
+            lines.append(f"  - [{t.get('priority','?')}] {t.get('title','?')[:60]}")
+    except Exception:
+        pass
+
+    # Portal health
+    probe_state = tb / "OpsCenter" / "state" / "portal_live_health.json"
+    if probe_state.exists():
+        try:
+            ph = json.loads(probe_state.read_text())
+            overall = ph.get("overall", "UNKNOWN")
+            fails = [k for k, v in ph.get("results", {}).items() if not v.get("alive")]
+            if fails:
+                lines.append(f"PORTALS: {overall} — DEAD: {', '.join(fails)}")
+            else:
+                lines.append(f"PORTALS: {overall} — all live")
+        except Exception:
+            pass
+
+    # Active client brief
+    try:
+        brief = (tb / "hale_brief.md").read_text()
+        # Take just the client table section (under 400 chars)
+        if "CLIENTS" in brief:
+            idx = brief.index("CLIENTS")
+            lines.append("CLIENT BRIEF (excerpt):\n" + brief[idx:idx+400])
+    except Exception:
+        pass
+
+    return "\n".join(lines)
+
+
+def _sms_quick_reply(text: str) -> str | None:
+    """Return instant reply for trivial keywords — skip Claude, return in <1s."""
+    lower = text.strip().lower()
+    tb = Path(__file__).parent.parent
+
+    if any(w in lower for w in ["status", "sitrep", "health"]):
+        try:
+            state = json.loads((tb / "hale_state.json").read_text())
             fp = state.get("financial_pulse", {})
             pipeline = fp.get("total_d2m_pipeline", 0)
-            open_tasks = len(state.get("open_tasks", []))
-            health = state.get("wing_health", {}).get("last_health_check", "?")
-            return f"Wing status: {open_tasks} open tasks | Pipeline ${pipeline:,.0f} | Health {health[:10]}"
+            tasks = len(state.get("open_tasks", []))
+            checked = state.get("wing_health", {}).get("last_health_check", "?")[:10]
+            return f"🦅 Wing: {tasks} tasks | Pipeline ${pipeline:,.0f} | Health {checked}"
         except Exception as e:
-            return f"Status check error: {e}"
+            return f"Status error: {e}"
 
-    # Portal check
-    if any(w in lower for w in ["portal", "regent", "centrav"]):
-        probe_state = Path(__file__).parent.parent / "OpsCenter" / "state" / "portal_live_health.json"
-        if probe_state.exists():
+    if any(w in lower for w in ["portal"]):
+        probe = tb / "OpsCenter" / "state" / "portal_live_health.json"
+        if probe.exists():
             try:
-                data = json.loads(probe_state.read_text())
+                data = json.loads(probe.read_text())
                 overall = data.get("overall", "UNKNOWN")
                 fails = [k for k, v in data.get("results", {}).items() if not v.get("alive")]
                 if fails:
-                    return f"Portal status: {overall} | Dead: {', '.join(fails)}"
-                return f"Portal status: {overall} — all {data.get('portals_checked', '?')} portals alive"
+                    return f"🔴 Portals: {overall} | Dead: {', '.join(fails)}"
+                return f"✅ Portals: {overall} — all {data.get('portals_checked','?')} live"
             except Exception:
                 pass
-        return "Portal health file not found — run portal_live_probe.py"
 
-    # Pipeline / financial
-    if any(w in lower for w in ["pipeline", "commission", "money", "revenue"]):
+    if any(w in lower for w in ["pipeline", "commission", "revenue"]):
         try:
-            state = json.loads((Path(__file__).parent.parent / "hale_state.json").read_text())
+            state = json.loads((tb / "hale_state.json").read_text())
             fp = state.get("financial_pulse", {})
-            return (f"Pipeline: ${fp.get('total_d2m_pipeline',0):,.0f} D2M share | "
-                    f"Expected commissions: ${fp.get('sheet_commission_expected',0):,.0f}")
+            return (f"💰 Pipeline: ${fp.get('total_d2m_pipeline',0):,.0f} | "
+                    f"Commission expected: ${fp.get('sheet_commission_expected',0):,.0f}")
         except Exception as e:
             return f"Pipeline error: {e}"
 
-    # Pass-through: unknown command
-    logger.info(f"SMS command from {from_num}: {text[:80]}")
-    return f"Received. Wing logged: '{text[:60]}'. For complex tasks open Claude."
+    return None  # not a quick-reply keyword — route to Claude
+
+
+def _dispatch_sms_ai(from_num: str, body: str):
+    """
+    Background thread: dispatch Commander SMS to Claude, send reply via Twilio.
+    Runs AFTER /sms/inbound has already returned empty TwiML to Twilio.
+    """
+    try:
+        # Select model — Commander can prefix "Sonnet:" to escalate
+        model = _SMS_DEFAULT_MODEL
+        text = body.strip()
+        if text.lower().startswith("sonnet:"):
+            model = _SMS_SONNET_MODEL
+            text = text[7:].strip()
+        elif text.lower().startswith("opus:"):
+            model = "claude-opus-4-6"
+            text = text[5:].strip()
+
+        # Load history
+        history = _load_sms_history(from_num)
+
+        # Build conversation history block
+        history_block = ""
+        if history:
+            turns = []
+            for h in history[-6:]:  # last 6 turns = 3 exchanges
+                turns.append(f"Commander: {h['user']}")
+                turns.append(f"Hale: {h['assistant']}")
+            history_block = "\n".join(turns)
+
+        # Build Wing context
+        wing_ctx = _build_sms_wing_context()
+
+        # Build full prompt
+        persona_note = (
+            "You are Ms. Victoria 'Victory' Hale, SES-6, COS of Thunderbird Wing / "
+            "Dreams2Memories Travel, LLC. You are responding to Commander John 'Yoda' Loucks "
+            "via SMS (Google Messages). Keep responses under 300 characters when possible — "
+            "this is a phone screen, not a desktop. Be crisp, action-oriented, no throat-clearing. "
+            "Lead with the answer. Use 🦅 to open if space allows."
+        )
+
+        prompt_parts = [persona_note, "\n\n--- WING STATE ---\n" + wing_ctx]
+        if history_block:
+            prompt_parts.append("\n--- RECENT CONVERSATION ---\n" + history_block)
+        prompt_parts.append(f"\n\nCommander (SMS): {text}\nHale:")
+        prompt = "\n".join(prompt_parts)
+
+        # Inject OAuth token
+        env = dict(os.environ)
+        env.pop("ANTHROPIC_API_KEY", None)
+        env.pop("ANTHROPIC_BASE_URL", None)
+        creds_path = Path.home() / ".claude" / ".credentials.json"
+        if creds_path.exists():
+            try:
+                tok = json.loads(creds_path.read_text()).get("claudeAiOauth", {}).get("accessToken")
+                if tok:
+                    env["CLAUDE_CODE_OAUTH_TOKEN"] = tok
+            except Exception:
+                pass
+
+        tb = Path(__file__).parent.parent
+        result = subprocess.run(
+            ["/home/john/.local/bin/claude", "--model", model, "-p", "-",
+             "--output-format", "text", "--dangerously-skip-permissions"],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            timeout=_SMS_ENGINE_TIMEOUT,
+            env=env,
+            cwd=str(tb),
+        )
+
+        if result.returncode == 0:
+            reply = result.stdout.strip()
+        else:
+            err = result.stderr.strip()[:100]
+            reply = f"🦅 Engine error (rc={result.returncode}): {err}"
+
+        # Trim to 1600 chars max (10 SMS segments — generous but bounded)
+        if len(reply) > 1600:
+            reply = reply[:1597] + "..."
+
+        # Save history
+        history.append({"user": text[:200], "assistant": reply[:200]})
+        _save_sms_history(from_num, history)
+
+        # Send reply via Twilio
+        from core.comms.wing_sms import send_sms
+        send_sms(reply, to=from_num)
+        logger.info(f"SMS AI reply sent to {from_num}: {reply[:60]}")
+
+    except subprocess.TimeoutExpired:
+        from core.comms.wing_sms import send_sms
+        send_sms("🦅 Engine timeout — try again or open Claude for complex tasks.", to=from_num)
+        logger.warning(f"SMS Claude timeout for {from_num}")
+    except Exception as e:
+        logger.error(f"SMS AI dispatch error: {e}")
+        try:
+            from core.comms.wing_sms import send_sms
+            send_sms(f"🦅 Wing error: {str(e)[:100]}", to=from_num)
+        except Exception:
+            pass
 
 
 @app.post("/sms/inbound")
@@ -1674,7 +1857,8 @@ async def sms_inbound(request: Request):
     """
     Twilio webhook — inbound SMS from Commander (Google Messages).
     No auth required — Twilio posts plain form data.
-    Validates sender matches Commander's phone. Returns TwiML reply.
+    Returns empty TwiML immediately, dispatches Claude AI in background thread.
+    Claude response sent back to Commander via outbound Twilio SMS.
     """
     form = await request.form()
     from_num = (form.get("From", "") or "").replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
@@ -1685,17 +1869,20 @@ async def sms_inbound(request: Request):
     from_clean = from_num.replace("+", "")
     if not any(c.replace("+", "") == from_clean for c in COMMANDER_PHONES):
         logger.warning(f"SMS rejected from unknown sender: {from_num}")
-        # Return empty TwiML — don't reply to unknown numbers
-        return Response(
-            content='<?xml version="1.0"?><Response></Response>',
-            media_type="application/xml"
-        )
+        return Response(content='<?xml version="1.0"?><Response></Response>', media_type="application/xml")
 
-    reply = _route_sms_command(body, from_num)
+    # Try instant keyword reply first (sub-1s, no Claude needed)
+    quick = _sms_quick_reply(body)
+    if quick:
+        twiml = f'<?xml version="1.0"?><Response><Message>{quick}</Message></Response>'
+        return Response(content=twiml, media_type="application/xml")
 
-    # TwiML response
-    twiml = f'<?xml version="1.0"?><Response><Message>{reply}</Message></Response>'
-    return Response(content=twiml, media_type="application/xml")
+    # Full AI dispatch — return empty TwiML NOW (Twilio 15s timeout), send reply async
+    t = threading.Thread(target=_dispatch_sms_ai, args=(from_num, body), daemon=True)
+    t.start()
+
+    # Immediate ack so Twilio doesn't timeout — Claude sends the real reply outbound
+    return Response(content='<?xml version="1.0"?><Response></Response>', media_type="application/xml")
 
 
 # ============================================================================
