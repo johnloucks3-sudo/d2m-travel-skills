@@ -32,7 +32,7 @@ from datetime import datetime
 from typing import Any, Dict, Optional
 
 from fastapi import FastAPI, HTTPException, Header, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 import uvicorn
 
 # Add project root and core to path
@@ -208,7 +208,7 @@ class BearerTokenMiddleware(BaseHTTPMiddleware):
     Accepts either Authorization: Bearer <bearer_token> or x-api-key: <api_key>."""
 
     EXEMPT_PATHS = {"/api/health", "/docs", "/openapi.json", "/redoc", "/.well-known/agent.json",
-                    "/api/travel-dna/interpret"}
+                    "/api/travel-dna/interpret", "/sms/inbound"}
 
     async def dispatch(self, request: Request, call_next):
         path = request.url.path.rstrip("/")
@@ -1612,6 +1612,90 @@ Each score 0–3: 0=no signal, 1=slight, 2=clear, 3=strong. Most should be 0–1
         adjustments = zero
 
     return JSONResponse({"ok": True, "adjustments": adjustments}, headers=_CORS)
+
+
+# ============================================================================
+# SMS INBOUND WEBHOOK — Twilio → Commander Google Messages two-way C2
+# Commander directive 2026-06-19: macro awareness via Google Messages
+# ============================================================================
+
+COMMANDER_PHONES = {"+17192910742", "+1 719 291 0742", "17192910742"}
+
+def _route_sms_command(body: str, from_num: str) -> str:
+    """Route inbound SMS from Commander as a Wing command. Returns reply text."""
+    text = body.strip()
+    lower = text.lower()
+
+    # Status check
+    if any(w in lower for w in ["status", "brief", "sitrep", "health"]):
+        try:
+            hale_state_path = Path(__file__).parent.parent / "hale_state.json"
+            state = json.loads(hale_state_path.read_text())
+            fp = state.get("financial_pulse", {})
+            pipeline = fp.get("total_d2m_pipeline", 0)
+            open_tasks = len(state.get("open_tasks", []))
+            health = state.get("wing_health", {}).get("last_health_check", "?")
+            return f"Wing status: {open_tasks} open tasks | Pipeline ${pipeline:,.0f} | Health {health[:10]}"
+        except Exception as e:
+            return f"Status check error: {e}"
+
+    # Portal check
+    if any(w in lower for w in ["portal", "regent", "centrav"]):
+        probe_state = Path(__file__).parent.parent / "OpsCenter" / "state" / "portal_live_health.json"
+        if probe_state.exists():
+            try:
+                data = json.loads(probe_state.read_text())
+                overall = data.get("overall", "UNKNOWN")
+                fails = [k for k, v in data.get("results", {}).items() if not v.get("alive")]
+                if fails:
+                    return f"Portal status: {overall} | Dead: {', '.join(fails)}"
+                return f"Portal status: {overall} — all {data.get('portals_checked', '?')} portals alive"
+            except Exception:
+                pass
+        return "Portal health file not found — run portal_live_probe.py"
+
+    # Pipeline / financial
+    if any(w in lower for w in ["pipeline", "commission", "money", "revenue"]):
+        try:
+            state = json.loads((Path(__file__).parent.parent / "hale_state.json").read_text())
+            fp = state.get("financial_pulse", {})
+            return (f"Pipeline: ${fp.get('total_d2m_pipeline',0):,.0f} D2M share | "
+                    f"Expected commissions: ${fp.get('sheet_commission_expected',0):,.0f}")
+        except Exception as e:
+            return f"Pipeline error: {e}"
+
+    # Pass-through: unknown command
+    logger.info(f"SMS command from {from_num}: {text[:80]}")
+    return f"Received. Wing logged: '{text[:60]}'. For complex tasks open Claude."
+
+
+@app.post("/sms/inbound")
+async def sms_inbound(request: Request):
+    """
+    Twilio webhook — inbound SMS from Commander (Google Messages).
+    No auth required — Twilio posts plain form data.
+    Validates sender matches Commander's phone. Returns TwiML reply.
+    """
+    form = await request.form()
+    from_num = (form.get("From", "") or "").replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
+    body = form.get("Body", "")
+    logger.info(f"SMS inbound from {from_num}: {body[:80]}")
+
+    # Security: only accept from Commander's number
+    from_clean = from_num.replace("+", "")
+    if not any(c.replace("+", "") == from_clean for c in COMMANDER_PHONES):
+        logger.warning(f"SMS rejected from unknown sender: {from_num}")
+        # Return empty TwiML — don't reply to unknown numbers
+        return Response(
+            content='<?xml version="1.0"?><Response></Response>',
+            media_type="application/xml"
+        )
+
+    reply = _route_sms_command(body, from_num)
+
+    # TwiML response
+    twiml = f'<?xml version="1.0"?><Response><Message>{reply}</Message></Response>'
+    return Response(content=twiml, media_type="application/xml")
 
 
 # ============================================================================
