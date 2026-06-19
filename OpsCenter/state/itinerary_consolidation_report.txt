@@ -1,0 +1,42 @@
+DAILY ITINERARY CONSOLIDATION REPORT
+Generated: 2026-06-19 14:52:29 MT
+
+Main "Daily Itinerary" tab: 20 unique Booking_IDs, 426 data rows
+Existing IDs: ['2984034', '298475-25', '3071222', '3071222-26', '3078056', '3096289', '3112369', '3114500', '3122006', '517484', '562305-25', '566904-25', '566910-25', '8X6PGQ', '9593873', '9593880', '9595029', 'Bookling ID', 'LATEST', 'Unknown']
+
+Sub-tab: "Daily Itinerary A"
+  Non-empty rows: 75
+  Unique rows (not in main): 0
+  Unique Booking_IDs: []
+  Skipped (no ID): 55
+  Already in main: 20
+
+Sub-tab: "Daily Itinerary B"
+  Non-empty rows: 80
+  Unique rows (not in main): 0
+  Unique Booking_IDs: []
+  Skipped (no ID): 0
+  Already in main: 80
+
+Sub-tab: "Daily Itinerary Bucket"
+  Non-empty rows: 596
+  Unique rows (not in main): 0
+  Unique Booking_IDs: []
+  Skipped (no ID): 0
+  Already in main: 596
+
+APPEND PHASE
+Total unique rows to append: 0
+No unique rows found — all sub-tab data already exists in main tab.
+Sub-tabs are safe to delete (no unique data).
+
+DELETE PHASE
+  DELETED: "Daily Itinerary A"
+  DELETED: "Daily Itinerary B"
+  DELETED: "Daily Itinerary Bucket"
+
+SUMMARY
+  Daily Itinerary A: 0 unique rows migrated, tab deleted
+  Daily Itinerary B: 0 unique rows migrated, tab deleted
+  Daily Itinerary Bucket: 0 unique rows migrated, tab deleted
+Completed: 2026-06-19 14:52:33 MT

@@ -1,0 +1,51 @@
+BOOKING MASTER RECONCILIATION REPORT
+Generated: 2026-06-19 14:52:23 MT
+
+MISSION: Migrate z_MIGRATED rows with Booking_IDs not in main Booking Master.
+CRITICAL: 2984034 (McLeod Regent Grandeur — FPD $11,943.15 due 2026-07-22) MUST land in main.
+
+Main "Booking Master" tab: 23 unique Booking_IDs, 26 data rows
+Existing IDs: ['298475-25', '3071222', '3078056', '3096289', '3112369', '3114500', '3122006', '506101-26', '517484', '566904-25', '566910-25', '73268402723830', '8X6PGQ', 'AE693884', 'BKG-14272', 'BKG-30753', 'BKG-324714', 'BKG-584652', 'BKG-758577', 'JF693870', 'LN693883', 'Pending', '🟡 PENDING BN']
+
+Tab: "z_MIGRATED_Booking Master Bucket"
+  Non-empty rows: 30
+  Unique rows to append: 9
+  Unique IDs: ['BKG-517484', 'BKG-407634', 'BKG-847853', 'BKG-397284', 'BKG-746175', 'BKG-70057', '9593873', '9593880', '2984034']
+  Skipped (in main): 20, (already queued): 1, (no ID): 0
+
+Tab: "z_MIGRATED_Booking Master A"
+  Non-empty rows: 12
+  Unique rows to append: 0
+  Unique IDs: []
+  Skipped (in main): 12, (already queued): 0, (no ID): 0
+
+Tab: "z_MIGRATED_Booking Master B"
+  Non-empty rows: 35
+  Unique rows to append: 2
+  Unique IDs: ['Unknown', '3071222-26']
+  Skipped (in main): 24, (already queued): 9, (no ID): 0
+
+APPEND PHASE
+Total rows to append: 11
+IDs to append: ['2984034', '3071222-26', '9593873', '9593880', 'BKG-397284', 'BKG-407634', 'BKG-517484', 'BKG-70057', 'BKG-746175', 'BKG-847853', 'Unknown']
+
+Appended 11 rows successfully.
+Verification PASSED — all appended IDs confirmed in main tab.
+CRITICAL CHECK PASSED: 2984034 (McLeod Regent Grandeur — FPD $11,943.15 due 2026-07-22) confirmed in main.
+
+z_MIGRATED TAB STATUS
+The z_MIGRATED tabs have NOT been deleted automatically.
+Commander should review before deletion:
+  - z_MIGRATED_Booking Master Bucket
+  - z_MIGRATED_Booking Master A
+  - z_MIGRATED_Booking Master B
+
+To delete after review, run: spreadsheet.del_worksheet(spreadsheet.worksheet(<tab_name>))
+Or delete manually from Google Sheets.
+
+FINAL SUMMARY
+  z_MIGRATED_Booking Master Bucket: 9 unique rows migrated
+  z_MIGRATED_Booking Master A: 0 unique rows migrated
+  z_MIGRATED_Booking Master B: 2 unique rows migrated
+Total migrated: 11 rows
+Completed: 2026-06-19 14:52:26 MT
