@@ -15,7 +15,7 @@ class BackupBot(BotBase):
     tasks = [
         Task("evernote-backup",
              venv("api/thunderbird_evernote_backup.py"),
-             interval_sec=86400, timeout_sec=300),
+             interval_sec=604800, timeout_sec=300),  # weekly (was daily)
         Task("backup-verify",
              venv("core/watchtower/thunderbird_backup_verify.py"),
              interval_sec=86400, timeout_sec=120),
@@ -35,8 +35,11 @@ class BackupBot(BotBase):
              sys_py("OpsCenter/hale_dispatcher.py", "generate_phase2_visuals"),
              interval_sec=604800, timeout_sec=180),
         Task("factbook-refresh",
-             goose("recipes/factbook_refresh.yaml"),
-             interval_sec=604800, timeout_sec=300),
+             sys_py("scripts/factbook_refresh.py"),
+             interval_sec=604800, timeout_sec=120),  # Goose/DeepSeek retired 2026-06-19
+        Task("drive-health",
+             sys_py("scripts/drive_health_check.py"),
+             interval_sec=86400, timeout_sec=120),  # daily health check
         Task("voice-sync",
              venv("core/learning/thunderbird_voice_harvest.py", "--sync"),
              interval_sec=86400, timeout_sec=120),

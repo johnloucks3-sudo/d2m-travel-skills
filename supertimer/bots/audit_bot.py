@@ -40,6 +40,9 @@ class AuditBot(BotBase):
         Task("disk-pressure",
              sys_py("scripts/disk_pressure.py"),
              interval_sec=900, timeout_sec=30),
+        Task("dead-code-scan",
+             sys_py("scripts/dead_code_scan.py"),
+             interval_sec=604800, timeout_sec=180),  # weekly
     ]
 
 if __name__ == "__main__":
