@@ -2,6 +2,7 @@
 """
 intel_bot — Airline, weather, X-OSINT, Perx, flight scan, innovation scan.
 Interval: 900s. Most tasks daily, some hourly.
+Tempo increased 2026-06-19 per Commander directive — within $20 API / $100 MAX budget.
 """
 import json, sys
 from pathlib import Path
@@ -15,40 +16,40 @@ class IntelBot(BotBase):
     tasks = [
         Task("airline-schedule-change",
              sys_py("scripts/airline_schedule_monitor.py"),
-             interval_sec=3600, timeout_sec=120),
+             interval_sec=3600, timeout_sec=120),    # hourly — unchanged
         Task("weather-disruption",
              sys_py("scripts/weather_disruption_monitor.py"),
-             interval_sec=7200, timeout_sec=120),
+             interval_sec=3600, timeout_sec=120),    # hourly (was 2h)
         Task("perx-trigger",
              sys_py("scripts/perx_trigger_detector.py"),
-             interval_sec=1800, timeout_sec=90),
+             interval_sec=900, timeout_sec=90),      # every 15m (was 30m)
         Task("perx-intel",
              sys_py("scripts/perx_intel_monitor.py"),
-             interval_sec=86400, timeout_sec=180),
+             interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
         Task("flight-scan",
              venv("scripts/flight_scan_trigger.py"),
-             interval_sec=86400, timeout_sec=180),
+             interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
         Task("intel-telegram",
              venv("core/intel/thunderbird_intel_telegram.py"),
-             interval_sec=86400, timeout_sec=180),
+             interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
         Task("airline-monitor",
              goose("recipes/airline_monitor.yaml"),
-             interval_sec=86400, timeout_sec=300),
+             interval_sec=43200, timeout_sec=300),   # 2x/day (was daily)
         Task("x-osint",
              goose("recipes/x_osint.yaml"),
-             interval_sec=86400, timeout_sec=300),
+             interval_sec=43200, timeout_sec=300),   # 2x/day (was daily)
         Task("innovation-scan",
              bash(
                  f"jq '. += [{{\"task_id\": \"TKT-AUTO\", \"task_type\": \"innovation_scan\", \"persona\": \"A12\"}}]' "
                  f"{ROOT}/OpsCenter/01_TASK_QUEUE.json > {ROOT}/OpsCenter/tmp.json "
                  f"&& mv {ROOT}/OpsCenter/tmp.json {ROOT}/OpsCenter/01_TASK_QUEUE.json"
              ),
-             interval_sec=86400, timeout_sec=30),
+             interval_sec=21600, timeout_sec=30),    # every 6h (was daily)
         Task("dembe-intel",
              venv("core/intel/dembe_intel_sweep.py")
              if (ROOT / "core/intel/dembe_intel_sweep.py").exists()
              else sys_py("scripts/perx_intel_monitor.py"),
-             interval_sec=86400, timeout_sec=180),
+             interval_sec=21600, timeout_sec=180),   # every 6h (was daily)
     ]
 
 if __name__ == "__main__":

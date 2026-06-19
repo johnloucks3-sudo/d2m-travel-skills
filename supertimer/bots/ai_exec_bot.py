@@ -2,6 +2,7 @@
 """
 ai_exec_bot — Mission executor, sculptor, incubator, power harvest, daily/EOD brief.
 Interval: 3600s. These spawn headless Claude — each runs daily or 4x/day.
+Tempo increased 2026-06-19 per Commander directive — within $20 API / $100 MAX budget.
 """
 import json, sys
 from pathlib import Path
@@ -21,10 +22,10 @@ class AIExecBot(BotBase):
              interval_sec=MISSION_EXEC_INTERVAL, timeout_sec=600),
         Task("incubator-execute",
              venv("core/intel/thunderbird_incubator.py", "execute"),
-             interval_sec=86400, timeout_sec=600),
+             interval_sec=43200, timeout_sec=600),   # 2x/day (was daily)
         Task("sculptor-harvest",
              venv("core/intel/thunderbird_nightly_tech_harvest.py"),
-             interval_sec=86400, timeout_sec=600),
+             interval_sec=43200, timeout_sec=600),   # 2x/day (was daily)
         Task("sculptor-learn",
              venv("itinerary/thunderbird_doc_sculptor.py", "--learn"),
              interval_sec=86400, timeout_sec=600),
