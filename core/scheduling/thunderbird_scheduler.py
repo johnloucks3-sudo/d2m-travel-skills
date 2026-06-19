@@ -1605,36 +1605,25 @@ def build_scheduler() -> AsyncIOScheduler:
         name="OA Portal Monitor (30min)",
     )
 
-    # 9. SWITCHBLADE-4: daily at 7:00AM MT
-    #    Automated Dani stress test — technical + persona + COS review + staff.
-    #    Results sent to Telegram + Gmail draft.
-    async def job_switchblade():
-        logger.info("=" * 60)
-        logger.info("SCHEDULED: SWITCHBLADE-4 — Dani Stress Test")
-        logger.info("=" * 60)
+    # 9. Dani/Grace Persona Test — replaced SWITCHBLADE-4 (retired 2026-06-19).
+    #    5 client-scenario conversations via Managed Agents. ~$0.05/run, ~30s.
+    #    Notifies Commander on Telegram only on failures.
+    async def job_persona_test():
+        logger.info("SCHEDULED: Dani/Grace Persona Test")
         try:
-            report = run_switchblade(send_telegram=True, send_gmail=True)
-            rate = report.get("pass_rate", "?")
-            crit = report.get("critical_failures", 0)
-            logger.info(f"SWITCHBLADE-4 complete: {rate}, {crit} critical failures")
+            import sys
+            sys.path.insert(0, str(ROOT))
+            from scripts.dani_grace_persona_test import run_persona_tests
+            summary = run_persona_tests(notify_telegram=True)
+            logger.info(f"Persona test: {summary['passed']}/{summary['total']} passed | ${summary['total_cost_usd']:.5f}")
         except Exception as e:
-            logger.error(f"SWITCHBLADE-4 FAILED: {e}", exc_info=True)
+            logger.error(f"Persona test FAILED: {e}", exc_info=True)
 
     scheduler.add_job(
-        job_switchblade,
+        job_persona_test,
         CronTrigger(hour=7, minute=0, timezone=TZ),
-        id="switchblade_daily",
-        name="SWITCHBLADE-4 Dani Test (daily 0700)",
-    )
-
-    # 9b. SWITCHBLADE-4 overnight run: 3:00AM MT (0900 UTC)
-    #     Docstring-specified early-morning run to catch overnight data drift.
-    #     Same job function as the 0700 run — separate ID for independent tracking.
-    scheduler.add_job(
-        job_switchblade,
-        CronTrigger(hour=3, minute=0, timezone=TZ),
-        id="switchblade_0300",
-        name="SWITCHBLADE-4 Dani Test (0300 MT)",
+        id="persona_test_daily",
+        name="Dani/Grace Persona Test (0700 MT)",
     )
 
     # 10. Flight Price Tracker: daily at 9:00AM MT

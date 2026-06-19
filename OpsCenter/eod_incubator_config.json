@@ -1,17 +1,29 @@
 {
-  "sectors_tonight": [
-    "Claude Code",
-    "GitHub New Releases",
-    "Travel Tech B2B"
+  "permanent_sectors": [
+    "LLM & AI APIs",
+    "Agentic Apps & Frameworks"
   ],
+  "rotation_sectors": [
+    "Claude Code",
+    "OpenCode & Local AI",
+    "GitHub New Releases",
+    "Travel Tech B2B",
+    "Voice & Multimodal",
+    "Competitor Intel",
+    "CRM & Automation"
+  ],
+  "rotation_count_per_night": 2,
   "gate_candidate": {
     "name": "claude agents --json session monitor",
     "owner": "Sterling",
     "status": "approved",
     "description": "Wire claude agents --json output into hale_state.json wing_health section"
   },
+  "techpulse_format": "Tool: [Name] / What: [one line] / Case: [one line] / Rec: [Adopt|Watch|Skip]",
+  "techpulse_routing": "Adopt or Watch → Telegram page to Commander. Skip → AM brief only.",
+  "search_posture": "24/7 continuous — permanent sectors run every night, rotation supplements. Anything breaking on Anthropic changelog, HN, GitHub AI releases → surface immediately, do not wait for EOD.",
   "nomination_time": "17:30",
   "execute_window_minutes": 5,
-  "last_updated": "2026-06-10",
-  "last_nomination_sent": "2026-06-10T22:23:34.085657"
+  "last_updated": "2026-06-19",
+  "last_nomination_sent": "2026-06-19T15:06:19.400177"
 }
