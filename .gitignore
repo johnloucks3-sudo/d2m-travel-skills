@@ -152,3 +152,11 @@ data/qdrant/
 state/firefox_rssc_prod/
 state/firefox_profile_test/
 core/travel/data/centrav_ff_profile/
+
+# Removed broken gitlinks 2026-06-18
+Blackboard/
+mcps/foursquare/foursquare-repo/
+mcps/yelp/yelp-repo/
+reverie/
+tools/fieldflow/
+cache/sheets_mirror/

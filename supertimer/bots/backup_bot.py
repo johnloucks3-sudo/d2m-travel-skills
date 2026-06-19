@@ -40,6 +40,12 @@ class BackupBot(BotBase):
         Task("drive-health",
              sys_py("scripts/drive_health_check.py"),
              interval_sec=86400, timeout_sec=120),  # daily health check
+        Task("sheets-wing-sync",
+             sys_py("scripts/sheets_wing_sync.py"),
+             interval_sec=43200, timeout_sec=180),  # 2x/day push Wing→Sheets
+        Task("sheets-pull",
+             sys_py("scripts/sheets_pull.py"),
+             interval_sec=14400, timeout_sec=180),  # every 4h pull Sheets→local
         Task("voice-sync",
              venv("core/learning/thunderbird_voice_harvest.py", "--sync"),
              interval_sec=86400, timeout_sec=120),
