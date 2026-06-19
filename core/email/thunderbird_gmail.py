@@ -822,11 +822,29 @@ def _get_persona_avatar_uri(persona_id: str) -> str:
     return ""
 
 
+def _get_hale_mark_html() -> str:
+    """Return Hale's visual identity mark (Gmail-safe static version) for internal emails."""
+    mark_path = Path(__file__).parent.parent.parent / "storage" / "signatures" / "hale_mark_email.html"
+    if mark_path.exists():
+        return f'<div style="margin:22px 0 0 0;">{mark_path.read_text(encoding="utf-8")}</div>'
+    # Fallback: plain text mark
+    return (
+        '<div style="margin:22px 0 0 0;font-family:Georgia,serif;'
+        'background:#02021e;color:#f0f5ff;padding:12px 16px;border-radius:6px;">'
+        '⚡ Victoria &ldquo;Victory&rdquo; Hale, SES-6 &middot; '
+        'Chief of Staff, Thunderbird Wing &middot; DREAMS2MEMORIES TRAVEL, LLC'
+        '</div>'
+    )
+
+
 def _get_persona_sig_html(persona_id: Optional[str]) -> str:
     """Return HTML sig block for any Wing persona with avatar. Empty string if no registry entry."""
     if not persona_id:
         return ""
     pid = persona_id.upper()
+    # Hale uses her visual identity mark instead of generic avatar block
+    if pid == "HALE":
+        return _get_hale_mark_html()
     info = _PERSONA_SIG_REGISTRY.get(pid)
     if not info:
         return ""
