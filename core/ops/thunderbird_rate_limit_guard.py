@@ -417,9 +417,14 @@ def evaluate(send_alerts: bool = True) -> dict:
         logger.info("State transition: %s → %s (%.1f%%)", prev_state.value, target.value, pct)
 
         if send_alerts:
-            msg  = _alert_message(target, pct, total, prev_state, sonnet_pct)
-            sent = _send_telegram(msg)
-            state_data["last_telegram_sent"] = now_iso if sent else ""
+            # CRIT/STOP → D2MC2C (Commander action needed — model routing degraded)
+            # WARN/NORMAL → silent (logged in state file, surfaced in AM brief)
+            if target in (GuardState.CRIT, GuardState.STOP, GuardState.ROLLBACK):
+                msg  = _alert_message(target, pct, total, prev_state, sonnet_pct)
+                sent = _send_telegram(msg)
+                state_data["last_telegram_sent"] = now_iso if sent else ""
+            else:
+                logger.info("State WARN/NORMAL — suppressing D2MC2C, will surface in AM brief")
 
     state_data.update({
         "last_pct":     pct,

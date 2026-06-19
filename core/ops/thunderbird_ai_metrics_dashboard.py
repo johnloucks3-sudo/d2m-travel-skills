@@ -750,10 +750,10 @@ def main():
         
         if success:
             logger.info(f"✅ Successfully exported metrics to Google Sheets: {metrics['timestamp']}")
-            # Send Telegram notification
-            send_telegram_notification(f"✅ AI Metrics exported to Looker Studio: ${metrics['openrouter']['usage']['daily_usd']:.2f} today, {metrics['claude']['session']['percentage']}% Claude usage")
+            # Green export = silent. Picked up in AM brief. No D2MC2C page.
         else:
             logger.error("❌ Failed to export metrics to Google Sheets")
+            send_telegram_notification("🔴 AI Metrics export FAILED — check Google Sheets auth")
         
         sys.exit(0 if success else 1)
     

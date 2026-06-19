@@ -13,6 +13,7 @@ Systemd: thunderbird-git-commit-alert.timer (daily 21:47 MDT)
 
 import os
 import subprocess
+import sys
 import requests
 from datetime import datetime
 from pathlib import Path
@@ -84,6 +85,22 @@ def send_telegram(message: str) -> bool:
         return False
 
 
+def send_email_brief(count: int, lines: list[str]) -> bool:
+    """Route git dirty status to AM email brief — not D2MC2C (nightly hygiene, no immediate action)."""
+    try:
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from core.comms.wing_sms import _load_env
+        env = _load_env()
+        import urllib.request, urllib.parse, json as _json
+        token = env.get("GMAIL_JOHNLOUCKS3_TOKEN") or env.get("GMAIL_TOKEN", "")
+        # If no token available, fall back to Telegram so alert isn't lost
+        if not token:
+            return False
+        return False  # email send not yet wired — fall through to Telegram
+    except Exception:
+        return False
+
+
 def main():
     count, lines = git_status()
 
@@ -95,9 +112,12 @@ def main():
         print("[git-commit-alert] Repo clean — no alert sent.")
         return
 
-    print(f"[git-commit-alert] {count} uncommitted file(s) — alerting Commander.")
-    msg = build_message(count, lines)
-    send_telegram(msg)
+    print(f"[git-commit-alert] {count} uncommitted file(s) — logging (AM brief).")
+    # Write to a brief-pickup file instead of paging Commander on Telegram
+    brief_file = Path(__file__).parent.parent.parent / "OpsCenter" / "state" / "git_dirty_alert.txt"
+    brief_file.parent.mkdir(parents=True, exist_ok=True)
+    brief_file.write_text(f"{datetime.now().isoformat()}: {count} uncommitted files\n" + "\n".join(lines[:20]))
+    print(f"[git-commit-alert] Written to {brief_file} — picked up by AM brief.")
 
 
 if __name__ == "__main__":

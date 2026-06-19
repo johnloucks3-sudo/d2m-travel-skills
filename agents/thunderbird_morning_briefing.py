@@ -1511,11 +1511,8 @@ def run_briefing(preview: bool = False, weekly: bool = False):
         # Also send JSON summary
         send_briefing_json(intel_log, pricing, tech_news, subject)
 
-        # ── Telegram C2 digest ──
-        try:
-            send_telegram_digest(rss_direct or [], anchor_report, summary)
-        except Exception as e:
-            logger.warning(f"Telegram digest failed (non-fatal): {e}")
+        # Telegram C2 digest SUPPRESSED — brief goes to email (johnloucks3 direct send).
+        # D2MC2C is P0 action alerts only. Morning brief = email channel per doctrine 2026-06-19.
         return subject
 
 

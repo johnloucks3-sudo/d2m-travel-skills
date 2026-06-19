@@ -665,6 +665,296 @@ def send_media_group_to_commander(
     return False
 
 
+# ── sendDocument (M-148) ─────────────────────────────────────────────────────
+# Push PDFs and arbitrary files to Commander.  Local paths are uploaded via
+# multipart; remote URLs and Telegram file_ids ride the JSON body.
+
+
+def tg_send_document(
+    token: str,
+    chat_id: int,
+    file_path_or_url: str,
+    caption: str | None = None,
+) -> dict:
+    """Send a document (PDF, etc.) to `chat_id`.
+
+    `file_path_or_url` may be:
+      • a local absolute path (str starting with "/" or a Path) → multipart upload
+      • a URL or Telegram file_id → JSON body
+
+    Returns the raw Telegram API response dict (always has "ok" key).
+    """
+    if caption and len(caption) > 1024:
+        caption = caption[:1020] + "\n…"
+
+    is_local = (
+        isinstance(file_path_or_url, Path)
+        or (isinstance(file_path_or_url, str) and file_path_or_url.startswith("/"))
+    ) and os.path.isfile(str(file_path_or_url))
+
+    if is_local:
+        url = TG_BASE.format(token=token, method="sendDocument")
+        data: dict = {"chat_id": chat_id}
+        if caption:
+            data["caption"] = caption
+        try:
+            with open(str(file_path_or_url), "rb") as fh:
+                r = requests.post(url, data=data, files={"document": fh}, timeout=120)
+            resp = r.json()
+            if not resp.get("ok"):
+                log.warning("sendDocument (upload) error: %s", resp.get("description", "?"))
+            return resp
+        except Exception as e:
+            log.error("sendDocument (upload) exception: %s", e)
+            return {"ok": False, "description": str(e)}
+
+    # URL or file_id path
+    kwargs: dict = {"chat_id": chat_id, "document": str(file_path_or_url)}
+    if caption:
+        kwargs["caption"] = caption
+    return tg(token, "sendDocument", **kwargs)
+
+
+def send_document_to_commander(
+    file_path: str,
+    caption: str | None = None,
+) -> bool:
+    """Module-level entry — push a document to the Commander's C2 channel.
+
+        from thunderbird_telegram_gw import send_document_to_commander
+        send_document_to_commander("/tmp/McLeod_Itinerary.pdf", "McLeod itinerary v2")
+
+    Routes to D2MC2C first; falls back to relay channel. Returns True on success.
+    """
+    if TOKEN_D2MC2C:
+        resp = tg_send_document(TOKEN_D2MC2C, COMMANDER_ID, file_path, caption)
+        return bool(resp.get("ok"))
+    if TOKEN_RELAY and RELAY_CHAT_ID:
+        resp = tg_send_document(TOKEN_RELAY, RELAY_CHAT_ID, file_path, caption)
+        return bool(resp.get("ok"))
+    log.warning("send_document_to_commander: no D2MC2C or relay token configured")
+    return False
+
+
+# ── editMessage (M-148) ──────────────────────────────────────────────────────
+# Update an existing message in-place — kills scroll spam on live-updating
+# status messages (e.g., progress bars, WF-17 state transitions).
+# Non-fatal errors (message already deleted / not modified) are logged as
+# warnings only — the caller is never crashed by a stale message_id.
+
+# Telegram error descriptions that are safe to swallow silently
+_EDIT_SILENT_ERRORS = frozenset([
+    "message is not modified",
+    "message to edit not found",
+    "message can't be edited",
+])
+
+
+def tg_edit_message(
+    token: str,
+    chat_id: int,
+    message_id: int,
+    new_text: str,
+    parse_mode: str = "Markdown",
+) -> dict:
+    """Edit an existing text message via editMessageText.
+
+    Returns raw Telegram API response dict.  Non-fatal edit errors are
+    downgraded to warnings so callers can ignore silently.
+    """
+    if len(new_text) > 4096:
+        new_text = new_text[:4090] + "\n…"
+
+    resp = tg(
+        token,
+        "editMessageText",
+        chat_id=chat_id,
+        message_id=message_id,
+        text=new_text,
+        parse_mode=parse_mode,
+    )
+    if not resp.get("ok"):
+        desc = (resp.get("description") or "").lower()
+        if any(err in desc for err in _EDIT_SILENT_ERRORS):
+            log.warning("editMessageText non-fatal: %s (msg_id=%s)", desc, message_id)
+        # ok=False already logged by tg() — no additional error emit needed
+    return resp
+
+
+def tg_edit_commander_message(
+    message_id: int,
+    new_text: str,
+    parse_mode: str = "Markdown",
+) -> bool:
+    """Convenience wrapper: edit a message in the Commander's C2 channel.
+
+        from thunderbird_telegram_gw import tg_edit_commander_message
+        tg_edit_commander_message(msg_id, "Step 3/5 complete ✅")
+
+    Returns True on success (including silent non-fatal edits return False).
+    """
+    if not TOKEN_D2MC2C:
+        log.warning("tg_edit_commander_message: D2MC2C token not configured")
+        return False
+    resp = tg_edit_message(TOKEN_D2MC2C, COMMANDER_ID, message_id, new_text, parse_mode)
+    return bool(resp.get("ok"))
+
+
+# ── Inline keyboards (M-148) ─────────────────────────────────────────────────
+# [Approve] [Reject] [Defer] keyboard for WF-17 approval notifications.
+# callback_data format: "{callback_prefix}:approve" / ":reject" / ":defer"
+# answer_callback_query dismisses the spinner after the Commander taps a button.
+
+
+def tg_send_with_approval_keyboard(
+    token: str,
+    chat_id: int,
+    text: str,
+    callback_prefix: str,
+    parse_mode: str = "Markdown",
+) -> dict:
+    """Send a message with an inline [Approve] [Reject] [Defer] keyboard.
+
+    `callback_prefix` is prepended to ":approve", ":reject", ":defer" to build
+    the callback_data values the bot receives when the Commander taps a button.
+
+    Returns raw Telegram API response dict.
+    """
+    if len(text) > 4096:
+        text = text[:4090] + "\n…"
+
+    reply_markup = {
+        "inline_keyboard": [[
+            {"text": "Approve", "callback_data": f"{callback_prefix}:approve"},
+            {"text": "Reject",  "callback_data": f"{callback_prefix}:reject"},
+            {"text": "Defer",   "callback_data": f"{callback_prefix}:defer"},
+        ]]
+    }
+    return tg(
+        token,
+        "sendMessage",
+        chat_id=chat_id,
+        text=text,
+        parse_mode=parse_mode,
+        reply_markup=reply_markup,
+    )
+
+
+def tg_send_wf17_approval(
+    text: str,
+    callback_prefix: str = "wf17",
+) -> bool:
+    """Send a WF-17 approval request to Commander with inline keyboard.
+
+        from thunderbird_telegram_gw import tg_send_wf17_approval
+        tg_send_wf17_approval("*WF-17:* McLeod itinerary ready.", "wf17_mcleod_001")
+
+    Routes to D2MC2C. Returns True on success.
+    """
+    if not TOKEN_D2MC2C:
+        log.warning("tg_send_wf17_approval: D2MC2C token not configured")
+        return False
+    resp = tg_send_with_approval_keyboard(
+        TOKEN_D2MC2C, COMMANDER_ID, text, callback_prefix
+    )
+    return bool(resp.get("ok"))
+
+
+def tg_answer_callback_query(
+    token: str,
+    callback_query_id: str,
+    text: str | None = None,
+    show_alert: bool = False,
+) -> dict:
+    """Dismiss the loading spinner after the Commander taps an inline button.
+
+    Call this from the callback_query handler immediately on button receipt.
+    `text` (optional) shows a brief toast notification in the Telegram client.
+    `show_alert=True` upgrades the toast to a blocking alert dialog.
+
+    Returns raw Telegram API response dict.
+    """
+    kwargs: dict = {"callback_query_id": callback_query_id, "show_alert": show_alert}
+    if text:
+        kwargs["text"] = text
+    return tg(token, "answerCallbackQuery", **kwargs)
+
+
+# ── sendLocation / sendVenue (M-148) ─────────────────────────────────────────
+# Drop hotel or port pins to Commander.  If title + address are provided,
+# sendVenue is used (shows a named card); otherwise sendLocation (raw pin).
+
+
+def tg_send_location(
+    token: str,
+    chat_id: int,
+    latitude: float,
+    longitude: float,
+    live_period: int | None = None,
+) -> dict:
+    """Send a static (or live) location pin.
+
+    `live_period` (seconds, 60–86400) makes it a Live Location if provided.
+    Returns raw Telegram API response dict.
+    """
+    kwargs: dict = {"chat_id": chat_id, "latitude": latitude, "longitude": longitude}
+    if live_period is not None:
+        kwargs["live_period"] = live_period
+    return tg(token, "sendLocation", **kwargs)
+
+
+def tg_send_venue(
+    token: str,
+    chat_id: int,
+    latitude: float,
+    longitude: float,
+    title: str,
+    address: str,
+    foursquare_id: str | None = None,
+) -> dict:
+    """Send a named venue pin (shows title + address card in Telegram).
+
+    Returns raw Telegram API response dict.
+    """
+    kwargs: dict = {
+        "chat_id": chat_id,
+        "latitude": latitude,
+        "longitude": longitude,
+        "title": title,
+        "address": address,
+    }
+    if foursquare_id:
+        kwargs["foursquare_id"] = foursquare_id
+    return tg(token, "sendVenue", **kwargs)
+
+
+def tg_send_location_to_commander(
+    latitude: float,
+    longitude: float,
+    title: str | None = None,
+    address: str | None = None,
+) -> bool:
+    """Convenience wrapper — drop a pin or venue card in the Commander's C2 channel.
+
+        from thunderbird_telegram_gw import tg_send_location_to_commander
+        # Raw pin:
+        tg_send_location_to_commander(59.9139, 10.7522)
+        # Named venue:
+        tg_send_location_to_commander(59.9139, 10.7522, "Grand Hotel Oslo", "Karl Johans gate 31")
+
+    Routes to D2MC2C. Returns True on success.
+    """
+    if not TOKEN_D2MC2C:
+        log.warning("tg_send_location_to_commander: D2MC2C token not configured")
+        return False
+
+    if title and address:
+        resp = tg_send_venue(TOKEN_D2MC2C, COMMANDER_ID, latitude, longitude, title, address)
+    else:
+        resp = tg_send_location(TOKEN_D2MC2C, COMMANDER_ID, latitude, longitude)
+    return bool(resp.get("ok"))
+
+
 import re  # noqa: E402 — needed for tg_send_chunks fallback above
 
 
@@ -2062,8 +2352,8 @@ def relay_poll_loop() -> None:
 
 def main() -> None:
     log.info("═══════════════════════════════════════")
-    log.info("Thunderbird Telegram Gateway v2.0 — Four-Bot Architecture")
-    log.info("D2MC2C=C2  HaleD2M=Chat  Dani=Open  Relay=System+OC-CC")
+    log.info("Thunderbird Telegram Gateway v2.0 — Two-Bot Architecture (HaleD2M retired 2026-06-19)")
+    log.info("D2MC2C=P0/P1-Action-Only  Dani=ClientFacing  Relay=System+OC-CC  SMS=Conversational-C2")
     log.info("All engines: Claude Code (Haiku/Sonnet). No OpenCode. No OpenRouter defaults.")
     log.info("═══════════════════════════════════════")
 
@@ -2138,24 +2428,18 @@ def main() -> None:
     )
 
     # ── Bot roles ────────────────────────────────────────────────────────────
-    # D2MC2C  → Commander C2: he directs, Wing responds. No automated sends.
-    # HaleD2M → Commander ↔ Hale conversational chat.
+    # D2MC2C  → Commander C2: P0/P1 action alerts ONLY. Commander initiates
+    #           conversational queries via SMS (Google Messages) — not here.
     # Dani    → Open to all: clients, prospects, anyone. Concierge voice.
     # Relay   → D2M Channels: all system/auto messages + OC↔CC relay.
-    # All engines → Claude Code (Haiku default, Sonnet on keyword upgrade).
+    # HaleD2M → RETIRED 2026-06-19. Conversational C2 moved to SMS (Twilio).
+    #           TELEGRAM_GOOSE_TOKEN remains in .env as dead config.
     bot_configs = [
         {
             "token": TOKEN_D2MC2C,
             "bot_name": "D2MC2C",
             "ctx_file": CTX_D2MC2C,
             "engine_fn": hale_claude_engine,
-            "assistant_label": "Hale",
-        },
-        {
-            "token": TOKEN_HALE,
-            "bot_name": "HaleD2M",
-            "ctx_file": CTX_OPENCODE,
-            "engine_fn": hale_chat_engine,
             "assistant_label": "Hale",
         },
         {
