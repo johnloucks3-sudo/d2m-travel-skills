@@ -76,7 +76,8 @@ COMMANDER_ID = 7554895206
 
 # ── Default watch list — routes to monitor on each run ────────────────────────
 DEFAULT_WATCHES = [
-    # Norway/Scandinavia 2027 (MISSION-067/068)
+    # --- APPROVED LINES: Regent, Atlas Ocean, Celebrity, Silversea ---
+    # Norway/Scandinavia 2027
     {
         "id": "norway-2027-silversea",
         "label": "Norway/Scandinavia 2027 — Silversea",
@@ -93,15 +94,7 @@ DEFAULT_WATCHES = [
         "months": [7, 8],
         "notes": "MISSION-068 active watch",
     },
-    {
-        "id": "norway-2027-seabourn",
-        "label": "Norway/Scandinavia 2027 — Seabourn",
-        "search_terms": ["norway", "seabourn"],
-        "year": 2027,
-        "months": [7, 8],
-        "notes": "MISSION-068 active watch",
-    },
-    # Silver Nova (active D2M client sailings)
+    # Silver Nova (active D2M client sailings — Silversea)
     {
         "id": "silver-nova-2026",
         "label": "Silver Nova 2026 sailings",
@@ -110,23 +103,58 @@ DEFAULT_WATCHES = [
         "months": [10, 11, 12],
         "notes": "Active D2M client sailings",
     },
-    # RSSC Grandeur (McLeod booking)
+    # RSSC Grandeur (McLeod active + Loucks Dec 29 booking)
     {
         "id": "grandeur-2026",
         "label": "Seven Seas Grandeur 2026",
         "search_terms": ["grandeur", "regent"],
         "year": 2026,
         "months": [7, 8, 9, 10],
-        "notes": "McLeod/Furlough active booking — MISSION-053",
+        "notes": "McLeod/Furlow active booking — MISSION-053",
     },
-    # Mediterranean 2026/2027
+    # Loucks — Regent Grandeur Panama Canal Dec 29 (MIA→LAX, 16 nights)
     {
-        "id": "med-2027-luxury",
-        "label": "Mediterranean 2027 — Luxury lines",
-        "search_terms": ["mediterranean"],
+        "id": "loucks-grandeur-panama-dec2026",
+        "label": "Regent Grandeur — Panama Canal Dec 29 2026 (Loucks, MIA→LAX)",
+        "search_terms": ["grandeur", "regent", "panama"],
+        "year": 2026,
+        "months": [12],
+        "notes": "Loucks booking 3122006. Board MIA Dec 29, disembark LAX Jan 14 2027.",
+    },
+    # Mediterranean 2027 — Silversea + Regent only (no Viking/Seabourn/Princess)
+    {
+        "id": "med-2027-silversea",
+        "label": "Mediterranean 2027 — Silversea",
+        "search_terms": ["mediterranean", "silversea"],
         "year": 2027,
         "months": [4, 5, 6, 9, 10],
-        "notes": "Speculative watch — luxury TA rate signal",
+        "notes": "Silversea Med TA rate signal",
+    },
+    {
+        "id": "med-2027-regent",
+        "label": "Mediterranean 2027 — Regent",
+        "search_terms": ["mediterranean", "regent"],
+        "year": 2027,
+        "months": [4, 5, 6, 9, 10],
+        "notes": "Regent Med TA rate signal — Loucks May 2027",
+    },
+    # Atlas Ocean Voyages
+    {
+        "id": "atlas-ocean-2027",
+        "label": "Atlas Ocean Voyages 2027",
+        "search_terms": ["atlas ocean"],
+        "year": 2027,
+        "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "notes": "Commander-approved line — TA interline rate watch",
+    },
+    # Celebrity Cruises (river watch: Celebrity does ocean only — flag if Commander means a different river brand)
+    {
+        "id": "celebrity-2027",
+        "label": "Celebrity Cruises 2027",
+        "search_terms": ["celebrity"],
+        "year": 2027,
+        "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "notes": "Commander-approved. Note: Celebrity is ocean only. If river cruises intended, specify brand (AmaWaterways, Crystal, Scenic).",
     },
 ]
 
