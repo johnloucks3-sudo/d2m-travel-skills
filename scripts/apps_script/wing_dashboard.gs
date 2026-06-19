@@ -19,6 +19,7 @@ var DASHBOARD_TAB = "Wing_Dashboard";
 var FARE_LOG_TAB = "Fare Log";
 var ACTION_TRACKER_TAB = "Action_Tracker";
 var BOOKING_MASTER_TAB = "Booking Master";
+var PORT_DIRECTORY_TAB = "Port_City_Directory";
 
 // ─────────────────────────────────────────── menu
 
@@ -28,8 +29,10 @@ function onOpen() {
     .addItem("📊 Go to Dashboard", "goToDashboard")
     .addItem("✈️ Go to Fare Log", "goToFareLog")
     .addItem("🎯 Go to Action Tracker", "goToActionTracker")
+    .addItem("🗺️ Go to Port Directory", "goToPortDirectory")
     .addSeparator()
     .addItem("🎨 Format Dashboard", "formatDashboard")
+    .addItem("🗺️ Format Port Directory", "formatPortDirectory")
     .addItem("📌 Highlight P0 Missions", "highlightP0Missions")
     .addSeparator()
     .addItem("⏰ Enable Hourly Auto-Format", "createHourlyTrigger")
@@ -51,6 +54,10 @@ function goToFareLog() {
 
 function goToActionTracker() {
   _activateTab(ACTION_TRACKER_TAB);
+}
+
+function goToPortDirectory() {
+  _activateTab(PORT_DIRECTORY_TAB);
 }
 
 function _activateTab(name) {
@@ -126,6 +133,92 @@ function formatDashboard() {
   sh.setFrozenRows(2);
 
   SpreadsheetApp.getActiveSpreadsheet().toast("Dashboard formatted ✓", "🦅 Wing Ops", 3);
+}
+
+/**
+ * formatPortDirectory — color-code Port_City_Directory rows by country.
+ * One pastel color band per country group; header row stays navy/white.
+ * Countries are detected from column B (Country).
+ */
+function formatPortDirectory() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(PORT_DIRECTORY_TAB);
+  if (!sh) {
+    SpreadsheetApp.getUi().alert(
+      "Port_City_Directory tab not found.\nRun: python3 scripts/port_city_directory_sync.py"
+    );
+    return;
+  }
+
+  var data = sh.getDataRange().getValues();
+  if (data.length < 2) {
+    SpreadsheetApp.getUi().alert("Port Directory appears empty.");
+    return;
+  }
+
+  var numCols = data[0].length;
+
+  // Format header row
+  sh.getRange(1, 1, 1, numCols)
+    .setBackground("#003087")
+    .setFontColor("#ffffff")
+    .setFontWeight("bold");
+
+  // Pastel palette — one per country (cycles if > palette.length countries)
+  var palette = [
+    "#d9ead3",  // light green
+    "#cfe2f3",  // light blue
+    "#fff2cc",  // light yellow
+    "#ead1dc",  // light pink
+    "#d9d2e9",  // light lavender
+    "#fce5cd",  // light orange
+    "#d0e4f7",  // sky blue
+    "#f4cccc",  // light red/rose
+    "#e2efda",  // mint
+    "#fef9c3",  // cream yellow
+    "#e8d5b7",  // tan
+    "#c9daf8",  // periwinkle
+    "#b6d7a8",  // medium green
+    "#a4c2f4",  // cornflower
+    "#f9cb9c",  // peach
+    "#ea9999",  // salmon
+    "#b4a7d6",  // medium lavender
+    "#f6b26b",  // amber
+    "#76a5af",  // teal
+    "#e06666",  // red (last resort)
+  ];
+
+  // Build country → color mapping in order of first appearance
+  var countryColorMap = {};
+  var colorIdx = 0;
+  for (var i = 1; i < data.length; i++) {
+    var country = String(data[i][1]).trim();
+    if (country && !(country in countryColorMap)) {
+      countryColorMap[country] = palette[colorIdx % palette.length];
+      colorIdx++;
+    }
+  }
+
+  // Apply colors row by row
+  for (var r = 1; r < data.length; r++) {
+    var c = String(data[r][1]).trim();
+    var bg = c in countryColorMap ? countryColorMap[c] : "#ffffff";
+    sh.getRange(r + 1, 1, 1, numCols).setBackground(bg).setFontColor("#000000");
+  }
+
+  // Auto-resize key columns (Port, Country, Voyages, Maps, Wiki)
+  [1, 2, 3, 4, 7, 8].forEach(function(col) {
+    sh.autoResizeColumn(col);
+  });
+
+  // Freeze header row
+  sh.setFrozenRows(1);
+
+  SpreadsheetApp.getActiveSpreadsheet().toast(
+    "Port Directory formatted — " + colorIdx + " country color bands ✓",
+    "🗺️ Wing Ops",
+    4
+  );
 }
 
 function highlightP0Missions() {
