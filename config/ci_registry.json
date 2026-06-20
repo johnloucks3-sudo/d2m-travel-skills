@@ -35,7 +35,8 @@
       "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
-      "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase"
+      "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase",
+      "throttle_guard": "core/ci/portal_guard.py (Throttle >=3s/host + abort-on-403/429; tested)"
     },
     {
       "id": "web-fetch",
