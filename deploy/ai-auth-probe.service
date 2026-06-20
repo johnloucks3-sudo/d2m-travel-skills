@@ -1,0 +1,13 @@
+[Unit]
+Description=AI Auth Probe — active endpoint health checks with deterministic repair
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=-/home/john/Thunderbird/.env
+EnvironmentFile=-/home/john/Thunderbird/.env.telegram
+Environment=PYTHONPATH=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/ai_auth_probe.py
+StandardOutput=append:/home/john/Thunderbird/logs/ai_auth_probe.log
+StandardError=inherit

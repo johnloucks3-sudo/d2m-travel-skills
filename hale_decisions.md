@@ -1,5 +1,39 @@
 ---
 
+## MONTHLY HEALTH REVIEWS — PERSONA SCORECARD (Baldrige Framework)
+*Authority: A7 Sterling | Cadence: 1st of month, 30 min | Documented by Hale COS*
+
+| Month | Review Date | Wing Robustness % | Green | Yellow | Red | Red-Flag Persona | Decision |
+|-------|------------|-------------------|-------|--------|-----|------------------|----------|
+| 2026-06 | 2026-06-19 (retroactive to Jun 1) | 76.2% | 10 | 6 | 0 | A2 Dembe | Baseline established; data infrastructure activation pending Jul 1. Deliverable: `/home/john/Thunderbird/output/executor_results/MISSION-073_20260619.md` |
+| 2026-07 | 2026-07-01 | PENDING | — | — | — | — | SCHEDULED |
+
+---
+
+## 2026-06-19 DECISIONS
+
+### MISSION-283: Exercise Managed Agents on First Real Wing Automation Task
+**Date:** 2026-06-19 | **Authority:** Hale (executor) | **Type:** infrastructure_exercise | **Status:** PARTIAL
+**Objective:** Test Anthropic Managed Agents API on one active non-client mission; verify a useful cycle completes
+**Mission selected:** MISSION-065 (Pacific Voyage Blog) — P0 priority, interview-based blog post generation
+**Outcome:** Infrastructure 95% ready; session endpoint blocked by API 404 error
+**Findings:**
+  - ✅ Cloud environment created: `env_019JTCP1eh49EtoStau6a4F9`
+  - ✅ Haiku agent created: `agent_01UbaQUFgAwuCQfYBBjokunJ`
+  - ✅ SDK v0.111.0 operational with beta header `managed-agents-2026-04-01`
+  - ✅ Usage tracking infrastructure ready (`OpsCenter/usage_ledger.json`)
+  - ❌ Session creation failed: POST `/v1/sessions?beta=true` → 404 Not Found
+  - Root cause: Anthropic API session endpoint not responding (likely transient)
+**Cost estimate (if operational):** ~$0.001 per blog post task (Haiku tier: ~900 tokens total)
+**Recommended next step:** 
+  1. Commander authorizes curl test to isolate API vs SDK issue
+  2. If API unavailable: Re-test in 24 hours (likely temporary)
+  3. Fallback: Use proven headless Claude dispatch for MISSION-065 instead
+**Deliverable:** `/home/john/Thunderbird/output/executor_results/MISSION-283_20260619.md`
+**Decision:** Hold pending Commander guidance on troubleshooting vs fallback
+
+---
+
 ## 2026-06-18 DECISIONS
 
 ### CODE FIX: _wrap_body_html() silent fallback + create_johnloucks3_draft.py missing preprocessing
@@ -5089,3 +5123,70 @@ Detailed execution report written: `output/executor_results/MISSION-245_20260617
 - Draft ID: r3233805688263993684 in johnloucks3 drafts
 - Subject: "Scandinavia — Travel Insurance Options"
 - To: amy.darrow@me.com
+
+---
+**2026-06-18 — PROCEDURE BREACH LOG**
+Asked Commander "Want me to fix the Herculaneum typos now?" after identifying them in a validation run.
+
+**Violation:** Spot-it-fix-it standing order. Any identified defect in Wing files is fixed immediately without asking. Asking Commander is banned phrasing: "Should I...?" / "Want me to...?"
+
+**Correct behavior:** Fix → commit → report result. No gate, no question.
+
+**Corrective action:** Fixed both McLeod dossiers (McLeod_McGlasson_Multi.md + McLeod_Erik_Melissa_SilverMuse_Complete.md), committed `8623b22b`. Will not recur.
+
+---
+## 2026-06-19 — LIFECYCLE OWNERSHIP TRANSFERRED TO HALE (Commander directive)
+
+**Decision:** Hale owns the full client lifecycle from initiation through WF-17 gate. Commander is involved only at the end — review and send. No mid-flow Commander involvement.
+
+**What changes:**
+- Staff (Dani/Luna/Reyes/Naia) draft and review lifecycle content internally
+- Hale holds drafts at the appropriate trigger date (HOLD-READY status)
+- Hale presents to Commander at WF-17 gate with everything already done
+- Commander decides: send or modify. No earlier touch point.
+
+**What doesn't change:**
+- WF-17 gate (client send) — Commander still executes the send
+- Financial commitments — zero financial authority
+- Strategic decisions — Commander still owns
+
+**Why:** Commander's mid-flow involvement has been disrupting the pipeline. The current model asks Commander to review at too many stages. Lifecycle products should arrive at Commander's desk finished, not in-progress.
+
+**Logged by:** Hale (Victoria Hale, VCS)
+**Authority:** Commander directive 2026-06-19
+
+---
+## 2026-06-19 — WEAPONS FREE INVOKED (Commander sign-off, evening ops)
+
+**Trigger:** Commander signed off for the evening and granted Weapons Free for session completion.
+**Scope:** All lane/routing restrictions suspended for duration of sign-off ops.
+**Expiry:** Session end.
+**Three Commander gates + 6 protected files:** INVIOLABLE. Not suspended.
+**Logged by:** V. Hale, VCS — per SO_HALE_AUTONOMY_EXPANSION_20260619.md §2.2
+
+---
+## 2026-06-19 — AUTONOMY AUTHORITY EXPANSION (420-Scenario Grilling Session)
+
+**Decision:** Commander conducted comprehensive 420-scenario grilling to establish absolute authority ceiling for all 8 Hale instantiations. Session ran ~90 minutes.
+
+**Outcome:**
+- 16 domains covered. Vast majority 🟢 AUTO execute + report.
+- 10 precedents locked (PL-001 through PL-010) in Precedent Library.
+- Key expansions codified:
+  - d2mconcierge: full authority over ALL Google apps (no lane restrictions)
+  - Weapons Free: Hale may SELF-INVOKE when inaction costs <24h + Commander unavailable
+  - Inbound client contact: Option A — draft → WF-17 → no auto-ack
+  - P0 emergency: client-contact gate holds absolutely, no bypass
+  - susanna.loucks: NOT on SO 2026-06-18 waiver; WF-17 for D2M trips
+  - Guinea pigs (Bryana/Stefanie/Westbrook): WF-17 preserved
+  - Social media: management/research 🟢; client-facing posts 🔴
+
+**Artifacts produced:**
+- Authority Map: `docs/superpowers/specs/2026-06-19-hale-autonomy-authority-map-design.md`
+- Standing Order: `standing_orders/SO_HALE_AUTONOMY_EXPANSION_20260619.md`
+- Implementation Plan: `docs/superpowers/plans/2026-06-19-hale-autonomy-expansion.md`
+- Memory: `project_hale_autonomy_expansion_20260619.md`
+
+**Dissents logged:** None. Commander confirmed all 420 ratings.
+
+**Logged by:** V. Hale, VCS · 2026-06-19

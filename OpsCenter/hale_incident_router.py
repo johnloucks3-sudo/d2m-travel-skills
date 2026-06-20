@@ -56,6 +56,7 @@ COMMANDER_GATE_SERVICES = {
     "d2m-lifecycle",            # Blocks lifecycle state transitions
     "d2m-correspondence-sync",  # Blocks dossier update after send
     "d2m-fpd-alert",            # Blocks final payment date warnings
+    "ai-auth-probe",            # AI API auth failure after auto-repair exhausted
 }
 
 # ── Logging ─────────────────────────────────────────────────────────────────

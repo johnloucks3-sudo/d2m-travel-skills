@@ -252,17 +252,41 @@ def run_api_direct(task: dict) -> tuple[bool, str]:
 
 # ── Public entry point ────────────────────────────────────────────────────────
 
+def _push_auth_incident(agent: str, error: str, task_type: str) -> None:
+    """Push auth/API failures to incident queue for hale-incident-handler to triage."""
+    if not any(x in error.lower() for x in ("401", "invalid authentication", "unauthorized", "oauth", "timeout")):
+        return
+    try:
+        from OpsCenter.incident_queue import enqueue_incident
+        enqueue_incident({
+            "service": "ai-auth-probe",
+            "event_type": "task_auth_failure",
+            "severity": "tier1_critical",
+            "component": agent,
+            "details": f"task_type={task_type} agent={agent}: {error[:300]}",
+            "source": "agent_runner",
+        })
+    except Exception:
+        pass  # Never let incident reporting break task execution
+
+
 def execute_task(task: dict) -> tuple[bool, str]:
     """Route and execute a task. Returns (success, result_or_error)."""
     agent   = route(task)
     content = task["content"]
     timeout = int(task.get("timeout_sec", 300))
+    task_type = task.get("task_type", "general")
 
-    log.info("task=%s agent=%s type=%s", task["id"], agent, task.get("task_type"))
+    log.info("task=%s agent=%s type=%s", task["id"], agent, task_type)
 
     if agent == "api":
-        return run_api_direct(task)
+        ok, result = run_api_direct(task)
     elif agent == "opencode":
-        return run_opencode(content, timeout)
+        ok, result = run_opencode(content, timeout)
     else:
-        return run_claude(content, timeout)
+        ok, result = run_claude(content, timeout)
+
+    if not ok:
+        _push_auth_incident(agent, result, task_type)
+
+    return ok, result

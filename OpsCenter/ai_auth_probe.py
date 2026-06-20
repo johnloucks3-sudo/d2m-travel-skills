@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""
+AI Auth Probe — active health checks for critical AI/API endpoints.
+Runs every 15 minutes via ai-auth-probe.timer.
+
+OODA loop per component:
+  Probe (real API call) → Fail → Repair (deterministic, zero LLM dependency)
+  → Re-probe → Success: log to hale_decisions.md
+              → Still fail: enqueue to incident_queue (hale-incident-handler pages Commander)
+
+Advisor constraint: repair logic is deterministic script, not LLM-based.
+Bootstrapping trap: if auth is down, an LLM repair agent also 401s.
+"""
+
+import json
+import os
+import subprocess
+import sys
+import time
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+
+THUNDERBIRD = Path("/home/john/Thunderbird")
+sys.path.insert(0, str(THUNDERBIRD))
+
+from OpsCenter.incident_queue import enqueue_incident
+
+LOGS = THUNDERBIRD / "logs"
+LOGS.mkdir(parents=True, exist_ok=True)
+LOG_PATH = LOGS / "ai_auth_probe.log"
+DECISIONS = THUNDERBIRD / "hale_decisions.md"
+CLAUDE_BIN = Path.home() / ".local/bin/claude"
+KEEPALIVE = THUNDERBIRD / "hooks/claude_oauth_keepalive.sh"
+
+
+def _ts() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def log(msg: str) -> None:
+    line = f"[{_ts()}] {msg}"
+    print(line, flush=True)
+    with open(LOG_PATH, "a") as f:
+        f.write(line + "\n")
+
+
+def log_decision(msg: str) -> None:
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    entry = f"\n## {ts} — AI Auth Probe Auto-Repair\n{msg}\n"
+    with open(DECISIONS, "a") as f:
+        f.write(entry)
+
+
+def escalate(component: str, details: str, attempts: int) -> None:
+    enqueue_incident({
+        "service": "ai-auth-probe",
+        "event_type": "auth_failure_unrecovered",
+        "severity": "tier1_critical",
+        "component": component,
+        "details": f"{component}: repair exhausted after {attempts} attempt(s). {details[:300]}",
+        "source": "ai_auth_probe",
+    })
+    log(f"ESCALATE → incident queue: {component} unrecovered after {attempts} attempt(s)")
+
+
+# ── Probes — each makes a real API call, never trusts exit code alone ─────────
+
+def probe_claude_oauth() -> tuple[bool, str]:
+    """Full round-trip: Claude CLI → Anthropic API. Verifies OAuth token end-to-end."""
+    env = dict(os.environ)
+    env.pop("ANTHROPIC_API_KEY", None)
+    try:
+        result = subprocess.run(
+            [str(CLAUDE_BIN), "--dangerously-skip-permissions",
+             "--model", "claude-haiku-4-5-20251001", "-p", "Reply: ok"],
+            env=env, capture_output=True, text=True, timeout=25,
+        )
+        combined = (result.stdout + result.stderr).lower()
+        if result.returncode == 0 and "ok" in combined:
+            return True, "ok"
+        if any(x in combined for x in ("401", "invalid authentication", "unauthorized", "oauth")):
+            return False, f"auth failure: {combined[:150]}"
+        if result.returncode != 0:
+            return False, (result.stderr or result.stdout)[:200]
+        return True, "ok"
+    except subprocess.TimeoutExpired:
+        return False, "timeout after 25s"
+    except FileNotFoundError:
+        return False, f"claude binary not found at {CLAUDE_BIN}"
+    except Exception as e:
+        return False, str(e)
+
+
+def probe_opencode() -> tuple[bool, str]:
+    """Real OpenCode run via big-pickle. Verifies OpenCode auth end-to-end."""
+    env = dict(os.environ)
+    env["PATH"] = "/home/john/.opencode/bin:/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+    try:
+        result = subprocess.run(
+            ["opencode", "run", "-m", "opencode/big-pickle",
+             "--dangerously-skip-permissions", "Reply with exactly: ok"],
+            env=env, capture_output=True, text=True, timeout=60,
+            cwd=str(THUNDERBIRD),
+        )
+        combined = (result.stdout + result.stderr).lower()
+        if any(x in combined for x in ("401", "invalid authentication", "unauthorized")):
+            return False, f"401 auth failure: {combined[:150]}"
+        if "ok" in combined:
+            return True, "ok"
+        if result.returncode != 0 and not result.stdout.strip():
+            return False, (result.stderr or result.stdout)[:200]
+        return True, "ok"
+    except subprocess.TimeoutExpired:
+        return False, "timeout after 60s"
+    except FileNotFoundError:
+        return False, "opencode binary not found"
+    except Exception as e:
+        return False, str(e)
+
+
+def probe_telegram() -> tuple[bool, str]:
+    """Verify Telegram bot token responds to getMe with ok=true."""
+    token = (os.environ.get("TELEGRAM_C2_BOT_TOKEN")
+             or os.environ.get("TELEGRAM_BOT_TOKEN", ""))
+    if not token:
+        return False, "TELEGRAM_C2_BOT_TOKEN not set in environment"
+    try:
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{token}/getMe",
+            headers={"User-Agent": "thunderbird-probe/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read())
+            if data.get("ok"):
+                return True, f"bot={data.get('result', {}).get('username', '?')}"
+            return False, f"ok=false: {data}"
+    except urllib.error.HTTPError as e:
+        return False, f"HTTP {e.code}: {e.reason}"
+    except Exception as e:
+        return False, str(e)
+
+
+def probe_mcp() -> tuple[bool, str]:
+    """HTTP probe to MCP server — 406 is alive (wrong method, correct host)."""
+    try:
+        req = urllib.request.Request("http://127.0.0.1:8765/mcp")
+        try:
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                return True, f"HTTP {resp.status}"
+        except urllib.error.HTTPError as e:
+            if e.code in (406, 405, 404):
+                return True, f"HTTP {e.code} (live)"
+            return False, f"HTTP {e.code}"
+    except ConnectionRefusedError:
+        return False, "connection refused — MCP server not listening"
+    except Exception as e:
+        return False, str(e)
+
+
+# ── Repairs — deterministic, zero LLM dependency ─────────────────────────────
+
+def repair_claude_oauth() -> bool:
+    """Run keepalive.sh → re-probe. Keepalive makes a real CLI call to refresh token."""
+    log("REPAIR: claude_oauth — running keepalive.sh")
+    try:
+        subprocess.run(["bash", str(KEEPALIVE)], capture_output=True, timeout=30)
+        time.sleep(3)
+        ok, _ = probe_claude_oauth()
+        return ok
+    except Exception as e:
+        log(f"REPAIR: claude_oauth keepalive error: {e}")
+        return False
+
+
+def repair_opencode() -> bool:
+    """OpenCode 401 is often transient under load — wait 20s and retry once."""
+    log("REPAIR: opencode_big_pickle — waiting 20s (transient-auth pattern)")
+    time.sleep(20)
+    ok, _ = probe_opencode()
+    return ok
+
+
+def repair_telegram() -> bool:
+    """Restart thunderbird-telegram-gw.service → re-probe."""
+    log("REPAIR: telegram — restarting thunderbird-telegram-gw.service")
+    try:
+        subprocess.run(
+            ["systemctl", "--user", "restart", "thunderbird-telegram-gw.service"],
+            timeout=15, capture_output=True,
+        )
+        time.sleep(5)
+        ok, _ = probe_telegram()
+        return ok
+    except Exception as e:
+        log(f"REPAIR: telegram restart error: {e}")
+        return False
+
+
+def repair_mcp() -> bool:
+    """Try known MCP service names → re-probe on first success."""
+    log("REPAIR: mcp_server — attempting service restart")
+    for svc in ("thunderbird-mcp.service", "mcp-server.service", "d2m-mcp.service"):
+        try:
+            r = subprocess.run(
+                ["systemctl", "--user", "restart", svc],
+                timeout=10, capture_output=True,
+            )
+            if r.returncode == 0:
+                time.sleep(5)
+                ok, _ = probe_mcp()
+                return ok
+        except Exception:
+            continue
+    return False
+
+
+# ── OODA cycle ────────────────────────────────────────────────────────────────
+
+COMPONENTS = [
+    ("claude_oauth",        probe_claude_oauth, repair_claude_oauth),
+    ("opencode_big_pickle", probe_opencode,     repair_opencode),
+    ("telegram",            probe_telegram,     repair_telegram),
+    ("mcp_server",          probe_mcp,          repair_mcp),
+]
+
+
+def run_probe_cycle() -> dict:
+    log("=== ai_auth_probe cycle start ===")
+    results: dict[str, str] = {}
+
+    for name, probe_fn, repair_fn in COMPONENTS:
+        # Observe
+        ok, detail = probe_fn()
+
+        if ok:
+            log(f"OK: {name}")
+            results[name] = "ok"
+            continue
+
+        # Orient + Decide
+        log(f"FAIL: {name} — {detail}")
+
+        if repair_fn is None:
+            escalate(name, detail, attempts=0)
+            results[name] = "escalated"
+            continue
+
+        # Act (repair)
+        repaired = repair_fn()
+
+        if repaired:
+            # Check (verify independently)
+            ok2, detail2 = probe_fn()
+            if ok2:
+                log(f"REPAIRED: {name} — auto-healed, verified")
+                log_decision(
+                    f"- **{name}**: detected auth failure (`{detail[:100]}`), "
+                    f"auto-repaired. Re-probe confirmed healthy."
+                )
+                results[name] = "repaired"
+            else:
+                # Repair said it worked but re-probe disagrees — escalate
+                log(f"REPAIR UNVERIFIED: {name} — repair reported success but re-probe failed ({detail2})")
+                escalate(name, f"repair unverified: {detail2}", attempts=1)
+                results[name] = "escalated"
+        else:
+            escalate(name, detail, attempts=1)
+            results[name] = "escalated"
+
+    log(f"=== cycle complete: {results} ===")
+    return results
+
+
+if __name__ == "__main__":
+    results = run_probe_cycle()
+    # Exit non-zero if any component escalated (makes systemd log it as failure)
+    if any(v == "escalated" for v in results.values()):
+        sys.exit(1)
