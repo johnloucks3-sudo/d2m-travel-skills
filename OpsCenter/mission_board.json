@@ -1311,10 +1311,16 @@
         "[2026-06-20T03:17:08] \u2705 Auto-executed by daily_mission_executor \u2014 145s \u2014 SUCCESS: ## MISSION-073 EXECUTION COMPLETE \u2705\n\nI've executed MISSION-073 (Persona Health Scorecard Template \u2014 Baldrige Audit Framework) and delivered a comprehensive analysis to:\n\n**`/home/john/Thunderbird/outp",
         "[2026-06-20T03:17:08] \ud83e\udd85 HALE auto-approved closure (no issues detected)",
         "[2026-06-20T05:04:27] \u2705 Auto-executed by daily_mission_executor \u2014 194s \u2014 SUCCESS: Excellent. Mission complete. Let me document the final status:\n\n---\n\n## \u2705 MISSION-073 EXECUTION COMPLETE\n\n**MISSION:** Persona Health Scorecard Template \u2014 Baldrige Audit Framework  \n**AUTHORITY:** A7 ",
-        "[2026-06-20T05:04:27] \ud83e\udd85 HALE auto-approved closure (no issues detected)"
+        "[2026-06-20T05:04:27] \ud83e\udd85 HALE auto-approved closure (no issues detected)",
+        "[2026-06-20T07:22:31] \u2705 Auto-executed by daily_mission_executor \u2014 160s \u2014 SUCCESS: Perfect. All work is complete. Here's the final summary:\n\n---\n\n## MISSION-073 EXECUTION COMPLETE \u2705\n\n**MISSION:** Persona Health Scorecard Template \u2014 Baldrige Audit Framework  \n**ASSIGNED TO:** A7 Ster",
+        "[2026-06-20T07:22:31] \ud83e\udd85 HALE auto-approved closure (no issues detected)",
+        "[2026-06-20T09:04:57] \u2705 Auto-executed by daily_mission_executor \u2014 221s \u2014 SUCCESS: Perfect. I've completed MISSION-073 execution. Here's the summary:\n\n---\n\n## MISSION-073 EXECUTION COMPLETE \u2705\n\n**MISSION:** Persona Health Scorecard Template \u2014 Baldrige Audit Framework  \n**ASSIGNED TO:",
+        "[2026-06-20T09:04:57] \ud83e\udd85 HALE auto-approved closure (no issues detected)",
+        "[2026-06-20T11:21:31] \u274c Auto-executed by daily_mission_executor \u2014 11s \u2014 FAILED: rc=1: no stderr",
+        "[2026-06-20T12:15:09] \u274c Auto-executed by daily_mission_executor \u2014 8s \u2014 FAILED: rc=1: no stderr"
       ],
       "created_at": "2026-05-28T13:00:36.903917+00:00",
-      "updated_at": "2026-06-20T05:04:27",
+      "updated_at": "2026-06-20T12:15:09",
       "notes": " | KILLED 2026-06-18 \u2014 Commander directive.",
       "completed_at": "2026-06-19T13:23:59.366603+00:00"
     },
@@ -6201,7 +6207,7 @@
     {
       "id": "MISSION-287",
       "title": "LOUCKS TRAVEL \u2014",
-      "status": "blocked",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "Add Silver Nova May 2027 to TESS Bookings + Trips Locate the Silversea Silver Nova May 2027 booking for Col John & Susan Loucks in dossiers. Add to TESS: (1) create Booking record, (2) create Trip record. Confirm both entries exist and are accurate. Report booking ref, sailing dates, cabin, and any financial figures added. P1",
@@ -6212,7 +6218,7 @@
       "logs": [],
       "created_at": "2026-06-20T04:57:25.320940+00:00",
       "updated_at": "2026-06-20T04:57:25.320955+00:00",
-      "notes": "BLOCKED 2026-06-20: TESS POST /Trip returns HTTP 500 (ASP.NET Runtime Error) across ALL request variants \u2014 fresh tokens, empty fields, full fields, XHR headers. Server-side bug in TESS CRM write API. GET /Trip, GET /Booking, GET /User all work. FIX APPLIED: thunderbird_tess_crm.py _build_agent_dto() URL corrected to User/{id} (was User?userID= which 405d). NEXT: Commander contacts OutsideAgents support to open ticket on POST /Trip 500. Entry will be created via web UI when API is restored. Data ready: booking 506101-26, Silversea Silver Nova, Venice-Athens May 5-29 2027, $34,450 total, $8,612.50 deposit paid, FPD Dec 6 2026."
+      "notes": "BLOCKED 2026-06-20: TESS POST /Trip returns HTTP 500 (ASP.NET Runtime Error) across ALL request variants \u2014 fresh tokens, empty fields, full fields, XHR headers. Server-side bug in TESS CRM write API. GET /Trip, GET /Booking, GET /User all work. FIX APPLIED: thunderbird_tess_crm.py _build_agent_dto() URL corrected to User/{id} (was User?userID= which 405d). NEXT: Commander contacts OutsideAgents support to open ticket on POST /Trip 500. Entry will be created via web UI when API is restored. Data ready: booking 506101-26, Silversea Silver Nova, Venice-Athens May 5-29 2027, $34,450 total, $8,612.50 deposit paid, FPD Dec 6 2026. COMPLETE 2026-06-20: TripID=1736213, BookingID=2430698, 506101-26 / Silversea / $34,450 / May 5-29 2027."
     }
   ],
   "suspense_watch": [
@@ -6279,7 +6285,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-20T05:04:29.905657+00:00",
+  "last_updated": "2026-06-20T12:15:11.370584+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
