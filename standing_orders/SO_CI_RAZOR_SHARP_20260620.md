@@ -21,7 +21,7 @@ A standing workaround on a CI skill is **not a solution — it is an unreplaced 
 
 | CI Skill | Paired CI Tool |
 |---|---|
-| portal-access | Camoufox + clean IP (proxy = Commander spend gate) |
+| portal-access | Camoufox + **setup-browser-cookies** (Commander's authenticated session / real residential IP) + throttle-from-request-1 (≥3s) — **$0, no proxy** (spend gate CLOSED 2026-06-20: Imperva block was self-inflicted rate-limiting, not IP reputation) |
 | web-fetch | Trafilatura (clean-extract) + Anansi (fetch/SPA) |
 | headless-dispatch | `core/ai_infra/thunderbird_headless_spawn.py` (claude -p / MAX) |
 | credential-keepalive | `scripts/keepalive_supervisor.py` |

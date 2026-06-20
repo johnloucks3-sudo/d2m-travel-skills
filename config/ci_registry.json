@@ -15,7 +15,7 @@
     {
       "id": "portal-access",
       "name": "Cruise-line Portal Access",
-      "ci_tool": "camoufox (headed, persistent profile) + nodriver (light lane); clean residential IP = Commander spend gate (Imperva rate-limit only)",
+      "ci_tool": "camoufox (fingerprint/behavioral) + setup-browser-cookies skill (Commander's authenticated session, real residential IP Imperva trusts) + throttle-from-request-1 (>=3s) doctrine \u2014 $0, NO PROXY",
       "wraps": [
         "scripts/regent_oa_reauth.py",
         "scripts/centrav_session_warm.py",
@@ -30,11 +30,12 @@
       "currency_window_hours": 24,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 90000,
-      "fallback": "manual cookie capture via setup-browser-cookies skill (gstack)",
+      "fallback": "nodriver light lane; manual cookie re-capture via setup-browser-cookies",
       "active_workaround": null,
       "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
-      "status": "unknown"
+      "status": "unknown",
+      "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase"
     },
     {
       "id": "web-fetch",
