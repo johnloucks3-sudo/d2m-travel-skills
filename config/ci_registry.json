@@ -15,7 +15,7 @@
     {
       "id": "portal-access",
       "name": "Cruise-line Portal Access",
-      "ci_tool": "<PENDING: Camoufox install (Phase 3.1) \u2014 free; proxy = Commander spend gate>",
+      "ci_tool": "camoufox (headed, persistent profile) + nodriver (light lane); clean residential IP = Commander spend gate (Imperva rate-limit only)",
       "wraps": [
         "scripts/regent_oa_reauth.py",
         "scripts/centrav_session_warm.py",
@@ -26,13 +26,13 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "test -f /home/john/Thunderbird/scripts/portal_live_probe.py",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import camoufox\"",
       "currency_window_hours": 24,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 90000,
       "fallback": "manual cookie capture via setup-browser-cookies skill (gstack)",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -55,7 +55,7 @@
       "latency_sla_ms": 15000,
       "fallback": "anansi --browser, then playwright headless (last resort)",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -77,7 +77,7 @@
       "latency_sla_ms": 300000,
       "fallback": "managed agents API (dispatch_claude.py --managed)",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -100,7 +100,7 @@
       "latency_sla_ms": 30000,
       "fallback": "manual re-auth via centrav_reauth.py / regent_oa_reauth.py",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -122,7 +122,7 @@
       "latency_sla_ms": 60000,
       "fallback": "manual Dembe sweep via wind_staff.py dembe",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     }
