@@ -5225,3 +5225,13 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Open Commander gate:** residential-proxy / hosted-browser spend (the only thing not under Hale's new CI authority).
 
 **Logged by:** V. Hale, VCS · 2026-06-20
+
+---
+
+## 2026-06-20 — WEAPONS FREE invoked (CI build + replacement)
+
+**Commander:** "I trust your judgement, weapons free initiate replacement once CI and CI Tools identified."
+**Scope:** Execute the full CI doctrine build (plan 2026-06-20-critical-infrastructure-skills-and-tools.md) + initiate tool replacement. All Wing gates/lanes suspended per Weapons Free.
+**Inviolable (still held, per Weapons Free doctrine):** client send (WF-17), **financial commitment** (paid residential proxy / hosted browser stays a Commander gate — teed up, not executed), strategic. Camoufox + Trafilatura are FREE → executed under this authority.
+**Expires:** Commander "Stand Down" / "Gates Up" / session end.
+**Logged by:** V. Hale, VCS · 2026-06-20

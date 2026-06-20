@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "updated": "2026-06-20",
+  "_doc": "Critical Infrastructure registry. This table IS the razor-sharp policy (SO_CI_RAZOR_SHARP_20260620.md). RAZOR_SHARP iff probe==GREEN AND age(last_verified)<currency_window_hours AND age(last_reeval)<reeval_cadence_days. REPLACE per replacement_policy (chronic fail/latency). Owners: id=ELON(discovery), access=Dembe, gate=Sterling, keeper=Whetstone(currency+updating). Hale has standing authority to direct refresh/revision/replacement immediately (only spend reaches Commander). Zero standing workarounds: active_workaround must be logged + burned down.",
+  "replacement_policy": {
+    "_doc": "A CI tool -> REPLACE (ELON nominates replacement, Whetstone integrates, old tool -> graveyard) when ANY trigger fires. Failure = probe/op not-ok or timed out, or an active_workaround in place.",
+    "consecutive_failures_max": 3,
+    "rolling_window_days": 7,
+    "failures_in_window_max": 5,
+    "latency_breach_factor": 3.0,
+    "latency_breach_runs_of_last_5": 3,
+    "consecutive_timeouts_max": 2
+  },
+  "skills": [
+    {
+      "id": "portal-access",
+      "name": "Cruise-line Portal Access",
+      "ci_tool": "<PENDING: Camoufox install (Phase 3.1) \u2014 free; proxy = Commander spend gate>",
+      "wraps": [
+        "scripts/regent_oa_reauth.py",
+        "scripts/centrav_session_warm.py",
+        "scripts/grab_regent_cookies_cdp.py",
+        "scripts/portal_live_probe.py"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "test -f /home/john/Thunderbird/scripts/portal_live_probe.py",
+      "currency_window_hours": 24,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 90000,
+      "fallback": "manual cookie capture via setup-browser-cookies skill (gstack)",
+      "active_workaround": null,
+      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_reeval": "2026-06-20",
+      "status": "unknown"
+    },
+    {
+      "id": "web-fetch",
+      "name": "Web Fetch & Scrape",
+      "ci_tool": "trafilatura (clean-extract) + anansi (fetch/SPA)",
+      "wraps": [
+        ".venv/bin/anansi",
+        ".claude/skills/scrape/SKILL.md",
+        ".claude/skills/browse/SKILL.md"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import trafilatura\"",
+      "currency_window_hours": 168,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 15000,
+      "fallback": "anansi --browser, then playwright headless (last resort)",
+      "active_workaround": null,
+      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_reeval": "2026-06-20",
+      "status": "unknown"
+    },
+    {
+      "id": "headless-dispatch",
+      "name": "Headless AI Dispatch (claude -p / MAX OAuth)",
+      "ci_tool": "core/ai_infra/thunderbird_headless_spawn.py",
+      "wraps": [
+        "OpsCenter/dispatch_claude.py",
+        "core/ai_infra/thunderbird_headless_spawn.py"
+      ],
+      "id_owner": "elon",
+      "access_owner": "sterling",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "test -x /home/john/.local/bin/claude && test -f /home/john/.claude/.credentials.json",
+      "currency_window_hours": 2,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 300000,
+      "fallback": "managed agents API (dispatch_claude.py --managed)",
+      "active_workaround": null,
+      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_reeval": "2026-06-20",
+      "status": "unknown"
+    },
+    {
+      "id": "credential-keepalive",
+      "name": "Credential & OAuth Keepalive",
+      "ci_tool": "scripts/keepalive_supervisor.py",
+      "wraps": [
+        "scripts/keepalive_supervisor.py",
+        "scripts/portal_keepalive.py",
+        "scripts/centrav_session_auto_keepalive.py"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "test -f /home/john/Thunderbird/scripts/keepalive_supervisor.py",
+      "currency_window_hours": 3,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 30000,
+      "fallback": "manual re-auth via centrav_reauth.py / regent_oa_reauth.py",
+      "active_workaround": null,
+      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_reeval": "2026-06-20",
+      "status": "unknown"
+    },
+    {
+      "id": "tech-adoption",
+      "name": "New-Tech Scout / Watch-list / Integration",
+      "ci_tool": "core/intel/thunderbird_incubator.py",
+      "wraps": [
+        "core/intel/thunderbird_incubator.py",
+        "OpsCenter/wind_staff.py"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "test -f /home/john/Thunderbird/core/intel/thunderbird_incubator.py",
+      "currency_window_hours": 24,
+      "reeval_cadence_days": 14,
+      "latency_sla_ms": 60000,
+      "fallback": "manual Dembe sweep via wind_staff.py dembe",
+      "active_workaround": null,
+      "last_verified": "2026-06-20T13:51:55.443002+00:00",
+      "last_reeval": "2026-06-20",
+      "status": "unknown"
+    }
+  ]
+}
