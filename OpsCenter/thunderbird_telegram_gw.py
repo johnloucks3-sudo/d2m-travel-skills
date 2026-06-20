@@ -192,6 +192,32 @@ RELAY_CHAT_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", "0"))
 
 COMMANDER_ID = int(os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206"))
 
+# Append-only provenance log of Commander Telegram messages — the forge-resistant
+# anchor for verified_directive cross-check (full Telegram metadata: message_id,
+# from.id, chat.id, date). Written ONLY here, by the gateway, never by a persona.
+COMMANDER_SOURCE_LOG = OPS / "commander_directive_source.jsonl"
+
+
+def _capture_commander_source(msg_obj: dict) -> None:
+    """Record a Commander Telegram message with full provenance (append-only).
+    Best-effort; never crashes the poll loop."""
+    try:
+        import json as _json, time as _time, fcntl as _fcntl
+        rec = {
+            "channel": "telegram",
+            "message_id": msg_obj.get("message_id"),
+            "from_id": msg_obj.get("from", {}).get("id"),
+            "chat_id": msg_obj.get("chat", {}).get("id"),
+            "date": msg_obj.get("date"),            # Telegram server unix ts
+            "text": msg_obj.get("text", ""),
+            "captured_at": _time.time(),
+        }
+        with open(COMMANDER_SOURCE_LOG, "a") as fh:
+            _fcntl.flock(fh, _fcntl.LOCK_EX)
+            fh.write(_json.dumps(rec) + "\n")
+    except Exception:
+        pass
+
 # Dani is open to all — no allow-list needed. D2MC2C and HaleD2M are Commander-only.
 POLL_INTERVAL  = float(os.environ.get("TELEGRAM_GW_POLL_INTERVAL", "2"))
 ENGINE_TIMEOUT = int(os.environ.get("TELEGRAM_GW_TIMEOUT", "60"))
@@ -2112,6 +2138,11 @@ def bot_poll_loop(
 
                 if not chat_id or not text:
                     continue
+
+                # PROVENANCE — Commander messages get a forge-resistant source record
+                # (full Telegram metadata) for verified_directive cross-check.
+                if user_id == COMMANDER_ID:
+                    _capture_commander_source(msg_obj)
 
                 # Dispatch in a thread so we don't block the poll loop
                 if msg_obj.get("voice"):
