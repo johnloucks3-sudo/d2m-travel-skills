@@ -1,17 +1,14 @@
 /**
  * Thunderbird Gmail HUD — hud_main.gs
+ * v1.2 — longer summary + Wing query interface
  *
  * Gmail Add-on. Fires on EVERY email open (desktop + mobile).
- * Calls Claude Haiku for Wing intelligence → renders CardService card.
- * Works on iOS and Android Gmail app.
+ * Calls Claude Haiku → Wing Intel card + interactive query box.
  *
  * Wing: Dreams2Memories Travel, LLC
  * Commander: John "Yoda" Loucks
  * COS: Victoria "Victory" Hale, SES-6
- * Version: 1.0 · 2026-06-19
  */
-
-// ─── Wing knowledge base ──────────────────────────────────────────────────────
 
 var D2M_CLIENTS = [
   'Kuklinski', 'McLeod', 'McGlasson', 'Furlow', 'Ely', 'Darrow',
@@ -22,20 +19,18 @@ var D2M_CLIENTS = [
 var CRUISE_LINES = [
   'Silversea', 'Regent', 'Viking', 'Princess', 'Celebrity',
   'Holland America', 'Seabourn', 'Oceania', 'Crystal', 'Cunard',
-  'Azamara', 'MSC', 'Norwegian', 'Royal Caribbean', 'Carnival',
-  'Silver', 'Seven Seas', 'Windstar', 'Paul Gauguin', 'Ponant'
+  'Azamara', 'MSC', 'Norwegian', 'Royal Caribbean', 'Silver',
+  'Seven Seas', 'Windstar', 'Ponant'
 ];
 
 var CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
 var CLAUDE_MODEL   = 'claude-haiku-4-5-20251001';
 
+// Cache email context across card → query callback
+var _emailCache = {};
+
 // ─── main trigger ─────────────────────────────────────────────────────────────
 
-/**
- * onGmailMessage — fires when Commander opens any email in Gmail.
- * e.gmail.messageId — the open email's ID
- * e.gmail.accessToken — scoped token for this message
- */
 function onGmailMessage(e) {
   try {
     var messageId   = e.gmail.messageId;
@@ -46,307 +41,311 @@ function onGmailMessage(e) {
     if (!message) return buildErrorCard('Message not found.');
 
     var emailData = {
+      id:      messageId,
       subject: message.getSubject()   || '(no subject)',
       from:    message.getFrom()      || '',
       date:    message.getDate() ? message.getDate().toISOString() : '',
-      body:    (message.getPlainBody() || '').substring(0, 3000)
+      body:    (message.getPlainBody() || '').substring(0, 4000)
     };
 
-    // Fast local scan — zero API cost
-    var scan = localPreScan(emailData);
+    var scan  = localPreScan(emailData);
+    if (scan.isSpam && !scan.isClient) return buildSpamCard();
 
-    // Skip Claude for obvious junk
-    if (scan.isSpam && !scan.isClient) {
-      return buildSpamCard(emailData);
-    }
-
-    // Call Claude Haiku
-    var intel = callClaude(emailData, scan);
-
-    // Fallback if API key not set or call fails
+    var intel = callClaude(emailData, scan, null);
     if (!intel) return buildFallbackCard(emailData, scan);
 
-    return buildHudCard(intel, emailData);
+    return buildHudCard(intel, emailData, null);
 
   } catch (err) {
     return buildErrorCard('HUD: ' + err.message);
   }
 }
 
-/** Homepage card — shown when add-on opened without an email context */
 function onHomepage() {
-  return buildStatusCard();
+  var hasKey = (typeof CLAUDE_API_KEY !== 'undefined' && !!CLAUDE_API_KEY);
+  return CardService.newCardBuilder()
+    .setHeader(CardService.newCardHeader()
+      .setTitle('⚡ Thunderbird HUD').setSubtitle('D2M · v1.2'))
+    .addSection(CardService.newCardSection()
+      .setHeader('Status')
+      .addWidget(CardService.newDecoratedText()
+        .setTopLabel('Wing Intel')
+        .setText(hasKey ? '✅ Active — Claude Haiku' : '⚠️ Config missing'))
+      .addWidget(CardService.newDecoratedText()
+        .setTopLabel('Coverage').setText('All email — unconditional'))
+      .addWidget(CardService.newDecoratedText()
+        .setTopLabel('Query').setText('✅ Interactive Wing query'))
+    ).build();
 }
 
-// ─── local pre-scan (no API cost) ────────────────────────────────────────────
+// ─── query callback ───────────────────────────────────────────────────────────
+
+/**
+ * onQuerySubmit — fires when Commander taps "Ask Wing" button.
+ * e.formInput.wing_query holds the typed question.
+ * e.gmail.messageId / accessToken still present in callback context.
+ */
+function onQuerySubmit(e) {
+  try {
+    var query     = (e.formInput && e.formInput.wing_query) ? e.formInput.wing_query.trim() : '';
+    var messageId = e.gmail ? e.gmail.messageId : null;
+
+    if (!query) return buildErrorCard('No query received.');
+
+    // Re-fetch email for context
+    var emailData = { subject: '', from: '', body: '', id: messageId };
+    if (messageId && e.gmail && e.gmail.accessToken) {
+      GmailApp.setCurrentMessageAccessToken(e.gmail.accessToken);
+      var msg = GmailApp.getMessageById(messageId);
+      if (msg) {
+        emailData.subject = msg.getSubject() || '';
+        emailData.from    = msg.getFrom()    || '';
+        emailData.body    = (msg.getPlainBody() || '').substring(0, 4000);
+      }
+    }
+
+    var answer = callClaude(emailData, null, query);
+    if (!answer) return buildErrorCard('Wing query failed — check API config.');
+
+    return buildQueryResultCard(query, answer);
+
+  } catch (err) {
+    return buildErrorCard('Query error: ' + err.message);
+  }
+}
+
+// ─── local pre-scan ───────────────────────────────────────────────────────────
 
 function localPreScan(email) {
-  var text = (email.subject + ' ' + email.from + ' ' + email.body).toLowerCase();
+  var text   = (email.subject + ' ' + email.from + ' ' + email.body).toLowerCase();
   var fromLc = email.from.toLowerCase();
-
-  var isClient = D2M_CLIENTS.some(function(c) {
-    return text.indexOf(c.toLowerCase()) !== -1 || fromLc.indexOf(c.toLowerCase()) !== -1;
-  });
-
-  var isCruiseLine = CRUISE_LINES.some(function(c) {
-    return fromLc.indexOf(c.toLowerCase()) !== -1;
-  });
-
-  var hasFinancial = /\$[\d,]+|\bpayment\b|\binvoice\b|\bbalance due\b|\bfpd\b|\bdeposit\b|\bcommission\b/i.test(text);
-  var isUrgent     = /urgent|immediately|today only|overdue|past due|expires today|deadline|action required/i.test(text);
-  var isSpam       = /unsubscribe|click here to|special offer|you've been selected|winner|prize/i.test(text);
-
-  return { isClient: isClient, isCruiseLine: isCruiseLine, hasFinancial: hasFinancial, isUrgent: isUrgent, isSpam: isSpam };
+  return {
+    isClient:     D2M_CLIENTS.some(function(c) { return text.indexOf(c.toLowerCase()) !== -1; }),
+    isCruiseLine: CRUISE_LINES.some(function(c) { return fromLc.indexOf(c.toLowerCase()) !== -1; }),
+    hasFinancial: /\$[\d,]+|\bpayment\b|\binvoice\b|\bbalance due\b|\bfpd\b|\bdeposit\b/i.test(text),
+    isUrgent:     /urgent|immediately|today only|overdue|past due|expires today|deadline/i.test(text),
+    isSpam:       /unsubscribe|click here to|special offer|you.ve been selected|winner|prize/i.test(text)
+  };
 }
 
-// ─── Claude Haiku call ────────────────────────────────────────────────────────
+// ─── Claude call (dual mode: intel + query) ───────────────────────────────────
 
-function callClaude(emailData, scan) {
-  var apiKey = PropertiesService.getUserProperties().getProperty('CLAUDE_API_KEY');
-  if (!apiKey) return null;
+function callClaude(emailData, scan, query) {
+  if (typeof CLAUDE_API_KEY === 'undefined' || !CLAUDE_API_KEY) return null;
 
-  var clientHint = scan.isClient ? ' (LIKELY D2M CLIENT EMAIL — treat as P1 minimum)' : '';
-  var finHint    = scan.hasFinancial ? ' (HAS FINANCIAL CONTENT — Harlan flag)' : '';
+  var prompt;
 
-  var prompt =
-    'You are the Thunderbird Wing HUD for Dreams2Memories Travel LLC — AI-powered luxury travel agency.\n' +
-    'Commander John "Yoda" Loucks reads this on his phone when he opens email.\n' +
-    'Be brief. Be useful. Wing posture: bottom-line-first, no fluff.\n\n' +
-    'Known D2M clients: ' + D2M_CLIENTS.join(', ') + '\n' +
-    'Known cruise line partners: ' + CRUISE_LINES.join(', ') + '\n' +
-    'Local scan flags: client=' + scan.isClient + ' cruiseline=' + scan.isCruiseLine +
-    ' financial=' + scan.hasFinancial + ' urgent=' + scan.isUrgent + clientHint + finHint + '\n\n' +
-    'Email to analyze:\n' +
-    'From: ' + emailData.from + '\n' +
-    'Subject: ' + emailData.subject + '\n' +
-    'Date: ' + emailData.date + '\n' +
-    'Body:\n' + emailData.body + '\n\n' +
-    'Respond with ONLY valid JSON — no markdown, no explanation:\n' +
-    '{\n' +
-    '  "category": "CLIENT_REPLY|SUPPLIER|BOOKING_CONFIRM|FINANCIAL|BOOKING_CHANGE|INTEL|INTERNAL|PERSONAL|VENDOR|MARKETING|SPAM",\n' +
-    '  "priority": "P0|P1|P2|ROUTINE",\n' +
-    '  "summary": "2 crisp sentences — what is this email about",\n' +
-    '  "client_name": "D2M client first+last if identifiable, else null",\n' +
-    '  "wing_action": "one sentence — what should Commander do with this right now",\n' +
-    '  "financial_flag": "exact dollar amount or FPD date if mentioned, else null",\n' +
-    '  "persona": "HALE|DANI|DEMBE|STERLING|HARLAN|NONE",\n' +
-    '  "sender_org": "company/organization of sender if clear, else null"\n' +
-    '}\n\n' +
-    'P0=payment overdue/emergency/action<24h. P1=client comms/booking change. P2=supplier/vendor/fyi. ROUTINE=everything else.\n' +
-    'persona: DANI=client voice/response needed, DEMBE=intel/research/cruise pricing, STERLING=process/tech/booking, HARLAN=financial verification, HALE=ops routing, NONE=personal/spam.';
+  if (query) {
+    // Query mode — answer Commander's specific question about the email
+    prompt =
+      'You are the Thunderbird Wing HUD AI for Dreams2Memories Travel LLC.\n' +
+      'Commander John "Yoda" Loucks is asking a question about this email on his phone.\n' +
+      'Answer directly and briefly. Wing posture: bottom-line-first, no fluff.\n\n' +
+      'Known D2M clients: ' + D2M_CLIENTS.join(', ') + '\n' +
+      'Known cruise partners: ' + CRUISE_LINES.join(', ') + '\n\n' +
+      'Email context:\n' +
+      'From: ' + emailData.from + '\n' +
+      'Subject: ' + emailData.subject + '\n' +
+      'Body:\n' + emailData.body + '\n\n' +
+      'Commander query: ' + query + '\n\n' +
+      'Return ONLY valid JSON:\n' +
+      '{"answer": "direct answer in 3-5 sentences", "action": "one sentence — what Commander should do next", "persona": "HALE|DANI|DEMBE|STERLING|HARLAN|NONE"}';
+  } else {
+    // Intel mode — full email classification and summary
+    var scanFlags = scan ?
+      'client=' + scan.isClient + ' cruise=' + scan.isCruiseLine +
+      ' financial=' + scan.hasFinancial + ' urgent=' + scan.isUrgent : '';
+
+    prompt =
+      'You are the Thunderbird Wing HUD for Dreams2Memories Travel LLC — AI luxury travel agency.\n' +
+      'Commander John "Yoda" Loucks reads this on his phone. Wing posture: bottom-line-first.\n\n' +
+      'Known D2M clients: ' + D2M_CLIENTS.join(', ') + '\n' +
+      'Known cruise partners: ' + CRUISE_LINES.join(', ') + '\n' +
+      'Local flags: ' + scanFlags + '\n\n' +
+      'From: ' + emailData.from + '\n' +
+      'Subject: ' + emailData.subject + '\n' +
+      'Body:\n' + emailData.body + '\n\n' +
+      'Return ONLY valid JSON:\n' +
+      '{"category":"CLIENT_REPLY|SUPPLIER|BOOKING_CONFIRM|FINANCIAL|BOOKING_CHANGE|INTEL|INTERNAL|PERSONAL|VENDOR|MARKETING|SPAM",' +
+      '"priority":"P0|P1|P2|ROUTINE",' +
+      '"summary":"4-5 sentence Wing Intel brief. Cover: what this email is about, who sent it, what they want or are reporting, any deadlines or dollar amounts, and the overall significance to D2M operations. Be specific — include names, amounts, dates if present.",' +
+      '"client_name":"full D2M client name if identifiable, else null",' +
+      '"wing_action":"specific one-sentence action for Commander right now",' +
+      '"financial_flag":"exact dollar amount and/or date if mentioned, else null",' +
+      '"persona":"HALE|DANI|DEMBE|STERLING|HARLAN|NONE",' +
+      '"sender_org":"sender company or null",' +
+      '"key_dates":"comma-separated list of any dates/deadlines mentioned, else null"}';
+  }
 
   try {
     var resp = UrlFetchApp.fetch(CLAUDE_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
+        'x-api-key': CLAUDE_API_KEY,
         'anthropic-version': '2023-06-01'
       },
       payload: JSON.stringify({
         model: CLAUDE_MODEL,
-        max_tokens: 400,
+        max_tokens: query ? 512 : 700,
         messages: [{ role: 'user', content: prompt }]
       }),
       muteHttpExceptions: true
     });
 
     if (resp.getResponseCode() !== 200) {
-      Logger.log('Claude API HTTP ' + resp.getResponseCode() + ': ' + resp.getContentText().substring(0, 200));
+      Logger.log('Claude HTTP ' + resp.getResponseCode() + ': ' + resp.getContentText().substring(0,200));
       return null;
     }
 
     var result = JSON.parse(resp.getContentText());
     var text   = result.content[0].text.trim();
     var match  = text.match(/\{[\s\S]*\}/);
-    if (!match) return null;
-
-    return JSON.parse(match[0]);
+    return match ? JSON.parse(match[0]) : null;
 
   } catch (err) {
-    Logger.log('Claude call failed: ' + err.message);
+    Logger.log('Claude error: ' + err.message);
     return null;
   }
 }
 
 // ─── card builders ────────────────────────────────────────────────────────────
 
-var PRIORITY_EMOJI = { P0: '🔴', P1: '🟡', P2: '🟢', ROUTINE: '⚪' };
-var CATEGORY_EMOJI = {
-  CLIENT_REPLY:    '👤',
-  SUPPLIER:        '🚢',
-  BOOKING_CONFIRM: '📋',
-  FINANCIAL:       '💰',
-  BOOKING_CHANGE:  '✏️',
-  INTEL:           '🔍',
-  INTERNAL:        '⚡',
-  PERSONAL:        '👋',
-  VENDOR:          '🏢',
-  MARKETING:       '📣',
-  SPAM:            '🗑️'
+var PRIO_EMOJI = { P0:'🔴', P1:'🟡', P2:'🟢', ROUTINE:'⚪' };
+var CAT_EMOJI  = {
+  CLIENT_REPLY:'👤', SUPPLIER:'🚢', BOOKING_CONFIRM:'📋',
+  FINANCIAL:'💰', BOOKING_CHANGE:'✏️', INTEL:'🔍',
+  INTERNAL:'⚡', PERSONAL:'👋', VENDOR:'🏢', MARKETING:'📣', SPAM:'🗑️'
 };
-var PERSONA_LABEL = {
-  HALE:     '⚡ Hale — ops/routing',
-  DANI:     '✈️ Dani — client voice',
-  DEMBE:    '🔍 Dembe — intel',
-  STERLING: '📊 Sterling — process',
-  HARLAN:   '💰 Harlan — financial',
-  NONE:     '—'
+var PERSONA = {
+  HALE:'⚡ Hale', DANI:'✈️ Dani', DEMBE:'🔍 Dembe',
+  STERLING:'📊 Sterling', HARLAN:'💰 Harlan', NONE:'Wing'
 };
 
-function buildHudCard(intel, emailData) {
-  var prio     = intel.priority || 'ROUTINE';
-  var cat      = intel.category || 'EMAIL';
-  var prioMark = PRIORITY_EMOJI[prio]     || '⚪';
-  var catMark  = CATEGORY_EMOJI[cat]      || '📧';
+function buildHudCard(intel, emailData, prevQuery) {
+  var prio = intel.priority || 'ROUTINE';
+  var cat  = intel.category || 'EMAIL';
 
-  var card = CardService.newCardBuilder();
-
-  card.setHeader(
-    CardService.newCardHeader()
+  var card = CardService.newCardBuilder()
+    .setHeader(CardService.newCardHeader()
       .setTitle('⚡ Thunderbird HUD')
-      .setSubtitle(prioMark + ' ' + prio + '  ' + catMark + ' ' + cat)
-  );
+      .setSubtitle((PRIO_EMOJI[prio]||'⚪') + ' ' + prio + '  ' + (CAT_EMOJI[cat]||'📧') + ' ' + cat));
 
-  // ── Intel
+  // ── Wing Intel (longer summary)
   var intelSec = CardService.newCardSection().setHeader('Wing Intel');
-
-  intelSec.addWidget(
-    CardService.newTextParagraph().setText(intel.summary || '(no summary)')
-  );
+  intelSec.addWidget(CardService.newTextParagraph()
+    .setText(intel.summary || '(no summary)'));
 
   if (intel.financial_flag) {
-    intelSec.addWidget(
-      CardService.newDecoratedText()
-        .setTopLabel('💰 Financial')
-        .setText(intel.financial_flag)
-        .setWrapText(true)
-    );
+    intelSec.addWidget(CardService.newDecoratedText()
+      .setTopLabel('💰 Financial').setText(intel.financial_flag).setWrapText(true));
   }
-
+  if (intel.key_dates) {
+    intelSec.addWidget(CardService.newDecoratedText()
+      .setTopLabel('📅 Key dates').setText(intel.key_dates).setWrapText(true));
+  }
   if (intel.sender_org) {
-    intelSec.addWidget(
-      CardService.newDecoratedText()
-        .setTopLabel('From')
-        .setText(intel.sender_org)
-    );
+    intelSec.addWidget(CardService.newDecoratedText()
+      .setTopLabel('From').setText(intel.sender_org));
   }
-
   card.addSection(intelSec);
 
-  // ── Wing Action
+  // ── Wing Recommendation
   var actionSec = CardService.newCardSection().setHeader('Wing Recommendation');
-
-  actionSec.addWidget(
-    CardService.newDecoratedText()
-      .setTopLabel(PERSONA_LABEL[intel.persona] || '⚡ Hale')
-      .setText(intel.wing_action || 'No action required.')
-      .setWrapText(true)
-  );
-
+  actionSec.addWidget(CardService.newDecoratedText()
+    .setTopLabel(PERSONA[intel.persona] || '⚡ Hale')
+    .setText(intel.wing_action || 'No action required.')
+    .setWrapText(true));
   card.addSection(actionSec);
 
-  // ── Client context (if recognized)
+  // ── Client context
   if (intel.client_name) {
-    var clientSec = CardService.newCardSection().setHeader('👤 ' + intel.client_name);
-    clientSec.addWidget(
-      CardService.newTextParagraph()
-        .setText('Recognized D2M client. Check dossier for active bookings and open TPs.')
-    );
-    card.addSection(clientSec);
+    card.addSection(CardService.newCardSection()
+      .setHeader('👤 ' + intel.client_name)
+      .addWidget(CardService.newTextParagraph()
+        .setText('Recognized D2M client — check dossier for active TPs.')));
   }
+
+  // ── Wing Query
+  var querySec = CardService.newCardSection().setHeader('Ask the Wing');
+  querySec.addWidget(CardService.newTextInput()
+    .setFieldName('wing_query')
+    .setTitle('Question about this email...')
+    .setHint('e.g. "Should I reply?" · "What is the FPD?" · "Draft a short response"'));
+  querySec.addWidget(CardService.newButtonSet()
+    .addButton(CardService.newTextButton()
+      .setText('Ask Wing ⚡')
+      .setOnClickAction(CardService.newAction()
+        .setFunctionName('onQuerySubmit'))));
+  card.addSection(querySec);
+
+  return card.build();
+}
+
+function buildQueryResultCard(query, result) {
+  var card = CardService.newCardBuilder()
+    .setHeader(CardService.newCardHeader()
+      .setTitle('⚡ Wing Response')
+      .setSubtitle(PERSONA[result.persona] || '⚡ Hale'));
+
+  // Query echo
+  card.addSection(CardService.newCardSection()
+    .setHeader('Your Question')
+    .addWidget(CardService.newTextParagraph().setText(query)));
+
+  // Answer
+  card.addSection(CardService.newCardSection()
+    .setHeader('Wing Answer')
+    .addWidget(CardService.newTextParagraph().setText(result.answer || '(no answer)')));
+
+  // Next action
+  if (result.action) {
+    card.addSection(CardService.newCardSection()
+      .setHeader('Next Step')
+      .addWidget(CardService.newTextParagraph().setText(result.action)));
+  }
+
+  // Back button
+  card.addSection(CardService.newCardSection()
+    .addWidget(CardService.newButtonSet()
+      .addButton(CardService.newTextButton()
+        .setText('← Back to HUD')
+        .setOnClickAction(CardService.newAction()
+          .setFunctionName('onHomepage')))));
 
   return card.build();
 }
 
 function buildFallbackCard(emailData, scan) {
   var flags = [];
-  if (scan.isClient)     flags.push('🟡 D2M client detected');
-  if (scan.isCruiseLine) flags.push('🚢 Cruise line');
-  if (scan.hasFinancial) flags.push('💰 Financial mention');
-  if (scan.isUrgent)     flags.push('🔴 Urgency keywords');
-  if (flags.length === 0) flags.push('⚪ No Wing flags');
+  if (scan && scan.isClient)     flags.push('🟡 D2M client detected');
+  if (scan && scan.isCruiseLine) flags.push('🚢 Cruise line');
+  if (scan && scan.hasFinancial) flags.push('💰 Financial mention');
+  if (scan && scan.isUrgent)     flags.push('🔴 Urgency keywords');
+  if (!flags.length)             flags.push('⚪ No Wing flags');
 
   return CardService.newCardBuilder()
     .setHeader(CardService.newCardHeader()
-      .setTitle('⚡ Thunderbird HUD')
-      .setSubtitle('⚠️ Offline — local scan only'))
+      .setTitle('⚡ Thunderbird HUD').setSubtitle('⚠️ Offline — local scan'))
     .addSection(CardService.newCardSection()
       .setHeader('Quick Scan')
       .addWidget(CardService.newTextParagraph().setText(flags.join('\n')))
-      .addWidget(CardService.newDecoratedText()
-        .setTopLabel('From').setText(emailData.from))
-    )
-    .addSection(CardService.newCardSection()
-      .setHeader('Setup')
-      .addWidget(CardService.newTextParagraph()
-        .setText('API key not configured. Run initHud() from Apps Script editor once to activate Wing Intel.'))
-    )
+      .addWidget(CardService.newDecoratedText().setTopLabel('From').setText(emailData.from)))
     .build();
 }
 
-function buildSpamCard(emailData) {
+function buildSpamCard() {
   return CardService.newCardBuilder()
-    .setHeader(CardService.newCardHeader()
-      .setTitle('⚡ Thunderbird HUD')
-      .setSubtitle('🗑️ SPAM · ROUTINE'))
+    .setHeader(CardService.newCardHeader().setTitle('⚡ HUD').setSubtitle('🗑️ SPAM · ROUTINE'))
     .addSection(CardService.newCardSection()
-      .addWidget(CardService.newTextParagraph()
-        .setText('Marketing/spam detected. No Wing action required.')))
+      .addWidget(CardService.newTextParagraph().setText('Marketing/spam. No Wing action.')))
     .build();
 }
 
 function buildErrorCard(msg) {
   return CardService.newCardBuilder()
-    .setHeader(CardService.newCardHeader()
-      .setTitle('⚡ HUD').setSubtitle('Error'))
+    .setHeader(CardService.newCardHeader().setTitle('⚡ HUD').setSubtitle('Error'))
     .addSection(CardService.newCardSection()
       .addWidget(CardService.newTextParagraph().setText(msg)))
     .build();
-}
-
-function buildStatusCard() {
-  var key    = PropertiesService.getUserProperties().getProperty('CLAUDE_API_KEY');
-  var status = key ? '✅ Active — Claude Haiku connected' : '⚠️ API key not set — run initHud() once';
-
-  return CardService.newCardBuilder()
-    .setHeader(CardService.newCardHeader()
-      .setTitle('⚡ Thunderbird HUD')
-      .setSubtitle('Dreams2Memories Travel · Wing v1.0'))
-    .addSection(CardService.newCardSection()
-      .setHeader('Status')
-      .addWidget(CardService.newDecoratedText().setTopLabel('Wing Intel').setText(status))
-      .addWidget(CardService.newDecoratedText().setTopLabel('Coverage').setText('All incoming email — unconditional'))
-      .addWidget(CardService.newDecoratedText().setTopLabel('Model').setText('Claude Haiku (fast triage)'))
-    )
-    .build();
-}
-
-// ─── one-time setup (run from Apps Script editor) ────────────────────────────
-
-/**
- * initHud — stores Claude API key securely in PropertiesService.
- * Run ONCE from the Apps Script editor: select initHud → Run.
- * Key never appears in code or git. Encrypted per-user.
- *
- * The setup script (setup_hud_apikey.py) runs this automatically.
- */
-function initHud(apiKey) {
-  if (!apiKey || apiKey.indexOf('sk-ant') !== 0) {
-    Logger.log('ERROR: Pass a valid Anthropic API key beginning with sk-ant');
-    return;
-  }
-  PropertiesService.getUserProperties().setProperty('CLAUDE_API_KEY', apiKey);
-  Logger.log('✅ Thunderbird HUD active. Wing Intel enabled.');
-  Logger.log('Open Gmail on phone — HUD card appears on next email open.');
-}
-
-/** checkSetup — verify API key status */
-function checkSetup() {
-  var key = PropertiesService.getUserProperties().getProperty('CLAUDE_API_KEY');
-  if (key) {
-    Logger.log('✅ API key: SET (' + key.substring(0, 12) + '...)');
-  } else {
-    Logger.log('❌ API key: NOT SET. Run: initHud("sk-ant-...")');
-  }
 }
