@@ -5,8 +5,8 @@
 
 | Month | Review Date | Wing Robustness % | Green | Yellow | Red | Red-Flag Persona | Decision |
 |-------|------------|-------------------|-------|--------|-----|------------------|----------|
-| 2026-06 | 2026-06-19 (retroactive to Jun 1) | 76.2% | 10 | 6 | 0 | A2 Dembe | Baseline established; data infrastructure activation pending Jul 1. Deliverable: `/home/john/Thunderbird/output/executor_results/MISSION-073_20260619.md` |
-| 2026-07 | 2026-07-01 | PENDING | — | — | — | — | SCHEDULED |
+| 2026-06 | 2026-06-19 (retroactive to Jun 1) | 73.8% | 12 | 7 | 1 | HALE (Decision Velocity RED) | Coaching approved: (1) HALE Decision Velocity redefine + cross-channel logging by 2026-07-01; (2) STERLING framework adoption training (2 non-adopting personas) by 2026-06-28; (3) STERLING unblock 1 in-progress lesson by 2026-06-25. Automation recommendations prioritized for July. Deliverable: `/home/john/Thunderbird/output/executor_results/MISSION-073_20260619.md` |
+| 2026-07 | 2026-07-01 | PENDING | — | — | — | — | SCHEDULED (on-time, 30 min) |
 
 ---
 
@@ -5190,3 +5190,20 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Dissents logged:** None. Commander confirmed all 420 ratings.
 
 **Logged by:** V. Hale, VCS · 2026-06-19
+
+---
+
+## 2026-06-20 — ELON Role Enhanced: Technology Vanguard Mandate
+
+**Decision:** Per Commander directive ("I want ELON's role enhanced — go back to what I said yesterday about technology implementation and how much more aggressive we need to be in adopting new technology and leading our sector, not following the tail of the dog"), ELON (A12) role expanded from subtractive-only (kill audit) to a **dual engine**: kill audit + Technology Vanguard.
+
+**Source:** Commander 2026-06-19 (Telegram, verbatim): *"Be aggressive… make up missed ground from our competitors and take advantage of every single innovation that makes sense."* + 2026-06-20 sector-leadership directive. Builds on the 2026-06-19 Forward Observer expansion and the tool-discovery-gap ownership.
+
+**What changed:**
+- `Personas/a12_elon_personality.md` — added "⚡ TECHNOLOGY VANGUARD MANDATE" section; updated header + closing tagline to "Kill Audit + Technology Vanguard."
+- ELON now runs frontier scouting every OODA cycle: find → formalize to mission board same day → execute → report. Adopt/Watch → Telegram page. Lead the sector; close the tool-discovery gap.
+- Gate unchanged: Sterling gates complexity/cost on the *build*, not the scouting. Commander owns all financial commitments. Scouting runs unfiltered.
+
+**Confidence:** Directive is explicit. No dissent.
+
+**Logged by:** V. Hale, VCS · 2026-06-20
