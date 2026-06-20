@@ -38,3 +38,12 @@ def test_should_not_dispatch_within_cooldown():
 def test_should_dispatch_after_cooldown():
     state = {"x.service": {"last_dispatch": (NOW - timedelta(minutes=45)).isoformat()}}
     assert should_dispatch("x.service", state=state, now=NOW, cooldown_min=30) is True
+
+
+def test_band_restarts_uses_delta_not_cumulative():
+    # cumulative NRestarts huge, but ZERO new restarts since last scan → clean
+    from core.ci.self_observability import band_restarts
+    tripped, _ = band_restarts({"nrestarts": 50027, "restarts_recent": 0})
+    assert tripped is False
+    tripped2, _ = band_restarts({"nrestarts": 50027, "restarts_recent": 6})
+    assert tripped2 is True

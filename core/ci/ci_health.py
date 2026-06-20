@@ -4,6 +4,7 @@ replacement-trigger override, records history, writes the dashboard, and
 returns page-worthy degradations.
 """
 from __future__ import annotations
+import fcntl
 import json
 import subprocess
 import time
@@ -44,10 +45,14 @@ def _history_path(skill_id: str) -> Path:
 def _append_history(skill_id: str, entry: dict) -> list[dict]:
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     p = _history_path(skill_id)
-    lines = p.read_text().splitlines() if p.exists() else []
-    lines.append(json.dumps(entry))
-    lines = lines[-HISTORY_KEEP:]
-    p.write_text("\n".join(lines) + "\n")
+    with open(p, "a+") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        f.seek(0)
+        lines = f.read().splitlines()
+        lines.append(json.dumps(entry))
+        lines = lines[-HISTORY_KEEP:]
+        f.seek(0); f.truncate()
+        f.write("\n".join(lines) + "\n")
     return [json.loads(l) for l in lines if l.strip()]
 
 
@@ -93,7 +98,9 @@ def sweep(registry_path: Path = DEFAULT_REGISTRY, update_verified: bool = True) 
                         "fallback": s["fallback"], "replace_reason": replace_reason,
                         "active_workaround": s.get("active_workaround")})
     if update_verified:
-        Path(registry_path).write_text(json.dumps(reg, indent=2) + "\n")
+        with open(registry_path, "w") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            f.write(json.dumps(reg, indent=2) + "\n")
     return results
 
 

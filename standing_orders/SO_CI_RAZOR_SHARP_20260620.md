@@ -52,14 +52,17 @@ REPLACE is more severe than DULL/RED: RED = down now (may recover); DULL = curre
 
 `scripts/ci_sweep.py` runs daily (systemd `ci-sweep.timer`). DULL/RED/REPLACE pages **Whetstone (A14)**. If a client-affecting CI skill (portal-access, credential-keepalive) is RED or REPLACE → escalate to Commander. Dashboard: `output/CI_DASHBOARD.md`.
 
-## OWNERSHIP
+## OWNERSHIP — HALE IS ACCOUNTABLE (Commander directive 2026-06-20)
 
-| Function | Owner |
+**Hale owns the ENTIRE CI process — health, maintenance, improvement. Accountability is NOT delegable; only tasks are.** Hale delegates execution to the owners below but retains responsibility, and **must be made aware of every engage/escalate** — the F2T2EA sentinel writes them to `OpsCenter/ci_awareness.jsonl`, which Hale reads in the OODA Observe phase + surfaces in the morning brief. The 10-hour blind spot (2026-06-20) happened because nothing reached the accountable party; that does not recur.
+
+| Delegated task (Hale stays accountable) | Delegate |
 |---|---|
 | Discovery / ID (what to adopt, what to kill) | ELON (A12) |
-| Access-intel (how to get in, bot-walls, proxy) | Dembe (A2) |
+| ISR / F2T2EA kill-chain run + access-intel (bot-walls, proxy) | Dembe (A2) |
 | Gate (complexity, cost, metrics, SLA) | Sterling (A7) |
-| Currency / updating / integration / burn-down | **Whetstone (A14)** |
+| Currency / updating / integration / Engage-repair / burn-down | Whetstone (A14) |
+| **Accountable owner — entire CI process** | **Hale (VCS)** |
 
 ## ⚠️ HALE CI EXECUTION AUTHORITY (Commander directive 2026-06-20)
 

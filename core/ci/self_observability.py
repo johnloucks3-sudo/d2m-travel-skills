@@ -62,8 +62,10 @@ def is_escalation(agent_output: str) -> bool:
 # Fusion across bands is what single-band liveness monitoring missed for 10 hours.
 
 def band_restarts(r: dict) -> tuple[bool, str]:
-    n = r.get("nrestarts", 0)
-    return (n >= RESTART_THRESHOLD, f"{n} restarts (>= {RESTART_THRESHOLD})")
+    # Use restarts SINCE last scan (delta), not cumulative NRestarts — a one-time
+    # historical 50k must not perma-trigger. recent >= threshold = a live crash loop.
+    n = r.get("restarts_recent", r.get("nrestarts", 0))
+    return (n >= RESTART_THRESHOLD, f"{n} restarts since last scan (>= {RESTART_THRESHOLD})")
 
 
 def band_error_rate(r: dict) -> tuple[bool, str]:
@@ -110,10 +112,17 @@ def fuse(reading: dict) -> list[str]:
 
 # ---------- integration ----------
 
+import fcntl
+
+BASELINE_PATH = Path("/home/john/Thunderbird/config/ci_restart_baseline.json")
+
+
 def _load_state() -> dict:
     if STATE_PATH.exists():
         try:
-            return json.loads(STATE_PATH.read_text())
+            with open(STATE_PATH, "r") as f:
+                fcntl.flock(f, fcntl.LOCK_SH)
+                return json.load(f)
         except Exception:
             return {}
     return {}
@@ -121,7 +130,24 @@ def _load_state() -> dict:
 
 def _save_state(state: dict) -> None:
     STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    STATE_PATH.write_text(json.dumps(state, indent=2) + "\n")
+    with open(STATE_PATH, "w") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        f.write(json.dumps(state, indent=2) + "\n")
+
+
+def _load_baseline() -> dict:
+    try:
+        return json.loads(BASELINE_PATH.read_text())
+    except Exception:
+        return {}
+
+
+def _save_baseline(b: dict) -> None:
+    try:
+        BASELINE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        BASELINE_PATH.write_text(json.dumps(b) + "\n")
+    except Exception:
+        pass
 
 
 def _nrestarts(unit: str) -> int:
@@ -169,15 +195,21 @@ def _unit_state(unit: str) -> tuple[str, str]:
         return "", ""
 
 
-def _list_units() -> list[str]:
+def _list_units() -> list[str] | None:
+    """Return the service list, or None on systemctl FAILURE (NOT empty list).
+    None is critical: an empty 'all clean' on a failed query is the exact blind
+    spot this tool exists to prevent."""
     try:
         r = subprocess.run(["systemctl", "--user", "list-units", "--type=service",
                             "--all", "--no-legend", "--plain", "--no-pager"],
                            capture_output=True, text=True, timeout=15)
-        return [ln.split()[0] for ln in (r.stdout or "").splitlines()
-                if ln.strip() and ln.split()[0].endswith(".service")]
+        if r.returncode != 0:
+            return None
+        units = [ln.split()[0] for ln in (r.stdout or "").splitlines()
+                 if ln.strip() and ln.split()[0].endswith(".service")]
+        return units if units else None  # zero services = systemctl is lying; treat as failure
     except Exception:
-        return []
+        return None
 
 
 def _reading(unit: str) -> dict:
@@ -194,28 +226,48 @@ def _reading(unit: str) -> dict:
     }
 
 
+class OverwatchBlind(RuntimeError):
+    """systemctl/journalctl query failed — the watcher is blind. Never silently 'clean'."""
+
+
 def scan() -> list[dict]:
-    """OVERWATCH — multispectral sweep of all user services. Returns fused breaches."""
+    """OVERWATCH — multispectral sweep of all user services. Returns fused breaches.
+    Raises OverwatchBlind if the sensor (systemctl) failed — callers must escalate,
+    NOT treat as clean."""
+    units = _list_units()
+    if units is None:
+        raise OverwatchBlind("systemctl --user list-units failed — overwatch is blind")
+    baseline = _load_baseline()
+    new_baseline = {}
     breaches = []
-    for unit in _list_units():
+    for unit in units:
         r = _reading(unit)
+        cur = r["nrestarts"]
+        prior = baseline.get(unit, cur)            # first sight: delta 0 (no historical false-trigger)
+        r["restarts_recent"] = max(0, cur - prior)  # restarts since last scan
+        new_baseline[unit] = cur
         reasons = fuse(r)
         if reasons:
             breaches.append({**r, "reasons": reasons})
+    _save_baseline(new_baseline)
     return breaches
 
 
 def assess(unit: str) -> dict:
     """ASSESS (BDA) — re-read the unit's spectra after a repair. Verify the strike
     achieved the effect; do NOT trust the agent's self-report. resolved=True only
-    if every band is now clean."""
+    if every band is now clean. Uses restart-DELTA vs the saved baseline so a fixed
+    service (no NEW restarts) reads clean even if cumulative NRestarts is still high."""
     r = _reading(unit)
+    baseline = _load_baseline().get(unit, r["nrestarts"])
+    r["restarts_recent"] = max(0, r["nrestarts"] - baseline)
     residual = fuse(r)
     return {"unit": unit, "resolved": not residual, "residual": residual, "reading": r}
 
 
 ALERT_TIER = "sonnet"          # the alert bird's capability (fix-grade reasoning)
 QRA_FLIGHT_SIZE = 3            # max scrambles per sentinel cycle (a storm waits its turn)
+MANAGED_STRIKE_TIMEOUT_S = 300  # hard cap on a managed strike (< 10-min timer) — CRIT-2
 
 
 def _fix_prompt(breach: dict) -> str:
@@ -231,7 +283,9 @@ def _fix_prompt(breach: dict) -> str:
         f"1. journalctl --user -u {unit} -n 80 --no-pager  (read the actual error)\n"
         f"2. systemctl --user cat {unit}  (inspect the unit/ExecStart)\n"
         f"3. Diagnose ROOT CAUSE (bad config, port conflict, stale token, quoting bug, etc.)\n"
-        f"4. FIX it (edit config/unit, daemon-reload, restart) and VERIFY the loop stopped.\n"
+        f"4. FIX it (edit config/unit, daemon-reload, restart). Then run "
+        f"`systemctl --user reset-failed {unit}` to clear the cumulative restart counter "
+        f"(REQUIRED — otherwise the watcher re-triggers on the stale count). VERIFY the loop stopped.\n"
         f"5. Append a short entry to hale_decisions.md.\n"
         f"CONSTRAINTS: do NOT modify the 6 protected email/relay files; do NOT spend money; "
         f"do NOT send client email. If the fix REQUIRES sudo (system unit), a purchase, or a "
@@ -259,10 +313,17 @@ def dispatch_remediation(breach: dict) -> dict:
     headless spawn if the managed API is unavailable (slow strike beats no strike)."""
     unit = breach["unit"]
     prompt = _fix_prompt(breach)
-    # Primary: scramble the managed-agent alert bird (fast).
+    # Primary: scramble the managed-agent alert bird (fast) — under a HARD wall-clock
+    # timeout so a hung managed API can never wedge the oneshot sentinel (CRIT-2).
     try:
+        import concurrent.futures
         from core.ai_infra.managed_agent_client import WingAgentClient
-        res = WingAgentClient().run_task(prompt, tier=ALERT_TIER, label=f"ci-fix-{unit}")
+
+        def _strike():
+            return WingAgentClient().run_task(prompt, tier=ALERT_TIER, label=f"ci-fix-{unit}")
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+            res = ex.submit(_strike).result(timeout=MANAGED_STRIKE_TIMEOUT_S)
         output = res.get("output", "")
         return {"unit": unit, "dispatched": True, "via": "managed_alert",
                 "escalate": is_escalation(output), "cost_usd": res.get("cost_usd"),
@@ -282,6 +343,25 @@ def dispatch_remediation(breach: dict) -> dict:
                     "escalate": False}
         except Exception as e2:
             return {"unit": unit, "dispatched": False, "error": f"managed:{e} headless:{e2}"}
+
+
+HALE_AWARENESS_LOG = Path("/home/john/Thunderbird/OpsCenter/ci_awareness.jsonl")
+
+
+def notify_hale(event: str, unit: str, detail: str) -> None:
+    """Make the ACCOUNTABLE owner (Hale) aware. Commander directive 2026-06-20:
+    Hale owns the entire CI process and retains responsibility even when the task
+    is delegated/automated — so every engage + escalate is logged to a feed Hale
+    reads in the OODA Observe phase + morning brief. Awareness is non-negotiable;
+    the 10-hour blind spot happened because nothing reached the accountable party."""
+    try:
+        HALE_AWARENESS_LOG.parent.mkdir(parents=True, exist_ok=True)
+        rec = {"ts": datetime.now(timezone.utc).isoformat(),
+               "event": event, "unit": unit, "detail": detail[:500]}
+        with open(HALE_AWARENESS_LOG, "a") as fh:
+            fh.write(json.dumps(rec) + "\n")
+    except Exception:
+        pass  # awareness logging must never break the kill chain
 
 
 def escalate_to_commander(unit: str, detail: str) -> bool:

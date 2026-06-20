@@ -24,7 +24,7 @@ def rolling_received(entries: list[dict], as_of: date) -> float:
     return round(sum(
         float(e.get("d2m_received_usd", 0.0))
         for e in entries
-        if cutoff < _parse(e["date"]) <= as_of
+        if "date" in e and cutoff < _parse(e["date"]) <= as_of
     ), 2)
 
 

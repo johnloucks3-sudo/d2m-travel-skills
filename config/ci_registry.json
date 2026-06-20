@@ -147,13 +147,21 @@
       "latency_sla_ms": 120000,
       "fallback": "manual ci_sentinel.py --dry-run review",
       "active_workaround": null,
-      "last_verified": null,
+      "last_verified": "2026-06-20T16:54:43.787094+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "doctrine": "F2T2EA: Find(overwatch scan)->Fix(pinpoint unit+bands)->Track(custody/cooldown)->Target(arm alert bird, clear-to-engage)->Engage(scramble managed agent, repair)->Assess(BDA re-scan). Pages Commander ONLY on escalation (sudo/spend/client-send).",
-      "killchain_owner": "dembe",
       "engage_owner": "whetstone",
-      "ownership_doctrine": "F2T2EA owner = Dembe (A2): the kill chain is an ISR-led targeting cycle (JP 3-60). Dembe owns Find/Fix/Track + Assess/BDA (the sensing + damage assessment). Whetstone (A14) owns Engage (repair execution) + keeps the weapon/tool razor-sharp. Sterling (A7) gates thresholds/SLA. ELON (A12) forward-observes better sensors. Single integrating authority = Dembe."
+      "ownership_doctrine": "F2T2EA owner = Dembe (A2): the kill chain is an ISR-led targeting cycle (JP 3-60). Dembe owns Find/Fix/Track + Assess/BDA (the sensing + damage assessment). Whetstone (A14) owns Engage (repair execution) + keeps the weapon/tool razor-sharp. Sterling (A7) gates thresholds/SLA. ELON (A12) forward-observes better sensors. Single integrating authority = Dembe.",
+      "accountable_owner": "hale",
+      "delegates": {
+        "isr_killchain": "dembe",
+        "engage_currency": "whetstone",
+        "gate": "sterling",
+        "innovation": "elon"
+      }
     }
-  ]
+  ],
+  "accountable_owner": "hale",
+  "accountability_doctrine": "Hale owns the entire CI process \u2014 health, maintenance, improvement. Accountability is NOT delegable; only tasks are. Persona owners (ELON=ID, Dembe=ISR/killchain, Whetstone=currency/engage, Sterling=gate) execute delegated tasks; Hale retains responsibility and MUST be made aware of every engage/escalate (OpsCenter/ci_awareness.jsonl \u2192 OODA Observe + morning brief). The 10-hour blind spot happened because nothing reached the accountable party."
 }

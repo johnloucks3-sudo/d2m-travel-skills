@@ -28,7 +28,8 @@ from datetime import datetime, timezone
 sys.path.insert(0, "/home/john/Thunderbird")
 from core.ci.self_observability import (
     scan, assess, arm_alert, dispatch_remediation, escalate_to_commander,
-    should_dispatch, is_escalation, _load_state, _save_state, QRA_FLIGHT_SIZE)
+    should_dispatch, is_escalation, notify_hale, OverwatchBlind,
+    _load_state, _save_state, QRA_FLIGHT_SIZE)
 
 
 def main():
@@ -41,7 +42,14 @@ def main():
     log = []
 
     # FIND (overwatch) + FIX (pinpoint)
-    breaches = scan()
+    try:
+        breaches = scan()
+    except OverwatchBlind as e:
+        # The sensor failed — NEVER report 'clean'. Make Hale aware + escalate.
+        notify_hale("OVERWATCH_BLIND", "sentinel", str(e))
+        escalate_to_commander("ci-sentinel", f"Overwatch blind: {e}")
+        print(f"🔴 OVERWATCH BLIND: {e}", file=sys.stderr)
+        return 3
     if not breaches:
         if args.json:
             print(json.dumps({"status": "clean", "breaches": []}))
@@ -74,14 +82,22 @@ def main():
             log.append(entry)
             continue
 
-        # ENGAGE — scramble the alert bird (managed agent repairs root cause)
-        strike = dispatch_remediation(b)
+        # ENGAGE — scramble the alert bird under a PRIORITY WINDOW so the fixer
+        # preempts routine timer traffic (the starvation that timed out Commander comms).
+        from core.ci.model_priority import priority_window
+        with priority_window("hale-ci", f"CI remediation: {unit}", owner_class="ci", ttl_seconds=240):
+            strike = dispatch_remediation(b)
+        # Persist cooldown IMMEDIATELY — a crash after dispatch must not lose custody (IMPORT-3)
         state.setdefault(unit, {})["last_dispatch"] = now.isoformat()
+        _save_state(state)
         engaged += 1
         entry["engage"] = {"via": strike.get("via"), "dispatched": strike.get("dispatched")}
+        # AWARENESS — the accountable owner (Hale) is told of every engagement
+        notify_hale("ENGAGE", unit, f"bands: {'; '.join(b['reasons'])}; via {strike.get('via')}")
 
         if not strike.get("dispatched"):
             escalate_to_commander(unit, f"fixer could not launch: {strike.get('error')}")
+            notify_hale("ESCALATE", unit, f"fixer could not launch: {strike.get('error')}")
             entry["phase"] = "ENGAGE FAILED → escalated to Commander"
             log.append(entry)
             continue
@@ -92,11 +108,13 @@ def main():
             bda = assess(unit)
             entry["assess"] = {"resolved": bda["resolved"], "residual": bda["residual"]}
             if bda["resolved"] and not agent_said_escalate:
+                notify_hale("RESOLVED", unit, "target neutralized (all bands clean)")
                 entry["phase"] = "ASSESS: ✅ target neutralized (all bands clean)"
             else:
                 detail = ("agent requested escalation; " if agent_said_escalate else "") + \
                          (f"residual: {bda['residual']}" if bda["residual"] else "")
                 escalate_to_commander(unit, detail)
+                notify_hale("ESCALATE", unit, detail)
                 entry["phase"] = "ASSESS: ✗ not neutralized → escalated to Commander"
         else:
             # headless fallback is async/detached — BDA happens next cycle's FIND
@@ -113,7 +131,7 @@ def main():
             print(f"🎯 {e['unit']}: {'; '.join(e['bands'])}")
             print(f"    → {e.get('phase')}")
 
-    return 1
+    return 2  # breaches handled (distinct from 1=crash, 3=overwatch-blind)
 
 
 if __name__ == "__main__":
