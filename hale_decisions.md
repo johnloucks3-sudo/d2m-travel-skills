@@ -5207,3 +5207,21 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Confidence:** Directive is explicit. No dissent.
 
 **Logged by:** V. Hale, VCS · 2026-06-20
+
+---
+
+## 2026-06-20 — Critical Infrastructure (CI) Doctrine + Hale CI Authority
+
+**Context:** Commander directive to designate portal-access and other capabilities as Critical Infrastructure, build CI skills + paired CI tools, a razor-sharp currency policy, and a keeper persona. Plus four refinements (same session):
+
+1. **CI roster (5):** portal-access, web-fetch, headless-dispatch, credential-keepalive, tech-adoption. New persona **A14 Whetstone** owns currency/updating; ELON=ID, Dembe=access, Sterling=gate.
+2. **Replacement criteria (Commander "fail XXX times / undue delay → replace"):** REPLACE status if ANY: ≥3 consecutive failures · ≥5 failures/7 days · sustained latency (3 of last 5 over per-skill SLA) · spike (>3× SLA) · ≥2 consecutive timeouts.
+3. **Hale CI execution authority (Commander):** Hale may IMMEDIATELY direct CI refresh/revision/replacement/implementation — no Commander gate. Only financial commitment still reaches Commander. Preserves cutting edge; Commander not a bottleneck.
+4. **Zero-workaround standard (Commander "status quo of numerous fails and workarounds is unacceptable"):** a standing CI workaround = an unreplaced failing tool; must be registry-logged with burn-down; counts as a failure each sweep; goal = 0. Whetstone burns them down.
+
+**Plan:** `docs/superpowers/plans/2026-06-20-critical-infrastructure-skills-and-tools.md` (phased; 0=OA tracker, 1–2=registry+policy+persona+health/replacement engine, 3=research-gated tool upgrades, 4=verify).
+**Research:** `intel/CI_web_stack_research_20260620.md` (Dembe) — portal: Camoufox+clean residential IP (⚠️ proxy = Commander spend gate); enhancer: Trafilatura (free, adopt) + Jina (watch).
+
+**Open Commander gate:** residential-proxy / hosted-browser spend (the only thing not under Hale's new CI authority).
+
+**Logged by:** V. Hale, VCS · 2026-06-20
