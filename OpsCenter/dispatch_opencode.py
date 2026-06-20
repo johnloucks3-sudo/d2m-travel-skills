@@ -63,9 +63,8 @@ LOGS_DIR = ROOT / "logs"
 OUTPUT_DIR = ROOT / "output"
 
 MODEL_CHAIN = [
-    "opencode/big-pickle",
-    "opencode/deepseek-v4-flash-free",
-    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4-5-20251001",
+    "anthropic/claude-sonnet-4-6",
 ]
 
 

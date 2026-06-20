@@ -26,6 +26,9 @@ CLAUDE_SPAWN_WHITELIST = {
     "OpsCenter/metronome.py",
     # MAX proxy IS the approved Claude CLI wrapper for OpenCode — exempted by design.
     "OpsCenter/max_proxy.py",
+    # dispatch_opencode.py spawns the opencode binary (not claude). "claude" appears only
+    # in comments referencing "Claude Code" (the tool name). False positive on line-56 pattern.
+    "OpsCenter/dispatch_opencode.py",
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html

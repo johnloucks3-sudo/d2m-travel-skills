@@ -158,6 +158,18 @@ Add the new booking to the Client Wire table in the next AM brief. It will auto-
 | Regent Seven Seas | Nexion (host) | Varies | 70/30 or 80/20 | Check each booking's TA copy |
 | Viking Ocean | Nexion (host) | Varies | 80/20 | Check each booking's TA copy |
 
+### Outside Agents, LLC — Commission Tier Schedule (host agency for some D2M bookings)
+
+| Tier | Condition (12-month rolling net commissions) | D2M Split |
+|------|---------------------------------------------|-----------|
+| Standard | < $10,000 | **80%** |
+| 90% tier | $10,000 – $39,999 | **90%** |
+| 95% tier | $40,000+ | **95%** |
+
+*Source: Outside Agents FAQ + hostagencyreviews.com · Verified 2026-06-20*
+
+The tier upgrades automatically when rolling 12-month net commissions cross the threshold. Default D2M billing is 80% until threshold is confirmed reached.
+
 **Commission formula (Silversea):**
 ```
 Commissionable = Total Charge − Port Expenses/NCF
