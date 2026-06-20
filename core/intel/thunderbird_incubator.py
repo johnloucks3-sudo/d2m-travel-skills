@@ -188,29 +188,43 @@ def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
             raise RuntimeError(f"CLI returned unusable output: {output[:100]}")
         return output
     except Exception as e:
-        log.warning(f"Claude CLI unavailable ({e}) — falling back to OpenCode ZEN (deepseek-v4-flash-free)")
-        return _call_opencode_zen(prompt, system, max_tokens)
+        log.warning(f"Claude CLI (haiku) unavailable ({e}) — retrying on Claude Sonnet (MAX, $0)")
+        return _call_claude_sonnet_fallback(prompt, system, max_tokens)
 
 
-def _call_opencode_zen(prompt: str, system: str, max_tokens: int = 2000) -> str:
-    """Call OpenCode ZEN (deepseek-v4-flash-free) — free tier fallback when Claude CLI is unavailable."""
+def _call_claude_sonnet_fallback(prompt: str, system: str, max_tokens: int = 2000) -> str:
+    """Fallback on Claude Sonnet via CLI (MAX plan, $0) when the haiku call fails.
+
+    Commander directive 2026-06-20: research/incubator/tech-search must NOT use
+    opencode. The former OpenCode ZEN (deepseek-v4-flash-free) fallback is retired —
+    that model was broken and was the root cause of incubator search failures.
+    """
     import subprocess
-    opencode_bin = Path.home() / ".opencode" / "bin" / "opencode"
     full_prompt = f"{system}\n\n---\n\n{prompt}"
+    env = os.environ.copy()
+    env.pop("ANTHROPIC_API_KEY", None)
+    env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
+    cmd = [
+        CLAUDE_CMD,
+        "--print",
+        "--model", "sonnet",
+        "--dangerously-skip-permissions",
+        "--output-format", "text",
+        "-p", "-",
+    ]
     try:
         result = subprocess.run(
-            [str(opencode_bin), "run", "-m", "opencode/deepseek-v4-flash-free", full_prompt],
-            capture_output=True,
-            text=True,
-            timeout=120,
+            cmd, input=full_prompt, capture_output=True,
+            text=True, timeout=180, env=env,
         )
         output = result.stdout.strip()
-        # Strip opencode header lines ("> build · deepseek-v4-flash-free")
-        lines = [l for l in output.splitlines() if not l.startswith(">") and l.strip()]
-        return "\n".join(lines).strip() or f"[ZEN empty response]"
+        if result.returncode != 0 or not output or "issue with the selected model" in output:
+            log.error(f"Claude Sonnet fallback failed (exit {result.returncode}): {result.stderr[:200]}")
+            return f"[Claude unavailable — incubator skipped this item]"
+        return output
     except Exception as e:
-        log.error(f"OpenCode ZEN failed: {e}")
-        return f"[ZEN unavailable: {e}]"
+        log.error(f"Claude Sonnet fallback failed: {e}")
+        return f"[Claude unavailable: {e}]"
 
 
 def _load_am_categories() -> list:

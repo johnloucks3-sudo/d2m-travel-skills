@@ -20,7 +20,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "output"
-DISPATCHER = ROOT / "OpsCenter" / "dispatch_opencode.py"
+# Staff consults (research/intel/incubator/strategy) run on claude -p via MAX OAuth,
+# NOT opencode. Commander directive 2026-06-20: research/incubator/tech-search must
+# not use opencode. dispatch_claude.py is interface-compatible (--task/--output/
+# --prompt/--foreground, returns JSON {status}).
+DISPATCHER = ROOT / "OpsCenter" / "dispatch_claude.py"
 
 
 def load_matrix_sections(matrix_file: Path) -> dict:
