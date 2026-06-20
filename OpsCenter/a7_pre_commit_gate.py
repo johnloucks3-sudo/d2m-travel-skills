@@ -29,6 +29,10 @@ CLAUDE_SPAWN_WHITELIST = {
     # dispatch_opencode.py spawns the opencode binary (not claude). "claude" appears only
     # in comments referencing "Claude Code" (the tool name). False positive on line-56 pattern.
     "OpsCenter/dispatch_opencode.py",
+    # self_observability.py: primary strike = managed-agent API (no spawn); the FALLBACK
+    # shells out to the APPROVED dispatch_claude.py wrapper (which routes through
+    # thunderbird_headless_spawn). Compliant — false positive on the Popen+"claude" heuristic.
+    "core/ci/self_observability.py",
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html

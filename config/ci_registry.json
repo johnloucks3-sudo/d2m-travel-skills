@@ -127,6 +127,33 @@
       "last_verified": "2026-06-20T13:53:46.139311+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
+    },
+    {
+      "id": "self-observability",
+      "name": "Armed Overwatch (Self-Observability F2T2EA)",
+      "ci_tool": "scripts/ci_sentinel.py + core/ci/self_observability.py (multispectral ISR + managed-agent alert bird)",
+      "wraps": [
+        "systemctl --user",
+        "journalctl",
+        "core/ai_infra/managed_agent_client.py"
+      ],
+      "id_owner": "elon",
+      "access_owner": "sterling",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import core.ci.self_observability\"",
+      "currency_window_hours": 1,
+      "reeval_cadence_days": 14,
+      "latency_sla_ms": 120000,
+      "fallback": "manual ci_sentinel.py --dry-run review",
+      "active_workaround": null,
+      "last_verified": null,
+      "last_reeval": "2026-06-20",
+      "status": "unknown",
+      "doctrine": "F2T2EA: Find(overwatch scan)->Fix(pinpoint unit+bands)->Track(custody/cooldown)->Target(arm alert bird, clear-to-engage)->Engage(scramble managed agent, repair)->Assess(BDA re-scan). Pages Commander ONLY on escalation (sudo/spend/client-send).",
+      "killchain_owner": "dembe",
+      "engage_owner": "whetstone",
+      "ownership_doctrine": "F2T2EA owner = Dembe (A2): the kill chain is an ISR-led targeting cycle (JP 3-60). Dembe owns Find/Fix/Track + Assess/BDA (the sensing + damage assessment). Whetstone (A14) owns Engage (repair execution) + keeps the weapon/tool razor-sharp. Sterling (A7) gates thresholds/SLA. ELON (A12) forward-observes better sensors. Single integrating authority = Dembe."
     }
   ]
 }
