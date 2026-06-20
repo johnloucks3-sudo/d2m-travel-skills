@@ -43,10 +43,20 @@ class TESSWriteClient(TESSClient):
         correct server-serialised Contact shape), then the encrypted tokens and
         company name fields are replaced with fresh values from GET /User.
         """
-        user_id = self.auth._tokens.get("userID")
+        user_id = self.auth._tokens.get("userID") or ""
+        if not user_id:
+            # userID missing from token file — extract from JWT payload
+            import base64 as _b64, json as _json
+            try:
+                payload_b64 = self.auth._tokens.get("access_token", "").split(".")[1]
+                payload_b64 += "=" * (-len(payload_b64) % 4)
+                payload = _json.loads(_b64.urlsafe_b64decode(payload_b64))
+                user_id = str(payload.get("UserID") or payload.get("userID") or "")
+            except Exception:
+                pass
 
-        # Fetch fresh encrypted tokens
-        fresh_user = self._api_request("GET", f"User?userID={user_id}")
+        # Fetch fresh encrypted tokens — TESS uses path param, not query string
+        fresh_user = self._api_request("GET", f"User/{user_id}")
         if "error" in fresh_user:
             raise TESSWriteError(f"Could not fetch User DTO: {fresh_user['error']}")
 
