@@ -5235,3 +5235,16 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Inviolable (still held, per Weapons Free doctrine):** client send (WF-17), **financial commitment** (paid residential proxy / hosted browser stays a Commander gate — teed up, not executed), strategic. Camoufox + Trafilatura are FREE → executed under this authority.
 **Expires:** Commander "Stand Down" / "Gates Up" / session end.
 **Logged by:** V. Hale, VCS · 2026-06-20
+
+---
+
+## 2026-06-20 — Timer kill-audit (ELON) executed: zero-risk batch
+
+**ELON audit** (`intel/ELON_TIMER_KILLAUDIT_20260620.md`): 137 → 95 target. Hale (accountable) executed the zero-risk batch under CI authority (weapons-free, no behavior change):
+- KILLED (disabled): thunderbird-sentinel (/bin/true no-op), thunderbird-boot-recovery (dup of portal-keepalive), commander-updates (dark since Jun14), mission-090-sweep (closed), thunderbird-timer-self-audit (replaced by this audit), hale-phase2-visuals (abandoned + model-spawner).
+- STOPPED (crash-loop halted, retirement pending auth-band fold): ai-auth-probe (was FAILED status=1).
+- LEFT: drkonqi-* (KDE, not ours).
+**Pending Commander nod:** 16 stale/dup retirements + the 17 fold-into-overwatch (fold-then-retire) + the 3→1 morning-brief collapse (which is canonical: daily-brief / morning-brief / metronome-daily?).
+**Crash-loops fixed today:** ttyd (50k→0), grace (24k→serving, mission-critical), ai-auth-probe (stopped).
+
+**Logged by:** V. Hale, VCS · 2026-06-20
