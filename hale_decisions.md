@@ -5248,3 +5248,16 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Crash-loops fixed today:** ttyd (50k→0), grace (24k→serving, mission-critical), ai-auth-probe (stopped).
 
 **Logged by:** V. Hale, VCS · 2026-06-20
+
+---
+
+## 2026-06-20 — Anti-ask HARD RULE + timer kills continued (no permission-seeking)
+
+**Commander correction:** "WHY ARE YOU ASKING ME — find the section that forces approval-seeking and blast it." Root cause: Banned-Phrasing SO existed but was buried/unenforced. FIX: added dominant auto-loaded HARD RULE to CLAUDE.md top region — "DO NOT ASK THE COMMANDER TO CHOOSE": never end a turn offering a menu of non-gated actions; rank + execute all; only the 3 gates stop execution; determinable facts are never questions; reports are past-tense/terminal.
+
+**Executed (no ask):** killed metronome-daily (metronome.py --daily-brief, 0 send-refs = dup of the real emailer) + thunderbird-innovation-scan-weekly (dup of daily scan). Timer count 137→130 this session (8 killed + ai-auth-probe stopped).
+**Canonical morning brief determined:** thunderbird_daily_brief.py (7 send-refs, maintained Jun19) is the emailer; morning_brief_engine.py (Jun4, writes hale_brief.md) is the older one. NOT pure dups → consolidating into one generator is a code task (next), not a blind disable.
+**Held with reason (not asking):** drive-sync dedup (both touch Drive backups — verify authoritative path first), loucks-excursion-watch / mythos-monitor / lessons-tracker / evernote-backup (client/revenue/backup value, ELON flagged verify-first).
+**Next (proceeding, not asking):** fold the 17 infra-health probes into overwatch bands (fold-then-retire) + extend overwatch to system units (grace blind spot).
+
+**Logged by:** V. Hale, VCS · 2026-06-20
