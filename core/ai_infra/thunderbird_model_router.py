@@ -14,11 +14,18 @@ import os
 log = logging.getLogger("thunderbird_router")
 
 # API Keys & Constants (used by task_processor and other modules)
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+# OPENROUTER_API_KEY retired 2026-06-15 (MISSION-267, Commander-approved). The key
+# is commented out in .env; os.getenv returns "" so every OpenRouter-routed path is
+# dead. Constant retained (empty) only so legacy importers don't ImportError; no live
+# code path should reach an OpenRouter call — see _call_openrouter_real() retirement.
+OPENROUTER_API_KEY = ""  # RETIRED MISSION-267 — do not re-enable; provider decommissioned
 XAI_API_KEY = os.getenv("XAI_API_KEY", "")
 
-# Model aliases (Groq eliminated 2026-04-28, replaced with OpenRouter models)
-DEEPSEEK_PRIMARY_MODEL = "qwen/qwen3.6-plus-04-02:free"
+# Model aliases. DEEPSEEK_PRIMARY_MODEL retained as a RETIRED sentinel because
+# OpsCenter/task_processor.py imports it at module scope (deleting breaks startup).
+# Value is a non-routable marker, NOT a real model ID — the OpenRouter lane it fed
+# is decommissioned (MISSION-267). The live reasoning lane is call_gemini_large_context.
+DEEPSEEK_PRIMARY_MODEL = "RETIRED-openrouter-MISSION-267"
 
 # Legacy task classification enum (for backward compatibility)
 class TaskType(Enum):
@@ -64,8 +71,8 @@ MODEL_STRATEGY = {
 
 
     ModelTier.GEMINI_VISION.value: {
-        "provider": "openrouter",
-        "model_id": "google/gemini-flash-2.5-lite:free",
+        "provider": "google_ai_direct",
+        "model_id": "gemini-2.5-flash-lite",
         "context": "1M tokens",
         "cost_per_M": 0.00,
         "input_cost": 0.00,
@@ -85,10 +92,11 @@ MODEL_STRATEGY = {
             "summarize",
             "ops_task"
         ],
-        "rationale": "OpenRouter free-tier Gemini Flash Lite. Provider kept as 'openrouter' so existing callers "
-                     "(thunderbird_incubator, opencode_headless_claude_dispatch) continue to work. "
-                     "Direct free-tier fallback (gemini_client) is wired separately in model_safeguards "
-                     "exception handler — not through this routing dict. 2026-06-01.",
+        "rationale": "REWIRED 2026-06-15 (MISSION-267): was OpenRouter free-tier "
+                     "'google/gemini-flash-2.5-lite:free' (fabricated ID via retired provider). "
+                     "Now the LIVE direct-Google lane — gemini-2.5-flash-lite via "
+                     "core.ai_infra.gemini_client (GEMINI_API_KEY). Same lane the _call_* "
+                     "ops wrappers and call_gemini_large_context use.",
     },
 
     ModelTier.GEMINI_LARGE_CONTEXT.value: {
@@ -117,12 +125,12 @@ MODEL_STRATEGY = {
     },
 
     ModelTier.DEEPSEEK_OPTIMIZED.value: {
-        "provider": "openrouter",
-        "model_id": "qwen/qwen3.6-plus-04-02:free",
+        "provider": "google_ai_direct",
+        "model_id": "gemini-2.5-flash",
         "context": "1M tokens",
-        "cost_per_M": 0.305,
-        "input_cost": 0.435,
-        "output_cost": 0.87,
+        "cost_per_M": 0.00,
+        "input_cost": 0.00,
+        "output_cost": 0.00,
         "vision_support": False,
         "reasoning": True,
         "speed": "moderate",
@@ -132,12 +140,15 @@ MODEL_STRATEGY = {
             "non_vision_tasks",
             "cost_optimized_reasoning"
         ],
-        "rationale": "Lowest cost for pure reasoning; 1M context for standard tasks"
+        "rationale": "REWIRED 2026-06-15 (MISSION-267): was OpenRouter "
+                     "'qwen/qwen3.6-plus-04-02:free' (fabricated ID via retired provider). "
+                     "Now LIVE direct-Google gemini-2.5-flash (reasoning-capable, $0 free tier) "
+                     "via core.ai_infra.gemini_client. Tier name kept for CREW_MODEL_TIER compat."
     },
 
     ModelTier.FREE.value: {
-        "provider": "openrouter",
-        "model_id": "openrouter/free",
+        "provider": "google_ai_direct",
+        "model_id": "gemini-2.5-flash-lite",
         "context": "200K tokens",
         "cost_per_M": 0.00,
         "input_cost": 0,
@@ -151,8 +162,9 @@ MODEL_STRATEGY = {
             "templating",
             "non_critical"
         ],
-        "rate_limits": "20 req/min, 200 req/day",
-        "rationale": "Zero cost for non-critical tasks; use within rate limits only"
+        "rate_limits": "15 req/min, 1500 req/day (Google free tier)",
+        "rationale": "REWIRED 2026-06-15 (MISSION-267): was OpenRouter 'openrouter/free'. "
+                     "Now LIVE direct-Google gemini-2.5-flash-lite free tier."
     }
 }
 
@@ -336,98 +348,137 @@ def register_router_tools() -> dict:
 
 
 def _call_openrouter_real(system_prompt: str, query: str,
-                          model: str = "google/gemini-3.1-flash-lite-preview-20260303",
+                          model: str = "RETIRED-openrouter-MISSION-267",
                           temperature: float = 0.7, max_tokens: int = 2000) -> str:
     """
-    Live OpenRouter call — uses OPENROUTER_API_KEY from environment.
-    Default model: Gemini 3.1 Flash Lite (crew standard for ops tasks, ~$0.01/gen).
+    RETIRED 2026-06-15 (MISSION-267, Commander-approved). The OpenRouter provider
+    was decommissioned and OPENROUTER_API_KEY removed from .env. This function used
+    to issue live OpenRouter calls; it now fails loud rather than silently raising a
+    generic 'key not set' that callers swallowed into native-Claude fallback.
+
+    Live replacements:
+      - Ops / fast text  → core.ai_infra.gemini_client.call_gemini_lite (direct Google)
+      - Large context    → call_gemini_large_context (Gemini 2.5 Pro, direct Google)
+    Do NOT re-introduce OpenRouter. Retirement stands.
     """
-    import urllib.request, json as _json
-    api_key = OPENROUTER_API_KEY
-    if not api_key:
-        raise RuntimeError("OPENROUTER_API_KEY not set")
-    messages = []
-    if system_prompt:
-        messages.append({"role": "system", "content": system_prompt})
-    messages.append({"role": "user", "content": query})
-    payload = _json.dumps({
-        "model": model,
-        "messages": messages,
-        "max_tokens": max_tokens,
-        "temperature": temperature,
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://d2mluxury.quest",
-            "X-Title": "Thunderbird Wing",
-        },
+    raise RuntimeError(
+        "OpenRouter provider RETIRED 2026-06-15 (MISSION-267). "
+        "_call_openrouter_real is decommissioned — no live OpenRouter path exists. "
+        "Use gemini_client.call_gemini_lite (ops) or call_gemini_large_context (large) instead."
     )
-    resp = urllib.request.urlopen(req, timeout=60)
-    data = _json.loads(resp.read())
-    result = data["choices"][0]["message"]["content"]
-    log.info("_call_openrouter_real: %d chars via %s", len(result), model)
-    return result
 
 
 # ── Crew-aware model selection ────────────────────────────────────────────────
-_GEMINI_FLASH_LITE = "google/gemini-3.1-flash-lite-preview-20260303"
-_GROK_FAST         = "x-ai/grok-4.3"
+# OpenRouter Gemini/Grok model aliases RETIRED 2026-06-15 (MISSION-267).
+# The ops-text wrappers below now route to the LIVE direct-Google lane
+# (core.ai_infra.gemini_client) — same lane call_gemini_large_context uses.
+
+
+def _call_gemini_lite_direct(system_prompt: str, query: str,
+                             temperature: float = 0.7, max_tokens: int = 2000,
+                             caller: str = "router") -> str:
+    """LIVE ops lane: Gemini 2.5 Flash-Lite via direct Google AI API (GEMINI_API_KEY).
+    Replaces the retired OpenRouter Gemini Flash Lite path (MISSION-267).
+    gemini_client handles rate-limiting, Harlan cost logging, and flash fallback.
+    """
+    from core.ai_infra.gemini_client import call_gemini_lite
+    return call_gemini_lite(
+        system_prompt=system_prompt,
+        user_prompt=query,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        caller=caller,
+    )
 
 
 def _call_claude(system_prompt: str, query: str, model: str = "sonnet",
                   temperature: float = 0.7, max_tokens: int = 2000) -> str:
+    """Ops-text wrapper (name kept for backward compat). REWIRED 2026-06-15
+    (MISSION-267): OpenRouter retired → direct-Google Gemini Flash-Lite."""
+    return _call_gemini_lite_direct(system_prompt, query,
+                                    temperature=temperature, max_tokens=max_tokens,
+                                    caller="_call_claude")
+
+
+def _call_groq_direct(system_prompt: str, query: str,
+                      temperature: float = 0.7, max_tokens: int = 2000,
+                      model: str = "llama-3.1-8b-instant",
+                      caller: str = "_call_groq_direct") -> str:
+    """LIVE: Groq direct API — ultra-fast small-context classify/triage lane.
+    Key: GROQ_API_KEY. Model: llama-3.1-8b-instant (free tier, 131K ctx).
+    Wired 2026-06-21 (integrate-all-59 C31).
+    Falls back to Gemini Flash-Lite on missing key or API error.
     """
-    Claude call — routes to OpenRouter Gemini Flash Lite for ops tasks.
-    Falls back to Grok on rate-limit. Named _call_claude for backward compat.
-    """
+    groq_key = os.getenv("GROQ_API_KEY", "")
+    if not groq_key:
+        log.warning("%s: GROQ_API_KEY not set, falling back to Gemini Flash-Lite", caller)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
     try:
-        return _call_openrouter_real(system_prompt, query,
-                                     model=_GEMINI_FLASH_LITE,
-                                     temperature=temperature,
-                                     max_tokens=max_tokens)
-    except Exception as e:
-        log.warning("Gemini Flash Lite failed (%s), falling back to Grok", e)
-        return _call_openrouter_real(system_prompt, query,
-                                     model=_GROK_FAST,
-                                     temperature=temperature,
-                                     max_tokens=max_tokens)
+        from groq import Groq
+        client = Groq(api_key=groq_key)
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query},
+            ],
+            temperature=temperature,
+            max_tokens=max_tokens,
+        )
+        return resp.choices[0].message.content or ""
+    except Exception as exc:
+        log.warning("%s: Groq error (%s), falling back to Gemini Flash-Lite", caller, exc)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
 
 
 def _call_groq(system_prompt: str, query: str, model: str = "fast",
                temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """Backward compat: routes to Gemini Flash Lite (Groq eliminated 2026-04-28)."""
-    return _call_claude(system_prompt, query, model, temperature, max_tokens)
+    """LIVE classify/triage lane via Groq (llama-3.1-8b-instant).
+    Rewired 2026-06-21: was Gemini stub (post MISSION-267); now real Groq
+    with Gemini Flash-Lite fallback. Key: GROQ_API_KEY."""
+    return _call_groq_direct(system_prompt, query,
+                             temperature=temperature, max_tokens=max_tokens,
+                             caller="_call_groq")
 
 
 def _call_gemini(system_prompt: str, query: str, model: str = "vision",
                  temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """Backward compat: routes to Gemini Flash Lite via OpenRouter."""
-    return _call_openrouter_real(system_prompt, query,
-                                 model=_GEMINI_FLASH_LITE,
-                                 temperature=temperature,
-                                 max_tokens=max_tokens)
+    """Backward compat. REWIRED 2026-06-15 (MISSION-267): OpenRouter retired →
+    direct-Google Gemini Flash-Lite (the live, healthy lane)."""
+    return _call_gemini_lite_direct(system_prompt, query,
+                                    temperature=temperature, max_tokens=max_tokens,
+                                    caller="_call_gemini")
 
 
 def _call_openrouter(system_prompt: str, query: str, model: str = "grok",
                      temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """Backward compat: routes to Gemini Flash Lite (real OpenRouter call)."""
-    return _call_openrouter_real(system_prompt, query,
-                                 model=_GEMINI_FLASH_LITE,
-                                 temperature=temperature,
-                                 max_tokens=max_tokens)
+    """Backward compat. The OpenRouter provider is RETIRED (MISSION-267); this
+    ops-text wrapper behaved as a Gemini Flash-Lite proxy, so it is REWIRED
+    2026-06-15 to the live direct-Google Gemini Flash-Lite lane rather than
+    failing — callers depend on ops text, not on the OpenRouter transport."""
+    return _call_gemini_lite_direct(system_prompt, query,
+                                    temperature=temperature, max_tokens=max_tokens,
+                                    caller="_call_openrouter")
 
 
 def _call_grok(system_prompt: str, query: str, model: str = "fast",
                temperature: float = 0.7, max_tokens: int = 2000) -> str:
-    """Backward compat: routes to Grok 4.1 Fast via OpenRouter."""
-    return _call_openrouter_real(system_prompt, query,
-                                 model=_GROK_FAST,
-                                 temperature=temperature,
-                                 max_tokens=max_tokens)
+    """RETIRED 2026-06-15 (MISSION-267). Grok was only reachable via the
+    decommissioned OpenRouter transport; there is NO live direct xAI path wired
+    in this tree, so this FAILS LOUD rather than silently degrading. All known
+    callers (price_monitor, scheduler) gate this behind `if XAI_API_KEY:` and
+    fall back to native Claude/Anthropic on exception, so the loud failure is
+    caught cleanly downstream. Do NOT build a new direct-xAI path here — that is
+    feature work, out of decommission scope."""
+    raise RuntimeError(
+        "_call_grok RETIRED 2026-06-15 (MISSION-267): OpenRouter decommissioned and "
+        "no live direct xAI/Grok path is wired. Callers should fall back to native "
+        "Claude (price extraction) — see price_monitor.py / scheduler.py XAI_API_KEY gate."
+    )
 
 
 def classify_task(prompt: str) -> str:
@@ -480,8 +531,8 @@ if __name__ == "__main__":
     result = route_model("testing")
     print(f"Test 4 (free): {result['model_id']}")
 
-    # Cost estimate
-    cost = estimate_cost(ModelTier.GROK_2M.value, input_tokens=500_000, output_tokens=5_000)
-    print(f"\nCost estimate (Grok 2M, 500K input, 5K output): ${cost['total_cost']}")
+    # Cost estimate (GROK_2M tier retired — use live large-context tier)
+    cost = estimate_cost(ModelTier.GEMINI_LARGE_CONTEXT.value, input_tokens=500_000, output_tokens=5_000)
+    print(f"\nCost estimate (Gemini Large Context, 500K input, 5K output): ${cost['total_cost']}")
 
     print("\n✅ Router initialized\n")
