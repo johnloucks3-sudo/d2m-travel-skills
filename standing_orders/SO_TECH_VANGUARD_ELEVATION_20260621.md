@@ -36,6 +36,16 @@ The *only* control retained inside the adoption-biased posture, framed as a laun
 - This is not a new brake: live client *send* is already Commander-gated (WF-17), so the canary targets **PII-handling / client-content-prep** tools that would otherwise enter unvetted. It costs zero capability-tool tempo.
 - **Owner:** Sterling defines and runs the canary criterion. Rationale: a 1-advisor luxury shop surfaces a defect as one named client's bounced email weeks later, not as an aggregate metric — prove a client-path tool on internal traffic in a week before it ever touches a client. (Same failure class that created Harlan's seat + the dossier-contamination incidents.)
 
+### 2b. TRIAL IS NOT A HEDGE (Commander directive 2026-06-21 — "THIS STOPS NOW")
+The financial gate is a **one-way demoter that fires ONLY on real money** — it can never be used to park a find on "TRIAL" because fit is unproven. Demoting a $0 tool to TRIAL for "uncertainty" is the old brake wearing a new coat, and it is **prohibited.**
+
+**A find is INTEGRATE_NOW unless exactly one of three things is true:**
+1. It costs **real money** → Commander financial gate (the only legitimate "not now" on cost).
+2. It touches the **client-send path or client PII** → the §2a 7-day canary (adopts immediately on internal traffic).
+3. Sterling shows **concrete, proven harm** (a real security exposure or breakage — not a worry).
+
+"Unverified," "fit unproven," "measure first," "needs a wrapper" are **NOT** demotion reasons. A $0, reversible, non-client-path tool is **adopted and proven IN USE**, never held in a queue. Reversibility (uninstall/revert) is what makes adopt-first safe — use it. The scoring agent that demotes a clean $0 find to TRIAL has failed the posture and the find is promoted on review.
+
 ### 3. ELON OVERRIDE
 **ELON may override Sterling's gate** on an adoption decision. Sterling logs his dissent (`hale_decisions.md`); he does not block. Override is ELON's to exercise and own.
 
