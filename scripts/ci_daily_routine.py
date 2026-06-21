@@ -76,6 +76,33 @@ def main() -> int:
                           "perfect": perfect, "streak": st["streak"]})
     st["history"] = st["history"][-30:]
 
+    # client-send gate tripwire (master-arm warning light) — RED pages Commander
+    gate_red = None
+    try:
+        import subprocess
+        r = subprocess.run(["/home/john/Thunderbird/.venv/bin/python3",
+                            "/home/john/Thunderbird/scripts/client_send_gate_tripwire.py"],
+                           capture_output=True, text=True, timeout=30)
+        if r.returncode != 0:
+            gate_red = (r.stdout or r.stderr).strip()
+            try:
+                from OpsCenter.wing_page import page
+                page("commander", "🔴 CLIENT-SEND GATE TRIPWIRE:\n" + gate_red +
+                     "\nFREEZE ADOPTION until reviewed.")
+            except Exception as e:
+                print(f"[gate page failed: {e}]", file=sys.stderr)
+    except Exception as e:
+        print(f"[gate tripwire error: {e}]", file=sys.stderr)
+
+    # scanner dead-man's switch (dormant until state/scanner.enabled exists; then self-arms)
+    try:
+        import subprocess
+        subprocess.run(["/home/john/Thunderbird/.venv/bin/python3",
+                        "/home/john/Thunderbird/core/ai_infra/scanner_guards.py", "watchdog"],
+                       timeout=30)
+    except Exception as e:
+        print(f"[scanner watchdog error: {e}]", file=sys.stderr)
+
     # page on degradation (reuse ci_sweep's pager path)
     if degraded:
         try:

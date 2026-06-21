@@ -1,0 +1,12 @@
+{
+  "hashes": {
+    "core/policy/wing_policy.py": "67001d08243ea7c66cbe4eae0d2ce3394687d2cfb1d7c68da5f9c6a4fc7faff4",
+    "core/email/thunderbird_commander_inbox.py": "de0d0a3425561f86409fc0ed8b0a1995744744829ba0a96aa779903cd87af2e6",
+    "OpsCenter/run_commander_directive_sweep.py": "4ca8206f61111de61ae2bb7f22ffdb8dd8b2bc85cfa4cef55b1d9981207e8b37",
+    "OpsCenter/dispatch_and_email.py": "9feb377bf628a8fbbc763f42ae890aa59a956c90b0ee6a4a6e141dd52d934f94",
+    "OpsCenter/email_task_ingest.py": "d5e47b4bc64cb13c1935e3b968ddacb677f9c625a5a38886e2f849903966007c",
+    "OpsCenter/relay_send.py": "b8b2ed3193a07882539e344407e681587b8243a53838378eead6df858229235b",
+    "core/relay/wing_relay.py": "42849b9b7b468c218d2e2d033bdd9fd3f6feb1c8cfeecba0b6369df0bb4a4fb0"
+  },
+  "note": "initial baseline"
+}
