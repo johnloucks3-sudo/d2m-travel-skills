@@ -13,9 +13,12 @@ ROOT = Path("/home/john/Thunderbird")
 class CommsBot(BotBase):
     bot_name = "comms_bot"
     tasks = [
-        Task("directive-sweep",
-             bash(f"{ROOT}/.venv/bin/python3 {ROOT}/OpsCenter/run_commander_directive_sweep.py"),
-             interval_sec=120, timeout_sec=60),
+        # CUT 2026-06-21 (Commander directive): directive-sweep was running every 120s here,
+        # off-timer, despite its systemd timer being disabled — the source of the off-timer
+        # respawn (labels/replies). Restore by uncommenting if the sweep is rebuilt.
+        # Task("directive-sweep",
+        #      bash(f"{ROOT}/.venv/bin/python3 {ROOT}/OpsCenter/run_commander_directive_sweep.py"),
+        #      interval_sec=120, timeout_sec=60),
         Task("inbox-hygiene",
              sys_py("core/email/inbox_hygiene.py"),
              interval_sec=600, timeout_sec=60),
