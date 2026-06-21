@@ -20,6 +20,7 @@ Logging:
 
 import json
 import logging
+import os
 import signal
 import sys
 import time
@@ -88,10 +89,11 @@ def get_active_block() -> Optional[Dict[str, Any]]:
     """Return currently active 5-hour billing block from ccusage."""
     try:
         result = run(
-            ["ccusage", "blocks", "--json"],
+            ["ccusage", "blocks", "--json", "--since", "20260601"],
             capture_output=True,
             text=True,
-            timeout=15,
+            timeout=30,
+            env={**os.environ, "NODE_OPTIONS": "--max-old-space-size=4096"},
         )
         if result.returncode != 0:
             logger.warning(f"ccusage blocks failed: {result.stderr}")

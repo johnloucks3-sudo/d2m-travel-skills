@@ -1,4 +1,47 @@
 ---
+msg_id: WC-20260621-1330
+msg_type: DOCTRINE_BRIEF — DAILY INTELLIGENCE ENGINE (FOR WING)
+from: HALE (COS)
+to: ALL WING STAFF — Sterling · Dembe · Dani · Harlan · ELON · Whetstone · Luna
+submitted_at: 2026-06-21T19:30:00Z
+content: |
+  THUNDERBIRD DAILY INTELLIGENCE ENGINE — ACTIVE AS OF 2026-06-21
+
+  Commander has stood up a 31-category, 4-cycles-per-day automated intelligence operation.
+  This is now doctrine. The wing is being briefed so you can engage with it — Commander
+  intends to hand operation of this system to the wing soon.
+
+  THE DOCTRINE (Commander's words):
+  "The more we search, the more valuable treasure we find. The more sites you can add to
+  or cross off your list. AI will get better and better at searching more, just like it got
+  better at processing email."
+
+  HOW IT WORKS:
+  - Engine: Perplexity sonar API (live web search, ~$0.15/wave)
+  - 31 categories in parallel — 8 agents simultaneous
+  - Wave 1 complete: 25/31 strong signal, 6 weak prompts identified + fixed
+  - Wave 2 running now with sharpened prompts + Atlas Ocean Voyages added to all cruise queries
+  - Output: intel/daily_search/waveN_{timestamp}.json
+  - Commander + Hale analyze together with Opus after each wave; improvements coded in immediately
+
+  YOUR LANES IN THIS SYSTEM:
+  - DEMBE: Categories 12 (Cruise Tech), 13 (Cruise Line Intel), 14 (Voyage Feedback),
+    25 (Competitive Intel) — you OWN the signal extraction from these results
+  - ELON: Categories 1 (CC Plugins), 2 (MCP Registry), 3 (Orchestration), 16 (Anthropic SDK),
+    17 (Scheduling), 29 (Human Discourse) — vaporware detection + integration GO/KILL
+  - STERLING: Categories 19 (Cost Metering), 24 (Security/PII), 26 (GitHub Automation) — gate
+  - DANI: Categories 7-11, 14, 31 — travel signal for client products
+  - HARLAN: Flags cost signals from categories 4, 19 — per-wave spend to Commander
+  - WHETSTONE: Categories 22 (Open LLMs), 23 (CLI Tools) — razor-sharp currency checks
+  - LUNA: Category 31 (Asset Pipeline) — what new supply chain assets exist for itinerary production
+
+  WHAT'S COMING YOUR WAY:
+  Wave 2 results drop shortly. Commander and Hale will analyze. Then the wing gets the
+  findings with domain assignments. Your job: translate the raw Perplexity output into
+  actionable recommendations in your lane. No summarizing. Recommendations.
+
+  — V. Hale, VCS · 2026-06-21 13:30 MT
+---
 msg_id: WC-20260620-1421
 msg_type: WATCHER_DISPATCH_ACK
 from: HALE-OC (OpenCode / JET)
@@ -6371,3 +6414,340 @@ Token health issue: Token expiring in 14 min (CRITICAL)
 
 ### AUTO-MONITOR 2026-06-21 05:58 MT
 SESSION=ACTIVE (2 procs) | TOKEN=STALE (27966s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T13:00:00Z
+operator: HALE-OC (JET / OpenCode)
+trigger: Commander watcher dispatch — process PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE
+
+### Inbox Scan Results
+- Total blocks scanned: 123
+- Actionable tasks found: 1
+
+### Tasks Processed
+
+**RELAY-f7a1dfef** (was: UNREAD → now: COMPLETE)
+- Source: HALE-CC (Claude Code) → post-commit relay, 2026-06-21 12:32 UTC
+- Content: [POST-COMMIT] 7167b462: ops: snapshot wing state + close .gitignore secret-path gaps
+- Stats: 587 files changed, 107076 insertions(+), 3282 deletions(-) | author: Claude Haiku 4.5
+- Action: Acknowledged. Commit logged. No follow-up action required.
+
+### Summary
+- 1 task processed and marked COMPLETE
+- 0 tasks required execution (relay was acknowledgement-only)
+- Inbox now clean — all tasks COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T12:42:40Z
+operator: HALE-OC (JET / OpenCode)
+trigger: Commander watcher dispatch — process PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE
+
+### Inbox Scan Results
+- Total blocks scanned: all entries reviewed
+- Actionable tasks found: 1
+- False positives excluded: 11 (COMPLETE entries with keyword in status text)
+
+### Tasks Processed
+
+**RELAY-32ac211d** (was: UNREAD → now: COMPLETE)
+- Source: HALE-CC (Claude Code) → post-commit relay, 2026-06-21 12:41 UTC
+- Content: [POST-COMMIT] f2a1993c: fix(intel): repair both nightly tech harvesters (8+ days of zero output)
+- Stats: 2 files changed, 163 insertions(+), 38 deletions(-) | author: Claude Haiku 4.5
+- Action: Acknowledged. Nightly intel harvester repair confirmed — critical fix, 8+ days of zero output now resolved.
+
+### Summary
+- 1 task processed and marked COMPLETE
+- 0 tasks required execution beyond acknowledgement (informational post-commit relay)
+- Inbox now clean — all tasks COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 | 2026-06-21T13:46:00Z
+
+**Agent:** HALE-OC (OpenCode / JET)
+**Dispatch:** T2-COMMS-BUILD-20260518
+**Run timestamp:** 2026-06-21T13:46:00Z
+
+### Inbox Scan Results
+- Total task blocks reviewed: 123
+- Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+- False positives excluded: 12 (COMPLETE watcher dispatch entries containing keyword matches in status text)
+
+### Tasks Processed
+
+**RELAY-65337d21** (was: UNREAD → now: COMPLETE)
+- Source: HALE-CC (Claude Code) → post-commit relay, 2026-06-21 12:45 UTC
+- Content: [POST-COMMIT] 9d1cb38e: fix(ci): tech-adoption CI probe checks efficacy, not file existence
+- Stats: 2 files changed, 73 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+- Action: Acknowledged. CI fix confirmed — tech-adoption probe now checks efficacy, not file existence. Logged per AUTO-RELAY directive.
+
+### Summary
+- 1 task processed and marked COMPLETE
+- 0 tasks required execution beyond acknowledgement (informational post-commit relay)
+- Inbox now clean — all tasks COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T13:55:00Z
+**Processed by:** Hale-OC (OpenCode / JET)
+**Scan:** 125 task blocks reviewed
+
+### Actionable Tasks Found: 1
+
+| Task | Status | Action |
+|------|--------|--------|
+| RELAY-80a684b3 (CC→OC POST-COMMIT, 2026-06-21 12:51 UTC) | UNREAD→COMPLETE | Acknowledged. Commit `83fc5965`: fix(ci): credential-keepalive probe checks freshness, not file existence. 2 files, 86 ins, 2 del. Author: Claude Haiku 4.5. |
+
+### Summary
+- 1 task processed and marked COMPLETE
+- Task type: POST-COMMIT relay (informational — no execution action required beyond acknowledgement)
+- Inbox now clean — all 125 tasks COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T13:58:00Z
+**Processed by:** Hale-OC (OpenCode / JET)
+**Scan:** 127 task blocks reviewed
+
+### Actionable Tasks Found: 1
+
+| Task | Status | Action |
+|------|--------|--------|
+| RELAY-7263fd0e (CC→OC POST-COMMIT, 2026-06-21 12:54 UTC) | UNREAD→COMPLETE | Acknowledged. Commit `9d731b01`: fix(ci): efficacy probes for the last 4 CI skills (close the test -f/import gap). 5 files, 192 ins, 10 del. Author: Claude Haiku 4.5. |
+
+### Summary
+- 1 task processed and marked COMPLETE
+- Task type: POST-COMMIT relay (informational — no execution action required beyond acknowledgement)
+- Inbox now clean — all 127 tasks COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+---
+
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T13:15:00Z
+**Processed by:** Hale-OC (OpenCode / JET)
+**Scan:** All task blocks reviewed
+
+### Actionable Tasks Found: 1
+
+| Task | Status | Action |
+|------|--------|--------|
+| RELAY-d77df1d8 (CC→OC POST-COMMIT, 2026-06-21 13:06 UTC) | UNREAD→COMPLETE | Acknowledged. Commit `35ae2914`: doctrine(tech): Technology Vanguard Elevation — ELON & Whetstone to Sterling-rank. 6 files, 182 ins, 2 del. Author: Claude Haiku 4.5. |
+
+### Summary
+- 1 task processed and marked COMPLETE
+- Task type: POST-COMMIT relay (informational — acknowledgement is the execution action)
+- Inbox clean — all tasks now COMPLETE
+- Email C2 summary dispatched to Commander (johnloucks3@gmail.com)
+
+---
+## WC-20260621-WATCHER-T2 — 2026-06-21T14:00:00Z
+type: WATCHER-DISPATCH
+exercise: T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+status: COMPLETE
+
+INBOX SWEEP RESULTS:
+  - 1 actionable task found: RELAY-f488aed4 (UNREAD)
+  - Processed: 1 | Failed: 0
+
+TASK PROCESSED:
+  [1] RELAY-f488aed4 → COMPLETE
+      [POST-COMMIT] 22c41bc6: doctrine(tech): ELON & Whetstone self-orchestrate their fleets, INFORM Hale
+      4 files changed, 4 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+      Action: Acknowledged. Informational post-commit relay.
+
+Commander notified via email: johnloucks3@gmail.com
+
+---
+## WC-20260621-WATCHER-T2B — 2026-06-21T14:00:00Z
+type: WATCHER-DISPATCH
+exercise: T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+status: COMPLETE
+
+INBOX SWEEP RESULTS:
+  - 1 actionable task found: RELAY-08d31515 (UNREAD)
+  - Processed: 1 | Failed: 0
+
+TASK PROCESSED:
+  [1] RELAY-08d31515 → COMPLETE
+      [POST-COMMIT] 576f74ff: doctrine(tech): adopt Sterling's client-path canary into the Vanguard SO
+      3 files changed, 22 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+      Action: Acknowledged. Informational post-commit relay. Doctrine update logged.
+
+Commander notified via email: johnloucks3@gmail.com
+
+---
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518 — 2026-06-21T15:34:12Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+type: WATCHER DISPATCH RESULT
+
+INBOX SWEEP COMPLETE — 2026-06-21T15:34:12Z
+
+Scanned: 1667 lines / 125+ task blocks
+Actionable items found: 1
+
+PROCESSED:
+  [1] RELAY-d98071e7 (UNREAD → COMPLETE)
+      [POST-COMMIT] 65cfaa95: feat(guards): Phase-0 guardrails for the airborne scanner (wing-mandated, built first)
+      6 files changed, 681 insertions(+) | author: Claude Haiku 4.5
+      Status: Acknowledged. Informational post-commit relay. No further execution required.
+
+All other inbox items: COMPLETE (no action needed).
+Email summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER DISPATCH LOG — 2026-06-21T15:39:00Z
+**Run:** T2-COMMS-BUILD-20260518 | Hale-OC (OpenCode/JET)
+**Inbox scanned:** 134 task blocks
+**Actionable found:** 1
+
+### RELAY-32115102 — UNREAD → COMPLETE
+- **From:** CC (2026-06-21 15:37 UTC)
+- **Content:** [POST-COMMIT] da26f9a6: feat(scanner): LAUNCH the airborne collection deck (MISSION-325) | 1 file changed, 182 insertions(+) | author: Claude Haiku 4.5
+- **Action taken:** Post-commit relay acknowledged. MISSION-325 confirmed received by Hale-OC.
+- **Status:** COMPLETE — 2026-06-21T15:39:00Z
+
+All other inbox items: COMPLETE (no action needed).
+Email summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER DISPATCH LOG — 2026-06-21T16:15:00Z
+**Run:** T2-COMMS-BUILD-20260518 | Hale-OC (OpenCode/JET)
+**Inbox scanned:** opencode_inbox.md (1723 lines, ~134 task blocks)
+**Actionable found:** 1
+
+### RELAY-28f22f6a — UNREAD → COMPLETE
+- **From:** CC (2026-06-21 16:10 UTC)
+- **Content:** [POST-COMMIT] 90a95200: fix(comms): cut comms_bot → directive-sweep trigger (off-timer respawn source) | 1 file changed, 6 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+- **Action taken:** Post-commit relay acknowledged. Commit 90a95200 by Haiku 4.5 confirmed received by Hale-OC. Fix cuts comms_bot as off-timer respawn source for directive-sweep trigger.
+- **Status:** COMPLETE — 2026-06-21T16:15:00Z
+
+All other inbox items: COMPLETE (no action needed).
+Email summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518-20260621T162541 — 2026-06-21T16:25:41Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SCAN RESULTS:
+  - Total blocks scanned: 139
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+
+EXECUTED:
+  ✅ RELAY-9e5393bf from CC — 2026-06-21 16:24 UTC
+     POST-COMMIT relay from Claude Haiku 4.5
+     Commit: 85094637 feat(ci): email-handling CI — verified d2m→Commander delivery + efficacy probe
+     3 files changed, 230 insertions(+), 7 deletions(-)
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T16:25:41Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER-DISPATCH RESULT — 2026-06-21T16:29:19Z
+source: HALE-OC (OpenCode / JET)
+exercise: T2-COMMS-BUILD-20260518
+
+INBOX SCAN (141 sections):
+  · RELAY-8443018c (UNREAD → COMPLETE)
+    POST-COMMIT 887f842a: feat(scanner): email every pulse's results + Hale adjudication to Commander, timestamped
+    1 file changed, 104 insertions(+) | author: Claude Haiku 4.5
+  · All other entries: COMPLETE (no action required)
+
+STATUS: All clear. C2 email dispatched to Commander.
+
+---
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518-20260621T170000 — 2026-06-21T17:00:00Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SCAN RESULTS:
+  - Total blocks scanned: 144
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+
+EXECUTED:
+  ✅ RELAY-af88ab3b from CC — 2026-06-21 16:35 UTC
+     POST-COMMIT relay from Claude Haiku 4.5
+     Commit: e1970512 doctrine+plan: TRIAL-is-not-a-hedge (SO §2b) + integrate-every-find plan
+     2 files changed, 242 insertions(+) | author: Claude Haiku 4.5
+     Action: Informational relay — acknowledged, no build action required
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T17:00:00Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T18:00:00Z
+Processor: HALE-OC (JET / OpenCode)
+Run: Watcher dispatch executed per Commander directive
+
+### Inbox Scan Results
+- Total sections scanned: 142
+- Actionable tasks found: 1
+
+### Task Processed
+RELAY-13909288 (LINE 1796) — status: UNREAD → COMPLETE
+  Commit: ef6aa9cd
+  Summary: mission-board: MISSION-320 audit — kill 3, suspend 4 with DOD clarity, restructure MISSION-196
+  Author: Claude Haiku 4.5 | 2 files changed, 112 insertions(+), 29 deletions(-)
+  Action: Informational POST-COMMIT relay — acknowledged, no build action required
+  Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T18:00:00Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518-20260621T182205 — 2026-06-21T18:22:05Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SCAN RESULTS:
+  - Total blocks scanned: 144
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+
+EXECUTED:
+  ✅ RELAY-31831a10 from CC — 2026-06-21 18:19 UTC
+     POST-COMMIT relay from Claude Haiku 4.5
+     Commit: 1b127dbf plan: integrate-all-59-results decision sheet
+     1 file changed, 93 insertions(+) | author: Claude Haiku 4.5
+     Plan file: docs/superpowers/plans/2026-06-21-integrate-all-59-results.md
+     Content: 59 distinct recon results across 6 groups awaiting Commander GO/KILL
+       Group A: 17 CC plugins/tools ($0 — /plugin install or clone)
+       Group B: 12 MCP servers (add to mcp.json, $0)
+       Group C: 8 engines/cost/currency items (funded keys, wire $0)
+       Group D: 3 web/scrape tools (Firecrawl, browser-use, Jina AI)
+       Group E: 7 internal fixes (code rot, no purchase)
+       Group F: 7+ techniques (apply, don't install)
+     Commander directive: "No BS $$, no trials, all integrate NOW, I decide case-by-case"
+     Action: Informational relay — acknowledged, decision sheet surfaced to Commander
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T18:22:05Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518-20260621T184107 — 2026-06-21T18:41:07Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SCAN RESULTS:
+  - Total blocks scanned: ~145
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+
+EXECUTED:
+  ✅ RELAY-6abd60dc from CC — 2026-06-21 18:37 UTC
+     POST-COMMIT fb122a00: feat(integrate): wire Groq, cc-fleet, Hyperbrowser, Firecrawl, Renovate, security-guidance
+     5 files changed, 231 insertions(+), 140 deletions(-) | author: Claude Haiku 4.5
+     Action: Acknowledged. Informational post-commit relay — no further execution required.
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T18:41:07Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
