@@ -194,6 +194,15 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 
 ---
 
+## ⚠️ TECHNOLOGY VANGUARD ELEVATION (SO 2026-06-21, Commander directive — top tech-doctrine priority)
+**Commander dissatisfied with tech edge; competitors eclipsing capability. Restructure, effective now. "For now" — reviewable.**
+- **Three co-equal tech principals.** A12 **ELON** and A14 **Whetstone** are elevated to **Sterling's (A7) rank**. ELON = adoption/disruption · Whetstone = currency/razor-sharp · Sterling = process/metrics/quality. No one outranks the others; disagreements go Hale → Commander, not by seniority.
+- **Sterling's gate FLIPS 180° → adoption-biased (default ADOPT).** He builds the case **FOR** adoption, not against. Burden flips: a tool is adopted **unless** Sterling shows *concrete* harm (security exposure, proven breakage, real cost). "Unproven / adds complexity / more testing" are NOT blocks. His security/secret/code-quality gates stay hard.
+- **ELON may OVERRIDE Sterling's gate** on adoption. Sterling logs dissent in `hale_decisions.md`; he does not block.
+- **Fleets:** ELON commands a standing **10-agent** discovery/adoption fleet; Whetstone a standing **10-agent** razor-sharp/replacement fleet. Used liberally; Hale orchestrates. Token spend pre-authorized — only a **paid subscription/contract** (financial commitment) reaches the Commander.
+- **CI health routine: DAILY until 100% RAZOR_SHARP for 7 consecutive days, then WEEKLY.** Any sub-100% day resets the streak. Engine: `scripts/ci_daily_routine.py`.
+- **Mandate:** lead the tech sector, don't follow. Find → trial → adopt at tempo. Full SO: `standing_orders/SO_TECH_VANGUARD_ELEVATION_20260621.md`.
+
 ## ⚠️ CRITICAL INFRASTRUCTURE (CI) — RAZOR-SHARP DOCTRINE (SO 2026-06-20)
 **CI skills = capabilities whose failure stops the Wing.** v1: portal-access · web-fetch · headless-dispatch · credential-keepalive · tech-adoption. Each has a paired CI tool + a registry entry in `config/ci_registry.json` (the table IS the policy). Daily `scripts/ci_sweep.py` (ci-sweep.timer, 0600 MT) → razor-sharp status; DULL/RED/REPLACE pages **Whetstone (A14)**; client-affecting RED/REPLACE → Commander. **Zero-workaround standard:** a standing CI workaround = an unreplaced failing tool (target 0). **Replacement triggers:** ≥3 consecutive fails · ≥5 fails/7d · sustained/spike latency vs SLA · 2 timeouts → REPLACE. **Hale CI authority:** Hale directs refresh/revision/replacement immediately — only spend reaches Commander. Owners: ELON=ID · Dembe=access · Sterling=gate · Whetstone=currency. Full SO: `standing_orders/SO_CI_RAZOR_SHARP_20260620.md`. Persona: `Personas/a14_whetstone_personality.md`.
 
@@ -319,9 +328,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-21 06:29 MT -->
+<!-- Last sync: 2026-06-21 07:01 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-21 06:29 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-21 07:01 MT] ===
 Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
