@@ -47,7 +47,7 @@ CATEGORIES = [
         "id": 2,
         "name": "MCP Server Registry — New Releases",
         "persona": "You are an AI infrastructure engineer who tracks the Model Context Protocol ecosystem daily. You only report servers with working npm packages or Docker images.",
-        "query": "What MCP servers were released or significantly updated in June 2026? Search glama.ai/mcp/servers (sorted newest), mcpserver.cc, and the official anthropics/modelcontextprotocol GitHub. For each server: name, repository URL, what it does, exact install command (npx/docker/pip), whether an API key is required, GitHub star count, and the workflow problem it solves. Flag any relevant to: web scraping, travel data APIs, browser automation, or document processing. Only list servers with a working install command — skip concept repos or unmaintained projects.",
+        "query": "What MCP servers were announced, discussed, or released in May-June 2026 on GitHub, Hacker News, Reddit (r/ClaudeAI, r/mcp), and developer blogs? For each: name, GitHub repo URL, star count, what it does, install method (npx/docker/pip), whether an API key is required. Flag any relevant to: web scraping, travel data APIs, browser automation, document processing, or calendar/email integration. Source from: GitHub trending (mcp OR 'model context protocol'), HN 'Show HN' posts, and community posts — not registry pages.",
         "recency": "week",
         "routine_candidate": True,   # prime Routines candidate — new releases weekly
         "haiku_eligible": True,
@@ -58,7 +58,7 @@ CATEGORIES = [
         "id": 3,
         "name": "AI Agent Orchestration & Meta-Harnesses",
         "persona": "You are an AI systems architect who has evaluated dozens of multi-agent frameworks. You are skeptical of hype and only recommend tools with production deployments.",
-        "query": "What open-source AI agent orchestration frameworks or meta-harnesses were released or significantly updated in 2026? Include: GitHub repo, star count, license, Claude/Anthropic compatibility, and what specific problem it solves beyond LangChain. Focus on: budget enforcement, multi-agent coordination, policy gates, sandbox execution. Omnigent (omnigent-ai/omnigent) and cc-fleet (ethanhq/cc-fleet) are the benchmark — what else exists at this level?",
+        "query": "What AI agent orchestration tools shipped after March 2026 that are NOT in the LangGraph/AutoGen/CrewAI lineage? Search GitHub trending repositories (past 90 days, topic: agent OR multi-agent), Hacker News 'Ask HN'/'Show HN' posts, and r/LocalLLaMA r/ClaudeAI for what practitioners are actually running in production — not just starring. For each: repo URL, star trajectory (trending up or flat), what production problem it solves, whether it supports Claude natively, and whether you can find posts of someone saying 'I shipped X with this.' Omnigent and cc-fleet are the reference floor.",
         "recency": "month",
         "routine_candidate": False,  # evolves slowly; monthly check sufficient
         "haiku_eligible": False,     # needs architecture reasoning
@@ -168,7 +168,7 @@ CATEGORIES = [
         "id": 13,
         "name": "Cruise Line Intelligence",
         "persona": "You are a cruise industry analyst who monitors technology deployments, app updates, and operational changes across luxury cruise lines. You separate marketing from actual technology signals.",
-        "query": "What technology updates did Silversea, Regent Seven Seas, Viking Ocean, Princess Cruises, and Atlas Ocean Voyages make in 2025-2026? Check: each cruise line's press room, their Apple App Store and Google Play app listing version history and release notes, their LinkedIn company pages, and travel industry trade press (Travel Weekly, Cruise Industry News, Seatrade Cruise). What are the current app versions and recent update notes? Any AI features, new booking tools, loyalty program changes, advisor portal updates, or backend system migrations? What technology changes directly affect travel advisors who book these lines?",
+        "query": "What technology updates, news, or advisor-facing changes have Silversea, Regent Seven Seas, Viking Ocean, Princess Cruises, and Atlas Ocean Voyages made in 2025-2026? Source from: LinkedIn company pages for each cruise line, Travel Weekly articles, Seatrade Cruise News, Cruise Industry News, and travel advisor forum discussions (Cruise Critic advisor forums, ASTA, CLIA). For each cruise line: any new AI features, booking tool changes, loyalty program updates, advisor portal changes, or major operational announcements. Include anything advisors are discussing in trade communities.",
         "recency": "month",
         "routine_candidate": True,   # prime Routines candidate — weekly cruise line news
         "haiku_eligible": False,     # needs signal vs. noise judgment
@@ -179,7 +179,7 @@ CATEGORIES = [
         "id": 14,
         "name": "Voyage Feedback & Community Intelligence",
         "persona": "You are a cruise travel researcher who monitors Cruise Critic, Reddit, and Facebook luxury cruise groups daily. You synthesize passenger feedback into actionable intelligence for travel advisors.",
-        "query": "What are passengers, travel bloggers, and travel advisor community members saying about recent experiences on Silversea Silver Muse, Regent Seven Seas Seven Seas Grandeur, Viking Ocean Viking Mars, Princess Discovery Princess, and Atlas Ocean Voyages ships in 2025-2026? Search Cruise Critic ship review pages, TripAdvisor cruise reviews, travel blogs, and advisor forum posts. What recurring themes appear in passenger feedback: food quality, service consistency, cabin comfort, embarkation process, excursion quality? What specific complaints or praises appear repeatedly? What are travel advisors warning their clients about on each ship? Give concrete examples from actual reviews, not general summaries.",
+        "query": "What are passengers saying in May-June 2026 about experiences on Silversea Silver Muse, Regent Seven Seas Grandeur, Viking Ocean Viking Mars, Princess Discovery Princess, and Atlas Ocean Voyages ships? Search Reddit r/Cruise r/CruiseLines r/travel for recent posts, TripAdvisor Q&A sections for these ships, YouTube travel vlog comment sections, and public Facebook cruise group discussions. For each ship: what specific complaints or praises appear in 3+ separate posts, and what are advisors warning clients about? Cite specific community sources, not press releases.",
         "recency": "month",
         "routine_candidate": True,   # community feedback changes constantly
         "haiku_eligible": False,     # needs pattern recognition + interpretation
@@ -190,7 +190,7 @@ CATEGORIES = [
         "id": 15,
         "name": "AI Email Intelligence & Lifecycle Automation",
         "persona": "You are a marketing automation engineer who specializes in AI-native email tools for small luxury service businesses. You know the difference between enterprise CRM and what a 1-person agency can actually use.",
-        "query": "What AI-native email automation or lifecycle management tools were released in 2025-2026 that could automate client touchpoint sequences for a small luxury travel business? Include tools with: free tiers or low monthly cost, API access, trigger-based sending (booking milestone, date-based), and the ability to personalize based on client data. Which tools work without a massive contact list? Exclude Salesforce, HubSpot enterprise tier.",
+        "query": "What tools released in 2025-2026 use LLMs to WRITE personalized email content (not just schedule sends)? Specifically: tools where you bring your own Claude/OpenAI key and the system drafts personalized copy from client data. Best options for a 1-person luxury business with 20-30 active clients (not enterprise scale). For each: does it write the email or just template-fill? Can you give it context about a specific client (age, cruise, interests) and get a natural-sounding draft? Free or <$50/month tier? What community feedback exists on quality of AI-written output?",
         "recency": "month",
         "routine_candidate": False,
         "haiku_eligible": True,
@@ -201,7 +201,7 @@ CATEGORIES = [
         "id": 16,
         "name": "Anthropic API & Claude Agent SDK",
         "persona": "You are a senior Anthropic API developer who tracks every release, changelog, and beta feature. You read the Anthropic GitHub and Discord daily.",
-        "query": "What new Claude API features, model releases, SDK updates, or beta capabilities did Anthropic announce or ship in Q1-Q2 2026? Include: claude-agent-sdk (npm @anthropic-ai/claude-agent-sdk) version history, new tool use patterns, extended thinking updates, computer use changes, pricing updates, and any new API endpoints. What is the agent SDK actually designed to replace or improve? Cite GitHub and official Anthropic docs.",
+        "query": "What did Anthropic ship specifically between April 1 and June 21 2026? Include: new model IDs released (exact strings like claude-sonnet-4-X), claude-agent-sdk NPM version history since April 1, API changelog entries, extended thinking updates, pricing changes, and any new beta endpoints. What is the CURRENT recommended production model ID for an agentic workload as of June 2026 — not 'Q1-Q2 generally' but right now? Source from Anthropic GitHub, changelog.anthropic.com, and developer Discord announcements.",
         "recency": "month",
         "routine_candidate": True,   # Anthropic ships constantly — weekly check
         "haiku_eligible": True,
@@ -256,7 +256,7 @@ CATEGORIES = [
         "id": 21,
         "name": "Multi-Modal Vision Tools",
         "persona": "You are a computer vision engineer specializing in travel media: cruise ship photography, port city imagery, and maritime documentation.",
-        "query": "What AI vision tools or APIs in 2026 can analyze, describe, or search cruise ship photos, port city images, and ship deck plans? Include: tools for auto-captioning images for itinerary use, visual search for ship identification, OCR on deck plan PDFs, and photo quality assessment for marketing materials. What's free or low-cost? Which vision models (Gemini, GPT-4V, Claude) perform best on travel imagery specifically?",
+        "query": "What AI vision tools in 2026 can extract STRUCTURED DATA from cruise ship deck plan PDFs (suite numbers, deck layout, balcony vs. no-balcony classification) and from port city maps (landmark names, walking distances, port gate locations)? Also: which vision model or tool produces the best auto-captions for luxury travel itinerary photos (ship exteriors, port skylines, dining photos)? For each use case: best tool, batch API cost estimate for 50-100 images, and any free or low-cost tier. Which vision model handles fine-grained document layout best: Gemini, GPT-4o, or Claude?",
         "recency": "month",
         "routine_candidate": False,
         "haiku_eligible": False,
@@ -300,7 +300,7 @@ CATEGORIES = [
         "id": 25,
         "name": "Competitive Intelligence: AI in Travel",
         "persona": "You are a travel industry analyst who tracks how luxury travel agencies and cruise specialists are deploying AI in their client-facing and back-office operations.",
-        "query": "What evidence exists in 2025-2026 that luxury travel agencies are deploying AI in their operations? Search LinkedIn for job postings at Virtuoso agencies, Fora Travel, Indagare, Black Tomato, and Pavlus Travel that mention AI, automation, or machine learning. Check their websites and press rooms for any AI concierge features, chatbots, or automated tools visible to clients or advisors. Search Travel Weekly, Travel + Leisure, Forbes Travel for any interviews with agency executives discussing AI adoption. What are luxury travel conferences (Virtuoso Travel Week, ASTA Global Convention 2025-2026) saying about AI? What specific capabilities are luxury advisors advertising on their websites that suggest AI behind them?",
+        "query": "What CONCRETE evidence exists that luxury travel agencies have deployed AI in 2025-2026 — not intention-to-deploy, but live tools? Find: specific tool names mentioned in advisor job postings at Virtuoso/Fora/Indagare/Black Tomato/Pavlus, advisor testimonials naming specific AI products they use, startup funding announcements for AI-in-luxury-travel, conference session recordings where advisors name their stack. Are Fora or Indagare ahead of us? What specific capability would a client notice? Rate our position: leading, at-par, or behind.",
         "recency": "month",
         "routine_candidate": True,   # competitive landscape shifts monthly
         "haiku_eligible": False,     # strategic interpretation needed
@@ -344,7 +344,7 @@ CATEGORIES = [
         "id": 29,
         "name": "Human Assessment & Tech Discourse",
         "persona": "You are an early AI adopter who has been burned by vaporware and now only trusts community consensus. You read Reddit, Hacker News, X/Twitter, and Discord every day for 'this sucks' and 'changed my stack' signal.",
-        "query": "What is the developer and AI practitioner community saying in May-June 2026 about which AI tools actually work versus which ones are overhyped? Search for recent blog posts, Hacker News threads, developer newsletter mentions, and community discussions. What specific AI products or frameworks have developers publicly praised as genuinely useful and workflow-changing in 2026? What products have developers publicly criticized as not delivering on their promises? What are the most-discussed tool switches ('I switched from X to Y because...') in the AI development community in 2026? Which categories — agent frameworks, LLM APIs, browser automation, memory systems — have the strongest community consensus right now?",
+        "query": "Find 'I switched from X to Y because...' and 'X is dead/broken/useless now' posts in the AI development community from May-June 2026 on Reddit r/LocalLLaMA r/ClaudeAI r/MachineLearning, Hacker News, and developer newsletters. For any tool that appears in 3+ negative posts: name the tool, quote the pattern of complaints, and identify what users switched to. Specifically: what replaced LangChain for production agent work? What won browser automation after Playwright fatigue? What vector DB is winning in new greenfield projects? These are replacement signals, not preference opinions.",
         "recency": "week",
         "routine_candidate": True,   # discourse is real-time; prime Routines candidate
         "haiku_eligible": False,     # pattern recognition + signal extraction
@@ -366,7 +366,7 @@ CATEGORIES = [
         "id": 31,
         "name": "Client Product Asset Pipeline",
         "persona": "You are a luxury travel content specialist who sources every ingredient that goes into a premium client itinerary: maps, photography, descriptive copy, ship schematics, and real-time availability data.",
-        "query": "What APIs, databases, or tools in 2026 provide the following assets for luxury travel itinerary production: (1) embeddable or downloadable city/port maps (Google Maps API, Mapbox, OpenStreetMap licensing), (2) licensed port and destination photography (Unsplash API, Pexels, cruise line press kits, Getty travel), (3) cruise ship deck plans and suite diagrams in searchable/embeddable format, (4) pre-written evocative port descriptions or travel writing databases, (5) real-time suite availability and pricing from cruise lines. For each asset type: best source, licensing, cost, and API or download method.",
+        "query": "What are the legally-clean sourcing strategies for these five itinerary asset types in 2026: (1) Port/city maps — Mapbox vs. Google Maps Static API embed cost comparison; OpenStreetMap self-hosted option; (2) Destination photography — does Getty Images have a media-kit tier for small agencies; what Creative Commons sources have cruise-quality imagery; do Regent/Silversea/Viking press kits allow advisor reuse; (3) Deck plans — where do cruise lines publish deck plans publicly (PDF or interactive); any third-party aggregator; (4) Port narratives — any licensable travel writing databases or CC0 sources; (5) Suite pricing — does Regent, Silversea, or Viking expose a pricing API, or is Centrav the only B2B path? Include specific license terms and cost for each.",
         "recency": "month",
         "routine_candidate": False,
         "haiku_eligible": False,     # creative + commercial licensing judgment needed
