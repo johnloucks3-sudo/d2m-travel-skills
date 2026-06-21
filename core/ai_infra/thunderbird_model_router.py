@@ -454,6 +454,84 @@ def _call_gemini(system_prompt: str, query: str, model: str = "vision",
                                     caller="_call_gemini")
 
 
+def _call_cerebras(system_prompt: str, query: str,
+                   temperature: float = 0.7, max_tokens: int = 2000,
+                   model: str = "llama-3.1-8b-instant",
+                   caller: str = "_call_cerebras") -> str:
+    """FREE: Cerebras Cloud — ultra-fast inference, ~20x speed vs standard APIs.
+    Wired 2026-06-21 (wave 4 integration). Use for burst/speed-critical classify tasks.
+    Free tier: 1M tokens/month on llama-3.1-8b-instant. 8K context cap.
+    Key: CEREBRAS_API_KEY (free at cloud.cerebras.ai, no card required).
+    Falls back to Groq → Gemini Flash-Lite on missing key or error.
+    """
+    cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
+    if not cerebras_key:
+        log.warning("%s: CEREBRAS_API_KEY not set — fallback to Groq", caller)
+        return _call_groq_direct(system_prompt, query,
+                                 temperature=temperature, max_tokens=max_tokens,
+                                 caller=caller)
+    try:
+        from cerebras.cloud.sdk import Cerebras
+        client = Cerebras(api_key=cerebras_key)
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query},
+            ],
+            temperature=temperature,
+            max_tokens=min(max_tokens, 8192),  # Cerebras 8K cap
+        )
+        return resp.choices[0].message.content or ""
+    except Exception as exc:
+        log.warning("%s: Cerebras error (%s) — fallback to Groq", caller, exc)
+        return _call_groq_direct(system_prompt, query,
+                                 temperature=temperature, max_tokens=max_tokens,
+                                 caller=caller)
+
+
+def _call_deepinfra(system_prompt: str, query: str,
+                    temperature: float = 0.7, max_tokens: int = 2000,
+                    model: str = "meta-llama/Meta-Llama-3.1-8B-Instruct",
+                    caller: str = "_call_deepinfra") -> str:
+    """FREE tier: DeepInfra — 4th free inference endpoint, OpenAI-compatible REST API.
+    Wired 2026-06-21 (wave 4 integration). Adds model variety beyond Groq/Cerebras.
+    Notable free models: Llama 3.1 8B/70B, Mistral 7B, Phi-3, Qwen 2.5, DeepSeek R1.
+    Key: DEEPINFRA_API_KEY (free credits at deepinfra.com, no card initially).
+    Falls back to Groq → Gemini Flash-Lite on missing key or error.
+    """
+    deepinfra_key = os.getenv("DEEPINFRA_API_KEY", "")
+    if not deepinfra_key:
+        log.warning("%s: DEEPINFRA_API_KEY not set — fallback to Groq", caller)
+        return _call_groq_direct(system_prompt, query,
+                                 temperature=temperature, max_tokens=max_tokens,
+                                 caller=caller)
+    try:
+        import requests as _req
+        resp = _req.post(
+            "https://api.deepinfra.com/v1/openai/chat/completions",
+            headers={"Authorization": f"Bearer {deepinfra_key}",
+                     "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": query},
+                ],
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        return resp.json()["choices"][0]["message"]["content"] or ""
+    except Exception as exc:
+        log.warning("%s: DeepInfra error (%s) — fallback to Groq", caller, exc)
+        return _call_groq_direct(system_prompt, query,
+                                 temperature=temperature, max_tokens=max_tokens,
+                                 caller=caller)
+
+
 def _call_cloudflare_workers_ai(system_prompt: str, query: str,
                                 temperature: float = 0.7, max_tokens: int = 2000,
                                 model: str = "@cf/meta/llama-3.1-8b-instruct",
