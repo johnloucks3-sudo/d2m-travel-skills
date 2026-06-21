@@ -457,12 +457,12 @@ def _call_gemini(system_prompt: str, query: str, model: str = "vision",
 
 def _call_cerebras(system_prompt: str, query: str,
                    temperature: float = 0.7, max_tokens: int = 2000,
-                   model: str = "llama-3.1-8b-instant",
+                   model: str = "zai-glm-4.7",
                    caller: str = "_call_cerebras") -> str:
     """FREE: Cerebras Cloud — ultra-fast inference, ~20x speed vs standard APIs.
     Wired 2026-06-21 (wave 4 integration). Use for burst/speed-critical classify tasks.
-    Free tier: 1M tokens/month on llama-3.1-8b-instant. 8K context cap.
     Key: CEREBRAS_API_KEY (free at cloud.cerebras.ai, no card required).
+    Available models (2026-06-21): zai-glm-4.7 (standard chat), gpt-oss-120b (reasoning — content in message.reasoning).
     Falls back to Groq → Gemini Flash-Lite on missing key or error.
     """
     cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
@@ -472,18 +472,25 @@ def _call_cerebras(system_prompt: str, query: str,
                                  temperature=temperature, max_tokens=max_tokens,
                                  caller=caller)
     try:
-        from cerebras.cloud.sdk import Cerebras
-        client = Cerebras(api_key=cerebras_key)
-        resp = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": query},
-            ],
-            temperature=temperature,
-            max_tokens=min(max_tokens, 8192),  # Cerebras 8K cap
+        import requests as _req
+        resp = _req.post(
+            "https://api.cerebras.ai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {cerebras_key}", "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": query},
+                ],
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            },
+            timeout=30,
         )
-        return resp.choices[0].message.content or ""
+        resp.raise_for_status()
+        msg = resp.json()["choices"][0]["message"]
+        # gpt-oss-120b is a reasoning model — content lands in "reasoning" field
+        return msg.get("content") or msg.get("reasoning") or ""
     except Exception as exc:
         log.warning("%s: Cerebras error (%s) — fallback to Groq", caller, exc)
         return _call_groq_direct(system_prompt, query,
