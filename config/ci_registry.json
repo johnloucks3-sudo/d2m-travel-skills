@@ -109,16 +109,17 @@
     {
       "id": "tech-adoption",
       "name": "New-Tech Scout / Watch-list / Integration",
-      "ci_tool": "core/intel/thunderbird_incubator.py",
+      "ci_tool": "api/thunderbird_power_harvest.py",
       "wraps": [
-        "core/intel/thunderbird_incubator.py",
-        "OpsCenter/wind_staff.py"
+        "api/thunderbird_power_harvest.py",
+        "core/intel/thunderbird_nightly_tech_harvest.py",
+        "core/intel/thunderbird_incubator.py"
       ],
       "id_owner": "elon",
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "test -f /home/john/Thunderbird/core/intel/thunderbird_incubator.py",
+      "health_probe": "python3 /home/john/Thunderbird/scripts/ci_probe_tech_harvest.py",
       "currency_window_hours": 24,
       "reeval_cadence_days": 14,
       "latency_sla_ms": 60000,
@@ -126,7 +127,8 @@
       "active_workaround": null,
       "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
-      "status": "unknown"
+      "status": "unknown",
+      "probe_note": "efficacy probe (freshness + fetcher liveness), replaced test -f on 2026-06-21"
     },
     {
       "id": "self-observability",
