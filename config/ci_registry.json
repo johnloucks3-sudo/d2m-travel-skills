@@ -26,7 +26,7 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import camoufox\"",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_portal_access.py",
       "currency_window_hours": 24,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 90000,
@@ -36,7 +36,8 @@
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase",
-      "throttle_guard": "core/ci/portal_guard.py (Throttle >=3s/host + abort-on-403/429; tested)"
+      "throttle_guard": "core/ci/portal_guard.py (Throttle >=3s/host + abort-on-403/429; tested)",
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
     },
     {
       "id": "web-fetch",
@@ -51,7 +52,7 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import trafilatura\"",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_web_fetch.py",
       "currency_window_hours": 168,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 15000,
@@ -59,7 +60,8 @@
       "active_workaround": null,
       "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
-      "status": "unknown"
+      "status": "unknown",
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
     },
     {
       "id": "headless-dispatch",
@@ -73,7 +75,7 @@
       "access_owner": "sterling",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "test -x /home/john/.local/bin/claude && test -f /home/john/.claude/.credentials.json",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_headless_dispatch.py",
       "currency_window_hours": 2,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 300000,
@@ -81,7 +83,8 @@
       "active_workaround": null,
       "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
-      "status": "unknown"
+      "status": "unknown",
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
     },
     {
       "id": "credential-keepalive",
@@ -96,7 +99,7 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "python3 /home/john/Thunderbird/scripts/ci_probe_credential_keepalive.py",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_credential_keepalive.py",
       "currency_window_hours": 3,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 30000,
@@ -120,7 +123,7 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "python3 /home/john/Thunderbird/scripts/ci_probe_tech_harvest.py",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_tech_harvest.py",
       "currency_window_hours": 24,
       "reeval_cadence_days": 14,
       "latency_sla_ms": 60000,
@@ -144,7 +147,7 @@
       "access_owner": "sterling",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 -c \"import core.ci.self_observability\"",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_self_observability.py",
       "currency_window_hours": 1,
       "reeval_cadence_days": 14,
       "latency_sla_ms": 120000,
@@ -162,7 +165,8 @@
         "engage_currency": "whetstone",
         "gate": "sterling",
         "innovation": "elon"
-      }
+      },
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
     }
   ],
   "accountable_owner": "hale",
