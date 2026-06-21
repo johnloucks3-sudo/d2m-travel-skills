@@ -115,10 +115,21 @@ Return ONLY zero-cost options. If nothing new found, return tools: [] with hones
             env={**os.environ, "ANTHROPIC_LOG": "error"},
         )
         out = result.stdout.strip()
-        start = out.find("{")
-        end   = out.rfind("}") + 1
+        # `--output-format json` wraps the agent reply in an envelope:
+        #   {"type":"result","result":"<agent text>", ...}
+        # The old code json.loads'd the whole envelope and looked for "tools" on
+        # it — which never exists — so every run reported 0 tools. Unwrap first.
+        inner = out
+        try:
+            env = json.loads(out)
+            if isinstance(env, dict) and "result" in env:
+                inner = env["result"]
+        except Exception:
+            pass
+        start = inner.find("{")
+        end   = inner.rfind("}") + 1
         if start >= 0 and end > start:
-            return json.loads(out[start:end])
+            return json.loads(inner[start:end])
         return {"tools": [], "summary": "Harvest returned no structured data."}
     except subprocess.TimeoutExpired:
         return {"tools": [], "summary": "Harvest timed out (120s)."}

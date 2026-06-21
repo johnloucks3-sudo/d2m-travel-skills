@@ -31,10 +31,14 @@ Run:
 
 import json
 import logging
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+# Browser-ish UA — bare curl UA gets 429'd by reddit and some CDNs
+_UA = "Mozilla/5.0 (X11; Linux x86_64) D2M-TechHarvest/2.0"
 
 logger = logging.getLogger("thunderbird_power_harvest")
 
@@ -82,23 +86,34 @@ SOURCES = [
     {
         "id":    "reddit_claudeai",
         "name":  "Reddit r/ClaudeAI",
-        "type":  "search",
-        "query": "site:reddit.com/r/ClaudeAI Claude Code tips hooks MCP new features 2026",
+        "type":  "feed",
+        "fmt":   "rss",
+        "url":   "https://www.reddit.com/r/ClaudeAI/top/.rss?t=week&limit=25",
         "desc":  "Community discussions on Claude Code power user techniques",
     },
     {
-        "id":    "reddit_mcp",
-        "name":  "Reddit MCP/LLM",
-        "type":  "search",
-        "query": "site:reddit.com Claude Code MCP server new 2026 tool automation",
-        "desc":  "MCP server innovations and automation techniques",
+        "id":    "hn_claude",
+        "name":  "Hacker News — Claude Code",
+        "type":  "feed",
+        "fmt":   "hn",
+        "url":   "https://hn.algolia.com/api/v1/search_by_date?query=claude%20code&tags=story&hitsPerPage=20",
+        "desc":  "HN stories mentioning Claude Code (last posted)",
+    },
+    {
+        "id":    "hn_mcp",
+        "name":  "Hacker News — MCP / Anthropic",
+        "type":  "feed",
+        "fmt":   "hn",
+        "url":   "https://hn.algolia.com/api/v1/search?query=MCP%20server%20anthropic&tags=story&hitsPerPage=15",
+        "desc":  "HN stories on MCP servers and Anthropic tooling",
     },
     {
         "id":    "devto_claude",
         "name":  "dev.to Claude",
-        "type":  "search",
-        "query": "site:dev.to claude code hooks skills automation 2026",
-        "desc":  "Developer articles on Claude Code techniques",
+        "type":  "feed",
+        "fmt":   "devto",
+        "url":   "https://dev.to/api/articles?tag=claude&per_page=15&top=7",
+        "desc":  "Developer articles tagged #claude (top of last week)",
     },
 ]
 
@@ -112,23 +127,65 @@ D2M_KEYWORDS = [
 
 # ── Fetch ─────────────────────────────────────────────────────────────────────
 
-def _fetch_url(url: str, timeout: int = 20) -> str:
-    """Fetch URL content via curl."""
+def _curl(url: str, timeout: int = 20) -> str:
+    """Raw curl with a browser UA. Returns body or '' on failure."""
     try:
         result = subprocess.run(
-            ["curl", "-sL", "--max-time", str(timeout), url],
+            ["curl", "-sL", "--max-time", str(timeout), "-A", _UA, url],
             capture_output=True, text=True, timeout=timeout + 5,
         )
-        return result.stdout[:8000] if result.returncode == 0 else ""
+        return result.stdout if result.returncode == 0 else ""
     except Exception as e:
-        logger.warning("fetch_url(%s): %s", url, e)
+        logger.warning("curl(%s): %s", url, e)
         return ""
 
 
-def _web_search(query: str) -> str:
-    """Web search placeholder — Anthropic tool-use not available on Groq. Returns empty."""
-    logger.debug("_web_search skipped (Groq provider, no tool-use): %s", query)
-    return ""
+def _fetch_url(url: str, timeout: int = 20) -> str:
+    """Fetch raw page content (capped)."""
+    return _curl(url, timeout)[:8000]
+
+
+def _fetch_feed(src: dict, timeout: int = 20) -> str:
+    """Fetch a structured feed (HN/dev.to JSON, reddit RSS) → newline list of 'Title — url'.
+
+    Replaces the old _web_search stub, which always returned '' (every search
+    source was guaranteed empty). Each format is parsed into title+url lines so
+    the keyword classifier has real signal to score.
+    """
+    body = _curl(src["url"], timeout)
+    if not body:
+        return ""
+    fmt = src.get("fmt", "")
+    items: list[str] = []
+    try:
+        if fmt == "hn":
+            for h in json.loads(body).get("hits", []):
+                title = (h.get("title") or h.get("story_title") or "").strip()
+                if not title:
+                    continue
+                link = h.get("url") or f"https://news.ycombinator.com/item?id={h.get('objectID','')}"
+                items.append(f"{title} — {link}")
+        elif fmt == "devto":
+            for a in json.loads(body):
+                title = (a.get("title") or "").strip()
+                if not title:
+                    continue
+                desc = (a.get("description") or "").strip()
+                items.append(f"{title} — {a.get('url','')}" + (f" :: {desc}" if desc else ""))
+        elif fmt == "rss":
+            # Atom/RSS: pull <title> + <link href=...> (skip the feed's own header title)
+            titles = re.findall(r"<title[^>]*>(.*?)</title>", body, re.S)
+            links  = re.findall(r'<link[^>]*href="([^"]+)"', body)
+            for t in titles[1:]:
+                t = re.sub(r"<[^>]+>", "", t).strip()
+                if t:
+                    items.append(t)
+        else:
+            return body[:8000]
+    except Exception as e:
+        logger.warning("fetch_feed(%s): parse error %s", src.get("name"), e)
+        return body[:4000]
+    return "\n".join(items[:40])[:8000]
 
 # ── Classify ──────────────────────────────────────────────────────────────────
 
@@ -146,20 +203,46 @@ Content:
 """
 
 
+def _classify_by_keyword(text: str) -> dict:
+    """Deterministic, zero-cost fallback classifier.
+
+    Scores by distinct D2M_KEYWORDS hits so the harvest still produces real
+    HIGH/MED/LOW signal when no LLM provider is configured (the Groq router is
+    frequently unavailable — see import guard above). HIGH >=4 distinct hits,
+    MED 1-3, LOW 0.
+    """
+    if not text:
+        return {"priority": "LOW", "reason": "empty content", "via": "keyword"}
+    low = text.lower()
+    hits = sorted({kw for kw in D2M_KEYWORDS if kw.lower() in low})
+    if len(hits) >= 4:
+        pri = "HIGH"
+    elif hits:
+        pri = "MED"
+    else:
+        pri = "LOW"
+    reason = f"{len(hits)} D2M keyword(s): {', '.join(hits[:6])}" if hits else "no D2M keywords matched"
+    return {"priority": pri, "reason": reason, "via": "keyword"}
+
+
 def _classify(text: str) -> dict:
-    """Classify content relevance using Groq llama-3.1-8b-instant (fast, $0)."""
-    if not _groq_ok or not text:
-        return {"priority": "MED", "reason": "classification unavailable"}
+    """Classify content relevance. Groq llama if available, else keyword fallback."""
+    if not text:
+        return {"priority": "LOW", "reason": "empty content", "via": "none"}
+    if not _groq_ok:
+        return _classify_by_keyword(text)
     try:
         text_out = _call_groq(CLASSIFY_PROMPT, text[:1500], model="fast", max_tokens=100)
         start = text_out.find("{")
         end   = text_out.rfind("}") + 1
         if start >= 0 and end > start:
-            return json.loads(text_out[start:end])
-        return {"priority": "MED", "reason": text_out[:100]}
+            out = json.loads(text_out[start:end])
+            out.setdefault("via", "groq")
+            return out
+        return _classify_by_keyword(text)
     except Exception as e:
-        logger.warning("classify: %s", e)
-        return {"priority": "MED", "reason": str(e)[:80]}
+        logger.warning("classify (groq) fell back to keyword: %s", e)
+        return _classify_by_keyword(text)
 
 # ── Synthesize ────────────────────────────────────────────────────────────────
 
@@ -186,28 +269,58 @@ Raw intel:
 """
 
 
+def _synthesize_deterministic(findings: list[dict], date_str: str) -> str:
+    """Build a TECH SIGNAL brief section with no LLM — used whenever Groq is offline.
+
+    Previously synthesis returned '' without Groq, so the brief section was blank
+    even when HIGH signals existed. This guarantees the brief always populates.
+    """
+    hi  = [f for f in findings if f.get("priority") == "HIGH"]
+    med = [f for f in findings if f.get("priority") == "MED"]
+    lines = [f"## 🔧 TECH SIGNAL — {date_str}", ""]
+    lines += ["### D2M RELEVANCE SUMMARY",
+              f"- {len(hi)} HIGH / {len(med)} MED signal(s) across {len(findings)} sources "
+              f"(keyword-classified; LLM synthesis offline).", ""]
+    if hi:
+        lines.append("### HIGH")
+        for f in hi:
+            preview = (f.get("content", "").splitlines() or [""])[0][:120]
+            lines.append(f"- **{f['source']}** — {f['reason']}")
+            if preview:
+                lines.append(f"  {preview}")
+    if med:
+        lines.append("")
+        lines.append("### MED")
+        for f in med:
+            lines.append(f"- {f['source']} — {f['reason']}")
+    if not hi and not med:
+        lines.append("No HIGH or MED signals today.")
+    return "\n".join(lines)
+
+
 def _synthesize(findings: list[dict], date_str: str) -> str:
-    """Synthesize findings into morning brief section using Groq llama-3.3-70b-versatile."""
-    if not _groq_ok or not findings:
-        return ""
+    """Synthesize findings into a morning-brief section. Groq if available, else deterministic."""
+    if not findings:
+        return f"## 🔧 TECH SIGNAL — {date_str}\n\nNo sources returned content today."
+    if not _groq_ok:
+        return _synthesize_deterministic(findings, date_str)
     raw = "\n\n".join([
         f"[{f['source']}] {f['priority']} — {f.get('summary', f.get('content', '')[:300])}"
         for f in findings
         if f.get("priority") in ("HIGH", "MED")
     ])
     if not raw:
-        return f"## TECH SIGNAL — {date_str}\n\nNo HIGH or MED signals today."
+        return _synthesize_deterministic(findings, date_str)
     try:
-        result = _call_groq(
+        return _call_groq(
             SYNTHESIS_PROMPT.replace("{date}", date_str),
             raw,
             model="light",
             max_tokens=1500,
         )
-        return result
     except Exception as e:
-        logger.error("synthesize: %s", e)
-        return f"## TECH SIGNAL — {date_str}\n\nSynthesis failed: {e}"
+        logger.error("synthesize (groq) fell back to deterministic: %s", e)
+        return _synthesize_deterministic(findings, date_str)
 
 # ── Telegram push ─────────────────────────────────────────────────────────────
 
@@ -252,7 +365,7 @@ def run_harvest(dry_run: bool = False) -> dict:
         if src["type"] == "url":
             content = _fetch_url(src["url"])
         else:
-            content = _web_search(src["query"])
+            content = _fetch_feed(src)
 
         if not content:
             logger.warning("No content from %s", src["name"])
@@ -274,6 +387,7 @@ def run_harvest(dry_run: bool = False) -> dict:
             "source":   src["name"],
             "priority": priority,
             "reason":   classification.get("reason", ""),
+            "via":      classification.get("via", ""),
             "content":  content[:2000],  # cap stored content
             "url":      src.get("url", ""),
         })
