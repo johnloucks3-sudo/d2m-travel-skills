@@ -52,7 +52,9 @@ CATEGORIES = [
         "routine_candidate": True,   # prime Routines candidate — new releases weekly
         "haiku_eligible": True,
         "cadence": "weekly",
-        "notes": "McPoogle at mcp.mcpoogle.com/sse is searchable"
+        "notes": "McPoogle at mcp.mcpoogle.com/sse is searchable",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: GitHub trending + Reddit not in Perplexity crawler. MISSION-331 will add GitHub API + HN Algolia fetchers.",
     },
     {
         "id": 3,
@@ -63,7 +65,9 @@ CATEGORIES = [
         "routine_candidate": False,  # evolves slowly; monthly check sufficient
         "haiku_eligible": False,     # needs architecture reasoning
         "cadence": "monthly",
-        "notes": "Omnigent 4296 stars, Apache-2.0 — reference point"
+        "notes": "Omnigent 4296 stars, Apache-2.0 — reference point",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: GitHub trending post-March 2026 not accessible to Perplexity. MISSION-331 will add GitHub API search.",
     },
     {
         "id": 4,
@@ -107,7 +111,9 @@ CATEGORIES = [
         "routine_candidate": True,   # NDC/GDS changes frequently
         "haiku_eligible": True,
         "cadence": "weekly",
-        "notes": "Spencer group air quote (DEN-FCO 12-pax) is the live use case"
+        "notes": "Spencer group air quote (DEN-FCO 12-pax) is the live use case",
+        "suspended": True,
+        "suspended_reason": "REPLACED_BY_MICRO: See categories 40 (group air) and 41 (NDC direct connect).",
     },
     {
         "id": 8,
@@ -140,7 +146,9 @@ CATEGORIES = [
         "routine_candidate": True,   # pricing changes frequently
         "haiku_eligible": True,
         "cadence": "weekly",
-        "notes": "35-50% arbitrage documented — confirmed pattern. Need automation."
+        "notes": "35-50% arbitrage documented — confirmed pattern. Need automation.",
+        "suspended": True,
+        "suspended_reason": "REPLACED_BY_MICRO: See categories 42 (Mediterranean) and 43 (Baltic/Nordic).",
     },
     {
         "id": 11,
@@ -162,7 +170,9 @@ CATEGORIES = [
         "routine_candidate": True,   # portal changes affect daily ops
         "haiku_eligible": True,
         "cadence": "weekly",
-        "notes": "TESS (JWT), Nexion portal, Regent OA portal are our live systems"
+        "notes": "TESS (JWT), Nexion portal, Regent OA portal are our live systems",
+        "suspended": True,
+        "suspended_reason": "REPLACED_BY_MICRO: See categories 44 (TESS), 45 (Nexion/OA), 46 (cruise line advisor portals).",
     },
     {
         "id": 13,
@@ -173,7 +183,9 @@ CATEGORIES = [
         "routine_candidate": True,   # prime Routines candidate — weekly cruise line news
         "haiku_eligible": False,     # needs signal vs. noise judgment
         "cadence": "weekly",
-        "notes": "Silversea Silver Muse, Regent Grandeur, Viking Mars, Princess Discovery Princess, Atlas Ocean Voyages ships are our active fleet"
+        "notes": "Silversea Silver Muse, Regent Grandeur, Viking Mars, Princess Discovery Princess, Atlas Ocean Voyages ships are our active fleet",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: LinkedIn/trade press not in Perplexity crawler. MISSION-331 will add Playwright fetchers.",
     },
     {
         "id": 14,
@@ -184,7 +196,9 @@ CATEGORIES = [
         "routine_candidate": True,   # community feedback changes constantly
         "haiku_eligible": False,     # needs pattern recognition + interpretation
         "cadence": "weekly",
-        "notes": "McLeod sailed Silver Muse Jun 18. Grandeur group departs Aug 29."
+        "notes": "McLeod sailed Silver Muse Jun 18. Grandeur group departs Aug 29.",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: Reddit/TripAdvisor community posts not in Perplexity crawler. MISSION-331 will add Reddit API.",
     },
     {
         "id": 15,
@@ -195,7 +209,9 @@ CATEGORIES = [
         "routine_candidate": False,
         "haiku_eligible": True,
         "cadence": "monthly",
-        "notes": "23-touchpoint lifecycle per client — currently manual. Automation is the goal."
+        "notes": "23-touchpoint lifecycle per client — currently manual. Automation is the goal.",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: BYOK-LLM email tools not well-indexed by Perplexity. MISSION-331 will add Product Hunt + GitHub search fetchers.",
     },
     {
         "id": 16,
@@ -206,7 +222,9 @@ CATEGORIES = [
         "routine_candidate": True,   # Anthropic ships constantly — weekly check
         "haiku_eligible": True,
         "cadence": "weekly",
-        "notes": "claude-agent-sdk v0.3.185 found today. 223 published versions. May replace headless spawn."
+        "notes": "claude-agent-sdk v0.3.185 found today. 223 published versions. May replace headless spawn.",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: changelog.anthropic.com and Discord not crawled by Perplexity. MISSION-331 will add direct changelog fetch.",
     },
     {
         "id": 17,
@@ -261,7 +279,9 @@ CATEGORIES = [
         "routine_candidate": False,
         "haiku_eligible": False,
         "cadence": "monthly",
-        "notes": "Ship photos in Drive for Silver Muse, Nova, Viking Mars, Grandeur. Nobody querying them visually."
+        "notes": "Ship photos in Drive for Silver Muse, Nova, Viking Mars, Grandeur. Nobody querying them visually.",
+        "suspended": True,
+        "suspended_reason": "REPLACED_BY_MICRO: See categories 37 (deck plan extraction), 38 (photo captions), 39 (port map data).",
     },
     {
         "id": 22,
@@ -349,7 +369,9 @@ CATEGORIES = [
         "routine_candidate": True,   # discourse is real-time; prime Routines candidate
         "haiku_eligible": False,     # pattern recognition + signal extraction
         "cadence": "weekly",
-        "notes": "This is the vaporware detector. 10 items in today's sweep were vaporware — this category prevents that."
+        "notes": "This is the vaporware detector. 10 items in today's sweep were vaporware — this category prevents that.",
+        "suspended": True,
+        "suspended_reason": "DEAD_ZONE: Reddit/HN recent posts not accessible to Perplexity. MISSION-331 will add HN Algolia + Reddit API.",
     },
     {
         "id": 30,
@@ -371,7 +393,188 @@ CATEGORIES = [
         "routine_candidate": False,
         "haiku_eligible": False,     # creative + commercial licensing judgment needed
         "cadence": "monthly",
-        "notes": "These are Luna and Dani's ingredients. Currently sourced manually every client. Automate the supply chain."
+        "notes": "These are Luna and Dani's ingredients. Currently sourced manually every client. Automate the supply chain.",
+        "suspended": True,
+        "suspended_reason": "REPLACED_BY_MICRO: See categories 32-36 (maps, photography, deck plans, narratives, suite pricing).",
+    },
+
+    # ── MICRO-CATEGORIES: Precision slices added 2026-06-21 (ELON + Whetstone) ──────
+    # Parent categories #7, #10, #12, #21, #31 suspended in favor of these.
+    # "Assembled virtually" = ELON synthesizes related slices in inter-wave analysis.
+
+    # ── #31 SLICE: Client Product Asset Pipeline → 5 targeted micro-categories ──
+    {
+        "id": 32,
+        "name": "Port Maps — Mapbox vs Google vs OSM (2026 Pricing & License)",
+        "persona": "You are a developer evaluating map API costs for embedding port city maps in luxury client PDF itineraries. You need exact 2026 pricing, license restrictions, and the cheapest production path.",
+        "query": "Compare Mapbox Static Images API vs Google Maps Static API vs self-hosted OpenStreetMap/MapLibre for embedding port city maps in client-facing PDF itineraries in 2026. For each: exact price per 1,000 map renders, whether commercial use in client PDFs is permitted, whether a static PNG can be generated server-side without a browser, attribution requirements, and minimum monthly cost. Which is cheapest for ~200 client maps/month? What are the API call formats?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #31. Wave 8 confirmed Mapbox ~$2.50/1K vs Google ~$7/1K — get exact 2026 pricing + license specifics.",
+    },
+    {
+        "id": 33,
+        "name": "Cruise Destination Photography — Legal Sources & License 2026",
+        "persona": "You are a content licensing specialist for luxury travel agencies. You know the exact difference between 'can view' and 'can commercially reuse' for every image source.",
+        "query": "What are the legally clean sources for cruise destination photos usable in commercial client itineraries in 2026? For each source: exact license terms for commercial reuse in client PDFs, whether attribution is required, and cost. Specifically: (1) Does Getty Images have any small-agency licensing tier? (2) Do Unsplash API and Pexels terms permit commercial client itinerary use? (3) Do Regent Seven Seas, Silversea, Viking Ocean, and Princess Cruises press kits explicitly permit advisor commercial reuse? What do luxury travel agencies actually use for destination imagery?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #31. Wave 8 flagged uncertainty about press kit reuse rights and Getty small-agency tiers.",
+    },
+    {
+        "id": 34,
+        "name": "Cruise Ship Deck Plans — Where Lines Publish Them & Reuse Rights 2026",
+        "persona": "You are a cruise industry content researcher who knows exactly where Silversea, Regent, Viking, and Princess publish their deck plans and what you can legally do with them.",
+        "query": "Where do Silversea, Regent Seven Seas, Viking Ocean, and Princess Cruises publish their cruise ship deck plans in 2026? For each cruise line: the URL or page, format (interactive web vs downloadable PDF vs image file), whether plans show suite categories and balcony/no-balcony designations, and what the terms say about reproducing plans in client-facing itineraries. Are there third-party aggregators (CruiseMapper, CruiseLine.com, others) with downloadable deck plan formats? What are their usage terms?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #31. Need specific deck plan sources for itinerary production automation (MISSION-330).",
+    },
+    {
+        "id": 35,
+        "name": "Port Narrative Databases & Travel Writing Licenses 2026",
+        "persona": "You are a travel content director who sources licensed port descriptions for luxury travel agencies. You know every database and syndication service that exists for this.",
+        "query": "What databases or services in 2026 provide licensable port city and cruise destination narrative content for use in travel agency client itineraries? Include: Lonely Planet content licensing, travel writing syndication services, CC0 or public-domain travel content archives, any services designed for travel agencies. What do luxury travel agencies actually use for port copy — license, commission original writing, or use AI? What's the cost for ~50 port descriptions/year? Any API or bulk download access?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #31. Wave 8 found no specific licensable database — deeper search needed.",
+    },
+    {
+        "id": 36,
+        "name": "Cruise Suite Pricing Access — Advisor Channels 2026 (Regent/Silversea/Viking)",
+        "persona": "You are an independent travel advisor at a host agency who needs the fastest path to accurate Regent, Silversea, and Viking suite pricing. You have tried every channel.",
+        "query": "How do independent travel advisors at host agencies access real-time Regent Seven Seas, Silversea, and Viking Ocean cruise suite pricing and availability in 2026? For each line: which channel gives the most current pricing — the line's own advisor portal, a host agency portal (Nexion, Outside Agents), a consolidator (Centrav), GDS, or phone? Is there any data feed, pricing API, or automated pull available? What changed in 2025-2026 about how these three lines distribute pricing to advisors? What do experienced Regent/Silversea/Viking advisors recommend?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #31. Wave 8: no public API confirmed. Need full advisor channel landscape.",
+    },
+
+    # ── #21 SLICE: Multi-Modal Vision → 3 use-case micro-categories ──
+    {
+        "id": 37,
+        "name": "Gemini 2.5 Pro — Deck Plan PDF Structured Extraction (Prompts & Workflow)",
+        "persona": "You are a developer who has built cruise ship deck plan extraction pipelines using Gemini 2.5 Pro. You know the exact prompts, pre-processing steps, and failure modes.",
+        "query": "What is the best 2026 workflow for extracting structured JSON data from cruise ship deck plan PDFs using Gemini 2.5 Pro? Specifically: (1) what prompt structure produces clean JSON with suite_number, deck_number, balcony_type, cabin_category, location_on_deck fields? (2) Does pre-converting PDF pages to high-res PNG images before sending to Gemini improve accuracy? (3) What are the common failure modes on multi-page deck plans with diagrams and legends? (4) Any GitHub repos or blog posts showing this workflow? (5) What does a Gemini API call cost for a 20-page deck plan PDF?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #21. MISSION-330 is building this. Wave 8 confirmed Gemini 2.5 Pro is best model for deck plan extraction.",
+    },
+    {
+        "id": 38,
+        "name": "GPT-4o Luxury Travel Photo Auto-Captioning — Batch Workflow 2026",
+        "persona": "You are a developer who has built batch photo captioning pipelines for luxury travel agencies using GPT-4o. You know the exact system prompts, batch API options, and cost structure.",
+        "query": "What is the best 2026 workflow for batch auto-captioning 50-100 luxury cruise travel photos using GPT-4o? Specifically: (1) what system prompt produces one-sentence captions in 'luxury travel magazine' tone for ship exteriors, port skylines, and dining scenes? (2) Is GPT-4o Batch API meaningfully cheaper than real-time for this volume? (3) What is the actual cost per image at current 2026 pricing? (4) Is Gemini Flash a viable lower-cost alternative for captioning quality? (5) Any working GitHub repos showing a travel photo captioning pipeline?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #21. Wave 8 confirmed GPT-4o best for luxury photo captions. Need implementation details for MISSION-330 adjacent work.",
+    },
+    {
+        "id": 39,
+        "name": "Port City Map Data Extraction — Landmarks & Distances (AI vs API)",
+        "persona": "You are a developer building an automated port guide system for a luxury cruise travel agency. You have compared AI vision approaches against API-based approaches for extracting port data.",
+        "query": "What is the best 2026 approach for extracting structured port city data (landmark names, port gate/pier locations, walking distances to key sites, neighborhood names) for cruise itinerary port guides? Compare: (1) Gemini 2.5 Pro reading a map image — accuracy and cost for 20 ports/year, (2) Google Maps Places API + Geocoding API — cost and data completeness for cruise ports, (3) OpenStreetMap Overpass API — how to query for cruise port landmarks specifically. Which gives the best accuracy-to-cost ratio for a workflow processing 20-30 unique cruise ports per year? Any working examples?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #21. Port data needed for automated port guide sections in client itineraries.",
+    },
+
+    # ── #7 SLICE: Flight Tech → 2 mission-specific micro-categories ──
+    {
+        "id": 40,
+        "name": "Group Air Booking for Travel Advisors — 10-20 Passengers 2026",
+        "persona": "You are a travel advisor who specializes in group air bookings for luxury cruise passengers. You know the group desk process at every major US carrier and what changed in 2026.",
+        "query": "How does the group air booking process work for independent travel advisors in 2026 for groups of 10-20 passengers? Include: which US carriers have dedicated group desks and their phone numbers (United group desk 800-426-1122, Delta, American, etc.), minimum passenger count for group pricing, how far in advance to request a quote, whether written quotes are binding, whether host agency membership (Nexion, Outside Agents) suffices without IATA credentials, typical discount vs retail pricing, and what changed in 2025-2026. Any new platforms or tools that simplify group air quoting?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #7. Spencer DEN-FCO 12-pax is the live use case (MISSION-196A). Commander calls United group desk — need full process brief.",
+    },
+    {
+        "id": 41,
+        "name": "NDC Direct Connect for Independent Travel Advisors 2026",
+        "persona": "You are a travel advisor at a host agency who has thoroughly evaluated NDC direct connect options and knows what actually works vs. what is still theoretical.",
+        "query": "What NDC (New Distribution Capability) direct connect options are realistically available to independent travel advisors at host agencies like Nexion, Outside Agents, or Travel Edge in 2026? Which airlines offer advisor-direct NDC access? Is pricing or availability actually meaningfully better than GDS in 2026 — what are advisors reporting? What platforms (Duffel, Kiwi, Spotnana, Internova) aggregate NDC for advisors? What are the main workflow friction points vs. traditional GDS? What changed in 2026?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #7. Evaluating flight booking options for advisor efficiency beyond direct group desk calls.",
+    },
+
+    # ── #10 SLICE: Shore Excursions → 2 active-itinerary micro-categories ──
+    {
+        "id": 42,
+        "name": "Mediterranean Shore Excursions — Regent Grandeur Aug 2026 Ports",
+        "persona": "You are a shore excursion specialist for luxury Regent Seven Seas passengers who knows every third-party operator in Mediterranean cruise ports and where the real value is.",
+        "query": "What are the best third-party shore excursion options for Regent Seven Seas Grandeur passengers in Mediterranean summer 2026 ports? Compare Viator, GetYourGuide, and Withlocals for key Mediterranean cruise ports (Barcelona, Lisbon, Civitavecchia/Rome, Piraeus/Athens, Valletta/Malta, Dubrovnik). For each port: are third-party tours meaningfully cheaper than Regent's included excursions? Which excursion categories (private cars, small-group food tours, walking tours) offer best value? Do advisors earn commission from Viator or GetYourGuide bookings? Are there any Regent-specific restrictions on independent excursions in these ports?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #10. Grandeur group (Furlow, Ely-Darrow, Nichols) departs Aug 29. Port intelligence for client briefing.",
+    },
+    {
+        "id": 43,
+        "name": "Baltic & Nordic Shore Excursions — Viking Mars Dec 2026 Ports",
+        "persona": "You are a shore excursion specialist for Viking Ocean passengers in Baltic and Nordic ports who knows exactly where independent excursions beat the ship's offerings.",
+        "query": "What third-party shore excursion options are available in Baltic and Nordic cruise ports for Viking Ocean passengers in late 2026? Cover: Copenhagen, Stockholm, Helsinki, Tallinn, Gdansk/Gdynia, and Oslo. For each port: best Viator/GetYourGuide options vs Viking-included excursions with price comparison, whether independent exploration is safe and viable for luxury passengers, and what Viking passengers specifically say about ship vs independent in these ports. Any advisor commissions from third-party bookings? What's new or changed in 2026 for Baltic cruise port access?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #10. Kuklinski group (Viking Mars Dec 17) needs Baltic port intelligence.",
+    },
+
+    # ── #12 SLICE: Cruise Tech → 3 platform-specific micro-categories ──
+    {
+        "id": 44,
+        "name": "TESS / Travel Edge Booking Platform — 2026 Updates & Advisor Feedback",
+        "persona": "You are a travel advisor who uses TESS (Travel Edge booking system) as your primary booking platform and follows every update closely through advisor communities.",
+        "query": "What new features, updates, or changes did Travel Edge's TESS booking platform release in 2025-2026? Include: new booking workflow features, reporting tool improvements, commission tracking changes, cruise line portal integration updates, and any known bugs or workarounds. What are Nexion and Travel Edge advisors saying about TESS in advisor forums, Facebook groups, or ASTA/CLIA communities? Is there an API or integration capability in TESS for external tools?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #12. TESS is primary booking system with JWT integration. Need platform intelligence.",
+    },
+    {
+        "id": 45,
+        "name": "Nexion & Outside Agents — Advisor Portal & Tools 2026",
+        "persona": "You are an independent travel advisor who holds memberships with both Nexion and Outside Agents and monitors every host agency platform update for productivity tools.",
+        "query": "What new tools, portal features, reports, or programs did Nexion and Outside Agents add for their independent travel advisors in 2025-2026? Include: commission tracking improvements, new booking tools, training resources, preferred supplier program changes, co-op marketing tools, and technology partnerships. What are advisors in the Nexion and Outside Agents communities saying — what's most useful, what's broken, what they wish existed? Any new AI tools either host agency is piloting?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #12. D2M has both Nexion (Regent/Princess) and Outside Agents (Silversea/Viking) relationships.",
+    },
+    {
+        "id": 46,
+        "name": "Regent, Silversea & Viking — Advisor-Facing Portal & Commission Changes 2026",
+        "persona": "You are a luxury cruise specialist who books Regent Seven Seas, Silversea, and Viking Ocean heavily and monitors every advisor-facing portal and commission change at these lines.",
+        "query": "What changed in the advisor-facing portals, commission structures, booking tools, or marketing programs for Regent Seven Seas, Silversea, and Viking Ocean in 2025-2026? For each cruise line: new portal UI or booking features, commission tier changes or overrides, preferred advisor status requirements, group booking tool updates, co-op marketing or FAM trip programs, and what experienced advisors in these lines are saying in advisor communities. Any technology changes these lines made specifically to improve advisor workflow in 2025-2026?",
+        "recency": "month",
+        "routine_candidate": False,
+        "haiku_eligible": False,
+        "cadence": "monthly",
+        "notes": "Slice of #12. All three are active booking lines. Commission and portal intelligence direct P0 value.",
     },
 ]
 
@@ -434,7 +637,10 @@ def search_category(cat: dict) -> dict:
 
 
 def run_wave(category_ids: list = None) -> list:
-    cats = CATEGORIES if not category_ids else [c for c in CATEGORIES if c["id"] in category_ids]
+    if category_ids:
+        cats = [c for c in CATEGORIES if c["id"] in category_ids]
+    else:
+        cats = [c for c in CATEGORIES if not c.get("suspended")]
     results = [None] * len(cats)
 
     print(f"\n{'='*70}")
