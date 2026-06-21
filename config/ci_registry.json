@@ -96,7 +96,7 @@
       "access_owner": "dembe",
       "gate_owner": "sterling",
       "keeper": "whetstone",
-      "health_probe": "test -f /home/john/Thunderbird/scripts/keepalive_supervisor.py",
+      "health_probe": "python3 /home/john/Thunderbird/scripts/ci_probe_credential_keepalive.py",
       "currency_window_hours": 3,
       "reeval_cadence_days": 30,
       "latency_sla_ms": 30000,
@@ -104,7 +104,8 @@
       "active_workaround": null,
       "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
-      "status": "unknown"
+      "status": "unknown",
+      "probe_note": "efficacy probe (runs credential health check; RED on expired client-affecting cred or dead supervisor timer); replaced test -f on 2026-06-21"
     },
     {
       "id": "tech-adoption",
