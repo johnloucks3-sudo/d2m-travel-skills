@@ -34,7 +34,7 @@ Sterling's review burden inverts. He no longer hunts for reasons **not** to adop
 ### 4. FLEETS — 10 agents each (standing capacity)
 - **ELON** commands a standing **10-agent fleet** for tool discovery / adoption trials.
 - **Whetstone** commands a standing **10-agent fleet** for razor-sharp currency / replacement.
-- These are standing resources, used liberally. Hale orchestrates launches. Spend is bounded by the agent caps; only a *financial commitment* (a paid subscription/contract) reaches the Commander — token spend on the fleets is pre-authorized.
+- **ELON and Whetstone orchestrate their own fleets autonomously and INFORM Hale** — they report results to Hale, they do not request that Hale launch or gate. Hale is informed, not the launch authority; she relays to the Commander and folds findings into the brief. Spend is bounded by the agent caps; only a *financial commitment* (a paid subscription/contract) reaches the Commander — token spend on the fleets is pre-authorized.
 
 ### 5. CI HEALTH ROUTINE — cadence
 The CI razor-sharp health check runs **DAILY** until it reports **100% RAZOR_SHARP for 7 consecutive days**, then drops to **WEEKLY**. Any day below 100% resets the streak and holds daily. Engine: `scripts/ci_daily_routine.py` (ci-sweep.timer). Whetstone owns the green; RED/REPLACE on a client-affecting skill still pages the Commander.
