@@ -28,6 +28,14 @@ Sterling's review burden inverts. He no longer hunts for reasons **not** to adop
 - Sterling's deliverable on any candidate: *"Here is why we should adopt, here is the smallest safe way to try it, here is the one real risk and its mitigation."*
 - Sterling still owns code quality, metrics, and the security/secret gates — those are harm-specific and remain hard.
 
+### 2a. CLIENT-PATH CANARY (Sterling's guardrail — adopted by Commander 2026-06-21)
+The *only* control retained inside the adoption-biased posture, framed as a launch criterion, not a brake:
+- A tool that **touches the client-send path or handles client PII** ships behind a **7-day canary** — it **adopts immediately** but runs on **internal / Loucks-as-client traffic only**, with an output diff captured each run.
+- It **graduates to live client traffic** on the launch criterion: **zero send-path defects across the 7-day window.**
+- Everything that does **NOT** touch client mail or PII — scrapers, fetchers, research agents, harnesses, model swaps, automation glue — gets **full default-ADOPT, no canary, go.**
+- This is not a new brake: live client *send* is already Commander-gated (WF-17), so the canary targets **PII-handling / client-content-prep** tools that would otherwise enter unvetted. It costs zero capability-tool tempo.
+- **Owner:** Sterling defines and runs the canary criterion. Rationale: a 1-advisor luxury shop surfaces a defect as one named client's bounced email weeks later, not as an aggregate metric — prove a client-path tool on internal traffic in a week before it ever touches a client. (Same failure class that created Harlan's seat + the dossier-contamination incidents.)
+
 ### 3. ELON OVERRIDE
 **ELON may override Sterling's gate** on an adoption decision. Sterling logs his dissent (`hale_decisions.md`); he does not block. Override is ELON's to exercise and own.
 
