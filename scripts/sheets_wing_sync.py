@@ -32,6 +32,7 @@ FARE_LOG_TAB = "Fare Log"
 ACTION_TRACKER_TAB = "Action_Tracker"
 DANI_TAB = "Dani_Client_Tracker"
 SHIP_INTEL_TAB = "Ship Intelligence"
+DAILY_ITINERARY_TAB = "Daily Itinerary"
 
 
 # ──────────────────────────────────────────────────────────────── helpers
@@ -297,16 +298,106 @@ def sync_action_tracker(spreadsheet) -> None:
         log.info("Action_Tracker: no new missions to add")
 
 
+# ─────────────────────────────────────────────────── Daily Itinerary cross-ref (M-274)
+
+def _read_daily_itinerary_ports(spreadsheet) -> dict[str, list[dict]]:
+    """Map Booking_ID -> ordered list of port-call dicts from the Daily Itinerary tab.
+
+    Returns {booking_id: [{day, date, port, arrive, depart}, ...]} sorted by day.
+    Sea/cruising days and header artifacts are filtered out so Dani sees real ports.
+    Tolerates the live schema:
+      Booking_ID | Day_Number | Date | Port_Location | Arrive | Depart | ...
+    """
+    try:
+        ws = spreadsheet.worksheet(DAILY_ITINERARY_TAB)
+    except gspread.WorksheetNotFound:
+        log.warning("Daily Itinerary tab not found — port cross-ref skipped")
+        return {}
+
+    vals = ws.get_all_values()
+    if not vals:
+        return {}
+    header = vals[0]
+
+    def col(name: str, default: int = -1) -> int:
+        return header.index(name) if name in header else default
+
+    i_bid = col("Booking_ID", 0)
+    i_day = col("Day_Number", 1)
+    i_date = col("Date", 2)
+    i_port = col("Port_Location", 3)
+    i_arr = col("Arrive", 4)
+    i_dep = col("Depart", 5)
+
+    _SEA_MARKERS = (
+        "cruising", "at sea", "sea day", "day at sea", "sail ", "ocean", " sea",
+        "straits of", "strait of", "date line", "passage", "channel",
+        "scenic cruising", "transit",
+    )
+    _NON_PORT_EXACT = {"location", "tbd", "unknown", ""}
+    out: dict[str, list[dict]] = {}
+    for r in vals[1:]:
+        if len(r) <= i_port:
+            continue
+        bid = (r[i_bid] if i_bid < len(r) else "").strip()
+        port = (r[i_port] if i_port < len(r) else "").strip()
+        if not bid or not port:
+            continue
+        low = port.lower()
+        if low in _NON_PORT_EXACT or any(m in low for m in _SEA_MARKERS):
+            continue  # skip sea days / transits / header artifacts
+        rec = {
+            "day": (r[i_day] if i_day < len(r) else "").strip(),
+            "date": (r[i_date] if i_date < len(r) else "").strip(),
+            "port": port,
+            "arrive": (r[i_arr] if i_arr < len(r) else "").strip(),
+            "depart": (r[i_dep] if i_dep < len(r) else "").strip(),
+        }
+        out.setdefault(bid, []).append(rec)
+
+    def _day_key(rec: dict):
+        try:
+            return (0, int(rec["day"]))
+        except (ValueError, TypeError):
+            return (1, rec.get("date", ""))
+
+    for bid in out:
+        out[bid].sort(key=_day_key)
+    return out
+
+
+def get_client_ports(spreadsheet, booking_id: str) -> list[dict]:
+    """Public helper: return the ordered port calls for one Booking_ID.
+
+    Lets Dani pull a single client's ports without rebuilding the whole map.
+    Returns [] if the booking has no itinerary rows.
+    """
+    return _read_daily_itinerary_ports(spreadsheet).get(str(booking_id).strip(), [])
+
+
+def _ports_summary(port_recs: list[dict], limit: int = 12) -> str:
+    """Compact one-cell summary of a client's port sequence for the tracker."""
+    if not port_recs:
+        return "—"
+    names = [p["port"] for p in port_recs if p.get("port")]
+    shown = names[:limit]
+    tail = f" +{len(names) - limit} more" if len(names) > limit else ""
+    return " → ".join(shown) + tail
+
+
 # ──────────────────────────────────────────────────────────────────── Dani tracker
 
 def sync_dani_tracker(spreadsheet) -> None:
     """Dani's client operations sheet — one row per active booking."""
-    ws = _get_or_create_tab(spreadsheet, DANI_TAB, rows=200, cols=12)
+    ws = _get_or_create_tab(spreadsheet, DANI_TAB, rows=200, cols=13)
     ws.clear()
 
     bmc = BookingMasterClient()
     bookings = bmc.list_bookings()
     missions = _read_p0_missions()
+
+    # M-274: cross-reference Daily Itinerary ports by Booking_ID
+    ports_by_bid = _read_daily_itinerary_ports(spreadsheet)
 
     # Build mission lookup by title fragment
     mission_map = {m.get("title", "").lower(): m for m in missions}
@@ -324,7 +415,8 @@ def sync_dani_tracker(spreadsheet) -> None:
         ["🎯 DANI CLIENT TRACKER", _now_mt(), "", "", "", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", "", "", "", "", ""],
         ["Client", "Booking ID", "Ship / Voyage", "Departure", "FPD Status", "Balance Due",
-         "Next TP", "Draft Status", "Priority", "Dani Voice Notes", "Last Updated", ""],
+         "Next TP", "Draft Status", "Priority", "Dani Voice Notes", "Last Updated",
+         "Ports (from Daily Itinerary)"],
     ]
 
     active = [b for b in bookings if b.get("Status", "").lower() not in ("cancelled", "closed")]
@@ -343,10 +435,12 @@ def sync_dani_tracker(spreadsheet) -> None:
         next_tp = lc_data.get(bid, {}).get("next_tp", "—")
         draft_status = lc_data.get(bid, {}).get("draft_status", "—")
 
+        ports_cell = _ports_summary(ports_by_bid.get(str(bid).strip(), []))
+
         rows.append([
             client[:40], bid, ship[:40], dep,
             fpd_status, f"${balance:,.2f}" if balance else "$0",
-            next_tp, draft_status, "", "", _now_mt(), "",
+            next_tp, draft_status, "", "", _now_mt(), ports_cell,
         ])
 
     rows += [
