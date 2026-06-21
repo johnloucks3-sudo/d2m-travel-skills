@@ -32,12 +32,17 @@
       "latency_sla_ms": 90000,
       "fallback": "nodriver light lane; manual cookie re-capture via setup-browser-cookies",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase",
       "throttle_guard": "core/ci/portal_guard.py (Throttle >=3s/host + abort-on-403/429; tested)",
-      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
+      "binary_version": "135.0.1-beta.24",
+      "binary_version_basis": "latest-SUPPORTED Linux x86_64 release per the camoufox wrapper resolver (CONSTRAINTS >=beta.19, <1). NOT the raw GitHub latest tag.",
+      "binary_currency_check": "probe asserts installed version.json == wrapper resolver verdict (`camoufox version` -> 'Up to date!'). RED only when a FETCHABLE supported update exists. Reuses the wrapper's own is_supported() logic; no hardcoded version number.",
+      "binary_alpha_exclusion_note": "Whetstone REFRESH 2026-06-21: raw GitHub latest is v150.0.2-beta.25 (Firefox 150), BUT its only Linux x86_64 asset is camoufox-150.0.2-alpha.26-lin.x86_64.zip \u2014 an ALPHA build, which the wrapper rejects (is_supported()=False). 135.0.1-beta.24 is therefore the latest INSTALLABLE supported Linux build, and `fetch` correctly reports up-to-date (verified no-op). DO NOT force-install the 150 alpha: a partial/alpha anti-detection fingerprint is plausibly MORE detectable and defeats the tool's purpose. Advance only when a beta/stable Linux x86_64 build of 150+ ships.",
+      "binary_currency_window_days": 90,
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21); + binary-staleness assertion added 2026-06-21 (Whetstone REFRESH) \u2014 was previously blind to binary version (only checked pip wrapper currency)"
     },
     {
       "id": "web-fetch",
@@ -58,7 +63,7 @@
       "latency_sla_ms": 15000,
       "fallback": "anansi --browser, then playwright headless (last resort)",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
@@ -81,7 +86,7 @@
       "latency_sla_ms": 300000,
       "fallback": "managed agents API (dispatch_claude.py --managed)",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
@@ -105,7 +110,7 @@
       "latency_sla_ms": 30000,
       "fallback": "manual re-auth via centrav_reauth.py / regent_oa_reauth.py",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "probe_note": "efficacy probe (runs credential health check; RED on expired client-affecting cred or dead supervisor timer); replaced test -f on 2026-06-21"
@@ -129,7 +134,7 @@
       "latency_sla_ms": 60000,
       "fallback": "manual Dembe sweep via wind_staff.py dembe",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "probe_note": "efficacy probe (freshness + fetcher liveness), replaced test -f on 2026-06-21"
@@ -153,7 +158,7 @@
       "latency_sla_ms": 120000,
       "fallback": "manual ci_sentinel.py --dry-run review",
       "active_workaround": null,
-      "last_verified": "2026-06-21T12:00:00.097681+00:00",
+      "last_verified": "2026-06-21T15:32:39.957491+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "doctrine": "F2T2EA: Find(overwatch scan)->Fix(pinpoint unit+bands)->Track(custody/cooldown)->Target(arm alert bird, clear-to-engage)->Engage(scramble managed agent, repair)->Assess(BDA re-scan). Pages Commander ONLY on escalation (sudo/spend/client-send).",
@@ -167,6 +172,19 @@
         "innovation": "elon"
       },
       "probe_note": "efficacy probe (replaced presence/import check 2026-06-21)"
+    },
+    {
+      "id": "email-handling",
+      "name": "Email Handling (d2m \u2192 Commander delivery)",
+      "ci_tool": "scripts/d2m_commander_digest.py",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_email_handling.py",
+      "id_owner": "hale",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "client_affecting": true,
+      "currency_window_hours": 8,
+      "status": "unknown",
+      "probe_note": "efficacy: received==delivered to Commander; RED on gap/stale (built 2026-06-21)"
     }
   ],
   "accountable_owner": "hale",
