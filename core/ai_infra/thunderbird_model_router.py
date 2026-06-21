@@ -402,11 +402,12 @@ def _call_claude(system_prompt: str, query: str, model: str = "sonnet",
 
 def _call_groq_direct(system_prompt: str, query: str,
                       temperature: float = 0.7, max_tokens: int = 2000,
-                      model: str = "llama-3.1-8b-instant",
+                      model: str = "meta-llama/llama-4-scout-17b-16e-instruct",
                       caller: str = "_call_groq_direct") -> str:
     """LIVE: Groq direct API — ultra-fast small-context classify/triage lane.
-    Key: GROQ_API_KEY. Model: llama-3.1-8b-instant (free tier, 131K ctx).
-    Wired 2026-06-21 (integrate-all-59 C31).
+    Key: GROQ_API_KEY. Default: llama-4-scout-17b (free, faster than 3.1-8b-instant).
+    Wave 5 2026-06-21: upgraded from llama-3.1-8b-instant → llama-4-scout.
+    Other free options: qwen/qwen3-32b, openai/gpt-oss-120b (check quotas).
     Falls back to Gemini Flash-Lite on missing key or API error.
     """
     groq_key = os.getenv("GROQ_API_KEY", "")
@@ -645,6 +646,74 @@ def classify_task(prompt: str) -> str:
     Returns "general" for all inputs during recovery.
     """
     return "general"
+
+
+def _call_ollama(system_prompt: str, query: str, temperature: float = 0.7,
+                 max_tokens: int = 2000, model: str = "qwen2.5:7b",
+                 caller: str = "_call_ollama") -> str:
+    """FREE: Ollama local inference — zero cost, zero latency to provider, offline-capable.
+    Wired 2026-06-21 (wave 5). Installed: ollama v0.21.0 at /usr/local/bin/ollama.
+    Default model: qwen2.5:7b (best quality/speed on 16-32GB RAM per wave5 cat22).
+    Other options: llama3.2:3b, gemma2:9b, phi4:14b, qwen2.5:14b.
+    Pull a model: `ollama pull qwen2.5:7b`
+    Falls back to Groq if ollama server not running or model not pulled.
+    """
+    try:
+        import ollama as ollama_sdk
+        client = ollama_sdk.Client()
+        resp = client.chat(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query},
+            ],
+            options={"temperature": temperature, "num_predict": max_tokens},
+        )
+        return resp["message"]["content"] or ""
+    except Exception as exc:
+        log.warning("%s: Ollama error (%s), falling back to Groq", caller, exc)
+        return _call_groq_direct(system_prompt, query,
+                                 temperature=temperature, max_tokens=max_tokens,
+                                 caller=caller)
+
+
+def _call_llamaparse(file_path: str, caller: str = "_call_llamaparse") -> str:
+    """LlamaParse — structured PDF extraction, best for complex layouts (cruise brochures,
+    multi-column booking confirmations). Free tier: 1,000 pages/day via LlamaCloud.
+    Wired 2026-06-21 (wave 5). Deprecated llama-parse package → migrated to llama-cloud-py.
+    Key: LLAMA_CLOUD_API_KEY (cloud.llamaindex.ai, free).
+    Falls back to PyMuPDF (fitz) if key missing or parse fails.
+    """
+    llama_key = os.getenv("LLAMA_CLOUD_API_KEY", "")
+    if not llama_key:
+        log.warning("%s: LLAMA_CLOUD_API_KEY not set, falling back to PyMuPDF", caller)
+        return _fallback_pymupdf(file_path, caller)
+    try:
+        import nest_asyncio
+        nest_asyncio.apply()
+        from llama_parse import LlamaParse
+        parser = LlamaParse(
+            api_key=llama_key,
+            result_type="markdown",
+            verbose=False,
+        )
+        import asyncio
+        docs = asyncio.run(parser.aload_data(file_path))
+        return "\n\n".join(d.text for d in docs)
+    except Exception as exc:
+        log.warning("%s: LlamaParse error (%s), falling back to PyMuPDF", caller, exc)
+        return _fallback_pymupdf(file_path, caller)
+
+
+def _fallback_pymupdf(file_path: str, caller: str = "_fallback_pymupdf") -> str:
+    """PyMuPDF fallback for PDF extraction when LlamaParse is unavailable."""
+    try:
+        import fitz
+        doc = fitz.open(file_path)
+        return "\n".join(page.get_text() for page in doc)
+    except Exception as exc:
+        log.error("%s: PyMuPDF also failed (%s)", caller, exc)
+        return ""
 
 
 def call_gemini_large_context(system_prompt: str, user_prompt: str,
