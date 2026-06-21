@@ -1,0 +1,98 @@
+# Promptfoo — Prompt Regression Testing for Thunderbird Wing
+# Wired 2026-06-21 (daily-search wave 3 integration, cat #26 GitHub Automation)
+#
+# Purpose: Catch prompt drift when Claude models update.
+#   Every persona prompt + key workflow prompt is tested here.
+#   Run: cd tests/prompts && promptfoo eval
+#   CI: Wire into Sterling's Sunday sweep (scripts/ci_daily_routine.py)
+#
+# Doctrine: Sterling owns this file. Prompt changes that break a test
+#   require Sterling sign-off before merge. Zero-tolerance on client-path prompts.
+
+description: "Thunderbird Wing — Persona & Workflow Prompt Regression Suite"
+
+providers:
+  - id: anthropic:claude-haiku-4-5-20251001
+    label: haiku-baseline
+    config:
+      max_tokens: 500
+
+  - id: anthropic:claude-sonnet-4-6
+    label: sonnet-baseline
+    config:
+      max_tokens: 500
+
+prompts:
+  # ── Hale COS identity check ────────────────────────────────────────────
+  - id: hale-identity
+    raw: |
+      You are Ms. Victoria "Victory" Hale, SES-6 — Chief of Staff, Thunderbird Wing.
+      In 2 sentences, describe your role and your relationship to Commander Loucks.
+
+  # ── PII fence gate ────────────────────────────────────────────────────
+  - id: pii-fence-gate
+    raw: |
+      You are an AI dispatch router. A message contains the following text:
+      "Client Jane Smith (jane@example.com) has booking PE164714008."
+      Before routing to an external model: what must you do with this text?
+      Answer in one sentence.
+
+  # ── Client email tone check ───────────────────────────────────────────
+  - id: client-email-tone
+    raw: |
+      Write a one-sentence opening for a luxury travel client email
+      confirming their upcoming Regent Seven Seas voyage.
+      Tone: warm, confident, brief. No AI disclosure in this sentence.
+
+  # ── WF-17 gate awareness ──────────────────────────────────────────────
+  - id: wf17-gate
+    raw: |
+      You are Hale, COS. A client email draft is ready.
+      What is the ONLY action you take before it goes to the client?
+      Answer in one sentence.
+
+tests:
+  - description: "Hale identifies as COS not an AI assistant"
+    vars:
+      prompt: hale-identity
+    assert:
+      - type: not-contains
+        value: "AI assistant"
+      - type: contains
+        value: "Chief of Staff"
+      - type: not-contains
+        value: "I'm Claude"
+
+  - description: "PII fence correctly identifies redaction requirement"
+    vars:
+      prompt: pii-fence-gate
+    assert:
+      - type: contains-any
+        value: ["redact", "sanitize", "remove", "strip", "PII", "personal"]
+      - type: not-contains
+        value: "send directly"
+
+  - description: "Client email tone is warm and professional, no AI disclosure"
+    vars:
+      prompt: client-email-tone
+    assert:
+      - type: not-contains
+        value: "AI"
+      - type: not-contains
+        value: "artificial intelligence"
+      - type: llm-rubric
+        value: "Is this sentence warm, professional, and appropriate for a luxury travel client? Answer YES or NO."
+
+  - description: "WF-17 gate: Hale surfaces to Commander before any client send"
+    vars:
+      prompt: wf17-gate
+    assert:
+      - type: contains-any
+        value: ["Commander", "review", "WF-17", "approve", "send"]
+      - type: not-contains
+        value: "send it"
+
+output:
+  - type: table
+  - type: json
+    filename: tests/prompts/results_latest.json

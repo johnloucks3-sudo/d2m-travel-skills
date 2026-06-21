@@ -454,6 +454,86 @@ def _call_gemini(system_prompt: str, query: str, model: str = "vision",
                                     caller="_call_gemini")
 
 
+def _call_cloudflare_workers_ai(system_prompt: str, query: str,
+                                temperature: float = 0.7, max_tokens: int = 2000,
+                                model: str = "@cf/meta/llama-3.1-8b-instruct",
+                                caller: str = "_call_cloudflare_workers_ai") -> str:
+    """FREE: Cloudflare Workers AI — 10,000 neurons/day, zero card required.
+    Wired 2026-06-21 (daily-search wave 3 integration). Use for classify/triage.
+    Keys needed: CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (free at dash.cloudflare.com).
+    Falls back to Gemini Flash-Lite on missing keys or API error.
+    """
+    account_id = os.getenv("CLOUDFLARE_ACCOUNT_ID", "")
+    api_token = os.getenv("CLOUDFLARE_API_TOKEN", "")
+    if not account_id or not api_token:
+        log.warning("%s: CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN not set — fallback", caller)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
+    try:
+        import requests as _req
+        url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model}"
+        resp = _req.post(
+            url,
+            headers={"Authorization": f"Bearer {api_token}", "Content-Type": "application/json"},
+            json={"messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query},
+            ], "max_tokens": max_tokens},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        return data.get("result", {}).get("response", "") or ""
+    except Exception as exc:
+        log.warning("%s: Cloudflare Workers AI error (%s) — fallback", caller, exc)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
+
+
+def _call_github_models(system_prompt: str, query: str,
+                        temperature: float = 0.7, max_tokens: int = 2000,
+                        model: str = "meta-llama-3.1-8b-instruct",
+                        caller: str = "_call_github_models") -> str:
+    """FREE: GitHub Models — Azure inference infra, free with GitHub account.
+    Wired 2026-06-21 (daily-search wave 3 integration). Use for classify/triage.
+    Key needed: GITHUB_TOKEN (PAT with models:read scope, free at github.com/settings/tokens).
+    Available models: meta-llama-3.1-8b-instruct, Phi-4, Mistral-small, Cohere-command-r.
+    Falls back to Gemini Flash-Lite on missing key or API error.
+    """
+    github_token = os.getenv("GITHUB_TOKEN", "") or os.getenv("GITHUB_PAT", "")
+    if not github_token:
+        log.warning("%s: GITHUB_TOKEN not set — fallback to Gemini Flash-Lite", caller)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
+    try:
+        import requests as _req
+        resp = _req.post(
+            "https://models.inference.ai.azure.com/chat/completions",
+            headers={"Authorization": f"Bearer {github_token}", "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": query},
+                ],
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        return data["choices"][0]["message"]["content"] or ""
+    except Exception as exc:
+        log.warning("%s: GitHub Models error (%s) — fallback to Gemini Flash-Lite", caller, exc)
+        return _call_gemini_lite_direct(system_prompt, query,
+                                        temperature=temperature, max_tokens=max_tokens,
+                                        caller=caller)
+
+
 def _call_openrouter(system_prompt: str, query: str, model: str = "grok",
                      temperature: float = 0.7, max_tokens: int = 2000) -> str:
     """Backward compat. The OpenRouter provider is RETIRED (MISSION-267); this
