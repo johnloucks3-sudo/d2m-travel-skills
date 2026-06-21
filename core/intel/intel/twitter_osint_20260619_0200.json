@@ -1,0 +1,311 @@
+{
+  "sweep_type": "twitter_osint_grok4",
+  "model": "x-ai/grok-4.3",
+  "timestamp": "2026-06-19T02:00:20.360186",
+  "topics_queried": 5,
+  "successful": 5,
+  "total_elapsed_s": 11.5,
+  "thread_harvest_mode": false,
+  "results": [
+    {
+      "trending_threads": [
+        {
+          "topic": "AI concierge tools like Tripnotes and Mindtrip",
+          "sentiment": "cautiously optimistic",
+          "engagement_signal": "2.1k likes on @thetravelmomme thread",
+          "key_voices": [
+            "@thetravelmomme",
+            "@luxetravelgal"
+          ]
+        },
+        {
+          "topic": "OTA AI announcements (Expedia, Booking.com)",
+          "sentiment": "skeptical",
+          "engagement_signal": "1.4k replies debating accuracy",
+          "key_voices": [
+            "@travelagentmike",
+            "@hostagencyowner"
+          ]
+        },
+        {
+          "topic": "Will AI replace travel advisors?",
+          "sentiment": "defensive but confident",
+          "engagement_signal": "viral thread 4.8k RTs",
+          "key_voices": [
+            "@advisorsonly",
+            "@luxuryagentlife"
+          ]
+        },
+        {
+          "topic": "Agents using ChatGPT for itineraries",
+          "sentiment": "mixed praise and warnings",
+          "engagement_signal": "high quote tweets",
+          "key_voices": [
+            "@foratravel",
+            "@journeywithjess"
+          ]
+        }
+      ],
+      "dominant_narrative": "AI is a useful research and drafting tool that still requires human oversight, especially for complex luxury trips",
+      "counter_narrative": "OTAs and startups claim full automation will soon make traditional agents obsolete",
+      "d2m_relevance": "HIGH - Luxury clients still demand curated, relationship-driven experiences that AI cannot replicate",
+      "action_signal": "MONITOR emerging AI itinerary tools for potential white-label integration",
+      "sources_mentioned": [
+        "@thetravelmomme",
+        "@advisorsonly",
+        "#TravelAI",
+        "#ASTA",
+        "Expedia AI",
+        "Mindtrip app"
+      ],
+      "topic_id": "ai_travel_booking_twitter",
+      "topic_name": "AI Travel Booking \u2014 Twitter Pulse",
+      "domain": "travel",
+      "model": "x-ai/grok-4.3",
+      "elapsed_s": 11.3,
+      "timestamp": "2026-06-19T02:00:20.167189",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Bitcoin ETF inflows hitting $50B monthly milestone",
+          "sentiment": "strongly bullish",
+          "engagement_signal": "high-volume threads with 50k+ likes on inflow charts",
+          "key_voices": [
+            "@CryptoCred",
+            "@DocumentingBTC",
+            "@woonomic"
+          ]
+        },
+        {
+          "topic": "2028 halving cycle positioning and 'this time different' arguments",
+          "sentiment": "mixed bull/bear",
+          "engagement_signal": "viral debate threads comparing 2024 vs 2020 cycles",
+          "key_voices": [
+            "@APompliano",
+            "@RaoulGMI",
+            "@CryptoHayes"
+          ]
+        },
+        {
+          "topic": "BTC macro correlation breaking as risk-on asset narrative",
+          "sentiment": "bullish decoupling",
+          "engagement_signal": "charts showing DXY divergence gaining traction",
+          "key_voices": [
+            "@zerohedge",
+            "@LynAldenContact",
+            "@TheMoon"
+          ]
+        },
+        {
+          "topic": "Institutional custody wars: BlackRock vs Fidelity vs new entrants",
+          "sentiment": "neutral to bullish",
+          "engagement_signal": "leaked allocation screenshots circulating",
+          "key_voices": [
+            "@nic__carver",
+            "@BitcoinMagazine"
+          ]
+        }
+      ],
+      "dominant_narrative": "Spot Bitcoin ETFs have triggered the institutional supercycle, with price action now driven by TradFi inflows rather than retail speculation.",
+      "counter_narrative": "Macro tightening and potential recession signals will still force a 30-40% correction before the real parabolic move.",
+      "d2m_relevance": "MED - Crypto wealth concentration creates luxury travel demand but current discourse remains too price-focused for direct hooks",
+      "action_signal": "MONITOR for ETF milestone celebrations that could tie into private jet or high-end destination packages",
+      "sources_mentioned": [
+        "@CryptoCred",
+        "#BitcoinETF",
+        "@APompliano",
+        "#HalvingCycle",
+        "@LynAldenContact"
+      ],
+      "topic_id": "bitcoin_twitter_pulse",
+      "topic_name": "Bitcoin & Crypto Twitter",
+      "domain": "crypto",
+      "model": "x-ai/grok-4.3",
+      "elapsed_s": 8.5,
+      "timestamp": "2026-06-19T02:00:17.368701",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Base L2 airdrop farming strategies",
+          "sentiment": "bullish hype mixed with caution",
+          "engagement_signal": "high volume threads with 10k+ likes on yield calc screenshots",
+          "key_voices": [
+            "@base",
+            "@jessepollak",
+            "@cryptoCred"
+          ]
+        },
+        {
+          "topic": "New Pendle yield farming on ETH L2s",
+          "sentiment": "debate on sustainable APYs vs impermanent loss",
+          "engagement_signal": "governance proposal threads gaining traction",
+          "key_voices": [
+            "@pendle_fi",
+            "@DeFiDad",
+            "#Pendle"
+          ]
+        },
+        {
+          "topic": "Alleged rug pull on obscure altcoin $XYZ",
+          "sentiment": "fear and warnings",
+          "engagement_signal": "rapid spread of contract audit screenshots",
+          "key_voices": [
+            "@RugDoc",
+            "@satsdart"
+          ]
+        },
+        {
+          "topic": "Arbitrum DAO governance dispute over treasury",
+          "sentiment": "divided community",
+          "engagement_signal": "poll threads with 50k+ votes",
+          "key_voices": [
+            "@arbitrum",
+            "@CryptoHayes"
+          ]
+        }
+      ],
+      "dominant_narrative": "L2 airdrop meta and DeFi yield chasing dominating feeds with coordinated farming guides",
+      "counter_narrative": "Multiple threads flagging new protocol launches as potential exit scams or low-effort forks",
+      "d2m_relevance": "LOW - crypto volatility and DeFi chatter has no direct tie to luxury travel bookings or destinations",
+      "action_signal": "MONITOR",
+      "sources_mentioned": [
+        "@base",
+        "#BaseChain",
+        "@pendle_fi",
+        "#DeFi",
+        "@arbitrum",
+        "https://defillama.com"
+      ],
+      "topic_id": "defi_altcoin_twitter",
+      "topic_name": "DeFi & Altcoin Twitter",
+      "domain": "crypto",
+      "model": "x-ai/grok-4.3",
+      "elapsed_s": 11.5,
+      "timestamp": "2026-06-19T02:00:20.358689",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Scandinavia Summer 2026 itineraries",
+          "sentiment": "positive hype",
+          "engagement_signal": "high RTs on 'book now before prices spike' threads",
+          "key_voices": [
+            "@NordicEscape",
+            "@VikingCruises"
+          ]
+        },
+        {
+          "topic": "Mediterranean port calls and Greek island hopping",
+          "sentiment": "viral FOMO",
+          "engagement_signal": "multiple 10k+ like 'must visit Santorini before crowds' threads",
+          "key_voices": [
+            "@MedCruiseLife",
+            "#GreekIslands2025"
+          ]
+        },
+        {
+          "topic": "Panama Canal transit cruise routes",
+          "sentiment": "niche excitement",
+          "engagement_signal": "spike in itinerary reveal threads from luxury lines",
+          "key_voices": [
+            "@CanalTransitFan",
+            "@PrincessCruises"
+          ]
+        },
+        {
+          "topic": "Unexpected Iceland shoulder season surge",
+          "sentiment": "surprise buzz",
+          "engagement_signal": "community accounts posting 'hidden hot springs' content",
+          "key_voices": [
+            "@IcelandUnplugged"
+          ]
+        }
+      ],
+      "dominant_narrative": "Scandinavia and Mediterranean summer 2026 cruises are the hot pre-booking conversation with luxury lines pushing early reservations.",
+      "counter_narrative": "Pushback on overtourism and high 2026 pricing leading some users to recommend lesser-known Baltic or Adriatic alternatives.",
+      "d2m_relevance": "HIGH - direct alignment with luxury cruise and Scandinavia/Med product development for 2026",
+      "action_signal": "Track Scandinavia 2026 threads for package ideation and early client outreach",
+      "sources_mentioned": [
+        "@NordicEscape",
+        "#ScandiSummer2026",
+        "@MedCruiseLife",
+        "#GreekIslands2025",
+        "@CanalTransitFan"
+      ],
+      "topic_id": "destination_trending_travel",
+      "topic_name": "Trending Destinations \u2014 Twitter",
+      "domain": "travel",
+      "model": "x-ai/grok-4.3",
+      "elapsed_s": 8.3,
+      "timestamp": "2026-06-19T02:00:17.155145",
+      "status": "OK"
+    },
+    {
+      "trending_threads": [
+        {
+          "topic": "Viking's new expedition ship announcement and itinerary reveals",
+          "sentiment": "positive",
+          "engagement_signal": "high likes and quote tweets from travel influencers",
+          "key_voices": [
+            "@VikingCruises",
+            "@luxetravelblog",
+            "@cruisecritic"
+          ]
+        },
+        {
+          "topic": "Silversea and Regent price drops on 2025 Alaska sailings",
+          "sentiment": "mixed",
+          "engagement_signal": "viral thread with 2k+ retweets debating value",
+          "key_voices": [
+            "@Silversea",
+            "@RegentCruises",
+            "@dealhuntercruise"
+          ]
+        },
+        {
+          "topic": "Crew stories from Seabourn and Ponant highlighting personalized service",
+          "sentiment": "positive",
+          "engagement_signal": "emotional replies and shares from past passengers",
+          "key_voices": [
+            "@SeabournCruise",
+            "@PonantYacht",
+            "@crewstories"
+          ]
+        },
+        {
+          "topic": "Oceania and Cunard complaints about onboard upcharges and WiFi",
+          "sentiment": "negative",
+          "engagement_signal": "heated debate thread with 5k+ engagements",
+          "key_voices": [
+            "@OceaniaCruises",
+            "@CunardLine",
+            "@cruisepassenger"
+          ]
+        }
+      ],
+      "dominant_narrative": "Luxury cruise lines are pushing premium experiential itineraries amid strong post-pandemic demand, with Viking and Silversea leading positive buzz.",
+      "counter_narrative": "Rising complaints about hidden fees, price volatility, and inconsistent service quality are tempering enthusiasm for Regent, Oceania, and Cunard.",
+      "d2m_relevance": "HIGH - direct overlap with high-end clients seeking curated luxury cruise experiences",
+      "action_signal": "Engage key influencers on Viking/Silversea threads for potential partnerships",
+      "sources_mentioned": [
+        "@VikingCruises",
+        "@Silversea",
+        "@RegentCruises",
+        "#LuxuryCruise",
+        "@cruisecritic"
+      ],
+      "topic_id": "luxury_cruise_twitter",
+      "topic_name": "Luxury Cruise Twitter",
+      "domain": "travel",
+      "model": "x-ai/grok-4.3",
+      "elapsed_s": 10.6,
+      "timestamp": "2026-06-19T02:00:19.415740",
+      "status": "OK"
+    }
+  ]
+}

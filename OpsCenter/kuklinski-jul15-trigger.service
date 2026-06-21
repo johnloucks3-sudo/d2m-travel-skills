@@ -1,0 +1,25 @@
+[Unit]
+Description=Kuklinski Jul 15 Creative Chain Trigger — Automated Validation Email
+Documentation=file:///home/john/Thunderbird/OpsCenter/kuklinski_jul15_creative_chain_trigger.py
+Requires=kuklinski-jul15-trigger.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/kuklinski_jul15_creative_chain_trigger.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=kuklinski-jul15-trigger
+
+# Run as user context (not root)
+User=%u
+WorkingDirectory=/home/john/Thunderbird
+
+# Environment
+Environment="PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+
+# Timeout for script execution
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target

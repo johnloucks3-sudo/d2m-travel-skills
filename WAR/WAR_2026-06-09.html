@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jun 09–Jun 15, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jun 09–Jun 15, 2026</div>
+  <div class="header-meta">Auto-generated 2026-06-15 14:37 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>116</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$20,726</span>D2M Pipeline</div>
+  <div class="stat"><span>$30,118</span>Commission Expected</div>
+  <div class="stat"><span>$244.80</span>Received (TESS)</div>
+  <div class="stat"><span>56</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-06-09 → 2026-06-15 · 116 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-15</strong> — security: gitignore lockout for history-scrubbed secret/bloat paths (MISSION-264/265) <span style="color:#aaa;font-size:0.78rem;">(00730c84)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix Lyons FPD recurrence at the source (pro bono, already paid) <span style="color:#aaa;font-size:0.78rem;">(466dd4c5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-15</strong> — AI stack consolidation + security audit deliverables (MISSION-240/267) <span style="color:#aaa;font-size:0.78rem;">(ac3de77d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-15</strong> — security: untrack pushed secrets + cookies; harden .gitignore (MISSION-264 partial) <span style="color:#aaa;font-size:0.78rem;">(0578007f)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix Supertimer duplicate log lines + add service file to deploy/systemd <span style="color:#aaa;font-size:0.78rem;">(516623f4)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix Supertimer cascade: ita-fare-watch rotation + timeout alignment <span style="color:#aaa;font-size:0.78rem;">(8a4da102)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix supertimer: ita-fare-watch lock, email-intel timeout, booking-monitor firefox <span style="color:#aaa;font-size:0.78rem;">(8db62bf3)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix 4 recurring supertimer failures: ita-fare-watch timeout 180->600s, portal-keepalive 45->120s, mission_readiness --brief exits 0, backup_verify exits 0 on warnings <span style="color:#aaa;font-size:0.78rem;">(26f8fae7)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-15</strong> — Fix Supertimer bots + Continuity Breach (6 repairs) <span style="color:#aaa;font-size:0.78rem;">(88059d45)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-14</strong> — Fix: Disable mission-090-sweep (31 timeout cascade) <span style="color:#aaa;font-size:0.78rem;">(9b59c39e)</span></div></div>
+<div class="build-item"><span class="tag tag-ops">OPS</span><div class="item-body"><strong>2026-06-14</strong> — Wire post-commit auto-relay hook (both OC and CC); document in AGENTS.md + command log <span style="color:#aaa;font-size:0.78rem;">(007bb7e2)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Add canonical persona sig blocks + update sig layout SO and CLAUDE.md <span style="color:#aaa;font-size:0.78rem;">(bac92d91)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Add D2M email sig layout rule — Commander sig block at bottom, persona avatar above <span style="color:#aaa;font-size:0.78rem;">(fdc2c0f9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Add SO-DRAFT-ROUTING-20260614 — email draft routing as foundational policy <span style="color:#aaa;font-size:0.78rem;">(91b70214)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Add Thunderbird Supertimer: 76 timers → 1 leader + 11 bots <span style="color:#aaa;font-size:0.78rem;">(773cacbc)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Portal obstacle post-mortem: fix ITA Matrix, update Grandeur fare watches, document 5 root causes <span style="color:#aaa;font-size:0.78rem;">(4c8f2271)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Log ELON EOD brief retry fix — 2026-06-14 <span style="color:#aaa;font-size:0.78rem;">(603b35ec)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Add exponential backoff retry logic to EOD brief Gmail send <span style="color:#aaa;font-size:0.78rem;">(dca4027f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-14</strong> — Build full virtual realm capability sweep — API wrappers + systemd + FPD calendar <span style="color:#aaa;font-size:0.78rem;">(8b76e268)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Sync blackboard across all init files: remove Groq/Deepseek, update to 32 tasks, P0/P1 items live <span style="color:#aaa;font-size:0.78rem;">(859931c8)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-13</strong> — Fix blackboard: remove Groq/Deepseek, sync to live mission state (32 tasks, P0/P1 items), update budget <span style="color:#aaa;font-size:0.78rem;">(ba9e4481)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-13</strong> — Fix AM brief to show actual mission executor outcomes <span style="color:#aaa;font-size:0.78rem;">(74dad079)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Restore 4-hour mission executor with 4-mission limit <span style="color:#aaa;font-size:0.78rem;">(3f81cc16)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-13</strong> — Audit & regenerate hale_brief.md — Lyons PRO BONO (Aug+Dec), archive Westbrook, clarify Kuklinski hold status (Jul 15), use MT timestamps. <span style="color:#aaa;font-size:0.78rem;">(f3b6a0c1)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Portal health -> Hale repair queue, not Commander pages + disable 5 non-D2M portals <span style="color:#aaa;font-size:0.78rem;">(dd7725b9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Kill portal-alert spam (dedup) + scope Perx to Silversea/Regent/Atlas/Explora <span style="color:#aaa;font-size:0.78rem;">(c968eddd)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-13</strong> — McLeod lifecycle freeze — Commander 2026-06-13 <span style="color:#aaa;font-size:0.78rem;">(63beafbd)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Loucks May 2027 excursion study + PE price-compare + AAR <span style="color:#aaa;font-size:0.78rem;">(c2f3d48c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-13</strong> — Disable CUDA at process startup — prevent GPU library init crash <span style="color:#aaa;font-size:0.78rem;">(03400913)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-12</strong> — REVERIE Voyage: per-date hero photos, expand to h-56 on tap <span style="color:#aaa;font-size:0.78rem;">(a104607a)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-12</strong> — REVERIE: La Dame Jun 24 = Erik birthday — dossier + Dani + itinerary <span style="color:#aaa;font-size:0.78rem;">(4473e851)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-12</strong> — REVERIE McLeod/McGlasson 100% congruence sweep — Jun 12, 2026 <span style="color:#aaa;font-size:0.78rem;">(122dc87d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-12</strong> — Wire deferred_alerts with trigger_date into daily brief generation <span style="color:#aaa;font-size:0.78rem;">(f4be795a)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-11</strong> — A7 Guard: FPD–payment-signal hard check in validate_dossier.py <span style="color:#aaa;font-size:0.78rem;">(6244a5fa)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Harden FPD scanner: --today override + robust paid-skip vocabulary <span style="color:#aaa;font-size:0.78rem;">(5f2366a2)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Brief + commission fixes: inbox-triage in AM brief, dedup, format, dead-recon repair <span style="color:#aaa;font-size:0.78rem;">(3496f173)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-11</strong> — FIX: FPD scanner was blind — read empty dir, missed all client FPDs <span style="color:#aaa;font-size:0.78rem;">(daaecf6e)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-11</strong> — Fleet builds: Telegram media send (M-148 live) + client front-door (M-104 staged) <span style="color:#aaa;font-size:0.78rem;">(d4abc22b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — A7 Fix: consecutive-failure backoff guard on portal_keepalive — close lockout risk <span style="color:#aaa;font-size:0.78rem;">(288e02c1)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Realtime staff-comments pipeline (Commander: fold staff comments into realtime) <span style="color:#aaa;font-size:0.78rem;">(12bfd611)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$20,725.67</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$30,117.57</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$244.80</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">56 of 249</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

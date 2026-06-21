@@ -279,7 +279,7 @@ def build_hale_brief(sys_health: dict) -> str:
         "## KUKLINSKI — DETAIL (most complex active client)",
         "",
         "- **Booking:** 9593880 / 9593873 / 9595029 · Viking Mars · Panama City → Ft Lauderdale · Dec 17–27",
-        "- **Guests:** Kyle + Amy, Roger + Carla, Josh + [spouse] — 6 pax, 3 couples",
+        "- **Guests:** Kyle + Rosalie, Roger + Nick, Josh + Erica — 6 pax, 3 couples",
         "- **Active search windows:** Air (A2, open now), Hotel pre/post (A2, open now)",
         "- **Excursion window opens:** Aug 2, 2026 (Viking portal)",
         "- **Dining window opens:** Sep 18, 2026 (T-90)",

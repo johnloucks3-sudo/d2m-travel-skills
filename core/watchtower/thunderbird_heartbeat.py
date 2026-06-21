@@ -718,7 +718,7 @@ def heartbeat_cos_exec() -> dict:
 # HEARTBEAT: A3 MOREAU — Booking Ops (daily 0700)
 # ============================================================================
 
-def heartbeat_a3_moreau() -> dict:
+def heartbeat_a3_moreau(send_email: bool = True) -> dict:
     """A3 Moreau — Booking Operations morning summary."""
     logger.info("=" * 60)
     logger.info("HEARTBEAT: A3 MOREAU — Booking Ops")
@@ -820,7 +820,7 @@ def heartbeat_a3_moreau() -> dict:
         logger.error(f"A3 dossier scan failed: {e}")
 
     # ── Deliver ─────────────────────────────────────────────────────────────
-    if sections_html:
+    if sections_html and send_email:
         full_html = f"<h1>A3 Moreau — Morning Ops Brief</h1>"
         full_html += f"<p class='label'><span class='persona'>Dani Moreau</span> | {today.strftime('%A, %B %d %Y')} 0700</p>"
         full_html += "".join(sections_html)
@@ -838,7 +838,7 @@ def heartbeat_a3_moreau() -> dict:
     _record_heartbeat(state, "a3_moreau")
     _save_state(state)
 
-    result = {"persona": "A3-Moreau", "timestamp": now.isoformat(), "sections": len(sections_html)}
+    result = {"persona": "A3-Moreau", "timestamp": now.isoformat(), "sections": len(sections_html), "sections_html": sections_html}
     logger.info(f"A3 Moreau complete: {result}")
     return result
 
@@ -847,7 +847,7 @@ def heartbeat_a3_moreau() -> dict:
 # HEARTBEAT: A9 HARLAN — Finance (daily 0900)
 # ============================================================================
 
-def heartbeat_a9_harlan() -> dict:
+def heartbeat_a9_harlan(send_email: bool = True) -> dict:
     """A9 Harlan — Finance cost tracking and commission overview."""
     logger.info("=" * 60)
     logger.info("HEARTBEAT: A9 HARLAN — Finance")
@@ -907,8 +907,7 @@ def heartbeat_a9_harlan() -> dict:
             html += f"<tr><td><strong>TOTAL</strong></td><td><strong>${total_24h:.4f}</strong></td><td><strong>${total_7d:.4f}</strong></td></tr>"
             html += "</table>"
             sections_html.append(html)
-        else:
-            sections_html.append("<div class='section info'>No API cost log found.</div>")
+        # No API cost log → skip silently (no filler noise in consolidated brief)
     except Exception as e:
         logger.error(f"A9 cost scan failed: {e}")
 
@@ -948,7 +947,7 @@ def heartbeat_a9_harlan() -> dict:
         logger.error(f"A9 commission scan failed: {e}")
 
     # ── Deliver ─────────────────────────────────────────────────────────────
-    if sections_html:
+    if sections_html and send_email:
         full_html = f"<h1>A9 Harlan — Finance Brief</h1>"
         full_html += f"<p class='label'><span class='persona'>Vic Harlan</span> | {today.strftime('%A, %B %d %Y')} 0900</p>"
         full_html += "".join(sections_html)
@@ -966,7 +965,7 @@ def heartbeat_a9_harlan() -> dict:
     _record_heartbeat(state, "a9_harlan")
     _save_state(state)
 
-    result = {"persona": "A9-Harlan", "timestamp": now.isoformat(), "sms_alert": sms_alert}
+    result = {"persona": "A9-Harlan", "timestamp": now.isoformat(), "sms_alert": sms_alert, "sections_html": sections_html}
     logger.info(f"A9 Harlan complete: {result}")
     return result
 
@@ -975,7 +974,7 @@ def heartbeat_a9_harlan() -> dict:
 # HEARTBEAT: A2 DEMBE — Intel (daily 0630)
 # ============================================================================
 
-def heartbeat_a2_dembe() -> dict:
+def heartbeat_a2_dembe(send_email: bool = True) -> dict:
     """A2 Dembe — Intel prep for active destinations."""
     logger.info("=" * 60)
     logger.info("HEARTBEAT: A2 DEMBE — Intel")
@@ -1021,12 +1020,13 @@ def heartbeat_a2_dembe() -> dict:
                 html += "</div>"
             sections_html.append(html)
         else:
-            sections_html.append("<div class='section ok'>No sailings within 90 days requiring intel prep.</div>")
+            if send_email:
+                sections_html.append("<div class='section ok'>No sailings within 90 days requiring intel prep.</div>")
     except Exception as e:
         logger.error(f"A2 destination scan failed: {e}")
 
     # ── Deliver as Commander Review ─────────────────────────────────────────
-    if sections_html:
+    if sections_html and send_email:
         full_html = f"<h1>A2 Dembe — Intel Brief</h1>"
         full_html += f"<p class='label'><span class='persona'>Marcus Dembe</span> | {today.strftime('%A, %B %d %Y')} 0630</p>"
         full_html += "".join(sections_html)
@@ -1041,7 +1041,7 @@ def heartbeat_a2_dembe() -> dict:
     _record_heartbeat(state, "a2_dembe")
     _save_state(state)
 
-    result = {"persona": "A2-Dembe", "timestamp": now.isoformat(), "intel_needs": len(sections_html)}
+    result = {"persona": "A2-Dembe", "timestamp": now.isoformat(), "intel_needs": len(sections_html), "sections_html": sections_html}
     logger.info(f"A2 Dembe complete: {result}")
     return result
 
@@ -1050,7 +1050,7 @@ def heartbeat_a2_dembe() -> dict:
 # HEARTBEAT: A6 LUNA (EXEC Creative) — Creative (daily 1000)
 # ============================================================================
 
-def heartbeat_a6_luna() -> dict:
+def heartbeat_a6_luna(send_email: bool = True) -> dict:
     """A6 Luna / EXEC Creative — creative deliverable opportunities."""
     logger.info("=" * 60)
     logger.info("HEARTBEAT: EXEC CREATIVE — Opportunities")
@@ -1139,22 +1139,23 @@ def heartbeat_a6_luna() -> dict:
             html += "</ul>"
             sections_html.append(html)
 
-        if not sections_html:
+        if not sections_html and send_email:
             sections_html.append("<div class='section ok'>No creative deliverables flagged today.</div>")
     except Exception as e:
         logger.error(f"EXEC Creative scan failed: {e}")
 
     # ── Deliver as Commander Review ─────────────────────────────────────────
-    full_html = "<h1>EXEC Creative — Opportunity Scan</h1>"
-    full_html += f"<p class='label'><span class='persona'>Naia Solberg-Vega (Creative)</span> | {today.strftime('%A, %B %d %Y')} 1000</p>"
-    full_html += "".join(sections_html)
-    full_html += "<div class='footer'>Dreams2Memories Travel, LLC — Thunderbird OS</div>"
+    if sections_html and send_email:
+        full_html = "<h1>EXEC Creative — Opportunity Scan</h1>"
+        full_html += f"<p class='label'><span class='persona'>Naia Solberg-Vega (Creative)</span> | {today.strftime('%A, %B %d %Y')} 1000</p>"
+        full_html += "".join(sections_html)
+        full_html += "<div class='footer'>Dreams2Memories Travel, LLC — Thunderbird OS</div>"
 
-    _commander_review(
-        f"Creative Opportunities — {today.strftime('%b %d')}",
-        full_html,
-        sms_notify=False
-    )
+        _commander_review(
+            f"Creative Opportunities — {today.strftime('%b %d')}",
+            full_html,
+            sms_notify=False
+        )
 
     _record_heartbeat(state, "a6_luna")
     _save_state(state)
@@ -1164,6 +1165,7 @@ def heartbeat_a6_luna() -> dict:
         "timestamp": now.isoformat(),
         "pre_trip": len(pre_trip) if 'pre_trip' in dir() else 0,
         "post_trip": len(post_trip) if 'post_trip' in dir() else 0,
+        "sections_html": sections_html,
     }
     logger.info(f"EXEC Creative complete: {result}")
     return result
@@ -1173,7 +1175,7 @@ def heartbeat_a6_luna() -> dict:
 # HEARTBEAT: A10 IKEDA — Crisis/Logistics (daily 0800)
 # ============================================================================
 
-def heartbeat_a10_ikeda() -> dict:
+def heartbeat_a10_ikeda(send_email: bool = True) -> dict:
     """A10 Ikeda — Flight monitoring and connection time analysis."""
     logger.info("=" * 60)
     logger.info("HEARTBEAT: A10 IKEDA — Logistics")
@@ -1230,21 +1232,22 @@ def heartbeat_a10_ikeda() -> dict:
         logger.error(f"A10 logistics scan failed: {e}")
 
     # ── Deliver ─────────────────────────────────────────────────────────────
-    full_html = "<h1>A10 Ikeda — Logistics Status</h1>"
-    full_html += f"<p class='label'><span class='persona'>Tommy Ikeda</span> | {today.strftime('%A, %B %d %Y')} 0800</p>"
+    if send_email:
+        full_html = "<h1>A10 Ikeda — Logistics Status</h1>"
+        full_html += f"<p class='label'><span class='persona'>Tommy Ikeda</span> | {today.strftime('%A, %B %d %Y')} 0800</p>"
 
-    if sections_html:
-        full_html += "".join(sections_html)
-    else:
-        full_html += "<div class='section ok'>No flights within 30 days requiring monitoring.</div>"
+        if sections_html:
+            full_html += "".join(sections_html)
+        else:
+            full_html += "<div class='section ok'>No flights within 30 days requiring monitoring.</div>"
 
-    full_html += "<div class='footer'>Dreams2Memories Travel, LLC — Thunderbird OS</div>"
+        full_html += "<div class='footer'>Dreams2Memories Travel, LLC — Thunderbird OS</div>"
 
-    _commander_review(
-        f"A10 Logistics — {today.strftime('%b %d')}",
-        full_html,
-        sms_notify=sms_needed
-    )
+        _commander_review(
+            f"A10 Logistics — {today.strftime('%b %d')}",
+            full_html,
+            sms_notify=sms_needed
+        )
 
     if sms_needed and sms_parts:
         _send_sms(f"A10 ALERT: {' | '.join(sms_parts)}"[:160], "D2M A10 Logistics")
@@ -1252,7 +1255,7 @@ def heartbeat_a10_ikeda() -> dict:
     _record_heartbeat(state, "a10_ikeda")
     _save_state(state)
 
-    result = {"persona": "A10-Ikeda", "timestamp": now.isoformat(), "issues": len(sms_parts)}
+    result = {"persona": "A10-Ikeda", "timestamp": now.isoformat(), "issues": len(sms_parts), "sections_html": sections_html}
     logger.info(f"A10 Ikeda complete: {result}")
     return result
 
@@ -1365,12 +1368,38 @@ def run_cos_exec_heartbeat() -> dict:
     return heartbeat_cos_exec()
 
 
+def collect_all_persona_sections() -> list:
+    """Collect HTML sections from all persona heartbeats without sending individual emails.
+
+    Returns list of (persona_label, html_content) for non-empty personas only.
+    Called by thunderbird_daily_brief.py for consolidated output.
+    SMS alerts still fire from within each function — genuine crisis alerts survive.
+    """
+    PERSONA_FUNCS = [
+        ("Dembe — Intel", heartbeat_a2_dembe),
+        ("Moreau — Ops", heartbeat_a3_moreau),
+        ("Ikeda — Logistics", heartbeat_a10_ikeda),
+        ("Harlan — Finance", heartbeat_a9_harlan),
+        ("Creative — Opportunities", heartbeat_a6_luna),
+    ]
+    results = []
+    for label, func in PERSONA_FUNCS:
+        try:
+            r = func(send_email=False)
+            html_sections = r.get("sections_html", [])
+            if html_sections:
+                results.append((label, "".join(html_sections)))
+        except Exception as e:
+            logger.error(f"collect_all_persona_sections {label} failed: {e}")
+    return results
+
+
 def run_daily_heartbeats() -> dict:
-    """Runs A2 (0630), A3 (0700), A10 (0800), A9 (0900), A6 (1000) in sequence."""
+    """Runs A2/A3/A10/A9/A6 — data collection only. Email handled by consolidated daily brief."""
     results = {}
 
     logger.info("=" * 70)
-    logger.info("DAILY HEARTBEATS — Starting sequence")
+    logger.info("DAILY HEARTBEATS — Starting sequence (consolidated mode)")
     logger.info("=" * 70)
 
     for name, func in [
@@ -1381,12 +1410,12 @@ def run_daily_heartbeats() -> dict:
         ("EXEC-Creative (1000)", heartbeat_a6_luna),
     ]:
         try:
-            results[name] = func()
+            results[name] = func(send_email=False)
         except Exception as e:
             logger.error(f"{name} FAILED: {e}", exc_info=True)
             results[name] = {"error": str(e)}
 
-    logger.info("Daily heartbeats complete.")
+    logger.info("Daily heartbeats complete — sections collected for consolidated brief.")
     return results
 
 

@@ -1,6 +1,6 @@
 ---
 client: Kuklinski
-full_name: Kuklinski Group (3 couples)
+full_name: Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son)
 cruise_line: Viking
 ship: Viking Mars
 voyage: Panama Canal
@@ -39,9 +39,10 @@ fpd_status: PAID
 
 Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,099pp) | $50 deposit each
 **Shipboard Credits:**
-- Kyle/Rosalie (9593880) — $200 Viking SBC ($100/guest) + **$600 D2M SBC = $800 total**
-- Roger/Nick (9593873) — $200 Viking SBC ($100/guest)
-- Josh/Erica (9595029) — $200 Viking SBC ($100/guest)
+- Kyle/Rosalie (9593880) — $200 Viking SBC ($100/guest) + $200 D2M SBC = **$400 total**
+- Roger/Nick (9593873) — $200 Viking SBC ($100/guest) + $200 D2M SBC = **$400 total**
+- Josh/Erica (9595029) — $200 Viking SBC ($100/guest) + $200 D2M SBC = **$400 total**
+- *D2M's $600 total SBC distributed $200/couple equally. (Corrected per Commander 2026-06-19; prior entry erroneously showed $600 to Kyle/Rosalie only.)*
 
 ### STATUS: ACTIVE — ✅ **PAID IN FULL — $21,244 processed Mar 27** | CC: Kyle Kuklinski paying all 3 bookings | **Cruise only — flights/hotel/transfers/insurance NOT booked** | ⚠️ Josh guest form still missing
 
@@ -172,6 +173,12 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 2026-05-15 | Re: Specialty Dining Aboard Viking Mars — Preferences Before We Plan | Kyle |
 | 2026-05-17 | Your Panama Canal Voyage — Mid-Spring Check-In | Kyle |
 | 2026-05-19 | Fwd: Viking Guest Registration Form for Reservation #9593880 | Kyle (from personal) |
+| 2026-06-20 | Your Viking Mars Panama Voyage — Where We Stand | Kyle |
+| 2026-06-20 | Panama December — Hotels, Transfers & Five Quick Questions | Kyle |
+| 2026-06-20 | Panama Excursions — Our Picks and a 3-Minute Survey, Kyle | Kyle |
+| 2026-06-20 | Your Viking Mars Panama Voyage — Where We Stand | Kyle |
+| 2026-06-20 | Panama December — Hotels, Transfers & Five Quick Questions | Kyle |
+| 2026-06-20 | Panama Excursions — Our Picks and a 3-Minute Survey, Kyle | Kyle |
 
 ---
 

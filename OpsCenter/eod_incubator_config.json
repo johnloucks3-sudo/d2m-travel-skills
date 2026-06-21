@@ -20,10 +20,10 @@
     "description": "Wire claude agents --json output into hale_state.json wing_health section"
   },
   "techpulse_format": "Tool: [Name] / What: [one line] / Case: [one line] / Rec: [Adopt|Watch|Skip]",
-  "techpulse_routing": "Adopt or Watch → Telegram page to Commander. Skip → AM brief only.",
-  "search_posture": "24/7 continuous — permanent sectors run every night, rotation supplements. Anything breaking on Anthropic changelog, HN, GitHub AI releases → surface immediately, do not wait for EOD.",
+  "techpulse_routing": "Adopt or Watch \u2192 Telegram page to Commander. Skip \u2192 AM brief only.",
+  "search_posture": "24/7 continuous \u2014 permanent sectors run every night, rotation supplements. Anything breaking on Anthropic changelog, HN, GitHub AI releases \u2192 surface immediately, do not wait for EOD.",
   "nomination_time": "17:30",
   "execute_window_minutes": 5,
   "last_updated": "2026-06-19",
-  "last_nomination_sent": "2026-06-19T15:06:19.400177"
+  "last_nomination_sent": "2026-06-20T23:30:01.385204"
 }

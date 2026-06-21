@@ -143,6 +143,300 @@
         "MISSION-166",
         "MISSION-167"
       ]
+    },
+    {
+      "ts": "2026-06-18T09:10:27.829345+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-250",
+        "MISSION-251",
+        "MISSION-252",
+        "MISSION-253"
+      ]
+    },
+    {
+      "ts": "2026-06-18T10:46:36.441697+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-260",
+        "MISSION-261",
+        "MISSION-262",
+        "MISSION-263"
+      ]
+    },
+    {
+      "ts": "2026-06-18T12:44:16.684187+00:00",
+      "count": 2,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-264",
+        "MISSION-265"
+      ]
+    },
+    {
+      "ts": "2026-06-18T13:11:07.888727+00:00",
+      "count": 1,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-265"
+      ]
+    },
+    {
+      "ts": "2026-06-18T14:54:02.754167+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-265"
+      ]
+    },
+    {
+      "ts": "2026-06-19T05:04:18.022361+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T07:03:42.648916+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T09:02:37.103382+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T11:06:01.557217+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T12:18:13.384760+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T13:03:19.703906+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T15:07:10.165269+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T17:05:29.382095+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T19:15:09.884690+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-067",
+        "MISSION-069",
+        "MISSION-068",
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T21:07:24.423691+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-19T23:15:31.149884+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T01:11:14.989278+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-073",
+        "MISSION-280",
+        "MISSION-281",
+        "MISSION-282"
+      ]
+    },
+    {
+      "ts": "2026-06-20T03:18:39.418426+00:00",
+      "count": 2,
+      "succeeded": 2,
+      "missions": [
+        "MISSION-073",
+        "MISSION-283"
+      ]
+    },
+    {
+      "ts": "2026-06-20T05:04:29.908125+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T07:22:33.565712+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T09:04:59.969066+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T11:21:33.382079+00:00",
+      "count": 1,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T12:15:11.372811+00:00",
+      "count": 1,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T13:04:24.723494+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T15:23:32.765270+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T17:02:22.276474+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T19:26:33.575627+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T21:03:19.882579+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-20T23:28:08.365266+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T01:03:30.282359+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T03:28:02.955857+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T05:04:17.605081+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T07:28:06.530236+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T09:04:13.390010+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
+    },
+    {
+      "ts": "2026-06-21T09:32:04.143848+00:00",
+      "count": 1,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-073"
+      ]
     }
   ],
   "manual_snapshots": [
@@ -164,5 +458,35 @@
     }
   ],
   "reset_day": "Thursday",
-  "reset_time_mt": "21:00"
+  "reset_time_mt": "21:00",
+  "entries": [
+    {
+      "ts": "2026-06-19T17:46:48.781287+00:00",
+      "source": "managed_agents",
+      "label": "test-task",
+      "tier": "haiku",
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_usd": 0.0
+    },
+    {
+      "ts": "2026-06-19T17:48:00.315683+00:00",
+      "source": "managed_agents",
+      "label": "test-task",
+      "tier": "haiku",
+      "input_tokens": 676,
+      "output_tokens": 226,
+      "cost_usd": 0.000452
+    },
+    {
+      "ts": "2026-06-19T17:49:29.631396+00:00",
+      "source": "managed_agents",
+      "label": "dispatch-test",
+      "tier": "haiku",
+      "input_tokens": 686,
+      "output_tokens": 423,
+      "cost_usd": 0.0007
+    }
+  ],
+  "total_usd": 0.001152
 }

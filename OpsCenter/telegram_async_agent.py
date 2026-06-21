@@ -47,11 +47,18 @@ def tg_send(token: str, chat_id: str, text: str) -> None:
 
 def main() -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("--token", required=True)
+    # Token comes from the env (TG_AGENT_BOT_TOKEN), NOT argv — argv is world-readable
+    # in ps/proc (MISSION-258). --token kept only as a deprecated fallback.
+    p.add_argument("--token", default=None, help="DEPRECATED — use TG_AGENT_BOT_TOKEN env")
     p.add_argument("--chat-id", required=True, dest="chat_id")
     p.add_argument("--task", required=True)
     p.add_argument("--model", default="claude-sonnet-4-6")
     args = p.parse_args()
+
+    args.token = os.environ.get("TG_AGENT_BOT_TOKEN") or args.token
+    if not args.token:
+        print("[agent] no bot token (set TG_AGENT_BOT_TOKEN env)", flush=True)
+        return 1
 
     try:
         from core.ai_infra.hale_persona_loader import wrap_with_persona, load_state_summary
@@ -87,6 +94,7 @@ def main() -> int:
             background=False,          # block inside this already-detached worker
             timeout=600,               # 10 min ceiling for tool work
             mcp_config="/home/john/.claude/mcp.json",   # full toolset — parity with Claude Code
+            policy_pre_cleared=True,   # gateway already checked raw task before persona-wrap
         )
     except Exception as e:
         tg_send(args.token, args.chat_id, f"🦅 Agent error: {e}")

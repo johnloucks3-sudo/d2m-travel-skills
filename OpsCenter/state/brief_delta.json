@@ -1,14 +1,8 @@
 {
-  "date": "2026-06-10",
+  "date": "2026-06-21",
   "items": {
-    "wf17_ids": [
-      "Kuklinski:4.2",
-      "Kuklinski:4.3",
-      "Kuklinski:4.1",
-      "Kuklinski:0.5",
-      "Nichols:0.5"
-    ],
-    "client_count": 14,
-    "item_count": 5
+    "wf17_ids": [],
+    "client_count": 17,
+    "item_count": 2
   }
 }

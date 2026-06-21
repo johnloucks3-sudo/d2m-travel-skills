@@ -1,0 +1,20 @@
+{
+  "dest": "dubrovnik",
+  "query": "",
+  "date": "2027-05-09",
+  "scraped_at": "2026-06-17T10:53:38.194888",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "dubrovnik",
+    "query": "",
+    "url": "https://www.getyourguide.com/dubrovnik-l2752/",
+    "scraped_at": "2026-06-17T10:53:38.557736",
+    "date_filter": "2027-05-09",
+    "tours": [],
+    "total_found_estimate": "13 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_dubrovnik_2027-05-09.png",
+    "status": "no_results",
+    "notes": ""
+  },
+  "tourradar": {}
+}

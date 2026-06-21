@@ -6,14 +6,23 @@ Complements thunderbird_morning_briefing.py (email) — this one hits Telegram.
 """
 import re
 import os
+import sys
 import json
 import urllib.request
 from pathlib import Path
 from datetime import date
 
-DOSSIER_DIR = Path(__file__).parent / "dossiers"
+# Dossiers live at the repo root, not under this module's dir. (Prior bug: the
+# relative path resolved to core/communication/dossiers, which does not exist —
+# so the brief silently reported 0 active bookings every run.)
+DOSSIER_DIR = Path("/home/john/Thunderbird/dossiers")
 BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "***REMOVED-SECRET***")
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
+
+# Full HTML detail page (Cloudflare-fronted dashboard, Basic-auth). M-271:
+# summary to Telegram + link to the full brief.
+DETAIL_BASE = "https://itinerary.d2mluxury.quest/briefs"
+BRIEFS_OUTPUT_DIR = Path("/home/john/Thunderbird/output/briefs")
 
 
 def parse_frontmatter(path: Path) -> dict:
@@ -48,7 +57,7 @@ def fmt_amount(val) -> str:
         return f"${val}" if val else "?"
 
 
-def main():
+def main(dry_run: bool = False):
     today = date.today()
     day_label = today.strftime("%a %d %b").upper()
 
@@ -64,9 +73,15 @@ def main():
         client = fm.get("full_name") or fm.get("client", f.stem)
         ship = fm.get("ship", "")
 
-        # FPD
+        # FPD — skip anything already settled. (Prior bug: paid-in-full bookings
+        # were flagged OVERDUE, blasting false alarms that violate Telegram
+        # urgent-only discipline and erode trust.)
+        paid = (
+            fm.get("payment_status", "").lower() == "paid_in_full"
+            or fm.get("fpd_status", "").upper() == "PAID"
+        )
         fpd_raw = fm.get("fpd", "")
-        if fpd_raw:
+        if fpd_raw and not paid:
             try:
                 fpd = date.fromisoformat(fpd_raw)
                 days = (fpd - today).days
@@ -149,14 +164,23 @@ def main():
     if not fpd_alerts and not departures and not standalone_cc:
         lines.append("_All clear. No alerts._\n")
 
+    # M-271: link to the full HTML detail page (only when today's snapshot exists,
+    # so we never hand the Commander a 404).
+    today_iso = today.isoformat()
+    if (BRIEFS_OUTPUT_DIR / today_iso / "snapshot.json").exists():
+        lines.append(f"📄 [Full brief]({DETAIL_BASE}/{today_iso}/)")
     lines.append("_Thunderbird OS · D2M_")
 
     msg = "\n".join(lines)
     print(msg)
+    if dry_run:
+        print(f"[brief] DRY-RUN — not sent. {len(active)} active, "
+              f"{len(fpd_alerts)} FPD alerts, {len(departures)} departures")
+        return
     send_telegram(msg)
     print(f"[brief] Sent — {len(active)} active, "
           f"{len(fpd_alerts)} FPD alerts, {len(departures)} departures")
 
 
 if __name__ == "__main__":
-    main()
+    main(dry_run="--dry-run" in sys.argv)

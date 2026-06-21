@@ -123,6 +123,20 @@ Every booking assigned to the Thunderbird Wing follows the same canonical framew
 
 ---
 
+### TP 3.5 — Insurance Guidance (T-250) *(Formalized 2026-06-12 — Commander directive)*
+
+**Trigger:** 250 days before embarkation. Fires automatically when T-250 milestone is reached. Positioned between Welcome/Validation (TP 0.5) and Specialty Dining reminder.
+
+**Purpose:** Proactive insurance guidance at the optimal enrollment window. Covers: (1) insurance option comparison (Allianz vs. Seven Corners vs. Travel Guard); (2) pre-existing condition waiver reminder — most waivers require enrollment within 14–21 days of *initial* deposit, but T-250 serves clients with long booking windows who haven't yet committed to a policy; (3) coverage gap analysis vs. credit card coverage (e.g., Chase Sapphire Reserve caps at $10K/pp — not sufficient for luxury cruise cancellation).
+
+**Chain:** Luna (voice) → Naia (brand) → Dani (client register) → WF-17 gate → Commander approval.
+
+**Staff load:** A9 Harlan (insurance quotes + gap analysis), A6 Luna (voice), Naia (brand), Dani (client-facing email), Hale (routing + WF-17 gate).
+
+**Note:** This is the repeatable insurance template for all clients. Replaces ad hoc insurance emails that previously bypassed the creative chain.
+
+---
+
 ### Phase 1 — Discovery
 
 **Trigger:** Search windows open automatically based on embarkation date. Airfare and hotel windows open approximately E-180 to E-120. Voyage preview sent approximately E-150 to E-90.

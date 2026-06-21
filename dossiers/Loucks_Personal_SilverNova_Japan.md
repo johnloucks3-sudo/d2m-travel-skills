@@ -4,15 +4,19 @@ full_name: John & Susan Loucks
 cruise_line: Silversea
 ship: Silver Nova
 voyage: Tokyo to Seattle — Pacific Crossing
-booking: "566910-25"
+booking: 566910-25
 departure: 2026-04-10
 embarkation: 2026-04-23
 return: 2026-05-11
 fpd: 2026-02-01
 fpd_amount: 22663
-status: active
+status: complete
 relationship: commander
 completed_tps: []
+payment_status: paid_in_full
+payment_status_source: Commander confirmation 2026-03-18 (cruise $10,800 PAID IN FULL); re-affirmed 2026-06-21
+fpd_status: PAID
+fpd_note: fpd_amount 22663 is the WHOLE-TRIP total, not the cruise FPD; cruise itself was $10,800. Trip dates Apr–May 2026 are past. Voyage disposition (sailed/altered) pending Commander confirmation — see EMAIL LOG correction note.
 ---
 # PERSONAL DOSSIER — John & Susan Loucks
 ## 32-Day Pacific Luxury Journey (Apr 10 – May 11, 2026)
@@ -94,7 +98,10 @@ completed_tps: []
 
 ---
 
-### EMAIL LOG (Updated Mar 18, 2026)
+### EMAIL LOG (Updated Mar 18, 2026 · CORRECTED 2026-06-21)
+
+> **⚠️ 2026-06-21 DATA-INTEGRITY CORRECTION (Commander-directed).** A prior "Apr 20 medical emergency" entry in this log falsely stated **Susan Loucks** was hospitalized. **This was a contamination error — Susan was not hospitalized.** The event concerned **Lindy, who passed away** — a separate person wrongly merged into this dossier. The false entry has been corrected in place; all downstream conclusions it generated (cruise-status-unknown, cancellation cascade, Allianz medical claim) are void. Two cruises were being conflated: this booking **566910-25 is the Apr 2026** Tokyo→Seattle voyage (past); a **separate 2027 Silver Nova** voyage is referenced in later entries and is the forward-looking one. Cruise $10,800 was PAID IN FULL (Commander-confirmed Mar 18). Final voyage disposition pending Commander's word.
+
 
 **Aug 5, 2025 — Hale Koa** original reservation: Conf #59018SF737412, Apr 14-19, $309/night
 **Aug 8 — John to Hale Koa** requested: move to Apr 13-18, add 2nd guest, upgrade to Deluxe Ocean Front
@@ -134,10 +141,16 @@ completed_tps: []
 > 2026-03-24 — Commander forwarded family email re: OC logistics. (1) ROOM REQUEST: West-facing room at Marriott Bayview to avoid Jamboree/Bristol traffic noise — high floor preferred (per Gregory Loucks, local). (2) TRANSPORT UPDATE: Uber from SNA to Marriott on Apr 10; Karen Loucks will deliver family Subaru at hotel; Elias (Gregory's driver) will pick up John & Susan at Gregory's house at 2:30 PM Apr 13 for LAX. (3) FAMILY CONTACTS: Gregory Loucks <greg.loucks@me.com>, Karen Loucks <karen.loucks@me.com> — OC-based.
 
 **Apr 20 — Jada** (Re: Re: Cancellation - PE151557101 / HL855855)
-> **2026-04-20 MEDICAL EMERGENCY** — Susan Loucks hospitalized 3 times in past 2 weeks. John initiated emergency cancellation of shared transfer PE151557101 (Hilton Odaiba→Harumi Port, Apr 23 10:30 AM, 4-pax, $0 cost) via Project Expedition. Refund confirmed (full refund, 5-7 day processing). **CRUISE STATUS UNKNOWN** — Silver Nova 566910-25 (Apr 23 embarkation, $10.8K) not yet confirmed cancelled or proceeding; determination drives cascade of remaining bookings. If cancelled: Hilton Tokyo Odaiba (¥424K, free cancel deadline **PASSED** Apr 18 11:59 PM), JAL HNL→HND Business ($4,093.60, seats 6G/6D), Southwest SEA→DEN ($147.80 + 12K RR pts). Allianz Annual Premier $15K policy may cover medical cancellation if rider active. NOTE: Westbrook family (shared transfer) separately cancelled Silver Nova (566904-25) Apr 20; transfer now affects only Loucks if cruise proceeds (2 pax instead of 4). **ACTION REQUIRED**: Confirm cruise status immediately with John (719-291-0742); all rebooking and cascade decisions dependent on this determination.
+> **2026-06-21 — DATA-INTEGRITY CORRECTION (Commander-directed).** The prior version of this entry attributed a medical emergency / "hospitalized 3 times" to **Susan Loucks**. **That was false — a contamination error.** Per Commander (John Loucks), Susan was NOT hospitalized. The medical/loss event concerned **Lindy, who passed away** — a separate person wrongly merged into this record. Out of respect and per the Negative-Space rule, no further details about Lindy are recorded here without the Commander's word. Any conclusions the old entry drew from the false premise — "CRUISE STATUS UNKNOWN," the cancellation-cascade tree, the Allianz medical-claim track — are **VOID**; they were reasoning built on a wrong fact. The shared transfer PE151557101 refund (separate, factual) is retained in the action log. Cruise/voyage disposition for 566910-25 is to be re-established from a primary source or directly from the Commander — see correction note at top of EMAIL LOG.
 
 **May 21 — John Loucks** (Re: COS...Fwd: [Gemini API] Build production ready managed agents with a single API call)
 > INFRASTRUCTURE TECHNOLOGY REVIEW [2026-05-21] — Commander flagged Google Gemini API managed agents announcement (Google I/O 2026-05-20). Gemini 3.5 Flash with managed agents available; single API call provisions agent sandbox with code execution, web browsing, file management. Commander notes Google AI PRO subscription is currently unused. Requested COS evaluation: architectural fit for D2M task dispatch, cost comparison vs. Claude MAX + DeepSeek stack, integration effort. Routed to A7/A12 for technical review. Decision gate: 2026-05-28.
+
+**Jun 20 — Project Expedition** (Re: Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D)
+> ATHENS HOP-ON-HOP-OFF TOUR (2027) — Booked independently via Project Expedition. PE181149717: May 15-18, 2027 (3 days), Athens/Piraeus/Beaches classic hop-on-hop-off, 2 travelers. Status: Hold-without-payment. Balance due: $60.06 (due May 4, 2027 to confirm); full refund if cancelled before May 14, 2027 9:00 AM. Tour operator: Sights of Athens (+302104176144, info@sightsofathens.gr). Project Expedition contact: support@projectexpedition.com (855-782-3006). Not a D2M-managed booking; file as FYI. Optional: Offer Loucks logistics coordination (airport transfers, dining, port day planning) in Q1 2027.
+
+**Jun 20 — Project Expedition** (Re: Hold without Payment Reminder - PE181140617: Dubrovnik Panorama Tour & Dubrovnik On Your Own)
+> [EMAIL LOG 2026-06-20] Project Expedition payment reminder received for Dubrovnik shore excursion PE181140617 (3-hour tour, May 9, 2027, 10:00 AM; 2 adults: John & Susan Loucks). Booking status: Hold without Payment. Amount due: $107.24 by April 27, 2027. Full refund if cancelled by May 7, 2027, 10:00 AM local. **NOTE: This tour references Silversea Silver Nova but no 2027 voyage is documented in current dossier. VERIFY: Is this tied to a confirmed May 2027 Silver Nova cruise? Need to locate cruise dates and confirm booking ownership.**
 
 ---
 
@@ -876,7 +889,22 @@ Status changes since Mar 24 validation:
 
 
 ### OPEN ACTION ITEMS
-- [ ] Call John Loucks (719-291-0742) URGENT — confirm Silver Nova 566910-25 status (cancelled or proceeding) by EOD Apr 20 (auto-intel Apr 20)
+> The following items struck 2026-06-21 — built on the false "Susan medical emergency" premise (contamination corrected above), now VOID:
+> ~~Call John URGENT — confirm 566910-25 cancelled/proceeding~~ · ~~Update dossier w/ medical emergency note + cascade tree~~ · ~~File Allianz medical claim~~ · ~~If cruise cancelled: Hilton/JAL/Southwest refunds~~ · ~~If proceeding: source 2-pax replacement transfer~~. The PE151557101 refund track (factual, separate) is retained below.
+
+- [ ] DOSSIER: Update with 2027 voyage details and link to PE181140617 once verified (auto-intel Jun 20)
+
+- [ ] CALENDAR: If voyage confirmed, create reminder for April 27, 2027 payment deadline (~11 months out) (auto-intel Jun 20)
+
+- [ ] VERIFY: Confirm PE181140617 is a legitimate D2M-supported booking vs. external/rogue entry (auto-intel Jun 20)
+
+- [ ] RESEARCH: Locate any Loucks 2027 Silversea Silver Nova booking (TESS, portal, Drive) (auto-intel Jun 20)
+
+- [ ] Set April 2027 reminder to check if Loucks want D2M coordination for Athens day-of logistics (transfers from port, dining reservations, etc.) (auto-intel Jun 20)
+
+- [ ] Create FUTURE BOOKINGS entry: Athens tour May 15-18, 2027 | $60.06 | Payment due May 4, 2027 (auto-intel Jun 20)
+
+- [ ] Add Project Expedition PE181149717 email to Loucks EMAIL LOG in dossier (auto-intel Jun 20)
 
 - [ ] Decision gate: Go/no-go on Gemini integration in 1 week (by 2026-05-28) (auto-intel May 21)
 
@@ -886,12 +914,4 @@ Status changes since Mar 24 validation:
 
 - [ ] A7 Sterling: Evaluate Gemini 3.5 Flash managed agents vs. current Claude MAX + DeepSeek V3.1 + R1 stack—capability, cost, integration (auto-intel May 21)
 
-- [ ] Update dossier with medical emergency note, cascade decision tree, and refund/claim tracking (auto-intel Apr 20)
-
-- [ ] Track Project Expedition refund PE151557101 via https://www.projectexpedition.com/purchase/receipt/PE151557101?q=eb06d3d914607d72c50d4e393f5aacc6 (status ETA 5-7 days from Apr 20) (auto-intel Apr 20)
-
-- [ ] File Allianz Annual Premier medical claim (policy $15K, trip $22.6K value, issue date/effective TBD) — require hospitalisation discharge summaries or physician letter (auto-intel Apr 20)
-
-- [ ] If cruise cancelled: Initiate Hilton Tokyo cancellation (note: past free cancellation deadline Apr 18 11:59 PM local; may lose ¥424K), request JAL refund (Conf 1312144232753, policy TBD), request Southwest refund (Conf ASC3LX, policy TBD) (auto-intel Apr 20)
-
-- [ ] If cruise proceeding: Source 2-person replacement transfer Hilton→Harumi, Apr 23 10:30 AM (priority: medical case, request flexible rebooking window); confirm Hilton Tokyo Odaiba (Conf #3337550400) still active (auto-intel Apr 20)
+- [ ] Track Project Expedition refund PE151557101 via https://www.projectexpedition.com/purchase/receipt/PE151557101?q=eb06d3d914607d72c50d4e393f5aacc6 (status ETA 5-7 days from Apr 20) (auto-intel Apr 20) — *(factual, retained; the transfer refund itself stands independent of the corrected medical premise)*

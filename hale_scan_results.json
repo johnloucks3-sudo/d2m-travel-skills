@@ -1,300 +1,97 @@
 {
-  "timestamp": "2026-06-10T01:00:01.976973",
+  "timestamp": "2026-06-21T01:00:01.718397",
   "scans": {
     "deadline_radar": [],
     "stale_tasks": [
       {
         "type": "stale_task",
-        "mission_id": "MISSION-060",
-        "title": "Chromebook Termux \u2014",
-        "age_hours": 387.2,
+        "mission_id": "MISSION-COST-01",
+        "title": "Real claude.ai MAX usage on cost dashboard \u2014 Cloudflare-limited",
+        "age_hours": 84.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-065",
         "title": "Pacific Voyage Blog",
-        "age_hours": 369.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-073",
-        "title": "RoboForm Share Acceptance",
-        "age_hours": 201.5,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-078",
-        "title": "Persona Avatar Generation",
-        "age_hours": 252.6,
+        "age_hours": 222.8,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-080",
-        "title": "McLeod Dossier \u2014",
-        "age_hours": 252.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-082",
-        "title": "Furlows \u2014 HEL\u2192ARN",
-        "age_hours": 252.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-083",
-        "title": "Nichols \u2014 Return",
-        "age_hours": 252.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-084",
-        "title": "Grandeur Group \u2014",
-        "age_hours": 252.0,
+        "title": "McLeod Dossier \u2014 Mark CONFIRMED: Baglioni, VCE Transfer, Dining",
+        "age_hours": 115.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-085",
         "title": "Grandeur Group \u2014",
-        "age_hours": 252.0,
+        "age_hours": 233.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-087",
         "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
-        "age_hours": 62.0,
-        "priority": "MEDIUM"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-092",
-        "title": "Adopt persistent Claude",
-        "age_hours": 227.3,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-102",
-        "title": "IRON CLOCK \u2014",
-        "age_hours": 147.2,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-103",
-        "title": "WING STANDUP \u2014",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-104",
-        "title": "WING STANDUP \u2014",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-105",
-        "title": "INBOX FIRST \u2014",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-106",
-        "title": "TEMPLATE \u2014 Full",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-107",
-        "title": "SPEED \u2014 Bottleneck",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-108",
-        "title": "LOUCKS TRAVEL \u2014",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-109",
-        "title": "LOUCKS TRAVEL \u2014",
-        "age_hours": 148.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-110",
-        "title": "INBOX DISCIPLINE Commander",
-        "age_hours": 147.1,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-113",
-        "title": "Refresh Centrav + Regent portal session cookies",
-        "age_hours": 104.1,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-118",
-        "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
-        "age_hours": 104.1,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-120",
-        "title": "Nichols TP 0.5",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-121",
-        "title": "McLeod T-13 \u2014",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-122",
-        "title": "Spencer Grand Tour",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-123",
-        "title": "Kuklinski \u2014 4",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-124",
-        "title": "Bryana onboarding \u2014",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-126",
-        "title": "INFRASTRUCTURE: Wire auto-session-monitor",
-        "age_hours": 103.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-130",
-        "title": "Call United Group Desk for Spencer DEN-FCO air quote",
-        "age_hours": 102.9,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-135",
-        "title": "Deduplicate MISSION-072 and repair truncated mission titles",
-        "age_hours": 102.9,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-145",
-        "title": "FARE WATCH \u2014",
-        "age_hours": 83.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-146",
-        "title": "MISSION-146: Hale Gmail",
-        "age_hours": 82.8,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-147",
-        "title": "Hale Gmail Capability",
-        "age_hours": 82.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-148",
-        "title": "Telegram Feature Expansion",
-        "age_hours": 82.0,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-149",
-        "title": "CENTRAV Session Auto-Keepalive",
-        "age_hours": 81.7,
-        "priority": "HIGH"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-151",
-        "title": "MISSION-120: Telegram Redesign",
-        "age_hours": 75.1,
+        "age_hours": 233.1,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-152",
         "title": "Phase E: Signal",
-        "age_hours": 64.1,
-        "priority": "MEDIUM"
+        "age_hours": 328.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-153",
-        "title": "Telegram Gateway Auto-Restart",
-        "age_hours": 62.9,
-        "priority": "MEDIUM"
+        "mission_id": "MISSION-196",
+        "title": "Spencer United Group Desk call \u2014 DEN-FCO 12-pax air quote",
+        "age_hours": 230.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-155",
-        "title": "Activate Dembe \u2014 Spencer air quote DEN-FCO 12-pax",
-        "age_hours": 61.3,
-        "priority": "MEDIUM"
+        "mission_id": "MISSION-220",
+        "title": "Push P2 off-box heartbeat to production \u2014 complete continuity cert",
+        "age_hours": 198.9,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-158",
-        "title": "Send Bryana onboarding drafts after Commander review",
-        "age_hours": 61.3,
-        "priority": "MEDIUM"
+        "mission_id": "MISSION-227",
+        "title": "Contact Perx + SkyLux to finalize Westbrook cancellation",
+        "age_hours": 185.6,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-160",
-        "title": "Ship Qdrant daily re-index systemd timer",
-        "age_hours": 61.3,
-        "priority": "MEDIUM"
+        "mission_id": "MISSION-236",
+        "title": "Manual Regent OA re-authentication to restore B2B portal coverage",
+        "age_hours": 151.1,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
-        "mission_id": "MISSION-161",
-        "title": "Verify McLeod Silver Muse booking holds \u2014 no cancellation risk from overdue FPD",
-        "age_hours": 61.3,
+        "mission_id": "MISSION-238",
+        "title": "Confirm 48-hour clean run on auth-gate EXPIRED alert fix",
+        "age_hours": 151.1,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-259",
+        "title": "L \u2014 Cleanup: prune stale tunnel ingress + stale SSH keys + add security headers",
+        "age_hours": 135.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-278",
+        "title": "Evernote archive \u2014 include Sheets mirror in weekly backup",
+        "age_hours": 55.0,
         "priority": "MEDIUM"
       }
     ],
@@ -303,7 +100,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "68 active missions may indicate priority overload",
+        "issue": "43 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ]

@@ -1,0 +1,292 @@
+{
+  "route": "DEN-OMA",
+  "depart_date": "2026-07-20",
+  "adults": 2,
+  "scraped_at": "2026-06-18T09:49:36.894675",
+  "skiplagged": {
+    "economy": {
+      "source": "skiplagged",
+      "cabin": "economy",
+      "url": "https://skiplagged.com/flights/DEN/OMA/2026-07-20?adults=2&cabin=economy",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$349",
+        "$433"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American",
+        "Delta"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_economy_2026-07-20.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "skiplagged",
+      "cabin": "premium",
+      "url": "https://skiplagged.com/flights/DEN/OMA/2026-07-20?adults=2&cabin=premium",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$349",
+        "$433"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American",
+        "Delta"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_premium_2026-07-20.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "skiplagged",
+      "cabin": "first",
+      "url": "https://skiplagged.com/flights/DEN/OMA/2026-07-20?adults=2&cabin=business",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$329",
+        "$349",
+        "$433"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American",
+        "Delta"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_first_2026-07-20.png",
+      "status": "ok"
+    }
+  },
+  "kayak": {
+    "economy": {
+      "source": "kayak",
+      "cabin": "economy",
+      "url": "https://www.kayak.com/flights/DEN-OMA/2026-07-20/2adults?sort=price_a&fs=cabin=e",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$88",
+        "$175",
+        "$180",
+        "$312",
+        "$165",
+        "$148",
+        "$54",
+        "$159",
+        "$218",
+        "$275"
+      ],
+      "lowest_price_pp": 27.0,
+      "total_lowest": 54.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-07-20.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "kayak",
+      "cabin": "premium",
+      "url": "https://www.kayak.com/flights/DEN-OMA/2026-07-20/2adults?sort=price_a&fs=cabin=pe",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$88",
+        "$159",
+        "$218",
+        "$275",
+        "$89",
+        "$90",
+        "$82",
+        "$56",
+        "$85",
+        "$61"
+      ],
+      "lowest_price_pp": 28.0,
+      "total_lowest": 56.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-07-20.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "kayak",
+      "cabin": "first",
+      "url": "https://www.kayak.com/flights/DEN-OMA/2026-07-20/2adults?sort=price_a&fs=cabin=b",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [
+        "$218",
+        "$88",
+        "$159",
+        "$275",
+        "$89",
+        "$90",
+        "$82",
+        "$56",
+        "$85",
+        "$61"
+      ],
+      "lowest_price_pp": 28.0,
+      "total_lowest": 56.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-07-20.png",
+      "status": "ok"
+    }
+  },
+  "expedia": {
+    "economy": {
+      "source": "expedia",
+      "cabin": "economy",
+      "url": "https://www.expedia.com/Flights-Search?trip=oneway&leg1=from%3ADEN%2Cto%3AOMA%2Cdeparture%3A07/20/2026TANYT&passengers=adults%3A2%2Cchildren%3A0&options=cabinclass%3Aeconomy&mode=search",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/expedia_economy_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "expedia",
+      "cabin": "premium",
+      "url": "https://www.expedia.com/Flights-Search?trip=oneway&leg1=from%3ADEN%2Cto%3AOMA%2Cdeparture%3A07/20/2026TANYT&passengers=adults%3A2%2Cchildren%3A0&options=cabinclass%3Apremiumeconomy&mode=search",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/expedia_premium_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "expedia",
+      "cabin": "first",
+      "url": "https://www.expedia.com/Flights-Search?trip=oneway&leg1=from%3ADEN%2Cto%3AOMA%2Cdeparture%3A07/20/2026TANYT&passengers=adults%3A2%2Cchildren%3A0&options=cabinclass%3Abusiness&mode=search",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/expedia_first_2026-07-20.png",
+      "status": "no_prices_found"
+    }
+  },
+  "cheaptickets": {
+    "economy": {
+      "source": "cheaptickets",
+      "cabin": "economy",
+      "url": "https://www.cheaptickets.com/Flights/OneWay?departureAirport=DEN&arrivalAirport=OMA&departureDate=2026-07-20&adults=2&cabinClass=Economy",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/cheaptickets_economy_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "cheaptickets",
+      "cabin": "premium",
+      "url": "https://www.cheaptickets.com/Flights/OneWay?departureAirport=DEN&arrivalAirport=OMA&departureDate=2026-07-20&adults=2&cabinClass=PremiumEconomy",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/cheaptickets_premium_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "cheaptickets",
+      "cabin": "first",
+      "url": "https://www.cheaptickets.com/Flights/OneWay?departureAirport=DEN&arrivalAirport=OMA&departureDate=2026-07-20&adults=2&cabinClass=Business",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/cheaptickets_first_2026-07-20.png",
+      "status": "no_prices_found"
+    }
+  },
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2026-07-20.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-20",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-07-20.png",
+      "status": "no_prices_found"
+    }
+  }
+}

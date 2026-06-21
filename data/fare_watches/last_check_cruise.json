@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-06-19T19:10:59.262595+00:00",
+  "watches_checked": 1,
+  "watches_total": 1,
+  "alerts": [],
+  "errors": [
+    "perx: Page.goto: Target page, context or browser has been closed",
+    "odysseus: Page.goto: Target page, context or browser has been closed",
+    "cruisecomplete: Page.goto: Target page, context or browser has been closed"
+  ],
+  "warnings": [],
+  "sources": {
+    "perx": "ERROR",
+    "odysseus": "ERROR",
+    "cruisecomplete": "ERROR"
+  }
+}

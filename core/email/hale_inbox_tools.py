@@ -19,10 +19,13 @@ Register with MCP server via register_hale_inbox_tools(mcp).
 Author: Sterling (A7) — Hale directive 2026-06-06 (Gemini upgrade 2026-06-06)
 """
 
+import base64
 import json
 import logging
 import os
 from datetime import datetime
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from typing import Optional
 
 from pydantic import Field
@@ -344,6 +347,136 @@ def dual_inbox_search(query: str, max_results: int = 10) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Capability 3 — Auto-reply draft (DRAFT ONLY — WF-17 gate, never auto-send)
+# ---------------------------------------------------------------------------
+
+# Guard: reply drafts are only supported in d2mconcierge. johnloucks3 drafts are
+# prohibited by standing order (SO 2026-06-04 "No Drafts to johnloucks3").
+_DRAFT_ALLOWED_ACCOUNTS = {"concierge", "d2mconcierge"}
+
+# Wing From address for reply drafts — always d2mconcierge
+_WING_FROM = "d2mconcierge@gmail.com"
+
+
+def auto_reply_draft(
+    message_id: str,
+    reply_text: str,
+    account: str = "d2mconcierge",
+) -> dict:
+    """
+    Create a reply draft to a specific Gmail message. DRAFT ONLY — never sends.
+
+    Threading: fetches the original message to extract Message-ID, References,
+    Subject, and From (becomes reply To). Sets In-Reply-To + References so Gmail
+    nests the draft in the correct conversation thread.
+
+    WF-17 gate applies — Commander sends after review.
+
+    Args:
+        message_id:  Gmail message ID of the message being replied to.
+        reply_text:  Plain-text body of the reply.
+        account:     Gmail account to create the draft in (d2mconcierge only —
+                     johnloucks3 drafts are prohibited per SO 2026-06-04).
+
+    Returns:
+        {"status": "ok"|"error", "draft_id": str, "thread_id": str, "message": str}
+    """
+    if account not in _DRAFT_ALLOWED_ACCOUNTS:
+        return {
+            "status": "error",
+            "draft_id": "",
+            "thread_id": "",
+            "message": (
+                f"Draft account '{account}' is not permitted. "
+                "Reply drafts are d2mconcierge only (SO 2026-06-04 prohibits johnloucks3 drafts)."
+            ),
+        }
+
+    service = _safe_get_service(account)
+    if not service:
+        return {
+            "status": "error",
+            "draft_id": "",
+            "thread_id": "",
+            "message": f"Gmail service unavailable for account '{account}'.",
+        }
+
+    # Fetch original message for threading headers
+    try:
+        orig = service.users().messages().get(
+            userId="me",
+            id=message_id,
+            format="metadata",
+            metadataHeaders=["From", "Subject", "Message-ID", "References"],
+        ).execute()
+    except Exception as e:
+        logger.error(f"auto_reply_draft: failed to fetch message {message_id}: {e}")
+        return {
+            "status": "error",
+            "draft_id": "",
+            "thread_id": "",
+            "message": f"Could not fetch original message: {e}",
+        }
+
+    hdrs = _hdr_map(orig.get("payload", {}).get("headers", []))
+    thread_id = orig.get("threadId", "")
+
+    # Reply To = original From
+    reply_to_addr = hdrs.get("From", "")
+
+    # Subject — add Re: prefix if missing
+    orig_subject = hdrs.get("Subject", "")
+    reply_subject = orig_subject if orig_subject.lower().startswith("re:") else f"Re: {orig_subject}"
+
+    # Threading headers — RFC 2822 requires angle-bracketed Message-ID
+    orig_msg_id = hdrs.get("Message-ID", "").strip()
+    if orig_msg_id and not orig_msg_id.startswith("<"):
+        orig_msg_id = f"<{orig_msg_id}>"
+
+    orig_references = hdrs.get("References", "").strip()
+    if orig_references:
+        reply_references = f"{orig_references} {orig_msg_id}".strip()
+    else:
+        reply_references = orig_msg_id
+
+    # Build plain-text MIME reply
+    msg = MIMEMultipart("alternative")
+    msg["To"] = reply_to_addr
+    msg["From"] = _WING_FROM
+    msg["Subject"] = reply_subject
+    if orig_msg_id:
+        msg["In-Reply-To"] = orig_msg_id
+    if reply_references:
+        msg["References"] = reply_references
+    msg.attach(MIMEText(reply_text, "plain"))
+
+    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+    draft_body = {"message": {"raw": raw, "threadId": thread_id}}
+
+    try:
+        draft = service.users().drafts().create(userId="me", body=draft_body).execute()
+    except Exception as e:
+        logger.error(f"auto_reply_draft: drafts().create failed: {e}")
+        return {
+            "status": "error",
+            "draft_id": "",
+            "thread_id": thread_id,
+            "message": f"Gmail draft creation failed: {e}",
+        }
+
+    draft_id = draft.get("id", "")
+    return {
+        "status": "ok",
+        "draft_id": draft_id,
+        "thread_id": thread_id,
+        "message": (
+            f"Reply draft created in {account} — subject: '{reply_subject}', "
+            f"to: {reply_to_addr}. WF-17 applies: Commander sends after review."
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
 # MCP registration
 # ---------------------------------------------------------------------------
 
@@ -379,3 +512,123 @@ def register_hale_inbox_tools(mcp):
         """
         result = dual_inbox_search(query=query, max_results=max_results)
         return json.dumps(result, indent=2)
+
+    @mcp.tool(
+        name="gmail_auto_reply_draft",
+        annotations={"title": "Create Reply Draft to a Message", "readOnlyHint": False},
+    )
+    async def _auto_reply_draft_tool(
+        message_id: str = Field(..., description="Gmail message ID of the email being replied to."),
+        reply_text: str = Field(..., description="Plain-text body of the reply."),
+        account: str = Field("d2mconcierge", description="Gmail account to draft in (d2mconcierge only — johnloucks3 drafts are prohibited)."),
+    ) -> str:
+        """
+        Create a reply draft to a specific Gmail message in d2mconcierge.
+
+        Sets In-Reply-To and References headers so Gmail nests the draft in the
+        correct conversation thread. Recipient is set to the original sender.
+
+        DRAFT ONLY — never sends. WF-17 gate applies; Commander sends after review.
+        Prohibited on johnloucks3 (SO 2026-06-04).
+        """
+        result = auto_reply_draft(message_id=message_id, reply_text=reply_text, account=account)
+        return json.dumps(result, indent=2)
+
+
+# ---------------------------------------------------------------------------
+# Dry-run self-test (no network)
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    import types
+
+    # --- Stub service that returns canned Gmail API responses ---
+    def _make_fake_service():
+        svc = types.SimpleNamespace()
+
+        # Canned original message with threading headers
+        canned_message = {
+            "id": "msg_abc123",
+            "threadId": "thread_xyz789",
+            "payload": {
+                "headers": [
+                    {"name": "From", "value": "client@example.com"},
+                    {"name": "Subject", "value": "Cruise question"},
+                    {"name": "Message-ID", "value": "<orig-msg-id-001@mail.example.com>"},
+                    {"name": "References", "value": "<earlier-ref-000@mail.example.com>"},
+                ]
+            },
+        }
+
+        # Canned draft create response
+        canned_draft = {
+            "id": "draft_test_999",
+            "message": {"id": "msg_draft_001", "threadId": "thread_xyz789"},
+        }
+
+        class _Exec:
+            def __init__(self, val):
+                self._val = val
+            def execute(self):
+                return self._val
+
+        class _Drafts:
+            def create(self, userId, body):
+                # Verify threadId was passed in the body
+                assert body.get("message", {}).get("threadId") == "thread_xyz789", \
+                    "threadId missing from draft body"
+                return _Exec(canned_draft)
+
+        class _Messages:
+            def get(self, userId, id, format, metadataHeaders):
+                return _Exec(canned_message)
+
+        class _Users:
+            def messages(self):
+                return _Messages()
+            def drafts(self):
+                return _Drafts()
+
+        svc.users = lambda: _Users()
+        return svc
+
+    # Monkey-patch _safe_get_service in the running module's global namespace.
+    # When run as __main__, we patch globals() directly so the function closure
+    # resolves to the stub instead of the real Gmail service.
+    _orig_safe_get = globals()["_safe_get_service"]
+
+    def _patched_safe_get(account):
+        if account in _DRAFT_ALLOWED_ACCOUNTS:
+            return _make_fake_service()
+        return None
+
+    globals()["_safe_get_service"] = _patched_safe_get
+
+    print("--- auto_reply_draft dry-run ---")
+
+    # Test 1: happy path
+    result = auto_reply_draft(
+        message_id="msg_abc123",
+        reply_text="Thank you for reaching out. Happy to help.",
+        account="d2mconcierge",
+    )
+    assert result["status"] == "ok", f"Expected ok, got: {result}"
+    assert result["draft_id"] == "draft_test_999", f"Unexpected draft_id: {result['draft_id']}"
+    assert result["thread_id"] == "thread_xyz789", f"Unexpected thread_id: {result['thread_id']}"
+    assert "WF-17" in result["message"], "WF-17 gate notice missing from message"
+    print(f"  [PASS] happy path — draft_id={result['draft_id']}, thread_id={result['thread_id']}")
+
+    # Test 2: blocked account
+    result2 = auto_reply_draft(
+        message_id="msg_abc123",
+        reply_text="Should not draft.",
+        account="johnloucks3",
+    )
+    assert result2["status"] == "error", f"Expected error for blocked account, got: {result2}"
+    assert "prohibit" in result2["message"].lower(), "SO violation message missing"
+    print(f"  [PASS] johnloucks3 blocked — {result2['message'][:80]}")
+
+    # Restore
+    globals()["_safe_get_service"] = _orig_safe_get
+
+    print("--- all dry-run tests PASSED ---")

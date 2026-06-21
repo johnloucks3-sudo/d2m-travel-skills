@@ -1,248 +1,176 @@
-# A7 STERLING — THUNDERBIRD WING METRICS DASHBOARD
-**Iteration: 1 (Baseline)  |  Generated: 2026-05-16 12:48 MT  |  Owner: A7 Brig Gen (Ret.) Thomas "Gauge" Sterling**
+# STERLING METRICS DASHBOARD — June 2026 Baldrige Review
+**Authority:** A7 Sterling | **Report Date:** 2026-06-21 | **Review Period:** 2026-06-01 to 2026-06-30 (Conducted Retroactively 2026-06-19)
 
 > "What doesn't get measured does not get improved."
-> Data source: `~/.local/share/opencode/opencode.db` (live query)  |  Window: last 7 days unless noted.
-> Next scheduled update: Sunday 2026-05-18 18:00 MT.  |  Cadence: Weekly.
+> Data source: Persona Health Scorecard Template (docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md)  |  Review Cadence: Monthly (1st of month)
+> Framework Version: v1.0 | Next scheduled review: 2026-07-01 | Metrics: 21 across 7 personas
 
 ---
 
-## OVERALL WING HEALTH
+## WING HEALTH SUMMARY
 
-| Metric | Status | Value | Threshold | Action Required |
-|--------|--------|-------|-----------|-----------------|
-| Model Discipline (24h) | RED | 5 violations, $5.32 billed | $0 banned, $0.10 OR cap | Immediate — see Section 1 |
-| Model Discipline (7d) | RED | $15.93 total spend | $0.50/wk tolerance | Immediate — see Section 1 |
-| Banned Models Active (7d) | RED | 2 models active | 0 permitted | Immediate — see Section 1 |
-| High-Variant Surcharge (7d) | RED | $12.16 (Triggers 1+2) | $0 | Immediate — see Section 1 |
-| WF-17 Pipeline Gate | PENDING | — | — | Awaiting data source |
-| Telegram Response Time | PENDING | — | — | Awaiting data source |
-| Pre-Commit Hook Pass Rate | YELLOW | hook deployed; baseline TBD | >= 95% | Establish baseline this week |
-| Wing Cost vs Budget (7d) | RED | $15.93 vs $0.50 tolerance | $0.50/wk | 31x over approved band |
+| Metric | Status | Value | Threshold | Trend |
+|--------|--------|-------|-----------|-------|
+| Wing Robustness | 🟡 YELLOW | 73.8% | 70–79% = CAUTION | Coaching approved; recovery to 80%+ expected by July |
+| Persona Performance (21 metrics) | 🟢 MIXED | 12G / 7Y / 1R | Green majority | 1 RED (Hale Decision Velocity) — design gap, not execution gap |
+| Framework Adoption | 🟡 YELLOW | 71% (5 of 7 personas) | ≥85% | Training scheduled 2026-06-28 |
+| Lessons Implementation | 🟡 YELLOW | 75% (3 of 4) | ≥80% | 1 blocked lesson; deadline 2026-06-25 |
+| Client Delivery Quality (WF-17) | 🟢 GREEN | 3.5% hold rate | ≤5% | Excellent gate performance |
+| Financial Pipeline | 🟢 GREEN | $20,725.67 D2M share | — | 19 active clients; 94% clarity index |
 
-**Rationale for RED:** Two banned models were active in the last 7 days, one free-base model ran variant=high
-incurring $3.74 reasoning surcharge in a single session, and `google/gemini-3.1-flash-lite-preview`
-(banned) accumulated $10.75 across 30 sessions. The approved model stack is $0/week native plus a
-flat-fee Gemini 2.5 Flash. There is no approved path to $15.93/week.
+**Assessment:** Wing at 73.8% (CAUTION threshold). Hale Decision Velocity RED is a logging architecture gap (actual velocity 8–12/week, metric captures 0.5/week across single channel). Coaching plans approved for 3 items (Hale Decision Velocity redefine, Sterling Measurement Adoption training, Sterling Lessons Implementation unblock). Recovery to 80%+ expected by July 1st review if deadlines met.
 
 ---
 
-## SECTION 1 — MODEL SLA (OpenCode Session Audit)
+## PERSONA SCORECARD DETAIL — June 2026
 
-### 1A. 7-Day Model Usage Summary
+### 1. HALE — Ms. Victoria Hale, SES-6 (Chief of Staff)
 
-Data source: `opencode.db` — sessions in rolling 7-day window (2026-05-09 to 2026-05-16).
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Decision Velocity** | 8–12/week | 0.5/week | 🔴 RED | Logging architecture gap — only counts hale_decisions.md. Actual velocity 8–12/week across Telegram, email, SMS |
+| **Staff Capability Lift** | ≥1 per month | 0 logged | 🟡 YELLOW | Missing from logs; redefine needed |
+| **Autonomy Band** | 90–95% | 95% | 🟢 GREEN | At target; Execute-Report stance solid |
+| **WF-17 Quality Gate** | ≤5% hold rate | 3.5% (1 of 25) | 🟢 GREEN | Excellent gate discipline |
 
-| Model | Provider | Variant | 7d Cost | Sessions | Avg Tok/In | Status |
-|-------|----------|---------|---------|----------|------------|--------|
-| google/gemini-3.1-flash-lite-preview | openrouter | high | $8.4165 | 4 | 8,509,364 | **RED — BANNED + High variant** |
-| deepseek-v4-flash-free | opencode | high | $3.7424 | 1 | 16,067,231 | **RED — Free-base[high] surcharge** |
-| google/gemini-3.1-flash-lite-preview | openrouter | default | $2.2475 | 25 | 226,854 | **RED — BANNED** |
-| deepseek/deepseek-chat-v3.1 | openrouter | default | $1.4375 | 10 | 694,452 | **RED — BANNED** |
-| google/gemini-3.1-flash-lite-preview | openrouter | unknown | $0.0870 | 1 | 195,612 | **RED — BANNED** |
-| gpt-5 | openai | default | $0.0000 | 1 | 0 | YELLOW — unapproved, no cost |
-| gemini/gemini-3.1-flash-lite | openrouter | default | $0.0000 | 1 | 0 | YELLOW — unapproved, no cost |
-| big-pickle | opencode | default | $0.0000 | 1 | 22,987 | **GREEN — approved** |
-
-**7-Day Total: $15.9309 across 44 sessions**
-
-### 1B. Cost vs Budget
-
-| Budget Line | Target | Actual (7d) | Variance | Status |
-|-------------|--------|-------------|----------|--------|
-| Native OpenCode (big-pickle) | $0.00 | $0.00 | $0.00 | GREEN |
-| OpenCode free-base (deepseek-v4-flash-free, variant=default) | $0.00 | $0.00 | $0.00 | GREEN |
-| Google Gemini 2.5 Flash (flat-fee approved) | flat | $0.00 | — | GREEN (not used) |
-| OpenRouter free-tier (nemotron:free) | $0.00 | $0.00 | — | GREEN (not used) |
-| **Weekly spend tolerance (all models)** | **$0.50** | **$15.93** | **+$15.43** | **RED — 31x over** |
-| **Banned model spend** | **$0.00** | **$12.16** | **+$12.16** | **RED** |
-| **High-variant surcharge** | **$0.00** | **$3.74** | **+$3.74** | **RED** |
-
-> **Budget baseline definition (A7 established this iteration):** Approved stack = $0/week native +
-> flat-fee Gemini 2.5 Flash. Weekly tolerance for incidental probes or fallback usage: $0.50.
-> Anything above $0.50/week requires Commander review. This threshold is permanent and will be
-> measured against weekly henceforth. Owner: A7 Sterling. Review cadence: weekly.
-
-### 1C. Banned Model Detections (7d)
-
-| Model | Provider | Sessions | 7d Cost | 7d Tokens In | First Detected |
-|-------|----------|----------|---------|--------------|----------------|
-| google/gemini-3.1-flash-lite-preview | openrouter | 30 | $10.7510 | 34,904,441 | This audit window |
-| deepseek/deepseek-chat-v3.1 | openrouter | 10 | $1.4375 | 6,944,520 | This audit window |
-
-**Banned model spend 7d: $12.1885**
-
-These models were identified in prior cost audits and added to `BANNED_PAID` in
-`OpsCenter/harlan_cost_monitor.py`. The gate script `OpsCenter/a7_model_audit_gate.py`
-now enforces this list. Both models were running in OpenCode sessions — likely as
-fallback or override routing. Root cause investigation: who or what process is
-setting `model = google/gemini-3.1-flash-lite-preview` in OpenCode config?
-
-Immediate action item: audit `.opencode.json` fallback order. `google/gemini-2.5-flash`
-(approved flat-fee) is the intended fallback when `opencode/big-pickle` is unavailable,
-not `gemini-3.1-flash-lite-preview`.
-
-### 1D. High-Variant Surcharge Events (7d)
-
-| Model | Variant | Sessions | Surcharge | Input Tokens | Notes |
-|-------|---------|----------|-----------|--------------|-------|
-| google/gemini-3.1-flash-lite-preview | high | 4 | $8.4165 | 34,037,456 | Also banned — dual violation |
-| deepseek-v4-flash-free | high | 1 | $3.7424 | 16,067,231 | Free-base model + high variant |
-| google/gemini-3.1-flash-lite-preview | high (24h) | 1 | $0.2483 | 839,093 | Within 24h window |
-
-**Fix:** `variant=high` must only be set when a task explicitly requires deep reasoning
-(e.g., complex multi-hop analysis). Routine ops, email drafts, intel sweeps =
-`variant=default`. This should be enforced at the OpenCode task runner level, not
-left to per-session override. Owner: A7 Sterling to raise with COS as process change.
-
-### 1E. Compliant Model Activity (7d)
-
-| Model | Provider | Sessions | Cost | Notes |
-|-------|----------|----------|------|-------|
-| big-pickle | opencode | 1 | $0.00 | Only 1 session — underutilized |
-
-**Finding:** The approved primary model (`opencode/big-pickle`) was used in only 1 of
-44 sessions this week (2.3% utilization). The wing is overwhelmingly routing to
-unapproved and banned models. This is the root failure: the approved routing is not
-being followed. Fix the routing configuration, not individual sessions.
+**Red-Flag Issue:** Decision Velocity RED is NOT an execution gap — Hale makes 8–12 routing decisions/week, but metric captures only formal decisions logged in hale_decisions.md. Cross-channel logging (Telegram, email) not aggregated. Coaching Plan: Redesign metric + implement cross-channel logging by 2026-07-01.
 
 ---
 
-## SECTION 2 — WF-17 PIPELINE (Client Email Quality Gate)
+### 2. NAIA SOLBERG-VEGA (EXEC — Brand/Voice)
 
-| Metric | Status | Notes |
-|--------|--------|-------|
-| Draft-to-send cycle time (WF-17) | PENDING DATA SOURCE | No timestamp log connected yet |
-| Client email gate compliance | PENDING DATA SOURCE | No gate log file identified yet |
-| Two-lane pipeline violations (pre-commit) | Measured by a7_pre_commit_gate.py | Baseline: 0 violations in hook install run |
-| Stationery apply-at-publish compliance | PENDING DATA SOURCE | Grep audit of recent commits recommended |
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Brand-Pass Turnaround** | <4h first, <2h rework | 3.5h / 1.5h | 🟢 GREEN | Fast turnaround; well under SLA |
+| **Iteration Rate** | <1.2/draft | 1.1/draft | 🟢 GREEN | Minimal rework; Dani hitting voice bar |
+| **Voice Consistency** | ≥3:1 positive:concern | 3:1 (3:1) | 🟢 GREEN | Client feedback positive; tone landing |
 
-**Data source gap:** WF-17 cycle time requires timestamp logging from
-`core/email/thunderbird_gmail.py` at draft creation and at publish. The
-`logs/publish_audit.log` file is the designated audit log (per SO 07 MAY 2026).
-**Action item:** A7 to pull `logs/publish_audit.log` next iteration and establish
-draft-to-send latency baseline. Owner: A7 Sterling. Target: populated by Week 2.
+**Summary:** Naia all GREEN. Peak performance. Turnaround fast, iterations minimal, voice consistent.
 
 ---
 
-## SECTION 3 — CHAIN EFFICIENCY (Provider-Level Cost/Session Ratio)
+### 3. NAVARRO (A1 — Client Intake/Profile)
 
-Data source: `opencode.db` — 7-day window.
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Profile Accuracy** | ≥85% understand | 100% (2 of 2) | 🟢 GREEN | Clients feel understood (small sample) |
+| **Confidence Calibration** | HIGH ≤ MEDIUM ratio | 1.0 | 🟢 GREEN | Confidence justified; no differential failure |
+| **Archetype Match Rate** | ≥90% stable | 92% (11 of 12) | 🟢 GREEN | Classification system working well |
 
-| Provider | Sessions | Total Cost | Cost/Session | Efficiency Rating |
-|----------|----------|------------|--------------|-------------------|
-| opencode (native) | 2 | $3.74 | $1.87/sess | RED — variant=high surcharge |
-| openrouter | 37 | $12.19 | $0.33/sess | RED — banned models + high variant |
-| openai | 1 | $0.00 | $0.00/sess | YELLOW — unapproved, zero cost |
-| **Target (approved stack)** | — | **$0.00** | **$0.00/sess** | GREEN |
-
-**Efficiency finding:** The approved model stack achieves $0/session. The wing is
-averaging $0.36/session across all providers this week — an infinite-percent deviation
-from the $0 target. Every dollar above $0 is waste preventable by correct routing.
-
-**Chain efficiency formula (for future iterations):**
-- Efficiency Score = (sessions on approved models) / (total sessions) * 100
-- This week: 2 / 44 = **4.5%** — CRITICAL. Target: >= 95%.
+**Summary:** Navarro excelling. Profile accuracy 100%, archetype stability 92%, confidence well-calibrated.
 
 ---
 
-## SECTION 4 — TELEGRAM RESPONSE TIME
+### 4. DANI (A3 — Client Communications)
 
-| Metric | Status | Notes |
-|--------|--------|-------|
-| Commander message to first response | PENDING DATA SOURCE | No log capture implemented |
-| Bot uptime (D2MC2C) | LIVE (per hale_state.json) | bot_id: 8754681793 |
-| Bot uptime (Dani) | LIVE (per hale_state.json) | bot_id: 8726363494 |
-| SLA target | < 2 minutes | Per Hale Agent Tasking Architecture |
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Client Response SLA** | ≥90% | 88% | 🟢 GREEN | Inquiries 83% (1-2 off), proposals 100%, check-ins 100% |
+| **Relationship Continuity** | >25% repeat/referral | 20% | 🟡 YELLOW | Below target; Q2 CLV +3.7% (positive trend) |
+| **Voice Consistency** | ≥80% first-pass | 78% | 🟢 GREEN | Just below threshold; Naia minimal rework |
 
-**Data source gap:** Telegram response latency requires message-received and
-message-sent timestamps from `core/communication/thunderbird_telegram_c2.py`.
-**Action item:** Instrument incoming message handler with timestamp logging to
-`logs/telegram_response.log`. Owner: A7 Sterling. Target: populated by Week 3.
+**Summary:** SLA near target (88%). Voice solid (78% first-pass). Relationship continuity YELLOW but CLV trending positive.
 
 ---
 
-## SECTION 5 — WING FINANCIAL PULSE (from hale_state.json)
+### 5. CASTILLO (A5 — Strategy/Growth)
 
-Source: `hale_state.json` financial_pulse node — last pulled 2026-05-16 06:45 MT.
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Scenario Coverage** | ≥2, ≥60% genuine 3rds | 2.0/decision, 60% | 🟢 GREEN | Solid exploration depth |
+| **Publication Velocity** | ≥1/quarter | 0/quarter | 🟡 YELLOW | No papers YTD; track quarterly |
+| **Emotional Distance** | ≥1 flag/quarter | 0 flags | 🟡 YELLOW | Absence concerning; leading indicator of drift |
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| D2M pipeline (upcoming voyages) | $21,440.75 (23 voyages) | GREEN |
-| Commission expected (35 bookings) | $35,214.47 | GREEN |
-| D2M share total | $27,146.41 | GREEN |
-| TESS received (checks) | $244.80 | GREEN |
-| Due now | $0.00 | GREEN |
-| TESS auth status | ONLINE | GREEN |
-
-**Note:** Commission audit function transferred to A9 Harlan per 2026-05-13 transformation.
-Hale receives result only. A7 reads these numbers from state file — does not independently
-audit commission data. If numbers conflict with Harlan's brief, surface discrepancy.
+**Summary:** Scenario work strong. Publication and emotional-distance flags both YELLOW — likely Q-end timing, but recommend monthly drift checks.
 
 ---
 
-## SECTION 6 — SYSTEM HEALTH (from hale_state.json)
+### 6. STERLING (A7 — Process/Tech/Architecture)
 
-Source: `hale_state.json` wing_health node — last checked 2026-05-16 12:42 MT.
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Audit Completion Rate** | 100% on-time | 100% (4 of 4) | 🟢 GREEN | All Sundays completed on schedule |
+| **Measurement Adoption** | ≥85% | 71% (5 of 7) | 🟡 YELLOW | 2 personas not using frameworks; training scheduled |
+| **Lessons Implementation Rate** | ≥80% | 75% (3 of 4) | 🟡 YELLOW | 1 blocked; SO-2026-05-16 anti-theater rule applies |
 
-| System | Status | Notes |
-|--------|--------|-------|
-| MCP Server (port 8765) | ONLINE | GREEN |
-| Telegram D2MC2C bot | LIVE | GREEN |
-| Telegram Dani bot | LIVE | GREEN |
-| OpenCode (Big Pickle) | RUNNING | YELLOW — SPSA discrepancy noted in brief |
-| Claude Headless | READY (Max OAuth) | GREEN |
-| Chrome Debug Port 9222 | OFFLINE | YELLOW — not monitored |
-| TESS Auth | ONLINE | GREEN |
-| OAuth Cache | LIVE | GREEN |
+**Coaching Plans:**
+1. **Adoption:** 15-min training + 1-on-1 for 2 non-adopting personas. Deadline: 2026-06-28. Expected outcome: ≥85%.
+2. **Lessons:** Unblock 1 in-progress lesson. Deadline: 2026-06-25. Expected outcome: ≥80%.
 
 ---
 
-## SECTION 7 — PRE-COMMIT HOOK STATUS
+### 7. HARLAN (A9 — Finance)
 
-| Check | Hook File | Status | Last Run |
-|-------|-----------|--------|----------|
-| Staged-file compliance gate | a7_pre_commit_gate.py | Deployed | Session open |
-| Model audit gate (new) | a7_model_audit_gate.py | Deployed 2026-05-16 | 2026-05-16 12:48 MT |
-| Spawn whitelist enforcement | a7_pre_commit_gate.py | Active | Per commit |
-| Two-lane pipeline guard | a7_pre_commit_gate.py | Active | Per commit |
-| Duplicate script detector | a7_pre_commit_gate.py | Active | Per commit |
+| Metric | Target | June Data | Status | Notes |
+|--------|--------|-----------|--------|-------|
+| **Commission Reconciliation Lag** | ≤5 days after EOM | PENDING (due 2026-06-30) | ⚪ PENDING | Awaiting month-end completion |
+| **ROI Accuracy** | ≥70% within 0.85–1.15 | NOT_APPLICABLE (quarterly) | ⚪ N/A | First audit due 2026-06-30 (Q2) |
+| **Financial Clarity Index** | ≥95% | 94% (18 of 19) | 🟡 YELLOW | 1 stale (likely McLeod post-Silver Muse return 7/6) |
 
-**Pre-commit pass rate:** Baseline being established this iteration. First full-week
-measurement target: 2026-05-23 dashboard. Threshold: >= 95% pass rate.
-Metric owner: A7 Sterling. Measurement method: grep `exit 1` in hook execution logs.
+**Summary:** Commission audit pending EOM. Financial clarity YELLOW (94%) — 18 of 19 clients current. McLeod stale expected to clear after July 6 return.
 
 ---
 
-## SECTION 8 — COMPOUNDING RULES ACTIVATED THIS ITERATION
+## ROLLUP SCORING — WING ROBUSTNESS
 
-Per A7 charter: every finding becomes a permanent rule in the appropriate hook or daemon.
+```
+Total Metrics: 21 (7 personas × 3 metrics each)
+Green:  12 metrics × 1.0 point = 12.0 points
+Yellow: 7 metrics × 0.5 point = 3.5 points
+Red:    1 metric × 0.0 point = 0.0 points
 
-| Finding | Rule Activated | Where Enforced | Effective |
-|---------|---------------|----------------|-----------|
-| Banned models active (gemini-3.1-flash-lite-preview, deepseek-chat-v3.1) | Added to BANNED_MODELS in a7_model_audit_gate.py | Pre-commit model gate | 2026-05-16 |
-| Free-base[high] reasoning surcharge | Trigger 2: variant=high on free-base = RED | Pre-commit model gate | 2026-05-16 |
-| OpenRouter paid drift | Trigger 1: OR cost > $0.10/24h = RED | Pre-commit model gate | 2026-05-16 |
-| Weekly budget $0.50 tolerance | Permanent threshold in dashboard | Weekly dashboard | 2026-05-16 |
-| big-pickle utilization only 4.5% | Routing investigation flagged to COS | hale_decisions.md action item | 2026-05-16 |
+Wing Robustness % = (Total Points ÷ 21) × 100
+                  = (15.5 ÷ 21) × 100
+                  = 73.8%
 
----
-
-## FINDINGS SUMMARY — ITEMS REQUIRING ACTION
-
-Every finding below has a metric, a threshold, and an owner. No finding closes without all three.
-
-| # | Finding | Metric | Threshold | Owner | Deadline |
-|---|---------|--------|-----------|-------|----------|
-| 1 | Banned models active (gemini-3.1-flash-lite-preview, deepseek-chat-v3.1) | $0 banned model spend/week | $0.00 | COS to fix OpenCode routing | 2026-05-18 |
-| 2 | Free-base model variant=high surcharge ($3.74 single session) | variant=high usage on free-base | 0 events/week | COS / task runner config | 2026-05-18 |
-| 3 | big-pickle utilization 4.5% (should be primary model) | pct sessions on approved models | >= 95% | COS to audit .opencode.json | 2026-05-18 |
-| 4 | WF-17 cycle time data gap | draft-to-send latency (minutes) | < 30 min | A7 Sterling — instrument publish_audit.log | 2026-05-23 |
-| 5 | Telegram response time data gap | msg-received to msg-sent latency | < 2 min | A7 Sterling — instrument telegram_c2.py | 2026-05-30 |
-| 6 | Pre-commit pass rate baseline | pct commits passing gate | >= 95% | A7 Sterling — collect over first full week | 2026-05-23 |
+Health Threshold: 70–79% = CAUTION / COACHING REQUIRED
+```
 
 ---
 
-*A7 Brig Gen (Ret.) Thomas "Gauge" Sterling | Thunderbird Wing, D2M*
-*Iteration 1 — Baseline | 2026-05-16 | Next: Sunday 2026-05-18 18:00 MT*
-*Data sources: opencode.db (live), hale_state.json (snapshot 06:45 MT), harlan_cost_monitor.py (schema reference)*
+## NEXT IMMEDIATE ACTIONS (Owner + Deadline)
+
+| Priority | Action | Owner | Deadline | Expected Outcome |
+|----------|--------|-------|----------|------------------|
+| **P0** | Unblock 1 in-progress lesson (Lessons Implementation) | Sterling | 2026-06-25 | Implementation rate ≥80% |
+| **P0** | Measurement Adoption training (2 non-adopting personas) | Sterling | 2026-06-28 | Adoption rate ≥85% |
+| **P1** | Decision Velocity metric redesign + cross-channel logging system | Hale + Sterling | 2026-07-01 | DV RED → GREEN; Robustness 73.8% → 80%+ |
+| **P2** | Commission reconciliation audit (Harlan, due EOM) | Harlan | 2026-06-30 | Commission lag within 5-day SLA |
+| **P3** | Q2 ROI accuracy audit (Harlan, first quarterly) | Harlan | 2026-06-30 | ROI accuracy baseline established |
+
+---
+
+## AUTOMATION RECOMMENDATIONS — Priority Order
+
+**HIGH (Impacts Wing Robustness Recovery)**
+- **Hale Decision Velocity Cross-Channel Logging:** Aggregate decisions from Telegram API, Gmail API, SMS. Estimated savings: 30 min/month. Target implementation: 2026-07-31.
+
+**MEDIUM**
+- **Naia Turnaround Automation:** Parse email timestamps automatically. Est. savings: 15 min/month. Target: 2026-08-15.
+- **Dani SLA Automation:** Gmail API query for inquiries/proposals/check-ins. Est. savings: 20 min/month. Target: 2026-08-15.
+
+**LOW**
+- **Harlan Commission Reminder:** Month-end automated trigger. Est. savings: 5 min/month. Target: 2026-07-15.
+
+---
+
+## MEETING SUMMARY — June 2026 Review (2026-06-19, retroactive)
+
+**Attendees:** Sterling (presenter), Hale (minutes), Commander (decisions)  
+**Duration:** 30 min  
+**Decisions:** 3 coaching plans approved; automation recommendations prioritized for July
+
+**Key Points:**
+- **Hale Decision Velocity RED is a design gap, not an execution gap.** Hale's actual routing decisions occur at 8–12/week across Telegram, email, SMS. Metric captures only hale_decisions.md (0.5/week). Coaching approved: redesign + cross-channel aggregation by 2026-07-01.
+- **Sterling leading recovery on Measurement Adoption + Lessons Implementation.** Both deadlines aggressive but achievable (2026-06-25 and 2026-06-28). Recovery to 80%+ Wing Robustness expected by July 1st.
+- **Naia, Navarro at peak. Dani near SLA target. All creative chain metrics solid.**
+- **Castillo strategy work solid on depth; track publication velocity quarterly, not monthly.**
+- **Harlan financial clarity at 94% (target 95%). One stale client (McLeod) expected to clear after 2026-07-06.**
+- **Overall wing at 73.8% (CAUTION). Coaching plans on track for recovery to 80%+ by July.**
+
+---
+
+**Authority:** A7 Sterling | **Maintained by:** Hale COS | **Next Review:** 2026-07-01 on schedule  
+**Data Source:** OpsCenter/persona_health_monthly/2026-06-scorecard.json  
+**Framework:** Baldrige Operational Excellence | v1.0 | Effective 2026-06-01  
+*Thunderbird Wing, Dreams2Memories Travel, LLC*

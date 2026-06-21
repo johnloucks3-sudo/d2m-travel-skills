@@ -134,7 +134,12 @@ def cmd_list_complete(board):
 
 
 def cmd_add(board, args):
-    """EXEC: add <title> <description>"""
+    """EXEC: add <title> <description> [P0|P1|P2|P3]"""
+    args = list(args)
+    # Honor a trailing priority token if present (default P0 for back-compat)
+    priority = "P0"
+    if args and args[-1].upper() in ("P0", "P1", "P2", "P3"):
+        priority = args.pop().upper()
     # Parse simple format: EXEC: add MISSION-XXX title here
     title = " ".join(args[:3])
     desc = " ".join(args[3:]) if len(args) > 3 else "No description"
@@ -156,7 +161,7 @@ def cmd_add(board, args):
         "id": mission_id,
         "title": title,
         "status": "in_progress",
-        "priority": "P0",
+        "priority": priority,
         "assigned_to": "unassigned",
         "description": desc,
         "deliverables": [],
@@ -172,7 +177,7 @@ def cmd_add(board, args):
         board["missions"].append(new_mission)
     else:
         board.setdefault("missions", []).append(new_mission)
-    return f"✅ Created: {mission_id} — {title}\nPriority: P0 | Assigned: unassigned"
+    return f"✅ Created: {mission_id} — {title}\nPriority: {priority} | Assigned: unassigned"
 
 
 def cmd_suspense(board, mission_id, date_str):

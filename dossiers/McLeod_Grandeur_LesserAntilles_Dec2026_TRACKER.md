@@ -2,13 +2,20 @@
 client: McLeod McGlasson
 ship: SS Grandeur (Regent Seven Seas)
 voyage: Lesser Antilles Journey (Miami → Miami)
-booking: "2984034"
+booking: '2984034'
 embark: 2026-12-19
 disembark: 2026-12-29
 status: active
 anchor_type: CRUISE
-source_of_truth: "Harlan-verified financials 2026-06-09 (McLeod_McGlasson_Multi.md frontmatter, Regent invoice 2984034 dated 23-May-26) + D2M/lifecycle/McLeod_Grandeur_LesserAntilles_Lifecycle.md (clock)"
-note: "Renders CURRENT state + forward suspense calendar. 35-TP clock lives in the lifecycle doc — not reproduced here. ⛔ CONTACT HOLD until Jul 7 (client on Silver Muse Jun 23–Jul 6)."
+source_of_truth: Harlan-verified financials 2026-06-09 (McLeod_McGlasson_Multi.md
+  frontmatter, Regent invoice 2984034 dated 23-May-26) + D2M/lifecycle/McLeod_Grandeur_LesserAntilles_Lifecycle.md
+  (clock)
+note: Renders CURRENT state + forward suspense calendar. 35-TP clock lives in the
+  lifecycle doc — not reproduced here. ⛔ CONTACT HOLD until Jul 7 (client on Silver
+  Muse Jun 23–Jul 6).
+payment_status: confirmed
+departure: '2026-12-19'
+return: '2026-12-29'
 ---
 
 # McLEOD — GRANDEUR TRIP TRACKER (booking 2984034 of 4)

@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-19T21:02:39.295026+00:00",
+    "last_health_check": "2026-06-21T12:29:51.166426+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-19T21:02:50.750071+00:00"
+    "last_updated": "2026-06-21T12:29:51.166426+00:00"
   },
   "open_tasks": [
     {
@@ -209,7 +209,7 @@
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 17
+      "active": 60
     },
     "DEM": {
       "last_seen": false,
@@ -241,7 +241,7 @@
     },
     "ELON": {
       "last_seen": true,
-      "active": 2
+      "active": 6
     }
   },
   "brain_routing_log": [
@@ -381,6 +381,18 @@
       "deferred_reason": "Client on Silver Muse Jun 23\u2013Jul 6",
       "condition": "date>=2026-07-07 AND client_returned (deferred: Client on Silver Muse Jun 23\u2013Jul 6)",
       "condition_type": "date_and_client_status"
+    },
+    {
+      "id": "AMY-DARROW-INSURANCE-SUSPENSE",
+      "trigger_date": "2026-06-26",
+      "priority": "P1",
+      "message": "Amy Darrow insurance \u2014 MUST-BOOK by Jun 26 2026 (60-day pre-existing waiting period must clear before Aug 25, day before Aug 29 departure). Follow up: did Amy buy? Squaremouth quote 6XD3-983E. Plans: Seven Corners Annual (rec), BCBS Multi-Trip Platinum, IMG Patriot.",
+      "client": "Ely / Amy Darrow",
+      "booking": "3096289",
+      "fpd": "2026-06-26",
+      "condition": "date>=2026-06-26",
+      "condition_type": "date",
+      "source": "Commander email Fri 2026-06-19 17:24 'set a suspense for one week + must book date'"
     }
   ]
 }

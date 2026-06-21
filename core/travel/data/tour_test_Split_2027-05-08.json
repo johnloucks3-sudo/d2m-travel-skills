@@ -1,0 +1,261 @@
+{
+  "dest": "Split",
+  "query": "Diocletian olive oil",
+  "date": "2027-05-08",
+  "scraped_at": "2026-06-17T11:04:42.951034",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "Split",
+    "query": "Diocletian olive oil",
+    "url": "https://www.getyourguide.com/s/?q=Split+Diocletian+olive+oil",
+    "scraped_at": "2026-06-17T11:04:43.807400",
+    "date_filter": "2027-05-08",
+    "tours": [
+      {
+        "name": "Old Town - Diocletian Palace Guide Tour - SMALL GROUP",
+        "duration": "1.5 - 6 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 5147,
+        "price_pp": 17.0,
+        "original_price_pp": 35.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-walking-tour-t54976/"
+      },
+      {
+        "name": "Golden Horn Beach, Vidova Gora & Olive Oil",
+        "duration": "6.5 hours",
+        "rating": 4.9,
+        "review_count": 18,
+        "price_pp": 103.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/from-split-golden-horn-beach-vidova-gora-olive-oil-t1268477/"
+      },
+      {
+        "name": "Diocletian's Palace & Old Town SMALL GROUP Tour",
+        "duration": "1.5 - 5.5 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 657,
+        "price_pp": 17.0,
+        "original_price_pp": 35.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/diocletian-s-palace-and-old-town-small-group-walking-tour-t862564/"
+      },
+      {
+        "name": "Split Highlights: Diocletian's Palace Tour with Tastings",
+        "duration": "2 hours",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 19.0,
+        "original_price_pp": 23.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/best-of-split-with-the-change-of-roman-guard-t447733/"
+      },
+      {
+        "name": "Sunset Cruise- Aperol and Aperitif",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 28.0,
+        "original_price_pp": 35.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-sunset-cruise-aperol-and-aperitif-t1353655/"
+      },
+      {
+        "name": "Split, Klis Fortress & Stella Croatica Olive Oil Tour",
+        "duration": "6 - 10 hours \u2022 Pickup available",
+        "rating": 4.4,
+        "review_count": null,
+        "price_pp": 100.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-klis-fortress-stella-croatica-olive-oil-tour-t936725/"
+      },
+      {
+        "name": "Diocletian\u2019s Palace Walking Tour with Guide",
+        "duration": "1.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 41.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-diocletian-s-palace-walking-tour-with-guide-t1334230/"
+      },
+      {
+        "name": "Split Blue Lagoon Boat Party - Djs, Swim, Shots & AfterParty",
+        "duration": "6 hours \u2022 Skip the line",
+        "rating": null,
+        "review_count": 2947,
+        "price_pp": 46.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-blue-lagoon-boat-party-djs-swim-shots-afterparty-t415722/"
+      },
+      {
+        "name": "Authentic Dalmatia:Guided Olive Museum & Klis Fortress tour",
+        "duration": "3 hours \u2022 Skip the line \u2022 Optional audio guide",
+        "rating": 4.2,
+        "review_count": 194,
+        "price_pp": 18.0,
+        "original_price_pp": 26.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/from-splithop-on-off-green-line-to-klis-olive-museumznjan-t442245/"
+      },
+      {
+        "name": "Split Sightseeing: Open Bus, Vidilica and Audio Walking Tour",
+        "duration": "2 hours",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 25.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-sightseeing-open-bus-vidilica-and-audio-walking-tour-t1301961/"
+      },
+      {
+        "name": "Diocletian Palace, Marjan Hill Viewpoint & Local Eats",
+        "duration": "1.5 - 2.5 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": 20,
+        "price_pp": 17.0,
+        "original_price_pp": 33.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-diocletian-s-palace-with-old-town-guided-tour-t1300436/"
+      },
+      {
+        "name": "Diocletian\u2019s Palace, Salona, and Klis Fortress Tour",
+        "duration": "3.5 - 5 hours \u2022 Pickup available \u2022 Private option available",
+        "rating": 4.7,
+        "review_count": 19,
+        "price_pp": 75.0,
+        "original_price_pp": 151.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/solin-l2177/split-diocletian-s-palace-salona-and-klis-fortress-tour-t1154374/"
+      },
+      {
+        "name": "Award-Winning Klis Olive Museum & Olive Oil Tasting",
+        "duration": "75 minutes",
+        "rating": 4.8,
+        "review_count": 58,
+        "price_pp": 17.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-stella-croatica-guided-tour-and-olive-oil-tasting-t397723/"
+      },
+      {
+        "name": "City Highlights Electric Tuk-Tuk Tour",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 1553,
+        "price_pp": 55.0,
+        "original_price_pp": 71.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/go-green-city-tour-t468328/"
+      },
+      {
+        "name": "Olive Oil and Wine Tasting with Snacks",
+        "duration": "45 minutes \u2022 Private group",
+        "rating": 4.6,
+        "review_count": 5,
+        "price_pp": 57.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-olive-oil-and-wine-tasting-with-snacks-t1258844/"
+      },
+      {
+        "name": "Blue Lagoon, Borkko Beach & \u0160olta with Food & Drinks",
+        "duration": "8 hours",
+        "rating": 4.6,
+        "review_count": 823,
+        "price_pp": 80.0,
+        "original_price_pp": 87.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-blue-lagoon-borkko-beach-solta-with-food-drinks-t639754/"
+      },
+      {
+        "name": "Diocletian's Palace Family Tour with Treats",
+        "duration": "2 hours \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 70.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-diocletian-s-palace-family-tour-with-treats-t1208470/"
+      },
+      {
+        "name": "Split Food Tour: Local Dishes & City Stories",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 103.0,
+        "original_price_pp": 115.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-food-tour-local-dishes-city-stories-t1360306/"
+      },
+      {
+        "name": "Diocletian's Palace & Split Old Town Guide Tour - Since 2007",
+        "duration": "1.5 - 5 hours",
+        "rating": 4.8,
+        "review_count": 751,
+        "price_pp": 17.0,
+        "original_price_pp": 35.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-old-town-and-diocletian-s-palace-tour-t58207/"
+      },
+      {
+        "name": "Diocletian's Palace & Old Town Split Walking Tour",
+        "duration": "1.5 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": 13,
+        "price_pp": 25.0,
+        "original_price_pp": 29.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/diocletian-s-palace-old-town-split-walking-tour-t624260/"
+      },
+      {
+        "name": "From Split or Trogir: Mostar & Kravica Waterfall Group Tour",
+        "duration": "12 - 12.5 hours \u2022 Skip the line",
+        "rating": 4.7,
+        "review_count": 1030,
+        "price_pp": 93.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/mostar-and-medjugorje-small-group-day-tour-from-split-t28210/"
+      },
+      {
+        "name": "Local Mediterranean Food Tasting Tour",
+        "duration": "2.5 hours",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": 82.0,
+        "original_price_pp": 102.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/split-roman-dinner-museum-show-experience-with-food-and-wine-t1351733/"
+      },
+      {
+        "name": "Essential Diocletian's Palace Tour for First-Time Visitors",
+        "duration": "1.5 hours",
+        "rating": 4.9,
+        "review_count": 91,
+        "price_pp": 41.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/split-l268/essential-diocletian-s-palace-tour-for-first-time-visitors-t726737/"
+      },
+      {
+        "name": "Small-Group Omis & Soparnik Experience with Swimming",
+        "duration": "6 hours",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 46.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/omis-l2096/split-omis-pirates-soparnik-experience-with-swimming-t1245994/"
+      }
+    ],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_Split_2027-05-08.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

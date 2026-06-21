@@ -1,0 +1,278 @@
+{
+  "_meta": {
+    "description": "Allegiant Air CONUS route reference for D2M flight screening. All Allegiant flights are nonstop point-to-point — no connections sold. Routes are leisure-oriented and seasonal; verify at allegiantair.com/route-map before quoting.",
+    "source_urls": [
+      "https://www.allegiantair.com/en/flights-from-colorado-springs",
+      "https://www.allegiantair.com/airports/colorado-springs-airport",
+      "https://www.allegiantair.com/en/flights-from-denver",
+      "https://www.allegiantair.com/en/flights-from-richmond-1",
+      "https://www.allegiantair.com/baggage-1",
+      "https://www.allegiantair.com/popup/optional-services-fees",
+      "https://deeparrival.com/airlines/allegiant-air/baggage-fees/",
+      "https://en.wikipedia.org/wiki/List_of_Allegiant_Air_destinations"
+    ],
+    "verified_date": "2026-06-11",
+    "iata_carrier": "G4",
+    "carrier_name": "Allegiant Air",
+    "carrier_type": "ULCC",
+    "model": "Point-to-point only. No connections, no codeshares, no interline baggage. All flights nonstop.",
+    "coverage_note": "This file covers D2M primary gateways only (COS, DEN, RIC, DAL/DFW). For other client gateways, check allegiantair.com/route-map. Absence from this list does NOT confirm no service — always verify.",
+    "last_network_size": "123+ CONUS airports as of June 2026"
+  },
+
+  "baggage_policy": {
+    "_important_correction": "The 40 lb limit cited in D2M internal notes is WRONG. Allegiant's actual checked bag limit is 50 lb — same as legacy carriers. The overweight trigger starts at 51 lb, not 41 lb.",
+    "standard_checked_limit_lb": 50,
+    "standard_checked_limit_kg": 22,
+    "max_accepted_weight_lb": 100,
+    "overweight_tiers": [
+      {
+        "weight_range_lb": "51–70",
+        "weight_range_kg": "23.1–31.8",
+        "surcharge_per_segment_usd": 50,
+        "note": "Added ON TOP of base checked bag fee"
+      },
+      {
+        "weight_range_lb": "71–100",
+        "weight_range_kg": "32.2–45.4",
+        "surcharge_per_segment_usd": 75,
+        "note": "Added ON TOP of base checked bag fee"
+      }
+    ],
+    "oversized_surcharge_usd": 75,
+    "oversized_threshold_inches_total": 80,
+    "base_checked_bag_fees": {
+      "advance_booking_usd": "~$20–$50 (route-dependent)",
+      "airport_counter_usd": 75,
+      "note": "Airport counter rate is flat $75/bag/segment — always book bags in advance"
+    },
+    "carry_on_fee_usd": {
+      "advance_booking": "~$10–$70 (route-dependent)",
+      "airport": 75,
+      "note": "Carry-on bag IS CHARGED — not free. Allegiant charges for overhead bin use."
+    },
+    "personal_item": "Free (fits under seat)",
+    "fee_structure_note": "ALL fees are per-segment (per takeoff+landing). A round trip = 2 segments = 2× the fee. Connecting itineraries double fees — but Allegiant does not sell connecting itineraries. Round trips are two independent one-way tickets.",
+    "cruise_bag_caveat": "Allegiant's 50 lb limit matches legacy carriers, but OVERWEIGHT FEES ARE STEEP. A 51–70 lb bag = $50 extra per segment on top of the base bag fee ($20–$75). For cruise travel with 60–70 lb checked bags, a round trip adds $100 extra ($50 × 2 segments) over the base bag cost. At airport counter rates ($75/bag/segment), a 65 lb bag costs $125/bag/segment = $250 round trip per bag. Pre-book bags to avoid airport pricing."
+  },
+
+  "gateways": {
+    "COS": {
+      "airport_name": "Colorado Springs Airport",
+      "city": "Colorado Springs",
+      "state": "CO",
+      "note": "Commander Loucks home gateway. Allegiant confirmed active as of Jun 2026.",
+      "routes": [
+        {
+          "dest_iata": "SNA",
+          "dest_city": "Santa Ana / Orange County",
+          "dest_state": "CA",
+          "dest_airport": "John Wayne Airport",
+          "service_started": "2025-02-13",
+          "seasonal": null,
+          "sample_fare_usd": 48,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-colorado-springs"
+        },
+        {
+          "dest_iata": "PIE",
+          "dest_city": "Tampa / St. Pete",
+          "dest_state": "FL",
+          "dest_airport": "St. Pete-Clearwater International",
+          "service_started": "2025-02-14",
+          "seasonal": null,
+          "sample_fare_usd": 94,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-colorado-springs"
+        },
+        {
+          "dest_iata": "AZA",
+          "dest_city": "Phoenix / Mesa",
+          "dest_state": "AZ",
+          "dest_airport": "Phoenix-Mesa Gateway Airport",
+          "service_started": null,
+          "seasonal": "possibly — Oct 2026 sample date seen",
+          "sample_fare_usd": 50,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-colorado-springs"
+        }
+      ],
+      "route_count_verified": 3,
+      "screening_note": "COS Allegiant network is SMALL (3 routes). Useful only for Las Vegas, Tampa/Florida, or SoCal hops. Most D2M cruise air will NOT match COS Allegiant routes — check allegiantair.com before asserting no service."
+    },
+
+    "DEN": {
+      "airport_name": "Denver International Airport",
+      "city": "Denver",
+      "state": "CO",
+      "note": "Spencer Grand Tour gateway. 7 nonstop destinations, 14 weekly departures as of Jun 2026.",
+      "routes": [
+        {
+          "dest_iata": "VPS",
+          "dest_city": "Destin / Fort Walton Beach",
+          "dest_state": "FL",
+          "dest_airport": "Destin-Fort Walton Beach Airport",
+          "service_started": "2026-05-21",
+          "seasonal": "new route May 2026",
+          "sample_fare_usd": 52,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver + 9news.com announcement"
+        },
+        {
+          "dest_iata": "AVL",
+          "dest_city": "Asheville",
+          "dest_state": "NC",
+          "dest_airport": "Asheville Regional Airport",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": 65,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        },
+        {
+          "dest_iata": "PIA",
+          "dest_city": "Peoria",
+          "dest_state": "IL",
+          "dest_airport": "General Wayne A. Downing Peoria International",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": null,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        },
+        {
+          "dest_iata": "ATW",
+          "dest_city": "Appleton / Green Bay",
+          "dest_state": "WI",
+          "dest_airport": "Appleton International Airport",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": null,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        },
+        {
+          "dest_iata": "TYS",
+          "dest_city": "Knoxville",
+          "dest_state": "TN",
+          "dest_airport": "McGhee Tyson Airport",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": null,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        },
+        {
+          "dest_iata": "ABE",
+          "dest_city": "Allentown / Lehigh Valley",
+          "dest_state": "PA",
+          "dest_airport": "Lehigh Valley International Airport",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": null,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        },
+        {
+          "dest_iata": "CVG",
+          "dest_city": "Cincinnati",
+          "dest_state": "OH",
+          "dest_airport": "Cincinnati/Northern Kentucky International",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": null,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-denver"
+        }
+      ],
+      "route_count_verified": 7,
+      "screening_note": "DEN Allegiant is mid-size (7 routes). Leisure-focused destinations — Florida, Appalachia, midwest. Does NOT serve DEN→EWR, DEN→LGA, DEN→LAX, DEN→BOS or major cruise ports. Verify specific route before including in quote."
+    },
+
+    "RIC": {
+      "airport_name": "Richmond International Airport",
+      "city": "Richmond",
+      "state": "VA",
+      "note": "Kuklinski client gateway (Kyle/Roger Kuklinski — 3128 Floyd Ave, Richmond VA 23221). Allegiant confirmed active.",
+      "routes": [
+        {
+          "dest_iata": "BNA",
+          "dest_city": "Nashville",
+          "dest_state": "TN",
+          "dest_airport": "Nashville International Airport",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": 48,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-richmond-1"
+        },
+        {
+          "dest_iata": "PIE",
+          "dest_city": "Tampa / St. Pete",
+          "dest_state": "FL",
+          "dest_airport": "St. Pete-Clearwater International",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": 72,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-richmond-1"
+        },
+        {
+          "dest_iata": "SFB",
+          "dest_city": "Orlando / Sanford",
+          "dest_state": "FL",
+          "dest_airport": "Orlando Sanford International",
+          "service_started": null,
+          "seasonal": null,
+          "sample_fare_usd": 81,
+          "verified_date": "2026-06-11",
+          "source": "allegiantair.com/en/flights-from-richmond-1"
+        }
+      ],
+      "route_count_verified": 3,
+      "screening_note": "RIC Allegiant is small (3 routes). Kuklinski Panama trip departs PTY — Allegiant does not serve PTY. Return is from FLL — Allegiant does not serve FLL from RIC. RIC Allegiant not useful for Kuklinski Panama itinerary."
+    },
+
+    "DAL_DFW": {
+      "airport_name": "Dallas / Fort Worth area",
+      "city": "Dallas / Plano",
+      "state": "TX",
+      "note": "Ely/Darrow client gateway (Plano TX 75093). Allegiant has confirmed presence at DFW (Terminal 1 per Yelp/2026 references). Full route list not retrievable from static fetch — verify at allegiantair.com/dfw-dallasfort-worth-tx-usa-dallasft-worth-intl.",
+      "routes": [],
+      "route_count_verified": 0,
+      "screening_note": "Allegiant presence at DFW confirmed but specific routes not retrieved in this build. Run allegiantair.com/airports/dallas for current list. Legacy DFW is a major hub — Allegiant presence is likely limited to leisure routes only (Florida, Southwest). Always verify.",
+      "verify_url": "https://www.allegiantair.com/dfw-dallasfort-worth-tx-usa-dallasft-worth-intl"
+    }
+  },
+
+  "screening_logic": {
+    "description": "Rules for the flight-price skill Allegiant check",
+    "domestic_only": true,
+    "international_check": false,
+    "trigger_on_conus_routes": true,
+    "steps": [
+      "1. Is the route CONUS-only (both origin and dest are US domestic)? If NO → skip Allegiant check entirely.",
+      "2. Is the origin airport in this file's gateways? If YES → check routes array for the destination.",
+      "3. If dest found → note Allegiant as an option with sample fare. Add bag-weight caveat.",
+      "4. If dest NOT found in routes array → respond: 'Allegiant route not in verified D2M list (verified 2026-06-11). Confirm at allegiantair.com/route-map before ruling out.'",
+      "5. If origin NOT in gateways → respond: 'Allegiant coverage for [ORIGIN] not in D2M reference. Check allegiantair.com/route-map.'",
+      "6. Always append bag-weight advisory when Allegiant is in the mix."
+    ],
+    "absence_means": "NOT confirmed no-service. Data is point-in-time and covers D2M gateways only. Allegiant adds/drops routes frequently. Always verify at allegiantair.com.",
+    "bag_weight_advisory": "FLAG when any bag may exceed 50 lb (cruise luggage often 55–70 lb). Allegiant overweight surcharge: $50/segment for 51–70 lb, $75/segment for 71–100 lb — adds $100–$150/bag round trip above base fee. For cruise clients with heavy bags, estimate total Allegiant bag cost vs. included-bag legacy carriers."
+  },
+
+  "d2m_client_gateway_map": {
+    "note": "Maps known D2M client home cities to nearest airport for quick screening",
+    "clients": [
+      {"client": "Loucks (Commander)", "city": "Colorado Springs / Monument, CO", "gateway": "COS", "allegiant_in_file": true},
+      {"client": "Spencer (Bill/Kathleen)", "city": "Denver, CO (assumed)", "gateway": "DEN", "allegiant_in_file": true},
+      {"client": "Kuklinski (Kyle/Roger)", "city": "Richmond, VA", "gateway": "RIC", "allegiant_in_file": true},
+      {"client": "Morton/Dodge (Josh/Erica)", "city": "Naples, FL", "gateway": "RSW", "allegiant_in_file": false, "note": "RSW: Allegiant added new routes Nov 2025 (ABE, ATW, DSM inbound). Verify outbound at allegiantair.com."},
+      {"client": "Ely/Darrow", "city": "Plano, TX", "gateway": "DFW", "allegiant_in_file": false, "note": "DFW allegiant presence confirmed, route list not retrieved. Verify."},
+      {"client": "Furlow (Missy/John)", "city": "Unknown — see dossier", "gateway": "UNKNOWN", "allegiant_in_file": false},
+      {"client": "Nichols (Larry)", "city": "Unknown — see dossier", "gateway": "UNKNOWN", "allegiant_in_file": false},
+      {"client": "Lyons (Nancy/Ken)", "city": "Unknown — see dossier", "gateway": "UNKNOWN", "allegiant_in_file": false}
+    ]
+  }
+}

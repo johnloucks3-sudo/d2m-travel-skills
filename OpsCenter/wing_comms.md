@@ -20,3 +20,84 @@
 - Relay chain (CC↔OC) bidirectional — all paths GREEN
 
 **Next:** Standing by for new tasking.
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-19T00:00:00Z (REPROCESSED)
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total entries scanned: 986 lines / ~60 task blocks
+- PENDING found: 0
+- UNREAD found: 0
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+- All tasks status: COMPLETE ✓
+
+**Summary:** Full inbox sweep complete. No actionable tasks found. All prior T2-COMMS-BUILD items were completed in earlier sessions (2026-05-31 through 2026-06-19). Last processed entry: RELAY-9a4138e9 (POST-COMMIT 7b2cee77 feat(evernote)) — COMPLETE 2026-06-19T21:00:00Z.
+
+**Action taken:** Inbox status confirmed all-clear. Results logged here and emailed to Commander.
+
+**Next:** Standing by for new tasking.
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-19T21:35:00Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total entries scanned: 1019 lines / ~65 task blocks
+- PENDING found: 0
+- UNREAD found: 1 → RELAY-05f01a02
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+
+**Actionable task processed:**
+RELAY-05f01a02 (CC → OC, 2026-06-19 21:29 UTC) — POST-COMMIT 9f4367d2
+  feat(apps-script): bind Wing Dashboard to Booking Master sheet
+  - .clasp.json: bound to real scriptId (1XEBIAanaU...) + parentId = Booking Master sheet
+  - wing_dashboard.gs: Wing Ops menu, P0 highlight, hourly trigger wired
+  - clasp_reauth_johnloucks3.py: local OAuth callback server (port 8888, writes ~/.clasprc.json)
+  - 2 files changed, 153 ins(+), 14 del(-) | author: Claude Haiku 4.5
+  → Status: COMPLETE — 2026-06-19T21:35:00Z
+
+**Action taken:** RELAY-05f01a02 → COMPLETE. Inbox clear. All-clear confirmed.
+
+**Next:** Standing by for new tasking.
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-20T17:17:23Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total lines scanned: 1409 / 114 task blocks
+- PENDING found: 0
+- UNREAD found: 1 → RELAY-1a19788e
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+
+**Actionable task processed:**
+RELAY-1a19788e (CC → OC, 2026-06-20 17:16 UTC) — POST-COMMIT 08156c60
+  fix(governance): dominant anti-ask HARD RULE (auto-loaded) + continue timer kills 137->130
+  - 2 files changed, 23 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+  → Status: COMPLETE — 2026-06-20T17:17:23Z
+
+**Action taken:** RELAY-1a19788e → COMPLETE. Governance HARD RULE applied + timer kills 137→130 continuation acknowledged.
+
+**Next:** Standing by for new tasking.
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T04:44:00Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total blocks scanned: all entries reviewed
+- PENDING found: 0
+- UNREAD found: 1 → RELAY-586538bf
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+- False positives excluded: 10 (COMPLETE watcher dispatch entries with keyword matches)
+
+**Actionable task processed:**
+RELAY-586538bf (CC → OC, 2026-06-21 04:43 UTC) — POST-COMMIT b75fcc2b
+  feat(sheets): M-274 Dani port cross-reference by Booking_ID
+  - 1 file changed, 97 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+  → Status: COMPLETE — 2026-06-21T04:44:00Z
+
+**Action taken:** RELAY-586538bf → COMPLETE. M-274 Dani port cross-reference by Booking_ID sheet commit acknowledged. Informational relay — no execution required.
+
+**Next:** Standing by for new tasking.

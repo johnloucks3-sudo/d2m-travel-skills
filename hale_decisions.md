@@ -5261,3 +5261,91 @@ Asked Commander "Want me to fix the Herculaneum typos now?" after identifying th
 **Next (proceeding, not asking):** fold the 17 infra-health probes into overwatch bands (fold-then-retire) + extend overwatch to system units (grace blind spot).
 
 **Logged by:** V. Hale, VCS · 2026-06-20
+
+---
+
+### 2026-06-20 15:14 MT — ai-auth-probe Tier 1 Critical: opencode_big_pickle Timeout
+
+**Incident:** opencode_big_pickle auth check timing out at 60s (2nd occurrence in 48h).
+- First timeout: 2026-06-19 ~21:54 (recovered after backgrounded task)
+- Recurrence: 2026-06-20 15:12:46 (exhausted 1 repair attempt, escalated Tier 1)
+
+**Decision:** Spawn headless Claude Code to diagnose and repair the timeout.
+- Commander directive: "Use claude" + "No OpenRouter"
+- Scope: Internal infrastructure only (no client sends, no WF-17 changes, no external comms)
+- Spawn: PID 3113105, logging to `/home/john/Thunderbird/logs/ai_auth_probe_spawn.log`
+- Output: `/home/john/Thunderbird/OpsCenter/ai_auth_probe_repair_report.md`
+
+**Rationale:** OpenCode big_pickle is a critical CI service (CI Registry, Portal Access skill). Two timeouts in 48h indicates sustained issue, not transient. Repair triggers replacement per SO_CI_RAZOR_SHARP_20260620 (≥3 consecutive fails OR ≥5/7d OR sustained latency). Headless Claude can diagnose logs, identify root cause, and implement fix without blocking main loop.
+
+**Next:** Monitor spawn log. When repair report appears, assess whether fix resolved or escalation needed.
+
+— Hale
+
+## 2026-06-20 14:57 MT — Redo batch: Kuklinski + Scandinavia trio (johnloucks3 drafts)
+Commander directives 2026-06-20: "re-do all 5 WF-17s", "keep on kuklinski, when you do Nichols add the other 2", retain excursion form.
+**Created (new, John-voice, voice-QC passed):**
+- `r934151172488144160` → larry.nichols4811@gmail.com, heidi.nichols1@yahoo.com — Your Scandinavia Voyage — You're Set, and Heidi's Birthday Aboard
+- `r-6966468892545556704` → al.ely58@gmail.com, amy.darrow@me.com — Your Scandinavia Voyage — Set, with One Open Day in Kristiansand
+- `r-2758595241808495699` → missy.furlow@gmail.com, john.furlow@tpf.org — Your Scandinavia Voyage — Where We Are, and What's Ahead
+- `r7666586377371665644` → kyle.kuklinski@gmail.com — Your Viking Mars Panama Voyage — Where We Stand
+- `r-8842984001262693212` → kyle.kuklinski@gmail.com — Panama December — Hotels, Transfers & Five Quick Questions
+- `r7965154844441022097` → kyle.kuklinski@gmail.com — Panama Excursions — Our Picks and a 3-Minute Survey, Kyle
+**Deleted (old rejected; source HTML retained, recoverable):**
+- `r3123063344331594273` — Kuklinski Welcome (old) — replaced by TP0.5 status rewrite
+- `r661885286550684345` — Kuklinski Logistics (old) — replaced by TP4.3 rewrite
+- `r8565223516252625193` — Kuklinski Excursion Guide (old) — replaced by form-locked version
+- `r-4265166377214822999` — Kuklinski Excursion (duplicate, old) — removed; one excursion draft only
+- `r9019699247342968531` — Kuklinski Specialty Dining (old) — NOT re-staged; content already sent May 15 (2x). Removed to prevent double-send.
+- `r-1522787698840779830` — Nichols Booking Confirmation (old) — replaced by Scandinavia voyage check-in
+Untouched: Ely/Amy insurance draft, Spencer, internal reports, McLeod/Silversea, all other mailbox drafts.
+
+### 2026-06-20 14:59 MT — Follow-on cleanup (johnloucks3 stale client drafts)
+- `r-2949808251375852227` → kyle.kuklinski@gmail.com — Specialty Dining Aboard Viking Mars — Preferences Before We Plan — Kuklinski dining (already sent May 15) — double-send risk
+- `r-6973585879185357340` → al.ely@example.com — Your Regent Grandeur Scandinavia Trip Validation — Aug 29-Sep 8, 2026 — example.com placeholder/test validation draft
+- `r-7382534989522710414` → larry.nichols@example.com — Your Regent Grandeur Scandinavia Trip Validation — Aug 29-Sep 8, 2026 — example.com placeholder/test validation draft
+LEFT IN PLACE (flagged to Commander, not stale-confirmed): Furlow 'Specialty Dining — Reserve Your Tables Now' (john.furlow@tpf.org); Nichols 'Re: A bit of Housekeeping'.
+
+### 2026-06-20 15:05 MT — Re-stage 6 client drafts with send-as concierge@d2mluxury.quest
+Per revised TP-draft routing SO: drafts live in johnloucks3 (Commander review), send AS concierge@d2mluxury.quest (D2M brand identity preserved). Replaced 6 interim drafts.
+- `r-7856247217863026493` → larry.nichols4811@gmail.com, heidi.nichols1@yahoo.com — Your Scandinavia Voyage — You're Set, and Heidi's Birthday Aboard
+- `r7855666307367356632` → al.ely58@gmail.com, amy.darrow@me.com — Your Scandinavia Voyage — Set, with One Open Day in Kristiansand
+- `r-1901287063766690328` → missy.furlow@gmail.com, john.furlow@tpf.org — Your Scandinavia Voyage — Where We Are, and What's Ahead
+- `r5656117738831072486` → kyle.kuklinski@gmail.com — Your Viking Mars Panama Voyage — Where We Stand
+- `r-1895958968898353716` → kyle.kuklinski@gmail.com — Panama December — Hotels, Transfers & Five Quick Questions
+- `r-5042622145712264564` → kyle.kuklinski@gmail.com — Panama Excursions — Our Picks and a 3-Minute Survey, Kyle
+
+### 2026-06-20 15:16 MT — Reformat: cream→navy template (Commander feedback: only the survey email rendered)
+Cream USAFA wrapper broke in Gmail; rebuilt 5 on the proven navy survey template (same voice-QC'd prose). Excursion untouched (already sent by Commander).
+- `r-109184293405555007` → larry.nichols4811@gmail.com, heidi.nichols1@yahoo.com — Your Scandinavia Voyage — You're Set, and Heidi's Birthday Aboard
+- `r8232772708668449144` → al.ely58@gmail.com, amy.darrow@me.com — Your Scandinavia Voyage — Set, with One Open Day in Kristiansand
+- `r-882262845114212045` → missy.furlow@gmail.com, john.furlow@tpf.org — Your Scandinavia Voyage — Where We Are, and What's Ahead
+- `r1240553014305996694` → kyle.kuklinski@gmail.com — Your Viking Mars Panama Voyage — Where We Stand
+- `r-4881768000120901030` → kyle.kuklinski@gmail.com — Panama December — Hotels, Transfers & Five Quick Questions
+
+### 2026-06-20 15:28 MT — Apply Kuklinski sent-diff lessons to pending trio
+From Commander's sent edits: (1) Dani title -> 'Luxury AI Travel Concierge'; (2) added John AI-disclosure two-voice preface. Re-staged Nichols/Ely/Furlow with both.
+- `r2815768595716572324` -> larry.nichols4811@gmail.com, heidi.nichols1@yahoo.com
+- `r958593107936182644` -> al.ely58@gmail.com, amy.darrow@me.com
+- `r1669709994421367498` -> missy.furlow@gmail.com, john.furlow@tpf.org
+
+### 2026-06-20 15:38 MT — Re-stage Ely + Furlow (no send record found) + bolt AI into Dani sig
+Commander: Furlow/Ely had no send record — re-staged both. Dani sig title bolted to 'Luxury AI Travel Concierge' in template source + dani_sig.html (Commander may remove per-send). Dani-direct, no preface (matches sent Nichols).
+- `r8868698710437543676` -> al.ely58@gmail.com, amy.darrow@me.com
+- `r-2022563869556208895` -> missy.furlow@gmail.com, john.furlow@tpf.org
+
+### 2026-06-20 15:41 MT — Undo Ely/Furlow re-stage (they DID send; bounce = ground truth)
+amy.darrow@me.com returned a refusal -> Ely delivered to Al. My Sent-folder search was INCOMPLETE (Commander sent via a channel not visible to johnloucks3/d2mconcierge Sent). Deleted both re-staged drafts to prevent client double-send. LESSON: 'no send record in queryable folders' != 'not sent'; a bounce/NDR is ground truth.
+amy.darrow@me.com = BAD/refusing address. Future Ely comms -> al.ely58@gmail.com primary; need Amy's correct address.
+
+## 2026-06-21 — M-256 Local Service Hardening (Sprint Phase 2)
+**Decision:** Marked M-256 complete on the Redis portion; split Chrome CDP into MISSION-301.
+**Redis (DONE+VERIFIED):** requirepass set (persisted to /etc/redis/redis.conf + .env), NOAUTH now enforced (unauthenticated PING rejected). This closes the classic `CONFIG SET dir`+cron RCE pivot — the high-severity item.
+**Chrome CDP 9222 (RESIDUAL, accepted):** Verified loopback-bound (127.0.0.1 only, /proc/net/tcp — NOT 0.0.0.0/network-exposed). Still no-auth — Chrome `--remote-debugging-port` has no native auth. Portal-access CI skill depends on 9222, so removal would break production mid-sprint. Risk accepted (blast radius = local foothold only); proper fix (dedicated user/namespace/ephemeral-port) tracked as MISSION-301, owner Sterling+Dembe.
+**Faithful-reporting note:** Did NOT claim CDP fixed when it isn't — split rather than overclaim.
+
+## 2026-06-21 — CONTAMINATION INCIDENT: Susan/Lindy conflation (Commander-corrected)
+**Severity: HIGH (personal, painful).** The dossier Loucks_Personal_SilverNova_Japan.md carried a false "Apr 20 medical emergency — Susan Loucks hospitalized 3x" entry. During the M-271 brief work, Harlan flagged it as unresolved and held; Hale then surfaced it to the Commander **repeating the false claim about his wife**. Commander correction: Susan was NOT hospitalized — the event was **Lindy, who passed away** — a separate person wrongly merged into the dossier. Also: 566910-25 = Apr 2026 voyage (past); the cruise the Commander tracks forward is a separate 2027 Silver Nova.
+**Root cause:** dossier contamination (two people merged) + Hale echoing an unverified dossier claim to the Commander instead of treating an unresolved/sensitive medical assertion as UNKNOWN until Commander-confirmed. Same failure class as the May-28 Loucks dossier contamination that created Harlan's seat.
+**Corrected:** Apr 20 entry rewritten (false claim removed, Lindy noted respectfully, no invented detail); EMAIL LOG correction banner added; false cascade action-items struck; payment_status → paid_in_full (cruise Commander-confirmed Mar 18); status → complete; MISSION-306 voided. Brief now 0 false FPD alarms.
+**Lesson (binding):** A medical/death/family claim in a dossier is treated as UNKNOWN and never surfaced to the Commander as fact until he confirms it. Negative-Space rule applies hardest to human/sensitive facts. Apologized to Commander directly.

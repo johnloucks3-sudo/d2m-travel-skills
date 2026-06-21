@@ -1,0 +1,16 @@
+[Unit]
+Description=Kuklinski Jul 15 Creative Chain Trigger — Automated Validation Email
+Documentation=file:///home/john/Thunderbird/OpsCenter/kuklinski_jul15_creative_chain_trigger.py
+
+[Timer]
+# Fire once on 2026-07-15 at 05:30 MT (11:30 UTC)
+# Scheduled before Commander's typical 0600 coffee to ensure staging is ready
+OnCalendar=2026-07-15 11:30:00 UTC
+Persistent=true
+RandomizedDelaySec=120
+
+# Ensure service runs even if system wasn't running at scheduled time
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

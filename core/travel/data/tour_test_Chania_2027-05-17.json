@@ -1,0 +1,261 @@
+{
+  "dest": "Chania",
+  "query": "winery olive oil tasting",
+  "date": "2027-05-17",
+  "scraped_at": "2026-06-17T11:05:12.643225",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "Chania",
+    "query": "winery olive oil tasting",
+    "url": "https://www.getyourguide.com/s/?q=Chania+winery+olive+oil+tasting",
+    "scraped_at": "2026-06-17T11:05:12.994063",
+    "date_filter": "2027-05-17",
+    "tours": [
+      {
+        "name": "Olive Oil, Wine, Cheese & Honey Tasting Tour",
+        "duration": "7 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 712,
+        "price_pp": 49.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/crete-l404/from-chania-olive-oil-wine-cheese-honey-tasting-tour-t746235/"
+      },
+      {
+        "name": "Wine and Olive Oil Tasting Tour with Snacks",
+        "duration": "6 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 363,
+        "price_pp": 139.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/crete-l404/from-chania-wine-and-olive-oil-tasting-tour-with-snacks-t75126/"
+      },
+      {
+        "name": "Wine & Olive Oil Tasting & Historic Villages",
+        "duration": "5 hours \u2022 Skip the line \u2022 Private group",
+        "rating": 4.7,
+        "review_count": 6,
+        "price_pp": 147.0,
+        "original_price_pp": 173.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/maleme-l185308/crete-wine-olive-oil-tasting-historic-villages-tour-t1244666/"
+      },
+      {
+        "name": "Olive Oil Tasting Tour and Traditional Cretan Meal",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 8,
+        "price_pp": 41.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-olive-oil-tasting-tour-and-traditional-cretan-meal-t1026873/"
+      },
+      {
+        "name": "Soul of Chania: Olive Oil, Wine, Cheese & Honey Tasting Tour",
+        "duration": "9 hours \u2022 Pickup available",
+        "rating": 4.3,
+        "review_count": null,
+        "price_pp": 45.0,
+        "original_price_pp": 53.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/ano-vouves-crete-l185310/soul-of-chania-olive-oil-wine-cheese-honey-tasting-tour-t1335557/"
+      },
+      {
+        "name": "Olive Tree, Bakery, & Winery Tour with Tasting",
+        "duration": "7 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 17,
+        "price_pp": 49.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/ano-vouves-crete-l185310/chania-olive-tree-bakery-and-winery-tour-with-tastings-t1167718/"
+      },
+      {
+        "name": "Souda",
+        "duration": "3 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 139.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/olive-oil-tasting-3-hour-trip-from-chania-cruise-port-t745315/"
+      },
+      {
+        "name": "Chania Shore Tour: Monastery, Olive Oil & Wine Tasting Tour",
+        "duration": "6 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 347.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/kryonerida-l143660/chania-monastery-olive-oil-wine-tasting-tour-t1327751/"
+      },
+      {
+        "name": "Chania Local Flavors \u2013Wine, Olive oil, Cheese Tasting",
+        "duration": "6 hours \u2022 Pickup available",
+        "rating": 4.4,
+        "review_count": null,
+        "price_pp": 40.0,
+        "original_price_pp": 44.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-local-flavors-wine-olive-oil-cheese-tasting-t1282253/"
+      },
+      {
+        "name": "Elafonissi Pink Beach & Elos Village & Wine Tasting",
+        "duration": "8 - 11 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 1273,
+        "price_pp": 32.0,
+        "original_price_pp": 39.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-elafonisi-bus-trip-with-free-time-and-stop-in-elos-t423763/"
+      },
+      {
+        "name": "Manousakis Winery Tour with Wine Tasting",
+        "duration": "3 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.4,
+        "review_count": 12,
+        "price_pp": 68.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/vatolakkos-l160180/chania-manousakis-winery-tour-with-wine-tasting-t1158423/"
+      },
+      {
+        "name": "Elafonissi beach,Elos Village & Honey Tasting",
+        "duration": "10 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 984,
+        "price_pp": 33.0,
+        "original_price_pp": 36.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-elafonisi-beach-day-trip-with-stop-in-elos-village-t740920/"
+      },
+      {
+        "name": "Milia Mountain Tour w/Lunch Olive Oil/Wine Tastings",
+        "duration": "8 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 98,
+        "price_pp": 174.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-milia-mountain-tour-wlunch-olive-oilwine-tastings-t79058/"
+      },
+      {
+        "name": "Chania Tour: Old Town, Monastery Olive Oil Tasting & Beach",
+        "duration": "6.5 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 347.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-shore-tour-old-town-monastery-wine-tasting-beach-t1329041/"
+      },
+      {
+        "name": "Private Wine & Olive Oil Tasting with Village Tour",
+        "duration": "5 hours \u2022 Skip the line \u2022 Private group",
+        "rating": null,
+        "review_count": 5,
+        "price_pp": 118.0,
+        "original_price_pp": 139.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/rethymno-l1808/private-suv-tour-wooden-sculptures-museum-anogia-village-t850531/"
+      },
+      {
+        "name": "Elafonisi Beach Sunset Tour",
+        "duration": "9 hours \u2022 Pickup available",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 44.0,
+        "original_price_pp": 49.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/elos-l173697/chania-elafonisi-beach-sunset-tour-with-dinner-t1352281/"
+      },
+      {
+        "name": "Chania Treasure Hunt : In olive Mill",
+        "duration": "1 hour \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 35.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-treasure-hunt-in-olive-mill-t943506/"
+      },
+      {
+        "name": "Chania Sourdough Bread Class - Olive Oil Tasting",
+        "duration": "4.5 hours \u2022 Pickup available",
+        "rating": null,
+        "review_count": 10,
+        "price_pp": 104.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/sourdough-bread-baking-class-olive-oil-tasting-t642877/"
+      },
+      {
+        "name": "Crete on a Plate, A Cultural Tasting Tour",
+        "duration": "6 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 2,
+        "price_pp": 49.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/ano-vouves-crete-l185310/chania-crete-on-a-plate-a-cultural-tasting-tour-t1200575/"
+      },
+      {
+        "name": "The Terra Creta Olive Oil Experience Tour",
+        "duration": "1 hour",
+        "rating": 4.7,
+        "review_count": 382,
+        "price_pp": 12.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/crete-l404/the-terra-creta-olive-oil-experience-tour-t142116/"
+      },
+      {
+        "name": "Guided Road Trip with Olive Oil and Wine Tastings",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.3,
+        "review_count": null,
+        "price_pp": 81.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/crete-l404/western-crete-guided-road-trip-with-tastings-t447440/"
+      },
+      {
+        "name": "Authentic Cooking Class in the White Mountains",
+        "duration": "6 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 595,
+        "price_pp": 128.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/crete-l404/the-real-cretan-cooking-experience-t91443/"
+      },
+      {
+        "name": "Chania Old Port: All-inclusive Catamaran Trip Agioi Theodori",
+        "duration": "6.5 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 45,
+        "price_pp": 168.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-old-port-all-inclusive-catamaran-trip-agioi-theodori-t988211/"
+      },
+      {
+        "name": "Wine, Food, and Sunset Tour with 3-Course Dinner",
+        "duration": "4 hours",
+        "rating": 4.9,
+        "review_count": 84,
+        "price_pp": 161.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-wine-food-and-sunset-tour-with-3-course-dinner-t398265/"
+      }
+    ],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_Chania_2027-05-17.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

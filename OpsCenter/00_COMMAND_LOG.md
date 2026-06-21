@@ -813,3 +813,68 @@ Hook: `.git/hooks/post-commit` → `relay_send.py --from CC --to OC`
 Log: `logs/relay_hook.log`
 Purpose: OC always knows what CC committed — no siloed changes.
 Both CC and OC are bound: same hook applies when OC commits (OC's post-commit should mirror this via AGENTS.md).
+- **[Thu Jun 18 03:33:27 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-18 15:32 MT ───────────────────
+- **[Fri Jun 19 01:47:02 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-19 01:46 MT ───────────────────
+
+---
+**2026-06-19 — BRUTAL AAR: KUKLINSKI EXCURSION SESSION (A7 Sterling, Commander-ordered)**
+*Cost: ~20 min Commander real time. Exposure: 4 months of bad financial data in a client dossier. ZEN counter-voice inline — adversarial, per directive.*
+
+**Bottom line up front:** Four findings, one common defect — three controls that exist on paper but were never instrumented to bind: (a) file-before-web lookup order, (b) financial-field reconciliation against the invoice, (c) creative-chain gate enforcement. A control that depends on a human remembering it is not a control. That is the through-line.
+
+**FINDING 1 — 20 minutes burned on web itinerary validation; answer was in-hand the whole time.**
+- *What happened:* Hale ran CruiseMapper, DeluxeCruises, CruiseBound, the Viking site, Chrome CDP, and Playwright — all failed. The ground truth (itinerary + invoice) was in the dossier and in the Drive invoice from the start.
+- *Root cause:* No enforced lookup order. Commander's standing rule — invoice is ground truth when forming a dossier; dossier is ground truth when planning excursions — is doctrine, not a wired gate. Nothing forced "check the file you already have before opening a browser."
+- *Process fix:* Codify a LOOKUP-ORDER rule: dossier → Drive invoice → TESS → portal → open web, in that priority. Excursion/itinerary planning must exhaust the first three before any web tool fires.
+- *Metric that would have caught it:* `web_fetch_before_file_check_count` (target: 0/session). Source: session tool-call log. Cadence: weekly Baldrige sweep.
+- *Durable artifact:* Lookup-order assertion added to the excursion/validation workflow + a pre-web-tool checklist line item. Permanent rule, not a one-time reminder.
+
+> **ZEN ⚡** "Root cause isn't 'she went to the web' — it's that you're about to write *another rule*, and a rule is exactly what failed here. The lookup-order doctrine already existed in the Commander's standing guidance. It didn't bind. What makes your new line a gate and not the eleventh suggestion she's free to skip under time pressure? Until 'web tool refuses to fire before file-check logs a hit' is enforced in code, you've documented the failure, not closed it."
+
+**FINDING 2 — Viking site browsing total flop; Anansi never tried.**
+- *What happened:* vikingcruises.com 403'd via WebFetch, Playwright then failed. Anansi (TLS-fingerprint-aware fetch) is the correct first tool against a 403/bot-wall and was never invoked.
+- *Root cause:* No tool-selection doctrine for protected sites. The Commander's rule — "ALWAYS START WITH ANANSI" — was not encoded into the fetch decision tree. Tool choice was ad hoc.
+- *Process fix:* Anansi-first rule for any cruise-line/protected domain: a WebFetch/Playwright 403 (or a known bot-walled host) auto-routes to Anansi before any retry escalation.
+- *Metric:* `anansi_first_compliance_pct` on protected-domain fetches (target: 100%). Source: fetch-tool log. Cadence: weekly.
+- *Durable artifact:* Anansi-first entry in the fetch decision tree / tool-routing doc, with the protected-domain trigger list (vikingcruises.com et al.).
+
+> **ZEN ⚡** "Same disease, different symptom. 'ALWAYS START WITH ANANSI' is already a Commander directive in caps — and she still reached for WebFetch and Playwright first. Your fix is to write the directive down a second time. A doctrine that's been stated and ignored doesn't get fixed by restating it; it gets fixed by making the wrong tool *unavailable* first. Wire the 403→Anansi auto-route or admit this finding stays open."
+
+**FINDING 3 — SBC dossier error, latent 4 months. [RED]**
+- *What happened:* D2M's $600 total SBC was recorded as $600 to Kyle/Rosalie alone (showing $800 total for them) instead of $200/couple × 3 = $600. Error dates to the Feb 2026 booking.
+- *Root cause (both ends, per Commander's question "why did no validation catch it?"):* (a) **Creation** — no booking-time reconciliation of SBC line items against the Viking invoice; the figure was entered and never cross-footed. (b) **Survival 4 months** — no periodic financial re-validation against primary source, and the SBC line was never reconciled in Harlan's externalized financial audit (2026-05-13). Underlying defect: no single-source-of-truth for financial fields — SBC is duplicated across the dossier and the group tracker with zero reconciliation between them. **Proof the gap is live:** when I opened this AAR, the dossier carried the Commander-approved correction but the TRACKER still showed $800/$600-D2M on Kyle and omitted the D2M SBC entirely from the Roger and Josh rows. The correction had not propagated. I synchronized the tracker during this AAR (2026-06-19) — known-correct figure, Commander-approved; Harlan's verification against the Feb invoices stands.
+- *Process fix:* (1) Booking-time SBC reconciliation step — every SBC field cross-foots to the invoice before the dossier is marked verified. (2) Financial fields get a single authoritative location; duplicate financial rows reference it, never restate it. (3) Harlan's monthly financial audit explicitly reconciles SBC line items, not just balances/FPDs.
+- *Metric:* `financial_field_invoice_reconciliation_pct` (target: 100% of SBC/fare/balance fields traced to invoice; threshold RED <100%). Source: monthly Harlan audit vs primary invoice. Cadence: monthly + at every booking creation.
+- *Owner:* **Harlan (A9)** — financial verification is his externalized lane (2026-05-13).
+- *Durable artifact:* SBC reconciliation added to Harlan's six-step verification checklist; tracker corrected this session; financial-field single-source rule logged for Harlan to own.
+
+> **ZEN ⚡** "You call this 'corrected.' The tracker was wrong in three places *the moment you started writing the AAR about it* — four months after the booking and after a Commander-approved fix already existed in the sibling file. If your own audit nearly shipped while the duplicate stayed wrong, what exactly is a 'monthly validation' going to catch that this didn't? The real root cause isn't 'no reconciliation' — it's that you store the same dollar figure in two files and trust two humans to keep them equal. That's not a process gap, it's an architecture defect. A checklist won't fix a data-duplication problem; deduplicating the field will. Until SBC lives in one place, you're auditing copies and hoping."
+
+**FINDING 4 — Creative-chain violation: Hale drafted the Kyle client email solo.**
+- *What happened:* Hale wrote the Kyle client email herself — Dani's lane (step 4 of the mandatory creative chain) — and nearly surfaced it to the Commander with no Reyes/Luna/Naia/Dani/TALON+JET passes. Commander caught it: "use the process, no freelance client stuff sent to me."
+- *Root cause:* The chain is not gate-enforced. It depends on Hale remembering to route. Failure A (2026-05-29 McLeod AAR) is the identical pattern — Hale originating in a domain expert's lane under output pressure. Recurrence means the soft control didn't hold.
+- *Process fix:* No client-facing draft reaches WF-17 without a chain-completion checklist (Reyes/Luna/Naia/Dani/TALON+JET sign-off). JET owns the gate check; a draft without a complete checklist is returned before the Commander sees it. This is already doctrine in hale_cos.md Failure C — the fix is to *instrument* it, not re-author it.
+- *Metric:* `creative_chain_completion_pct` on client products at WF-17 (target: 100%; RED on any client draft surfaced without a complete checklist). Source: WF-17 gate log. Cadence: every client product.
+- *Durable artifact:* Chain-completion checklist as a hard precondition on the WF-17 gate (JET-owned), flagging any Hale-originated client copy.
+
+> **ZEN ⚡** "The chain wasn't 'violated' — it never triggered, because nothing forces it. And note the date stamps: Failure A logged this exact pattern on 2026-05-29 with a metric and a Sterling audit attached. It recurred anyway. So your fix — write the checklist down again and assign it to JET — is the thing that already didn't work once. A control that depends on Hale remembering the control is the control that just failed, twice. If the WF-17 gate can't programmatically refuse an unchecked draft, you're logging a third recurrence in advance."
+
+**MEASUREMENT GAP**
+All four findings collapse to three uninstrumented controls. Each exists as written doctrine; none is wired to bind. The gap is not "we lack rules" — it is "our rules are advisory where they must be gates":
+1. **File-before-web lookup order** — unmeasured (F1/F2). No metric exists for "web tool fired before file-check." Needs `web_fetch_before_file_check_count` + Anansi-first auto-routing.
+2. **Financial-field reconciliation vs invoice** — unmeasured and architecturally undermined by duplicated SBC fields (F3). Needs `financial_field_invoice_reconciliation_pct` AND single-source storage so there is one figure to reconcile, not copies to keep in sync.
+3. **Creative-chain gate enforcement** — unmeasured at the WF-17 boundary (F4). Needs `creative_chain_completion_pct` as a hard WF-17 precondition.
+Until these three are queryable from a log and capable of *refusing* the bad action, the next AAR is already written. Recommend all three added to `OpsCenter/a7_metrics_dashboard.json` with the targets above; RED any breach in the daily 06:30 sweep.
+
+*— Brig Gen (Ret.) Thomas "Gauge" Sterling, A7. Tracker corrected this session; metrics + gate enforcement pending build. Fix the system, never the person.*
+- **[Fri Jun 19 02:38:22 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-19 14:37 MT ───────────────────
+- **[Fri Jun 19 02:39:37 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-19 14:39 MT ───────────────────
+- **[Fri Jun 19 08:46:25 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-19 20:46 MT ───────────────────
+- **[Sat Jun 20 01:46:58 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 01:45 MT ───────────────────
+- **[Sat Jun 20 02:58:02 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 02:57 MT ───────────────────
+- **[Sat Jun 20 09:08:20 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 09:07 MT ───────────────────
+- **[Sat Jun 20 03:15:22 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 15:14 MT ───────────────────
+- **[Sat Jun 20 09:18:42 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 21:17 MT ───────────────────
+- **[Sat Jun 20 09:20:05 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-20 21:19 MT ───────────────────
+- **[Sun Jun 21 01:46:54 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-21 01:46 MT ───────────────────
+- **[Sun Jun 21 03:27:05 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-06-21 03:27 MT ───────────────────

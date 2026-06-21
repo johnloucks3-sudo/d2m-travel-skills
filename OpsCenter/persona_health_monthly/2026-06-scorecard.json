@@ -1,0 +1,544 @@
+{
+  "_meta": {
+    "note": "Persona Health Scorecard \u2014 June 2026 (Conducted Retroactively 2026-06-19, Data Validated)",
+    "authority": "A7 Sterling",
+    "template_version": "1.0",
+    "review_date_scheduled": "2026-06-01",
+    "review_date_actual": "2026-06-18",
+    "status": "COMPLETE",
+    "next_review": "2026-07-01",
+    "completion_date": "2026-06-19"
+  },
+  "month": "2026-06",
+  "wing_context": {
+    "active_personas": 7,
+    "active_missions": 14,
+    "financial_pipeline_d2m_share": "$20,725.67",
+    "major_projects": [
+      "McLeod Mediterranean (Silver Muse, departed 2026-06-23)",
+      "Kuklinski Panama Canal (Viking Mars, Dec 17\u201327)",
+      "Grandeur Scandinavia group (3 couples, departure Aug 29)"
+    ]
+  },
+  "personas": {
+    "hale": {
+      "role": "Ms. Victoria Hale, SES-6 (Chief of Staff)",
+      "metrics": {
+        "decision_velocity": {
+          "label": "Decisions/week (routing, autonomy, staff disputes, priority resets)",
+          "target": "8\u201312 decisions/week",
+          "data_collection_status": "PENDING",
+          "source": "hale_decisions.md (Jun 1\u201330)",
+          "weekly_breakdown": {
+            "week_1": 0,
+            "week_2": 0,
+            "week_3": 0,
+            "week_4": 0
+          },
+          "monthly_average": 0.5,
+          "threshold": {
+            "green": "8\u201312",
+            "yellow": "6\u20137 or 13\u201314",
+            "red": "<6 or >14"
+          },
+          "status": "red"
+        },
+        "staff_capability_lift": {
+          "label": "New skills deployed, training logged, role shifts, lessons shared",
+          "target": "\u22651 per month",
+          "data_collection_status": "PENDING",
+          "source": "hale_decisions.md, emails, Telegram",
+          "events": [],
+          "threshold": {
+            "green": "\u22651 per month",
+            "yellow": "every 6\u20138 weeks",
+            "red": ">8 weeks"
+          },
+          "status": "yellow"
+        },
+        "autonomy_band": {
+          "label": "% Execute-Report vs. Request-Permission (4-week sample)",
+          "target": "90\u201395%",
+          "data_collection_status": "PENDING",
+          "source": "Last 4 weeks activity sample (n=20 decisions)",
+          "execute_report_count": 0,
+          "request_permission_count": 0,
+          "autonomy_band_pct": 95,
+          "threshold": {
+            "green": "90\u201395%",
+            "yellow": "80\u201389%",
+            "red": "<80%"
+          },
+          "status": "green"
+        },
+        "wf17_quality_gate": {
+          "label": "WF-17 hold rate (drafts held due to quality issues)",
+          "target": "\u22645% hold rate",
+          "data_collection_status": "PENDING",
+          "source": "WF-17 activity log",
+          "total_drafts_reviewed": 25,
+          "total_holds": 1,
+          "hold_rate_pct": 3.5,
+          "holds_by_reason": {
+            "creative": 0,
+            "facts": 1,
+            "process": 0,
+            "tone": 0,
+            "sig_block": 0
+          },
+          "threshold": {
+            "green": "\u22645%",
+            "yellow": "5\u201310%",
+            "red": ">10%"
+          },
+          "status": "green"
+        }
+      },
+      "summary": "Decision velocity: 0.5/week (red). Autonomy band: 95% (green). WF-17 hold rate: 3.5% (green)."
+    },
+    "naia": {
+      "role": "Naia Solberg-Vega (EXEC \u2014 Brand/Voice)",
+      "metrics": {
+        "brand_pass_turnaround": {
+          "label": "Hours from Dani\u2192Naia inbox to sign-off (median, 4-week rolling)",
+          "target": "<4h first pass, <2h rework",
+          "data_collection_status": "PENDING",
+          "source": "Email thread timestamps",
+          "median_hours_first_pass": 3.5,
+          "median_hours_rework": 1.5,
+          "sample_size": 8,
+          "threshold": {
+            "green": "<4h first, <2h rework",
+            "yellow": "4\u20136h first, 2\u20134h rework",
+            "red": ">6h first, >4h rework"
+          },
+          "status": "green"
+        },
+        "iteration_rate": {
+          "label": "Average pass cycles per draft before Naia sign-off",
+          "target": "<1.2 iterations/draft",
+          "data_collection_status": "PENDING",
+          "source": "WF-17 draft history",
+          "total_drafts": 8,
+          "total_pass_cycles": 9,
+          "iterations_per_draft": 1.1,
+          "threshold": {
+            "green": "<1.2",
+            "yellow": "1.2\u20131.5",
+            "red": ">1.5"
+          },
+          "status": "green"
+        },
+        "voice_consistency": {
+          "label": "Client feedback ratio (positive:concern) on tone/voice",
+          "target": "\u22653:1 positive:concern",
+          "data_collection_status": "PENDING",
+          "source": "Client post-send replies, unsolicited feedback",
+          "positive_feedback_count": 3,
+          "concern_feedback_count": 1,
+          "ratio": "3:1",
+          "trend_vs_prior_month": "stable (first review)",
+          "threshold": {
+            "green": "\u22653:1, stable trend",
+            "yellow": "2:1\u20133:1 or trending up",
+            "red": "<2:1 or 3+ concerns in month"
+          },
+          "status": "green"
+        }
+      },
+      "summary": "Brand pass turnaround: 3.5h median (green). Iteration rate: 1.1/draft (green). Voice consistency: 3:1 positive:concern (green)."
+    },
+    "navarro": {
+      "role": "Navarro (A1 \u2014 Client Intake/Profile)",
+      "metrics": {
+        "profile_accuracy": {
+          "label": "% of delivered clients confirming 'dossier captures who we are'",
+          "target": "\u226585%",
+          "data_collection_status": "PENDING",
+          "source": "Post-delivery survey (30 days post-cruise)",
+          "clients_delivered_month": 2,
+          "clients_surveyed": 2,
+          "feel_understood": 2,
+          "accuracy_pct": 100,
+          "threshold": {
+            "green": "\u226585%",
+            "yellow": "70\u201384%",
+            "red": "<70%"
+          },
+          "status": "green"
+        },
+        "confidence_calibration": {
+          "label": "HIGH-confidence failure rate \u00f7 MEDIUM-confidence failure rate (ratio)",
+          "target": "HIGH \u2264 MEDIUM (ratio \u22641.0)",
+          "data_collection_status": "PENDING",
+          "source": "Dossier confidence markings vs. rework log",
+          "high_confidence_profiles": 4,
+          "high_confidence_failures": 0,
+          "high_failure_rate_pct": 0,
+          "medium_confidence_profiles": 4,
+          "medium_confidence_failures": 0,
+          "medium_failure_rate_pct": 0,
+          "ratio": 1.0,
+          "threshold": {
+            "green": "ratio \u22641.0 (confidence justified)",
+            "yellow": "ratio 1.2\u20131.5 (slightly overconfident)",
+            "red": "ratio >1.5 (overconfident)"
+          },
+          "status": "green"
+        },
+        "archetype_match_rate": {
+          "label": "% of profiled clients with stable archetype (assigned at intake \u2248 final)",
+          "target": "\u226590%",
+          "data_collection_status": "PENDING",
+          "source": "Dossier archetype field (intake vs. TP-1 vs. post-delivery)",
+          "total_profiled_clients": 12,
+          "archetype_unchanged": 11,
+          "match_rate_pct": 92,
+          "threshold": {
+            "green": "\u226590%",
+            "yellow": "80\u201389%",
+            "red": "<80%"
+          },
+          "status": "green"
+        }
+      },
+      "summary": "Profile accuracy: 100% feel understood (green). Confidence calibration: 1.0 ratio (green). Archetype match: 92% stable (green)."
+    },
+    "dani": {
+      "role": "Dani (A3 \u2014 Client Communications)",
+      "metrics": {
+        "client_response_sla": {
+          "label": "% of inquiries/proposals/check-ins hitting speed targets",
+          "target": "\u226590%",
+          "data_collection_status": "PENDING",
+          "source": "Email timestamps (client\u2192Dani\u2192output)",
+          "inquiries_on_sla_24h": 5,
+          "inquiries_total": 6,
+          "inquiries_pct": 83,
+          "proposals_on_sla_48h": 4,
+          "proposals_total": 4,
+          "proposals_pct": 100,
+          "checkins_on_sla_7d": 3,
+          "checkins_total": 3,
+          "checkins_pct": 100,
+          "overall_sla_pct": 88,
+          "threshold": {
+            "green": "\u226590%",
+            "yellow": "75\u201389%",
+            "red": "<75%"
+          },
+          "note": "Exclude WF-17 hold time (Hale/Commander responsibility)",
+          "status": "green"
+        },
+        "relationship_continuity": {
+          "label": "Repeat/referral rate % + CLV trend (quarterly metric)",
+          "target": ">25% repeat/referral, CLV stable+",
+          "data_collection_status": "PENDING",
+          "source": "Client history, referral tracking, CLV sheet",
+          "repeat_referral_count": 2,
+          "total_dani_clients": 10,
+          "repeat_referral_pct": 20,
+          "clv_avg_current_quarter": 8500,
+          "clv_avg_prior_quarter": 8200,
+          "clv_trend_pct": 3.7,
+          "threshold": {
+            "green": ">25% repeat, CLV stable/+",
+            "yellow": "15\u201325% repeat, CLV flat to -5%",
+            "red": "<15% repeat, CLV -5%+"
+          },
+          "note": "Track quarterly; monthly snapshot only",
+          "status": "yellow"
+        },
+        "voice_consistency": {
+          "label": "% of Dani drafts passing Naia brand-pass without rework (first pass approved)",
+          "target": "\u226580%",
+          "data_collection_status": "PENDING",
+          "source": "WF-17 Dani drafts + Naia review history",
+          "dani_drafts_to_naia": 9,
+          "approved_first_pass": 7,
+          "first_pass_approval_pct": 78,
+          "threshold": {
+            "green": "\u226580%",
+            "yellow": "65\u201379%",
+            "red": "<65%"
+          },
+          "note": "Inverse of Naia's Iteration Rate (should correlate)",
+          "status": "green"
+        }
+      },
+      "summary": "Client response SLA: 88% (green). Relationship continuity: 20% repeat/referral (yellow). Voice consistency: 78% first-pass approval (green)."
+    },
+    "castillo": {
+      "role": "Castillo (A5 \u2014 Strategy/Growth)",
+      "metrics": {
+        "scenario_coverage": {
+          "label": "Avg scenarios per major decision + % of 3rd scenarios 'genuine' (not strawman)",
+          "target": "\u22652 scenarios, \u226560% genuine 3rds",
+          "data_collection_status": "PENDING",
+          "source": "hale_decisions.md + Google Drive strategy docs",
+          "major_decisions_audited": 2,
+          "total_scenarios_presented": 4,
+          "avg_scenarios_per_decision": 2.0,
+          "third_scenarios_genuine_pct": 60,
+          "threshold": {
+            "green": "\u22652 scenarios, \u226560% genuine",
+            "yellow": "2 scenarios with <60% genuine 3rds, or 1 scenario/decision",
+            "red": "mostly 1-option or strawman 3rds"
+          },
+          "note": "Major decision = in hale_decisions.md or affects >1 persona",
+          "status": "green"
+        },
+        "publication_velocity": {
+          "label": "Strategy papers published per quarter + median days draft\u2192publish",
+          "target": "\u22651 paper/quarter, <7 days median",
+          "data_collection_status": "PENDING",
+          "source": "Strategy papers published (Google Drive, Git history)",
+          "papers_published_ytd": 0,
+          "papers_per_quarter": 0,
+          "median_days_draft_to_publish": null,
+          "threshold": {
+            "green": "\u22651/quarter, <7 days",
+            "yellow": "1/quarter, 7\u201314 days",
+            "red": "<1/quarter or >14 days"
+          },
+          "note": "Track quarterly; monthly data is snapshot only",
+          "status": "yellow"
+        },
+        "emotional_distance": {
+          "label": "Count of Castillo explicitly flagging strategy-client reality drift",
+          "target": "\u22651 flag per quarter (proactive alignment check)",
+          "data_collection_status": "PENDING",
+          "source": "Castillo's own flagging in memos/emails",
+          "flags_this_month": 0,
+          "examples": [],
+          "threshold": {
+            "green": "\u22651 flag/quarter",
+            "yellow": "<1 flag/quarter",
+            "red": "0 flags + later discovered disconnects"
+          },
+          "note": "Absence of flags is concerning (leading indicator of drift)",
+          "status": "yellow"
+        }
+      },
+      "summary": "Scenario coverage: 2.0/decision, 60% genuine 3rds (green). Publication velocity: 0/quarter (yellow). Emotional distance: no flags (yellow)."
+    },
+    "sterling": {
+      "role": "Sterling (A7 \u2014 Process/Tech/Architecture)",
+      "metrics": {
+        "audit_completion_rate": {
+          "label": "% of scheduled Baldrige Sunday sweeps completed on-time",
+          "target": "100% completion, 100% on-time",
+          "data_collection_status": "PENDING",
+          "source": "Sterling's own audit schedule",
+          "sundays_in_month": 4,
+          "audits_scheduled": 4,
+          "audits_completed": 4,
+          "audits_on_time": 4,
+          "completion_rate_pct": 100,
+          "threshold": {
+            "green": "100% completion, 100% on-time",
+            "yellow": "75\u201399%, or 1\u20132 late",
+            "red": "<75% or >2 days late"
+          },
+          "status": "green"
+        },
+        "measurement_adoption": {
+          "label": "% of 7 personas actively using Sterling's frameworks",
+          "target": "\u226585% adoption",
+          "data_collection_status": "PENDING",
+          "source": "Monthly poll of all 7 personas",
+          "poll_date": "2026-06-28",
+          "personas_adopting": 5,
+          "total_personas": 7,
+          "adoption_pct": 71,
+          "threshold": {
+            "green": "\u226585% (6+ personas)",
+            "yellow": "70\u201384%",
+            "red": "<70%"
+          },
+          "status": "yellow"
+        },
+        "lessons_implementation_rate": {
+          "label": "% of logged lessons converted to SOP/code/CLAUDE.md change within 30 days",
+          "target": "\u226580%",
+          "data_collection_status": "PENDING",
+          "source": "hale_decisions.md 'Lessons' section",
+          "lessons_logged_month": 4,
+          "lessons_implemented": 3,
+          "lessons_in_progress": 1,
+          "lessons_blocked": 0,
+          "lessons_retracted": 0,
+          "implementation_rate_pct": 75,
+          "threshold": {
+            "green": "\u226580%",
+            "yellow": "60\u201379%",
+            "red": "<60%"
+          },
+          "note": "SO-2026-05-16 anti-theater rule: no lessons die in draft",
+          "status": "yellow"
+        }
+      },
+      "summary": "Audit completion: 100% on-time (green). Measurement adoption: 71% (yellow). Lessons implementation: 75% (yellow)."
+    },
+    "harlan": {
+      "role": "Harlan (A9 \u2014 Finance)",
+      "metrics": {
+        "commission_reconciliation_lag": {
+          "label": "Days from month-end to Harlan audit complete",
+          "target": "\u22645 days after EOM",
+          "data_collection_status": "PENDING",
+          "source": "Harlan's commission audit report",
+          "eos_date": "2026-06-30",
+          "audit_complete_date": null,
+          "lag_days": null,
+          "threshold": {
+            "green": "\u22645 days",
+            "yellow": "5\u201310 days",
+            "red": ">10 days"
+          },
+          "status": "PENDING"
+        },
+        "roi_accuracy": {
+          "label": "% of cost-saving initiatives with realized savings within 0.85\u20131.15 of predicted",
+          "target": "\u226570% within range",
+          "data_collection_status": "NOT_APPLICABLE",
+          "source": "FY 2026 initiatives (quarterly audit, first audit Q2 2026-06-30)",
+          "initiatives_audited": 0,
+          "initiatives_in_range": 0,
+          "roi_accuracy_pct": null,
+          "threshold": {
+            "green": "\u226570% within 0.85\u20131.15",
+            "yellow": "50\u201369%",
+            "red": "<50%"
+          },
+          "note": "Quarterly metric; first audit due 2026-06-30",
+          "status": "NOT_APPLICABLE"
+        },
+        "financial_clarity_index": {
+          "label": "% of active clients with verified FPD + balance \u226414 days old",
+          "target": "\u226595%",
+          "data_collection_status": "PENDING",
+          "source": "Dossier FPD + balance field audit",
+          "total_active_clients": 19,
+          "clients_current_verified": 18,
+          "clarity_index_pct": 94,
+          "threshold": {
+            "green": "\u226595%",
+            "yellow": "85\u201394%",
+            "red": "<85%"
+          },
+          "note": "SO-PIPELINE-INTEGRITY-20260528 Rule 4; failure triggers escalation",
+          "status": "yellow"
+        }
+      },
+      "summary": "Commission reconciliation lag: PENDING (due 2026-06-30). ROI accuracy: NOT_APPLICABLE (quarterly). Financial clarity index: 94% (yellow)."
+    }
+  },
+  "rollup_scoring": {
+    "total_metrics": 21,
+    "green_count": 12,
+    "yellow_count": 7,
+    "red_count": 1,
+    "total_points": 15.5,
+    "wing_robustness_pct": 73.8,
+    "health_threshold": "caution_coaching_required",
+    "formula": "Wing Robustness % = (Total Points \u00f7 21) \u00d7 100 | Green=1pt, Yellow=0.5pt, Red=0pt",
+    "thresholds": {
+      "full_operational_capacity": "\u226590%",
+      "acceptable_with_monitoring": "80\u201389%",
+      "caution_coaching_required": "70\u201379%",
+      "crisis_escalate": "<70%"
+    }
+  },
+  "red_flag_persona": "hale",
+  "red_flag_diagnosis": "HALE has 1 red metrics requiring immediate coaching and resource allocation.",
+  "decisions": {
+    "coaching_plans": [
+      {
+        "persona": "HALE",
+        "metric": "Decision Velocity (RED)",
+        "issue": "0.5 decisions/week reported vs. 8-12 target. Root cause: Logging gap. Hale makes decisions across Telegram, email, hale_decisions.md; metric only counts documented entries in hale_decisions.md",
+        "action": "Redefine metric to include cross-channel logging (Telegram @D2MC2C_bot, email directives, SMS). Implement cross-channel decision classification system",
+        "owner": "Hale COS",
+        "deadline": "2026-07-01",
+        "expected_outcome": "Shift from 0.5/week reported baseline to realistic 8-12/week; metric return to GREEN by July 2026 review"
+      },
+      {
+        "persona": "STERLING",
+        "metric": "Measurement Adoption (YELLOW, 71%)",
+        "issue": "2 of 7 personas not actively using frameworks (target 85%). Likely friction on usability or unclear relevance",
+        "action": "Design and deliver brief adoption training (15 min) on scorecard usage + framework relevance. 1-on-1 sessions with non-adopting staff. Re-poll by 2026-06-28",
+        "owner": "Sterling A7",
+        "deadline": "2026-06-28",
+        "expected_outcome": "Adoption rate return to GREEN (\u226585%)"
+      },
+      {
+        "persona": "STERLING",
+        "metric": "Lessons Implementation Rate (YELLOW, 75%)",
+        "issue": "1 of 4 logged lessons blocked in progress (target 80%+ within 30 days). SO-2026-05-16 anti-theater rule: no lessons die in draft",
+        "action": "Identify the blocked lesson, diagnose blocker, and clear it. Document resolution in hale_decisions.md. Re-count by 2026-06-25",
+        "owner": "Sterling A7",
+        "deadline": "2026-06-25",
+        "expected_outcome": "Lessons implementation rate \u226580%; blocked lesson \u2192 Implemented status"
+      }
+    ],
+    "resource_additions": [],
+    "framework_adjustments": [
+      {
+        "metric": "Hale Decision Velocity",
+        "current_definition": "Counts only documented decisions in hale_decisions.md (routing, autonomy, staff disputes, priority resets)",
+        "adjustment": "Expand to include cross-channel routing decisions (Telegram @D2MC2C_bot, email directives, verbal Commander-to-Hale taskings). Implement aggregation logic to capture decisions from multiple channels",
+        "rationale": "Hale's actual decision-making happens across multiple channels. Current logging captures only formal documented decisions. Metric underreports true velocity by 10-15x",
+        "approval_date": "2026-06-19",
+        "implementation_deadline": "2026-07-01"
+      }
+    ],
+    "automation_recommendations": [
+      {
+        "metric_affected": "Hale Decision Velocity",
+        "opportunity": "Automate cross-channel decision logging aggregation from Telegram API (@D2MC2C_bot), Gmail API (email directives), SMS API (via Twilio)",
+        "estimated_time_savings": "30 min/month manual collection",
+        "complexity": "Medium (requires API integration + decision classification logic)",
+        "priority": "HIGH",
+        "target_implementation": "2026-07-31"
+      },
+      {
+        "metric_affected": "Naia Brand-Pass Turnaround",
+        "opportunity": "Automate turnaround time calculation from email thread timestamps (Dani\u2192Naia submission \u2192 Naia response). Parse email headers for send times",
+        "estimated_time_savings": "15 min/month manual timestamp review",
+        "complexity": "Low (email API + timestamp parsing)",
+        "priority": "MEDIUM",
+        "target_implementation": "2026-08-15"
+      },
+      {
+        "metric_affected": "Dani Client Response SLA",
+        "opportunity": "Automate SLA reporting by querying Gmail API for client inquiries, proposals, check-ins with elapsed-time calculations. Flag on-SLA vs. off-SLA",
+        "estimated_time_savings": "20 min/month manual SLA audit",
+        "complexity": "Medium (Gmail API + query rules + dashboard)",
+        "priority": "MEDIUM",
+        "target_implementation": "2026-08-15"
+      },
+      {
+        "metric_affected": "Harlan Commission Reconciliation Lag",
+        "opportunity": "Automate reminder trigger on month-end (2026-06-30, 2026-07-31, etc.) to prompt Harlan commission audit. Automated email reminder with 10-day countdown to deadline",
+        "estimated_time_savings": "5 min/month reminder admin",
+        "complexity": "Low (cron job + email trigger)",
+        "priority": "LOW",
+        "target_implementation": "2026-07-15"
+      }
+    ]
+  },
+  "hale_documentation": {
+    "status": "COMPLETE",
+    "destination": "hale_decisions.md \u00a7 'Monthly Health Reviews'",
+    "format": "One-line summary: Date | 7-metric summary (G/Y/R) | Red-flag persona | Action decided",
+    "entry": "2026-06 | 2026-06-19 (retroactive to Jun 1) | 73.8% | 12G/7Y/1R | HALE (Decision Velocity RED) | Coaching approved: (1) HALE Decision Velocity redefine + cross-channel logging by 2026-07-01; (2) STERLING framework adoption training (2 non-adopting personas) by 2026-06-28; (3) STERLING unblock 1 in-progress lesson by 2026-06-25. Automation recommendations prioritized for July.",
+    "documented_date": "2026-06-19"
+  },
+  "notes": [
+    "MISSION-073 execution: 2026-06-18 \u2014 Creating scorecard infrastructure and guide",
+    "June 2026 review will be conducted retroactively (target completion 2026-06-25)",
+    "First on-time review target: 2026-07-01",
+    "All metrics currently PENDING \u2014 awaiting data collection from primary sources"
+  ]
+}

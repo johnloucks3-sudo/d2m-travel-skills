@@ -1,0 +1,13 @@
+[Unit]
+Description=D2M Centrav Session Warm-Ping — every 75 min (margin under the ~90 min Centrav idle TTL)
+
+[Timer]
+# Fire shortly after boot, then every 75 minutes — stays comfortably under the ~90 min
+# session idle window so the post-OTP session is never allowed to lapse from inactivity.
+OnBootSec=5min
+OnUnitActiveSec=75min
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

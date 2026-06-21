@@ -1,0 +1,11 @@
+[Unit]
+Description=Qdrant Docker Watchdog — probe every 5 minutes (MISSION-126)
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Persistent=true
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target

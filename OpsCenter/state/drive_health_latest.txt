@@ -1,0 +1,13 @@
+# Drive Health Report — 2026-06-20 15:08 MT
+
+## Local Disk (Thunderbird)
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  951G  797G  145G  85% /home
+
+## Thunderbird Directory Size (excl .venv)
+5.8G	/home/john/Thunderbird
+
+## Remote (Drive Mirror) Size
+[skipped — rclone error: [Errno 2] No such file or directory: '/usr/bin/rclone']
+
+## OpsCenter/state files: 20

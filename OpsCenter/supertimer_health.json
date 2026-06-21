@@ -1,0 +1,101 @@
+{
+  "ops_bot": {
+    "status": "GREEN",
+    "tasks_ran": 5,
+    "tasks_failed": 0,
+    "duration_sec": 0.43483334600023227,
+    "ts": "2026-06-21T12:19:47.804451+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "mission_bot": {
+    "status": "IDLE",
+    "tasks_ran": 0,
+    "tasks_failed": 0,
+    "duration_sec": 0.17183749299874762,
+    "ts": "2026-06-21T12:19:47.605349+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "finance_bot": {
+    "status": "IDLE",
+    "tasks_ran": 0,
+    "tasks_failed": 0,
+    "duration_sec": 0.07632277999982762,
+    "ts": "2026-06-21T11:58:12.358858+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "ai_exec_bot": {
+    "status": "RED",
+    "tasks_ran": 6,
+    "tasks_failed": 1,
+    "duration_sec": 601.4434345610007,
+    "ts": "2026-06-21T12:29:49.049865+00:00",
+    "error": "",
+    "consecutive_failures": 6
+  },
+  "infra_bot": {
+    "status": "GREEN",
+    "tasks_ran": 4,
+    "tasks_failed": 0,
+    "duration_sec": 0.3858685420000256,
+    "ts": "2026-06-21T12:19:47.756190+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "audit_bot": {
+    "status": "GREEN",
+    "tasks_ran": 2,
+    "tasks_failed": 0,
+    "duration_sec": 0.4143745060000015,
+    "ts": "2026-06-21T09:27:04.407249+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "comms_bot": {
+    "status": "RED",
+    "tasks_ran": 4,
+    "tasks_failed": 1,
+    "duration_sec": 300.0820731849999,
+    "ts": "2026-06-21T12:24:47.452298+00:00",
+    "error": "",
+    "consecutive_failures": 2
+  },
+  "intel_bot": {
+    "status": "GREEN",
+    "tasks_ran": 1,
+    "tasks_failed": 0,
+    "duration_sec": 5.509999698999309,
+    "ts": "2026-06-21T12:19:52.885747+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "metrics_bot": {
+    "status": "GREEN",
+    "tasks_ran": 8,
+    "tasks_failed": 0,
+    "duration_sec": 30.752770507000605,
+    "ts": "2026-06-21T12:20:18.124179+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "client_bot": {
+    "status": "IDLE",
+    "tasks_ran": 0,
+    "tasks_failed": 0,
+    "duration_sec": 0.06253223499879823,
+    "ts": "2026-06-21T12:19:47.433279+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  },
+  "backup_bot": {
+    "status": "GREEN",
+    "tasks_ran": 1,
+    "tasks_failed": 0,
+    "duration_sec": 11.486695374999726,
+    "ts": "2026-06-21T11:13:14.094005+00:00",
+    "error": "",
+    "consecutive_failures": 0
+  }
+}

@@ -1,0 +1,15 @@
+#!/bin/bash
+# aider-max — run Aider with Claude MAX (haiku by default)
+source /home/john/Thunderbird/.env 2>/dev/null
+MODEL="${AIDER_MAX_MODEL:-claude-haiku-4-5-20251001}"
+if [[ "$1" == "--sonnet" ]]; then
+  MODEL="claude-sonnet-4-6"
+  shift
+elif [[ "$1" == "--opus" ]]; then
+  MODEL="claude-opus-4-7"
+  shift
+fi
+exec /home/john/.local/share/uv/tools/aider-chat/bin/aider \
+  --model "$MODEL" \
+  --anthropic-api-key "$ANTHROPIC_API_KEY" \
+  "$@"

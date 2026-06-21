@@ -101,6 +101,12 @@ completed_tps: []
 | FCO Airport → Baglioni | Welcome Pickups private car | — | ✅ CONFIRMED — Order #w-6377007-2, Booking code 180102. June 19 at 13:30. UA 177 from Denver. Driver holds sign in Arrival Hall, NCC corner (1-4). |
 | Baglioni → Civitavecchia Port | Welcome Pickups private car | — | ✅ CONFIRMED — Order #w-6377007-1, same booking. June 23 at 10:00. Driver at hotel entrance. |
 
+**VENDOR FEEDBACK — Welcome Pickups (Trip Completed Jun 2026):**
+- **Rating:** Excellent — repeat booking candidate
+- **Feedback:** Mercedes Van · Professional driver · Proactive timing management (driver anticipated longer airport clearance time, arrived early to pick up Erik & Melissa without holding them)
+- **Logged:** 2026-06-19 (post-trip report from Commander)
+- **Recommendation:** Book Welcome Pickups for future European transfers; recommend in vendor rotation for similar Rome/Civitavecchia routes
+
 ---
 
 ## CRUISE SEGMENT — SILVERSEA SILVER MUSE

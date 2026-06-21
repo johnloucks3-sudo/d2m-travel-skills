@@ -2,13 +2,20 @@
 client: McLeod McGlasson
 ship: SS Prestige (Regent Seven Seas)
 voyage: Season to Cheer
-booking: "3114500"
+booking: '3114500'
 embark: 2027-12-18
 disembark: 2027-12-28
 status: active
 anchor_type: CRUISE
-source_of_truth: "Harlan-verified financials 2026-06-09 (McLeod_McGlasson_Multi.md frontmatter booking_4, Regent portal 2026-06-02 + invoice 3114500 dated 11-Jan-26)"
-note: "Renders CURRENT state + forward suspense calendar. No dedicated lifecycle doc exists — suspense calendar derived from embark (Dec 18 2027) + FPD (Jul 21 2027) anchors against the standard 6-phase model. Lowest urgency of the 5 trips. Register with scheduler once timing-engine fix lands."
+source_of_truth: Harlan-verified financials 2026-06-09 (McLeod_McGlasson_Multi.md
+  frontmatter booking_4, Regent portal 2026-06-02 + invoice 3114500 dated 11-Jan-26)
+note: Renders CURRENT state + forward suspense calendar. No dedicated lifecycle doc
+  exists — suspense calendar derived from embark (Dec 18 2027) + FPD (Jul 21 2027)
+  anchors against the standard 6-phase model. Lowest urgency of the 5 trips. Register
+  with scheduler once timing-engine fix lands.
+payment_status: confirmed
+departure: '2027-12-18'
+return: '2027-12-28'
 ---
 
 # McLEOD — PRESTIGE TRIP TRACKER (booking 3114500 of 4)

@@ -445,6 +445,36 @@ All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shor
 
 ---
 
+## EXCURSION BOOKING — PE181149717 CONFIRMED (Filed 2026-06-20)
+
+*Source: Commander email "Fwd: Booking Confirmation - PE181149717" (johnloucks3, 2026-06-18 05:43 MT, instruction: "Place data in Loucks May 2027 dossier"), forwarding Project Expedition confirmation (support@projectexpedition.com, 2026-06-18 01:05). Msg ids: fwd 19eda8aed81b58bb / original 19ed98c2552c5705.*
+
+| Field | Value |
+|-------|-------|
+| Tour | Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches — 3 Day |
+| Reference | **PE181149717** |
+| Status | **Confirmed** (Payment status: Hold without Payment) |
+| Date / time | **May 15, 2027, 9:00 am** · Meeting time 09:00 |
+| Travelers (2) | John Aldon Loucks, III · Susan Dee Loucks |
+| Tour operator | **SIGHTS OF ATHENS** · +30 210 417 6144 · info@sightsofathens.gr |
+| Operator references | RA8F6DN · Product ID PQM51G |
+| Agent of record | Cruises & Tours, Unlimited / Outside Agents — John Loucks |
+| Duration | 72 hours (hop-on-hop-off, 3 days) |
+| Total price | **US$ 60.06** (verified 2026-06-20, source: Project Expedition confirmation email) |
+| Amount paid | US$ 0.00 |
+| Balance due by | **04 May 2027** (payment required by this date to avoid cancellation) |
+| Cancellation | Full refund if canceled before **May 14, 2027, 9:00 am local** |
+| Booking PDF | projectexpedition.com/account/voucher/PE181149717?format=pdf |
+
+**Included:** Original Hop-on Hop-off tour of Athens, Piraeus and Beaches for 3 days.
+**Not included (per voucher):** Roundtrip transportation; pickup/drop-off from central locations; multilingual commentary; licensed guide inside the Temple; entrance tickets to the Archaeological area (when that option is selected); buffet lunch.
+
+**Pickup points (15):** A1 Old Parliament/Syntagma Sq · A2 Plaka/Melina Merkouri Monument · A3 Acropolis Museum · A4 Acropolis & Parthenon · A5 Temple of Zeus · A6 Greek Parliament & National Garden · A7 Benaki Museum · A8 Panathenaic Stadium · A9 Greek Parliament & National Garden · A10 National Library · A11 National Archaeological Museum · A12 Omonia Sq · A13 Karaiskaki Sq · A14 Monastiraki-Thission · A15 Kotzia Sq.
+
+> **Cross-reference:** This is one of the 4 Project Expedition holds tracked in `Loucks_SilverNova_May2027_Excursions.md` § ACTUAL BOOKINGS (line ~50). Pay-by date (04 May 2027) matches the supplement. No discrepancy.
+
+---
+
 ## PRICING RESEARCH QUEUE
 
 | Item | Method | Status |

@@ -1781,14 +1781,20 @@ def handle_message(
                     return
             try:
                 import subprocess as _sp_agent
+                # Bot token passed via ENV, not argv — argv is world-readable in ps/proc
+                # (MISSION-258). Inherit the full environment so the headless spawn keeps
+                # its OAuth/MCP vars, then add the token.
+                _agent_env = dict(os.environ)
+                _agent_env["TG_AGENT_BOT_TOKEN"] = token
                 _sp_agent.Popen(
                     [sys.executable, str(THUNDERBIRD / "OpsCenter" / "telegram_async_agent.py"),
-                     "--token", token, "--chat-id", str(chat_id),
+                     "--chat-id", str(chat_id),
                      "--task", task, "--model", "sonnet"],
                     stdout=open(THUNDERBIRD / "logs" / "telegram_async_agent.log", "a"),
                     stderr=_sp_agent.STDOUT,
                     start_new_session=True,   # detached — poll loop never blocks
                     cwd=str(THUNDERBIRD),
+                    env=_agent_env,
                 )
                 tg_send(token, chat_id, "🦅 Wilco — on it with full tools. I'll deliver the result here shortly.")
             except Exception as e:

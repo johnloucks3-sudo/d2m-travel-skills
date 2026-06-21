@@ -400,3 +400,57 @@ what_next: |
   - Next TP Alert expected ~12:00 MT (6-hr metronome cadence).
   - A12 ELON content-hash dedup fix still pending from May 22+ dedup backlog.
   - McLeod departure 18 Jun — 16 days out — escalation posture flagged.
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-18 15:20 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-18 15:20 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-19 15:21 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-19 15:21 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-20 15:22 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-20 15:22 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---

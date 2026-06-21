@@ -1,0 +1,21 @@
+2026-06-21T03:27:24.778602: 592 uncommitted files
+ M .ask_usage_log
+ M .claude/settings.json
+ M .github/workflows/secret-scan.yml
+ M Blackboard
+ M CLAUDE.md
+ M OpsCenter/.lifecycle_alerted.json
+ M OpsCenter/.lifecycle_last_scan_date
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.regent_cookie_alert_dedup.json
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/ai_auth_probe.py
+ M OpsCenter/brief_feedback_config.json
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard.md

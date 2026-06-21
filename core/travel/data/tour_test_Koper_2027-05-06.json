@@ -1,0 +1,261 @@
+{
+  "dest": "Koper",
+  "query": "lipica lipizz stud farm",
+  "date": "2027-05-06",
+  "scraped_at": "2026-06-17T11:11:52.097698",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "Koper",
+    "query": "lipica lipizz stud farm",
+    "url": "https://www.getyourguide.com/s/?q=Koper+lipica+lipizz+stud+farm",
+    "scraped_at": "2026-06-17T11:11:52.504921",
+    "date_filter": "2027-05-06",
+    "tours": [
+      {
+        "name": "Postojna Cave and Predjama Castle Tour",
+        "duration": "5 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 69,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/postojna-cave-predjama-castle-t103769/"
+      },
+      {
+        "name": "Postojna Cave with Train Ride - group tour",
+        "duration": "5 hours",
+        "rating": null,
+        "review_count": 4,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/koper-postojna-cave-with-train-ride-group-tour-t1134166/"
+      },
+      {
+        "name": "Group tour to Piran - Coastal Gem",
+        "duration": "4 hours",
+        "rating": 4.0,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/from-koper-group-tour-to-piran-coastal-gem-t1321954/"
+      },
+      {
+        "name": "Piran and Panoramic Slovenian Coast Tour",
+        "duration": "5 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": null,
+        "review_count": 3,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/piran-panoramic-slovenian-coast-tour-from-koper-t179171/"
+      },
+      {
+        "name": "Koper/Trieste: Postojna Cave & Predjama Castle Tour & Ticket",
+        "duration": "6 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 30,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/koper-postojna-cave-and-predjama-castle-tour-and-tickets-t932709/"
+      },
+      {
+        "name": "Piran Riviera & Local Flavors",
+        "duration": "4.5 hours",
+        "rating": 4.5,
+        "review_count": 5,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/koper-piran-or-izola-round-trip-transfer-with-commentary-t389391/"
+      },
+      {
+        "name": "Slovenia\u2019s Wonders: UNESCO \u0160kocjan Caves, Predjama & Piran",
+        "duration": "10.5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 52,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/ljubljana-l318/karst-coast-mystery-day-trip-from-ljubljana-t77338/"
+      },
+      {
+        "name": "Sip & Step: A Flavorful Walk Through Koper's History",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": 4,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/sip-step-a-flavorful-walk-through-koper-s-history-t559557/"
+      },
+      {
+        "name": "From $101",
+        "duration": "5 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 5,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/from-koper-half-day-villages-and-traditions-tour-t352866/"
+      },
+      {
+        "name": "From Koper",
+        "duration": "7 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.2,
+        "review_count": 12,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/from-koper-day-trip-to-lake-bled-ljubljana-t85620/"
+      },
+      {
+        "name": "Koper Stroll & Taste",
+        "duration": "2 hours",
+        "rating": 4.5,
+        "review_count": 21,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/koper-stroll-taste-t483456/"
+      },
+      {
+        "name": "Ga\u017eon in Istria: Truffle Hunting-Cooking-Tasting Tour",
+        "duration": "3 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 48,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/gazon-l189813/gazon-istria-truffle-hunting-cooking-tasting-t447263/"
+      },
+      {
+        "name": "Hop & Taste Slovenian Riviera Hop-On Hop-Off & Local Bites",
+        "duration": "1 day",
+        "rating": 4.3,
+        "review_count": 48,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/from-koper-coastal-tour-with-izola-piran-portoroz-stops-t389372/"
+      },
+      {
+        "name": "Provider rating",
+        "duration": "8 hours",
+        "rating": 4.0,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bled-l1336/koper-lake-bled-ljubljana-day-trip-small-group-tour-t1134229/"
+      },
+      {
+        "name": "KeBon Istrian Cooking Class with Wine Tasting",
+        "duration": "2.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/koper-l2650/koper-kebon-istrian-cooking-class-with-wine-tasting-t1220713/"
+      },
+      {
+        "name": "Slovenian Coast Tour with Food and Wine Tasting",
+        "duration": "5.5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 21,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/trieste-l1131/trieste-slovenian-coast-tour-with-food-and-wine-tasting-t1133501/"
+      },
+      {
+        "name": "From Ljubljana",
+        "duration": "10 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 169,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/skocjan-unesco-caves-and-piran-t201772/"
+      },
+      {
+        "name": "Slovenian Coast Private Roundtrip from Port",
+        "duration": "4 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/koper-l2650/from-koper-slovenian-coast-private-roundtrip-from-port-t390958/"
+      },
+      {
+        "name": "Piran and Slovenia Coast Tour",
+        "duration": "6 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 127,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/piran-panoramic-slovenian-coast-tour-t118789/"
+      },
+      {
+        "name": "Panoramic Piran and Salt Pans: E-Bike Boutique Tour",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 8,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/electric-bike-tour-piran-salt-pans-t131241/"
+      },
+      {
+        "name": "Maribor & Styria Tour with Wine Tasting",
+        "duration": "10 hours \u2022 Skip the line \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/maribor-l316/maribor-styria-tour-with-wine-tasting-t199909/"
+      },
+      {
+        "name": "Land and Sea Riviera Koper, Izola and Piran with Tastings",
+        "duration": "5 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/land-and-sea-riviera-koper-izola-and-piran-with-tastings-t1218604/"
+      },
+      {
+        "name": "Ptuj & Haloze Wine Cellar Tour with Tastings",
+        "duration": "6 - 8 hours \u2022 Skip the line \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/celje-l142336/ljubljana-ptuj-haloze-wine-cellar-tour-with-tastings-t1184950/"
+      },
+      {
+        "name": "Slovenia Coast Stand-Up Paddleboard Rental",
+        "duration": "12 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/piran-l1233/slovenian-coast-stand-up-paddle-board-rent-t442806/"
+      }
+    ],
+    "total_found_estimate": "38 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_Koper_2027-05-06.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

@@ -8,6 +8,7 @@ departure: 2026-08-29
 return: 2026-09-08
 fpd: 2026-04-01
 fpd_amount: 46458
+payment_status: paid_in_full
 status: active
 relationship: client
 completed_tps: []

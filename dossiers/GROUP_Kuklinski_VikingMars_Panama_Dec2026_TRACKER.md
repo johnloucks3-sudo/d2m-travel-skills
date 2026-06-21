@@ -24,9 +24,12 @@ note: "Renders CURRENT state + forward suspense calendar. The instantiated 35-TP
 
 | Couple | Booking | Agency Conf | Stateroom | Fare | Balance | SBC | Air route |
 |---|---|---|---|---|---|---|---|
-| **Kyle & Rosalie Kuklinski** | 9593880 | 1TSWFQR | 4122 (DV1, Deck 4) | OMAFSV26-3 | ✅ PAID | $800 ($200 Viking + $600 D2M) | RIC → PTY |
-| **Roger & Dr Nicholas Kuklinski** | 9593873 | LJ2O4YG | 8012 (DV1, Deck 8) | OMAFSV26-3 | ✅ PAID | $200 Viking | RIC → PTY |
-| **Joshua Morton & Erica Dodge** | 9595029 | CUW88R8 | 3015 (V1 Veranda, Deck 3) | OMAPSF26-3 | ✅ PAID | $200 Viking | RSW → FLL |
+| **Kyle & Rosalie Kuklinski** | 9593880 | 1TSWFQR | 4122 (DV1, Deck 4) | OMAFSV26-3 | ✅ PAID | $400 ($200 Viking + $200 D2M) | RIC → PTY |
+| **Roger & Dr Nicholas Kuklinski** | 9593873 | LJ2O4YG | 8012 (DV1, Deck 8) | OMAFSV26-3 | ✅ PAID | $400 ($200 Viking + $200 D2M) | RIC → PTY |
+| **Joshua Morton & Erica Dodge** | 9595029 | CUW88R8 | 3015 (V1 Veranda, Deck 3) | OMAPSF26-3 | ✅ PAID | $400 ($200 Viking + $200 D2M) | RSW → FLL |
+
+<!-- SBC corrected 2026-06-19 (A7 Sterling, Kuklinski AAR): D2M's $600 total SBC distributes $200/couple equally across all 3 bookings. Prior tracker erroneously showed $600 D2M to Kyle/Rosalie alone and omitted D2M SBC from Roger and Josh rows. Latent since Feb 2026 booking. Harlan to confirm against Viking invoices Feb 2026. -->
+
 
 **Financials (Harlan-verified 2026-06-09):** Total **$21,244 PAID IN FULL** (3 bookings, Mar 27). FPD was Mar 31 — passed, paid 4 days early. Payment method: Kyle Kuklinski CC on file for all 3 bookings (CVC 7435). Commission $3,635.14. Source: Viking invoices Feb 2026.
 

@@ -52,8 +52,30 @@ if [ "$(date +%u)" = "7" ]; then
     else
         echo "INFO: dedup scan could not complete (rc=$DEDUP_RC) — Sheets auth?"
     fi
+
+    # SELF-DISABLE-001 policy block event audit — Sunday sweep picks up enforcement failures
+    echo "[$(date -Iseconds)] [SUNDAY] SELF-DISABLE-001 policy block audit..."
+    set +e
+    python3 core/policy/self_disable_audit_extractor.py > "$THUNDERBIRD/logs/a7_self_disable_audit_$(date +%Y%m%d).log" 2>&1
+    AUDIT_RC=$?
+    set -e
+    if [ "$AUDIT_RC" = "0" ]; then
+        # Check if there are any block events in the audit file
+        BLOCK_COUNT=$(wc -l < "$THUNDERBIRD/logs/policy_audit_self_disable_001.jsonl" 2>/dev/null || echo "0")
+        if [ "$BLOCK_COUNT" -gt "0" ]; then
+            echo "🔴 RED: $BLOCK_COUNT SELF-DISABLE-001 block events detected — enforcement failures being logged"
+            STAMP=$(date '+%Y-%m-%d %H:%M MT')
+            printf '\n## [A7 STERLING — SUNDAY AUDIT] SELF-DISABLE-001 Block Events — %s\n%d enforcement block events detected in policy_audit.jsonl\nFile: logs/policy_audit_self_disable_001.jsonl\nAction: Review for patterns of unauthorized access attempts.\n' "$STAMP" "$BLOCK_COUNT" >> "$THUNDERBIRD/claude_inbox.md" 2>/dev/null \
+                && echo "Flagged to claude_inbox.md" || echo "INFO: inbox flag skipped"
+        else
+            echo "GREEN: No SELF-DISABLE-001 block events"
+        fi
+    else
+        echo "INFO: SELF-DISABLE-001 audit could not complete (rc=$AUDIT_RC)"
+    fi
 else
     echo "[$(date -Iseconds)] Booking Master dedup scan skipped (Sunday-only)"
+    echo "[$(date -Iseconds)] SELF-DISABLE-001 audit skipped (Sunday-only)"
 fi
 
 # SLA violations scan

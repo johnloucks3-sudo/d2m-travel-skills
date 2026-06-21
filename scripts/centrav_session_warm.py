@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""
+centrav_session_warm.py — Warm-ping keepalive for the Centrav B2B flight portal.
+MISSION-200.
+
+WHY: The Centrav agent session (laravel_session) has a ~2hr idle TTL, and login is
+reCAPTCHA + email-OTP — auto-reauth is impossible (captcha is a human gate). But the
+PERSISTENT Firefox profile (core/travel/data/centrav_ff_profile, created by
+scripts/centrav_serve.py) holds the "Remember this Browser" trust cookie after ONE
+manual login. This script keeps the session warm: it opens that profile headless every
+<90 min, GETs an authenticated Centrav page, and — ONLY if still authenticated — re-saves
+the cookies to centrav_session.json so the scraper's cookie fast-path stays fresh.
+
+It NEVER attempts to defeat the CAPTCHA. The one-time human login stays.
+
+SAFE BY DESIGN (mirrors ita_fare_watch_poll.py's contract):
+  - Verifies an authenticated marker FIRST. Only re-saves session.json if CONFIRMED.
+  - Dead session / profile lock / any error → SKIP. session.json is left UNTOUCHED.
+  - A failed ping today is harmless; the session is simply not refreshed this cycle.
+    It only goes truly dead when the trust cookie expires or the Commander logs out.
+
+Exit codes:
+  0  authenticated — session warmed + cookies re-saved
+  2  not authenticated — session is dead, needs one manual login (centrav_serve.py)
+  3  skipped — profile locked / could not run (session.json untouched, retry next cycle)
+
+Usage:
+  .venv/bin/python scripts/centrav_session_warm.py
+  .venv/bin/python scripts/centrav_session_warm.py --check   # report only, never write
+"""
+import argparse
+import asyncio
+import json
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path("/home/john/Thunderbird")
+SESSION_FILE = ROOT / "core" / "travel" / "data" / "centrav_session.json"
+PROFILE_DIR = ROOT / "core" / "travel" / "data" / "centrav_ff_profile"
+# The keepalive supervisor derives Centrav health from this fare-watch state file.
+# A dead-session scrape writes an auth_error here that PERSISTS (Centrav can't
+# auto-scrape past the captcha to overwrite it), so a now-live session keeps
+# reading RED. The warm-ping is the authoritative live auth probe, so on a
+# confirmed-live warm it owns clearing that stale signal. See keepalive_supervisor._centrav_health.
+FARE_WATCH_STATE = ROOT / "OpsCenter" / "fare_watches" / "last_check.json"
+
+# An authenticated Centrav agent page redirects anonymous visitors to /login.
+# We GET a page that requires auth and check (a) we were NOT bounced to /login and
+# (b) the logout control is present. Two independent signals — both must hold.
+WARM_URL = "https://www.centrav.com/"
+NAV_TIMEOUT_MS = 30_000
+# Match the UA the scraper / profile use so the trust cookie keeps matching.
+USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0"
+
+
+def log(m: str) -> None:
+    print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)
+
+
+def _clear_stale_centrav_autherror() -> None:
+    """On a confirmed-live warm, scrub any stale Centrav auth_error from the
+    fare-watch state the keepalive supervisor reads. The warm-ping is the live
+    auth probe; it owns correcting a signal a dead-session scrape left behind.
+    Best-effort — never raises into the warm path."""
+    try:
+        if not FARE_WATCH_STATE.exists():
+            return
+        d = json.loads(FARE_WATCH_STATE.read_text())
+        changed = False
+        for wid, r in (d.get("results", {}) or {}).items():
+            if not isinstance(r, dict):
+                continue
+            blob = (str(r.get("error", "")) + " " + str(wid)).lower()
+            if r.get("status") == "auth_error" and ("centrav" in blob or "session expired" in blob):
+                r["status"] = "ok"
+                r["error"] = ""
+                r["note"] = "auth_error auto-cleared by centrav_session_warm — session verified live"
+                changed = True
+        warns = d.get("warnings", []) or []
+        kept = [w for w in warns
+                if not (("centrav" in str(w).lower() and "auth" in str(w).lower())
+                        or "auth failed" in str(w).lower())]
+        if len(kept) != len(warns):
+            d["warnings"] = kept
+            changed = True
+        if changed:
+            d["watches_with_errors"] = max(0, int(d.get("watches_with_errors", 0)) - 1)
+            FARE_WATCH_STATE.write_text(json.dumps(d, indent=1))
+            log("  self-heal: cleared stale Centrav auth_error in fare-watch state")
+    except Exception as e:
+        log(f"  self-heal skipped (non-fatal): {e}")
+
+
+async def warm(check_only: bool) -> int:
+    if not PROFILE_DIR.exists():
+        log(f"SKIP — persistent profile missing: {PROFILE_DIR}")
+        log("      Run scripts/centrav_serve.py once (manual login) to create it.")
+        return 3
+
+    from playwright.async_api import async_playwright
+
+    async with async_playwright() as p:
+        try:
+            ctx = await p.firefox.launch_persistent_context(
+                str(PROFILE_DIR),
+                headless=True,
+                viewport={"width": 1440, "height": 900},
+                user_agent=USER_AGENT,
+            )
+        except Exception as e:
+            # Most likely the profile is locked (Commander has centrav_serve.py open
+            # on the same profile). That is NOT a failure — skip, retry next cycle.
+            log(f"SKIP — could not open profile (locked or busy?): {e}")
+            log("      session.json left untouched; will retry next cycle.")
+            return 3
+
+        try:
+            page = ctx.pages[0] if ctx.pages else await ctx.new_page()
+            try:
+                await page.goto(WARM_URL, wait_until="domcontentloaded", timeout=NAV_TIMEOUT_MS)
+                await page.wait_for_timeout(2_500)
+            except Exception as e:
+                log(f"SKIP — navigation error: {e}. session.json untouched.")
+                return 3
+
+            final_url = (page.url or "").lower()
+            bounced_to_login = "login" in final_url or "trust" in final_url
+
+            logout = None
+            try:
+                logout = await page.query_selector("#LogoutButton")
+            except Exception:
+                logout = None
+
+            authenticated = (not bounced_to_login) and (logout is not None)
+
+            log(f"warm GET {WARM_URL} → {page.url}")
+            log(f"  bounced_to_login={bounced_to_login}  logout_present={logout is not None}  "
+                f"=> authenticated={authenticated}")
+
+            if not authenticated:
+                log("NOT AUTHENTICATED — Centrav session is dead.")
+                log("  The trust cookie/session expired. One manual login required:")
+                log("    .venv/bin/python scripts/centrav_serve.py")
+                log("  session.json left UNTOUCHED (no clobber).")
+                return 2
+
+            # Confirmed authenticated. Capture current cookies and refresh session.json
+            # so the scraper's cookie fast-path stays valid. (Skip the write in --check.)
+            cookies = await ctx.cookies()
+            if check_only:
+                log(f"CHECK — authenticated, {len(cookies)} cookies (no write, --check).")
+                return 0
+
+            # Sanity guard before overwriting: the live cookies must still carry the
+            # Centrav session cookie, else we'd be saving an anonymous/partial set.
+            has_session = any(
+                c.get("name") == "laravel_session" and "centrav.com" in (c.get("domain") or "")
+                for c in cookies
+            )
+            if not has_session:
+                log("SKIP — authenticated marker present but laravel_session missing from "
+                    "cookie export; refusing to overwrite session.json.")
+                return 3
+
+            tmp = SESSION_FILE.with_suffix(".json.tmp")
+            tmp.write_text(json.dumps(cookies, indent=2))
+            tmp.replace(SESSION_FILE)  # atomic swap — never leaves a half-written file
+            log(f"WARMED — session refreshed, {len(cookies)} cookies → {SESSION_FILE}")
+            _clear_stale_centrav_autherror()  # we just proved auth live — own the supervisor's signal
+            return 0
+        finally:
+            try:
+                await ctx.close()
+            except Exception:
+                pass
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Centrav warm-ping keepalive (non-destructive)")
+    ap.add_argument("--check", action="store_true",
+                    help="Report auth status only; never write session.json")
+    args = ap.parse_args()
+    rc = asyncio.run(warm(check_only=args.check))
+    sys.exit(rc)
+
+
+if __name__ == "__main__":
+    main()

@@ -84,3 +84,51 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - Headless CC: `ask 'task'` or `OpsCenter/dispatch_claude.py`
 - Trip validation: `itinerary/validate_dossier.py`
 - Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)
+
+<!-- COMMANDER-READY:START -->
+## COMMANDER-READY (2026-06-21 12:00 UTC)
+### Last 24h decisions (0)
+- (none)
+
+### Open P0/P1 nags (2)
+- [P0] MCLEOD-2984034-FPD-TRIGGER
+- [P1] AMY-DARROW-INSURANCE-SUSPENSE
+- (none)
+
+### Blockers (0)
+- (none)
+
+### Startup hook
+## STATE BRIDGE BRIEFING — 2026-06-21 06:00
+
+### Since last session (2026-06-20 21:44:25 → still open)
+
+**Recent commits (no in-DB delta — showing git log):**
+- `b75fcc2b` feat(sheets): M-274 Dani port cross-reference by Booking_ID  _7 hours ago_
+- `e430e95b` feat(authority): verified outbound directive path to personas  _18 hours ago_
+- `08156c60` fix(governance): dominant anti-ask HARD RULE (auto-loaded) + continue timer kills 137->130  _19 hours ago_
+- `23b5c41c` ops(ci): execute ELON zero-risk timer kills (137->~131); stop failed ai-auth-probe  _19 hours ago_
+- `db9abc0f` fix(ci): validation pass — 3 CRITICAL + key IMPORTANT/MINOR bugs (pre-finalize review)  _19 hours ago_
+
+_No changes since last session — continuing clean._
+
+### Current state snapshot
+**Most recently touched watched files:**
+- `hale_brief.md` (0s ago)
+- `hale_state.json` (1m ago)
+- `dossiers/Loucks_Personal_SilverNova_Japan.md` (7.5h ago)
+- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (7.7h ago)
+- `dossiers/Kuklinski_Viking_Panama.md` (12.1h ago)
+- `dossiers/Ely_Darrow_Regent_3096289.md` (13.5h ago)
+- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (13.5h ago)
+- `OpsCenter/collaboration/blackboard.md` (14.3h ago)
+
+**Mission board:** 64 open (15 P0, 27 P1)
+  - 🔴 MISSION-065: Pacific Voyage Blog
+  - 🔴 MISSION-148: Telegram Feature Expansion
+  - 🔴 MISSION-152: Phase E: Signal
+  - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
+  - 🔴 MISSION-214: Regent Portal On-Demand
+
+### Su
+<!-- COMMANDER-READY:END -->

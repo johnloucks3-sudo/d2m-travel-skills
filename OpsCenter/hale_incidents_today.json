@@ -1,28 +1,145 @@
 {
-  "date": "2026-06-10",
+  "date": "2026-06-21",
   "summary": {
-    "auto_healed": 2,
+    "auto_healed": 0,
     "self_repaired": 0,
-    "unresolved": 0,
+    "unresolved": 13,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "06:42",
-      "service": "d2m-tasking-watcher",
-      "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "time": "03:33",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
       "elon_invoked": false
     },
     {
-      "time": "09:07",
-      "service": "d2m-tasking-watcher",
+      "time": "03:38",
+      "service": "thunderbird-eod-brief",
       "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:38",
+      "service": "thunderbird-silversea-session",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:38",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:48",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "03:58",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:13",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:28",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:43",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:48",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "04:58",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:08",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:23",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:38",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
+      "elon_invoked": false
+    },
+    {
+      "time": "05:53",
+      "service": "ai-auth-probe",
+      "event_type": "auth_failure_unrecovered",
+      "action": "paged_commander_tier1",
+      "status": "RED",
+      "note": "claude_oauth: repair exhausted after 1 attempt(s). timeout after 25s",
       "elon_invoked": false
     }
   ],

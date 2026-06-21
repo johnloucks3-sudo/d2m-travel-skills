@@ -1,0 +1,26 @@
+{
+  "history": [
+    {
+      "total_lessons": 0,
+      "implemented": 0,
+      "pending": 0,
+      "lessons_implementation_rate_pct": 0.0,
+      "ts": "2026-06-14T13:28:05.269441"
+    },
+    {
+      "total_lessons": 0,
+      "implemented": 0,
+      "pending": 0,
+      "lessons_implementation_rate_pct": 0.0,
+      "ts": "2026-06-14T13:31:22.899336"
+    }
+  ],
+  "latest": {
+    "total_lessons": 0,
+    "implemented": 0,
+    "pending": 0,
+    "lessons_implementation_rate_pct": 0.0,
+    "ts": "2026-06-14T13:31:22.899336",
+    "lessons_sample": []
+  }
+}

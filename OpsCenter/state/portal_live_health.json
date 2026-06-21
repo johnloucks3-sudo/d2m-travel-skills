@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-06-21T12:29:56.747413+00:00",
+  "overall": "ALIVE",
+  "portals_checked": 4,
+  "failures": 0,
+  "results": {
+    "centrav": {
+      "status": "ALIVE",
+      "alive": true,
+      "reason": "HTTP 200, URL ok",
+      "http_status": 200,
+      "probed_at": "2026-06-21T12:29:56.747413+00:00",
+      "client_affecting": true
+    },
+    "regent_d2m": {
+      "status": "ALIVE",
+      "alive": true,
+      "reason": "HTTP 403, URL ok",
+      "http_status": 403,
+      "probed_at": "2026-06-21T12:29:56.747413+00:00",
+      "client_affecting": true
+    },
+    "regent_oa": {
+      "status": "ALIVE",
+      "alive": true,
+      "reason": "HTTP 403, URL ok",
+      "http_status": 403,
+      "probed_at": "2026-06-21T12:29:56.747413+00:00",
+      "client_affecting": true
+    },
+    "perx": {
+      "status": "ALIVE",
+      "alive": true,
+      "reason": "HTTP 200, URL ok",
+      "http_status": 200,
+      "probed_at": "2026-06-21T12:29:56.747413+00:00",
+      "client_affecting": true
+    }
+  }
+}

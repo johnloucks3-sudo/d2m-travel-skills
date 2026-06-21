@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dreams2Memories Travel — Let's Plan Something</title>
+<!--
+  D2M Front Door — STATIC intake page (MISSION-104, Campaign C2)
+  Audience: Rondo & Stefanie — non-technical guests. "Smart friend," not command structure.
+  Brand: cream #f7f3ea · blue #0000ff · navy #003087 · warm linen #eee8db · Georgia serif.
+
+  ⚠ NOT WIRED FOR LIVE SEND. Standalone file — does NOT depend on web/frontdoor/server.py.
+  The form uses a mailto: action (opens the guest's OWN mail client; the Wing sends nothing).
+  A commented placeholder POST endpoint is included below for whoever deploys this — it is
+  intentionally inert until a real endpoint is chosen by the Commander/Hale.
+  Hosting target (when approved): the itinerary.d2mluxury.quest area. NOT deployed here.
+-->
+<style>
+  :root{
+    --cream:#f7f3ea; --ink:#0000ff; --navy:#003087; --linen:#eee8db;
+    --paper:#fffdf8; --line:#d8cfba; --soft:#6b6253;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--linen); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif; line-height:1.6;
+    padding:28px 16px;
+  }
+  .card{
+    max-width:600px; margin:0 auto; background:var(--cream);
+    border:1px solid var(--line); border-radius:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07); overflow:hidden;
+  }
+  .banner{
+    background:var(--navy); color:#fff; padding:22px 28px 18px;
+  }
+  .banner h1{margin:0; font-size:1.55rem; letter-spacing:.4px; font-weight:normal}
+  .banner .sub{margin:4px 0 0; font-size:.92rem; color:#d9e2f5}
+  .body{padding:26px 28px 30px}
+  .intro{color:var(--ink); font-size:1.04rem; margin:0 0 6px}
+  .intro .lead{font-size:1.12rem; color:var(--navy)}
+  .note{color:var(--soft); font-size:.92rem; margin:8px 0 22px}
+  label{display:block; font-size:.95rem; color:var(--navy); margin:16px 0 5px; font-weight:bold}
+  .req{color:var(--ink); font-weight:normal}
+  input,textarea,select{
+    width:100%; padding:11px 12px; font-family:inherit; font-size:1rem;
+    color:var(--ink); border:1px solid var(--line); border-radius:9px; background:var(--paper);
+  }
+  textarea{min-height:96px; resize:vertical}
+  .row{display:flex; gap:14px; flex-wrap:wrap}
+  .row > div{flex:1; min-width:180px}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--ink); border-color:var(--ink)}
+  button{
+    margin-top:24px; width:100%; padding:14px; font-family:inherit;
+    font-size:1.08rem; color:#fff; background:var(--ink); border:none;
+    border-radius:11px; cursor:pointer;
+  }
+  button:hover{background:var(--navy)}
+  .msg{margin-top:18px; padding:14px 15px; border-radius:10px; font-size:.97rem; display:none}
+  .msg.show{display:block; background:#eef4ff; border:1px solid #bcd0ff; color:var(--navy)}
+  .foot{
+    text-align:center; color:var(--soft); font-size:.82rem;
+    padding:18px 28px 24px; border-top:1px solid var(--line);
+  }
+  .foot b{color:var(--navy)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="banner">
+      <h1>Dreams2Memories Travel</h1>
+      <p class="sub">Travel, handled by someone who actually knows you.</p>
+    </div>
+
+    <div class="body">
+      <p class="intro">
+        <span class="lead">Hi — so glad you're here.</span><br>
+        Tell us a little about the trip you have in mind and we'll do the rest.
+        There's no form to fight with and no account to set up. Just the basics,
+        in your own words, and we'll take it from there.
+      </p>
+      <p class="note">Only your name and a way to reach you are required. Everything else helps — fill in what you know.</p>
+
+      <form id="intake" novalidate>
+        <label for="name">Your name <span class="req">(required)</span></label>
+        <input id="name" name="name" autocomplete="name" placeholder="First and last">
+
+        <label for="contact">Email or phone <span class="req">(required)</span></label>
+        <input id="contact" name="contact" autocomplete="email" placeholder="The easiest way to reach you">
+
+        <label for="trip">Where are you dreaming of going?</label>
+        <textarea id="trip" name="trip_interest" placeholder="A place, a cruise line, an anniversary, a bucket-list idea — anything at all."></textarea>
+
+        <div class="row">
+          <div>
+            <label for="dates">When?</label>
+            <input id="dates" name="dates" placeholder="e.g. Spring 2027, or flexible">
+          </div>
+          <div>
+            <label for="party">How many travelers?</label>
+            <input id="party" name="party_size" inputmode="numeric" placeholder="e.g. 2">
+          </div>
+        </div>
+
+        <button type="submit" id="send">Send to Dreams2Memories</button>
+        <div class="msg" id="msg"></div>
+      </form>
+    </div>
+
+    <div class="foot">
+      <b>Dreams2Memories Travel, LLC</b><br>
+      We read every note personally. You'll hear back from a real person.
+    </div>
+  </div>
+
+<script>
+/*
+  Submit handler — NOT WIRED FOR LIVE SEND.
+  Default behavior: build a mailto: link and open the guest's OWN mail client,
+  pre-filled with their answers. The Wing executes no send; the guest hits "send"
+  in their own email app. This keeps the page fully static and within all rails.
+
+  To wire a real backend later, replace the mailto block with a fetch() to a chosen
+  endpoint. A placeholder is sketched below and is intentionally left inert.
+
+    // const PLACEHOLDER_ENDPOINT = "/api/frontdoor/intake";  // <-- not wired
+    // await fetch(PLACEHOLDER_ENDPOINT, {
+    //   method:"POST", headers:{"Content-Type":"application/json"},
+    //   body: JSON.stringify(payload)
+    // });
+*/
+const INTAKE_INBOX = "concierge@d2mluxury.quest"; // mailto target (guest-initiated send only)
+
+document.getElementById('intake').addEventListener('submit', function(e){
+  e.preventDefault();
+  const v = id => (document.getElementById(id).value || '').trim();
+  const name = v('name'), contact = v('contact');
+  const msg = document.getElementById('msg');
+
+  if(!name || !contact){
+    msg.textContent = 'Please add your name and a way to reach you, and we’re set.';
+    msg.className = 'msg show';
+    return;
+  }
+
+  const lines = [
+    'Name: ' + name,
+    'Contact: ' + contact,
+    'Trip interest: ' + (v('trip') || '(not specified)'),
+    'When: ' + (v('dates') || '(flexible / not specified)'),
+    'Travelers: ' + (v('party') || '(not specified)')
+  ];
+  const subject = 'Trip inquiry — ' + name;
+  const body = 'Hi Dreams2Memories,\n\nHere’s what I’m thinking about:\n\n'
+             + lines.join('\n') + '\n\nThanks!';
+
+  const mailto = 'mailto:' + INTAKE_INBOX
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  msg.innerHTML = 'Opening your email so you can hit send — we’ll be in touch soon. '
+                + 'If nothing opens, just email us at <b>' + INTAKE_INBOX + '</b>.';
+  msg.className = 'msg show';
+  window.location.href = mailto;
+});
+</script>
+</body>
+</html>

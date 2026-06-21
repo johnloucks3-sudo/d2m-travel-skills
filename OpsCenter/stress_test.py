@@ -35,7 +35,7 @@ async def test_a2_deepseek(cal_data):
     prompt = f"You are Lt Col Marcus Dembe (A2). Extract locations from this schedule and give a 2-sentence recon assessment. Voice: precise, evidence-first:\n{cal_data}"
     try:
         response = await deepseek_client.chat.completions.create(
-            model="deepseek-chat",
+            model="deepseek-v4-flash",  # 2026-06-20 MISSION-295: deepseek-chat (direct API) deprecated→discontinued 2026-07-24; old→new: deepseek-chat→deepseek-v4-flash
             messages=[{"role": "user", "content": prompt}]
         )
         return f"\n--- A2 (DEEPSEEK V4) ---\n{response.choices[0].message.content}\n"

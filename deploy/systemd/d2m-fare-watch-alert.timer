@@ -1,0 +1,14 @@
+[Unit]
+Description=D2M Fare Watch Alert — Daily at 07:30 MT (MISSION-145)
+# Fires daily after the morning brief window, giving the ITA poller time to
+# complete its overnight run (ita_fare_watch_poll runs at ~06:00 MT via
+# thunderbird-fare-sweep.timer Tue 09:30 UTC = 03:30 MT).
+# 07:30 MT = 13:30 UTC
+Requires=d2m-fare-watch-alert.service
+
+[Timer]
+OnCalendar=*-*-* 13:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

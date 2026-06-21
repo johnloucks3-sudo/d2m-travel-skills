@@ -1,0 +1,136 @@
+{
+  "route": "OMA-DEN",
+  "depart_date": "2026-07-24",
+  "adults": 2,
+  "scraped_at": "2026-06-18T10:06:33.284069",
+  "skiplagged": {
+    "economy": {
+      "source": "skiplagged",
+      "cabin": "economy",
+      "url": "https://skiplagged.com/flights/OMA/DEN/2026-07-24?adults=2&cabin=economy",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$287",
+        "$329"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_economy_2026-07-24.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "skiplagged",
+      "cabin": "premium",
+      "url": "https://skiplagged.com/flights/OMA/DEN/2026-07-24?adults=2&cabin=premium",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$287",
+        "$329"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_premium_2026-07-24.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "skiplagged",
+      "cabin": "first",
+      "url": "https://skiplagged.com/flights/OMA/DEN/2026-07-24?adults=2&cabin=business",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [
+        "$188",
+        "$188",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$277",
+        "$329",
+        "$277",
+        "$329$287",
+        "$329"
+      ],
+      "lowest_price_pp": 188.0,
+      "total_lowest": 376.0,
+      "airlines_found": [
+        "Frontier",
+        "United",
+        "American"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_first_2026-07-24.png",
+      "status": "ok"
+    }
+  },
+  "kayak": {},
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-07-24.png",
+      "status": "no_prices_found"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2026-07-24.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/login",
+      "adults": 2,
+      "depart_date": "2026-07-24",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-07-24.png",
+      "status": "no_prices_found"
+    }
+  }
+}

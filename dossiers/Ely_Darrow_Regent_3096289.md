@@ -2,7 +2,7 @@
 client: Ely
 full_name: Al Ely & Amy Darrow
 email_al: al.ely58@gmail.com
-email_amy: amy.darrow@me.com
+email_amy: amy.darrow@me.com  # VALID — Amy replied "THANKS!" to the insurance email (from johnloucks3) 2026-06-20. ⚠️ DELIVERABILITY: the Scandinavia voyage email (from concierge@d2mluxury.quest send-as) was REFUSED by me.com, while the johnloucks3-sent insurance email delivered fine. Likely d2mluxury.quest→iCloud SPF/DKIM/DMARC issue — for me.com/iCloud recipients, send from johnloucks3 or fix domain auth. Investigate (MISSION-288-adjacent).
 cruise_line: Regent
 ship: Grandeur
 voyage: Scandinavia
@@ -211,6 +211,34 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 - [ ] **Guest profile forms** — not yet received from Al & Amy. Request via Kyle's green-light channel.
 - [ ] **HEL→ARN seat numbers** — seats assigned (Mar 26) but numbers TBD. Confirm with AA/Finnair (PNR UXVXZP).
 - [x] **Specialty dining** — CONFIRMED 2026-05-31: Pacific Rim Aug 30@18:30 · Chartreuse Sep 2@19:30 · Prime 7 Sep 4@18:30
+
+---
+
+### INSURANCE — SEVEN CORNERS vs ALLIANZ + CLIENT DECISION (Filed 2026-06-20 per Commander directive "Capture the differences")
+
+*Source: Commander email thread "A better insurance option before we lock yours in" (johnloucks3 ↔ al.ely58@gmail.com, Jun 17–18, 2026). Msg id 19edb0dcda54f562. Supplements — does not replace — the earlier "INSURANCE INTEL — Seven Corners vs Allianz (Filed 2026-06-18)" section above. NOTE: the coverage figures John actually presented to Al (below) differ from that earlier section's table; this section reflects the figures in John's sent email and should be treated as the current record.*
+
+**What John presented (Jun 17 email to Al):** Seven Corners Annual Multi-Trip as a second option vs the Allianz AllTrips Premier annual already on the table — "same premium, more protection." John disclosed he is **not appointed to sell Seven Corners** (no commission, no markup) and flagged it purely as the better value.
+
+| Coverage | Allianz AllTrips Premier | Seven Corners Annual Multi-Trip | Delta |
+|----------|--------------------------|----------------------------------|-------|
+| Trip cancellation (top tier) | up to **$15,000/yr** | up to **$30,000/yr** | SC ~2× |
+| Emergency medical | $50,000/trip | **$250,000/yr** | SC ~5× |
+| Emergency evacuation | $500,000 | $500,000 | tie |
+| Trip delay | $300/day ($1,500 max) | $200/day ($2,000 max) | mixed |
+| Baggage | $2,000/trip | $2,000/yr | per-trip vs per-yr |
+| Limits basis | per trip | per year | — |
+| Max trip length | up to 90 days | 40 days (30 FL) | Allianz longer |
+
+**Cautions John raised (in his own email):**
+- Seven Corners is a **smaller carrier**; claims process is more paperwork-heavy; reviews are mixed (common knock = slow claims). Mitigation: keep receipts, document everything.
+- **Pre-existing conditions covered only after the policy is in force 60 days.** With an **Aug 26 departure**, the policy would need to be active by ~**end of June** to have that protection in place before travel. (Renewing each year without a gap avoids restarting the 60-day wait.) — Material given Amy's Parkinson's.
+
+**CLIENT DECISION (Al Ely, Jun 18 2026 07:55 email):** Al **declined Seven Corners and chose Allianz** — "the long term, well known worldwide company" — and asked John to send the paperwork to finalize coverage with a **start date of July 1, 2026.** John acknowledged Jun 18 ("Will do. Give me a day or so") and noted he and Susie hold the same (Allianz) policy.
+
+**State after this exchange:** Insurance carrier = **Allianz** (client-selected). Action owed: John to send Allianz paperwork; coverage start date **July 1, 2026.**
+
+⚠️ **Flag for Harlan / Commander (do not relitigate here):** The earlier Jun-18 INTEL section states the pre-existing waiver deadline has *passed for both plans* (booking placed Mar 2026). John's Jun-17 email instead frames Seven Corners' pre-existing protection as available via a **60-day-in-force** mechanism (active by end of June). These two framings differ; the gap matters for whether Amy's Parkinson's is covered for trip-cancellation under the chosen Allianz policy. Recommend Harlan confirm Allianz's actual pre-existing terms against Al's purchase timing before relying on cancellation coverage.
 
 ## LIVE CORRECTIONS
 

@@ -12,9 +12,9 @@ Usage:
     record = cache.get("DOSSIER_SilverMuse_Mediterranean_Jun2026.md")
     cache.invalidate()                  # force full refresh
 """
+import json
 import logging
 import os
-import pickle
 import re
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
@@ -24,7 +24,7 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 DOSSIER_DIR = Path(__file__).parents[2] / "dossiers"
-CACHE_PATH  = Path(__file__).parent / ".dossier_cache.pkl"
+CACHE_PATH  = Path(__file__).parent / ".dossier_cache.json"
 CACHE_TTL   = timedelta(hours=4)
 
 MONTHS = {
@@ -192,13 +192,54 @@ class DossierCache:
         self._loaded_at: Optional[datetime] = None
         self._load_from_disk()
 
+    @staticmethod
+    def _record_to_jsonable(rec: "DossierRecord") -> dict:
+        """DossierRecord → JSON-safe dict (date/datetime → ISO strings)."""
+        return {
+            "filename": rec.filename,
+            "client_label": rec.client_label,
+            "fpd": rec.fpd.isoformat() if rec.fpd else None,
+            "fpd_amount": rec.fpd_amount,
+            "departure": rec.departure.isoformat() if rec.departure else None,
+            "booking_refs": list(rec.booking_refs or []),
+            "raw_snippet": rec.raw_snippet,
+            "parsed_at": rec.parsed_at.isoformat() if rec.parsed_at else None,
+        }
+
+    @staticmethod
+    def _record_from_jsonable(d: dict) -> "DossierRecord":
+        """JSON dict → DossierRecord (ISO strings → date/datetime)."""
+        return DossierRecord(
+            filename=d.get("filename", ""),
+            client_label=d.get("client_label", ""),
+            fpd=date.fromisoformat(d["fpd"]) if d.get("fpd") else None,
+            fpd_amount=d.get("fpd_amount"),
+            departure=date.fromisoformat(d["departure"]) if d.get("departure") else None,
+            booking_refs=d.get("booking_refs", []),
+            raw_snippet=d.get("raw_snippet", ""),
+            parsed_at=datetime.fromisoformat(d["parsed_at"]) if d.get("parsed_at") else datetime.now(),
+        )
+
     def _load_from_disk(self) -> None:
+        # JSON only — pickle.load on a writable cache file is an RCE sink (MISSION-258).
+        # Best-effort cleanup of any legacy pickle so it can't be loaded by older code.
+        legacy = self._path.with_suffix(".pkl")
+        if legacy.exists():
+            try:
+                legacy.unlink()
+                logger.info("Removed legacy pickle cache (RCE-prone): %s", legacy)
+            except Exception:
+                pass
         if self._path.exists():
             try:
-                with open(self._path, "rb") as f:
-                    data = pickle.load(f)
-                self._store = data.get("store", {})
-                self._loaded_at = data.get("loaded_at")
+                with open(self._path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                self._store = {
+                    fn: {"mtime": e["mtime"], "record": self._record_from_jsonable(e["record"])}
+                    for fn, e in data.get("store", {}).items()
+                }
+                la = data.get("loaded_at")
+                self._loaded_at = datetime.fromisoformat(la) if la else None
                 logger.debug("Cache loaded from disk: %d entries", len(self._store))
             except Exception as e:
                 logger.warning("Cache load failed, starting fresh: %s", e)
@@ -207,8 +248,15 @@ class DossierCache:
 
     def _save_to_disk(self) -> None:
         try:
-            with open(self._path, "wb") as f:
-                pickle.dump({"store": self._store, "loaded_at": datetime.now()}, f)
+            payload = {
+                "store": {
+                    fn: {"mtime": e["mtime"], "record": self._record_to_jsonable(e["record"])}
+                    for fn, e in self._store.items()
+                },
+                "loaded_at": datetime.now().isoformat(),
+            }
+            with open(self._path, "w", encoding="utf-8") as f:
+                json.dump(payload, f)
         except Exception as e:
             logger.warning("Cache save failed: %s", e)
 

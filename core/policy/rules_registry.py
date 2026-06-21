@@ -410,8 +410,14 @@ def _p_draft_jl3(ctx: dict) -> bool:
     return is_internal(ctx.get("recipient")) and ("johnloucks3" in _s(ctx, "recipient").lower())
 
 
-# 4. PROTECTED-FILES-005 — DENY (the 6 relay files)
+# 4. PROTECTED-FILES-005 — DENY (the 6 relay files, file-write tools only)
+# Bash is excluded: SELF-DISABLE-001 already blocks mutating Bash ops on
+# RELAY_PROTECTED_PATHS (which is a subset of PROTECTED_PATHS). Excluding Bash
+# here allows running relay scripts (e.g. python3 OpsCenter/run_commander_directive_sweep.py)
+# without triggering a false positive. Commander directive 2026-06-18.
 def _p_protected_files(ctx: dict) -> bool:
+    if ctx.get("tool") == "Bash":
+        return False
     return _targets_protected(ctx, RELAY_PROTECTED_PATHS)
 
 

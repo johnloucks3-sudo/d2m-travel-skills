@@ -35,8 +35,17 @@ STATE_FILE = STATE_DIR / "backup_verify_state.json"
 TELEGRAM_BOT = os.getenv("TELEGRAM_C2_BOT_TOKEN", "")
 TELEGRAM_CHAT = os.getenv("TELEGRAM_COMMANDER_ID", "")
 
+# NOTE (Sterling 2026-06-20, M-257): the live evernote backup script
+# (api/thunderbird_evernote_backup.py) writes its state to the REPO ROOT,
+# not state/. The verifier previously read state/evernote_backup_state.json
+# (a stale Apr-4 copy) and falsely reported the backup "77d stale" while the
+# real backup was running fine. Point the verifier at the canonical file the
+# producer actually writes; fall back to the legacy state/ copy if absent.
+_EVERNOTE_STATE_CANON = THUNDERBIRD_DIR / "evernote_backup_state.json"
+_EVERNOTE_STATE_LEGACY = STATE_DIR / "evernote_backup_state.json"
+
 DRIVE_SYNC_STATE = STATE_DIR / "thunderbird_sync_state.json"
-EVERNOTE_STATE = STATE_DIR / "evernote_backup_state.json"
+EVERNOTE_STATE = _EVERNOTE_STATE_CANON if _EVERNOTE_STATE_CANON.exists() else _EVERNOTE_STATE_LEGACY
 MONTHLY_STATE = STATE_DIR / "monthly_archive_state.json"
 RCLONE_LOG = THUNDERBIRD_DIR / ".rclone_sync.log"
 
@@ -128,7 +137,24 @@ def check_evernote_backup() -> dict:
     except Exception:
         return {"status": "WARN", "msg": "Cannot parse evernote_backup_state.json"}
 
+    # M-257: surface a recorded over-limit (or other) failure that is NEWER than
+    # the last success — otherwise an aborted run looks identical to "ran fine".
+    fail = state.get("last_evernote_failure", {})
     last = state.get("last_evernote_backup", {})
+    if fail:
+        fail_ts = fail.get("ts", "")
+        success_date = last.get("date", "")
+        # success date is YYYYMMDD; compare on date only (failure ts is ISO).
+        fail_date = fail_ts[:10].replace("-", "") if fail_ts else ""
+        if fail_date and fail_date >= success_date:
+            return {
+                "status": "WARN",
+                "msg": (f"Evernote backup FAILED ({fail.get('reason','unknown')}) "
+                        f"on {fail_date} — {fail.get('zip_size_mb','?')}MB > "
+                        f"{fail.get('limit_mb','?')}MB limit. No off-host copy written."),
+                "failure": fail,
+            }
+
     if not last:
         return {"status": "WARN", "msg": "No Evernote backup record found"}
 

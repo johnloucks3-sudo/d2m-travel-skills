@@ -1,0 +1,9 @@
+[
+  {
+    "method": "POST",
+    "url": "https://sam045jz07.execute-api.ap-southeast-2.amazonaws.com/rrwebapi-prod/v2/autocomplete/getdestinations",
+    "postData": "{\"keyword\":\"Venice\",\"userId\":188891,\"agencyId\":3380}",
+    "status": 200,
+    "responseSample": "{\"destinations\":[{\"id\":4225,\"destination\":\"Province of Venice, Province of Venice, Italy\",\"latitude\":45.43719,\"longitude\":12.33459,\"num_hotels\":1755,\"category\":\"Cities/Areas\",\"levenshtein\":14,\"score\":-82.02},{\"id\":7236,\"destination\":\"Venice, Veneto, Italy\",\"latitude\":45.434032,\"longitude\":12.338332,\"num_hotels\":1517,\"category\":\"Cities/Areas\",\"levenshtein\":9,\"score\":-84.175},{\"id\":1547077,\"destination\":\"Venice City Center, Venice, Veneto, Italy\",\"latitude\":45.43537,\"longitude\":12.333973,\"num_hotels\":352,\"category\":\"Cities/Areas\",\"levenshtein\":29,\"score\":-96.125},{\"id\":272282,\"destination\":\"Castello, Venice, Veneto, Italy\",\"latitude\":45.43468,\"longitude\":12.350914,\"num_hotels\":276,\"category\":\"Cities/Areas\",\"levenshtein\":19,\"score\":-96.835},{\"id\":272281,\"destination\":\"Cannaregio, Venice, Veneto, Italy\",\"latitude\":45.443825,\"longitude\":12.327037,\"num_hotels\":263,\"category\":\"Cities/Areas\",\"levenshtein\":21,\"score\":-96.975},{\"id\":272283,\"destination\":\"San Marco, Venice, Veneto, Italy\",\"latitude\":45.434284,\"longitude\":12.334924,\"num_hotels\":238,\"category\":\"Cities/Areas\",\"levenshtein\":20,\"score\":-97.22},{\"id\":1075124,\"destination\":\"Venice (VCE-Marco Polo), Italy\",\"latitude\":45.50462,\"longitude\":12.340189,\"num_hotels\":1364,\"category\":\"Airports\",\"levenshtein\":9,\"score\":-94.99834},{\"id\":1575385,\"destination\":\"Venice (VNC-Venice Municipal), FL, United States of America\",\"latitude\":27.078304,\"longitude\":-82.44088,\"num_hotels\":59,\"category\":\"Airports\",\"levenshtein\":9,\"score\":-99.348335},{\"i"
+  }
+]

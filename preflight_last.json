@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-06-10T06:50:03.502900",
+  "timestamp": "2026-06-20T16:00:19.186858",
   "overall": "GREEN",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 2400)"
+      "message": "Running (PID 757959)"
     },
     {
       "name": "Scheduler",
       "status": "GREEN",
-      "message": "Running (PID 1876)"
+      "message": "Running (PID 2495)"
     },
     {
       "name": "Telegram C2",
       "status": "GREEN",
-      "message": "Running (PID 13922)"
+      "message": "Running (PID 2545651)"
     },
     {
       "name": "Gmail Token",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "689.5 GB free"
+      "message": "144.3 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",

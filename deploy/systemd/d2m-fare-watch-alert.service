@@ -1,0 +1,16 @@
+[Unit]
+Description=D2M Fare Watch — Telegram Alert Hook (MISSION-145)
+# Runs AFTER ita_fare_watch_poll to consume freshly polled prices.
+# Also safe to run standalone (reads whatever current_price_pp is stored).
+After=network-online.target d2m-airline-monitor.service thunderbird-fare-sweep.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/fare_watch_alert.py
+StandardOutput=append:/home/john/Thunderbird/logs/fare_watch_alert.log
+StandardError=append:/home/john/Thunderbird/logs/fare_watch_alert.log
+TimeoutStartSec=60

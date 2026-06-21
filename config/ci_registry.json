@@ -32,7 +32,7 @@
       "latency_sla_ms": 90000,
       "fallback": "nodriver light lane; manual cookie re-capture via setup-browser-cookies",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:53:46.139311+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase",
@@ -57,7 +57,7 @@
       "latency_sla_ms": 15000,
       "fallback": "anansi --browser, then playwright headless (last resort)",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:53:46.139311+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -79,7 +79,7 @@
       "latency_sla_ms": 300000,
       "fallback": "managed agents API (dispatch_claude.py --managed)",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:53:46.139311+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -102,7 +102,7 @@
       "latency_sla_ms": 30000,
       "fallback": "manual re-auth via centrav_reauth.py / regent_oa_reauth.py",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:53:46.139311+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -124,7 +124,7 @@
       "latency_sla_ms": 60000,
       "fallback": "manual Dembe sweep via wind_staff.py dembe",
       "active_workaround": null,
-      "last_verified": "2026-06-20T13:53:46.139311+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown"
     },
@@ -147,7 +147,7 @@
       "latency_sla_ms": 120000,
       "fallback": "manual ci_sentinel.py --dry-run review",
       "active_workaround": null,
-      "last_verified": "2026-06-20T16:54:43.787094+00:00",
+      "last_verified": "2026-06-21T12:00:00.097681+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
       "doctrine": "F2T2EA: Find(overwatch scan)->Fix(pinpoint unit+bands)->Track(custody/cooldown)->Target(arm alert bird, clear-to-engage)->Engage(scramble managed agent, repair)->Assess(BDA re-scan). Pages Commander ONLY on escalation (sudo/spend/client-send).",

@@ -7,11 +7,8 @@ booking: 506101-26
 departure: 2027-05-05
 return: 2027-05-29
 parent_dossier: DOSSIER_Loucks_SilverNova_May2027.md
-
-# Payment signal only — dollar figures live solely in the parent (single source of truth = DOSSIER_Loucks_SilverNova_May2027.md).
 payment_status: deposit_only
 fpd: 2026-12-06
-
 status: active
 relationship: client
 doc_type: excursion_supplement
@@ -21,6 +18,7 @@ booked_excursions: "5 Silversea CONFIRMED ($990) + 4 Project Expedition PENDING 
 booked_verified_date: 2026-06-17
 booked_source: Silversea portal + Project Expedition portal (Commander pull)
 prices_note: "Silversea 'indicative' prices, per person, subject to change. Verify live in Silversea portal at booking."
+fpd_status: PENDING
 ---
 
 # EXCURSION PLAN — John & Susie Loucks | Silver Nova | May 5–29, 2027

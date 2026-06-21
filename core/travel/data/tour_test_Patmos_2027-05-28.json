@@ -1,0 +1,261 @@
+{
+  "dest": "Patmos",
+  "query": "patmos apocalyp monaster",
+  "date": "2027-05-28",
+  "scraped_at": "2026-06-17T11:12:03.628295",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "Patmos",
+    "query": "patmos apocalyp monaster",
+    "url": "https://www.getyourguide.com/s/?q=Patmos+patmos+apocalyp+monaster",
+    "scraped_at": "2026-06-17T11:12:03.975101",
+    "date_filter": "2027-05-28",
+    "tours": [
+      {
+        "name": "Monastery of St. John & Cave of the Apocalypse Tour",
+        "duration": "3.5 hours",
+        "rating": 4.7,
+        "review_count": null,
+        "price_pp": 35.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/patmos-l89366/patmos-monastery-of-st-john-cave-of-the-apocalypse-tour-t1021482/"
+      },
+      {
+        "name": "Explore Old Patmos: Guided Tour to Monasteries and Windmills",
+        "duration": "4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": 430.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/patmos-l89366/explore-old-patmos-guided-tour-to-monasteries-and-windmills-t432892/"
+      },
+      {
+        "name": "Certified by GetYourGuide",
+        "duration": "9 hours \u2022 Pickup available",
+        "rating": 4.2,
+        "review_count": 60,
+        "price_pp": 134.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/samos-l32496/from-samos-day-trip-to-patmos-island-and-bus-transfer-t150074/"
+      },
+      {
+        "name": "Patmos Religious Highlights Tour: Monastery, Cave & More",
+        "duration": "4 hours \u2022 Skip the line \u2022 Private group",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": 430.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/patmos-l89366/patmos-religious-highlights-tour-monastery-cave-more-t432951/"
+      },
+      {
+        "name": "Patmos Guide Tour to St. John Monastery, Cave of Apocalypse",
+        "duration": "3 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 6,
+        "price_pp": 383.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/patmos-l89366/patmos-guide-tour-to-st-john-monastery-cave-of-apocalypse-t432879/"
+      },
+      {
+        "name": "Izmir",
+        "duration": "Seven Churches of Revelation 4 Day Tour",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 1103.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/selcuk-l801/seven-churches-of-revelation-4-day-tour-t756971/"
+      },
+      {
+        "name": "Private Pathways of Faith: Patmos\u2019 Religious Heritage",
+        "duration": "4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 1188.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/patmos-l89366/private-pathways-of-faith-patmos-religious-heritage-t512282/"
+      },
+      {
+        "name": "Athens Private Helicopter Transfer Service",
+        "duration": "20 - 110 minutes \u2022 Skip the line \u2022 Private group",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 3355.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/athens-l91/from-athens-greek-islands-private-helicopter-transfer-t418411/"
+      },
+      {
+        "name": "Small Group Tour for Cruise Passengers",
+        "duration": "5 hours \u2022 Skip the line",
+        "rating": 4.8,
+        "review_count": 1396,
+        "price_pp": 29.0,
+        "original_price_pp": 39.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/private-ephesus-tour-half-day-from-izmir-or-kusadasi-t38158/"
+      },
+      {
+        "name": "Ephesus Private Tour with Turkish Bath Experience",
+        "duration": "1 day \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": 68.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/selcuk-l801/kusadasi-ephesus-private-tour-with-turkish-bath-experience-t822404/"
+      },
+      {
+        "name": "PRIVATE EPHESUS TOUR FOR CRUISERS: On-time Return Guaranteed",
+        "duration": "5 hours \u2022 Private group",
+        "rating": 4.8,
+        "review_count": 118,
+        "price_pp": 49.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/from-kusadasi-private-ephesus-tour-for-cruise-passengers-t174930/"
+      },
+      {
+        "name": "For Cruisers: Skip-the-Line Small Group Ephesus Tour",
+        "duration": "3.5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 824,
+        "price_pp": 23.0,
+        "original_price_pp": 27.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/kusadasi-ephesus-tour-with-entry-ticket-for-cruisers-t138671/"
+      },
+      {
+        "name": "Kusadasi: Ephesus, Mary's House Tour with Entry Tickets",
+        "duration": "5 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 69.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/selcuk-l801/kusadasi-ephesus-mary-s-house-tour-with-entry-tickets-t1337549/"
+      },
+      {
+        "name": "Private Ephesus, Virgin Mary Tour No Hidden Fees/Grp Option",
+        "duration": "4.5 - 6 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 649,
+        "price_pp": 87.0,
+        "original_price_pp": 109.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/privatesmall-group-ephesus-house-of-virgin-mary-tours-t202984/"
+      },
+      {
+        "name": "Traditional Boat Trip to Rina Cave from Panermos",
+        "duration": "2 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": 49,
+        "price_pp": 33.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panermos-l210860/naxos-2-hours-boat-trip-from-panermos-to-rina-s-cave-t906781/"
+      },
+      {
+        "name": "Kos Town",
+        "duration": "7.5 hours",
+        "rating": 4.8,
+        "review_count": 5363,
+        "price_pp": 35.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kos-l410/from-the-port-of-kos-full-day-boat-cruise-to-3-islands-t158052/"
+      },
+      {
+        "name": "Private Ephesus Bible Study Tour From Kusadasi Cruisers Only",
+        "duration": "7 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 65,
+        "price_pp": 25.0,
+        "original_price_pp": 50.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/private-ephesus-bible-study-tour-from-kusadasi-cruisers-only-t491436/"
+      },
+      {
+        "name": "Bodrum",
+        "duration": "6.5 hours",
+        "rating": 4.8,
+        "review_count": 1670,
+        "price_pp": 24.0,
+        "original_price_pp": 41.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/from-bodrum-full-day-orak-island-boat-trip-t103136/"
+      },
+      {
+        "name": "Ephesus & Mary's House Tour with ENTRY TICKETS",
+        "duration": "5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 56,
+        "price_pp": 94.0,
+        "original_price_pp": 115.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/izmir-l1082/top-choice-tour-ephesus-mary-s-house-with-ticketslunch-t225969/"
+      },
+      {
+        "name": "3-Island Cruise with Lunch and Hotel Transfer",
+        "duration": "8.5 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 243,
+        "price_pp": 54.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kos-l410/kos-3-island-cruise-with-lunch-and-hotel-transfers-t627892/"
+      },
+      {
+        "name": "Bodrum",
+        "duration": "Private Yacht Tour with Lunch for 6 Hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 397.0,
+        "original_price_pp": 497.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-yacht-tour-with-lunch-for-6-hours-t1340538/"
+      },
+      {
+        "name": "Kos Pirate Cruise: 3 Islands, Swimming Stops & Lunch",
+        "duration": "7.5 hours",
+        "rating": 4.6,
+        "review_count": 2675,
+        "price_pp": 27.0,
+        "original_price_pp": 30.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kos-l410/from-kos-3-island-pirate-cruise-with-lunch-and-waterslide-t395185/"
+      },
+      {
+        "name": "Kusadasi",
+        "duration": "5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 50,
+        "price_pp": 29.0,
+        "original_price_pp": 31.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/selcuk-l801/shore-excursions-half-day-ephesus-sirince-village-tour-t726589/"
+      },
+      {
+        "name": "Bodrum Airport( BJV):Private Transfer from Bodrum Airport",
+        "duration": "50 minutes - 1 hour \u2022 Private group",
+        "rating": 4.7,
+        "review_count": 48,
+        "price_pp": 72.0,
+        "original_price_pp": 75.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-airport-bjvprivate-transfer-from-bodrum-airport-t712368/"
+      }
+    ],
+    "total_found_estimate": "8 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_Patmos_2027-05-28.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

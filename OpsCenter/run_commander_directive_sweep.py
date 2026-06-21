@@ -88,6 +88,65 @@ def clean_subject(subj: str) -> str:
     import re as _re
     return _re.sub(r'^(re:|fwd?:|aw:)\s*', '', subj.strip(), flags=_re.IGNORECASE)
 
+def validate_authentication(headers: list) -> bool:
+    """
+    ⚠️  CRITICAL SECURITY: Verify Gmail authenticated this email.
+
+    The SMTP From header is forgeable. Gmail adds Authentication-Results
+    after verifying SPF/DKIM/DMARC. We check DKIM=pass to ensure the
+    message genuinely came from johnloucks3@gmail.com.
+
+    This is the fix for MISSION-254: spoofable-From trust boundary.
+    """
+    auth_results = ""
+    for h in headers:
+        if h.get("name", "").lower() == "authentication-results":
+            auth_results = h.get("value", "").lower()
+            break
+
+    if not auth_results:
+        # No Authentication-Results header — Gmail didn't authenticate this.
+        # This can happen for local/test emails, but for johnloucks3@gmail.com
+        # it should always be present. Log and reject.
+        log_line("  ⚠️  SECURITY: No Authentication-Results header found — rejecting")
+        return False
+
+    # Check for DKIM pass. Gmail's format: "...dkim=pass..." or "...dkim=PASS..."
+    if "dkim=pass" not in auth_results:
+        log_line(f"  ⚠️  SECURITY: DKIM authentication failed — rejecting | auth={auth_results[:100]}")
+        return False
+
+    return True
+
+def sanitize_prompt_input(text: str, max_len: int = 2000, field_name: str = "field") -> str:
+    """
+    Sanitize user input before interpolation into prompt.
+
+    Prevents prompt injection by:
+    1. Truncating to max_len (already done downstream, but explicit here)
+    2. Warning if input contains suspicious patterns
+    3. Escaping newlines so multi-line injections can't break prompt structure
+    """
+    if not text:
+        return ""
+
+    # Truncate
+    text = text[:max_len]
+
+    # Warn on suspicious patterns (don't block — just log)
+    suspicious = [
+        ("SYSTEM:", "system override attempt"),
+        ("WRITE ", "file write injection"),
+        ("--prompt", "prompt override"),
+        ("--model", "model override"),
+        ("execute", "command execution"),
+    ]
+    for pattern, reason in suspicious:
+        if pattern.lower() in text.lower():
+            log_line(f"  ⚠️  PROMPT_INJECTION_ATTEMPT ({field_name}): {reason} detected")
+
+    return text
+
 def has_command_prefix_in_subject(subj: str) -> bool:
     """Subject must START WITH COS/COO/HALE/VIC + any non-letter separator."""
     return bool(COMMAND_PATTERN.match(clean_subject(subj)))
@@ -196,7 +255,7 @@ try:
         try:
             msg_meta = service.users().messages().get(
                 userId="me", id=msg_id, format="metadata",
-                metadataHeaders=["From", "Subject", "Date"]
+                metadataHeaders=["From", "Subject", "Date", "Authentication-Results"]
             ).execute()
         except Exception as e:
             log_line(f"metadata fetch failed {msg_id}: {e}")
@@ -209,6 +268,14 @@ try:
 
         subject = hdrs.get("Subject", "")
         thread_id = msg_meta.get("threadId", msg_id)
+
+        # ⚠️  SECURITY FIX (MISSION-254): Verify Gmail authenticated this email
+        # before processing. The SMTP From header is forgeable; we check Gmail's
+        # Authentication-Results header to confirm the message genuinely came from
+        # johnloucks3@gmail.com via DKIM signature verification.
+        if not validate_authentication(msg_meta["payload"]["headers"]):
+            # Skip this message — not authenticated by Gmail
+            continue
 
         # Fetch full message — needed for body text and To/CC routing
         body_text = ""
@@ -272,11 +339,15 @@ try:
             out_file = ROOT / f"output/directive_{ts}.md"
             out_file.parent.mkdir(parents=True, exist_ok=True)
 
+            # ⚠️  SECURITY: Sanitize subject + body before prompt interpolation (MISSION-254)
+            safe_subject = sanitize_prompt_input(subject, max_len=200, field_name="subject")
+            safe_body = sanitize_prompt_input(body_text, max_len=2000, field_name="body")
+
             task_prompt = (
                 f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
                 f"John just emailed you:\n\n"
-                f"Subject: {subject}\n\n"
-                f"{body_text[:2000]}\n\n"
+                f"Subject: {safe_subject}\n\n"
+                f"{safe_body}\n\n"
                 f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
                 f"- If it's a task you will execute: start with 'Wilco —' then RESTATE the task in your own words so Commander knows you understood it correctly. One sentence.\n"
                 f"- If it's information or a question you're answering: start with 'Roger —' then RESTATE what was asked, then answer it.\n"
@@ -352,6 +423,18 @@ try:
                 d_msg_id_hdr = d_hdrs.get("Message-ID", "")
                 d_body = _decode_text(d_full["payload"])
 
+                # ⚠️  SECURITY FIX (MISSION-254): Verify Gmail authenticated this email
+                # before processing. The SMTP From header is forgeable; check Gmail's
+                # Authentication-Results header to confirm genuine DKIM signature.
+                if not validate_authentication(d_full["payload"]["headers"]):
+                    # Skip this message — not authenticated by Gmail
+                    if d2mc_label_id:
+                        d2mc_service.users().messages().modify(
+                            userId="me", id=d_msg_id,
+                            body={"addLabelIds": [d2mc_label_id]}
+                        ).execute()
+                    continue
+
                 # Reply ONLY to the Commander (johnloucks3). Do NOT reply to the wing's
                 # own d2mconcierge sends — that self-reply loop was the 2026-06-16 flood.
                 if "johnloucks3" not in d_from:
@@ -396,11 +479,15 @@ try:
                 out_file2 = ROOT / f"output/directive_{ts2}.md"
                 out_file2.parent.mkdir(parents=True, exist_ok=True)
 
+                # ⚠️  SECURITY: Sanitize subject + body before prompt interpolation (MISSION-254)
+                safe_d_subject = sanitize_prompt_input(d_subject, max_len=200, field_name="d2mc_subject")
+                safe_d_body = sanitize_prompt_input(d_body, max_len=2000, field_name="d2mc_body")
+
                 task_prompt2 = (
                     f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
                     f"Commander just emailed you:\n\n"
-                    f"Subject: {d_subject}\n\n"
-                    f"{d_body[:2000]}\n\n"
+                    f"Subject: {safe_d_subject}\n\n"
+                    f"{safe_d_body}\n\n"
                     f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
                     f"- If it's a task you will execute: start with 'Wilco —' then one sentence on what you're doing.\n"
                     f"- If it's information or a question you're answering: start with 'Roger —' then your answer.\n"

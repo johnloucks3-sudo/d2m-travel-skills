@@ -7,8 +7,22 @@ Provides 9-model spectrum analysis with Claude MAX synthesis
 
 import json
 import logging
+import os
+import sys
 from typing import List, Dict, Any
 from datetime import datetime
+
+# Per-call cost logging (MISSION-268). Logging died March 2026 → an April $153
+# Gemini spike went unseen. Re-wire the canonical writer into every model call.
+_REPO_ROOT = "/home/john/Thunderbird"
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+try:
+    from api.thunderbird_api_costs import log_api_call as _log_api_call
+except Exception as _e:  # never let cost-logging import break orchestration
+    logging.warning("cost logger unavailable (%s); calls will not be metered", _e)
+    def _log_api_call(*a, **k):
+        return 0.0
 
 # Set up logging
 logging.basicConfig(
@@ -74,7 +88,20 @@ class MultiModelOrchestrator:
             )
 
             result = response.choices[0].message.content
-            cost = response.usage.total_tokens * 0.0000002  # Estimate
+
+            # Meter the call (MISSION-268): record real token counts to api_cost_log.jsonl.
+            usage = getattr(response, "usage", None)
+            in_tok = getattr(usage, "prompt_tokens", 0) or 0
+            out_tok = getattr(usage, "completion_tokens", 0) or 0
+            logged = _log_api_call(
+                provider="openrouter", model=model_id,
+                input_tokens=in_tok, output_tokens=out_tok,
+                caller="multi_model_orchestrator", task="persona_analysis",
+                write_sheet=False,
+            )
+            # Use the priced estimate when the model is known; else the rough fallback.
+            cost = logged if logged else (getattr(usage, "total_tokens", 0) or 0) * 0.0000002
+            self.monthly_openrouter_spend += cost
 
             return {
                 "success": True,
@@ -111,6 +138,12 @@ class MultiModelOrchestrator:
             )
 
             if result.returncode == 0:
+                # Meter even $0 calls so volume is visible (MISSION-268).
+                _log_api_call(
+                    provider="anthropic_claude_max", model="claude-max-oauth",
+                    caller="multi_model_orchestrator", task="claude_max_synthesis",
+                    notes="$0 via OAuth", write_sheet=False,
+                )
                 return {
                     "success": True,
                     "result": result.stdout,

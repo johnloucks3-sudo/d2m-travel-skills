@@ -156,6 +156,7 @@ def spawn_headless_claude(
     mcp_config: str | None = None,
     extra_args: list[str] | None = None,
     system_prompt: str | None = None,
+    policy_pre_cleared: bool = False,
 ) -> Dict[str, Any]:
     mcp_config = mcp_config or "/home/john/.claude/mcp.json"
     extra_args = extra_args or []
@@ -238,7 +239,10 @@ def spawn_headless_claude(
 
     # ── POLICY GATE ─────────────────────────────────────────────────────────
     # a) Pre-spawn policy check — BLOCKS on actual violations, graceful on import error
-    if _POLICY_AVAILABLE and prompt:
+    # policy_pre_cleared=True: caller already validated the raw task (e.g. telegram gateway
+    # checked before persona-wrapping). Skip re-check to avoid false positives from persona
+    # context injecting client names that trip _NAME_RE. Audit-logged below.
+    if _POLICY_AVAILABLE and prompt and not policy_pre_cleared:
         try:
             _policy_res = check_spawn(prompt, model or "")
             if not _policy_res.allowed:
@@ -247,6 +251,8 @@ def spawn_headless_claude(
             raise  # Re-raise policy violations — they must block
         except Exception as _e:
             logger.warning(f"Policy check error (non-blocking): {_e}")
+    elif policy_pre_cleared:
+        logger.info(f"Policy pre-cleared by caller — skipping spawn check for task: {task_name}")
 
     # b) Settings-dir assertion — child must load the PROJECT PreToolUse hook
     try:

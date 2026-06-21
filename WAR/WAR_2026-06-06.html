@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jun 06–Jun 12, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jun 06–Jun 12, 2026</div>
+  <div class="header-meta">Auto-generated 2026-06-12 21:01 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>131</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$20,726</span>D2M Pipeline</div>
+  <div class="stat"><span>$30,118</span>Commission Expected</div>
+  <div class="stat"><span>$244.80</span>Received (TESS)</div>
+  <div class="stat"><span>24</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-06-06 → 2026-06-12 · 131 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-12</strong> — Wire deferred_alerts with trigger_date into daily brief generation <span style="color:#aaa;font-size:0.78rem;">(732dcffc)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-11</strong> — A7 Guard: FPD–payment-signal hard check in validate_dossier.py <span style="color:#aaa;font-size:0.78rem;">(bfb62292)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Harden FPD scanner: --today override + robust paid-skip vocabulary <span style="color:#aaa;font-size:0.78rem;">(009f4e2c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Brief + commission fixes: inbox-triage in AM brief, dedup, format, dead-recon repair <span style="color:#aaa;font-size:0.78rem;">(e15d9547)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-11</strong> — FIX: FPD scanner was blind — read empty dir, missed all client FPDs <span style="color:#aaa;font-size:0.78rem;">(b7da19ad)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-11</strong> — Fleet builds: Telegram media send (M-148 live) + client front-door (M-104 staged) <span style="color:#aaa;font-size:0.78rem;">(20241f09)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — A7 Fix: consecutive-failure backoff guard on portal_keepalive — close lockout risk <span style="color:#aaa;font-size:0.78rem;">(28481e97)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — Realtime staff-comments pipeline (Commander: fold staff comments into realtime) <span style="color:#aaa;font-size:0.78rem;">(7427d5b8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — SO: Kaizen + realtime staff comments + document-everything + agent capability — 8 Hales <span style="color:#aaa;font-size:0.78rem;">(b51f00cb)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — A7 Fix: Add auth-gate save guard — prevent silent-fail login from clobbering valid cookies <span style="color:#aaa;font-size:0.78rem;">(962d3e01)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — A7 Build: Fix portal session auth-gate detection — kill false EXPIRED alerts <span style="color:#aaa;font-size:0.78rem;">(b0f4bb62)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — SO: OODA Operating Loop — the wing's 24/7 heartbeat (Commander 2026-06-11) <span style="color:#aaa;font-size:0.78rem;">(780c0ba5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — SO: Auto-Execute Protocol (notify/5min/run/report) + cross-channel comms — 8 Hales <span style="color:#aaa;font-size:0.78rem;">(66874db9)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-11</strong> — Fix TESS keepalive self-heal: 30-SECOND threshold bug made it always skip <span style="color:#aaa;font-size:0.78rem;">(8c59db47)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-11</strong> — MISSION-188: ELON kill audit — reduce active missions 69 → 14 <span style="color:#aaa;font-size:0.78rem;">(9bde7ea4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Continuity cert close: 20/21 certified, board fully green, TESS self-healed <span style="color:#aaa;font-size:0.78rem;">(523c9fa0)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-10</strong> — Fix P2 heartbeat dead-path bug: || echo 000 doubled to 000000 -> false ALIVE <span style="color:#aaa;font-size:0.78rem;">(b9a9320b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — P5c certified + P2 off-box heartbeat (built+tested, staged for Commander push) <span style="color:#aaa;font-size:0.78rem;">(b0a3081a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — TESS auto-relogin SELF-HEALS — un-gates C1 + P3a, board fully green <span style="color:#aaa;font-size:0.78rem;">(768229bf)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 Cert: R1-R9 + P5b failure-injection certification complete <span style="color:#aaa;font-size:0.78rem;">(12c1cdc5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Recert: Commander-gate carve-out (goal addition #3) + neutralize p4a spam <span style="color:#aaa;font-size:0.78rem;">(27c8e1c4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 cert matrix: P3b/P4a/P4b/P5a updated to ✅ with post-fix evidence <span style="color:#aaa;font-size:0.78rem;">(e72c9c99)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 post-cert fixes: P4b kill-loop, P3b silent-skip, P5a missing-output <span style="color:#aaa;font-size:0.78rem;">(8a1df102)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7: Overnight continuity cert report — 6 certified, 2 implemented, 3 Commander-gated <span style="color:#aaa;font-size:0.78rem;">(dcea1fda)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7: Update cert matrix — P1/P3b/P4a/P4c/P5a/X1 reach CERTIFIED <span style="color:#aaa;font-size:0.78rem;">(1283015c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 Build: 24/7 continuity certification — P1/P3b/P4a-c/P5a-b/X1 <span style="color:#aaa;font-size:0.78rem;">(edb7aa8e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 remediation follow-up: malformed-draft cleanup tool + heartbeat secret scrub <span style="color:#aaa;font-size:0.78rem;">(85fa481a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — 24/7 continuity build plan + certification matrix + rollback snapshot <span style="color:#aaa;font-size:0.78rem;">(a049b5f5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 remediation: fix 9 failing services (lifecycle key bug, oauth tz, vault parse, sentinel rebuild) <span style="color:#aaa;font-size:0.78rem;">(1ff6db9c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Propagate 2026-06-10 SOs to all 8 Hale instantiations <span style="color:#aaa;font-size:0.78rem;">(b9707f8c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Governance: working-method SO (OODA + show-your-work) + liberal delegation authority <span style="color:#aaa;font-size:0.78rem;">(968aa1f1)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Governance: retire PRODUCTION-LOCK per Commander directive 2026-06-10 <span style="color:#aaa;font-size:0.78rem;">(d0a8299f)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-10</strong> — Fix MISSION-168: Root-cause thunderbird-overwatch crash loop with defensive imports <span style="color:#aaa;font-size:0.78rem;">(2a501012)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Persist EOD+incubator protocol across all Hale instantiations <span style="color:#aaa;font-size:0.78rem;">(3bec1f33)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-06-10</strong> — Session close: EOD brief + incubator design, Spencer voice diffs, system fixes <span style="color:#aaa;font-size:0.78rem;">(02180f7e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 Build: EOD brief engine — 4-section 1800 MT daily + 1730 nomination ping <span style="color:#aaa;font-size:0.78rem;">(7132454b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — A7 Build: Consolidated daily brief engine — retire 4-timer sprawl <span style="color:#aaa;font-size:0.78rem;">(f178d621)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-10</strong> — Fix gmail_create_draft_sync: route full HTML through _wrap_body_html() for CSS inlining <span style="color:#aaa;font-size:0.78rem;">(4411b6a0)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — KILL inbox flood: retire rogue echo scanner (email_scanner_fixed); trash 463 echoes <span style="color:#aaa;font-size:0.78rem;">(d1e3980f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-10</strong> — Defer concierge alias (Commander) — tracked as deferred P2; drafts stage correctly meanwhile <span style="color:#aaa;font-size:0.78rem;">(5ec8953f)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$20,725.67</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$30,117.57</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$244.80</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">24 of 203</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

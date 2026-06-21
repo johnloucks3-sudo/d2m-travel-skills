@@ -265,6 +265,23 @@ def create_backup_zip(
     zip_size = zip_path.stat().st_size
     if zip_size > MAX_ZIP_BYTES:
         zip_path.unlink(missing_ok=True)
+        # M-257 (Sterling 2026-06-20): a hard abort here produces ZERO off-host
+        # backup AND leaves last_evernote_backup.date untouched — the verifier
+        # cannot tell "no run today" from "ran-and-overflowed". Stamp a loud
+        # failure sentinel into state so the health check surfaces it instead of
+        # the failure being silent ("looks backed up, isn't").
+        try:
+            _state = load_state()
+            _state["last_evernote_failure"] = {
+                "status": "error",
+                "reason": "zip_over_limit",
+                "zip_size_mb": round(zip_size / 1024 / 1024, 1),
+                "limit_mb": round(MAX_ZIP_BYTES / 1024 / 1024, 1),
+                "ts": datetime.now(timezone.utc).isoformat(),
+            }
+            save_state(_state)
+        except Exception:
+            pass  # never let alert-bookkeeping mask the original error
         raise ValueError(
             f"Zip archive is {zip_size / 1024 / 1024:.1f} MB — exceeds "
             f"Evernote's 25 MB limit. Consider excluding large files."
@@ -722,6 +739,7 @@ def run_evernote_backup() -> dict:
     }
 
     state["last_evernote_backup"] = result
+    state.pop("last_evernote_failure", None)  # M-257: clear stale failure sentinel on success
     save_state(state)
 
     logger.info(f"Evernote backup complete: {note_title} → {EVERNOTE_EMAIL}")

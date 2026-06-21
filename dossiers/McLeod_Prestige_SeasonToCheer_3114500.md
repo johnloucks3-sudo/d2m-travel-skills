@@ -15,7 +15,7 @@ fpd_amount_verified_date: 2026-06-09
 fpd_amount_source: portal
 fpd_verified_date: 2026-06-09
 fpd_source: portal
-balance_due: 14598.00
+balance_due: None
 balance_due_verified_date: 2026-06-09
 balance_due_source: portal
 total_cost: 15098.00
@@ -26,6 +26,7 @@ status: active
 relationship: client
 completed_tps: []
 completed_tps_basis: "Deposit only ($500). FPD Jul-21-2027 future (~13 mo out). Nothing verifiably complete beyond deposit."
+fpd_status: PENDING
 ---
 
 # McLeod / McGlasson — Regent SS Prestige · Season to Cheer

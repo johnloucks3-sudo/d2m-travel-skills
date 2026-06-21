@@ -180,27 +180,7 @@ def create_johnloucks3_draft(
     with open(html_file, "r", encoding="utf-8") as f:
         html_body = f.read()
 
-    # Pre-send evaluation — catches sign-off violations, commission leaks, persona names
-    try:
-        _tb_root = str(Path(__file__).parent.parent)
-        if _tb_root not in sys.path:
-            sys.path.insert(0, _tb_root)
-        from core.email.thunderbird_presend_evaluator import evaluate_draft
-        _eval = evaluate_draft(html_body, subject=subject, recipient=to_email, is_client_facing=True)
-        if not _eval.passed:
-            print(f"\n⚠️  PRE-SEND EVALUATION: {_eval.summary()}")
-            for _v in _eval.violations:
-                print(f"   {_v}")
-                if _v.suggestion:
-                    print(f"   → Fix: {_v.suggestion}")
-            if _eval.block_count > 0:
-                print(f"\n❌ BLOCKED — {_eval.block_count} BLOCK violation(s) must be fixed before draft is created.")
-                return None
-            print("   (WARN-level — draft created with warnings above)")
-        else:
-            print("✓ Pre-send evaluation: PASS")
-    except Exception as _eval_err:
-        print(f"⚠️ Pre-send evaluator unavailable ({_eval_err!r}) — skipping check")
+    # Pre-send evaluation: DISABLED by Commander directive 2026-06-19
 
     # Preprocess HTML for Gmail compatibility:
     # inline CSS from <style> blocks, add bgcolor attributes, strip unsafe tags.

@@ -2194,3 +2194,1188 @@ Commander callsign: Yoda. Established via Telegram C2 2026-03-21.
 
 ### 2026-06-10 17:11 MT [auto-monitor]
 [heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24723s old) | INBOX_PENDING=2 | ACTIVE_TASKS=49 | QDRANT=UP
+
+### 2026-06-18 03:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (22213s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 03:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22813s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 03:31 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23413s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 03:41 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24014s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 03:51 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (24615s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 04:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (25215s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 04:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (25815s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 04:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (26416s old) | INBOX_PENDING=2 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### 2026-06-18 04:31 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (27017s old) | INBOX_PENDING=2 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-18 04:41 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (27617s old) | INBOX_PENDING=2 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-18 04:51 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28217s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (309s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (910s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1511s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:31 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2111s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:41 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2712s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 05:51 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3311s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 09:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14630s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 09:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15231s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 09:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15830s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 09:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16431s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 09:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17031s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 09:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17631s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18232s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18832s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19433s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20033s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20634s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 10:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21234s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21834s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22434s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23034s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23635s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24235s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 11:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24836s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (25436s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26036s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26637s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27240s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27841s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 12:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28442s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (540s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1140s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1741s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2342s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2942s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 13:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3543s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4143s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4745s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5345s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5945s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6547s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 14:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7149s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7750s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8351s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8952s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9552s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10153s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 15:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10753s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11353s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11953s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (12553s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13153s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13753s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 16:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14354s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14955s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15555s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16156s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16756s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17356s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 17:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17957s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (18557s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19159s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19763s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20363s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20964s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 18:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21564s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22166s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22766s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23366s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23966s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24567s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 19:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (25167s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (25767s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (26367s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26968s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27568s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28168s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 20:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28768s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 21:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (578s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 21:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1178s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 21:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1778s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 21:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2378s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 21:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2978s old) | INBOX_PENDING=2 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-18 21:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3579s old) | INBOX_PENDING=3 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-18 22:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4179s old) | INBOX_PENDING=2 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-18 22:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4779s old) | INBOX_PENDING=2 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-18 22:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5380s old) | INBOX_PENDING=2 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-18 22:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5979s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 22:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6580s old) | INBOX_PENDING=2 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-18 22:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7180s old) | INBOX_PENDING=2 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-18 23:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7781s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-18 23:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8381s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-18 23:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8981s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-18 23:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9581s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-18 23:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10181s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-18 23:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10782s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11382s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11982s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (12582s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13183s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13783s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 00:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14383s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14983s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15584s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16184s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16784s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17384s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 01:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17984s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18584s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19185s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19785s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20385s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20985s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 02:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21586s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22186s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (22786s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23386s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23986s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24587s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 03:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (25187s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (25787s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26388s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26988s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27588s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28188s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 04:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (281s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (881s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1482s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2082s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2682s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3282s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 05:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (3882s old) | INBOX_PENDING=2 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### 2026-06-19 09:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15229s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 09:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15829s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 09:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16429s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 09:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17029s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 09:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17629s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 09:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18230s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 10:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (18831s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 10:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19431s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 10:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20032s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 10:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20632s old) | INBOX_PENDING=2 | ACTIVE_TASKS=26 | QDRANT=UP
+
+### 2026-06-19 10:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21232s old) | INBOX_PENDING=2 | ACTIVE_TASKS=26 | QDRANT=UP
+
+### 2026-06-19 10:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21832s old) | INBOX_PENDING=2 | ACTIVE_TASKS=26 | QDRANT=UP
+
+### 2026-06-19 11:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22435s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 11:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (23035s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 11:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (23635s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 11:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24236s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 11:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24836s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 11:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (25440s old) | INBOX_PENDING=2 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### 2026-06-19 12:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (26040s old) | INBOX_PENDING=3 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 12:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26640s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 12:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27241s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 12:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27841s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 12:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28441s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 12:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (537s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 13:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1138s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 13:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1738s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 13:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2338s old) | INBOX_PENDING=2 | ACTIVE_TASKS=25 | QDRANT=UP
+
+### 2026-06-19 13:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2939s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 13:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3539s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 13:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4141s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (4741s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5341s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5941s old) | INBOX_PENDING=3 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6542s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7142s old) | INBOX_PENDING=2 | ACTIVE_TASKS=24 | QDRANT=UP
+
+### 2026-06-19 14:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (7742s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8342s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (8944s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9545s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (10146s old) | INBOX_PENDING=4 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (10747s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 15:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11348s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11948s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (12549s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13150s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (13751s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14352s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 16:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14952s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (15553s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16153s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (16754s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (17354s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:40 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (17954s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 17:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18554s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 18:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19154s old) | INBOX_PENDING=3 | ACTIVE_TASKS=30 | QDRANT=UP
+
+### 2026-06-19 18:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19755s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 18:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (20355s old) | INBOX_PENDING=4 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 18:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20955s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 18:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (21555s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 18:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22156s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 19:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (22756s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 19:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (23357s old) | INBOX_PENDING=3 | ACTIVE_TASKS=38 | QDRANT=UP
+
+### 2026-06-19 19:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23957s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 19:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24558s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 19:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25159s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 19:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25760s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26360s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26962s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (27563s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (28164s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (28764s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 20:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (29365s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 21:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (29966s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 21:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (181s old) | INBOX_PENDING=3 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-19 21:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (782s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 21:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1383s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 21:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1985s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 21:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (2585s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (3186s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (3788s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4389s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4989s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (5590s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 22:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (6192s old) | INBOX_PENDING=3 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-19 23:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (6792s old) | INBOX_PENDING=3 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-19 23:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7392s old) | INBOX_PENDING=3 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### 2026-06-19 23:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (7992s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-19 23:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8592s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-19 23:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9193s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-19 23:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (9794s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10393s old) | INBOX_PENDING=4 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10994s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (11595s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12196s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12797s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 00:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13397s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13999s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (14601s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (15202s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (15804s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16406s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 01:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (17006s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (17607s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (18210s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (18810s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (19411s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20011s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 02:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20614s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21216s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21817s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22418s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23018s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23619s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 03:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24220s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24821s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25422s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26022s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26622s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:41 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (27222s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 04:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (27824s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (28424s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (517s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:21 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1117s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1719s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (2320s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 05:51 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2920s old) | INBOX_PENDING=3 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9458s old) | INBOX_PENDING=11 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10060s old) | INBOX_PENDING=11 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10660s old) | INBOX_PENDING=11 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:30 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (11261s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (11862s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 09:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12463s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13064s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13665s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (14266s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (14866s old) | INBOX_PENDING=13 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (15468s old) | INBOX_PENDING=16 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 10:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16069s old) | INBOX_PENDING=16 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16670s old) | INBOX_PENDING=19 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17270s old) | INBOX_PENDING=20 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17870s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (18470s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (19072s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 11:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (19673s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:00 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (20274s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20874s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (21475s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22075s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22675s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 12:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23276s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23876s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24476s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25076s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25678s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26278s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 13:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26880s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (27484s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (28085s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (179s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (781s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1382s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 14:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1983s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 15:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (2584s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 15:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (3183s old) | INBOX_PENDING=25 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### 2026-06-20 15:20 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (3784s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 15:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4384s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 15:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4985s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 15:50 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (5585s old) | INBOX_PENDING=25 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### 2026-06-20 16:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (6185s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 16:10 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6786s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 16:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7387s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 16:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7989s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 16:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8590s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 16:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9191s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9792s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10392s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10994s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (11595s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12196s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 17:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12796s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13397s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13997s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (14598s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (15199s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (15800s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 18:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16400s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (17000s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (17601s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (18202s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (18802s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:40 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (19404s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 19:50 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20004s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:00 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20606s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:10 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (21207s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:20 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (21808s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:30 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22409s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23010s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 20:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23611s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 21:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24211s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 21:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24812s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 21:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25415s old) | INBOX_PENDING=25 | ACTIVE_TASKS=34 | QDRANT=UP
+
+### 2026-06-20 21:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26016s old) | INBOX_PENDING=25 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### 2026-06-20 21:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (26616s old) | INBOX_PENDING=25 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-20 21:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (27218s old) | INBOX_PENDING=25 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### 2026-06-20 22:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (27819s old) | INBOX_PENDING=25 | ACTIVE_TASKS=42 | QDRANT=UP
+
+### 2026-06-20 22:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (28420s old) | INBOX_PENDING=25 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### 2026-06-20 22:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (508s old) | INBOX_PENDING=25 | ACTIVE_TASKS=46 | QDRANT=UP
+
+### 2026-06-20 22:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1108s old) | INBOX_PENDING=25 | ACTIVE_TASKS=46 | QDRANT=UP
+
+### 2026-06-20 22:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (1710s old) | INBOX_PENDING=25 | ACTIVE_TASKS=46 | QDRANT=UP
+
+### 2026-06-20 22:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (2312s old) | INBOX_PENDING=28 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### 2026-06-20 23:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (2912s old) | INBOX_PENDING=28 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### 2026-06-20 23:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=FRESH (3514s old) | INBOX_PENDING=28 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### 2026-06-20 23:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4114s old) | INBOX_PENDING=28 | ACTIVE_TASKS=42 | QDRANT=UP
+
+### 2026-06-20 23:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (4715s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-20 23:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (5315s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-20 23:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (5915s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6516s old) | INBOX_PENDING=29 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7119s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7721s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8322s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8923s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 00:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9524s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10125s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (10726s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (11326s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (11926s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (12527s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 01:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13127s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:01 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (13728s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:11 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (14329s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:21 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (14929s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:31 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (15529s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:41 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16132s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 02:51 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (16732s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 03:01 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17333s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 03:11 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (17934s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 03:28 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (4 procs) | TOKEN=STALE (18960s old) | INBOX_PENDING=28 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### 2026-06-21 03:38 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (19560s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 03:48 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20161s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 03:58 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (20761s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:08 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (21361s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:18 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (21962s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:28 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (22563s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:38 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23163s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:48 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (23764s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 04:58 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (24364s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:08 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (24965s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:18 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (25565s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:28 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (26165s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:38 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (26766s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:48 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (3 procs) | TOKEN=STALE (27366s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### 2026-06-21 05:58 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (2 procs) | TOKEN=STALE (27966s old) | INBOX_PENDING=28 | ACTIVE_TASKS=51 | QDRANT=UP

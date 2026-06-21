@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-06-18T16:06:06.438919",
+  "articles_scanned": 21,
+  "route_change_articles": 21,
+  "client_impacts": 4,
+  "critical_impacts": 4,
+  "impacts": [
+    {
+      "severity": "CRITICAL",
+      "client": "Westbrook",
+      "airport": "SEA",
+      "airline_match": [
+        "united",
+        "delta",
+        "alaska"
+      ],
+      "title": "A Long, Tortured History of Airlines Trying to Win LAX",
+      "summary": "There are dominant airlines in nearly every airport in the US, even those that are the most competitive. You have Delta at LaGuardia and JFK, United at Newark and Chicago/O\u2019Hare, Alaska in Seattle, and the list goes on. But there is one airport that nobody has ever been able to conquer, and that\u2019s Los Angeles...",
+      "url": "https://crankyflier.com/2026/06/09/a-long-tortured-history-of-airlines-trying-to-win-lax/",
+      "source": "Cranky Flier",
+      "published": "Tue, 09 Jun 2026 10:45:00 +0000"
+    },
+    {
+      "severity": "CRITICAL",
+      "client": "Justin Loucks",
+      "airport": "COS",
+      "airline_match": [
+        "spirit"
+      ],
+      "title": "The Spirit is Gone",
+      "summary": "In the past, we\u2019ve seen airlines seemingly shut down out of nowhere. Spirit was not that airline. After years of declining fortunes, the airline went through two bankruptcy stints and a near-herculean effort by its management team to save the airline. In the end, the pioneer of the ultra low cost model in the US...",
+      "url": "https://crankyflier.com/2026/05/04/the-spirit-is-gone/",
+      "source": "Cranky Flier",
+      "published": "Mon, 04 May 2026 10:45:00 +0000"
+    },
+    {
+      "severity": "CRITICAL",
+      "client": "Ryan Loucks",
+      "airport": "COS",
+      "airline_match": [
+        "spirit"
+      ],
+      "title": "The Spirit is Gone",
+      "summary": "In the past, we\u2019ve seen airlines seemingly shut down out of nowhere. Spirit was not that airline. After years of declining fortunes, the airline went through two bankruptcy stints and a near-herculean effort by its management team to save the airline. In the end, the pioneer of the ultra low cost model in the US...",
+      "url": "https://crankyflier.com/2026/05/04/the-spirit-is-gone/",
+      "source": "Cranky Flier",
+      "published": "Mon, 04 May 2026 10:45:00 +0000"
+    },
+    {
+      "severity": "CRITICAL",
+      "client": "Westbrook",
+      "airport": "COS",
+      "airline_match": [
+        "spirit"
+      ],
+      "title": "The Spirit is Gone",
+      "summary": "In the past, we\u2019ve seen airlines seemingly shut down out of nowhere. Spirit was not that airline. After years of declining fortunes, the airline went through two bankruptcy stints and a near-herculean effort by its management team to save the airline. In the end, the pioneer of the ultra low cost model in the US...",
+      "url": "https://crankyflier.com/2026/05/04/the-spirit-is-gone/",
+      "source": "Cranky Flier",
+      "published": "Mon, 04 May 2026 10:45:00 +0000"
+    }
+  ]
+}

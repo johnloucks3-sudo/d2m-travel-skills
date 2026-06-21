@@ -8,15 +8,45 @@ Hale Visual Briefs available at /briefs/{date}/ endpoints
 """
 
 import json
+import secrets
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from jinja2 import Environment, FileSystemLoader
 import uvicorn
 
-app = FastAPI(title="D2M Dashboard + Hale Briefs", version="2.0")
+# Interactive docs disabled — this app is public (Cloudflare-fronted). No /docs, /redoc,
+# or /openapi.json schema exposure of internal routes (MISSION-258).
+app = FastAPI(
+    title="D2M Dashboard + Hale Briefs",
+    version="2.0",
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None,
+)
+
+# ── HTTP Basic Auth ──────────────────────────────────────────────────────────
+_security = HTTPBasic()
+_SITE_USER = "john"
+_SITE_PASS = "535277-yoda-grandeur"  # change via env D2M_DASH_PASS
+
+def _require_auth(creds: HTTPBasicCredentials = Depends(_security)):
+    import os
+    expected_pass = os.getenv("D2M_DASH_PASS", _SITE_PASS)
+    ok = (
+        secrets.compare_digest(creds.username.encode(), _SITE_USER.encode()) and
+        secrets.compare_digest(creds.password.encode(), expected_pass.encode())
+    )
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic realm='D2M Internal'"},
+        )
+    return creds.username
 
 # Paths
 ROOT = Path(__file__).resolve().parent.parent.parent.parent
@@ -33,7 +63,7 @@ jinja_env = Environment(loader=FileSystemLoader(TEMPLATES))
 
 
 @app.get("/")
-async def dashboard():
+async def dashboard(_user: str = Depends(_require_auth)):
     """Serve the dashboard HTML."""
     dashboard_file = TEMPLATES / "dashboard.html"
     if not dashboard_file.exists():
@@ -42,7 +72,7 @@ async def dashboard():
 
 
 @app.get("/api/health")
-async def health():
+async def health(_user: str = Depends(_require_auth)):
     """Health check endpoint."""
     return JSONResponse({
         "status": "ok",
@@ -53,7 +83,7 @@ async def health():
 
 
 @app.get("/api/data/phase1")
-async def get_phase1_data():
+async def get_phase1_data(_user: str = Depends(_require_auth)):
     """Fetch fresh phase1_data.json with timestamp."""
     if not PHASE1_DATA.exists():
         raise HTTPException(status_code=404, detail="phase1_data.json not found")
@@ -70,7 +100,7 @@ async def get_phase1_data():
 
 
 @app.get("/api/data/phase2")
-async def get_phase2_data():
+async def get_phase2_data(_user: str = Depends(_require_auth)):
     """Fetch fresh phase2_data.json with timestamp."""
     if not PHASE2_DATA.exists():
         raise HTTPException(status_code=404, detail="phase2_data.json not found")
@@ -100,7 +130,7 @@ def load_brief_snapshot(date_str: str) -> dict:
 
 
 @app.get("/briefs/{date}/")
-async def brief_landing(date: str):
+async def brief_landing(date: str, _user: str = Depends(_require_auth)):
     """Landing page with links to all 4 brief visuals."""
     brief_data = load_brief_snapshot(date)
     html = f"""
@@ -198,7 +228,7 @@ async def brief_landing(date: str):
 
 
 @app.get("/briefs/{date}/lifecycle-wheel/")
-async def brief_lifecycle_wheel(date: str):
+async def brief_lifecycle_wheel(date: str, _user: str = Depends(_require_auth)):
     """Render lifecycle wheel visual."""
     brief_data = load_brief_snapshot(date)
     template = jinja_env.get_template("brief_lifecycle_wheel.html")
@@ -207,7 +237,7 @@ async def brief_lifecycle_wheel(date: str):
 
 
 @app.get("/briefs/{date}/financial-waterfall/")
-async def brief_financial_waterfall(date: str):
+async def brief_financial_waterfall(date: str, _user: str = Depends(_require_auth)):
     """Render financial waterfall visual."""
     brief_data = load_brief_snapshot(date)
     template = jinja_env.get_template("brief_financial_waterfall.html")
@@ -216,7 +246,7 @@ async def brief_financial_waterfall(date: str):
 
 
 @app.get("/briefs/{date}/task-heatmap/")
-async def brief_task_heatmap(date: str):
+async def brief_task_heatmap(date: str, _user: str = Depends(_require_auth)):
     """Render task heat map visual."""
     brief_data = load_brief_snapshot(date)
     template = jinja_env.get_template("brief_task_heatmap.html")
@@ -225,7 +255,7 @@ async def brief_task_heatmap(date: str):
 
 
 @app.get("/briefs/{date}/risk-matrix/")
-async def brief_risk_matrix(date: str):
+async def brief_risk_matrix(date: str, _user: str = Depends(_require_auth)):
     """Render risk matrix visual."""
     brief_data = load_brief_snapshot(date)
     template = jinja_env.get_template("brief_risk_matrix.html")

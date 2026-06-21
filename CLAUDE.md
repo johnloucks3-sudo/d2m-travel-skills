@@ -108,18 +108,20 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 > *"Commander, [product] is ready in your drafts for review and send."*
 **No persona, tool, script, MCP call, workflow state, or approval grants the Wing execution authority for client sends.** This is a prohibition, not a gate. SO: `standing_orders/SO_WF17_CLIENTSEND_PROHIBITION_20260530.md`
 
-## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION & ROUTING (Standing Order 24 MAR 2026, Updated 30 MAY 2026)
-**MCP gmail_token.json authenticates d2mconcierge. Client-facing emails use concierge@d2mluxury.quest as Send-As alias on d2mconcierge.**
+## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION & ROUTING (SO 24 MAR 2026, Updated 30 MAY 2026, **Revised 20 JUN 2026 — client drafts stage in johnloucks3, send-as concierge**)
+**MCP gmail_token.json authenticates d2mconcierge. `concierge@d2mluxury.quest` is a VERIFIED send-as alias on BOTH d2mconcierge AND johnloucks3 — so a client email can be reviewed/sent from johnloucks3 while still carrying the D2M brand identity.**
 
-| Email type | Draft created in | Send from |
+| Email type | Draft staged in | From (send identity) |
 |---|---|---|
-| D2M client products (validation, proposals, itineraries) | d2mconcierge — label THUNDERBIRD-Commander-Review | Commander sends from d2mconcierge |
-| Pro bono / D2M-adjacent business (research, vendor contact) | d2mconcierge — label THUNDERBIRD-Commander-Review | Commander sends from d2mconcierge |
-| Personal non-D2M (classmate assist, family, friends) | johnloucks3 — label WING-PERSONAL-DRAFT | Commander sends from johnloucks3 |
+| **D2M client products (lifecycle TPs, validation, proposals, itineraries)** | **johnloucks3** — where Commander actually reviews/comments/sends | **johnloucks3@gmail.com (FOR NOW)** · Reply-To johnloucks3 |
+| Pro bono / D2M-adjacent business (research, vendor contact) | **johnloucks3** | **johnloucks3@gmail.com (FOR NOW)** · Reply-To johnloucks3 |
+| Personal non-D2M (classmate assist, family, friends) | johnloucks3 — label WING-PERSONAL-DRAFT | johnloucks3 (personal) |
 | D2M-to-Chief internal (reports, briefs, intel) | FULL SEND to johnloucks3 inbox — no draft step | Wing sends directly |
 
-**Routing rule:** Check email type first → route to correct account → apply correct sig block. Full SO: `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
-**Draft routing SO (2026-06-14):** `standing_orders/SO_DRAFT_ROUTING_20260614.md` — johnloucks3 draft requires explicit Commander OK; internal comms = direct send always; see AGENTS.md Hard Rule #1.
+> **⚠️ DELIVERABILITY OVERRIDE (Commander directive 2026-06-20):** Client drafts send AS **johnloucks3@gmail.com**, NOT the concierge send-as — **for now**. `concierge@d2mluxury.quest` was REFUSED by iCloud/me.com (Amy Darrow's Scandinavia voyage email bounced), while the johnloucks3-sent insurance email to the same address delivered and got a reply. gmail delivers; d2mluxury.quest has an SPF/DKIM/DMARC gap at strict providers. Revert to concierge send-as only after domain auth is fixed.
+
+**Why drafts live in johnloucks3 (20 JUN 2026):** Commander reviews/sends only from johnloucks3 ("can't comment in d2m drafts, no formatting"). Drafts move to where the Commander works. (The send-as concierge identity was the original plan but is paused for the deliverability reason above.)
+**Routing rule:** Check email type → stage in correct account → set From per table → apply sig block. SO: `standing_orders/SO_TP_DRAFT_ROUTING_20260620.md` (supersedes the d2mconcierge-only routing for client products). Prior: `SO_EMAIL_RULES_UPDATE_20260530.md`, `SO_DRAFT_ROUTING_20260614.md`.
 
 ## ⚠️ HARD RULE — EMAIL SIGNATURE BLOCK STANDARDS (Standing Order 2026-05-30)
 **Full SO:** `standing_orders/SO_EMAIL_RULES_UPDATE_20260530.md`
@@ -317,9 +319,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-20 11:15 MT -->
+<!-- Last sync: 2026-06-21 06:29 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-20 11:15 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-21 06:29 MT] ===
 Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

@@ -1,0 +1,49 @@
+# .gitleaks.toml — Thunderbird Wing
+# MISSION-261 | A7 Sterling | 2026-06-16
+#
+# PHILOSOPHY: Allow-lists are NARROW and JUSTIFIED. Every entry here is a
+# deliberate decision that a specific pattern is NOT a live secret.
+# Adding an entry to silence a CI failure without rotating the credential is
+# a process violation — flag to A7 Sterling for review.
+#
+# To add an entry: open a finding, state why it is a false positive, get A7 sign-off.
+# Metric: allowlist entries <= 5. Currently: 1. Red threshold: >10.
+
+title = "Thunderbird Wing — gitleaks config"
+
+[extend]
+# Use gitleaks default ruleset as the base. Extend, do not replace.
+useDefault = true
+
+[[allowlists]]
+  description = "PKCE code_verifier in d2mc_pkce_verifier.json — one-time OAuth challenge value, not a persistent credential. Rotated per OAuth flow; value is mathematically derived from code_challenge (public)."
+  paths = [
+    '''config/d2mc_pkce_verifier\.json''',
+  ]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KNOWN TRUE POSITIVES — NOT allowlisted. Rotate these credentials:
+#
+#   OpsCenter/stress_test.py:15
+#     DeepSeek API key hardcoded: sk-18395156302c46a89b6006ea05e343ad
+#     Fix: DEEPSEEK_API_KEY env var + rotate key at platform.deepseek.com
+#
+#   OpsCenter/pinecone_ingest_master.py + OpsCenter/pinecone_test.py
+#     Pinecone key as os.environ default fallback: pcsk_2c9uif_...
+#     Fix: remove the default= value; key must come from env only
+#
+#   intel/thunderbird_zfold_test.py + core/intel/thunderbird_incubator.py
+#     AUTH_TOKEN / ALLM_KEY hardcoded
+#     Fix: move to env vars; rotate at source
+#
+#   core/communication/thunderbird_whatsapp.py
+#     AUTH_TOKEN hardcoded
+#     Fix: env var
+#
+#   comms/x_follow_accounts.py
+#     REST_API_KEY hardcoded (tMnUBUef...)
+#     Fix: env var
+#
+# These will cause gitleaks CI to FAIL until rotated. That is correct behavior.
+# Do not add them to this allowlist — fix the source.
+# ─────────────────────────────────────────────────────────────────────────────

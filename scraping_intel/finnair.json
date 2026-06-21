@@ -1,0 +1,24 @@
+{
+  "site": "finnair.com",
+  "purpose": "Manage Booking — seat assignment / travel extras",
+  "manage_booking_url": "https://www.finnair.com/en/manage",
+  "retrieve_form": {
+    "booking_reference_field": "testid=recLoc input",
+    "family_name_field": "testid=lastName input",
+    "submit": "testid=pnr-widget-submit-button"
+  },
+  "automation_status": "BLOCKED",
+  "block_signature": "Imperva/Incapsula bot-defense. Headless Chrome (port 9222 HeadlessChrome UA) is fingerprinted. Backend booking-lookup API returns 'Something went wrong while searching for your booking.' A <div id=\"sec-overlay\"> intercepts all pointer events after submit. 'Hang tight... We're working on your request' challenge iframe with countdown spins indefinitely.",
+  "verified": "2026-06-11 by Hale (CC) — Furlow BB4X94 + 'Furlow', correct PNR per dossier, still walled.",
+  "evidence": "furlow_finnair_botblock_20260611.png",
+  "guidance": [
+    "Headless Playwright will NOT pass. Needs a real (headed) browser with genuine fingerprint, OR a stealth/residential browser, OR a human session.",
+    "For AA-ISSUED tickets on Finnair-operated codeshare (AA 9018 / AY 811), seat control belongs to AMERICAN AIRLINES, not Finnair. Use aa.com 'Your trips' with the AA PNR, or call AA reservations 800-433-7300. Finnair's site often cannot pull an AA-issued PNR at all.",
+    "Finnair record locator (e.g. BB4X94 Furlow) is distinct from the AA PNR (CKZHXA). Nichols had a separate Finnair PNR (BERJYH); Ely/Darrow has NO Finnair PNR (booked direct on AA, UXVXZP) — Ely must go through AA."
+  ],
+  "related_clients": {
+    "Furlow": {"aa_pnr": "CKZHXA", "finnair_pnr": "BB4X94", "gap": "AY 811 HEL->ARN unassigned; DFW->HEL seat #s unconfirmed"},
+    "Ely_Darrow": {"aa_pnr": "UXVXZP", "finnair_pnr": null, "gap": "AY 811 HEL->ARN unassigned"},
+    "Nichols": {"aa_pnr": "DSTAGH", "finnair_pnr": "BERJYH", "gap": "outbound DONE (2D/2F); return seats missing (nice-to-have)"}
+  }
+}

@@ -596,7 +596,7 @@ def classify_email(subject: str, sender: str, body_preview: str) -> str:
             f"From: {sender}\nSubject: {subject}\n\nBody preview:\n{body_preview[:800]}"
         )
 
-        raw = _call_claude(system, prompt, max_tokens=20, model="sonnet")
+        raw = _call_claude(system, prompt, max_tokens=20, model="haiku")
         category = raw.strip().lower().split()[0] if raw.strip() else "personal"
 
         # Validate against known categories

@@ -80,6 +80,23 @@ logging.basicConfig(
 logger = logging.getLogger("thunderbird_daily_brief")
 
 # ---------------------------------------------------------------------------
+# PERSONA HEARTBEAT INTEGRATION
+# ---------------------------------------------------------------------------
+def _collect_persona_sections() -> list:
+    """Pull HTML sections from all staff heartbeats without triggering individual emails."""
+    try:
+        # core/email must precede api/ — heartbeat needs core/email/thunderbird_gmail.py
+        for p in [str(THUNDERBIRD_DIR / "core" / "email"),
+                  str(THUNDERBIRD_DIR / "core" / "watchtower")]:
+            if p not in sys.path:
+                sys.path.insert(0, p)
+        from thunderbird_heartbeat import collect_all_persona_sections
+        return collect_all_persona_sections()
+    except Exception as e:
+        logger.warning(f"Persona section collection failed (non-fatal): {e}")
+        return []
+
+# ---------------------------------------------------------------------------
 # TIMEZONE HELPER
 # ---------------------------------------------------------------------------
 
@@ -734,6 +751,7 @@ def build_html_brief(
     incubator_proposal: str,
     feedback_items: list,
     concierge_inbox: dict | None = None,
+    persona_sections: list | None = None,
 ) -> str:
     """Build the full cream/blue/navy HTML brief."""
 
@@ -960,6 +978,25 @@ def build_html_brief(
         f'</div>'
     )
 
+    # ── STAFF REPORTS ─────────────────────────────────────────────────────────
+    if persona_sections:
+        persona_html = ""
+        for label, content in persona_sections:
+            # Strip tables/lists down to a 2-3 line summary + "see full report" link
+            # Wrap each persona in a collapsible-style block
+            persona_html += (
+                f'<div style="margin-bottom:10px;border-left:3px solid {NAVY};'
+                f'padding:6px 12px;background:#f0eee8;">'
+                f'<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;'
+                f'color:{NAVY};letter-spacing:1px;margin-bottom:4px;">'
+                f'{label.upper()}</div>'
+                f'<div style="font-family:Georgia,serif;font-size:9.5pt;color:{TEXT_DARK};">'
+                f'{content}'
+                f'</div>'
+                f'</div>'
+            )
+        sections.append(_section_header("STAFF REPORTS") + persona_html)
+
     # ── FOOTER ────────────────────────────────────────────────────────────────
     footer = (
         f'<div style="margin-top:20px;padding:14px 28px;background:{NAVY};'
@@ -1131,6 +1168,10 @@ def main():
     logger.info("  Incubator proposals (3 candidates)...")
     incubator_proposal = generate_incubator_proposals(n=3)  # Commander directive 2026-06-11: increase candidates
 
+    logger.info("  Staff persona reports...")
+    persona_sections = _collect_persona_sections()
+    logger.info(f"    {len(persona_sections)} staff sections with content")
+
     # ── STEP 3: BUILD HTML ────────────────────────────────────────────────────
     logger.info("Step 3: Building HTML brief...")
     html = build_html_brief(
@@ -1145,6 +1186,7 @@ def main():
         incubator_proposal=incubator_proposal,
         feedback_items=feedback_items,
         concierge_inbox=concierge_inbox,
+        persona_sections=persona_sections,
     )
     logger.info(f"  HTML built: {len(html):,} bytes")
 

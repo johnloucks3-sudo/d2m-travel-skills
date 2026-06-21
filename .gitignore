@@ -153,6 +153,28 @@ state/firefox_rssc_prod/
 state/firefox_profile_test/
 core/travel/data/centrav_ff_profile/
 
+# ── SECURITY 2026-06-21 — close path gaps that left plaintext secrets untracked-but-not-ignored ──
+# Prior rules listed infra/itinerary_passwords.txt and config/roboform_*.txt,
+# but the live files sit at repo root and use .md — neither was actually ignored.
+itinerary_passwords.txt
+config/roboform_credentials.md
+config/roboform_*.md
+.rclone_sync.log.tmp
+*.log.tmp
+
+# ── SECURITY 2026-06-21 — gitleaks-flagged artifacts (embedded tokens/keys; never committed) ──
+# Scraped portal HTML carries live session tokens; capture fixtures + n8n exports + archived
+# eml.b64 carry auth headers; the OAuth helper scripts have hardcoded client secrets (remediate→env).
+validations/rssc_scrape/
+drafts/_culled_archive_20260620/
+core/travel/_roomres_capture_fixture.json
+deploy/n8n/wf17_autonomy_gate.json
+OpsCenter/scripts/trigger_gate_deliberation.py
+scripts/d2mconcierge_oauth_reauth.py
+scripts/d2mc_oauth_exchange.py
+scripts/exchange_gmail_token.py
+scripts/apps_script/gmail_hud/hud_config.gs
+
 # Removed broken gitlinks 2026-06-18
 Blackboard/
 mcps/foursquare/foursquare-repo/

@@ -91,7 +91,12 @@ def _load_fare_watches() -> List[Dict[str, Any]]:
         return []
     try:
         data = json.loads(FARE_WATCHES_FILE.read_text())
-        return data.get("watches", [])
+        # Support both old nested format {"watches": [...]} and new flat format {watch_id: {...}, ...}
+        if "watches" in data:
+            return data.get("watches", [])
+        else:
+            # Flat structure: just convert all values to a list
+            return list(data.values())
     except Exception as exc:
         log.error("Failed to load fare watches: %s", exc)
         return []

@@ -1,0 +1,16 @@
+{
+  "ts": "2026-06-14T13:31:20.289664",
+  "total_decisions": 18,
+  "sampled": 1,
+  "theater": 0,
+  "mission_linked": 1,
+  "operational": 0,
+  "sample": [
+    {
+      "ts": "2026-06-14 13:28:04",
+      "title": "Autonomous Decision (Tier T1)",
+      "full_text": "Autonomous Decision (Tier T1) **Decision:** Mission board promoter \u2014 2 P2 mission(s) promoted to P1 (age \u226521d)\n  - MISSION-007: Looker Studio Dashboard Implementation (30d old)\n  - MISSION-034: Explora Journeys Competitive Intelligence Deep Dive (26d old)\n**Domain:** Mission board / Backlog manageme",
+      "classification": "MISSION-LINKED"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Qdrant Docker Watchdog — auto-restart Qdrant container on /collections failure (MISSION-126, A7 Sterling)
+Documentation=file:///home/john/Thunderbird/core/memory/qdrant_docker_watchdog.py
+Wants=network-online.target
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/core/memory/qdrant_docker_watchdog.py
+WorkingDirectory=/home/john/Thunderbird
+Environment=HOME=/home/john
+Environment=PYTHONPATH=/home/john/Thunderbird
+EnvironmentFile=-/home/john/Thunderbird/.env
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=qdrant-watchdog

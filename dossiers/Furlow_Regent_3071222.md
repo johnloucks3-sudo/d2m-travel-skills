@@ -280,7 +280,7 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 4. [x] ~~FINAL PAYMENT DUE APR 1~~ — **$15,486 — PAID & PROCESSED (Mar 25)** — Regent cruise 3071222
 5. [x] ~~**PAYMENT DUE**~~ — Haymarket By Scandic hotel — ✅ **PAID** $418 (confirmed Mar 28, Commander directive)
 6. [x] ~~**PAYMENT DUE**~~ — Royal Transfer (Arlanda) — ✅ **PAID** ~$176 (confirmed Mar 28, Commander directive)
-7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18)
+7. [x] ~~Melissa Furlow Guest Registration~~ — **COMPLETE** (confirmed Mar 18 · re-confirmed 2026-06-11: Missy emailed Commander "I did update the guest registration on Regent" — booking 3071222 current)
 8. [x] ~~CC swap to Chase Sapphire Reserve~~ — CONFIRMED Mar 24. CVC 043 received. Card on portal. **Payment processed Apr 1.**
 9. [x] ~~Travel insurance gap~~ — Chase Sapphire Reserve active & paid. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks. Standalone policy still not booked.
 10. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned

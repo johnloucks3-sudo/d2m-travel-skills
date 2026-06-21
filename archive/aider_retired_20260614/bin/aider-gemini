@@ -1,0 +1,5 @@
+#!/bin/bash
+# aider-gemini — run Aider with Gemini 2.5 Flash free tier
+source /home/john/Thunderbird/.env 2>/dev/null
+export GEMINI_API_KEY=${GEMINI_API_KEY:-$GOOGLE_API_KEY}
+exec /home/john/.local/share/uv/tools/aider-chat/bin/aider --model gemini/gemini-2.5-flash "$@"
