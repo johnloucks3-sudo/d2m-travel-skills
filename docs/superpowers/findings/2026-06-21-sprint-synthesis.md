@@ -117,16 +117,62 @@ Trigger: when the first "portal fetch → parse → TESS write → alert" pipeli
 
 ---
 
-## SPRINT ECONOMICS
+## WAVE 8 — ELON REWRITE RESULTS (2026-06-21 14:31 MT)
+
+10 categories tested with ELON's precision queries. 10/10 hits, 0 errors.
+
+### Strong Signals
+
+**[21] Multi-Modal Vision — Deck Plan Extraction Stack confirmed:**
+- **Deck plan PDFs → JSON**: Gemini 2.5 Pro (layout-aware, dense label extraction)
+- **Port city maps → structured data**: Gemini 2.5 Pro or Claude (text-heavy maps)
+- **Luxury travel photo captions**: GPT-4o (best scene narration quality)
+- **Fallback**: Claude for text-dense pages
+- **Batch cost estimate**: $10–$50 for 50–100 deck-plan pages; much cheaper for photos
+- **Action**: MISSION-330 — Wire `_call_gemini_deck_plan()` using existing Gemini adapter
+
+**[31] Asset Pipeline — Legal Sourcing Confirmed:**
+- **Maps**: Mapbox $2.50/1K loads vs Google $7/1K. OSM self-hosted = free but compliance overhead.
+- **Photography**: Getty licensing required; cruise line press kits need explicit reuse terms verification; CC sources viable with rights log
+- **Deck plans**: Use cruise lines' own published PDFs — no third-party license needed
+- **Port narratives**: No confirmed licensable database; commission original or CC0
+- **Suite pricing**: NO public API for Regent, Silversea, or Viking — B2B/agent channels only (Centrav is valid path, not proven exclusive)
+
+**[25] Competitive Intel — D2M ADVANTAGE:**
+- Zero concrete evidence Fora, Indagare, Virtuoso, Black Tomato, or Pavlus have deployed live client-facing AI tools
+- Only confirmed live AI: Amadeus-side supplier tools (Omnichannel Budget Allocator, Amadeus Max) — not advisor workflows
+- Position: D2M is **ahead** of named luxury agency competitors on live AI deployment
+
+### Dead Zones — Architecturally Confirmed (7 categories)
+
+After 8 waves and 2 query rewrites, these categories are definitively blocked:
+
+| Category | Why Perplexity fails | Fix |
+|---|---|---|
+| #2 MCP Registry | GitHub trending + Reddit not in crawler | GitHub Trending API + HN Algolia API |
+| #3 Agent Orchestration | GitHub trending post-March 2026 not accessible | GitHub API search, date-filtered |
+| #13 Cruise Line Intel | LinkedIn/trade press behind auth | Playwright fetch of Travel Weekly + LinkedIn |
+| #14 Voyage Feedback | Reddit/TripAdvisor community not indexed | Reddit API (r/Cruise, r/CruiseLines) |
+| #15 Email Automation | Niche BYOK-LLM tools not well-indexed | Product Hunt API + GitHub search |
+| #16 Anthropic API | changelog.anthropic.com + Discord not crawled | Direct URL fetch + GitHub releases API |
+| #29 Human Discourse | Reddit/HN recent posts not accessible | HN Algolia API + Reddit API, filtered by recency |
+
+**MISSION-331**: Build 7 dedicated API fetchers to replace Perplexity for these categories.
+
+---
+
+## SPRINT ECONOMICS (Final)
 
 | Metric | Value |
 |---|---|
-| Total searches | 186 (6 waves × 31 cats) |
+| Total searches | 248 (8 waves — waves 1-7 × 31 cats + wave 8 × 10 cats) |
 | Avg wave time | ~12 seconds (8 parallel workers) |
-| Perplexity cost | ~$0.93 |
+| Perplexity cost | ~$1.24 |
 | Session budget used | 40% MAX / 41% weekly / 17% Sonnet |
-| Integrations committed | 12 |
+| Integrations committed | 14 |
 | New tools installed | Presidio, PyMuPDF, Skyvern, Temporal, Ollama, LlamaParse, Groq SDK |
+| New MISSIONs created | 327 (pgvector), 328 (Temporal), 329 (free inference routing), 330 (Gemini deck plans), 331 (dead zone fetchers) |
 | Keys still needed | 6 (all free) |
+| Signal saturation | Wave 6 for routine cats; wave 8 confirmed dead zones need different sources |
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-06-21*
+*— V. Hale, VCS · Thunderbird Wing · 2026-06-21 · Sprint complete*
