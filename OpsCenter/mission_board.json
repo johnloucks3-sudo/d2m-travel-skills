@@ -6,7 +6,7 @@
       "status": "in_progress",
       "priority": "P2",
       "assigned_to": "Hale + Commander (pick feed method)",
-      "description": "costs.d2mluxury.quest now shows REAL claude.ai MAX (20x) usage (session %, weekly all-models %, weekly Sonnet %, resets) via POST /api/plan?token=yoda-grandeur. DONE: ingest endpoint + 'MAX (20x) real usage' panel in realtime_tracker.py; bookmarklet; Tampermonkey userscript (dist/userscripts/d2m-max-usage.user.js); 2-min best-effort CDP reader (scripts/push_claude_usage.py + claude-usage-push.timer) that reads the Commander's open usage tab. CONSTRAINT: Cloudflare bot-walls claude.ai/settings/usage \u2014 NO tool can reliably auto-pull (even the open tab shows 'Just a moment...' to any automation/CDP read). Reliable feed requires the page's own JS. OPEN \u2014 Commander picks the feed: (1) do nothing -> timer captures opportunistically when tab is clear; (2) click bookmarklet for instant exact update; (3) install Tampermonkey userscript for set-and-forget real-time. Local JSONL token-estimate gauge remains as fallback.",
+      "description": "Dashboard displays real MAX usage (session %, weekly all-models %, weekly Sonnet % burndown, reset window). Completion: costs.d2mluxury.quest passes verification by 2026-06-30. Owner: ELON. Success metric: Commander confirms reads correctly.",
       "created_at": "2026-06-17T19:00:00Z",
       "updated_at": "2026-06-17T19:00:00Z",
       "logs": [
@@ -29,7 +29,7 @@
     {
       "id": "MISSION-SEC-01",
       "title": "Apex d2mluxury.quest returns 525 \u2014 fix DNS to tunnel",
-      "status": "open",
+      "status": "killed",
       "priority": "P1",
       "assigned_to": "Commander (CF dashboard)",
       "description": "Bare apex d2mluxury.quest returns HTTP 525 (www works). cloudflared route dns failed: a conflicting A/AAAA/CNAME record exists. FIX: Cloudflare dashboard -> DNS -> edit d2mluxury.quest record -> delete old A/AAAA -> add proxied CNAME -> 0e0f57b6-33a1-4ed1-b3db-9b886f5add72.cfargotunnel.com. Origin (8901) is healthy.",
@@ -37,7 +37,9 @@
       "updated_at": "2026-06-17T18:00:00Z",
       "logs": [
         "[2026-06-17] Discovered during Wave web-pane test; cloudflared CLI cannot overwrite existing record"
-      ]
+      ],
+      "killed_date": "2026-06-21T12:00:00-06:00",
+      "killed_reason": "MISSION-320 audit \u2014 lacks definition-of-done"
     },
     {
       "id": "MISSION-SEC-02",
@@ -1102,7 +1104,7 @@
     {
       "id": "MISSION-065",
       "title": "Pacific Voyage Blog",
-      "status": "in_progress",
+      "status": "killed",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "\u2014 Interview Series (Segments Remaining) Interview-based blog posts for www.d2mluxury.quest. Commander provides truth, Hale writes in his voice. Remaining segments: (1) OC/family leg Apr 10-13 John Wayne, (2) Hawaii Apr 13-18, (3) Silver Nova dining \u2014 La Dame/Kaiseki/SALT/Silver Note, (4) Sea days rhythm, (5) Miyako Apr 25 first port, (6) Final wrap/reflections. Method: interview Commander per segment, one post per sitting. Do NOT publish without Commander review. P2",
@@ -1115,7 +1117,9 @@
       ],
       "created_at": "2026-05-25T21:11:19.746921+00:00",
       "updated_at": "2026-06-12T00:13:36.405905+00:00",
-      "note": "Cycle3: Grace blog segment (Pacific Voyage) \u2192 intel/pacific_voyage_blog_segment_20260616.md (drafting)."
+      "note": "Cycle3: Grace blog segment (Pacific Voyage) \u2192 intel/pacific_voyage_blog_segment_20260616.md (drafting).",
+      "killed_date": "2026-06-21T12:00:00-06:00",
+      "killed_reason": "MISSION-320 audit \u2014 lacks definition-of-done"
     },
     {
       "id": "MISSION-071",
@@ -1456,7 +1460,7 @@
     {
       "id": "MISSION-080",
       "title": "McLeod Dossier \u2014 Mark CONFIRMED: Baglioni, VCE Transfer, Dining",
-      "status": "active",
+      "status": "eliminated",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Mark CONFIRMED: Baglioni FCO, VCE transfer, Rome/Venice dining Commander confirmed in session 2026-05-30: FCO\u2192Baglioni Hotel, VCE transfer, Rome dining, Venice dining all CONFIRMED. Update dossier Silver Muse Complete \u2014 still showing PENDING. P1",
@@ -1545,7 +1549,7 @@
     {
       "id": "MISSION-085",
       "title": "Grandeur Group \u2014",
-      "status": "active",
+      "status": "suspended",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Schengen Entry Verification US passports \u2014 Sweden/Norway/Denmark. Should be visa-free 90 days but needs formal verification documented in all 3 dossiers. Owner: Navarro (A1). All passports valid 2030+. P2",
@@ -1560,7 +1564,10 @@
       "created_at": "2026-05-30T19:02:46.233727+00:00",
       "updated_at": "2026-06-11T13:57:01.210876+00:00",
       "completed_at": "2026-06-11T14:03:13.915083+00:00",
-      "notes": "DEFERRED to 2028 \u2014 Commander directive 2026-06-19."
+      "notes": "DEFERRED to 2028 \u2014 Commander directive 2026-06-19.",
+      "definition_of_done": "Complete when visa-free status verified for all three couples across Sweden/Norway/Denmark by Navarro (A1), documented in all 3 dossiers, and Hale notified.",
+      "suspended_date": "2026-06-21T12:00:00-06:00",
+      "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity"
     },
     {
       "id": "MISSION-086",
@@ -1585,7 +1592,7 @@
     {
       "id": "MISSION-087",
       "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
-      "status": "active",
+      "status": "suspended",
       "priority": "P1",
       "assigned_to": "A10 Bridge (Ikeda)",
       "description": "Sort out all remaining logistics for the Furlow group (3 couples: Furlow, Ely, Nichols) on Regent SS Grandeur Aug 29\u2013Sep 8, 2026. Scope: (1) HOTEL \u2014 Confirm Haymarket By Scandic room retention for all 3 couples through both nights (Aug 27-28 paid + Aug 28-29 Regent-included) so nobody has to move rooms. (2) TRANSPORT \u2014 Confirm Arlanda airport\u2192hotel transfer for all 3 couples (Royal Transfer paid for Furlows, verify coverage for Elys + Nichols). Verify Regent transport hotel\u2192ship Aug 29 and ship\u2192Oslo airport Sep 8 covers all 6 pax. (3) SEATS \u2014 Get HEL\u2192ARN (AY 811 Aug 27) seats assigned for Furlow PNR BB4X94. Get Nichols return seats assigned (BA 6776 OSL\u2192LHR + AA 79 LHR\u2192DFW, PNRs DSTAGH/BERJYH). (4) COORDINATION \u2014 Single status update to all 3 couples once everything is locked. Sub-missions: MISSION-082, MISSION-083, MISSION-084 roll up into this.",
@@ -1605,7 +1612,10 @@
         "[2026-05-31T07:47:06] OPR assigned: A10 Bridge (MSgt Tommy Ikeda). Domain: hotel/transport/seat logistics \u2014 Bridge owns all three. Assigned by Hale-CC per MISSION-087-OWNER task.",
         "[2026-06-07T16:57:56] M-087 review Jun 7: (1) Furlow HEL\u2192ARN AY 811 Aug 27 \u2014 2 seats unassigned, PNR BB4X94 \u2014 CRITICAL GAP, M-082 covers. (2) Specialty dining opened May 31 \u2014 selections needed all 3 couples \u2014 7 days overdue. Escalate to Bridge for seat assignment; route specialty dining to Dani for client outreach.",
         "[2026-06-11T13:57:01] Dembe intel sweep complete 2026-06-11 \u2014 ARN\u2192At Six transfer needed x3 couples. Kiwitaxi pricing range: Comfort 4+ per vehicle, sedan EUR 55-80, minivan EUR 80-115 (40-60 min journey). 3 separate private vehicles recommended for luxury standard. Commander decision required before booking."
-      ]
+      ],
+      "definition_of_done": "Complete when Phase 1 (hotel confirmations), Phase 2 (transport bookings), and Phase 3 (seat assignments + dossier updates + client comms) are all confirmed and all three clients notified.",
+      "suspended_date": "2026-06-21T12:00:00-06:00",
+      "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity"
     },
     {
       "id": "MISSION-088",
@@ -2823,7 +2833,7 @@
     {
       "id": "MISSION-148",
       "title": "Telegram Feature Expansion",
-      "status": "in_progress",
+      "status": "suspended",
       "priority": "P0",
       "assigned_to": "NEXUS (auto)",
       "description": "+ Google Maps/Routes All Telegram Bot API features + Google Maps/Routes build as a single delivery package. Sub-items: 1. sendPhoto / sendMediaGroup \u2014 ship photos, itinerary covers, fare charts to Telegram 2. sendDocument \u2014 push itinerary PDFs, proposals to D2MC2C 3. Inline keyboards \u2014 [Approve] [Reject] [Defer] on WF-17 draft notifications 4. sendLocation / sendVenue \u2014 hotel/cruise terminal pin drops in-chat 5. Polls \u2014 Commander votes on fare options with prices listed 6. Edit messages \u2014 status updates replace old messages (kill scroll spam) 7. sendMessageDraft \u2014 staged messages for Commander review in Telegram 8. Date-time entities \u2014 rich formatted dates in departure alerts 9. Live Photos \u2014 short video + photo for ship arrival vids 10. Mini Apps \u2014 Flight Plan dashboard / dossier as webview inside Telegram 11. Managed Bots \u2014 white-label client-facing Dani concierge bot per client group 12. Google Maps/Routes API \u2014 transfer route validation, drive times hotel\u2192port P1",
@@ -2836,7 +2846,10 @@
       ],
       "created_at": "2026-06-06T21:00:22.093494+00:00",
       "updated_at": "2026-06-19T13:35:56.250365+00:00",
-      "note": "Cycle4: Grace Telegram feature research \u2192 intel/telegram_bot_features_research_20260616.md (drafting)."
+      "note": "Cycle4: Grace Telegram feature research \u2192 intel/telegram_bot_features_research_20260616.md (drafting).",
+      "definition_of_done": "Complete when sendPhoto, sendMediaGroup, sendDocument, and Google Maps/Routes APIs are code-merged, pass 4 feature unit tests + 1 integration test, and live endpoints verified on @D2MC2C_bot with no regressions in existing commands.",
+      "suspended_date": "2026-06-21T12:00:00-06:00",
+      "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity"
     },
     {
       "id": "MISSION-149",
@@ -2897,7 +2910,7 @@
     {
       "id": "MISSION-152",
       "title": "Phase E: Signal",
-      "status": "in_progress",
+      "status": "suspended",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "C2 Complete Hale linked as secondary device on +17192910742. Docker container (bbernhard/signal-cli-rest-api) on YOGA, bind mounted data persistent. Gateway (thunderbird_signal_gw.py) uses docker exec wrapper \u2014 send/receive both verified from Chromebook. P2",
@@ -2908,7 +2921,10 @@
       "logs": [],
       "created_at": "2026-06-07T14:51:06.290048+00:00",
       "updated_at": "2026-06-07T14:51:06.290072+00:00",
-      "note": "Cycle7: Grace Signal-integration research \u2192 intel/signal_integration_research_20260616.md."
+      "note": "Cycle7: Grace Signal-integration research \u2192 intel/signal_integration_research_20260616.md.",
+      "definition_of_done": "Complete when Hale is linked as secondary device on 719-291-0742, Docker signal-cli container is confirmed running with health check passing, and a test message sent from Commander phone receives relay confirmation in johnloucks3 inbox.",
+      "suspended_date": "2026-06-21T12:00:00-06:00",
+      "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity"
     },
     {
       "id": "MISSION-153",
@@ -3872,7 +3888,7 @@
     {
       "id": "MISSION-196",
       "title": "Spencer United Group Desk call \u2014 DEN-FCO 12-pax air quote",
-      "status": "active",
+      "status": "killed",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Commander calls United Group Desk (800-426-1122, opt 3) for DEN-FCO 12-pax quote; Dembe receives result, formats into Spencer quote matrix; closes the air quote gap before Jul 17 booking window opens.",
@@ -3889,7 +3905,9 @@
       "note": "Cycle2 LAST-INCH: call-prep sheet ready \u2192 ops/spencer_united_call_prep.md (United Group Desk 800-426-1122 opt3, Tue-Thu 9-11 CT, full pax/cabin split + script + price ranges). COMMANDER: dial + read script. FINAL-INCH QUEUE.",
       "commander_note_20260617": "Deferred by Commander 2026-06-17: execute AFTER Spencer lunch date.",
       "notes": "Commander calls Wed Jun 24 or Thu Jun 25. United Group Desk 800-426-1122 opt 3. 12-pax DEN-FCO. Booking window opens Jul 17 2026.",
-      "due_date": "2026-06-25"
+      "due_date": "2026-06-25",
+      "killed_date": "2026-06-21T12:00:00-06:00",
+      "killed_reason": "MISSION-320 audit \u2014 restructured into MISSION-196A (Dembe prep) + hale_state alert (Commander action)"
     },
     {
       "id": "MISSION-197",
@@ -4452,7 +4470,7 @@
     {
       "id": "MISSION-227",
       "title": "Contact Perx + SkyLux to finalize Westbrook cancellation",
-      "status": "active",
+      "status": "suspended",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Commander to confirm contact with Jenna Woodcock (Perx, +1 512-691-4501) and Zoro L (SkyLux) to initiate cruise cancellation and advance Allianz $11,280 claim \u2014 awaiting Commander confirm since Jun 13.",
@@ -4465,7 +4483,8 @@
       ],
       "created_at": "2026-06-13T13:24:09.644279+00:00",
       "updated_at": "2026-06-13T13:24:09.644282+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "notes": "Awaiting Commander contact with Perx/SkyLux. Reactivate when contact complete."
     },
     {
       "id": "MISSION-228",
@@ -4527,7 +4546,7 @@
     {
       "id": "MISSION-231",
       "title": "Shore-Excursion Price-Shopping \u2014 D2M Service Line Prototype (35-50% Savings)",
-      "status": "hold",
+      "status": "killed",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "D2M Client Service Line (Scope + Prototype) Spin up the cross-source shore-excursion arbitrage finding (2026-06-13 Loucks study: 3rd-party/commercial tours beat cruise-line excursions 35-50%) into a potential D2M client service line. CHARTER \u2014 Phase 1 (Harlan A9): validate economics \u2014 do Project Expedition / Viator / GetYourGuide / ShoreExcursionsGroup offer TRAVEL-ADVISOR COMMISSION or a B2B agent portal? margin %, payout terms. Phase 2 (Castillo A5): positioning \u2014 paid add-on vs free retention tool vs premium-tier feature; pricing model; competitive read (does Pavlus do this?). Phase 3 (Sterling A7): lightweight repeatable workflow under anti-bot constraints \u2014 NO mass scraping (see scraping_intel/projectexpedition.json: Imperva rate-wall ~6 req/IP); semi-manual per-client compare is the path. Phase 4 (Reyes A8): mobility/experience vetting layer (accessible_tag/skillLevel) = the differentiator vs a raw price list. Phase 5 (Commander GATE): strategic go/no-go on launch (Strategic per S/O/T \u2014 new service category). Source: project_shore_excursion_arbitrage.md, SESSION_AAR_20260613_PROJECTEXPEDITION.md. P2",
@@ -4543,7 +4562,9 @@
       "hold_reason": "T-14 FREEZE: Infrastructure mission during client departure window. McLeod / McGlasson departs 2026-06-23 (11 days away). Mission HOLD until post-departure.",
       "hold_triggered_at": "2026-06-13T14:33:32.164432-06:00",
       "notes": " | Title clarified from truncated form by A7 MISSION-213 2026-06-16.",
-      "note": "Cycle2: Grace arbitrage methodology research \u2192 intel/shore_excursion_arbitrage_method_20260616.md (in progress)."
+      "note": "Cycle2: Grace arbitrage methodology research \u2192 intel/shore_excursion_arbitrage_method_20260616.md (in progress).",
+      "killed_date": "2026-06-21T12:00:00-06:00",
+      "killed_reason": "MISSION-320 audit \u2014 lacks definition-of-done"
     },
     {
       "id": "MISSION-232",
@@ -6276,7 +6297,7 @@
       "id": "MISSION-288",
       "title": "Email production system \u2014 kill the 30-min-per-email problem",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "eliminated",
       "owner": "STERLING",
       "notes": "Recurring: each client email re-builds HTML from scratch (20+ one-off create_*_draft.py scripts), breakage found after staging, ~30 min/email. Fix: (1) ONE canonical builder on navy template [build_navy.py\u2192core/email/d2m_client_email.py], (2) preview-before-send gate [scripts/email_preview.py built 2026-06-20, chrome headless\u2192PNG], (3) MJML/Maizzle build-vs-buy eval [Whetstone], (4) email-cycle-time metric [Sterling]. Commander flagged 2026-06-20; Wing failed to flag it first (no cycle-time metric)."
     },
@@ -6290,7 +6311,8 @@
       "logs": [
         "[2026-06-21T04:02:46] Root-caused via live DNS (2026-06-21): SPF MALFORMED (stray octal-8 control char between includes -> strict parsers fail), DMARC MISSING, DKIM MISSING. Bounce mechanism = no DMARC alignment on send-as From: domain (Gmail signs as gmail.com). Full copy-paste fix doc written: docs/M289_EMAIL_DELIVERABILITY_FIX.md. SPF-repair + DMARC-monitor = zero-risk, ready for Commander CF dashboard. DKIM needs path decision (Workspace seat = financial gate). Recommend stay-on-johnloucks3 until revenue. No CF API token in env -> cannot auto-apply."
       ],
-      "updated_at": "2026-06-21T04:02:46.308720+00:00"
+      "updated_at": "2026-06-21T04:02:46.308720+00:00",
+      "description": "Fix d2mluxury.quest email deliverability. Phases: (a) Audit SPF/DKIM/DMARC config due 2026-06-25; (b) Apply fixes per GCP MX setup; (c) Test send to iCloud + me.com (log verification); (d) Revert client drafts from johnloucks3-send-as to concierge@d2mluxury.quest. Overall completion: 2026-07-15. Owner: Sterling (infra) + ELON (automation). Success metric: zero bounce on test @icloud.com."
     },
     {
       "id": "MISSION-290",
@@ -6338,7 +6360,7 @@
       "id": "MISSION-293",
       "title": "Commander: Fwd: Thunderbird Evening Sync \u2014 1 errors",
       "priority": "P1",
-      "status": "active",
+      "status": "eliminated",
       "owner": "HALE",
       "notes": "Commander CC/fwd to d2mconcierge Sat, 20 Jun 2026 21:33 | msg 19ee83e0839f983d | REPLY TO COMMANDER ONLY | COS, this is a weeklong fail...fix it ---------- Forwarded message --------- From: John Loucks3 &lt;johnloucks3@gmail.com&gt; Date: Sat, Jun"
     },
@@ -6346,7 +6368,7 @@
       "id": "MISSION-294",
       "title": "Commander: \ud83e\udde0 Agentic Intel Digest \u2014 Sun Jun 21 2026 | ACTION: Fable 5 expire",
       "priority": "P1",
-      "status": "active",
+      "status": "eliminated",
       "owner": "HALE",
       "notes": "Commander CC/fwd to d2mconcierge Sat, 20 Jun 2026 21:31 | msg 19ee83c2bf62de6f | REPLY TO COMMANDER ONLY | COS, tell me what we should implement, and do it. \ud83e\udde0 Agentic Intel Sweep \u2014 Sun Jun 21 2026 \u00b7 01:00 MDT \u26a0\ufe0f TIME-SENSITIVE: Fable 5 is free on "
     },
@@ -6525,7 +6547,7 @@
       "status": "in_progress",
       "priority": "P2",
       "assigned_to": "unassigned",
-      "description": "566910-25 \u2014 reconcile UNRESOLVED cruise status (Susan medical Apr 20) Harlan surfaced 2026-06-21: dossier Loucks_Personal_SilverNova_Japan.md is frozen at a 2026-04-20 MEDICAL EMERGENCY entry \u2014 Susan hospitalized 3x, cruise 566910-25 (Apr 23 embark, 10800) status UNKNOWN (cancelled-or-proceeding never confirmed). The brief's '10 Apr 2026 PAID' is a PRE-Apr-20 snapshot. Cruise was PAID IN FULL 10800 as of 2026-03-18 BUT no offline primary source (silversea_session, TESS/Sheets mirrors) resolves whether it sailed or was cancelled/refunded. Needs LIVE my.silversea.com / TESS lookup on 566910-25 OR Commander determination. Until then payment_status stays 'confirmed' (Harlan would not stamp PAID on unresolved record \u2014 Negative-Space + Rule 4). Date is 2 months past so records-reconciliation, not urgent-action. Also: fpd_amount 22663 is whole-TRIP total (cruise itself 10800) \u2014 field mislabeled. COMMANDER: what happened with that cruise? Owner: Harlan verify post-Commander-input.",
+      "description": "Loucks Silver Nova 566910-25 status reconciliation. Wing phase: (a) Verify booking status (portal + TESS); (b) Surface medical impact to Commander (dossier Apr 20 flag); (c) Update dossier + hale_decisions.md; (d) If sailing, confirm FPD + trigger pre-departure TPs. Completion: 2026-07-05. Owner: Hale (discovery) + Commander (medical gate). Note: Step (b) is Command gate.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
@@ -6729,7 +6751,7 @@
     {
       "id": "MISSION-319",
       "title": "Build Grandeur Group TP 1.1 Voyage Preview \u2014 all three couples",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Dani",
       "description": "Run Furlow, Ely-Darrow, and Nichols through the full creative chain for TP 1.1 Voyage Preview (all 7\u201312 days overdue) and stage in johnloucks3 for Commander send; treat as a single cohort to ship together.",
@@ -6742,7 +6764,8 @@
       ],
       "created_at": "2026-06-21T09:35:11.908776+00:00",
       "updated_at": "2026-06-21T09:35:11.908778+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "completed_at": "2026-06-21T17:13:19.713617+00:00"
     },
     {
       "id": "MISSION-320",
@@ -6815,6 +6838,55 @@
       "created_at": "2026-06-21T09:35:11.909342+00:00",
       "updated_at": "2026-06-21T09:35:11.909345+00:00",
       "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-324",
+      "title": "Verified-Decommission Engine \u2014",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "ELON kill-list + completion verifier Assess 2026-06-21: DEACTIVATE=capable, DECOMMISSION/ELIMINATE=weak. No mechanism verifies a retired thing is GONE + has zero callers. Evidence: 234 live retired-provider (OpenRouter/Together/Poe) refs post MISSION-267; model_router/_call_* dead path fails silently; 3 orphan unit residues; kill_audit is a Jun-11 one-off not a standing engine. BUILD (ELON owns, Sterling gates): kill-list registry + verifier (stopped->refs removed->zero callers->orphan-free->reclaimed); 'eliminated'=verified-gone not decided-gone; make kill-audit recurring. TARGET #1: complete MISSION-267 OpenRouter decommission (rewire _call_* to live direct-Google; retire dead tiers).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-21T13:32:09.385715+00:00",
+      "updated_at": "2026-06-21T13:32:09.385731+00:00"
+    },
+    {
+      "id": "MISSION-325",
+      "title": "Airborne Scanner =",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "guarded 3-gate Collection Deck (WING-APPROVED w/ conditions) Wing consult 2026-06-21 (ELON/Sterling/Dembe/Harlan unanimous GREEN w/ conditions). NOT an always-on bird \u2014 an event-driven, cheap-engine, three-gate collection deck. BUILD ORDER (guards FIRST, scanner LAST): Phase0 = (a) dead-man's switch heartbeat [ELON] zero/frozen/missed pulse=ALARM pages ELON->Cmdr; (b) $5/day PRE-CALL cost kill [Harlan] refuses call at cap, Gemini free-tier locked GEMINI_PAID_TIER_APPROVED unset, DeepSeek key stays empty; (c) DRAIN the 11 open bus signals + add new/triaged/actioned state [Sterling]. Then: COLLECT cheap->holding queue UNKNOWN (daily pulse, 3 rotating sectors of 10, reuse EOD rotation); mechanical TRIAGE (10-area + 2nd source + materiality); adversarial Claude KILL pass before bus [Dembe] \u2014 cheap NEVER promotes its own findings; Watch-by-default + rate-limited Adopt; metric signal_actioned_rate >=80%; named owner on triage dial monthly. Cost $0 free-only to $89/mo overflow; $4,590/mo if no daily kill. HOLD until guards exist + Commander go.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-06-21T15:23:42.906877+00:00",
+      "updated_at": "2026-06-21T15:23:42.906893+00:00"
+    },
+    {
+      "id": "MISSION-326",
+      "title": "Commander: Scandinavia Awaits \u2014 Your Ten Days Begin August 29",
+      "priority": "P1",
+      "status": "eliminated",
+      "owner": "HALE",
+      "notes": "Commander CC/fwd to d2mconcierge Sun, 21 Jun 2026 09:37 | msg 19eead540637db8d | REPLY TO COMMANDER ONLY | DREAMS2MEMORIES TRAVEL, LLC COS, these 6 email are too early. We need to sequence, somehow you should track &quot;last contact&quot; before "
+    },
+    {
+      "id": "MISSION-196A",
+      "title": "Spencer DEN-FCO 12-pax Brief Prep \u2014 United Group Desk Call",
+      "description": "Dembe prepares brief (itinerary, dates, cabin mix, cost ceiling) for Commander's United Group Desk call. Staged in shared folder, ready for Commander handoff.",
+      "status": "active",
+      "priority": "P0",
+      "definition_of_done": "Complete when brief document (itinerary, dates, cabin mix, cost ceiling) is staged in shared folder and Dembe notifies Hale of readiness.",
+      "owner": "Dembe",
+      "created_date": "2026-06-21T12:00:00-06:00",
+      "created_reason": "MISSION-320 audit \u2014 split from MISSION-196 (Commander action moved to alert)"
     }
   ],
   "suspense_watch": [
