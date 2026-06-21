@@ -712,6 +712,34 @@ def _call_llamaparse(file_path: str, caller: str = "_call_llamaparse") -> str:
         return _fallback_pymupdf(file_path, caller)
 
 
+def _call_firecrawl(url: str, formats: list = None,
+                    caller: str = "_call_firecrawl") -> str:
+    """Firecrawl — JS-rendered web content extraction, bypasses bot walls.
+    Free tier: 500 credits (1 credit = 1 page). Key: FIRECRAWL_API_KEY.
+    Wired 2026-06-21. Use for: cruise press rooms, travel trade sites,
+    portal pages that block headless browsers, content-heavy pages.
+    Returns markdown. Falls back to requests plain fetch on error/missing key.
+    """
+    fc_key = os.getenv("FIRECRAWL_API_KEY", "")
+    if not fc_key:
+        log.warning("%s: FIRECRAWL_API_KEY not set", caller)
+        return ""
+    try:
+        import requests as _req
+        resp = _req.post(
+            "https://api.firecrawl.dev/v1/scrape",
+            headers={"Authorization": f"Bearer {fc_key}", "Content-Type": "application/json"},
+            json={"url": url, "formats": formats or ["markdown"]},
+            timeout=45,
+        )
+        resp.raise_for_status()
+        data = resp.json().get("data", {})
+        return data.get("markdown") or data.get("content") or ""
+    except Exception as exc:
+        log.warning("%s: Firecrawl error (%s)", caller, exc)
+        return ""
+
+
 def _fallback_pymupdf(file_path: str, caller: str = "_fallback_pymupdf") -> str:
     """PyMuPDF fallback for PDF extraction when LlamaParse is unavailable."""
     try:
