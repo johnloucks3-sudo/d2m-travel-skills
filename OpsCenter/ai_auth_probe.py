@@ -74,7 +74,7 @@ def probe_claude_oauth() -> tuple[bool, str]:
     try:
         result = subprocess.run(
             [str(CLAUDE_BIN), "--dangerously-skip-permissions",
-             "--model", "claude-opus-4-8", "-p", "Reply: ok"],
+             "--model", "claude-haiku-4-5-20251001", "-p", "Reply: ok"],
             env=env, capture_output=True, text=True, timeout=25,
         )
         combined = (result.stdout + result.stderr).lower()
