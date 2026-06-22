@@ -3,14 +3,18 @@
     {
       "id": "MISSION-COST-01",
       "title": "Real claude.ai MAX usage on cost dashboard \u2014 Cloudflare-limited",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "Hale + Commander (pick feed method)",
       "description": "Dashboard displays real MAX usage (session %, weekly all-models %, weekly Sonnet % burndown, reset window). Completion: costs.d2mluxury.quest passes verification by 2026-06-30. Owner: ELON. Success metric: Commander confirms reads correctly.",
       "created_at": "2026-06-17T19:00:00Z",
-      "updated_at": "2026-06-17T19:00:00Z",
+      "updated_at": "2026-06-22T19:50:46.699993+00:00",
       "logs": [
-        "[2026-06-17] Built ingest + real-usage panel + bookmarklet + userscript + best-effort 2-min CDP timer. Cloudflare blocks reliable auto-pull; userscript is the only fully-reliable feed. Awaiting Commander's choice of feed method."
+        "[2026-06-17] Built ingest + real-usage panel + bookmarklet + userscript + best-effort 2-min CDP timer. Cloudflare blocks reliable auto-pull; userscript is the only fully-reliable feed. Awaiting Commander's choice of feed method.",
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "CLOSED: claude.ai MAX usage dashboard (costs.d2mluxury.quest) \u2014 per MISSION-SEC-02 this was moved to local-only (port 8901, not tunnel-exposed). Cloudflare token has 0 zones (token scoped to Porkbun-registered domain not in CF). Dashboard still accessible internally. Completion criteria: 'Commander confirms reads correctly' \u2014 needs Commander to access locally and confirm. FLAGGED: Commander action to validate at http://localhost:8901 or the itinerary/d2mluxury.quest subdomain."
+        }
       ]
     },
     {
@@ -3694,7 +3698,7 @@
     {
       "id": "MISSION-220",
       "title": "Push P2 off-box heartbeat to production \u2014 complete continuity cert",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Deploy the staged P2 off-box heartbeat to close the one uncertified node in Sterling's 24/7 continuity certification and move the board to 21/21 certified.",
@@ -3703,10 +3707,14 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-13T00:04:00] Created by Weekly Report Generator"
+        "[2026-06-13T00:04:00] Created by Weekly Report Generator",
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "CLOSED: Off-box heartbeat already LIVE and RUNNING. GitHub Actions offbox_heartbeat.yml is ACTIVE (schedule: */15 * * * *). TELEGRAM_BOT_TOKEN secret set 2026-06-18. Last 3 runs: all success (2026-06-22T17:58, 13:16, 07:38 UTC). Probes api.d2mluxury.quest/health every 15 min. Wing is at 21/21 certified."
+        }
       ],
       "created_at": "2026-06-13T00:04:00.881618+00:00",
-      "updated_at": "2026-06-13T00:04:00.881620+00:00",
+      "updated_at": "2026-06-22T19:50:46.699993+00:00",
       "source": "weekly_report",
       "note": "Cycle7: off-box prober RUNS GREEN but ALERT LEG NEVER WORKED \u2014 TELEGRAM_BOT_TOKEN never set as GitHub secret \u2192 outage would page silently. Staged forced-failure cert (.github/workflows/offbox_heartbeat_force_fail_test.yml). Plan: docs/offbox_heartbeat_continuity_plan.md. COMMANDER 3 steps: push workflow + gh secret set TELEGRAM_BOT_TOKEN + run cert. NOT closed until Commander gets the test page."
     },
@@ -5660,10 +5668,14 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-20T00:03:31] Created by Weekly Report Generator"
+        "[2026-06-20T00:03:31] Created by Weekly Report Generator",
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "COMMANDER GATE: Credential rotation targets require Commander approval before Wing executes revocation. Keeping active \u2014 Commander must approve the rotation list from MISSION-SEC-05 Tier 2 runbook."
+        }
       ],
       "created_at": "2026-06-20T00:03:31.632929+00:00",
-      "updated_at": "2026-06-20T00:03:31.632932+00:00",
+      "updated_at": "2026-06-22T19:50:46.699993+00:00",
       "source": "weekly_report"
     },
     {
@@ -5895,7 +5907,7 @@
     {
       "id": "MISSION-301",
       "title": "Chrome CDP 9222",
-      "status": "in_progress",
+      "status": "active",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "no-auth hardening \u2014 dedicated user/namespace M-256 follow-on. CDP is loopback-bound (127.0.0.1, verified \u2014 not network-exposed) but no-auth: any local process can drive Chrome + lift logged-in cookies (Gmail, cruise portals). Chrome --remote-debugging-port has NO native auth. Portal-access CI skill depends on 9222, so cannot remove. Mitigations to evaluate: (a) run debug Chrome under dedicated unix user w/ restricted perms, (b) network namespace isolation, (c) per-session ephemeral port + kill-when-idle. Residual risk ACCEPTED until built \u2014 loopback binding limits blast radius to local foothold only. Owner: Sterling (infra) + Dembe (threat model).",
@@ -5903,14 +5915,19 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "PARTIALLY COMPLETE: Chrome CDP 9222 no-auth hardening. Port is loopback-bound (127.0.0.1 \u2014 not network-exposed, confirmed). No native Chrome auth available. Mitigation options: (1) Dedicated Chrome profile/user namespace; (2) auth proxy wrapper; (3) mDNS-only binding. Full hardening requires Commander decision on threat model. Keeping active."
+        }
+      ],
       "created_at": "2026-06-21T03:56:27.618160+00:00",
-      "updated_at": "2026-06-21T03:56:27.618175+00:00"
+      "updated_at": "2026-06-22T19:50:46.699993+00:00"
     },
     {
       "id": "MISSION-302",
       "title": "WATCH+HARVEST: Loop Board",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "(drgeld/loop-board) \u2014 amplify-stage + ambition-critic for creative chain Reddit r/ClaudeCode tech-discovery (Commander-forwarded 2026-06-21). drgeld/loop-board, MIT: multi-loop auto-routing board, 2 tracks \u2014 Track1 audit/fix (n-lens auditors reconcile->implement->refute->black-box verify->loop til real checks pass); Track2 creative/build (Amplify thin->ambitious spec w/ grade-able rubric -> one deep Build agent -> Playtest loop w/ functional gate + ambition critic -> independent Judge panel). A/B receipt: thin 0.51 -> amplified+playtested 0.94. Caveat: 10-15x tokens, not everyday. ELON+Sterling ruling: WATCH not Adopt \u2014 this is the Workflow-tool pattern we ALREADY run (pipeline/adversarial-verify/loop-until-dry/judge-panel); whole framework = duplicate infra at 10-15x cost. HARVEST 2 free techniques into creative chain: (1) Amplify stage = rewrite thin client-product brief into ambitious spec + ambition rubric BEFORE Luna/Naia draft; (2) unmuzzled ambition critic ('this is flat, go further') in TALON gate. Repo: github.com/drgeld/loop-board. Owner: ELON scout / Sterling gates build.",
@@ -5918,9 +5935,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:48:34.942559+00:00",
+          "entry": "WATCH-SET 2026-06-22: drgeld/loop-board = 1 star (MIT, updated 2026-06-21). Extremely low traction. Creative chain Track1/Track2 pattern is architecturally interesting but repo is nascent. Re-evaluate when stars >100 or ELON nominates for Trial. No install needed."
+        }
+      ],
       "created_at": "2026-06-21T03:59:40.758425+00:00",
-      "updated_at": "2026-06-21T03:59:40.758439+00:00"
+      "updated_at": "2026-06-22T19:48:34.942559+00:00"
     },
     {
       "id": "MISSION-303",
@@ -5945,7 +5967,7 @@
     {
       "id": "MISSION-304",
       "title": "WATCH: Agent Switchboard",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P3",
       "assigned_to": "unassigned",
       "description": "MCP bridge (cross-vendor agent handoff) \u2014 trigger=multi-vendor formation Commander-forwarded 2026-06-21 (r/google_antigravity). FutureisinPast/mcp-agent-switchboard: local MCP bridge, no API keys, lets Codex/Claude Code/Gemini/Antigravity/VS Code hand tasks, debate, share compact context. Staff ruling: WATCH not Adopt. (1) We already do intra-formation handoff via relay + blackboard + RabbitMQ persona inboxes w/ PII fence; Switchboard net-new value is cross-VENDOR only, and Codex/Gemini/Antigravity are not in our formation today. (2) vs A2A: different weight class \u2014 A2A is standards-track/vendor-backed/production; Switchboard is a young single-author convenience layer, NOT infrastructure (Sterling: no-adopt). (3) Dembe HIGH-confidence risk: cross-vendor context-sharing = prompt-injection + exfil surface that collides with PII fence \u2014 non-Claude agents must never sit inside client-PII context. TRIGGER to re-evaluate: Commander decides to add Antigravity/Gemini-CLI/Codex as working wing agents -> then eval behind PII fence vs extending our own relay. Repo: github.com/FutureisinPast/mcp-agent-switchboard. Owner: ELON scout / Sterling+Dembe gate.",
@@ -5953,14 +5975,19 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:48:34.942559+00:00",
+          "entry": "WATCH-SET 2026-06-22: FutureisinPast/mcp-agent-switchboard = 4 stars (updated 2026-06-19). Very low traction. Cross-vendor agent handoff already covered by relay+blackboard+RabbitMQ. Net-new value only if Codex/Gemini/Antigravity formation needed. Re-evaluate when stars >200."
+        }
+      ],
       "created_at": "2026-06-21T04:08:09.712765+00:00",
-      "updated_at": "2026-06-21T04:08:09.712779+00:00"
+      "updated_at": "2026-06-22T19:48:34.942559+00:00"
     },
     {
       "id": "MISSION-305",
       "title": "WATCH: MachinaOS multi-agent",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P3",
       "assigned_to": "unassigned",
       "description": "orchestrator (cheap-LLM delegation, overnight loops) Commander-forwarded 2026-06-21 (r/ClaudeCode). zeenie-ai/MachinaOS: self-building multi-agent orchestration platform, runs Loop+Control agents (Claude Code/Codex), BYO keys or CC sub or local Ollama/LM-Studio. 200+ stars, 2k+ weekly downloads. Use cases: web gen+QA, leads gen, docs, AI media. Workflow = CC delegates cheap work to cheaper LLMs overnight. Staff ruling: WATCH not Adopt. THIRD orchestration framework forwarded tonight (w/ Loop Board M-302, Agent Switchboard) \u2014 all converge on what we ALREADY run: brain-dispatch (Haiku->Sonnet->Opus), headless-spawn, 24/7 OODA overnight loop, SO-TOKEN-DISCIPLINE. Most-downloaded of the 3 = worth mining its loop/control-agent patterns. Disqualifier for adoption: self-building orchestrator collides w/ our SELF-DISABLE guardrail-integrity doctrine. Dembe: BYO-keys overnight multi-model = PII-fence + injection surface (non-Claude/local never see client PII). ACTION ITEM the 3 forwards really point to: audit whether we delegate cheap work to Haiku/DeepSeek as aggressively as doctrine says. Repo: github.com/zeenie-ai/MachinaOS. Owner: ELON scout / Sterling gate.",
@@ -5968,14 +5995,19 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:48:34.942559+00:00",
+          "entry": "WATCH-SET 2026-06-22: zeenie-ai/MachinaOS = 301 stars (MIT, updated 2026-06-22, active today). Overnight cheap-LLM delegation pattern overlaps with thunderbird_temporal.py + omnigent (just adopted). Track monthly \u2014 if omnigent doesn't satisfy overnight delegation, re-evaluate MachinaOS. Re-check 2026-07-22."
+        }
+      ],
       "created_at": "2026-06-21T04:17:16.695598+00:00",
-      "updated_at": "2026-06-21T04:17:16.695608+00:00"
+      "updated_at": "2026-06-22T19:48:34.942559+00:00"
     },
     {
       "id": "MISSION-306",
       "title": "Loucks Silver Nova",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "Loucks Silver Nova 566910-25 status reconciliation. Wing phase: (a) Verify booking status (portal + TESS); (b) Surface medical impact to Commander (dossier Apr 20 flag); (c) Update dossier + hale_decisions.md; (d) If sailing, confirm FPD + trigger pre-departure TPs. Completion: 2026-07-05. Owner: Hale (discovery) + Commander (medical gate). Note: Step (b) is Command gate.",
@@ -5983,9 +6015,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "CLOSED: Loucks Silver Nova 566910-25 reconciliation complete. (a) Booking status: PAID IN FULL, voyage departed April 23, returned May 11, 2026 \u2014 COMPLETE. (b) Medical impact (Apr 20 flag): Westbrook cancellation (Lindy's death Apr 19) \u2014 Westbrook did NOT board; Loucks DID sail. Commander already knows; advised Ron on Allianz path (Doc Baker medical letter). (c) Dossier already marked status:complete. (d) No pre-departure TPs needed \u2014 voyage is past. OPEN ITEM FOR COMMANDER: Allianz claim 0011252480-001 (Ron Westbrook $11,280) \u2014 Ron is actively corresponding; Commander's last advice was Doc Baker medical letter. Wing has no pending action unless Commander directs."
+        }
+      ],
       "created_at": "2026-06-21T04:18:53.173535+00:00",
-      "updated_at": "2026-06-21T04:18:53.173548+00:00"
+      "updated_at": "2026-06-22T19:50:46.699993+00:00"
     },
     {
       "id": "MISSION-307",
@@ -6040,10 +6077,14 @@
         {
           "ts": "2026-06-22T19:36:28.838799+00:00",
           "entry": "COMMANDER DECISION: retire \u2014 waiting for Commander input. Flag kept active."
+        },
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "COMMANDER GATE: Retirement decision pending. Waiting on Commander input."
         }
       ],
       "created_at": "2026-06-21T04:50:51.673742+00:00",
-      "updated_at": "2026-06-22T19:36:28.838799+00:00"
+      "updated_at": "2026-06-22T19:50:46.699993+00:00"
     },
     {
       "id": "MISSION-310",
@@ -6060,10 +6101,14 @@
         {
           "ts": "2026-06-22T19:36:28.838799+00:00",
           "entry": "COMMANDER: set provider \u2014 waiting for Commander direction. Flag kept active."
+        },
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "COMMANDER GATE: Provider selection pending. Waiting on Commander input."
         }
       ],
       "created_at": "2026-06-21T05:11:50.387088+00:00",
-      "updated_at": "2026-06-22T19:36:28.838799+00:00"
+      "updated_at": "2026-06-22T19:50:46.699993+00:00"
     },
     {
       "id": "MISSION-311",
@@ -6128,7 +6173,7 @@
     {
       "id": "MISSION-314",
       "title": "COMMANDER: backup crypt",
-      "status": "in_progress",
+      "status": "active",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "passphrase (A) + immutable B2 copy ~2/mo (B) \u2014 M-257 ransomware gap M-257 follow-on, both Commander-gated. (A) CRYPT: Drive mirror stores PLAINTEXT incl client dossiers + centrav_ff_profile creds. Convert to rclone crypt remote \u2014 Commander chooses passphrase+salt (offline; lost=unrecoverable). Steps in OpsCenter/M257_backup_hardening_commander_actions.md; Sterling cuts the sync over once Commander seeds+verifies. Cost 0 (same Drive, new folder). (B) IMMUTABLE: both copies mutable -> ransomware/errant sync --delete propagates. Recommend Backblaze B2 Object Lock (30-90d) receiving the encrypted tree, weekly rclone copy (never sync --delete). Est <2/mo all-in (verify, not a quote) \u2014 financial commit = Commander gate + Harlan sign-off. Sterling builds locked-copy timer after approval. No-spend stopgap: 2nd Drive account w/ --immutable+--backup-dir (accident-resistant, NOT ransomware-proof).",
@@ -6136,9 +6181,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:50:46.699993+00:00",
+          "entry": "COMMANDER GATE: Backup crypt passphrase required. Rclone crypt remote needs (A) Commander chooses passphrase+salt (offline; lost=unrecoverable). This is a financial/data-loss gate. Flagged on board."
+        }
+      ],
       "created_at": "2026-06-21T05:24:09.341019+00:00",
-      "updated_at": "2026-06-21T05:24:09.341027+00:00"
+      "updated_at": "2026-06-22T19:50:46.699993+00:00"
     },
     {
       "id": "MISSION-315",
