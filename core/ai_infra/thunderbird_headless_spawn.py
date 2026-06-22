@@ -133,6 +133,10 @@ def load_oauth_token() -> tuple[str, Dict[str, Any]]:
         env.pop("ANTHROPIC_BASE_URL", None)
         env["CLAUDE_CODE_OAUTH_TOKEN"] = token
 
+        # CC OTEL — attribution wiring (MISSION-414)
+        env["OTEL_RESOURCE_ATTRIBUTES"] = "service.name=thunderbird-wing"
+        env["OTEL_METRICS_INCLUDE_ENTRYPOINT"] = "true"
+
         # Inject room-res.com credentials for hotel rate search tasks
         room_res_email = os.getenv("ROOM_RES_EMAIL")
         room_res_password = os.getenv("ROOM_RES_PASSWORD")

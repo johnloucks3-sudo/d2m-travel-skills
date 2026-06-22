@@ -1,0 +1,562 @@
+{
+  "promoted": {
+    "Open-Source LLM Ecosystem": {
+      "mission_id": "MISSION-332",
+      "score": 79.8,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "CLI & Terminal-Native AI Tools": {
+      "mission_id": "MISSION-333",
+      "score": 78.9,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "MCP Server Registry \u2014 New Releases": {
+      "mission_id": "MISSION-334",
+      "score": 73.0,
+      "wave": 22,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Free & High-Quota LLM APIs": {
+      "mission_id": "MISSION-335",
+      "score": 71.4,
+      "wave": 7,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Ground Transport & Logistics Tech": {
+      "mission_id": "MISSION-336",
+      "score": 69.5,
+      "wave": 17,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "AI Agent Orchestration & Meta-Harnesses": {
+      "mission_id": "MISSION-337",
+      "score": 69.0,
+      "wave": 8,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Competitive Intelligence: AI in Travel": {
+      "mission_id": "MISSION-338",
+      "score": 67.9,
+      "wave": 19,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "PDF & Document Intelligence": {
+      "mission_id": "MISSION-339",
+      "score": 64.5,
+      "wave": 10,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "AI Scheduling & Autonomous Execution": {
+      "mission_id": "MISSION-340",
+      "score": 64.0,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "GitHub Automation for AI Workflows": {
+      "mission_id": "MISSION-341",
+      "score": 63.4,
+      "wave": 24,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Hotel Tech & Inventory Systems": {
+      "mission_id": "MISSION-342",
+      "score": 62.7,
+      "wave": 20,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "AI Email Intelligence & Lifecycle Automation": {
+      "mission_id": "MISSION-343",
+      "score": 62.6,
+      "wave": 19,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "LLM Cost Metering & Attribution": {
+      "mission_id": "MISSION-344",
+      "score": 62.5,
+      "wave": 24,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Voice & Conversational Client Interfaces": {
+      "mission_id": "MISSION-345",
+      "score": 62.5,
+      "wave": 22,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Gemini 2.5 Pro \u2014 Deck Plan PDF Structured Extraction (Prompts & Workflow)": {
+      "mission_id": "MISSION-346",
+      "score": 62.5,
+      "wave": 24,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Client Product Asset Pipeline": {
+      "mission_id": "MISSION-347",
+      "score": 61.9,
+      "wave": 7,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Human Assessment & Tech Discourse": {
+      "mission_id": "MISSION-348",
+      "score": 61.7,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Vector Memory & Cross-Session Persistence": {
+      "mission_id": "MISSION-349",
+      "score": 59.5,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Port City Map Data Extraction \u2014 Landmarks & Distances (AI vs API)": {
+      "mission_id": "MISSION-350",
+      "score": 58.8,
+      "wave": 19,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "CC Plugin & Marketplace Ecosystem": {
+      "mission_id": "MISSION-351",
+      "score": 58.6,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Cruise Destination Photography \u2014 Legal Sources & License 2026": {
+      "mission_id": "MISSION-352",
+      "score": 58.3,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Agentic Browser Automation": {
+      "mission_id": "MISSION-353",
+      "score": 57.1,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Anthropic API & Claude Agent SDK": {
+      "mission_id": "MISSION-354",
+      "score": 54.6,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: AI Agent Orchestration & Meta-Harnesses": {
+      "mission_id": "MISSION-355",
+      "score": 52.3,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Multi-Modal Vision Tools": {
+      "mission_id": "MISSION-356",
+      "score": 52.0,
+      "wave": 6,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Owner/User Training \u2014 AI Workflow Mastery": {
+      "mission_id": "MISSION-357",
+      "score": 51.5,
+      "wave": 25,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Land Tour & Package Tech": {
+      "mission_id": "MISSION-358",
+      "score": 50.8,
+      "wave": 24,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "TESS / Travel Edge Booking Platform \u2014 2026 Updates & Advisor Feedback": {
+      "mission_id": "MISSION-359",
+      "score": 50.8,
+      "wave": 23,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Port Narrative Databases & Travel Writing Licenses 2026": {
+      "mission_id": "MISSION-360",
+      "score": 48.9,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Anti-Bot Scraping Precision": {
+      "mission_id": "MISSION-361",
+      "score": 48.5,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Cruise Ship Deck Plans \u2014 Where Lines Publish Them & Reuse Rights 2026": {
+      "mission_id": "MISSION-362",
+      "score": 48.3,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "GPT-4o Luxury Travel Photo Auto-Captioning \u2014 Batch Workflow 2026": {
+      "mission_id": "MISSION-363",
+      "score": 47.8,
+      "wave": 17,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Baltic & Nordic Shore Excursions \u2014 Viking Mars Dec 2026 Ports": {
+      "mission_id": "MISSION-364",
+      "score": 47.7,
+      "wave": 23,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Mediterranean Shore Excursions \u2014 Regent Grandeur Aug 2026 Ports": {
+      "mission_id": "MISSION-365",
+      "score": 47.4,
+      "wave": 17,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Owner/User Training \u2014 AI for Small Business": {
+      "mission_id": "MISSION-366",
+      "score": 47.0,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Shore Excursion Platforms & APIs": {
+      "mission_id": "MISSION-367",
+      "score": 47.0,
+      "wave": 5,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Flight Tech & Booking APIs": {
+      "mission_id": "MISSION-368",
+      "score": 47.0,
+      "wave": 6,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: LLM Cost Metering & Attribution": {
+      "mission_id": "MISSION-369",
+      "score": 46.5,
+      "wave": 25,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Group Air Booking for Travel Advisors \u2014 10-20 Passengers 2026": {
+      "mission_id": "MISSION-370",
+      "score": 45.0,
+      "wave": 22,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "NDC Direct Connect for Independent Travel Advisors 2026": {
+      "mission_id": "MISSION-371",
+      "score": 44.9,
+      "wave": 22,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Voyage Feedback & Community Intelligence": {
+      "mission_id": "MISSION-372",
+      "score": 43.5,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: GitHub Automation for AI Workflows": {
+      "mission_id": "MISSION-373",
+      "score": 42.0,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: Free & High-Quota LLM APIs": {
+      "mission_id": "MISSION-374",
+      "score": 41.0,
+      "wave": 19,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: AI Scheduling & Autonomous Execution": {
+      "mission_id": "MISSION-375",
+      "score": 35.6,
+      "wave": 17,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Cruise Tech & Booking Systems": {
+      "mission_id": "MISSION-376",
+      "score": 30.2,
+      "wave": 5,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: Open-Source LLM Ecosystem": {
+      "mission_id": "MISSION-377",
+      "score": 26.7,
+      "wave": 20,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: CLI & Terminal-Native AI Tools": {
+      "mission_id": "MISSION-378",
+      "score": 24.5,
+      "wave": 20,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: PDF & Document Intelligence": {
+      "mission_id": "MISSION-379",
+      "score": 22.2,
+      "wave": 24,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Cruise Line Intelligence": {
+      "mission_id": "MISSION-380",
+      "score": 21.9,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Regent, Silversea & Viking \u2014 Advisor-Facing Portal & Commission Changes 2026": {
+      "mission_id": "MISSION-381",
+      "score": 7.0,
+      "wave": 16,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "Nexion & Outside Agents \u2014 Advisor Portal & Tools 2026": {
+      "mission_id": "MISSION-382",
+      "score": 0.0,
+      "wave": 10,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: Ground Transport & Logistics Tech": {
+      "mission_id": "MISSION-383",
+      "score": 0.0,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: Competitive Intelligence: AI in Travel": {
+      "mission_id": "MISSION-384",
+      "score": 0.0,
+      "wave": 20,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: Hotel Tech & Inventory Systems": {
+      "mission_id": "MISSION-385",
+      "score": 0.0,
+      "wave": 21,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: MCP Server Registry \u2014 New Releases": {
+      "mission_id": "MISSION-386",
+      "score": 0.0,
+      "wave": 23,
+      "promoted_at": "2026-06-22T16:22:03.952449+00:00",
+      "tier": "ADOPT"
+    },
+    "AI Security & PII Governance": {
+      "mission_id": "MISSION-387",
+      "score": 70.7,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:24:32.868441+00:00",
+      "tier": "ADOPT"
+    },
+    "Cruise Suite Pricing Access \u2014 Advisor Channels 2026 (Regent/Silversea/Viking)": {
+      "mission_id": "MISSION-388",
+      "score": 59.3,
+      "wave": 19,
+      "promoted_at": "2026-06-22T16:24:32.868441+00:00",
+      "tier": "ADOPT"
+    },
+    "Port Maps \u2014 Mapbox vs Google vs OSM (2026 Pricing & License)": {
+      "mission_id": "MISSION-389",
+      "score": 56.5,
+      "wave": 18,
+      "promoted_at": "2026-06-22T16:24:32.868441+00:00",
+      "tier": "ADOPT"
+    },
+    "DEEP DIVE: AI Security & PII Governance": {
+      "mission_id": "MISSION-390",
+      "score": 32.8,
+      "wave": 25,
+      "promoted_at": "2026-06-22T16:24:32.868441+00:00",
+      "tier": "ADOPT"
+    },
+    "Cerebras \u2014 Free Inference Speed Tier": {
+      "mission_id": "MISSION-391",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Docling \u2014 Self-Hosted PDF Extraction (IBM Apache 2.0)": {
+      "mission_id": "MISSION-392",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "ccusage \u2014 Claude MAX Usage Attribution CLI": {
+      "mission_id": "MISSION-393",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "DeepInfra \u2014 Free Inference Tier Model Router Addition": {
+      "mission_id": "MISSION-394",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Skyvern \u2014 Open Source Anti-Bot Browser Automation": {
+      "mission_id": "MISSION-395",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Temporal \u2014 Durable Agent Workflow Engine (Self-Hosted)": {
+      "mission_id": "MISSION-396",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Inngest \u2014 Event-Driven Durable Workflow Orchestration": {
+      "mission_id": "MISSION-397",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "LlamaParse \u2014 Advanced PDF Parsing (LlamaIndex)": {
+      "mission_id": "MISSION-398",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "CloakBrowser \u2014 Stealth Chromium Akamai Bypass": {
+      "mission_id": "MISSION-399",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Omnigent \u2014 Apache-2.0 Meta-Harness Orchestrator": {
+      "mission_id": "MISSION-400",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Local LLMs on YOGA \u2014 Ollama Llama Qwen Phi": {
+      "mission_id": "MISSION-401",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "SimpleMem \u2014 Semantic Lossless Agent Memory Compression": {
+      "mission_id": "MISSION-402",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "A-MEM \u2014 Zettelkasten-Style Interconnected Agent Memory": {
+      "mission_id": "MISSION-403",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Cognee \u2014 Knowledge Graph Memory Layer for Agents": {
+      "mission_id": "MISSION-404",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Agno \u2014 High-Performance Multi-Agent Framework (formerly Phidata)": {
+      "mission_id": "MISSION-405",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Typst \u2014 Next-Generation Document Engine for PDF": {
+      "mission_id": "MISSION-406",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "ElevenLabs 11.ai Alpha \u2014 MCP-Native Voice Assistant": {
+      "mission_id": "MISSION-407",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "ElevenLabs Eleven v3 \u2014 Expressive Voice Model": {
+      "mission_id": "MISSION-408",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "MCP Travel-Specific Servers \u2014 Registry Evaluation": {
+      "mission_id": "MISSION-409",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Llama 4 \u2014 Meta Open Source LLM via Free Tiers": {
+      "mission_id": "MISSION-410",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "DeepSeek R1 \u2014 Chain-of-Thought Reasoning Free Tier": {
+      "mission_id": "MISSION-411",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Mistral Small 2026 \u2014 Efficient Free Tier Model": {
+      "mission_id": "MISSION-412",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Claude Agent SDK \u2014 @anthropic-ai/claude-agent-sdk npm": {
+      "mission_id": "MISSION-413",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "CC OTEL Wiring \u2014 OpenTelemetry Attribution in Headless Spawn": {
+      "mission_id": "MISSION-414",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "McPoogle \u2014 MCP Server Discovery and Search": {
+      "mission_id": "MISSION-415",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Nested Subagents Pattern \u2014 Per-Client Parallel Workers": {
+      "mission_id": "MISSION-416",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "Promptfoo Prompt Regression Testing CI Integration": {
+      "mission_id": "MISSION-417",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "pgvectorscale \u2014 High-Performance Postgres Vector Extension": {
+      "mission_id": "MISSION-418",
+      "promoted_at": "2026-06-22T18:31:04.136208+00:00",
+      "tier": "ADOPT"
+    },
+    "WhatsApp Business API \u2014 Flows In-Chat Client Messaging": {
+      "mission_id": "MISSION-419",
+      "promoted_at": "2026-06-22T18:35:08.569301+00:00",
+      "tier": "ADOPT_CANARY"
+    }
+  }
+}

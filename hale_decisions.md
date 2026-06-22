@@ -5404,3 +5404,23 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 2. **Run ledger / fuel gauge** (`core/ai_infra/run_ledger.py`) — per-run token BUDGET with hard-kill `remaining()`; FAILURE flag (adopted=0 & killed=0 & cost>floor); Sterling 75%-completion gate; $-estimate vs the $100 pool. Verified: this session's coupled run logged FAILURE (59% completion, $12.64, drain didn't fire). Harlan meter + ELON FAILURE flag + Sterling gate, one module.
 **HOLD STATUS:** agent-scaling hold LIFTS for **instrumented on-demand runs only** — every future fleet/hunt must declare a token budget and close on the ledger; standing fleets retired in favor of summon→cap→work→verify→kill.
 **SEQUENCED NEXT (decided, not yet built):** adversarial-verify-before-ADOPT on provider/protected-file changes (Dembe); close the OpenRouter seam + regression assertion (Dembe); bus consumer + aging + emitted-vs-owned metric (Sterling); collapse the rank triad → one gate-owner + one kill-owner and prune the 21 voices to decision-changers (ELON). Held to avoid more churn at high session-usage; next session.
+
+---
+
+## 2026-06-22 — ELON (A12) PLACED ON PROBATION (Commander directive)
+**Cause:** Fleet produced 36 unauthorized "ALREADY_COVERED" dispositions on valid INTEGRATE_NOW candidates. Kill-audit logic contaminated adoption evaluation — fleet applied subtraction reasoning ("D2M already has comparable capability") to signals that had no Case 1, 2, or 3 basis for deferral. Invented a 4th disposition the SO does not have. 36 integrations blocked without authority.
+**Commander:** "I am beside myself." "I made the right decision to reprogram ELON."
+**Effective:** 2026-06-22. Hale covers ELON's load during probation. Fleet suspended.
+**Reinstatement condition:** Demonstrated doctrine alignment — results, not apology.
+**Remediation completed this session:**
+- `elon_adopt_pipeline.py` docstring corrected — unauthorized 4th case removed
+- `Personas/a12_elon_personality.md` — major rewrite with Commander's war-footing language; probation box; two-chain separation (adoption ≠ kill-audit) codified; ALREADY_COVERED named as reference failure
+- `.claude/agents/a12-elon.md` — adopt-first posture + three-case doctrine + probation noted
+- `SO_TECH_VANGUARD_ELEVATION_20260621.md` — "already covered" added to banned demotion list with explicit paragraph
+- 36 ALREADY_COVERED missions REOPENED on mission board (status: active)
+- 28 new INTEGRATE_NOW missions created (MISSION-391–418) from wave 1-4 markdown sources never run through the pipeline
+- WhatsApp Business API corrected to INTEGRATE_NOW (MISSION-419); PII block voided — Commander already uses WhatsApp with clients; security audit 2026-06-15 found hardcoded key (H10), not a channel prohibition
+- Total adopt_log: 88 signals (was 59)
+**Sterling dissent:** None filed. WhatsApp canary classification was Sterling's gate applied as opinion without concrete proven harm — flagged to Commander. Commander validated: "I made the right decision to reprogram ELON."
+**Hale note:** The dual-edged mandate (adopt + kill-audit) created the category error. Swords and shields are different weapons. ELON now carries one weapon per lane.
+

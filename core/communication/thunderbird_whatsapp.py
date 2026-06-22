@@ -6,16 +6,20 @@ Trial account -- verified numbers only.
 """
 import json
 import logging
+import os
 
+from dotenv import load_dotenv
 from pydantic import Field
 from mcp.server.fastmcp import FastMCP
 from twilio.rest import Client
 
+load_dotenv(os.path.join(os.path.dirname(__file__), "../../.env"))
+
 logger = logging.getLogger(__name__)
 
-ACCOUNT_SID = "ACdc4e7b2beacb84b18c8b49ab8c8369cb"
-AUTH_TOKEN = "***REMOVED-SECRET***"
-TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"  # Twilio sandbox number
+ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID", "")
+AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN", "")
+TWILIO_WHATSAPP_NUMBER = f"whatsapp:{os.environ.get('TWILIO_WHATSAPP_SANDBOX', '+14155238886')}"
 
 
 def register_whatsapp_tools(mcp: FastMCP):
