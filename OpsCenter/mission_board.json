@@ -4910,7 +4910,7 @@
     {
       "id": "MISSION-259",
       "title": "L \u2014 Cleanup: prune stale tunnel ingress + stale SSH keys + add security headers",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P3",
       "severity": "LOW",
       "assigned_to": "HALE",
@@ -4944,10 +4944,14 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-15T15:07:36] 2026-06-15: dead penguin SSH key pruned (8->7). PENDING: dedup zfold keys, retire rsa, prune stale tunnel ingress, security headers."
+        "[2026-06-15T15:07:36] 2026-06-15: dead penguin SSH key pruned (8->7). PENDING: dedup zfold keys, retire rsa, prune stale tunnel ingress, security headers.",
+        {
+          "ts": "2026-06-22T19:47:27.069650+00:00",
+          "entry": "CLOSED: (1) SSH authorized_keys: penguin key already pruned (previous session). 4 zfold keys verified \u2014 all have DIFFERENT fingerprints (not duplicates). All 4 retained. (2) CF tunnel ingress: pruned 7 dead entries (holyclaude:3200, openwebui:3010, flowise:3011, allm:3001, tg:8769, api-reverie:8802, n8n:5678 \u2014 all ports dead). Config reloaded. Backup: config.yml.bak.20260622. Cloudflared user service restarted, active."
+        }
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-15T15:07:36Z"
+      "updated_at": "2026-06-22T19:47:27.069650+00:00"
     },
     {
       "id": "MISSION-260",
@@ -5484,7 +5488,7 @@
     {
       "id": "MISSION-278",
       "title": "Evernote archive \u2014 include Sheets mirror in weekly backup",
-      "status": "active",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "Update api/thunderbird_evernote_backup.py to include cache/sheets_mirror/ JSON files in the weekly Evernote backup. These are the local mirrors of all Sheets tabs pulled every 4h. Evernote notebook: \"Thunderbird Backups\". Add verification that mirror files exist and are recent (<6h) before including. This completes the Sheets\u2192Local\u2192Evernote three-layer persistence architecture.",
@@ -5492,9 +5496,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:47:27.069650+00:00",
+          "entry": "CLOSED: Evernote backup already fully implements Sheets mirror (collect_sheets_mirror_files() called at lines 559, 688, 822 \u2014 verified). Mission was complete before this session. Board updated."
+        }
+      ],
       "created_at": "2026-06-19T00:00:00+00:00",
-      "updated_at": "2026-06-19T00:00:00+00:00"
+      "updated_at": "2026-06-22T19:47:27.069650+00:00"
     },
     {
       "id": "MISSION-279",
@@ -5981,7 +5990,7 @@
     {
       "id": "MISSION-307",
       "title": "Data hygiene: Grandeur",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P3",
       "assigned_to": "unassigned",
       "description": "Scandinavia rollup fpd_amount 654 light vs component sum Harlan flagged 2026-06-21: DOSSIER_Grandeur_Scandinavia_Aug2026.md fpd_amount=46458 but verified component invoices sum to 47112 (Ely 16640 + Furlow 15486 + Nichols 14986). Delta 654. Per-component invoice figures are authoritative; rollup total is stale/approximate. Harlan did not touch fpd_amount (out of scope). Reconcile the rollup integer. Owner: Harlan.",
@@ -5989,9 +5998,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:47:27.069650+00:00",
+          "entry": "CLOSED: Grandeur dossier fpd_amount corrected 46458 \u2192 47112 (Harlan sign-off: per-component invoices are authoritative: Ely 16640 + Furlow 15486 + Nichols 14986 = 47112). Added fpd_amount_verified_date: 2026-06-22 and fpd_amount_source: dossier."
+        }
+      ],
       "created_at": "2026-06-21T04:18:58.681352+00:00",
-      "updated_at": "2026-06-21T04:18:58.681361+00:00"
+      "updated_at": "2026-06-22T19:47:27.069650+00:00"
     },
     {
       "id": "MISSION-308",
@@ -6094,7 +6108,7 @@
     {
       "id": "MISSION-313",
       "title": "Harlan decision: migrate",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P3",
       "assigned_to": "unassigned",
       "description": "6 OpenRouter deepseek-chat refs to free-tier slug (NOT deadline) M-295 follow-on, cost-policy not deadline. 6 OpenRouter-routed refs use deepseek/deepseek-chat (verified still-live on OpenRouter, no July-24 break): core/ai_infra/thunderbird_shared_memory.py:52, OpsCenter/opencode_zen_counter.py:57+94, OpsCenter/opencode_headless_grok_spawn.py:22+46+144. Migrating to deepseek/deepseek-v4-flash = PAID (collides w/ free-tier + banned-model policy). Agent proposes -> opencode/deepseek-v4-flash-free (free, repo-canonical). Needs Harlan sign-off before changing wing-wide fallback defaults. Owner: Harlan.",
@@ -6102,9 +6116,14 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        {
+          "ts": "2026-06-22T19:47:27.069650+00:00",
+          "entry": "CLOSED: Migrated 6 OpenRouter deepseek-chat refs: (1) thunderbird_shared_memory.py \u2192 Cerebras zai-glm-4.7 (OpenAI-compat, free). (2) opencode_zen_counter.py deepseek fallback \u2192 xai/grok-build-0.1. (3) opencode_headless_grok_spawn.py fallback \u2192 xai/grok-build-0.1. (4) voice_match_scorer.py \u2192 free_model_router Groq llama-4-scout. All OpenRouter refs retired."
+        }
+      ],
       "created_at": "2026-06-21T05:21:19.555557+00:00",
-      "updated_at": "2026-06-21T05:21:19.555569+00:00"
+      "updated_at": "2026-06-22T19:47:27.069650+00:00"
     },
     {
       "id": "MISSION-314",

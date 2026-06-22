@@ -229,7 +229,9 @@ def _llm_score_warmth_and_screenshot(
     try:
         import sys
         sys.path.insert(0, str(THUNDERBIRD_DIR / "OpsCenter"))
-        from claude_openrouter import ask_claude  # type: ignore
+        from core.ai_infra.free_model_router import free_infer as _fi
+        def ask_claude(prompt, system="", model="", max_tokens=300, temperature=0.2):
+            return _fi(prompt, provider="groq", model="meta-llama/llama-4-scout-17b-16e-instruct", system=system, max_tokens=max_tokens)
 
         required_qualities = "\n".join(f"- {q}" for q in card.get("required_qualities", []))
         screenshot_test = card.get("screenshot_test", "")
@@ -267,7 +269,7 @@ Return this exact JSON structure:
         raw = ask_claude(
             prompt=prompt,
             system="You are a luxury travel brand voice evaluator. Return only valid JSON.",
-            model="deepseek/deepseek-chat-v3.1",
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
             max_tokens=300,
             temperature=0.2,
         )

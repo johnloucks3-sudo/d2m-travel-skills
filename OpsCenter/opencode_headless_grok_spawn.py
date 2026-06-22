@@ -19,7 +19,7 @@ Usage:
     result = spawn_grok("Question", model="xai/grok-4.20-0309-reasoning")
 
     # With fallback
-    result = spawn_grok("Question", fallback_model="deepseek/deepseek-chat")
+    result = spawn_grok("Question", fallback_model="xai/grok-build-0.1")
 """
 
 import subprocess
@@ -43,7 +43,7 @@ class SpawnMode(Enum):
 class GrokSpawnConfig:
     """Configuration for Grok headless spawn."""
     model: str = "xai/grok-build-0.1"
-    fallback_model: Optional[str] = "deepseek/deepseek-chat"
+    fallback_model: Optional[str] = "xai/grok-build-0.1"
     mode: SpawnMode = SpawnMode.ASYNC
     timeout: Optional[int] = None  # Blocking mode only
     log_dir: Path = None  # Defaults to /tmp
@@ -141,7 +141,7 @@ class OpenCodeHeadlessGrokSpawn:
             (primary_model, fallback_model) tuple
         """
         primary = self.config.model
-        fallback = self.config.fallback_model or "deepseek/deepseek-chat"
+        fallback = self.config.fallback_model or "xai/grok-build-0.1"
 
         if self.config.verbose:
             print(f"  Primary: {primary}")

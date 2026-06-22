@@ -54,7 +54,7 @@ def zen_counter(question: str, context: str = "", model: str = "grok") -> str:
     Returns:
         ZEN's counter-voice response as a string (or error message)
     """
-    selected_model = "xai/grok-build-0.1" if model.lower() == "grok" else "deepseek/deepseek-chat"
+    selected_model = "xai/grok-build-0.1" if model.lower() == "grok" else "xai/grok-build-0.1"
 
     prompt = f"{COUNTER_SYSTEM}\n\n"
     if context:
@@ -91,7 +91,7 @@ def zen_counter_async(question: str, context: str = "", model: str = "grok") -> 
     Returns:
         Path to log file (read after ~10s for output)
     """
-    selected_model = "xai/grok-build-0.1" if model.lower() == "grok" else "deepseek/deepseek-chat"
+    selected_model = "xai/grok-build-0.1" if model.lower() == "grok" else "xai/grok-build-0.1"
 
     prompt = f"{COUNTER_SYSTEM}\n\n"
     if context:
