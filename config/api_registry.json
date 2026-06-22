@@ -8,14 +8,14 @@
   "credentials": [
     {
       "name": "Anthropic / Claude OAuth",
-      "env_var": "CLAUDE_CODE_OAUTH_TOKEN",
+      "env_var": null,
       "tier": "MAX subscription",
       "monthly_cost_usd": 100,
       "monthly_limit": "40% weekly cap (Commander's plan)",
       "usage_warning_pct": 80,
       "expires": null,
       "status": "active",
-      "notes": "Refreshed by claude-oauth-keepalive.timer every 90min. Source: ~/.claude/.credentials.json",
+      "notes": "File-based auth: ~/.claude/.credentials.json. Refreshed by claude-oauth-keepalive.timer every 90min. Not stored in .env.",
       "added": "2026-04-01"
     },
     {
@@ -146,8 +146,8 @@
       "monthly_limit": "1 index, 100K vectors free",
       "usage_warning_pct": 80,
       "expires": null,
-      "status": "active",
-      "notes": "Vector memory backup. Primary: Qdrant local.",
+      "status": "disabled",
+      "notes": "Dormant — primary vector memory is Qdrant local. Key not present; re-enable if Qdrant fails.",
       "added": "2026-05-20"
     },
     {
@@ -188,50 +188,50 @@
     },
     {
       "name": "Gmail OAuth — concierge",
-      "env_var": "GMAIL_MCP_TOKEN_PATH",
+      "env_var": null,
       "tier": "free (Google account)",
       "monthly_cost_usd": 0,
       "monthly_limit": "Gmail API quotas (no practical limit)",
       "usage_warning_pct": 80,
       "expires": null,
       "status": "active",
-      "notes": "d2mconcierge account. Refreshed by d2mconcierge-oauth-keepalive.timer every 45min. Path: config/persona_gmail_token.json.",
+      "notes": "File-based auth: config/persona_gmail_token.json. Refreshed by d2mconcierge-oauth-keepalive.timer every 45min. Not stored in .env.",
       "added": "2026-04-01"
     },
     {
       "name": "Gmail OAuth — johnloucks3",
-      "env_var": "JOHNLOUCKS3_TOKEN_PATH",
+      "env_var": null,
       "tier": "free (Google account)",
       "monthly_cost_usd": 0,
       "monthly_limit": "Gmail API quotas (no practical limit)",
       "usage_warning_pct": 80,
       "expires": null,
       "status": "active",
-      "notes": "Commander's primary inbox. Refreshed by johnloucks3_oauth_keepalive.timer every 90min.",
+      "notes": "File-based auth: api/thunderbird_google_auth.py TOKEN_FILE. Refreshed by johnloucks3_oauth_keepalive.timer every 90min. Not stored in .env.",
       "added": "2026-04-01"
     },
     {
       "name": "Centrav (Air/Tours portal)",
-      "env_var": "CENTRAV_SESSION_COOKIE",
+      "env_var": null,
       "tier": "agency portal (no cost)",
       "monthly_cost_usd": 0,
       "monthly_limit": "session-based — expires ~1.5h, refreshed by d2m-centrav-warm.timer",
       "usage_warning_pct": 80,
       "expires": null,
       "status": "active",
-      "notes": "Air and tour booking portal. Cookie auth. Re-auth via centrav_serve.py.",
+      "notes": "Session-cookie auth managed by d2m-centrav-warm.timer. Re-auth via centrav_serve.py. Not stored in .env.",
       "added": "2026-05-01"
     },
     {
       "name": "Regent Seven Seas portal",
-      "env_var": "REGENT_SESSION_COOKIE",
+      "env_var": null,
       "tier": "agency portal (no cost)",
       "monthly_cost_usd": 0,
       "monthly_limit": "session ~7990h (long-lived cookie)",
       "usage_warning_pct": 80,
       "expires": null,
       "status": "active",
-      "notes": "B2B portal. Two paths: direct + OA. ASPXAUTH cookie cannot be kept alive headless (Akamai). Manual re-auth required.",
+      "notes": "Session-cookie auth. ASPXAUTH cannot be kept alive headless (Akamai). Manual re-auth required via yoga Firefox. Not stored in .env.",
       "added": "2026-05-01"
     },
     {
