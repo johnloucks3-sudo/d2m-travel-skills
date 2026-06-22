@@ -97,7 +97,81 @@ def daily_brief(keywords: list[str] = None, max_per_feed: int = 8) -> str:
     return "\n".join(lines)
 
 
+def dembe_intel_report(keywords: list[str] = None, max_per_feed: int = 8) -> str:
+    """Format industry news as a Dembe A2 Intel Report."""
+    from datetime import datetime, timezone
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    items = dedup_by_title(fetch_all_feeds(max_per_feed))
+    if keywords:
+        filtered = filter_by_keywords(items, keywords)
+        if not filtered:
+            filtered = items[:10]
+    else:
+        filtered = items[:15]
+
+    lines = [
+        "# A2 DEMBE — INTEL REPORT",
+        f"## Travel Industry — Daily News Sweep",
+        f"**Date:** {today} | **Sources:** {len(FEEDS)} RSS feeds | "
+        f"**Items:** {len(filtered)} (deduped from {len(items)} raw)",
+        f"**Classification:** Industry intelligence — internal use",
+        "",
+        "---",
+        "",
+        "## BLUF",
+        "",
+        f"Daily sweep of {len(FEEDS)} cruise/travel industry feeds. "
+        f"{len(filtered)} relevant items after dedup and keyword filter.",
+        "",
+        "---",
+        "",
+    ]
+    for i, item in enumerate(filtered[:20], 1):
+        src = item.get("source", "?")
+        title = item.get("title", "")
+        link = item.get("link", "")
+        summary = item.get("summary", "")
+        lines.append(f"## FINDING {i} — {title}")
+        lines.append(f"**Source:** [{src}]({link})")
+        if summary:
+            lines.append(f"\n{summary}")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def send_to_inbox(report: str, subject: str = None) -> bool:
+    """Send intel report to johnloucks3 inbox via Python gmail send."""
+    from datetime import datetime, timezone
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    if subject is None:
+        subject = f"A2 DEMBE — Travel Industry Intel — {today}"
+    try:
+        import subprocess, sys
+        script = f"""
+import sys
+sys.path.insert(0, '/home/john/Thunderbird')
+from core.email.thunderbird_gmail import gmail_send_from_wing
+result = gmail_send_from_wing(
+    to='johnloucks3@gmail.com',
+    subject={repr(subject)},
+    body={repr(report)},
+    token_path='/home/john/Thunderbird/api/thunderbird_google_auth_johnloucks3_token.json',
+)
+print('SENT' if result else 'FAILED')
+"""
+        r = subprocess.run([sys.executable, "-c", script],
+                           capture_output=True, text=True, timeout=30)
+        return "SENT" in r.stdout
+    except Exception as e:
+        print(f"[send_to_inbox failed: {e}]")
+        return False
+
+
 if __name__ == "__main__":
     import sys
     kw = sys.argv[1:] if len(sys.argv) > 1 else ["Silversea", "Regent", "Viking", "luxury"]
-    print(daily_brief(keywords=kw))
+    report = dembe_intel_report(keywords=kw)
+    print(report)
+    if "--send" in sys.argv:
+        ok = send_to_inbox(report)
+        print(f"\n{'✅ Sent to johnloucks3' if ok else '❌ Send failed'}")
