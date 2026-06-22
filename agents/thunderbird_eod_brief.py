@@ -460,6 +460,31 @@ def collect_overnight_queue() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# SECTION 1b — API REGISTRY ALERTS (merged into BEFORE YOU SLEEP)
+# Surfaces MISSING_KEY / EXPIRED credentials from config/api_registry_status.json
+# ---------------------------------------------------------------------------
+
+def collect_registry_alerts() -> list[dict]:
+    """Return alert items for credentials with MISSING_KEY or EXPIRED scan status."""
+    status_path = THUNDERBIRD_DIR / "config" / "api_registry_status.json"
+    items = []
+    try:
+        if not status_path.exists():
+            return []
+        data = json.loads(status_path.read_text())
+        for cred in data.get("credentials", []):
+            scan_status = cred.get("scan_status", "")
+            if scan_status in ("MISSING_KEY", "EXPIRED"):
+                items.append({
+                    "type": "REGISTRY_ALERT",
+                    "title": f"API KEY {scan_status}: {cred['name']} ({cred.get('env_var', 'no env_var')})",
+                })
+    except Exception as e:
+        logger.warning(f"Registry alert collection failed: {e}")
+    return items
+
+
+# ---------------------------------------------------------------------------
 # HTML BUILDER — EOD BRIEF
 # ---------------------------------------------------------------------------
 
@@ -504,6 +529,10 @@ def build_html_eod_brief(
             elif itype == "FPD_URGENT":
                 rows += _bullet_row(
                     f"&#x26A0; FPD DUE TONIGHT/TOMORROW &rarr; {item['title']}"
+                )
+            elif itype == "REGISTRY_ALERT":
+                rows += _bullet_row(
+                    f"&#x1F511; {item.get('title', '')}"
                 )
             else:
                 rows += _bullet_row(item.get("title", ""))
@@ -706,7 +735,10 @@ def main():
     # ── DATA COLLECTION ────────────────────────────────────────────────────
     logger.info("Collecting Section 1: tonight-urgent items...")
     tonight_urgent = collect_tonight_urgent()
-    logger.info(f"  {len(tonight_urgent)} urgent items (section {'visible' if tonight_urgent else 'SUPPRESSED'})")
+    registry_alerts = collect_registry_alerts()
+    tonight_urgent.extend(registry_alerts)
+    logger.info(f"  {len(tonight_urgent)} urgent items ({len(registry_alerts)} registry alerts) "
+                f"(section {'visible' if tonight_urgent else 'SUPPRESSED'})")
 
     logger.info("Collecting Section 2: today's completions...")
     completions = collect_todays_completions()

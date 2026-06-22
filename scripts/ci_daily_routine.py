@@ -130,6 +130,23 @@ def main() -> int:
 
     print(f"CI routine {today}: {green}/{total} RAZOR_SHARP | "
           f"streak {st['streak']}/{STREAK_TARGET} | cadence={st['cadence']}")
+
+    # api registry scan — runs after CI sweep, pages Whetstone on errors
+    try:
+        r = subprocess.run(
+            [sys.executable, "/home/john/Thunderbird/scripts/api_registry_scan.py"],
+            capture_output=True, text=True, timeout=60,
+        )
+        print(r.stdout.strip() or "[api-registry] no output")
+        if r.returncode != 0:
+            try:
+                from OpsCenter.wing_page import page
+                page("whetstone", "API Registry scan errors:\n" + (r.stdout or r.stderr).strip()[:400])
+            except Exception as page_err:
+                print(f"[api-registry page failed: {page_err}]", file=sys.stderr)
+    except Exception as e:
+        print(f"[api-registry scan error: {e}]", file=sys.stderr)
+
     return 0
 
 
