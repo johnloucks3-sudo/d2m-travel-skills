@@ -1,0 +1,98 @@
+{
+  "generated": "2026-06-21T17:30:53.701756",
+  "note": "Native Python factbook (Goose/DeepSeek recipe retired 2026-06-19)",
+  "destinations": [
+    {
+      "destination": "Norway",
+      "intel_snippets": [
+        {
+          "file": "DOSSIER_Grandeur_Scandinavia_Aug2026.md",
+          "snippet": "n: September 08, 2026 \u2014 Oslo, Norway Duration: 10 nights Last Updated: March 26, 2026  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 1. GENERAL TRIP NOTES \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+        },
+        {
+          "file": "Ely_Darrow_Regent_3096289.md",
+          "snippet": " | YES | **PENDING** | Sweden/Norway Schengen | | 3 | Insurance | Travel insurance policy | YES | **EMAIL SENT 2026-06-18** | Amy emailed directly 2026-06-18 with Parkinson's-specific questions. Commander sent insurance options em"
+        },
+        {
+          "file": "Furlow_Regent_3071222.md",
+          "snippet": " | YES | **PENDING** | Sweden/Norway \u2014 US passport OK for Schengen | | 3 | Insurance | Travel insurance policy | YES | **PARTIAL** | Switching to Chase Sapphire Reserve CC coverage (Mar 23) \u2014 must charge final payment to Chase car"
+        }
+      ],
+      "snippets_found": 3
+    },
+    {
+      "destination": "Iceland",
+      "intel_snippets": [
+        {
+          "file": "DOSSIER_Loucks_SilverNova_May2027.md",
+          "snippet": "= Sina check-in day (no gap). Icelandair KEF\u2192VCE flies Sun \u2713; Lufthansa via MUC / United Polaris also in scope.** Shifted from Apr 30 per Commander 2026-06-11. | \u2705 B2B FARE WINDOW OPEN | | **May 2\u20135 (3 nights)** | Venice pre-cruis"
+        }
+      ],
+      "snippets_found": 1
+    },
+    {
+      "destination": "Denmark",
+      "intel_snippets": [
+        {
+          "file": "Ely_Darrow_Regent_3096289.md",
+          "snippet": "en | A Tour of Two Kingdoms - Denmark to Sweden | Sep 04 | 09:00 | \u2705 | | Kristiansand | None selected | \u2014 | \u2014 | \u2014 | | Oslo | Oslo During World War II | Sep 07 | 09:00 | \u2705 |  ---  ### ISSUES NEEDING RESOLUTION  1. **Finnair HEL\u2192ARN"
+        },
+        {
+          "file": "Furlow_Regent_3071222.md",
+          "snippet": "en | A Tour of Two Kingdoms - Denmark to Sweden | Sep 03 | 08:45 | \u2705 | | Copenhagen (Day 2) | **NONE BOOKED** \u2014 dossier previously had Tivoli Gardens & Canal Cruise Sep 04 08:45 but NOT showing in portal Mar 24 | Sep 04 | \u2014 | \u26a0\ufe0f V"
+        }
+      ],
+      "snippets_found": 2
+    },
+    {
+      "destination": "Finland",
+      "intel_snippets": [],
+      "snippets_found": 0
+    },
+    {
+      "destination": "Japan",
+      "intel_snippets": [
+        {
+          "file": "BULLETIN_DESIGN_RESEARCH.md",
+          "snippet": "Silversea just dropped a 2027 Japan itinerary that follows a route similar to the one you loved on Silver Nova. Early booking credit: $3,000 per suite. Worth a look.\"  4. **Port and destination intelligence** \u2014 Not generic. \"Stock"
+        },
+        {
+          "file": "REVERIE_EMOTIONAL_ARCHITECTURE.md",
+          "snippet": "e the kind of person for whom Japan at cherry blossom time was always waiting.  **Luna Note:** Every destination narrative carries a mirror. The client should see themselves in the copy \u2014 not as tourists, as protagonists. \"The lim"
+        },
+        {
+          "file": "00_COMMAND_LOG.md",
+          "snippet": " (msg_3780) \u2192 **COS** \u2014 \u26e9\ufe0f <b>JAPAN ITINERARY ARCHITECTURE</b> \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Copying that, Commander. Structuring a  - **[Wed Apr 01 12:23:46 PM MT 2026]** HALE routed `commander_message` (msg_3783) \u2192 **COS** \u2014 \ud83d\udcf1 <b>MOBILE"
+        },
+        {
+          "file": "DOSSIER_Loucks_SilverNova_May2027.md",
+          "snippet": "z Annual Premier was used for Japan 2026. Confirm renewal covers May 2027 dates before placing deposit.*  ---  ## EXCURSION BOOKING \u2014 PE181149717 CONFIRMED (Filed 2026-06-20)  *Source: Commander email \"Fwd: Booking Confirmation - "
+        }
+      ],
+      "snippets_found": 4
+    },
+    {
+      "destination": "Hawaii",
+      "intel_snippets": [],
+      "snippets_found": 0
+    },
+    {
+      "destination": "Greece",
+      "intel_snippets": [
+        {
+          "file": "REVERIE_EMOTIONAL_ARCHITECTURE.md",
+          "snippet": "s around a question: \"what is Greece like when you're not at the ruins?\"  **D2M Response:** A2 goes deep on the real. Dani asks the question before the client has to: \"Are you looking for the Santorini of postcards, or the Santori"
+        },
+        {
+          "file": "DOSSIER_ExploraII_EMed_May2027.md",
+          "snippet": "PM | | 4 | Thu 5/20 | Patmos, Greece | AM | PM | | 5 | Fri 5/21 | Milos, Greece | AM | PM | | 6 | Sat 5/22 | Mykonos, Greece | AM | PM | | 7 | Sun 5/23 | *At Sea* | | | | 8 | Mon 5/24 | **Piraeus (Athens), Greece** (disembark/emba"
+        },
+        {
+          "file": "DOSSIER_Loucks_SilverNova_May2027.md",
+          "snippet": "barkation | Athens (Piraeus), Greece \u2014 May 29, 2027 | Confirmed | | Total Cruise Nights | 24 nights (3 segments back-to-back) | Confirmed | | Booking Status | **CONFIRMED** | \u2705 Updated 2026-06-10 | | Booking Confirmation # | **506"
+        }
+      ],
+      "snippets_found": 3
+    }
+  ]
+}

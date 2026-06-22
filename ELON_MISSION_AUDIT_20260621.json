@@ -1,0 +1,390 @@
+{
+  "audit_run": "2026-06-21",
+  "audit_by": "ELON",
+  "total_missions": 42,
+  "recommendation_summary": {
+    "kill": 32,
+    "suspend": 5,
+    "keep": 5
+  },
+  "missions": [
+    {
+      "mission_id": "MISSION-196A",
+      "title": "Spencer DEN-FCO 12-pax Brief Prep — United Group D",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-203",
+      "title": "LOUCKS TRAVEL — Book GRB Rental Car Sep 6-14 (Door",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-214",
+      "title": "Regent Portal On-Demand",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-220",
+      "title": "Push P2 off-box heartbeat to production — complete",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-236",
+      "title": "Manual Regent OA re-authentication to restore B2B ",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-238",
+      "title": "Confirm 48-hour clean run on auth-gate EXPIRED ale",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-259",
+      "title": "L — Cleanup: prune stale tunnel ingress + stale SS",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "SUSPEND",
+      "reason": "Blocked; no clear DOD stated."
+    },
+    {
+      "mission_id": "MISSION-267",
+      "title": "AI stack consolidation — retire OpenRouter/Poe/Pin",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-278",
+      "title": "Evernote archive — include Sheets mirror in weekly",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-279",
+      "title": "Commander sends 5 aging WF-17 drafts — Kuklinski +",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-285",
+      "title": "Fix MISSION-SEC-01 — apex d2mluxury.quest DNS to C",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-286",
+      "title": "Rotate burned credentials — MISSION-SEC-05 Tier 2 ",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-289",
+      "title": "Fix d2mluxury.quest email deliverability (SPF/DKIM",
+      "current_status": "active",
+      "dod_present": true,
+      "dod_text": "2026-07-15.",
+      "recommendation": "KEEP",
+      "reason": "Active with clear DOD."
+    },
+    {
+      "mission_id": "MISSION-291",
+      "title": "ELON WATCHLIST —",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-296",
+      "title": "Agent SDK Billing",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-297",
+      "title": "Big Pickle (GLM-4.6)",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-298",
+      "title": "Cruise Planners AI",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-299",
+      "title": "ELON — beflow",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "SUSPEND",
+      "reason": "Blocked; no clear DOD stated."
+    },
+    {
+      "mission_id": "MISSION-301",
+      "title": "Chrome CDP 9222",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-302",
+      "title": "WATCH+HARVEST: Loop Board",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "SUSPEND",
+      "reason": "Blocked; no clear DOD stated."
+    },
+    {
+      "mission_id": "MISSION-303",
+      "title": "Apply staged policy",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "SUSPEND",
+      "reason": "Blocked; no clear DOD stated."
+    },
+    {
+      "mission_id": "MISSION-304",
+      "title": "WATCH: Agent Switchboard",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-305",
+      "title": "WATCH: MachinaOS multi-agent",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-306",
+      "title": "Loucks Silver Nova",
+      "current_status": "in_progress",
+      "dod_present": true,
+      "dod_text": "2026-07-05.",
+      "recommendation": "KEEP",
+      "reason": "Active with clear DOD."
+    },
+    {
+      "mission_id": "MISSION-307",
+      "title": "Data hygiene: Grandeur",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-309",
+      "title": "COMMANDER DECISION: retire",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "SUSPEND",
+      "reason": "Blocked; no clear DOD stated."
+    },
+    {
+      "mission_id": "MISSION-310",
+      "title": "COMMANDER: set provider",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-311",
+      "title": "Monthly AI-cost reconcile",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-312",
+      "title": "Pin qdrant/ollama to",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-313",
+      "title": "Harlan decision: migrate",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-314",
+      "title": "COMMANDER: backup crypt",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-315",
+      "title": "Monthly Archive verifier",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-316",
+      "title": "Send 5 aging WF-17 lifecycle drafts — Kuklinski + ",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-317",
+      "title": "Call United Group Desk — Spencer DEN-FCO 12-pax ai",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-318",
+      "title": "Confirm Amy Darrow insurance purchase before Jun 2",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-320",
+      "title": "ELON kill-or-close sweep — mission board to ≤50 ac",
+      "current_status": "active",
+      "dod_present": true,
+      "dod_text": "in one sentence; Sterling gates output before missions are closed or killed.",
+      "recommendation": "KEEP",
+      "reason": "Active with clear DOD."
+    },
+    {
+      "mission_id": "MISSION-321",
+      "title": "Rotate burned GitHub credentials — MISSION-SEC-05",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-322",
+      "title": "Fix MISSION-SEC-01 — apex d2mluxury.quest DNS 525 ",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-323",
+      "title": "Burcham destination clarification — Commander touc",
+      "current_status": "active",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-324",
+      "title": "Verified-Decommission Engine —",
+      "current_status": "in_progress",
+      "dod_present": true,
+      "dod_text": "verifier Assess 2026-06-21: DEACTIVATE=capable, DECOMMISSION/ELIMINATE=weak.",
+      "recommendation": "KEEP",
+      "reason": "Active with clear DOD."
+    },
+    {
+      "mission_id": "MISSION-325",
+      "title": "Airborne Scanner =",
+      "current_status": "in_progress",
+      "dod_present": false,
+      "dod_text": "",
+      "recommendation": "KILL",
+      "reason": "No definition-of-done in description or logs."
+    },
+    {
+      "mission_id": "MISSION-COST-01",
+      "title": "Real claude.ai MAX usage on cost dashboard — Cloud",
+      "current_status": "in_progress",
+      "dod_present": true,
+      "dod_text": "costs.",
+      "recommendation": "KEEP",
+      "reason": "Active with clear DOD."
+    }
+  ]
+}

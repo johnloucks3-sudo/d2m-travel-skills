@@ -2,10 +2,10 @@
  "explora": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 13,
+  "consecutive_failures": 14,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-06-20T16:33:32.661193+00:00",
+  "last_seen": "2026-06-21T16:39:20.945382+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "atlas": {

@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-21T17:43:21.971020+00:00",
+    "last_health_check": "2026-06-22T03:29:06.418122+00:00",
     "chrome_debug_port_9222": "ONLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-21T12:00:00-06:00"
+    "last_updated": "2026-06-22T03:29:06.418122+00:00"
   },
   "open_tasks": [
     {
@@ -405,5 +405,8 @@
       "condition_type": "date",
       "source": "MISSION-320 audit restructure \u2014 moved from mission board to Commander action log"
     }
-  ]
+  ],
+  "lessons_implementation_rate_pct": 100.0,
+  "lessons_total": 5,
+  "lessons_implemented": 5
 }

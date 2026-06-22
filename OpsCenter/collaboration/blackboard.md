@@ -86,49 +86,51 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-06-21 12:00 UTC)
+## COMMANDER-READY (2026-06-21 21:50 UTC)
 ### Last 24h decisions (0)
 - (none)
 
-### Open P0/P1 nags (2)
+### Open P0/P1 nags (3)
 - [P0] MCLEOD-2984034-FPD-TRIGGER
 - [P1] AMY-DARROW-INSURANCE-SUSPENSE
+- [P0] MISSION-COMMANDER-196-CALL
 - (none)
 
 ### Blockers (0)
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-06-21 06:00
+## STATE BRIDGE BRIEFING — 2026-06-21 15:50
 
-### Since last session (2026-06-20 21:44:25 → still open)
+### Since last session (2026-06-21 15:30:00 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `b75fcc2b` feat(sheets): M-274 Dani port cross-reference by Booking_ID  _7 hours ago_
-- `e430e95b` feat(authority): verified outbound directive path to personas  _18 hours ago_
-- `08156c60` fix(governance): dominant anti-ask HARD RULE (auto-loaded) + continue timer kills 137->130  _19 hours ago_
-- `23b5c41c` ops(ci): execute ELON zero-risk timer kills (137->~131); stop failed ai-auth-probe  _19 hours ago_
-- `db9abc0f` fix(ci): validation pass — 3 CRITICAL + key IMPORTANT/MINOR bugs (pre-finalize review)  _19 hours ago_
+- `49988026` feat(scraping): wire Firecrawl _call_firecrawl() to model router  _30 minutes ago_
+- `7a33c56b` feat(intel): un-suspend 7 dead zones + wire Cerebras key  _37 minutes ago_
+- `ba4deaa1` feat(daily-intel): full protocol live — 34 active cats, 12 suspended, 0900 timer  _63 minutes ago_
+- `42b57257` docs(sprint): wave 8 complete — synthesis updated, MISSION-330/331 added  _76 minutes ago_
+- `4277908e` feat(daily-search): apply ELON's 10 category rewrites before wave 8  _80 minutes ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_brief.md` (0s ago)
 - `hale_state.json` (1m ago)
-- `dossiers/Loucks_Personal_SilverNova_Japan.md` (7.5h ago)
-- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (7.7h ago)
-- `dossiers/Kuklinski_Viking_Panama.md` (12.1h ago)
-- `dossiers/Ely_Darrow_Regent_3096289.md` (13.5h ago)
-- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (13.5h ago)
-- `OpsCenter/collaboration/blackboard.md` (14.3h ago)
+- `OpsCenter/collaboration/blackboard.md` (6.3h ago)
+- `hale_brief.md` (9.8h ago)
+- `dossiers/Loucks_Personal_SilverNova_Japan.md` (17.3h ago)
+- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (17.6h ago)
+- `dossiers/Kuklinski_Viking_Panama.md` (21.9h ago)
+- `dossiers/Ely_Darrow_Regent_3096289.md` (23.4h ago)
+- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (23.4h ago)
 
-**Mission board:** 64 open (15 P0, 27 P1)
+**Mission board:** 69 open (16 P0, 31 P1)
   - 🔴 MISSION-065: Pacific Voyage Blog
   - 🔴 MISSION-148: Telegram Feature Expansion
   - 🔴 MISSION-152: Phase E: Signal
   - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
   - 🔴 MISSION-214: Regent Portal On-Demand
 
-### Su
+### Suggested next actions
+1. N
 <!-- COMMANDER-READY:END -->

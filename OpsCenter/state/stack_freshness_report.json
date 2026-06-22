@@ -1,0 +1,1192 @@
+{
+  "generated": "2026-06-21T14:05:04.882890+00:00",
+  "mode": "weekly",
+  "advisory": true,
+  "so": "SO_READINESS_LADDER_FRESHNESS_20260621.md",
+  "thresholds_days": {
+    "national_guard": 14,
+    "reserve": 44,
+    "retired_reserve": 134,
+    "retired_complete": 224
+  },
+  "inventory": {
+    "scripts": 1045,
+    "units": 400,
+    "total": 1445
+  },
+  "tier_counts": {
+    "ACTIVE DUTY": 1191,
+    "a) NATIONAL GUARD": 159,
+    "b) RESERVE": 89,
+    "c) RETIRED-ACTIVE-RESERVE": 6,
+    "d) RETIRED COMPLETELY": 0
+  },
+  "footprint": {
+    "est_tokens": 19079,
+    "total_chars": 76318,
+    "target_tokens": 15000,
+    "status": "RED",
+    "files": [
+      {
+        "file": "/home/john/Thunderbird/Personas/hale_cos.md",
+        "chars": 38670,
+        "est_tokens": 9667
+      },
+      {
+        "file": "/home/john/.claude/projects/-home-john-Thunderbird/memory/MEMORY.md",
+        "chars": 15718,
+        "est_tokens": 3929
+      },
+      {
+        "file": "/home/john/Thunderbird/hale_state.json",
+        "chars": 14032,
+        "est_tokens": 3508
+      },
+      {
+        "file": "/home/john/Thunderbird/hale_brief.md",
+        "chars": 4827,
+        "est_tokens": 1206
+      },
+      {
+        "file": "/home/john/Thunderbird/OpsCenter/session_context_latest.md",
+        "chars": 3071,
+        "est_tokens": 767
+      }
+    ]
+  },
+  "demotion_candidate_count": 254,
+  "actionable_this_cadence": [
+    {
+      "path": "OpsCenter/claude_haiku_supervisor.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/claude_token_refresh_daemon.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/examples_headless_grok_integration.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.7
+    },
+    {
+      "path": "OpsCenter/force_send_audit.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/keyword_router_test.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.7
+    },
+    {
+      "path": "OpsCenter/mass_summarizer.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.7
+    },
+    {
+      "path": "OpsCenter/send_audit_email.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/sonnet_prefilter.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "OpsCenter/task_audit_log.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/test_hale_unified_brain.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "OpsCenter/thunderbird_tts.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 38.4
+    },
+    {
+      "path": "agents/thunderbird_audio_briefing.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "api/thunderbird_cdp_lock.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.9
+    },
+    {
+      "path": "api/thunderbird_mag_suite.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.5
+    },
+    {
+      "path": "api/thunderbird_odysseus_cdp.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.5
+    },
+    {
+      "path": "api/thunderbird_tln_cruisecomplete.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.5
+    },
+    {
+      "path": "core/ai_infra/adapters/base.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/adapters/claude_max_oauth.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 27.0
+    },
+    {
+      "path": "core/ai_infra/adapters/opencode_nemotron.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/adapters/openrouter_breakglass.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/adapters/poe_polyglot.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 31d",
+      "age_days": 31.0
+    },
+    {
+      "path": "core/ai_infra/claude_async_pool.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/bedsonline_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 23.4
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/centrav_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 23.4
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/cruisebound_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 24.4
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/icruise_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 24.4
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/regent_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 23.4
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/tess_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/viking_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 16d",
+      "age_days": 15.6
+    },
+    {
+      "path": "core/ai_infra/intel_connectors/vtg_connector.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 24.4
+    },
+    {
+      "path": "core/ai_infra/python_executor_wrapper.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.7
+    },
+    {
+      "path": "core/ai_infra/router_chains.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/ai_infra/router_classifier.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/router_cost_gates.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/router_health.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/router_setup.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/ai_infra/router_telemetry.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ai_infra/unified_router.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/communication/thunderbird_email_c2.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/communication/thunderbird_telegram_health_check.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 39d",
+      "age_days": 38.7
+    },
+    {
+      "path": "core/cost_dashboard/collectors/_state.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/cost_dashboard/collectors/poe_browser_scraper.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/cost_dashboard/collectors/poe_cookie_scraper.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/cost_dashboard/collectors/poe_realtime.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/cost_dashboard/collectors/poe_realtime_tracker.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/cost_dashboard/collectors/zen_limits_query.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/cost_dashboard/seed_plan.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/hale/brief_email_sender.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/mcp/scripts/run_headless_claude_scan.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ops/session_checkpoint.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "core/ops/thunderbird_spsa_opencode.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "core/ops/zen_check.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "core/scheduling/monthly_validation.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "core/test_phase3b_integration.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/ai_metrics_health.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/audit_mag_mysite.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "scripts/build_opus_prompt.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/build_spencer_docx.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 15d",
+      "age_days": 15.4
+    },
+    {
+      "path": "scripts/create_ai_metrics_sheet.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/create_crystal_drafts.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/create_kuklinski_flights_draft.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/create_silversea_drafts.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/discover_viator_klook.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.9
+    },
+    {
+      "path": "scripts/dispatch_mission_batch.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/drive_folder_monitor.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 23d",
+      "age_days": 22.9
+    },
+    {
+      "path": "scripts/ely_darrow_dining_june1_automation.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/fetch_commander_sent_emails.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/fix_mission_board.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/furlow_dining_june1_automation.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/generate_brand_kit.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.8
+    },
+    {
+      "path": "scripts/gmail_read.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/gmail_read_thread_all.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/gmail_search.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/gmail_snippets.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/hale_email_ooda.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/m061_regent_nodriver.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 23.7
+    },
+    {
+      "path": "scripts/m061_stealth_probe.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 23.7
+    },
+    {
+      "path": "scripts/m061_viking_login_test.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 24d",
+      "age_days": 23.7
+    },
+    {
+      "path": "scripts/nginx-vhosts-watchdog.sh",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 26d",
+      "age_days": 25.7
+    },
+    {
+      "path": "scripts/nichols_dining_june1_automation.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/preprocess_emails_for_opus.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/read_gmail_message.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/reauth_full_scopes.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 21d",
+      "age_days": 20.8
+    },
+    {
+      "path": "scripts/render_and_draft_group3.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/render_dani_showcase_email.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/search_al_ely.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/search_seat_policy.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 38d",
+      "age_days": 37.8
+    },
+    {
+      "path": "scripts/send_crystal_emails_final.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/send_crystal_full.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/send_glitzy_manual.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/send_lifecycle_summary.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/spawn_commission_audit.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 33d",
+      "age_days": 32.7
+    },
+    {
+      "path": "scripts/test_headout_url.py",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "orphan (0 inbound refs) + cold 27d",
+      "age_days": 26.9
+    },
+    {
+      "path": "~/.config/systemd/user/a7-daily-audit.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/apify-mcp.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/cost-openrouter.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d-thunderbird-timer-self-audit.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-api.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-daily-executor.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-daily-executor.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-dani-email.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-dca-den.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-email-ingest.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-flowise.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-healthcheck.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-incubator-evening-review.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-intel-digest.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-intel-telegram.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-llm-proxy.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-morning-briefing.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-openwebui.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-preflight.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-star-protocol.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-zfold-test.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/foursquare-mcp.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/goose-gateway.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/goose-mcp-http.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/goose-telegram.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-brief-generate.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-brief-generator.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-brief-generator.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-daemon.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-hourly-summary.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-morning-brief.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-morning-brief.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/hale-phase2-visuals.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/kuklinski-jul15-trigger.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/kuklinski-jul15-trigger.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/lifecycle-calendar-engine.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/lifecycle-calendar-engine.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/metronome-daily.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/metronome-daily.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/n8n.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/poe-auth-check.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/poe-auth-check.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/reverie-api.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/tess-keepalive.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-ai-metrics.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-boot-recovery.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-boot-recovery.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-commander-directive-sweep.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-commander-directive-sweep.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-harlan-daily.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-harlan-weekly.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-heartbeat.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-heartbeat.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-innovation-scan-weekly.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-opscenter-test.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-qdrant.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-rsync.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-sentinel.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-sentinel.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-spsa-eod-brief.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-spsa-weekly-brief.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-telegram-c2.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-telegram-health.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-timer-self-audit.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-timer-self-audit.timer",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/yelp-mcp.service",
+      "tier": "a) NATIONAL GUARD",
+      "reason": "unit disabled (installed, not active) \u2014 load-on-demand candidate",
+      "age_days": null
+    }
+  ],
+  "top_candidates": [
+    {
+      "path": "~/.config/systemd/user/cost-openrouter.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/Thunderbird/core/cost_dashboard/collectors/openrouter.py \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-dca-den.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/d2m-dca-den/run_daily.sh \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-intel-telegram.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/Thunderbird//home/john/Thunderbird/core/communication/thunderbird_intel_telegram.py \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/d2m-telegram.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/Thunderbird/thunderbird_telegram.py \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-hooks.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/Thunderbird/Thunderbird/thunderbird_hooks_receiver.py \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "~/.config/systemd/user/thunderbird-watch-officer.service",
+      "kind": "unit",
+      "tier": "c) RETIRED-ACTIVE-RESERVE",
+      "reason": "ExecStart target missing: /home/john/Thunderbird/OpsCenter/watch_officer_groq.sh \u2014 orphan unit",
+      "age_days": null
+    },
+    {
+      "path": "scripts/render_nancy_lyons_email.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 97d",
+      "age_days": 97.0
+    },
+    {
+      "path": "scripts/create_html_drafts.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 93d",
+      "age_days": 92.6
+    },
+    {
+      "path": "scripts/draft_ten_weeks_later.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 92d",
+      "age_days": 91.6
+    },
+    {
+      "path": "scripts/render_dani_validation_emails.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 88d",
+      "age_days": 87.6
+    },
+    {
+      "path": "OpsCenter/notify_commander.sh",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 84d",
+      "age_days": 83.6
+    },
+    {
+      "path": "OpsCenter/create_tokyo_draft.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 83d",
+      "age_days": 82.6
+    },
+    {
+      "path": "OpsCenter/atomic_dossier_commit.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 81.1
+    },
+    {
+      "path": "OpsCenter/a7_email_scorer.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 80.7
+    },
+    {
+      "path": "OpsCenter/api_test.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 80.6
+    },
+    {
+      "path": "OpsCenter/keep_to_drive_sync.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 80.6
+    },
+    {
+      "path": "OpsCenter/pinecone_connector.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 80.6
+    },
+    {
+      "path": "OpsCenter/tool_validator.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 81d",
+      "age_days": 80.6
+    },
+    {
+      "path": "OpsCenter/drive_to_evernote_sync.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 76d",
+      "age_days": 75.7
+    },
+    {
+      "path": "OpsCenter/gmail_exec_poller.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 76d",
+      "age_days": 75.7
+    },
+    {
+      "path": "OpsCenter/scrub_calendar.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 76d",
+      "age_days": 75.7
+    },
+    {
+      "path": "core/crewai/example_loucks_crew.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 76d",
+      "age_days": 75.7
+    },
+    {
+      "path": "OpsCenter/log_scanner.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 72d",
+      "age_days": 72.5
+    },
+    {
+      "path": "core/scheduling/health_monitor.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 72d",
+      "age_days": 72.5
+    },
+    {
+      "path": "scripts/create_afa_lifecycle_draft.py",
+      "kind": "script",
+      "tier": "b) RESERVE",
+      "reason": "orphan (0 inbound refs) + cold 72d",
+      "age_days": 72.5
+    }
+  ],
+  "elapsed_sec": 19.5
+}

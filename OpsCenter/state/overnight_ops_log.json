@@ -12,5 +12,126 @@
       "perx_cookies: session_only",
       "room_res_cookies: expired"
     ]
+  },
+  {
+    "ts": "2026-06-21T06:49:22.002335-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:49:27.725966-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:50:32.669970-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:50:51.631410-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:50:59.209541-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:53:50.277636-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T06:54:16.655051-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T07:06:36.339194-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T08:36:34.849594-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-06-21T09:32:42.299173-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 4,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "gmail_token: valid",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
   }
 ]

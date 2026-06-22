@@ -1,0 +1,10 @@
+PROTECTIONS LIFTED — Commander directive 2026-06-21 ("REMOVE ALL PROTECTIONS FOR NOW UNTIL FURTHER NOTICE").
+
+Scope: all internal file/edit/bash/wing-infra protections OFF — including the 6 formerly-protected
+email-scanner/relay files. The modernization push is not to be obstructed.
+
+NOT lifted (kept unless Commander says lift it too): the outward-facing CLIENT-SEND gate. A send to a
+client address is irreversible and outward-facing; comms/send tools still route to the policy engine.
+
+RESTORE: delete this file (the wing_policy engine + every rule remain intact underneath; removing the
+sentinel re-arms them instantly). Logged in hale_decisions.md 2026-06-21.

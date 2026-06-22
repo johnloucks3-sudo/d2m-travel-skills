@@ -72,6 +72,46 @@ APPROVED_BARE_IDS = {
     "nemotron-3-super-120b-a12b:free",
 }
 
+# ── KNOWN MODEL CATALOG — existence gate (added 2026-06-15, MISSION-267) ──────
+# WHY: Four fabricated model IDs shipped historically because the gate only checked
+# COST APPROVAL, never EXISTENCE — a configured model ID was trusted to be real:
+#   qwen3.6-plus-04-02 · gemini-3.1-flash-lite-preview-20260303 · gemini-flash-2.5-lite
+# (plus the OpenRouter-routed variants). Cost approval alone is theater if the ID
+# doesn't resolve to a real, live model. This catalog is the source of truth: any
+# model ID configured in the router / safeguards MUST resolve here (exact or via a
+# documented retired marker) or the gate fails RED in --check-config mode.
+#
+# Maintenance: when a real model is adopted, add its canonical ID here. Retired
+# providers leave a "RETIRED-*" marker which is explicitly allowed (decommissioned,
+# not fabricated). Owner: A7 Sterling. Sync new live IDs with gemini_client/.env.
+KNOWN_MODEL_CATALOG = {
+    # Anthropic (native, via MAX OAuth / Claude CLI)
+    "claude-opus-4-7", "claude-opus-4-8", "claude-sonnet-4-6", "claude-haiku-4-5-20251001",
+    # Google direct (gemini_client — GEMINI_API_KEY). These are the LIVE Gemini IDs.
+    "gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.5-flash-lite",
+    # OpenCode native ($0)
+    "big-pickle", "deepseek-v4-flash-free",
+    # xAI canonical (reference only — no live transport post-OpenRouter retirement)
+    "x-ai/grok-4.3",
+}
+
+# Allowed non-resolving markers: deliberately retired IDs are NOT fabrications.
+# A configured ID matching one of these prefixes passes the existence gate.
+RETIRED_MARKER_PREFIXES = ("RETIRED-",)
+
+# Known-fabricated IDs that must NEVER resolve — kept as an explicit denylist so a
+# regression that re-introduces one fails RED with a clear message (not a silent pass).
+FABRICATED_MODEL_IDS = {
+    "qwen3.6-plus-04-02",
+    "qwen/qwen3.6-plus-04-02:free",
+    "gemini-3.1-flash-lite-preview-20260303",
+    "google/gemini-3.1-flash-lite-preview-20260303",
+    "gemini-3.1-flash-lite-preview",
+    "gemini-flash-2.5-lite",
+    "google/gemini-flash-2.5-lite:free",
+}
+
+
 # ── Banned model list — MIRROR of harlan_cost_monitor.py BANNED_PAID ──────────
 # Keep synchronized. Add to BOTH files when a new model is banned.
 # Owner: A7 Sterling / A9 Harlan.
@@ -429,6 +469,124 @@ def print_report(sessions: list[dict], ev: dict, report_only: bool) -> None:
     print(f"{divider}\n")
 
 
+# ── Existence gate — configured model IDs must resolve to a known catalog ──────
+# (added 2026-06-15, MISSION-267)
+THUNDERBIRD_ROOT = Path(__file__).resolve().parent.parent
+
+# Files whose configured model IDs are validated against KNOWN_MODEL_CATALOG.
+# Add new config sources here as they appear.
+MODEL_CONFIG_SOURCES = [
+    THUNDERBIRD_ROOT / "core" / "ai_infra" / "thunderbird_model_router.py",
+    THUNDERBIRD_ROOT / "core" / "learning" / "model_safeguards.py",
+]
+
+# Regex to harvest plausible model-ID string literals from "model_id"/"model"/
+# *_MODEL assignments. Conservative: only flags string literals tied to a model
+# field/constant, so prose and unrelated strings are not swept in.
+import re as _re
+_MODEL_LITERAL_RE = _re.compile(
+    r"""(?:model_id|["']model["']|[A-Z_]*MODEL)\s*[:=]\s*["']([^"']+)["']"""
+)
+
+
+def _resolves(model_id: str) -> bool:
+    """True if a configured model ID is acceptable: in the live catalog, a
+    documented retired marker, or a flat tier-routing keyword (not a real ID)."""
+    mid = model_id.strip()
+    if not mid:
+        return True
+    if mid in KNOWN_MODEL_CATALOG:
+        return True
+    if any(mid.startswith(p) for p in RETIRED_MARKER_PREFIXES):
+        return True
+    # Tier/routing keywords that are intentionally NOT model IDs (resolved downstream)
+    if mid in {"openrouter_free", "flux", "perplexity", "perplexity_reasoning",
+               "sonnet", "haiku", "opus", "vision", "fast", "grok", "research",
+               "default"}:
+        return True
+    return False
+
+
+def check_configured_model_ids() -> dict:
+    """Scan MODEL_CONFIG_SOURCES for configured model IDs and validate existence.
+
+    Returns {"unresolved": [...], "fabricated": [...], "checked": int}.
+      - fabricated: ID is on the explicit FABRICATED_MODEL_IDS denylist (hard RED).
+      - unresolved: ID does not resolve against the live catalog / retired markers /
+        routing keywords (RED — likely a typo or a new fabrication).
+    """
+    unresolved: list[dict] = []
+    fabricated: list[dict] = []
+    checked = 0
+
+    for path in MODEL_CONFIG_SOURCES:
+        if not path.exists():
+            continue
+        for lineno, line in enumerate(path.read_text(errors="ignore").splitlines(), 1):
+            stripped = line.lstrip()
+            if stripped.startswith("#"):
+                continue  # skip comment lines (retirement notes mention old IDs)
+            for mid in _MODEL_LITERAL_RE.findall(line):
+                checked += 1
+                if mid in FABRICATED_MODEL_IDS:
+                    fabricated.append({"file": str(path), "line": lineno, "id": mid})
+                elif not _resolves(mid):
+                    unresolved.append({"file": str(path), "line": lineno, "id": mid})
+
+    return {"unresolved": unresolved, "fabricated": fabricated, "checked": checked}
+
+
+def print_config_check(result: dict, report_only: bool) -> str:
+    """Severity model (deliberate, to keep the gate honest without false-positive blocks):
+      - FABRICATED (explicit denylist of known-invented IDs) → RED, hard block.
+        Zero false positives: these IDs were confirmed to not exist.
+      - UNRESOLVED (not in KNOWN_MODEL_CATALOG, not a retired marker/routing keyword)
+        → YELLOW advisory only. Real but un-catalogued provider IDs (Perplexity, FLUX,
+        etc.) land here; the cure is to add them to the catalog, not to block a commit.
+    Returns overall: 'RED' | 'YELLOW' | 'GREEN'."""
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    divider = "=" * 64
+    unresolved = result["unresolved"]
+    fabricated = result["fabricated"]
+    print(f"\n{divider}")
+    print(f"A7 STERLING — MODEL-ID EXISTENCE GATE | {ts}")
+    print(f"Sources: {len(MODEL_CONFIG_SOURCES)} config file(s)  |  Catalog: {len(KNOWN_MODEL_CATALOG)} live IDs")
+    print(divider)
+    print(f"\n  Checked {result['checked']} configured model-ID literal(s).")
+
+    if fabricated:
+        print(f"\n  {RED(f'FABRICATED IDs — HARD FAIL ({len(fabricated)}):')}")
+        for f in fabricated:
+            print(RED(f"    {f['id']}  ({Path(f['file']).name}:{f['line']}) — known non-existent, banned"))
+    if unresolved:
+        print(f"\n  {YEL(f'UNRESOLVED IDs — advisory ({len(unresolved)}):')}")
+        for u in unresolved:
+            print(YEL(f"    {u['id']}  ({Path(u['file']).name}:{u['line']}) — not in live catalog; "
+                      f"add to KNOWN_MODEL_CATALOG if real"))
+
+    if fabricated:
+        overall = "RED"
+    elif unresolved:
+        overall = "YELLOW"
+    else:
+        overall = "GREEN"
+
+    print()
+    if overall == "RED":
+        if report_only:
+            print(RED(f"  GATE: RED — {len(fabricated)} fabricated model ID(s) [report-only: not blocking]"))
+        else:
+            print(RED(f"  GATE: RED — {len(fabricated)} fabricated model ID(s). A configured ID must "
+                      f"exist (not be invented). Commit BLOCKED."))
+    elif overall == "YELLOW":
+        print(YEL(f"  GATE: YELLOW — {len(unresolved)} un-catalogued ID(s). Commit permitted; "
+                  f"add real IDs to KNOWN_MODEL_CATALOG."))
+    else:
+        print(GRN("  GATE: GREEN — all configured model IDs resolve to the live catalog."))
+    print(f"{divider}\n")
+    return overall
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main() -> int:
     parser = argparse.ArgumentParser(
@@ -441,7 +599,23 @@ def main() -> int:
         action="store_true",
         help="Print report without gate enforcement (always exits 0).",
     )
+    parser.add_argument(
+        "--check-config",
+        action="store_true",
+        help="Existence gate: validate every configured model ID resolves against "
+             "the live KNOWN_MODEL_CATALOG (catches fabricated IDs). Exits 1 on RED "
+             "unless --report-only. Runs independently of the OpenCode DB.",
+    )
     args = parser.parse_args()
+
+    # ── Existence gate (MISSION-267): configured model IDs must resolve ──────────
+    if args.check_config:
+        cfg = check_configured_model_ids()
+        overall = print_config_check(cfg, report_only=args.report_only)
+        if args.report_only:
+            return 0
+        # Only fabricated (denylisted) IDs block; YELLOW/GREEN pass.
+        return 1 if overall == "RED" else 0
 
     # DB-missing: YELLOW + fail open (don't block commits)
     if not DB_PATH.exists():

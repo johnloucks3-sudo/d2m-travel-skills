@@ -1,14 +1,21 @@
 {
-  "run_at": "2026-06-21T03:26:52.253733",
-  "tasks_attempted": 1,
-  "tasks_succeeded": 1,
+  "run_at": "2026-06-21T13:40:00.177169",
+  "tasks_attempted": 2,
+  "tasks_succeeded": 2,
   "results": [
     {
-      "id": "MISSION-073",
-      "title": "Persona Health Scorecard Template \u2014 Baldrige Audit Framework",
+      "id": "MISSION-320",
+      "title": "ELON kill-or-close sweep \u2014 mission board to \u226450 active",
       "success": true,
-      "elapsed": 309.8340497016907,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-073_20260621.md"
+      "elapsed": 241.3480930328369,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-320_20260621.md"
+    },
+    {
+      "id": "MISSION-321",
+      "title": "Rotate burned GitHub credentials \u2014 MISSION-SEC-05",
+      "success": true,
+      "elapsed": 245.3859260082245,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-321_20260621.md"
     }
   ]
 }

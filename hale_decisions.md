@@ -1,5 +1,30 @@
 ---
 
+## 2026-06-21 DECISIONS
+
+### MISSION-320: ELON Kill/Suspend Sweep — Mission Board Audit to ≤50 Active
+**Date:** 2026-06-21 | **Authority:** Hale (executor, per ELON + Sterling gate) | **Type:** audit_and_execution | **Status:** COMPLETE
+**Objective:** Audit all active missions for clear definition-of-done; kill or suspend any lacking clarity
+**Audit scope:** 53 active missions at start
+**Methodology:** 
+  1. ELON (A12) reviewed all 53 missions; flagged 9 candidates for kill/clarify/suspend
+  2. Sterling (A7) gated all recommendations; approved execution plan
+  3. Hale executed all changes to mission_board.json
+**Execution results:**
+  - ✅ KILLED 5 missions: MISSION-080 (complete), 288 (no context), 293 (forwarded email), 294 (forwarded email), 326 (client copy)
+  - ✅ SUSPENDED 1 mission: MISSION-227 (Commander-dependent; reactivate when Perx/SkyLux contact complete)
+  - ✅ CLARIFIED 3 missions: MISSION-COST-01, 289, 306 (added phased DoD, deadlines, owners, success metrics)
+**Post-audit board state:**
+  - Active missions: 47 (down from 53, target ≤50 met ✅)
+  - DoD clarity improved: 83% → 95% of remaining missions
+  - No cross-references broken; mission board integrity intact
+**Deliverables:** 
+  - `/home/john/Thunderbird/output/executor_results/MISSION-320_AUDIT_20260621.md` (full audit report)
+  - `/home/john/Thunderbird/output/executor_results/MISSION-320_EXECUTION_STATUS_20260621.txt` (status summary)
+**Decision:** MISSION-320 CLOSED. Board reduction complete. Three clarified missions reactivated with proper DoD.
+
+---
+
 ## MONTHLY HEALTH REVIEWS — PERSONA SCORECARD (Baldrige Framework)
 *Authority: A7 Sterling | Cadence: 1st of month, 30 min | Documented by Hale COS*
 
@@ -5360,3 +5385,22 @@ amy.darrow@me.com = BAD/refusing address. Future Ely comms -> al.ely58@gmail.com
 **His commitment:** Wilco — deliverable on every candidate is now the yes-case (why adopt, smallest safe trial, one real risk + mitigation), builds the on-ramp not the speed bump, logs a one-line dissent and gets out of the way same-cycle when ELON overrides. Plants feet only on concrete harm.
 **Hale disposition:** Surfaced to Commander. Canary guardrail is a Strategic posture-refinement (Commander's lane) — recommended for adoption; not wired unless Commander rules yes.
 **RESOLUTION (Commander 2026-06-21): "Take it — wire the canary into the SO."** Adopted. Client-path 7-day canary written into SO_TECH_VANGUARD_ELEVATION_20260621.md §2a + CLAUDE.md § Technology Vanguard Elevation. Sterling owns the criterion. Capability-tool tempo unaffected (canary only touches client-send/PII tools; live send already WF-17-gated). Sterling's first non-dissent concurrence → accepted refinement: the system produced a sharper directive than either the original loosening or his skepticism alone.
+
+---
+
+## 2026-06-21 — ALL WING PROTECTIONS LIFTED (Commander directive)
+**Commander: "Too many obstacles in protected files, REMOVE ALL PROTECTIONS FOR NOW UNTIL FURTHER NOTICE."**
+Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08 protected email/relay files) + the PreToolUse wing-policy enforcement for non-send actions. Mechanism: kill-switch sentinel `.protections_lifted` read by `hooks/pretooluse_policy.py` (engine + rules left fully intact underneath). CLAUDE.md rule marked SUSPENDED.
+**Carve-out KEPT (Hale judgment, Commander can override on one word):** the outward CLIENT-SEND gate. A send to a client address is irreversible/outward-facing; comms/send tools still route to the policy engine. Verified: internal relay-file action exit 0 (allowed); client-send still BLOCKED.
+**RESTORE:** `rm /home/john/Thunderbird/.protections_lifted` re-arms every protection instantly. Reversible by design.
+
+---
+
+## 2026-06-21 — STRATEGIC FORK RESOLVED (Commander delegated to Hale: "I will follow whatever you recommend")
+**Context:** Four-seat staff red-team returned a unanimous verdict on the day's architectural revolution — big-and-busy, not lethal-and-small; throughput up, verification + cost-visibility + kill-path down. Commander delegated the fork to Hale.
+**DECISION (B+A combined): fly ELON's fighter, instrumented.** Subtract toward lethal-and-small AND wire the gauges — not exclusive.
+**INSTALLED + PROVEN this turn (the two hold-lift conditions):**
+1. **Client-send gate tripwire** (`scripts/client_send_gate_tripwire.py`) — hashes the 7-file client-send enforcement path vs baseline; RED on any change → pages Commander + freeze adoption. Wired into `ci_daily_routine.py` (runs daily). Verified: matched at baseline, TRIPPED on simulated tamper of wing_policy.py, recovered on revert. Sterling CAUTION 1 closed.
+2. **Run ledger / fuel gauge** (`core/ai_infra/run_ledger.py`) — per-run token BUDGET with hard-kill `remaining()`; FAILURE flag (adopted=0 & killed=0 & cost>floor); Sterling 75%-completion gate; $-estimate vs the $100 pool. Verified: this session's coupled run logged FAILURE (59% completion, $12.64, drain didn't fire). Harlan meter + ELON FAILURE flag + Sterling gate, one module.
+**HOLD STATUS:** agent-scaling hold LIFTS for **instrumented on-demand runs only** — every future fleet/hunt must declare a token budget and close on the ledger; standing fleets retired in favor of summon→cap→work→verify→kill.
+**SEQUENCED NEXT (decided, not yet built):** adversarial-verify-before-ADOPT on provider/protected-file changes (Dembe); close the OpenRouter seam + regression assertion (Dembe); bus consumer + aging + emitted-vs-owned metric (Sterling); collapse the rank triad → one gate-owner + one kill-owner and prune the 21 voices to decision-changers (ELON). Held to avoid more churn at high session-usage; next session.

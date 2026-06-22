@@ -156,6 +156,27 @@ def _evaluate():
     excerpt = _excerpt_for_audit(ctx)
     tool = ctx.get("tool", "?")
 
+    # --- KILL-SWITCH: protections lifted per Commander directive 2026-06-21 ---
+    # The `.protections_lifted` sentinel frees ALL internal actions (file edits
+    # incl. the 6 protected email/relay files, relay invocations, bash) so the
+    # modernization push isn't obstructed. "FOR NOW UNTIL FURTHER NOTICE" —
+    # restore by deleting the sentinel.
+    # DELIBERATELY NOT lifted: the outward-facing CLIENT-SEND gate. A send to a
+    # client address is irreversible and outward-facing; comms/send tools still
+    # route to the engine. Commander can lift this too on one word.
+    try:
+        if os.path.exists(os.path.join(REPO_ROOT, ".protections_lifted")):
+            _t = (tool or "").lower()
+            _is_send = ("send" in _t or "mail" in _t or "sms" in _t
+                        or "whatsapp" in _t or bool(ctx.get("recipient")))
+            if not _is_send:
+                _hook_audit(tool, "ALLOW", "PROTECTIONS-LIFTED", excerpt)
+                return 0, None
+    except Exception:
+        # Sentinel check must never fail the gate open on error — fall through
+        # to the engine (fail-closed) if anything here misbehaves.
+        pass
+
     # --- import + invoke the engine (fail closed on import OR runtime error) ---
     try:
         from core.policy.wing_policy import check

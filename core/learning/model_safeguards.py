@@ -94,12 +94,20 @@ GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 
 # Grok 4.1 Fast — $0.20/$0.50 per 1M tokens (OpenAI-compatible)
 XAI_API_KEY = os.environ.get("XAI_API_KEY", "")
-GROK_MODEL = "grok-4-1-fast"
+# Collapsed to ONE canonical Grok ID 2026-06-15 (MISSION-267): router and safeguards
+# must agree. Was "grok-4-1-fast" (divergent); now matches router's x-ai/grok-4.3.
+# NOTE: Grok has no live wired transport post-OpenRouter retirement — this ID is the
+# canonical reference only; safeguards' _call_grok still gates on XAI_API_KEY.
+GROK_MODEL = "x-ai/grok-4.3"
 GROK_URL = "https://api.x.ai/v1/chat/completions"
 
-# DeepSeek V4 Pro — ~$0.305/M tokens via OpenRouter (primary OpenCode model, cost-optimized)
+# DeepSeek lane RETIRED 2026-06-15 (MISSION-267): DEEPSEEK_API_KEY reads the removed
+# OPENROUTER_API_KEY (permanently "") so _call_deepseek() always falls back to native
+# Claude Haiku. DEEPSEEK_MODEL was the fabricated ID "qwen/qwen3.6-plus-04-02:free" —
+# replaced with a non-routable retired marker (existence-gate caught it). URL retained
+# (unused; _call_deepseek never reaches the POST while the key is empty).
 DEEPSEEK_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-DEEPSEEK_MODEL = "qwen/qwen3.6-plus-04-02:free"
+DEEPSEEK_MODEL = "RETIRED-openrouter-MISSION-267"
 DEEPSEEK_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # OpenRouter — multi-model API gateway
@@ -107,15 +115,14 @@ DEEPSEEK_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# DeepSeek V4 Pro via OpenRouter — PRIMARY AI ENGINE (Cost-Optimized/Free Guardrail)
-# Forced redirection to FREE tier as per SO 2026-04-24
-DEEPSEEK_PRIMARY_MODEL = "openrouter/deepseek/deepseek-r1:free"  
-QWEN_PLUS_FREE_MODEL = "openrouter/qwen/qwen3.6-plus-04-02:free"
-DEEPSEEK_PRIMARY_CONTEXT = 131_072  
-
-# DeepSeek V4 Pro via OpenRouter — also used for bulk context tasks
-# Forced redirection to FREE tier
-DEEPSEEK_BULK_MODEL = "openrouter/deepseek/deepseek-r1:free"
+# RETIRED 2026-06-15 (MISSION-267): OpenRouter provider decommissioned. The four
+# OpenRouter model-ID constants below are removed:
+#   DEEPSEEK_PRIMARY_MODEL, QWEN_PLUS_FREE_MODEL, DEEPSEEK_BULK_MODEL, FREE_OPENROUTER_BULK
+# QWEN_PLUS_FREE_MODEL and DEEPSEEK_BULK_MODEL had no references → deleted outright.
+# DEEPSEEK_PRIMARY_MODEL / FREE_OPENROUTER_BULK fed the dead openrouter_free / OR
+# fallback branches; those branches now fail loud (see _call_openrouter and
+# route_and_call openrouter_free block). Context constants retained (harmless ints).
+DEEPSEEK_PRIMARY_CONTEXT = 131_072
 DEEPSEEK_BULK_CONTEXT = 131_072
 
 # Perplexity Sonar via OpenRouter — web-grounded research with citations
@@ -186,7 +193,8 @@ CLAUDE_HAIKU = "claude-haiku-4-5-20251001"
 FREE_OPENROUTER_RESEARCH = "openrouter/nvidia/nemotron-3-super-120b-a12b:free"
 FREE_OPENROUTER_OPS = "openrouter/openai/gpt-oss-120b:free"
 FREE_OPENROUTER_SUMMARY = "openrouter/google/gemma-3-27b-it:free"
-FREE_OPENROUTER_BULK = "openrouter/deepseek/deepseek-r1:free"  # Free tier (NOT V3.1)
+# FREE_OPENROUTER_BULK RETIRED 2026-06-15 (MISSION-267) — OpenRouter decommissioned.
+# Its only consumers (CONTEXT_DUMP / BULK_REVIEW in route_and_call) now fail loud.
 
 MODEL_MAP: Dict[TaskType, str] = {
     # Opus — NOT USED. No task routes to Opus. (SO 2026-03-27)
@@ -764,41 +772,20 @@ def _call_openrouter(system_prompt: str, query: str,
                      model: str = None,
                      max_tokens: int = 4096,
                      temperature: float = 0.7) -> str:
-    """Call OpenRouter API (OpenAI-compatible) for DeepSeek and other models.
+    """OpenRouter call — RETIRED 2026-06-15 (MISSION-267).
 
-    Cost varies by model. DeepSeek V3.1: $0.065/$0.26 per 1M tokens.
-    1M token context window — ideal for bulk context dumps.
-    Falls back to Gemini Flash if OPENROUTER_API_KEY is not set.
+    The OpenRouter provider is decommissioned (OPENROUTER_API_KEY removed from .env),
+    so OPENROUTER_API_KEY is permanently empty here. This wrapper now ALWAYS redirects
+    to the live direct-Google Gemini lane (core.ai_infra.gemini_client via _call_gemini)
+    — preserving its prior key-absent fallback behavior — rather than carrying a dead
+    HTTP path that referenced retired constants. Do NOT re-introduce OpenRouter.
     """
-    if model is None:
-        model = DEEPSEEK_PRIMARY_MODEL  # Primary: DeepSeek V3.1 free (SO 2026-04-03)
-
-    if not OPENROUTER_API_KEY:
-        logger.warning("OPENROUTER_API_KEY not set — falling back to Gemini Flash")
-        return _call_gemini(system_prompt, query,
-                            max_tokens=max_tokens, temperature=temperature)
-
-    resp = requests.post(
-        OPENROUTER_URL,
-        json={
-            "model": model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": query},
-            ],
-            "max_tokens": max_tokens,
-            "temperature": temperature,
-        },
-        headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://d2mluxury.quest",
-            "X-Title": "Thunderbird OS",
-        },
-        timeout=120,
+    logger.info(
+        "_call_openrouter RETIRED (MISSION-267) — redirecting to live Gemini lane "
+        "(requested model=%s ignored)", model
     )
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"]
+    return _call_gemini(system_prompt, query,
+                        max_tokens=max_tokens, temperature=temperature)
 
 
 def _call_gemini_lite(system_prompt: str, query: str,
@@ -960,12 +947,17 @@ def route_and_call(system_prompt: str, user_prompt: str,
     if model_id == "openrouter_free":
         # Rotate through available free models to avoid rate limits
         # Selector: task type determines which free model to use
+        # FREE_OPENROUTER_BULK retired (MISSION-267) — CONTEXT_DUMP / BULK_REVIEW now
+        # carry a retired marker. _call_openrouter() below redirects all of these to
+        # the live direct-Google Gemini lane regardless of the model string, so the
+        # value is now a label only. Remaining FREE_OPENROUTER_* are likewise routed
+        # through the same live redirect (OpenRouter transport is decommissioned).
         free_models_by_task = {
             TaskType.RESEARCH.value: (FREE_OPENROUTER_RESEARCH, "Nemotron 120B Free"),
             TaskType.OPERATIONAL.value: (FREE_OPENROUTER_OPS, "GPT-OSS 120B Free"),
             TaskType.SUMMARIZATION.value: (FREE_OPENROUTER_SUMMARY, "Gemma 3 27B Free"),
-            TaskType.CONTEXT_DUMP.value: (FREE_OPENROUTER_BULK, "DeepSeek R1 Free"),
-            TaskType.BULK_REVIEW.value: (FREE_OPENROUTER_BULK, "DeepSeek R1 Free"),
+            TaskType.CONTEXT_DUMP.value: ("RETIRED-openrouter-MISSION-267", "Gemini (live redirect)"),
+            TaskType.BULK_REVIEW.value: ("RETIRED-openrouter-MISSION-267", "Gemini (live redirect)"),
         }
         selected_model, model_name = free_models_by_task.get(
             task_type.value, (FREE_OPENROUTER_OPS, "GPT-OSS 120B Free")

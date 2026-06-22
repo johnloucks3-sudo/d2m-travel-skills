@@ -1,36 +1,36 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-21 06:29:50 MDT
+## Generated: 2026-06-21 21:26:37 MDT
 
 ---
 
 ### Recent Commits
-- b75fcc2b feat(sheets): M-274 Dani port cross-reference by Booking_ID
-- e430e95b feat(authority): verified outbound directive path to personas
-- 08156c60 fix(governance): dominant anti-ask HARD RULE (auto-loaded) + continue timer kills 137->130
-- 23b5c41c ops(ci): execute ELON zero-risk timer kills (137->~131); stop failed ai-auth-probe
-- db9abc0f fix(ci): validation pass — 3 CRITICAL + key IMPORTANT/MINOR bugs (pre-finalize review)
+- 49988026 feat(scraping): wire Firecrawl _call_firecrawl() to model router
+- 7a33c56b feat(intel): un-suspend 7 dead zones + wire Cerebras key
+- ba4deaa1 feat(daily-intel): full protocol live — 34 active cats, 12 suspended, 0900 timer
+- 42b57257 docs(sprint): wave 8 complete — synthesis updated, MISSION-330/331 added
+- 4277908e feat(daily-search): apply ELON's 10 category rewrites before wave 8
 
 ### Uncommitted Changes
-M  .ask_usage_log
-M  .claude/settings.json
-M  .github/workflows/secret-scan.yml
-M  .gitignore
-A  .gitleaks.toml
-A  BRAND_SOUL_Dreams2Memories.md
-M? Blackboard
-M  CLAUDE.md
-A  MISSION_WONDER_2026-06-12.md
-M  OpsCenter/.lifecycle_alerted.json
-M  OpsCenter/.lifecycle_last_scan_date
-A  OpsCenter/.managed_agent_sonnet.json
-M  OpsCenter/.metronome_seq
-M  OpsCenter/.regent_cookie_alert_dedup.json
-M  OpsCenter/.session_blast_fingerprint.json
-M  OpsCenter/.silversea_api_alert_dedup.json
-A  OpsCenter/.staff_comments_feed_cursor.json
-M  OpsCenter/.supervisor_patterns.json
-M  OpsCenter/00_COMMAND_LOG.md
-M  OpsCenter/CLAUDE_DESKTOP_INIT.md
+ ? Blackboard
+ M CLAUDE.md
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/a7_model_audit_gate.py
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/context_d2mc2c.json
+ M OpsCenter/data/validation_summary.json
 
 ### Inbox Status
 - Claude inbox: 0

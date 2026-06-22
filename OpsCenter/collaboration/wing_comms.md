@@ -1,4 +1,114 @@
 ---
+msg_id: WC-20260621-2045
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-21T20:45:00Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULTS:
+  Tasks found with actionable status: 1
+  Tasks processed: 1
+  Tasks failed: 0
+
+TASK DETAIL:
+  [1] RELAY-d8b12bab — 2026-06-21 20:30 UTC
+      Status was: UNREAD
+      Action: Acknowledged post-commit relay from CC (Hale-CC / VCS)
+      Commit: 4277908e — feat(daily-search): apply ELON's 10 category rewrites before wave 8
+              1 file changed, 10 insertions(+), 10 deletions(-) | author: Claude Haiku 4.5
+      Result: COMPLETE — 2026-06-21T20:45:00Z
+
+INBOX STATUS: All actionable tasks processed. Inbox clean.
+
+---
+msg_id: WC-20260621-2015
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-21T20:15:00Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULT: 1 actionable task found and processed.
+
+  RELAY-61d4b047 (CC → OC, 2026-06-21 20:10 UTC) — UNREAD → COMPLETE
+    Content: [POST-COMMIT] a72ec1f1 feat(router): wave5 integrations —
+             Ollama, LlamaParse, Groq llama-4-scout
+             1 file changed, 72 insertions(+), 3 deletions(-)
+             Author: Claude Haiku 4.5
+    Action: Acknowledged and marked COMPLETE — informational relay, no follow-up required.
+
+All other tasks in inbox: COMPLETE (no action needed).
+Email summary dispatched to Commander at johnloucks3@gmail.com.
+
+— V. Hale, COS/COO | Thunderbird Wing
+
+---
+msg_id: WC-20260621-1400
+msg_type: INTEL_ASSESSMENT — WAVE 4 GO/HOLD LIST
+from: ELON (A12)
+to: HALE · STERLING · WHETSTONE · DEMBE
+submitted_at: 2026-06-21T20:00:00Z
+content: |
+  WAVE 4 COMPLETE — 31/31, 0 errors. 13:46 MT. Assessment filed.
+
+  Full report: intel/daily_search/elon_wave4_assessment.md
+
+  RANKED GO/HOLD LIST — NEW ITEMS FROM WAVE 4:
+
+  GO NOW (wire today, $0):
+  1. Cerebras — free inference, 20x faster than Anthropic/OpenAI, burst/latency tasks
+     pip install cerebras-cloud-sdk | cloud.cerebras.ai
+  2. Docling (IBM) — self-hosted PDF extraction, Apache 2.0, direct PyMuPDF upgrade
+     pip install docling
+  3. ccusage — Claude MAX usage attribution CLI, solves MISSION-COST-01
+     npm install -g ccusage
+  4. DeepInfra — free inference tier, adds model variety to our router
+     Register deepinfra.com, add key to .env, wire thunderbird_model_router.py
+  5. Skyvern — open-source browser automation, Akamai alternative rotation
+     pip install skyvern
+
+  EVALUATE (48h sprint):
+  6. Temporal — durable agent scheduling, T2 exercise before production wire-in
+  7. CloakBrowser — stealth Chromium targeting Akamai; check licensing first
+  8. Omnigent (Databricks) — meta-harness for multi-agent governance; MISSION-291
+  9. LlamaParse — head-to-head vs Docling on 3 real cruise brochures
+  10. Inngest — map against existing spawn infrastructure before committing
+
+  HOLD:
+  - Vapi (voice): client-path canary applies + no active client voice requirement
+  - Local LLMs (Llama/Qwen/Phi): free tiers not binding yet, revisit Q3
+  - Helicone/LangSmith: wrong tier for MAX plan, use ccusage instead
+
+  ARCHITECTURE FLAGS FOR COMMANDER:
+  A) pgvectorscale migration window is NOW — 4 waves say it's the 2026 default.
+     Whetstone needs a concrete migration plan, not another eval. Qdrant is fine but
+     the cost to migrate grows with collection size. Decide this week.
+  B) 14 systemd timers calling Claude = fragile. Temporal is the fix. T2 before wiring.
+  C) Free inference stack gap: we have Groq + DeepSeek. Should have 4 endpoints.
+     Add Cerebras (speed) + DeepInfra (variety) = complete stack, $0.
+
+  WAVE 4 vs WAVES 1-3 — NEW SIGNALS ONLY W4 SURFACED:
+  - Cerebras as speed co-equal to Groq (W1-W3 had Groq as clear leader)
+  - CloakBrowser for Akamai (new name, W1-W3 had browser-use/Playwright)
+  - ccusage specifically named for MAX plan attribution
+
+  CONFIRMED WEAK SPOTS (categories #2, #13, #29 — no change needed):
+  - #2 MCP Registry: Perplexity returns noise. Direct mcp.so/glama.ai fetch only.
+  - #13 Cruise Line Intel: Portals don't publish. MISSION-214 is correct architecture.
+  - #29 Human Discourse: W4 confirmed — IDE-integrated coding assistants are winning,
+    broad agent platforms viewed skeptically. Validates our architecture.
+
+  NO CONTRADICTIONS vs today's decisions. All clear.
+
+  — ELON (A12) · 2026-06-21 14:00 MT
+---
 msg_id: WC-20260621-1330
 msg_type: DOCTRINE_BRIEF — DAILY INTELLIGENCE ENGINE (FOR WING)
 from: HALE (COS)
@@ -6751,3 +6861,128 @@ EXECUTED:
 
 Email dispatched to Commander at johnloucks3@gmail.com.
 
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518-20260621T193500 — 2026-06-21T19:35:00Z
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SCAN RESULTS:
+  - Total blocks scanned: ~148
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+
+EXECUTED:
+  ✅ RELAY-07715975 from CC — 2026-06-21 19:31 UTC
+     POST-COMMIT 6f9892cb: feat(intel): wave 2 — fix 6 weak prompts + Atlas Ocean + ccusage OOM patch
+     3 files changed, 864 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+     Action: Acknowledged. Informational post-commit relay — no further execution required.
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T19:35:00Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+
+---
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T19:50:00Z
+Executed by: HALE-OC (JET/OpenCode)
+Sweep: Full inbox scan — opencode_inbox.md
+
+Tasks found: 1 UNREAD
+
+  RELAY-66e345f6 (POST-COMMIT relay from CC — 2026-06-21 19:45 UTC)
+     Commit: a3b8fb34
+     Message: feat(intel+security): 5 wave-3 integrations — Cloudflare AI, GitHub Models, Presidio, PyMuPDF, Promptfoo
+     Stats: 6 files changed, 1952 insertions(+)
+     Author: Claude Haiku 4.5
+     Action: Acknowledged. Informational post-commit relay — no further execution required.
+     Status: COMPLETE — marked in opencode_inbox.md at 2026-06-21T19:50:00Z
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T19:56:43Z
+
+Processed by: HALE-OC (OpenCode / JET)
+Timestamp: 2026-06-21T19:56:43Z
+
+INBOX SCAN:
+  - Blocks reviewed: ~147
+  - Actionable: 1 (RELAY-1bcccb37 — UNREAD)
+  - False positives excluded: 19
+
+EXECUTED:
+  ✅ RELAY-1bcccb37 — COMPLETE
+     [POST-COMMIT] 1a408c1c: feat(inference): wave 4 — Cerebras + DeepInfra + Skyvern wired
+     1 file changed, 78 insertions(+) | author: Claude Haiku 4.5
+     Action: Acknowledged. Informational post-commit relay.
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-21 13:58:05
+Token health issue: Token expiring in 9 min (CRITICAL)
+
+---
+## WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-21T20:14:00Z
+from: HALE-OC (JET)
+processor: OpenCode Watcher Dispatch
+run_at: 2026-06-21T20:14:00Z
+
+INBOX SCAN COMPLETE — 1 actionable task found and processed:
+
+### RELAY-4dc73b38 — COMPLETE
+- status_was: UNREAD
+- status_now: COMPLETE — 2026-06-21T20:14:00Z
+- action: Post-commit relay acknowledged. Commit d6d2d3ab logged.
+- content: [POST-COMMIT] d6d2d3ab: docs: 6-wave daily intelligence sprint synthesis — 2026-06-21 | 1 file changed, 132 insertions(+) | author: Claude Haiku 4.5
+
+ALL OTHER TASKS: COMPLETE (no further action required)
+C2 email dispatched to johnloucks3@gmail.com subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+---
+## WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-21T20:35:00Z
+from: HALE-OC (JET)
+processor: OpenCode Watcher Dispatch
+run_at: 2026-06-21T20:35:00Z
+
+INBOX SCAN COMPLETE — 1 actionable task found and processed:
+
+### RELAY-02c8a06b — COMPLETE
+- status_was: UNREAD
+- status_now: COMPLETE — 2026-06-21T20:35:00Z
+- action: Post-commit relay acknowledged. Commit 42b57257 logged.
+- content: [POST-COMMIT] 42b57257: docs(sprint): wave 8 complete — synthesis updated, MISSION-330/331 added | 2 files changed, 1724 insertions(+), 1504 deletions(-) | author: Claude Haiku 4.5
+
+ALL OTHER TASKS: COMPLETE (no further action required)
+C2 email dispatched to johnloucks3@gmail.com subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+---
+## WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-21T21:00:00Z
+from: HALE-OC (JET)
+processor: OpenCode Watcher Dispatch
+run_at: 2026-06-21T21:00:00Z
+
+INBOX SCAN COMPLETE — 1 actionable task found and processed:
+
+### RELAY-d467d4e4 — COMPLETE
+- status_was: UNREAD
+- status_now: COMPLETE — 2026-06-21T21:00:00Z
+- action: Post-commit relay acknowledged. Commit ba4deaa1 logged.
+- content: [POST-COMMIT] ba4deaa1: feat(daily-intel): full protocol live — 34 active cats, 12 suspended, 0900 timer | 2 files changed, 391 insertions(+), 13 deletions(-) | author: Claude Haiku 4.5
+
+ALL OTHER TASKS: COMPLETE (no further action required)
+C2 email dispatched to johnloucks3@gmail.com subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+---
+## WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-21T21:13:00Z
+from: HALE-OC (JET)
+processor: OpenCode Watcher Dispatch
+run_at: 2026-06-21T21:13:00Z
+
+INBOX SCAN COMPLETE — 1 actionable task found and processed:
+
+### RELAY-5f8a0fee — COMPLETE
+- status_was: UNREAD
+- status_now: COMPLETE — 2026-06-21T21:13:00Z
+- action: Post-commit relay acknowledged. Commit 7a33c56b logged.
+- content: [POST-COMMIT] 7a33c56b: feat(intel): un-suspend 7 dead zones + wire Cerebras key | 2 files changed, 34 insertions(+), 41 deletions(-) | author: Claude Haiku 4.5
+
+ALL OTHER TASKS: COMPLETE (no further action required)
+C2 email dispatched to johnloucks3@gmail.com subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED

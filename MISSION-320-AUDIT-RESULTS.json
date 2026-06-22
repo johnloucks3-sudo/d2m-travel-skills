@@ -1,0 +1,170 @@
+[
+  {
+    "mission_id": "MISSION-SEC-02",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-SEC-03",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-035",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-054",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-055",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-056",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-057",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-059",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-060",
+    "action": "KILL",
+    "reason": "Status 'complete' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-070",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-072",
+    "action": "KILL",
+    "reason": "Status 'complete' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-073",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-074",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-076",
+    "action": "KILL",
+    "reason": "Status 'complete' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-077",
+    "action": "KILL",
+    "reason": "Status 'complete' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-078",
+    "action": "KILL",
+    "reason": "Status 'complete' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-092",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-093",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-094",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-095",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-096",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-097",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-098",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-099",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-100",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-101",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-102",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  },
+  {
+    "mission_id": "MISSION-103",
+    "action": "KILL",
+    "reason": "Status 'completed' — archive instead of active",
+    "priority": "P0"
+  }
+]

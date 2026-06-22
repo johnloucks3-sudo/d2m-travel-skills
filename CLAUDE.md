@@ -88,7 +88,8 @@ Hale:      🦅 STAFF COMMENTS QUERY
 
 ---
 
-## ⚠️ HARD RULE — EMAIL SCANNER & RELAY FILES ARE PROTECTED (SO 2026-06-08)
+## 🟡 SUSPENDED 2026-06-21 (Commander: "REMOVE ALL PROTECTIONS for now until further notice") — protections OFF via sentinel `.protections_lifted`; the 6 files below editable freely; client-send gate NOT lifted; restore = `rm .protections_lifted`.
+## ⚠️ HARD RULE [SUSPENDED] — EMAIL SCANNER & RELAY FILES ARE PROTECTED (SO 2026-06-08)
 **Protected files:** `OpsCenter/run_commander_directive_sweep.py` · `OpsCenter/dispatch_and_email.py` · `OpsCenter/email_task_ingest.py` · `core/email/thunderbird_commander_inbox.py` · `OpsCenter/relay_send.py` · `core/relay/wing_relay.py`
 
 **ALL agents — including DeepSeek v4, OpenCode, Goose, Aider, headless spawns:**
@@ -329,9 +330,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-21 07:21 MT -->
+<!-- Last sync: 2026-06-21 21:26 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-21 07:21 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-21 21:26 MT] ===
 Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

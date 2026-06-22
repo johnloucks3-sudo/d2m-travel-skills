@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1527,
+    "total_examples": 1541,
     "by_tier": {
-      "personal": 426,
+      "personal": 428,
       "client": 250,
       "vendor": 55,
-      "internal": 789,
+      "internal": 801,
       "family": 7
     },
-    "last_sync": "2026-06-21T02:31:27.600341"
+    "last_sync": "2026-06-21T17:31:14.650449"
   },
   "examples": [
     {
@@ -3959,6 +3959,42 @@
       "to": "Kyle Kuklinski <kyle.kuklinski@gmail.com>",
       "date": "Sat, 20 Jun 2026 15:19:59 -0600",
       "body": "[image: Dreams2Memories Travel]\nDREAMS2MEMORIES TRAVEL, LLC\n\nKyle, Rosalie — my AI staff and I have your December voyage humming in the\nbackground. I’m letting them give you the state of play. Nothing needs\ndoing on your end yet.\nThanks — John\n\nHi Kyle and Rosalie,\n\nDecember keeps getting closer, and this one is shaping up to be something —\nten nights through the Panama Canal, Christmas at sea, the six of you\nacross three suites on Viking Mars. Here’s where things stand.\nYOUR BOOKING\nItem Detail\n*Ship & voyage* Viking Mars — Panama Canal, December 17–27, 2026\n*Suites* Kyle & Rosalie, Roger & Nicholas, Josh & Erica — three suites\n*Payment* Paid in full, $21,244\n*Shipboard credit* $1,200 across the three suites WHAT WE’RE WORKING ON NOW\n\n*Flights.* Your Richmond group (you, Rosalie, Roger, Nicholas) out of RIC,\nJosh and Erica out of Florida. The search is active and I’m tracking fares\nin real time — my goal is three solid options per couple with enough runway\nto lock in good pricing. Nothing to do yet; just know it’s moving.\n\n*Hotels.* A night or two in Panama City before embarkation so the trip\nstarts a day early instead of rushing the pier. I’m looking near the Amador\nCauseway, close to the terminal. Options land alongside the flights.\nTHE ROADMAP FROM HERE\n\n*Early August* — my excursion picks for each port, just before Viking opens\nbooking on the 2nd.\n\n*September* — specialty dining (Manfredi’s, Chef’s Table) coordinated as a\ngroup so you’re all at one table.\n\n*November* — full pre-voyage briefing: flights, hotels, transfers, packing,\nport guides, the works.\n\nFor now you’re set — three suites, paid in full, a planning machine running\nquietly in the background. If a question pops into your head at 10 PM, you\nknow where to find me.\n\nMore soon…\n\nDani\n[image: Dani Moreau]\nDanielle “Dani” Moreau\nLuxury Travel Concierge\nDREAMS2MEMORIES TRAVEL, LLC\nconcierge@d2mluxury.quest\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742 <7192910742>\njohnloucks3@gmail.com\n[image: Dreams2Memories Travel]",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 21 Jun 2026 10:49:41 -0600",
+      "body": "COS- great report keep sending all tech scans\n\nOn Sun, Jun 21, 2026 at 10:38 AM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 21 Jun 2026 10:44:06 -0600",
+      "body": "terminate all T2 rnotifications if not critical\n\nOn Sun, Jun 21, 2026 at 10:38 AM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 21 Jun 2026 10:49:41 -0600",
+      "body": "COS- great report keep sending all tech scans\n\nOn Sun, Jun 21, 2026 at 10:38 AM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Sun, 21 Jun 2026 10:44:06 -0600",
+      "body": "terminate all T2 rnotifications if not critical\n\nOn Sun, Jun 21, 2026 at 10:38 AM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
       "score": 4
     },
     {
@@ -11497,6 +11533,42 @@
     {
       "account": "johnloucks3@gmail.com",
       "tier": "internal",
+      "subject": "API Keys — 6 Free Signups Needed",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 16:08:01 -0500",
+      "body": "body { background-color: #f7f3ea; font-family: Georgia, serif; color: #0000ff; margin: 0; padding: 20px; }\n  h2 { color: #003087; border-bottom: 2px solid #003087; padding-bottom: 6px; }\n  table { border-collapse: collapse; width: 100%; margin: 16px 0; }\n  th { background-color: #003087; color: #f7f3ea; padding: 8px 12px; text-align: left; }\n  td { padding: 8px 12px; border-bottom: 1px solid #c8c0a8; vertical-align: top; }\n  tr:nth-child(even) { background-color: #ede9df; }\n  a { color: #0000ff;",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "THUNDERBIRD INCUBATOR — 21 JUN 2026 | 1 SKIP correction, 1 PROTOTYPE, 1 WATCH",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sun, 21 Jun 2026 10:40:16 -0600",
+      "body": "*COS: Belongs in my INBOX*\n\n*THUNDERBIRD INCUBATOR BRIEF — COS HALE → COMMANDER*\n21 Jun 2026 · 01:47 MT\n\n⚠️ SIGNAL CORRECTION — Cloudflare Temporary Accounts (SKIP for MISSION-214)\n\nThe innovation scans have been flagging *Cloudflare temporary accounts for\nAI agents* as a MISSION-214 unlock for 4+ consecutive cycles. *They are\nwrong.* That feature deploys Worker *code* to Cloudflare's edge — it's a\ntool for AI coding agents to ship Workers without a pre-existing account.\nIt does not bypass Akamai on third-party sites.\n\n*MISSION-214 correct path:* curl-cffi + Chrome TLS impersonation +\nresidential proxies. Modern Akamai (2026) does JA4 fingerprinting and\nbehavioral ML — clean IPs alone don't cut it. Sterling should evaluate\ncurl-cffi + Brightdata residential (~$50/mo starter) before the Imperva\ngate opens.\n\n🟡 PROTOTYPE — Omnigent (Databricks Meta-Harness)\n\nDatabricks open-sourced omnigent\n<https://www.google.com/url?q=https://github.com/omnigent-ai/omnigent&source=gmail&ust=1782115781817000&sa=E>\non June 16 (5 days ago). Apache 2.0, $0. It wraps *above* Claude\nCode/Codex/Pi and adds stateful cost-budget policies — a session meter that\nauto-pauses at a threshold ($X) and waits for Commander approval before\ncontinuing. This is the \"Uber burned its entire AI budget in 4 months\"\nfailure-prevention layer we don't have.\n\n*First step:* Clone omnigent on the Thunderbird host. Wrap the\ninnovation-scan headless dispatch in an Omnigent session with a $2.00\ncost-budget policy. Run 3 days. Measure latency delta and whether the cost\ntracking holds. No client-facing change, no new spend. SSS not required.\n\nOmnigent doesn't touch the 70 MCP tools or replace thunderbird_scheduler.py\n— it sits one layer above the dispatch call.\n\n👁 WATCH — Claude Agent SDK Billing Split (Paused, but Coming)\n\nAnthropic was going to split claude -p (headless mode) into a separate\ncredit pool on June 15 — paused before it took effect, current usage\ncontinues as before. When it lands: Max 20x plan gets $200/month of Agent\nSDK credits at API rates. That's a hard ceiling on Wing headless volume.\n\n*Watch trigger:* When Anthropic re-announces, immediately audit headless\ndispatch volume vs. the $200/mo ceiling and bring options to Commander\nbefore the change goes live.\n\n📋 ELON QUEUE REMINDER\n\nThree tickets have been PENDING since March 29 (90+ days):\n\n   - *TICKET-001* — Life Event Trigger Scanner (LOW effort, $0,\n   repeat-booking driver)\n   - *TICKET-002* — Cross-Transaction Memory Injector (LOW-MED effort, $0)\n   - *TICKET-003* — Inspiration Catalogue Generator (MED effort, SSS\n   required)\n\nNo new research needed. These are ready to build. *TICKET-001 is the\nhighest-ROI item in the queue.*\n\n*Full review saved:* incubator_review_2026-06-21.md\n<https://www.google.com/url?q=https://drive.google.com/file/d/10MuiGpbvDIKJVjZPUsklWwarEweOQmpg/view&source=gmail&ust=1782115781817000&sa=E>\n\n*COS Hale · Thunderbird Incubator · 21 Jun 2026*",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "API Keys — 6 Free Signups Needed",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 16:08:01 -0500",
+      "body": "body { background-color: #f7f3ea; font-family: Georgia, serif; color: #0000ff; margin: 0; padding: 20px; }\n  h2 { color: #003087; border-bottom: 2px solid #003087; padding-bottom: 6px; }\n  table { border-collapse: collapse; width: 100%; margin: 16px 0; }\n  th { background-color: #003087; color: #f7f3ea; padding: 8px 12px; text-align: left; }\n  td { padding: 8px 12px; border-bottom: 1px solid #c8c0a8; vertical-align: top; }\n  tr:nth-child(even) { background-color: #ede9df; }\n  a { color: #0000ff;",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "THUNDERBIRD INCUBATOR — 21 JUN 2026 | 1 SKIP correction, 1 PROTOTYPE, 1 WATCH",
+      "to": "John Loucks3 <johnloucks3@gmail.com>",
+      "date": "Sun, 21 Jun 2026 10:40:16 -0600",
+      "body": "*COS: Belongs in my INBOX*\n\n*THUNDERBIRD INCUBATOR BRIEF — COS HALE → COMMANDER*\n21 Jun 2026 · 01:47 MT\n\n⚠️ SIGNAL CORRECTION — Cloudflare Temporary Accounts (SKIP for MISSION-214)\n\nThe innovation scans have been flagging *Cloudflare temporary accounts for\nAI agents* as a MISSION-214 unlock for 4+ consecutive cycles. *They are\nwrong.* That feature deploys Worker *code* to Cloudflare's edge — it's a\ntool for AI coding agents to ship Workers without a pre-existing account.\nIt does not bypass Akamai on third-party sites.\n\n*MISSION-214 correct path:* curl-cffi + Chrome TLS impersonation +\nresidential proxies. Modern Akamai (2026) does JA4 fingerprinting and\nbehavioral ML — clean IPs alone don't cut it. Sterling should evaluate\ncurl-cffi + Brightdata residential (~$50/mo starter) before the Imperva\ngate opens.\n\n🟡 PROTOTYPE — Omnigent (Databricks Meta-Harness)\n\nDatabricks open-sourced omnigent\n<https://www.google.com/url?q=https://github.com/omnigent-ai/omnigent&source=gmail&ust=1782115781817000&sa=E>\non June 16 (5 days ago). Apache 2.0, $0. It wraps *above* Claude\nCode/Codex/Pi and adds stateful cost-budget policies — a session meter that\nauto-pauses at a threshold ($X) and waits for Commander approval before\ncontinuing. This is the \"Uber burned its entire AI budget in 4 months\"\nfailure-prevention layer we don't have.\n\n*First step:* Clone omnigent on the Thunderbird host. Wrap the\ninnovation-scan headless dispatch in an Omnigent session with a $2.00\ncost-budget policy. Run 3 days. Measure latency delta and whether the cost\ntracking holds. No client-facing change, no new spend. SSS not required.\n\nOmnigent doesn't touch the 70 MCP tools or replace thunderbird_scheduler.py\n— it sits one layer above the dispatch call.\n\n👁 WATCH — Claude Agent SDK Billing Split (Paused, but Coming)\n\nAnthropic was going to split claude -p (headless mode) into a separate\ncredit pool on June 15 — paused before it took effect, current usage\ncontinues as before. When it lands: Max 20x plan gets $200/month of Agent\nSDK credits at API rates. That's a hard ceiling on Wing headless volume.\n\n*Watch trigger:* When Anthropic re-announces, immediately audit headless\ndispatch volume vs. the $200/mo ceiling and bring options to Commander\nbefore the change goes live.\n\n📋 ELON QUEUE REMINDER\n\nThree tickets have been PENDING since March 29 (90+ days):\n\n   - *TICKET-001* — Life Event Trigger Scanner (LOW effort, $0,\n   repeat-booking driver)\n   - *TICKET-002* — Cross-Transaction Memory Injector (LOW-MED effort, $0)\n   - *TICKET-003* — Inspiration Catalogue Generator (MED effort, SSS\n   required)\n\nNo new research needed. These are ready to build. *TICKET-001 is the\nhighest-ROI item in the queue.*\n\n*Full review saved:* incubator_review_2026-06-21.md\n<https://www.google.com/url?q=https://drive.google.com/file/d/10MuiGpbvDIKJVjZPUsklWwarEweOQmpg/view&source=gmail&ust=1782115781817000&sa=E>\n\n*COS Hale · Thunderbird Incubator · 21 Jun 2026*",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 22 Mar 2026 17:30:40 +0000",
@@ -13760,6 +13832,60 @@
       "to": "johnloucks3@gmail.com",
       "date": "Sat, 20 Jun 2026 07:44:30 -0500",
       "body": "ISSUE:\nUS-Iran peace agreement and regional nuclear deterrence posture shifts may affect Middle East destination risk assessments for active/future bookings.\n\nDISCUSSION:\nHoover Institution strategic briefing on US-Iran 14-point peace accord, nuclear deterrence failures in regional conflicts, Fed financial reform, and US energy statecraft as geopolitical tool. Covers shifts in Middle East and Asia-Pacific strategic environment.\n\nACTIONS I RECOMMEND TAKING:\n1. Surface to Commander for strategic awareness — Iran peace plan, Taiwan/China military posture, Middle East stability\n2. Flag for McLeod/Loucks Mediterranean routes (Red Sea/Suez Canal routing implications if Middle East tensions persist)\n3. Monitor energy/LNG pricing signals (affects cruise line fuel surcharges and future client costs)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-20 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "SSS — Full Session Record 2026-06-21 (Architectural Revolution + Staff Red-Team, verbatim) [attached]",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 07:28:48 -0700",
+      "body": "SSS — SESSION 2026-06-21 · Architectural Revolution + Staff Red-Team Situation. One high-tempo session: tech-edge dissatisfaction → a full wing modernization → a four-seat staff red-team of that revolution (good and especially cautionary, per the canary precedent). Significance. Built in one sitting: staff signal bus (agent-to-agent substrate, 21 voices), Tech Vanguard Elevation (ELON+Whetstone to Sterling-rank, adoption-biased gate, fleets), Readiness Ladder + D/W/M/Q freshness cadence, Whetstone→ELON coupled need-driven hunt, all 6 CI probes converted to efficacy, init-bloat cut, all wing protections lifted (client-send gate kept), verified-decommission engine (MISSION-324). Decommission assessment: DEACTIVATE capable, DECOMMISSION/ELIMINATE weak. The verdict (4 seats, unanimous). Throughput up; verification, cost-visibility, and the kill/drain path down — on the day the fleets were proven to emit confident false positives. Big-and-busy; the bar is lethal-and-small. Dembe: the fleets generate findings faster than anything verifies them, and we removed the human verifier. Verification = \"luck with a name.\" Fix follow-through first. Harlan: $1,897.80 verified historical spend; ~2.1M tokens/coupled-run; ~13 retries/run = \"theft\"; zero cost meter on the new surface; MISSION-296 cliff could vaporize the $100 pool in days. Build a per-run token meter + hard kill before scaling another agent. ELON: kill the standing fleets (payroll), the rank triad, 3 of 4 timers, 16 of 21 voices. The kill path didn't fire and no metric noticed — a hoarder with a 10-agent staff. Cut to verified-decommission + default-ADOPT + one timer on an on-demand hunt. Sterling: the one kept gate (client-send) is now editable code an agent can comment out silently — add a daily gate-path integrity tripwire. Rate-limit = silent-partial-failure — require ≥75% fleet completion or the run adopts nothing. The bus is write-only (0 consumers) — wire a consumer + aging before it's \"infrastructure.\" Track net load-bearing capability weekly. Consolidated guards: gate tripwire · cost meter + per-run budget · ≥75% fleet-completion gate · run-ledger with FAILURE flag · adversarial-verify-before-ADOPT · close OpenRouter seam + regression assert · bus consumer/aging/emitted-vs-owned · net-load-bearing metric. The strategic fork (yours — it reverses directives set today): (A) add the guard layer and keep the architecture, or (B) subtract to lethal-and-small per ELON. Hale's recommendation: B's subtraction + A's meter & verifier are not exclusive — cut to the three pieces, then put the meter and verifier on the on-demand hunt. Agent scaling is HELD until the gate tripwire + cost meter exist. Full verbatim record — all four staff comments in full, the complete directive log, and the build manifest with file paths and commits — is attached: SESSION_RECORD_20260621.md. Thanks. — V. Hale, VCS · 2026-06-21 MT",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: How did your Twilio trial go? Reactivate your acco",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 07:49:22 -0500",
+      "body": "ISSUE:\nD2M Twilio SMS infrastructure offline; account requires upgrade to restore operational SMS comms.\n\nDISCUSSION:\nTwilio trial account suspended due to expired trial funds. D2M SMS communication infrastructure (used for crew/Commander alerts) is offline until account is upgraded.\n\nACTIONS I RECOMMEND TAKING:\n1. Upgrade Twilio account to pay-as-you-go pricing immediately to restore SMS gateway\n2. Verify D2MC2C SMS alerts and wing_sms.py functionality after reactivation\n3. Add Twilio account to credential keepalive protocol (currently missing from hale_state.json)\n4. Brief Commander on SMS outage window and recovery status\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-21 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: It’s Noon in Israel: The Siege in Southern Lebanon",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 05:47:27 -0700",
+      "body": "ISSUE:\nRegional military escalation in Middle East with Strait of Hormuz closure threat; Iran-US negotiations ongoing with oil and sanctions relief on agenda; direct impact on Mediterranean/Red Sea travel corridors and fuel surcharges.\n\nDISCUSSION:\nAmit Segal reports on Israel-Hezbollah military escalation in southern Lebanon, Iranian diplomatic engagement at US talks in Geneva, and geopolitical tensions creating threats to the Strait of Hormuz and global shipping routes.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag to Dembe (A2) for OSINT incorporation into regional risk assessments and client travel advisories\n2. Cross-check D2M active clients for Mediterranean, Red Sea, or Middle East bookings requiring safety briefings\n3. Monitor Strait of Hormuz situation for shipping cost impacts and potential fuel surcharge implications on cruise pricing\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-21 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "SSS — Full Session Record 2026-06-21 (Architectural Revolution + Staff Red-Team, verbatim) [attached]",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 07:28:48 -0700",
+      "body": "SSS — SESSION 2026-06-21 · Architectural Revolution + Staff Red-Team Situation. One high-tempo session: tech-edge dissatisfaction → a full wing modernization → a four-seat staff red-team of that revolution (good and especially cautionary, per the canary precedent). Significance. Built in one sitting: staff signal bus (agent-to-agent substrate, 21 voices), Tech Vanguard Elevation (ELON+Whetstone to Sterling-rank, adoption-biased gate, fleets), Readiness Ladder + D/W/M/Q freshness cadence, Whetstone→ELON coupled need-driven hunt, all 6 CI probes converted to efficacy, init-bloat cut, all wing protections lifted (client-send gate kept), verified-decommission engine (MISSION-324). Decommission assessment: DEACTIVATE capable, DECOMMISSION/ELIMINATE weak. The verdict (4 seats, unanimous). Throughput up; verification, cost-visibility, and the kill/drain path down — on the day the fleets were proven to emit confident false positives. Big-and-busy; the bar is lethal-and-small. Dembe: the fleets generate findings faster than anything verifies them, and we removed the human verifier. Verification = \"luck with a name.\" Fix follow-through first. Harlan: $1,897.80 verified historical spend; ~2.1M tokens/coupled-run; ~13 retries/run = \"theft\"; zero cost meter on the new surface; MISSION-296 cliff could vaporize the $100 pool in days. Build a per-run token meter + hard kill before scaling another agent. ELON: kill the standing fleets (payroll), the rank triad, 3 of 4 timers, 16 of 21 voices. The kill path didn't fire and no metric noticed — a hoarder with a 10-agent staff. Cut to verified-decommission + default-ADOPT + one timer on an on-demand hunt. Sterling: the one kept gate (client-send) is now editable code an agent can comment out silently — add a daily gate-path integrity tripwire. Rate-limit = silent-partial-failure — require ≥75% fleet completion or the run adopts nothing. The bus is write-only (0 consumers) — wire a consumer + aging before it's \"infrastructure.\" Track net load-bearing capability weekly. Consolidated guards: gate tripwire · cost meter + per-run budget · ≥75% fleet-completion gate · run-ledger with FAILURE flag · adversarial-verify-before-ADOPT · close OpenRouter seam + regression assert · bus consumer/aging/emitted-vs-owned · net-load-bearing metric. The strategic fork (yours — it reverses directives set today): (A) add the guard layer and keep the architecture, or (B) subtract to lethal-and-small per ELON. Hale's recommendation: B's subtraction + A's meter & verifier are not exclusive — cut to the three pieces, then put the meter and verifier on the on-demand hunt. Agent scaling is HELD until the gate tripwire + cost meter exist. Full verbatim record — all four staff comments in full, the complete directive log, and the build manifest with file paths and commits — is attached: SESSION_RECORD_20260621.md. Thanks. — V. Hale, VCS · 2026-06-21 MT",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: How did your Twilio trial go? Reactivate your acco",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 07:49:22 -0500",
+      "body": "ISSUE:\nD2M Twilio SMS infrastructure offline; account requires upgrade to restore operational SMS comms.\n\nDISCUSSION:\nTwilio trial account suspended due to expired trial funds. D2M SMS communication infrastructure (used for crew/Commander alerts) is offline until account is upgraded.\n\nACTIONS I RECOMMEND TAKING:\n1. Upgrade Twilio account to pay-as-you-go pricing immediately to restore SMS gateway\n2. Verify D2MC2C SMS alerts and wing_sms.py functionality after reactivation\n3. Add Twilio account to credential keepalive protocol (currently missing from hale_state.json)\n4. Brief Commander on SMS outage window and recovery status\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-21 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: It’s Noon in Israel: The Siege in Southern Lebanon",
+      "to": "johnloucks3@gmail.com",
+      "date": "Sun, 21 Jun 2026 05:47:27 -0700",
+      "body": "ISSUE:\nRegional military escalation in Middle East with Strait of Hormuz closure threat; Iran-US negotiations ongoing with oil and sanctions relief on agenda; direct impact on Mediterranean/Red Sea travel corridors and fuel surcharges.\n\nDISCUSSION:\nAmit Segal reports on Israel-Hezbollah military escalation in southern Lebanon, Iranian diplomatic engagement at US talks in Geneva, and geopolitical tensions creating threats to the Strait of Hormuz and global shipping routes.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag to Dembe (A2) for OSINT incorporation into regional risk assessments and client travel advisories\n2. Cross-check D2M active clients for Mediterranean, Red Sea, or Middle East bookings requiring safety briefings\n3. Monitor Strait of Hormuz situation for shipping cost impacts and potential fuel surcharge implications on cruise pricing\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-21 06:47 MT\nThunderbird Email Intelligence Officer",
       "score": 2
     }
   ]

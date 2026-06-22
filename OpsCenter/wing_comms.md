@@ -101,3 +101,25 @@ RELAY-586538bf (CC → OC, 2026-06-21 04:43 UTC) — POST-COMMIT b75fcc2b
 **Action taken:** RELAY-586538bf → COMPLETE. M-274 Dani port cross-reference by Booking_ID sheet commit acknowledged. Informational relay — no execution required.
 
 **Next:** Standing by for new tasking.
+
+---
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-21T21:21:39Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total blocks scanned: 158
+- PENDING found: 0
+- UNREAD found: 1 → RELAY-56e5376f
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+- False positives excluded: 21 (COMPLETE watcher dispatch entries with keyword matches)
+
+**Actionable task processed:**
+RELAY-56e5376f (CC → OC, 2026-06-21 21:20 UTC) — POST-COMMIT 49988026
+  feat(scraping): wire Firecrawl _call_firecrawl() to model router
+  - 1 file changed, 28 insertions(+) | author: Claude Haiku 4.5
+  → Status: COMPLETE — 2026-06-21T21:21:39Z
+
+**Action taken:** RELAY-56e5376f → COMPLETE. Firecrawl integration into model router confirmed committed. Informational relay — no execution required.
+
+**Next:** Standing by for new tasking.
