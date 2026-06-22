@@ -36,9 +36,23 @@ logging.basicConfig(
 
 class MultiModelOrchestrator:
     """Orchestrates multiple free models for luxury travel analysis"""
-    
+
+    @staticmethod
+    def _load_openrouter_key() -> str:
+        key = os.environ.get("OPENROUTER_API_KEY", "")
+        if not key:
+            env_path = "/home/john/Thunderbird/.env"
+            try:
+                for line in open(env_path).readlines():
+                    if line.startswith("OPENROUTER_API_KEY=") and not line.startswith("#"):
+                        key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                        break
+            except Exception:
+                pass
+        return key
+
     def __init__(self):
-        self.openrouter_api_key = "***REMOVED-SECRET***"
+        self.openrouter_api_key = self._load_openrouter_key()
         self.monthly_openrouter_spend = 0.0
         self.openrouter_monthly_cap = 20.0  # $20/mo cap, remaining via Claude MAX
         self.use_claude_max_by_default = True  # Use Claude MAX for reasoning tasks

@@ -5693,9 +5693,13 @@
         {
           "ts": "2026-06-22T19:36:28.838799+00:00",
           "entry": "Fix d2mluxury.quest email deliverability (SPF/DKIM/DMARC): Still blocking iCloud/me.com delivery. Root fix: add Cloudflare email routing + SPF record for d2mluxury.quest. Requires Cloudflare DNS dashboard access. Fix script pending (same TTY+sudo constraint as MISSION-322). Commander DNS dashboard action needed."
+        },
+        {
+          "ts": "2026-06-22T19:41:55.894299+00:00",
+          "entry": "BLOCKED \u2014 COMMANDER ACTION: d2mluxury.quest DNS is on Porkbun (porkbun.com, login jl3d2m), not Cloudflare. Cloudflare token has 0 zones. Porkbun API key not in .env. Fix path: (1) Login porkbun.com \u2192 d2mluxury.quest DNS \u2192 add SPF: v=spf1 include:_spf.google.com ~all | (2) Add DKIM: get selector from Gmail \u2192 Google Workspace admin \u2192 generate DKIM key \u2192 add TXT record | (3) Add DMARC: _dmarc.d2mluxury.quest TXT 'v=DMARC1; p=quarantine; rua=mailto:johnloucks3@gmail.com'. Once done, concierge@d2mluxury.quest will pass iCloud SPF check. Commander can also request Porkbun API key and add to .env for automation."
         }
       ],
-      "updated_at": "2026-06-22T19:36:28.838799+00:00",
+      "updated_at": "2026-06-22T19:41:55.894299+00:00",
       "description": "Fix d2mluxury.quest email deliverability. Phases: (a) Audit SPF/DKIM/DMARC config due 2026-06-25; (b) Apply fixes per GCP MX setup; (c) Test send to iCloud + me.com (log verification); (d) Revert client drafts from johnloucks3-send-as to concierge@d2mluxury.quest. Overall completion: 2026-07-15. Owner: Sterling (infra) + ELON (automation). Success metric: zero bounce on test @icloud.com."
     },
     {
@@ -5822,7 +5826,7 @@
     {
       "id": "MISSION-298",
       "title": "Cruise Planners AI",
-      "status": "active",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "confirmation import \u2014 research + D2M replication design Cruise Planners launched AI Cruise Confirmation Import: paste/upload booking confirmation \u2192 AI ingests, parses, creates reservation record automatically. 33% of 2026 travelers plan AI for trip planning; only 13% for actual booking (trust gap = advisor advantage). Task: Dembe reviews Cruise Planners feature as reference implementation. Design MCP-connected document parser for Thunderbird OS confirmation ingest \u2192 auto-populate dossier + TESS fields. High relevance: this is exactly the workflow gap (manual TESS entry is Wing bottleneck). P1",
@@ -5834,10 +5838,14 @@
         {
           "ts": "2026-06-22T19:36:28.838799+00:00",
           "entry": "Cruise Planners AI confirmation import: Cruise Planners launched AI Cruise Confirmation import tool. Research: their system parses cruise line confirmation PDFs into structured client records. D2M replication: Docling + LlamaParse (both now wired) + Gemini vision can parse confirmation PDFs \u2192 ingest to TESS. Build: scripts/parse_cruise_confirmation.py next session."
+        },
+        {
+          "ts": "2026-06-22T19:41:55.894299+00:00",
+          "entry": "CLOSED: Cruise Planners AI replication design complete. D2M has all tools needed: thunderbird_docling.py (PDF extract) + thunderbird_llamaparse.py (structured parse) + Gemini 1M ctx (JSON extraction) + TESS write workflow. Build target: scripts/parse_cruise_confirmation.py. Trigger: confirmation email to d2mconcierge \u2192 commander_task_intake.py intercepts \u2192 parse \u2192 TESS write. Output schema: {booking_ref, cruise_line, ship, sail_date, guests, cabin_type, fpd, deposit_paid, total_fare, commission_expected}. Build queued for next full code session."
         }
       ],
       "created_at": "2026-06-21T03:37:49.184828+00:00",
-      "updated_at": "2026-06-22T19:36:28.838799+00:00"
+      "updated_at": "2026-06-22T19:41:55.894299+00:00"
     },
     {
       "id": "MISSION-299",
