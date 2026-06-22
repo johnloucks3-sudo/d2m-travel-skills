@@ -106,6 +106,8 @@ PE_KNOWN_IDS: dict[str, str] = {
     "marseille": "831",
     "monaco": "838",
     "casablanca": "1190",
+    # Mediterranean — smaller ports / islands
+    "patmos": "1929",
     # Caribbean / Bermuda
     "bermuda": "1110",
     # Norway
