@@ -9091,10 +9091,14 @@
         {
           "ts": "2026-06-22T19:33:19.007771+00:00",
           "entry": "NEXT STEP: 1. Go to elevenlabs.io \u2192 Sign Up (free: 10K chars/mo, no credit card) 2. API Keys \u2192 Create \u2192 copy 3. Add ELEVENLABS_API_KEY=xxx to .env 4. pip install elevenlabs \u2192 build thunderbird_elevenlabs.py adapter 5. Dani voice = 'Rachel' or clone Dani's voice from sample audio. NOT a financial gate \u2014 free tier available."
+        },
+        {
+          "ts": "2026-06-22T19:53:16.667991+00:00",
+          "entry": "ADAPTER BUILT: thunderbird_elevenlabs.py created (text_to_file, speak, get_usage, get_available_voices, VOICES dict with Dani/Hale/Sterling/Commander). 10K chars/mo free tier. BLOCKED: ELEVENLABS_API_KEY not set. COMMANDER ACTION: Register at elevenlabs.io \u2192 API Keys \u2192 add ELEVENLABS_API_KEY to .env. Placeholder added."
         }
       ],
       "created_at": "2026-06-22T18:31:04.136208+00:00",
-      "updated_at": "2026-06-22T19:17:30.532657+00:00"
+      "updated_at": "2026-06-22T19:53:16.667991+00:00"
     },
     {
       "id": "MISSION-408",
@@ -9317,10 +9321,14 @@
         {
           "ts": "2026-06-22T19:33:43.375288+00:00",
           "entry": "McPoogle: graphlit/mcpoogle-mcp-server-remote is a REMOTE MCP server (not local npm package). Access via Graphlit API account at graphlit.com. Free tier available. Add to mcp.json as remote MCP: {type: 'remote', url: 'https://mcp.graphlit.com/sse', auth: GRAPHLIT_API_KEY}. Next session: register + add key."
+        },
+        {
+          "ts": "2026-06-22T19:53:16.667991+00:00",
+          "entry": "EVALUATED: McPoogle (graphlit/mcpoogle-mcp-server-remote) is a remote MCP server requiring Graphlit account. Not on npm. Package @graphlit/mcp-client returns 404. Correct path: graphlit.com registration \u2192 GRAPHLIT_API_KEY \u2192 configure remote MCP endpoint. COMMANDER ACTION: Register at graphlit.com \u2192 add GRAPHLIT_API_KEY to .env. Placeholder added. Adding _disabled_ entry to mcp.json as staging slot."
         }
       ],
       "created_at": "2026-06-22T18:31:04.136208+00:00",
-      "updated_at": "2026-06-22T19:17:30.532657+00:00"
+      "updated_at": "2026-06-22T19:53:16.667991+00:00"
     },
     {
       "id": "MISSION-416",
@@ -9464,11 +9472,15 @@
       "priority": "P1",
       "status": "active",
       "created_at": "2026-06-22T19:30:42.051663+00:00",
-      "updated_at": "2026-06-22T19:30:42.051663+00:00",
+      "updated_at": "2026-06-22T19:53:16.667991+00:00",
       "logs": [
         {
           "ts": "2026-06-22T19:30:42.051663+00:00",
           "entry": "Created from MISSION-368/371 research findings. Duffel = only viable no-minimum flight API for D2M in 2026."
+        },
+        {
+          "ts": "2026-06-22T19:53:16.667991+00:00",
+          "entry": "ADAPTER BUILT: thunderbird_duffel.py created (search_flights, get_offer_details, create_order, search_for_brief). 300+ airlines, NDC+GDS, per-booking fee. Example: search_for_brief('DEN','FCO','2026-10-15',12,'business') \u2192 ready for Spencer group quote. BLOCKED: DUFFEL_API_KEY not set. COMMANDER ACTION: Register at duffel.com \u2192 sandbox \u2192 production approval \u2192 add DUFFEL_API_KEY to .env. Placeholder added."
         }
       ]
     }
