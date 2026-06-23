@@ -33,7 +33,10 @@ logger = logging.getLogger(__name__)
 from thunderbird_tech_monitor import register_tech_monitor_tools
 from thunderbird_v3 import register_v3_tools
 from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
-from thunderbird_hotel_search import register_hotel_search_tools
+try:
+    from thunderbird_hotel_search import register_hotel_search_tools
+except ImportError:
+    def register_hotel_search_tools(mcp): pass  # retired — use hotelbeds_hotel_search.py
 from thunderbird_flight_search import register_flight_search_tools
 from thunderbird_centrav_search import register_centrav_search_tools
 from thunderbird_tour_search import register_tour_search_tools
