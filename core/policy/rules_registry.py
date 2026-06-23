@@ -504,16 +504,23 @@ def _p_bash_relay(ctx: dict) -> bool:
 
 
 # 13. SPAWN-PROMPT-CHECK — GATE
+# Fires only when prompt contains BOTH a send-intent term ("send to"/"email")
+# AND a name or email address. A name alone (e.g. "Commander John" in the standard
+# persona context header) does NOT trigger the gate — that was a false positive
+# that blocked all /ask dispatches (root cause of Jun 3 + Jun 23 2026 failures).
 def _p_spawn_prompt(ctx: dict) -> bool:
     if not _is_spawn(ctx):
         return False
-    prompt = _s(ctx, "payload").lower()
+    payload = _s(ctx, "payload")
+    prompt = payload.lower()
     if not prompt:
         return False
-    if any(term in prompt for term in _SPAWN_SEND_TERMS):
-        return True
-    # client-name-like pattern in spawn prompt
-    return bool(_NAME_RE.search(_s(ctx, "payload")))
+    has_send_term = any(term in prompt for term in _SPAWN_SEND_TERMS)
+    if not has_send_term:
+        return False  # no send intent → no gate
+    has_name = bool(_NAME_RE.search(payload))
+    has_email_addr = bool(re.search(r'\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b', payload))
+    return has_name or has_email_addr
 
 
 # 14. WEAPONS-FREE-GATES-019 — DENY (inviolable)
