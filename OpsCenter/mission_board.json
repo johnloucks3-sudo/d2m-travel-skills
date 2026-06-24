@@ -9558,7 +9558,7 @@
     {
       "id": "MISSION-425",
       "title": "Add efficacy test coverage for ELON sprint integrations (top 10 by risk)",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Audit the 60+ signals wired in the ELON sprint and write at minimum one efficacy probe per high-risk integration; test-file commits to accompany each, targeting the tools that touch client-path or financial data first.",
@@ -9573,7 +9573,8 @@
       ],
       "created_at": "2026-06-23T19:33:16.774513+00:00",
       "updated_at": "2026-06-23T19:43:11",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "notes": "COMPLETED 2026-06-24: test_sprint_efficacy.py built by Sterling425 agent \u2014 7/7 integrations PASS."
     },
     {
       "id": "MISSION-426",

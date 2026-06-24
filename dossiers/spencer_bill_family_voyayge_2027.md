@@ -1,4 +1,6 @@
-
+---
+status: archived
+---
 
 IMMEDIATE ACTIONS - SPENCER FAMILY VOYAGE
 ==========================================

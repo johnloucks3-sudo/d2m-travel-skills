@@ -1,3 +1,6 @@
+---
+status: archived
+---
 
 > # ⛔ OBSOLETE — DO NOT BUILD FROM THIS FILE
 > **Retired 2026-06-09 (Commander directive).** This early draft is WRONG: Milan/Iceland,

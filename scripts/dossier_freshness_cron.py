@@ -38,21 +38,34 @@ VOYAGE_HORIZON_DAYS = 90
 STALE_MODIFIED_DAYS = 30
 FPD_ALERT_DAYS = 30
 
-# Skip destination docs and tracker files — not client dossiers
-SKIP_PREFIXES = ("DOSSIER_", "GROUP_", "MISSION-", "PROSPECT_", "CLAUDE")
+# Skip destination docs, tracker files, reference docs, prospects — only active/complete client dossiers
+SKIP_PREFIXES = ("DOSSIER_", "GROUP_", "MISSION-", "PROSPECT_", "CLAUDE", "Scandi_")
 SKIP_SUFFIXES = (
     "_TIMELINE.md", "_TRACKER.md", "_TEMPLATE.md", "_EXCURSIONS.md",
     "_drive.md", "_Research.md", "_RUNBOOK.md", "_CallPrep.md",
     "_Coverage_Brief.md", "_guide.md", "_Guide.md",
+    # Additional supplemental/reference patterns
+    "_Excursions.md", "_Eligibility.md", "_Brief.md", "_Monthly_Brief.md",
+    "_Correspondence_Draft.md", "_Itinerary_Apr2026.md",
+    "_Romance_April2026.md",
 )
+# Substrings that mark non-booking files: prospects, personal reference, supplemental
+SKIP_SUBSTRINGS = ("_Prospect", "_ProBono", "_SelfDrive", "_Complete", "_Personal",
+                   "_Family", "_Excursion", "Scandi_Group")
 
 REQUIRED_FIELDS = ["departure", "booking_ref", "payment_status"]
 REQUIRED_FIELD_ALIASES = {
-    "departure": ["departure", "embarkation_date", "departure_date", "Embarkation", "EMBARKATION"],
-    "booking_ref": ["booking_ref", "booking_id", "booking_number", "reservation_number",
-                    "booking_1_ref", "booking_2_ref"],
+    # Multi-booking dossiers use booking_1_departure — accept all forms
+    "departure": ["departure", "embarkation_date", "departure_date", "Embarkation", "EMBARKATION",
+                  "booking_1_departure", "booking_2_departure"],
+    # Dossier schema uses "booking:" (per dossiers/CLAUDE.md) — also accept common variants
+    # Multi-booking uses "booking_1:", "booking_2:" (bare, no _ref suffix)
+    "booking_ref": ["booking", "booking_ref", "booking_id", "booking_number", "reservation_number",
+                    "booking_1", "booking_2", "booking_1_ref", "booking_2_ref"],
     "payment_status": ["payment_status", "payment status", "booking_1_payment_status"],
 }
+# Only scan dossiers with these status values — skip prospects, archived, complete
+ACTIVE_STATUSES = {"active", ""}  # empty = not set = assume active until proven otherwise
 
 
 def should_skip(name: str) -> bool:
@@ -61,6 +74,9 @@ def should_skip(name: str) -> bool:
             return True
     for suffix in SKIP_SUFFIXES:
         if name.endswith(suffix):
+            return True
+    for substring in SKIP_SUBSTRINGS:
+        if substring in name:
             return True
     return False
 
@@ -134,8 +150,14 @@ def check_required_fields(text: str) -> list[str]:
     return missing
 
 
-def classify_dossier(path: Path) -> dict:
+def classify_dossier(path: Path) -> dict | None:
     text = path.read_text(errors="replace")
+
+    # Skip non-active dossiers (prospects, complete, archived) by status field
+    status_val = (extract_field(text, "status") or "").lower().strip()
+    if status_val in ("prospect", "complete", "archived", "cancelled", "pro_bono", "probono"):
+        return None  # skip silently
+
     stat = path.stat()
     last_modified = date.fromtimestamp(stat.st_mtime)
     days_since_modified = (TODAY - last_modified).days
@@ -228,6 +250,8 @@ def main() -> None:
     for path in dossier_files:
         try:
             record = classify_dossier(path)
+            if record is None:
+                continue  # status gate: skipped (prospect/complete/archived)
             results.append(record)
             if record["is_stale"]:
                 stale_dossiers.append(record)

@@ -1,3 +1,6 @@
+---
+status: prospect
+---
 # CLIENT DOSSIER — Steve & Sofi Trien
 ## Prospect — Silver Nova May 2027 Mediterranean (Invited)
 
