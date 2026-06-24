@@ -1,5 +1,6 @@
 ---
 client: Kuklinski
+booking: 9593873
 full_name: Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son)
 cruise_line: Viking
 ship: Viking Mars
@@ -21,6 +22,8 @@ harlan_signoff: "Confirmed: $21,244.00 PAID (3 bookings 9593873+9593880+9595029)
 status: active
 relationship: client
 completed_tps: ["0.5", "1.1", "4.1", "4.2", "4.3", "4.4", "4.5"]
+draft_pending_tps: ["1.2"]
+draft_pending_notes: "TP 1.2 Airfare Watch drafted 2026-06-24, staged in johnloucks3 (r-1805810095093866821), pending Commander send (WF-17)"
 completed_tps_basis: "0.5 Welcome/Validation SENT Apr 17 + 1.1 Voyage Preview SENT Apr 17 (lifecycle doc + correspondence log). 4.1-4.5 payment sequence CLOSED: PAID IN FULL $21,244 (FPD Mar 31, paid Mar 27, Harlan-verified Viking invoices Feb 2026) — the engine (DateRef.FPD, passed FPD) would otherwise fire 4.1-4.5 as false-OVERDUE. NOT marked: 0.6 insurance (DEFERRED, not done); 4.6 FCC (conditional, no FCC); 2.x/3.x/5.x (future windows)."
 fpd_status: PAID
 ---
