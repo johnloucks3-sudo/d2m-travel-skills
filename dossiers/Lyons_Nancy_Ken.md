@@ -1,3 +1,11 @@
+---
+client: Lyons
+full_name: Nancy Lyons & Ken Lyons
+status: pro_bono
+relationship: friend
+notes: Pro bono advisory/concierge only — PAVLUS Travel handles all bookings. D2M has zero booking involvement and zero commission.
+---
+
 # CLIENT DOSSIER — Nancy & Ken Lyons
 ## Pro Bono — Advisory/Concierge Only (Non-Revenue)
 

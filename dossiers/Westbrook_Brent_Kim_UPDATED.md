@@ -1,3 +1,11 @@
+---
+client: Westbrook
+full_name: Brent Westbrook & Kim Westbrook (+ daughters Ava & Ally)
+status: pro_bono
+relationship: friend
+notes: Pro bono — active planning, cruise options under evaluation, no booking yet. Rondo Westbrook family connection. No commission charged.
+---
+
 # DOSSIER — Brent & Kim Westbrook + Ava & Ally
 **Updated 2026-05-20 | Status: Active Planning — Pro Bono (entire family)**
 

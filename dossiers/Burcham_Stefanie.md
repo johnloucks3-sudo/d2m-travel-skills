@@ -5,7 +5,7 @@ full_name: Stefanie Burcham (+ Rob Burcham, husband)
 email_primary: stef@bbenefits.net
 travel_interest: Rhine River cruise
 travel_window: 2027-05 (approximate)
-status: active
+status: prospect
 relationship: friend
 family: Commander's younger sister
 client_since: 2023 (D2M's FIRST-EVER client — Scenic cruise 2023)

@@ -2,7 +2,7 @@
 name: Heer, Ann & Shawn
 destination: Japan
 dates: 2026-08-08 to 2026-08-16
-status: ACTIVE — Booking Phase
+status: prospect
 phase: TP2-TP3 (Booking & Confirm)
 created: 2026-04-26
 last_updated: 2026-05-21 (Rev 4 — Commander restructured: Tokyo→Kyoto→Osaka→Hakone Mt Fuji→Tokyo→Miyako day trip)

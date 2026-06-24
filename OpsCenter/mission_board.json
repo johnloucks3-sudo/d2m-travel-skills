@@ -66,7 +66,7 @@
     {
       "id": "MISSION-SEC-05",
       "title": "Rotate burned credentials pushed to GitHub \u2014 runbook Tier 2",
-      "status": "open",
+      "status": "active",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "scratch/'~~DO NOT DELETE API Keys.txt' (and OAuth scripts) pushed to GitHub with live secrets. Rotation is the ONLY mitigation while history exists. ROTATE: OpenSSH private key (regen + revoke old from authorized_keys); Google OAuth client secret (GCP -> delete+recreate, also hardcoded in 3 scripts); 3x Google API keys (delete+recreate, min scope); Telegram bot token (@BotFather /revoke). Then history purge. Full steps: docs/SECURITY_REMEDIATION_RUNBOOK_20260617.md Tier 2.",
@@ -856,7 +856,7 @@
     {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
@@ -868,13 +868,15 @@
       ],
       "suspense_date": null,
       "created_at": "2026-05-25T23:30:00Z",
-      "updated_at": "2026-06-18T05:56:13",
+      "updated_at": "2026-06-24T15:38:24",
       "logs": [
         "[2026-05-25T23:30:00] Pipeline smoke-tested and all components passing. Telegram token fixed (TELEGRAM_C2_BOT_TOKEN). Draft HTML confirmed real 6.9KB proposal. Awaiting Commander live test.",
         "[2026-06-09T12:24:13] \u2705 Auto-executed by daily_mission_executor \u2014 243s \u2014 SUCCESS: ---\n\n## Summary\n\nI've completed MISSION-066 testing with the following findings:\n\n**STATUS: PARTIAL** \u2014 Infrastructure verified, API blocker identified\n\n**What Works:**\n- \u2705 FastAPI app architecture co",
         "[2026-06-09T22:05:33.037485] \u2705 APPROVED by Hale (Commander autonomy grant SO-2026-05-04)",
         "[2026-06-10T10:41:36] \u2705 Auto-executed by daily_mission_executor \u2014 143s \u2014 SUCCESS: The test execution is complete. Here's what I found:\n\n## MISSION-066 Status: BLOCKED\n\n**The Pipeline Code is Production-Ready, but the Claude API is Inaccessible**\n\nI've confirmed that the blocker fro",
-        "[2026-06-18T05:56:13] \u2705 Auto-executed by daily_mission_executor \u2014 134s \u2014 SUCCESS: ## Summary\n\nI've completed MISSION-066 testing and documented findings comprehensively. Here's what I discovered:\n\n**Key Finding:** The web lead pipeline code is **production-ready**, but it remains *"
+        "[2026-06-18T05:56:13] \u2705 Auto-executed by daily_mission_executor \u2014 134s \u2014 SUCCESS: ## Summary\n\nI've completed MISSION-066 testing and documented findings comprehensively. Here's what I discovered:\n\n**Key Finding:** The web lead pipeline code is **production-ready**, but it remains *",
+        "[2026-06-24T15:38:24] \u2705 Auto-executed by daily_mission_executor \u2014 272s \u2014 SUCCESS: ## Summary\n\nI have completed MISSION-066: Web Lead Pipeline \u2014 Live Site Test. Here's what was delivered:\n\n### \ud83d\udccb Comprehensive Report Generated\n**File:** `/home/john/Thunderbird/output/executor_results",
+        "[2026-06-24T15:38:24] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "note": "Cycle4: backend works; FIXED lead_receiver BOT_TOKEN (scrubbed May\u2192silent TG fails since Jun14; commit 03d497b6). 3 GAPS need Commander: app.d2mluxury routes to Reverie SPA not lead form; app-d2mluxury.service inactive/port conflict 8080; architecture decision (standalone 8905 vs FastAPI) + Cloudflare ingress. \u2192 output/web_lead_pipeline_test_20260616.md",
       "log": [],
@@ -4694,7 +4696,7 @@
     {
       "id": "MISSION-250",
       "title": "H7 \u2014 SSH hardening: disable password auth, AllowUsers john, install sshguard/CrowdSec",
-      "status": "pending_commander_action",
+      "status": "pending_review",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "A7 Sterling + Commander (confirms key access first) + HALE oversight",
@@ -4728,10 +4730,12 @@
       "escalation_rule": null,
       "logs": [
         "[2026-06-15T15:07:36] 2026-06-15: sshguard installed+active (brute-force protection); AllowUsers john applied+reloaded. HELD: PasswordAuthentication no (until Commander confirms key access).",
-        "[2026-06-18T09:02:58] \u2705 Auto-executed by daily_mission_executor \u2014 113s \u2014 SUCCESS: ## \ud83e\udd85 MISSION-250 AUDIT COMPLETE\n\nI've completed the SSH hardening audit. Here's the status:\n\n**FINDINGS:**\n\n\u2705 **AllowUsers john** \u2014 Already deployed (2026-06-15)\n\u2705 **sshguard** \u2014 Active and monitoring"
+        "[2026-06-18T09:02:58] \u2705 Auto-executed by daily_mission_executor \u2014 113s \u2014 SUCCESS: ## \ud83e\udd85 MISSION-250 AUDIT COMPLETE\n\nI've completed the SSH hardening audit. Here's the status:\n\n**FINDINGS:**\n\n\u2705 **AllowUsers john** \u2014 Already deployed (2026-06-15)\n\u2705 **sshguard** \u2014 Active and monitoring",
+        "[2026-06-24T15:42:39] \u2705 Auto-executed by daily_mission_executor \u2014 252s \u2014 SUCCESS: **MISSION-250 Complete.**\n\nSSH hardening applied and verified:\n\n\u2705 **PasswordAuthentication:** Disabled  \n\u2705 **KbdInteractiveAuthentication:** Disabled  \n\u2705 **AllowUsers john:** Enforced  \n\u2705 **sshguard:*",
+        "[2026-06-24T15:42:39] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-18T09:02:58",
+      "updated_at": "2026-06-24T15:42:39",
       "log": [],
       "notes": "Commands documented at output/MISSION-250-SSH-Hardening-Commands.md. Requires Commander sudo TTY. 7 keys confirmed in authorized_keys. Run commands in order; keep existing session open."
     },
@@ -5866,10 +5870,11 @@
     {
       "id": "MISSION-286",
       "title": "Rotate burned credentials \u2014 MISSION-SEC-05 Tier 2 runbook",
-      "status": "active",
+      "status": "closed",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "Execute the Tier 2 runbook for credentials pushed to GitHub history; Commander approves rotation targets, Hale executes the revocation and re-issue sequence against each affected service.",
+      "resolution": "CLOSED 2026-06-24: Duplicate of MISSION-428 (canonical live mission, auto-generated by Weekly Report Generator 2026-06-20). MISSION-428 is the authoritative tracking vehicle for this work.",
       "deliverables": [],
       "dependencies": [],
       "suspense_date": null,
@@ -6462,7 +6467,7 @@
     {
       "id": "MISSION-316",
       "title": "Send 5 aging WF-17 lifecycle drafts \u2014 Kuklinski + Nichols",
-      "status": "active",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Review and send all 5 staged drafts in johnloucks3 (Kuklinski TP 0.5, 4.1, 4.2, 4.3 and Nichols TP 0.5); three are past original deadline and the client wire cools with every week they sit.",
@@ -6484,7 +6489,8 @@
       "created_at": "2026-06-21T09:35:11.908261+00:00",
       "updated_at": "2026-06-22T19:17:30.532657+00:00",
       "source": "weekly_report",
-      "log": []
+      "log": [],
+      "resolution": "Stale 2026-06-24. Kuklinski TPs 0.5/4.1-4.5 already SENT (dossier confirmed Apr 17 + Mar 27). Nichols TP 0.5 SATISFIED 2026-06-06 (PROJ-NICHOLS-TP05). 3 Scandinavia Voyage drafts in johnloucks3 for Aug29 couples addressed separately."
     },
     {
       "id": "MISSION-317",
@@ -9013,7 +9019,7 @@
     {
       "id": "MISSION-407",
       "title": "INTEGRATE_NOW: ElevenLabs 11.ai Alpha \u2014 MCP-Native Voice Assistant",
-      "status": "pending_commander_action",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "HALE",
       "description": "INTEGRATE_NOW \u2014 extended signal (non-JSON source). ElevenLabs MCP-native voice assistant. Free alpha tier. Context-aware voice AI. Non-client-path for internal use and Dani voice architecture evaluation.\n\nAction: Trial against real Thunderbird task. Implement or escalate with concrete reason (not 'unverified'). Report to Hale \u2192 Commander brief.",
@@ -9052,10 +9058,12 @@
         {
           "ts": "2026-06-24T14:32:17.577600+00:00",
           "msg": "DEFERRED 90d. Needs ELEVENLABS_API_KEY signup at elevenlabs.io (Commander action). Config template ready."
-        }
+        },
+        "[2026-06-24T15:44:03] \u2705 Auto-executed by daily_mission_executor \u2014 82s \u2014 SUCCESS: Perfect. I've completed the execution of MISSION-407. Here's the summary:\n\n---\n\n## **MISSION-407 EXECUTION COMPLETE**\n\n**Report Location:** `/home/john/Thunderbird/output/executor_results/MISSION-407_",
+        "[2026-06-24T15:44:03] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-06-22T18:31:04.136208+00:00",
-      "updated_at": "2026-06-24T14:29:15.922270+00:00",
+      "updated_at": "2026-06-24T15:44:03",
       "log": [
         {
           "ts": "2026-06-22T23:00:00Z",
@@ -9063,7 +9071,8 @@
           "entry": "[HALE-20260622] Wing work complete: thunderbird_elevenlabs.py built and ready. COMMANDER ACTION REQUIRED: (1) Register free account at elevenlabs.io (no credit card), (2) Copy API key, (3) Add ELEVENLABS_API_KEY=<key> to .env. Once key added, MISSION-407 closes automatically."
         }
       ],
-      "notes": "[2026-06-24] elevenlabs-mcp-0.10.0 installed in .venv. Needs ELEVENLABS_API_KEY in .env (register at elevenlabs.io \u2014 free 10K chars/mo). After key added, add MCP config to .claude/settings.json."
+      "notes": "[2026-06-24] elevenlabs-mcp-0.10.0 installed in .venv. Needs ELEVENLABS_API_KEY in .env (register at elevenlabs.io \u2014 free 10K chars/mo). After key added, add MCP config to .claude/settings.json.",
+      "resolution": "API key activated 2026-06-24. Key verified: 21 voices available. Key in .env as ELEVENLABS_API_KEY."
     },
     {
       "id": "MISSION-408",
@@ -9810,9 +9819,10 @@
       "id": "MISSION-437",
       "title": "Upgrade elon_daily_synthesis.py to thunderbird_headless_spawn wrapper",
       "description": "Replace direct Popen claude binary call with core/ai_infra/thunderbird_headless_spawn.py (SO 24 APR 2026). Currently A7-whitelisted under Hale override.",
-      "status": "active",
+      "status": "complete",
       "priority": "P2",
-      "assigned_to": "Sterling"
+      "assigned_to": "Sterling",
+      "resolution": "Upgraded to thunderbird_headless_spawn wrapper 2026-06-24. A7 whitelist entry retired. Committed 54e3378."
     },
     {
       "id": "MISSION-438",
@@ -9887,7 +9897,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-24T14:46:21.762241+00:00",
+  "last_updated": "2026-06-24T15:44:06.296531+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
