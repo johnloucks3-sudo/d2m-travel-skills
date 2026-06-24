@@ -17,7 +17,11 @@ invoice_total: 25896.00
 payment_status: paid_in_full
 harlan_signoff: "Confirmed: $27,813.32 PAID IN FULL as of 2026-06-09, source: Silversea final invoice 298475-25 dated 20-Jan-26 (Google Drive 298475-25_Guest.pdf). FPD $23,641.32 paid Jan-24-2026. Additional air collection $1,917.32 accounts for delta from original quote. Dossier fpd_amount matches final invoice exactly."
 booking_date: 2025-02-06
-status: active
+status: complete
+voyage_status: in_voyage
+voyage_return: 2026-07-06
+post_voyage_tps_due: ["5.1", "5.2", "5.3"]
+post_voyage_note: Voyage returns Jul 6. TP 5.1 Welcome Home due Jul 13. TP 5.2 Survey due Jul 20.
 fpd_status: PAID
 ---
 

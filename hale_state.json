@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-24T18:48:59.361590+00:00",
+    "last_health_check": "2026-06-24T18:55:59.950461+00:00",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-24T18:49:09.834842+00:00"
+    "last_updated": "2026-06-24T18:55:59.950461+00:00"
   },
   "open_tasks": [
     {
@@ -358,6 +358,15 @@
       "condition": "date>=2026-06-24",
       "condition_type": "date",
       "source": "MISSION-320 audit restructure \u2014 moved from mission board to Commander action log"
+    },
+    {
+      "id": "MCLEOD-SILVER-MUSE-WELCOME-HOME",
+      "trigger_date": "2026-07-13",
+      "priority": "P1",
+      "message": "McLeod/McGlasson Silver Muse voyage returned Jul 6. Send TP 5.1 Welcome Home today. Follow with TP 5.2 Survey Jul 20. Eric McLeod & Melissa McGlasson.",
+      "client": "McLeod McGlasson - Silver Muse",
+      "condition": "date>=2026-07-13",
+      "condition_type": "date"
     }
   ],
   "lessons_implementation_rate_pct": 100.0,
