@@ -856,7 +856,7 @@
     {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
-      "status": "pending_review",
+      "status": "active",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
@@ -877,7 +877,8 @@
         "[2026-06-18T05:56:13] \u2705 Auto-executed by daily_mission_executor \u2014 134s \u2014 SUCCESS: ## Summary\n\nI've completed MISSION-066 testing and documented findings comprehensively. Here's what I discovered:\n\n**Key Finding:** The web lead pipeline code is **production-ready**, but it remains *"
       ],
       "note": "Cycle4: backend works; FIXED lead_receiver BOT_TOKEN (scrubbed May\u2192silent TG fails since Jun14; commit 03d497b6). 3 GAPS need Commander: app.d2mluxury routes to Reverie SPA not lead form; app-d2mluxury.service inactive/port conflict 8080; architecture decision (standalone 8905 vs FastAPI) + Cloudflare ingress. \u2192 output/web_lead_pipeline_test_20260616.md",
-      "log": []
+      "log": [],
+      "notes": "[2026-06-24] Hale local backend test: Flask on :8905 PASS \u2014 form accept, lead ledger, prospect dossier all working. Telegram confirmed via wing_page. FastAPI dead, Cloudflare still routing to Reverie SPA. Full pipeline unblocked only after YOGA TTY + DNS fix (MISSION-322)."
     },
     {
       "id": "MISSION-069",
@@ -9012,7 +9013,7 @@
     {
       "id": "MISSION-407",
       "title": "INTEGRATE_NOW: ElevenLabs 11.ai Alpha \u2014 MCP-Native Voice Assistant",
-      "status": "pending_review",
+      "status": "pending_commander_action",
       "priority": "P1",
       "assigned_to": "HALE",
       "description": "INTEGRATE_NOW \u2014 extended signal (non-JSON source). ElevenLabs MCP-native voice assistant. Free alpha tier. Context-aware voice AI. Non-client-path for internal use and Dani voice architecture evaluation.\n\nAction: Trial against real Thunderbird task. Implement or escalate with concrete reason (not 'unverified'). Report to Hale \u2192 Commander brief.",
@@ -9061,7 +9062,8 @@
           "actor": "HALE",
           "entry": "[HALE-20260622] Wing work complete: thunderbird_elevenlabs.py built and ready. COMMANDER ACTION REQUIRED: (1) Register free account at elevenlabs.io (no credit card), (2) Copy API key, (3) Add ELEVENLABS_API_KEY=<key> to .env. Once key added, MISSION-407 closes automatically."
         }
-      ]
+      ],
+      "notes": "[2026-06-24] elevenlabs-mcp-0.10.0 installed in .venv. Needs ELEVENLABS_API_KEY in .env (register at elevenlabs.io \u2014 free 10K chars/mo). After key added, add MCP config to .claude/settings.json."
     },
     {
       "id": "MISSION-408",
@@ -9803,6 +9805,22 @@
       ],
       "created_at": "2026-06-24T14:32:25.441674+00:00",
       "updated_at": "2026-06-24T14:32:25.441687+00:00"
+    },
+    {
+      "id": "MISSION-437",
+      "title": "Upgrade elon_daily_synthesis.py to thunderbird_headless_spawn wrapper",
+      "description": "Replace direct Popen claude binary call with core/ai_infra/thunderbird_headless_spawn.py (SO 24 APR 2026). Currently A7-whitelisted under Hale override.",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling"
+    },
+    {
+      "id": "MISSION-438",
+      "title": "Renew Perplexity API key \u2014 ELON fleet returning 401",
+      "description": "Perplexity pplx-TbGO... returned 401 on 2026-06-24. Log into perplexity.ai, regenerate, update .env PERPLEXITY_API_KEY. Serper fallback active but lower quality.",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Commander"
     }
   ],
   "suspense_watch": [
