@@ -68,27 +68,45 @@ def escalate(component: str, details: str, attempts: int) -> None:
 # ── Probes — each makes a real API call, never trusts exit code alone ─────────
 
 def probe_claude_oauth() -> tuple[bool, str]:
-    """Full round-trip: Claude CLI → Anthropic API. Verifies OAuth token end-to-end."""
+    """Full round-trip: Claude CLI → Anthropic API. Verifies OAuth token end-to-end.
+
+    Return values:
+      (True,  "ok")            — auth healthy
+      (False, "auth: ...")     — genuine auth/OAuth failure → escalate
+      (False, "rate_limit: …") — model unavailable / throttled → do NOT escalate
+    """
     env = dict(os.environ)
     env.pop("ANTHROPIC_API_KEY", None)
     try:
         result = subprocess.run(
             [str(CLAUDE_BIN), "--dangerously-skip-permissions",
              "--model", "claude-haiku-4-5-20251001", "-p", "Reply: ok"],
-            env=env, capture_output=True, text=True, timeout=25,
+            env=env, capture_output=True, text=True, timeout=45,
         )
         combined = (result.stdout + result.stderr).lower()
-        if result.returncode == 0 and "ok" in combined:
-            return True, "ok"
-        if any(x in combined for x in ("401", "invalid authentication", "unauthorized", "oauth")):
+
+        # Genuine auth failures → escalate
+        if any(x in combined for x in ("401", "invalid authentication", "unauthorized", "invalid oauth")):
             return False, f"auth failure: {combined[:150]}"
-        if result.returncode != 0:
-            return False, (result.stderr or result.stdout)[:200]
-        return True, "ok"
+
+        # Model unavailable / rate-limit — NOT an auth issue, skip without escalation
+        if any(x in combined for x in (
+            "there's an issue with the selected model",
+            "may not exist or you may not have access",
+            "overloaded", "rate limit", "529", "too many requests",
+        )):
+            return False, f"rate_limit: {combined[:150]}"
+
+        if result.returncode == 0:
+            return True, "ok"
+
+        return False, f"auth failure: {(result.stderr or result.stdout)[:200]}"
+
     except subprocess.TimeoutExpired:
-        return False, "timeout after 25s"
+        # Timeout = transient API slowness, not auth failure
+        return False, "rate_limit: timeout after 45s"
     except FileNotFoundError:
-        return False, f"claude binary not found at {CLAUDE_BIN}"
+        return False, f"auth failure: claude binary not found at {CLAUDE_BIN}"
     except Exception as e:
         return False, str(e)
 
@@ -225,6 +243,12 @@ def run_probe_cycle() -> dict:
         # Orient + Decide
         log(f"FAIL: {name} — {detail}")
 
+        # rate_limit prefix = transient model throttle, not auth failure — log and skip
+        if detail.startswith("rate_limit:"):
+            log(f"SKIP ESCALATION: {name} — rate-limit/model-unavailable, not auth failure: {detail[:120]}")
+            results[name] = "rate_limit_skip"
+            continue
+
         if repair_fn is None:
             escalate(name, detail, attempts=0)
             results[name] = "escalated"
@@ -244,10 +268,14 @@ def run_probe_cycle() -> dict:
                 )
                 results[name] = "repaired"
             else:
-                # Repair said it worked but re-probe disagrees — escalate
-                log(f"REPAIR UNVERIFIED: {name} — repair reported success but re-probe failed ({detail2})")
-                escalate(name, f"repair unverified: {detail2}", attempts=1)
-                results[name] = "escalated"
+                # If re-probe also rate_limit, don't escalate — still transient
+                if detail2.startswith("rate_limit:"):
+                    log(f"RATE_LIMIT persists after repair: {name} — not escalating ({detail2[:80]})")
+                    results[name] = "rate_limit_skip"
+                else:
+                    log(f"REPAIR UNVERIFIED: {name} — repair reported success but re-probe failed ({detail2})")
+                    escalate(name, f"repair unverified: {detail2}", attempts=1)
+                    results[name] = "escalated"
         else:
             escalate(name, detail, attempts=1)
             results[name] = "escalated"

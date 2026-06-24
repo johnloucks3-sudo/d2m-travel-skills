@@ -587,3 +587,17 @@ Dani bot (@d2m_dani_bot, token `8723918695`) is open to ALL — clients message 
 **Pending:**
 - MISSION-176: d2m-tunnel.service investigation (P3, deferred)
 - WF-17 send queue (Nichols + Kuklinski): deferred to Jul 15
+
+## D2M Email Template — HARD RULE (2026-06-23, CANONICAL — CORRECTED)
+**ALL D2M client emails: use `scripts/d2m_email_builder.py` — NEVER build from scratch.**
+CANONICAL FORMAT = FULL DARK NAVY. Source: Kuklinski Panama Dec email sent 2026-06-20 (Commander directive).
+OLD FORMAT (cream body bgcolor="#f7f3ea") is RETIRED for client emails — do not use.
+
+Colors (bgcolor ATTRIBUTE = Gmail-safe; CSS gradient = enhancement only):
+- Outer: bgcolor="#07076b" | Header: bgcolor="#0a0a68" | Body: bgcolor="#08086e" | text color:#e8f1ff
+- Dani sig: bgcolor="#040448" | Commander sig: bgcolor="#02022a" | Shimmer: bgcolor="#c8d8ff"
+- Logo: https://lh3.googleusercontent.com/d/1HYa61cNwcialWk64DimGwIfCAbUjESsu
+
+Template: storage/templates/d2m_canonical_darknavy.html ({{BODY_CONTENT}} placeholder)
+Builder: python3 scripts/d2m_email_builder.py --body [body.html] --to [addr] --subject "[s]"
+Skill: /d2m-email (Claude Code skill — full format reference + quick reference body elements)

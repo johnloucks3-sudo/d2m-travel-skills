@@ -31,7 +31,7 @@ note: "AUTHORITATIVE for hotel/transfer/dining/insurance. Individual dossiers we
 | Couple | Booking | Suite | FPD | HEL→ARN seats (AY 811) | Notes |
 |---|---|---|---|---|---|
 | **Furlow** (John & Melissa) | 3071222 | 827 (D-Concierge) | ✅ PAID $15,486 | ⚠️ **pending** (PNR BB4X94) | POC Missy; DOB/loyalty not captured |
-| **Ely-Darrow** (Al & Amy) | 3096289 | 1212 | ✅ PAID $16,640 | 🟡 assigned, seat #s TBD (PNR UXVXZP) | |
+| **Ely-Darrow** (Al & Amy) | 3096289 | **961** (changed from 1212 — 10 APR 2026) | ✅ PAID $16,640 | 🟡 assigned, seat #s TBD (PNR UXVXZP) | |
 | **Nichols** (Larry & Heidi) | 3078056 | 939 | ✅ PAID $14,986 | ✅ 2D/2F (PNR BERJYH) | 🎂 **Heidi b'day Aug 29 = embark day** — noted onboard |
 
 All paid in full (Harlan-verified 2026-06-09 vs invoice). All same DFW flights, Business class.

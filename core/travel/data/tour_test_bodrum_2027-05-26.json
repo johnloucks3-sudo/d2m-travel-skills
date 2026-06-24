@@ -1,0 +1,322 @@
+{
+  "dest": "bodrum",
+  "query": "food tour wine",
+  "date": "2027-05-26",
+  "scraped_at": "2026-06-23T15:46:42.953763",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "bodrum",
+    "query": "food tour wine",
+    "url": "https://www.getyourguide.com/s/?q=bodrum+food+tour+wine",
+    "scraped_at": "2026-06-23T15:46:43.403067",
+    "date_filter": "2027-05-26",
+    "tours": [
+      {
+        "name": "Orak Island Boat Tour with Swim Stops and Lunch",
+        "duration": "8 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 1009,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-orak-island-boat-trip-wlunch-hotel-pickup-t476452/"
+      },
+      {
+        "name": "From $40 $24",
+        "duration": "6.5 hours",
+        "rating": 4.8,
+        "review_count": 1685,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/from-bodrum-full-day-orak-island-boat-trip-t103136/"
+      },
+      {
+        "name": "From $487 $365",
+        "duration": "Private Yacht Tour with Lunch for 6 Hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-yacht-tour-with-lunch-for-6-hours-t1340538/"
+      },
+      {
+        "name": "From $51 $44",
+        "duration": "6 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": 4.5,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kusadasi-l986/bodrum-half-day-city-tour-with-castle-windmills-guide-t1349861/"
+      },
+      {
+        "name": "Private Motoryacht Tour with swimming stops & lunch",
+        "duration": "6 hours \u2022 Private group",
+        "rating": 4.7,
+        "review_count": 19,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-motoryacht-tour-with-swimming-stops-lunch-t627570/"
+      },
+      {
+        "name": "Private Boat Tour With Snorkeling And Lunch",
+        "duration": "6 hours \u2022 Private group",
+        "rating": null,
+        "review_count": 4,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-boat-tour-with-snorkeling-and-lunch-t945874/"
+      },
+      {
+        "name": "From $63 $56",
+        "duration": "12.5 hours \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/selcuk-l801/from-bodrum-ephesus-house-of-virgin-mary-guided-day-tour-t1308323/"
+      },
+      {
+        "name": "From Kos",
+        "duration": "6 hours",
+        "rating": 4.2,
+        "review_count": 1218,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kos-l410/from-kos-independent-day-trip-to-bodrum-t120241/"
+      },
+      {
+        "name": "From $74 $63",
+        "duration": "12 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": 4.2,
+        "review_count": 147,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pamukkale-l189126/bodrumpamukkale-cotton-castle-hierapolis-day-trip-wlunch-t945391/"
+      },
+      {
+        "name": "Market Visit and Cooking Class",
+        "duration": "5 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 43,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-market-visit-and-cooking-class-t9783/"
+      },
+      {
+        "name": "Cleopatra Island Tour with Lunch and Swimming Stops",
+        "duration": "6.5 hours \u2022 Skip the line",
+        "rating": 4.6,
+        "review_count": 24,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-cleopatra-island-tour-with-lunch-and-swimming-stops-t629143/"
+      },
+      {
+        "name": "Private Sunset Yacht Tour with light Dinner",
+        "duration": "3 hours \u2022 Private group",
+        "rating": null,
+        "review_count": 5,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-sunset-yacht-tour-with-light-dinner-t631982/"
+      },
+      {
+        "name": "Ephesus Guided Tour with Lunch & Transfers",
+        "duration": "10.5 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/marmaris-l987/bodrum-ephesus-guided-tour-with-lunch-transfers-t1338916/"
+      },
+      {
+        "name": "From $63 $56",
+        "duration": "14 - 15 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/from-bodrum-pamukkale-and-hierapolis-day-tour-with-lunch-t1340428/"
+      },
+      {
+        "name": "Private Guided City Tour for Cruisers",
+        "duration": "5 hours \u2022 Private group \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": 8,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-guided-city-tour-for-cruisers-t1143844/"
+      },
+      {
+        "name": "From $850 $723",
+        "duration": "3 hours \u2022 Private group",
+        "rating": 4.8,
+        "review_count": 55,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bodrum-l846/discover-bodrum-s-hidden-gems-on-a-private-3-hour-yacht-trip-t489789/"
+      },
+      {
+        "name": "Turkish Cooking Class in a Local Home",
+        "duration": "4 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-turkish-cooking-class-in-a-local-home-t967867/"
+      },
+      {
+        "name": "Bodrum Aquarium Bay Tour with Lunch & Swimming Stops",
+        "duration": "6 hours \u2022 Skip the line",
+        "rating": 3.9,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-aquarium-bay-tour-with-lunch-swimming-stops-t785176/"
+      },
+      {
+        "name": "From $326 $260",
+        "duration": "Private VIP Gulet Boat Tour With Lunch For 6 Hour",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-private-vip-gulet-boat-tour-with-lunch-for-6-hour-t1353522/"
+      },
+      {
+        "name": "From $27",
+        "duration": "6 - 8 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 209,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/bodrum-orak-island-boat-trip-with-lunch-and-hotel-pickup-t654942/"
+      },
+      {
+        "name": "\u00d6l\u00fcdeniz: Blue Cave, Butterfly Valley & Lunch Boat Tour",
+        "duration": "8 hours",
+        "rating": 4.7,
+        "review_count": 9,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bodrum-l846/oludeniz-blue-cave-butterfly-valley-lunch-boat-tour-t994767/"
+      },
+      {
+        "name": "From $27",
+        "duration": "6 - 9 hours \u2022 Skip the line \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 22,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/gumbet-l178994/bodrum-orak-island-full-day-boat-trip-with-swimming-lunch-t1328970/"
+      },
+      {
+        "name": "Dalyan River Cruise, Turtle Beach, and Mud Baths",
+        "duration": "8.5 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/batoemadeg-l189824/bodrum-dalyan-river-cruise-turtle-beach-and-mud-baths-t1339068/"
+      },
+      {
+        "name": "Explore Bodrum: Shop, Sightsee, and Soak in the Charm!",
+        "duration": "30 minutes - 6 hours",
+        "rating": 1.7,
+        "review_count": 4,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kos-l410/explore-bodrum-shop-sightsee-and-soak-in-the-charm-t639022/"
+      }
+    ],
+    "total_found_estimate": "161 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_bodrum_2027-05-26.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "bodrum",
+    "url": "https://www.tourradar.com/d/bodrum",
+    "scraped_at": "2026-06-23T15:46:49.035341",
+    "date_filter": "2027-05-26",
+    "tours": [
+      {
+        "name": "8 Days Discover Turkey Tour *Best Highlights",
+        "duration": "8 Days Discover Turkey Tour *Best Highlights",
+        "rating": 4.7,
+        "price_pp": 1500.0,
+        "url": "https://www.tourradar.com/t/189212"
+      },
+      {
+        "name": "10 Days Wonders of Turkey",
+        "duration": "10 Days Wonders of Turkey",
+        "rating": 4.6,
+        "price_pp": 1800.0,
+        "url": "https://www.tourradar.com/t/268730"
+      },
+      {
+        "name": "10 Days -Best of Turkey Tour / by Plane",
+        "duration": "10 Days -Best of Turkey Tour / by Plane",
+        "rating": 4.7,
+        "price_pp": 1761.0,
+        "url": "https://www.tourradar.com/t/138288"
+      },
+      {
+        "name": "From Istanbul to the Coast: An 8-Day Adventure through Turkey's Most Beautiful Landscapes",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 1170.0,
+        "url": "https://www.tourradar.com/t/245299"
+      },
+      {
+        "name": "10 Days Turkey Escapades Tour",
+        "duration": "10 Days Turkey Escapades Tour",
+        "rating": 4.8,
+        "price_pp": 2110.0,
+        "url": "https://www.tourradar.com/t/224319"
+      },
+      {
+        "name": "Wonders of Turkey Luxury Tour 10 Days",
+        "duration": "Wonders of Turkey Luxury Tour 10 Days",
+        "rating": 4.9,
+        "price_pp": 3750.0,
+        "url": "https://www.tourradar.com/t/297778"
+      },
+      {
+        "name": "8 Days - Istanbul, Ephesus, Pamukkale & Cappadocia / by Plane",
+        "duration": "8 Days - Istanbul, Ephesus, Pamukkale & Cappadocia / by Plane",
+        "rating": 4.7,
+        "price_pp": 1132.0,
+        "url": "https://www.tourradar.com/t/152993"
+      }
+    ],
+    "total_found_estimate": "281 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_bodrum_2027-05-26.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

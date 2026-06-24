@@ -1,0 +1,28 @@
+[Unit]
+Description=Thunderbird AI Gateway — LiteLLM Proxy (OpenAI-compatible)
+Documentation=file:///home/john/Thunderbird/gateway/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=john
+WorkingDirectory=/home/john/Thunderbird/gateway
+EnvironmentFile=-/home/john/Thunderbird/.env
+Environment="PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+Environment="LITELLM_PORT=4000"
+ExecStart=/home/john/Thunderbird/gateway/start.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/john/Thunderbird/logs/ai_gateway.log
+StandardError=append:/home/john/Thunderbird/logs/ai_gateway.log
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/john/Thunderbird/gateway /home/john/Thunderbird/logs
+
+[Install]
+WantedBy=default.target

@@ -3,16 +3,18 @@
 free_model_router.py — Thunderbird unified free-inference router.
 
 Providers (all $0):
-  cerebras  — cloud.cerebras.ai  20x speed burst, Llama/Qwen
-  deepinfra — deepinfra.com       Llama 4, DeepSeek R1, Mistral Small
-  groq      — api.groq.com        Llama 3.3-70B, fast free tier
-  ollama    — localhost:11434      Local Llama 3.2 / qwen2.5-coder, private/PII tasks
+  cerebras  — cloud.cerebras.ai       20x speed burst, gpt-oss-120b (reasoning)
+  github    — models.inference.ai.azure.com  DeepSeek R1 + Mistral Small (GITHUB_TOKEN)
+  groq      — api.groq.com            Llama 3.3-70B / Llama 4 Scout, fast free tier
+  ollama    — localhost:11434          Local Llama 3.2 / qwen2.5-coder, private/PII tasks
+  deepinfra — deepinfra.com            CASE-1: requires paid balance (MISSION-394 blocked)
 
 Routing heuristic (override with provider= param):
-  speed     → cerebras   (burst tasks, sub-1s)
-  reasoning → deepinfra  (DeepSeek R1 chain-of-thought)
-  local/pii → ollama     (no data leaves YOGA)
-  default   → groq       (reliable, Llama 3.3-70B)
+  speed     → cerebras/zai-glm-4.7   (burst tasks, sub-1s)
+  reasoning → github/DeepSeek-R1      (chain-of-thought, arbitration)
+  mistral   → github/mistral-small-2503 (efficient structured extraction)
+  local/pii → ollama                  (no data leaves YOGA)
+  default   → groq                    (reliable, Llama 3.3-70B)
 
 Usage:
     from core.ai_infra.free_model_router import free_infer
@@ -54,10 +56,16 @@ PROVIDERS = {
         "key_env":  "CEREBRAS_API_KEY",
         "default_model": "gpt-oss-120b",  # 120B OSS model; also: zai-glm-4.7
     },
+    "github": {
+        "base_url": "https://models.inference.ai.azure.com",
+        "key_env":  "GITHUB_TOKEN",
+        "default_model": "DeepSeek-R1",   # DeepSeek R1 full + Mistral Small via GITHUB_TOKEN
+    },
     "deepinfra": {
         "base_url": "https://api.deepinfra.com/v1/openai",
         "key_env":  "DEEPINFRA_API_KEY",
         "default_model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "_note": "CASE-1: requires paid balance — HTTP 402 (MISSION-394 blocked)",
     },
     "groq": {
         "base_url": "https://api.groq.com/openai/v1",
@@ -69,6 +77,14 @@ PROVIDERS = {
         "key_env":  None,
         "default_model": "llama3.2:3b",
     },
+}
+
+GITHUB_MODELS = {
+    "deepseek-r1":   "DeepSeek-R1",
+    "r1":            "DeepSeek-R1",
+    "deepseek-r1-0528": "DeepSeek-R1-0528",
+    "mistral-small": "mistral-small-2503",
+    "mistral":       "mistral-small-2503",
 }
 
 DEEPINFRA_MODELS = {
@@ -128,6 +144,8 @@ def free_infer(
     resolved_model = model or cfg["default_model"]
 
     # Convenience aliases
+    if provider == "github" and resolved_model.lower() in GITHUB_MODELS:
+        resolved_model = GITHUB_MODELS[resolved_model.lower()]
     if provider == "deepinfra" and resolved_model in DEEPINFRA_MODELS:
         resolved_model = DEEPINFRA_MODELS[resolved_model]
     if provider == "cerebras" and resolved_model in CEREBRAS_MODELS:
@@ -141,14 +159,14 @@ def free_infer(
 
 
 def route(prompt: str, hint: str = "default", **kwargs) -> str:
-    """Route by hint: speed | reasoning | local | default."""
+    """Route by hint: speed | reasoning | mistral | local | default."""
     mapping = {
         "speed":     ("cerebras", "zai-glm-4.7"),
-        "reasoning": ("cerebras", "gpt-oss-120b"),  # 120B OSS; DeepSeek R1 via DeepInfra=$ (MISSION-411 Case1)
-        "local":     ("ollama",    None),
-        "default":   ("groq",      None),
-        "llama4":    ("groq",      "meta-llama/llama-4-scout-17b-16e-instruct"),
-        "mistral":   ("groq",      "llama-3.3-70b-versatile"),  # Mistral via DeepInfra=$ (MISSION-412 Case1)
+        "reasoning": ("github",   "DeepSeek-R1"),        # MISSION-411: GitHub Models free tier
+        "mistral":   ("github",   "mistral-small-2503"), # MISSION-412: GitHub Models free tier
+        "local":     ("ollama",   None),
+        "default":   ("groq",     None),
+        "llama4":    ("groq",     "meta-llama/llama-4-scout-17b-16e-instruct"),
     }
     provider, model = mapping.get(hint, ("groq", None))
     return free_infer(prompt, provider=provider, model=model, **kwargs)

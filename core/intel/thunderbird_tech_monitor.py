@@ -696,7 +696,26 @@ async def run_daily_tech_monitor() -> Dict[str, Any]:
     logger.info(f"✅ SWEEP COMPLETE: {len(recent_articles)} relevant articles")
     logger.info(f"📧 Digest generated: {digest_path}")
     logger.info("="*70)
-    
+
+    # Send to Commander inbox — SO 27 MAR 2026: intel reports are full sends, not drafts
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from core.email.thunderbird_gmail import gmail_send_from_wing
+        ts_label = datetime.now().strftime("%Y-%m-%d")
+        cat_summary = ", ".join(f"{k}: {v}" for k, v in list(summary["top_categories"].items())[:5])
+        gmail_send_from_wing(
+            to="johnloucks3@gmail.com",
+            subject=f"Tech Monitor Digest — {ts_label} ({len(recent_articles)} articles)",
+            body=html_digest,
+            persona_id="A12",
+        )
+        summary["email_status"] = "sent"
+        logger.info("Tech monitor digest sent to johnloucks3 inbox.")
+    except Exception as _e:
+        summary["email_status"] = f"failed: {_e}"
+        logger.warning(f"Tech monitor email failed: {_e}")
+
     return summary
 
 # ============================================================================

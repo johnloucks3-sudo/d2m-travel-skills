@@ -1,0 +1,322 @@
+{
+  "dest": "bari",
+  "query": "food tour wine",
+  "date": "2027-05-10",
+  "scraped_at": "2026-06-23T15:46:02.967522",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "bari",
+    "query": "food tour wine",
+    "url": "https://www.getyourguide.com/s/?q=bari+food+tour+wine",
+    "scraped_at": "2026-06-23T15:46:03.409088",
+    "date_filter": "2027-05-10",
+    "tours": [
+      {
+        "name": "Street Food Walking Tour with a Local Guide",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 621,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-street-food-walking-tour-with-a-local-guide-t893276/"
+      },
+      {
+        "name": "Bari Sunset and Tapas: Street Food Tour with Local Guide",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 18,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-sunset-and-tapas-street-food-tour-with-local-guide-t1024605/"
+      },
+      {
+        "name": "Wine Tasting with Food Pairings in Bari City Center",
+        "duration": "1.5 hours",
+        "rating": 4.9,
+        "review_count": 27,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/wine-tasting-with-food-pairings-in-bari-city-center-t909263/"
+      },
+      {
+        "name": "The Original Bari Street Food Experience",
+        "duration": "3 hours",
+        "rating": 4.6,
+        "review_count": 468,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-walking-street-food-tour-t181481/"
+      },
+      {
+        "name": "Walking Tour with Wine and Food Tasting",
+        "duration": "2.5 hours",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-walking-tour-with-wine-and-food-tasting-t1108418/"
+      },
+      {
+        "name": "Pasta and Tiramisu Cooking Class with Fine Wine",
+        "duration": "3 hours",
+        "rating": 4.8,
+        "review_count": 615,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-pasta-and-tiramisu-cooking-class-with-wine-t921769/"
+      },
+      {
+        "name": "Puglia through Wine - Food and Wine Tasting",
+        "duration": "2 hours \u2022 Private group",
+        "rating": 4.5,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-puglia-through-wine-food-and-wine-tasting-t1338784/"
+      },
+      {
+        "name": "The Ultimate Street Food Tour with a Local",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 334,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-the-ultimate-street-food-tour-with-a-local-t420869/"
+      },
+      {
+        "name": "City Center Food Tasting Walking Guided Tour",
+        "duration": "3 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bari-l721/bari-city-center-food-tasting-walking-guided-tour-t1235320/"
+      },
+      {
+        "name": "Award-Winning Chef Pasta, Tiramisu & Gelato Class",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 122,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-pasta-gelato-experience-with-tiramisu-drinks-t1277135/"
+      },
+      {
+        "name": "The Ultimate Bari Street Food Tour",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/the-ultimate-bari-street-food-tour-t1299388/"
+      },
+      {
+        "name": "From $51 $44",
+        "duration": "2 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-at-the-golden-hour-sunset-boat-aperitif-t986457/"
+      },
+      {
+        "name": "Bari Cooking Class: Traditional Focaccia & Orecchiette",
+        "duration": "2 hours",
+        "rating": 4.7,
+        "review_count": 144,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-cooking-class-traditional-focaccia-orecchiette-t1035688/"
+      },
+      {
+        "name": "Da Bari, Polignano, Monopoli: Wine and Oil Tour and Tasting",
+        "duration": "3.5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 3.9,
+        "review_count": 12,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/alberobello-l800/itria-valley-wine-and-olive-oil-tour-and-tasting-t824821/"
+      },
+      {
+        "name": "Bari or Matera: Trani Guided Tour & Winery Experience",
+        "duration": "6 - 7 hours \u2022 Pickup available \u2022 Private group",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/bari-l721/bari-or-matera-trani-guided-tour-winery-experience-t1263874/"
+      },
+      {
+        "name": "Wine tasting with food pairing - EnoMezcla Wine Experience",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/wine-tasting-bari-t1317499/"
+      },
+      {
+        "name": "Provider rating",
+        "duration": "3 - 4 hours \u2022 Small group",
+        "rating": 4.7,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/andria-l1234/bari-private-trani-and-andria-oil-and-wine-tour-t374229/"
+      },
+      {
+        "name": "Turi: Coppi Winery Tour with Wine Tasting",
+        "duration": "1.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/turi-coppi-winery-tour-with-wine-tasting-t1330292/"
+      },
+      {
+        "name": "Pasta Experience Walking Tour",
+        "duration": "2.5 hours",
+        "rating": 4.7,
+        "review_count": 669,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-pasta-experience-walking-tour-t181841/"
+      },
+      {
+        "name": "Dinner Show with Open Bar and Live Music",
+        "duration": "3 hours \u2022 Skip the line",
+        "rating": 1.9,
+        "review_count": 6,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-dinner-show-with-open-bar-and-live-music-t1119381/"
+      },
+      {
+        "name": "Guided Walking Tour",
+        "duration": "2 hours",
+        "rating": 4.6,
+        "review_count": 926,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-walking-tour-t181838/"
+      },
+      {
+        "name": "Fishing experience aboard an authentic fishing gozzo",
+        "duration": "2.5 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 28,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-fishing-experience-aboard-an-authentic-fishing-gozzo-t856736/"
+      },
+      {
+        "name": "Gastronomic Walking Tour",
+        "duration": "2 hours \u2022 Access by Foot \u2022 Small group",
+        "rating": 4.6,
+        "review_count": 52,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/alberobello-l800/tour-gatronomico-di-alberobello-a-piedi-t443405/"
+      },
+      {
+        "name": "Handmade Pizza & Iconic Dessert making with Gelato",
+        "duration": "2.5 hours",
+        "rating": null,
+        "review_count": 8,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/bari-l721/bari-handmade-pizza-iconic-dessert-making-with-gelato-t1355775/"
+      }
+    ],
+    "total_found_estimate": "233 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_bari_2027-05-10.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "bari",
+    "url": "https://www.tourradar.com/d/bari",
+    "scraped_at": "2026-06-23T15:46:08.860150",
+    "date_filter": "2027-05-10",
+    "tours": [
+      {
+        "name": "Iconic Italian Cities",
+        "duration": "9 days",
+        "rating": 4.9,
+        "price_pp": 2251.0,
+        "url": "https://www.tourradar.com/t/249090"
+      },
+      {
+        "name": "Sicilian Secrets - Tour of Sicily 8 days",
+        "duration": "Sicilian Secrets - Tour of Sicily 8 days",
+        "rating": 4.4,
+        "price_pp": 210.0,
+        "url": "https://www.tourradar.com/t/202418"
+      },
+      {
+        "name": "Italy City Break - 5 Days",
+        "duration": "Italy City Break - 5 Days",
+        "rating": 4.3,
+        "price_pp": 1905.0,
+        "url": "https://www.tourradar.com/t/221752"
+      },
+      {
+        "name": "5-day Best of Italy: Rome, Florence & Venice",
+        "duration": "Italy's UNESCO jewels shine over 5 days, from Rome to Venice's Bridge of Sighs. Attractions include Assisi's St. Francis Basilica, Florence's Duomo, and Bologna's historic center. Four-star accommodations pair with authentic meals, from Venetian cicchetti to lunch in Montepulciano's wine country.",
+        "rating": 4.4,
+        "price_pp": 1048.0,
+        "url": "https://www.tourradar.com/t/141485"
+      },
+      {
+        "name": "Amalfi Coast Walking - Agriturismo",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 2210.0,
+        "url": "https://www.tourradar.com/t/124753"
+      },
+      {
+        "name": "8 Days Small Group Sicily Highlights (Max 8 Guests)",
+        "duration": "8 Days Small Group Sicily Highlights (Max 8 Guests)",
+        "rating": 4.7,
+        "price_pp": 2281.0,
+        "url": "https://www.tourradar.com/t/134757"
+      },
+      {
+        "name": "Food and Walking on the Amalfi Coast, Small Group Tour",
+        "duration": "8 days",
+        "rating": 5.0,
+        "price_pp": 1800.0,
+        "url": "https://www.tourradar.com/t/288406"
+      }
+    ],
+    "total_found_estimate": "632 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_bari_2027-05-10.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

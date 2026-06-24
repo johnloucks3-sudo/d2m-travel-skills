@@ -1,0 +1,261 @@
+{
+  "dest": "paros",
+  "query": "food tour wine",
+  "date": "2027-05-16",
+  "scraped_at": "2026-06-23T15:20:02.729897",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "paros",
+    "query": "food tour wine",
+    "url": "https://www.getyourguide.com/s/?q=paros+food+tour+wine",
+    "scraped_at": "2026-06-23T15:20:03.087898",
+    "date_filter": "2027-05-16",
+    "tours": [
+      {
+        "name": "Wine tasting at Local Winery",
+        "duration": "1 hour",
+        "rating": 4.9,
+        "review_count": 113,
+        "price_pp": 45.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-wine-tasting-natural-wine-t714534/"
+      },
+      {
+        "name": "Paros wine tour and tasting",
+        "duration": "4 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": 171.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-wine-tour-and-tasting-t590739/"
+      },
+      {
+        "name": "Private Catamaran Cruise with Chef's Signature Dishes",
+        "duration": "4 - 7 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 2571.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/antiparos-l163280/paros-private-catamaran-cruise-with-chef-s-signature-dishes-t1352670/"
+      },
+      {
+        "name": "Antiparos",
+        "duration": "7 hours",
+        "rating": 4.7,
+        "review_count": 570,
+        "price_pp": 57.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/from-paros-around-antiparos-and-despotiko-swim-cruise-t509492/"
+      },
+      {
+        "name": "Blue Lagoon Boat Tour",
+        "duration": "3.5 hours",
+        "rating": 4.8,
+        "review_count": 827,
+        "price_pp": 74.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pounta-l189551/pounta-blue-lagoon-boat-tour-t651330/"
+      },
+      {
+        "name": "Catamaran Cruise with Swimming, Meal and Drinks",
+        "duration": "9 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 125,
+        "price_pp": 309.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/semi-private-catamaran-cruise-paros-t394477/"
+      },
+      {
+        "name": "Greek Cooking Class with a Local Chef, Wine, & Meal in Drios",
+        "duration": "3.5 hours",
+        "rating": null,
+        "review_count": 314,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/drios-l193347/greek-cooking-class-with-a-local-chef-wine-meal-in-drios-t538964/"
+      },
+      {
+        "name": "Pounta",
+        "duration": "7 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 528,
+        "price_pp": 217.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/antiparos-l163280/paros-antiparos-full-day-boat-tour-with-lunch-drinks-t456735/"
+      },
+      {
+        "name": "Cooking Class Sunset Dinner and Tour in Paros Farm",
+        "duration": "3 hours",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": 167.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/parikia-l187625/cooking-class-sunset-dinner-and-tour-in-paros-farm-t1259357/"
+      },
+      {
+        "name": "Greek Cooking Class with Meal and Wine",
+        "duration": "3.5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 50,
+        "price_pp": 155.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-greek-cooking-class-with-meal-and-wine-t1062917/"
+      },
+      {
+        "name": "Donkey Ride with Optional Dinner",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": 114.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/parikia-l187625/paros-donkey-ride-with-optional-dinner-t1317668/"
+      },
+      {
+        "name": "Sunset Boat Trip with Soft Drinks and Local Wine",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 33,
+        "price_pp": 74.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-sunset-boat-trip-with-soft-drinks-and-local-wine-t739109/"
+      },
+      {
+        "name": "Naoussa Bay Cruise with Snacks and Snorkeling",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": 15,
+        "price_pp": 82.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-l165327/paros-naoussa-bay-cruise-with-snacks-and-snorkeling-t1314421/"
+      },
+      {
+        "name": "Paros Sunset Tour - Lefkes village & Paroikia Sunset",
+        "duration": "4 hours \u2022 Pickup available",
+        "rating": 2.7,
+        "review_count": 3,
+        "price_pp": 46.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-l165327/half-day-tour-lefkes-sunset-paroikia-t897071/"
+      },
+      {
+        "name": "Aliki",
+        "duration": "4 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 183.0,
+        "original_price_pp": 203.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-small-group-half-day-sailing-cruise-with-snacks-t1352343/"
+      },
+      {
+        "name": "Private Tour with Wine Tasting",
+        "duration": "5 hours \u2022 Pickup available \u2022 Small group",
+        "rating": 4.5,
+        "review_count": null,
+        "price_pp": 423.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/parikia-l187625/paros-private-tour-with-wine-tasting-t1310260/"
+      },
+      {
+        "name": "Paros Swimming & Snorkeling Boat Adventure From Naousa",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 26,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-macedonia-l146907/paros-swimming-snorkeling-boat-adventure-from-naousa-t1257464/"
+      },
+      {
+        "name": "Paros & Antiparos Cruise, Swimming & Lunch",
+        "duration": "6.5 hours",
+        "rating": 4.8,
+        "review_count": 300,
+        "price_pp": 131.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pounta-l189551/pounta-paros-antiparos-cruise-swimming-seafood-lunch-t670455/"
+      },
+      {
+        "name": "Naousa Bay Luxury Pontoon Cruise with Drinks",
+        "duration": "1 day \u2022 Private option available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 69.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-naousa-bay-luxury-pontoon-cruise-with-drinks-t1180799/"
+      },
+      {
+        "name": "Sunset Boat Tour to Antiparos with Wine",
+        "duration": "2 - 4 hours \u2022 Pickup available \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": 21,
+        "price_pp": 498.0,
+        "original_price_pp": 560.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/antiparos-l163280/golden-glow-sunset-tour-around-paros-t659750/"
+      },
+      {
+        "name": "Parikia",
+        "duration": "8 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 292,
+        "price_pp": 72.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/krotiri-l193769/paros-antiparos-islands-tour-with-english-speaking-guide-t550730/"
+      },
+      {
+        "name": "Paros Authentic Hidden Villages Experience with Local Driver",
+        "duration": "5.5 hours \u2022 Pickup available \u2022 Private group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 206.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/prodromos-l258708/paros-authentic-hidden-villages-experience-with-local-driver-t1277125/"
+      },
+      {
+        "name": "Aegean Gastronomy tasting nights",
+        "duration": "2.5 hours \u2022 Small group \u2022 Skip the line",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-l165327/paros-nights-of-paros-aegean-gastronomy-t507124/"
+      },
+      {
+        "name": "Highlights Tour with Fishing & Tasting in Naoussa",
+        "duration": "6 hours",
+        "rating": 4.9,
+        "review_count": 30,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-l165327/paros-highlights-tour-with-fishing-tasting-in-naoussa-t705253/"
+      }
+    ],
+    "total_found_estimate": "161 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_paros_2027-05-16.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

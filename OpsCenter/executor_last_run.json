@@ -1,21 +1,35 @@
 {
-  "run_at": "2026-06-21T13:40:00.177169",
-  "tasks_attempted": 2,
-  "tasks_succeeded": 2,
+  "run_at": "2026-06-23T13:33:50.256828",
+  "tasks_attempted": 4,
+  "tasks_succeeded": 4,
   "results": [
     {
-      "id": "MISSION-320",
-      "title": "ELON kill-or-close sweep \u2014 mission board to \u226450 active",
+      "id": "MISSION-422",
+      "title": "Draft TP 1.1 Voyage Preview for Grandeur Aug 29 cluster \u2014 Ely-Darrow, Furlow, Nichols",
       "success": true,
-      "elapsed": 241.3480930328369,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-320_20260621.md"
+      "elapsed": 172.6208143234253,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-422_20260623.md"
     },
     {
-      "id": "MISSION-321",
-      "title": "Rotate burned GitHub credentials \u2014 MISSION-SEC-05",
+      "id": "MISSION-425",
+      "title": "Add efficacy test coverage for ELON sprint integrations (top 10 by risk)",
       "success": true,
-      "elapsed": 245.3859260082245,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-321_20260621.md"
+      "elapsed": 386.65104579925537,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-425_20260623.md"
+    },
+    {
+      "id": "MISSION-426",
+      "title": "TESS reconciliation \u2014 confirm received commissions vs expected $30,117.57",
+      "success": true,
+      "elapsed": 186.46580123901367,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-426_20260623.md"
+    },
+    {
+      "id": "MISSION-427",
+      "title": "Wire client-path canary monitoring instrument for Vanguard SO enforcement",
+      "success": true,
+      "elapsed": 285.27452993392944,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-427_20260623.md"
     }
   ]
 }

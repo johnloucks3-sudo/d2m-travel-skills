@@ -1,0 +1,21 @@
+{
+  "dest": "santorini",
+  "query": "food tour wine tasting caldera",
+  "date": "2027-05-23",
+  "scraped_at": "2026-06-23T15:19:22.442014",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "santorini",
+    "query": "food tour wine tasting caldera",
+    "url": "https://www.getyourguide.com/santorini-l2744/",
+    "scraped_at": "2026-06-23T15:19:22.861748",
+    "date_filter": "2027-05-23",
+    "tours": [],
+    "total_found_estimate": null,
+    "screenshot": null,
+    "status": "bot_blocked",
+    "notes": "HTTP 403 from GYG \u2014 IP likely Cloudflare/bot-flagged. Retry from a different egress IP (hotspot/VPN) or use WebSearch/WebFetch.",
+    "http_status": 403
+  },
+  "tourradar": {}
+}

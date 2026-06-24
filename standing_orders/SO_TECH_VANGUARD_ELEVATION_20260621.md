@@ -44,7 +44,9 @@ The financial gate is a **one-way demoter that fires ONLY on real money** — it
 2. It touches the **client-send path or client PII** → the §2a 7-day canary (adopts immediately on internal traffic).
 3. Sterling shows **concrete, proven harm** (a real security exposure or breakage — not a worry).
 
-"Unverified," "fit unproven," "measure first," "needs a wrapper" are **NOT** demotion reasons. A $0, reversible, non-client-path tool is **adopted and proven IN USE**, never held in a queue. Reversibility (uninstall/revert) is what makes adopt-first safe — use it. The scoring agent that demotes a clean $0 find to TRIAL has failed the posture and the find is promoted on review.
+"Unverified," "fit unproven," "measure first," "needs a wrapper," **"already covered"** are **NOT** demotion reasons. A $0, reversible, non-client-path tool is **adopted and proven IN USE**, never held in a queue. Reversibility (uninstall/revert) is what makes adopt-first safe — use it. The scoring agent that demotes a clean $0 find to TRIAL or ALREADY_COVERED has failed the posture and the find is promoted on review.
+
+**"Already covered" is a prohibited disposition (added 2026-06-22 after ELON fleet violation).** When D2M has a comparable tool, the disposition is INTEGRATE_NOW Case 1: adopt the new, audit the old within 7 days. "Already covered" as a skip is never valid.
 
 ### 3. ELON OVERRIDE
 **ELON may override Sterling's gate** on an adoption decision. Sterling logs his dissent (`hale_decisions.md`); he does not block. Override is ELON's to exercise and own.

@@ -110,10 +110,23 @@ PE_KNOWN_IDS: dict[str, str] = {
     "patmos": "1929",
     # Caribbean / Bermuda
     "bermuda": "1110",
+    # Scandinavia / Baltics (IDs: verify via _pe_get_location_id if search returns wrong city)
+    "copenhagen": None,  # lookup dynamically — static ID unverified
+    "denmark": None,
+    "oslo": "994",
+    "stockholm": "1003",
+    "helsinki": "980",
+    "tallinn": "905",
+    "riga": "896",
+    "gdansk": "878",
+    "kiel": "882",
+    "warnemunde": "889",
+    "rostock": "889",
     # Norway
     "bergen": "995",
     "flam": "992",
     "stavanger": "1001",
+    "alesund": "990",
     # Skip list — redirect-loop slugs on PE (needs browser)
     "split_redirect": None,  # handled above via region ID
 }

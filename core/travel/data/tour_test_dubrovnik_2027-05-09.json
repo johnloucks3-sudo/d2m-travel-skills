@@ -1,20 +1,372 @@
 {
   "dest": "dubrovnik",
-  "query": "",
+  "query": "food tour wine",
   "date": "2027-05-09",
-  "scraped_at": "2026-06-17T10:53:38.194888",
+  "scraped_at": "2026-06-23T15:47:22.038293",
   "getyourguide": {
     "source": "getyourguide",
     "dest": "dubrovnik",
-    "query": "",
+    "query": "food tour wine",
     "url": "https://www.getyourguide.com/dubrovnik-l2752/",
-    "scraped_at": "2026-06-17T10:53:38.557736",
+    "scraped_at": "2026-06-23T15:47:22.386891",
     "date_filter": "2027-05-09",
-    "tours": [],
+    "tours": [
+      {
+        "name": "Kronborg, Frederiksborg Castle and Roskilde Tour",
+        "duration": "8.5 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 1976,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/grand-day-trip-around-copenhagen-t38371/"
+      },
+      {
+        "name": "The Big Viking Tour: Ships, Kings & Living History",
+        "duration": "7.5 hours",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/roskilde-the-big-viking-tour-ships-kings-living-history-t1295535/"
+      },
+      {
+        "name": "Enjoy the Ultimate Viking Experience",
+        "duration": "5 hours \u2022 Private group",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/roskilde-enjoy-the-ultimate-viking-experience-t1322946/"
+      },
+      {
+        "name": "Viking Ship Museum Entry Ticket",
+        "duration": "1 day",
+        "rating": 3.5,
+        "review_count": 4,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/denmark-viking-ship-museum-entry-ticket-t1316874/"
+      },
+      {
+        "name": "Enjoyable tour of Roskilde, Viking ships and Cathedral",
+        "duration": "4.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/enjoyable-tour-of-roskilde-viking-ships-and-cathedral-t1307808/"
+      },
+      {
+        "name": "Tour of Roskilde, the Viking City in English",
+        "duration": "4 hours",
+        "rating": 4.3,
+        "review_count": 5,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/copenhagen-tour-of-roskilde-the-viking-city-in-english-t1015893/"
+      },
+      {
+        "name": "A Big Easy Tour; Cathedral, Viking Ships & Palace",
+        "duration": "9 hours \u2022 Pickup available",
+        "rating": null,
+        "review_count": 3,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/a-big-easy-tour-cathedral-viking-ships-palace-t703259/"
+      },
+      {
+        "name": "A Romantic Private Tour Through Roskilde",
+        "duration": "2 hours \u2022 Private group",
+        "rating": 4.2,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/roskilde-l2752/a-romantic-private-tour-through-roskilde-t402670/"
+      },
+      {
+        "name": "Viking Heritage Trail Private Tour",
+        "duration": "5 hours \u2022 Pickup available \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/roskilde-l2752/copenhagen-viking-heritage-trail-private-tour-t1289200/"
+      },
+      {
+        "name": "Out of Copenhagen; 2x Castles, Cathedral & (Viking Ships)",
+        "duration": "9 - 10.5 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 45,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/full-day-tour-castle-palace-cathedral-and-viking-ships-t671626/"
+      },
+      {
+        "name": "Tour of Roskilde, the Viking city in Spanish with tickets",
+        "duration": "4 hours",
+        "rating": null,
+        "review_count": 6,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-tour-of-roskilde-the-viking-city-in-spanish-t847996/"
+      },
+      {
+        "name": "Provider rating",
+        "duration": "6.5 - 8 hours \u2022 Pickup available \u2022 Small group",
+        "rating": 4.7,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/roskilde-l2752/cruise-special-palace-cathedral-viking-ships-t686019/"
+      },
+      {
+        "name": "Copenhagen Card-Discover: 80+ Attractions & Public Transport",
+        "duration": "1 - 5 days",
+        "rating": 4.6,
+        "review_count": 5580,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-city-card-pass-to-80-attractions-with-metro-pass-t66660/"
+      },
+      {
+        "name": "Canal Cruise with Guide",
+        "duration": "1 day",
+        "rating": 4.6,
+        "review_count": 11819,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-canal-boat-tour-from-gammel-strand-t37848/"
+      },
+      {
+        "name": "Lund and Malm\u00f6 2-Country Tour",
+        "duration": "9 hours \u2022 Optional audio guide",
+        "rating": 4.7,
+        "review_count": 4246,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/from-copenhagen-lund-and-malmo-2-country-tour-t201799/"
+      },
+      {
+        "name": "Tivoli Gardens Entry Ticket",
+        "duration": "1 day",
+        "rating": 4.5,
+        "review_count": 8274,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-tivoli-gardens-entry-ticket-t72048/"
+      },
+      {
+        "name": "ICEBAR by ICEHOTEL Entry Ticket with Drink",
+        "duration": "30 minutes",
+        "rating": 4.5,
+        "review_count": 2,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-icebar-by-icehotel-entry-ticket-with-drink-t1339142/"
+      },
+      {
+        "name": "Six Forgotten Giant Sculptures Tour by Bus",
+        "duration": "4 hours",
+        "rating": 4.9,
+        "review_count": 35,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-six-forgotten-giant-sculptures-tour-by-bus-t686879/"
+      },
+      {
+        "name": "Exclusive Guided Boat Tour",
+        "duration": "1 - 65 minutes \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 2201,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-guided-tour-by-electric-boat-t460727/"
+      },
+      {
+        "name": "Axel Ebbes Konsthall Entry Ticket",
+        "duration": "1 day",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/trelleborg-sweden-l218071/axel-ebbes-konsthall-entry-ticket-t1249010/"
+      },
+      {
+        "name": "Trelleborgs Museum Entry Ticket",
+        "duration": "1 day",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/trelleborg-sweden-l218071/trelleborgs-museum-entry-ticket-t1282098/"
+      },
+      {
+        "name": "Round-Trip to M\u00f8ns Klint and Forest Tower",
+        "duration": "8 hours",
+        "rating": 4.5,
+        "review_count": 537,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/mons-klint-and-forest-tower-a-day-tour-from-copenhagen-t470545/"
+      },
+      {
+        "name": "Tivoli Gardens Entry Ticket with Unlimited Rides",
+        "duration": "1 day",
+        "rating": 4.7,
+        "review_count": 3513,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-tivoli-gardens-and-unlimited-rides-combo-ticket-t408634/"
+      },
+      {
+        "name": "Rundan Sightseeing Boat Tour",
+        "duration": "45 minutes",
+        "rating": 4.6,
+        "review_count": 1337,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/malmo-l2647/malmo-rundan-sightseeing-t57720/"
+      },
+      {
+        "name": "Trelleborgen: Viking Museum Entry Ticket",
+        "duration": "1 day",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/trelleborg-sweden-l218071/viking-museum-trelleborgen-entry-ticket-t1367611/"
+      },
+      {
+        "name": "Provider rating",
+        "duration": "3.5 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-3-hour-guided-food-tasting-and-urban-bike-tour-t1319084/"
+      },
+      {
+        "name": "Guided Walking Tour of City Highlights",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/malmo-l2647/malmo-guided-walking-tour-of-city-highlights-t1360061/"
+      },
+      {
+        "name": "Copenhagen",
+        "duration": "Highlights 3 Hour Bike Tour with a Local Guide",
+        "rating": 4.8,
+        "review_count": 2601,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-highlights-3-hour-bike-tour-with-a-local-guide-t125759/"
+      },
+      {
+        "name": "Copenhagen Walking Tour City with Local Guide",
+        "duration": "2 hours",
+        "rating": 4.6,
+        "review_count": 243,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/copenhagen-l12/copenhagen-walking-tour-city-with-local-guide-t1112342/"
+      }
+    ],
     "total_found_estimate": "13 results:",
     "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_dubrovnik_2027-05-09.png",
-    "status": "no_results",
+    "status": "ok",
     "notes": ""
   },
-  "tourradar": {}
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "dubrovnik",
+    "url": "https://www.tourradar.com/d/croatia",
+    "scraped_at": "2026-06-23T15:47:29.047769",
+    "date_filter": "2027-05-09",
+    "tours": [
+      {
+        "name": "Dalmatian Highlights Split and Dubrovnik Region Cruise (Superior Boat Category)",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 1522.0,
+        "url": "https://www.tourradar.com/t/228925"
+      },
+      {
+        "name": "Cycle the Dalmatian Coast",
+        "duration": "Pedal Croatia's spectacular coast from Split to Dubrovnik over 8 days. Roll through Hvar's lavender fields, Korcula's vineyards, and the Peljesac Peninsula. Daily 32km rides offer challenging climbs and coastal views. Fontana Hotel in Jelsa provides comfort between rides.",
+        "rating": 4.5,
+        "price_pp": 2400.0,
+        "url": "https://www.tourradar.com/t/124436"
+      },
+      {
+        "name": "Sailing Croatia 8 day -Split, Blue Lagoon, Vis, Hvar, Bol and Trogir",
+        "duration": "Sailing Croatia 8 day -Split, Blue Lagoon, Vis, Hvar, Bol and Trogir",
+        "rating": 4.7,
+        "price_pp": 1040.0,
+        "url": "https://www.tourradar.com/t/275557"
+      },
+      {
+        "name": "CROATIA SAIL - Split to Split (The Dalmatian Voyager)",
+        "duration": "8 days",
+        "rating": 4.9,
+        "price_pp": 1600.0,
+        "url": "https://www.tourradar.com/t/77255"
+      },
+      {
+        "name": "5-day Dubrovnik to Split, Premier boat, 18-35s",
+        "duration": "5 days",
+        "rating": 5.0,
+        "price_pp": 926.0,
+        "url": "https://www.tourradar.com/t/202595"
+      },
+      {
+        "name": "Impressive Croatia",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 2029.0,
+        "url": "https://www.tourradar.com/t/202227"
+      },
+      {
+        "name": "Adriatic Explorer from Dubrovnik (Premium Plus) - 8 days",
+        "duration": "Adriatic Explorer from Dubrovnik (Premium Plus) - 8 days",
+        "rating": 5.0,
+        "price_pp": 2285.0,
+        "url": "https://www.tourradar.com/t/142359"
+      }
+    ],
+    "total_found_estimate": "443 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_dubrovnik_2027-05-09.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
 }

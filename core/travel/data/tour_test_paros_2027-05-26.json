@@ -1,0 +1,261 @@
+{
+  "dest": "paros",
+  "query": "wine food gentle easy",
+  "date": "2027-05-26",
+  "scraped_at": "2026-06-23T15:15:17.887854",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "paros",
+    "query": "wine food gentle easy",
+    "url": "https://www.getyourguide.com/s/?q=paros+wine+food+gentle+easy",
+    "scraped_at": "2026-06-23T15:15:18.291022",
+    "date_filter": "2027-05-26",
+    "tours": [
+      {
+        "name": "Wine tasting at Local Winery",
+        "duration": "1 hour",
+        "rating": 4.9,
+        "review_count": 113,
+        "price_pp": 45.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-wine-tasting-natural-wine-t714534/"
+      },
+      {
+        "name": "Greek Cooking Class with a Local Chef, Wine, & Meal in Drios",
+        "duration": "3.5 hours",
+        "rating": null,
+        "review_count": 314,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/drios-l193347/greek-cooking-class-with-a-local-chef-wine-meal-in-drios-t538964/"
+      },
+      {
+        "name": "Private Catamaran Cruise with Chef's Signature Dishes",
+        "duration": "4 - 7 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 2571.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/antiparos-l163280/paros-private-catamaran-cruise-with-chef-s-signature-dishes-t1352670/"
+      },
+      {
+        "name": "Aliki",
+        "duration": "4 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 183.0,
+        "original_price_pp": 203.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-small-group-half-day-sailing-cruise-with-snacks-t1352343/"
+      },
+      {
+        "name": "Antiparos",
+        "duration": "7 hours",
+        "rating": 4.7,
+        "review_count": 570,
+        "price_pp": 57.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/from-paros-around-antiparos-and-despotiko-swim-cruise-t509492/"
+      },
+      {
+        "name": "Koufonisia & South Naxos Private Yacht Charter",
+        "duration": "8 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 2057.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/koufonisia-l96343/paros-koufonisia-rina-cave-private-yacht-charter-t1333510/"
+      },
+      {
+        "name": "Donkey Ride with Optional Dinner",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": 114.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/parikia-l187625/paros-donkey-ride-with-optional-dinner-t1317668/"
+      },
+      {
+        "name": "Pounta",
+        "duration": "7 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 528,
+        "price_pp": 217.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/antiparos-l163280/paros-antiparos-full-day-boat-tour-with-lunch-drinks-t456735/"
+      },
+      {
+        "name": "Authentic Food Tour in Paros \u2013 Live like a Greek!",
+        "duration": "2 hours \u2022 Small group",
+        "rating": 4.4,
+        "review_count": 4,
+        "price_pp": 149.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/parikia-l187625/authentic-food-tour-in-paros-tastings-culture-flavors-in-parikia-t1056313/"
+      },
+      {
+        "name": "Catamaran Cruise with Swimming, Meal and Drinks",
+        "duration": "9 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 125,
+        "price_pp": 309.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/semi-private-catamaran-cruise-paros-t394477/"
+      },
+      {
+        "name": "Pounta",
+        "duration": "Greece Paros: Ceramic Workshop with wheel throwing 3 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pounta-l189551/greece-paros-ceramic-workshop-with-wheel-throwing-3-hours-t1331603/"
+      },
+      {
+        "name": "Greek Cooking Class with Meal and Wine",
+        "duration": "3.5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 50,
+        "price_pp": 155.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-greek-cooking-class-with-meal-and-wine-t1062917/"
+      },
+      {
+        "name": "Greek Cooking Class with Full Meal",
+        "duration": "4 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 111,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-cooking-class-t453303/"
+      },
+      {
+        "name": "Beach Picnic Delivery with Local Drinks and Snacks",
+        "duration": "3 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 183.0,
+        "original_price_pp": 229.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-beach-picnic-delivery-with-local-drinks-and-snacks-t1351190/"
+      },
+      {
+        "name": "Sunset Yacht Cruise with Food & Drinks",
+        "duration": "4 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 1143.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-sunset-yacht-cruise-with-food-drinks-t1355658/"
+      },
+      {
+        "name": "Private Boat Rental with Bluetooth Sound System",
+        "duration": "8 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 423.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/antiparos-l163280/antiparos-private-boat-rental-with-bluetooth-sound-system-t1335026/"
+      },
+      {
+        "name": "Sailing in South Paros & Despotiko Beach",
+        "duration": "8 hours \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 194.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/sailing-in-south-paros-despotiko-beach-t655914/"
+      },
+      {
+        "name": "Aliki",
+        "duration": "4 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 1806.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-private-half-day-sailing-cruise-to-the-blue-lagoon-t1359875/"
+      },
+      {
+        "name": "Piso Livadi",
+        "duration": "4 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 1371.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-half-day-antiparos-despotiko-yacht-charter-t1355856/"
+      },
+      {
+        "name": "Antiparos luxury private Boat tour",
+        "duration": "2 - 7 hours \u2022 Private group",
+        "rating": null,
+        "review_count": 6,
+        "price_pp": 571.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-antiparos-luxury-private-boat-tour-t611816/"
+      },
+      {
+        "name": "Piso Livadi",
+        "duration": "4 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 1371.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/naxos-town-l1357/paros-half-day-naxos-town-seaside-yacht-charter-t1355883/"
+      },
+      {
+        "name": "Paros Swimming & Snorkeling Boat Adventure From Naousa",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 26,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naousa-macedonia-l146907/paros-swimming-snorkeling-boat-adventure-from-naousa-t1257464/"
+      },
+      {
+        "name": "Sunset Boat Trip with Soft Drinks and Local Wine",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 33,
+        "price_pp": 74.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/paros-l88737/paros-sunset-boat-trip-with-soft-drinks-and-local-wine-t739109/"
+      },
+      {
+        "name": "Paros Authentic Hidden Villages Experience with Local Driver",
+        "duration": "5.5 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 206.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/prodromos-l258708/paros-authentic-hidden-villages-experience-with-local-driver-t1277125/"
+      }
+    ],
+    "total_found_estimate": "179 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_paros_2027-05-26.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

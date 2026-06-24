@@ -232,3 +232,28 @@ Chief prefers "Chief", "boss", or "Yoda" — never "Commander" in conversation.
 - "Chief" → COS/DoS (formal staff mode)
 - "boss" → EA (deferential)
 - "Yoda" → COO (operational, peer)
+
+## D2M Email Template — HARD RULE (2026-06-23, CORRECTED)
+**CANONICAL FORMAT: Full dark navy throughout. Source: Kuklinski Panama December email (sent Jun 20 2026).**
+**Use `scripts/d2m_email_builder.py` — never build from scratch. All platforms must use this builder.**
+
+### Canonical Dark Navy Colors (bgcolor attribute = Gmail-safe; CSS gradient = visual enhancement only)
+- Outer/page:   `bgcolor="#07076b"` + radial-gradient CSS
+- Header:       `bgcolor="#0a0a68"` + linear-gradient CSS
+- Shimmer bar:  `bgcolor="#c8d8ff"` 3px
+- Body:         `bgcolor="#08086e"` + linear-gradient CSS | text `color:#e8f1ff` | 17px/1.85
+- Table head:   `background-color:#0a0a68` | text `color:#e8f1ff`
+- Table cells:  `color:#d0e4ff` | border `rgba(180,200,255,0.15)`
+- Headings:     `color:#c8dcff` | border `rgba(180,200,255,0.35)`
+- Callout:      `background:rgba(255,255,255,0.06)` | `border-left:4px solid rgba(100,150,255,0.7)` | text `color:#c0d8ff`
+- Dani sig:     `bgcolor="#07076e"` divider → `bgcolor="#040448"` sig block
+- Commander sig:`bgcolor="#02022a"` | text `color:#c8dcff` | links `color:#7fb0ff`
+- Footer bar:   `bgcolor="#c8d8ff"` 3px
+- Logo: `https://lh3.googleusercontent.com/d/1HYa61cNwcialWk64DimGwIfCAbUjESsu` (120×89 header, 96×71 sig)
+- ❌ NEVER: cream body (`#f7f3ea`) for client emails. That is the OLD format, RETIRED.
+
+### Builder (mandatory for all D2M client emails)
+`python3 scripts/d2m_email_builder.py --body drafts/body_[file].html --to [addr] --subject "[s]" [--name "First"]`
+
+### Template Reference
+`storage/templates/d2m_canonical_darknavy.html` — full template with `{{BODY_CONTENT}}` placeholder

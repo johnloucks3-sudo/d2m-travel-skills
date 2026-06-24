@@ -1,0 +1,21 @@
+{
+  "dest": "athens",
+  "query": "food tour wine athens",
+  "date": "2027-05-15",
+  "scraped_at": "2026-06-23T15:19:49.761616",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "athens",
+    "query": "food tour wine athens",
+    "url": "https://www.getyourguide.com/athens-l67/",
+    "scraped_at": "2026-06-23T15:19:50.115699",
+    "date_filter": "2027-05-15",
+    "tours": [],
+    "total_found_estimate": null,
+    "screenshot": null,
+    "status": "bot_blocked",
+    "notes": "HTTP 403 from GYG \u2014 IP likely Cloudflare/bot-flagged. Retry from a different egress IP (hotspot/VPN) or use WebSearch/WebFetch.",
+    "http_status": 403
+  },
+  "tourradar": {}
+}

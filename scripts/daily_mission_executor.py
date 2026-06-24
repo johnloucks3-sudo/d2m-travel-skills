@@ -39,14 +39,16 @@ THUNDERBIRD = Path("/home/john/Thunderbird")
 sys.path.insert(0, str(THUNDERBIRD))
 
 TELEGRAM_BOT_TOKEN = "***REMOVED-SECRET***"
-COMMANDER_CHAT_ID = 7554895206
+COMMANDER_CHAT_ID = 7554895206   # D2MC2C — Hale↔Commander only
+RELAY_CHAT_ID     = -5248121475  # relay — all ops/status/automated output
 RUN_LOCK = THUNDERBIRD / "OpsCenter" / "executor_run.lock"
 
 
-def _send_telegram(message: str) -> None:
+def _send_telegram(message: str, chat_id: int = None) -> None:
+    target = chat_id if chat_id is not None else COMMANDER_CHAT_ID
     try:
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-        payload = json.dumps({"chat_id": COMMANDER_CHAT_ID, "text": message,
+        payload = json.dumps({"chat_id": target, "text": message,
                                "parse_mode": "HTML"}).encode()
         urlopen(Request(url, data=payload,
                         headers={"Content-Type": "application/json"}), timeout=10)
@@ -136,7 +138,8 @@ def is_executable(mission: dict) -> bool:
     # Only execute tasks explicitly assigned to Hale or Wing staff (not Commander)
     owner = mission.get("assigned_to", "")
     hale_owners = {"Hale", "hale", "HALE", "Sterling", "Dani", "Intel", "Harlan",
-                   "A7 Sterling", "A3 Dani", "A2 Dembe", "A9 Harlan"}
+                   "A7 Sterling", "A3 Dani", "A2 Dembe", "A9 Harlan",
+                   "ELON", "elon", "Whetstone", "WHETSTONE"}
     if not any(ho in owner for ho in hale_owners):
         return False
     return True
@@ -185,7 +188,8 @@ def dispatch_headless(mission: dict, output_path: Path, dry_run: bool = False) -
     title = mission["title"]
     description = mission.get("description", "No description.")
     owner = mission.get("assigned_to", "Hale")
-    recent_logs = "\n".join(mission.get("logs", [])[-5:])
+    raw_logs = mission.get("logs", [])[-5:]
+    recent_logs = "\n".join(l if isinstance(l, str) else str(l) for l in raw_logs)
 
     prompt = f"""You are executing a Wing task from the D2M Thunderbird mission board.
 
@@ -277,22 +281,34 @@ def log_result_to_board(board: dict, mission_id: str, result: dict):
             m.setdefault("logs", []).append(entry)
             m["updated_at"] = ts
             if result["success"]:
-                # HALE auto-approval: Check output for issues
-                # If clean → auto-approve to completed
-                # If issues detected → hold for Commander review
+                # Require explicit STATUS: COMPLETE in output to auto-close.
+                # Keyword absence alone is not sufficient — avoids silent false-completes.
                 output_lower = result["output"].lower()
+                has_complete = "status: complete" in output_lower
                 has_issues = any(flag in output_lower for flag in [
-                    "error", "failed", "issue", "flag", "warning",
-                    "blocked", "pending", "investigate", "review needed"
+                    "status: blocked", "status: partial",
+                    "error", "failed", "flag", "warning",
+                    "blocked", "investigate", "review needed"
                 ])
 
-                if has_issues:
-                    # Hold for Commander review
-                    m["status"] = "pending_review"
-                else:
-                    # HALE auto-approves clean executions
+                if has_complete and not has_issues:
                     m["status"] = "completed"
-                    m["logs"].append(f"[{ts}] 🦅 HALE auto-approved closure (no issues detected)")
+                    m["logs"].append(f"[{ts}] ⚡ HALE auto-approved closure (STATUS: COMPLETE confirmed)")
+                else:
+                    # Hold for Commander review — page D2MC2C
+                    m["status"] = "pending_review"
+                    reason = "STATUS: COMPLETE not found" if not has_complete else "issue keywords detected"
+                    m["logs"].append(f"[{ts}] ⏸ pending_review: {reason}")
+                    title = m.get("title", mission_id)[:45]
+                    snippet = result["output"][:200].replace("<", "&lt;").replace(">", "&gt;")
+                    _send_telegram(
+                        f"⚡ <b>PENDING REVIEW — {mission_id}</b>\n"
+                        f"{title}\n\n"
+                        f"<i>{reason}</i>\n\n"
+                        f"<code>{snippet}</code>\n\n"
+                        f"Output: output/executor_results/",
+                        chat_id=COMMANDER_CHAT_ID,
+                    )
             break
 
 
@@ -403,16 +419,16 @@ def main():
     except Exception as e:
         log(f"  [ledger] write failed: {e}")
 
-    # ── Telegram page to Commander ──────────────────────────────────────────────
+    # ── Telegram cycle summary → relay (ops noise, not Commander channel) ──────
     run_label = now.strftime("%H:%M MT")
-    lines = [f"🦅 <b>EXECUTOR — {run_label}</b>  {succeeded}/{len(results_summary)} ✅"]
+    lines = [f"⚡ <b>EXECUTOR — {run_label}</b>  {succeeded}/{len(results_summary)} ✅"]
     for r in results_summary:
         icon = "✅" if r["success"] else "❌"
         lines.append(f"{icon} {r['id']}: {r['title'][:45]}")
     if failed:
-        lines.append(f"\n⚠️ {failed} task(s) failed — check logs/daily_executor.log")
+        lines.append(f"\n⚠️ {failed} dispatch(es) failed — check logs/daily_executor.log")
     lines.append(f"\nOutput: output/executor_results/")
-    _send_telegram("\n".join(lines))
+    _send_telegram("\n".join(lines), chat_id=RELAY_CHAT_ID)
 
     # ── Release run lock ─────────────────────────────────────────────────────
     try:

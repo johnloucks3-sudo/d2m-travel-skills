@@ -5405,22 +5405,124 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 **HOLD STATUS:** agent-scaling hold LIFTS for **instrumented on-demand runs only** — every future fleet/hunt must declare a token budget and close on the ledger; standing fleets retired in favor of summon→cap→work→verify→kill.
 **SEQUENCED NEXT (decided, not yet built):** adversarial-verify-before-ADOPT on provider/protected-file changes (Dembe); close the OpenRouter seam + regression assertion (Dembe); bus consumer + aging + emitted-vs-owned metric (Sterling); collapse the rank triad → one gate-owner + one kill-owner and prune the 21 voices to decision-changers (ELON). Held to avoid more churn at high session-usage; next session.
 
+
+
+## 2026-06-23 01:52 UTC — AI Auth Probe Auto-Repair
+- **claude_oauth**: detected auth failure (`timeout after 25s`), auto-repaired. Re-probe confirmed healthy.
+
+### 2026-06-23 08:17:30 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Respond with exactly: SONNET-PING-OK. Do not add anything el...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 197.0s. Output: 148 chars. Model: Sonnet
+
 ---
 
-## 2026-06-22 — ELON (A12) PLACED ON PROBATION (Commander directive)
-**Cause:** Fleet produced 36 unauthorized "ALREADY_COVERED" dispositions on valid INTEGRATE_NOW candidates. Kill-audit logic contaminated adoption evaluation — fleet applied subtraction reasoning ("D2M already has comparable capability") to signals that had no Case 1, 2, or 3 basis for deferral. Invented a 4th disposition the SO does not have. 36 integrations blocked without authority.
-**Commander:** "I am beside myself." "I made the right decision to reprogram ELON."
-**Effective:** 2026-06-22. Hale covers ELON's load during probation. Fleet suspended.
-**Reinstatement condition:** Demonstrated doctrine alignment — results, not apology.
-**Remediation completed this session:**
-- `elon_adopt_pipeline.py` docstring corrected — unauthorized 4th case removed
-- `Personas/a12_elon_personality.md` — major rewrite with Commander's war-footing language; probation box; two-chain separation (adoption ≠ kill-audit) codified; ALREADY_COVERED named as reference failure
-- `.claude/agents/a12-elon.md` — adopt-first posture + three-case doctrine + probation noted
-- `SO_TECH_VANGUARD_ELEVATION_20260621.md` — "already covered" added to banned demotion list with explicit paragraph
-- 36 ALREADY_COVERED missions REOPENED on mission board (status: active)
-- 28 new INTEGRATE_NOW missions created (MISSION-391–418) from wave 1-4 markdown sources never run through the pipeline
-- WhatsApp Business API corrected to INTEGRATE_NOW (MISSION-419); PII block voided — Commander already uses WhatsApp with clients; security audit 2026-06-15 found hardcoded key (H10), not a channel prohibition
-- Total adopt_log: 88 signals (was 59)
-**Sterling dissent:** None filed. WhatsApp canary classification was Sterling's gate applied as opinion without concrete proven harm — flagged to Commander. Commander validated: "I made the right decision to reprogram ELON."
-**Hale note:** The dual-edged mandate (adopt + kill-audit) created the category error. Swords and shields are different weapons. ELON now carries one weapon per lane.
+### 2026-06-23 08:18:49 — Autonomous Decision (Tier T1)
 
+**Decision:** Opus inline dispatch: Respond with exactly: HAIKU-PING-OK. Do not add anything els...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 31.6s. Output: 14 chars. Model: Opus
+
+---
+
+### 2026-06-23 08:19:26 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Respond with exactly: OPUS-PING-OK. Do not add anything else...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 7.4s. Output: 159 chars. Model: Opus
+
+---
+
+### 2026-06-23 08:19:59 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Write the text 'WING-WRITE-OK' to the file /home/john/Thunde...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 21.3s. Output: 99 chars. Model: Opus
+
+---
+
+### 2026-06-23 08:21:14 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: In one sentence, what is the single most important thing to ...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 22.0s. Output: 230 chars. Model: Opus
+
+---
+
+### 2026-06-23 08:26:40 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Respond with exactly: SONNET-PING-OK. Do not add anything el...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 6.0s. Output: 159 chars. Model: Sonnet
+
+---
+
+### 2026-06-23 08:29:12 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: Respond with exactly: SONNET-V2-OK. Do not add anything else...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 5.5s. Output: 161 chars. Model: Sonnet
+
+---
+
+### 2026-06-23 08:29:15 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Respond with exactly: OPUS48-OK. Do not add anything else....
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 8.7s. Output: 159 chars. Model: Opus
+
+---
+
+### 2026-06-24 01:40:15 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: What are the correct Python module and function names for th...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 4.6s. Output: 63 chars. Model: Opus
+
+---

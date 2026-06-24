@@ -1,13 +1,9 @@
-2026-06-21T03:27:24.778602: 592 uncommitted files
- M .ask_usage_log
- M .claude/settings.json
- M .github/workflows/secret-scan.yml
+2026-06-23T21:47:00.659439: 1569 uncommitted files
  M Blackboard
  M CLAUDE.md
  M OpsCenter/.lifecycle_alerted.json
  M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
- M OpsCenter/.regent_cookie_alert_dedup.json
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
  M OpsCenter/.supervisor_patterns.json
@@ -19,3 +15,7 @@
  M OpsCenter/brief_feedback_config.json
  M OpsCenter/claude_inbox.md
  M OpsCenter/collaboration/blackboard.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/claude_outbox.md
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md

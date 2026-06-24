@@ -463,3 +463,30 @@ what_next: |
 **ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
 
 ---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-22 19:55 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-23 06:04 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-23 19:57 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---

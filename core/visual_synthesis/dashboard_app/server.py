@@ -264,6 +264,7 @@ async def brief_risk_matrix(date: str, _user: str = Depends(_require_auth)):
 
 
 app.mount("/training", StaticFiles(directory=str(ROOT / "Bryana"), html=True), name="training")
+app.mount("/intel", StaticFiles(directory=str(ROOT / "intel_web"), html=True), name="intel")
 
 
 if __name__ == "__main__":

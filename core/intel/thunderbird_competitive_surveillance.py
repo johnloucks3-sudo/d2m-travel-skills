@@ -383,19 +383,18 @@ def run_surveillance_sprint() -> Dict[str, Any]:
     # Step 4: Store intel
     store_intel(profiled)
 
-    # Step 5: Email draft
+    # Step 5: Full send to Commander inbox (SO 27 MAR 2026 — internal reports are full sends)
     try:
-        from thunderbird_gmail import gmail_send_with_approval
-        gmail_send_with_approval(
+        from core.email.thunderbird_gmail import gmail_send_from_wing
+        gmail_send_from_wing(
             to="johnloucks3@gmail.com",
-            subject=f"Competitive Surveillance Report — {datetime.now().strftime('%Y-%m-%d')}",
+            subject=f"Competitive Surveillance: Travel AI — {datetime.now().strftime('%B %-d, %Y')}",
             body=report,
-            persona_id="A2",
-            auto_send=False,
+            persona_id="COS",
         )
-        email_status = "draft_created"
+        email_status = "sent"
     except Exception as e:
-        logger.warning(f"Email draft failed: {e}")
+        logger.warning(f"Email send failed: {e}")
         email_status = f"failed: {e}"
 
     # Save report to file

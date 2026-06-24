@@ -472,15 +472,14 @@ def run_price_check() -> Dict[str, Any]:
 
     if alert:
         try:
-            from thunderbird_gmail import gmail_send_with_approval
-            gmail_send_with_approval(
+            from core.email.thunderbird_gmail import gmail_send_from_wing
+            gmail_send_from_wing(
                 to="johnloucks3@gmail.com",
-                subject=f"Cruise Price Alert — {datetime.now().strftime('%Y-%m-%d')}",
+                subject=f"Cruise Price Alert — {datetime.now().strftime('%B %-d, %Y')}",
                 body=alert,
-                persona_id="A3",
-                auto_send=False,
+                persona_id="COS",
             )
-            email_status = "draft_created"
+            email_status = "sent"
         except Exception as e:
             logger.warning(f"Price alert email failed: {e}")
             email_status = f"failed: {e}"

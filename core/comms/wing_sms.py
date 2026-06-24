@@ -1,31 +1,24 @@
 #!/usr/bin/env python3
 """
-wing_sms.py — Wing → Commander via Twilio SMS (Google Messages)
+wing_sms.py — Wing → Commander via WhatsApp (primary) or SMS fallback
+
+Channel priority (2026-06-22):
+  1. WhatsApp sandbox (+14155238886 → +17192910742) — no carrier registration needed, live now
+  2. SMS (+17195815364 → +17192910742) — blocked pending A2P 10DLC registration (~1-3 days)
+  3. SMS toll-free (+18776118189) — blocked pending TFV (~5-15 days)
 
 Commander directive 2026-06-19: macro awareness via Google Messages.
-SMS lands in Google Messages on Android — no app switch needed.
-
-Credentials already in .env:
-  TWILIO_ACCOUNT_SID=ACdc4e7b2beacb84b18c8b49ab8c8369cb
-  TWILIO_AUTH_TOKEN=...
-  TWILIO_SMS_NUMBER=+18776118189
+WhatsApp delivers to Google Messages on Android — same UX, no app switch needed.
 
 Commander phone: 719-291-0742 (work cell + personal cell, cleared for all comms)
 
-SMS format is even shorter than Telegram — one-glance readable without unlocking:
+Format: one-glance readable without unlocking:
   🚨P0 [source]: problem in one sentence. Action done. Need: [one ask if any]
 
 Usage:
     from core.comms.wing_sms import send_sms, sms_page
 
     send_sms("🚨P0 Portal: Regent session dead. Auto-heal failed. Login needed: portal.rssc.com")
-
-    sms_page(
-        problem="Regent portal dead",
-        action="Auto-heal failed x2",
-        need="Login at portal.rssc.com",
-        level="P0",
-    )
 """
 from __future__ import annotations
 
@@ -39,6 +32,7 @@ from pathlib import Path
 
 THUNDERBIRD = Path(__file__).parent.parent.parent
 COMMANDER_PHONE = "+17192910742"
+WHATSAPP_SANDBOX = "+14155238886"
 
 log = logging.getLogger("wing-sms")
 
@@ -54,39 +48,53 @@ def _load_env() -> dict:
     return env
 
 
-def send_sms(message: str, to: str = COMMANDER_PHONE) -> bool:
-    """Send raw SMS text to Commander. Returns True on success."""
-    env = _load_env()
+def _twilio_post(from_addr: str, to_addr: str, body: str, env: dict) -> bool:
+    """Low-level Twilio Messages.json POST. Returns True on queued/sent."""
     sid = env.get("TWILIO_ACCOUNT_SID", "")
     token = env.get("TWILIO_AUTH_TOKEN", "")
-    from_num = env.get("TWILIO_SMS_NUMBER", "+18776118189")
-
     if not sid or not token:
         log.error("Twilio credentials not found in .env")
         return False
-
     url = f"https://api.twilio.com/2010-04-01/Accounts/{sid}/Messages.json"
-    data = urllib.parse.urlencode({"From": from_num, "To": to, "Body": message}).encode()
+    data = urllib.parse.urlencode({"From": from_addr, "To": to_addr, "Body": body}).encode()
     creds = b64encode(f"{sid}:{token}".encode()).decode()
-
     try:
         req = urllib.request.Request(url, data=data, method="POST")
         req.add_header("Authorization", f"Basic {creds}")
         req.add_header("Content-Type", "application/x-www-form-urlencoded")
         resp = urllib.request.urlopen(req, timeout=10)
         result = json.loads(resp.read())
-        if result.get("status") in ("queued", "sent", "delivered"):
-            log.info(f"SMS sent: {result['sid']}")
-            return True
-        log.warning(f"SMS unexpected status: {result.get('status')}")
-        return True  # still sent, just not yet delivered
+        status = result.get("status", "")
+        sid_out = result.get("sid", "?")
+        log.info(f"Twilio {from_addr}→{to_addr}: {sid_out} ({status})")
+        return status not in ("failed", "undelivered")
     except urllib.error.HTTPError as e:
-        body = e.read().decode()
-        log.error(f"Twilio HTTP {e.code}: {body[:200]}")
+        body_err = e.read().decode()
+        log.error(f"Twilio HTTP {e.code}: {body_err[:200]}")
         return False
     except Exception as e:
-        log.error(f"SMS send error: {e}")
+        log.error(f"Twilio send error: {e}")
         return False
+
+
+def send_sms(message: str, to: str = COMMANDER_PHONE) -> bool:
+    """Send message to Commander. WhatsApp primary, SMS fallback.
+
+    WhatsApp bypasses A2P 10DLC carrier registration (active 2026-06-22).
+    SMS fallback re-enabled automatically once 10DLC registration clears.
+    """
+    env = _load_env()
+
+    # Primary: WhatsApp sandbox (no carrier registration needed)
+    wa_from = f"whatsapp:{WHATSAPP_SANDBOX}"
+    wa_to = f"whatsapp:{to}"
+    if _twilio_post(wa_from, wa_to, message, env):
+        return True
+
+    # Fallback: SMS (blocked by 10DLC until registered, kept for auto-recovery)
+    log.warning("WhatsApp failed — falling back to SMS")
+    from_num = env.get("TWILIO_SMS_NUMBER", "+17195815364")
+    return _twilio_post(from_num, to, message, env)
 
 
 def sms_page(

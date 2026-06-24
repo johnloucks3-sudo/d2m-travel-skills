@@ -1,0 +1,261 @@
+{
+  "dest": "kotor",
+  "query": "wine food tour tasting",
+  "date": "2027-05-11",
+  "scraped_at": "2026-06-23T15:18:39.294830",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "kotor",
+    "query": "wine food tour tasting",
+    "url": "https://www.getyourguide.com/s/?q=kotor+wine+food+tour+tasting",
+    "scraped_at": "2026-06-23T15:18:39.760917",
+    "date_filter": "2027-05-11",
+    "tours": [
+      {
+        "name": "Private Walking Tour with Wine and Food Tasting",
+        "duration": "2 hours \u2022 Private group",
+        "rating": 4.9,
+        "review_count": 57,
+        "price_pp": 114.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-private-walking-tour-with-wine-and-food-tasting-t217344/"
+      },
+      {
+        "name": "Old Town Food & Wine Tasting Tour",
+        "duration": "2 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 114.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-food-wine-tasting-tour-2024-t706897/"
+      },
+      {
+        "name": "Kotor Old Town Private Tour with Local Guide",
+        "duration": "1.5 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 137.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-old-town-private-tour-with-local-guide-t1330908/"
+      },
+      {
+        "name": "Blue Cave, Submarine Base, and Lady of the Rocks Tour",
+        "duration": "3 hours \u2022 Private option available \u2022 Optional audio guide",
+        "rating": 4.9,
+        "review_count": 3908,
+        "price_pp": 52.0,
+        "original_price_pp": 63.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-blue-cave-submarine-base-and-lady-of-the-rocks-tour-t436777/"
+      },
+      {
+        "name": "3H Food Tour",
+        "duration": "3 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 9,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-3h-food-tour-t462920/"
+      },
+      {
+        "name": "Montenegrin food & wine tour with Kotor old town",
+        "duration": "4.5 hours \u2022 Pickup available \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 263.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/from-kotor-montenegrin-food-wine-tour-with-kotor-old-town-t983566/"
+      },
+      {
+        "name": "Winery Tour with Wine Tasting and Meal",
+        "duration": "1 hour",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 53.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/dubrovnik-l513/trebinje-winery-tour-with-wine-tasting-and-meal-t1351127/"
+      },
+      {
+        "name": "The #1 Rated Blue Cave & Our Lady of the Rocks Tour",
+        "duration": "3 hours \u2022 Private option available \u2022 Skip the line",
+        "rating": 4.7,
+        "review_count": 3902,
+        "price_pp": 51.0,
+        "original_price_pp": 63.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-blue-cave-and-our-lady-of-the-rocks-group-boat-tour-t126542/"
+      },
+      {
+        "name": "Kotor",
+        "duration": "3 Hours Blue Cave & Our Lady of Rocks & War tunnels",
+        "rating": 4.8,
+        "review_count": 1307,
+        "price_pp": 53.0,
+        "original_price_pp": 67.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-blue-cave-submarine-tunnels-lady-of-the-rocks-tour-t515446/"
+      },
+      {
+        "name": "Private Speedboat Guided Kotor Bay with Food & Wine",
+        "duration": "4.5 hours \u2022 Private group \u2022 Skip the line",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 446.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/kotor-l32202/private-speedboat-guided-kotor-bay-with-food-wine-t556959/"
+      },
+      {
+        "name": "Visit fort Gorazda and Goran's Farm with ATV quad",
+        "duration": "3 hours \u2022 Skip the line \u2022 Small group",
+        "rating": 5.0,
+        "review_count": null,
+        "price_pp": 165.0,
+        "original_price_pp": 206.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/kotor-l32202/visit-goran-s-farm-and-fort-gorazda-with-atv-quad-tour-t1366207/"
+      },
+      {
+        "name": "Official Cable Car Round-Trip Ticket",
+        "duration": "60 days \u2022 Skip the line",
+        "rating": 4.8,
+        "review_count": 901,
+        "price_pp": 36.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-official-cable-car-round-trip-ticket-t621149/"
+      },
+      {
+        "name": "Best from Kotor: Blue Cave, Swimming & Old Town Perast 4H",
+        "duration": "4 hours \u2022 Private option available \u2022 Skip the line",
+        "rating": null,
+        "review_count": 16,
+        "price_pp": 49.0,
+        "original_price_pp": 62.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/best-from-kotor-blue-cave-hidden-gems-swimming-t1307020/"
+      },
+      {
+        "name": "Kotor",
+        "duration": "8 - 9 hours",
+        "rating": 4.4,
+        "review_count": 811,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/tivat-l104982/tivatkotor-whole-boka-bay-guided-cruise-comfortable-ship-t445007/"
+      },
+      {
+        "name": "Montenegro",
+        "duration": "13 hours \u2022 Pickup available \u2022 Private option available",
+        "rating": 4.8,
+        "review_count": 2161,
+        "price_pp": 120.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-full-day-north-montenegro-tour-t215937/"
+      },
+      {
+        "name": "Old Town Charms & 8 Local Tastings with a Souvenir",
+        "duration": "1.5 hours",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 97.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-old-town-charms-9-local-tastings-with-souvenirs-t1022288/"
+      },
+      {
+        "name": "Kotor Old Town Walking Tour",
+        "duration": "1.5 hours",
+        "rating": null,
+        "review_count": 50,
+        "price_pp": 25.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-old-town-walking-tour-t861396/"
+      },
+      {
+        "name": "From Kotor",
+        "duration": "1 day \u2022 Pickup available \u2022 Skip the line",
+        "rating": 4.6,
+        "review_count": 2,
+        "price_pp": 217.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/from-kotor-great-montenegro-full-day-tour-t564251/"
+      },
+      {
+        "name": "Our Lady of The Rocks and Blue Cave Group Boat Tour",
+        "duration": "1.5 - 3 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 428,
+        "price_pp": 41.0,
+        "original_price_pp": 51.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-montenegro-blue-cave-group-tour-t737443/"
+      },
+      {
+        "name": "Old Town Walking Tour",
+        "duration": "70 minutes",
+        "rating": 4.8,
+        "review_count": 200,
+        "price_pp": 29.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-old-town-city-walking-tour-t614039/"
+      },
+      {
+        "name": "City Walls Entry Ticket",
+        "duration": "1 day",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 17.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-city-walls-entry-ticket-t1252787/"
+      },
+      {
+        "name": "Cooking class in a local home & old town walking tour",
+        "duration": "4 hours \u2022 Private group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 327.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-cooking-class-in-a-local-home-old-town-walking-tour-t417544/"
+      },
+      {
+        "name": "Guided Kotor Bay Kayaking Tour",
+        "duration": "3.5 hours",
+        "rating": 4.8,
+        "review_count": 74,
+        "price_pp": 37.0,
+        "original_price_pp": 41.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-bay-kayak-tour-and-cliff-jumping-t452854/"
+      },
+      {
+        "name": "\u272a Kotor: Relaxing 3h Tour to Lady of the Rocks & Perast",
+        "duration": "3 hours \u2022 Private option available \u2022 Optional audio guide",
+        "rating": 4.9,
+        "review_count": 236,
+        "price_pp": 47.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kotor-l32202/kotor-relaxing-3h-tour-to-lady-of-the-rocks-perast-t1011954/"
+      }
+    ],
+    "total_found_estimate": "322 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_kotor_2027-05-11.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

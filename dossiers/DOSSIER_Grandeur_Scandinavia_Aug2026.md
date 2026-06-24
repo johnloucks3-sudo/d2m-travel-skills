@@ -456,6 +456,9 @@ Dossier Version 1.0 | March 07, 2026
 **Mar 21 — John C. Furlow, Jr.** (Re: Re: Final Payment--Card Upload via Booking Portal | Booking 3071222)
 > 2026-03-21 — John Furlow confirmed via email he will upload credit card to portal today. Did not answer same-card vs. split-card question for hotel/transfer. Monitor portal for card upload.
 
+**Jun 23 — Al Ely** (Re: Re: Quote Results)
+> 2026-06-23 | Al Ely requested call to finalize insurance. Commander clarified 7 Corners 60-day pre-existing window; recommended Aug 26 coverage start date; must purchase by June 26, 2026 deadline. Call scheduled [TIME TBD]. Status: ready to purchase, pending finalization call.
+
 ### ACTION ITEMS
 
 
@@ -1005,3 +1008,15 @@ Dossier Version 1.0 | March 07, 2026
 - [ ] TRACK: Three remaining flights still without seat assignments (AA 9018, BA 6776, AA 79) (auto-intel Mar 16)
 
 - [ ] UPDATE: Nichols dossier — AY 811 HEL→STO seats 2D and 2F confirmed (auto-intel Mar 16)
+
+
+### OPEN ACTION ITEMS
+- [ ] Schedule call with Al Ely for 3pm Central time today or tomorrow morning (auto-intel Jun 23)
+
+- [ ] Update dossier: insurance purchased, policy effective date, premium charged (auto-intel Jun 23)
+
+- [ ] Log confirmation in EMAIL LOG with purchase confirmation # (auto-intel Jun 23)
+
+- [ ] Process insurance purchase during call and send confirmation/receipt before EOD (auto-intel Jun 23)
+
+- [ ] Prepare 7 Corners Annual coverage summary and pre-existing condition clause for screen share (auto-intel Jun 23)

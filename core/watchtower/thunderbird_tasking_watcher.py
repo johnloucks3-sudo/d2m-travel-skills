@@ -107,7 +107,7 @@ def trigger_claude_headless(task_count: int) -> None:
             result = spawn_headless_claude(
                 prompt=prompt,
                 output_file=output_file,
-                model="claude-sonnet-4-6",
+                model="claude-haiku-4-5-20251001",
                 task_name="watcher_inbox_spawn",
                 background=True
             )

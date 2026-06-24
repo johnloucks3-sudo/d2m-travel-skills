@@ -43,10 +43,10 @@ class ClientBot(BotBase):
              interval_sec=14400, timeout_sec=180),   # every 4h (was daily)
         Task("ita-fare-watch",
              venv("scripts/ita_fare_watch_poll.py"),
-             interval_sec=14400, timeout_sec=600),   # every 4h (was 6h)
+             interval_sec=14400, timeout_sec=600),   # every 4h (was 6h) — serialized, no overlap
         Task("booking-monitor",
              venv("core/booking/thunderbird_booking_monitor.py"),
-             interval_sec=7200, timeout_sec=180),    # every 2h (was 4h)
+             interval_sec=10800, timeout_sec=600),    # every 3h (was 2h) — avoid 2h collision with ita (4h offset)
         Task("tess-web-sync",
              venv("scripts/thunderbird_tess_web_sync.py") if (ROOT / "scripts/thunderbird_tess_web_sync.py").exists()
              else sys_py("scripts/tess_dossier_sync.py"),

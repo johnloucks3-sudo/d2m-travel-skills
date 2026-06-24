@@ -42,6 +42,7 @@ class Task:
     timeout_sec: int = 120      # hard kill timeout
     cwd: str = str(ROOT)
     env_file: Optional[str] = str(ROOT / ".env")
+    allowed_rcs: tuple = (0,)   # exit codes treated as success (e.g. (0, 2, 3) for graceful-skip scripts)
 
 
 @dataclass
@@ -109,9 +110,12 @@ class BotBase:
                 text=True,
             )
             result.duration_sec = time.monotonic() - t0
-            if proc.returncode == 0:
+            if proc.returncode in task.allowed_rcs:
                 result.success = True
-                self.logger.info("PASS [%s] %.1fs", task.name, result.duration_sec)
+                if proc.returncode != 0:
+                    self.logger.info("PASS(rc=%d) [%s] %.1fs", proc.returncode, task.name, result.duration_sec)
+                else:
+                    self.logger.info("PASS [%s] %.1fs", task.name, result.duration_sec)
             else:
                 result.error = (proc.stderr or proc.stdout or "")[:500]
                 self.logger.warning("FAIL [%s] rc=%d %s", task.name, proc.returncode, result.error[:120])

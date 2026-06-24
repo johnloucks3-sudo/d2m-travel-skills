@@ -1,0 +1,261 @@
+{
+  "dest": "athens",
+  "query": "wine food gentle easy",
+  "date": "2027-05-26",
+  "scraped_at": "2026-06-23T15:15:32.906328",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "athens",
+    "query": "wine food gentle easy",
+    "url": "https://www.getyourguide.com/athens-l67/",
+    "scraped_at": "2026-06-23T15:15:33.328606",
+    "date_filter": "2027-05-26",
+    "tours": [
+      {
+        "name": "Stairways to Heaven: Walk at Pico Areeiro - Guided",
+        "duration": "4 hours",
+        "rating": 4.8,
+        "review_count": 158,
+        "price_pp": 66.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/curral-das-freiras-l185713/stairways-to-heaven-sunrise-walk-at-pico-areeiro-guided-t876914/"
+      },
+      {
+        "name": "West Madeira Waterfalls and Fanal Forest Tour",
+        "duration": "8 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 3545,
+        "price_pp": 39.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/from-funchal-west-madeira-waterfalls-and-fanal-forest-tour-t224430/"
+      },
+      {
+        "name": "Provider rating",
+        "duration": "8 hours \u2022 Pickup available",
+        "rating": 4.2,
+        "review_count": null,
+        "price_pp": 86.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/machico-l129613/madeira-s-hidden-peaks-santana-full-day-scenic-adventure-t1367697/"
+      },
+      {
+        "name": "Skywalk, Porto Moniz, Seixal, and Fanal 4WD Tour",
+        "duration": "8 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 8776,
+        "price_pp": 75.0,
+        "original_price_pp": 79.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-skywalk-porto-moniz-seixal-and-fanal-4wd-tour-t225105/"
+      },
+      {
+        "name": "Madeira",
+        "duration": "8 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 2548,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/porto-moniz-full-day-jeep-tour-seixal-beach-volcanic-pool-t456215/"
+      },
+      {
+        "name": "Pico Arieiro to Pico Ruivo Hike",
+        "duration": "8 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 2516,
+        "price_pp": 55.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/hike-madeira-pico-arieiro-to-pico-ruivo-t10956/"
+      },
+      {
+        "name": "Off-Road Buggy Adventure Through Laurissilva Forest",
+        "duration": "2.5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 1404,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/canical-l142615/madeira-off-road-buggy-adventure-to-funduras-t704104/"
+      },
+      {
+        "name": "Ecological Catamaran Dolphin Whale Watching",
+        "duration": "2.5 - 3 hours",
+        "rating": 4.5,
+        "review_count": 9368,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/from-funchal-ecological-catamaran-dolphin-whale-watching-t426409/"
+      },
+      {
+        "name": "Pico Do Arieiro Pico Ruivo Sunrise or Morning Hike Transfers",
+        "duration": "8 - 8.5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 1332,
+        "price_pp": 37.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/pico-do-arieiro-pico-ruivo-sunrise-or-morning-hike-transfers-t412877/"
+      },
+      {
+        "name": "Pico do Arieiro Sunrise Hiking Transfer",
+        "duration": "8.5 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 4508,
+        "price_pp": 43.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/funchal-l1026/funchal-pico-do-arieiro-sunrise-hiking-transfer-t413782/"
+      },
+      {
+        "name": "Off-Road Jeep Tour with Scenic Stops",
+        "duration": "8 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 87.0,
+        "original_price_pp": 109.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-off-road-jeep-tour-with-scenic-stops-t1338152/"
+      },
+      {
+        "name": "Funchal Bay: Dolphin & Whale Watch Luxury Catamaran Cruise",
+        "duration": "3 hours \u2022 Skip the line",
+        "rating": 4.2,
+        "review_count": 3150,
+        "price_pp": 46.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/funchal-bay-dolphin-whale-watching-lxury-catamaran-cruise-t193577/"
+      },
+      {
+        "name": "Enchanted Terraces, Porto do Moniz & Fanal 4WD Tour",
+        "duration": "8 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 5392,
+        "price_pp": 73.0,
+        "original_price_pp": 79.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-enchanted-terraces-porto-do-moniz-fanal-4x4tour-t59626/"
+      },
+      {
+        "name": "Responsible Whales and/or Dolphins Watching Tour",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 1682,
+        "price_pp": 59.0,
+        "original_price_pp": 69.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-responsible-whales-andor-dolphins-watching-tour-t347301/"
+      },
+      {
+        "name": "Pastel de Nata Cooking Class with Unlimited Wine",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": 89,
+        "price_pp": 63.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-pastel-de-nata-cooking-class-with-unlimited-wine-t1217855/"
+      },
+      {
+        "name": "Madeira JeepTour:Optional Zipline&GiantSwing, Volcanic pools",
+        "duration": "8 hours \u2022 Skip the line \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 222,
+        "price_pp": 79.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-jeep-tour-with-zipline-swing-and-volcanic-pools-t1096528/"
+      },
+      {
+        "name": "Pico do Arieiro & Pico Ruivo Hiking Transfer",
+        "duration": "8 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 2030,
+        "price_pp": 46.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/funchal-l1026/funchal-transfer-pr1-pico-do-arieiro-pico-ruivo-trail-t427484/"
+      },
+      {
+        "name": "Guided Tuk Tuk Tour to Toboggan Rides & Old Town",
+        "duration": "1.5 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 868,
+        "price_pp": 37.0,
+        "original_price_pp": 43.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/funchal-l1026/funchal-guided-tuk-tuk-tour-to-toboggan-rides-old-town-t556897/"
+      },
+      {
+        "name": "All Inclusive Whale and Dolphin Watching Luxury Tour",
+        "duration": "3 hours \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": 2781,
+        "price_pp": 90.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/all-inclusive-whale-and-dolphin-watching-luxury-tour-t244222/"
+      },
+      {
+        "name": "Madeira Funchal:East Tour Pico Arieiro & Santana&Laurissilva",
+        "duration": "7 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 2815,
+        "price_pp": 42.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/funchal-l1026/madeira-funchaleast-tour-pico-arieiro-santanalaurissilva-t765355/"
+      },
+      {
+        "name": "Pico Arieiro Sunset with Stairway to Heaven Option",
+        "duration": "3.5 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 1123,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-pico-arieiro-sunset-with-stairway-to-heaven-option-t430013/"
+      },
+      {
+        "name": "Madeira Canyoning For Beginners Nun's Valley Level 2",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 886,
+        "price_pp": 69.0,
+        "original_price_pp": 91.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/funchal-l1026/madeira-canyoning-for-beginners-nun-s-valley-level-2-t755004/"
+      },
+      {
+        "name": "Sunset Dinner Cruise",
+        "duration": "4 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 213,
+        "price_pp": 74.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/madeira-sunset-dinner-cruise-t635942/"
+      },
+      {
+        "name": "Sunset Sailing Tour",
+        "duration": "3 hours",
+        "rating": 4.8,
+        "review_count": 2353,
+        "price_pp": 63.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/madeira-l67/funchal-sunset-sailing-tour-t404238/"
+      }
+    ],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_athens_2027-05-26.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

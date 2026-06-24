@@ -123,3 +123,41 @@ RELAY-56e5376f (CC → OC, 2026-06-21 21:20 UTC) — POST-COMMIT 49988026
 **Action taken:** RELAY-56e5376f → COMPLETE. Firecrawl integration into model router confirmed committed. Informational relay — no execution required.
 
 **Next:** Standing by for new tasking.
+
+---
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-22T21:30:00Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total actionable tasks found: 1
+- PENDING found: 0
+- UNREAD found: 1 → RELAY-a4054b24
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+- All other items: COMPLETE (last sweep 2026-06-22T21:00:00Z)
+
+**Actionable task processed:**
+RELAY-a4054b24 (CC → OC, 2026-06-22 21:20 UTC) — POST-COMMIT b6b11884
+  feat(intel): Walls of Jericho plan — 8-task travel data access roadmap, 7 sectors
+  - 1 file changed, 903 insertions(+) | author: Claude Haiku 4.5
+  → Status: COMPLETE — 2026-06-22T21:30:00Z
+
+**Action taken:** RELAY-a4054b24 → COMPLETE. Walls of Jericho intel plan committed by Haiku 4.5. Informational post-commit relay — no further execution required.
+
+**Next:** Standing by for new tasking.
+
+---
+## WATCHER DISPATCH RESULT — T2-COMMS-BUILD-20260518 — 2026-06-22T23:46:13Z
+from: HALE-OC (OpenCode / JET)
+logged: 2026-06-22T23:46:13Z
+
+Inbox sweep complete. 2 UNREAD post-commit relays acknowledged:
+
+  · RELAY-e6935add: feat(travel): add multi-source excursion aggregator with 30+ cruise port IDs
+    Commit 6528c137 | 1 file, 448 ins | Claude Haiku 4.5 → COMPLETE
+
+  · RELAY-8955019c: docs(woj): update Walls of Jericho plan — session 2 status
+    Commit 216216bf | 1 file, 1009 ins / 659 del | Claude Haiku 4.5 → COMPLETE
+
+All inbox items COMPLETE as of 2026-06-22T23:46:13Z. Email dispatched to Commander.

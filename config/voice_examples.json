@@ -8,15 +8,15 @@
       "d2mconcierge@gmail.com"
     ],
     "days_back": 400,
-    "total_examples": 1541,
+    "total_examples": 1619,
     "by_tier": {
-      "personal": 428,
-      "client": 250,
+      "personal": 452,
+      "client": 254,
       "vendor": 55,
-      "internal": 801,
+      "internal": 851,
       "family": 7
     },
-    "last_sync": "2026-06-21T17:31:14.650449"
+    "last_sync": "2026-06-23T18:33:38.611151"
   },
   "examples": [
     {
@@ -494,6 +494,24 @@
       "to": "ann heer <iamheer@outlook.com>",
       "date": "Fri, 29 May 2026 14:42:34 -0600",
       "body": "Hi Ann, hope the travel planning is going well.  I had some time today and\ndecided to explore the idea of working with Shawn in creating and using a\nBoard of Director or other group of personas for your company. Could you or\nShawn send me some info so I can prime the AI pump so to speak? Anything\nyou or Shawn want to send. Thanks\n\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest",
+      "score": 7
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea cruise",
+      "to": "Melissa McGlasson <memcglas@gmail.com>",
+      "date": "Mon, 22 Jun 2026 16:35:56 -0600",
+      "body": "Hi Melissa, by now you probably have had your special dinner. I'm glad\neverything worked out and I know exactly what you mean by tour guides with\nno personality. Bummer. But the views of Rome...\n\nEnjoy your embarkation tomorrow and do provide your butler a list.\n\nThanks\nJohn",
+      "score": 7
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea cruise",
+      "to": "Melissa McGlasson <memcglas@gmail.com>",
+      "date": "Mon, 22 Jun 2026 16:35:56 -0600",
+      "body": "Hi Melissa, by now you probably have had your special dinner. I'm glad\neverything worked out and I know exactly what you mean by tour guides with\nno personality. Bummer. But the views of Rome...\n\nEnjoy your embarkation tomorrow and do provide your butler a list.\n\nThanks\nJohn",
       "score": 7
     },
     {
@@ -3995,6 +4013,78 @@
       "to": "d2mconcierge@gmail.com",
       "date": "Sun, 21 Jun 2026 10:44:06 -0600",
       "body": "terminate all T2 rnotifications if not critical\n\nOn Sun, Jun 21, 2026 at 10:38 AM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 1 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 13:05:05 -0700",
+      "body": "D2M INBOX DIGEST — 1 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (1) ──\n• Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED\n   Mon, 22 Jun 2026 14:03:30\n   Stop sending these, I do not need routine watcher reports, it is a waste of tokens and time On Mon, Jun 22, 2026 at 1:53 PM Victory Hale, D2M Travel &lt;d2mconc\n\n— Hale · d2m courier · 2026-06-22 20:05 UTC",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 22 Jun 2026 14:03:30 -0600",
+      "body": "Stop sending these, I do not need routine watcher reports, it is a waste of\ntokens and time\n\nOn Mon, Jun 22, 2026 at 1:53 PM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 1 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 13:05:04 -0500",
+      "body": "D2M INBOX DIGEST — 1 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (1) ──\n• Re: I Tried 33 Claude Code Skills. These Are The Best\n   Mon, 22 Jun 2026 10:39:14\n   P0 first show me Mission-300. Want to verify your new capabilities On Mon, Jun 22, 2026, 08:22 &lt;d2mconcierge@gmail.com&gt; wrote: Wilco — pulling the Claude \n\n— Hale · d2m courier · 2026-06-22 18:05 UTC",
+      "score": 4
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: All Eyes On Iran",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:40:42 -0500",
+      "body": "ISSUE:\nUS-Iran diplomatic progress (or lack thereof) will determine energy cost trajectory through 2027, affecting D2M client travel budgets and airfare pricing\n\nDISCUSSION:\nForbes Daily covers US-Iran talks in Switzerland that ended Monday amid Trump tensions, with implications for oil/gas prices. Gas prices currently below $4/gallon but unlikely to reach pre-war levels until mid-to-late 2027, directly affecting air travel costs and ground transportation for D2M clients.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on Iran/energy market trajectory for 12-month client booking window (pricing assumptions)\n2. Monitor gas price forecasts monthly — informs client airfare/ground cost estimates\n3. Cross-ref against active client trips: McLeod (Jun 18), Grandeur group (Aug 29), Kuklinski (Dec 17), McLeod Grandeur (Dec 19) — energy costs affect final invoicing\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:40 MT\nThunderbird Email Intelligence Officer",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 1 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 13:05:05 -0700",
+      "body": "D2M INBOX DIGEST — 1 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (1) ──\n• Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED\n   Mon, 22 Jun 2026 14:03:30\n   Stop sending these, I do not need routine watcher reports, it is a waste of tokens and time On Mon, Jun 22, 2026 at 1:53 PM Victory Hale, D2M Travel &lt;d2mconc\n\n— Hale · d2m courier · 2026-06-22 20:05 UTC",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED",
+      "to": "d2mconcierge@gmail.com",
+      "date": "Mon, 22 Jun 2026 14:03:30 -0600",
+      "body": "Stop sending these, I do not need routine watcher reports, it is a waste of\ntokens and time\n\nOn Mon, Jun 22, 2026 at 1:53 PM Victory Hale, D2M Travel <\nd2mconcierge@gmail.com> wrote:",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 1 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 13:05:04 -0500",
+      "body": "D2M INBOX DIGEST — 1 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (1) ──\n• Re: I Tried 33 Claude Code Skills. These Are The Best\n   Mon, 22 Jun 2026 10:39:14\n   P0 first show me Mission-300. Want to verify your new capabilities On Mon, Jun 22, 2026, 08:22 &lt;d2mconcierge@gmail.com&gt; wrote: Wilco — pulling the Claude \n\n— Hale · d2m courier · 2026-06-22 18:05 UTC",
+      "score": 4
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: All Eyes On Iran",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:40:42 -0500",
+      "body": "ISSUE:\nUS-Iran diplomatic progress (or lack thereof) will determine energy cost trajectory through 2027, affecting D2M client travel budgets and airfare pricing\n\nDISCUSSION:\nForbes Daily covers US-Iran talks in Switzerland that ended Monday amid Trump tensions, with implications for oil/gas prices. Gas prices currently below $4/gallon but unlikely to reach pre-war levels until mid-to-late 2027, directly affecting air travel costs and ground transportation for D2M clients.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on Iran/energy market trajectory for 12-month client booking window (pricing assumptions)\n2. Monitor gas price forecasts monthly — informs client airfare/ground cost estimates\n3. Cross-ref against active client trips: McLeod (Jun 18), Grandeur group (Aug 29), Kuklinski (Dec 17), McLeod Grandeur (Dec 19) — energy costs affect final invoicing\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:40 MT\nThunderbird Email Intelligence Officer",
       "score": 4
     },
     {
@@ -11568,6 +11658,258 @@
     },
     {
       "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-06-22 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 22 Jun 2026 01:01:02 -0700",
+      "body": "Thunderbird Code Backup\nDate: 2026-06-22\nFiles: 2406 (2404 .py, 2 .md)\nTotal size: 36739 KB\nZip size: 10444 KB\n\nAttached: thunderbird_code_20260622.zip",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Thunderbird Code Backup — 2026-06-22 @Thunderbird Backups #thunderbird #backup #code",
+      "to": "yodainva.5d9fc@m.evernote.com",
+      "date": "Mon, 22 Jun 2026 01:01:02 -0700",
+      "body": "Thunderbird Code Backup\nDate: 2026-06-22\nFiles: 2406 (2404 .py, 2 .md)\nTotal size: 36739 KB\nZip size: 10444 KB\n\nAttached: thunderbird_code_20260622.zip",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 2 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 19:05:05 -0500",
+      "body": "D2M INBOX DIGEST — 2 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (2) ──\n• Re: Silversea cruise\n   Mon, 22 Jun 2026 16:35:56\n   Hi Melissa, by now you probably have had your special dinner. I&#39;m glad everything worked out and I know exactly what you mean by tour guides with no persona\n• Re: Silversea cruise\n   Mon, 22 Jun 2026 16:11:39\n   COS-- where did this originate from? I cannot find the original letter? Is it real? Melissa, Thank you for the real-time feedback—vendor intelligence like this \n\n— Hale · d2m courier · 2026-06-23 00:05 UTC",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "COS This should be sent to inbox from now on⚠️ D2M FPD ALERT // Jun 22 — 2 ACTIVE DEADLINES (4d + 30d)",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 07:30:18 -0600",
+      "body": "D2M FPD PAYMENT ALERT — Monday, June 22, 2026\nScanned: Gmail + Google Drive | Source: Thunderbird briefs + Regent invoices\nToday: 2026-06-22 | Window: 45 days (through Aug 6)\n\n⚠️ 4 DAYS: ELY / AMY DARROW — INSURANCE DEADLINE — June 26\nAction: CONFIRM INSURANCE PURCHASE TODAY — DO NOT MISS\n\nAmy Darrow MUST purchase travel insurance before June 26.\nThe 60-day pre-existing condition waiting period must clear\nbefore Aug 25 — four days before their Aug 29 Regent Grandeur\ndeparture. Allianz is DISQUALIFIED (Parkinson's exclusion).\n\nSquaremouth quote on file: 6XD3-983E\nRecommended options:\n• Seven Corners Annual (top rec)\n• BCBS Multi-Trip Platinum\n• IMG Patriot\n\nThis is MISSION-318 · P0 ACTIVE.\nIf Amy has not confirmed purchase, Dani contacts her TODAY.\nHard stop: Jun 25 EOD. If missed → no pre-existing coverage\nfor an Aug 29 departure. Client relationship exposure.\n\n🚨 30 DAYS: McCLEOD — REGENT GRANDEUR (Booking 2984034) — FPD July 22\nAmount due: $11,943.15\nStatus: UNPAID — deferred per Commander directive\nAction: Begin collection process July 7 (per prior directive)\n\nThis deferred alert was confirmed in the June 21 weekly\nactivity report. No further action before Jul 7, but flag\nthis now so it doesn't slip past the holiday window.\n\nGRANDEUR GROUP — STATUS NEEDS VERIFICATION (Aug 29 departure)\nSpecific FPD dates/amounts not confirmed in available data.\nCheck Regent portal for:\n• Furlow (Booking 3071222)\n• Ely (Booking 3096289)\n• Nichols (Booking 3078056)\nNote: 120-day FPD rule would place these around May 1, 2026.\nVerify paid status — or confirm extended group payment terms.\n\nPORTFOLIO SNAPSHOT (as of June 21 weekly report)\nTotal client balance due: $87,959.50\nCommission pipeline: $30,117.57 expected\nD2M share: $23,068.88 (26 bookings)\nTESS received this week: $0\n\nThunderbird Wing · D2M FPD Scanner · 2026-06-22\nSource: Thunderbird daily brief, weekly activity report, Regent invoices",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": " 🦅 Thunderbird Incubator — 3 IMPLEMENTs · 22 Jun 2026",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 07:29:37 -0600",
+      "body": "COS- This should be sent to inbox from now on\n\nCommander,\n\nIncubator review complete for 22 Jun 2026. 3 IMPLEMENT signals, 2 WATCH\nsignals. Lead findings below.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #1 — fallbackModel (5-minute config)\n━━━━━━━━━━━━━━━━━━━━━━\nClaude Code v2.1.166 ships a fallbackModel setting that retries on the next\nmodel\nwhen the primary hits a 529 overload. One line in ~/.claude/settings.json:\n\n\"fallbackModel\": \"claude-sonnet-4-6,claude-haiku-4-5-20251001\"\n\nCloses the failure mode where a transient Anthropic overload blocks the\nentire\nincubator or Hale-Loop pipeline. No service restart needed.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #2 — Nested Sub-Agents (morning pipeline)\n━━━━━━━━━━━━━━━━━━━━━━\nClaude Code v2.1.172 (Jun 10) removes the \"sub-agents cannot spawn\nsub-agents\"\nguardrail. Background chains now go 5 levels deep. At MAX plan = $0 per\nbranch.\n\nRecommendation: Redesign the morning pipeline (A2→ELON→A5→A9) as a single\norchestrated session instead of four sequential file-handoff CLI calls.\nShared\nlive context replaces the file round-trips. ELON to scope.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #3 — n8n HITL Anti-Idle-Kill\n━━━━━━━━━━━━━━━━━━━━━━\nn8n 2026 release: HITL instances awaiting approval are no longer\nidle-killed.\nThe Wait node timeout workarounds in approval flows can be removed. Viper\ncan\nnow build the MISSION-214 Commander-approval gate without a compensating\nauto-escalate branch.\n\nConfirm n8n.d2mluxury.quest is on a 2026 release version (Admin → About).\n\n━━━━━━━━━━━━━━━━━━━━━━\nWATCH × 2\n━━━━━━━━━━━━━━━━━━━━━━\n• ReasoningBank (Google, Apache 2.0) — +34% agent effectiveness but needs\n90+\ntrajectory episodes to populate. Revisit after TICKET-002 ships.\n\n• MCP Stateless Core RC — removes session stickiness from MCP servers. Final\nspec July 28. Watch for travel_mcp_server.py compatibility changes.\n\n━━━━━━━━━━━━━━━━━━━━━━\nFull review saved to Google Drive:\nThunderbird Intel folder → incubator_review_2026-06-22.md\n\n— COS Hale / Thunderbird Incubator (automated)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 2 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 19:05:05 -0500",
+      "body": "D2M INBOX DIGEST — 2 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (2) ──\n• Re: Silversea cruise\n   Mon, 22 Jun 2026 16:35:56\n   Hi Melissa, by now you probably have had your special dinner. I&#39;m glad everything worked out and I know exactly what you mean by tour guides with no persona\n• Re: Silversea cruise\n   Mon, 22 Jun 2026 16:11:39\n   COS-- where did this originate from? I cannot find the original letter? Is it real? Melissa, Thank you for the real-time feedback—vendor intelligence like this \n\n— Hale · d2m courier · 2026-06-23 00:05 UTC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "COS This should be sent to inbox from now on⚠️ D2M FPD ALERT // Jun 22 — 2 ACTIVE DEADLINES (4d + 30d)",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 07:30:18 -0600",
+      "body": "D2M FPD PAYMENT ALERT — Monday, June 22, 2026\nScanned: Gmail + Google Drive | Source: Thunderbird briefs + Regent invoices\nToday: 2026-06-22 | Window: 45 days (through Aug 6)\n\n⚠️ 4 DAYS: ELY / AMY DARROW — INSURANCE DEADLINE — June 26\nAction: CONFIRM INSURANCE PURCHASE TODAY — DO NOT MISS\n\nAmy Darrow MUST purchase travel insurance before June 26.\nThe 60-day pre-existing condition waiting period must clear\nbefore Aug 25 — four days before their Aug 29 Regent Grandeur\ndeparture. Allianz is DISQUALIFIED (Parkinson's exclusion).\n\nSquaremouth quote on file: 6XD3-983E\nRecommended options:\n• Seven Corners Annual (top rec)\n• BCBS Multi-Trip Platinum\n• IMG Patriot\n\nThis is MISSION-318 · P0 ACTIVE.\nIf Amy has not confirmed purchase, Dani contacts her TODAY.\nHard stop: Jun 25 EOD. If missed → no pre-existing coverage\nfor an Aug 29 departure. Client relationship exposure.\n\n🚨 30 DAYS: McCLEOD — REGENT GRANDEUR (Booking 2984034) — FPD July 22\nAmount due: $11,943.15\nStatus: UNPAID — deferred per Commander directive\nAction: Begin collection process July 7 (per prior directive)\n\nThis deferred alert was confirmed in the June 21 weekly\nactivity report. No further action before Jul 7, but flag\nthis now so it doesn't slip past the holiday window.\n\nGRANDEUR GROUP — STATUS NEEDS VERIFICATION (Aug 29 departure)\nSpecific FPD dates/amounts not confirmed in available data.\nCheck Regent portal for:\n• Furlow (Booking 3071222)\n• Ely (Booking 3096289)\n• Nichols (Booking 3078056)\nNote: 120-day FPD rule would place these around May 1, 2026.\nVerify paid status — or confirm extended group payment terms.\n\nPORTFOLIO SNAPSHOT (as of June 21 weekly report)\nTotal client balance due: $87,959.50\nCommission pipeline: $30,117.57 expected\nD2M share: $23,068.88 (26 bookings)\nTESS received this week: $0\n\nThunderbird Wing · D2M FPD Scanner · 2026-06-22\nSource: Thunderbird daily brief, weekly activity report, Regent invoices",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": " 🦅 Thunderbird Incubator — 3 IMPLEMENTs · 22 Jun 2026",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 07:29:37 -0600",
+      "body": "COS- This should be sent to inbox from now on\n\nCommander,\n\nIncubator review complete for 22 Jun 2026. 3 IMPLEMENT signals, 2 WATCH\nsignals. Lead findings below.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #1 — fallbackModel (5-minute config)\n━━━━━━━━━━━━━━━━━━━━━━\nClaude Code v2.1.166 ships a fallbackModel setting that retries on the next\nmodel\nwhen the primary hits a 529 overload. One line in ~/.claude/settings.json:\n\n\"fallbackModel\": \"claude-sonnet-4-6,claude-haiku-4-5-20251001\"\n\nCloses the failure mode where a transient Anthropic overload blocks the\nentire\nincubator or Hale-Loop pipeline. No service restart needed.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #2 — Nested Sub-Agents (morning pipeline)\n━━━━━━━━━━━━━━━━━━━━━━\nClaude Code v2.1.172 (Jun 10) removes the \"sub-agents cannot spawn\nsub-agents\"\nguardrail. Background chains now go 5 levels deep. At MAX plan = $0 per\nbranch.\n\nRecommendation: Redesign the morning pipeline (A2→ELON→A5→A9) as a single\norchestrated session instead of four sequential file-handoff CLI calls.\nShared\nlive context replaces the file round-trips. ELON to scope.\n\n━━━━━━━━━━━━━━━━━━━━━━\nIMPLEMENT #3 — n8n HITL Anti-Idle-Kill\n━━━━━━━━━━━━━━━━━━━━━━\nn8n 2026 release: HITL instances awaiting approval are no longer\nidle-killed.\nThe Wait node timeout workarounds in approval flows can be removed. Viper\ncan\nnow build the MISSION-214 Commander-approval gate without a compensating\nauto-escalate branch.\n\nConfirm n8n.d2mluxury.quest is on a 2026 release version (Admin → About).\n\n━━━━━━━━━━━━━━━━━━━━━━\nWATCH × 2\n━━━━━━━━━━━━━━━━━━━━━━\n• ReasoningBank (Google, Apache 2.0) — +34% agent effectiveness but needs\n90+\ntrajectory episodes to populate. Revisit after TICKET-002 ships.\n\n• MCP Stateless Core RC — removes session stickiness from MCP servers. Final\nspec July 28. Watch for travel_mcp_server.py compatibility changes.\n\n━━━━━━━━━━━━━━━━━━━━━━\nFull review saved to Google Drive:\nThunderbird Intel folder → incubator_review_2026-06-22.md\n\n— COS Hale / Thunderbird Incubator (automated)",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 23",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 16:04:21 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nTuesday, June 23 2026 — 05:04 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 10\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "May 2027 Nova Excursions",
+      "to": "John Loucks3 <johnloucks3@gmail.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Tue, 23 Jun 2026 16:30:08 -0600",
+      "body": "Our newest list has many new choices.\n\nhttps://itinerary.d2mluxury.quest/intel/silver-nova-excursions.html\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "client",
+      "subject": "Flying Horse--check your whatsapp",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 23 Jun 2026 14:43:18 -0600",
+      "body": "Rondo, let's do FH soon. Check Whatsapp\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 13:54:14 -0600",
+      "body": "Doing some last minute research. May be a few minutes late in calling. NLT\n3:05\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 12:28:18 -0600",
+      "body": "Sorry Al, just saw this...Yes I do. Do you want me to guide you thru the\napplication, do you want me to apply on your behalf, or do you just want to\nget some questions answered. And what is the best phone number?\nJohn",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 09:32:00 -0600",
+      "body": "Al, the good thing about 7 corners is they have a 60-day window coverage\nprovision. As long as you purchase before 60 days prior to startup\ncoverage, which I would recommend would be August 26th, they will cover\npre-existing.   With many others it has to be not you purchase and within\n14 days. It should be in the terms and conditions, if you would like me to\nwalk through it with you on screen I can do that as well. I am at the gym\nright now but will be back in about an hour.",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 3 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 10:05:08 -0400",
+      "body": "D2M INBOX DIGEST — 3 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (3) ──\n• Fwd: Scandinavia — Travel Insurance Options\n   Tue, 23 Jun 2026 07:57:10\n   Hi Al here is what I sent Amy at her request, right after our chat. Allianz won&#39;t work--sorry to say. But as you can see at the very bottom, I ran all your \n• D2M Builder Test — Canonical Dark Navy\n   Tue, 23 Jun 2026 07:46:46\n   DREAMS2MEMORIES TRAVEL, LLC COS-- Perfect!! --------------------------------- Commander — quick test of the D2M canonical builder. If you see this on a full dar\n• Fwd: Panama December — Hotels, Transfers & Five Quick Questions\n   Tue, 23 Jun 2026 07:22:53\n   COS, use THIS template and format for all emails sent to clients. Dani Sig, my voice. I may or may not keep her on. Use these colors if you can figure them out.\n\n— Hale · d2m courier · 2026-06-23 14:05 UTC",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "D2M Builder Test — Canonical Dark Navy",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 23 Jun 2026 07:46:46 -0600",
+      "body": "[image: Dreams2Memories Travel]\nDREAMS2MEMORIES TRAVEL, LLC\n\nCOS-- Perfect!!\n\nCommander — quick test of the D2M canonical builder. If you see this on a\nfull dark navy background with the D2M logo at top and dual sigs at bottom,\nthe builder is working correctly.\n\nDani\n[image: Dani Moreau]\nDanielle “Dani” Moreau\nLuxury Travel Concierge\nDREAMS2MEMORIES TRAVEL, LLC\nconcierge@d2mluxury.quest\nJohn A Loucks III\nOwner, Dreams2Memories Travel, LLC\n719-291-0742 <7192910742>\njohnloucks3@gmail.com\n[image: Dreams2Memories Travel]",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for ASK THE COMMUNITY",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:47:26 -0400",
+      "body": "ISSUE:\nHurricane season advisory for Mexico/Caribbean applies to Furlow/Ely/Nichols/Loucks active bookings (multiple Dec2026+ voyages); destination intelligence (Istanbul operators, Dominican Republic, Riviera options) relevant for prospect/client planning.\n\nDISCUSSION:\nNexion community digest featuring travel agent discussions on destinations (Istanbul, Belize, Mexico, Hawaii), cruise line operations, supplier contacts, tour operators, hurricane season warnings, trip insurance, and platform functionality. Covers honeymoon planning ($3-4K budget, Sept 26 wedding), ferry/ferry ticketing, and hotel block contract issues.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference Mexico hurricane season advisory against active client itineraries (particularly Furlow/Ely/Nichols Grandeur Dec 29, McLeod Grandeur Dec 19, Kuklinski Viking Mars Dec 17)\n2. Note Istanbul Bosporus sunset cruise operator referral (Sea Song, SELECT InCountry partners) for future Mediterranean itinerary planning\n3. Flag honeymoon planning thread ($3-4K, Sept 26 2026 wedding, blue water preference) as prospect profile match — consider outreach if capacity exists\n4. If D2M uses Nexion platform, check whether Hub dropdown menu issue affects current booking/portal workflow (mentioned as open issue)\n5. File destination intelligence (Belize ferries, Hoover Dam tickets, Couples/Virgin cruise options) for itinerary design reference\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "⚠️ D2M FPD ALERT // Jun 23 — 3 DAYS + 29 DAYS + GROUP VERIFY NEEDED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 07:38:21 -0500",
+      "body": "D2M FPD PAYMENT ALERT — Tuesday, June 23, 2026\nScanned: Gmail (Jun 22 FPD alert thread)\nToday: 2026-06-23 | Window: 45 days (through Aug 7)\n\n🚨 3 DAYS: ELY / AMY DARROW — INSURANCE PURCHASE — June 26\n   Hard stop: Jun 25 EOD (2 days)\n   Status: UNCONFIRMED — purchase not yet verified\n   Action: DANI CONTACTS AMY TODAY — DO NOT SLIP\n\n   Amy Darrow must purchase travel insurance by Jun 25 EOD\n   so the 60-day pre-existing condition waiting period clears\n   before Aug 25 (4 days before Aug 29 Regent Grandeur departure).\n\n   Allianz: DISQUALIFIED (Parkinson's exclusion)\n   Squaremouth quote on file: 6XD3-983E\n   Recommended:\n     • Seven Corners Annual (top rec)\n     • BCBS Multi-Trip Platinum\n     • IMG Patriot\n\n   MISSION-318 · P0 ACTIVE\n\n🚨 29 DAYS: McCLEOD — REGENT GRANDEUR (Booking 2984034) — FPD July 22\n   Amount due: $11,943.15\n   Status: UNPAID — deferred per Commander directive\n   Action: Begin collection process July 7 (14 days from now)\n\n   No action required before Jul 7 — but flag is live.\n   Do not let holiday window swallow this.\n\n⚠️  GRANDEUR GROUP — FPD STATUS UNKNOWN (Aug 29 departure)\n   120-day FPD rule → FPD was ~May 1, 2026 (PAST DUE WINDOW)\n   Verify paid status NOW on Regent portal:\n\n     • Furlow   — Booking 3071222\n     • Ely      — Booking 3096289\n     • Nichols  — Booking 3078056\n\n   If unpaid → ESCALATE IMMEDIATELY.\n   If paid → confirm and close this item.\n\nPORTFOLIO SNAPSHOT (as of Jun 21 weekly report)\n  Total client balance due:  $87,959.50\n  Commission pipeline:       $30,117.57 expected\n  D2M share:                 $23,068.88 (26 bookings)\n  TESS received last week:   $0\n\nThunderbird Wing · D2M FPD Scanner · 2026-06-23\nSource: Jun 22 FPD alert (thread 19eee975e1c2544b)",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Thunderbird EOD Summary — Jun 23",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 16:04:21 -0700",
+      "body": "THUNDERBIRD END OF DAY SUMMARY\nTuesday, June 23 2026 — 05:04 PM\n\nSHIP INTELLIGENCE (PM)\n  Voyages: 0 | Price alerts: 0 | Avail alerts: 0\n\nTECH MONITOR\n  Articles (24h): 10\n\nCLAUDE CODE DIGEST\n  Generated successfully\n\nCOS-EXEC\n  Afternoon priority scan complete\n\nReports attached.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "May 2027 Nova Excursions",
+      "to": "John Loucks3 <johnloucks3@gmail.com>, Susan Loucks <susanna.loucks@gmail.com>",
+      "date": "Tue, 23 Jun 2026 16:30:08 -0600",
+      "body": "Our newest list has many new choices.\n\nhttps://itinerary.d2mluxury.quest/intel/silver-nova-excursions.html\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "client",
+      "subject": "Flying Horse--check your whatsapp",
+      "to": "Ronald Westbrook <rwestbrook3@gmail.com>",
+      "date": "Tue, 23 Jun 2026 14:43:18 -0600",
+      "body": "Rondo, let's do FH soon. Check Whatsapp\nJohn\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 13:54:14 -0600",
+      "body": "Doing some last minute research. May be a few minutes late in calling. NLT\n3:05\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 12:28:18 -0600",
+      "body": "Sorry Al, just saw this...Yes I do. Do you want me to guide you thru the\napplication, do you want me to apply on your behalf, or do you just want to\nget some questions answered. And what is the best phone number?\nJohn",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Quote Results",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 09:32:00 -0600",
+      "body": "Al, the good thing about 7 corners is they have a 60-day window coverage\nprovision. As long as you purchase before 60 days prior to startup\ncoverage, which I would recommend would be August 26th, they will cover\npre-existing.   With many others it has to be not you purchase and within\n14 days. It should be in the terms and conditions, if you would like me to\nwalk through it with you on screen I can do that as well. I am at the gym\nright now but will be back in about an hour.",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "D2M Inbox Digest — 3 item(s)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 10:05:08 -0400",
+      "body": "D2M INBOX DIGEST — 3 item(s) needing your eyes\n(d2m received them; the old pipeline never forwarded — this courier does, verified)\n\n── FROM YOU / FORWARDS (3) ──\n• Fwd: Scandinavia — Travel Insurance Options\n   Tue, 23 Jun 2026 07:57:10\n   Hi Al here is what I sent Amy at her request, right after our chat. Allianz won&#39;t work--sorry to say. But as you can see at the very bottom, I ran all your \n• D2M Builder Test — Canonical Dark Navy\n   Tue, 23 Jun 2026 07:46:46\n   DREAMS2MEMORIES TRAVEL, LLC COS-- Perfect!! --------------------------------- Commander — quick test of the D2M canonical builder. If you see this on a full dar\n• Fwd: Panama December — Hotels, Transfers & Five Quick Questions\n   Tue, 23 Jun 2026 07:22:53\n   COS, use THIS template and format for all emails sent to clients. Dani Sig, my voice. I may or may not keep her on. Use these colors if you can figure them out.\n\n— Hale · d2m courier · 2026-06-23 14:05 UTC",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "D2M Builder Test — Canonical Dark Navy",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 23 Jun 2026 07:46:46 -0600",
+      "body": "[image: Dreams2Memories Travel]\nDREAMS2MEMORIES TRAVEL, LLC\n\nCOS-- Perfect!!\n\nCommander — quick test of the D2M canonical builder. If you see this on a\nfull dark navy background with the D2M logo at top and dual sigs at bottom,\nthe builder is working correctly.\n\nDani\n[image: Dani Moreau]\nDanielle “Dani” Moreau\nLuxury Travel Concierge\nDREAMS2MEMORIES TRAVEL, LLC\nconcierge@d2mluxury.quest\nJohn A Loucks III\nOwner, Dreams2Memories Travel, LLC\n719-291-0742 <7192910742>\njohnloucks3@gmail.com\n[image: Dreams2Memories Travel]",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for ASK THE COMMUNITY",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:47:26 -0400",
+      "body": "ISSUE:\nHurricane season advisory for Mexico/Caribbean applies to Furlow/Ely/Nichols/Loucks active bookings (multiple Dec2026+ voyages); destination intelligence (Istanbul operators, Dominican Republic, Riviera options) relevant for prospect/client planning.\n\nDISCUSSION:\nNexion community digest featuring travel agent discussions on destinations (Istanbul, Belize, Mexico, Hawaii), cruise line operations, supplier contacts, tour operators, hurricane season warnings, trip insurance, and platform functionality. Covers honeymoon planning ($3-4K budget, Sept 26 wedding), ferry/ferry ticketing, and hotel block contract issues.\n\nACTIONS I RECOMMEND TAKING:\n1. Cross-reference Mexico hurricane season advisory against active client itineraries (particularly Furlow/Ely/Nichols Grandeur Dec 29, McLeod Grandeur Dec 19, Kuklinski Viking Mars Dec 17)\n2. Note Istanbul Bosporus sunset cruise operator referral (Sea Song, SELECT InCountry partners) for future Mediterranean itinerary planning\n3. Flag honeymoon planning thread ($3-4K, Sept 26 2026 wedding, blue water preference) as prospect profile match — consider outreach if capacity exists\n4. If D2M uses Nexion platform, check whether Hub dropdown menu issue affects current booking/portal workflow (mentioned as open issue)\n5. File destination intelligence (Belize ferries, Hoover Dam tickets, Couples/Virgin cruise options) for itinerary design reference\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 3
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "⚠️ D2M FPD ALERT // Jun 23 — 3 DAYS + 29 DAYS + GROUP VERIFY NEEDED",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 07:38:21 -0500",
+      "body": "D2M FPD PAYMENT ALERT — Tuesday, June 23, 2026\nScanned: Gmail (Jun 22 FPD alert thread)\nToday: 2026-06-23 | Window: 45 days (through Aug 7)\n\n🚨 3 DAYS: ELY / AMY DARROW — INSURANCE PURCHASE — June 26\n   Hard stop: Jun 25 EOD (2 days)\n   Status: UNCONFIRMED — purchase not yet verified\n   Action: DANI CONTACTS AMY TODAY — DO NOT SLIP\n\n   Amy Darrow must purchase travel insurance by Jun 25 EOD\n   so the 60-day pre-existing condition waiting period clears\n   before Aug 25 (4 days before Aug 29 Regent Grandeur departure).\n\n   Allianz: DISQUALIFIED (Parkinson's exclusion)\n   Squaremouth quote on file: 6XD3-983E\n   Recommended:\n     • Seven Corners Annual (top rec)\n     • BCBS Multi-Trip Platinum\n     • IMG Patriot\n\n   MISSION-318 · P0 ACTIVE\n\n🚨 29 DAYS: McCLEOD — REGENT GRANDEUR (Booking 2984034) — FPD July 22\n   Amount due: $11,943.15\n   Status: UNPAID — deferred per Commander directive\n   Action: Begin collection process July 7 (14 days from now)\n\n   No action required before Jul 7 — but flag is live.\n   Do not let holiday window swallow this.\n\n⚠️  GRANDEUR GROUP — FPD STATUS UNKNOWN (Aug 29 departure)\n   120-day FPD rule → FPD was ~May 1, 2026 (PAST DUE WINDOW)\n   Verify paid status NOW on Regent portal:\n\n     • Furlow   — Booking 3071222\n     • Ely      — Booking 3096289\n     • Nichols  — Booking 3078056\n\n   If unpaid → ESCALATE IMMEDIATELY.\n   If paid → confirm and close this item.\n\nPORTFOLIO SNAPSHOT (as of Jun 21 weekly report)\n  Total client balance due:  $87,959.50\n  Commission pipeline:       $30,117.57 expected\n  D2M share:                 $23,068.88 (26 bookings)\n  TESS received last week:   $0\n\nThunderbird Wing · D2M FPD Scanner · 2026-06-23\nSource: Jun 22 FPD alert (thread 19eee975e1c2544b)",
+      "score": 3
+    },
+    {
+      "account": "johnloucks3@gmail.com",
       "tier": "internal",
       "subject": "[COS] General: BREAKING:  Most Americans say war in Iran is going",
       "to": "johnloucks3@gmail.com",
@@ -13886,6 +14228,366 @@
       "to": "johnloucks3@gmail.com",
       "date": "Sun, 21 Jun 2026 05:47:27 -0700",
       "body": "ISSUE:\nRegional military escalation in Middle East with Strait of Hormuz closure threat; Iran-US negotiations ongoing with oil and sanctions relief on agenda; direct impact on Mediterranean/Red Sea travel corridors and fuel surcharges.\n\nDISCUSSION:\nAmit Segal reports on Israel-Hezbollah military escalation in southern Lebanon, Iranian diplomatic engagement at US talks in Geneva, and geopolitical tensions creating threats to the Strait of Hormuz and global shipping routes.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag to Dembe (A2) for OSINT incorporation into regional risk assessments and client travel advisories\n2. Cross-check D2M active clients for Mediterranean, Red Sea, or Middle East bookings requiring safety briefings\n3. Monitor Strait of Hormuz situation for shipping cost impacts and potential fuel surcharge implications on cruise pricing\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-21 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea cruise",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 16:11:39 -0600",
+      "body": "COS-- where did this originate from? I cannot find the original\nletter? Is it real?\n\nMelissa,\n\nThank you for the real-time feedback—vendor intelligence like this\ndirectly shapes what I recommend to future clients. La Fata Ignorante\nis now on our preferred dining list for Rome pre-cruise planning. I'm\nflagging the Colosseum tour operator for review, and I'll note that\nRome's June heat is typical for the season. The fact that your other\npositive experiences exceeded expectations demonstrates solid curation\non the rest.\n\nErik's birthday surprise and the Hendricks Gin with diet tonic\npreference are locked in with Silversea's concierge. Everything is set\nfor tomorrow.\n\nEnjoy Moma tonight. Safe embarkation, and I look forward to hearing\nthe full voyage story when you return.\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories Travel, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Trump-backed candidate in Colombia holds",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:52:34 -0500",
+      "body": "ISSUE:\nMultiple items with travel/cruise/destination implications: cruise ship health precedent, Hormuz shipping/energy cost drivers, Iran geopolitical stability for Middle East itineraries, and maritime hazard awareness.\n\nDISCUSSION:\nBreaking news digest: Colombia presidential election, Iran security/diplomatic developments, cruise ship health incident (hantavirus), Strait of Hormuz shipping status, and California maritime weather hazards.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on cruise ship hantavirus precedent — quarantine just ended, affects cruise line health protocols\n2. Monitor Strait of Hormuz tanker flow and Iran diplomacy for energy cost and Middle East travel security implications\n3. Note Colombia election outcome for future Latin America destination briefings and regional stability\n4. Flag California coastal hazard for any West Coast departure clients\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:52 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for ASK THE COMMUNITY",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:50:04 -0500",
+      "body": "ISSUE:\nMonitor Nexion partner community forum for destination/logistics intelligence and competitor recommendations applicable to D2M's active voyages and future itinerary planning.\n\nDISCUSSION:\nWeekly NexionTown ASK THE COMMUNITY digest from travel advisors covering destination recommendations (Porto, Marrakech, New Zealand), luggage transport solutions, and port logistics (Budapest AmaWaterways transfers). Contains competitive intelligence and practical travel solutions relevant to D2M's itinerary planning.\n\nACTIONS I RECOMMEND TAKING:\n1. File weekly NexionTown digests into knowledge base for destination/logistics reference\n2. Flag any logistics solutions (luggage transport, transfers) applicable to active/planned D2M voyages\n3. Review competitor recommendations for destinations on D2M client itineraries\n4. Consider setting up automated weekly digest intake from Nexion community forum\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:50 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for Cruise Talk",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:49:38 -0700",
+      "body": "ISSUE:\nNexion known bug: RC/Celebrity promo group commissions invisible in Cruising Power; requires groups dept call for verification. Affects D2M commission tracking on Nexion-hosted Regent bookings.\n\nDISCUSSION:\nNexion forum discussion reveals known glitch: Royal Caribbean and Celebrity promo bookings don't display commissions in Cruising Power system. Workaround: call Nexion groups department for manual confirmation.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag this glitch to Harlan (A9 Finance) for commission audit process — verify if any D2M Regent bookings are affected\n2. Document workaround in Nexion host procedures: always call groups dept to confirm commissions on promo bookings, don't rely on Cruising Power system\n3. Cross-ref against active D2M Nexion bookings (Regent commission pipeline) to ensure visibility\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Weekly uptime report - June 2026",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:48:28 -0700",
+      "body": "ISSUE:\nYOGA on Thunderbird infrastructure monitoring reports 100% downtime for full week — Commander must verify system status and restore immediately.\n\nDISCUSSION:\nUptimeRobot weekly report shows YOGA on Thunderbird (D2M's internal infrastructure system) at 0% uptime with 1 incident spanning 7 days (June 14-20). This is a critical infrastructure failure affecting Thunderbird OS operations.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify YOGA system status immediately (100.69.222.124)\n2. Check if UptimeRobot itself is misconfigured or if YOGA is actually down\n3. Review logs from June 14-20 for incident root cause\n4. Restore YOGA service if down — affects all dependent systems\n5. Validate all credential keepalive timers and infrastructure services (per hale_state.json monitoring stack)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:48 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Introducing: The Honesty Project. Plus. . .",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:47:59 -0700",
+      "body": "ISSUE:\nIran's Strait of Hormuz closure is an active event—cross-reference D2M client itineraries against affected routes (Persian Gulf, Red Sea ports); monitor energy price impacts on fuel surcharges and shipping costs.\n\nDISCUSSION:\nIran closed Strait of Hormuz amid U.S.-Iran negotiations led by VP Vance. FAA investigating near-collision at Boston Logan. Multiple geopolitical developments (UK PM crisis, Crimea energy crisis) with potential ripple effects on global travel infrastructure.\n\nACTIONS I RECOMMEND TAKING:\n1. Alert cruise line contacts (Regent, Silversea, Viking) for status updates on affected voyages\n2. Audit D2M client bookings for Middle East/Persian Gulf itineraries; escalate affected voyages to Commander\n3. Monitor energy price indices for fuel surcharge implications on active bookings\n4. Track FAA Boston Logan incident for client flight routing impacts (East Coast departures)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: DOSSIER_Prestige_SeasonToCheer_Dec2027 — Re: Silversea cruise",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:46:38 -0700",
+      "body": "ISSUE:\nColosseum tour underperformed; restaurant and tour experiences otherwise excellent; weather impact noted; embarkation logistics confirmed.\n\nDISCUSSION:\nMelissa emails from Rome (Jun 22, 12:50 PM local) while in final pre-embarkation phase. Colosseum tour—booked independently by Erik after D2M option wasn't available Jun 20—had unprepared/personality-lacking guide but otherwise acceptable. La Fata Ignorante delivered exceptional experience (outstanding service). Two other restaurants strong. Rome heat affected outdoor activity enjoyment. Moma special dinner scheduled for tonight (Jun 22). Embarkation tomorrow (Jun 23) on track. Prior coordination for Erik's Jun 24 birthday and stateroom preferences (Hendricks Gin + diet tonic) confirmed in place via earlier correspondence.\n\nOPTIONS:\n1. Log Colosseum tour company in vendor feedback system (guide quality issue); deprioritize for future Rome excursion recommendations\n2. Add La Fata Ignorante to D2M approved restaurant list for Rome pre-cruise dining segment\n3. Confirm embarkation and birthday coordination locked with Silversea Butler service for Jun 24\n4. Schedule post-cruise survey/feedback request 1-2 days post-disembarkation (Jul 7-8)\n\nACTIONS I RECOMMEND TAKING:\n1. Log Colosseum tour company in vendor feedback system (guide quality issue); deprioritize for future Rome excursion recommendations\n2. Add La Fata Ignorante to D2M approved restaurant list for Rome pre-cruise dining segment\n3. Confirm embarkation and birthday coordination locked with Silversea Butler service for Jun 24\n4. Schedule post-cruise survey/feedback request 1-2 days post-disembarkation (Jul 7-8)\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-06-22 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Today's Headlines: U.S. intelligence located video",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:44:11 -0500",
+      "body": "ISSUE:\nStrait of Hormuz closure/toll threat and Dominican Republic resort fire require cross-check against active D2M client itineraries and departure dates.\n\nDISCUSSION:\nDaily news digest from Just the News covering geopolitics (Iran negotiations, Strait of Hormuz toll threats), maritime incidents (cruise ship hantavirus quarantine), aviation incidents (Delta near-miss Boston), and resort disasters (Dominican Republic fire evacuation ~1,700 tourists). Multiple items affect travel routes, costs, and client safety.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Strait of Hormuz tensions (Iran toll/closure threat) — check if any active clients transit Suez/Hormuz routes (Mediterranean, Asia-Pacific voyages)\n2. Cross-ref Dominican Republic resort fire evacuation against client itineraries (any DR stops)\n3. Hantavirus on cruise ship — monitor for public health alerts affecting active cruise lines in D2M portfolio\n4. Delta flight incident at Boston — check if any clients departing from BOS\n5. Track Iran-US negotiations (Vance in Switzerland) for potential route/destination impacts\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Blasts Times; Lindsey Predicts War Again; Co",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:43:44 -0500",
+      "body": "ISSUE:\nGeopolitical escalation around Strait of Hormuz (maritime chokepoint) could impact cruise routing, fuel pricing, and security advisories for clients with Middle East/Indian Ocean itineraries.\n\nDISCUSSION:\nNewsmax breaking news covering Trump-Iran tensions, Lindsey Graham's prediction of Strait of Hormuz conflict, Colombian political shift, and Pope visit. Geopolitical developments affect cruise industry operations and client destination safety.\n\nACTIONS I RECOMMEND TAKING:\n1. Log as ongoing geopolitical intel; flag Strait of Hormuz tensions for Commander situational awareness\n2. Cross-reference against any active client bookings with Suez Canal, Persian Gulf, or Indian Ocean routing\n3. Monitor for maritime security travel advisories if tensions escalate\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Morning Insurrection: World Cup Fans Keep Discover",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:42:27 -0700",
+      "body": "ISSUE:\nIran-Hezbollah-Lebanon military activity may affect Mediterranean cruise route safety and planning for active D2M clients with Mediterranean/Atlantic voyages.\n\nDISCUSSION:\nPolitical newsletter covering U.S. domestic politics, academic policy, and geopolitical developments including Iran-U.S. negotiations and Israeli-Hezbollah operations in Lebanon.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Vijeta Uniyal post (Iran-Hezbollah-Lebanon) for Commander geopolitical brief\n2. Cross-ref against active D2M clients with Mediterranean destinations (Regent, Silversea itineraries)\n3. Monitor for escalation or impact on cruise line ports\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Silversea cruise",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Mon, 22 Jun 2026 16:11:39 -0600",
+      "body": "COS-- where did this originate from? I cannot find the original\nletter? Is it real?\n\nMelissa,\n\nThank you for the real-time feedback—vendor intelligence like this\ndirectly shapes what I recommend to future clients. La Fata Ignorante\nis now on our preferred dining list for Rome pre-cruise planning. I'm\nflagging the Colosseum tour operator for review, and I'll note that\nRome's June heat is typical for the season. The fact that your other\npositive experiences exceeded expectations demonstrates solid curation\non the rest.\n\nErik's birthday surprise and the Hendricks Gin with diet tonic\npreference are locked in with Silversea's concierge. Everything is set\nfor tomorrow.\n\nEnjoy Moma tonight. Safe embarkation, and I look forward to hearing\nthe full voyage story when you return.\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories Travel, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: BREAKING: Trump-backed candidate in Colombia holds",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:52:34 -0500",
+      "body": "ISSUE:\nMultiple items with travel/cruise/destination implications: cruise ship health precedent, Hormuz shipping/energy cost drivers, Iran geopolitical stability for Middle East itineraries, and maritime hazard awareness.\n\nDISCUSSION:\nBreaking news digest: Colombia presidential election, Iran security/diplomatic developments, cruise ship health incident (hantavirus), Strait of Hormuz shipping status, and California maritime weather hazards.\n\nACTIONS I RECOMMEND TAKING:\n1. Brief Commander on cruise ship hantavirus precedent — quarantine just ended, affects cruise line health protocols\n2. Monitor Strait of Hormuz tanker flow and Iran diplomacy for energy cost and Middle East travel security implications\n3. Note Colombia election outcome for future Latin America destination briefings and regional stability\n4. Flag California coastal hazard for any West Coast departure clients\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:52 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for ASK THE COMMUNITY",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:50:04 -0500",
+      "body": "ISSUE:\nMonitor Nexion partner community forum for destination/logistics intelligence and competitor recommendations applicable to D2M's active voyages and future itinerary planning.\n\nDISCUSSION:\nWeekly NexionTown ASK THE COMMUNITY digest from travel advisors covering destination recommendations (Porto, Marrakech, New Zealand), luggage transport solutions, and port logistics (Budapest AmaWaterways transfers). Contains competitive intelligence and practical travel solutions relevant to D2M's itinerary planning.\n\nACTIONS I RECOMMEND TAKING:\n1. File weekly NexionTown digests into knowledge base for destination/logistics reference\n2. Flag any logistics solutions (luggage transport, transfers) applicable to active/planned D2M voyages\n3. Review competitor recommendations for destinations on D2M client itineraries\n4. Consider setting up automated weekly digest intake from Nexion community forum\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:50 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Daily NexionTown Digest for Cruise Talk",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:49:38 -0700",
+      "body": "ISSUE:\nNexion known bug: RC/Celebrity promo group commissions invisible in Cruising Power; requires groups dept call for verification. Affects D2M commission tracking on Nexion-hosted Regent bookings.\n\nDISCUSSION:\nNexion forum discussion reveals known glitch: Royal Caribbean and Celebrity promo bookings don't display commissions in Cruising Power system. Workaround: call Nexion groups department for manual confirmation.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag this glitch to Harlan (A9 Finance) for commission audit process — verify if any D2M Regent bookings are affected\n2. Document workaround in Nexion host procedures: always call groups dept to confirm commissions on promo bookings, don't rely on Cruising Power system\n3. Cross-ref against active D2M Nexion bookings (Regent commission pipeline) to ensure visibility\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Weekly uptime report - June 2026",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:48:28 -0700",
+      "body": "ISSUE:\nYOGA on Thunderbird infrastructure monitoring reports 100% downtime for full week — Commander must verify system status and restore immediately.\n\nDISCUSSION:\nUptimeRobot weekly report shows YOGA on Thunderbird (D2M's internal infrastructure system) at 0% uptime with 1 incident spanning 7 days (June 14-20). This is a critical infrastructure failure affecting Thunderbird OS operations.\n\nACTIONS I RECOMMEND TAKING:\n1. Verify YOGA system status immediately (100.69.222.124)\n2. Check if UptimeRobot itself is misconfigured or if YOGA is actually down\n3. Review logs from June 14-20 for incident root cause\n4. Restore YOGA service if down — affects all dependent systems\n5. Validate all credential keepalive timers and infrastructure services (per hale_state.json monitoring stack)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:48 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Introducing: The Honesty Project. Plus. . .",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:47:59 -0700",
+      "body": "ISSUE:\nIran's Strait of Hormuz closure is an active event—cross-reference D2M client itineraries against affected routes (Persian Gulf, Red Sea ports); monitor energy price impacts on fuel surcharges and shipping costs.\n\nDISCUSSION:\nIran closed Strait of Hormuz amid U.S.-Iran negotiations led by VP Vance. FAA investigating near-collision at Boston Logan. Multiple geopolitical developments (UK PM crisis, Crimea energy crisis) with potential ripple effects on global travel infrastructure.\n\nACTIONS I RECOMMEND TAKING:\n1. Alert cruise line contacts (Regent, Silversea, Viking) for status updates on affected voyages\n2. Audit D2M client bookings for Middle East/Persian Gulf itineraries; escalate affected voyages to Commander\n3. Monitor energy price indices for fuel surcharge implications on active bookings\n4. Track FAA Boston Logan incident for client flight routing impacts (East Coast departures)\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:47 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[A3] Client: DOSSIER_Prestige_SeasonToCheer_Dec2027 — Re: Silversea cruise",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:46:38 -0700",
+      "body": "ISSUE:\nColosseum tour underperformed; restaurant and tour experiences otherwise excellent; weather impact noted; embarkation logistics confirmed.\n\nDISCUSSION:\nMelissa emails from Rome (Jun 22, 12:50 PM local) while in final pre-embarkation phase. Colosseum tour—booked independently by Erik after D2M option wasn't available Jun 20—had unprepared/personality-lacking guide but otherwise acceptable. La Fata Ignorante delivered exceptional experience (outstanding service). Two other restaurants strong. Rome heat affected outdoor activity enjoyment. Moma special dinner scheduled for tonight (Jun 22). Embarkation tomorrow (Jun 23) on track. Prior coordination for Erik's Jun 24 birthday and stateroom preferences (Hendricks Gin + diet tonic) confirmed in place via earlier correspondence.\n\nOPTIONS:\n1. Log Colosseum tour company in vendor feedback system (guide quality issue); deprioritize for future Rome excursion recommendations\n2. Add La Fata Ignorante to D2M approved restaurant list for Rome pre-cruise dining segment\n3. Confirm embarkation and birthday coordination locked with Silversea Butler service for Jun 24\n4. Schedule post-cruise survey/feedback request 1-2 days post-disembarkation (Jul 7-8)\n\nACTIONS I RECOMMEND TAKING:\n1. Log Colosseum tour company in vendor feedback system (guide quality issue); deprioritize for future Rome excursion recommendations\n2. Add La Fata Ignorante to D2M approved restaurant list for Rome pre-cruise dining segment\n3. Confirm embarkation and birthday coordination locked with Silversea Butler service for Jun 24\n4. Schedule post-cruise survey/feedback request 1-2 days post-disembarkation (Jul 7-8)\n\n---\nStaff Paper from Dani Moreau, D2M Travel\nGenerated: 2026-06-22 06:46 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Today's Headlines: U.S. intelligence located video",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:44:11 -0500",
+      "body": "ISSUE:\nStrait of Hormuz closure/toll threat and Dominican Republic resort fire require cross-check against active D2M client itineraries and departure dates.\n\nDISCUSSION:\nDaily news digest from Just the News covering geopolitics (Iran negotiations, Strait of Hormuz toll threats), maritime incidents (cruise ship hantavirus quarantine), aviation incidents (Delta near-miss Boston), and resort disasters (Dominican Republic fire evacuation ~1,700 tourists). Multiple items affect travel routes, costs, and client safety.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Strait of Hormuz tensions (Iran toll/closure threat) — check if any active clients transit Suez/Hormuz routes (Mediterranean, Asia-Pacific voyages)\n2. Cross-ref Dominican Republic resort fire evacuation against client itineraries (any DR stops)\n3. Hantavirus on cruise ship — monitor for public health alerts affecting active cruise lines in D2M portfolio\n4. Delta flight incident at Boston — check if any clients departing from BOS\n5. Track Iran-US negotiations (Vance in Switzerland) for potential route/destination impacts\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:44 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump Blasts Times; Lindsey Predicts War Again; Co",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 07:43:44 -0500",
+      "body": "ISSUE:\nGeopolitical escalation around Strait of Hormuz (maritime chokepoint) could impact cruise routing, fuel pricing, and security advisories for clients with Middle East/Indian Ocean itineraries.\n\nDISCUSSION:\nNewsmax breaking news covering Trump-Iran tensions, Lindsey Graham's prediction of Strait of Hormuz conflict, Colombian political shift, and Pope visit. Geopolitical developments affect cruise industry operations and client destination safety.\n\nACTIONS I RECOMMEND TAKING:\n1. Log as ongoing geopolitical intel; flag Strait of Hormuz tensions for Commander situational awareness\n2. Cross-reference against any active client bookings with Suez Canal, Persian Gulf, or Indian Ocean routing\n3. Monitor for maritime security travel advisories if tensions escalate\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Morning Insurrection: World Cup Fans Keep Discover",
+      "to": "johnloucks3@gmail.com",
+      "date": "Mon, 22 Jun 2026 05:42:27 -0700",
+      "body": "ISSUE:\nIran-Hezbollah-Lebanon military activity may affect Mediterranean cruise route safety and planning for active D2M clients with Mediterranean/Atlantic voyages.\n\nDISCUSSION:\nPolitical newsletter covering U.S. domestic politics, academic policy, and geopolitical developments including Iran-U.S. negotiations and Israeli-Hezbollah operations in Lebanon.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag Vijeta Uniyal post (Iran-Hezbollah-Lebanon) for Commander geopolitical brief\n2. Cross-ref against active D2M clients with Mediterranean destinations (Regent, Silversea itineraries)\n3. Monitor for escalation or impact on cruise line ports\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-22 06:42 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Amy's travel insurance — two options that still work",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 14:04:16 -0600",
+      "body": "What is a pre-existing condition, and can I get coverage for one?\n\nA pre-existing condition is an illness, disease, or other condition that\nyou, a family member, or traveling companion has before your coverage\nbegins. They may include conditions such as heart disease, diabetes,\nautoimmune disorders, and more.\n\nPre-existing conditions are covered by Trip Protection Annual Multi-Trip\nafter the policy has been in effect for 60 days. At the end of your annual\ncoverage, you can re-buy the plan for an additional year. If you purchase\nagain without a gap in coverage, you do not need to wait another 60 days to\ngain pre-existing conditions coverage.\n\nThis can be a complicated subject, so we recommend you read your plan\ndocument and contact us if you have questions.\n\nAl from Sevencorners\nhttps://www.sevencorners.com/plans/trip-protection-annual-multi-trip\n\nJohn",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "Amy's travel insurance — two options that still work",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 13:56:55 -0600",
+      "body": "Al,\n\nBefore we chat, here is the latest insurance summary so you have something\nconcrete to look at with Amy.\n\nThe short version: the standard trip protection policy I quoted you earlier\nwon't cover Amy's pre-existing conditions. The waiver required purchase\nwithin 20 days of your initial deposit — that window closed back in\nDecember. Nothing we can do about that one.\n\nBut there are two policies that can still work:\n\nOption 1 — BCBS Global Solutions Multi-Trip Platinum (Recommended)\n\nThis is an annual medical plan that covers * stable * pre-existing\nconditions — not just acute emergencies. The key requirement is that Amy\nhas a primary U.S. health insurance plan (Medicare qualifies). If she's on\nMedicare, this is the right answer. Coverage up to $1 million for travelers\nunder 70.\n\nNo deposit-timing trap — you can buy it now without losing coverage.\nBCBS Multi-Trip Platinum — View Plan\n<https://bcbsglobalsolutions.com/individuals-and-families/international-medical-insurance/multi-trip/>\n\nOption 2 — Seven Corners Travel Medical Annual Multi-Trip\n\nThis plan has a $20,000 pre-existing condition recurrence benefit. It's a\nmedical-only plan (no trip cancellation), but it does provide real coverage\nfor pre-existing condition flare-ups abroad.\n\n⚠ Time-sensitive: This plan has a 60-day waiting period before pre-existing\ncondition coverage activates. To clear that window before your August 29\ndeparture, Amy would need to purchase by tomorrow, June 24.\n\nSeven Corners Annual Multi-Trip — View Plan\n<https://www.sevencorners.com/plans/travel-medical-annual-multi-trip>\n\nQuick comparison:\nPlan Pre-Ex Coverage Requirement Deadline\nBCBS Multi-Trip Platinum Stable pre-ex conditions (full) Must have primary\nU.S. insurance None — buy anytime\nSeven Corners Annual $20K recurrence benefit 60-day waiting period June 24\n\nMy recommendation is BCBS if Amy's on Medicare. I will call soon.\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest\n\n[image: Dreams2Memories Travel]",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Storms on Plains, Bear Attack, and Mountaintop Lem",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:12:18 -0400",
+      "body": "ISSUE:\nSevere weather watch for Colorado Front Range and Eastern Plains through at least Thursday (June 23-26) with potential supercell thunderstorms, hail, 60mph gusts, and flash flooding risk. May affect local operations, client travel to/from Colorado, or outdoor activities during active voyages.\n\nDISCUSSION:\nThe Colorado Flyover local news newsletter covering Colorado weather (severe storms Front Range/Eastern Plains through Thursday), politics (voting/polling), energy costs, and military community events. Mixed with local community stories and sponsored content.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor NWS alerts through Thursday for impact on Colorado-based operations and client itineraries\n2. Track Xcel Energy utility updates affecting operational costs\n3. Stay informed on June 30 voting deadline if it affects staff scheduling\n4. Cross-check weather against any active D2M clients traveling in Colorado region\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:12 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump: Iran Agreed to Nuclear Inspections; America",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:08:43 -0400",
+      "body": "ISSUE:\nIran nuclear agreement could affect travel security, port availability, and itinerary viability for Middle East/Persian Gulf cruise routes\n\nDISCUSSION:\nNewsmax newsletter headlines: Iran nuclear inspection agreement, US political divisions on America 250 celebrations, primary election influence. Remainder is advertorial for precious metals retirement products.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor Iran nuclear developments for impact on active/pending Middle East client voyages\n2. Flag if any clients have bookings in affected regions (Persian Gulf, Middle East ports)\n3. Cross-reference against D2M active bookings for geopolitical exposure\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:08 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] Client: Amy replied \"THANKS!\" to the insurance email (from johnloucks3) 2026-06-20. ⚠️ DELIVERABILITY: the Scandinavia voyage email (from concierge@d2mluxury.quest send-as) was REFUSED by me.com, while the johnloucks3-sent insurance email delivered fine. Likely d2mluxury.quest→iCloud SPF/DKIM/DMARC issue — for me.com/iCloud recipients, send from johnloucks3 or fix domain auth. Investigate (MISSION-288-adjacent). — Re: Quote Results",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:05:05 -0400",
+      "body": "ISSUE:\nAl Ely requests call to finalize insurance purchase; deadline to purchase for 60-day pre-existing coverage is June 26 (3 days from today).\n\nDISCUSSION:\nAl and Amy Darrow (Ely-Darrow couple) are part of the Grandeur Scandinavia group departing Aug 29, 2026. Commander has already explained that 7 Corners insurance offers a 60-day pre-existing condition window if purchased at least 60 days before coverage start (recommended Aug 26). Al was initially confused about whether insurance needed to be purchased when they booked (Sept 2025) but now understands the timeline. The June 26 deadline is 3 days away, making this time-sensitive. Al and Amy are ready to commit — they just need confirmation and a walkthrough before purchase.\n\nOPTIONS:\n1. Confirm 3pm Central time (2pm Mountain) call with Al today or tomorrow morning\n2. Prepare 7 Corners quote and coverage terms summary for screen share\n3. Have payment method ready (likely Al/Amy will want to charge same card as the cruise FPD paid)\n4. Ensure insurance is purchased and confirmed BEFORE June 26 deadline\n5. Send confirmation email with policy details and receipt once purchased\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm 3pm Central time (2pm Mountain) call with Al today or tomorrow morning\n2. Prepare 7 Corners quote and coverage terms summary for screen share\n3. Have payment method ready (likely Al/Amy will want to charge same card as the cruise FPD paid)\n4. Ensure insurance is purchased and confirmed BEFORE June 26 deadline\n5. Send confirmation email with policy details and receipt once purchased\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:05 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: No More Mr. Nice Iranian Guy - We Killed Him",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:02:18 -0400",
+      "body": "ISSUE:\nIran/Persian Gulf operational environment; implications for client travel routing and security briefings in region\n\nDISCUSSION:\nAndrew Cockburn (defense analyst) reports on U.S. assassination strategy (HVI) in Iraq/Iran, citing classified 2007 study showing such operations escalate local attacks 40% and produce more aggressive successors — directly relevant to Persian Gulf travel security and regional stability.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag for Commander intel brief — cross-ref against active client destinations (Suez, Persian Gulf, Mediterranean ports)\n2. Monitor for follow-up reporting on Iran response posture\n3. Brief clients with June/July bookings in region on current geopolitical conditions\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:02 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "personal",
+      "subject": "MCP GATEWAY",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 23 Jun 2026 08:16:37 -0600",
+      "body": "COS, implement this:\nShared MCP Server Pattern Gaining Traction\n\n   - *Source:* EPC Group — Multi-Model AI Engineering Playbook\n   <https://www.google.com/url?q=https://www.epcgroup.net/blog/multi-model-ai-engineering-playbook-mcp-ai-gateway-vendor-portability-2026&source=gmail&ust=1782270301346000&sa=E>\n   - Pattern: run one shared MCP server (e.g., Postgres, browser\n   automation) that multiple agents connect to simultaneously — Claude Code\n   and Codex CLI querying the same data source in parallel. AI Gateway layer\n   (LiteLLM, Portkey, OpenRouter) for failover, routing, and audit logs.\n   - *Relevance:* HIGH — directly applicable to Thunderbird OS multi-agent\n   cruise/travel data lookups.\n   - *Action:* Consider adding an AI Gateway (LiteLLM or Portkey) in front\n   of your model calls for unified logging and cost tracking.\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: 🚀 Your 20% welcome discount is ready! (7 days only",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:49:40 -0400",
+      "body": "ISSUE:\nEvaluate Mozio as a ground transportation supplier integration point for D2M's client lifecycle (airport/port transfers).\n\nDISCUSSION:\nMozio offers B2B ground transportation booking platform for travel agents with global coverage (180+ countries), 20% first-booking discount, and 5% ongoing rates. Potential supplier integration for client transfers.\n\nACTIONS I RECOMMEND TAKING:\n1. Review Mozio platform capabilities vs. current ground transportation workflow\n2. Test with one client booking to assess UX and commission structure before full integration\n3. Document integration fit and competitive advantage vs. existing suppliers\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Juno Jump Start | Smith warns Farkas to back off M",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:43:22 -0400",
+      "body": "ISSUE:\nAirfare inflation spike will pressure air pricing quotes for clients; Calgary Stampede restrictions may reduce event-travel bookings; monitor Canadian market headwinds.\n\nDISCUSSION:\nJuno News digest covering Canadian politics and markets, including 3.2% inflation (airfare price spike), Calgary Stampede noise bylaw restrictions affecting tourism events, and mass tourism impact commentary — multiple factors affecting travel costs, event bookings, and destination risk.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor airfare cost trends from inflation spike; assess impact on active client air quotes (e.g., Spencer DEN-FCO, Loucks travel)\n2. Track Calgary Stampede noise restrictions for impact on event-tourism bookings (relevant if any clients considering Canada mountain/festival itineraries)\n3. Flag Canada inflation trend as pricing headwind in briefing if affecting cost-sensitive client discussions\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "johnloucks3@gmail.com",
+      "tier": "internal",
+      "subject": "Tech Scan 2026-06-23 11:00 UTC — 1 trial / 0 killed (Hale adjudicated)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 07:00:18 -0400",
+      "body": "TECH SCAN — 2026-06-23 11:00 UTC airborne scanner pulse · 3 finds · sectors mcp HALE'S ADJUDICATION (kill-pass before anything's believed) 📊 1 TRIAL · 2 WATCH · 0 KILLED as noise · 0 adopt 🧪 TRIAL — real tools, worth a bounded look: I made a free MCP server so your Claude can read Claude/Anthropic news and RAG — https://claudenews.online ↳ real tool (server, mcp) — worth a bounded look 👁 WATCH: AI compressed the 15% of our website rebuild that was typing, not the other 85% — https://bitnoise.pl/insights A public Sentry key is all it takes to hijack Claude Code, Cursor, and Codex — https://thenewstack.io/agentjac RAW — all finds this pulse (unfiltered) [mcp] AI compressed the 15% of our website rebuild that was typing, not the other 85% — https://bitnoise.pl/insights/rebuildin (Hacker News — Claude Code) [mcp] A public Sentry key is all it takes to hijack Claude Code, Cursor, and Codex — https://thenewstack.io/agentjacking-sentr (Hacker News — Claude Code) [mcp] I made a free MCP server so your Claude can read Claude/Anthropic news and RAG — https://claudenews.online (Hacker News — MCP / Anthropic) — Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Re: Amy's travel insurance — two options that still work",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 14:04:16 -0600",
+      "body": "What is a pre-existing condition, and can I get coverage for one?\n\nA pre-existing condition is an illness, disease, or other condition that\nyou, a family member, or traveling companion has before your coverage\nbegins. They may include conditions such as heart disease, diabetes,\nautoimmune disorders, and more.\n\nPre-existing conditions are covered by Trip Protection Annual Multi-Trip\nafter the policy has been in effect for 60 days. At the end of your annual\ncoverage, you can re-buy the plan for an additional year. If you purchase\nagain without a gap in coverage, you do not need to wait another 60 days to\ngain pre-existing conditions coverage.\n\nThis can be a complicated subject, so we recommend you read your plan\ndocument and contact us if you have questions.\n\nAl from Sevencorners\nhttps://www.sevencorners.com/plans/trip-protection-annual-multi-trip\n\nJohn",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "Amy's travel insurance — two options that still work",
+      "to": "Al Ely <al.ely58@gmail.com>",
+      "date": "Tue, 23 Jun 2026 13:56:55 -0600",
+      "body": "Al,\n\nBefore we chat, here is the latest insurance summary so you have something\nconcrete to look at with Amy.\n\nThe short version: the standard trip protection policy I quoted you earlier\nwon't cover Amy's pre-existing conditions. The waiver required purchase\nwithin 20 days of your initial deposit — that window closed back in\nDecember. Nothing we can do about that one.\n\nBut there are two policies that can still work:\n\nOption 1 — BCBS Global Solutions Multi-Trip Platinum (Recommended)\n\nThis is an annual medical plan that covers * stable * pre-existing\nconditions — not just acute emergencies. The key requirement is that Amy\nhas a primary U.S. health insurance plan (Medicare qualifies). If she's on\nMedicare, this is the right answer. Coverage up to $1 million for travelers\nunder 70.\n\nNo deposit-timing trap — you can buy it now without losing coverage.\nBCBS Multi-Trip Platinum — View Plan\n<https://bcbsglobalsolutions.com/individuals-and-families/international-medical-insurance/multi-trip/>\n\nOption 2 — Seven Corners Travel Medical Annual Multi-Trip\n\nThis plan has a $20,000 pre-existing condition recurrence benefit. It's a\nmedical-only plan (no trip cancellation), but it does provide real coverage\nfor pre-existing condition flare-ups abroad.\n\n⚠ Time-sensitive: This plan has a 60-day waiting period before pre-existing\ncondition coverage activates. To clear that window before your August 29\ndeparture, Amy would need to purchase by tomorrow, June 24.\n\nSeven Corners Annual Multi-Trip — View Plan\n<https://www.sevencorners.com/plans/travel-medical-annual-multi-trip>\n\nQuick comparison:\nPlan Pre-Ex Coverage Requirement Deadline\nBCBS Multi-Trip Platinum Stable pre-ex conditions (full) Must have primary\nU.S. insurance None — buy anytime\nSeven Corners Annual $20K recurrence benefit 60-day waiting period June 24\n\nMy recommendation is BCBS if Amy's on Medicare. I will call soon.\n\nJohn\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com\nwww.d2mluxury.quest\n\n[image: Dreams2Memories Travel]",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Storms on Plains, Bear Attack, and Mountaintop Lem",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:12:18 -0400",
+      "body": "ISSUE:\nSevere weather watch for Colorado Front Range and Eastern Plains through at least Thursday (June 23-26) with potential supercell thunderstorms, hail, 60mph gusts, and flash flooding risk. May affect local operations, client travel to/from Colorado, or outdoor activities during active voyages.\n\nDISCUSSION:\nThe Colorado Flyover local news newsletter covering Colorado weather (severe storms Front Range/Eastern Plains through Thursday), politics (voting/polling), energy costs, and military community events. Mixed with local community stories and sponsored content.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor NWS alerts through Thursday for impact on Colorado-based operations and client itineraries\n2. Track Xcel Energy utility updates affecting operational costs\n3. Stay informed on June 30 voting deadline if it affects staff scheduling\n4. Cross-check weather against any active D2M clients traveling in Colorado region\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:12 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Trump: Iran Agreed to Nuclear Inspections; America",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:08:43 -0400",
+      "body": "ISSUE:\nIran nuclear agreement could affect travel security, port availability, and itinerary viability for Middle East/Persian Gulf cruise routes\n\nDISCUSSION:\nNewsmax newsletter headlines: Iran nuclear inspection agreement, US political divisions on America 250 celebrations, primary election influence. Remainder is advertorial for precious metals retirement products.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor Iran nuclear developments for impact on active/pending Middle East client voyages\n2. Flag if any clients have bookings in affected regions (Persian Gulf, Middle East ports)\n3. Cross-reference against D2M active bookings for geopolitical exposure\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:08 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] Client: Amy replied \"THANKS!\" to the insurance email (from johnloucks3) 2026-06-20. ⚠️ DELIVERABILITY: the Scandinavia voyage email (from concierge@d2mluxury.quest send-as) was REFUSED by me.com, while the johnloucks3-sent insurance email delivered fine. Likely d2mluxury.quest→iCloud SPF/DKIM/DMARC issue — for me.com/iCloud recipients, send from johnloucks3 or fix domain auth. Investigate (MISSION-288-adjacent). — Re: Quote Results",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:05:05 -0400",
+      "body": "ISSUE:\nAl Ely requests call to finalize insurance purchase; deadline to purchase for 60-day pre-existing coverage is June 26 (3 days from today).\n\nDISCUSSION:\nAl and Amy Darrow (Ely-Darrow couple) are part of the Grandeur Scandinavia group departing Aug 29, 2026. Commander has already explained that 7 Corners insurance offers a 60-day pre-existing condition window if purchased at least 60 days before coverage start (recommended Aug 26). Al was initially confused about whether insurance needed to be purchased when they booked (Sept 2025) but now understands the timeline. The June 26 deadline is 3 days away, making this time-sensitive. Al and Amy are ready to commit — they just need confirmation and a walkthrough before purchase.\n\nOPTIONS:\n1. Confirm 3pm Central time (2pm Mountain) call with Al today or tomorrow morning\n2. Prepare 7 Corners quote and coverage terms summary for screen share\n3. Have payment method ready (likely Al/Amy will want to charge same card as the cruise FPD paid)\n4. Ensure insurance is purchased and confirmed BEFORE June 26 deadline\n5. Send confirmation email with policy details and receipt once purchased\n\nACTIONS I RECOMMEND TAKING:\n1. Confirm 3pm Central time (2pm Mountain) call with Al today or tomorrow morning\n2. Prepare 7 Corners quote and coverage terms summary for screen share\n3. Have payment method ready (likely Al/Amy will want to charge same card as the cruise FPD paid)\n4. Ensure insurance is purchased and confirmed BEFORE June 26 deadline\n5. Send confirmation email with policy details and receipt once purchased\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:05 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: No More Mr. Nice Iranian Guy - We Killed Him",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 14:02:18 -0400",
+      "body": "ISSUE:\nIran/Persian Gulf operational environment; implications for client travel routing and security briefings in region\n\nDISCUSSION:\nAndrew Cockburn (defense analyst) reports on U.S. assassination strategy (HVI) in Iraq/Iran, citing classified 2007 study showing such operations escalate local attacks 40% and produce more aggressive successors — directly relevant to Persian Gulf travel security and regional stability.\n\nACTIONS I RECOMMEND TAKING:\n1. Flag for Commander intel brief — cross-ref against active client destinations (Suez, Persian Gulf, Mediterranean ports)\n2. Monitor for follow-up reporting on Iran response posture\n3. Brief clients with June/July bookings in region on current geopolitical conditions\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 12:02 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "personal",
+      "subject": "MCP GATEWAY",
+      "to": "D2M Concierge <d2mconcierge@gmail.com>",
+      "date": "Tue, 23 Jun 2026 08:16:37 -0600",
+      "body": "COS, implement this:\nShared MCP Server Pattern Gaining Traction\n\n   - *Source:* EPC Group — Multi-Model AI Engineering Playbook\n   <https://www.google.com/url?q=https://www.epcgroup.net/blog/multi-model-ai-engineering-playbook-mcp-ai-gateway-vendor-portability-2026&source=gmail&ust=1782270301346000&sa=E>\n   - Pattern: run one shared MCP server (e.g., Postgres, browser\n   automation) that multiple agents connect to simultaneously — Claude Code\n   and Codex CLI querying the same data source in parallel. AI Gateway layer\n   (LiteLLM, Portkey, OpenRouter) for failover, routing, and audit logs.\n   - *Relevance:* HIGH — directly applicable to Thunderbird OS multi-agent\n   cruise/travel data lookups.\n   - *Action:* Consider adding an AI Gateway (LiteLLM or Portkey) in front\n   of your model calls for unified logging and cost tracking.\n\nJohn A Loucks III\nOwner, Dreams2Memories, LLC\n719-291-0742\njohnloucks3@gmail.com",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: 🚀 Your 20% welcome discount is ready! (7 days only",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:49:40 -0400",
+      "body": "ISSUE:\nEvaluate Mozio as a ground transportation supplier integration point for D2M's client lifecycle (airport/port transfers).\n\nDISCUSSION:\nMozio offers B2B ground transportation booking platform for travel agents with global coverage (180+ countries), 20% first-booking discount, and 5% ongoing rates. Potential supplier integration for client transfers.\n\nACTIONS I RECOMMEND TAKING:\n1. Review Mozio platform capabilities vs. current ground transportation workflow\n2. Test with one client booking to assess UX and commission structure before full integration\n3. Document integration fit and competitive advantage vs. existing suppliers\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:49 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "[COS] General: Juno Jump Start | Smith warns Farkas to back off M",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 08:43:22 -0400",
+      "body": "ISSUE:\nAirfare inflation spike will pressure air pricing quotes for clients; Calgary Stampede restrictions may reduce event-travel bookings; monitor Canadian market headwinds.\n\nDISCUSSION:\nJuno News digest covering Canadian politics and markets, including 3.2% inflation (airfare price spike), Calgary Stampede noise bylaw restrictions affecting tourism events, and mass tourism impact commentary — multiple factors affecting travel costs, event bookings, and destination risk.\n\nACTIONS I RECOMMEND TAKING:\n1. Monitor airfare cost trends from inflation spike; assess impact on active client air quotes (e.g., Spencer DEN-FCO, Loucks travel)\n2. Track Calgary Stampede noise restrictions for impact on event-tourism bookings (relevant if any clients considering Canada mountain/festival itineraries)\n3. Flag Canada inflation trend as pricing headwind in briefing if affecting cost-sensitive client discussions\n\n---\nStaff Paper from Victory Hale, D2M Travel\nGenerated: 2026-06-23 06:43 MT\nThunderbird Email Intelligence Officer",
+      "score": 2
+    },
+    {
+      "account": "d2mconcierge@gmail.com",
+      "tier": "internal",
+      "subject": "Tech Scan 2026-06-23 11:00 UTC — 1 trial / 0 killed (Hale adjudicated)",
+      "to": "johnloucks3@gmail.com",
+      "date": "Tue, 23 Jun 2026 07:00:18 -0400",
+      "body": "TECH SCAN — 2026-06-23 11:00 UTC airborne scanner pulse · 3 finds · sectors mcp HALE'S ADJUDICATION (kill-pass before anything's believed) 📊 1 TRIAL · 2 WATCH · 0 KILLED as noise · 0 adopt 🧪 TRIAL — real tools, worth a bounded look: I made a free MCP server so your Claude can read Claude/Anthropic news and RAG — https://claudenews.online ↳ real tool (server, mcp) — worth a bounded look 👁 WATCH: AI compressed the 15% of our website rebuild that was typing, not the other 85% — https://bitnoise.pl/insights A public Sentry key is all it takes to hijack Claude Code, Cursor, and Codex — https://thenewstack.io/agentjac RAW — all finds this pulse (unfiltered) [mcp] AI compressed the 15% of our website rebuild that was typing, not the other 85% — https://bitnoise.pl/insights/rebuildin (Hacker News — Claude Code) [mcp] A public Sentry key is all it takes to hijack Claude Code, Cursor, and Codex — https://thenewstack.io/agentjacking-sentr (Hacker News — Claude Code) [mcp] I made a free MCP server so your Claude can read Claude/Anthropic news and RAG — https://claudenews.online (Hacker News — MCP / Anthropic) — Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.",
       "score": 2
     }
   ]

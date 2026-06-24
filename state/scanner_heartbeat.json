@@ -1,11 +1,11 @@
 {
-  "ts": "2026-06-21T19:00:15.313456+00:00",
-  "finding_count": 3,
-  "content_hash": "0c141026d8197432b0bf9c28a53072b452ebbfa7",
+  "ts": "2026-06-24T11:00:16.978443+00:00",
+  "finding_count": 11,
+  "content_hash": "c2cd57da2c9c5dc1516b9cc273d71042f7d278e8",
   "sectors": [
-    "ai-writing",
-    "travel-b2b",
-    "competitor"
+    "browser",
+    "voice",
+    "claude-code"
   ],
   "zero_streak": 0,
   "frozen": false

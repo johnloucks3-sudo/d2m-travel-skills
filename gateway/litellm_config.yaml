@@ -1,0 +1,115 @@
+# ============================================================
+# Thunderbird Wing — AI Gateway (LiteLLM Proxy)
+# Port: 4000  |  Admin UI: http://localhost:4000/ui
+# All API keys via environment variables — zero hardcoded secrets
+#
+# Active provider stack (as of MISSION-267 consolidation 2026-06-15):
+#   ✅ Anthropic (ANTHROPIC_API_KEY — re-enabled 2026-06-19)
+#   ✅ Groq (GROQ_API_KEY — fast/free Llama)
+#   ✅ Cerebras (CEREBRAS_API_KEY — 1M tok/mo free, added 2026-06-21)
+#   ✅ DeepInfra (DEEPINFRA_API_KEY — free Llama/Mistral, added 2026-06-21)
+#   ✅ Cloudflare Workers AI (CF_API_TOKEN — 10k neurons/day, added 2026-06-21)
+#   ✅ xAI Grok (XAI_API_KEY — added 2026-06-10)
+#   ✅ GitHub Models (GITHUB_TOKEN — Azure-backed, free, added 2026-06-21)
+#   ❌ OpenRouter — RETIRED 2026-06-15 (MISSION-267, Commander-approved)
+#   ❌ OpenAI — RETIRED 2026-06-15 (MISSION-267)
+# ============================================================
+
+model_list:
+
+  # ── TIER 1: Claude Sonnet 4.6 (Anthropic — primary) ──────
+  - model_name: claude-sonnet
+    litellm_params:
+      model: anthropic/claude-sonnet-4-6
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── TIER 1: Claude Haiku 4.5 (Anthropic — fast/cheap) ───
+  - model_name: claude-haiku
+    litellm_params:
+      model: anthropic/claude-haiku-4-5-20251001
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── TIER 2: Groq Llama-3.3-70B (free, fast) ─────────────
+  - model_name: groq-llama
+    litellm_params:
+      model: groq/llama-3.3-70b-versatile
+      api_key: os.environ/GROQ_API_KEY
+
+  - model_name: groq-llama-fast
+    litellm_params:
+      model: groq/llama-3.1-8b-instant
+      api_key: os.environ/GROQ_API_KEY
+
+  # ── TIER 2: Cerebras Llama (1M tok/mo free, fast inference) ──
+  - model_name: cerebras-llama
+    litellm_params:
+      model: cerebras/llama3.1-70b
+      api_key: os.environ/CEREBRAS_API_KEY
+
+  # ── TIER 2: xAI Grok ─────────────────────────────────────
+  - model_name: grok
+    litellm_params:
+      model: xai/grok-beta
+      api_key: os.environ/XAI_API_KEY
+
+  # ── TIER 3: DeepInfra (free Llama/Mistral) ───────────────
+  - model_name: deepinfra-llama
+    litellm_params:
+      model: deepinfra/meta-llama/Meta-Llama-3.1-70B-Instruct
+      api_key: os.environ/DEEPINFRA_API_KEY
+
+  # ── TIER 3: GitHub Models (Azure-backed, free) ───────────
+  - model_name: github-gpt4o-mini
+    litellm_params:
+      model: github/gpt-4o-mini
+      api_key: os.environ/GITHUB_TOKEN
+
+  # ── VIRTUAL: travel-agent (auto-routes, failover chain) ──
+  # Primary: Sonnet → Groq → Cerebras → DeepInfra
+  - model_name: travel-agent
+    litellm_params:
+      model: anthropic/claude-sonnet-4-6
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── VIRTUAL: travel-agent-fast (bulk/speed tasks) ────────
+  - model_name: travel-agent-fast
+    litellm_params:
+      model: anthropic/claude-haiku-4-5-20251001
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+router_settings:
+  routing_strategy: least-busy
+  num_retries: 3
+  retry_after: 5
+  timeout: 120
+  fallbacks:
+    - travel-agent:
+        - groq-llama
+        - cerebras-llama
+        - deepinfra-llama
+    - travel-agent-fast:
+        - groq-llama-fast
+        - cerebras-llama
+        - github-gpt4o-mini
+    - claude-sonnet:
+        - groq-llama
+        - cerebras-llama
+    - claude-haiku:
+        - groq-llama-fast
+        - cerebras-llama
+
+litellm_settings:
+  drop_params: true
+  max_budget: 10.00
+  budget_duration: 1d
+  cache: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: "sqlite:////home/john/Thunderbird/gateway/audit.db"
+  store_model_in_db: false
+  ui_username: admin
+  ui_password: os.environ/LITELLM_UI_PASSWORD
+
+environment_variables:
+  LITELLM_LOG: "INFO"

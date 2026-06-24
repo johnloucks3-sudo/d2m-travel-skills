@@ -1254,5 +1254,421 @@
     "label": "Perx discount signal(s): 75% OFF, 50% off, 40% off, 77% off",
     "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\nSource: https://www.perx.com/cruises/celebrity-cru",
     "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T03:32:24.852947+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 50% off, 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T03:47:37.427746+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T04:02:57.903686+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 50% off, 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nOnly available from your PE",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T04:18:00.563544+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 65% off, 60% off, 90% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\nSource: https://www.perx.com/cruises/celebrity-cru",
+    "trigger_count": 7
+  },
+  {
+    "ts": "2026-06-22T04:33:47.106549+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nSource: https://www.perx.com/cr",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T04:49:09.326671+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 30% discount, 65% off, 60% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 5
+  },
+  {
+    "ts": "2026-06-22T05:04:08.773557+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 50% off, 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin with an eligible em",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T05:19:43.554278+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 30% discount, 50% off, 40% off",
+    "excerpt": "## KrisFlyer Spontaneous Escapes - Singapore Airlines\nTravel to your dream destinations at a discounted rate to stretch the value of your miles further!\nBook your trip this month to enjoy **30% off** **Saver award rates** to selected destinations across the Singapore Airlines network.\nSimply redeem your flights on **singaporeair.com** or the **SingaporeAir mobile app** from now till 28 February 20",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T05:35:28.237861+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Apex - PERX.com\nUpgrade your cruise only interline rate and make it an All-Inclusive cruise vacation.\nGet a Classic Drinks Package and an unlimited Basic Wi-Fi package, included in your discounted rate with Celebrity's 'All Included' program!\nOnly available from your PERX Vacation Consultant so call today or use the request online and ask for the 'All Included'",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T05:50:34.386158+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 40% off, 65% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\nSource: https://www.perx.com/cruises/celebrity-cru",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T06:05:58.336848+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 90% off, 30% off, 75% OFF",
+    "excerpt": "## Best interline rates on Explora Journeys - PERX.com\nTo be for an interline rate a person must be:\n1. A current employee of either a domestic or international commercial passenger or cargo airline\n2. Spouse or Domestic Partner of current employee above\n3. Parents and Parents-In-Law of current employee above\n4. Air Traffic Controllers & GDS Employees\n5. Retired employee of a commercial passenger",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T06:22:10.014292+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 30% discount, 50% off, 40% off",
+    "excerpt": "## KrisFlyer Spontaneous Escapes - Singapore Airlines\nBook your trip this month to enjoy **30% off** **Saver award rates** to selected destinations across the Singapore Airlines network.\nSimply redeem your flights on **singaporeair.com** or the **SingaporeAir mobile app** from now till 28 February 2026 for travel between 1 and 31 March 2026, both dates inclusive.\nSource: https://www.singaporeair.c",
+    "trigger_count": 7
+  },
+  {
+    "ts": "2026-06-22T06:37:25.183991+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 90% off, 30% off",
+    "excerpt": "## PERX Premium\n7nt - Mediterranean\nSeabourn Quest\n28 Jun 2026\nIstanbul, Turkey to Piraeus (Athens), G\u2026\n12 Jul 2026\nVenice, Italy to Piraeus (Athens), G\u2026\n8nt - Caribbean\nSeabourn Venture\n05 Oct 2026\nHalifax, NS to Bridgetown, Barbados\n26 Jul 2026\nPiraeus (Athens), G\u2026 to Dubrovnik, Croatia\n11 Oct 2026\nPiraeus (Athens), G\u2026 to Istanbul, Turkey\n18 Oct 2026\n19 Jul 2026\nRound-Trip - Piraeus (Athens), \u2026",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T06:52:30.498085+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T07:07:34.819189+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T07:22:34.803404+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T07:37:38.595480+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 75% OFF, 65% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T07:52:39.821806+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nSource: https://www.perx.com/cr",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T08:07:43.881513+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nOnly available from your PE",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T08:22:50.889444+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T08:37:53.142846+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% discount, 30% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T08:52:59.874042+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T09:08:03.412512+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 50% off, 65% off, 60% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin with an eligible em",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T09:23:04.168680+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## PERX.com: Top website for airline employee travel discounts\nTalk to a Perx expert now 1-888-737-9266\nSource: https://www.perx.com\n\n---\n\n## PERX Discounts for AFA Members - Cruise from $49 (plus taxes ...\n2. Discounted Rates: PERX.com offers unbeatable rates on various cabin types.\nPrices start from as low as $49 for an inside cabin, $79 for an oceanview cabin, and $129 for a balcony cabin.\nHave",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T09:38:06.990944+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T09:53:07.918173+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 30% discount",
+    "excerpt": "## Best interline rates on Explora Journeys - PERX.com\nTo be for an interline rate a person must be:\n1. A current employee of either a domestic or international commercial passenger or cargo airline\n2. Spouse or Domestic Partner of current employee above\n3. Parents and Parents-In-Law of current employee above\n4. Air Traffic Controllers & GDS Employees\n5. Retired employee of a commercial passenger",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T10:08:12.222353+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off",
+    "excerpt": "## PERX.com: Top website for airline employee travel discounts\nTalk to a Perx expert now 1-888-737-9266\nSource: https://www.perx.com\n\n---\n\n## Best interline rates on Uniworld - River Cruises - PERX.com\n- Interline rates are not combinable with any other savings offers.\n- Air is not offered in conjunction with Interline savings\n- Airline employees are eligible with proof of passenger airline employ",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T10:23:12.931579+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 75% OFF, 30% discount, 65% off",
+    "excerpt": "## KrisFlyer Spontaneous Escapes - Singapore Airlines\nTravel to your dream destinations at a discounted rate to stretch the value of your miles further!\nBook your trip this month to enjoy **30% off** **Saver award rates** to selected destinations across the Singapore Airlines network.\nSimply redeem your flights on **singaporeair.com** or the **SingaporeAir mobile app** from now till 28 February 20",
+    "trigger_count": 5
+  },
+  {
+    "ts": "2026-06-22T10:38:40.891761+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T10:53:51.534496+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Apex - PERX.com\nUpgrade your cruise only interline rate and make it an All-Inclusive cruise vacation.\nGet a Classic Drinks Package and an unlimited Basic Wi-Fi package, included in your discounted rate with Celebrity's 'All Included' program!\nOnly available from your PERX Vacation Consultant so call today or use the request online and ask for the 'All Included'",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T11:09:00.972210+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T11:24:04.050082+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 90% off, 30% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nGet a Classic Drinks Packag",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T11:39:43.571795+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 65% off, 60% off, 77% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nSource: https://www.perx.com/cruises/celebrity-cruises/celebrity-edge/itineraries/193122/sailings/202",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T11:54:50.159573+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 90% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nSource: https://www.perx.com/cruises/celebrity-cruises/celebrity-xcel/itineraries/199090/sailings/202",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T12:09:53.003125+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 65% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T12:24:52.910931+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 50% off, 75% OFF, 65% off, 60% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin with an eligible em",
+    "trigger_count": 5
+  },
+  {
+    "ts": "2026-06-22T12:40:27.426165+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off",
+    "excerpt": "## PERX.com: Top website for airline employee travel discounts\nTalk to a Perx expert now 1-888-737-9266\nSource: https://www.perx.com\n\n---\n\n## PERX Discounts for AFA Members - Cruise from $49 (plus taxes ...\n2. Discounted Rates: PERX.com offers unbeatable rates on various cabin types.\nPrices start from as low as $49 for an inside cabin, $79 for an oceanview cabin, and $129 for a balcony cabin.\nHave",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T12:55:55.075538+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off",
+    "excerpt": "## Best interline rates on Celebrity Apex - PERX.com\nUpgrade your cruise only interline rate and make it an All-Inclusive cruise vacation.\nGet a Classic Drinks Package and an unlimited Basic Wi-Fi package, included in your discounted rate with Celebrity's 'All Included' program!\nOnly available from your PERX Vacation Consultant so call today or use the request online and ask for the 'All Included'",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T13:11:03.992442+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 50% off, 77% off, 65% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nOnly available from your PE",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T13:26:03.057991+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 50% off, 40% off, 77% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin with an eligible em",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T13:41:56.124142+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 75% OFF, 65% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nOnly available from your PE",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-06-22T13:56:59.276970+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 50% off, 40% off, 75% OFF, 65% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin with an eligible em",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T14:11:58.527587+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 77% off",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T14:26:59.495082+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Holland America Line - Cruises - PERX.com\n### Eligibility\n**General Overview:** Interline rates are special discounts for employees of commercial and cargo airlines (including air traffic controllers) and Employees of GDS supplier companies.\nInterline rates can only be booked through designated Interline Agencies.\n**This program is being extended** so that each cabin wit",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T14:42:28.090122+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-06-22T14:57:27.550547+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 65% off, 60% off, 75% OFF, 77% off",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\n...\nOnly available from your PE",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T15:13:24.758153+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 65% off, 60% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Edge | PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 5
+  },
+  {
+    "ts": "2026-06-22T15:29:16.116997+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 50% off, 65% off, 75% OFF",
+    "excerpt": "## Best interline rates on Explora Journeys - PERX.com\nTo be for an interline rate a person must be:\n1. A current employee of either a domestic or international commercial passenger or cargo airline\n2. Spouse or Domestic Partner of current employee above\n3. Parents and Parents-In-Law of current employee above\n4. Air Traffic Controllers & GDS Employees\n5. Retired employee of a commercial passenger",
+    "trigger_count": 4
+  },
+  {
+    "ts": "2026-06-22T15:44:43.094252+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nUpgrade your cruise only interl",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-06-22T15:59:44.166369+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% off, 30% discount, 75% OFF, 65% off",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nSource: https://www.perx.com/cr",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T16:14:46.635700+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 50% off, 40% off, 75% OFF",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nSource: https://www.perx.com/cr",
+    "trigger_count": 6
+  },
+  {
+    "ts": "2026-06-22T16:30:07.436256+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% OFF, 50% off, 40% off, 77% off",
+    "excerpt": "## Best interline rates on Celebrity Xcel - PERX.com\n**PERX Exclusive!\nUp to $100 OBC with Celebrity Cruises**\n- Book between **Feb 9 - Mar 6, 2026**\n- Valid on any departure between **Mar 15 \u2013 Dec 31, 2026**\n- 3-4nt sailings - $**50 OBC** per stateroom\n- 5nt or longer - $**100 OBC** per stateroom\nContact your **PERX Vacation Consultant** to book!\n**1-888-737-9266**\nSource: https://www.perx.com/cr",
+    "trigger_count": 4
   }
 ]

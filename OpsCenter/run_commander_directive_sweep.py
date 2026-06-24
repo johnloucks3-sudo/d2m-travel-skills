@@ -41,8 +41,8 @@ for sub in (ROOT / "core").iterdir():
 
 from OpsCenter.sweep_tracker import SweepTracker
 
-PROCESSED_LABEL = "THUNDERBIRD-DirectiveReplied"  # 2026-06-16: was "THUNDERBIRD-Scanned" — SHARED with the inbox-sweep, which stamped Commander emails first so this sweep skipped them as "processed" → labeled-but-never-replied. Distinct label fixes it.
-COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
+PROCESSED_LABEL = "THUNDERBIRD-DirectiveReplied"
+COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
 
@@ -52,7 +52,7 @@ import re as _re
 COMMAND_PATTERN = _re.compile(r'^(cos|coo|hale|vic)\W', _re.IGNORECASE)
 SUBJECT_PREFIXES = ("re:", "fwd:", "fw:", "aw:")
 
-tracker = SweepTracker("commander_directive_sweep", cooldown_minutes=4)
+tracker = SweepTracker("commander_directive_sweep", cooldown_minutes=2)
 
 if tracker.in_cooldown():
     sys.exit(0)
@@ -147,6 +147,37 @@ def sanitize_prompt_input(text: str, max_len: int = 2000, field_name: str = "fie
 
     return text
 
+def load_wing_context() -> str:
+    """Load a compressed Wing context package for injection into reply prompts."""
+    lines = []
+    try:
+        state = json.loads((ROOT / "hale_state.json").read_text())
+        tasks = state.get("open_tasks", [])
+        active = [t for t in tasks if t.get("status") not in ("complete",)]
+        fp = state.get("financial_pulse", {})
+        lines.append(f"WING STATE: {len(active)} active missions | pipeline {fp.get('sheet_d2m_share', '$0')} D2M share")
+        if active:
+            top = active[:5]
+            lines.append("TOP MISSIONS: " + " | ".join(f"{t['id']} {t['title'][:40]}" for t in top))
+    except Exception:
+        pass
+    try:
+        ctx = (ROOT / "OpsCenter/session_context_latest.md").read_text()
+        for ln in ctx.splitlines():
+            if ln.startswith("- **MISSION-") and "P0" in ln:
+                lines.append(ln.strip()[:120])
+                if len(lines) > 8:
+                    break
+    except Exception:
+        pass
+    try:
+        import glob as _g
+        dossiers = list((ROOT / "dossiers").glob("*.md"))
+        lines.append(f"CLIENTS: {len(dossiers)} dossier files on record")
+    except Exception:
+        pass
+    return "\n".join(lines) if lines else "Wing state unavailable."
+
 def has_command_prefix_in_subject(subj: str) -> bool:
     """Subject must START WITH COS/COO/HALE/VIC + any non-letter separator."""
     return bool(COMMAND_PATTERN.match(clean_subject(subj)))
@@ -193,8 +224,8 @@ try:
     # Collect messages from both accounts
     # 1. johnloucks3 sent to d2mconcierge (from:johnloucks3, any unread in sent)
     # 2. d2mconcierge inbox unread (self-sends or Commander emails via d2mc)
-    D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:3d"
-    D2MC_SELF_QUERY = f"in:inbox -label:{PROCESSED_LABEL} newer_than:3d"
+    D2MC_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
+    D2MC_SELF_QUERY = f"from:johnloucks3@gmail.com in:inbox -label:{PROCESSED_LABEL} newer_than:7d"
 
     # jl3 SENT-mail path DISABLED 2026-06-16 (Commander spec: reply when an email "hits the
     # d2m inbox from johnloucks3"). The d2mconcierge INBOX loop below is the SOLE replier.
@@ -332,7 +363,6 @@ try:
 
         # ── Dispatch to Claude headless for execution ────────────────────────
         try:
-            import subprocess as _sp
             import time as _time
 
             ts = int(_time.time())
@@ -343,20 +373,25 @@ try:
             safe_subject = sanitize_prompt_input(subject, max_len=200, field_name="subject")
             safe_body = sanitize_prompt_input(body_text, max_len=2000, field_name="body")
 
+            wing_ctx = load_wing_context()
             task_prompt = (
-                f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
-                f"John just emailed you:\n\n"
+                f"You are Hale, COS for John Loucks (Commander / 'Yoda') at Dreams2Memories Travel, LLC. "
+                f"You are Victoria 'Victory' Hale, SES-6, VCSAF-equivalent. You have full Wing authority.\n\n"
+                f"WING STATE:\n{wing_ctx}\n\n"
+                f"Commander just emailed you:\n"
                 f"Subject: {safe_subject}\n\n"
                 f"{safe_body}\n\n"
-                f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
-                f"- If it's a task you will execute: start with 'Wilco —' then RESTATE the task in your own words so Commander knows you understood it correctly. One sentence.\n"
-                f"- If it's information or a question you're answering: start with 'Roger —' then RESTATE what was asked, then answer it.\n"
-                f"- If something is already done or confirmed complete: start with 'Done —' then RESTATE what was completed.\n"
-                f"The restatement is the confirmation. Never skip it. Under 100 words total.\n\n"
-                f"WRITE your reply to {out_file}"
+                f"Reply using pilot brevity protocol:\n"
+                f"- Task you will execute → 'Wilco —' + RESTATE the task in your own words (one sentence, so Commander knows you understood).\n"
+                f"- Question or information request → 'Roger —' + RESTATE what was asked + answer it directly.\n"
+                f"- Already complete / confirmed → 'Done —' + RESTATE what was completed.\n"
+                f"Pick exactly ONE brevity code. The restatement IS the confirmation — never skip it. "
+                f"If you can address the substance (e.g. answer a factual question, report a known status), do so. "
+                f"Under 150 words. No formal header. No sign-off. No D2M branding."
             )
 
-            _sp.Popen(
+            log_path = ROOT / f"logs/directive_{ts}.log"
+            _result = subprocess.run(
                 [
                     sys.executable,
                     str(ROOT / "OpsCenter/dispatch_and_email.py"),
@@ -365,28 +400,32 @@ try:
                     "--prompt", task_prompt,
                     "--subject", subject or "(no subject)",
                     "--model", "haiku",
-                    "--timeout", "1800",
+                    "--timeout", "120",
                     "--thread-id", thread_id or "",
                     "--in-reply-to", msg_id_header or "",
                 ],
-                stdout=open(ROOT / f"logs/directive_{ts}.log", "w"),
+                stdout=open(log_path, "w"),
                 stderr=subprocess.STDOUT,
-                start_new_session=True,
                 cwd=str(ROOT),
+                timeout=130,
             )
-            log_line(f"  dispatched (threaded reply) — output: {out_file}")
+            rc = _result.returncode
+            log_line(f"  dispatch rc={rc} log={log_path.name}")
+
+            # Only mark processed when reply actually sent (rc=0)
+            if rc == 0:
+                if label_id:
+                    try:
+                        service.users().messages().modify(
+                            userId="me", id=msg_id,
+                            body={"addLabelIds": [label_id]}
+                        ).execute()
+                    except Exception:
+                        pass
+            else:
+                log_line(f"  dispatch FAILED (rc={rc}) — NOT marking processed; will retry next cycle")
         except Exception as e:
             log_line(f"  dispatch failed: {e}")
-
-        # Mark processed so it doesn't re-trigger
-        if label_id:
-            try:
-                service.users().messages().modify(
-                    userId="me", id=msg_id,
-                    body={"addLabelIds": [label_id]}
-                ).execute()
-            except Exception:
-                pass
 
         tasked += 1
 
@@ -447,6 +486,25 @@ try:
 
                 _clean_sub = d_subject.lstrip().lower()
 
+                # Skip Wing-generated self-reports — these are informational, no reply needed
+                _SELF_REPORT_PREFIXES = (
+                    "tech scan ", "thunderbird briefing", "thunderbird brief",
+                    "thunderbird command brief", "thunderbird eod", "thunderbird morning",
+                    "agentic intel digest", "tech monitor digest", "travel ai competitive",
+                    "d2m fpd alert", "d2m inbox digest",
+                )
+                if any(_clean_sub.startswith(p) for p in _SELF_REPORT_PREFIXES):
+                    if d2mc_label_id:
+                        try:
+                            d2mc_service.users().messages().modify(
+                                userId="me", id=d_msg_id,
+                                body={"addLabelIds": [d2mc_label_id]}
+                            ).execute()
+                        except Exception:
+                            pass
+                    log_line(f"  d2mc skip (self-report): {d_subject[:60]}")
+                    continue
+
                 # Commander directive 2026-06-16: EVERY email from johnloucks3 gets a reply —
                 # NO prefix/code required, forwards included. (Forwards used to be dropped as
                 # "filing"; that's retired.) Only pure acks are skipped (below) to avoid ping-pong.
@@ -471,6 +529,30 @@ try:
                         log_line(f"  d2mc skip (Re: ack): {d_subject[:60]}")
                         continue
 
+                # Dedup guard: skip if this thread was already processed in a prior run
+                if d_thread_id in directive_thread_ids:
+                    log_line(f"  d2mc skip (already processed thread {d_thread_id[:12]}): {d_subject[:60]}")
+                    if d2mc_label_id:
+                        try:
+                            d2mc_service.users().messages().modify(
+                                userId="me", id=d_msg_id,
+                                body={"addLabelIds": [d2mc_label_id]}
+                            ).execute()
+                        except Exception:
+                            pass
+                    continue
+
+                # Pre-emptive label: apply BEFORE dispatch to prevent duplicate sends
+                # if scanner re-fires before dispatch completes (race condition fix)
+                if d2mc_label_id:
+                    try:
+                        d2mc_service.users().messages().modify(
+                            userId="me", id=d_msg_id,
+                            body={"addLabelIds": [d2mc_label_id]}
+                        ).execute()
+                    except Exception as _label_err:
+                        log_line(f"  pre-label failed: {_label_err}")
+
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
                 new_directive_ids.add(d_thread_id)
 
@@ -483,21 +565,28 @@ try:
                 safe_d_subject = sanitize_prompt_input(d_subject, max_len=200, field_name="d2mc_subject")
                 safe_d_body = sanitize_prompt_input(d_body, max_len=2000, field_name="d2mc_body")
 
+                wing_ctx2 = load_wing_context()
                 task_prompt2 = (
-                    f"You are Hale, COS for John Loucks at Dreams2Memories Travel. "
-                    f"Commander just emailed you:\n\n"
+                    f"You are Hale, COS for John Loucks (Commander / 'Yoda') at Dreams2Memories Travel, LLC. "
+                    f"You are Victoria 'Victory' Hale, SES-6, VCSAF-equivalent. You have full Wing authority.\n\n"
+                    f"WING STATE:\n{wing_ctx2}\n\n"
+                    f"Commander just emailed you:\n"
                     f"Subject: {safe_d_subject}\n\n"
                     f"{safe_d_body}\n\n"
-                    f"Reply using pilot brevity. No formal header, no sign-off, no wings branding.\n"
-                    f"- If it's a task you will execute: start with 'Wilco —' then one sentence on what you're doing.\n"
-                    f"- If it's information or a question you're answering: start with 'Roger —' then your answer.\n"
-                    f"- If something is already done or confirmed complete: start with 'Done —' then what was done.\n"
-                    f"Never use all three. Pick the one that fits. Under 100 words total.\n\n"
-                    f"WRITE your reply to {out_file2}"
+                    f"Reply using pilot brevity protocol. CRITICAL RULES:\n"
+                    f"1. NEVER claim to have implemented, built, or executed something you cannot actually do in this reply.\n"
+                    f"2. For build/implementation tasks: say what was DONE (e.g. 'Logged to mission board for Sterling/ELON — will confirm when built'). Do NOT say 'Wilco — standing up X' as if it's done.\n"
+                    f"3. For information/research: answer directly if you know it.\n"
+                    f"4. For CC on client emails: confirm what was read and what Wing action was taken (e.g. dossier updated, deadline tracked).\n"
+                    f"5. 'Done' means actually complete. 'Wilco' means you are executing now (only use for things the Wing CAN do: log, draft, flag, route).\n\n"
+                    f"- Build/code task → 'Wilco — logged to mission board: [brief description]. Sterling/ELON execute. Completion report follows.'\n"
+                    f"- Information/status → 'Roger —' + direct answer\n"
+                    f"- CC on client email → 'Done — read [client name] thread. [What was done: dossier updated / deadline flagged / no action needed].'\n"
+                    f"Pick exactly ONE brevity code. Under 150 words. No formal header. No sign-off. No D2M branding."
                 )
 
-                import subprocess as _sp2
-                _sp2.Popen(
+                log_path2 = ROOT / f"logs/directive_{ts2}.log"
+                _result2 = subprocess.run(
                     [
                         sys.executable,
                         str(ROOT / "OpsCenter/dispatch_and_email.py"),
@@ -506,23 +595,22 @@ try:
                         "--prompt", task_prompt2,
                         "--subject", d_subject or "(no subject)",
                         "--model", "haiku",
-                        "--timeout", "1800",
+                        "--timeout", "120",
                         "--thread-id", d_thread_id or "",
                         "--in-reply-to", d_msg_id_hdr or "",
                     ],
-                    stdout=open(ROOT / f"logs/directive_{ts2}.log", "w"),
+                    stdout=open(log_path2, "w"),
                     stderr=subprocess.STDOUT,
-                    start_new_session=True,
                     cwd=str(ROOT),
+                    timeout=130,
                 )
-                log_line(f"  d2mc dispatched — output: {out_file2}")
+                rc2 = _result2.returncode
+                log_line(f"  d2mc dispatch rc={rc2} log={log_path2.name}")
 
-                if d2mc_label_id:
-                    d2mc_service.users().messages().modify(
-                        userId="me", id=d_msg_id,
-                        body={"addLabelIds": [d2mc_label_id]}
-                    ).execute()
-                tasked += 1
+                if rc2 == 0:
+                    tasked += 1
+                else:
+                    log_line(f"  d2mc dispatch FAILED (rc={rc2}) — label already applied, will not retry")
             except Exception as e:
                 log_line(f"  d2mc msg {d_msg_id} failed: {e}")
 

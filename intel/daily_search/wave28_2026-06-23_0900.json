@@ -1,0 +1,271 @@
+{
+  "wave": "28",
+  "run_ts": "2026-06-23_0900",
+  "total_categories": 38,
+  "routine_candidates": [
+    1,
+    2,
+    4,
+    7,
+    10,
+    12,
+    14,
+    16,
+    19,
+    25,
+    28,
+    29,
+    30
+  ],
+  "haiku_eligible": [
+    1,
+    2,
+    4,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    26,
+    28,
+    30
+  ],
+  "results": [
+    {
+      "id": 1,
+      "name": "CC Plugin & Marketplace Ecosystem",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 2,
+      "name": "MCP Server Registry \u2014 New Releases",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 3,
+      "name": "AI Agent Orchestration & Meta-Harnesses",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 4,
+      "name": "Free & High-Quota LLM APIs",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 5,
+      "name": "Agentic Browser Automation",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 6,
+      "name": "Anti-Bot Scraping Precision",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 8,
+      "name": "Hotel Tech & Inventory Systems",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 9,
+      "name": "Ground Transport & Logistics Tech",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 11,
+      "name": "Land Tour & Package Tech",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 14,
+      "name": "Voyage Feedback & Community Intelligence",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 15,
+      "name": "AI Email Intelligence & Lifecycle Automation",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 16,
+      "name": "Anthropic API & Claude Agent SDK",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 17,
+      "name": "AI Scheduling & Autonomous Execution",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 18,
+      "name": "Vector Memory & Cross-Session Persistence",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 19,
+      "name": "LLM Cost Metering & Attribution",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 20,
+      "name": "PDF & Document Intelligence",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 22,
+      "name": "Open-Source LLM Ecosystem",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 23,
+      "name": "CLI & Terminal-Native AI Tools",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 24,
+      "name": "AI Security & PII Governance",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 25,
+      "name": "Competitive Intelligence: AI in Travel",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 26,
+      "name": "GitHub Automation for AI Workflows",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 27,
+      "name": "Voice & Conversational Client Interfaces",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 28,
+      "name": "Owner/User Training \u2014 AI for Small Business",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 29,
+      "name": "Human Assessment & Tech Discourse",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 30,
+      "name": "Owner/User Training \u2014 AI Workflow Mastery",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 32,
+      "name": "Port Maps \u2014 Mapbox vs Google vs OSM (2026 Pricing & License)",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 33,
+      "name": "Cruise Destination Photography \u2014 Legal Sources & License 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 34,
+      "name": "Cruise Ship Deck Plans \u2014 Where Lines Publish Them & Reuse Rights 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 35,
+      "name": "Port Narrative Databases & Travel Writing Licenses 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 36,
+      "name": "Cruise Suite Pricing Access \u2014 Advisor Channels 2026 (Regent/Silversea/Viking)",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 37,
+      "name": "Gemini 2.5 Pro \u2014 Deck Plan PDF Structured Extraction (Prompts & Workflow)",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 38,
+      "name": "GPT-4o Luxury Travel Photo Auto-Captioning \u2014 Batch Workflow 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 39,
+      "name": "Port City Map Data Extraction \u2014 Landmarks & Distances (AI vs API)",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 40,
+      "name": "Group Air Booking for Travel Advisors \u2014 10-20 Passengers 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 41,
+      "name": "NDC Direct Connect for Independent Travel Advisors 2026",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 42,
+      "name": "Mediterranean Shore Excursions \u2014 Regent Grandeur Aug 2026 Ports",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 43,
+      "name": "Baltic & Nordic Shore Excursions \u2014 Viking Mars Dec 2026 Ports",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    },
+    {
+      "id": 44,
+      "name": "TESS / Travel Edge Booking Platform \u2014 2026 Updates & Advisor Feedback",
+      "error": "401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions",
+      "result": null
+    }
+  ]
+}

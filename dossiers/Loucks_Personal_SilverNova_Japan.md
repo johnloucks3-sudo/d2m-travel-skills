@@ -12,6 +12,8 @@ fpd: 2026-02-01
 fpd_amount: 22663
 status: complete
 relationship: commander
+d2m_booking: false
+commission_scope: none
 completed_tps: []
 payment_status: paid_in_full
 payment_status_source: Commander confirmation 2026-03-18 (cruise $10,800 PAID IN FULL); re-affirmed 2026-06-21

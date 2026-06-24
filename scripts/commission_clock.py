@@ -61,8 +61,8 @@ def _get_tess_received(days: int = 30) -> dict:
         return {"error": "tess_token.json not found — run tess_authorize.sh first", "items": []}
 
     try:
-        from thunderbird_tess import TessClient
-        client = TessClient()
+        from core.booking.thunderbird_tess import TESSClient
+        client = TESSClient()
         since = (date.today() - timedelta(days=days)).strftime("%Y-%m-%d")
         result = client.list_bookings(
             page_size=100,

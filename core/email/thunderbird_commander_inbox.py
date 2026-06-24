@@ -858,7 +858,7 @@ def _task_to_persona(
                 "If no reply is needed, say so in the ANALYSIS section and omit DRAFT."
             )
             cos_result = call_persona(
-                "COS", query, max_tokens=600, model_override="sonnet"
+                "COS", query, max_tokens=600, model_override="haiku"
             )
             # Extract analysis and draft from COS response
             cos_answer = cos_result.get("answer", "")
@@ -879,7 +879,7 @@ def _task_to_persona(
                 f"Subject: {subject}\n\n"
                 f"{body[:2500]}"
             )
-            result = call_persona("A9", query, max_tokens=400, model_override="sonnet")
+            result = call_persona("A9", query, max_tokens=400, model_override="haiku")
 
         elif persona_id == "A2":
             query = (
@@ -888,7 +888,7 @@ def _task_to_persona(
                 f"Subject: {subject}\n\n"
                 f"{body[:2500]}"
             )
-            result = call_persona("A2", query, max_tokens=400, model_override="sonnet")
+            result = call_persona("A2", query, max_tokens=400, model_override="haiku")
 
         else:
             return None

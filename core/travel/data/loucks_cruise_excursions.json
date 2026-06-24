@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-06-17T12:03:42.939119",
+  "scanned_at": "2026-06-23T15:10:16.177596",
   "sources": [
     "Shore Excursions Group",
     "ToursByLocals (gap ports, quote-priced)"
@@ -351,7 +351,7 @@
         },
         {
           "name": "Journey to Konavle Valley with Croatian Tavern Lunch",
-          "price_pp": 216.0,
+          "price_pp": 252.0,
           "list_price_pp": null,
           "match": "food/wine",
           "size": "Standard",
@@ -529,7 +529,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 16,
+          "reviews": 17,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -749,7 +749,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Scenic, Cultural, Historical",
-          "reviews": null,
+          "reviews": 1,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -837,7 +837,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Bicycling",
-          "reviews": 25,
+          "reviews": 26,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -850,7 +850,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 12,
+          "reviews": 13,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1041,7 +1041,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Jeep Tour",
-          "reviews": 4,
+          "reviews": 5,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1106,7 +1106,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Culinary / Food",
-          "reviews": 97,
+          "reviews": 98,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1146,54 +1146,9 @@
         "boat",
         "catamaran"
       ],
-      "status": "ok",
-      "url": "https://www.toursbylocals.com/tours/greece/milos",
-      "tours": [
-        {
-          "name": "Milos Classics Tour - Full Day Shore Excursion",
-          "match": "picked",
-          "duration": "8 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/milos/tour-details/milos-classics-tour---full-day-shore-excursion-664d230b17832fdc0da8219c"
-        },
-        {
-          "name": "Milos Classics Tour - Full Day Shore Excursion",
-          "match": "picked",
-          "duration": "8 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/milos/tour-details/half-day-geological-tour-in-milos-island-664d230b17832fdc0da82058"
-        },
-        {
-          "name": "Milos Classics Tour - Full Day Shore Excursion",
-          "match": "picked",
-          "duration": "8 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/milos/tour-details/kimolos-island-amazing-beauty-of-aegean-sea-664d237817832fdc0db0048f"
-        },
-        {
-          "name": "Milos Classics Tour - Full Day Shore Excursion",
-          "match": "picked",
-          "duration": "8 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/milos/tour-details/west-side----beaches-664d242517832fdc0dba5bef"
-        }
-      ]
+      "status": "no_match",
+      "url": "https://www.shoreexcursionsgroup.com/port/milos-shore-excursions",
+      "tours": []
     },
     {
       "date": "2027-05-20",
@@ -1283,7 +1238,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Bicycling",
-          "reviews": 25,
+          "reviews": 26,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1296,7 +1251,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 12,
+          "reviews": 13,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1463,7 +1418,7 @@
         {
           "name": "Santorini Oia and Fira Highlights with Boat Transfer from Old Port",
           "price_pp": 129.0,
-          "list_price_pp": null,
+          "list_price_pp": 139.0,
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
@@ -1584,7 +1539,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Culinary / Food",
-          "reviews": null,
+          "reviews": 1,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1680,230 +1635,9 @@
         "mycenae",
         "nafplio"
       ],
-      "status": "ok",
-      "url": "https://www.toursbylocals.com/tours/greece/nafplio",
-      "tours": [
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/mycenae-epidaurus-and-nafplio-full-day-tour-664d24c71bbe5b817c2ef9f4"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplio-essentials-a-stroll-through-history-and-beauty-679a3e4c47c1f725568d539f"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/discover-nafplio-walking-tour-with-an-archaeologist-69637443ba87d3f94fda28a2"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/mycenae-and-epicurus-private-tour-69a32b9ca847551497005f1d"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplio-tasting-tour-664d2322ebf20b19574bd4d9"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/mycenae-and-nafplio-walking-full-day-tour-664d24c71bbe5b817c2ee7c3"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/ancient-wonders-of-nafplio-mycenaean-relics-and-timeless-monuments-679e29dcdcfba476951e0420"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/corinth-unveiled-by-an-archaeologist-in-the-footsteps-of-st-paul-687962299ed926548d7fb6f6"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/epidaurus-private-tour---tickets-included-66d183dd71d684ba9b49cc18"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplio-cheese-and-wine-tasting-664d2322ebf20b19574bd412"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/epidaurus-and-nafplio-walking-full-day-tour-664d24c71bbe5b817c2eeddf"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplio-through-the-ages-history-meets-traditions-679a5b7302af46b37a07e185"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/ancient-nemea-with-an-archaeologist-the-sanctuary-of-zeus-and-the-nemean-games-694bf1f4da5da16df98896bc"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/mycenae-private-tour---tickets-included-66a813d04b304dba649dccf8"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/explore-nafplio-a-journey-through-history-culture-and-art-68b569eabac630e98800ebf4"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplion-walking-private-tour-698b0a08a4acceb2171b99d9"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nafplio-highlights---private-walking-tour-664d2321ebf20b19574baac2"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/palamidi-fortress-private-tour-698b76f124f3ff777210409f"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/nemea-private-tour-698b7f022f9cf473edfd00fd"
-        },
-        {
-          "name": "Mycenae, Epidaurus Private Shore Excursion",
-          "match": "picked",
-          "duration": "6 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/nafplio/tour-details/ancient-nemea-and-winery-698caa7ed9306ac06455af6d"
-        }
-      ]
+      "status": "http_404",
+      "url": "https://www.shoreexcursionsgroup.com/port/nafplion-shore-excursions",
+      "tours": []
     },
     {
       "date": "2027-05-26",
@@ -1978,43 +1712,9 @@
         "patmos",
         "cave"
       ],
-      "status": "ok",
-      "url": "https://www.toursbylocals.com/tours/greece/patmos",
-      "tours": [
-        {
-          "name": "Scenic Patmos Half Day Tour with your Private Guide",
-          "match": "picked",
-          "duration": "3 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/patmos/tour-details/scenic-patmos-half-day-tour-with-your-private-guide-664d281d1bbe5b817c4a9a1f"
-        },
-        {
-          "name": "Scenic Patmos Half Day Tour with your Private Guide",
-          "match": "picked",
-          "duration": "3 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/patmos/tour-details/patmos-half-day-private-walking-tour-of-chora-664d281e1bbe5b817c4aedc3"
-        },
-        {
-          "name": "Scenic Patmos Half Day Tour with your Private Guide",
-          "match": "picked",
-          "duration": "3 hours",
-          "price_pp": null,
-          "price_note": "private/quote (per group)",
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/patmos/tour-details/patmos-our-monasteries-and-beaches-664d230aebf20b195746029c"
-        }
-      ]
+      "status": "http_404",
+      "url": "https://www.shoreexcursionsgroup.com/port/patmos-shore-excursions",
+      "tours": []
     }
   ]
 }

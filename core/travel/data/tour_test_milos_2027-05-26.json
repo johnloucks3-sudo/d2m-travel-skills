@@ -1,0 +1,261 @@
+{
+  "dest": "milos",
+  "query": "wine food gentle easy",
+  "date": "2027-05-26",
+  "scraped_at": "2026-06-23T15:15:02.921074",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "milos",
+    "query": "wine food gentle easy",
+    "url": "https://www.getyourguide.com/s/?q=milos+wine+food+gentle+easy",
+    "scraped_at": "2026-06-23T15:15:03.359161",
+    "date_filter": "2027-05-26",
+    "tours": [
+      {
+        "name": "Adamantas",
+        "duration": "10 hours",
+        "rating": 4.9,
+        "review_count": 1766,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/adamas-milos-polyaigos-full-day-sailboat-tour-with-lunch-t406661/"
+      },
+      {
+        "name": "Semi-Private Sailing Tour to Kleftiko / All-inclusive",
+        "duration": "8 hours",
+        "rating": 4.9,
+        "review_count": 773,
+        "price_pp": 149.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/adamas-kleftiko-sailing-day-trip-with-snorkeling-and-lunch-t150983/"
+      },
+      {
+        "name": "Sailboat Cruise to Kleftiko Bay with Meal & Drinks",
+        "duration": "5.5 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 80,
+        "price_pp": 123.0,
+        "original_price_pp": 137.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pollonia-l166019/milos-sailboat-cruise-to-kleftiko-bay-with-meal-drinks-t1226764/"
+      },
+      {
+        "name": "Milos Island: Kostantakis Winery Wine Tasting Experience",
+        "duration": "2 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": 269,
+        "price_pp": 66.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pollonia-l166019/milos-island-kostantakis-winery-wine-tasting-experience-t420496/"
+      },
+      {
+        "name": "Adamantas",
+        "duration": "5 hours",
+        "rating": 4.9,
+        "review_count": 603,
+        "price_pp": 154.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/milos-l32653/adamas-kleftiko-half-day-speedboat-cruise-with-snorkeling-t414737/"
+      },
+      {
+        "name": "Milos Iconic Catamaran Cruise to Kleftiko with Meal & Drinks",
+        "duration": "5.5 - 7 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 118,
+        "price_pp": 159.0,
+        "original_price_pp": 177.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/milos-kleftiko-morning-catamaran-cruise-with-lunch-drinks-t614651/"
+      },
+      {
+        "name": "Architecture and History Walks & Sketching Workshop",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 107.0,
+        "original_price_pp": 126.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/trypiti-milos-l268252/milos-architecture-and-history-walks-sketching-workshop-t1357234/"
+      },
+      {
+        "name": "Self-Driving Boat Tour to Kleftiko",
+        "duration": "4 - 8 hours \u2022 Private group",
+        "rating": 4.8,
+        "review_count": 59,
+        "price_pp": 257.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/milos-l32653/milos-selfdriving-boat-tour-to-kleftiko-no-license-require-t626307/"
+      },
+      {
+        "name": "Kleftiko & Polyegos All-Inclusive Catamaran Cruise",
+        "duration": "9 - 10.5 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": null,
+        "review_count": 104,
+        "price_pp": 206.0,
+        "original_price_pp": 246.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/milos-l32653/milos-full-day-premium-catamaran-cruise-kleftiko-polyegos-t709401/"
+      },
+      {
+        "name": "Adamantas",
+        "duration": "5 hours",
+        "rating": 4.9,
+        "review_count": 175,
+        "price_pp": 183.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/kleftiko-trip-catamaran-half-day-lunch-openbar-t942139/"
+      },
+      {
+        "name": "Adamantas",
+        "duration": "9 hours \u2022 Private option available \u2022 Optional audio guide",
+        "rating": 4.8,
+        "review_count": 147,
+        "price_pp": 168.0,
+        "original_price_pp": 177.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/milosfull-day-kleftiko-poliegos-up-to-16-pax-tour-wth-lunch-t568496/"
+      },
+      {
+        "name": "Kleftiko, Sykia & Klima Small Group Catamaran Cruise",
+        "duration": "5.5 - 7 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 147,
+        "price_pp": 149.0,
+        "original_price_pp": 177.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/milos-l32653/milos-kleftiko-sunset-catamaran-cruise-with-meal-drinks-t614678/"
+      },
+      {
+        "name": "Self-Drive Boat Rental with Optional Skipper",
+        "duration": "4.5 - 9 hours \u2022 Private group",
+        "rating": 4.8,
+        "review_count": 17,
+        "price_pp": 270.0,
+        "original_price_pp": 285.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/milos-l32653/milos-self-drive-boat-rental-with-optional-skipper-t871567/"
+      },
+      {
+        "name": "Milos Boat Tour : Kleftiko & Polyaigos Swimming With Meals",
+        "duration": "10 hours",
+        "rating": 4.9,
+        "review_count": 248,
+        "price_pp": 155.0,
+        "original_price_pp": 183.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/adamantas-full-day-milos-poliegos-boat-tour-with-meals-t567123/"
+      },
+      {
+        "name": "\u2756 Milos: Small Group Yacht Tour\u2014Kleftiko Sarakiniko Poliegos",
+        "duration": "5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 73,
+        "price_pp": 185.0,
+        "original_price_pp": 206.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/milos-l32653/milos-small-group-yacht-tour-kleftiko-sarakiniko-poliegos-t934479/"
+      },
+      {
+        "name": "Adamantas",
+        "duration": "9.5 hours",
+        "rating": null,
+        "review_count": 730,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/milos-l32653/from-milos-guided-day-cruise-to-kleftiko-with-lunch-t247102/"
+      },
+      {
+        "name": "Self-Drive Boat Hire in Milos for Couples and Families",
+        "duration": "5 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 400.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/milos-l32653/self-drive-boat-hire-in-milos-for-couples-and-families-t1359463/"
+      },
+      {
+        "name": "Klima",
+        "duration": "6 - 9 hours",
+        "rating": 4.8,
+        "review_count": 13,
+        "price_pp": 149.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/klima-milos-l146936/milos-full-day-cruise-via-traditional-boat-t561519/"
+      },
+      {
+        "name": "Kleftiko Semi Private Sailboat Tour with Lunch",
+        "duration": "7 hours",
+        "rating": null,
+        "review_count": 24,
+        "price_pp": 143.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/milos-kleftiko-semi-private-sailing-cruise-with-lunch-t700893/"
+      },
+      {
+        "name": "Luxury Motoryacht Cruise to Kleftiko",
+        "duration": "4.5 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 251.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/pollonia-l166019/milos-luxury-motoryacht-cruise-to-kleftiko-with-lunch-t711139/"
+      },
+      {
+        "name": "Rent a boat without License",
+        "duration": "5 - 10 hours \u2022 Private group",
+        "rating": null,
+        "review_count": 12,
+        "price_pp": 274.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/klima-milos-l146936/milos-rent-a-boat-without-license-t467445/"
+      },
+      {
+        "name": "Kleftiko Sailing Experience with a local skipper",
+        "duration": "7 hours \u2022 Skip the line",
+        "rating": null,
+        "review_count": 18,
+        "price_pp": 171.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/adamantas-kleftiko-sailing-cruise-with-meal-and-swim-stops-t441853/"
+      },
+      {
+        "name": "Milos Instagram Tour",
+        "duration": "3.5 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 38,
+        "price_pp": 109.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/plaka-milos-l166015/milos-instagram-tour-t560059/"
+      },
+      {
+        "name": "Adamantas",
+        "duration": "9 hours",
+        "rating": null,
+        "review_count": 26,
+        "price_pp": 257.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/adamantas-l114062/milos-polyegos-catamaran-cruise-with-swimming-meal-drinks-t451808/"
+      }
+    ],
+    "total_found_estimate": "146 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_milos_2027-05-26.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {}
+}

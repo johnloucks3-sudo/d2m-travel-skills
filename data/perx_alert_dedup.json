@@ -6,5 +6,53 @@
   "luxury-2027-explora_le_havre_nodate:URGENT": {
     "date": "2026-06-18",
     "ts": "2026-06-18T14:00:46.119948"
+  },
+  "norway-2027-silversea_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208039"
+  },
+  "norway-2027-regent_seven_seas_voyager_nodate:URGENT": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T14:00:24.210350"
+  },
+  "grandeur-2026_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208061"
+  },
+  "med-2027-luxury_seven_seas_voyager_nodate:URGENT": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T14:00:24.210364"
+  },
+  "grandeur-dec29-2026_seven_seas_voyager_nodate:URGENT": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T14:00:24.210370"
+  },
+  "luxury-2027-atlas_seven_seas_voyager_nodate:URGENT": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T14:00:24.210376"
+  },
+  "luxury-2027-explora_seven_seas_voyager_nodate:URGENT": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T14:00:24.210382"
+  },
+  "norway-2027-regent_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208053"
+  },
+  "med-2027-luxury_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208067"
+  },
+  "grandeur-dec29-2026_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208074"
+  },
+  "luxury-2027-atlas_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208081"
+  },
+  "luxury-2027-explora_silver_muse_nodate:SIGNAL": {
+    "date": "2026-06-24",
+    "ts": "2026-06-24T02:00:20.208087"
   }
 }

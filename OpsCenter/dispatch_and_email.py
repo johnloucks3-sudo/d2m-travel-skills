@@ -13,8 +13,9 @@
 # and confirm with Hale (Claude Code) before proceeding.
 # ============================================================
 """
-dispatch_and_email.py — Dispatch to headless Claude, reply via Gmail.
+dispatch_and_email.py — Generate reply via Anthropic SDK, send via Gmail.
 
+Calls Anthropic API directly (synchronous, no subprocess spawn chain).
 When --thread-id is provided, sends a threaded reply in the original Gmail
 thread (channel-fidelity rule: email in → email out, same thread).
 When omitted, falls back to a new email (legacy behavior).
@@ -33,8 +34,6 @@ Usage:
 
 import argparse
 import base64
-import json
-import subprocess
 import sys
 import time
 from email.mime.text import MIMEText
@@ -131,6 +130,52 @@ def _send_new_email(body: str, subject: str):
     return result.get("message_id")
 
 
+_MODEL_IDS = {
+    "haiku":  "claude-haiku-4-5-20251001",
+    "sonnet": "claude-sonnet-4-6",
+    "opus":   "claude-opus-4-8",
+}
+_COST_PER_TOK = {
+    "haiku":  (0.25e-6, 1.25e-6),
+    "sonnet": (3.0e-6,  15.0e-6),
+    "opus":   (15.0e-6, 75.0e-6),
+}
+
+
+def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
+    """Generate reply via Anthropic SDK — synchronous, no subprocess chain."""
+    import os
+    import anthropic as _ant
+
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        env_path = ROOT / ".env"
+        if env_path.exists():
+            for line in env_path.read_text().splitlines():
+                if line.startswith("ANTHROPIC_API_KEY=") and "=" in line:
+                    os.environ["ANTHROPIC_API_KEY"] = line.split("=", 1)[1].strip()
+                    break
+
+    tier = model.lower() if model.lower() in _MODEL_IDS else "haiku"
+    model_id = _MODEL_IDS[tier]
+    client = _ant.Anthropic()
+    msg = client.messages.create(
+        model=model_id,
+        max_tokens=512,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    body = msg.content[0].text.strip()
+
+    out_path = Path(output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(body, encoding="utf-8")
+
+    in_tok, out_tok = msg.usage.input_tokens, msg.usage.output_tokens
+    cin, cout = _COST_PER_TOK[tier]
+    cost = in_tok * cin + out_tok * cout
+    print(f"[API] {task} — {in_tok}in/{out_tok}out tokens, ${cost:.5f} ({tier})")
+    return body
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--task", required=True)
@@ -143,69 +188,11 @@ def main():
     p.add_argument("--in-reply-to", default="", dest="in_reply_to")
     args = p.parse_args()
 
-    out_path = Path(args.output)
-
-    dispatch_result = subprocess.run(
-        [
-            sys.executable,
-            str(ROOT / "OpsCenter/dispatch_claude.py"),
-            "--task", args.task,
-            "--output", args.output,
-            "--prompt", args.prompt,
-            "--model", args.model,
-        ],
-        capture_output=True, text=True, timeout=30,
-    )
-
     try:
-        result = json.loads(dispatch_result.stdout)
-    except json.JSONDecodeError:
-        print(f"[ERR] dispatch_claude stdout not JSON: {dispatch_result.stdout[:300]}")
+        body = _get_reply(args.prompt, args.output, args.task, args.model)
+    except Exception as e:
+        print(f"[ERR] API call failed: {e}")
         sys.exit(1)
-
-    if result.get("status") not in ("SPAWNED", "COMPLETED"):
-        print(f"[ERR] dispatch failed: {result}")
-        sys.exit(1)
-
-    pid = result.get("pid")
-    print(f"[DISPATCH] spawned pid={pid}, waiting for {out_path}")
-
-    # Find the spawn log file (dispatch_claude.py writes it to logs/ dir)
-    spawn_log = ROOT / "logs" / f"claude_{args.task}_{time.strftime('%Y%m%d')}.log"
-    # Also check with timestamp pattern
-    import glob as _glob
-    spawn_log_pattern = str(ROOT / "logs" / f"claude_{args.task}_*.log")
-
-    start = time.monotonic()
-    body = None
-    while True:
-        if out_path.exists() and out_path.stat().st_size > 0:
-            time.sleep(2)
-            body = out_path.read_text(encoding="utf-8").strip()
-            break
-        # Fallback: if elapsed > 90s and Claude has finished (result in spawn log), extract it
-        if time.monotonic() - start > 90:
-            logs = sorted(_glob.glob(spawn_log_pattern))
-            for log_path in reversed(logs):
-                try:
-                    for line in open(log_path):
-                        if '"subtype":"success"' in line or '"type":"result"' in line:
-                            import re as _re
-                            m = _re.search(r'"result"\s*:\s*"((?:[^"\\]|\\.)*)"', line)
-                            if m:
-                                body = m.group(1).replace('\\n', '\n').replace('\\"', '"').strip()
-                                print(f"[FALLBACK] extracted result from spawn log (file write missed)")
-                                break
-                    if body:
-                        break
-                except Exception:
-                    pass
-        if body:
-            break
-        if time.monotonic() - start > args.timeout:
-            print(f"[TIMEOUT] output file never appeared after {args.timeout}s")
-            sys.exit(2)
-        time.sleep(POLL_INTERVAL)
 
     try:
         if args.thread_id:
@@ -214,7 +201,6 @@ def main():
         else:
             msg_id = _send_new_email(body, args.subject)
             print(f"[EMAIL] new email — message_id={msg_id}")
-
     except Exception as e:
         print(f"[SEND ERR] {e}")
         sys.exit(3)

@@ -49,7 +49,6 @@ function onGmailMessage(e) {
     };
 
     var scan  = localPreScan(emailData);
-    if (scan.isSpam && !scan.isClient) return buildSpamCard();
 
     var intel = callClaude(emailData, scan, null);
     if (!intel) return buildFallbackCard(emailData, scan);
@@ -138,43 +137,33 @@ function callClaude(emailData, scan, query) {
   if (query) {
     // Query mode — answer Commander's specific question about the email
     prompt =
-      'You are the Thunderbird Wing HUD AI for Dreams2Memories Travel LLC.\n' +
-      'Commander John "Yoda" Loucks is asking a question about this email on his phone.\n' +
-      'Answer directly and briefly. Wing posture: bottom-line-first, no fluff.\n\n' +
-      'Known D2M clients: ' + D2M_CLIENTS.join(', ') + '\n' +
-      'Known cruise partners: ' + CRUISE_LINES.join(', ') + '\n\n' +
-      'Email context:\n' +
+      'You are the Thunderbird Wing HUD. Commander John "Yoda" Loucks is asking a question about this email.\n' +
+      'Read the email. Answer the question factually based on what the email says.\n' +
+      'No opinion. No recommendation. No judgment about whether the email is relevant to D2M.\n\n' +
       'From: ' + emailData.from + '\n' +
       'Subject: ' + emailData.subject + '\n' +
       'Body:\n' + emailData.body + '\n\n' +
       'Commander query: ' + query + '\n\n' +
       'Return ONLY valid JSON:\n' +
-      '{"answer": "direct answer in 3-5 sentences", "action": "one sentence — what Commander should do next", "persona": "HALE|DANI|DEMBE|STERLING|HARLAN|NONE"}';
+      '{"answer": "factual answer based on what the email says. Length as warranted by the question."}';
   } else {
-    // Intel mode — full email classification and summary
-    var scanFlags = scan ?
-      'client=' + scan.isClient + ' cruise=' + scan.isCruiseLine +
-      ' financial=' + scan.hasFinancial + ' urgent=' + scan.isUrgent : '';
-
+    // Intel mode — read and report. No classification. No recommendation.
     prompt =
-      'You are the Thunderbird Wing HUD for Dreams2Memories Travel LLC — AI luxury travel agency.\n' +
-      'Commander John "Yoda" Loucks reads this on his phone. Wing posture: bottom-line-first.\n\n' +
-      'Known D2M clients: ' + D2M_CLIENTS.join(', ') + '\n' +
-      'Known cruise partners: ' + CRUISE_LINES.join(', ') + '\n' +
-      'Local flags: ' + scanFlags + '\n\n' +
+      'You are the Thunderbird Wing HUD. Your job is to read this email and report what it says.\n' +
+      'Commander John "Yoda" Loucks is reading this. If he is reading it, it is significant to him.\n' +
+      'Do NOT editorialize. Do NOT classify. Do NOT recommend action. Do NOT judge D2M relevance.\n' +
+      'Pure reportage only.\n\n' +
+      'Format: use MFR (Memorandum for Record) format for short or simple emails.\n' +
+      'Use Staff Paper format for long or substantive emails with multiple points.\n' +
+      'Include the level of detail the content warrants — if there are claims, background, or multiple threads, cover them fully.\n\n' +
       'From: ' + emailData.from + '\n' +
       'Subject: ' + emailData.subject + '\n' +
       'Body:\n' + emailData.body + '\n\n' +
       'Return ONLY valid JSON:\n' +
-      '{"category":"CLIENT_REPLY|SUPPLIER|BOOKING_CONFIRM|FINANCIAL|BOOKING_CHANGE|INTEL|INTERNAL|PERSONAL|VENDOR|MARKETING|SPAM",' +
-      '"priority":"P0|P1|P2|ROUTINE",' +
-      '"summary":"4-5 sentence Wing Intel brief. Cover: what this email is about, who sent it, what they want or are reporting, any deadlines or dollar amounts, and the overall significance to D2M operations. Be specific — include names, amounts, dates if present.",' +
-      '"client_name":"full D2M client name if identifiable, else null",' +
-      '"wing_action":"specific one-sentence action for Commander right now",' +
-      '"financial_flag":"exact dollar amount and/or date if mentioned, else null",' +
-      '"persona":"HALE|DANI|DEMBE|STERLING|HARLAN|NONE",' +
-      '"sender_org":"sender company or null",' +
-      '"key_dates":"comma-separated list of any dates/deadlines mentioned, else null"}';
+      '{"summary": "MFR or Staff Paper — pure reportage of what this email says. Depth as the content warrants.",' +
+      '"financial_flag": "exact dollar amount and date if mentioned, else null",' +
+      '"key_dates": "comma-separated dates or deadlines if mentioned, else null",' +
+      '"sender_org": "sender organization or null"}';
   }
 
   try {
@@ -223,15 +212,12 @@ var PERSONA = {
 };
 
 function buildHudCard(intel, emailData, prevQuery) {
-  var prio = intel.priority || 'ROUTINE';
-  var cat  = intel.category || 'EMAIL';
-
   var card = CardService.newCardBuilder()
     .setHeader(CardService.newCardHeader()
       .setTitle('⚡ Thunderbird HUD')
-      .setSubtitle((PRIO_EMOJI[prio]||'⚪') + ' ' + prio + '  ' + (CAT_EMOJI[cat]||'📧') + ' ' + cat));
+      .setSubtitle(intel.sender_org || emailData.from || 'Wing Intel'));
 
-  // ── Wing Intel (longer summary)
+  // ── Report
   var intelSec = CardService.newCardSection().setHeader('Wing Intel');
   intelSec.addWidget(CardService.newTextParagraph()
     .setText(intel.summary || '(no summary)'));
@@ -244,34 +230,14 @@ function buildHudCard(intel, emailData, prevQuery) {
     intelSec.addWidget(CardService.newDecoratedText()
       .setTopLabel('📅 Key dates').setText(intel.key_dates).setWrapText(true));
   }
-  if (intel.sender_org) {
-    intelSec.addWidget(CardService.newDecoratedText()
-      .setTopLabel('From').setText(intel.sender_org));
-  }
   card.addSection(intelSec);
-
-  // ── Wing Recommendation
-  var actionSec = CardService.newCardSection().setHeader('Wing Recommendation');
-  actionSec.addWidget(CardService.newDecoratedText()
-    .setTopLabel(PERSONA[intel.persona] || '⚡ Hale')
-    .setText(intel.wing_action || 'No action required.')
-    .setWrapText(true));
-  card.addSection(actionSec);
-
-  // ── Client context
-  if (intel.client_name) {
-    card.addSection(CardService.newCardSection()
-      .setHeader('👤 ' + intel.client_name)
-      .addWidget(CardService.newTextParagraph()
-        .setText('Recognized D2M client — check dossier for active TPs.')));
-  }
 
   // ── Wing Query
   var querySec = CardService.newCardSection().setHeader('Ask the Wing');
   querySec.addWidget(CardService.newTextInput()
     .setFieldName('wing_query')
     .setTitle('Question about this email...')
-    .setHint('e.g. "Should I reply?" · "What is the FPD?" · "Draft a short response"'));
+    .setHint('e.g. "What did they ask for?" · "What is the FPD?" · "Who sent this?"'));
   querySec.addWidget(CardService.newButtonSet()
     .addButton(CardService.newTextButton()
       .setText('Ask Wing ⚡')
@@ -286,7 +252,7 @@ function buildQueryResultCard(query, result) {
   var card = CardService.newCardBuilder()
     .setHeader(CardService.newCardHeader()
       .setTitle('⚡ Wing Response')
-      .setSubtitle(PERSONA[result.persona] || '⚡ Hale'));
+      .setSubtitle('Wing Answer'));
 
   // Query echo
   card.addSection(CardService.newCardSection()
@@ -295,15 +261,8 @@ function buildQueryResultCard(query, result) {
 
   // Answer
   card.addSection(CardService.newCardSection()
-    .setHeader('Wing Answer')
+    .setHeader('Answer')
     .addWidget(CardService.newTextParagraph().setText(result.answer || '(no answer)')));
-
-  // Next action
-  if (result.action) {
-    card.addSection(CardService.newCardSection()
-      .setHeader('Next Step')
-      .addWidget(CardService.newTextParagraph().setText(result.action)));
-  }
 
   // Back button
   card.addSection(CardService.newCardSection()

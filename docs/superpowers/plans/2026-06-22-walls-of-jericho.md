@@ -419,19 +419,13 @@ git commit -m "feat(travel): excursion sector — 4-source aggregator (PE + GYG 
 
 ---
 
-### Task 3: Activate Mozio (ground transport quotes)
+### ~~Task 3: Activate Mozio (ground transport quotes via API)~~ [DECISION CHANGE 2026-06-22]
 
-**Files:**
+**Commander directive 2026-06-22:** Staying with Travel Agent booking portal — NOT pursuing API integration. Account at mozio.com as Travel Agent (affiliated under "Cruises and Tours Unlimited" host). Credentials in `.env` as `MOZIO_TA_EMAIL` / `MOZIO_TA_PASSWORD`. Use portal manually for ground transport quotes; no programmatic adapter needed at this time.
 
-- Modify: `creds/mozio\_credentials.json`
+~~Context: Mozio aggregates 700+ ground transport suppliers worldwide. Covers private cars, transfers, rail. D2M use: airport transfers, port-to-hotel, city transit quotes for client itineraries.~~
 
-- Existing: `scripts/test\_mozio.py`
-
-- Create: `core/travel/mozio\_search.py`
-
-Context: Mozio aggregates 700+ ground transport suppliers worldwide. Covers private cars, transfers, rail. D2M use: airport transfers, port-to-hotel, city transit quotes for client itineraries.
-
-**Commander action required:** Register at mozio.com/en-us/partners/ — get API key.
+~~**Commander action required:** Register at mozio.com/en-us/partners/ — get API key.~~
 
 - [ ] **Step 1: Once key received, drop into creds**
 
@@ -1232,7 +1226,7 @@ The Walls of Jericho plan is complete when:
 | Airlines (Duffel NDC) | `thunderbird_duffel.py` returns sandbox offers | ⏳ pending key |
 | ~~Excursions (Viator)~~ | ~~eliminated~~ | ~~STRUCK~~ |
 | Excursions (4-source) | `excursion_aggregator.py` returns PE results; GYG/SEG fire on key | ✅ PE LIVE |
-| Ground transport (Mozio) | `mozio_search.py` returns transfer quotes | ⏳ pending key |
+| Ground transport (Mozio) | TA portal account active — manual quotes via mozio.com | ✅ TA ACCOUNT LIVE |
 | Cruise feedback | `cruise_feedback.py` returns CC + Reddit data for any ship | ✅ BUILT |
 | Industry news | `industry_news.py` returns 10+ items from live RSS feeds | ✅ BUILT |
 | Hotel (Room-Res B2B) | `roomres_search.py` returns live net rates for any city | ✅ BUILT |
@@ -1241,10 +1235,10 @@ The Walls of Jericho plan is complete when:
 
 **Commander-gated registrations still needed (all free):**
 
-1. Duffel — duffel.com (sandbox, no credit card)
+1. ~~Duffel~~ — ✅ test key wired 2026-06-22 (`DUFFEL_API_KEY` in `.env`)
 2. GetYourGuide Partner — partner.getyourguide.com (excursion source 2)
 3. Shore Excursions Group — shoreexcursionsgroup.com/travel-agents-signup (excursion source 3)
-4. Mozio Partner — mozio.com/en-us/partners/
+4. ~~Mozio Partner API~~ — ✅ staying with TA portal account (Commander directive 2026-06-22)
 
 **ELON's metric:** Wing can pull live data from at least one new travel sector per week. No wall stays unexamined.
 

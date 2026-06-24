@@ -85,8 +85,9 @@ def _get_wing_gmail_service():
 def _get_commander_gmail_service():
     """Return Gmail service authenticated as Commander's inbox (johnloucks3@gmail.com).
 
-    Granted wing-level access per Commander SO 2026-04-24. Hale may read, search,
-    label, move, and flag — but never draft or send from this account.
+    Full read/write authority per Commander directive 2026-06-23.
+    Hale may read, search, label, draft, send, move, and manage from this account.
+    Client-send gate (WF-17) still applies — no client emails sent without Commander approval.
     """
     try:
         from thunderbird_google_auth import get_commander_gmail

@@ -446,6 +446,59 @@
         "MISSION-320",
         "MISSION-321"
       ]
+    },
+    {
+      "ts": "2026-06-22T17:31:01.483762+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-332",
+        "MISSION-333",
+        "MISSION-334",
+        "MISSION-335"
+      ]
+    },
+    {
+      "ts": "2026-06-22T17:40:48.089133+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-332",
+        "MISSION-333",
+        "MISSION-334",
+        "MISSION-335"
+      ]
+    },
+    {
+      "ts": "2026-06-23T01:53:46.502771+00:00",
+      "count": 3,
+      "succeeded": 3,
+      "missions": [
+        "MISSION-394",
+        "MISSION-407",
+        "MISSION-415"
+      ]
+    },
+    {
+      "ts": "2026-06-23T05:54:25.876689+00:00",
+      "count": 3,
+      "succeeded": 3,
+      "missions": [
+        "MISSION-394",
+        "MISSION-407",
+        "MISSION-415"
+      ]
+    },
+    {
+      "ts": "2026-06-23T19:51:11.152509+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-422",
+        "MISSION-425",
+        "MISSION-426",
+        "MISSION-427"
+      ]
     }
   ],
   "manual_snapshots": [

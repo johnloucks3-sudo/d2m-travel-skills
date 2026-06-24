@@ -198,10 +198,14 @@ async def scrape_getyourguide(page, dest: str, date: str, query: str = "") -> di
             prices, rating, review_count, duration = [], None, None, None
             per_group = any("per group" in l.lower() for l in lines)
             for l in lines:
-                if re.match(r"^[€$][\d,]+$", l):
-                    v = fmt_price(l)
-                    if v:
-                        prices.append(v)
+                # Match price lines including discount format "$40 $24" (two amounts, no alpha)
+                if re.search(r"[€$][\d,]+", l) and not any(c.isalpha() for c in l):
+                    extracted = re.findall(r"[€$]([\d,]+(?:\.\d+)?)", l)
+                    for m in extracted:
+                        try:
+                            prices.append(float(m.replace(",", "")))
+                        except ValueError:
+                            pass
                 elif rating is None and re.match(r"^\d\.\d$", l):
                     rating = float(l)
                 elif review_count is None and re.match(r"^\(([\d,]+)\)$", l):
@@ -215,7 +219,7 @@ async def scrape_getyourguide(page, dest: str, date: str, query: str = "") -> di
                 ll = l.lower()
                 if ll in BADGES:
                     continue
-                if re.match(r"^[€$][\d,]+$", l):
+                if re.search(r"[€$][\d,]+", l) and not any(c.isalpha() for c in l):
                     continue
                 if re.match(r"^\(?[\d,.]+\)?$", l):
                     continue

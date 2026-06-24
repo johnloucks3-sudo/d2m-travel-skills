@@ -86,7 +86,7 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-06-21 21:50 UTC)
+## COMMANDER-READY (2026-06-24 12:00 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -100,37 +100,36 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-06-21 15:50
+## STATE BRIDGE BRIEFING — 2026-06-24 06:00
 
-### Since last session (2026-06-21 15:30:00 → still open)
+### Since last session (2026-06-23 22:14:05 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `49988026` feat(scraping): wire Firecrawl _call_firecrawl() to model router  _30 minutes ago_
-- `7a33c56b` feat(intel): un-suspend 7 dead zones + wire Cerebras key  _37 minutes ago_
-- `ba4deaa1` feat(daily-intel): full protocol live — 34 active cats, 12 suspended, 0900 timer  _63 minutes ago_
-- `42b57257` docs(sprint): wave 8 complete — synthesis updated, MISSION-330/331 added  _76 minutes ago_
-- `4277908e` feat(daily-search): apply ELON's 10 category rewrites before wave 8  _80 minutes ago_
+- `649ebb67c` feat(validation): OpenCode /ask pipeline validation plan + repair — Jun 23  _22 hours ago_
+- `535b18794` fix(policy): SPAWN-PROMPT-CHECK false-positive — require send+name, not either/or  _22 hours ago_
+- `235123ef8` feat(hotel): Hotelbeds to prod + retire 1329-line MCP hotel module  _2 days ago_
+- `4b6babeac` feat(excursion-watch): upgrade loucks watch to 4-source aggregator  _2 days ago_
+- `216216bf8` docs(woj): update Walls of Jericho plan — session 2 status  _2 days ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (1m ago)
-- `OpsCenter/collaboration/blackboard.md` (6.3h ago)
-- `hale_brief.md` (9.8h ago)
-- `dossiers/Loucks_Personal_SilverNova_Japan.md` (17.3h ago)
-- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (17.6h ago)
-- `dossiers/Kuklinski_Viking_Panama.md` (21.9h ago)
-- `dossiers/Ely_Darrow_Regent_3096289.md` (23.4h ago)
-- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (23.4h ago)
+- `hale_brief.md` (0s ago)
+- `hale_state.json` (37s ago)
+- `OpsCenter/collaboration/blackboard.md` (13.8h ago)
+- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (17.9h ago)
+- `OpsCenter/opencode_memory.md` (22.2h ago)
+- `dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md` (1.5d ago)
+- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (1.9d ago)
+- `dossiers/Loucks_Personal_SilverNova_Japan.md` (3.3d ago)
 
-**Mission board:** 69 open (16 P0, 31 P1)
+**Mission board:** 52 open (12 P0, 30 P1)
   - 🔴 MISSION-065: Pacific Voyage Blog
   - 🔴 MISSION-148: Telegram Feature Expansion
   - 🔴 MISSION-152: Phase E: Signal
   - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
   - 🔴 MISSION-214: Regent Portal On-Demand
 
-### Suggested next actions
-1. N
+### Suggested next acti
 <!-- COMMANDER-READY:END -->

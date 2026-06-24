@@ -1,0 +1,182 @@
+{
+  "mcp_registry": {
+    "meta": {
+      "updated": "2026-06-22T12:45:00-06:00",
+      "source": "MISSION-334: wave22 signal evaluation",
+      "total_evaluated": 11,
+      "adopted": 3,
+      "trial": 2,
+      "deferred": 6
+    },
+    "tier_1_adopted": [
+      {
+        "id": "ahrefs-mcp",
+        "name": "Ahrefs MCP",
+        "status": "ready_for_implementation",
+        "what_it_does": "SEO/backlink/competitive site analytics",
+        "install_method": "claude mcp add ahrefs --transport http https://api.ahrefs.com/mcp/mcp",
+        "api_key_required": true,
+        "api_key_source": "Ahrefs account (https://ahrefs.com)",
+        "cost_tier": "free trial (500 credits) or ~$99+/mo paid",
+        "thunderbird_fit": 4,
+        "primary_use": "competitive intelligence, market analysis, SEO tracking",
+        "owner": "ELON + Dembe",
+        "eta": "2026-06-24",
+        "notes": "Direct HTTP remote transport. Complements Anansi. Start with free trial."
+      },
+      {
+        "id": "playwright-mcp",
+        "name": "Playwright MCP",
+        "status": "ready_for_implementation",
+        "what_it_does": "Browser automation, JavaScript rendering, session management",
+        "install_method": "Node.js or Python wrapper; expose via MCP interface",
+        "api_key_required": false,
+        "cost_tier": "free (open-source)",
+        "thunderbird_fit": 5,
+        "primary_use": "portal scraping, booking reads, dynamic content",
+        "owner": "ELON + Sterling",
+        "eta": "2026-06-24",
+        "notes": "Already used in scripts/regent_booking_capture.py. Akamai limitation documented; mitigate with Bright Data/Scrapfly.",
+        "known_limitations": [
+          "Regent ASPXAUTH headless auth blocked by Akamai",
+          "Requires anti-bot service integration for enterprise reliability",
+          "See MISSION-214 (Regent Portal On-Demand) for workaround details"
+        ]
+      },
+      {
+        "id": "segmentstream-mcp",
+        "name": "SegmentStream MCP",
+        "status": "registry_entry_only",
+        "what_it_does": "Marketing analytics, conversion data, audience insights",
+        "install_method": "Remote URL: https://mcp.segmentstream.com/mcp",
+        "api_key_required": true,
+        "api_key_source": "SegmentStream account",
+        "cost_tier": "free tier available; paid ~$500+/mo",
+        "thunderbird_fit": 3,
+        "primary_use": "conversion intelligence, pricing strategy, EOD brief",
+        "owner": "ELON + Castillo (pricing strategy)",
+        "eta": "activated upon D2M CDP deployment",
+        "notes": "No-cost adoption now; activation deferred until D2M chooses CDP platform (Segment, Tealium, or similar)."
+      }
+    ],
+    "tier_2_trial": [
+      {
+        "id": "hubspot-mcp",
+        "name": "HubSpot MCP",
+        "status": "trial_approved",
+        "what_it_does": "CRM object access (contacts, deals, tasks), sales automation",
+        "install_method": "Via Claude connectors or MCP config",
+        "api_key_required": true,
+        "api_key_source": "HubSpot OAuth, private app token",
+        "cost_tier": "free sandbox tier available; production ~$100–$3,200+/mo",
+        "thunderbird_fit": 3,
+        "primary_use": "client lifecycle automation, FPD alerts, commission tracking",
+        "owner": "ELON + Dani (client data mapping)",
+        "eta": "trial results by 2026-07-10",
+        "trial_tasks": [
+          "Map dossier YAML to HubSpot CRM schema",
+          "Test agent: dossier → HubSpot contact/deal creation",
+          "Evaluate vs. current dossier + mission board workflow",
+          "Recommend CRM adoption strategy"
+        ],
+        "notes": "Requires CRM adoption strategy decision before production deployment. Sandbox trial is zero-cost."
+      },
+      {
+        "id": "sanity-mcp",
+        "name": "Sanity MCP",
+        "status": "trial_approved",
+        "what_it_does": "Content management, structured document access, workflows",
+        "install_method": "npx sanity@latest mcp configure OR remote HTTP",
+        "api_key_required": true,
+        "api_key_source": "Sanity OAuth",
+        "cost_tier": "free tier available; pro ~$99+/mo",
+        "thunderbird_fit": 2,
+        "primary_use": "itinerary library, port guides, content templates, scaling",
+        "owner": "ELON + Luna (content strategy)",
+        "eta": "trial results by 2026-07-10",
+        "trial_tasks": [
+          "Stand up Sanity project with sample port guides",
+          "Deploy Sanity MCP in Claude Code",
+          "Test agent: retrieve guide → format as itinerary section",
+          "Evaluate vs. current Drive + TESS architecture",
+          "Recommend content platform strategy"
+        ],
+        "notes": "Strategic value for future scaling. No immediate use case; sandbox trial is low-cost."
+      }
+    ],
+    "tier_3_deferred": [
+      {
+        "id": "gorgias-mcp",
+        "name": "Gorgias MCP",
+        "status": "deferred",
+        "reason": "No immediate use case; D2M uses email/Telegram for support",
+        "activation_trigger": "If D2M adopts helpdesk system",
+        "notes": "Requires Gorgias subscription; not part of current ops."
+      },
+      {
+        "id": "relativityone-mcp",
+        "name": "RelativityOne MCP",
+        "status": "deferred",
+        "reason": "Not applicable to travel operations",
+        "activation_trigger": "Never (e-discovery/legal use case)",
+        "notes": "Enterprise-only, not relevant to D2M."
+      },
+      {
+        "id": "google-ads-mcp",
+        "name": "Google Ads MCP",
+        "status": "deferred",
+        "reason": "D2M does not run Google Ads campaigns",
+        "activation_trigger": "If D2M approves paid marketing strategy",
+        "notes": "Relevant for future digital marketing, not current."
+      },
+      {
+        "id": "klaviyo-mcp",
+        "name": "Klaviyo MCP",
+        "status": "deferred",
+        "reason": "D2M uses Gmail + custom lifecycle chains (Dani + Luna)",
+        "activation_trigger": "If D2M adopts Klaviyo as primary email platform",
+        "notes": "CRM/email strategy decision required first. Mark for quarterly review."
+      },
+      {
+        "id": "claude-design-mcp",
+        "name": "Claude Design MCP",
+        "status": "deferred",
+        "reason": "Ephemeral/unclear documentation; not production-ready",
+        "activation_trigger": "Upon stable release and documentation",
+        "notes": "Monitor for future updates."
+      },
+      {
+        "id": "jan-ecosystem",
+        "name": "Jan MCP Ecosystem",
+        "status": "research_only",
+        "reason": "Jan is a client framework, not a server to implement",
+        "activation_trigger": "Infrastructure decision if adopting multi-MCP orchestration beyond Claude Code",
+        "notes": "Mark for quarterly infrastructure review."
+      }
+    ],
+    "strategic_gaps": [
+      {
+        "gap": "Travel Data API MCP",
+        "severity": "CRITICAL",
+        "description": "No first-party MCP exists for Regent, TESS, Centrav, Expedia TAAP, or cruise line inventory APIs",
+        "impact": "Manual booking reads; no automated commission reconciliation; slow itinerary generation",
+        "recommendation": "Commission custom MCP server for TESS (read voyage bookings) + Regent portal (read availability) + Centrav B2B (read fares)",
+        "effort_estimate": "2–3 weeks design, 4–6 weeks build per MCP",
+        "roi": "3x faster itinerary generation, 10x faster pricing, automated commission reconciliation",
+        "next_step": "Design session (ELON + Sterling + Dembe) in Week 3; Prompt Charter; decision on build vs. vendor"
+      }
+    ],
+    "quarterly_review_schedule": {
+      "date": "2026-10-22",
+      "review_items": [
+        "Ahrefs: ROI validation, quota costs, team adoption",
+        "Playwright: Portal automation success rate, Akamai workaround effectiveness",
+        "SegmentStream: Activation trigger (CDP deployed?)",
+        "HubSpot: CRM adoption decision outcome",
+        "Sanity: Content scaling priority?",
+        "Custom Travel MCP: Build status, go-live readiness",
+        "Remaining 6 servers: defer/adopt decisions"
+      ]
+    }
+  }
+}

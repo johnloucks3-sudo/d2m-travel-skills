@@ -42,13 +42,15 @@ class InfraBot(BotBase):
              interval_sec=600, timeout_sec=30),
         Task("keepalive-supervisor",
              venv("scripts/keepalive_supervisor.py"),
-             interval_sec=1560, timeout_sec=60),
+             interval_sec=1560, timeout_sec=60,
+             allowed_rcs=(0, 1)),  # rc=1=escalations pending (centrav needs manual reauth — logged, not fixable by bot)
         Task("silversea-session",
              venv("scripts/silversea_cookie_refresh.py"),
              interval_sec=86400, timeout_sec=120),
         Task("centrav-warm",
              venv("scripts/centrav_session_warm.py"),
-             interval_sec=3060, timeout_sec=120),
+             interval_sec=3060, timeout_sec=120,
+             allowed_rcs=(0, 2, 3)),  # rc=2=dead-session, rc=3=profile-missing: graceful skips per script design
     ]
 
 if __name__ == "__main__":

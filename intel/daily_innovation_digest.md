@@ -1,7 +1,7 @@
 # Innovation Scan — Daily
-**Generated:** 2026-06-21T15:50:30.517012
+**Generated:** 2026-06-24T04:54:24.724067
 **Sources:** 24 scanned, 0 failed
-**Findings:** 65 total
+**Findings:** 62 total
 
 ---
 
@@ -9,59 +9,55 @@
 
 | # | Score | Source | Title | Category |
 |---|-------|--------|-------|----------|
-| 1 | 4308 | github/trending | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | agents |
-| 2 | 736 | github/trending | [caezium/Burrow](https://github.com/caezium/Burrow) | mcp |
-| 3 | 576 | github/trending | [cobusgreyling/loop-engineering](https://github.com/cobusgreyling/loop-engineering) | agents |
-| 4 | 431 | github/trending | [chubbyguan/chubbyskills](https://github.com/chubbyguan/chubbyskills) | mcp |
-| 5 | 276 | github/trending | [zhnt/loushang](https://github.com/zhnt/loushang) | agents |
-| 6 | 270 | github/trending | [ruvnet/agent-harness-generator](https://github.com/ruvnet/agent-harness-generator) | mcp |
-| 7 | 263 | github/trending | [CodeBendKit/codeseek](https://github.com/CodeBendKit/codeseek) | mcp |
-| 8 | 244 | github/trending | [modelstudioai/cli](https://github.com/modelstudioai/cli) | agents |
-| 9 | 239 | hackernews | [Temporary Cloudflare accounts for AI agents](https://blog.cloudflare.com/temporary-accounts/) | agents |
-| 10 | 208 | github/trending | [arnabbagxd/Brand-building-skills](https://github.com/arnabbagxd/Brand-building-skills) | agents |
+| 1 | 4647 | github/trending | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | agents |
+| 2 | 791 | github/trending | [cobusgreyling/loop-engineering](https://github.com/cobusgreyling/loop-engineering) | agents |
+| 3 | 757 | github/trending | [caezium/Burrow](https://github.com/caezium/Burrow) | mcp |
+| 4 | 462 | github/trending | [chubbyguan/chubbyskills](https://github.com/chubbyguan/chubbyskills) | mcp |
+| 5 | 405 | hackernews | [In memory of the man who put red and green squiggles under w...](https://devblogs.microsoft.com/oldnewthing/20260622-00/?p=112451) | knowledge |
+| 6 | 317 | github/trending | [zhnt/loushang](https://github.com/zhnt/loushang) | agents |
+| 7 | 314 | github/trending | [CodeBendKit/codeseek](https://github.com/CodeBendKit/codeseek) | mcp |
+| 8 | 301 | github/trending | [ruvnet/agent-harness-generator](https://github.com/ruvnet/agent-harness-generator) | mcp |
+| 9 | 250 | github/trending | [modelstudioai/cli](https://github.com/modelstudioai/cli) | agents |
+| 10 | 218 | github/trending | [arnabbagxd/Brand-building-skills](https://github.com/arnabbagxd/Brand-building-skills) | agents |
 
-## Agents (28 findings)
+## Agents (29 findings)
 
 ### [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent)
-- **Source:** github/trending | **Score:** 4308
+- **Source:** github/trending | **Score:** 4647
 - **Relevance:** Direct | **Difficulty:** Medium
 - Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents — swap harnesses without rewriting, enforce policies and sandboxing, and c
 
 ### [cobusgreyling/loop-engineering](https://github.com/cobusgreyling/loop-engineering)
-- **Source:** github/trending | **Score:** 576
+- **Source:** github/trending | **Score:** 791
 - **Relevance:** Direct | **Difficulty:** Medium
 - Practical patterns, starters & CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani and Boris Cherny). Includes loop-audit, 
 
 ### [zhnt/loushang](https://github.com/zhnt/loushang)
-- **Source:** github/trending | **Score:** 276
+- **Source:** github/trending | **Score:** 317
 - **Relevance:** Direct | **Difficulty:** Medium
 - AI-native agent harness for coding workflows by python: multi-model LLM orchestration, stateful sessions, tool governance,   traceable delivery, and provider routing for GPT, Claude, DeepSeek, Qwen, K
 
 ### [modelstudioai/cli](https://github.com/modelstudioai/cli)
-- **Source:** github/trending | **Score:** 244
+- **Source:** github/trending | **Score:** 250
 - **Relevance:** Direct | **Difficulty:** Medium
 - Official Model Studio CLI（阿里云百炼 CLI）built for AI Agent frameworks, exposing models, search, multimodal, and workflow capabilities as structured tool calls.
 
-### [Temporary Cloudflare accounts for AI agents](https://blog.cloudflare.com/temporary-accounts/)
-- **Source:** hackernews | **Score:** 239
-- **Relevance:** Indirect | **Difficulty:** Medium
-
 ### [arnabbagxd/Brand-building-skills](https://github.com/arnabbagxd/Brand-building-skills)
-- **Source:** github/trending | **Score:** 208
+- **Source:** github/trending | **Score:** 218
 - **Relevance:** Direct | **Difficulty:** Medium
 - Brand building skills for Claude Code and AI agents. strategy, naming, identity, voice, positioning, messaging, auditing, and launch
 
-### [Building reliable agentic AI systems](https://martinfowler.com/articles/reliable-llm-bayer.html)
-- **Source:** hackernews | **Score:** 176
+### [Qwen-AgentWorld: Language World Models for General Agents](https://arxiv.org/abs/2606.24597)
+- **Source:** hackernews | **Score:** 118
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [bagidea/bagidea-office](https://github.com/bagidea/bagidea-office)
-- **Source:** github/trending | **Score:** 89
+- **Source:** github/trending | **Score:** 109
 - **Relevance:** Direct | **Difficulty:** Medium
 - A living AI-agent office on your desktop wallpaper — Claude Code agents that walk, work, delegate, learn & hold meetings. Per-agent swappable models (Claude/GLM/DeepSeek/Qwen/Kimi/OpenAI/Gemini/Groq/O
 
 ### [doiito/gliding_horse](https://github.com/doiito/gliding_horse)
-- **Source:** github/trending | **Score:** 88
+- **Source:** github/trending | **Score:** 94
 - **Relevance:** Direct | **Difficulty:** Medium
 - Gliding Horse is a multi-agent orchestration framework built in Rust that supports PDCA scheduling and knowledge graph-based agents, with comprehensive Chinese documentation, and is suitable for build
 
@@ -70,18 +66,13 @@
 - **Relevance:** Direct | **Difficulty:** Medium
 - Mac app to create context for agents: writing, reading, voice, terminal, bookmarks, and clipboard.
 
-### [zyn26/minimax-m3-desktop-app-free-api](https://github.com/zyn26/minimax-m3-desktop-app-free-api)
-- **Source:** github/trending | **Score:** 75
-- **Relevance:** Direct | **Difficulty:** Medium
-- minimax m3 free model  ai model free  api  large language model llm 1m context window sparse attention msa architecture native multimodality computer use computer control autonomous coding assistant a
-
 ### [eadmin2/jarvis_ai](https://github.com/eadmin2/jarvis_ai)
-- **Source:** github/trending | **Score:** 71
+- **Source:** github/trending | **Score:** 76
 - **Relevance:** Direct | **Difficulty:** Medium
 - Iron-Man-style voice assistant + holographic HUD for Hermes Agent. Local Whisper STT, ElevenLabs voice, agent-summoned media panels, runs on your own hardware.
 
 ### [thu-nmrc/openloop](https://github.com/thu-nmrc/openloop)
-- **Source:** github/trending | **Score:** 56
+- **Source:** github/trending | **Score:** 58
 - **Relevance:** Direct | **Difficulty:** Medium
 - OpenLoop is a universal loop engineering framework for AI agents, enabling play-test-fix-verify-improve cycles with logs, heartbeats, baselines, guardrails, and auditable stop conditions.
 
@@ -90,35 +81,49 @@
 - **Relevance:** Direct | **Difficulty:** Medium
 - 🧿 MythOS 2026: Claude-Powered AI Narrative Engine & Sub-Agent Framework for Epic Storytelling
 
-### [Sendmux/website-feedback-widget](https://github.com/Sendmux/website-feedback-widget)
-- **Source:** github/trending | **Score:** 51
+### [v2.1.178](https://github.com/anthropics/claude-code/releases/tag/v2.1.178)
+- **Source:** blog/Claude Code Releases | **Score:** 50
 - **Relevance:** Direct | **Difficulty:** Medium
-- 📬 Drop-in feedback widget for websites & apps. Turn submissions into structured email & webhook data for AI agents. Framework-agnostic Web Component. Accessible, customisable, zero deps.
+- What's changed
+
+Added Tool(param:value) syntax for permission rules to match a tool's input parameters (with * wildcard), e.g. Agent(model:opus) to block Opus subagents
+Skills in nested .claude/skills
+
+### [Temporary Cloudflare Accounts for AI agents](https://simonwillison.net/2026/Jun/21/temporary-cloudflare-accounts/#atom-everything)
+- **Source:** blog/Simon Willison | **Score:** 50
+- **Relevance:** Direct | **Difficulty:** Medium
+- Temporary Cloudflare Accounts for AI agents
+The announcement says this is "for AI agents" but (as is pretty common these days) the AI hook isn't really necessary, this is an interesting feature for ev
+
+### [fu351/Doberman-Core](https://github.com/fu351/Doberman-Core)
+- **Source:** github/trending | **Score:** 48
+- **Relevance:** Direct | **Difficulty:** Medium
+- Doberman is an AI agent security framework for guardrails, prompt injection defense, runtime policy enforcement, tool-use permissions, agent monitoring, audit logs, LLM safety, autonomous workflow pro
 
 ## Mcp (24 findings)
 
 ### [caezium/Burrow](https://github.com/caezium/Burrow)
-- **Source:** github/trending | **Score:** 736
+- **Source:** github/trending | **Score:** 757
 - **Relevance:** Direct | **Difficulty:** Medium
 - 🐹 A free, open-source, native macOS GUI for the Mole CLI (mo): clean, uninstall, optimize, analyze disk, and watch live status. Plus long-range history + an MCP server for AI agents. Coming to Windows
 
 ### [chubbyguan/chubbyskills](https://github.com/chubbyguan/chubbyskills)
-- **Source:** github/trending | **Score:** 431
+- **Source:** github/trending | **Score:** 462
 - **Relevance:** Direct | **Difficulty:** Medium
 - 把中文全渠道内容（抖音 / B站 / 小红书 / 公众号 / X / 播客）采集进个人知识库的 13 个 AI Skill：图文存图、视频转文字稿、字幕优先免 GPU，附带知识库 MCP server。 ｜ Ingest Chinese content into your personal knowledge base — image/video routing, subtitle-first t
 
-### [ruvnet/agent-harness-generator](https://github.com/ruvnet/agent-harness-generator)
-- **Source:** github/trending | **Score:** 270
-- **Relevance:** Direct | **Difficulty:** Medium
-- 🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex
-
 ### [CodeBendKit/codeseek](https://github.com/CodeBendKit/codeseek)
-- **Source:** github/trending | **Score:** 263
+- **Source:** github/trending | **Score:** 314
 - **Relevance:** Direct | **Difficulty:** Medium
 - Rust-powered code intelligence CLI for AI coding agents. Builds call graphs and hybrid semantic search indexes (Dense + Sparse + RRF + Reranker) across 7 languages. Ships as native MCP tools for Claud
 
+### [ruvnet/agent-harness-generator](https://github.com/ruvnet/agent-harness-generator)
+- **Source:** github/trending | **Score:** 301
+- **Relevance:** Direct | **Difficulty:** Medium
+- 🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex
+
 ### [yolfinance/yolfi-agent](https://github.com/yolfinance/yolfi-agent)
-- **Source:** github/trending | **Score:** 178
+- **Source:** github/trending | **Score:** 200
 - **Relevance:** Direct | **Difficulty:** Medium
 - Yolfi Agent Kit SDK, CLI, and MCP server for AI coding agents.
 
@@ -128,17 +133,12 @@
 - A cross-platform desktop application for managing AI Agents and MCP Servers. 一款用于管理AI智能体与MCP服务器的跨平台桌面应用程序。
 
 ### [Aimino-Tech/opendocswork-mcp](https://github.com/Aimino-Tech/opendocswork-mcp)
-- **Source:** github/trending | **Score:** 149
+- **Source:** github/trending | **Score:** 150
 - **Relevance:** Direct | **Difficulty:** Medium
 - Rust-native MCP server for Office document processing (Excel, Word, PowerPoint). Sub-millisecond, local-first, open source.
 
-### [SikamikanikoBG/homelab-monitor](https://github.com/SikamikanikoBG/homelab-monitor)
-- **Source:** github/trending | **Score:** 130
-- **Relevance:** Direct | **Difficulty:** Medium
-- Plug-and-play homelab dashboard in one container — GPU, local-AI VRAM, Docker, systemd, host health. Built-in read-only MCP server so AI agents can explore it too.
-
 ### [IvanMurzak/Godot-MCP](https://github.com/IvanMurzak/Godot-MCP)
-- **Source:** github/trending | **Score:** 124
+- **Source:** github/trending | **Score:** 129
 - **Relevance:** Direct | **Difficulty:** Medium
 - Godot-MCP — Model Context Protocol (MCP) integration for the Godot Engine. AI tools for the Godot Editor in C#, with cloud connection to ai-game.dev. Apache-2.0.
 
@@ -153,33 +153,34 @@
 - Official monorepo of SDKs, CLI, and MCP servers for Sendmux email APIs across TypeScript, Python, Go, PHP, Rust, and Ruby.
 
 ### [believer-oss/Claireon](https://github.com/believer-oss/Claireon)
-- **Source:** github/trending | **Score:** 103
+- **Source:** github/trending | **Score:** 105
 - **Relevance:** Direct | **Difficulty:** Medium
 - MCP server for Unreal Editor
 
+### [G12789/mcp-quickstart](https://github.com/G12789/mcp-quickstart)
+- **Source:** github/trending | **Score:** 99
+- **Relevance:** Direct | **Difficulty:** Medium
+- Forge a working, testable, publishable MCP server in 30s. TypeScript or Python, with example tools, the Inspector and tests included.
+
 ### [thebriangao/totem](https://github.com/thebriangao/totem)
-- **Source:** github/trending | **Score:** 82
+- **Source:** github/trending | **Score:** 81
 - **Relevance:** Direct | **Difficulty:** Medium
 - Model Context Protocol server giving Claude (or any MCP client) full read + write access to your Whoop fitness data via the private reverse-engineered iOS API. 47 tools: recovery, sleep, strain, HRV t
 
 ### [developer2013/bricks-mcp-open](https://github.com/developer2013/bricks-mcp-open)
-- **Source:** github/trending | **Score:** 69
+- **Source:** github/trending | **Score:** 70
 - **Relevance:** Direct | **Difficulty:** Medium
 - The most comprehensive open-source MCP server for Bricks Builder — 105 tools for pages, templates, styles, SEO, content, and more.
 
-### [G12789/mcp-quickstart](https://github.com/G12789/mcp-quickstart)
-- **Source:** github/trending | **Score:** 69
+### [wasintoh/line-oa-mcp-ultimate](https://github.com/wasintoh/line-oa-mcp-ultimate)
+- **Source:** github/trending | **Score:** 68
 - **Relevance:** Direct | **Difficulty:** Medium
-- Forge a working, testable, publishable MCP server in 30s. TypeScript or Python, with example tools, the Inspector and tests included.
+- Talk to your LINE Official Account through AI. 48 tools (34 messaging + 14 LINE Shopping) — broadcasts, rich menus, Flex, coupons, insights, plus products, orders & checkout links. Works with Claude C
 
-## Knowledge (4 findings)
+## Knowledge (3 findings)
 
-### [Bun has an open PR adding shared-memory threads to JavaScriptCore](https://github.com/oven-sh/WebKit/pull/249)
-- **Source:** hackernews | **Score:** 144
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [The discovery that changed how scientists think about memory](https://www.ibm.com/think/news/discovery-changed-how-scientists-think-about-memory-kavli-prize)
-- **Source:** hackernews | **Score:** 124
+### [In memory of the man who put red and green squiggles under words](https://devblogs.microsoft.com/oldnewthing/20260622-00/?p=112451)
+- **Source:** hackernews | **Score:** 405
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [Release 2025.11.25](https://github.com/modelcontextprotocol/servers/releases/tag/2025.11.25)
@@ -192,15 +193,28 @@ Updated packages
 @modelcontextprotocol/server-everything@2025.11.25
 @modelcontextprotocol/server-filesystem@2025.11.2
 
-### [System call instrumentation on Linux/x86‑64 using memory‑indirect calls, part I](https://www.humprog.org/~stephen/blog/2026/06/15/#system-call-instrumentation-on-intel-negative-result)
-- **Source:** hackernews | **Score:** 38
+### [80386 Early Start Memory Access](https://nand2mario.github.io/posts/2026/80386_early_start/)
+- **Source:** hackernews | **Score:** 46
 - **Relevance:** Indirect | **Difficulty:** Medium
 
-## Security (3 findings)
+## Claude (3 findings)
 
-### [Unauthorized alert sent to cell phones across Brazil](https://www.cnn.com/2026/06/20/americas/brazil-hackers-unauthorized-alert-latam)
-- **Source:** hackernews | **Score:** 190
+### [nikitadoudikov/claude-pulse](https://github.com/nikitadoudikov/claude-pulse)
+- **Source:** github/trending | **Score:** 81
 - **Relevance:** Indirect | **Difficulty:** Medium
+- Local, zero-dependency dashboard for Claude Code: live token usage and context, lost-session recovery, full-text search, and approve tool calls from your phone.
+
+### [Matt-Hulme/claude-power-tools](https://github.com/Matt-Hulme/claude-power-tools)
+- **Source:** github/trending | **Score:** 69
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Skills that make Claude Code proactively suggest its own power tools - workflows, goals, loops, hooks - at the right moment
+
+### [Porting the Moebius 0.2B image inpainting model to run in the browser with Claud](https://simonwillison.net/2026/Jun/22/porting-moebius/#atom-everything)
+- **Source:** blog/Simon Willison | **Score:** 50
+- **Relevance:** Direct | **Difficulty:** Medium
+- This morning on Hacker News I saw Moebius: 0.2B Lightweight Image Inpainting Framework with 10B-Level Performance, describing a small but effective inpainting model - a model where you can 
+
+## Security (2 findings)
 
 ### [v2.1.183](https://github.com/anthropics/claude-code/releases/tag/v2.1.183)
 - **Source:** blog/Claude Code Releases | **Score:** 50
@@ -209,45 +223,18 @@ Updated packages
 
 Improved auto mode safety: destructive git commands (git reset --hard, git checkout -- ., git clean -fd, git stash drop) are now blocked when you didn't ask to discard local work, git 
 
-### [datasette-tailscale 0.1a0](https://simonwillison.net/2026/Jun/16/datasette-tailscale/#atom-everything)
+### [Prompt Injection as Role Confusion](https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything)
 - **Source:** blog/Simon Willison | **Score:** 50
 - **Relevance:** Direct | **Difficulty:** Medium
-- Release: datasette-tailscale 0.1a0
-A very experimental alpha plugin which lets you do this:
-datasette tailscale mydata.db \
-  --ts-authkey tskey-auth-xxxx --ts-hostname
+- Prompt Injection as Role Confusion
+First, I absolutely love this:
 
-## General (2 findings)
+This is a blog-style writeup of the paper.
 
-### [Inference cost at scale with napkin math](https://injuly.in/blog/napkin-inference-cost/index.html)
-- **Source:** hackernews | **Score:** 87
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-### [Cocktail Optimization, an Integer Programming Problem](https://bunkum.us/2026/06/18/cocktail-ingredients-milp)
-- **Source:** hackernews | **Score:** 20
-- **Relevance:** Indirect | **Difficulty:** Medium
-
-## Claude (2 findings)
-
-### [Matt-Hulme/claude-power-tools](https://github.com/Matt-Hulme/claude-power-tools)
-- **Source:** github/trending | **Score:** 69
-- **Relevance:** Indirect | **Difficulty:** Medium
-- Skills that make Claude Code proactively suggest its own power tools - workflows, goals, loops, hooks - at the right moment
-
-### [Show HN: Pulse – Dashboard for Claude Code, approve tool calls from your phone](https://github.com/nikitadoudikov/claude-pulse)
-- **Source:** hackernews | **Score:** 25
-- **Relevance:** Direct | **Difficulty:** Medium
+I wish every paper would come with one of these. Academic writing is p
 
 ## Devtools (1 findings)
 
-### [SaroirCommunity/Spiderbrain-V3](https://github.com/SaroirCommunity/Spiderbrain-V3)
-- **Source:** github/trending | **Score:** 65
+### ["Fix" MacBook Neo Cursor Lag: Record 1 Pixel of the Screen Every 10 Seconds](https://gist.github.com/retroplasma/ec21767d0a8380c7ea9c2fbee1c7d6bf)
+- **Source:** hackernews | **Score:** 111
 - **Relevance:** Indirect | **Difficulty:** Medium
-- SpiderBrain v3 is a multi-platform skill/framework to reduce token usage and AI hallucinations across Claude, Cursor, and other AI tools.
-
-## Infrastructure (1 findings)
-
-### [Quoting Charity Majors](https://simonwillison.net/2026/Jun/17/charity-majors/#atom-everything)
-- **Source:** blog/Simon Willison | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- What happened in 2025 was this: the economics of code production were turned upside down. Instead of being very hard, time-consuming, and expensive to generate code, it becam

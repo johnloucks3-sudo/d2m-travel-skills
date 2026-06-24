@@ -3,8 +3,8 @@
     "status": "GREEN",
     "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 0.18923832300060894,
-    "ts": "2026-06-22T03:25:34.295598+00:00",
+    "duration_sec": 0.17731316799472552,
+    "ts": "2026-06-24T14:36:24.420951+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -12,8 +12,8 @@
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.14567589500074973,
-    "ts": "2026-06-22T03:16:31.776067+00:00",
+    "duration_sec": 0.07731656699615996,
+    "ts": "2026-06-24T14:27:26.571096+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -21,17 +21,17 @@
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.07453698899917072,
-    "ts": "2026-06-22T03:21:32.381545+00:00",
+    "duration_sec": 0.136036266994779,
+    "ts": "2026-06-24T14:27:26.707366+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "ai_exec_bot": {
     "status": "GREEN",
-    "tasks_ran": 6,
+    "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 33.93382830899645,
-    "ts": "2026-06-22T02:45:01.043192+00:00",
+    "duration_sec": 0.19650951400399208,
+    "ts": "2026-06-24T14:18:24.427897+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -39,35 +39,35 @@
     "status": "RED",
     "tasks_ran": 3,
     "tasks_failed": 3,
-    "duration_sec": 2.995101574000728,
-    "ts": "2026-06-22T03:25:37.101626+00:00",
+    "duration_sec": 2.1047016009979416,
+    "ts": "2026-06-24T14:36:26.348489+00:00",
     "error": "",
-    "consecutive_failures": 153
+    "consecutive_failures": 1107
   },
   "audit_bot": {
-    "status": "RED",
-    "tasks_ran": 1,
-    "tasks_failed": 1,
-    "duration_sec": 51.93421547499747,
-    "ts": "2026-06-22T03:26:26.041764+00:00",
+    "status": "GREEN",
+    "tasks_ran": 2,
+    "tasks_failed": 0,
+    "duration_sec": 0.1443176839966327,
+    "ts": "2026-06-24T13:59:36.018198+00:00",
     "error": "",
-    "consecutive_failures": 304
+    "consecutive_failures": 0
   },
   "comms_bot": {
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.09582672599935904,
-    "ts": "2026-06-22T03:24:33.709031+00:00",
+    "duration_sec": 0.05439907200343441,
+    "ts": "2026-06-24T14:35:23.037437+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "intel_bot": {
     "status": "GREEN",
-    "tasks_ran": 2,
+    "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 6.014989445997344,
-    "ts": "2026-06-22T03:16:37.553561+00:00",
+    "duration_sec": 0.6326152449910296,
+    "ts": "2026-06-24T14:27:27.126154+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -75,8 +75,8 @@
     "status": "GREEN",
     "tasks_ran": 6,
     "tasks_failed": 0,
-    "duration_sec": 30.85428021300322,
-    "ts": "2026-06-22T03:17:02.394932+00:00",
+    "duration_sec": 31.9738431910082,
+    "ts": "2026-06-24T14:27:58.481769+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -84,17 +84,17 @@
     "status": "RED",
     "tasks_ran": 2,
     "tasks_failed": 2,
-    "duration_sec": 2.8047127470053965,
-    "ts": "2026-06-22T03:25:36.911846+00:00",
+    "duration_sec": 1.6916072750027524,
+    "ts": "2026-06-24T14:36:25.935836+00:00",
     "error": "",
-    "consecutive_failures": 116
+    "consecutive_failures": 1080
   },
   "backup_bot": {
-    "status": "IDLE",
-    "tasks_ran": 0,
+    "status": "GREEN",
+    "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 0.15377986800012877,
-    "ts": "2026-06-22T02:05:28.013246+00:00",
+    "duration_sec": 9.534026595996693,
+    "ts": "2026-06-24T12:36:35.909366+00:00",
     "error": "",
     "consecutive_failures": 0
   }

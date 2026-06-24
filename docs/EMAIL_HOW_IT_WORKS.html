@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #07076b; font-family: Georgia, serif; color: #f7f3ea; margin: 0; padding: 30px; }
+  .container { max-width: 680px; margin: 0 auto; background: #07076b; }
+  h1 { color: #f7f3ea; font-size: 22px; border-bottom: 2px solid #f7f3ea; padding-bottom: 10px; margin-bottom: 24px; }
+  h2 { color: #ffd700; font-size: 16px; margin-top: 28px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  p { color: #f7f3ea; font-size: 14px; line-height: 1.7; margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th { background: #0000ff; color: #f7f3ea; padding: 8px 12px; text-align: left; font-size: 13px; }
+  td { padding: 8px 12px; border-bottom: 1px solid #1a1a8a; font-size: 13px; color: #f7f3ea; vertical-align: top; }
+  .highlight { background: #0a0a80; border-left: 4px solid #ffd700; padding: 12px 16px; margin: 12px 0; }
+  .code { font-family: monospace; background: #03034a; padding: 2px 6px; border-radius: 3px; color: #ffd700; }
+  .red { color: #ff4444; font-weight: bold; }
+  .gold { color: #ffd700; }
+  .sig { margin-top: 32px; padding-top: 16px; border-top: 1px solid #f7f3ea; font-size: 12px; color: #aaa; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>⚡ HOW YOUR INBOX WORKS — THUNDERBIRD WING</h1>
+  <p style="color:#aaa; font-size:12px;">Commander's Reference · Issued 2026-06-24 · V. Hale, VCS</p>
+
+  <h2>The Three-Tier System</h2>
+  <table>
+    <tr>
+      <th>Tier</th><th>How to trigger</th><th>Response time</th><th>Use for</th>
+    </tr>
+    <tr>
+      <td><span class="red">★ Red Star</span></td>
+      <td>Star any email red in Gmail while reading it</td>
+      <td><strong>2 minutes</strong></td>
+      <td>Anything time-sensitive you want the Wing to act on immediately</td>
+    </tr>
+    <tr>
+      <td><span class="gold">WhatsApp /inbox [#]</span></td>
+      <td>Type <span class="code">/inbox</span> in WhatsApp to get numbered list, reply with number</td>
+      <td><strong>Immediate</strong></td>
+      <td>When you're away from Gmail and need something processed now</td>
+    </tr>
+    <tr>
+      <td>4× Daily Batch</td>
+      <td>Nothing — automatic</td>
+      <td><strong>Next window: 0800/1200/1600/2000 MT</strong></td>
+      <td>Everything else — routine forwards, FYIs, non-urgent tasks</td>
+    </tr>
+  </table>
+
+  <h2>Red Star — Step by Step</h2>
+  <div class="highlight">
+    <p>1. You're reading an email and want the Wing to act on it</p>
+    <p>2. Click the star → select <strong>red star</strong> (hold star icon for color options)</p>
+    <p>3. Wing scanner fires within 2 minutes</p>
+    <p>4. You receive a <strong>Telegram confirmation</strong> with exactly what was done and where data landed</p>
+    <p>5. Star is automatically removed, email is labeled <span class="code">THUNDERBIRD-RedStarProcessed</span></p>
+  </div>
+
+  <h2>What Confirmation Looks Like</h2>
+  <div class="highlight" style="font-family: monospace; font-size: 13px;">
+    <p>⚡ RED STAR PROCESSED</p>
+    <p>📧 Fwd: Amy's travel insurance — two options that still work</p>
+    <p>From: johnloucks3@gmail.com</p>
+    <p>&nbsp;</p>
+    <p>Done — ingested into dossiers/Ely_Darrow_Regent_3096289.md §Insurance.</p>
+    <p>BCBS and Seven Corners options logged. Jun 26 deadline flagged.</p>
+    <p>🔴 Your action needed: Call Al Ely (214-394-7137) to finalize policy choice.</p>
+  </div>
+  <p>The confirmation always names the <strong>file and section</strong> where data landed. Never just "processed."</p>
+
+  <h2>Sending Tasks to the Wing via Email</h2>
+  <table>
+    <tr><th>What you want</th><th>How to send it</th><th>What the Wing does</th></tr>
+    <tr>
+      <td>Forward a client email for processing</td>
+      <td>Forward to <span class="code">d2mconcierge@gmail.com</span></td>
+      <td>Identifies client, updates dossier, flags deadlines, confirms with file ref</td>
+    </tr>
+    <tr>
+      <td>Send a task/directive</td>
+      <td>Email to <span class="code">d2mconcierge@gmail.com</span> — subject: <span class="code">COS: [task]</span></td>
+      <td>Creates mission board entry, confirms MISSION-### created</td>
+    </tr>
+    <tr>
+      <td>CC Wing on a client email you sent</td>
+      <td>Add <span class="code">d2mconcierge@gmail.com</span> to CC</td>
+      <td>Reads the thread, logs client communication to dossier, tracks any deadlines</td>
+    </tr>
+    <tr>
+      <td>Send something urgent</td>
+      <td>Forward/email + <strong>red star it</strong></td>
+      <td>Processed in 2 minutes, Telegram confirm</td>
+    </tr>
+  </table>
+
+  <h2>Batch Processing — What Happens at Each Window</h2>
+  <p>At <strong>0800 / 1200 / 1600 / 2000 MT</strong>, the Wing sweeps all unprocessed emails in d2mconcierge inbox.</p>
+  <p>You receive one consolidated reply listing every item and what was done with each:</p>
+  <div class="highlight" style="font-family: monospace; font-size: 13px;">
+    <p>📥 Batch complete — 0800 MT — 3 items</p>
+    <p>1. MCP Gateway directive → MISSION-430 created (Sterling/ELON)</p>
+    <p>2. Amy Darrow insurance CC → dossiers/Ely_Darrow.md §Insurance updated</p>
+    <p>3. Tech scan report → noted, no action needed</p>
+  </div>
+
+  <h2>What the Wing Will NOT Do Without Your Approval</h2>
+  <table>
+    <tr><th>Action</th><th>Why it stops</th><th>How it surfaces</th></tr>
+    <tr>
+      <td>Send an email to any client or external party</td>
+      <td>WF-17 gate — always</td>
+      <td>Draft in johnloucks3 + Telegram alert + Send/Revise/Delete options</td>
+    </tr>
+    <tr>
+      <td>Contact a vendor or supplier as a human</td>
+      <td>External human contact gate</td>
+      <td>Draft + Telegram + 3 options</td>
+    </tr>
+    <tr>
+      <td>Commit any financial amount</td>
+      <td>Zero financial authority</td>
+      <td>Surfaces to you with recommendation, you decide</td>
+    </tr>
+  </table>
+
+  <h2>If Something Goes Wrong</h2>
+  <p>• No Telegram confirmation after 5 minutes on a red star → check <span class="code">logs/red_star_scanner.log</span></p>
+  <p>• Batch reply missing an item → forward it again with red star for immediate processing</p>
+  <p>• Wing responded "Wilco" but nothing happened → it was queued as a mission; check mission board</p>
+  <p>• Need the Wing right now → WhatsApp <span class="code">/inbox</span> command</p>
+
+  <div class="sig">
+    <p>⚡ Victoria "Victory" Hale · SES-6 · VCSAF · Chief of Staff</p>
+    <p>Thunderbird Wing · Dreams2Memories Travel, LLC · 2026-06-24</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+{
+  "dest": "zadar",
+  "query": "food tour wine",
+  "date": "2027-05-07",
+  "scraped_at": "2026-06-23T15:45:36.008260",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "zadar",
+    "query": "food tour wine",
+    "url": "https://www.getyourguide.com/s/?q=zadar+food+tour+wine",
+    "scraped_at": "2026-06-23T15:45:36.467728",
+    "date_filter": "2027-05-07",
+    "tours": [
+      {
+        "name": "Food Tasting & Old Town Walking Tour",
+        "duration": "2 hours",
+        "rating": 4.9,
+        "review_count": 142,
+        "price_pp": 62.0,
+        "original_price_pp": 69.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/new-zadar-food-tasting-old-town-walking-tour-t1034792/"
+      },
+      {
+        "name": "Zadar Food Tour: Local Dishes & City Stories",
+        "duration": "3 hours",
+        "rating": 4.8,
+        "review_count": 65,
+        "price_pp": 92.0,
+        "original_price_pp": 102.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-3-hour-guided-culinary-walking-tour-sightseeing-t418581/"
+      },
+      {
+        "name": "Molat Hidden Bays Island Escape by Private Boat",
+        "duration": "6.5 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 823.0,
+        "original_price_pp": 914.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/zadar-l1328/from-zadar-molat-hidden-bays-island-escape-by-private-boat-t1363221/"
+      },
+      {
+        "name": "Boat Tour with Unlimited Wine & 3 Stops",
+        "duration": "4 - 4.5 hours",
+        "rating": 4.8,
+        "review_count": 1155,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-boat-tour-with-unlimited-wine-3-stops-t748405/"
+      },
+      {
+        "name": "Zadar City Market Food Tour",
+        "duration": "2 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 50.0,
+        "original_price_pp": 63.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-city-market-food-tour-t1308627/"
+      },
+      {
+        "name": "Boat Tour to Islands with Food, Oil & Wine Tasting",
+        "duration": "4 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": 607,
+        "price_pp": 32.0,
+        "original_price_pp": 46.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-guided-speedboat-tour-with-food-oil-wine-tasting-t404691/"
+      },
+      {
+        "name": "Luxury Island Boat Tour, Snorkeling & Unlimited Wine",
+        "duration": "3 - 4 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 3362,
+        "price_pp": 23.0,
+        "original_price_pp": 46.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-island-luxury-speedboat-tour-with-snorkeling-t642815/"
+      },
+      {
+        "name": "\u2b50\ufe0f Zadar: 4-Stop Island Speedboat Tour, Swim,Snokel & Wine",
+        "duration": "4.5 hours",
+        "rating": 4.9,
+        "review_count": 120,
+        "price_pp": 29.0,
+        "original_price_pp": 40.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/from-zadar-3-magical-stops-with-a-cold-drink-t1017549/"
+      },
+      {
+        "name": "Sunset Cruise on Traditional Boat with Wine",
+        "duration": "1.5 hours",
+        "rating": 4.8,
+        "review_count": 495,
+        "price_pp": 33.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-sunset-cruise-on-traditional-boat-with-wine-t733041/"
+      },
+      {
+        "name": "Boat Tour to:Preko,Osljak,Kali & Snorkel+ Unlimit Wine",
+        "duration": "2 - 4 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 1798,
+        "price_pp": 22.0,
+        "original_price_pp": 34.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-visit-islands-preko-osljak-kali-free-drinks-t556913/"
+      },
+      {
+        "name": "Kornati & Tela\u0161\u0107ica boat tour with Lunch & Drinks",
+        "duration": "9 hours",
+        "rating": 4.6,
+        "review_count": 183,
+        "price_pp": 63.0,
+        "original_price_pp": 80.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-kornati-telascica-boat-tour-with-lunch-drinks-t961261/"
+      },
+      {
+        "name": "Sunset and Night Cruise with Unlimited Sparkling Wine",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 590,
+        "price_pp": 32.0,
+        "original_price_pp": 46.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-sunsetnighttime-cruise-with-unlimited-sparkling-wine-t465569/"
+      },
+      {
+        "name": "Guided Pub Crawl with Welcome Shots and VIP Entry",
+        "duration": "4 hours \u2022 Skip the line",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 59.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-guided-pub-crawl-with-welcome-shots-and-vip-entry-t1312918/"
+      },
+      {
+        "name": "Small-Group 3 Islands Luxury Boat Tour with Aperol",
+        "duration": "3 - 4 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 1071,
+        "price_pp": 23.0,
+        "original_price_pp": 46.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-luxury-boat-tour-with-aperol-spritz-t604644/"
+      },
+      {
+        "name": "Tour to 3 Islands with Snorkeling,Wine&Optional Lunch",
+        "duration": "3 - 4 hours \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": 544,
+        "price_pp": 18.0,
+        "original_price_pp": 37.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/preko-l165285/zadarspeedboat-tour-thrill-ride-with-snorkeling-on-3-island-t748599/"
+      },
+      {
+        "name": "Island Hopping Boat Tour & Blue Bay Snorkel with Wine",
+        "duration": "4 hours \u2022 Skip the line \u2022 Small group",
+        "rating": null,
+        "review_count": 7,
+        "price_pp": 24.0,
+        "original_price_pp": 43.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/preko-l165285/zadar-island-of-love-pasman-and-turanj-boat-tour-with-wine-t1353240/"
+      },
+      {
+        "name": "Sakarun, Cave, Blue Lagoon, Dragon Eye & Snorkel Tour",
+        "duration": "8 hours",
+        "rating": 4.9,
+        "review_count": 119,
+        "price_pp": 110.0,
+        "original_price_pp": 137.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-sakarun-cave-blue-lagoon-dragon-eye-snorkel-tour-t421452/"
+      },
+      {
+        "name": "Unlimited Wine Boat Tour with 3 stops & Snorkeling",
+        "duration": "3 - 4 hours \u2022 Skip the line",
+        "rating": 4.9,
+        "review_count": 155,
+        "price_pp": 23.0,
+        "original_price_pp": 40.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar3stop-island-hoping-blue-lagon-boat-tourwinegintoni-t839882/"
+      },
+      {
+        "name": "Zadar",
+        "duration": "Zadar City Tour 120min Walk",
+        "rating": 4.9,
+        "review_count": 62,
+        "price_pp": 31.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-city-tour-120min-walk-t698805/"
+      },
+      {
+        "name": "Kornati and Tela\u0161\u0107ica Cruise with Ticket Included",
+        "duration": "9 hours",
+        "rating": 4.2,
+        "review_count": 905,
+        "price_pp": 66.0,
+        "original_price_pp": 80.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-kornati-and-telascica-cruise-with-breakfast-and-lunch-t727030/"
+      },
+      {
+        "name": "Hidden Gems Eco Tuk Tuk Tour",
+        "duration": "2 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 67,
+        "price_pp": 64.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-hidden-gems-eco-tuk-tuk-tour-t415706/"
+      },
+      {
+        "name": "Zadar Walking Tour sponsored by Gligora Cheese and deli",
+        "duration": "1.5 hours",
+        "rating": 4.9,
+        "review_count": 802,
+        "price_pp": 17.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-walking-tour-sponsored-by-gligora-cheese-and-deli-t477127/"
+      },
+      {
+        "name": "3-Stop Tour+ Snorkel in Blue Lagoon with Unlimit Wine",
+        "duration": "3 - 4 hours \u2022 Skip the line \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 1849,
+        "price_pp": 22.0,
+        "original_price_pp": 38.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-3-stop-blue-lagoon-snorkeling-cruise-with-drinks-t631431/"
+      },
+      {
+        "name": "Zadar Highlights: Old Town, Sea Organ, Forum & Tastings",
+        "duration": "2 hours",
+        "rating": null,
+        "review_count": 70,
+        "price_pp": 23.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/zadar-l1328/zadar-guided-city-walking-tour-zadar-cathedral-view-point-t418577/"
+      }
+    ],
+    "total_found_estimate": "348 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_zadar_2027-05-07.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "zadar",
+    "url": "https://www.tourradar.com/d/zadar",
+    "scraped_at": "2026-06-23T15:45:42.171705",
+    "date_filter": "2027-05-07",
+    "tours": [
+      {
+        "name": "Dalmatian Highlights Split and Dubrovnik Region Cruise (Superior Boat Category)",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 1522.0,
+        "url": "https://www.tourradar.com/t/228925"
+      },
+      {
+        "name": "Cycle the Dalmatian Coast",
+        "duration": "Pedal Croatia's spectacular coast from Split to Dubrovnik over 8 days. Roll through Hvar's lavender fields, Korcula's vineyards, and the Peljesac Peninsula. Daily 32km rides offer challenging climbs and coastal views. Fontana Hotel in Jelsa provides comfort between rides.",
+        "rating": 4.5,
+        "price_pp": 2400.0,
+        "url": "https://www.tourradar.com/t/124436"
+      },
+      {
+        "name": "Sailing Croatia 8 day -Split, Blue Lagoon, Vis, Hvar, Bol and Trogir",
+        "duration": "Sailing Croatia 8 day -Split, Blue Lagoon, Vis, Hvar, Bol and Trogir",
+        "rating": 4.7,
+        "price_pp": 1040.0,
+        "url": "https://www.tourradar.com/t/275557"
+      },
+      {
+        "name": "CROATIA SAIL - Split to Split (The Dalmatian Voyager)",
+        "duration": "8 days",
+        "rating": 4.9,
+        "price_pp": 1600.0,
+        "url": "https://www.tourradar.com/t/77255"
+      },
+      {
+        "name": "5-day Dubrovnik to Split, Premier boat, 18-35s",
+        "duration": "5 days",
+        "rating": 5.0,
+        "price_pp": 926.0,
+        "url": "https://www.tourradar.com/t/202595"
+      },
+      {
+        "name": "Impressive Croatia",
+        "duration": "8 days",
+        "rating": 4.6,
+        "price_pp": 2029.0,
+        "url": "https://www.tourradar.com/t/202227"
+      },
+      {
+        "name": "Adriatic Explorer from Dubrovnik (Premium Plus) - 8 days",
+        "duration": "Adriatic Explorer from Dubrovnik (Premium Plus) - 8 days",
+        "rating": 5.0,
+        "price_pp": 2285.0,
+        "url": "https://www.tourradar.com/t/142359"
+      }
+    ],
+    "total_found_estimate": "443 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_zadar_2027-05-07.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

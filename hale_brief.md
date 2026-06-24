@@ -1,16 +1,5 @@
-# Daily Hale Transformation Audit — 2026-06-21
-Phase 1: ✅ 9.5/10
-Phase 2: ✅ COMPLETE (approved + deployed)
-Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
-Standards: 100% self-enforced, Layer 8 live
-Operations: Lyons PAID (FPD archived). Welcome emails (Kuklinski + Westbrook) in progress, due Apr 15.
-Decisions: 184 logged
-Open Tasks: 14
-System Health: UNKNOWN
-## END AUDIT
-
-# HALE — Compressed Brief [2026-06-21 06:00 MT]
-*3-7-30 Format | yesterday's Δ: -2 items*
+# HALE — Compressed Brief [2026-06-24 06:00 MT]
+*3-7-30 Format | yesterday's Δ: +0 items*
 
 ---
 
@@ -18,7 +7,7 @@ System Health: UNKNOWN
   All clear — no Commander action required today.
 
 ## 7-DAY HORIZON (Status Since Last Brief)
-  Δ Clients: -1 (17 total)
+  No status changes since last brief.
 
 ## 30-DAY WATCH (Suppressed Repeats)
   ✅ RECEIVED (suppressed): Al Ely & Amy Darrow, John & Melissa Furlow, Kuklinski Group (3 couples), McLeod_Erik_Melissa_SilverMuse_Complete
@@ -30,7 +19,7 @@ System Health: UNKNOWN
 | **$0** | 0 drafts | 17 |
 
 *Full brief: /home/john/Thunderbird/hale_brief.md*
-*— V. Hale, VCS · Next: 2026-06-22 06:00 MT*
+*— V. Hale, VCS · Next: 2026-06-25 06:00 MT*
 
 ---
 
@@ -43,24 +32,24 @@ _No overnight events logged_
 
 | Credential | Status | Detail |
 |---|---|---|
-| ✅ centrav_cookies | valid | Expires in 2.0h (cookie: laravel_session [auth-gate]) |
-| ✅ regent_cookies | valid | Expires in 27.3h (cookie: ASPXAUTH [auth-gate]) |
-| ✅ regent_cookies_oa | valid | Expires in 27.3h (cookie: ASPXAUTH [auth-gate]) |
-| ✅ gmail_token | valid | Expires in 0.4h |
-| ✅ johnloucks3_token | valid | Access token expired but has refresh_token (auto-refreshes) |
-| 🔴 perx_cookies | expired | Expired 63.3h ago (cookie: sailthru_pageviews) |
-| 🟡 room_res_cookies | expired | Expired 65.5h ago (cookie: _gat) |
+| 🔴 centrav_cookies | expired | Expired 4.2h ago (cookie: laravel_session [auth-gate]) |
+| ✅ regent_cookies | valid | Expires in 7945.6h (cookie: MyAccount.Itinerary [httpOnly+do |
+| ✅ regent_cookies_oa | valid | Expires in 7945.6h (cookie: MyAccount.Itinerary [httpOnly+do |
+| ✅ gmail_token | valid | Expires in 0.0h |
+| ✅ johnloucks3_token | valid | Expires in 0.0h |
+| 🔴 perx_cookies | expired | Expired 5.6h ago (cookie: sailthru_pageviews) |
+| 🟡 room_res_cookies | expired | Expired 6.2h ago (cookie: _gat) |
 
 ---
 
 # HALE — Daily Brief
-*Generated: 2026-06-21 06:00 MT*
+*Generated: 2026-06-24 06:00 MT*
 
 ---
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-06-21 · COS MODE**
+**THUNDERBIRD DAILY BRIEF — 2026-06-24 · COS MODE**
 *— V. Hale, VCS*
 
 ---
@@ -78,8 +67,8 @@ _No overnight events logged_
 | Kyle & Rosalie Kuklinski · Roger & Dr Nicholas Kuklinski · Joshua Morton & Erica Dodge | Viking Ocean Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 9 overdue |
 | Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son) | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 3 overdue |
 | Joshua Morton & Erica Dodge | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 4 overdue |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Grandeur | 19 Dec 2026 | DUE 22 Jul 2026 | TP 1.1 — Voyage Preview (destination guide) ⚠️ 1 overdue |
-| McLeod McGlasson | SS Grandeur (Regent Seven Seas) | 19 Dec 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 1 overdue |
+| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Grandeur | 19 Dec 2026 | DUE 22 Jul 2026 | TP 1.1 — Voyage Preview (destination guide) ⚠️ 3 overdue |
+| McLeod McGlasson | SS Grandeur (Regent Seven Seas) | 19 Dec 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 3 overdue |
 | John & Susan Loucks | Seven Seas Grandeur | 29 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 1 overdue |
 | Erik Wiedenbach McLeod + Melissa Etola McGlasson | Princess Discovery Princess | 13 Mar 2027 | DUE 13 Dec 2026 | TP 1.1 — Voyage Preview (destination guide) |
 | Colonel John Aldon Loucks & Ms Susan Dee Loucks | Silversea Silver Nova | 5 May 2027 | DUE 6 Dec 2026 | All clear |
@@ -108,13 +97,13 @@ _Queue empty_
 
 | System | Status |
 |---|---|
-| last_health_check | 💤 2026-06-21T11:58:12.337554+00:00 |
-| chrome_debug_port_9222 | ✅ ONLINE |
+| last_health_check | 💤 2026-06-24T11:59:23.039209+00:00 |
+| chrome_debug_port_9222 | ❌ OFFLINE |
 | mcp_server | ✅ OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient) |
 | opencode_status | ✅ ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z) |
 | telegram_bot | ✅ ONLINE: thunderbird-telegram-gw.service active, 3-bot unified (D2MC2C+GooseD2M+Dani), polling; D2MC2C getMe verified HTTP 200 ok=true id=8754681793 @D2MC2C_bot (probe 2026-06-11T03:12Z) |
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-06-21 06:00 MT*
-*Next brief: 2026-06-22 06:00 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-06-24 06:00 MT*
+*Next brief: 2026-06-25 06:00 MT*

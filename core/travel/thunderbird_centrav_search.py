@@ -610,7 +610,7 @@ async def run_centrav_flight_watch_cycle() -> dict:
     watches = _load_watches()
     flight_watches = {
         wid: w for wid, w in watches.items()
-        if w.get("watch_type") == "flight" and w.get("active", True)
+        if isinstance(w, dict) and w.get("watch_type") == "flight" and w.get("active", True)
     }
 
     started_at = datetime.now().isoformat()

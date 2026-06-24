@@ -138,12 +138,29 @@ def main(today: date = None):
         lines.append("")
 
     msg = "\n".join(lines)
+    # Strip Telegram markdown for email plain-text
+    email_body = msg.replace("*", "").replace("`", "")
     print(msg)
     if _DRY_RUN:
         print(f"[DRY RUN] Would have sent {len(alerts)} alert(s) to Telegram — suppressed.")
         return
     send_telegram(msg)
     print(f"Sent {len(alerts)} alert(s) to Telegram.")
+    # Also email to johnloucks3 inbox (SO 27 MAR 2026 — internal reports are full sends)
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+        from core.email.thunderbird_gmail import gmail_send_from_wing
+        from datetime import datetime as _dt
+        gmail_send_from_wing(
+            to="johnloucks3@gmail.com",
+            subject=f"⚠️ D2M FPD ALERT // {_dt.now().strftime('%b %-d')} — {len(alerts)} ACTIVE",
+            body=email_body,
+            persona_id="COS",
+        )
+        print(f"Email sent to johnloucks3.")
+    except Exception as _e:
+        print(f"Email send failed (non-fatal): {_e}")
 
 
 # Module-level flag set by CLI; default False keeps the daily timer (argless) live.

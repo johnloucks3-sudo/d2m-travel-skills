@@ -564,6 +564,15 @@ CATEGORIES = [
     },
 ]
 
+# ── Inter-wave override (written by inter_wave_analyst.py between waves) ──────
+_OVERRIDE = INTEL_DIR / "categories_live.json"
+if _OVERRIDE.exists():
+    try:
+        CATEGORIES = json.loads(_OVERRIDE.read_text())
+        print(f"  [analyst] Loaded {len(CATEGORIES)} evolved categories from categories_live.json", flush=True)
+    except Exception as _e:
+        print(f"  [analyst] Override load failed ({_e}), using base categories", flush=True)
+
 # ── Routines & Haiku Summary (earmarked per Commander directive 2026-06-21) ──
 ROUTINE_CANDIDATES = [c["id"] for c in CATEGORIES if c.get("routine_candidate")]
 HAIKU_ELIGIBLE    = [c["id"] for c in CATEGORIES if c.get("haiku_eligible")]

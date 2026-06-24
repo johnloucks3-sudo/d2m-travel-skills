@@ -15,8 +15,8 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-22T03:29:06.418122+00:00",
-    "chrome_debug_port_9222": "ONLINE",
+    "last_health_check": "2026-06-24T14:36:24.492965+00:00",
+    "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
     "telegram_bot": "ONLINE: thunderbird-telegram-gw.service active, 3-bot unified (D2MC2C+GooseD2M+Dani), polling; D2MC2C getMe verified HTTP 200 ok=true id=8754681793 @D2MC2C_bot (probe 2026-06-11T03:12Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-22T03:29:06.418122+00:00"
+    "last_updated": "2026-06-24T14:36:24.492965+00:00"
   },
   "open_tasks": [
     {
@@ -196,12 +196,14 @@
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-19T19:35:22.464062+00:00",
+    "last_checked": "2026-06-24T14:29:31.604380+00:00",
     "sheet_status": "ONLINE",
     "sheet_bookings": 26,
-    "sheet_commission_expected": 30117.57,
-    "sheet_d2m_share": 23068.88,
-    "raw_snippet": "D2M share $23,068.88 across 26 bookings. Balance due: $87,959.50."
+    "sheet_commission_expected": 21849.16,
+    "sheet_d2m_share": 16493.72,
+    "raw_snippet": "D2M share $23,068.88 across 26 bookings. Balance due: $87,959.50.",
+    "harlan_verified_total": 18830.83,
+    "harlan_note": "Harlan MISSION-426 2026-06-24: Sheet 30,117.57 is WRONG (flat 15%/80% assumption). Verified D2M share: 6,493.72 confirmed + ,060.10 estimated + 77.11 ancillary = 8,830.93. No commission is late \u2014 all pre-voyage. Loucks 566910-25 is Interline, not D2M."
   },
   "session_context": {
     "last_checkpoint": "2026-06-10T06:45:59.958182-06:00"
@@ -209,7 +211,7 @@
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 60
+      "active": 110
     },
     "DEM": {
       "last_seen": false,
@@ -241,7 +243,7 @@
     },
     "ELON": {
       "last_seen": true,
-      "active": 6
+      "active": 13
     }
   },
   "brain_routing_log": [

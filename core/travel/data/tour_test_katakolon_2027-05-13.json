@@ -1,0 +1,272 @@
+{
+  "dest": "katakolon",
+  "query": "food tour wine",
+  "date": "2027-05-13",
+  "scraped_at": "2026-06-23T15:46:22.744637",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "katakolon",
+    "query": "food tour wine",
+    "url": "https://www.getyourguide.com/s/?q=katakolon+food+tour+wine",
+    "scraped_at": "2026-06-23T15:46:23.162709",
+    "date_filter": "2027-05-13",
+    "tours": [
+      {
+        "name": "Street Food Tour with Wine & Local Guide",
+        "duration": "2.5 hours",
+        "rating": 4.8,
+        "review_count": 1719,
+        "price_pp": 48.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/florence-l32/florence-street-food-tour-with-wine-local-guide-t239347/"
+      },
+      {
+        "name": "Food and Wine Small Group Walking Tour",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 4710,
+        "price_pp": 80.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/lisbon-l42/lisbon-food-wine-tasting-walk-t603/"
+      },
+      {
+        "name": "Sunset Walking Tour with Food and Wine Tastings",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 1342,
+        "price_pp": 99.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/venice-l35/venice-sunset-tour-with-food-and-wine-tasting-t656821/"
+      },
+      {
+        "name": "Guided Street Food Walking Tour",
+        "duration": "3 hours \u2022 Private option available",
+        "rating": 4.6,
+        "review_count": 316,
+        "price_pp": 52.0,
+        "original_price_pp": 67.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/catania-l258/catania-guided-street-food-walking-tour-t74025/"
+      },
+      {
+        "name": "Naxos Town Food Tour with Tastings and Wine",
+        "duration": "3.5 hours",
+        "rating": 4.8,
+        "review_count": 297,
+        "price_pp": 108.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/naxos-l145614/naxos-naxos-town-food-tour-with-tastings-and-wine-t404391/"
+      },
+      {
+        "name": "Guided Street Food Walking Tour with Food and Wine",
+        "duration": "2 hours",
+        "rating": 4.5,
+        "review_count": 329,
+        "price_pp": 51.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/lecce-l731/street-food-lecce-degustazione-cibo-e-vini-tipici-t644790/"
+      },
+      {
+        "name": "Street Food Walking Tour with Wine",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 945,
+        "price_pp": 43.0,
+        "original_price_pp": 61.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/florence-l32/florence-street-food-walking-tour-with-wine-t460465/"
+      },
+      {
+        "name": "Food Walking Tour with Tapas and Wine",
+        "duration": "2.5 hours \u2022 Private option available",
+        "rating": 4.9,
+        "review_count": 2414,
+        "price_pp": 87.0,
+        "original_price_pp": 97.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/barcelona-l45/barcelona-food-walking-tour-with-tapas-and-wine-t449545/"
+      },
+      {
+        "name": "Guided Food Tour with 20+ Tastings on 2 Continents",
+        "duration": "5.5 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 1201,
+        "price_pp": 135.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/istanbul-l56/istanbul-european-and-asian-side-guided-foodie-walking-tour-t187992/"
+      },
+      {
+        "name": "Street Food Guided Walking Tour",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 475,
+        "price_pp": 58.0,
+        "original_price_pp": 74.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/catania-l258/catania-street-food-guided-walking-tour-t490774/"
+      },
+      {
+        "name": "Street Food Tour with a Local Guide and Tastings",
+        "duration": "2.5 hours",
+        "rating": 4.8,
+        "review_count": 2818,
+        "price_pp": 55.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/venice-l35/venice-street-food-tour-with-local-guide-t87869/"
+      },
+      {
+        "name": "San Juan: Old Town Foodie Walking Tour with Tastings",
+        "duration": "3 hours",
+        "rating": 4.8,
+        "review_count": 693,
+        "price_pp": 170.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/san-juan-puerto-rico-l355/old-san-juan-3-hour-food-tour-t243582/"
+      },
+      {
+        "name": "Guided Street Food Tour with Tastings",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 972,
+        "price_pp": 53.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/cartagena-l362/shared-street-food-tour-t440644/"
+      },
+      {
+        "name": "Food Tasting Tour with Cicchetti and Wine",
+        "duration": "3 hours",
+        "rating": 4.9,
+        "review_count": 522,
+        "price_pp": 100.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/venice-l35/venice-food-tasting-tour-with-cicchetti-and-wine-t652670/"
+      },
+      {
+        "name": "Catania Street Food Tour: History, Myths, and Tastings in the Historic Old Town",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 50.0,
+        "original_price_pp": 56.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/catania-l258/catania-street-food-tour-history-myths-and-tastings-in-the-historic-old-town-t1343615/"
+      },
+      {
+        "name": "Guided Food Tour with 15 Tastings & Local Wines",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 96.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/cape-town-l103/cape-town-guided-food-tour-with-15-tastings-local-wines-t1257496/"
+      },
+      {
+        "name": "Guided visit of the vinegar cellar and Balsamic Vinegar food tasting",
+        "duration": "1 hour",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 16.0,
+        "original_price_pp": 20.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/modena-l2733/modena-guided-visit-of-the-vinegar-cellar-and-balsamic-vinegar-food-tasting-t1360057/"
+      },
+      {
+        "name": "Tbilisi",
+        "duration": "10 hours",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 10.0,
+        "original_price_pp": 20.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/sighnaghi-l92090/tbilisi-kakheti-wine-region-day-trip-with-tastings-t1336489/"
+      },
+      {
+        "name": "Wine, Food, and Sunset Tour with 3-Course Dinner",
+        "duration": "4 hours",
+        "rating": 4.9,
+        "review_count": 84,
+        "price_pp": 158.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/chania-l1807/chania-wine-food-and-sunset-tour-with-3-course-dinner-t398265/"
+      },
+      {
+        "name": "Culinary Walking Tour with Food Tastings",
+        "duration": "4 hours \u2022 Small group",
+        "rating": 4.8,
+        "review_count": 45,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/cape-town-l103/flavours-of-the-cape-walking-food-tour-t663583/"
+      },
+      {
+        "name": "Downtown Culinary Walking Tour",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 103,
+        "price_pp": 110.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/charleston-l894/charleston-downtown-culinary-walking-tour-t88013/"
+      },
+      {
+        "name": "Guided Food Trail with Local Tastings",
+        "duration": "2.5 hours \u2022 Private option available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 108.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/killarney-l1621/killarney-guided-food-trail-with-local-tastings-t1093878/"
+      },
+      {
+        "name": "Walking Food Tour with 7 Tastings and 4 Drinks",
+        "duration": "3 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 120,
+        "price_pp": 86.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/kelowna-l32463/kelowna-walking-food-tour-with-7-tastings-t404283/"
+      },
+      {
+        "name": "Guided Food Tour with Tastings",
+        "duration": "4.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 85.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/hoi-an-l831/hoi-an-guided-food-tour-with-tastings-t1341051/"
+      }
+    ],
+    "total_found_estimate": "500+ results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_katakolon_2027-05-13.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "katakolon",
+    "url": "https://www.tourradar.com/d/katakolon",
+    "scraped_at": "2026-06-23T15:46:29.150212",
+    "date_filter": "2027-05-13",
+    "tours": [],
+    "total_found_estimate": null,
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_katakolon_2027-05-13.png",
+    "status": "bot_blocked",
+    "notes": "Bot indicator found"
+  }
+}

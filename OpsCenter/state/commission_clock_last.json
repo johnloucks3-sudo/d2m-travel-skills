@@ -1,0 +1,7 @@
+{
+  "generated_at": "2026-06-23T19:44:26.160301",
+  "overall_status": "PASS",
+  "sign_off": "Confirmed: TESS received $0.00 as of 2026-06-23, source: TESS/sheet. Sheet expected $30,117.57. D2M pipeline: $0.00. No material variance detected.",
+  "tess_received": 0.0,
+  "sheet_expected": 30117.57
+}

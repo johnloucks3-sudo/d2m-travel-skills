@@ -135,11 +135,36 @@ def mark_elon_invoked(sig: str) -> None:
 # Telegram (single chokepoint)
 # ─────────────────────────────────────────────────────────────────────────────
 
+_PAGE_COOLDOWN_MINUTES = 60  # suppress repeat pages for same signature within this window
+
+
 def page_commander(event: dict, reason: str) -> None:
-    """ONLY function that sends Telegram to Commander. Logs every call."""
+    """ONLY function that sends Telegram to Commander. Logs every call.
+    Cooldown: same signature suppressed for PAGE_COOLDOWN_MINUTES to prevent blast loops."""
     if not BOT_TOKEN:
         log.error("page_commander: BOT_TOKEN not set — cannot page Commander")
         return
+
+    # Dedup: check last_paged for this signature
+    details = str(event.get("details", ""))
+    service = event.get("service", "unknown")
+    sig = compute_signature(service, details)
+    sigs = load_signatures()
+    last_paged = (sigs.get(sig) or {}).get("last_paged")
+    if last_paged:
+        cutoff = (datetime.now(timezone.utc) - timedelta(minutes=_PAGE_COOLDOWN_MINUTES)).isoformat()
+        if last_paged >= cutoff:
+            log.info(
+                "page_commander SUPPRESSED (cooldown %dmin): sig=%s service=%s — last_paged=%s",
+                _PAGE_COOLDOWN_MINUTES, sig, service, last_paged
+            )
+            return
+
+    # Record this page before sending (prevents double-send on exception)
+    sigs.setdefault(sig, {"occurrences": [], "last_elon_invoke": None})
+    sigs[sig]["last_paged"] = datetime.now(timezone.utc).isoformat()
+    save_signatures(sigs)
+
     msg = (
         f"🔴 HALE ESCALATION\n"
         f"Service: {event.get('service', 'unknown')}\n"

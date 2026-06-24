@@ -114,9 +114,10 @@ except ImportError as _pol_err:
 
 try:
     from thunderbird_stt import transcribe_audio
-except ImportError:
+except Exception:
+    # llvmlite/numba AttributeError and ImportError both caught — STT degrades gracefully
     def transcribe_audio(*args, **kwargs):
-        return "[STT unavailable — whisper not installed]"
+        return "[STT unavailable — whisper/numba dependency broken]"
 # TTS optional — if missing, fall back silently
 TTS_AVAILABLE = False
 def synthesize_speech(text, output_path, voice_name="en-US-Journey-F"):
@@ -1031,7 +1032,7 @@ _DANI_SANDBOX_FLAGS = ["--tools", ""]  # disables all tools; no --dangerously-sk
 
 
 def call_claude_engine(
-    prompt: str, model: str = SONNET_MODEL, extra_flags: list | None = None
+    prompt: str, model: str = HAIKU_MODEL, extra_flags: list | None = None
 ) -> str:
     """
     Invoke Claude headless via `claude -p`.
@@ -1288,9 +1289,10 @@ def handle_help(token: str, chat_id: int, bot_name: str) -> None:
 /new — Clear context, fresh session
 /status — Wing health + last activity
 /help — This menu
-/drafts — List pending drafts in d2mconcierge
-/approve [id] — Send a draft (first 20 chars of ID)
+/drafts — List pending drafts (Commander + Wing)
+/approve [id] — Send a draft (WF-17 gate active)
 /reject [id] — Delete a draft
+/inbox [query] — Search Commander inbox (johnloucks3)
 """
     if bot_name == "DECOMMISSIONED":
         msg += "/brief — Trigger Hale morning brief\n"
@@ -1334,6 +1336,10 @@ If the brief is stale or missing, summarize what you know about current wing sta
 # ── Draft Approval Commands ───────────────────────────────────────────────────
 
 
+_TG_GMAIL_SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+_TG_WING_INTERNAL = {"johnloucks3@gmail.com", "d2mconcierge@gmail.com", "susanna.loucks@gmail.com"}
+
+
 def _get_d2m_gmail():
     """Get Gmail service for d2mconcierge (gmail_token.json)."""
     try:
@@ -1342,8 +1348,7 @@ def _get_d2m_gmail():
         from googleapiclient.discovery import build
 
         token_file = THUNDERBIRD / "gmail_token.json"
-        creds_file = THUNDERBIRD / "credentials.json"
-        SCOPES = ["https://www.googleapis.com/auth/gmail.modify"]
+        SCOPES = _TG_GMAIL_SCOPES
         creds = None
         if token_file.exists():
             creds = Credentials.from_authorized_user_file(str(token_file), SCOPES)
@@ -1358,45 +1363,99 @@ def _get_d2m_gmail():
         return None
 
 
-def handle_drafts(token: str, chat_id: int) -> None:
-    """List pending drafts in d2mconcierge — /drafts"""
-    tg_typing(token, chat_id)
-    svc = _get_d2m_gmail()
-    if not svc:
-        tg_send(token, chat_id, "❌ Gmail unavailable — check credentials.")
-        return
+def _get_jl3_gmail():
+    """Get Gmail service for Commander's inbox (johnloucks3@gmail.com).
+
+    Full read/write per Commander directive 2026-06-23.
+    WF-17 client-send gate still applies — all sends through this service
+    must pass the internal-address check before execution.
+    """
+    try:
+        from google.oauth2.credentials import Credentials
+        from google.auth.transport.requests import Request
+        from googleapiclient.discovery import build
+
+        token_file = THUNDERBIRD / "creds" / "johnloucks3_token.json"
+        SCOPES = _TG_GMAIL_SCOPES
+        creds = None
+        if token_file.exists():
+            creds = Credentials.from_authorized_user_file(str(token_file), SCOPES)
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+            token_file.write_text(creds.to_json())
+        if not creds or not creds.valid:
+            log.warning("JL3 Gmail: no valid credentials")
+            return None
+        return build("gmail", "v1", credentials=creds)
+    except Exception as e:
+        log.error("JL3 Gmail service error: %s", e)
+        return None
+
+
+def _tg_find_draft(draft_id: str):
+    """Search Wing (d2mconcierge) then Commander (johnloucks3) for a draft.
+    Returns (svc, label) or (None, None)."""
+    for svc, label in [(_get_d2m_gmail(), "Wing"), (_get_jl3_gmail(), "Commander")]:
+        if not svc:
+            continue
+        try:
+            svc.users().drafts().get(userId="me", id=draft_id, format="metadata").execute()
+            return svc, label
+        except Exception:
+            continue
+    return None, None
+
+
+def _tg_append_account_drafts(svc, label: str, lines: list) -> int:
+    """Fetch drafts from one Gmail service and append formatted entries. Returns count."""
+    count = 0
     try:
         result = svc.users().drafts().list(userId="me", maxResults=8).execute()
-        drafts = result.get("drafts", [])
-        if not drafts:
-            tg_send(token, chat_id, "📭 No pending drafts in d2mconcierge.")
-            return
-        lines = ["<b>📋 Pending drafts in d2mconcierge:</b>\n"]
-        for d in drafts:
+        for d in result.get("drafts", []):
             try:
-                detail = (
-                    svc.users()
-                    .drafts()
-                    .get(userId="me", id=d["id"], format="metadata")
-                    .execute()
-                )
+                detail = svc.users().drafts().get(
+                    userId="me", id=d["id"], format="metadata"
+                ).execute()
                 headers = {
                     h["name"].lower(): h["value"]
-                    for h in detail.get("message", {})
-                    .get("payload", {})
-                    .get("headers", [])
+                    for h in detail.get("message", {}).get("payload", {}).get("headers", [])
                 }
                 subject = headers.get("subject", "(no subject)")[:60]
                 to = headers.get("to", "?")[:40]
                 lines.append(
-                    f"<code>{d['id'][:20]}</code>\n  To: {to}\n  Re: {subject}\n"
+                    f"[{label}] <code>{d['id'][:20]}</code>\n  To: {to}\n  Re: {subject}\n"
                 )
             except Exception:
-                lines.append(f"<code>{d['id'][:20]}</code> (error fetching detail)\n")
-        lines.append("\nUse <code>/approve [id]</code> or <code>/reject [id]</code>")
-        tg_send(token, chat_id, "\n".join(lines))
+                lines.append(f"[{label}] <code>{d['id'][:20]}</code> (error)\n")
+            count += 1
     except Exception as e:
-        tg_send(token, chat_id, f"❌ Error listing drafts: {e}")
+        lines.append(f"[{label}] ❌ error: {e}\n")
+    return count
+
+
+def handle_drafts(token: str, chat_id: int) -> None:
+    """List pending drafts in Commander inbox + Wing outbox — /drafts"""
+    tg_typing(token, chat_id)
+    lines = ["<b>📋 Pending drafts (Commander + Wing):</b>\n"]
+    total = 0
+
+    svc_jl3 = _get_jl3_gmail()
+    if svc_jl3:
+        total += _tg_append_account_drafts(svc_jl3, "Commander", lines)
+    else:
+        lines.append("[Commander] ❌ unavailable\n")
+
+    svc_d2m = _get_d2m_gmail()
+    if svc_d2m:
+        total += _tg_append_account_drafts(svc_d2m, "Wing", lines)
+    else:
+        lines.append("[Wing] ❌ unavailable\n")
+
+    if total == 0:
+        tg_send(token, chat_id, "📭 No pending drafts in either account.")
+        return
+    lines.append("\nUse <code>/approve [id]</code> or <code>/reject [id]</code>")
+    tg_send(token, chat_id, "\n".join(lines))
 
 
 def handle_approve(token: str, chat_id: int, args: list) -> None:
@@ -1448,25 +1507,22 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
             tg_send(token, chat_id, f"❌ Publish error: {e}")
         return
 
-    # Fallback: legacy draft not in registry — send raw (no template)
-    svc = _get_d2m_gmail()
+    # Fallback: draft not in registry — find in Wing or Commander account, send raw
+    svc, acct = _tg_find_draft(draft_id)
     if not svc:
-        tg_send(token, chat_id, "❌ Gmail unavailable.")
+        tg_send(token, chat_id, "❌ Draft not found in Wing or Commander accounts.")
         return
     try:
-        detail = (
-            svc.users()
-            .drafts()
-            .get(userId="me", id=draft_id, format="metadata")
-            .execute()
-        )
+        detail = svc.users().drafts().get(
+            userId="me", id=draft_id, format="metadata"
+        ).execute()
         headers = {
             h["name"].lower(): h["value"]
             for h in detail.get("message", {}).get("payload", {}).get("headers", [])
         }
         subject = headers.get("subject", "?")
         to = headers.get("to", "?")
-        # ── Wing Policy gate: client-send prohibition (legacy/raw send path) ──
+        # ── WF-17 + Policy gate ──
         if _POLICY_AVAILABLE:
             try:
                 _res = check_draft_send(draft_id, to)
@@ -1476,20 +1532,26 @@ def handle_approve(token: str, chat_id: int, args: list) -> None:
             if _res is not None and not _res.allowed:
                 tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
                 return
+        # Extra WF-17 guard for cross-account sends
+        if not any(a in to.lower() for a in _TG_WING_INTERNAL):
+            tg_send(token, chat_id,
+                f"🚫 <b>WF-17 GATE</b>\nTo: {to}\n"
+                "Client-facing send blocked. Commander must send from Gmail directly.")
+            return
         svc.users().drafts().send(userId="me", body={"id": draft_id}).execute()
         tg_send(
             token,
             chat_id,
-            f"✅ <b>SENT</b>\nTo: {to}\nSubject: {subject}\n\n"
+            f"✅ <b>SENT</b> [{acct}]\nTo: {to}\nSubject: {subject}\n\n"
             f"<i>Draft {draft_id[:16]}… delivered (legacy — no stationery applied).</i>",
         )
-        log.info("[APPROVE-LEGACY] Sent draft %s to %s — %s", draft_id[:16], to, subject)
+        log.info("[APPROVE-LEGACY] Sent draft %s to %s — %s [%s]", draft_id[:16], to, subject, acct)
     except Exception as e:
         tg_send(token, chat_id, f"❌ Send failed: {e}")
 
 
 def handle_reject(token: str, chat_id: int, args: list) -> None:
-    """Delete a draft by ID — /reject [draft_id]"""
+    """Delete a draft by ID (searches Wing + Commander accounts) — /reject [draft_id]"""
     if not args:
         tg_send(
             token,
@@ -1499,27 +1561,64 @@ def handle_reject(token: str, chat_id: int, args: list) -> None:
         return
     draft_id = args[0]
     tg_typing(token, chat_id)
-    svc = _get_d2m_gmail()
+    svc, acct = _tg_find_draft(draft_id)
     if not svc:
-        tg_send(token, chat_id, "❌ Gmail unavailable.")
+        tg_send(token, chat_id, "❌ Draft not found in Wing or Commander accounts.")
         return
     try:
-        detail = (
-            svc.users()
-            .drafts()
-            .get(userId="me", id=draft_id, format="metadata")
-            .execute()
-        )
+        detail = svc.users().drafts().get(
+            userId="me", id=draft_id, format="metadata"
+        ).execute()
         headers = {
             h["name"].lower(): h["value"]
             for h in detail.get("message", {}).get("payload", {}).get("headers", [])
         }
         subject = headers.get("subject", "?")
         svc.users().drafts().delete(userId="me", id=draft_id).execute()
-        tg_send(token, chat_id, f"🗑️ <b>REJECTED</b>: {subject[:60]}")
-        log.info("[REJECT] Deleted draft %s — %s", draft_id[:16], subject)
+        tg_send(token, chat_id, f"🗑️ <b>REJECTED</b> [{acct}]: {subject[:60]}")
+        log.info("[REJECT] Deleted draft %s — %s [%s]", draft_id[:16], subject, acct)
     except Exception as e:
         tg_send(token, chat_id, f"❌ Reject failed: {e}")
+
+
+def handle_inbox(token: str, chat_id: int, args: list) -> None:
+    """Search or list Commander's johnloucks3 inbox — /inbox [query]"""
+    tg_typing(token, chat_id)
+    query = " ".join(args).strip() if args else ""
+    svc = _get_jl3_gmail()
+    if not svc:
+        tg_send(token, chat_id, "❌ Commander inbox unavailable — check johnloucks3 token.")
+        return
+    try:
+        q = query if query else "in:inbox"
+        result = svc.users().messages().list(userId="me", q=q, maxResults=8).execute()
+        msgs = result.get("messages", [])
+        if not msgs:
+            tg_send(token, chat_id,
+                f"📭 No messages{' for: ' + query if query else ' in inbox'}.")
+            return
+        lines = [f"<b>📬 Commander inbox{' — ' + query if query else ''}:</b>\n"]
+        for m in msgs:
+            try:
+                detail = svc.users().messages().get(
+                    userId="me", id=m["id"], format="metadata",
+                    metadataHeaders=["Subject", "From", "Date"]
+                ).execute()
+                headers = {h["name"].lower(): h["value"]
+                           for h in detail.get("payload", {}).get("headers", [])}
+                subject = headers.get("subject", "(no subject)")[:60]
+                sender  = headers.get("from", "?")[:45]
+                date    = headers.get("date", "")[:20]
+                snippet = detail.get("snippet", "")[:90]
+                lines.append(
+                    f"<code>{m['id'][:16]}</code>\n"
+                    f"  From: {sender}\n  Re: {subject}\n  {date}\n  {snippet}\n"
+                )
+            except Exception:
+                lines.append(f"<code>{m['id'][:16]}</code> (error)\n")
+        tg_send(token, chat_id, "\n".join(lines))
+    except Exception as e:
+        tg_send(token, chat_id, f"❌ Inbox error: {e}")
 
 
 # ── Both Ways Router ──────────────────────────────────────────────────────────
@@ -1758,47 +1857,34 @@ def handle_message(
             args = msg.split()[1:]
             handle_reject(token, chat_id, args)
             return
+        elif cmd == "/inbox":
+            args = msg.split()[1:]
+            handle_inbox(token, chat_id, args)
+            return
         elif cmd == "/agent":
-            # MISSION-180: full-MCP async delegation. Tool-needing requests run a
-            # detached headless Hale agent (Gmail/Drive/TESS/wing tools) off the poll
-            # loop and deliver the result back here. Commander + Hale bots only.
+            # MISSION-180: route to inline hale_claude_engine — same engine as regular
+            # D2MC2C messages. No headless spawn, no _HALE_DISPATCHER_AVAILABLE flag needed.
             if user_id != COMMANDER_ID or bot_name not in ("D2MC2C", "HaleD2M"):
-                tg_send(token, chat_id, "🦅 /agent is Commander-only on the C2 channel.")
+                tg_send(token, chat_id, "⚡ /agent is Commander-only on the C2 channel.")
                 return
             task = " ".join(msg.split()[1:]).strip()
             if not task:
-                tg_send(token, chat_id, "Usage: /agent &lt;task that needs tools — e.g. check my inbox, draft a reply, look up a booking&gt;")
+                tg_send(token, chat_id, "Usage: /agent &lt;task — e.g. check P0 missions, check inbox, look up a booking&gt;")
                 return
-            # ── Wing Policy gate: headless agent spawn ──────────────────────
-            if _POLICY_AVAILABLE:
-                try:
-                    _res = check_spawn(task, "sonnet")
-                except Exception as _e:
-                    log.warning("POLICY check_spawn errored — proceeding: %s", _e)
-                    _res = None
-                if _res is not None and not _res.allowed:
-                    tg_send(token, chat_id, f"🚫 POLICY GATE: {_res.message}")
-                    return
+            tg_typing(token, chat_id)
+            start_t = time.time()
             try:
-                import subprocess as _sp_agent
-                # Bot token passed via ENV, not argv — argv is world-readable in ps/proc
-                # (MISSION-258). Inherit the full environment so the headless spawn keeps
-                # its OAuth/MCP vars, then add the token.
-                _agent_env = dict(os.environ)
-                _agent_env["TG_AGENT_BOT_TOKEN"] = token
-                _sp_agent.Popen(
-                    [sys.executable, str(THUNDERBIRD / "OpsCenter" / "telegram_async_agent.py"),
-                     "--chat-id", str(chat_id),
-                     "--task", task, "--model", "sonnet"],
-                    stdout=open(THUNDERBIRD / "logs" / "telegram_async_agent.log", "a"),
-                    stderr=_sp_agent.STDOUT,
-                    start_new_session=True,   # detached — poll loop never blocks
-                    cwd=str(THUNDERBIRD),
-                    env=_agent_env,
-                )
-                tg_send(token, chat_id, "🦅 Wilco — on it with full tools. I'll deliver the result here shortly.")
-            except Exception as e:
-                tg_send(token, chat_id, f"🦅 Couldn't launch agent: {e}")
+                ctx_text = ctx_file.read_text() if ctx_file and ctx_file.exists() else ""
+                hale_resp = hale_claude_engine(ctx_text, task, None)
+            except Exception as _e:
+                log.error("[%s] /agent inline engine error: %s", bot_name, _e)
+                hale_resp = None
+            if hale_resp and not hale_resp.startswith("["):
+                elapsed = time.time() - start_t
+                log.info("[%s] /agent inline engine returned %d chars in %.1fs", bot_name, len(hale_resp), elapsed)
+                tg_send_chunks(token, chat_id, fmt_process(f"⚡\n\n{hale_resp}", CHUNK_SIZE))
+            else:
+                tg_send(token, chat_id, f"⚡ /agent engine error — {hale_resp or 'no response'}")
             return
         elif cmd == "/dispatch_status" and _HALE_DISPATCHER_AVAILABLE:
             try:

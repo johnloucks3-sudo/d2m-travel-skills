@@ -234,7 +234,9 @@ def _mark_read(service, message_id: str):
 
 
 def _create_draft_reply(service, msg: Dict, to_email: str, subject: str, reply_body: str) -> Dict:
-    """Create a Gmail draft reply on a thread."""
+    """Create a Gmail draft reply on a thread. Use ONLY for replies written in Commander's
+    voice that he must review before sending (e.g. _handle_draft_reply). Staff communications
+    to Commander use _send_reply_directly per SO-INTEL-SEND-20260527."""
     mime_msg = MIMEText(reply_body, "plain")
     mime_msg["to"] = to_email
     mime_msg["from"] = OPS_EMAIL  # D2M ops sends drafts — not Commander personal
@@ -250,6 +252,24 @@ def _create_draft_reply(service, msg: Dict, to_email: str, subject: str, reply_b
 
     draft = service.users().drafts().create(userId="me", body=draft_data).execute()
     return draft
+
+
+def _send_reply_directly(service, msg: Dict, to_email: str, subject: str, reply_body: str) -> Dict:
+    """Send a staff/intel/report reply DIRECTLY to Commander's inbox — no draft step.
+    Per SO: reports, intel, staff communications go as full sends, not drafts.
+    Returns a dict with 'id' and 'threadId' matching the draft dict shape."""
+    mime_msg = MIMEText(reply_body, "plain")
+    mime_msg["to"] = to_email
+    mime_msg["from"] = OPS_EMAIL
+    mime_msg["subject"] = f"Re: {subject}" if not subject.startswith("Re:") else subject
+
+    raw = base64.urlsafe_b64encode(mime_msg.as_bytes()).decode("utf-8")
+    sent = service.users().messages().send(
+        userId="me",
+        body={"raw": raw, "threadId": msg.get("threadId", "")},
+    ).execute()
+    # Return in draft-compatible shape so callers don't need branching
+    return {"id": sent.get("id", ""), "message": sent}
 
 
 def _notify_commander_telegram(action_type: str, subject: str, from_addr: str,
@@ -527,19 +547,19 @@ def _handle_self_email(service, msg: Dict, persona_tag: str, clean_subject: str,
         reply_body = "\n\n---\n\n".join(reply_parts)
 
         try:
-            draft = _create_draft_reply(service, msg, YODA_EMAIL, f"[STAFF] {clean_subject}", reply_body)
+            sent = _send_reply_directly(service, msg, YODA_EMAIL, f"[STAFF] {clean_subject}", reply_body)
 
             _notify_commander_telegram(
                 "STAFF_MEETING", f"[STAFF] {clean_subject}", YODA_EMAIL,
-                reply_body, draft_id=draft["id"],
+                reply_body, draft_id=None,
             )
 
             return {
                 "handler": "STAFF_MEETING",
                 "addressees": ALL_PERSONA_IDS,
-                "draft_id": draft["id"],
+                "message_id": sent["id"],
                 "persona_count": len(responses),
-                "note": "Staff meeting results drafted as reply — review in Gmail",
+                "note": "Staff meeting results sent directly to Commander inbox.",
             }
         except Exception as e:
             logger.error(f"Failed to create staff meeting draft: {e}")
@@ -598,18 +618,18 @@ def _handle_self_email(service, msg: Dict, persona_tag: str, clean_subject: str,
         if reply_body:
             try:
                 original_subject = f"[{persona_tag}] {clean_subject}"
-                draft = _create_draft_reply(service, msg, YODA_EMAIL, original_subject, reply_body)
+                sent = _send_reply_directly(service, msg, YODA_EMAIL, original_subject, reply_body)
 
                 _notify_commander_telegram(
                     f"PERSONA_EMAIL:{persona_tag}", original_subject, YODA_EMAIL,
-                    reply_body, draft_id=draft["id"],
+                    reply_body, draft_id=None,
                 )
 
                 return {
                     "handler": "DIRECT" + (" + DELEGATION" if delegated_responses else ""),
                     "persona": persona_id,
                     "persona_name": result.get("name", ""),
-                    "draft_id": draft["id"],
+                    "message_id": sent["id"],
                     "delegations": len(delegated_responses),
                     "response": reply_body[:500],
                     "note": f"{result.get('name', persona_id)} replied — draft in Gmail",

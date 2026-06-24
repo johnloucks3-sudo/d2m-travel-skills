@@ -420,6 +420,7 @@ completed_tps: []
 | 2026-05-26 | Fwd: McLeod Water Taxi — Venice Molino Stucky to Marco Polo Airport, 6 July 2026 | Erik, Melissa (from personal) |
 | 2026-05-29 | Silver Muse Mediterranean — Your Itinerary Is Ready · One Quick Question | Erik, Melissa |
 | 2026-06-02 | Your Silver Muse Mediterranean — Final Itinerary | Erik, Melissa |
+| 2026-06-22 | Re: Silversea cruise | Melissa |
 
 ---
 
@@ -438,3 +439,19 @@ completed_tps: []
 **Amount:** €170.00 | **Passengers:** 2
 **Status:** ✅ CONFIRMED — PAID
 *Integrate into trip transport/booking table above.*
+
+
+### EMAIL LOG
+
+**Jun 22 — Melissa McGlasson** (Re: Re: Silversea cruise)
+> **Jun 22, 2026 (Rome, pre-embarkation):** Email from Melissa with excursion and dining feedback. **Colosseum tour:** Guide lacked personality; Erik booked via independent provider after D2M Jun 20 option unavailable (Melissa noted via Jun 17 thread). Not recommended for future clients. **La Fata Ignorante (restaurant):** HIGHLY RECOMMENDED—one of best meals, outstanding waiter, exceptional service. **Other restaurants:** Fantastic. Rome weather: Unusually hot, impacted outdoor activities. **Logistics:** Moma special dinner tonight (Jun 22); embarkation confirmed Jun 23. **Birthday coordination:** Jun 24 celebration onboard, Silversea Butler briefed. **Stateroom preferences:** Hendricks Gin + diet tonic confirmed with ship. Trip tracking smooth through pre-cruise phase. Post-cruise feedback survey flagged for Jul 7-8.
+
+
+### OPEN ACTION ITEMS
+- [ ] Vendor database: Colosseum tour provider—guide quality issue, recommend alternatives for future clients (auto-intel Jun 22)
+
+- [ ] Confirm birthday coordination and stateroom setup with Silversea (Hendricks Gin stock, birthday acknowledgment) before Jun 23 embarkation (auto-intel Jun 22)
+
+- [ ] Post-cruise outreach: Email survey 1-2 days after Jul 6 disembarkation requesting full trip feedback and future recommendations (auto-intel Jun 22)
+
+- [ ] Restaurant database: La Fata Ignorante (Rome)—add to preferred vendors, rating EXCEPTIONAL (auto-intel Jun 22)
