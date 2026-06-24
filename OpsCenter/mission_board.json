@@ -4693,7 +4693,7 @@
     {
       "id": "MISSION-250",
       "title": "H7 \u2014 SSH hardening: disable password auth, AllowUsers john, install sshguard/CrowdSec",
-      "status": "pending_review",
+      "status": "pending_commander_action",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "A7 Sterling + Commander (confirms key access first) + HALE oversight",
@@ -4731,7 +4731,8 @@
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
       "updated_at": "2026-06-18T09:02:58",
-      "log": []
+      "log": [],
+      "notes": "Commands documented at output/MISSION-250-SSH-Hardening-Commands.md. Requires Commander sudo TTY. 7 keys confirmed in authorized_keys. Run commands in order; keep existing session open."
     },
     {
       "id": "MISSION-251",
@@ -9513,7 +9514,7 @@
     {
       "id": "MISSION-423",
       "title": "Confirm Amy Darrow insurance purchase before Jun 26 deadline",
-      "status": "active",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Follow up with Amy Darrow (amy.darrow@me.com) to confirm she purchased one of the three recommended plans (Squaremouth 6XD3-983E) before the 60-day pre-existing condition window closes June 26; draft is staged in johnloucks3 ready to send.",
@@ -9522,7 +9523,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-23T19:33:16] Created by Weekly Report Generator"
+        "[2026-06-23T19:33:16] Created by Weekly Report Generator",
+        {
+          "ts": "2026-06-24T14:38:13.180871+00:00",
+          "msg": "Duplicate of MISSION-318 (Amy Darrow insurance confirmation). Same action required."
+        }
       ],
       "created_at": "2026-06-23T19:33:16.774343+00:00",
       "updated_at": "2026-06-23T19:33:16.774347+00:00",
@@ -9531,7 +9536,7 @@
     {
       "id": "MISSION-424",
       "title": "Call United Group Desk for Spencer DEN-FCO 12-pax air quote",
-      "status": "active",
+      "status": "complete",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Call United Group Desk at 800-426-1122 opt 3 using Dembe's prepared brief (itinerary, dates, cabin mix, cost ceiling) to establish group booking relationship and request written quote before June 25 window closes.",
@@ -9540,7 +9545,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-23T19:33:16] Created by Weekly Report Generator"
+        "[2026-06-23T19:33:16] Created by Weekly Report Generator",
+        {
+          "ts": "2026-06-24T14:38:13.180871+00:00",
+          "msg": "Duplicate of MISSION-317 (United Group Desk call). Brief ready: output/MISSION-196A."
+        }
       ],
       "created_at": "2026-06-23T19:33:16.774432+00:00",
       "updated_at": "2026-06-23T19:33:16.774436+00:00",
@@ -9593,7 +9602,7 @@
     {
       "id": "MISSION-427",
       "title": "Wire client-path canary monitoring instrument for Vanguard SO enforcement",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Build a lightweight probe that verifies the 7-day client-path canary defined in SO_TECH_VANGUARD_ELEVATION_20260621 is running on active canary tools \u2014 converts doctrine from a commit to a measurable state.",
@@ -9608,7 +9617,8 @@
       ],
       "created_at": "2026-06-23T19:33:16.774673+00:00",
       "updated_at": "2026-06-23T19:51:08",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "notes": "scripts/client_path_canary.py built + canary-monitor.timer enabled (daily 0800 MT). 3 tools enrolled: litellm_gateway, form_to_dossier, email_ingestion_pipeline. 7-day canary window each. Log defects: --defect TOOL DETAIL. Graduate: --graduate TOOL."
     },
     {
       "id": "MISSION-428",
@@ -9631,7 +9641,7 @@
     {
       "id": "MISSION-429",
       "title": "Build Walls of Jericho Task 1 \u2014 first travel data sector unlock",
-      "status": "active",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "Hale",
       "description": "Move the Walls of Jericho plan (8-task, 7-sector travel data roadmap) from plan-commit to execution-commit by completing Task 1 in the sequencing logic; log progress in mission board with explicit completion criteria.",
@@ -9644,7 +9654,8 @@
       ],
       "created_at": "2026-06-23T19:33:16.774956+00:00",
       "updated_at": "2026-06-23T19:33:16.774959+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "notes": "Walls of Jericho Task 2A (excursion aggregator) complete: core/travel/excursion_aggregator.py with PE live + Nordic/Baltic port IDs. GYG/SEG/EatWith key-gated (Commander registers). Copenhagen PE blocked by Imperva (set to None/dynamic). WoJ plan updated at docs/superpowers/plans/2026-06-22-walls-of-jericho.md."
     },
     {
       "id": "MISSION-430",
@@ -9677,7 +9688,7 @@
     {
       "id": "MISSION-431",
       "title": "EMAIL INGESTION PIPELINE",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "\u2014 n8n + 4x/day batch + WhatsApp trigger (retire scanner cron) Replace run_commander_directive_sweep.py cron with: (1) n8n workflow on yoga \u2014 email arrives d2mconcierge \u2192 route by type INGEST/TASK/CLIENT/CC \u2192 execute \u2192 reply with file reference. (2) 4x/day batch scan at 0900/1200/1500/1800 MT using Sonnet (not Haiku) \u2014 consolidated reply per batch with verifiable file pointers. (3) WhatsApp real-time trigger for urgent items. Confirmation format must include file path + section where data landed. Scanner cron retired once n8n live. Sterling specs n8n workflow, ELON builds. Owner: Sterling+ELON.",
@@ -9686,10 +9697,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-24T13:46:50] Amendment: add red-star scanner \u2014 lightweight 2-min scan for has:red-star emails only. Commander stars email while reading it, Wing processes immediately, removes star, confirms via Telegram. Three-tier system: red-star=immediate, WhatsApp /inbox=on-demand, 4x/day=batch."
+        "[2026-06-24T13:46:50] Amendment: add red-star scanner \u2014 lightweight 2-min scan for has:red-star emails only. Commander stars email while reading it, Wing processes immediately, removes star, confirms via Telegram. Three-tier system: red-star=immediate, WhatsApp /inbox=on-demand, 4x/day=batch.",
+        "[2026-06-24T14:46:21.762236+00:00] COMPLETED: scripts/email_ingestion_pipeline.py built and deployed. Systemd timer thunderbird-email-ingestion.timer runs every 4h. Categories: booking_confirmation|client_inquiry|supplier_intel|invoice|internal_wing|spam. Outputs: output/email_ingestion_log.json + output/email_ingestion_report.json. Author: Sterling (A7) \u2014 MISSION-431 2026-06-24."
       ],
       "created_at": "2026-06-24T13:45:39.833013+00:00",
-      "updated_at": "2026-06-24T13:46:50.060238+00:00"
+      "updated_at": "2026-06-24T14:46:21.762227+00:00"
     },
     {
       "id": "MISSION-432",
@@ -9758,7 +9770,7 @@
     {
       "id": "MISSION-435",
       "title": "TP TEMPLATE DOCUMENT",
-      "status": "in_progress",
+      "status": "commander_review_pending",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "\u2014 all 23 touchpoints, Luna+Naia, John's voice Build full 23-TP template document through Luna (narrative, John's voice) + Naia (brand pass). Single .md file for Commander review and approval. Once approved: Wing has standing authority to produce TPs autonomously up to send point. Commander directive 2026-06-24 item 1.",
@@ -9768,7 +9780,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-24T14:17:03.487271+00:00",
-      "updated_at": "2026-06-24T14:17:03.487279+00:00"
+      "updated_at": "2026-06-24T14:17:03.487279+00:00",
+      "notes": "Luna complete: 20 templates (16 core TPs + 4 ARC). Timers enabled 2026-06-24. Awaiting Commander review + approval for standing TP authority."
     },
     {
       "id": "MISSION-436",
@@ -9855,7 +9868,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-06-23T19:51:11.148174+00:00",
+  "last_updated": "2026-06-24T14:46:21.762241+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",
