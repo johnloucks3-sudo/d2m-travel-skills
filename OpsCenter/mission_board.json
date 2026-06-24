@@ -5310,7 +5310,7 @@
     {
       "id": "MISSION-264",
       "title": "META \u2014 Git history scrub (filter-repo) AFTER rotations, then force-push",
-      "status": "pending_review",
+      "status": "suspended",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "HALE",
@@ -5356,7 +5356,8 @@
       "created_at": "2026-06-15T14:41:57.266952+00:00",
       "updated_at": "2026-06-18T12:16:02",
       "commander_note_20260617": "Commander attempted 2026-06-17 \u2014 blocked. Deferring. Investigate blocker tonight.",
-      "log": []
+      "log": [],
+      "suspension_reason": "Blocked: requires rotations (MISSION-242/243 etc.) to run first. Commander declined all rotation on 2026-06-24. Git history scrub deferred indefinitely."
     },
     {
       "id": "MISSION-265",
@@ -6148,7 +6149,7 @@
     {
       "id": "MISSION-301",
       "title": "Chrome CDP 9222",
-      "status": "active",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "no-auth hardening \u2014 dedicated user/namespace M-256 follow-on. CDP is loopback-bound (127.0.0.1, verified \u2014 not network-exposed) but no-auth: any local process can drive Chrome + lift logged-in cookies (Gmail, cruise portals). Chrome --remote-debugging-port has NO native auth. Portal-access CI skill depends on 9222, so cannot remove. Mitigations to evaluate: (a) run debug Chrome under dedicated unix user w/ restricted perms, (b) network namespace isolation, (c) per-session ephemeral port + kill-when-idle. Residual risk ACCEPTED until built \u2014 loopback binding limits blast radius to local foothold only. Owner: Sterling (infra) + Dembe (threat model).",
@@ -6160,10 +6161,18 @@
         {
           "ts": "2026-06-22T19:50:46.699993+00:00",
           "entry": "PARTIALLY COMPLETE: Chrome CDP 9222 no-auth hardening. Port is loopback-bound (127.0.0.1 \u2014 not network-exposed, confirmed). No native Chrome auth available. Mitigation options: (1) Dedicated Chrome profile/user namespace; (2) auth proxy wrapper; (3) mDNS-only binding. Full hardening requires Commander decision on threat model. Keeping active."
+        },
+        {
+          "ts": "2026-06-24T16:57:02.604959+00:00",
+          "entry": "CLOSED 2026-06-24: Risk accepted. Threat model written to output/MISSION301_chrome_cdp_threat_model.md. Full audit: 10 scripts hardcode port 9222. Option (c) rejected: random-port = security theater (local actor enumerates in <10ms); kill-when-idle breaks portal-access CI skill (MISSION-214 P0, Akamai blocks headless re-auth) AND fights chrome-debug.service Restart=always + 5-min watchdog restart loop. Options (a)/(b) blocked on sudo (no sysadmin access). Residual risk ACCEPTED: loopback-bound (127.0.0.1), no network exposure, no financial execution authority from any CDP-accessible session. Re-evaluate if sudo access becomes available \u2014 then implement option (a): dedicated chrome-debug unix user + socket isolation."
+        },
+        {
+          "ts": "2026-06-24T16:57:11.452793+00:00",
+          "entry": "CLOSED 2026-06-24: Risk accepted. Threat model written to output/MISSION301_chrome_cdp_threat_model.md. Full audit: 10 scripts hardcode port 9222. Option (c) rejected: random-port = security theater (local actor enumerates in <10ms); kill-when-idle breaks portal-access CI skill (MISSION-214 P0, Akamai blocks headless re-auth) AND fights chrome-debug.service Restart=always + 5-min watchdog restart loop. Options (a)/(b) blocked on sudo (no sysadmin access). Residual risk ACCEPTED: loopback-bound (127.0.0.1), no network exposure, no financial execution authority from any CDP-accessible session. Re-evaluate if sudo access becomes available: option (a) = dedicated chrome-debug unix user + socket isolation."
         }
       ],
       "created_at": "2026-06-21T03:56:27.618160+00:00",
-      "updated_at": "2026-06-22T19:50:46.699993+00:00",
+      "updated_at": "2026-06-24T16:57:11.452779+00:00",
       "log": []
     },
     {
@@ -9641,7 +9650,7 @@
     {
       "id": "MISSION-428",
       "title": "Execute MISSION-SEC-05 Tier 2 credential rotation runbook for burned GitHub credentials",
-      "status": "active",
+      "status": "suspended",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Work through the Tier 2 runbook with Commander approval on rotation targets; complete rotation and close the MISSION-SEC-05 finding before it ages into a security incident.",
@@ -9654,7 +9663,8 @@
       ],
       "created_at": "2026-06-23T19:33:16.774824+00:00",
       "updated_at": "2026-06-23T19:33:16.774829+00:00",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "suspension_reason": "Commander directive 2026-06-24: declined all SEC-05 key rotation \u2014 behind firewall, recent security audit, one laptop/network. Do not pursue."
     },
     {
       "id": "MISSION-429",

@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-24T14:47:28.060974+00:00",
+    "last_health_check": "2026-06-24T18:48:59.361590+00:00",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,90 +107,42 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-24T14:47:28.060974+00:00"
+    "last_updated": "2026-06-24T18:49:09.834842+00:00"
   },
   "open_tasks": [
     {
-      "id": "MISSION-087",
-      "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
+      "id": "MISSION-SEC-05",
+      "title": "Rotate burned credentials pushed to GitHub \u2014 runbook Tier 2",
       "priority": "P1",
       "status": "active"
     },
     {
-      "id": "MISSION-102",
-      "title": "IRON CLOCK \u2014",
+      "id": "MISSION-214",
+      "title": "Regent Portal On-Demand",
       "priority": "P0",
       "status": "in_progress"
     },
     {
-      "id": "MISSION-110",
-      "title": "INBOX DISCIPLINE Commander",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-112",
-      "title": "Send 5 WF-17 drafts \u2014 Nichols + Kuklinski queue",
-      "priority": "P0",
-      "status": "complete"
-    },
-    {
-      "id": "MISSION-113",
-      "title": "Refresh Centrav + Regent portal session cookies",
-      "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-118",
-      "title": "Sterling Sunday audit \u2014 ETB + autonomy build complexity check",
-      "priority": "P2",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-129",
-      "title": "Commander sends 5 aging WF-17 drafts \u2014 Nichols + Kuklinski x4",
-      "priority": "P0",
-      "status": "complete"
-    },
-    {
-      "id": "MISSION-130",
-      "title": "Call United Group Desk for Spencer DEN-FCO air quote",
-      "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-135",
-      "title": "Deduplicate MISSION-072 and repair truncated mission titles",
-      "priority": "P2",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-137",
-      "title": "Activate Dembe for Spencer DEN-FCO 12-pax air quote",
-      "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-138",
-      "title": "Send five aging WF-17 drafts \u2014 Nichols + Kuklinski",
-      "priority": "P0",
-      "status": "complete"
-    },
-    {
-      "id": "MISSION-155",
-      "title": "Activate Dembe \u2014 Spencer air quote DEN-FCO 12-pax",
-      "priority": "P0",
-      "status": "active"
-    },
-    {
-      "id": "MISSION-158",
-      "title": "Send Bryana onboarding drafts after Commander review",
+      "id": "MISSION-236",
+      "title": "Manual Regent OA re-authentication to restore B2B portal coverage",
       "priority": "P1",
       "status": "active"
     },
     {
-      "id": "MISSION-172",
-      "title": "Cross-Staff Communication Tools",
+      "id": "MISSION-317",
+      "title": "Call United Group Desk \u2014 Spencer DEN-FCO 12-pax air quote",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-318",
+      "title": "Confirm Amy Darrow insurance purchase before Jun 26 deadline",
+      "priority": "P0",
+      "status": "active"
+    },
+    {
+      "id": "MISSION-322",
+      "title": "Fix MISSION-SEC-01 \u2014 apex d2mluxury.quest DNS 525 error",
       "priority": "P1",
       "status": "active"
     }
