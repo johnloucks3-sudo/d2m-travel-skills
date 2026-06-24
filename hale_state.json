@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-24T18:55:59.950461+00:00",
+    "last_health_check": "2026-06-24T19:06:00.802805+00:00",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-24T18:55:59.950461+00:00"
+    "last_updated": "2026-06-24T19:06:00.802805+00:00"
   },
   "open_tasks": [
     {
@@ -366,6 +366,29 @@
       "message": "McLeod/McGlasson Silver Muse voyage returned Jul 6. Send TP 5.1 Welcome Home today. Follow with TP 5.2 Survey Jul 20. Eric McLeod & Melissa McGlasson.",
       "client": "McLeod McGlasson - Silver Muse",
       "condition": "date>=2026-07-13",
+      "condition_type": "date"
+    },
+    {
+      "id": "MCLEOD-2984034-TP11-SEND",
+      "trigger_date": "2026-07-07",
+      "priority": "P1",
+      "message": "McLeod Regent Grandeur 2984034 \u2014 TP 1.1 Voyage Preview draft was staged 2026-06-24 with contact hold. Send today: review draft in johnloucks3 (search subject \"Lesser Antilles\") and send to Erik McLeod. Contact hold lifted \u2014 client returned from Silver Muse Jul 6.",
+      "client": "McLeod McGlasson - Grandeur Dec 2026",
+      "booking": "2984034",
+      "condition": "date>=2026-07-07",
+      "condition_type": "date",
+      "source": "TP 1.1 staged 2026-06-24 with contact hold per Commander directive (client on Silver Muse Jun 23 - Jul 6)"
+    },
+    {
+      "id": "LOUCKS-3122006-FPD-ALERT",
+      "trigger_date": "2026-07-11",
+      "priority": "P0",
+      "message": "Loucks Regent Grandeur 3122006 \u2014 FPD Aug 1 is 21 days out. TP 4.1 Payment Reminder due TODAY. Balance: 4,798. WF-17 waived for Loucks-as-client \u2014 send directly. Both John & Susan guest registration still NOT complete.",
+      "client": "John & Susan Loucks",
+      "booking": "3122006",
+      "fpd": "2026-08-01",
+      "amount": 24798,
+      "condition": "date>=2026-07-11",
       "condition_type": "date"
     }
   ],

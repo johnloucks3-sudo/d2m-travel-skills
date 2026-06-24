@@ -15,8 +15,8 @@ commission_source: invoice
 invoice_total: 25798.00
 payment_status: deposit_only
 harlan_signoff: "Confirmed: balance_due=$24,798.00 UNPAID, FPD Aug-1-2026, source: Regent portal scrape 2026-06-10 (portal > invoice — upgraded). Invoice 3122006 dated 02-Jun-26 corroborated."
-completed_tps: []
-completed_tps_basis: "Nothing verifiably complete. FPD Aug 1 2026 FUTURE → payment TPs NOT done (deposit only $1,000). Guest registration NOT COMPLETE (both John & Susan). TP 0.5 Welcome shows ACTIVE (not SENT) in lifecycle doc. Commander's own trip — internal. Leave empty until items verifiably close."
+completed_tps: ["1.1"]
+completed_tps_basis: "TP 1.1 Voyage Preview sent 2026-06-24 directly to johnloucks3@gmail.com (WF-17 waived, Loucks-as-client). msg_id=19efb063e04a6a37. FPD Aug 1 2026 FUTURE → payment TPs NOT done (deposit only $1,000). Guest registration NOT COMPLETE (both John & Susan). TP 0.5 Welcome NOT yet sent."
 ---
 # DOSSIER — John & Susan Loucks | Regent Seven Seas Grandeur | Panama Canal & Pacific Gems
 **Status: 55% COMPLETE | Last updated: 2026-06-19 (portal scrape — excursions, hotel, OBC confirmed)**

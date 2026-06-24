@@ -24,6 +24,8 @@ relationship: client
 contact_hold_until: 2026-07-07
 completed_tps: ["0.5"]
 completed_tps_basis: "0.5 booking validation sent + guest registration complete. FPD Jul-22 future → payment TPs NOT done. CONTACT HOLD until Jul 7 (client on Silver Muse Jun 23–Jul 6, Commander directive 2026-06-09)."
+draft_pending_tps: ["1.1"]
+draft_pending_notes: "TP 1.1 Lesser Antilles Voyage Preview drafted 2026-06-24, staged in johnloucks3 (r4541671196264704806), CONTACT HOLD until Jul 7 — DO NOT SEND before then. Port sequence verified: Miami→St Thomas Dec22→Dominica Dec23→Antigua Dec24→St Kitts Dec25→Tortola Dec26→Miami Dec29."
 ---
 
 # McLeod / McGlasson — Regent SS Grandeur · Lesser Antilles
