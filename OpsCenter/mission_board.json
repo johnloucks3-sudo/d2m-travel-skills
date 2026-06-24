@@ -5889,7 +5889,13 @@
       "created_at": "2026-06-20T00:03:31.632929+00:00",
       "updated_at": "2026-06-22T19:50:46.699993+00:00",
       "source": "weekly_report",
-      "log": []
+      "log": [
+        {
+          "ts": "2026-06-24T16:55:32Z",
+          "actor": "HALE",
+          "entry": "Tier 2 inventory completed 2026-06-24. Read-only research against SECURITY_REMEDIATION_RUNBOOK_20260617.md, mission board, and .env. Output: output/SEC05_ROTATION_INVENTORY_20260624.md \u2014 22 rotation targets documented, rotation order ranked, Commander vs Wing actions separated. PENDING: Commander approval of rotation targets before Wing executes."
+        }
+      ]
     },
     {
       "id": "MISSION-287",
