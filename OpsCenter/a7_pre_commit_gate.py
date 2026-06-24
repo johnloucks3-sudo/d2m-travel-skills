@@ -37,12 +37,10 @@ CLAUDE_SPAWN_WHITELIST = {
     # NOT the claude binary. "claude" appears only in model ID string constants
     # ('claude-sonnet-4-6' etc.) — false positive on the heuristic.
     "OpsCenter/slot_router/dispatcher.py",
-    # elon_daily_synthesis.py: spawns the claude CLI for EOD synthesis sessions.
-    # Uses approved token injection pattern (CLAUDE_CODE_OAUTH_TOKEN in env)
-    # and start_new_session=True. Exempted by Hale override authority (PRODUCTION-LOCK retired
-    # 2026-06-10) with post-hoc Sterling notification. Upgrade to headless_spawn wrapper
-    # tracked as MISSION-436.
-    "intel/daily_search/elon_daily_synthesis.py",
+    # elon_daily_synthesis.py: UPGRADED 2026-06-24 (MISSION-437). Now uses
+    # thunderbird_headless_spawn wrapper — no direct Popen. Entry kept temporarily
+    # until next Sterling Sunday audit confirms gate is clean.
+    # "intel/daily_search/elon_daily_synthesis.py",  # whitelist retired — no longer needed
 }
 
 # Functions that must NOT call _wrap_body_html or _wrap_staff_html

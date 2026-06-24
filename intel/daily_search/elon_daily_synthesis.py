@@ -21,7 +21,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -222,45 +221,50 @@ Do not include any text outside the JSON file write. The file must be valid JSON
 
 
 def dispatch_elon_synthesis(prompt: str, output_path: Path) -> bool:
-    """Dispatch a headless Claude session to run the ELON synthesis."""
-    creds_path = Path.home() / ".claude" / ".credentials.json"
-    if not creds_path.exists():
-        print(f"  [synthesis] Credentials not found at {creds_path}")
-        return False
+    """Dispatch a headless Claude session using the approved thunderbird_headless_spawn wrapper.
 
+    Upgraded from direct Popen to spawn wrapper per MISSION-437 / SO 24 APR 2026.
+    Wrapper enforces: daemon verification, OAuth token injection, start_new_session=True.
+    """
+    sys.path.insert(0, str(THUNDERBIRD))
     try:
-        creds = json.loads(creds_path.read_text())
-    except Exception as e:
-        print(f"  [synthesis] Could not read credentials: {e}")
+        from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+    except ImportError as e:
+        print(f"  [synthesis] ERROR: Could not import headless spawn wrapper: {e}")
         return False
 
-    env = dict(os.environ)
-    env["CLAUDE_CODE_OAUTH_TOKEN"] = creds["claudeAiOauth"]["accessToken"]
-
-    LOG_DIR.mkdir(parents=True, exist_ok=True)
-    log_path = Path(str(output_path) + ".log")
-
-    print(f"  [synthesis] Dispatching Claude sonnet synthesis session...")
+    print(f"  [synthesis] Dispatching Claude sonnet synthesis session (via headless_spawn)...")
     print(f"  [synthesis] Output: {output_path}")
-    print(f"  [synthesis] Log:    {log_path}")
 
-    try:
-        proc = subprocess.Popen(
-            ["/home/john/.local/bin/claude", "-p", prompt,
-             "--model", "claude-sonnet-4-6"],  # Sonnet justified: multi-find evaluation + implementation decisions
-            stdout=open(str(log_path), "w"),
-            stderr=subprocess.STDOUT,
-            env=env,
-            start_new_session=True,
-        )
-        proc.wait(timeout=600)
-        return proc.returncode == 0
-    except subprocess.TimeoutExpired:
-        print(f"  [synthesis] ERROR: Claude session timed out after 600s")
+    result = spawn_headless_claude(
+        prompt=prompt,
+        output_file=str(output_path),
+        model="claude-sonnet-4-6",  # Sonnet: multi-find evaluation + implementation decisions
+        task_name="elon-synthesis",
+        background=False,
+        timeout=600,
+    )
+
+    status = result.get("status", "")
+    log_file = result.get("log_file", "")
+    if log_file:
+        print(f"  [synthesis] Log: {log_file}")
+
+    if status in ("FATAL_PREREQ", "FATAL_CREDS"):
+        print(f"  [synthesis] ERROR: Prereq/creds failure ({status}) — "
+              f"{result.get('errors') or result.get('error')}")
         return False
-    except Exception as e:
-        print(f"  [synthesis] ERROR: {e}")
-        return False
+
+    if status == "COMPLETED":
+        return True
+
+    # Non-fatal statuses (TIMEOUT, etc.) — check if output file was written anyway
+    if status == "TIMEOUT":
+        print(f"  [synthesis] WARNING: Timeout after 600s — checking for partial output")
+    else:
+        print(f"  [synthesis] WARNING: Unexpected status '{status}' — checking output file")
+
+    return output_path.exists() and output_path.stat().st_size > 0
 
 
 # ── Result processing ──────────────────────────────────────────────────────────
