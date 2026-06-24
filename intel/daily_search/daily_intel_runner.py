@@ -54,6 +54,7 @@ def run_wave(wave_num: int, category_ids: list = None) -> dict:
     env = dict(os.environ)
     env["SEARCH_WAVE"]        = str(wave_num)
     env["PERPLEXITY_API_KEY"] = PPLX_KEY
+    env["SERPER_API_KEY"]     = os.getenv("SERPER_API_KEY", "")
 
     args = [sys.executable, str(SEARCH_SCRIPT)]
     if category_ids:
@@ -235,9 +236,12 @@ def send_eod_summary(day_results: list, all_wave_paths: list) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    if not PPLX_KEY:
-        print("ERROR: PERPLEXITY_API_KEY not set. Aborting.")
+    serper_key = os.getenv("SERPER_API_KEY", "")
+    if not PPLX_KEY and not serper_key:
+        print("ERROR: Neither PERPLEXITY_API_KEY nor SERPER_API_KEY set. Aborting.")
         sys.exit(1)
+    if not PPLX_KEY and serper_key:
+        print("WARNING: PERPLEXITY_API_KEY expired/missing — running on Serper fallback only.")
 
     start_wave  = next_wave_number()
     day_results = []

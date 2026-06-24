@@ -22,6 +22,9 @@ import requests
 PERPLEXITY_KEY = os.getenv("PERPLEXITY_API_KEY", "")
 PERPLEXITY_URL = "https://api.perplexity.ai/chat/completions"
 PERPLEXITY_MODEL = "sonar"          # online search, cheapest tier
+
+SERPER_KEY = os.getenv("SERPER_API_KEY", "")
+SERPER_URL = "https://google.serper.dev/search"
 INTEL_DIR = Path(__file__).parent
 MAX_WORKERS = 8                     # parallel agents (Perplexity rate: 5 req/min free → tune down if needed)
 TIMEOUT = 60                        # seconds per search
@@ -627,8 +630,53 @@ def search_category(cat: dict) -> dict:
             "notes": cat.get("notes", ""),
         }
     except Exception as exc:
+        err_str = str(exc)
+        # Perplexity 401 → fall back to Serper (Google search snippets)
+        if "401" in err_str and SERPER_KEY:
+            print(f"  [{cat_id:02d}] ⚠️  Perplexity 401 — falling back to Serper", flush=True)
+            return _serper_fallback(cat_id, cat_name, cat.get("query", cat_name), cat)
         print(f"  [{cat_id:02d}] ❌ ERROR: {exc}", flush=True)
-        return {"id": cat_id, "name": cat_name, "error": str(exc), "result": None}
+        return {"id": cat_id, "name": cat_name, "error": err_str, "result": None}
+
+
+def _serper_fallback(cat_id: int, cat_name: str, query: str, cat: dict) -> dict:
+    try:
+        t0 = time.time()
+        resp = requests.post(
+            SERPER_URL,
+            headers={"X-API-KEY": SERPER_KEY, "Content-Type": "application/json"},
+            json={"q": query[:500], "num": 10},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        organic = data.get("organic", [])
+        # Synthesize a text result from snippets
+        lines = [f"[Serper fallback — Perplexity key expired]\n"]
+        for r in organic:
+            lines.append(f"• {r.get('title', '')} ({r.get('date', '')})")
+            lines.append(f"  {r.get('snippet', '')}")
+            lines.append(f"  {r.get('link', '')}\n")
+        content = "\n".join(lines)
+        elapsed = round(time.time() - t0, 1)
+        citations = [r.get("link", "") for r in organic if r.get("link")]
+        print(f"  [{cat_id:02d}] ✅ SERPER ({elapsed}s) — {len(organic)} results", flush=True)
+        return {
+            "id": cat_id,
+            "name": cat_name,
+            "result": content,
+            "citations": citations,
+            "elapsed_s": elapsed,
+            "error": None,
+            "source": "serper_fallback",
+            "routine_candidate": cat.get("routine_candidate", False),
+            "haiku_eligible": cat.get("haiku_eligible", False),
+            "cadence": cat.get("cadence", "monthly"),
+            "notes": cat.get("notes", ""),
+        }
+    except Exception as exc2:
+        print(f"  [{cat_id:02d}] ❌ SERPER ERROR: {exc2}", flush=True)
+        return {"id": cat_id, "name": cat_name, "error": f"perplexity 401; serper: {exc2}", "result": None}
 
 
 def run_wave(category_ids: list = None) -> list:
