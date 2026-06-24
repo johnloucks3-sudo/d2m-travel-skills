@@ -200,16 +200,21 @@ def _dispatch_script(record: dict) -> dict:
 
     log_file = LOG_DIR / f"{record['id']}.log"
 
-    # SECURITY (MISSION-258): record['task'] is executed under shell=True BY DESIGN —
-    # monitor tasks rely on shell features (pipes, redirects). The trust boundary is the
-    # ENQUEUE side: task strings MUST originate from wing-internal/trusted callers
-    # (route_task), NEVER from client- or external-derived input. Do not wire untrusted
-    # input into route_task without first switching this site to argv-list form. Minimal
-    # sanity guard below blocks non-str / NUL-byte payloads.
+    # SECURITY (MISSION-258 / vuln-fix 2026-06-24): record['task'] is executed under
+    # shell=True BY DESIGN — monitor tasks require shell pipes/redirects. Trust boundary:
+    # task strings MUST originate from wing-internal callers (route_task), never from
+    # external input. Defense-in-depth: block command injection metacharacters.
     _task = record.get('task')
     if not isinstance(_task, str) or '\x00' in _task:
         record['status'] = 'failed'
         record['error'] = 'invalid task payload (non-str or NUL byte) — refused'
+        return record
+    # Reject shell injection patterns (command substitution, chained exec)
+    import re as _re
+    _INJECTION = _re.compile(r'(\$\(|`|;\s*\S|&&\s*\S|\|\|\s*\S)', _re.DOTALL)
+    if _INJECTION.search(_task):
+        record['status'] = 'failed'
+        record['error'] = 'task rejected: shell injection pattern detected'
         return record
 
     try:
