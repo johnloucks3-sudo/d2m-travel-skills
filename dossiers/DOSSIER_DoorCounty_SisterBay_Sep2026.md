@@ -37,7 +37,8 @@ status: active
 relationship: commander_personal
 guinea_pig: true
 lifecycle_test: "First non-cruise guinea pig. GP form v2 + full TP chain."
-completed_tps: []
+completed_tps: ["0.5", "1.2"]
+completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3 (msg 19efb12e36fcf0dd, WF-17 waived). TP 1.2 Airfare Watch sent 2026-06-24 to johnloucks3 (msg 19efb12e597d95f1, WF-17 waived). GP form link embedded in TP 0.5. Urgent actions surfaced: Fish Boil (920-868-3517 TODAY), CHOP dinner (OpenTable), air DEN→GRB + GRB hotel + rental car before Jul 7."
 ---
 
 # DOSSIER — John & Susan Loucks | Door County, WI | Country House Resort
