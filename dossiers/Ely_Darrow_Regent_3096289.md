@@ -26,7 +26,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 
 ---
 
-### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 961, Deck 9 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance DEFERRED (follow up May)**
+### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 961, Deck 9 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance ✅ PURCHASED 2026-06-23**
 > ⚠️ **CABIN CHANGE (10 APR 2026):** Suite changed from 1212 → **961** per RSSC Invoice 3096289.
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)
@@ -121,7 +121,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 |---|----------|---------|----------|--------|---------|
 | 1 | Documents | Passports valid 6+ months | YES | **✅ CONFIRMED** | Valid — Commander confirmed 2026-03-26 |
 | 2 | Documents | Visa / entry requirements | YES | **PENDING** | Sweden/Norway Schengen |
-| 3 | Insurance | Travel insurance policy | YES | **EMAIL SENT 2026-06-18** | Amy emailed directly 2026-06-18 with Parkinson's-specific questions. Commander sent insurance options email (johnloucks3 → amy.darrow@me.com, subject "Scandinavia — Travel Insurance Options"). Deadline: buy by Jun 26 for 60-day waiting period to clear Aug 25 (day before departure). Three plans listed: Seven Corners Annual (recommended), BCBS Multi-Trip Platinum, IMG Patriot. Squaremouth quote link: squaremouth.com/quotes/6XD3-983E. |
+| 3 | Insurance | Travel insurance policy | YES | ✅ **PURCHASED 2026-06-23** | Amy confirmed insurance purchased 2026-06-23 (Commander relay 2026-06-24). Squaremouth quote 6XD3-983E. Prior options: Seven Corners Annual (recommended), BCBS Multi-Trip Platinum, IMG Patriot. 60-day pre-existing waiting period clears Aug 22 — ahead of Aug 29 departure. MISSION-318 CLOSED. |
 | 4 | Flights | Outbound leg 1 (DFW→HEL) | YES | **CONFIRMED** | AA 9018 Aug 26 4:50PM, seats 2H/2D |
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | PNR: UXVXZP |
@@ -144,7 +144,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 | 22 | Admin | Portal activated | Nice-to-have | **SENT** | Activation sent |
 | 23 | Admin | Dossier current | YES | **YES** | Updated Mar 12, 2026 |
 
-**Coverage: ~93%** | **Critical Gaps:** Insurance (deferred — follow up May), guest profile forms not received
+**Coverage: ~97%** | **Gaps:** Guest profile forms not received | Insurance ✅ PURCHASED 2026-06-23
 
 ---
 
