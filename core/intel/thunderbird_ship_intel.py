@@ -195,7 +195,7 @@ async def scrape_cruisemapper_data() -> Dict[str, Any]:
         "ship_specs": [],
         "reviews": [],
         "routes": [],
-        "capacity_data": []
+        "capacity_data": {}
     }
 
     try:
