@@ -18,7 +18,7 @@ for sub in (ROOT / "core").iterdir():
 
 from thunderbird_commander_inbox import run_commander_inbox_sweep
 
-result = run_commander_inbox_sweep(hours_back=4)
+result = run_commander_inbox_sweep(hours_back=0.25)  # 15-min lookback for 2-min scanner
 print(f"[inbox_sweep] scanned={result.get('emails_scanned', 0)} "
       f"tasked={result.get('tasked', 0)} "
       f"drafted={result.get('drafted', 0)} "

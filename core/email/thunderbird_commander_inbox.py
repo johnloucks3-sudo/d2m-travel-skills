@@ -45,6 +45,8 @@ import json
 import logging
 import os
 import re
+import subprocess
+import sys
 import time
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
@@ -1281,22 +1283,25 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 
         body = _decode_body(msg.get("payload", {}))
 
-        # ── Command prefix detection ──
-        # Subject check: strip Re:/Fwd: first, then test with regex
-        subj_stripped = re.sub(r'^(re:|fwd?:)\s*', '', subject.strip(), flags=re.IGNORECASE)
-        has_prefix = bool(_CMD.match(subj_stripped))
+        # ── Classification: TEST | DIRECTION | INFORMATION ──
+        # Every email FROM Commander is processed — no prefix filter.
+        subj_lower = subject.lower()
+        body_lower = body[:500].lower()
+        combined = subj_lower + " " + body_lower
 
-        if not has_prefix:
-            # Body check: prefix must be at the VERY START of the body
-            has_prefix = bool(_CMD.match(body.strip()))
+        if re.search(r'\btest\b', combined):
+            classification = "TEST"
+        elif re.search(
+            r'\b(do|fix|check|update|create|add|remove|send|call|book|cancel|'
+            r'schedule|draft|build|deploy|run|move|change|set|enable|disable|'
+            r'investigate|research|confirm|follow.?up|handle|task|action|priority)\b',
+            combined
+        ):
+            classification = "DIRECTION"
+        else:
+            classification = "INFORMATION"
 
-        if not has_prefix:
-            logger.debug(
-                f"Skipping Commander email (no command prefix): {subject[:60]}"
-            )
-            continue
-
-        logger.info(f"[DIRECT_COMMAND] johnloucks3 — {subject[:60]}")
+        logger.info(f"[{classification}] johnloucks3 — {subject[:60]}")
 
         found.append(
             {
@@ -1306,7 +1311,7 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
                 "sender": sender_addr,
                 "sender_name": sender_name,
                 "from_raw": from_raw,
-                "classification": "direct_command",
+                "classification": classification,
                 "body": body,
                 "body_preview": body[:1000],
             }
@@ -1320,37 +1325,42 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 # ---------------------------------------------------------------------------
 
 
-def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
-    """Full Commander inbox sweep: scan → classify → task → draft → notify COS.
+def _send_telegram_confirmation(message: str):
+    """Send Telegram confirmation to Commander — no email reply threading."""
+    import subprocess as _sp
+    try:
+        _sp.run(
+            [
+                sys.executable,
+                str(THUNDERBIRD_DIR / "OpsCenter/wing_page.py"),
+                "--message", message,
+                "--priority", "normal",
+            ],
+            capture_output=True, text=True, timeout=30,
+            cwd=str(THUNDERBIRD_DIR),
+        )
+    except Exception as e:
+        logger.warning(f"Telegram confirmation failed: {e}")
 
-    OPTION C: Structured Routing
-      Tier 1 (SUPPLIER): Auto-draft lightweight responses
-      Tier 2 (CLIENT):   Flag to COS for WF-17 manual routing
-      Tier 3 (INTAKE):   Monitoring only, no action
 
-    Orchestrates the complete pipeline. Safe to call on a schedule.
+def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
+    """Commander inbox sweep — every email FROM Commander gets classified and actioned.
+
+    Classifications: TEST | DIRECTION | INFORMATION
+    Confirmation: Telegram only — no email replies, no rethreading back to Commander.
 
     Args:
-        hours_back: Lookback window (default 4h for scheduled runs)
-
-    Returns:
-        Summary dict: emails_scanned, tier1_supplier, tier2_client, tier3_intake,
-                      tasked, drafted, skipped, errors
+        hours_back: Lookback window (0.25 = 15 min for 2-min scanner)
     """
-    logger.info("=" * 60)
-    logger.info("COMMANDER COMMAND SWEEP — direct_command emails only")
-    logger.info("=" * 60)
+    logger.info("COMMANDER INBOX SWEEP — all emails from johnloucks3")
 
-    # Scan d2mconcierge inbox for Commander-sent command emails
     emails = scan_commander_inbox(hours_back=hours_back)
 
-    stats = {"tasked": 0, "skipped": 0, "errors": 0}
-    actions: List[Dict] = []
+    stats = {"direction": 0, "information": 0, "test": 0, "errors": 0}
 
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
 
-    # Label service: use Commander's inbox (that's where his self-sends live)
     label_service = _get_commander_gmail_service()
     processed_label_id = (
         _get_or_create_label(label_service, PROCESSED_LABEL) if label_service else None
@@ -1358,76 +1368,90 @@ def run_commander_inbox_sweep(hours_back: int = 4) -> Dict[str, Any]:
 
     for email in emails:
         msg_id = email["msg_id"]
-        classification = email["classification"]   # always "direct_command" from scan
-
-        if classification != "direct_command":
-            # Defensive: scan_commander_inbox should only return direct_command
-            stats["skipped"] += 1
-            processed_ids.add(msg_id)
-            continue
+        classification = email["classification"]  # TEST | DIRECTION | INFORMATION
+        subject = email["subject"]
+        body_preview = email.get("body_preview", "")[:300]
 
         try:
-            result = task_email(
-                msg_id=msg_id,
-                classification=classification,
-                subject=email["subject"],
-                sender=email["sender"],
-                sender_name=email["sender_name"],
-                body=email["body"],
-                thread_id=email.get("thread_id"),
-            )
+            if classification == "DIRECTION":
+                # Create mission board entry
+                mission_desc = f"Commander email directive: {subject}. {body_preview[:200]}"
+                result = subprocess.run(
+                    [sys.executable,
+                     str(THUNDERBIRD_DIR / "OpsCenter/mission_board_sync.py"),
+                     "add", subject[:120], mission_desc, "P1"],
+                    capture_output=True, text=True,
+                    cwd=str(THUNDERBIRD_DIR), timeout=30,
+                )
+                mission_id = ""
+                if "Created:" in result.stdout:
+                    mission_id = result.stdout.split("Created:")[-1].strip().split()[0]
+                confirm = (
+                    f"⚡ DIRECTION received\n📧 {subject[:80]}\n"
+                    f"→ {mission_id or 'Logged'} created on mission board. Hale executing."
+                )
+                stats["direction"] += 1
 
-            stats["tasked"] += 1
+            elif classification == "TEST":
+                confirm = (
+                    f"⚡ TEST received\n📧 {subject[:80]}\n"
+                    f"→ Logged. Scanner is live."
+                )
+                stats["test"] += 1
 
-            _log_action(
-                {
-                    "timestamp": datetime.now(timezone.utc).isoformat(),
-                    "msg_id": msg_id,
-                    "subject": email["subject"],
-                    "sender": email["sender"],
-                    "classification": classification,
-                    "persona": result.get("persona"),
-                    "draft_id": result.get("draft_id"),
-                    "status": result["status"],
-                }
-            )
+            else:  # INFORMATION
+                confirm = (
+                    f"⚡ INFORMATION received\n📧 {subject[:80]}\n"
+                    f"→ Logged to wing intel."
+                )
+                stats["information"] += 1
 
-            actions.append(result)
+            # Telegram confirmation — no email reply
+            _send_telegram_confirmation(confirm)
+            logger.info(f"  [{classification}] {subject[:60]} → confirmed via Telegram")
+
+            _log_action({
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "msg_id": msg_id,
+                "subject": subject,
+                "sender": email["sender"],
+                "classification": classification,
+                "status": "actioned",
+            })
 
         except Exception as e:
-            logger.error(f"Task failed for {msg_id}: {e}", exc_info=True)
+            logger.error(f"Sweep error for {msg_id}: {e}")
             stats["errors"] += 1
 
-        # Mark as scanned so we don't re-process
         processed_ids.add(msg_id)
         if label_service and processed_label_id:
             _apply_label(label_service, msg_id, processed_label_id)
 
         time.sleep(0.3)
 
-    # Persist state
     state["processed_ids"] = list(processed_ids)
     state["last_run"] = datetime.now(timezone.utc).isoformat()
     state["stats"]["total"] += len(emails)
-    state["stats"]["tasked"] += stats["tasked"]
-    state["stats"]["skipped"] += stats["skipped"]
     _save_state(state)
 
     summary = {
         "status": "ok",
         "emails_scanned": len(emails),
-        "commands_tasked": stats["tasked"],
-        "skipped": stats["skipped"],
+        "tasked": stats["direction"],
+        "drafted": 0,
+        "direction": stats["direction"],
+        "information": stats["information"],
+        "test": stats["test"],
         "errors": stats["errors"],
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
 
-    logger.info(
-        f"Commander Command Sweep complete: "
-        f"{len(emails)} command emails found | "
-        f"Tasked: {stats['tasked']} | "
-        f"Errors: {stats['errors']}"
-    )
+    if emails:
+        logger.info(
+            f"Sweep complete: {len(emails)} emails | "
+            f"DIRECTION={stats['direction']} INFO={stats['information']} "
+            f"TEST={stats['test']} ERR={stats['errors']}"
+        )
     return summary
 
 
