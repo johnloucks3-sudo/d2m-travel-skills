@@ -43,34 +43,77 @@ from pathlib import Path
 # ── ALIASES — shortcut keys → Poe model IDs ──────────────────────────────────
 # If --model doesn't match an alias, it's passed directly as a Poe model ID.
 ALIASES = {
-    "deepseek":    "deepseek-v3.2",
-    "deepseek-v4": "deepseek-v4-pro-t",
-    "grok":        "grok-4.1-fast-non-reasoning",
-    "grok4":       "grok-4.3",
-    "r1":          "deepseek-r1-di",
-    "kimi":        "kimi-k2.5",
-    "kimi2":       "kimi-k2.7-code",
-    "gpt4o":       "gpt-4o",
-    "o3":          "o3",
-    "gemini":      "gemini-3.5-flash",
-    "opus":        "claude-opus-4.8",
-    "sonnet":      "claude-sonnet-4.6",
+    # ── Claude family ─────────────────────────────────────────────────────────
+    "claude":        "claude-sonnet-4.6",   # default
+    "sonnet":        "claude-sonnet-4.6",
+    "opus":          "claude-opus-4.8",
+    "claude-code":   "claude-code",
+    "cc":            "claude-code",
+    "code":          "claude-code",
+    "claude-haiku":  "claude-haiku-4.5",
+    "haiku":         "claude-haiku-4.5",
+    # ── Kimi ──────────────────────────────────────────────────────────────────
+    "kimi":          "kimi-k2.5",
+    "k2":            "kimi-k2.5",
+    "kimi-think":    "kimi-k2-thinking",
+    "k2-think":      "kimi-k2-thinking",
+    # ── Nano Banana ───────────────────────────────────────────────────────────
+    "nano-banana":   "nano-banana",
+    "banana":        "nano-banana",
+    "nano-banana-2": "nano-banana-2",
+    "banana2":       "nano-banana-2",
+    "nano-webui":    "nano-banana",         # WebUI variant — falls back to nano-banana
+    "webui":         "nano-banana",
+    # ── Gemini ────────────────────────────────────────────────────────────────
+    "gemini":        "gemini-3.5-flash",
+    "flash":         "gemini-3.5-flash",
+    "gemini-pro":    "gemini-3.1-pro",
+    # ── GPT ───────────────────────────────────────────────────────────────────
+    "gpt4":          "gpt-4o",
+    "4o":            "gpt-4o",
+    "gpt4o":         "gpt-4o",
+    "gpt4-mini":     "gpt-4o-mini",
+    "mini":          "gpt-4o-mini",
+    # ── Speed / Llama ─────────────────────────────────────────────────────────
+    "speed":         "llama-3.3-70b",
+    "fast":          "llama-3.3-70b",
+    # ── Grok ──────────────────────────────────────────────────────────────────
+    "grok":          "grok-3",
+    "grok4":         "grok-4.3",
+    "grok-fast":     "grok-4.1-fast-non-reasoning",
+    "grok-imagine":  "grok-imagine-image",
+    # ── DeepSeek ──────────────────────────────────────────────────────────────
+    "deepseek":      "deepseek-v3.2",
+    "deepseek-v4":   "deepseek-v4-pro-t",
+    "r1":            "deepseek-r1-di",
+    # ── Other ─────────────────────────────────────────────────────────────────
+    "o3":            "o3",
 }
 
-# Human-readable descriptions for --list (aliases only)
+# Human-readable descriptions for --list
 ALIAS_INFO = {
-    "deepseek":    ("DeepSeek V3.2",               "128K", "ops, research, data extraction [PII-FENCE]"),
-    "deepseek-v4": ("DeepSeek V4 Pro",              "128K", "next-gen reasoning, advanced tasks [PII-FENCE]"),
-    "grok":        ("Grok 4.1 Fast (non-reasoning)","2M",   "strategy, synthesis, large docs"),
-    "grok4":       ("Grok 4.3",                     "2M",   "latest Grok, strongest reasoning"),
-    "r1":          ("DeepSeek R1",                  "128K", "chain-of-thought, arbitration, math [PII-FENCE]"),
-    "kimi":        ("Kimi K2.5",                    "2M",   "large context, document analysis [PII-FENCE]"),
-    "kimi2":       ("Kimi K2.7 Code",               "2M",   "code-focused, large context [PII-FENCE]"),
-    "gpt4o":       ("GPT-4o",                       "128K", "general, multimodal"),
-    "o3":          ("OpenAI o3",                    "200K", "hard reasoning, math, science"),
-    "gemini":      ("Gemini 3.5 Flash",             "1M",   "multimodal, fast turnaround"),
-    "opus":        ("Claude Opus 4.8",              "200K", "Anthropic flagship via Poe"),
-    "sonnet":      ("Claude Sonnet 4.6",            "200K", "Anthropic standard via Poe"),
+    "claude":        ("Claude Sonnet 4.6",              "200K", "default"),
+    "opus":          ("Claude Opus 4.8",                "200K", "Anthropic flagship"),
+    "claude-code":   ("Claude Code",                   "200K", "coding specialist  aliases: cc, code"),
+    "claude-haiku":  ("Claude Haiku 4.5",              "200K", "fast/cheap  alias: haiku"),
+    "kimi":          ("Kimi K2.5",                     "2M",   "large context  alias: k2 [PII-FENCE]"),
+    "kimi-think":    ("Kimi K2 Thinking",              "2M",   "extended CoT  alias: k2-think [PII-FENCE]"),
+    "nano-banana":   ("Nano Banana",                   "?",    "original  alias: banana"),
+    "nano-banana-2": ("Nano Banana 2",                 "?",    "alias: banana2"),
+    "nano-webui":    ("Nano Banana WebUI",             "?",    "alias: webui"),
+    "gemini":        ("Gemini 3.5 Flash",              "1M",   "multimodal  aliases: flash"),
+    "gemini-pro":    ("Gemini 3.1 Pro",                "1M",   "Gemini Pro tier"),
+    "gpt4":          ("GPT-4o",                        "128K", "aliases: 4o, gpt4o"),
+    "gpt4-mini":     ("GPT-4o Mini",                   "128K", "alias: mini"),
+    "speed":         ("Llama 3.3 70B",                  "128K", "fastest  alias: fast"),
+    "grok":          ("Grok 3",                        "?",    "xAI Grok 3"),
+    "grok4":         ("Grok 4.3",                      "2M",   "latest Grok"),
+    "grok-fast":     ("Grok 4.1 Fast",                 "2M",   "Grok 4.1 non-reasoning"),
+    "grok-imagine":  ("Grok Imagine",                  "?",    "image generation"),
+    "deepseek":      ("DeepSeek V3.2",                 "128K", "[PII-FENCE]"),
+    "deepseek-v4":   ("DeepSeek V4 Pro",               "128K", "[PII-FENCE]"),
+    "r1":            ("DeepSeek R1",                   "128K", "chain-of-thought [PII-FENCE]"),
+    "o3":            ("OpenAI o3",                     "200K", "hard reasoning"),
 }
 
 
