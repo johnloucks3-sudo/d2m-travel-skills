@@ -69,8 +69,8 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket group booking (131-2656351, CANCELLING) | Aug 27-28 | ⚠️ to arrange | — |
-| — | At Six Stockholm — Regent included hotel night (Conf #9092637820900) | Aug 28-29 | Included | — |
+| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket group booking (131-2656351, CANCELLING). Brunkebergstorg 6, Stockholm. Guest: Larry Nichols (2 guests). Standard Room, 1 King Bed. Amex FHR: 12pm check-in, room upgrade, breakfast×2, $100 F&B credit, Wi-Fi, guaranteed 4pm checkout. **Amex Trip #ZO-AX1049-13385 · Conf #9092637820900** | Aug 27-28 (check-in 3pm / check-out 12pm) | ✅ CONFIRMED | SEK 3,715 (incl. taxes) — due at hotel |
+| — | At Six Stockholm — Regent included hotel night (Regent booking ref TBD) | Aug 28-29 | Included | — |
 | New — D2M to book | ARN → At Six transfer — replaces ARN→Haymarket (#1095089/LN693883, cancelling) | Aug 27 | ⚠️ to book | — |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
