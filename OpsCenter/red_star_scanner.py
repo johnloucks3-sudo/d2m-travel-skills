@@ -251,8 +251,10 @@ try:
     # Get/create processed label
     processed_label_id = get_or_create_label(service, PROCESSED_LABEL_NAME)
 
-    # Query for red-starred emails not yet processed
-    query = f"has:red-star -label:{PROCESSED_LABEL_NAME}"
+    # Query for starred emails not yet processed
+    # Note: is:starred = standard yellow star. has:red-star requires Gmail's
+    # "multiple stars" feature which is not enabled — use is:starred.
+    query = f"is:starred -label:{PROCESSED_LABEL_NAME}"
     results = service.users().messages().list(
         userId="me", q=query, maxResults=10
     ).execute()
@@ -268,12 +270,11 @@ try:
     for msg_ref in messages:
         msg_id = msg_ref["id"]
         try:
-            # Pre-emptive label to prevent duplicate processing
+            # Pre-emptive label to prevent duplicate processing — star stays in place
             if processed_label_id:
                 service.users().messages().modify(
                     userId="me", id=msg_id,
-                    body={"addLabelIds": [processed_label_id],
-                          "removeLabelIds": ["STARRED"]}
+                    body={"addLabelIds": [processed_label_id]}
                 ).execute()
 
             # Fetch full message
