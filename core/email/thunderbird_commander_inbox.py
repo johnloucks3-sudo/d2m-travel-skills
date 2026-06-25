@@ -1550,9 +1550,31 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 stats["information"] += 1
 
             elif classification == "CC":
-                # Telegram only — no email ack; email acks were inbox noise
+                # Save to intel/ and send meaningful ack (SO_EMAIL_CLOSED_LOOP_20260625)
+                cc_ts = int(time.time())
+                cc_path = THUNDERBIRD_DIR / f"intel/cc_received_{cc_ts}.txt"
+                cc_path.parent.mkdir(parents=True, exist_ok=True)
+                cc_path.write_text(
+                    f"Subject: {subject}\nFrom: {email.get('sender','?')}\n"
+                    f"Received: {datetime.now(timezone.utc).isoformat()}\n\n"
+                    f"{body_full[:3000]}",
+                    encoding="utf-8"
+                )
                 _send_telegram_confirmation(
-                    f"⚡ CC\n📧 {subject[:80]}\n→ Logged."
+                    f"⚡ CC\n📧 {subject[:80]}\n→ Filed: intel/cc_received_{cc_ts}.txt"
+                )
+                _send_email_to_commander(
+                    subject=f"✅ CC Logged: {subject[:70]}",
+                    body=(
+                        f"CC received and filed.\n\n"
+                        f"What was noted: {subject}\n"
+                        f"Where filed: intel/cc_received_{cc_ts}.txt\n"
+                        f"Action: None identified — logged for reference. Reply if action needed.\n\n"
+                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                    ),
+                    thread_id=thread_id,
+                    in_reply_to=in_reply_to,
+                    original_subject=subject,
                 )
                 stats["information"] += 1
 
@@ -1563,11 +1585,20 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 stats["test"] += 1
 
             else:  # INFORMATION
-                confirm = (
-                    f"⚡ INFORMATION\n📧 {subject[:80]}\n"
-                    f"→ Logged to wing intel."
+                # Save to intel/ (SO_EMAIL_CLOSED_LOOP_20260625 — not just "logged", actually log it)
+                info_ts = int(time.time())
+                info_path = THUNDERBIRD_DIR / f"intel/email_forward_{info_ts}.txt"
+                info_path.parent.mkdir(parents=True, exist_ok=True)
+                info_path.write_text(
+                    f"Subject: {subject}\nFrom: {email.get('sender','?')}\n"
+                    f"Received: {datetime.now(timezone.utc).isoformat()}\n\n"
+                    f"{body_full[:3000]}",
+                    encoding="utf-8"
                 )
-                _send_telegram_confirmation(confirm)
+                _send_telegram_confirmation(
+                    f"⚡ INFORMATION\n📧 {subject[:80]}\n"
+                    f"→ Saved: intel/email_forward_{info_ts}.txt"
+                )
                 stats["information"] += 1
 
             logger.info(f"  [{classification}] {subject[:60]} → confirmed")
