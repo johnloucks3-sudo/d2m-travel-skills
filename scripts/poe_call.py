@@ -92,8 +92,8 @@ ALIASES = {
     "grok-imagine":  "grok-imagine-image",
     # ── DeepSeek ──────────────────────────────────────────────────────────────
     "deepseek":      "deepseek-v3.2",
-    "deepseek-v4":   "deepseek-v4-pro-t",
-    "r1":            "deepseek-r1-di",
+    "deepseek-v4":   "deepseek-v4-flash-e",    # v4-pro-t offline; flash-e confirmed live
+    "r1":            "deepseek-r1-n",           # r1-di offline; r1-n confirmed live
     # ── Other ─────────────────────────────────────────────────────────────────
     "o3":            "o3",
 }
@@ -123,21 +123,24 @@ ALIAS_INFO = {
     "grok-fast":     ("Grok 4.1 Fast",                 "2M",   "Grok 4.1 non-reasoning"),
     "grok-imagine":  ("Grok Imagine",                  "?",    "image generation"),
     "deepseek":      ("DeepSeek V3.2",                 "128K", "[PII-FENCE]"),
-    "deepseek-v4":   ("DeepSeek V4 Pro",               "128K", "[PII-FENCE]"),
-    "r1":            ("DeepSeek R1",                   "128K", "chain-of-thought [PII-FENCE]"),
+    "deepseek-v4":   ("DeepSeek V4 Flash-E",           "128K", "[PII-FENCE]"),
+    "r1":            ("DeepSeek R1-N",                 "128K", "chain-of-thought [PII-FENCE]"),
     "o3":            ("OpenAI o3",                     "200K", "hard reasoning"),
 }
 
 
 def load_api_key() -> str:
+    # Config file takes precedence over environment — env may hold a stale/revoked key
     env_file = Path(__file__).parent.parent / "config" / "poe.env"
-    key = os.getenv("POE_API_KEY", "")
-    if not key and env_file.exists():
+    key = ""
+    if env_file.exists():
         for line in env_file.read_text().splitlines():
             line = line.strip()
             if line.startswith("POE_API_KEY=") and not line.startswith("#"):
                 key = line.split("=", 1)[1].strip()
                 break
+    if not key:
+        key = os.getenv("POE_API_KEY", "")
     if not key:
         print("ERROR: POE_API_KEY not set. Check config/poe.env", file=sys.stderr)
         sys.exit(1)
