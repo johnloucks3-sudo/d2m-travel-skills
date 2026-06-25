@@ -43,59 +43,83 @@ from pathlib import Path
 # ── ALIASES — shortcut keys → Poe model IDs ──────────────────────────────────
 # If --model doesn't match an alias, it's passed directly as a Poe model ID.
 ALIASES = {
-    # ── Claude family ─────────────────────────────────────────────────────────
-    "claude":        "claude-sonnet-4.6",   # default
-    "sonnet":        "claude-sonnet-4.6",
-    "opus":          "claude-opus-4.8",
-    "claude-code":   "claude-code",
-    "cc":            "claude-code",
-    "code":          "claude-code",
-    "claude-haiku":  "claude-haiku-4.5",
-    "haiku":         "claude-haiku-4.5",
-    # ── Kimi ──────────────────────────────────────────────────────────────────
-    "kimi":          "kimi-k2.5",
-    "k2":            "kimi-k2.5",
-    "kimi-think":    "kimi-k2-thinking",
-    "k2-think":      "kimi-k2-thinking",
-    # ── Nano Banana (Gemini image generation) ────────────────────────────────
-    "nano-banana":   "nano-banana",         # Gemini 2.5 Flash Image — gen + edit
-    "banana":        "nano-banana",
-    "nano-banana-2": "nano-banana-2",       # Google latest image (Imagen 4 Pro-level)
-    "banana2":       "nano-banana-2",
-    "nano-banana-pro": "nano-banana-pro",   # Gemini 3 Pro Image Preview
-    "banana-pro":    "nano-banana-pro",
-    "nano-webui":    "nano-banana",         # WebUI variant → nano-banana
-    "webui":         "nano-banana",
-    # ── Gemini ────────────────────────────────────────────────────────────────
-    "gemini":        "gemini-3.5-flash",
-    "flash":         "gemini-3.5-flash",
-    "gemini-pro":    "gemini-3.1-pro",
-    # ── GPT ───────────────────────────────────────────────────────────────────
-    "gpt4":          "gpt-4o",
-    "4o":            "gpt-4o",
-    "gpt4o":         "gpt-4o",
-    "gpt4-mini":     "gpt-4o-mini",
-    "mini":          "gpt-4o-mini",
-    "gpt41-nano":    "gpt-4.1-nano",         # GPT-4.1 nano — 1M ctx, fast/cheap
-    "gpt4nano":      "gpt-4.1-nano",
-    "gpt5-nano":     "gpt-5-nano",           # GPT-5 nano — 400K ctx, fast/cheap
-    "gpt5nano":      "gpt-5-nano",
-    "gpt54-nano":    "gpt-5.4-nano",         # GPT-5.4 nano — 400K ctx, fast/cheap
-    "gpt54nano":     "gpt-5.4-nano",
-    # ── Speed / Llama ─────────────────────────────────────────────────────────
-    "speed":         "llama-3.3-70b",
-    "fast":          "llama-3.3-70b",
-    # ── Grok ──────────────────────────────────────────────────────────────────
-    "grok":          "grok-3",
-    "grok4":         "grok-4.3",
-    "grok-fast":     "grok-4.1-fast-non-reasoning",
-    "grok-imagine":  "grok-imagine-image",
-    # ── DeepSeek ──────────────────────────────────────────────────────────────
-    "deepseek":      "deepseek-v3.2",
-    "deepseek-v4":   "deepseek-v4-flash-e",    # v4-pro-t offline; flash-e confirmed live
-    "r1":            "deepseek-r1-n",           # r1-di offline; r1-n confirmed live
-    # ── Other ─────────────────────────────────────────────────────────────────
-    "o3":            "o3",
+    # ── Claude ───────────────────────────────────────────────────────────────
+    "claude":          "claude-sonnet-4.6",   # default
+    "sonnet":          "claude-sonnet-4.6",
+    "s46":             "claude-sonnet-4.6",
+    "opus":            "claude-opus-4.8",
+    "op":              "claude-opus-4.8",
+    "o48":             "claude-opus-4.8",
+    "haiku":           "claude-haiku-4.5",
+    "claude-haiku":    "claude-haiku-4.5",
+    "hk":              "claude-haiku-4.5",
+    "cc":              "claude-code",
+    "claude-code":     "claude-code",
+    "code":            "claude-code",
+    # ── Kimi ─────────────────────────────────────────────────────────────────
+    "kimi":            "kimi-k2.5",
+    "k2":              "kimi-k2.5",
+    "kimi-think":      "kimi-k2-thinking",
+    "k2-think":        "kimi-k2-thinking",
+    "kt":              "kimi-k2-thinking",
+    # ── Grok ─────────────────────────────────────────────────────────────────
+    "grok":            "grok-3",
+    "g3":              "grok-3",
+    "grok4":           "grok-4.3",
+    "g4":              "grok-4.3",
+    "grok-fast":       "grok-4.1-fast-non-reasoning",
+    "gf":              "grok-4.1-fast-non-reasoning",
+    "grok-imagine":    "grok-imagine-image",
+    "gi":              "grok-imagine-image",
+    # ── Gemini ───────────────────────────────────────────────────────────────
+    "gemini":          "gemini-3.5-flash",
+    "flash":           "gemini-3.5-flash",
+    "fl":              "gemini-3.5-flash",
+    "gemini-pro":      "gemini-3.1-pro",
+    "gp":              "gemini-3.1-pro",
+    # ── GPT ──────────────────────────────────────────────────────────────────
+    "gpt4":            "gpt-4o",
+    "4o":              "gpt-4o",
+    "gpt4o":           "gpt-4o",
+    "gpt4-mini":       "gpt-4o-mini",
+    "mini":            "gpt-4o-mini",
+    "4m":              "gpt-4o-mini",
+    "gpt41-nano":      "gpt-4.1-nano",
+    "gpt4nano":        "gpt-4.1-nano",
+    "4n":              "gpt-4.1-nano",
+    "gpt5-nano":       "gpt-5-nano",
+    "gpt5nano":        "gpt-5-nano",
+    "5n":              "gpt-5-nano",
+    "gpt54-nano":      "gpt-5.4-nano",
+    "gpt54nano":       "gpt-5.4-nano",
+    "54n":             "gpt-5.4-nano",
+    # ── Speed ────────────────────────────────────────────────────────────────
+    "speed":           "llama-3.3-70b",
+    "fast":            "llama-3.3-70b",
+    "ll":              "llama-3.3-70b",
+    # ── DeepSeek ─────────────────────────────────────────────────────────────
+    "deepseek":        "deepseek-v3.2",
+    "ds":              "deepseek-v3.2",
+    "ds3":             "deepseek-v3.2",
+    "deepseek-v4":     "deepseek-v4-flash-e",
+    "ds4":             "deepseek-v4-flash-e",
+    "r1":              "deepseek-r1-n",
+    "dr1":             "deepseek-r1-n",
+    # ── Other ────────────────────────────────────────────────────────────────
+    "o3":              "o3",
+    # ── Nano Banana (IMAGE generation) ───────────────────────────────────────
+    "nano-banana":     "nano-banana",
+    "banana":          "nano-banana",
+    "nb":              "nano-banana",
+    "nano-banana-2":   "nano-banana-2",
+    "banana2":         "nano-banana-2",
+    "nb2":             "nano-banana-2",
+    "nano-banana-pro": "nano-banana-pro",
+    "banana-pro":      "nano-banana-pro",
+    "nbp":             "nano-banana-pro",
+    "nano-webui":      "nano-banana",
+    "webui":           "nano-banana",
+    "nw":              "nano-banana",
 }
 
 # Human-readable descriptions for --list
