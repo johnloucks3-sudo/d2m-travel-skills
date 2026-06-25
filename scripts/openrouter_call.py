@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """
-openrouter_call.py — Unified CLI for OpenRouter API calls
-Used by Claude Code agents, skills, and escalation hooks.
+openrouter_call.py — RETIRED 2026-06-25 (OpenRouter decommissioned — cost overruns)
 
-GUARDRAIL: Only free-model keys are allowed from OpenRouter.
-Poe.com models are ALLOWED (user-selectable via Poe gateway).
+Use poe_call.py instead:
+  python3 /home/john/Thunderbird/scripts/poe_call.py --model deepseek --prompt "..."
+  python3 /home/john/Thunderbird/scripts/poe_call.py --model grok --prompt "..."
+  python3 /home/john/Thunderbird/scripts/poe_call.py --model r1 --prompt "..."
+  python3 /home/john/Thunderbird/scripts/poe_call.py --list
 
-Available model keys (free from OpenRouter):
+Model mapping:
+  deepseek (was deepseek-v3.1) → deepseek-v3.2 via Poe
+  grok     (was grok-4.1-fast) → grok-4.1-fast-non-reasoning via Poe
+  r1       (was deepseek-r1)   → deepseek-r1-di via Poe
+  gemma-3  (was free OR)       → gemma-4-31b via Poe
+
+Available model keys (OpenRouter — NO LONGER ACTIVE):
   gemma-3, deepseek-r1, deepseek-chat
 
 Usage:
@@ -15,10 +23,44 @@ Usage:
   python3 scripts/openrouter_call.py --list
 """
 
+import os
+import subprocess
+import sys
+
+# ── REDIRECT SHIM (2026-06-25) ───────────────────────────────────────────────
+# OpenRouter is decommissioned. Transparently re-route to poe_call.py.
+_POE = os.path.join(os.path.dirname(__file__), "poe_call.py")
+_MODEL_MAP = {
+    "deepseek": "deepseek", "deepseek-chat": "deepseek",
+    "grok": "grok",
+    "r1": "r1", "deepseek-r1": "r1",
+    "gemma-3": "deepseek",  # no Gemma-3; deepseek is the closest free-tier equiv
+    "nemotron": "deepseek",
+}
+
+def _redirect():
+    args = sys.argv[1:]
+    new_args = []
+    i = 0
+    while i < len(args):
+        if args[i] in ("--model", "-m") and i + 1 < len(args):
+            old_model = args[i + 1]
+            new_model = _MODEL_MAP.get(old_model, "deepseek")
+            if old_model != new_model:
+                print(f"[openrouter_call] REDIRECTED: {old_model} → {new_model} via poe_call.py", file=sys.stderr)
+            new_args += ["--model", new_model]
+            i += 2
+        else:
+            new_args.append(args[i])
+            i += 1
+    result = subprocess.run([sys.executable, _POE] + new_args)
+    sys.exit(result.returncode)
+
+_redirect()
+
+# ── LEGACY CODE BELOW (INACTIVE — kept for reference only) ───────────────────
 import argparse
 import json
-import os
-import sys
 from pathlib import Path
 
 # ── ALLOWED MODELS (FREE ONLY from OpenRouter) ──────────────────────────────
