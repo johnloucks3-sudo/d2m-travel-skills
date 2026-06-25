@@ -1533,17 +1533,7 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 _send_telegram_confirmation(
                     f"⚡ DIRECTION\n📧 {subject[:80]}\n→ {mission_id or 'queued'} on board."
                 )
-                _send_email_to_commander(
-                    subject=f"✅ {mission_id or 'Logged'}: {subject[:65]}",
-                    body=(
-                        f"Directive logged as {mission_id or 'mission'}.\n"
-                        f"Hale is executing. Reply to this thread to follow up.\n\n"
-                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
-                    ),
-                    thread_id=thread_id,
-                    in_reply_to=in_reply_to,
-                    original_subject=subject,
-                )
+                # No email ack — Telegram is sufficient; email acks were creating inbox noise
                 stats["direction"] += 1
 
             elif classification == "QUESTION":
@@ -1560,20 +1550,9 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 stats["information"] += 1
 
             elif classification == "CC":
-                # Single ack reply in-thread
+                # Telegram only — no email ack; email acks were inbox noise
                 _send_telegram_confirmation(
                     f"⚡ CC\n📧 {subject[:80]}\n→ Logged."
-                )
-                _send_email_to_commander(
-                    subject=f"✅ Logged: {subject[:70]}",
-                    body=(
-                        f"CC logged to wing records.\n"
-                        f"Reply to this thread if action needed.\n\n"
-                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
-                    ),
-                    thread_id=thread_id,
-                    in_reply_to=in_reply_to,
-                    original_subject=subject,
                 )
                 stats["information"] += 1
 
