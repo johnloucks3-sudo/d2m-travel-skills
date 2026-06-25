@@ -57,12 +57,14 @@ ALIASES = {
     "k2":            "kimi-k2.5",
     "kimi-think":    "kimi-k2-thinking",
     "k2-think":      "kimi-k2-thinking",
-    # ── Nano Banana ───────────────────────────────────────────────────────────
-    "nano-banana":   "nano-banana",
+    # ── Nano Banana (Gemini image generation) ────────────────────────────────
+    "nano-banana":   "nano-banana",         # Gemini 2.5 Flash Image — gen + edit
     "banana":        "nano-banana",
-    "nano-banana-2": "nano-banana-2",
+    "nano-banana-2": "nano-banana-2",       # Google latest image (Imagen 4 Pro-level)
     "banana2":       "nano-banana-2",
-    "nano-webui":    "nano-banana",         # WebUI variant — falls back to nano-banana
+    "nano-banana-pro": "nano-banana-pro",   # Gemini 3 Pro Image Preview
+    "banana-pro":    "nano-banana-pro",
+    "nano-webui":    "nano-banana",         # WebUI variant → nano-banana
     "webui":         "nano-banana",
     # ── Gemini ────────────────────────────────────────────────────────────────
     "gemini":        "gemini-3.5-flash",
@@ -74,6 +76,12 @@ ALIASES = {
     "gpt4o":         "gpt-4o",
     "gpt4-mini":     "gpt-4o-mini",
     "mini":          "gpt-4o-mini",
+    "gpt41-nano":    "gpt-4.1-nano",         # GPT-4.1 nano — 1M ctx, fast/cheap
+    "gpt4nano":      "gpt-4.1-nano",
+    "gpt5-nano":     "gpt-5-nano",           # GPT-5 nano — 400K ctx, fast/cheap
+    "gpt5nano":      "gpt-5-nano",
+    "gpt54-nano":    "gpt-5.4-nano",         # GPT-5.4 nano — 400K ctx, fast/cheap
+    "gpt54nano":     "gpt-5.4-nano",
     # ── Speed / Llama ─────────────────────────────────────────────────────────
     "speed":         "llama-3.3-70b",
     "fast":          "llama-3.3-70b",
@@ -98,13 +106,17 @@ ALIAS_INFO = {
     "claude-haiku":  ("Claude Haiku 4.5",              "200K", "fast/cheap  alias: haiku"),
     "kimi":          ("Kimi K2.5",                     "2M",   "large context  alias: k2 [PII-FENCE]"),
     "kimi-think":    ("Kimi K2 Thinking",              "2M",   "extended CoT  alias: k2-think [PII-FENCE]"),
-    "nano-banana":   ("Nano Banana",                   "?",    "original  alias: banana"),
-    "nano-banana-2": ("Nano Banana 2",                 "?",    "alias: banana2"),
-    "nano-webui":    ("Nano Banana WebUI",             "?",    "alias: webui"),
+    "nano-banana":   ("Nano Banana",                   "?",    "Gemini 2.5 Flash Image — gen+edit (IMAGE)  alias: banana"),
+    "nano-banana-2": ("Nano Banana 2",                 "?",    "Google Imagen 4 Pro-level (IMAGE)  alias: banana2"),
+    "nano-banana-pro": ("Nano Banana Pro",             "?",    "Gemini 3 Pro Image Preview (IMAGE)  alias: banana-pro"),
+    "nano-webui":    ("Nano Banana WebUI",             "?",    "Gemini 2.5 Flash Image WebUI variant  alias: webui"),
     "gemini":        ("Gemini 3.5 Flash",              "1M",   "multimodal  aliases: flash"),
     "gemini-pro":    ("Gemini 3.1 Pro",                "1M",   "Gemini Pro tier"),
     "gpt4":          ("GPT-4o",                        "128K", "aliases: 4o, gpt4o"),
     "gpt4-mini":     ("GPT-4o Mini",                   "128K", "alias: mini"),
+    "gpt41-nano":    ("GPT-4.1 Nano",                  "1M",   "fast/cheap, 1M ctx  alias: gpt4nano"),
+    "gpt5-nano":     ("GPT-5 Nano",                    "400K", "fast/cheap  alias: gpt5nano"),
+    "gpt54-nano":    ("GPT-5.4 Nano",                  "400K", "fast/cheap  alias: gpt54nano"),
     "speed":         ("Llama 3.3 70B",                  "128K", "fastest  alias: fast"),
     "grok":          ("Grok 3",                        "?",    "xAI Grok 3"),
     "grok4":         ("Grok 4.3",                      "2M",   "latest Grok"),
