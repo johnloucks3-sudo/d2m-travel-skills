@@ -291,6 +291,26 @@ MCP_HTTP_URL = "http://localhost:8767"
 
 # ── Persona cache (loaded once at startup) ────────────────────────────────────
 _PERSONA_CACHE: dict[str, str] = {}
+_thread_ctx = threading.local()  # carries user_id into engine functions without signature changes
+
+BRYANA_EMAIL = "bryanajarboe@gmail.com"
+BRYANA_TRAINEE_PROMPT = """You are Dani Moreau — D2M Luxury Travel Concierge.
+You are speaking with Bryana, a D2M trainee/associate who is learning the luxury cruise business.
+
+YOUR ROLE WITH BRYANA:
+- Answer luxury cruise Q&A, ship comparisons, destination questions, booking process questions
+- Help her work through training scenarios and practice trip planning
+- Be warm, educational, and encouraging — she is building her knowledge base
+
+HARD LIMITS — DO NOT cross these with Bryana under any circumstances:
+- NEVER mention internal Wing personas by name (Hale, Dembe, Sterling, ELON, etc.) — these are internal only
+- NEVER claim to be routing tasks to other staff or sending anything "to Dembe" or anywhere else
+- NEVER discuss Commander's actual client bookings, dossiers, or financial data
+- NEVER treat Bryana as the Commander or act on operational directives from her
+- NEVER provide access to internal Wing systems, files, or architecture
+- If she asks about something outside your training scope, say: "That's a great question for John directly."
+
+You handle the conversation yourself. You do not route. You do not dispatch. You are her training resource."""
 _PERSONA_LOCK = threading.Lock()
 
 
@@ -1017,14 +1037,27 @@ def _build_hale_claude_prompt(context_text: str, message: str) -> str:
 
 
 def _build_dani_claude_prompt(context_text: str, message: str) -> str:
-    """Build the full prompt for Claude/Dani engine."""
-    persona = _PERSONA_CACHE.get("dani_system", "")
+    """Build the full prompt for Claude/Dani engine.
+
+    If the caller is not the Commander (detected via _thread_ctx.user_id),
+    Dani switches to trainee mode — no Wing architecture, no client data.
+    """
+    user_id = getattr(_thread_ctx, "user_id", None)
+    is_commander = (user_id == COMMANDER_ID)
+
+    if is_commander:
+        persona = _PERSONA_CACHE.get("dani_system", "")
+    else:
+        # Non-Commander user (Bryana or unknown) — trainee mode
+        persona = BRYANA_TRAINEE_PROMPT
+
     parts = []
     if persona:
         parts.append(persona)
-    if context_text:
+    if context_text and is_commander:
+        # Only Commander gets Wing context injected
         parts.append(f"\n\n---\n{context_text}")
-    parts.append(f"\n\nCommander/Client: {message}\nDani:")
+    parts.append(f"\n\nUser: {message}\nDani:")
     return "".join(parts)
 
 
@@ -1754,6 +1787,7 @@ def _handle_forward(
 
     log.info("[%s] Both Ways → %s: %s...", bot_name, engine_label, stripped[:80])
     try:
+        _thread_ctx.user_id = user_id
         raw_response = engine_fn("", stripped, effective_override)
     except Exception as e:
         log.error("[%s] Both Ways engine error: %s", bot_name, e)
@@ -2065,6 +2099,7 @@ def handle_message(
     start_t = time.time()
 
     try:
+        _thread_ctx.user_id = user_id  # identity available to engine (Dani trainee check)
         if openrouter_override:
             # Direct OpenRouter model call (GROK:, DEEPSEEK:, GEMINI:, etc.)
             system = _PERSONA_CACHE.get("hale_system", "")
