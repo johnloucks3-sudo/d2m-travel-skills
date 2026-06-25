@@ -47,6 +47,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
@@ -64,6 +65,8 @@ THUNDERBIRD_DIR = Path.home() / "Thunderbird"
 
 # Separate token for johnloucks3@gmail.com (READ ONLY from Commander's personal inbox)
 COMMANDER_TOKEN_FILE = THUNDERBIRD_DIR / "gmail_token_commander.json"
+JL3_TOKEN_FILE = THUNDERBIRD_DIR / "creds" / "johnloucks3_token.json"
+COMMANDER_EMAIL = "johnloucks3@gmail.com"
 # OAuth credentials (same project as d2mconcierge — just different account scope)
 OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 
@@ -1283,18 +1286,31 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 
         body = _decode_body(msg.get("payload", {}))
 
-        # ── Classification: TEST | DIRECTION | INFORMATION ──
+        # ── Classification: TEST | QUESTION | CC | DIRECTION | INFORMATION ──
         # Every email FROM Commander is processed — no prefix filter.
+        # Order matters: TEST and QUESTION checked before DIRECTION (action words overlap).
         subj_lower = subject.lower()
         body_lower = body[:500].lower()
         combined = subj_lower + " " + body_lower
+        body_first_line = body.strip().split("\n")[0].lower()
 
         if re.search(r'\btest\b', combined):
             classification = "TEST"
         elif re.search(
+            r'\?|'
+            r'\b(what|how|why|where|when|who|which|can you|could you|'
+            r'find out|look up|do you know|is there|are there|tell me|'
+            r'what is|what are|how do|how does|how much|how many)\b',
+            combined
+        ):
+            classification = "QUESTION"
+        elif re.search(r'\b(fyi|cc|for your info|for your information|heads up|'
+                       r'just so you know|keeping you in the loop)\b', body_first_line):
+            classification = "CC"
+        elif re.search(
             r'\b(do|fix|check|update|create|add|remove|send|call|book|cancel|'
             r'schedule|draft|build|deploy|run|move|change|set|enable|disable|'
-            r'investigate|research|confirm|follow.?up|handle|task|action|priority)\b',
+            r'investigate|confirm|follow.?up|handle|task|action|priority)\b',
             combined
         ):
             classification = "DIRECTION"
@@ -1323,6 +1339,82 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 # ---------------------------------------------------------------------------
 # Full sweep — scan + task + draft + notify
 # ---------------------------------------------------------------------------
+
+
+def _send_email_to_commander(subject: str, body: str) -> bool:
+    """Send a plain-text email from johnloucks3 to johnloucks3 (closed-loop confirmation).
+
+    Uses JL3_TOKEN_FILE (full gmail scope). Returns True on success.
+    """
+    import base64
+    from email.mime.text import MIMEText
+    try:
+        from google.oauth2.credentials import Credentials as _Creds
+        from google.auth.transport.requests import Request as _Req
+        from googleapiclient.discovery import build as _build
+        if not JL3_TOKEN_FILE.exists():
+            logger.warning("JL3 token not found — cannot send email confirmation")
+            return False
+        creds = _Creds.from_authorized_user_info(
+            json.loads(JL3_TOKEN_FILE.read_text())
+        )
+        if creds.expired and creds.refresh_token:
+            creds.refresh(_Req())
+            JL3_TOKEN_FILE.write_text(creds.to_json())
+        svc = _build("gmail", "v1", credentials=creds)
+        msg = MIMEText(body, "plain")
+        msg["To"] = COMMANDER_EMAIL
+        msg["From"] = COMMANDER_EMAIL
+        msg["Subject"] = subject
+        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+        svc.users().messages().send(userId="me", body={"raw": raw}).execute()
+        logger.info(f"Email confirmation sent: {subject[:60]}")
+        return True
+    except Exception as e:
+        logger.warning(f"Email confirmation failed: {e}")
+        return False
+
+
+def _dispatch_question_and_reply(question_subject: str, question_body: str):
+    """Dispatch question to Sonnet, email answer back to Commander."""
+    prompt = (
+        f"You are Hale, COS of Thunderbird Wing, Dreams2Memories Travel.\n"
+        f"Commander asked the following question via email. Answer it directly and completely.\n"
+        f"Be concise — 3-10 sentences. No preamble. No 'Great question'. Just the answer.\n\n"
+        f"Subject: {question_subject}\n\n"
+        f"Question:\n{question_body[:2000]}\n\n"
+        f"Respond with ONLY the answer. No JSON. Plain prose."
+    )
+    out_file = THUNDERBIRD_DIR / f"output/question_reply_{int(time.time())}.txt"
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        result = subprocess.run(
+            [sys.executable,
+             str(THUNDERBIRD_DIR / "OpsCenter/dispatch_and_email.py"),
+             "--task", f"question-{int(time.time())}",
+             "--output", str(out_file),
+             "--prompt", prompt,
+             "--model", "sonnet",
+             "--timeout", "90",
+             "--no-reply"],
+            capture_output=True, text=True,
+            cwd=str(THUNDERBIRD_DIR), timeout=100,
+        )
+        answer = out_file.read_text().strip() if out_file.exists() else ""
+        if not answer:
+            answer = "Wing researched this but could not produce a confident answer. Check the mission board for follow-up."
+    except Exception as e:
+        answer = f"Wing attempted to answer but hit an error: {e}"
+
+    _send_email_to_commander(
+        subject=f"✅ Answer: {question_subject[:70]}",
+        body=(
+            f"Commander,\n\n"
+            f"{answer}\n\n"
+            f"— Hale · Thunderbird Wing · "
+            f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+        ),
+    )
 
 
 def _send_telegram_confirmation(message: str):
@@ -1373,6 +1465,8 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
         body_preview = email.get("body_preview", "")[:300]
 
         try:
+            body_full = email.get("body", "")
+
             if classification == "DIRECTION":
                 # Create mission board entry
                 mission_desc = f"Commander email directive: {subject}. {body_preview[:200]}"
@@ -1386,29 +1480,84 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 mission_id = ""
                 if "Created:" in result.stdout:
                     mission_id = result.stdout.split("Created:")[-1].strip().split()[0]
-                confirm = (
+                confirm_tg = (
                     f"⚡ DIRECTION received\n📧 {subject[:80]}\n"
-                    f"→ {mission_id or 'Logged'} created on mission board. Hale executing."
+                    f"→ {mission_id or 'Logged'} created. Hale executing."
+                )
+                _send_telegram_confirmation(confirm_tg)
+                _send_email_to_commander(
+                    subject=f"✅ Received: {subject[:70]}",
+                    body=(
+                        f"Commander,\n\n"
+                        f"Directive received and logged.\n\n"
+                        f"Mission: {mission_id or 'queued'}\n"
+                        f"Directive: {body_preview[:300]}\n\n"
+                        f"Hale is executing. You will receive a completion confirmation "
+                        f"when the mission closes.\n\n"
+                        f"— Hale · Thunderbird Wing · "
+                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                    ),
                 )
                 stats["direction"] += 1
+
+            elif classification == "QUESTION":
+                # Acknowledge immediately, dispatch answer asynchronously
+                _send_telegram_confirmation(
+                    f"⚡ QUESTION received\n📧 {subject[:80]}\n→ Researching. Answer coming by email."
+                )
+                _send_email_to_commander(
+                    subject=f"📬 Question received: {subject[:65]}",
+                    body=(
+                        f"Commander,\n\n"
+                        f"Question received. Hale is researching now.\n"
+                        f"Answer will arrive in a follow-up email.\n\n"
+                        f"Question logged: {body_preview[:200]}\n\n"
+                        f"— Hale · Thunderbird Wing · "
+                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                    ),
+                )
+                # Dispatch Sonnet to answer — sends second email when done
+                threading.Thread(
+                    target=_dispatch_question_and_reply,
+                    args=(subject, body_full),
+                    daemon=True,
+                ).start()
+                stats["information"] += 1
+
+            elif classification == "CC":
+                _send_telegram_confirmation(
+                    f"⚡ CC received\n📧 {subject[:80]}\n→ Acknowledged. Logged to wing records."
+                )
+                _send_email_to_commander(
+                    subject=f"✅ Logged: {subject[:70]}",
+                    body=(
+                        f"Commander,\n\n"
+                        f"CC received and logged.\n\n"
+                        f"Content: {body_preview[:300]}\n\n"
+                        f"Filed to wing records. If action is needed, reply with COS: [directive].\n\n"
+                        f"— Hale · Thunderbird Wing · "
+                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                    ),
+                )
+                stats["information"] += 1
 
             elif classification == "TEST":
                 confirm = (
                     f"⚡ TEST received\n📧 {subject[:80]}\n"
-                    f"→ Logged. Scanner is live."
+                    f"→ Scanner live. 2-min sweep active."
                 )
+                _send_telegram_confirmation(confirm)
                 stats["test"] += 1
 
             else:  # INFORMATION
                 confirm = (
-                    f"⚡ INFORMATION received\n📧 {subject[:80]}\n"
+                    f"⚡ INFORMATION\n📧 {subject[:80]}\n"
                     f"→ Logged to wing intel."
                 )
+                _send_telegram_confirmation(confirm)
                 stats["information"] += 1
 
-            # Telegram confirmation — no email reply
-            _send_telegram_confirmation(confirm)
-            logger.info(f"  [{classification}] {subject[:60]} → confirmed via Telegram")
+            logger.info(f"  [{classification}] {subject[:60]} → confirmed")
 
             _log_action({
                 "timestamp": datetime.now(timezone.utc).isoformat(),
