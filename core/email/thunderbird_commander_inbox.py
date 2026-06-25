@@ -1292,6 +1292,26 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             logger.debug(f"Skipping scanner-generated email: {subject[:60]}")
             continue
 
+        # Skip Wing notification emails that lack X-WING-SCANNER but are self-generated
+        # (dispatch_and_email.py sends "Directive logged" acks without the header)
+        _subj_lower = subject.lower()
+        _WING_NOISE_PATTERNS = (
+            "directive logged as mission",
+            "hale is executing",
+            "✅ mission-",
+            "❌ mission-",
+            "mission-1",  # flood artifact: "MISSION-1NNN: MISSION-1NNN: ..."
+            "thunderbird briefing",
+            "thunderbird brief",
+            "thunderbird eod",
+            "thunderbird morning",
+            "agentic intel digest",
+            "d2m fpd alert",
+        )
+        if any(p in _subj_lower for p in _WING_NOISE_PATTERNS):
+            logger.debug(f"Skipping Wing-generated noise email: {subject[:60]}")
+            continue
+
         body = _decode_body(msg.get("payload", {}))
 
         # ── Classification: TEST | QUESTION | CC | DIRECTION | INFORMATION ──
