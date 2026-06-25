@@ -778,8 +778,9 @@ def render_briefing_html(
             summ  = art.get("summary", "")[:300]
             rel   = art.get("relevance_score", 1)
             border = "border-left:3px solid #c9a84c;padding-left:10px;" if rel >= 3 else ""
-            # Commander directive 2026-06-11: no hyperlinks in briefing articles — plain text only
-            link  = f'<span style="color:#c8d0dc;">{title}</span>'
+            # Commander directive 2026-06-25: links required in briefing articles (supersedes 2026-06-11 no-links rule)
+            link  = (f'<a href="{url}" style="color:#7eb8ff;text-decoration:none;">{title}</a>'
+                     if url else f'<span style="color:#c8d0dc;">{title}</span>')
             summ_html = (f'<div style="font-size:12px;color:#8a9ab5;margin-top:3px;line-height:1.5;">{summ}</div>'
                          if summ else "")
             out.append(
