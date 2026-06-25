@@ -34,6 +34,8 @@ Usage:
 
 import argparse
 import base64
+import os
+import subprocess
 import sys
 import time
 from email.mime.text import MIMEText
@@ -41,6 +43,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+
+CLAUDE_CLI = Path.home() / ".local/bin/claude"
 
 POLL_INTERVAL = 5
 DEFAULT_TIMEOUT = 1800
@@ -143,36 +147,53 @@ _COST_PER_TOK = {
 
 
 def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
-    """Generate reply via Anthropic SDK — synchronous, no subprocess chain."""
-    import os
-    import anthropic as _ant
-
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        env_path = ROOT / ".env"
-        if env_path.exists():
-            for line in env_path.read_text().splitlines():
-                if line.startswith("ANTHROPIC_API_KEY=") and "=" in line:
-                    os.environ["ANTHROPIC_API_KEY"] = line.split("=", 1)[1].strip()
-                    break
-
+    """Generate reply via Claude CLI (MAX plan OAuth, $0) — not direct API credits."""
     tier = model.lower() if model.lower() in _MODEL_IDS else "haiku"
-    model_id = _MODEL_IDS[tier]
-    client = _ant.Anthropic()
-    msg = client.messages.create(
-        model=model_id,
-        max_tokens=512,
-        messages=[{"role": "user", "content": prompt}],
+
+    # Strip API key + CLAUDECODE so CLI uses MAX plan OAuth instead of credits
+    clean_env = {k: v for k, v in os.environ.items()
+                 if k not in ("ANTHROPIC_API_KEY", "CLAUDECODE")}
+
+    # Inject OAuth token explicitly from credentials file
+    creds_path = Path.home() / ".claude" / ".credentials.json"
+    if creds_path.exists():
+        import json as _json
+        try:
+            creds = _json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken", "")
+            if token:
+                clean_env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+        except Exception:
+            pass
+
+    cmd = [
+        str(CLAUDE_CLI),
+        "--print",
+        "--model", tier,
+        "--dangerously-skip-permissions",
+        "--output-format", "text",
+        "-p", prompt,
+    ]
+
+    result = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        timeout=300,
+        env=clean_env,
     )
-    body = msg.content[0].text.strip()
+
+    if result.returncode != 0 or not result.stdout.strip():
+        stderr = result.stderr.strip()[:300] if result.stderr else "No stderr"
+        raise RuntimeError(f"CLI error (exit {result.returncode}): {stderr}")
+
+    body = result.stdout.strip()
 
     out_path = Path(output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(body, encoding="utf-8")
 
-    in_tok, out_tok = msg.usage.input_tokens, msg.usage.output_tokens
-    cin, cout = _COST_PER_TOK[tier]
-    cost = in_tok * cin + out_tok * cout
-    print(f"[API] {task} — {in_tok}in/{out_tok}out tokens, ${cost:.5f} ({tier})")
+    print(f"[CLI] {task} — MAX plan OAuth ({tier}), $0")
     return body
 
 

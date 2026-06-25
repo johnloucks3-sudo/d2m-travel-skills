@@ -445,6 +445,18 @@ def _call_opus(system_prompt: str, user_prompt: str,
     clean_env = {k: v for k, v in os.environ.items()
                  if k not in ("ANTHROPIC_API_KEY", "CLAUDECODE")}
 
+    # Inject OAuth token explicitly so CLI auth works when spawned from another session
+    creds_path = Path.home() / ".claude" / ".credentials.json"
+    if creds_path.exists():
+        try:
+            import json as _json
+            creds = _json.loads(creds_path.read_text())
+            token = creds.get("claudeAiOauth", {}).get("accessToken", "")
+            if token:
+                clean_env["CLAUDE_CODE_OAUTH_TOKEN"] = token
+        except Exception:
+            pass
+
     cmd = [
         CLAUDE_CLI,
         "--print",

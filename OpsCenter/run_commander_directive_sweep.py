@@ -493,7 +493,10 @@ try:
                     "agentic intel digest", "tech monitor digest", "travel ai competitive",
                     "d2m fpd alert", "d2m inbox digest",
                 )
-                if any(_clean_sub.startswith(p) for p in _SELF_REPORT_PREFIXES):
+                # Also check after stripping Re:/Fwd: — catches "Re: 🔴 THUNDERBIRD BRIEFING..."
+                _base_sub = clean_subject(_clean_sub)
+                if any(_clean_sub.startswith(p) for p in _SELF_REPORT_PREFIXES) or \
+                        any(_base_sub.startswith(p) for p in _SELF_REPORT_PREFIXES):
                     if d2mc_label_id:
                         try:
                             d2mc_service.users().messages().modify(
