@@ -161,3 +161,54 @@ Inbox sweep complete. 2 UNREAD post-commit relays acknowledged:
     Commit 216216bf | 1 file, 1009 ins / 659 del | Claude Haiku 4.5 → COMPLETE
 
 All inbox items COMPLETE as of 2026-06-22T23:46:13Z. Email dispatched to Commander.
+
+---
+
+### WATCHER DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-24T18:00:00Z
+**Trigger:** Watcher dispatch T2-COMMS-BUILD-20260518 — opencode_inbox.md full scan
+**Dispatched by:** Hale-OC (OpenCode / JET)
+**Inbox scan results:**
+- Total blocks scanned: 376
+- PENDING found: 0
+- UNREAD found: 1 → TP-ALERT-20260624
+- ACTIVE-CRITICAL found: 0
+- FLAGGED-OVERDUE found: 0
+- False positives excluded: prior COMPLETE entries
+
+**Actionable task processed:**
+TP-ALERT-20260624 — TP Alert Engine ran 2026-06-24 at 18:00 MT — 52 high-severity touchpoints
+
+**TOUCHPOINT SUMMARY (deduplicated, 18:00 MT run):**
+
+🔴 OVERDUE (12 items — action required NOW):
+  · [Hale] Grandeur Scandinavia Group — Document Audit — OVERDUE since 2026-06-15 (+9 days)
+  · [Hale] Ely — Document Audit — OVERDUE since 2026-06-15 (+9 days)
+  · [Hale] Furlow — Document Audit — OVERDUE since 2026-06-15 (+9 days)
+  · [Hale] Nichols — Document Audit — OVERDUE since 2026-06-15 (+9 days)
+  · [A2 Dembe + A5 Viper] Kuklinski Group (Viking Mars Panama) — Airfare Watch — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe] Kuklinski Group (Viking Mars Panama) — Hotel Options — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe + A5 Viper] Kuklinski — Airfare Watch — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe] Kuklinski — Hotel Options — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe + A5 Viper] Morton — Airfare Watch — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe] Morton — Hotel Options — OVERDUE since 2026-06-20 (+4 days)
+  · [A2 Dembe + A5 Viper] McLeod McGlasson — Airfare Watch — OVERDUE since 2026-06-22 (+2 days)
+  · [A2 Dembe] McLeod McGlasson — Hotel Options — OVERDUE since 2026-06-22 (+2 days)
+
+🟡 APPROACHING (2 items — action within 2 weeks):
+  · [Hale + A9] McLeod McGlasson — Payment Reminder #1 — deadline: 2026-07-08 (T-14d)
+  · [Hale + A9] McLeod McGlasson — Payment Reminder #2 — deadline: 2026-07-15 (T-21d)
+
+🔵 IN-WINDOW (14 items — no immediate action):
+  · Loucks Dining Reservations — 2026-07-09 | Monthly Validations (Scandinavia group, Loucks, Kuklinski, Morton, McLeod) | Excursion Research (Kuklinski, Morton, McLeod, Loucks)
+
+⚠️ LEGACY CRITICAL (39 items): Deadlines Jan–May 2026. Presumed actioned; TP system not updated. Recommend Commander decision on purging or closing these in the TP engine.
+
+**STAFF TASKING:**
+- Hale: 4 Document Audits (Grandeur Scandinavia, Ely, Furlow, Nichols) — OVERDUE 9 days → Surface to Commander
+- A2 Dembe + A5 Viper: Airfare Watch (Kuklinski, Morton, McLeod) — flag for execution
+- A2 Dembe: Hotel Options (Kuklinski, Morton, McLeod) — flag for execution
+- Hale + A9: McLeod Payment Reminders queue for Jul 8 & 15
+
+**Action taken:** TP-ALERT-20260624 → COMPLETE 2026-06-24T18:XX:XXZ. Full acknowledgment written here. Results emailed to Commander.
+
+**Next:** Standing by for new tasking.

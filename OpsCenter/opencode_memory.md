@@ -601,3 +601,5 @@ Colors (bgcolor ATTRIBUTE = Gmail-safe; CSS gradient = enhancement only):
 Template: storage/templates/d2m_canonical_darknavy.html ({{BODY_CONTENT}} placeholder)
 Builder: python3 scripts/d2m_email_builder.py --body [body.html] --to [addr] --subject "[s]"
 Skill: /d2m-email (Claude Code skill — full format reference + quick reference body elements)
+
+**2026-06-24 session (T2 build):** Full T2 fallback build executed per Opus v2 plan. Delivered: (1) `bin/claude-fb` — MAX fallback wrapper (T0→T1→T2 auto-route), (2) `~/.claude-code-router/config.json` — ccr 2.x, LiteLLM free pool default, retired 1.x `config-router.json`, (3) `hooks/detect_max_exhaustion.sh` — stop hook, writes flag on abnormal exit, (4) registered stop hook in `settings.json`, (5) D5 — stale `"OpenRouter $0"` reason strings updated, (6) D2 — `claude-api` alias to `.bashrc`, (7) D6 — configs reconciled, canonical=`~/.claude/gateway/litellm_config.yaml`. T1 gated on Commander funding Anthropic key.

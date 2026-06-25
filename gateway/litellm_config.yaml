@@ -2,6 +2,9 @@
 # Thunderbird Wing — AI Gateway (LiteLLM Proxy)
 # Port: 4000  |  Admin UI: http://localhost:4000/ui
 # All API keys via environment variables — zero hardcoded secrets
+# ⚠ STALE MIRROR — canonical config is at ~/.claude/gateway/litellm_config.yaml
+# LiteLLM loads from ~/.claude/gateway/, NOT from here.
+# This file kept for reference/drafting. Sync before use.
 #
 # Active provider stack (as of MISSION-267 consolidation 2026-06-15):
 #   ✅ Anthropic (ANTHROPIC_API_KEY — re-enabled 2026-06-19)
@@ -86,17 +89,21 @@ router_settings:
     - travel-agent:
         - groq-llama
         - cerebras-llama
+        - gemini-fallback
         - deepinfra-llama
     - travel-agent-fast:
         - groq-llama-fast
         - cerebras-llama
+        - gemini-fallback
         - github-gpt4o-mini
     - claude-sonnet:
         - groq-llama
         - cerebras-llama
+        - gemini-fallback
     - claude-haiku:
         - groq-llama-fast
         - cerebras-llama
+        - gemini-fallback
 
 litellm_settings:
   drop_params: true

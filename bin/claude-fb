@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# claude-fb — Claude MAX fallback wrapper
+# T2: Degraded free-pool routing via ccr + LiteLLM :4000
+# T1: Anthropic API key fallback (when funded — gated by Commander)
+#
+# Usage:  claude-fb [claude arguments...]
+# Invoke: just run it — wrapper selects best available route.
+
+set -o pipefail
+ME="claude-fb"
+
+# ── Detect available routes ──────────────────────────────────────────────────
+# Priority:  MAX (native OAuth, $0) > LiteLLM :4000 (free pool) > direct free
+
+MAX_AVAIL=false
+LITELLM_AVAIL=false
+
+# Check MAX session (is Claude Code running under MAX OAuth?)
+# If MAX_PROXY_PORT is set and responds, we're on MAX
+if [ -n "$MAX_PROXY_PORT" ] && curl -sf "http://localhost:$MAX_PROXY_PORT/health" >/dev/null 2>&1; then
+    MAX_AVAIL=true
+fi
+
+# Check if LiteLLM proxy is running
+curl -sf http://localhost:4000/health >/dev/null 2>&1 && LITELLM_AVAIL=true
+
+# ── Route selection ──────────────────────────────────────────────────────────
+if $MAX_AVAIL; then
+    # T0: MAX native — direct, no wrapper needed
+    exec claude "$@"
+
+elif [ -n "$ANTHROPIC_API_KEY" ] && $LITELLM_AVAIL; then
+    # T1: Funded Anthropic key via LiteLLM — set base URL to proxy
+    export ANTHROPIC_BASE_URL="http://localhost:4000"
+    exec claude "$@"
+
+elif $LITELLM_AVAIL; then
+    # T2: Free pool via LiteLLM — set base URL to proxy, route through ccr
+    export ANTHROPIC_BASE_URL="http://localhost:4000"
+    echo "$ME: [T2] MAX exhausted — routing through LiteLLM free pool at :4000" >&2
+    echo "$ME: [T2] Degraded mode — tool-calling suitable, Claude MAX features unavailable" >&2
+    exec claude --no-max "$@"
+
+else
+    # Emergency: try direct free-tier API
+    echo "$ME: [EMERGENCY] No MAX, no LiteLLM — attempting direct free-tier" >&2
+    exec claude --no-max "$@"
+fi

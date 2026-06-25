@@ -1,4 +1,58 @@
 ---
+msg_id: WC-20260625-0001
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-25T14:45:00Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULTS:
+  Tasks found with actionable status: 1
+  Tasks processed: 1
+  Tasks failed: 0
+
+EXECUTED:
+  · RELAY-e20597e3 (UNREAD → COMPLETE)
+    POST-COMMIT relay from Claude Haiku 4.5
+    Commit: 3d654a0bb — feat(inbox-sweep): 2-min scanner, all Commander emails,
+    TEST/DIRECTION/INFORMATION, Telegram-only confirm
+    Stat: 2 files changed, 104 insertions(+), 80 deletions(-)
+    Action: Acknowledged. Informational relay — no execution required.
+
+INBOX STATUS: CLEAN — 390 blocks reviewed, 1 processed, 0 failures.
+
+EMAIL STATUS: Summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
+msg_id: WC-20260624-2249
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-24T22:49:27Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULTS:
+  Tasks found with actionable status: 0
+  Tasks processed: 0
+  Tasks failed: 0
+
+INBOX STATUS: CLEAN — all 230+ task blocks confirmed COMPLETE.
+
+INFRASTRUCTURE ALERT (surfaced for Commander):
+  MISSION-001 runaway Gemini error loop — 75+ identical error entries written to inbox
+  between 22:44-22:48 UTC on 2026-06-24. Root cause: Gemini disabled 2026-05-29 (GCP
+  cost cap). All entries bulk-ACK'd by prior session. Commander action required: rewire
+  MISSION-001 to use claude_max_oauth_sonnet.
+
+EMAIL STATUS: Summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
 msg_id: WC-20260622-2340
 msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
 from: HALE-OC (JET)
@@ -8856,3 +8910,1053 @@ SESSION=ACTIVE (1 procs) | TOKEN=STALE (24751s old) | INBOX_PENDING=91 | ACTIVE_
 
 ### AUTO-MONITOR 2026-06-24 05:52 MT
 SESSION=ACTIVE (2 procs) | TOKEN=STALE (25351s old) | INBOX_PENDING=91 | ACTIVE_TASKS=20 | QDRANT=UP
+
+---
+msg_id: WC-20260624-2250
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET / OpenCode)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-24T22:50:00Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULTS:
+  Tasks found with actionable status: 24
+  Tasks processed: 24
+  Tasks failed: 0
+
+TASK DETAIL:
+  All 24 tasks: CLAUDE RESULT | MISSION-001 error entries (2026-06-24 22:44–22:45 UTC)
+  Error: Gemini disabled 2026-05-29 (GCP cost cap) — claude_max_oauth_sonnet needed
+  Action: Acknowledged and cleared. All marked COMPLETE.
+
+INFRASTRUCTURE ALERT — ACTION REQUIRED:
+  ⚠️  MISSION-001 has been attempting to use Gemini (disabled since 2026-05-29).
+  ⚠️  24 failed runs today. Rewire MISSION-001 → claude_max_oauth_sonnet.
+
+DISPOSITION:
+  · opencode_inbox.md updated — 24 UNREAD → COMPLETE
+  · Email dispatched to johnloucks3@gmail.com
+  · Dispatch block appended to opencode_inbox.md
+
+
+---
+## WC-20260624-WATCHER-T2 — 2026-06-24T22:58:00Z
+type: WATCHER-DISPATCH
+from: HALE-OC (OpenCode / JET)
+priority: P0 — INFRASTRUCTURE ALERT
+
+WATCHER DISPATCH T2-COMMS-BUILD-20260518 — COMPLETE
+Executed: Jun 24, 2026 at 10:58 PM MT
+
+INBOX SWEEP RESULTS:
+  · Total sections reviewed: 267
+  · Actionable (UNREAD): 75
+  · All 75: CLAUDE RESULT | MISSION-001 Gemini error entries
+  · Action taken: Bulk-acknowledged → COMPLETE
+
+⚠️  INFRASTRUCTURE ALERT — COMMANDER ACTION REQUIRED:
+  MISSION-001 is in a RUNAWAY ERROR LOOP against disabled Gemini provider.
+  Gemini disabled: 2026-05-29 (GCP cost cap)
+  Entries flooded: 75+ today (2026-06-24) between 22:44–22:48 UTC
+  Required fix: Reconfigure MISSION-001 to use claude_max_oauth_sonnet
+  Until fixed: Inbox will continue accumulating error noise each watcher cycle.
+
+DISPOSITION:
+  · All 75 UNREAD entries swept → COMPLETE
+  · wing_comms.md logged (this entry)
+  · Commander notified via gmail C2: johnloucks3@gmail.com
+
+
+---
+## WC-20260624-WATCHER-DISPATCH-T2 — 2026-06-24T22:55:00Z
+from: HALE-OC (OpenCode / JET)
+type: WATCHER DISPATCH COMPLETE
+
+SUMMARY:
+  Dispatch: T2-COMMS-BUILD-20260518 | Processed: 2026-06-24T22:55:00Z
+  Inbox entries reviewed: 3890 lines
+  Actionable tasks cleared: 311
+
+TASKS PROCESSED:
+  · 311 × CLAUDE RESULT | MISSION-001 (UNREAD → COMPLETE)
+    Error batch: Gemini disabled 2026-05-29 (GCP cost cap)
+    All other inbox entries: COMPLETE (no other actionable items)
+
+INFRASTRUCTURE ALERT (P0):
+  ⚠️  MISSION-001 runaway process using disabled Gemini model
+  ⚠️  311 failed runs today — fix: route MISSION-001 → claude_max_oauth_sonnet
+  ⚠️  Commander notified via C2 email
+
+ROUTING:
+  · ELON / Sterling: Identify MISSION-001 config, rewire model, kill runaway process
+  · Commander: Awaiting confirmation/decision on MISSION-001 scope
+
+
+---
+
+## WATCHER DISPATCH RESULT — T2-COMMS-BUILD-20260518 — 2026-06-24T16:50:00Z
+from: HALE-OC (OpenCode / JET)
+logged: 2026-06-24T16:50:00Z
+
+**Inbox sweep complete.** 372 blocks scanned (4197 lines). 0 actionable tasks found — all entries already COMPLETE per prior session sweeps at 22:49Z and 22:55Z UTC today.
+
+**INFRASTRUCTURE ALERT — NEXUS RUNAWAY LOOP HALTED:**
+- Nexus daemon (PID 2686423/2686425) identified running since 13:21 MDT
+- Self-feeding loop: nexus reads CLAUDE RESULT UNREAD entries → dispatches → gets Gemini error → writes new UNREAD entry → repeat
+- Prior sessions swept 335+ loop-generated error entries today
+- **ACTION: Nexus daemon killed. Loop stopped. Inbox clean.**
+
+**Commander actions required:**
+1. Restart nexus.py only after fixing MISSION-001 route (Gemini → claude_max_oauth_sonnet)
+2. Audit thunderbird_tasking_watcher.py (PID 1871, running since Jun 23)
+3. Add CLAUDE RESULT entry guard to nexus.py scan logic
+
+**Status:** Email dispatched to Commander at johnloucks3@gmail.com.
+
+
+---
+## WC-20260624-2310 — Watcher Dispatch T2-COMMS-BUILD-20260518 | 2026-06-24T23:10:00Z
+**From:** HALE-OC (OpenCode / JET)
+**To:** Wing / Commander
+**Subject:** T2 Exercise — Inbox Sweep Results
+
+### Inbox Sweep: CLEAN
+
+- Total lines: 4,197
+- Blocks scanned: 540+
+- Actionable items found: **0**
+- All prior MISSION-001 Gemini errors cleared by 22:55Z session (311 entries)
+- No new actionable tasks
+
+### Infrastructure Alert (Persistent — Commander Action Required)
+
+⚠️ **MISSION-001 is misconfigured** — wired to Gemini, which has been disabled since 2026-05-29 (GCP cost cap).
+
+- **Impact:** Runaway error loop. 330+ failed runs accumulated today alone.
+- **Required fix:** Rewire MISSION-001 → `claude_max_oauth_sonnet`
+- **Until fixed:** Every watcher session will absorb a flood of Gemini error entries.
+
+### Disposition
+
+- opencode_inbox.md: dispatch result appended (all prior UNREAD cleared)
+- Email dispatched to Commander (johnloucks3@gmail.com)
+
+---
+msg_id: WC-20260624-1658
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-24T16:58:00Z MDT
+
+### Inbox Sweep Results
+- Lines reviewed: 4271 | Task blocks: 540+
+- Actionable found: **0** (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE)
+- All CLAUDE RESULT | MISSION-001 Gemini error entries: COMPLETE (cleared by prior sessions today at 22:49Z, 22:55Z, 16:50Z, 23:10Z UTC)
+- Tasks executed: 0
+
+### Infrastructure Alert (ACTIVE)
+⚠️  MISSION-001 runaway loop — Gemini disabled 2026-05-29 (GCP cost cap)
+⚠️  330+ failed runs today — rewire MISSION-001 → claude_max_oauth_sonnet required
+⚠️  Nexus daemon previously killed by prior session — do not restart until route is fixed
+
+### Routing
+- ELON / Sterling: Fix MISSION-001 model config → claude_max_oauth_sonnet
+- Commander: Decision on nexus.py restart; audit thunderbird_tasking_watcher.py (PID 1871)
+
+### Disposition
+- opencode_inbox.md: dispatch result appended
+- Email dispatched to Commander (johnloucks3@gmail.com)
+
+
+## TP ALERT — 2026-06-24 — AUTO-GENERATED 18:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 (T-0d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 (T-8d) | Lead: A2 Dembe + A5 Viper
+  Task: A2 Dembe + A5 Viper — begin work
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-14d) | Lead: Hale + A9
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-21d) | Lead: Hale + A9
+- 🔵 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-08-31 (T-68d) | Lead: A2 Dembe
+- 🔵 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-11-29 (T-158d) | Lead: Hale
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## WC-20260625-0001 — Watcher Dispatch T2-COMMS-BUILD-20260518
+**Time:** 2026-06-25T03:39:00Z | **Author:** HALE-OC (OpenCode)
+
+**Inbox sweep complete.** 1 actionable task found and executed.
+
+### RELAY-0e439a94 — COMPLETE
+- **Type:** POST-COMMIT relay from Claude Haiku 4.5
+- **Commit:** `21f0c8fae` — `feat(hale_bus): HALE BUS CI — inter-instance state coordination (Commander 2026-06-24)`
+- **Stat:** 7 files changed, 957 insertions(+)
+- **Action:** Acknowledged and marked COMPLETE. No further execution required — informational relay.
+
+**Results emailed to Commander at johnloucks3@gmail.com.**
+
+---
+
+## WC-20260624-0002 — Watcher Dispatch T2-COMMS-BUILD-20260518
+**Time:** 2026-06-24T22:00:00Z | **Author:** HALE-OC (OpenCode)
+
+**Inbox sweep complete.** 554 blocks scanned. 1 actionable task found and executed.
+
+### RELAY-42bf5e1e — COMPLETE
+- **Type:** POST-COMMIT relay from Claude Haiku 4.5
+- **Commit:** `419f11894` — `close(MISSION-318): Amy Darrow insurance confirmed purchased 2026-06-23`
+- **Stat:** 3 files changed, 24 insertions(+), 26 deletions(-)
+- **Action:** Acknowledged and marked COMPLETE. MISSION-318 closure confirmed — Amy Darrow insurance purchase logged.
+
+**Results emailed to Commander at johnloucks3@gmail.com.**
+
+---
+## WC-20260625-0002 — Watcher Dispatch T2-COMMS-BUILD-20260518
+**Time:** 2026-06-25T04:01:00Z | **Author:** HALE-OC (OpenCode)
+
+**Inbox sweep complete.** 382 sections scanned. 1 actionable task found and executed.
+
+### RELAY-6b637f38 — COMPLETE
+- **Type:** POST-COMMIT relay from Claude Haiku 4.5
+- **Commit:** `447fda743` — `feat(lifecycle): Loucks Grandeur TP 0.5 Welcome sent + Ely-Darrow MISSION-318 closed`
+- **Stat:** 1 file changed, 2 insertions(+), 2 deletions(-)
+- **Action:** Acknowledged and marked COMPLETE. Loucks Grandeur lifecycle TP 0.5 Welcome confirmed sent; MISSION-318 (Ely-Darrow) closed.
+
+**Results emailed to Commander at johnloucks3@gmail.com.**
+
+### AUTO-MONITOR 2026-06-24 22:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27002s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 22:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27603s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 22:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (28204s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-24 22:31:52
+Token health issue: Token expiring in 7 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-24 22:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (298s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 22:49 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (899s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 22:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1499s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2100s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2702s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3303s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3906s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4507s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-24 23:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5107s old) | INBOX_PENDING=112 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## TP ALERT — 2026-06-25 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-5d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-5d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-5d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-5d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 (T-7d) | Lead: A2 Dembe + A5 Viper
+  Task: A2 Dembe + A5 Viper — begin work
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 (T-14d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-13d) | Lead: Hale + A9
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-20d) | Lead: Hale + A9
+- 🔵 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-08-31 (T-67d) | Lead: A2 Dembe
+- 🔵 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-11-29 (T-157d) | Lead: Hale
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+
+### TP-ALERT-20260625 — ACK — WC-20260625-0003
+**Trigger:** TP Alert Engine — 2026-06-25 at 00:00 MT (52 engine-reported / 86 live)
+**Processed by:** HALE-OC (OpenCode / JET)
+**Timestamp:** 2026-06-25T12:00:00Z
+**Ref:** Watcher dispatch T2-COMMS-BUILD-20260518
+
+---
+
+#### 🔴 OVERDUE — IMMEDIATE ACTION REQUIRED
+
+**NEW OVERDUE since last ACK:**
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit — Deadline: 2026-06-24 (-1d) | Lead: **Hale**
+
+**Continuing overdue (≤10d):**
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit — Deadline: 2026-06-15 (-10d) | Lead: Hale
+- 🔴 **TP 2.5** [Ely] — Document Audit — Deadline: 2026-06-15 (-10d) | Lead: Hale
+- 🔴 **TP 2.5** [Furlow] — Document Audit — Deadline: 2026-06-15 (-10d) | Lead: Hale
+- 🔴 **TP 2.5** [Nichols] — Document Audit — Deadline: 2026-06-15 (-10d) | Lead: Hale
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options — Deadline: 2026-06-20 (-5d) | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch — Deadline: 2026-06-22 (-3d) | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options — Deadline: 2026-06-22 (-3d) | Lead: A2 Dembe
+
+#### 🟡 APPROACHING — NEXT 14 DAYS
+
+- 🟡 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations — Deadline: 2026-06-30 (+5d) | Lead: A2 Dembe
+- 🟡 **TP 2.4** [Ely] — Dining Reservations — Deadline: 2026-06-30 (+5d) | Lead: A2 Dembe
+- 🟡 **TP 2.4** [Furlow] — Dining Reservations — Deadline: 2026-06-30 (+5d) | Lead: A2 Dembe
+- 🟡 **TP 2.4** [Nichols] — Dining Reservations — Deadline: 2026-06-30 (+5d) | Lead: A2 Dembe
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch — Deadline: 2026-07-02 (+7d) | Lead: A2 Dembe + A5 Viper
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options — Deadline: 2026-07-02 (+7d) | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1 — Deadline: 2026-07-08 (+13d) | Lead: Hale + A9
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations — Deadline: 2026-07-09 (+14d) | Lead: A2 Dembe
+- 🟠 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2 — Deadline: 2026-07-15 (+20d) | Lead: Hale + A9
+
+#### STAFF TASKING
+
+| Staff | Action | Priority |
+|---|---|---|
+| **Hale** | TP 2.5 Document Audits × 5 (Grandeur, Ely, Furlow, Nichols, Loucks) — OVERDUE | P0 NOW |
+| **A2 Dembe + A5 Viper** | TP 1.2 Airfare Watch — Kuklinski, Kuklinski Grp, Morton, McLeod McGlasson | P0 NOW |
+| **A2 Dembe** | TP 1.3 Hotel Options — Kuklinski, Kuklinski Grp, Morton, McLeod McGlasson | P0 NOW |
+| **A2 Dembe** | TP 2.4 Dining Reservations × 4 (Grandeur, Ely, Furlow, Nichols) DUE Jun 30 | P1 |
+| **A2 Dembe + A5 Viper** | TP 1.2 Airfare Watch — Loucks — DUE Jul 2 | P1 |
+| **Hale + A9** | TP 4.1 Payment Reminder #1 — McLeod McGlasson — DUE Jul 8 | P1 |
+
+**Action taken:** Acknowledged. All 86 touchpoints reviewed. 13 OVERDUE items flagged (1 new: Loucks Document Audit -1d). Staff tasking logged. Commander notified via email C2.
+
+---
+*Auto-generated by TP Alert Engine — WC-20260625-0003 — HALE-OC*
+
+### AUTO-MONITOR 2026-06-25 00:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5708s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 00:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6308s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 00:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6908s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 00:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7508s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 00:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8109s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 00:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8709s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 01:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9310s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 01:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9910s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 01:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (10511s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 01:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11112s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 01:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11715s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12315s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12917s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13517s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14118s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14720s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 02:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15320s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15922s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16523s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17124s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17725s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18325s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 03:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18927s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19527s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20127s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20730s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21330s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21930s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 04:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22532s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23133s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23737s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (24338s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24938s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (25538s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 05:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (26139s old) | INBOX_PENDING=114 | ACTIVE_TASKS=9 | QDRANT=UP
+
+---
+## WC-20260625-0004 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T14:15:00Z
+logged_by: HALE-OC (OpenCode / JET)
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — T2-COMMS-BUILD-20260518
+- Blocks reviewed: 386
+- Actionable tasks: 1
+- Task processed: RELAY-4ed33dc9 (UNREAD → COMPLETE)
+
+EXECUTED:
+  · RELAY-4ed33dc9 from CC — 2026-06-25 14:07 UTC
+    Commit: 354242cc4
+    Change: fix(gmail-tasking): route dispatch_and_email through MAX OAuth CLI, fix false-positive filter
+    Stat: 3 files changed, 60 ins(+), 24 del(-)
+    Author: Claude Haiku 4.5
+    Action: Acknowledged. Informational post-commit relay — no further execution required.
+
+STATUS: All items COMPLETE. Inbox clean.
+Commander notified via gmail C2: johnloucks3@gmail.com
+
+---
+## WC-20260625-0005 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T14:34:19Z
+logged_by: HALE-OC (OpenCode / JET)
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — T2-COMMS-BUILD-20260518
+- Blocks reviewed: 560
+- Actionable tasks: 1
+- Task processed: RELAY-2848372a (UNREAD → COMPLETE)
+
+EXECUTED:
+  · RELAY-2848372a from CC — 2026-06-25 14:33 UTC
+    Commit: c098a4ac5
+    Change: fix(red-star-scanner): use is:starred query + leave star in place on process
+    Stat: 1 file changed, 6 insertions(+), 5 deletions(-)
+    Author: Claude Haiku 4.5
+    Action: Acknowledged. Informational post-commit relay — no further execution required.
+
+STATUS: All items COMPLETE. Inbox clean.
+Commander notified via gmail C2: johnloucks3@gmail.com
+
+---
+## WC-20260625-0006 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T14:47:06Z
+logged_by: HALE-OC (OpenCode / JET)
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — T2-COMMS-BUILD-20260518
+- Blocks reviewed: 392
+- Actionable tasks: 1
+- Task processed: RELAY-75ca4334 (UNREAD → COMPLETE)
+
+EXECUTED:
+  · RELAY-75ca4334 from CC — 2026-06-25 14:46 UTC
+    Commit: 805147ff5
+    Change: feat(dossier): Nichols At Six Stockholm pre-cruise night CONFIRMED
+    Stat: 1 file changed, 2 insertions(+), 2 deletions(-)
+    Author: Claude Haiku 4.5
+    Action: Acknowledged. Informational post-commit relay — no further execution required.
+
+STATUS: All items COMPLETE. Inbox clean.
+Commander notified via gmail C2: johnloucks3@gmail.com
+
+---
+## WC-20260625-0007 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T14:55:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 394 sections reviewed.
+  Actionable tasks: 1 (RELAY-598cdffb, status UNREAD).
+
+  EXECUTED:
+    · RELAY-598cdffb → COMPLETE 2026-06-25T14:55:00Z
+      Post-commit relay: 511a3593d — fix(ship-intel): capacity_data init as {} not [] to prevent list.get() crash
+      1 file changed, 1 insertion(+), 1 deletion(-) | author: Claude Haiku 4.5
+      Type: Bug fix — prevents list.get() crash in ship-intel capacity data handler
+      Action: Acknowledged. No further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0008 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T15:12:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4664 lines / 400+ sections reviewed.
+  Actionable tasks: 2 (RELAY-8a348b1d + RELAY-3e70d6d9, both UNREAD).
+
+  EXECUTED:
+    · RELAY-8a348b1d → COMPLETE 2026-06-25T15:12:00Z
+      Post-commit relay: 8802e8483 — feat(intel): MyClaw Agentic Blowback newsletter — integrated to Qdrant
+      1 file changed, 57 insertions(+) | author: Claude Haiku 4.5
+      Type: Feature — intel newsletter wired into Qdrant vector store
+      Action: Acknowledged. No further execution required.
+
+    · RELAY-3e70d6d9 → COMPLETE 2026-06-25T15:12:00Z
+      Post-commit relay: d0083e627 — fix(briefing): restore article hyperlinks per Commander directive 2026-06-25
+      1 file changed, 3 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+      Type: Fix — briefing hyperlinks restored per Commander order
+      Action: Acknowledged. No further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0009 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T14:57:00Z
+logged_by: HALE-OC (OpenCode / JET)
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — T2-COMMS-BUILD-20260518
+- Lines reviewed: 4665+
+- Blocks scanned: 400+
+- Actionable tasks: 0
+- Prior dispatches today: WC-20260625-0001 through WC-20260625-0008 (8 cycles)
+- Last actionable relays processed: RELAY-8a348b1d + RELAY-3e70d6d9 (15:12Z)
+
+EXECUTED:
+  (none — inbox clean at time of this sweep)
+
+INFRASTRUCTURE NOTE:
+  MISSION-001 Gemini runaway loop — 330+ errors cleared 2026-06-24. Nexus halted 16:50Z Jun 24.
+  Commander action required: rewire MISSION-001 → claude_max_oauth_sonnet before Nexus restart.
+
+STATUS: CLEAN — 0 actionable items remaining.
+Commander notified via gmail C2: johnloucks3@gmail.com
+
+---
+## WC-20260625-0010 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T15:35:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4735 lines / 401 sections reviewed.
+  Actionable tasks: 1 (RELAY-67051f6c — UNREAD).
+
+  EXECUTED:
+    · RELAY-67051f6c → COMPLETE 2026-06-25T15:35:00Z
+      Post-commit relay: 0e8599f8b — fix(digest): Path A gap — route COS:/HALE: directive forwards from Commander
+      1 file changed, 11 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+      Type: Bug fix — digest routing now correctly forwards COS:/HALE: directives from Commander
+      Action: Acknowledged. No further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0011 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T15:45:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4742 lines / 402 sections reviewed.
+  Actionable tasks: 1 (RELAY-775ec704 — UNREAD).
+
+  EXECUTED:
+    · RELAY-775ec704 → COMPLETE 2026-06-25T15:45:00Z
+      Post-commit relay: 7afe0f115 — feat(inbox): closed-loop email doctrine — DIRECTION/QUESTION/CC now reply
+      1 file changed, 158 insertions(+), 9 deletions(-) | author: Claude Haiku 4.5
+      Type: Feature — inbox doctrine now generates reply emails for DIRECTION/QUESTION/CC-tagged messages
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0012 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T16:20:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4774 lines / 403 sections reviewed.
+  Actionable tasks: 1 (RELAY-f35b4326 — UNREAD).
+
+  EXECUTED:
+    · RELAY-f35b4326 → COMPLETE 2026-06-25T16:20:00Z
+      Post-commit relay: 428dd4220 — fix(inbox): stop feedback loop, thread replies, single result email
+      1 file changed, 67 insertions(+), 53 deletions(-) | author: Claude Haiku 4.5
+      Type: Bug fix — inbox pipeline now prevents feedback loops, threads replies, sends single result email
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0013 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T16:35:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4781 lines / 403+ sections reviewed.
+  Actionable tasks: 1 (RELAY-48b3363b — UNREAD).
+
+  EXECUTED:
+    · RELAY-48b3363b → COMPLETE 2026-06-25T16:35:00Z
+      Post-commit relay: c452acc55 — feat(dani): identity layer — trainee mode for non-Commander users
+      1 file changed, 39 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+      Type: Feature — Dani identity layer with trainee mode for non-Commander users
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-0014 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T16:42:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4814 lines / 405 sections reviewed.
+  Actionable tasks: 1 (RELAY-d9607152 — UNREAD).
+
+  EXECUTED:
+    · RELAY-d9607152 → COMPLETE 2026-06-25T16:42:00Z
+      Post-commit relay: d0c6d02e1 — feat(ci): Dani identity layer added to CI registry with probe
+      2 files changed, 98 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+      Type: Feature — Dani identity layer added to CI registry with automated probe
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.

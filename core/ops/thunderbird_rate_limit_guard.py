@@ -226,7 +226,7 @@ def get_routing_override(
             return {
                 "engine":   "opencode_free",
                 "model":    "opencode/deepseek-v4-flash-free",
-                "reason":   "CRIT 85%+ — non-urgent → OpenCode free tier (OpenRouter $0)",
+                "reason":   "CRIT 85%+ — non-urgent → OpenCode free tier (DeepSeek V4 Flash)",
                 "degraded": True,
             }
 
@@ -234,7 +234,7 @@ def get_routing_override(
         return {
             "engine":   "opencode_free",
             "model":    "opencode/big-pickle",
-            "reason":   "STOP 90%+ — all tasks → OpenCode free tier (OpenRouter $0)",
+            "reason":   "STOP 90%+ — all tasks → OpenCode free tier (Big Pickle)",
             "degraded": True,
         }
 

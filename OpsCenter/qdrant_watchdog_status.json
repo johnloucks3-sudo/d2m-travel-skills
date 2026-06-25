@@ -1,6 +1,6 @@
 {
   "service": "qdrant",
-  "checked_at": "2026-06-24T14:35:21.279904+00:00",
+  "checked_at": "2026-06-25T18:18:52.521106+00:00",
   "state": "HEALTHY",
   "probe_url": "http://localhost:6333/collections",
   "action": "none"

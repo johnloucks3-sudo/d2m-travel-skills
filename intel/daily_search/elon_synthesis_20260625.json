@@ -1,0 +1,10 @@
+File written to `/home/john/Thunderbird/intel/daily_search/elon_synthesis_20260625.json`.
+
+**Summary — 2 IMPLEMENT_NOW, 1 ALREADY_COVERED, 1 WATCH:**
+
+- **Port Maps (OSM)** → IMPLEMENT_NOW. Leaflet.js + OSM tiles are free, no API key, direct upgrade to excursion HTML docs. Wire into the Before/After section; first target is the Grandeur Aug 29 port calls.
+- **Agentic Browser Automation** → IMPLEMENT_NOW. Chrome debug port is OFFLINE, Regent ASPXAUTH is a live P0, Centrav cookies expire every 4-5h — scripted Playwright is losing to Akamai. `browser-use` (Apache 2.0, Claude-native) is the pilot; start with Centrav keepalive, canary before touching Regent.
+- **CC Plugin Marketplace** → WATCH. Lean MCP doctrine holds — no capability gap today warrants adding untriaged plugins.
+- **LLM Cost Metering** → ALREADY_COVERED. Blackboard + brain_routing_log + SO-TOKEN-DISCIPLINE already does this; a new layer is overhead.
+
+*— 2026-06-25 10:30 MT*

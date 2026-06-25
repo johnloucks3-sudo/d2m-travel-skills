@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thunderbird Email Scanner — Flow</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#080d14; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; color:#e0e6ed; padding:32px 24px; }
+h1 { font-size:16px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#c9a84c; margin-bottom:4px; }
+.subtitle { font-size:12px; color:#4a5a75; margin-bottom:32px; }
+
+svg { display:block; margin:0 auto; }
+
+/* Node styles */
+.node-start    { fill:#1a3a1a; stroke:#3a8a3a; stroke-width:1.5; }
+.node-process  { fill:#0f2040; stroke:#2a5080; stroke-width:1.5; }
+.node-decision { fill:#1a1a2e; stroke:#c9a84c; stroke-width:1.5; }
+.node-action   { fill:#1a2820; stroke:#3a7a5a; stroke-width:1.5; }
+.node-dead     { fill:#2a0f0f; stroke:#8a2020; stroke-width:1.5; }
+.node-output   { fill:#12203a; stroke:#3a6aaa; stroke-width:1.5; }
+
+.label         { font-size:11px; fill:#c8d0dc; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.label-sm      { font-size:10px; fill:#8a9ab5; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.label-gold    { font-size:11px; fill:#c9a84c; font-weight:700; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.label-red     { font-size:11px; fill:#ff6060; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.label-green   { font-size:11px; fill:#60cc80; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.label-blue    { font-size:11px; fill:#7eb8ff; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+
+.edge { stroke:#4a5a75; stroke-width:1.2; fill:none; marker-end:url(#arr); }
+.edge-gold { stroke:#c9a84c; stroke-width:1.2; fill:none; marker-end:url(#arr-gold); }
+.edge-red  { stroke:#cc4040; stroke-width:1.2; fill:none; marker-end:url(#arr-red); stroke-dasharray:5,3; }
+.edge-green{ stroke:#3a8a5a; stroke-width:1.2; fill:none; marker-end:url(#arr-green); }
+.edge-blue { stroke:#3a6aaa; stroke-width:1.2; fill:none; marker-end:url(#arr-blue); }
+
+.edge-label { font-size:10px; fill:#8a9ab5; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.edge-label-yes { font-size:10px; fill:#60cc80; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+.edge-label-no  { font-size:10px; fill:#ff6060; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+
+.section-label { font-size:10px; fill:#4a5a75; letter-spacing:1.5px; text-transform:uppercase; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+
+.timer-badge { fill:#1a2030; stroke:#3a5070; stroke-width:1; }
+.timer-text  { font-size:9px; fill:#6a8aaa; font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif; }
+</style>
+</head>
+<body>
+<h1>⚡ Thunderbird — Email Scanner Flow</h1>
+<p class="subtitle">Current state · 2026-06-25 · V. Hale, VCS</p>
+
+<svg width="900" height="1080" viewBox="0 0 900 1080">
+<defs>
+  <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L8,3 z" fill="#4a5a75"/>
+  </marker>
+  <marker id="arr-gold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L8,3 z" fill="#c9a84c"/>
+  </marker>
+  <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L8,3 z" fill="#cc4040"/>
+  </marker>
+  <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L8,3 z" fill="#3a8a5a"/>
+  </marker>
+  <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L8,3 z" fill="#3a6aaa"/>
+  </marker>
+</defs>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- COLUMN HEADERS                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<text x="160" y="28" class="section-label" text-anchor="middle">Path A — Your send to d2mconcierge</text>
+<text x="450" y="28" class="section-label" text-anchor="middle">Path B — Supplier email</text>
+<text x="720" y="28" class="section-label" text-anchor="middle">Path C — Star in your inbox</text>
+
+<!-- separator lines -->
+<line x1="310" y1="10" x2="310" y2="1060" stroke="#1a2540" stroke-width="1"/>
+<line x1="580" y1="10" x2="580" y2="1060" stroke="#1a2540" stroke-width="1"/>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- PATH A — Commander forward to d2mconcierge            -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!-- Start: Commander sends -->
+<rect x="60" y="50" width="200" height="36" rx="18" class="node-start"/>
+<text x="160" y="64" class="label-gold" text-anchor="middle">You forward/send email</text>
+<text x="160" y="76" class="label-sm" text-anchor="middle">to d2mconcierge@gmail.com</text>
+
+<!-- arrow down -->
+<line x1="160" y1="86" x2="160" y2="118" class="edge"/>
+
+<!-- d2mconcierge inbox -->
+<rect x="70" y="118" width="180" height="30" rx="4" class="node-process"/>
+<text x="160" y="137" class="label" text-anchor="middle">Lands in d2mconcierge inbox</text>
+
+<line x1="160" y1="148" x2="160" y2="178" class="edge"/>
+
+<!-- d2m_commander_digest scans -->
+<rect x="55" y="178" width="210" height="42" rx="4" class="node-process"/>
+<text x="160" y="195" class="label" text-anchor="middle">d2m_commander_digest.py</text>
+<text x="160" y="209" class="label-sm" text-anchor="middle">scans d2mconcierge inbox</text>
+
+<!-- timer badge -->
+<rect x="60" y="222" width="92" height="16" rx="3" class="timer-badge"/>
+<text x="106" y="233" class="timer-text" text-anchor="middle">⏱ runs on timer</text>
+
+<line x1="160" y1="220" x2="160" y2="252" class="edge"/>
+
+<!-- Decision: from johnloucks3? -->
+<polygon points="160,252 245,285 160,318 75,285" class="node-decision"/>
+<text x="160" y="281" class="label" text-anchor="middle">from:</text>
+<text x="160" y="293" class="label" text-anchor="middle">johnloucks3?</text>
+
+<!-- YES → dead end -->
+<line x1="75" y1="285" x2="30" y2="285" class="edge-red"/>
+<line x1="30" y1="285" x2="30" y2="360" class="edge-red"/>
+<line x1="30" y1="360" x2="65" y2="360" class="edge-red"/>
+<text x="52" y="278" class="edge-label-yes">YES</text>
+
+<rect x="65" y="342" width="190" height="36" rx="4" class="node-dead"/>
+<text x="160" y="356" class="label-red" text-anchor="middle">⚠️ EXCLUDED — returns None</text>
+<text x="160" y="370" class="label-sm" text-anchor="middle">Your directives silently dropped</text>
+
+<!-- note -->
+<rect x="65" y="390" width="190" height="42" rx="4" style="fill:#1a0a0a;stroke:#5a2020;stroke-width:1;stroke-dasharray:3,2;"/>
+<text x="160" y="405" class="label-red" text-anchor="middle" font-size="10">GAP — Fix pending</text>
+<text x="160" y="418" class="label-sm" text-anchor="middle" font-size="9">Needs COS: prefix detection</text>
+<text x="160" y="430" class="label-sm" text-anchor="middle" font-size="9">to route directives correctly</text>
+
+<!-- NO → not a supplier either → nothing -->
+<line x1="160" y1="318" x2="160" y2="348" class="edge"/>
+<text x="167" y="337" class="edge-label-no">NO</text>
+
+<!-- Decision: known supplier? -->
+<polygon points="160,348 245,378 160,408 75,378" class="node-decision"/>
+<text x="160" y="375" class="label" text-anchor="middle">Known supplier</text>
+<text x="160" y="387" class="label" text-anchor="middle">domain?</text>
+
+<!-- NO supplier → nothing -->
+<line x1="75" y1="378" x2="30" y2="378" class="edge-red"/>
+<line x1="30" y1="378" x2="30" y2="460" class="edge-red"/>
+<line x1="30" y1="460" x2="65" y2="460" class="edge-red"/>
+<text x="48" y="371" class="edge-label-no">NO</text>
+
+<rect x="65" y="445" width="190" height="30" rx="4" class="node-dead"/>
+<text x="160" y="460" class="label-red" text-anchor="middle">Ignored — not actionable</text>
+<text x="160" y="472" class="label-sm" text-anchor="middle">No Wing response</text>
+
+<!-- YES supplier → Path B joins here — see below -->
+<text x="167" y="420" class="edge-label-yes">YES</text>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- PATH B — Supplier email arrives at d2mconcierge        -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!-- Start: Supplier sends -->
+<rect x="350" y="50" width="200" height="36" rx="18" class="node-start"/>
+<text x="450" y="64" class="label-gold" text-anchor="middle">Supplier email arrives</text>
+<text x="450" y="76" class="label-sm" text-anchor="middle">Regent, Silversea, Viking, Centrav…</text>
+
+<line x1="450" y1="86" x2="450" y2="118" class="edge"/>
+
+<!-- d2mconcierge inbox -->
+<rect x="360" y="118" width="180" height="30" rx="4" class="node-process"/>
+<text x="450" y="137" class="label" text-anchor="middle">Lands in d2mconcierge inbox</text>
+
+<line x1="450" y1="148" x2="450" y2="178" class="edge"/>
+
+<!-- d2m_commander_digest -->
+<rect x="345" y="178" width="210" height="42" rx="4" class="node-process"/>
+<text x="450" y="195" class="label" text-anchor="middle">d2m_commander_digest.py</text>
+<text x="450" y="209" class="label-sm" text-anchor="middle">tags kind = "supplier"</text>
+
+<line x1="450" y1="220" x2="450" y2="252" class="edge-green"/>
+
+<!-- Build digest -->
+<rect x="355" y="252" width="190" height="30" rx="4" class="node-action"/>
+<text x="450" y="271" class="label-green" text-anchor="middle">Builds digest email</text>
+
+<line x1="450" y1="282" x2="450" y2="312" class="edge-green"/>
+
+<!-- Send to johnloucks3 -->
+<rect x="355" y="312" width="190" height="36" rx="4" class="node-output"/>
+<text x="450" y="327" class="label-blue" text-anchor="middle">✅ Sends digest to</text>
+<text x="450" y="341" class="label-blue" text-anchor="middle">johnloucks3@gmail.com</text>
+
+<line x1="450" y1="348" x2="450" y2="378" class="edge-blue"/>
+
+<!-- You see it in inbox -->
+<rect x="350" y="378" width="200" height="36" rx="18" class="node-start"/>
+<text x="450" y="393" class="label-gold" text-anchor="middle">You see it in your inbox</text>
+<text x="450" y="406" class="label-sm" text-anchor="middle">Star it → Path C fires</text>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- PATH C — Star + 2-min sweep                           -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!-- Start: Star an email -->
+<rect x="620" y="50" width="200" height="36" rx="18" class="node-start"/>
+<text x="720" y="64" class="label-gold" text-anchor="middle">You ★ star an email</text>
+<text x="720" y="76" class="label-sm" text-anchor="middle">in your johnloucks3 inbox</text>
+
+<line x1="720" y1="86" x2="720" y2="118" class="edge-gold"/>
+
+<!-- Red star scanner timer -->
+<rect x="625" y="118" width="190" height="42" rx="4" class="node-process"/>
+<text x="720" y="135" class="label" text-anchor="middle">red_star_scanner.py fires</text>
+<text x="720" y="149" class="label-sm" text-anchor="middle">query: is:starred -RedStarProcessed</text>
+<rect x="630" y="158" width="88" height="16" rx="3" class="timer-badge"/>
+<text x="674" y="169" class="timer-text" text-anchor="middle">⏱ every 2 min</text>
+
+<line x1="720" y1="160" x2="720" y2="194" class="edge-gold"/>
+
+<!-- Fetch full content -->
+<rect x="635" y="194" width="170" height="30" rx="4" class="node-process"/>
+<text x="720" y="213" class="label" text-anchor="middle">Fetch full email content</text>
+
+<line x1="720" y1="224" x2="720" y2="254" class="edge"/>
+
+<!-- Sonnet classification -->
+<rect x="625" y="254" width="190" height="42" rx="4" class="node-process"/>
+<text x="720" y="271" class="label" text-anchor="middle">Sonnet classifies action</text>
+<text x="720" y="285" class="label-sm" text-anchor="middle">FORWARD / TASK / CC / INTEL / OTHER</text>
+
+<line x1="720" y1="296" x2="720" y2="330" class="edge"/>
+
+<!-- Decision: type? -->
+<polygon points="720,330 805,362 720,394 635,362" class="node-decision"/>
+<text x="720" y="358" class="label" text-anchor="middle">Action type?</text>
+<text x="720" y="370" class="label" text-anchor="middle">TASK?</text>
+
+<!-- YES TASK -->
+<line x1="720" y1="394" x2="720" y2="420" class="edge-green"/>
+<text x="727" y="411" class="edge-label-yes">YES</text>
+
+<rect x="635" y="420" width="170" height="36" rx="4" class="node-action"/>
+<text x="720" y="435" class="label-green" text-anchor="middle">Create mission board entry</text>
+<text x="720" y="449" class="label-sm" text-anchor="middle">mission_board_sync.py add</text>
+
+<line x1="720" y1="456" x2="720" y2="488" class="edge-green"/>
+
+<!-- Telegram -->
+<rect x="635" y="488" width="170" height="36" rx="4" class="node-output"/>
+<text x="720" y="503" class="label-blue" text-anchor="middle">✅ Telegram confirmation</text>
+<text x="720" y="517" class="label-sm" text-anchor="middle">⚡ RED STAR PROCESSED</text>
+
+<!-- NO TASK (INTEL / OTHER) -->
+<line x1="805" y1="362" x2="860" y2="362" class="edge"/>
+<line x1="860" y1="362" x2="860" y2="500" class="edge"/>
+<line x1="860" y1="500" x2="806" y2="500" class="edge"/>
+<text x="837" y="356" class="edge-label-no">NO</text>
+
+<!-- Label stays, star stays -->
+<rect x="635" y="540" width="170" height="30" rx="4" class="node-process"/>
+<text x="720" y="559" class="label" text-anchor="middle">Apply RedStarProcessed label</text>
+
+<line x1="720" y1="524" x2="720" y2="540" class="edge"/>
+
+<rect x="635" y="578" width="170" height="30" rx="4" class="node-action"/>
+<text x="720" y="597" class="label-green" text-anchor="middle">★ Star stays on email</text>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- PATH D — 2-min sweep of received inbox                -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!-- Divider -->
+<line x1="40" y1="660" x2="860" y2="660" stroke="#1a3050" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="450" y="650" class="section-label" text-anchor="middle">Path D — any email you RECEIVE in johnloucks3 (not sent)</text>
+
+<!-- Start: email arrives in johnloucks3 -->
+<rect x="320" y="672" width="260" height="36" rx="18" class="node-start"/>
+<text x="450" y="687" class="label-gold" text-anchor="middle">Email arrives in your johnloucks3 inbox</text>
+<text x="450" y="700" class="label-sm" text-anchor="middle">from anyone (you don't need to star it)</text>
+
+<line x1="450" y1="708" x2="450" y2="738" class="edge"/>
+
+<!-- run_inbox_sweep.py -->
+<rect x="325" y="738" width="250" height="44" rx="4" class="node-process"/>
+<text x="450" y="754" class="label" text-anchor="middle">run_inbox_sweep.py fires</text>
+<text x="450" y="767" class="label-sm" text-anchor="middle">scans last 15 min of received inbox</text>
+<rect x="330" y="778" width="88" height="16" rx="3" class="timer-badge"/>
+<text x="374" y="789" class="timer-text" text-anchor="middle">⏱ every 2 min</text>
+
+<line x1="450" y1="782" x2="450" y2="816" class="edge"/>
+
+<!-- Keyword classifier -->
+<rect x="325" y="816" width="250" height="44" rx="4" class="node-process"/>
+<text x="450" y="832" class="label" text-anchor="middle">Keyword classifier</text>
+<text x="450" y="846" class="label-sm" text-anchor="middle">TEST / DIRECTION / INFORMATION</text>
+
+<line x1="450" y1="860" x2="450" y2="892" class="edge"/>
+
+<!-- 3-way decision -->
+<polygon points="450,892 560,924 450,956 340,924" class="node-decision"/>
+<text x="450" y="920" class="label" text-anchor="middle">Classification?</text>
+<text x="450" y="932" class="label" text-anchor="middle"></text>
+
+<!-- DIRECTION -->
+<line x1="450" y1="956" x2="450" y2="990" class="edge-green"/>
+<text x="458" y="975" class="edge-label-yes">DIRECTION</text>
+
+<rect x="350" y="990" width="200" height="36" rx="4" class="node-action"/>
+<text x="450" y="1005" class="label-green" text-anchor="middle">Create P1 mission board entry</text>
+<text x="450" y="1019" class="label-sm" text-anchor="middle">+ Telegram confirmation</text>
+
+<!-- TEST / INFORMATION -->
+<line x1="340" y1="924" x2="260" y2="924" class="edge"/>
+<line x1="260" y1="924" x2="260" y2="1005" class="edge"/>
+<line x1="260" y1="1005" x2="348" y2="1005" class="edge"/>
+<text x="295" y="918" class="edge-label">TEST / INFO</text>
+
+<!-- Telegram only -->
+<line x1="560" y1="924" x2="640" y2="924" class="edge-blue"/>
+<line x1="640" y1="924" x2="640" y2="1005" class="edge-blue"/>
+<line x1="640" y1="1005" x2="552" y2="1005" class="edge-blue"/>
+<text x="590" y="918" class="edge-label">(same)</text>
+
+<!-- No email reply note -->
+<rect x="325" y="1038" width="250" height="30" rx="4" style="fill:#0a0f1a;stroke:#2a3a5a;stroke-width:1;stroke-dasharray:3,2;"/>
+<text x="450" y="1053" class="label-sm" text-anchor="middle" font-size="10">No email replies to you — Telegram only</text>
+<text x="450" y="1064" class="label-sm" text-anchor="middle" font-size="9" fill="#4a5a75">Wing never re-threads back to Commander</text>
+
+</svg>
+
+<div style="margin-top:24px;font-size:11px;color:#4a5a75;border-top:1px solid #1a2540;padding-top:16px;display:flex;gap:32px;flex-wrap:wrap;">
+  <div><span style="color:#c9a84c;">■</span> Decision node</div>
+  <div><span style="color:#3a8a5a;">■</span> Action / success</div>
+  <div><span style="color:#8a2020;">■</span> Dead end / gap</div>
+  <div><span style="color:#3a6aaa;">■</span> Wing output</div>
+  <div><span style="color:#1a3a1a;">●</span> Entry point</div>
+  <div style="margin-left:auto;color:#3a4a60;">V. Hale, VCS · 2026-06-25 · Thunderbird Wing</div>
+</div>
+</body>
+</html>

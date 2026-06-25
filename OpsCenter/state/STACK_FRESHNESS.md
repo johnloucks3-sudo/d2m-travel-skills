@@ -1,33 +1,33 @@
 # STACK FRESHNESS — Readiness Ladder Report
-*Generated 2026-06-24T12:15:18.508342+00:00 · mode `daily` · ADVISORY (read-only)*
+*Generated 2026-06-25T12:15:18.087786+00:00 · mode `daily` · ADVISORY (read-only)*
 
 SO: `SO_READINESS_LADDER_FRESHNESS_20260621.md` — v1 RECOMMENDS demotions; executes nothing.
 
 ## Init-Context Footprint (§2)
 
-**19,719 tokens** of Active-Duty auto-load (target ≤ 15,000) → **RED**
+**19,920 tokens** of Active-Duty auto-load (target ≤ 15,000) → **RED**
 
 | Auto-load file | est tokens |
 |---|---|
-| `/home/john/Thunderbird/Personas/hale_cos.md` | 9,667 |
+| `/home/john/Thunderbird/Personas/hale_cos.md` | 9,969 |
 | `/home/john/.claude/projects/-home-john-Thunderbird/memory/MEMORY.md` | 4,365 |
-| `/home/john/Thunderbird/hale_state.json` | 3,670 |
-| `/home/john/Thunderbird/hale_brief.md` | 1,205 |
-| `/home/john/Thunderbird/OpsCenter/session_context_latest.md` | 810 |
+| `/home/john/Thunderbird/hale_state.json` | 3,641 |
+| `/home/john/Thunderbird/hale_brief.md` | 1,146 |
+| `/home/john/Thunderbird/OpsCenter/session_context_latest.md` | 797 |
 
 ## Inventory & Recommended Tiers
 
-996 scripts + 412 systemd units = **1408 items**
+1009 scripts + 423 systemd units = **1432 items**
 
 | Recommended tier | count |
 |---|---|
-| ACTIVE DUTY | 1169 |
-| a) NATIONAL GUARD | 143 |
+| ACTIVE DUTY | 1168 |
+| a) NATIONAL GUARD | 168 |
 | b) RESERVE | 83 |
 | c) RETIRED-ACTIVE-RESERVE | 13 |
 | d) RETIRED COMPLETELY | 0 |
 
-Demotion candidates: **239** · actionable this `daily`: **0**
+Demotion candidates: **264** · actionable this `daily`: **0**
 
 ## Top Demotion Candidates (coldest first)
 
@@ -46,17 +46,17 @@ Demotion candidates: **239** · actionable this `daily`: **0**
 | `~/.config/systemd/user/reverie-api.service` | unit | c) RETIRED-ACTIVE-RESERVE | — | ExecStart target missing: /home/john/Thunderbird/storage/reverie/api/.venv_new/bin/uvicorn — orphan unit |
 | `~/.config/systemd/user/thunderbird-hooks.service` | unit | c) RETIRED-ACTIVE-RESERVE | — | ExecStart target missing: /home/john/Thunderbird/Thunderbird/thunderbird_hooks_receiver.py — orphan unit |
 | `~/.config/systemd/user/thunderbird-watch-officer.service` | unit | c) RETIRED-ACTIVE-RESERVE | — | ExecStart target missing: /home/john/Thunderbird/OpsCenter/watch_officer_groq.sh — orphan unit |
-| `scripts/render_nancy_lyons_email.py` | script | b) RESERVE | 99.9d | orphan (0 inbound refs) + cold 100d |
-| `scripts/create_html_drafts.py` | script | b) RESERVE | 95.6d | orphan (0 inbound refs) + cold 96d |
-| `scripts/draft_ten_weeks_later.py` | script | b) RESERVE | 94.6d | orphan (0 inbound refs) + cold 95d |
-| `scripts/render_dani_validation_emails.py` | script | b) RESERVE | 90.5d | orphan (0 inbound refs) + cold 91d |
-| `OpsCenter/notify_commander.sh` | script | b) RESERVE | 86.5d | orphan (0 inbound refs) + cold 87d |
-| `OpsCenter/create_tokyo_draft.py` | script | b) RESERVE | 85.5d | orphan (0 inbound refs) + cold 86d |
-| `OpsCenter/atomic_dossier_commit.py` | script | b) RESERVE | 84.0d | orphan (0 inbound refs) + cold 84d |
-| `OpsCenter/a7_email_scorer.py` | script | b) RESERVE | 83.6d | orphan (0 inbound refs) + cold 84d |
-| `OpsCenter/api_test.py` | script | b) RESERVE | 83.5d | orphan (0 inbound refs) + cold 84d |
-| `OpsCenter/keep_to_drive_sync.py` | script | b) RESERVE | 83.5d | orphan (0 inbound refs) + cold 84d |
-| `OpsCenter/pinecone_connector.py` | script | b) RESERVE | 83.5d | orphan (0 inbound refs) + cold 84d |
-| `OpsCenter/tool_validator.py` | script | b) RESERVE | 83.5d | orphan (0 inbound refs) + cold 84d |
+| `scripts/render_nancy_lyons_email.py` | script | b) RESERVE | 100.9d | orphan (0 inbound refs) + cold 101d |
+| `scripts/create_html_drafts.py` | script | b) RESERVE | 96.6d | orphan (0 inbound refs) + cold 97d |
+| `scripts/draft_ten_weeks_later.py` | script | b) RESERVE | 95.6d | orphan (0 inbound refs) + cold 96d |
+| `scripts/render_dani_validation_emails.py` | script | b) RESERVE | 91.5d | orphan (0 inbound refs) + cold 92d |
+| `OpsCenter/notify_commander.sh` | script | b) RESERVE | 87.5d | orphan (0 inbound refs) + cold 88d |
+| `OpsCenter/create_tokyo_draft.py` | script | b) RESERVE | 86.5d | orphan (0 inbound refs) + cold 87d |
+| `OpsCenter/atomic_dossier_commit.py` | script | b) RESERVE | 85.0d | orphan (0 inbound refs) + cold 85d |
+| `OpsCenter/a7_email_scorer.py` | script | b) RESERVE | 84.6d | orphan (0 inbound refs) + cold 85d |
+| `OpsCenter/api_test.py` | script | b) RESERVE | 84.5d | orphan (0 inbound refs) + cold 85d |
+| `OpsCenter/keep_to_drive_sync.py` | script | b) RESERVE | 84.5d | orphan (0 inbound refs) + cold 85d |
+| `OpsCenter/pinecone_connector.py` | script | b) RESERVE | 84.5d | orphan (0 inbound refs) + cold 85d |
+| `OpsCenter/tool_validator.py` | script | b) RESERVE | 84.5d | orphan (0 inbound refs) + cold 85d |
 
 *Thresholds (days since last activity): NG≥14 · Reserve≥44 · Retired-reserve≥134 · Retired-complete≥224. Demotion requires 0 inbound refs AND cold. Protected/referenced/fresh stay ACTIVE.*

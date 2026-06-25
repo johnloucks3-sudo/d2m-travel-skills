@@ -1,11 +1,11 @@
 {
   "luxury-2027-atlas_le_havre_nodate:URGENT": {
-    "date": "2026-06-18",
-    "ts": "2026-06-18T14:00:46.119935"
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753601"
   },
   "luxury-2027-explora_le_havre_nodate:URGENT": {
-    "date": "2026-06-18",
-    "ts": "2026-06-18T14:00:46.119948"
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753608"
   },
   "norway-2027-silversea_silver_muse_nodate:SIGNAL": {
     "date": "2026-06-24",
@@ -54,5 +54,121 @@
   "luxury-2027-explora_silver_muse_nodate:SIGNAL": {
     "date": "2026-06-24",
     "ts": "2026-06-24T02:00:20.208087"
+  },
+  "norway-2027-silversea_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.270956"
+  },
+  "norway-2027-regent_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.270977"
+  },
+  "grandeur-2026_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.270986"
+  },
+  "med-2027-luxury_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.270996"
+  },
+  "grandeur-dec29-2026_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.271005"
+  },
+  "luxury-2027-atlas_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.271012"
+  },
+  "luxury-2027-explora_le_havre_nodate:SIGNAL": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T02:00:37.271019"
+  },
+  "norway-2027-silversea_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877669"
+  },
+  "norway-2027-silversea_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877685"
+  },
+  "norway-2027-regent_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877694"
+  },
+  "norway-2027-regent_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877700"
+  },
+  "grandeur-2026_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877707"
+  },
+  "grandeur-2026_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877723"
+  },
+  "med-2027-luxury_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877729"
+  },
+  "med-2027-luxury_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877734"
+  },
+  "grandeur-dec29-2026_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877739"
+  },
+  "grandeur-dec29-2026_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877746"
+  },
+  "luxury-2027-atlas_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877795"
+  },
+  "luxury-2027-atlas_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877805"
+  },
+  "luxury-2027-explora_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877814"
+  },
+  "luxury-2027-explora_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:18:12.877820"
+  },
+  "norway-2027-silversea_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753561"
+  },
+  "norway-2027-regent_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753574"
+  },
+  "grandeur-2026_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753582"
+  },
+  "med-2027-luxury_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753588"
+  },
+  "grandeur-dec29-2026_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T11:35:02.753595"
+  },
+  "silver-nova-2026_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:04:44.700730"
+  },
+  "silver-nova-may2027-voyage1_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:04:44.700746"
+  },
+  "silver-nova-may2027-window_le_havre_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:04:44.700753"
   }
 }

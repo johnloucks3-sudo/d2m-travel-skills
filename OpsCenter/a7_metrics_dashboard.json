@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-24T12:00:00.303510+00:00",
+  "generated_at": "2026-06-25T12:00:00.330901+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
-    "open_tasks_count": 14,
+    "open_tasks_count": 5,
     "system_mode": "UNKNOWN"
   },
   "quality": {
@@ -20,11 +20,10 @@
   "cost_control": {},
   "exercise": {},
   "red_items": [
-    "Quality score (42%) below red threshold (60%). Review latest 1 exercises.",
-    "Open tasks (14) exceeds 5."
+    "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
   ],
   "continuity_recert": {
-    "timestamp": "2026-06-24T12:00:00.284918+00:00",
+    "timestamp": "2026-06-25T12:00:00.281856+00:00",
     "overall": "RED",
     "metrics": {
       "failed_unit_count": {
@@ -45,10 +44,10 @@
         ]
       },
       "heartbeat_ping_miss_24h": {
-        "value": 116,
+        "value": 113,
         "status": "RED",
         "threshold_red": ">1",
-        "last_scan_ts": "2026-06-24 05:50:42",
+        "last_scan_ts": "2026-06-25 05:50:29",
         "note": "current consecutive DEGRADED scans (0 = last scan healthy)"
       },
       "scrape_checkpoint_completion_pct": {
@@ -67,11 +66,11 @@
     },
     "red_items": [
       "failed_unit_count=7 (threshold >2)",
-      "heartbeat_miss_24h=116 (threshold >1)"
+      "heartbeat_miss_24h=113 (threshold >1)"
     ],
     "commander_gated": [
       "tess-token-keepalive.service"
     ]
   },
-  "_last_updated": "2026-06-24T12:00:00.284918+00:00"
+  "_last_updated": "2026-06-25T12:00:00.281856+00:00"
 }
