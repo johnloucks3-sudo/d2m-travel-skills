@@ -52,9 +52,17 @@ def _state():
     return {"delivered_ids": [], "runs": []}
 
 
-def _is_actionable(frm: str):
+DIRECTIVE_PREFIXES = ("cos:", "hale:", "coo:", "hale,", "cos,")
+
+def _is_actionable(frm: str, snippet: str = ""):
     f = frm.lower()
-    if "johnloucks3" in f: return "commander"
+    if "johnloucks3" in f:
+        # Directive forward (body starts with COS:/HALE: etc.) → actionable
+        # Plain self-send (no prefix) → exclude to prevent self-forwarding loop
+        snip = snippet.strip().lower()
+        if any(snip.startswith(p) for p in DIRECTIVE_PREFIXES):
+            return "commander"
+        return None
     if any(s in f for s in SUPPLIERS): return "supplier"
     return None
 
@@ -79,7 +87,7 @@ def run(send=True):
         mm = s.users().messages().get(userId="me", id=m["id"], format="metadata",
               metadataHeaders=["From", "Subject", "Date"]).execute()
         h = {x["name"]: x["value"] for x in mm["payload"]["headers"]}
-        kind = _is_actionable(h.get("From", ""))
+        kind = _is_actionable(h.get("From", ""), mm.get("snippet", ""))
         if not kind:
             continue
         new.append({"id": m["id"], "kind": kind, "from": h.get("From", "")[:40],
