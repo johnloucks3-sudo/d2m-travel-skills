@@ -1228,10 +1228,12 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
     # that would catch every email in the world containing "COS"
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
     after_ts = int(cutoff.timestamp())
+    # Exclude scanner's own reply emails (prevent feedback loop / snowball subjects)
     query = (
         f"in:inbox from:johnloucks3@gmail.com "
         f"after:{after_ts} "
-        f"-label:{PROCESSED_LABEL}"
+        f"-label:{PROCESSED_LABEL} "
+        f"-subject:\"✅\" -subject:\"📬\" -subject:\"WING-REPLY\""
     )
 
     try:
@@ -1283,6 +1285,12 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
         sender_addr = _extract_email_address(from_raw)
         sender_name = _extract_sender_name(from_raw)
         thread_id = msg.get("threadId")
+        message_id_header = headers.get("Message-ID", "") or headers.get("Message-Id", "")
+
+        # Skip scanner's own reply emails — prevents feedback loop
+        if headers.get("X-WING-SCANNER"):
+            logger.debug(f"Skipping scanner-generated email: {subject[:60]}")
+            continue
 
         body = _decode_body(msg.get("payload", {}))
 
@@ -1323,6 +1331,7 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             {
                 "msg_id": msg_id,
                 "thread_id": thread_id,
+                "message_id_header": message_id_header,
                 "subject": subject,
                 "sender": sender_addr,
                 "sender_name": sender_name,
@@ -1341,10 +1350,13 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
 # ---------------------------------------------------------------------------
 
 
-def _send_email_to_commander(subject: str, body: str) -> bool:
-    """Send a plain-text email from johnloucks3 to johnloucks3 (closed-loop confirmation).
+def _send_email_to_commander(
+    subject: str, body: str,
+    thread_id: str = None, in_reply_to: str = None, original_subject: str = None
+) -> bool:
+    """Send/reply to Commander at johnloucks3. Replies in-thread when thread_id provided.
 
-    Uses JL3_TOKEN_FILE (full gmail scope). Returns True on success.
+    X-WING-SCANNER header on every outbound so scan query can exclude our own emails.
     """
     import base64
     from email.mime.text import MIMEText
@@ -1365,18 +1377,32 @@ def _send_email_to_commander(subject: str, body: str) -> bool:
         msg = MIMEText(body, "plain")
         msg["To"] = COMMANDER_EMAIL
         msg["From"] = COMMANDER_EMAIL
-        msg["Subject"] = subject
+        # Thread reply: use Re: prefix and set headers so it lands in same thread
+        if in_reply_to:
+            msg["Subject"] = f"Re: {original_subject or subject}"
+            msg["In-Reply-To"] = in_reply_to
+            msg["References"] = in_reply_to
+        else:
+            msg["Subject"] = subject
+        # Stamp so our scan query can exclude scanner-generated emails
+        msg["X-WING-SCANNER"] = "true"
         raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-        svc.users().messages().send(userId="me", body={"raw": raw}).execute()
-        logger.info(f"Email confirmation sent: {subject[:60]}")
+        send_body = {"raw": raw}
+        if thread_id:
+            send_body["threadId"] = thread_id
+        svc.users().messages().send(userId="me", body=send_body).execute()
+        logger.info(f"Email sent: {msg['Subject'][:60]}")
         return True
     except Exception as e:
-        logger.warning(f"Email confirmation failed: {e}")
+        logger.warning(f"Email send failed: {e}")
         return False
 
 
-def _dispatch_question_and_reply(question_subject: str, question_body: str):
-    """Dispatch question to Sonnet, email answer back to Commander."""
+def _dispatch_question_and_reply(
+    question_subject: str, question_body: str,
+    thread_id: str = None, in_reply_to: str = None
+):
+    """Dispatch question to Sonnet, reply in-thread with the actual answer."""
     prompt = (
         f"You are Hale, COS of Thunderbird Wing, Dreams2Memories Travel.\n"
         f"Commander asked the following question via email. Answer it directly and completely.\n"
@@ -1409,11 +1435,12 @@ def _dispatch_question_and_reply(question_subject: str, question_body: str):
     _send_email_to_commander(
         subject=f"✅ Answer: {question_subject[:70]}",
         body=(
-            f"Commander,\n\n"
             f"{answer}\n\n"
-            f"— Hale · Thunderbird Wing · "
-            f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+            f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
         ),
+        thread_id=thread_id,
+        in_reply_to=in_reply_to,
+        original_subject=question_subject,
     )
 
 
@@ -1460,15 +1487,18 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
 
     for email in emails:
         msg_id = email["msg_id"]
-        classification = email["classification"]  # TEST | DIRECTION | INFORMATION
+        thread_id = email.get("thread_id")
+        classification = email["classification"]
         subject = email["subject"]
         body_preview = email.get("body_preview", "")[:300]
+        # Get Message-ID header for in-thread replies
+        in_reply_to = email.get("message_id_header")  # set below in scan; fallback None
 
         try:
             body_full = email.get("body", "")
 
             if classification == "DIRECTION":
-                # Create mission board entry
+                # Create mission + reply in-thread with mission ID (no ack, just result)
                 mission_desc = f"Commander email directive: {subject}. {body_preview[:200]}"
                 result = subprocess.run(
                     [sys.executable,
@@ -1480,73 +1510,57 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 mission_id = ""
                 if "Created:" in result.stdout:
                     mission_id = result.stdout.split("Created:")[-1].strip().split()[0]
-                confirm_tg = (
-                    f"⚡ DIRECTION received\n📧 {subject[:80]}\n"
-                    f"→ {mission_id or 'Logged'} created. Hale executing."
+                _send_telegram_confirmation(
+                    f"⚡ DIRECTION\n📧 {subject[:80]}\n→ {mission_id or 'queued'} on board."
                 )
-                _send_telegram_confirmation(confirm_tg)
                 _send_email_to_commander(
-                    subject=f"✅ Received: {subject[:70]}",
+                    subject=f"✅ {mission_id or 'Logged'}: {subject[:65]}",
                     body=(
-                        f"Commander,\n\n"
-                        f"Directive received and logged.\n\n"
-                        f"Mission: {mission_id or 'queued'}\n"
-                        f"Directive: {body_preview[:300]}\n\n"
-                        f"Hale is executing. You will receive a completion confirmation "
-                        f"when the mission closes.\n\n"
-                        f"— Hale · Thunderbird Wing · "
-                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                        f"Directive logged as {mission_id or 'mission'}.\n"
+                        f"Hale is executing. Reply to this thread to follow up.\n\n"
+                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
                     ),
+                    thread_id=thread_id,
+                    in_reply_to=in_reply_to,
+                    original_subject=subject,
                 )
                 stats["direction"] += 1
 
             elif classification == "QUESTION":
-                # Acknowledge immediately, dispatch answer asynchronously
+                # No ack — dispatch Sonnet, reply in-thread with the actual answer
                 _send_telegram_confirmation(
-                    f"⚡ QUESTION received\n📧 {subject[:80]}\n→ Researching. Answer coming by email."
+                    f"⚡ QUESTION\n📧 {subject[:80]}\n→ Researching now."
                 )
-                _send_email_to_commander(
-                    subject=f"📬 Question received: {subject[:65]}",
-                    body=(
-                        f"Commander,\n\n"
-                        f"Question received. Hale is researching now.\n"
-                        f"Answer will arrive in a follow-up email.\n\n"
-                        f"Question logged: {body_preview[:200]}\n\n"
-                        f"— Hale · Thunderbird Wing · "
-                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
-                    ),
-                )
-                # Dispatch Sonnet to answer — sends second email when done
                 threading.Thread(
                     target=_dispatch_question_and_reply,
                     args=(subject, body_full),
+                    kwargs={"thread_id": thread_id, "in_reply_to": in_reply_to},
                     daemon=True,
                 ).start()
                 stats["information"] += 1
 
             elif classification == "CC":
+                # Single ack reply in-thread
                 _send_telegram_confirmation(
-                    f"⚡ CC received\n📧 {subject[:80]}\n→ Acknowledged. Logged to wing records."
+                    f"⚡ CC\n📧 {subject[:80]}\n→ Logged."
                 )
                 _send_email_to_commander(
                     subject=f"✅ Logged: {subject[:70]}",
                     body=(
-                        f"Commander,\n\n"
-                        f"CC received and logged.\n\n"
-                        f"Content: {body_preview[:300]}\n\n"
-                        f"Filed to wing records. If action is needed, reply with COS: [directive].\n\n"
-                        f"— Hale · Thunderbird Wing · "
-                        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                        f"CC logged to wing records.\n"
+                        f"Reply to this thread if action needed.\n\n"
+                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
                     ),
+                    thread_id=thread_id,
+                    in_reply_to=in_reply_to,
+                    original_subject=subject,
                 )
                 stats["information"] += 1
 
             elif classification == "TEST":
-                confirm = (
-                    f"⚡ TEST received\n📧 {subject[:80]}\n"
-                    f"→ Scanner live. 2-min sweep active."
+                _send_telegram_confirmation(
+                    f"⚡ TEST\n📧 {subject[:80]}\n→ Scanner live."
                 )
-                _send_telegram_confirmation(confirm)
                 stats["test"] += 1
 
             else:  # INFORMATION
