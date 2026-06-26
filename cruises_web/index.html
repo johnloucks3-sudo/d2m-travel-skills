@@ -6,106 +6,231 @@
 <title>Luxury Cruise Discovery — Dreams2Memories Travel</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f4f4f6;color:#1a1a2e;min-height:100vh}
-header{background:#07076b;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{background:#fff;color:#07076b;font-weight:900;font-size:13px;padding:4px 8px;border-radius:4px;letter-spacing:1px}
-.logo-text{font-size:15px;font-weight:600}
-.sla-badge{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:11px;padding:3px 10px;border-radius:12px;white-space:nowrap}
-.trust-bar{background:#fff;border-bottom:1px solid #e0e0e8;padding:9px 20px;text-align:center;font-size:12px;color:#666}
-.trust-bar strong{color:#07076b}
-.search-hero{background:#07076b;padding:28px 20px 32px;text-align:center}
-.search-hero h1{color:#fff;font-size:clamp(19px,4vw,26px);font-weight:700;margin-bottom:6px}
-.search-hero p{color:rgba(255,255,255,0.75);font-size:13px;margin-bottom:20px;max-width:540px;margin-left:auto;margin-right:auto}
-.search-box{display:flex;max-width:660px;margin:0 auto 14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.25)}
-.search-box input{flex:1;border:none;outline:none;padding:13px 18px;font-size:16px;color:#1a1a2e}
-.search-box button{background:#07076b;color:#fff;border:none;padding:0 22px;font-size:14px;font-weight:600;cursor:pointer}
-.search-box button:hover{background:#0a0a8a}
-.filters{display:flex;gap:8px;max-width:660px;margin:0 auto;flex-wrap:wrap;justify-content:center}
-.filters select{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:7px 24px 7px 10px;border-radius:6px;font-size:13px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,0.7)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+body{font-family:Georgia,serif;background:#f7f3ea;color:#1a1a1a;min-height:100vh}
+
+/* ── Header ─────────────────────────────────────────────── */
+header{background:linear-gradient(135deg,#06065a 0%,#0d0da8 60%,#1a1adb 100%);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 3px 16px rgba(0,0,0,0.4)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-mark{background:linear-gradient(135deg,#d4a017,#f0c040);color:#1a1a1a;font-weight:900;font-size:13px;padding:6px 11px;border-radius:6px;letter-spacing:1.5px;font-family:Georgia,serif;box-shadow:0 2px 8px rgba(212,160,23,0.5)}
+.logo-text{font-size:16px;font-weight:700;letter-spacing:0.3px;font-style:italic}
+.logo-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:1px;letter-spacing:0.5px}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.sla-badge{background:rgba(212,160,23,0.18);border:1px solid rgba(212,160,23,0.55);color:#f0c040;font-size:11px;padding:5px 14px;border-radius:14px;white-space:nowrap;font-weight:700;letter-spacing:0.3px}
+
+/* ── Stats bar ───────────────────────────────────────────── */
+.stats-bar{display:flex;background:#1a1a1a;color:#f7f3ea;overflow:hidden;border-bottom:2px solid #d4a017}
+.stat{text-align:center;padding:16px 0;flex:1;border-right:1px solid #2d2d2d;cursor:default;position:relative}
+.stat:last-child{border-right:none}
+.stat::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:linear-gradient(to right,transparent,#d4a017,transparent);opacity:0;transition:opacity 0.3s}
+.stat:hover::after{opacity:1}
+.stat-num{font-size:2rem;font-weight:900;background:linear-gradient(to bottom,#f9e080,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;font-family:Georgia,serif}
+.stat-lbl{font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;opacity:0.55;margin-top:4px}
+
+/* ── Trust bar ───────────────────────────────────────────── */
+.trust-bar{background:#fffdf5;border-bottom:1px solid #e8dfc0;padding:9px 28px;text-align:center;font-size:12px;color:#777;font-style:italic}
+.trust-bar strong{color:#07076b;font-style:normal}
+.trust-dot{color:#d4a017;margin:0 6px}
+
+/* ── Search hero ─────────────────────────────────────────── */
+.search-hero{background:linear-gradient(160deg,#06065a 0%,#0d0da8 55%,#1633c4 100%);padding:34px 28px 40px;text-align:center;position:relative;overflow:hidden}
+.search-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(212,160,23,0.12) 0%,transparent 70%);pointer-events:none}
+.search-hero h1{color:#fff;font-size:clamp(20px,4vw,30px);font-weight:400;margin-bottom:6px;font-style:italic;letter-spacing:0.5px;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.search-hero h1 span{color:#f0c040;font-weight:700}
+.search-hero p{color:rgba(255,255,255,0.68);font-size:13px;margin-bottom:22px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.search-box{display:flex;max-width:700px;margin:0 auto 16px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(212,160,23,0.2)}
+.search-box input{flex:1;border:none;outline:none;padding:15px 22px;font-size:16px;color:#1a1a2e;background:transparent;font-family:Georgia,serif}
+.search-box button{background:linear-gradient(135deg,#c8930e,#f0c040);color:#1a1a1a;border:none;padding:0 28px;font-size:14px;font-weight:800;cursor:pointer;letter-spacing:0.5px;font-family:Georgia,serif;transition:filter 0.15s}
+.search-box button:hover{filter:brightness(1.1)}
+.filters{display:flex;gap:8px;max-width:700px;margin:0 auto;flex-wrap:wrap;justify-content:center;align-items:center}
+.filters select{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);color:#fff;padding:8px 30px 8px 12px;border-radius:8px;font-size:12px;cursor:pointer;appearance:none;-webkit-appearance:none;font-family:Georgia,serif;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,0.55)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;transition:background 0.15s}
+.filters select:hover{background-color:rgba(255,255,255,0.15)}
 .filters select option{background:#07076b;color:#fff}
-.btn-clear-search{background:transparent;border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;display:none}
-main{max-width:1100px;margin:0 auto;padding:20px}
+.filter-check{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.8);font-size:12px;cursor:pointer;padding:7px 12px;border:1px solid rgba(255,255,255,0.22);border-radius:8px;background:rgba(255,255,255,0.08);user-select:none;transition:background 0.15s}
+.filter-check:hover{background:rgba(255,255,255,0.14)}
+.filter-check input{cursor:pointer;accent-color:#f0c040;width:13px;height:13px}
+.btn-reset{background:transparent;border:1px solid rgba(212,160,23,0.5);color:#f0c040;padding:8px 15px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Georgia,serif;transition:all 0.15s}
+.btn-reset:hover{background:rgba(212,160,23,0.15);border-color:#f0c040}
+
+/* ── Main ────────────────────────────────────────────────── */
+main{max-width:1160px;margin:0 auto;padding:24px 18px}
 .status-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
-.status-count{font-size:13px;color:#555}
+.status-count{font-size:13px;color:#666}
 .status-count strong{color:#07076b}
-.sort-row select{border:1px solid #ddd;border-radius:4px;padding:4px 8px;font-size:13px;background:#fff}
-#line-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}
-.line-card{background:#fff;border-radius:10px;padding:16px;cursor:pointer;border:2px solid transparent;transition:all 0.15s;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
-.line-card:hover{border-color:#07076b;box-shadow:0 4px 12px rgba(7,7,107,0.15);transform:translateY(-1px)}
-.line-card-name{font-weight:700;font-size:13px;color:#07076b;margin-bottom:3px}
-.line-card-count{font-size:12px;color:#888}
-.line-card-sub{font-size:11px;color:#aaa;margin-top:5px;line-height:1.3}
+.sort-row{display:flex;align-items:center;gap:6px;font-size:12px;color:#888}
+.sort-row select{border:1px solid #ddd;border-radius:6px;padding:5px 10px;font-size:12px;background:#fff;color:#333;font-family:Georgia,serif}
+
+/* ── Section headers ─────────────────────────────────────── */
+.section-hdr-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #07076b}
+.section-hdr{font-size:0.72rem;text-transform:uppercase;letter-spacing:2px;color:#07076b;font-weight:700}
+.toggle-lines-btn{font-size:11px;color:#d4a017;background:transparent;border:1px solid #d4a017;padding:3px 11px;border-radius:5px;cursor:pointer;font-weight:700;font-family:Georgia,serif;transition:all 0.15s}
+.toggle-lines-btn:hover{background:#d4a017;color:#fff}
+
+/* ── Line cards grid ─────────────────────────────────────── */
+#line-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px}
+.line-section-label{grid-column:1/-1;font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#bbb;padding:4px 0 2px;font-weight:700}
+.line-divider{grid-column:1/-1;border:none;border-top:1px dashed #d8cfc0;margin:4px 0 6px}
+
+/* ── Individual line card ────────────────────────────────── */
+.line-card{background:#fff;border-radius:10px;padding:13px 13px 11px;cursor:pointer;border:1.5px solid #e8e0d0;transition:all 0.2s;box-shadow:0 2px 6px rgba(0,0,0,0.06);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.line-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#e8e0d0;transition:background 0.2s}
+.line-card.partner{border-color:#e8daa0;box-shadow:0 2px 10px rgba(212,160,23,0.1)}
+.line-card.partner::before{background:linear-gradient(to right,#c8930e,#f0c040,#c8930e)}
+.line-card:hover{border-color:#07076b;box-shadow:0 8px 24px rgba(7,7,107,0.15);transform:translateY(-3px)}
+.line-card.partner:hover{border-color:#d4a017;box-shadow:0 8px 26px rgba(212,160,23,0.25);transform:translateY(-3px)}
+
+.lc-name{font-weight:700;font-size:13px;color:#07076b;margin-bottom:3px;line-height:1.2;padding-right:28px}
+.lc-ships{font-size:11px;color:#888;margin-bottom:8px;line-height:1.35;font-style:italic}
+
+/* Volume bar */
+.lc-vol-row{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#aaa;margin-bottom:3px}
+.lc-vol-leader{background:linear-gradient(135deg,#c8930e,#f0c040);color:#1a1a1a;font-size:9px;font-weight:800;padding:1px 7px;border-radius:10px;letter-spacing:0.5px}
+.lc-vol-bar{background:#ede8de;border-radius:4px;height:5px;margin-bottom:9px;overflow:hidden}
+.lc-vol-fill{background:linear-gradient(to right,#07076b,#4a4adc);height:5px;border-radius:4px;transition:width 0.6s ease}
+.line-card.partner .lc-vol-fill{background:linear-gradient(to right,#c8930e,#f0c040)}
+
+/* Year pills */
+.lc-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.pill{font-size:10px;font-weight:700;border-radius:10px;padding:2px 8px;white-space:nowrap}
+.pill-2026{background:#e8f0ff;color:#07076b}
+.pill-2027{background:#fff3cd;color:#856404}
+.pill-2028{background:#e8f5e9;color:#2e7d32}
+
+/* Price on card */
+.lc-price{font-size:11px;color:#1a7a1a;margin-bottom:8px;font-weight:600}
+.lc-price-label{color:#aaa;font-weight:400;font-size:10px;font-style:italic;margin-left:4px}
+
+/* Card action links */
+.lc-links{display:flex;gap:6px;margin-bottom:9px;flex-wrap:wrap}
+.lc-link{font-size:10px;color:#07076b;text-decoration:none;padding:3px 9px;border:1px solid #c0cfe8;border-radius:4px;background:#f0f4ff;transition:all 0.15s;white-space:nowrap}
+.lc-link:hover{background:#07076b;color:#fff;border-color:#07076b}
+.lc-link.gold{border-color:#e0c060;background:#fffbe6;color:#856404}
+.lc-link.gold:hover{background:#d4a017;color:#fff;border-color:#d4a017}
+
+/* Voyage list inside card */
+.lc-voyages{display:flex;flex-direction:column;gap:2px;margin-top:2px}
+.lc-voyage{font-size:11px;color:#333;text-decoration:none;padding:2px 5px;border-radius:3px;display:block;line-height:1.4;transition:background 0.1s;border-left:2px solid #e0d8cc}
+.lc-voyage:hover{background:#f0f4ff;color:#07076b;border-left-color:#07076b}
+.lc-more{font-size:10px;color:#aaa;padding:2px 5px;font-style:italic}
+
+.lc-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #f0ece0;padding-top:8px;margin-top:auto}
+.lc-view{font-size:10px;color:#07076b;font-weight:700;opacity:0;transition:opacity 0.15s}
+.line-card:hover .lc-view{opacity:1}
+
+/* Partner badge */
+.lc-partner-star{position:absolute;top:11px;right:11px;color:#d4a017;font-size:14px;line-height:1}
+
+/* Loading skeleton */
+.lc-skeleton{background:linear-gradient(90deg,#f0ece2 25%,#e8e0d0 50%,#f0ece2 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px;margin-bottom:8px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+.extra-card{display:none}
+.extra-card.visible{display:flex}
+
+/* ── Result headers (sortable) ───────────────────────────── */
 #results-section{display:none}
-.result-grid{display:flex;flex-direction:column;gap:9px}
-.result-card{background:#fff;border-radius:8px;padding:13px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;box-shadow:0 1px 4px rgba(0,0,0,0.07);border-left:3px solid #07076b}
-.result-card.multi{border-left-color:#d4a017}
+.sort-headers{display:flex;background:#07076b;color:rgba(255,255,255,0.72);border-radius:8px 8px 0 0;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;overflow:hidden;margin-bottom:0}
+.sh{padding:10px 13px;cursor:pointer;user-select:none;white-space:nowrap;transition:background 0.15s;display:flex;align-items:center;gap:4px}
+.sh:hover{background:rgba(255,255,255,0.1);color:#fff}
+.sh.active{color:#f0c040}
+.sh-line{flex:1.4}.sh-ship{flex:1.2}.sh-date{width:110px}.sh-nights{width:75px;text-align:center}.sh-route{flex:1.8;display:none}.sh-price{width:110px;text-align:right}
+@media(min-width:640px){.sh-route{display:flex}}
+
+/* ── Result cards ────────────────────────────────────────── */
+.result-grid{display:flex;flex-direction:column;gap:1px;border-radius:0 0 8px 8px;overflow:hidden}
+.result-card{background:#fff;padding:13px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-left:3px solid #07076b;transition:background 0.12s}
+.result-card:hover{background:#f0f4ff}
+.result-card:last-child{border-radius:0 0 8px 8px}
+.result-card.multi{border-left-color:#d4a017;background:#fffdf7}
+.result-card.multi:hover{background:#fffbe6}
 .result-meta{flex:1;min-width:0}
-.result-header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}
-.result-line{font-size:11px;font-weight:700;color:#07076b;text-transform:uppercase;letter-spacing:0.5px}
-.result-ship{font-size:15px;font-weight:700;color:#1a1a2e}
-.result-detail{font-size:12px;color:#666;margin-bottom:2px}
-.result-route{font-size:12px;color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px}
-.result-actions{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
-.src-badges{display:flex;gap:3px}
-.src-badge{font-size:10px;font-weight:700;padding:2px 5px;border-radius:3px}
-.sv{background:#c0392b;color:#fff}.sc{background:#795548;color:#fff}.sd{background:#0033A0;color:#fff}.sm{background:#d4a017;color:#1a1a2e}
-.btn-add{background:#07076b;color:#fff;border:none;padding:6px 13px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
-.btn-add:hover{background:#0a0a8a}
-.btn-add.added{background:#28a745;cursor:default}
-.btn-add.full{background:#999;cursor:not-allowed}
-.pagination{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px}
-.pagination button{background:#fff;border:1px solid #ddd;padding:7px 14px;border-radius:5px;font-size:13px;cursor:pointer}
+.result-hdr{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.result-line{font-size:10px;font-weight:700;color:#07076b;text-transform:uppercase;letter-spacing:0.8px}
+.result-ship{font-size:15px;font-weight:700;color:#1a1a1a;font-style:italic}
+.result-detail{font-size:12px;color:#666;margin-bottom:2px;line-height:1.5}
+.result-route{font-size:11px;color:#bbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:500px;margin-bottom:3px}
+.result-book{font-size:10px;color:#856404;text-decoration:none;border:1px solid #e0c060;border-radius:4px;padding:2px 8px;background:#fffbe6;transition:all 0.15s;display:inline-block;font-weight:600}
+.result-book:hover{background:#d4a017;color:#fff;border-color:#d4a017}
+.result-actions{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.src-badges{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
+.src-badge{font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:0.3px}
+.sv{background:#0033A0;color:#fff}
+.sc{background:#795548;color:#fff}
+.sd{background:#2e7d32;color:#fff}
+.sm{background:linear-gradient(135deg,#c8930e,#f0c040);color:#1a1a1a}
+.multi-star{font-size:12px;color:#d4a017;line-height:1}
+.price-badge{font-size:12px;font-weight:700;color:#1a7a1a;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:5px;padding:3px 10px;white-space:nowrap}
+.price-caveat{font-size:9px;color:#bbb;margin-top:2px;text-align:right;font-style:italic}
+.btn-add{background:linear-gradient(135deg,#06065a,#0d0da8);color:#fff;border:none;padding:8px 14px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all 0.15s;font-family:Georgia,serif;letter-spacing:0.2px}
+.btn-add:hover{filter:brightness(1.2)}
+.btn-add.added{background:linear-gradient(135deg,#1a7a1a,#28a745);cursor:default}
+.btn-add.full{background:#ccc;color:#888;cursor:not-allowed}
+
+/* ── Pagination ──────────────────────────────────────────── */
+.pagination{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px}
+.pagination button{background:#fff;border:1px solid #ddd;padding:8px 18px;border-radius:7px;font-size:13px;cursor:pointer;font-weight:600;transition:all 0.15s;font-family:Georgia,serif;color:#07076b}
 .pagination button:hover:not(:disabled){background:#07076b;color:#fff;border-color:#07076b}
-.pagination button:disabled{opacity:0.4;cursor:default}
-.page-info{font-size:13px;color:#666;min-width:90px;text-align:center}
-.no-results{text-align:center;padding:40px 20px;color:#888}
-#compare-tray{position:fixed;bottom:0;left:0;right:0;background:#07076b;color:#fff;padding:11px 20px;display:none;z-index:200;box-shadow:0 -4px 16px rgba(0,0,0,0.3)}
-.tray-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.tray-label{font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0}
-.tray-cards{display:flex;gap:7px;flex:1;flex-wrap:wrap}
-.tray-chip{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:5px;padding:4px 9px;font-size:11px;display:flex;align-items:center;gap:5px}
-.tray-chip-x{cursor:pointer;opacity:0.75;font-weight:700}
-.tray-chip-x:hover{opacity:1}
-.tray-btns{display:flex;gap:7px;flex-shrink:0}
-.btn-pricing{background:#d4a017;color:#1a1a2e;border:none;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer}
-.btn-pricing:hover{background:#e5b020}
-.btn-clr-tray{background:transparent;border:1px solid rgba(255,255,255,0.35);color:rgba(255,255,255,0.8);padding:7px 13px;border-radius:6px;font-size:12px;cursor:pointer}
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;align-items:center;justify-content:center;padding:20px}
-.overlay.open{display:flex}
-.modal{background:#fff;border-radius:12px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.modal-hdr{background:#07076b;color:#fff;padding:16px 20px;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:space-between}
-.modal-hdr h2{font-size:16px;font-weight:700}
-.modal-x{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer;opacity:0.8;line-height:1}
-.modal-body{padding:20px}
-.modal-sailings{margin-bottom:16px}
-.m-sailing{background:#f4f4f6;border-radius:6px;padding:9px 12px;margin-bottom:7px;font-size:13px}
-.m-line{font-size:10px;font-weight:700;color:#07076b;text-transform:uppercase;letter-spacing:0.5px}
-.m-ship{font-size:14px;font-weight:700;margin:1px 0}
-.m-detail{color:#666;font-size:12px}
-.sla-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:9px 13px;margin-bottom:14px;font-size:13px;color:#2e7d32}
-.harlan-note{font-size:11px;color:#666;margin-bottom:14px;background:#fffbf0;border:1px solid #ede0a0;border-radius:6px;padding:8px 12px;line-height:1.5}
-.fg{margin-bottom:12px}
-.fg label{display:block;font-size:13px;font-weight:600;color:#333;margin-bottom:4px}
-.fg input,.fg textarea{width:100%;border:1px solid #ddd;border-radius:6px;padding:8px 12px;font-size:14px;font-family:inherit}
-.fg input:focus,.fg textarea:focus{outline:none;border-color:#07076b}
-.fg textarea{resize:vertical;min-height:65px}
-.opt{font-size:11px;color:#999;font-weight:400;margin-left:3px}
-.btn-sub{width:100%;background:#07076b;color:#fff;border:none;padding:12px;border-radius:7px;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px}
-.btn-sub:disabled{background:#aaa;cursor:not-allowed}
-#success-msg{display:none;text-align:center;padding:20px 0}
-#success-msg h3{color:#07076b;font-size:18px;margin-bottom:8px}
-#success-msg p{color:#555;font-size:14px;line-height:1.6}
-.loading{text-align:center;padding:36px;color:#888}
-.spin{display:inline-block;width:26px;height:26px;border:3px solid #ddd;border-top-color:#07076b;border-radius:50%;animation:spin .7s linear infinite;margin-bottom:8px}
+.pagination button:disabled{opacity:0.3;cursor:default}
+.page-info{font-size:12px;color:#aaa;min-width:120px;text-align:center}
+.no-results{text-align:center;padding:60px 20px;color:#aaa;background:#fff;border-radius:0 0 8px 8px}
+.no-results h3{font-size:20px;margin-bottom:10px;color:#07076b;font-style:italic}
+.loading{text-align:center;padding:50px;color:#bbb;background:#fff;border-radius:8px}
+.spin{display:inline-block;width:28px;height:28px;border:3px solid #e8e0d0;border-top-color:#07076b;border-radius:50%;animation:spin .7s linear infinite;margin-bottom:10px}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:580px){
+
+/* ── Compare tray ────────────────────────────────────────── */
+#compare-tray{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#06065a,#0d0da8);color:#fff;padding:13px 22px;display:none;z-index:200;box-shadow:0 -4px 24px rgba(0,0,0,0.4);border-top:2px solid #d4a017}
+.tray-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tray-label{font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;color:#f0c040;letter-spacing:1.5px;text-transform:uppercase}
+.tray-cards{display:flex;gap:7px;flex:1;flex-wrap:wrap}
+.tray-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:4px 11px;font-size:11px;display:flex;align-items:center;gap:7px;font-style:italic}
+.tray-chip-x{cursor:pointer;opacity:0.6;font-weight:700;font-size:14px;line-height:1;font-style:normal;transition:opacity 0.15s}
+.tray-chip-x:hover{opacity:1}
+.tray-btns{display:flex;gap:8px;flex-shrink:0}
+.btn-pricing{background:linear-gradient(135deg,#c8930e,#f0c040);color:#1a1a1a;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:800;cursor:pointer;transition:filter 0.15s;font-family:Georgia,serif;letter-spacing:0.3px}
+.btn-pricing:hover{filter:brightness(1.1)}
+.btn-clr-tray{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);padding:9px 15px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Georgia,serif;transition:all 0.15s}
+.btn-clr-tray:hover{background:rgba(255,255,255,0.1);color:#fff}
+
+/* ── Modal ───────────────────────────────────────────────── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:300;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:14px;max-width:530px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 28px 80px rgba(0,0,0,0.4)}
+.modal-hdr{background:linear-gradient(135deg,#06065a,#0d0da8);color:#fff;padding:20px 24px;border-radius:14px 14px 0 0;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #d4a017}
+.modal-hdr h2{font-size:18px;font-weight:400;font-style:italic;letter-spacing:0.3px}
+.modal-x{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer;opacity:0.7;line-height:1;transition:opacity 0.15s}
+.modal-x:hover{opacity:1}
+.modal-body{padding:24px}
+.modal-sailings{margin-bottom:18px}
+.m-sailing{background:#f7f3ea;border-radius:8px;padding:11px 15px;margin-bottom:8px;font-size:13px;border-left:3px solid #d4a017}
+.m-line{font-size:10px;font-weight:700;color:#07076b;text-transform:uppercase;letter-spacing:0.8px}
+.m-ship{font-size:15px;font-weight:700;margin:3px 0;color:#1a1a1a;font-style:italic}
+.m-detail{color:#888;font-size:12px}
+.sla-box{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border:1px solid #a5d6a7;border-radius:8px;padding:11px 15px;margin-bottom:15px;font-size:13px;color:#2e7d32;font-weight:500}
+.harlan-note{font-size:11px;color:#888;margin-bottom:18px;background:#fffdf5;border:1px solid #ede0a0;border-radius:8px;padding:10px 15px;line-height:1.65}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:700;color:#333;margin-bottom:5px;letter-spacing:0.3px;text-transform:uppercase}
+.fg input,.fg textarea{width:100%;border:1px solid #e0d8cc;border-radius:8px;padding:10px 14px;font-size:14px;font-family:Georgia,serif;transition:border-color 0.15s;background:#fffdf5}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:#d4a017;box-shadow:0 0 0 3px rgba(212,160,23,0.12)}
+.fg textarea{resize:vertical;min-height:70px}
+.opt{font-size:11px;color:#bbb;font-weight:400;text-transform:none;letter-spacing:0;margin-left:3px}
+.btn-sub{width:100%;background:linear-gradient(135deg,#06065a,#0d0da8);color:#fff;border:none;padding:14px;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;transition:filter 0.15s;font-family:Georgia,serif;letter-spacing:0.3px}
+.btn-sub:hover{filter:brightness(1.15)}
+.btn-sub:disabled{background:#ccc;cursor:not-allowed;filter:none}
+#success-msg{display:none;text-align:center;padding:30px 0}
+#success-msg h3{color:#07076b;font-size:22px;margin-bottom:12px;font-style:italic}
+#success-msg p{color:#666;font-size:14px;line-height:1.8}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media(max-width:600px){
   .result-card{flex-direction:column}
-  .result-actions{flex-direction:row;width:100%}
+  .result-actions{flex-direction:row;width:100%;justify-content:space-between}
   #line-cards{grid-template-columns:1fr 1fr}
   .tray-inner{flex-direction:column;align-items:flex-start}
   .tray-btns{width:100%}
   .btn-pricing{flex:1}
+  .stats-bar{flex-wrap:wrap}
+  .stat{flex:1 0 33%}
+  .sort-headers{display:none}
 }
 </style>
 </head>
@@ -114,42 +239,60 @@ main{max-width:1100px;margin:0 auto;padding:20px}
 <header>
   <div class="logo">
     <div class="logo-mark">D2M</div>
-    <div class="logo-text">Dreams2Memories Travel</div>
+    <div>
+      <div class="logo-text">Dreams2Memories Travel</div>
+      <div class="logo-sub">Luxury &amp; Ultra-Luxury Voyage Discovery</div>
+    </div>
   </div>
-  <span class="sla-badge">Pricing within 2 business hours</span>
+  <div class="hdr-right">
+    <span class="sla-badge">✦ Pricing within 2 hrs</span>
+  </div>
 </header>
 
+<div class="stats-bar" id="stats-bar">
+  <div class="stat"><div class="stat-num" id="s-sailings">—</div><div class="stat-lbl">Total Sailings</div></div>
+  <div class="stat"><div class="stat-num" id="s-lines">—</div><div class="stat-lbl">Cruise Lines</div></div>
+  <div class="stat"><div class="stat-num" id="s-partners">5</div><div class="stat-lbl">D2M Partners</div></div>
+  <div class="stat"><div class="stat-num" id="s-multi">—</div><div class="stat-lbl">Multi-Source</div></div>
+  <div class="stat"><div class="stat-num" id="s-sources">3</div><div class="stat-lbl">Intel Sources</div></div>
+</div>
+
 <div class="trust-bar">
-  We source <strong>consortium &amp; negotiated rates</strong> not available online &mdash;
-  pricing provided after you select your preferred sailing &nbsp;&middot;&nbsp;
-  <strong>14,911 sailings</strong> &middot; <strong>luxury &amp; ultra-luxury lines</strong> &middot; Response within <strong>2 business hours</strong>
+  Consortium &amp; negotiated rates not listed online
+  <span class="trust-dot">✦</span>
+  <strong>Pricing confirmed within 2 business hours</strong>
+  <span class="trust-dot">✦</span>
+  15,000+ sailings across luxury &amp; ultra-luxury lines
 </div>
 
 <div class="search-hero">
-  <h1>Find Your Perfect Voyage</h1>
-  <p>Search by line, ship, destination, or port. Compare up to 4 sailings, then request our best rate.</p>
+  <h1>Find Your <span>Perfect</span> Voyage</h1>
+  <p>Search 15,000+ sailings across the world's finest cruise lines. Compare, then request our best rate — including pricing unavailable online.</p>
   <div class="search-box">
-    <input type="text" id="q" placeholder="Regent Norway, Silver Nova, Barcelona, 14 nights..." autocomplete="off">
-    <button onclick="doSearch()">Search</button>
+    <input type="text" id="q" placeholder="Regent Norway, Silver Nova, Barcelona, 14 nights…" autocomplete="off">
+    <button onclick="doSearch()">Search ↗</button>
   </div>
   <div class="filters">
     <select id="f-line" onchange="doSearch()"><option value="">All Cruise Lines</option></select>
     <select id="f-region" onchange="doSearch()"><option value="">All Regions</option></select>
     <select id="f-nights" onchange="doSearch()">
       <option value="">Any Duration</option>
-      <option value="3,7">Short (3-7 nights)</option>
-      <option value="8,14">Classic (8-14 nights)</option>
-      <option value="15,21">Extended (15-21 nights)</option>
-      <option value="22,999">Grand Voyage (22+)</option>
+      <option value="3,7">Short · 3–7 nights</option>
+      <option value="8,14">Classic · 8–14 nights</option>
+      <option value="15,21">Extended · 15–21 nights</option>
+      <option value="22,999">Grand Voyage · 22+</option>
     </select>
     <select id="f-date" onchange="doSearch()">
       <option value="">Any Departure</option>
       <option value="2026-06-01,2026-12-31">Rest of 2026</option>
       <option value="2027-01-01,2027-06-30">Early 2027</option>
       <option value="2027-07-01,2027-12-31">Late 2027</option>
-      <option value="2028-01-01,2029-12-31">2028 and Beyond</option>
+      <option value="2028-01-01,2029-12-31">2028 &amp; Beyond</option>
     </select>
-    <button class="btn-clear-search" id="btn-clr" onclick="clearSearch()">Clear</button>
+    <label class="filter-check">
+      <input type="checkbox" id="f-multi" onchange="doSearch()"> ✦ Multi-source only
+    </label>
+    <button class="btn-reset" onclick="clearSearch()">Reset all</button>
   </div>
 </div>
 
@@ -157,19 +300,33 @@ main{max-width:1100px;margin:0 auto;padding:20px}
   <div class="status-bar" id="status-bar" style="display:none">
     <div class="status-count" id="result-count"></div>
     <div class="sort-row">Sort:
-      <select id="sort" onchange="doSearch()">
-        <option value="departure">Date</option>
-        <option value="nights_asc">Nights (short first)</option>
-        <option value="nights_desc">Nights (long first)</option>
+      <select id="sort-sel" onchange="clientSortFromSelect()">
+        <option value="departure,asc">Date — nearest first</option>
+        <option value="nights,asc">Duration — shortest</option>
+        <option value="nights,desc">Duration — longest</option>
+        <option value="price_ind,asc">Price — lowest first</option>
+        <option value="line,asc">Line — A to Z</option>
       </select>
     </div>
   </div>
 
   <div id="cards-section">
-    <div id="line-cards"><div class="loading"><div class="spin"></div><br>Loading...</div></div>
+    <div class="section-hdr-row">
+      <div class="section-hdr">Cruise Lines</div>
+      <button class="toggle-lines-btn" id="toggle-btn" onclick="toggleMoreLines()" style="display:none"></button>
+    </div>
+    <div id="line-cards"><div class="loading"><div class="spin"></div><br>Loading cruise lines…</div></div>
   </div>
 
   <div id="results-section">
+    <div class="sort-headers">
+      <div class="sh sh-line" onclick="clientSort('line')">Line <span id="si-line"></span></div>
+      <div class="sh sh-ship" onclick="clientSort('ship')">Ship <span id="si-ship"></span></div>
+      <div class="sh sh-date" onclick="clientSort('departure')">Departs <span id="si-departure">↑</span></div>
+      <div class="sh sh-nights" onclick="clientSort('nights')">Nights <span id="si-nights"></span></div>
+      <div class="sh sh-route" onclick="clientSort('route')">Route <span id="si-route"></span></div>
+      <div class="sh sh-price" onclick="clientSort('price_ind')">From pp <span id="si-price_ind"></span></div>
+    </div>
     <div class="result-grid" id="grid"></div>
     <div class="pagination" id="pag"></div>
   </div>
@@ -181,7 +338,7 @@ main{max-width:1100px;margin:0 auto;padding:20px}
     <div class="tray-cards" id="tray-cards"></div>
     <div class="tray-btns">
       <button class="btn-clr-tray" onclick="clearTray()">Clear all</button>
-      <button class="btn-pricing" onclick="openModal()">Request Pricing</button>
+      <button class="btn-pricing" onclick="openModal()">✦ Request Pricing ↗</button>
     </div>
   </div>
 </div>
@@ -190,59 +347,105 @@ main{max-width:1100px;margin:0 auto;padding:20px}
   <div class="modal">
     <div class="modal-hdr">
       <h2>Request Pricing</h2>
-      <button class="modal-x" onclick="closeModal()">x</button>
+      <button class="modal-x" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-sailings" id="m-sailings"></div>
-      <div class="sla-box">Our advisors will respond with <strong>accurate, current pricing</strong> within <strong>2 business hours</strong>.</div>
+      <div class="sla-box">✦ Our advisors respond with <strong>accurate, current pricing</strong> within <strong>2 business hours</strong> — including consortium rates not available online.</div>
       <div class="harlan-note">
-        <strong>About pricing:</strong> Indicative fares are sourced from public booking engines and updated periodically. Actual pricing varies by cabin category, availability, and promotions. Your D2M advisor will confirm live rates within 2 business hours. We also source consortium and negotiated rates not available on public sites.
+        <strong>About pricing shown:</strong> Indicative fares sourced from public booking engines, updated weekly. Actual pricing varies by cabin category, availability, and promotions. Your D2M advisor confirms live rates and may have access to lower negotiated pricing.
       </div>
       <form id="price-form" onsubmit="submitReq(event)">
         <div class="fg"><label>Your Name *</label><input type="text" id="f-name" required placeholder="First and last name"></div>
         <div class="fg"><label>Email *</label><input type="email" id="f-email" required placeholder="your@email.com"></div>
         <div class="fg"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="f-phone" placeholder="(555) 555-5555"></div>
-        <div class="fg"><label>Notes <span class="opt">(optional)</span></label><textarea id="f-notes" placeholder="Travel party size, cabin preferences, date flexibility..."></textarea></div>
+        <div class="fg"><label>Notes <span class="opt">(optional)</span></label><textarea id="f-notes" placeholder="Travel party size, cabin preference, date flexibility…"></textarea></div>
         <button type="submit" class="btn-sub" id="btn-sub">Send Pricing Request</button>
       </form>
       <div id="success-msg">
         <h3>Request Received!</h3>
         <p>Thank you, <span id="suc-name"></span>.<br>
-        We will send pricing to <span id="suc-email"></span><br>
+        We'll send pricing to <span id="suc-email"></span><br>
         within <strong>2 business hours</strong>.</p>
         <br>
-        <button onclick="closeModal()" style="background:#07076b;color:#fff;border:none;padding:9px 22px;border-radius:6px;font-size:14px;cursor:pointer">Close</button>
+        <button onclick="closeModal()" style="background:linear-gradient(135deg,#06065a,#0d0da8);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-size:14px;cursor:pointer;font-weight:700;font-family:Georgia,serif">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<div style="height:20px"></div>
+<div style="height:28px"></div>
 
 <script>
 var sel = JSON.parse(localStorage.getItem('d2m_sel') || '[]');
 var curPage = 0;
 var PER = 50;
+var extraVisible = false;
+var sortCol = 'departure';
+var sortAsc = true;
+var _allResults = [];
 
-var SUBS = {
-  'Regent Seven Seas Cruises': 'All-inclusive ultra-luxury',
-  'Silversea Cruises': 'Ultra-luxury ocean and expedition',
-  'Viking': 'Destination-focused ocean voyages',
-  'Crystal Cruises': 'Revived luxury classic',
-  'Oceania Cruises': 'Culinary-focused premium voyages',
-  'Cunard': 'Iconic British ocean liner heritage',
-  'Windstar Cruises': 'Small-ship sail and motor yachts',
-  'PONANT': 'French luxury expedition',
-  'Lindblad Expeditions': 'Nat Geo expedition cruising',
-  'SeaDream Yacht Club': 'Boutique mega-yacht intimacy',
-  'Paul Gauguin Cruises': 'Tahiti and South Pacific specialist',
-  'Atlas Ocean Voyages': 'Expedition with luxury touches',
-  'Explora Journeys': 'MSC ultra-luxury',
-  'Azamara': 'Destination immersion voyages',
-  'Ritz-Carlton Yacht Collection': 'Hotel brand at sea',
-  'Four Seasons Yachts': 'The newest ultra-luxury entrant'
+var D2M_PARTNERS = [
+  'Regent Seven Seas Cruises',
+  'Crystal Cruises',
+  'Atlas Ocean Voyages',
+  'Explora Journeys',
+  'Silversea Cruises',
+];
+
+var LINE_DISPLAY = {
+  'Regent Seven Seas Cruises':    'Regent 7 Seas',
+  'Crystal Cruises':              'Crystal',
+  'Atlas Ocean Voyages':          'Atlas Ocean',
+  'Explora Journeys':             'Explora',
+  'Silversea Cruises':            'Silversea',
+  'Oceania Cruises':              'Oceania',
+  'Ritz-Carlton Yacht Collection':'Ritz-Carlton Yachts',
+  'Scenic Luxury Cruises & Tours':'Scenic',
+  'Fred. Olsen Cruise Lines':     'Fred. Olsen',
+  'Hapag-Lloyd Cruises':          'Hapag-Lloyd',
+  'Paul Gauguin Cruises':         'Paul Gauguin',
+  'SeaDream Yacht Club':          'SeaDream',
+  'Windstar Cruises':             'Windstar',
+  'Celestyal Cruises':            'Celestyal',
+  'Emerald Cruises':              'Emerald',
+  'Aurora Expeditions':           'Aurora Expeditions',
+  'Quark Expeditions':            'Quark',
+  'Star Clippers':                'Star Clippers',
+  'Saga Cruises':                 'Saga',
 };
 
+var LINE_URLS = {
+  'Regent Seven Seas Cruises':    'https://www.rssc.com/voyages',
+  'Crystal Cruises':              'https://www.crystalcruises.com/cruises',
+  'Atlas Ocean Voyages':          'https://www.atlasoceancruises.com/',
+  'Explora Journeys':             'https://www.explorajourneys.com/en/itineraries',
+  'Silversea Cruises':            'https://www.silversea.com/cruises.html',
+  'Oceania Cruises':              'https://www.oceaniacruises.com/cruises',
+  'Viking':                       'https://www.vikingcruises.com/oceans/search-cruises/index.html',
+  'Cunard':                       'https://www.cunard.com/en-us/cruise-search',
+  'PONANT':                       'https://us.ponant.com/cruises',
+  'Seabourn':                     'https://www.seabourn.com/find-a-cruise',
+  'Azamara':                      'https://www.azamara.com/itineraries',
+  'Hapag-Lloyd Cruises':          'https://www.hl-cruises.com/cruise-search',
+  'Hurtigruten':                  'https://www.hurtigruten.com/en-us/expeditions/cruises/',
+  'Fred. Olsen Cruise Lines':     'https://www.fredolsencruises.com/find-a-cruise',
+  'Celestyal Cruises':            'https://www.celestyal.com/en/cruises/',
+  'Emerald Cruises':              'https://www.emeraldcruises.com/',
+  'Windstar Cruises':             'https://www.windstarcruises.com/find-a-cruise/',
+  'Paul Gauguin Cruises':         'https://www.pgcruises.com/',
+  'SeaDream Yacht Club':          'https://www.seadream.com/',
+  'Star Clippers':                'https://www.starclippers.com/us/cruises/',
+  'Ritz-Carlton Yacht Collection':'https://www.ritzcarlton.com/en/yachts',
+  'Scenic Luxury Cruises & Tours':'https://www.scenic.com/',
+  'Aurora Expeditions':           'https://www.auroraexpeditions.com.au/',
+  'Lindblad Expeditions':         'https://www.expeditions.com/',
+  'Quark Expeditions':            'https://www.quarkexpeditions.com/',
+  'Saga Cruises':                 'https://travel.saga.co.uk/cruises/ocean/',
+  'Four Seasons Yachts':          'https://www.fourseasons.com/yachts/',
+};
+
+/* ── Init ──────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function() {
   loadDropdowns();
   renderTray();
@@ -251,146 +454,324 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function loadDropdowns() {
-  Promise.all([fetch('/api/cruises/lines'), fetch('/api/cruises/regions')]).then(function(rs) {
-    return Promise.all([rs[0].json(), rs[1].json()]);
-  }).then(function(data) {
-    var lines = data[0], regions = data[1];
-    // Sort alphabetically
-    lines.sort(function(a,b){return a.line.localeCompare(b.line);});
-    regions.sort(function(a,b){return a.region.localeCompare(b.region);});
-    var ls = document.getElementById('f-line');
-    lines.forEach(function(l) {
-      var o = document.createElement('option');
-      o.value = l.line;
-      o.textContent = l.line + ' (' + l.count.toLocaleString() + ')';
-      ls.appendChild(o);
-    });
-    var rs2 = document.getElementById('f-region');
-    regions.forEach(function(r) {
-      var o = document.createElement('option');
-      o.value = r.region;
-      o.textContent = r.region;
-      rs2.appendChild(o);
-    });
-    var grid = document.getElementById('line-cards');
-    grid.innerHTML = '';
-    lines.slice(0, 20).forEach(function(l) {
-      var c = document.createElement('div');
-      c.className = 'line-card';
-      c.innerHTML = '<div class="line-card-name">' + escH(l.line) + '</div>' +
-        '<div class="line-card-count">' + l.count.toLocaleString() + ' sailings</div>' +
-        '<div class="line-card-sub">' + escH(SUBS[l.line] || 'Luxury ocean cruising') + '</div>';
-      c.onclick = (function(line) { return function() {
-        document.getElementById('f-line').value = line; doSearch();
-      }; })(l.line);
-      grid.appendChild(c);
-    });
-  }).catch(function() {
-    document.getElementById('line-cards').innerHTML = '<p style="color:#c00;padding:20px">Database unavailable. Please refresh.</p>';
-  });
+/* ── Count-up animation for stats ─────────────────────── */
+function animateCount(el, target) {
+  if (!target || isNaN(target)) { el.textContent = target || '—'; return; }
+  var start = 0, dur = 900, step = 16;
+  var timer = setInterval(function() {
+    start += dur / step;
+    var v = Math.min(Math.round((start / dur) * target), target);
+    el.textContent = v.toLocaleString();
+    if (v >= target) clearInterval(timer);
+  }, step);
 }
 
+/* ── Load dropdowns + cards ────────────────────────────── */
+function loadDropdowns() {
+  Promise.all([fetch('/api/cruises/lines'), fetch('/api/cruises/regions')])
+    .then(function(rs) { return Promise.all([rs[0].json(), rs[1].json()]); })
+    .then(function(data) {
+      var lines = data[0], regions = data[1];
+
+      lines.sort(function(a, b) {
+        var ai = D2M_PARTNERS.indexOf(a.line), bi = D2M_PARTNERS.indexOf(b.line);
+        if (ai >= 0 && bi >= 0) return ai - bi;
+        if (ai >= 0) return -1;
+        if (bi >= 0) return 1;
+        return a.line.localeCompare(b.line);
+      });
+
+      /* stats */
+      var total = lines.reduce(function(s, l) { return s + l.count; }, 0);
+      animateCount(document.getElementById('s-sailings'), total);
+      animateCount(document.getElementById('s-lines'), lines.length);
+
+      /* fetch multi count */
+      fetch('/api/cruises/search?multi=true&limit=1').then(function(r) { return r.json(); }).then(function(d) {
+        animateCount(document.getElementById('s-multi'), d.total);
+      }).catch(function() {});
+
+      /* line select */
+      var ls = document.getElementById('f-line');
+      lines.forEach(function(l) {
+        var o = document.createElement('option');
+        o.value = l.line; o.textContent = l.line + ' (' + l.count.toLocaleString() + ')';
+        ls.appendChild(o);
+      });
+
+      /* region select */
+      regions.sort(function(a, b) { return a.region.localeCompare(b.region); });
+      var rs2 = document.getElementById('f-region');
+      regions.forEach(function(r) {
+        var o = document.createElement('option');
+        o.value = r.region; o.textContent = r.region;
+        rs2.appendChild(o);
+      });
+
+      /* volume max for bar scaling */
+      var maxCount = lines.reduce(function(m, l) { return Math.max(m, l.count); }, 0);
+
+      /* build cards */
+      var grid = document.getElementById('line-cards');
+      grid.innerHTML = '';
+
+      var partnerLines = lines.filter(function(l) { return D2M_PARTNERS.indexOf(l.line) >= 0; });
+      var otherLines   = lines.filter(function(l) { return D2M_PARTNERS.indexOf(l.line) < 0; });
+
+      /* Most active line */
+      var maxLine = lines[0] && lines[0].line;
+
+      if (partnerLines.length) {
+        var lbl = document.createElement('div');
+        lbl.className = 'line-section-label';
+        lbl.textContent = '✦  D2M Featured Partners';
+        grid.appendChild(lbl);
+        partnerLines.forEach(function(l) { grid.appendChild(makeLineCard(l, true, maxCount, maxLine)); });
+      }
+
+      var div = document.createElement('hr');
+      div.className = 'line-divider';
+      grid.appendChild(div);
+
+      var otherLbl = document.createElement('div');
+      otherLbl.className = 'line-section-label';
+      otherLbl.textContent = 'All Lines';
+      grid.appendChild(otherLbl);
+
+      var showN = 12;
+      otherLines.forEach(function(l, i) {
+        var card = makeLineCard(l, false, maxCount, maxLine);
+        if (i >= showN) card.classList.add('extra-card');
+        grid.appendChild(card);
+      });
+
+      if (otherLines.length > showN) {
+        var btn = document.getElementById('toggle-btn');
+        btn.style.display = 'inline-block';
+        btn.textContent = 'Show ' + (otherLines.length - showN) + ' more lines ↓';
+      }
+
+      /* Async: load voyages for partner lines */
+      partnerLines.forEach(function(l) {
+        var cardEl = grid.querySelector('[data-line="' + escAttr(l.line) + '"]');
+        if (cardEl) loadCardVoyages(l.line, cardEl);
+      });
+    })
+    .catch(function() {
+      document.getElementById('line-cards').innerHTML =
+        '<p style="color:#c00;padding:24px;background:#fff;border-radius:8px">Database unavailable — please refresh.</p>';
+    });
+}
+
+function makeLineCard(l, isPartner, maxCount, maxLine) {
+  var c = document.createElement('div');
+  c.className = 'line-card' + (isPartner ? ' partner' : '');
+  c.setAttribute('data-line', l.line);
+
+  var displayName = LINE_DISPLAY[l.line] || l.line;
+  var volPct = maxCount > 0 ? Math.round((l.count / maxCount) * 100) : 0;
+  var isLeader = l.line === maxLine;
+  var siteUrl = LINE_URLS[l.line] || '';
+
+  /* year pills */
+  var pills = '';
+  if (l.c2026 > 0) pills += '<span class="pill pill-2026">' + l.c2026 + ' in 2026</span>';
+  if (l.c2027 > 0) pills += '<span class="pill pill-2027">' + l.c2027 + ' in 2027</span>';
+  if (l.c2028plus > 0) pills += '<span class="pill pill-2028">' + l.c2028plus + ' in 2028+</span>';
+
+  /* price display */
+  var priceHtml = l.min_price
+    ? '<div class="lc-price">From $' + Math.round(l.min_price).toLocaleString() + ' pp<span class="lc-price-label">indicative</span></div>'
+    : '';
+
+  /* card links */
+  var links = '';
+  if (siteUrl) links += '<a class="lc-link" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Line site ↗</a>';
+  links += '<a class="lc-link gold" href="https://www.cruisemapper.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()">CruiseMapper ↗</a>';
+
+  /* ships subtitle */
+  var shipsText = (l.ships || []).join(', ');
+
+  c.innerHTML =
+    (isPartner ? '<div class="lc-partner-star">✦</div>' : '') +
+    '<div class="lc-name">' + escH(displayName) + '</div>' +
+    (shipsText ? '<div class="lc-ships">' + escH(shipsText) + '</div>' : '') +
+    '<div class="lc-vol-row"><span>' + l.count.toLocaleString() + ' sailings</span>' +
+      (isLeader ? '<span class="lc-vol-leader">★ Most Active</span>' : '') +
+    '</div>' +
+    '<div class="lc-vol-bar"><div class="lc-vol-fill" style="width:' + volPct + '%"></div></div>' +
+    (pills ? '<div class="lc-pills">' + pills + '</div>' : '') +
+    priceHtml +
+    '<div class="lc-links">' + links + '</div>' +
+    '<div class="lc-voyages" id="voy-' + escAttr(l.line).replace(/\W/g,'_') + '">' +
+      '<div class="lc-skeleton" style="height:11px;width:90%"></div>' +
+      '<div class="lc-skeleton" style="height:11px;width:75%;animation-delay:0.1s"></div>' +
+      '<div class="lc-skeleton" style="height:11px;width:82%;animation-delay:0.2s"></div>' +
+    '</div>' +
+    '<div class="lc-footer"><span class="lc-view">View all sailings →</span></div>';
+
+  c.onclick = (function(line) { return function(e) {
+    if (e.target.tagName === 'A') return;
+    document.getElementById('f-line').value = line; doSearch();
+  }; })(l.line);
+  return c;
+}
+
+function loadCardVoyages(line, cardEl) {
+  var key = line.replace(/\W/g, '_');
+  var el = document.getElementById('voy-' + key);
+  if (!el) return;
+  fetch('/api/cruises/search?line=' + encodeURIComponent(line) + '&limit=5')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (!d.results || !d.results.length) { el.innerHTML = '<div class="lc-more">No upcoming sailings on file</div>'; return; }
+      el.innerHTML = d.results.map(function(r) {
+        var dt = fmtDateShort(r.departure);
+        var label = escH(r.ship) + ' · ' + dt + (r.nights ? ' · ' + r.nights + 'd' : '');
+        return '<a class="lc-voyage" href="#" onclick=\'searchVoyage(' + JSON.stringify(r.id) + ');return false\'>' + label + '</a>';
+      }).join('') +
+        (d.total > 5 ? '<div class="lc-more">… ' + (d.total - 5) + ' more</div>' : '');
+    })
+    .catch(function() { el.innerHTML = ''; });
+}
+
+function searchVoyage(id) {
+  /* clicking a voyage link highlights it in search results */
+  document.getElementById('f-line').value = '';
+  document.getElementById('q').value = '';
+  doSearch();
+  setTimeout(function() {
+    var el = document.getElementById('rc-' + id);
+    if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='2px solid #f0c040'; setTimeout(function(){el.style.outline='';},2000); }
+  }, 800);
+}
+
+function toggleMoreLines() {
+  extraVisible = !extraVisible;
+  document.querySelectorAll('.extra-card').forEach(function(c) { c.classList.toggle('visible', extraVisible); });
+  var hidden = document.querySelectorAll('.extra-card').length;
+  var btn = document.getElementById('toggle-btn');
+  btn.textContent = extraVisible ? 'Show fewer lines ↑' : 'Show ' + hidden + ' more lines ↓';
+}
+
+/* ── Search ────────────────────────────────────────────── */
 function doSearch(page) {
   if (page === undefined) { curPage = 0; page = 0; }
-  var q = document.getElementById('q').value.trim();
-  var line = document.getElementById('f-line').value;
+  var q      = document.getElementById('q').value.trim();
+  var line   = document.getElementById('f-line').value;
   var region = document.getElementById('f-region').value;
-  var nv = document.getElementById('f-nights').value;
-  var dv = document.getElementById('f-date').value;
-  var sort = document.getElementById('sort').value;
-  if (!q && !line && !region && !nv && !dv) { showCards(); return; }
+  var nv     = document.getElementById('f-nights').value;
+  var dv     = document.getElementById('f-date').value;
+  var multi  = document.getElementById('f-multi').checked;
+
+  if (!q && !line && !region && !nv && !dv && !multi) { showCards(); return; }
   showResults();
-  document.getElementById('grid').innerHTML = '<div class="loading"><div class="spin"></div><br>Searching...</div>';
-  document.getElementById('btn-clr').style.display = 'inline-block';
+  document.getElementById('grid').innerHTML = '<div class="loading"><div class="spin"></div><br>Searching voyages…</div>';
+
   var p = new URLSearchParams({ limit: PER, offset: page * PER });
   if (q) p.set('q', q);
   if (line) p.set('line', line);
   if (region) p.set('region', region);
-  if (nv) {
-    var np = nv.split(',');
-    if (+np[0] > 0) p.set('nights_min', np[0]);
-    if (+np[1] < 999) p.set('nights_max', np[1]);
-  }
-  if (dv) {
-    var dp = dv.split(',');
-    p.set('departure_after', dp[0]);
-    p.set('departure_before', dp[1]);
-  }
+  if (nv) { var np = nv.split(','); if (+np[0] > 0) p.set('nights_min', np[0]); if (+np[1] < 999) p.set('nights_max', np[1]); }
+  if (dv) { var dp = dv.split(','); p.set('departure_after', dp[0]); p.set('departure_before', dp[1]); }
+  if (multi) p.set('multi', '1');
+
   fetch('/api/cruises/search?' + p).then(function(r) { return r.json(); }).then(function(data) {
-    var res = data.results;
-    if (sort === 'nights_asc') res.sort(function(a, b) { return a.nights - b.nights; });
-    else if (sort === 'nights_desc') res.sort(function(a, b) { return b.nights - a.nights; });
-    renderGrid(res);
-    renderPag(data.total, page);
-    document.getElementById('result-count').innerHTML = '<strong>' + data.total.toLocaleString() + '</strong> sailings found';
+    _allResults = data.results;
+    applySortAndRender(_allResults, data.total, page);
+    document.getElementById('result-count').innerHTML =
+      '<strong>' + data.total.toLocaleString() + '</strong> sailings found' +
+      (multi ? ' &nbsp;<span style="color:#d4a017;font-size:11px">✦ multi-source</span>' : '');
     document.getElementById('status-bar').style.display = 'flex';
     curPage = page;
   }).catch(function() {
-    document.getElementById('grid').innerHTML = '<p style="color:#c00;padding:20px">Search error. Please try again.</p>';
+    document.getElementById('grid').innerHTML = '<p style="color:#c00;padding:24px;background:#fff">Search error — please try again.</p>';
   });
 }
 
-function showCards() {
-  document.getElementById('cards-section').style.display = 'block';
-  document.getElementById('results-section').style.display = 'none';
-  document.getElementById('status-bar').style.display = 'none';
-  document.getElementById('btn-clr').style.display = 'none';
-}
-function showResults() {
-  document.getElementById('cards-section').style.display = 'none';
-  document.getElementById('results-section').style.display = 'block';
-}
-function clearSearch() {
-  document.getElementById('q').value = '';
-  ['f-line','f-region','f-nights','f-date'].forEach(function(id) { document.getElementById(id).value = ''; });
-  showCards();
+/* ── Client sort ───────────────────────────────────────── */
+function clientSortFromSelect() {
+  var v = document.getElementById('sort-sel').value.split(',');
+  sortCol = v[0]; sortAsc = v[1] === 'asc';
+  document.querySelectorAll('.sh span[id^="si-"]').forEach(function(s) { s.textContent = ''; });
+  document.querySelectorAll('.sh').forEach(function(h) { h.classList.remove('active'); });
+  var si = document.getElementById('si-' + sortCol);
+  if (si) { si.textContent = sortAsc ? '↑' : '↓'; si.closest('.sh').classList.add('active'); }
+  applySortAndRender(_allResults, null, curPage);
 }
 
-function escH(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function clientSort(col) {
+  if (sortCol === col) sortAsc = !sortAsc; else { sortCol = col; sortAsc = col !== 'price_ind'; }
+  document.querySelectorAll('.sh span[id^="si-"]').forEach(function(s) { s.textContent = ''; });
+  document.querySelectorAll('.sh').forEach(function(h) { h.classList.remove('active'); });
+  var si = document.getElementById('si-' + col);
+  if (si) { si.textContent = sortAsc ? '↑' : '↓'; si.closest('.sh').classList.add('active'); }
+  applySortAndRender(_allResults, null, curPage);
 }
 
-function fmtDate(iso) {
-  if (!iso) return '--';
-  try { return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}); }
-  catch(e) { return iso; }
+function applySortAndRender(results, total, page) {
+  var sorted = results.slice();
+  var col = sortCol, asc = sortAsc;
+  sorted.sort(function(a, b) {
+    var av = a[col] != null ? a[col] : (col === 'price_ind' ? 999999 : '');
+    var bv = b[col] != null ? b[col] : (col === 'price_ind' ? 999999 : '');
+    if (typeof av === 'number' && typeof bv === 'number') return asc ? av - bv : bv - av;
+    return asc ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+  });
+  renderGrid(sorted);
+  if (total !== null) renderPag(total, page);
 }
 
+/* ── Render result cards ───────────────────────────────── */
 function renderGrid(results) {
   var grid = document.getElementById('grid');
   if (!results.length) {
-    grid.innerHTML = '<div class="no-results"><h3>No sailings found</h3><p>Try different terms or adjust filters.</p></div>';
+    grid.innerHTML = '<div class="no-results"><h3>No sailings found</h3><p>Adjust your search terms or filters.</p></div>';
     return;
   }
   var selIds = {};
   sel.forEach(function(s) { selIds[s.id] = true; });
   var full = sel.length >= 8;
+
   grid.innerHTML = results.map(function(r) {
     var added = !!selIds[r.id];
     var btnCls = added ? 'added' : (full && !added ? 'full' : '');
-    var btnTxt = added ? 'Selected' : (full && !added ? 'Max 8' : '+ Compare');
+    var btnTxt = added ? '✓ Selected' : (full && !added ? 'Max 8' : '+ Compare');
     var srcList = r.sources || [];
+    var badgeMap = {vtg:['VTG','sv'], cruisemapper:['CM','sc'], deluxe:['DC','sd']};
     var badges = srcList.map(function(s) {
-      var m = ({vtg:['V','sv'], cruisemapper:['CM','sc'], deluxe:['DC','sd']})[s] || [s.slice(0,2).toUpperCase(), 'sc'];
-      return '<span class="src-badge ' + m[1] + '">' + m[0] + '</span>';
+      var m = badgeMap[s] || [s.slice(0,2).toUpperCase(),'sc'];
+      return '<span class="src-badge ' + m[1] + '" title="Source: ' + s + '">' + m[0] + '</span>';
     }).join('');
-    var multi = r.multi ? '<span class="src-badge sm">2+ sources</span>' : '';
-    var route = (r.route || '').replace(/^[A-Z]{2}\d+\s*/, '');
+    var multiStar = r.multi ? '<span class="multi-star" title="Confirmed by 2+ sources">✦</span>' : '';
+    var route = (r.route || '').replace(/^[A-Z]{2}\d+\s*/,'');
+    var siteUrl = LINE_URLS[r.line] || '';
+    var bookLink = siteUrl
+      ? '<a class="result-book" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" title="Book direct with ' + escH(r.line) + '" onclick="event.stopPropagation()">Book direct ↗</a>'
+      : '';
+
     return '<div class="result-card' + (r.multi ? ' multi' : '') + '" id="rc-' + r.id + '">' +
       '<div class="result-meta">' +
-        '<div class="result-header"><span class="result-line">' + escH(r.line) + '</span>' +
-          '<span class="result-ship">' + escH(r.ship) + '</span>' + multi + '</div>' +
+        '<div class="result-hdr">' +
+          '<span class="result-line">' + escH(r.line) + '</span>' +
+          '<span class="result-ship">' + escH(r.ship) + '</span>' +
+          multiStar +
+        '</div>' +
         '<div class="result-detail">' + escH(fmtDate(r.departure)) +
-          (r.nights ? ' - ' + r.nights + ' nights' : '') +
-          (r.region ? ' - ' + escH(r.region) : '') +
-          (r.from_port ? ' - from ' + escH(r.from_port) : '') + '</div>' +
-        (route ? '<div class="result-route" title="' + escH(route) + '">' + escH(route) + '</div>' : '') +
+          (r.nights ? ' &nbsp;·&nbsp; ' + r.nights + ' nights' : '') +
+          (r.region ? ' &nbsp;·&nbsp; ' + escH(r.region) : '') +
+          (r.from_port ? ' &nbsp;·&nbsp; from ' + escH(r.from_port) : '') + '</div>' +
+        (route ? '<div class="result-route">' + escH(route) + '</div>' : '') +
+        bookLink +
       '</div>' +
-      '<div class="result-actions"><div class="src-badges">' + badges + '</div>' +
-        '<button class="btn-add ' + btnCls + '" data-rid="' + r.id + '" ' +
-          'onclick="handleToggle(' + r.id + ')">' + btnTxt + '</button>' +
-      '</div></div>';
+      '<div class="result-actions">' +
+        '<div class="src-badges">' + badges + '</div>' +
+        (r.price_ind
+          ? '<div style="text-align:right"><div class="price-badge">from $' + Math.round(r.price_ind).toLocaleString() + ' pp</div><div class="price-caveat">D2M partner · updated weekly</div></div>'
+          : '') +
+        '<button class="btn-add ' + btnCls + '" data-rid="' + r.id + '" onclick="handleToggle(' + r.id + ')">' + btnTxt + '</button>' +
+      '</div>' +
+    '</div>';
   }).join('');
   window._gridResults = results;
 }
@@ -400,17 +781,36 @@ function handleToggle(rid) {
   if (r) toggleSel(r);
 }
 
+/* ── Pagination ────────────────────────────────────────── */
 function renderPag(total, page) {
   var pages = Math.ceil(total / PER);
   var pag = document.getElementById('pag');
   if (pages <= 1) { pag.innerHTML = ''; return; }
   var s = page * PER + 1, e = Math.min((page + 1) * PER, total);
   pag.innerHTML =
-    '<button onclick="doSearch(' + (page - 1) + ')" ' + (page === 0 ? 'disabled' : '') + '>Prev</button>' +
-    '<span class="page-info">' + s + '-' + e + ' of ' + total.toLocaleString() + '</span>' +
-    '<button onclick="doSearch(' + (page + 1) + ')" ' + (page >= pages - 1 ? 'disabled' : '') + '>Next</button>';
+    '<button onclick="doSearch(' + (page - 1) + ')" ' + (page === 0 ? 'disabled' : '') + '>← Prev</button>' +
+    '<span class="page-info">' + s.toLocaleString() + '–' + e.toLocaleString() + ' of ' + total.toLocaleString() + '</span>' +
+    '<button onclick="doSearch(' + (page + 1) + ')" ' + (page >= pages - 1 ? 'disabled' : '') + '>Next →</button>';
 }
 
+/* ── View state ────────────────────────────────────────── */
+function showCards() {
+  document.getElementById('cards-section').style.display = 'block';
+  document.getElementById('results-section').style.display = 'none';
+  document.getElementById('status-bar').style.display = 'none';
+}
+function showResults() {
+  document.getElementById('cards-section').style.display = 'none';
+  document.getElementById('results-section').style.display = 'block';
+}
+function clearSearch() {
+  document.getElementById('q').value = '';
+  ['f-line','f-region','f-nights','f-date'].forEach(function(id) { document.getElementById(id).value = ''; });
+  document.getElementById('f-multi').checked = false;
+  showCards();
+}
+
+/* ── Selection / tray ──────────────────────────────────── */
 function toggleSel(r) {
   var idx = -1;
   sel.forEach(function(s, i) { if (s.id === r.id) idx = i; });
@@ -426,99 +826,89 @@ function toggleSel(r) {
     if (!rid) return;
     var a = !!selIds[rid];
     b.className = 'btn-add' + (a ? ' added' : (full && !a ? ' full' : ''));
-    b.textContent = a ? 'Selected' : (full && !a ? 'Max 8' : '+ Compare');
+    b.textContent = a ? '✓ Selected' : (full && !a ? 'Max 8' : '+ Compare');
   });
 }
-
 function renderTray() {
   var tray = document.getElementById('compare-tray');
-  if (!sel.length) {
-    tray.style.display = 'none';
-    document.querySelector('main').style.paddingBottom = '20px';
-    return;
-  }
+  if (!sel.length) { tray.style.display = 'none'; document.querySelector('main').style.paddingBottom = '24px'; return; }
   tray.style.display = 'block';
-  document.querySelector('main').style.paddingBottom = '80px';
+  document.querySelector('main').style.paddingBottom = '82px';
   document.getElementById('tray-lbl').textContent = sel.length + ' sailing' + (sel.length > 1 ? 's' : '') + ' selected';
   document.getElementById('tray-cards').innerHTML = sel.map(function(s) {
-    return '<div class="tray-chip"><span>' + escH(s.ship) + ' - ' + escH(fmtDate(s.departure)) + '</span>' +
-      '<span class="tray-chip-x" onclick="removeSel(' + s.id + ')">x</span></div>';
+    return '<div class="tray-chip"><em>' + escH(s.ship) + '</em> · ' + escH(fmtDateShort(s.departure)) +
+      '<span class="tray-chip-x" onclick="removeSel(' + s.id + ')">✕</span></div>';
   }).join('');
 }
-
 function removeSel(id) {
   sel = sel.filter(function(s) { return s.id !== id; });
   localStorage.setItem('d2m_sel', JSON.stringify(sel));
   renderTray();
   document.querySelectorAll('.btn-add').forEach(function(b) {
-    if (parseInt(b.getAttribute('data-rid')) === id) {
-      b.className = 'btn-add';
-      b.textContent = '+ Compare';
-    }
+    if (parseInt(b.getAttribute('data-rid')) === id) { b.className = 'btn-add'; b.textContent = '+ Compare'; }
   });
 }
-
 function clearTray() {
-  sel = [];
-  localStorage.removeItem('d2m_sel');
-  renderTray();
-  document.querySelectorAll('.btn-add').forEach(function(b) {
-    b.className = 'btn-add';
-    b.textContent = '+ Compare';
-  });
+  sel = []; localStorage.removeItem('d2m_sel'); renderTray();
+  document.querySelectorAll('.btn-add').forEach(function(b) { b.className = 'btn-add'; b.textContent = '+ Compare'; });
 }
 
+/* ── Modal ─────────────────────────────────────────────── */
 function openModal() {
   if (!sel.length) return;
   document.getElementById('m-sailings').innerHTML = sel.map(function(s) {
     return '<div class="m-sailing"><div class="m-line">' + escH(s.line) + '</div>' +
       '<div class="m-ship">' + escH(s.ship) + '</div>' +
       '<div class="m-detail">' + escH(fmtDate(s.departure)) +
-        (s.nights ? ' - ' + s.nights + ' nights' : '') +
-        (s.region ? ' - ' + escH(s.region) : '') + '</div></div>';
+        (s.nights ? ' · ' + s.nights + ' nights' : '') +
+        (s.region ? ' · ' + escH(s.region) : '') + '</div></div>';
   }).join('');
   document.getElementById('price-form').style.display = 'block';
   document.getElementById('success-msg').style.display = 'none';
   document.getElementById('price-form').reset();
   document.getElementById('overlay').classList.add('open');
 }
-
-function closeModal() {
-  document.getElementById('overlay').classList.remove('open');
-}
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
 
 function submitReq(e) {
   e.preventDefault();
   var btn = document.getElementById('btn-sub');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
+  btn.disabled = true; btn.textContent = 'Sending…';
   var name = document.getElementById('f-name').value.trim();
   var email = document.getElementById('f-email').value.trim();
   fetch('/api/cruises/price-request', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    method: 'POST', headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      name: name,
-      email: email,
+      name: name, email: email,
       phone: document.getElementById('f-phone').value.trim(),
       notes: document.getElementById('f-notes').value.trim(),
-      sailings: sel.map(function(s) {
-        return {line: s.line, ship: s.ship, departure: s.departure || '',
-                nights: s.nights || 0, route: s.route || '', region: s.region || ''};
-      })
+      sailings: sel.map(function(s) { return {line:s.line,ship:s.ship,departure:s.departure||'',nights:s.nights||0,route:s.route||'',region:s.region||''}; })
     })
-  }).then(function(resp) {
-    if (resp.ok) {
+  }).then(function(r) {
+    if (r.ok) {
       document.getElementById('price-form').style.display = 'none';
       document.getElementById('success-msg').style.display = 'block';
       document.getElementById('suc-name').textContent = name;
       document.getElementById('suc-email').textContent = email;
-    } else { throw new Error('bad response'); }
+    } else { throw new Error('bad'); }
   }).catch(function() {
-    alert('Sorry -- please email concierge@d2mluxury.quest or call your D2M advisor directly.');
-    btn.disabled = false;
-    btn.textContent = 'Send Pricing Request';
+    alert('Please email concierge@d2mluxury.quest or call your D2M advisor directly.');
+    btn.disabled = false; btn.textContent = 'Send Pricing Request';
   });
+}
+
+/* ── Utils ─────────────────────────────────────────────── */
+function escH(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escAttr(s) { return String(s).replace(/"/g,'&quot;'); }
+function fmtDate(iso) {
+  if (!iso) return '—';
+  try { return new Date(iso + 'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }
+  catch(e) { return iso; }
+}
+function fmtDateShort(iso) {
+  if (!iso) return '—';
+  try { return new Date(iso + 'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
+  catch(e) { return iso; }
 }
 </script>
 </body>
