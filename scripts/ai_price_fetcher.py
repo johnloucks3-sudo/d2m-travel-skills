@@ -184,7 +184,7 @@ def xai_search(line_name: str, months_ahead: int = 6) -> str:
         return ""
 
 def multi_search(line_name: str, months_ahead: int = 6) -> str:
-    """Multi-source search: Gemini grounded + Perplexity sonar + DeepSeek fallback."""
+    """Multi-source search: Gemini grounded + Perplexity sonar + XAI Grok + DeepSeek fallback."""
     parts = []
 
     gem = gemini_grounded_search(line_name, months_ahead)
@@ -195,8 +195,12 @@ def multi_search(line_name: str, months_ahead: int = 6) -> str:
     print(f"  [1b] Perplexity:    {len(ppx)} chars")
     if ppx: parts.append(f"--- PERPLEXITY SONAR ---\n{ppx}")
 
+    grok = xai_search(line_name, months_ahead)
+    print(f"  [1c] XAI Grok-3:    {len(grok)} chars")
+    if grok: parts.append(f"--- XAI GROK-3 ---\n{grok}")
+
     ds = deepseek_search(line_name, months_ahead)
-    print(f"  [1c] DeepSeek:      {len(ds)} chars")
+    print(f"  [1d] DeepSeek:      {len(ds)} chars")
     if ds: parts.append(f"--- DEEPSEEK ---\n{ds}")
 
     return "\n\n".join(parts)
