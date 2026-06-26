@@ -384,6 +384,7 @@ var extraVisible = false;
 var sortCol = 'departure';
 var sortAsc = true;
 var _allResults = [];
+var _pendingScrollId = null;
 
 var D2M_PARTNERS = [
   'Regent Seven Seas Cruises',
@@ -622,29 +623,26 @@ function loadCardVoyages(line, cardEl) {
   var key = line.replace(/\W/g, '_');
   var el = document.getElementById('voy-' + key);
   if (!el) return;
-  fetch('/api/cruises/search?line=' + encodeURIComponent(line) + '&limit=5')
+  var today = new Date().toISOString().split('T')[0];
+  fetch('/api/cruises/search?line=' + encodeURIComponent(line) + '&limit=5&departure_after=' + today)
     .then(function(r) { return r.json(); })
     .then(function(d) {
       if (!d.results || !d.results.length) { el.innerHTML = '<div class="lc-more">No upcoming sailings on file</div>'; return; }
       el.innerHTML = d.results.map(function(r) {
         var dt = fmtDateShort(r.departure);
         var label = escH(r.ship) + ' · ' + dt + (r.nights ? ' · ' + r.nights + 'd' : '');
-        return '<a class="lc-voyage" href="#" onclick=\'searchVoyage(' + JSON.stringify(r.id) + ');return false\'>' + label + '</a>';
+        return '<a class="lc-voyage" href="#" onclick=\'searchVoyage(' + JSON.stringify(r.id) + ',' + JSON.stringify(line) + ');return false\'>' + label + '</a>';
       }).join('') +
         (d.total > 5 ? '<div class="lc-more">… ' + (d.total - 5) + ' more</div>' : '');
     })
     .catch(function() { el.innerHTML = ''; });
 }
 
-function searchVoyage(id) {
-  /* clicking a voyage link highlights it in search results */
-  document.getElementById('f-line').value = '';
+function searchVoyage(id, line) {
+  _pendingScrollId = id;
   document.getElementById('q').value = '';
+  if (line) document.getElementById('f-line').value = line;
   doSearch();
-  setTimeout(function() {
-    var el = document.getElementById('rc-' + id);
-    if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='2px solid #f0c040'; setTimeout(function(){el.style.outline='';},2000); }
-  }, 800);
 }
 
 function toggleMoreLines() {
@@ -670,11 +668,23 @@ function doSearch(page) {
   document.getElementById('grid').innerHTML = '<div class="loading"><div class="spin"></div><br>Searching voyages…</div>';
 
   var p = new URLSearchParams({ limit: PER, offset: page * PER });
+
+  /* natural language extraction from query */
+  if (q && !dv) {
+    var ym = q.match(/\b(202[5-9])\b/);
+    if (ym) { p.set('departure_after', ym[1]+'-01-01'); p.set('departure_before', ym[1]+'-12-31'); q = q.replace(ym[0],'').trim(); }
+  }
+  if (q && !nv) {
+    var nm = q.match(/\b(\d+)\s*nights?\b/i);
+    if (nm) { p.set('nights_min', nm[1]); p.set('nights_max', nm[1]); q = q.replace(nm[0],'').trim(); }
+  }
+
   if (q) p.set('q', q);
   if (line) p.set('line', line);
   if (region) p.set('region', region);
   if (nv) { var np = nv.split(','); if (+np[0] > 0) p.set('nights_min', np[0]); if (+np[1] < 999) p.set('nights_max', np[1]); }
   if (dv) { var dp = dv.split(','); p.set('departure_after', dp[0]); p.set('departure_before', dp[1]); }
+  else if (!p.has('departure_after')) { p.set('departure_after', new Date().toISOString().split('T')[0]); }
   if (multi) p.set('multi', '1');
 
   fetch('/api/cruises/search?' + p).then(function(r) { return r.json(); }).then(function(data) {
@@ -726,14 +736,15 @@ function applySortAndRender(results, total, page) {
 /* ── Render result cards ───────────────────────────────── */
 function renderGrid(results) {
   var grid = document.getElementById('grid');
-  if (!results.length) {
-    grid.innerHTML = '<div class="no-results"><h3>No sailings found</h3><p>Adjust your search terms or filters.</p></div>';
-    return;
-  }
   var selIds = {};
   sel.forEach(function(s) { selIds[s.id] = true; });
   var full = sel.length >= 8;
 
+  if (!results.length) {
+    grid.innerHTML = '<div class="no-results"><h3>No sailings found</h3><p>Adjust your search terms or filters.</p></div>';
+    _pendingScrollId = null;
+    return;
+  }
   grid.innerHTML = results.map(function(r) {
     var added = !!selIds[r.id];
     var btnCls = added ? 'added' : (full && !added ? 'full' : '');
@@ -748,7 +759,7 @@ function renderGrid(results) {
     var route = (r.route || '').replace(/^[A-Z]{2}\d+\s*/,'');
     var siteUrl = LINE_URLS[r.line] || '';
     var bookLink = siteUrl
-      ? '<a class="result-book" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" title="Book direct with ' + escH(r.line) + '" onclick="event.stopPropagation()">Book direct ↗</a>'
+      ? '<a class="result-book" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" title="Visit ' + escH(r.line) + ' website" onclick="event.stopPropagation()">Visit line site ↗</a>'
       : '';
 
     return '<div class="result-card' + (r.multi ? ' multi' : '') + '" id="rc-' + r.id + '">' +
@@ -775,6 +786,13 @@ function renderGrid(results) {
     '</div>';
   }).join('');
   window._gridResults = results;
+  if (_pendingScrollId) {
+    var tid = _pendingScrollId; _pendingScrollId = null;
+    setTimeout(function() {
+      var el = document.getElementById('rc-' + tid);
+      if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='2px solid #f0c040'; setTimeout(function(){el.style.outline='';},2000); }
+    }, 120);
+  }
 }
 
 function handleToggle(rid) {
@@ -837,7 +855,8 @@ function renderTray() {
   document.querySelector('main').style.paddingBottom = '82px';
   document.getElementById('tray-lbl').textContent = sel.length + ' sailing' + (sel.length > 1 ? 's' : '') + ' selected';
   document.getElementById('tray-cards').innerHTML = sel.map(function(s) {
-    return '<div class="tray-chip"><em>' + escH(s.ship) + '</em> · ' + escH(fmtDateShort(s.departure)) +
+    var dt = s.departure ? fmtDateShort(s.departure) : '—';
+    return '<div class="tray-chip"><em>' + escH(s.ship) + '</em> · ' + dt + (s.nights ? ' · ' + s.nights + 'n' : '') +
       '<span class="tray-chip-x" onclick="removeSel(' + s.id + ')">✕</span></div>';
   }).join('');
 }
