@@ -8,13 +8,17 @@ Hale Visual Briefs available at /briefs/{date}/ endpoints
 """
 
 import json
+import re
+import os
+import sqlite3
 import secrets
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi import FastAPI, HTTPException, Depends, status, Query, BackgroundTasks
 from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 from jinja2 import Environment, FileSystemLoader
 import uvicorn
 
@@ -55,8 +59,216 @@ OUTPUT_VISUALS = ROOT / "output" / "visuals"
 PHASE1_DATA = OUTPUT_VISUALS / "phase1_data.json"
 PHASE2_DATA = OUTPUT_VISUALS / "phase2" / "phase2_data.json"
 BRIEFS_OUTPUT = ROOT / "output" / "briefs"
+CRUISES_DB    = ROOT / "output" / "cruises.db"
+PRICE_REQUESTS_LOG = ROOT / "intel" / "price_requests.json"
 
 MT = timezone(timedelta(hours=-6))
+
+# ── Telegram notifier (fire-and-forget) ─────────────────────────────────────
+_TG_TOKEN = os.getenv("TELEGRAM_C2_BOT_TOKEN", "")
+_TG_CMDR  = int(os.getenv("TELEGRAM_COMMANDER_ID", "7554895206"))
+
+def _tg_notify(text: str):
+    """Send text to Commander via D2MC2C bot. Non-blocking, best-effort."""
+    if not _TG_TOKEN:
+        return
+    try:
+        import urllib.request
+        payload = json.dumps({"chat_id": _TG_CMDR, "text": text, "parse_mode": "HTML"}).encode()
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{_TG_TOKEN}/sendMessage",
+            data=payload, headers={"Content-Type": "application/json"}
+        )
+        urllib.request.urlopen(req, timeout=5)
+    except Exception:
+        pass
+
+
+# ── Pydantic models ──────────────────────────────────────────────────────────
+class PriceRequestSailing(BaseModel):
+    line: str
+    ship: str
+    departure: str
+    nights: int
+    route: str = ""
+    region: str = ""
+
+class PriceRequest(BaseModel):
+    sailings: list[PriceRequestSailing]
+    name: str
+    email: str
+    phone: str = ""
+    notes: str = ""
+
+
+# ── Cruises API helpers ──────────────────────────────────────────────────────
+def _sanitize_fts(q: str) -> str:
+    """Convert free-text query to FTS5-safe MATCH expression."""
+    q = re.sub(r'["\(\)\*\:\^]', ' ', q)
+    tokens = [t.strip() for t in q.split() if len(t.strip()) >= 2]
+    if not tokens:
+        return ''
+    return ' AND '.join(f'"{t}"*' for t in tokens)
+
+
+def _cruise_db():
+    if not CRUISES_DB.exists():
+        raise HTTPException(status_code=503, detail="Cruise database not built yet")
+    conn = sqlite3.connect(CRUISES_DB)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+# ── Cruises API endpoints (public — no auth required) ───────────────────────
+@app.get("/api/cruises/lines")
+async def cruises_lines():
+    """Return each cruise line with sailing count, sorted by count desc."""
+    conn = _cruise_db()
+    rows = conn.execute(
+        "SELECT line, COUNT(*) as cnt FROM cruises WHERE line != '' "
+        "GROUP BY line ORDER BY cnt DESC"
+    ).fetchall()
+    conn.close()
+    return JSONResponse([{"line": r["line"], "count": r["cnt"]} for r in rows])
+
+
+@app.get("/api/cruises/regions")
+async def cruises_regions():
+    """Return distinct regions with counts."""
+    conn = _cruise_db()
+    rows = conn.execute(
+        "SELECT region, COUNT(*) as cnt FROM cruises WHERE region != '' "
+        "GROUP BY region ORDER BY cnt DESC LIMIT 30"
+    ).fetchall()
+    conn.close()
+    return JSONResponse([{"region": r["region"], "count": r["cnt"]} for r in rows])
+
+
+@app.get("/api/cruises/search")
+async def cruises_search(
+    q: str = Query(default=""),
+    line: str = Query(default=""),
+    region: str = Query(default=""),
+    nights_min: int = Query(default=0),
+    nights_max: int = Query(default=999),
+    departure_after: str = Query(default=""),
+    departure_before: str = Query(default=""),
+    limit: int = Query(default=50, le=200),
+    offset: int = Query(default=0),
+):
+    """Search sailings. FTS5 when q provided, filter-only otherwise."""
+    conn = _cruise_db()
+    where, params = [], []
+
+    if q.strip():
+        fts = _sanitize_fts(q)
+        if fts:
+            where.append("cruises_fts MATCH ?")
+            params.append(fts)
+
+    if line:
+        where.append("c.line = ?" if q.strip() else "line = ?")
+        params.append(line)
+    if region:
+        where.append("c.region = ?" if q.strip() else "region = ?")
+        params.append(region)
+    if nights_min > 0:
+        where.append("c.nights >= ?" if q.strip() else "nights >= ?")
+        params.append(nights_min)
+    if nights_max < 999:
+        where.append("c.nights <= ?" if q.strip() else "nights <= ?")
+        params.append(nights_max)
+    if departure_after:
+        where.append("c.departure >= ?" if q.strip() else "departure >= ?")
+        params.append(departure_after)
+    if departure_before:
+        where.append("c.departure <= ?" if q.strip() else "departure <= ?")
+        params.append(departure_before)
+
+    where_sql = ("WHERE " + " AND ".join(where)) if where else ""
+
+    if q.strip() and any("cruises_fts" in w for w in where):
+        base = f"""
+            SELECT c.id, c.line, c.ship, c.departure, c.nights,
+                   c.from_port, c.route, c.region, c.sources, c.multi
+            FROM cruises c
+            JOIN cruises_fts ON cruises_fts.rowid = c.id
+            {where_sql}
+            ORDER BY c.departure
+        """
+    else:
+        base = f"SELECT * FROM cruises {where_sql} ORDER BY departure"
+
+    count_sql = f"SELECT COUNT(*) FROM ({base})"
+    total = conn.execute(count_sql, params).fetchone()[0]
+
+    rows = conn.execute(f"{base} LIMIT ? OFFSET ?", params + [limit, offset]).fetchall()
+    conn.close()
+
+    results = []
+    for r in rows:
+        try:
+            sources = json.loads(r["sources"]) if r["sources"] else []
+        except Exception:
+            sources = []
+        results.append({
+            "id": r["id"],
+            "line": r["line"],
+            "ship": r["ship"],
+            "departure": r["departure"],
+            "nights": r["nights"],
+            "from_port": r["from_port"],
+            "route": r["route"],
+            "region": r["region"],
+            "sources": sources,
+            "multi": bool(r["multi"]),
+        })
+
+    return JSONResponse({"total": total, "offset": offset, "limit": limit, "results": results})
+
+
+@app.post("/api/cruises/price-request")
+async def cruises_price_request(req: PriceRequest, background_tasks: BackgroundTasks):
+    """Log price request and notify Commander via Telegram. No portal auth required."""
+    ts = datetime.now(MT).isoformat()
+
+    # Persist to log
+    entry = {
+        "ts": ts,
+        "name": req.name,
+        "email": req.email,
+        "phone": req.phone,
+        "notes": req.notes,
+        "sailings": [s.model_dump() for s in req.sailings],
+    }
+    log = []
+    if PRICE_REQUESTS_LOG.exists():
+        try:
+            log = json.loads(PRICE_REQUESTS_LOG.read_text())
+        except Exception:
+            pass
+    log.append(entry)
+    PRICE_REQUESTS_LOG.write_text(json.dumps(log, indent=2))
+
+    # Build Telegram message
+    sailing_lines = "\n".join(
+        f"  {i+1}. {s.line} / {s.ship} — {s.departure} — {s.nights}n — {s.region or s.route[:40]}"
+        for i, s in enumerate(req.sailings)
+    )
+    tg_msg = (
+        f"🛳️ <b>NEW PRICING REQUEST — D2M Cruise Search</b>\n\n"
+        f"<b>From:</b> {req.name} ({req.email})"
+        + (f"\n<b>Phone:</b> {req.phone}" if req.phone else "")
+        + f"\n\n<b>Selected Sailings:</b>\n{sailing_lines}"
+        + (f"\n\n<b>Notes:</b> {req.notes}" if req.notes else "")
+        + f"\n\n<i>Source: d2mluxury.quest/cruises · {ts}</i>"
+    )
+    background_tasks.add_task(_tg_notify, tg_msg)
+
+    return JSONResponse({
+        "status": "received",
+        "message": "Thank you! Our advisors will respond within 2 business hours.",
+    })
 
 # Setup Jinja2 for brief rendering
 jinja_env = Environment(loader=FileSystemLoader(TEMPLATES))
@@ -265,6 +477,8 @@ async def brief_risk_matrix(date: str, _user: str = Depends(_require_auth)):
 
 app.mount("/training", StaticFiles(directory=str(ROOT / "Bryana"), html=True), name="training")
 app.mount("/intel", StaticFiles(directory=str(ROOT / "intel_web"), html=True), name="intel")
+app.mount("/cruises", StaticFiles(directory=str(ROOT / "cruises_web"), html=True), name="cruises")
+app.mount("/buddy", StaticFiles(directory="/srv/www/htdocs/buddy", html=True), name="buddy")
 
 
 if __name__ == "__main__":
