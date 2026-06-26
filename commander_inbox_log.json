@@ -1,1333 +1,5 @@
 [
   {
-    "timestamp": "2026-06-25T17:15:59.139386+00:00",
-    "msg_id": "19effc60325f657c",
-    "subject": "\u2705 MISSION-1092: \u2705 MISSION-1083: \u2705 MISSION-1062: \u2705 MISSION-1053: \u2705 MISSION-1032: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:16:00.838525+00:00",
-    "msg_id": "19effc5f8dfa1cd0",
-    "subject": "\u2705 MISSION-1091: \u2705 MISSION-1084: \u2705 MISSION-1061: \u2705 MISSION-1054: \u2705 MISSION-1031: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:16:03.032390+00:00",
-    "msg_id": "19effc5f09a66ea8",
-    "subject": "\u2705 MISSION-1090: \u2705 MISSION-1085: \u2705 MISSION-1060: \u2705 MISSION-1055: \u2705 MISSION-1030: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:16:05.076363+00:00",
-    "msg_id": "19effc5ea8b4c9e5",
-    "subject": "\u2705 MISSION-1089: \u2705 MISSION-1086: \u2705 MISSION-1059: \u2705 MISSION-1056: \u2705 MISSION-1029: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:16:06.922014+00:00",
-    "msg_id": "19effc5e578e4735",
-    "subject": "\u2705 MISSION-1088: \u2705 MISSION-1087: \u2705 MISSION-1058: \u2705 MISSION-1057: \u2705 MISSION-1028: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:40.105963+00:00",
-    "msg_id": "19effc8234931c24",
-    "subject": "\u2705 MISSION-1117: \u2705 MISSION-1088: \u2705 MISSION-1087: \u2705 MISSION-1058: \u2705 MISSION-1057: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:42.160614+00:00",
-    "msg_id": "19effc81aac8e4a4",
-    "subject": "\u2705 MISSION-1116: \u2705 MISSION-1089: \u2705 MISSION-1086: \u2705 MISSION-1059: \u2705 MISSION-1056: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:43.996691+00:00",
-    "msg_id": "19effc8121884405",
-    "subject": "\u2705 MISSION-1115: \u2705 MISSION-1090: \u2705 MISSION-1085: \u2705 MISSION-1060: \u2705 MISSION-1055: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:46.251828+00:00",
-    "msg_id": "19effc80a42e2660",
-    "subject": "\u2705 MISSION-1114: \u2705 MISSION-1091: \u2705 MISSION-1084: \u2705 MISSION-1061: \u2705 MISSION-1054: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:48.208355+00:00",
-    "msg_id": "19effc802f22b520",
-    "subject": "\u2705 MISSION-1113: \u2705 MISSION-1092: \u2705 MISSION-1083: \u2705 MISSION-1062: \u2705 MISSION-1053: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:50.247681+00:00",
-    "msg_id": "19effc7fc185c1ef",
-    "subject": "\u2705 MISSION-1112: \u2705 MISSION-1093: \u2705 MISSION-1082: \u2705 MISSION-1063: \u2705 MISSION-1052: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:52.056682+00:00",
-    "msg_id": "19effc7f45c82ff7",
-    "subject": "\u2705 MISSION-1111: \u2705 MISSION-1094: \u2705 MISSION-1081: \u2705 MISSION-1064: \u2705 MISSION-1051: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:54.237646+00:00",
-    "msg_id": "19effc7ec29103c7",
-    "subject": "\u2705 MISSION-1110: \u2705 MISSION-1095: \u2705 MISSION-1080: \u2705 MISSION-1065: \u2705 MISSION-1050: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:56.372963+00:00",
-    "msg_id": "19effc7e5a24dc87",
-    "subject": "\u2705 MISSION-1109: \u2705 MISSION-1096: \u2705 MISSION-1079: \u2705 MISSION-1066: \u2705 MISSION-1049: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:17:58.339192+00:00",
-    "msg_id": "19effc7dd43b2d1e",
-    "subject": "\u2705 MISSION-1108: \u2705 MISSION-1097: \u2705 MISSION-1078: \u2705 MISSION-1067: \u2705 MISSION-1048: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:18:00.327494+00:00",
-    "msg_id": "19effc7d619b825c",
-    "subject": "\u2705 MISSION-1107: \u2705 MISSION-1098: \u2705 MISSION-1077: \u2705 MISSION-1068: \u2705 MISSION-1047: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:18:02.537200+00:00",
-    "msg_id": "19effc7ce5c20661",
-    "subject": "\u2705 MISSION-1106: \u2705 MISSION-1099: \u2705 MISSION-1076: \u2705 MISSION-1069: \u2705 MISSION-1046: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:18:04.508889+00:00",
-    "msg_id": "19effc7c65251317",
-    "subject": "\u2705 MISSION-1105: \u2705 MISSION-1100: \u2705 MISSION-1075: \u2705 MISSION-1070: \u2705 MISSION-1045: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:18:06.381748+00:00",
-    "msg_id": "19effc7be106b612",
-    "subject": "\u2705 MISSION-1104: \u2705 MISSION-1101: \u2705 MISSION-1074: \u2705 MISSION-1071: \u2705 MISSION-1044: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:18:08.368473+00:00",
-    "msg_id": "19effc7b958c1edb",
-    "subject": "\u2705 MISSION-1103: \u2705 MISSION-1102: \u2705 MISSION-1073: \u2705 MISSION-1072: \u2705 MISSION-1043: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:40.530842+00:00",
-    "msg_id": "19effc9fd2181079",
-    "subject": "\u2705 MISSION-1132: \u2705 MISSION-1103: \u2705 MISSION-1102: \u2705 MISSION-1073: \u2705 MISSION-1072: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:42.682606+00:00",
-    "msg_id": "19effc9f47ddef25",
-    "subject": "\u2705 MISSION-1131: \u2705 MISSION-1104: \u2705 MISSION-1101: \u2705 MISSION-1074: \u2705 MISSION-1071: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:44.435272+00:00",
-    "msg_id": "19effc9ece1ea273",
-    "subject": "\u2705 MISSION-1130: \u2705 MISSION-1105: \u2705 MISSION-1100: \u2705 MISSION-1075: \u2705 MISSION-1070: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:46.588884+00:00",
-    "msg_id": "19effc9e6657215b",
-    "subject": "\u2705 MISSION-1129: \u2705 MISSION-1106: \u2705 MISSION-1099: \u2705 MISSION-1076: \u2705 MISSION-1069: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:48.475466+00:00",
-    "msg_id": "19effc9dd1241ef8",
-    "subject": "\u2705 MISSION-1128: \u2705 MISSION-1107: \u2705 MISSION-1098: \u2705 MISSION-1077: \u2705 MISSION-1068: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:50.567896+00:00",
-    "msg_id": "19effc9d4fd04911",
-    "subject": "\u2705 MISSION-1127: \u2705 MISSION-1108: \u2705 MISSION-1097: \u2705 MISSION-1078: \u2705 MISSION-1067: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:52.992381+00:00",
-    "msg_id": "19effc9cf0f02873",
-    "subject": "\u2705 MISSION-1126: \u2705 MISSION-1109: \u2705 MISSION-1096: \u2705 MISSION-1079: \u2705 MISSION-1066: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:55.180068+00:00",
-    "msg_id": "19effc9c5504a725",
-    "subject": "\u2705 MISSION-1125: \u2705 MISSION-1110: \u2705 MISSION-1095: \u2705 MISSION-1080: \u2705 MISSION-1065: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:57.323344+00:00",
-    "msg_id": "19effc9bd345c01b",
-    "subject": "\u2705 MISSION-1124: \u2705 MISSION-1111: \u2705 MISSION-1094: \u2705 MISSION-1081: \u2705 MISSION-1064: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:19:59.188906+00:00",
-    "msg_id": "19effc9b6947b26f",
-    "subject": "\u2705 MISSION-1123: \u2705 MISSION-1112: \u2705 MISSION-1093: \u2705 MISSION-1082: \u2705 MISSION-1063: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:20:01.623912+00:00",
-    "msg_id": "19effc9aceca93a0",
-    "subject": "\u2705 MISSION-1122: \u2705 MISSION-1113: \u2705 MISSION-1092: \u2705 MISSION-1083: \u2705 MISSION-1062: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:20:03.813973+00:00",
-    "msg_id": "19effc9a79828575",
-    "subject": "\u2705 MISSION-1121: \u2705 MISSION-1114: \u2705 MISSION-1091: \u2705 MISSION-1084: \u2705 MISSION-1061: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:20:06.030830+00:00",
-    "msg_id": "19effc99df033504",
-    "subject": "\u2705 MISSION-1120: \u2705 MISSION-1115: \u2705 MISSION-1090: \u2705 MISSION-1085: \u2705 MISSION-1060: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:20:08.268120+00:00",
-    "msg_id": "19effc9971627768",
-    "subject": "\u2705 MISSION-1119: \u2705 MISSION-1116: \u2705 MISSION-1089: \u2705 MISSION-1086: \u2705 MISSION-1059: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:20:10.093775+00:00",
-    "msg_id": "19effc98f597295e",
-    "subject": "\u2705 MISSION-1118: \u2705 MISSION-1117: \u2705 MISSION-1088: \u2705 MISSION-1087: \u2705 MISSION-1058: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:40.853493+00:00",
-    "msg_id": "19effcbd8bd48fc8",
-    "subject": "\u2705 MISSION-1147: \u2705 MISSION-1118: \u2705 MISSION-1117: \u2705 MISSION-1088: \u2705 MISSION-1087: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:42.899765+00:00",
-    "msg_id": "19effcbd08f6dfd0",
-    "subject": "\u2705 MISSION-1146: \u2705 MISSION-1119: \u2705 MISSION-1116: \u2705 MISSION-1089: \u2705 MISSION-1086: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:45.048874+00:00",
-    "msg_id": "19effcbc8016c473",
-    "subject": "\u2705 MISSION-1145: \u2705 MISSION-1120: \u2705 MISSION-1115: \u2705 MISSION-1090: \u2705 MISSION-1085: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:46.791660+00:00",
-    "msg_id": "19effcbbe3f1a786",
-    "subject": "\u2705 MISSION-1144: \u2705 MISSION-1121: \u2705 MISSION-1114: \u2705 MISSION-1091: \u2705 MISSION-1084: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:48.840458+00:00",
-    "msg_id": "19effcbb6307d0aa",
-    "subject": "\u2705 MISSION-1143: \u2705 MISSION-1122: \u2705 MISSION-1113: \u2705 MISSION-1092: \u2705 MISSION-1083: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:50.578144+00:00",
-    "msg_id": "19effcbacb2a497c",
-    "subject": "\u2705 MISSION-1142: \u2705 MISSION-1123: \u2705 MISSION-1112: \u2705 MISSION-1093: \u2705 MISSION-1082: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:52.627492+00:00",
-    "msg_id": "19effcba6ea7ee1c",
-    "subject": "\u2705 MISSION-1141: \u2705 MISSION-1124: \u2705 MISSION-1111: \u2705 MISSION-1094: \u2705 MISSION-1081: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:54.779296+00:00",
-    "msg_id": "19effcb9f3da936f",
-    "subject": "\u2705 MISSION-1140: \u2705 MISSION-1125: \u2705 MISSION-1110: \u2705 MISSION-1095: \u2705 MISSION-1080: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:56.825275+00:00",
-    "msg_id": "19effcb94f11c4c2",
-    "subject": "\u2705 MISSION-1139: \u2705 MISSION-1126: \u2705 MISSION-1109: \u2705 MISSION-1096: \u2705 MISSION-1079: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:21:58.804495+00:00",
-    "msg_id": "19effcb8bb510c81",
-    "subject": "\u2705 MISSION-1138: \u2705 MISSION-1127: \u2705 MISSION-1108: \u2705 MISSION-1097: \u2705 MISSION-1078: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:22:01.129338+00:00",
-    "msg_id": "19effcb84f0d6cad",
-    "subject": "\u2705 MISSION-1137: \u2705 MISSION-1128: \u2705 MISSION-1107: \u2705 MISSION-1098: \u2705 MISSION-1077: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:22:03.275796+00:00",
-    "msg_id": "19effcb7bd4783b0",
-    "subject": "\u2705 MISSION-1136: \u2705 MISSION-1129: \u2705 MISSION-1106: \u2705 MISSION-1099: \u2705 MISSION-1076: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:22:05.324324+00:00",
-    "msg_id": "19effcb75383adf5",
-    "subject": "\u2705 MISSION-1135: \u2705 MISSION-1130: \u2705 MISSION-1105: \u2705 MISSION-1100: \u2705 MISSION-1075: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:22:07.167427+00:00",
-    "msg_id": "19effcb6b280411a",
-    "subject": "\u2705 MISSION-1134: \u2705 MISSION-1131: \u2705 MISSION-1104: \u2705 MISSION-1101: \u2705 MISSION-1074: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:22:08.805807+00:00",
-    "msg_id": "19effcb65cceb6f9",
-    "subject": "\u2705 MISSION-1133: \u2705 MISSION-1132: \u2705 MISSION-1103: \u2705 MISSION-1102: \u2705 MISSION-1073: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:41.172616+00:00",
-    "msg_id": "19effcda90656c30",
-    "subject": "\u2705 MISSION-1162: \u2705 MISSION-1133: \u2705 MISSION-1132: \u2705 MISSION-1103: \u2705 MISSION-1102: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:43.015743+00:00",
-    "msg_id": "19effcda06d9c32e",
-    "subject": "\u2705 MISSION-1161: \u2705 MISSION-1134: \u2705 MISSION-1131: \u2705 MISSION-1104: \u2705 MISSION-1101: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:45.163888+00:00",
-    "msg_id": "19effcd9b2f532e7",
-    "subject": "\u2705 MISSION-1160: \u2705 MISSION-1135: \u2705 MISSION-1130: \u2705 MISSION-1105: \u2705 MISSION-1100: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:47.009495+00:00",
-    "msg_id": "19effcd90643bcbb",
-    "subject": "\u2705 MISSION-1159: \u2705 MISSION-1136: \u2705 MISSION-1129: \u2705 MISSION-1106: \u2705 MISSION-1099: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:48.667681+00:00",
-    "msg_id": "19effcd89e77b7c5",
-    "subject": "\u2705 MISSION-1158: \u2705 MISSION-1137: \u2705 MISSION-1128: \u2705 MISSION-1107: \u2705 MISSION-1098: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:50.797137+00:00",
-    "msg_id": "19effcd80affa884",
-    "subject": "\u2705 MISSION-1157: \u2705 MISSION-1138: \u2705 MISSION-1127: \u2705 MISSION-1108: \u2705 MISSION-1097: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:52.948216+00:00",
-    "msg_id": "19effcd79b284c7d",
-    "subject": "\u2705 MISSION-1156: \u2705 MISSION-1139: \u2705 MISSION-1126: \u2705 MISSION-1109: \u2705 MISSION-1096: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:54.792263+00:00",
-    "msg_id": "19effcd71b9c1873",
-    "subject": "\u2705 MISSION-1155: \u2705 MISSION-1140: \u2705 MISSION-1125: \u2705 MISSION-1110: \u2705 MISSION-1095: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:56.912032+00:00",
-    "msg_id": "19effcd69495f7de",
-    "subject": "\u2705 MISSION-1154: \u2705 MISSION-1141: \u2705 MISSION-1124: \u2705 MISSION-1111: \u2705 MISSION-1094: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:23:58.991657+00:00",
-    "msg_id": "19effcd6065a134a",
-    "subject": "\u2705 MISSION-1153: \u2705 MISSION-1142: \u2705 MISSION-1123: \u2705 MISSION-1112: \u2705 MISSION-1093: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:24:00.685128+00:00",
-    "msg_id": "19effcd5aec08450",
-    "subject": "\u2705 MISSION-1152: \u2705 MISSION-1143: \u2705 MISSION-1122: \u2705 MISSION-1113: \u2705 MISSION-1092: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:24:02.780315+00:00",
-    "msg_id": "19effcd5151b1a96",
-    "subject": "\u2705 MISSION-1151: \u2705 MISSION-1144: \u2705 MISSION-1121: \u2705 MISSION-1114: \u2705 MISSION-1091: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:24:04.473101+00:00",
-    "msg_id": "19effcd4a0f6878d",
-    "subject": "\u2705 MISSION-1150: \u2705 MISSION-1145: \u2705 MISSION-1120: \u2705 MISSION-1115: \u2705 MISSION-1090: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:24:06.363762+00:00",
-    "msg_id": "19effcd431137045",
-    "subject": "\u2705 MISSION-1149: \u2705 MISSION-1146: \u2705 MISSION-1119: \u2705 MISSION-1116: \u2705 MISSION-1089: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:24:08.618607+00:00",
-    "msg_id": "19effcd3a30f4903",
-    "subject": "\u2705 MISSION-1148: \u2705 MISSION-1147: \u2705 MISSION-1118: \u2705 MISSION-1117: \u2705 MISSION-1088: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:41.755075+00:00",
-    "msg_id": "19effcf7bdbd5b62",
-    "subject": "\u2705 MISSION-1177: \u2705 MISSION-1148: \u2705 MISSION-1147: \u2705 MISSION-1118: \u2705 MISSION-1117: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:43.848121+00:00",
-    "msg_id": "19effcf73f4a65d1",
-    "subject": "\u2705 MISSION-1176: \u2705 MISSION-1149: \u2705 MISSION-1146: \u2705 MISSION-1119: \u2705 MISSION-1116: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:45.795089+00:00",
-    "msg_id": "19effcf6aa5b6193",
-    "subject": "\u2705 MISSION-1175: \u2705 MISSION-1150: \u2705 MISSION-1145: \u2705 MISSION-1120: \u2705 MISSION-1115: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:47.945904+00:00",
-    "msg_id": "19effcf64408e719",
-    "subject": "\u2705 MISSION-1174: \u2705 MISSION-1151: \u2705 MISSION-1144: \u2705 MISSION-1121: \u2705 MISSION-1114: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:49.992282+00:00",
-    "msg_id": "19effcf5cdf4ba1b",
-    "subject": "\u2705 MISSION-1173: \u2705 MISSION-1152: \u2705 MISSION-1143: \u2705 MISSION-1122: \u2705 MISSION-1113: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:52.142914+00:00",
-    "msg_id": "19effcf5685120ab",
-    "subject": "\u2705 MISSION-1172: \u2705 MISSION-1153: \u2705 MISSION-1142: \u2705 MISSION-1123: \u2705 MISSION-1112: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:53.782377+00:00",
-    "msg_id": "19effcf4f42cbc2d",
-    "subject": "\u2705 MISSION-1171: \u2705 MISSION-1154: \u2705 MISSION-1141: \u2705 MISSION-1124: \u2705 MISSION-1111: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:55.730814+00:00",
-    "msg_id": "19effcf445a9d972",
-    "subject": "\u2705 MISSION-1170: \u2705 MISSION-1155: \u2705 MISSION-1140: \u2705 MISSION-1125: \u2705 MISSION-1110: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:57.610882+00:00",
-    "msg_id": "19effcf3ea6e37fb",
-    "subject": "\u2705 MISSION-1169: \u2705 MISSION-1156: \u2705 MISSION-1139: \u2705 MISSION-1126: \u2705 MISSION-1109: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:25:59.822119+00:00",
-    "msg_id": "19effcf36cd6d9d0",
-    "subject": "\u2705 MISSION-1168: \u2705 MISSION-1157: \u2705 MISSION-1138: \u2705 MISSION-1127: \u2705 MISSION-1108: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:26:01.914979+00:00",
-    "msg_id": "19effcf2f2271e47",
-    "subject": "\u2705 MISSION-1167: \u2705 MISSION-1158: \u2705 MISSION-1137: \u2705 MISSION-1128: \u2705 MISSION-1107: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:26:03.818370+00:00",
-    "msg_id": "19effcf26509e048",
-    "subject": "\u2705 MISSION-1166: \u2705 MISSION-1159: \u2705 MISSION-1136: \u2705 MISSION-1129: \u2705 MISSION-1106: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:26:05.865171+00:00",
-    "msg_id": "19effcf1eadcfd66",
-    "subject": "\u2705 MISSION-1165: \u2705 MISSION-1160: \u2705 MISSION-1135: \u2705 MISSION-1130: \u2705 MISSION-1105: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:26:07.746007+00:00",
-    "msg_id": "19effcf166072612",
-    "subject": "\u2705 MISSION-1164: \u2705 MISSION-1161: \u2705 MISSION-1134: \u2705 MISSION-1131: \u2705 MISSION-1104: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:26:09.960872+00:00",
-    "msg_id": "19effcf1028427f3",
-    "subject": "\u2705 MISSION-1163: \u2705 MISSION-1162: \u2705 MISSION-1133: \u2705 MISSION-1132: \u2705 MISSION-1103: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:42.735766+00:00",
-    "msg_id": "19effd154af183dd",
-    "subject": "\u2705 MISSION-1192: \u2705 MISSION-1163: \u2705 MISSION-1162: \u2705 MISSION-1133: \u2705 MISSION-1132: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:44.578569+00:00",
-    "msg_id": "19effd14d83ad7ec",
-    "subject": "\u2705 MISSION-1191: \u2705 MISSION-1164: \u2705 MISSION-1161: \u2705 MISSION-1134: \u2705 MISSION-1131: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:46.623812+00:00",
-    "msg_id": "19effd145e9cc3a8",
-    "subject": "\u2705 MISSION-1190: \u2705 MISSION-1165: \u2705 MISSION-1160: \u2705 MISSION-1135: \u2705 MISSION-1130: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:48.680919+00:00",
-    "msg_id": "19effd13fcd1e3a3",
-    "subject": "\u2705 MISSION-1189: \u2705 MISSION-1166: \u2705 MISSION-1159: \u2705 MISSION-1136: \u2705 MISSION-1129: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:50.314582+00:00",
-    "msg_id": "19effd137e1c4163",
-    "subject": "\u2705 MISSION-1188: \u2705 MISSION-1167: \u2705 MISSION-1158: \u2705 MISSION-1137: \u2705 MISSION-1128: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:52.463122+00:00",
-    "msg_id": "19effd12ea063b87",
-    "subject": "\u2705 MISSION-1187: \u2705 MISSION-1168: \u2705 MISSION-1157: \u2705 MISSION-1138: \u2705 MISSION-1127: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:54.409434+00:00",
-    "msg_id": "19effd1258908760",
-    "subject": "\u2705 MISSION-1186: \u2705 MISSION-1169: \u2705 MISSION-1156: \u2705 MISSION-1139: \u2705 MISSION-1126: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:56.560592+00:00",
-    "msg_id": "19effd11e4a7b169",
-    "subject": "\u2705 MISSION-1185: \u2705 MISSION-1170: \u2705 MISSION-1155: \u2705 MISSION-1140: \u2705 MISSION-1125: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:27:58.607584+00:00",
-    "msg_id": "19effd1166f2faa7",
-    "subject": "\u2705 MISSION-1184: \u2705 MISSION-1171: \u2705 MISSION-1154: \u2705 MISSION-1141: \u2705 MISSION-1124: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:00.764434+00:00",
-    "msg_id": "19effd10e17b89a1",
-    "subject": "\u2705 MISSION-1183: \u2705 MISSION-1172: \u2705 MISSION-1153: \u2705 MISSION-1142: \u2705 MISSION-1123: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:02.601895+00:00",
-    "msg_id": "19effd109d1df298",
-    "subject": "\u2705 MISSION-1182: \u2705 MISSION-1173: \u2705 MISSION-1152: \u2705 MISSION-1143: \u2705 MISSION-1122: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:04.840039+00:00",
-    "msg_id": "19effd0fe75b0667",
-    "subject": "\u2705 MISSION-1181: \u2705 MISSION-1174: \u2705 MISSION-1151: \u2705 MISSION-1144: \u2705 MISSION-1121: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:06.695762+00:00",
-    "msg_id": "19effd0f7b823593",
-    "subject": "\u2705 MISSION-1180: \u2705 MISSION-1175: \u2705 MISSION-1150: \u2705 MISSION-1145: \u2705 MISSION-1120: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:08.544410+00:00",
-    "msg_id": "19effd0eebf4b20d",
-    "subject": "\u2705 MISSION-1179: \u2705 MISSION-1176: \u2705 MISSION-1149: \u2705 MISSION-1146: \u2705 MISSION-1119: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:28:10.384509+00:00",
-    "msg_id": "19effd0e75026602",
-    "subject": "\u2705 MISSION-1178: \u2705 MISSION-1177: \u2705 MISSION-1148: \u2705 MISSION-1147: \u2705 MISSION-1118: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:43.185388+00:00",
-    "msg_id": "19effd32dde6c7bf",
-    "subject": "\u2705 MISSION-1207: \u2705 MISSION-1178: \u2705 MISSION-1177: \u2705 MISSION-1148: \u2705 MISSION-1147: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:44.836910+00:00",
-    "msg_id": "19effd324f3c0d64",
-    "subject": "\u2705 MISSION-1206: \u2705 MISSION-1179: \u2705 MISSION-1176: \u2705 MISSION-1149: \u2705 MISSION-1146: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:46.687234+00:00",
-    "msg_id": "19effd31c04467a8",
-    "subject": "\u2705 MISSION-1205: \u2705 MISSION-1180: \u2705 MISSION-1175: \u2705 MISSION-1150: \u2705 MISSION-1145: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:48.529446+00:00",
-    "msg_id": "19effd3170d5784c",
-    "subject": "\u2705 MISSION-1204: \u2705 MISSION-1181: \u2705 MISSION-1174: \u2705 MISSION-1151: \u2705 MISSION-1144: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:50.734928+00:00",
-    "msg_id": "19effd30df63abb3",
-    "subject": "\u2705 MISSION-1203: \u2705 MISSION-1182: \u2705 MISSION-1173: \u2705 MISSION-1152: \u2705 MISSION-1143: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:52.681666+00:00",
-    "msg_id": "19effd30712e7fba",
-    "subject": "\u2705 MISSION-1202: \u2705 MISSION-1183: \u2705 MISSION-1172: \u2705 MISSION-1153: \u2705 MISSION-1142: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:54.781520+00:00",
-    "msg_id": "19effd2fc64a6bd7",
-    "subject": "\u2705 MISSION-1201: \u2705 MISSION-1184: \u2705 MISSION-1171: \u2705 MISSION-1154: \u2705 MISSION-1141: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:56.677308+00:00",
-    "msg_id": "19effd2f7b08336a",
-    "subject": "\u2705 MISSION-1200: \u2705 MISSION-1185: \u2705 MISSION-1170: \u2705 MISSION-1155: \u2705 MISSION-1140: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:29:58.701231+00:00",
-    "msg_id": "19effd2eee69bb68",
-    "subject": "\u2705 MISSION-1199: \u2705 MISSION-1186: \u2705 MISSION-1169: \u2705 MISSION-1156: \u2705 MISSION-1139: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:00.543260+00:00",
-    "msg_id": "19effd2e5458a588",
-    "subject": "\u2705 MISSION-1198: \u2705 MISSION-1187: \u2705 MISSION-1168: \u2705 MISSION-1157: \u2705 MISSION-1138: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:02.717374+00:00",
-    "msg_id": "19effd2de3f45bfb",
-    "subject": "\u2705 MISSION-1197: \u2705 MISSION-1188: \u2705 MISSION-1167: \u2705 MISSION-1158: \u2705 MISSION-1137: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:04.872406+00:00",
-    "msg_id": "19effd2d6cf3a42e",
-    "subject": "\u2705 MISSION-1196: \u2705 MISSION-1189: \u2705 MISSION-1166: \u2705 MISSION-1159: \u2705 MISSION-1136: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:06.711711+00:00",
-    "msg_id": "19effd2ce98ad950",
-    "subject": "\u2705 MISSION-1195: \u2705 MISSION-1190: \u2705 MISSION-1165: \u2705 MISSION-1160: \u2705 MISSION-1135: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:09.168979+00:00",
-    "msg_id": "19effd2c7389a5f4",
-    "subject": "\u2705 MISSION-1194: \u2705 MISSION-1191: \u2705 MISSION-1164: \u2705 MISSION-1161: \u2705 MISSION-1134: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:30:10.909914+00:00",
-    "msg_id": "19effd2c01ff70a2",
-    "subject": "\u2705 MISSION-1193: \u2705 MISSION-1192: \u2705 MISSION-1163: \u2705 MISSION-1162: \u2705 MISSION-1133: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:43.974747+00:00",
-    "msg_id": "19effd502855464e",
-    "subject": "\u2705 MISSION-1222: \u2705 MISSION-1193: \u2705 MISSION-1192: \u2705 MISSION-1163: \u2705 MISSION-1162: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:45.793495+00:00",
-    "msg_id": "19effd4fbce67d6c",
-    "subject": "\u2705 MISSION-1221: \u2705 MISSION-1194: \u2705 MISSION-1191: \u2705 MISSION-1164: \u2705 MISSION-1161: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:47.942685+00:00",
-    "msg_id": "19effd4f39776e6c",
-    "subject": "\u2705 MISSION-1220: \u2705 MISSION-1195: \u2705 MISSION-1190: \u2705 MISSION-1165: \u2705 MISSION-1160: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:50.042647+00:00",
-    "msg_id": "19effd4ebc3d1757",
-    "subject": "\u2705 MISSION-1219: \u2705 MISSION-1196: \u2705 MISSION-1189: \u2705 MISSION-1166: \u2705 MISSION-1159: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:52.388257+00:00",
-    "msg_id": "19effd4e2b610643",
-    "subject": "\u2705 MISSION-1218: \u2705 MISSION-1197: \u2705 MISSION-1188: \u2705 MISSION-1167: \u2705 MISSION-1158: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:54.234707+00:00",
-    "msg_id": "19effd4da437adb3",
-    "subject": "\u2705 MISSION-1217: \u2705 MISSION-1198: \u2705 MISSION-1187: \u2705 MISSION-1168: \u2705 MISSION-1157: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:56.485257+00:00",
-    "msg_id": "19effd4d26a5e8fe",
-    "subject": "\u2705 MISSION-1216: \u2705 MISSION-1199: \u2705 MISSION-1186: \u2705 MISSION-1169: \u2705 MISSION-1156: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:31:58.226200+00:00",
-    "msg_id": "19effd4cae5886f7",
-    "subject": "\u2705 MISSION-1215: \u2705 MISSION-1200: \u2705 MISSION-1185: \u2705 MISSION-1170: \u2705 MISSION-1155: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:00.273935+00:00",
-    "msg_id": "19effd4c283d67f6",
-    "subject": "\u2705 MISSION-1214: \u2705 MISSION-1201: \u2705 MISSION-1184: \u2705 MISSION-1171: \u2705 MISSION-1154: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:02.441434+00:00",
-    "msg_id": "19effd4bd70e29e2",
-    "subject": "\u2705 MISSION-1213: \u2705 MISSION-1202: \u2705 MISSION-1183: \u2705 MISSION-1172: \u2705 MISSION-1153: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:04.574090+00:00",
-    "msg_id": "19effd4b4df3a5b5",
-    "subject": "\u2705 MISSION-1212: \u2705 MISSION-1203: \u2705 MISSION-1182: \u2705 MISSION-1173: \u2705 MISSION-1152: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:06.622133+00:00",
-    "msg_id": "19effd4ab4d81ef0",
-    "subject": "\u2705 MISSION-1211: \u2705 MISSION-1204: \u2705 MISSION-1181: \u2705 MISSION-1174: \u2705 MISSION-1151: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:08.674501+00:00",
-    "msg_id": "19effd4a5ba86714",
-    "subject": "\u2705 MISSION-1210: \u2705 MISSION-1205: \u2705 MISSION-1180: \u2705 MISSION-1175: \u2705 MISSION-1150: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:10.516526+00:00",
-    "msg_id": "19effd49c1da1d83",
-    "subject": "\u2705 MISSION-1209: \u2705 MISSION-1206: \u2705 MISSION-1179: \u2705 MISSION-1176: \u2705 MISSION-1149: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:32:12.459443+00:00",
-    "msg_id": "19effd4976d51bdf",
-    "subject": "\u2705 MISSION-1208: \u2705 MISSION-1207: \u2705 MISSION-1178: \u2705 MISSION-1177: \u2705 MISSION-1148: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:44.119062+00:00",
-    "msg_id": "19effd6deec443b0",
-    "subject": "\u2705 MISSION-1237: \u2705 MISSION-1208: \u2705 MISSION-1207: \u2705 MISSION-1178: \u2705 MISSION-1177: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:46.231879+00:00",
-    "msg_id": "19effd6d6e356b88",
-    "subject": "\u2705 MISSION-1236: \u2705 MISSION-1209: \u2705 MISSION-1206: \u2705 MISSION-1179: \u2705 MISSION-1176: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:48.309417+00:00",
-    "msg_id": "19effd6ced68953c",
-    "subject": "\u2705 MISSION-1235: \u2705 MISSION-1210: \u2705 MISSION-1205: \u2705 MISSION-1180: \u2705 MISSION-1175: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:50.096156+00:00",
-    "msg_id": "19effd6c7a25ed39",
-    "subject": "\u2705 MISSION-1234: \u2705 MISSION-1211: \u2705 MISSION-1204: \u2705 MISSION-1181: \u2705 MISSION-1174: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:52.299426+00:00",
-    "msg_id": "19effd6bf571c459",
-    "subject": "\u2705 MISSION-1233: \u2705 MISSION-1212: \u2705 MISSION-1203: \u2705 MISSION-1182: \u2705 MISSION-1173: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:54.245413+00:00",
-    "msg_id": "19effd6b694a2427",
-    "subject": "\u2705 MISSION-1232: \u2705 MISSION-1213: \u2705 MISSION-1202: \u2705 MISSION-1183: \u2705 MISSION-1172: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:56.498505+00:00",
-    "msg_id": "19effd6aedd06f55",
-    "subject": "\u2705 MISSION-1231: \u2705 MISSION-1214: \u2705 MISSION-1201: \u2705 MISSION-1184: \u2705 MISSION-1171: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:33:58.443446+00:00",
-    "msg_id": "19effd6a7baffadf",
-    "subject": "\u2705 MISSION-1230: \u2705 MISSION-1215: \u2705 MISSION-1200: \u2705 MISSION-1185: \u2705 MISSION-1170: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:00.287643+00:00",
-    "msg_id": "19effd69ec940eb1",
-    "subject": "\u2705 MISSION-1229: \u2705 MISSION-1216: \u2705 MISSION-1199: \u2705 MISSION-1186: \u2705 MISSION-1169: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:02.130332+00:00",
-    "msg_id": "19effd69680b098a",
-    "subject": "\u2705 MISSION-1228: \u2705 MISSION-1217: \u2705 MISSION-1198: \u2705 MISSION-1187: \u2705 MISSION-1168: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:04.286036+00:00",
-    "msg_id": "19effd68f1ecccaa",
-    "subject": "\u2705 MISSION-1227: \u2705 MISSION-1218: \u2705 MISSION-1197: \u2705 MISSION-1188: \u2705 MISSION-1167: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:06.432306+00:00",
-    "msg_id": "19effd6876a37ec7",
-    "subject": "\u2705 MISSION-1226: \u2705 MISSION-1219: \u2705 MISSION-1196: \u2705 MISSION-1189: \u2705 MISSION-1166: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:08.479047+00:00",
-    "msg_id": "19effd67ef725f8e",
-    "subject": "\u2705 MISSION-1225: \u2705 MISSION-1220: \u2705 MISSION-1195: \u2705 MISSION-1190: \u2705 MISSION-1165: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:10.407196+00:00",
-    "msg_id": "19effd6772b3ccb9",
-    "subject": "\u2705 MISSION-1224: \u2705 MISSION-1221: \u2705 MISSION-1194: \u2705 MISSION-1191: \u2705 MISSION-1164: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:34:12.165976+00:00",
-    "msg_id": "19effd66e355eceb",
-    "subject": "\u2705 MISSION-1223: \u2705 MISSION-1222: \u2705 MISSION-1193: \u2705 MISSION-1192: \u2705 MISSION-1163: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:43.609803+00:00",
-    "msg_id": "19effd8b10a9eb3e",
-    "subject": "\u2705 MISSION-1252: \u2705 MISSION-1223: \u2705 MISSION-1222: \u2705 MISSION-1193: \u2705 MISSION-1192: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:45.375345+00:00",
-    "msg_id": "19effd8ab178553b",
-    "subject": "\u2705 MISSION-1251: \u2705 MISSION-1224: \u2705 MISSION-1221: \u2705 MISSION-1194: \u2705 MISSION-1191: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:47.397138+00:00",
-    "msg_id": "19effd8a3ce9378f",
-    "subject": "\u2705 MISSION-1250: \u2705 MISSION-1225: \u2705 MISSION-1220: \u2705 MISSION-1195: \u2705 MISSION-1190: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:49.240798+00:00",
-    "msg_id": "19effd89bfafade6",
-    "subject": "\u2705 MISSION-1249: \u2705 MISSION-1226: \u2705 MISSION-1219: \u2705 MISSION-1196: \u2705 MISSION-1189: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:51.395906+00:00",
-    "msg_id": "19effd892b3e9672",
-    "subject": "\u2705 MISSION-1248: \u2705 MISSION-1227: \u2705 MISSION-1218: \u2705 MISSION-1197: \u2705 MISSION-1188: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:53.643420+00:00",
-    "msg_id": "19effd88aac139cb",
-    "subject": "\u2705 MISSION-1247: \u2705 MISSION-1228: \u2705 MISSION-1217: \u2705 MISSION-1198: \u2705 MISSION-1187: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:56.002606+00:00",
-    "msg_id": "19effd883f2fc27d",
-    "subject": "\u2705 MISSION-1246: \u2705 MISSION-1229: \u2705 MISSION-1216: \u2705 MISSION-1199: \u2705 MISSION-1186: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:35:58.089508+00:00",
-    "msg_id": "19effd87a6083a19",
-    "subject": "\u2705 MISSION-1245: \u2705 MISSION-1230: \u2705 MISSION-1215: \u2705 MISSION-1200: \u2705 MISSION-1185: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:00.205116+00:00",
-    "msg_id": "19effd874076dfde",
-    "subject": "\u2705 MISSION-1244: \u2705 MISSION-1231: \u2705 MISSION-1214: \u2705 MISSION-1201: \u2705 MISSION-1184: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:02.248921+00:00",
-    "msg_id": "19effd86b9acf476",
-    "subject": "\u2705 MISSION-1243: \u2705 MISSION-1232: \u2705 MISSION-1213: \u2705 MISSION-1202: \u2705 MISSION-1183: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:04.397854+00:00",
-    "msg_id": "19effd862fca0a4f",
-    "subject": "\u2705 MISSION-1242: \u2705 MISSION-1233: \u2705 MISSION-1212: \u2705 MISSION-1203: \u2705 MISSION-1182: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:06.142546+00:00",
-    "msg_id": "19effd85be2ab388",
-    "subject": "\u2705 MISSION-1241: \u2705 MISSION-1234: \u2705 MISSION-1211: \u2705 MISSION-1204: \u2705 MISSION-1181: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:07.980699+00:00",
-    "msg_id": "19effd85528d39e8",
-    "subject": "\u2705 MISSION-1240: \u2705 MISSION-1235: \u2705 MISSION-1210: \u2705 MISSION-1205: \u2705 MISSION-1180: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:10.061424+00:00",
-    "msg_id": "19effd84c4daf6f5",
-    "subject": "\u2705 MISSION-1239: \u2705 MISSION-1236: \u2705 MISSION-1209: \u2705 MISSION-1206: \u2705 MISSION-1179: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:36:12.074026+00:00",
-    "msg_id": "19effd844310c7df",
-    "subject": "\u2705 MISSION-1238: \u2705 MISSION-1237: \u2705 MISSION-1208: \u2705 MISSION-1207: \u2705 MISSION-1178: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:44.294454+00:00",
-    "msg_id": "19effda87ad20f93",
-    "subject": "\u2705 MISSION-1267: \u2705 MISSION-1238: \u2705 MISSION-1237: \u2705 MISSION-1208: \u2705 MISSION-1207: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:46.184113+00:00",
-    "msg_id": "19effda7e809f035",
-    "subject": "\u2705 MISSION-1266: \u2705 MISSION-1239: \u2705 MISSION-1236: \u2705 MISSION-1209: \u2705 MISSION-1206: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:48.189416+00:00",
-    "msg_id": "19effda7575a9150",
-    "subject": "\u2705 MISSION-1265: \u2705 MISSION-1240: \u2705 MISSION-1235: \u2705 MISSION-1210: \u2705 MISSION-1205: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:50.176160+00:00",
-    "msg_id": "19effda6ee51942a",
-    "subject": "\u2705 MISSION-1264: \u2705 MISSION-1241: \u2705 MISSION-1234: \u2705 MISSION-1211: \u2705 MISSION-1204: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:51.854349+00:00",
-    "msg_id": "19effda671b70a7c",
-    "subject": "\u2705 MISSION-1263: \u2705 MISSION-1242: \u2705 MISSION-1233: \u2705 MISSION-1212: \u2705 MISSION-1203: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:53.966428+00:00",
-    "msg_id": "19effda5ede50d08",
-    "subject": "\u2705 MISSION-1262: \u2705 MISSION-1243: \u2705 MISSION-1232: \u2705 MISSION-1213: \u2705 MISSION-1202: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:56.014975+00:00",
-    "msg_id": "19effda56e74f12b",
-    "subject": "\u2705 MISSION-1261: \u2705 MISSION-1244: \u2705 MISSION-1231: \u2705 MISSION-1214: \u2705 MISSION-1201: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:37:58.167452+00:00",
-    "msg_id": "19effda4f759dd85",
-    "subject": "\u2705 MISSION-1260: \u2705 MISSION-1245: \u2705 MISSION-1230: \u2705 MISSION-1215: \u2705 MISSION-1200: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:38:00.315215+00:00",
-    "msg_id": "19effda47a75d596",
-    "subject": "\u2705 MISSION-1259: \u2705 MISSION-1246: \u2705 MISSION-1229: \u2705 MISSION-1216: \u2705 MISSION-1199: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:38:02.670021+00:00",
-    "msg_id": "19effda3d6033527",
-    "subject": "\u2705 MISSION-1258: \u2705 MISSION-1247: \u2705 MISSION-1228: \u2705 MISSION-1217: \u2705 MISSION-1198: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T17:38:04.718114+00:00",
-    "msg_id": "19effda3448763ba",
-    "subject": "\u2705 MISSION-1257: \u2705 MISSION-1248: \u2705 MISSION-1227: \u2705 MISSION-1218: \u2705 MISSION-1197: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
     "timestamp": "2026-06-25T17:38:06.869832+00:00",
     "msg_id": "19effda2d1312ccc",
     "subject": "\u2705 MISSION-1256: \u2705 MISSION-1249: \u2705 MISSION-1226: \u2705 MISSION-1219: \u2705 MISSION-1196: \u2705",
@@ -3997,6 +2669,1334 @@
     "subject": "\u2705 MISSION-1583: \u2705 MISSION-1582: \u2705 MISSION-1553: \u2705 MISSION-1552: \u2705 MISSION-1523: \u2705",
     "sender": "johnloucks3@gmail.com",
     "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:23:53.055507+00:00",
+    "msg_id": "19f0004cb519ee7a",
+    "subject": "\u2705 MISSION-1612: \u2705 MISSION-1583: \u2705 MISSION-1582: \u2705 MISSION-1553: \u2705 MISSION-1552: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:23:54.999916+00:00",
+    "msg_id": "19f0004c12592e8a",
+    "subject": "\u2705 MISSION-1611: \u2705 MISSION-1584: \u2705 MISSION-1581: \u2705 MISSION-1554: \u2705 MISSION-1551: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:23:57.499170+00:00",
+    "msg_id": "19f0004b8d28eb3d",
+    "subject": "\u2705 MISSION-1610: \u2705 MISSION-1585: \u2705 MISSION-1580: \u2705 MISSION-1555: \u2705 MISSION-1550: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:00.932851+00:00",
+    "msg_id": "19f0004ae36a33a1",
+    "subject": "\u2705 MISSION-1609: \u2705 MISSION-1586: \u2705 MISSION-1579: \u2705 MISSION-1556: \u2705 MISSION-1549: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:02.887100+00:00",
+    "msg_id": "19f0004a55428c7c",
+    "subject": "\u2705 MISSION-1608: \u2705 MISSION-1587: \u2705 MISSION-1578: \u2705 MISSION-1557: \u2705 MISSION-1548: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:04.948323+00:00",
+    "msg_id": "19f00049dd90f4ef",
+    "subject": "\u2705 MISSION-1607: \u2705 MISSION-1588: \u2705 MISSION-1577: \u2705 MISSION-1558: \u2705 MISSION-1547: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:07.498393+00:00",
+    "msg_id": "19f00049174b8f67",
+    "subject": "\u2705 MISSION-1606: \u2705 MISSION-1589: \u2705 MISSION-1576: \u2705 MISSION-1559: \u2705 MISSION-1546: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:10.567371+00:00",
+    "msg_id": "19f0004868e53f7d",
+    "subject": "\u2705 MISSION-1605: \u2705 MISSION-1590: \u2705 MISSION-1575: \u2705 MISSION-1560: \u2705 MISSION-1545: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:12.618677+00:00",
+    "msg_id": "19f00047f5dba1e3",
+    "subject": "\u2705 MISSION-1604: \u2705 MISSION-1591: \u2705 MISSION-1574: \u2705 MISSION-1561: \u2705 MISSION-1544: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:14.913900+00:00",
+    "msg_id": "19f00047531f682a",
+    "subject": "\u2705 MISSION-1603: \u2705 MISSION-1592: \u2705 MISSION-1573: \u2705 MISSION-1562: \u2705 MISSION-1543: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:17.830387+00:00",
+    "msg_id": "19f00046adcef2ac",
+    "subject": "\u2705 MISSION-1602: \u2705 MISSION-1593: \u2705 MISSION-1572: \u2705 MISSION-1563: \u2705 MISSION-1542: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:20.397111+00:00",
+    "msg_id": "19f000461f7edc3e",
+    "subject": "\u2705 MISSION-1601: \u2705 MISSION-1594: \u2705 MISSION-1571: \u2705 MISSION-1564: \u2705 MISSION-1541: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:22.648796+00:00",
+    "msg_id": "19f0004599a66596",
+    "subject": "\u2705 MISSION-1600: \u2705 MISSION-1595: \u2705 MISSION-1570: \u2705 MISSION-1565: \u2705 MISSION-1540: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:24.800975+00:00",
+    "msg_id": "19f00044e4288e32",
+    "subject": "\u2705 MISSION-1599: \u2705 MISSION-1596: \u2705 MISSION-1569: \u2705 MISSION-1566: \u2705 MISSION-1539: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:24:27.052514+00:00",
+    "msg_id": "19f00044690dbc13",
+    "subject": "\u2705 MISSION-1598: \u2705 MISSION-1597: \u2705 MISSION-1568: \u2705 MISSION-1567: \u2705 MISSION-1538: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:25:48.767669+00:00",
+    "msg_id": "19f0006b0dadaf75",
+    "subject": "\u2705 MISSION-1627: \u2705 MISSION-1598: \u2705 MISSION-1597: \u2705 MISSION-1568: \u2705 MISSION-1567: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:25:51.124684+00:00",
+    "msg_id": "19f0006a8b98a48c",
+    "subject": "\u2705 MISSION-1626: \u2705 MISSION-1599: \u2705 MISSION-1596: \u2705 MISSION-1569: \u2705 MISSION-1566: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:25:53.375451+00:00",
+    "msg_id": "19f0006a166cde70",
+    "subject": "\u2705 MISSION-1625: \u2705 MISSION-1600: \u2705 MISSION-1595: \u2705 MISSION-1570: \u2705 MISSION-1565: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:25:55.525692+00:00",
+    "msg_id": "19f000697ff5780f",
+    "subject": "\u2705 MISSION-1624: \u2705 MISSION-1601: \u2705 MISSION-1594: \u2705 MISSION-1571: \u2705 MISSION-1564: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:25:59.056573+00:00",
+    "msg_id": "19f00068aaa495d6",
+    "subject": "\u2705 MISSION-1623: \u2705 MISSION-1602: \u2705 MISSION-1593: \u2705 MISSION-1572: \u2705 MISSION-1563: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:00.740689+00:00",
+    "msg_id": "19f0006827b54b2f",
+    "subject": "\u2705 MISSION-1622: \u2705 MISSION-1603: \u2705 MISSION-1592: \u2705 MISSION-1573: \u2705 MISSION-1562: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:02.800686+00:00",
+    "msg_id": "19f000679ab24b80",
+    "subject": "\u2705 MISSION-1621: \u2705 MISSION-1604: \u2705 MISSION-1591: \u2705 MISSION-1574: \u2705 MISSION-1561: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:05.300743+00:00",
+    "msg_id": "19f00066f542063d",
+    "subject": "\u2705 MISSION-1620: \u2705 MISSION-1605: \u2705 MISSION-1590: \u2705 MISSION-1575: \u2705 MISSION-1560: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:08.029250+00:00",
+    "msg_id": "19f00066438d8fbb",
+    "subject": "\u2705 MISSION-1619: \u2705 MISSION-1606: \u2705 MISSION-1589: \u2705 MISSION-1576: \u2705 MISSION-1559: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:10.888430+00:00",
+    "msg_id": "19f00065b6107c84",
+    "subject": "\u2705 MISSION-1618: \u2705 MISSION-1607: \u2705 MISSION-1588: \u2705 MISSION-1577: \u2705 MISSION-1558: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:13.156903+00:00",
+    "msg_id": "19f0006536ef0112",
+    "subject": "\u2705 MISSION-1617: \u2705 MISSION-1608: \u2705 MISSION-1587: \u2705 MISSION-1578: \u2705 MISSION-1557: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:15.701693+00:00",
+    "msg_id": "19f00064af84f4ea",
+    "subject": "\u2705 MISSION-1616: \u2705 MISSION-1609: \u2705 MISSION-1586: \u2705 MISSION-1579: \u2705 MISSION-1556: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:18.263432+00:00",
+    "msg_id": "19f00063ce74ace2",
+    "subject": "\u2705 MISSION-1615: \u2705 MISSION-1610: \u2705 MISSION-1585: \u2705 MISSION-1580: \u2705 MISSION-1555: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:20.541646+00:00",
+    "msg_id": "19f000635b316dc5",
+    "subject": "\u2705 MISSION-1614: \u2705 MISSION-1611: \u2705 MISSION-1584: \u2705 MISSION-1581: \u2705 MISSION-1554: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:26:22.929418+00:00",
+    "msg_id": "19f00062df66dc2a",
+    "subject": "\u2705 MISSION-1613: \u2705 MISSION-1612: \u2705 MISSION-1583: \u2705 MISSION-1582: \u2705 MISSION-1553: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:27:49.399777+00:00",
+    "msg_id": "19f0008749fdcfe3",
+    "subject": "\u2705 MISSION-1642: \u2705 MISSION-1613: \u2705 MISSION-1612: \u2705 MISSION-1583: \u2705 MISSION-1582: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:27:51.137469+00:00",
+    "msg_id": "19f00086bd9d6494",
+    "subject": "\u2705 MISSION-1641: \u2705 MISSION-1614: \u2705 MISSION-1611: \u2705 MISSION-1584: \u2705 MISSION-1581: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:27:53.698552+00:00",
+    "msg_id": "19f00086393e411d",
+    "subject": "\u2705 MISSION-1640: \u2705 MISSION-1615: \u2705 MISSION-1610: \u2705 MISSION-1585: \u2705 MISSION-1580: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:27:56.769932+00:00",
+    "msg_id": "19f00085938f1a08",
+    "subject": "\u2705 MISSION-1639: \u2705 MISSION-1616: \u2705 MISSION-1609: \u2705 MISSION-1586: \u2705 MISSION-1579: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:27:58.816598+00:00",
+    "msg_id": "19f00085110801f4",
+    "subject": "\u2705 MISSION-1638: \u2705 MISSION-1617: \u2705 MISSION-1608: \u2705 MISSION-1587: \u2705 MISSION-1578: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:01.481676+00:00",
+    "msg_id": "19f000844f42d0d0",
+    "subject": "\u2705 MISSION-1637: \u2705 MISSION-1618: \u2705 MISSION-1607: \u2705 MISSION-1588: \u2705 MISSION-1577: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:03.528248+00:00",
+    "msg_id": "19f00083ad2e05a8",
+    "subject": "\u2705 MISSION-1636: \u2705 MISSION-1619: \u2705 MISSION-1606: \u2705 MISSION-1589: \u2705 MISSION-1576: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:06.498766+00:00",
+    "msg_id": "19f000831ca5302a",
+    "subject": "\u2705 MISSION-1635: \u2705 MISSION-1620: \u2705 MISSION-1605: \u2705 MISSION-1590: \u2705 MISSION-1575: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:09.418617+00:00",
+    "msg_id": "19f000828139a435",
+    "subject": "\u2705 MISSION-1634: \u2705 MISSION-1621: \u2705 MISSION-1604: \u2705 MISSION-1591: \u2705 MISSION-1574: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:11.516525+00:00",
+    "msg_id": "19f00081e4e7616b",
+    "subject": "\u2705 MISSION-1633: \u2705 MISSION-1622: \u2705 MISSION-1603: \u2705 MISSION-1592: \u2705 MISSION-1573: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:13.787575+00:00",
+    "msg_id": "19f000814a34a6fb",
+    "subject": "\u2705 MISSION-1632: \u2705 MISSION-1623: \u2705 MISSION-1602: \u2705 MISSION-1593: \u2705 MISSION-1572: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:16.228564+00:00",
+    "msg_id": "19f00080a873d59a",
+    "subject": "\u2705 MISSION-1631: \u2705 MISSION-1624: \u2705 MISSION-1601: \u2705 MISSION-1594: \u2705 MISSION-1571: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:18.684829+00:00",
+    "msg_id": "19f000801dd4e9f6",
+    "subject": "\u2705 MISSION-1630: \u2705 MISSION-1625: \u2705 MISSION-1600: \u2705 MISSION-1595: \u2705 MISSION-1570: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:21.348095+00:00",
+    "msg_id": "19f0007f8ded4a2a",
+    "subject": "\u2705 MISSION-1629: \u2705 MISSION-1626: \u2705 MISSION-1599: \u2705 MISSION-1596: \u2705 MISSION-1569: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:28:23.499242+00:00",
+    "msg_id": "19f0007f1ffbd8ec",
+    "subject": "\u2705 MISSION-1628: \u2705 MISSION-1627: \u2705 MISSION-1598: \u2705 MISSION-1597: \u2705 MISSION-1568: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:29:49.820413+00:00",
+    "msg_id": "19f000a4d1bfdb1d",
+    "subject": "\u2705 MISSION-1657: \u2705 MISSION-1628: \u2705 MISSION-1627: \u2705 MISSION-1598: \u2705 MISSION-1597: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:29:51.971193+00:00",
+    "msg_id": "19f000a44e53939e",
+    "subject": "\u2705 MISSION-1656: \u2705 MISSION-1629: \u2705 MISSION-1626: \u2705 MISSION-1599: \u2705 MISSION-1596: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:29:54.531844+00:00",
+    "msg_id": "19f000a38404a009",
+    "subject": "\u2705 MISSION-1655: \u2705 MISSION-1630: \u2705 MISSION-1625: \u2705 MISSION-1600: \u2705 MISSION-1595: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:29:57.398713+00:00",
+    "msg_id": "19f000a3075e4cb6",
+    "subject": "\u2705 MISSION-1654: \u2705 MISSION-1631: \u2705 MISSION-1624: \u2705 MISSION-1601: \u2705 MISSION-1594: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:29:59.303307+00:00",
+    "msg_id": "19f000a2705ec8c3",
+    "subject": "\u2705 MISSION-1653: \u2705 MISSION-1632: \u2705 MISSION-1623: \u2705 MISSION-1602: \u2705 MISSION-1593: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:01.597410+00:00",
+    "msg_id": "19f000a1d407a845",
+    "subject": "\u2705 MISSION-1652: \u2705 MISSION-1633: \u2705 MISSION-1622: \u2705 MISSION-1603: \u2705 MISSION-1592: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:04.054790+00:00",
+    "msg_id": "19f000a142e47561",
+    "subject": "\u2705 MISSION-1651: \u2705 MISSION-1634: \u2705 MISSION-1621: \u2705 MISSION-1604: \u2705 MISSION-1591: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:07.330170+00:00",
+    "msg_id": "19f000a0a6587090",
+    "subject": "\u2705 MISSION-1650: \u2705 MISSION-1635: \u2705 MISSION-1620: \u2705 MISSION-1605: \u2705 MISSION-1590: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:09.789615+00:00",
+    "msg_id": "19f0009ff463239b",
+    "subject": "\u2705 MISSION-1649: \u2705 MISSION-1636: \u2705 MISSION-1619: \u2705 MISSION-1606: \u2705 MISSION-1589: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:11.494317+00:00",
+    "msg_id": "19f0009f52958b89",
+    "subject": "\u2705 MISSION-1648: \u2705 MISSION-1637: \u2705 MISSION-1618: \u2705 MISSION-1607: \u2705 MISSION-1588: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:14.294657+00:00",
+    "msg_id": "19f0009edb15fa36",
+    "subject": "\u2705 MISSION-1647: \u2705 MISSION-1638: \u2705 MISSION-1617: \u2705 MISSION-1608: \u2705 MISSION-1587: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:17.572578+00:00",
+    "msg_id": "19f0009e4cf856e5",
+    "subject": "\u2705 MISSION-1646: \u2705 MISSION-1639: \u2705 MISSION-1616: \u2705 MISSION-1609: \u2705 MISSION-1586: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:20.027960+00:00",
+    "msg_id": "19f0009d8e124aef",
+    "subject": "\u2705 MISSION-1645: \u2705 MISSION-1640: \u2705 MISSION-1615: \u2705 MISSION-1610: \u2705 MISSION-1585: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:22.281754+00:00",
+    "msg_id": "19f0009cfecb2cc1",
+    "subject": "\u2705 MISSION-1644: \u2705 MISSION-1641: \u2705 MISSION-1614: \u2705 MISSION-1611: \u2705 MISSION-1584: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:30:24.945200+00:00",
+    "msg_id": "19f0009c8b777902",
+    "subject": "\u2705 MISSION-1643: \u2705 MISSION-1642: \u2705 MISSION-1613: \u2705 MISSION-1612: \u2705 MISSION-1583: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:31:49.938172+00:00",
+    "msg_id": "19f000c26ea7850b",
+    "subject": "\u2705 MISSION-1672: \u2705 MISSION-1643: \u2705 MISSION-1642: \u2705 MISSION-1613: \u2705 MISSION-1612: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:31:51.984891+00:00",
+    "msg_id": "19f000c1c5df096a",
+    "subject": "\u2705 MISSION-1671: \u2705 MISSION-1644: \u2705 MISSION-1641: \u2705 MISSION-1614: \u2705 MISSION-1611: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:31:54.022257+00:00",
+    "msg_id": "19f000c123042a9c",
+    "subject": "\u2705 MISSION-1670: \u2705 MISSION-1645: \u2705 MISSION-1640: \u2705 MISSION-1615: \u2705 MISSION-1610: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:31:56.386946+00:00",
+    "msg_id": "19f000c0a13a8c86",
+    "subject": "\u2705 MISSION-1669: \u2705 MISSION-1646: \u2705 MISSION-1639: \u2705 MISSION-1616: \u2705 MISSION-1609: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:31:59.049659+00:00",
+    "msg_id": "19f000bfba531960",
+    "subject": "\u2705 MISSION-1668: \u2705 MISSION-1647: \u2705 MISSION-1638: \u2705 MISSION-1617: \u2705 MISSION-1608: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:00.997632+00:00",
+    "msg_id": "19f000bf221d81da",
+    "subject": "\u2705 MISSION-1667: \u2705 MISSION-1648: \u2705 MISSION-1637: \u2705 MISSION-1618: \u2705 MISSION-1607: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:04.171056+00:00",
+    "msg_id": "19f000bea9e1ca48",
+    "subject": "\u2705 MISSION-1666: \u2705 MISSION-1649: \u2705 MISSION-1636: \u2705 MISSION-1619: \u2705 MISSION-1606: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:06.423371+00:00",
+    "msg_id": "19f000be3ffb6a58",
+    "subject": "\u2705 MISSION-1665: \u2705 MISSION-1650: \u2705 MISSION-1635: \u2705 MISSION-1620: \u2705 MISSION-1605: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:08.268768+00:00",
+    "msg_id": "19f000bd203c6d79",
+    "subject": "\u2705 MISSION-1664: \u2705 MISSION-1651: \u2705 MISSION-1634: \u2705 MISSION-1621: \u2705 MISSION-1604: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:10.416631+00:00",
+    "msg_id": "19f000bcc59ce12e",
+    "subject": "\u2705 MISSION-1663: \u2705 MISSION-1652: \u2705 MISSION-1633: \u2705 MISSION-1622: \u2705 MISSION-1603: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:13.385993+00:00",
+    "msg_id": "19f000bc219a070c",
+    "subject": "\u2705 MISSION-1662: \u2705 MISSION-1653: \u2705 MISSION-1632: \u2705 MISSION-1623: \u2705 MISSION-1602: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:15.948516+00:00",
+    "msg_id": "19f000bb9512fae2",
+    "subject": "\u2705 MISSION-1661: \u2705 MISSION-1654: \u2705 MISSION-1631: \u2705 MISSION-1624: \u2705 MISSION-1601: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:18.221900+00:00",
+    "msg_id": "19f000bae51ad593",
+    "subject": "\u2705 MISSION-1660: \u2705 MISSION-1655: \u2705 MISSION-1630: \u2705 MISSION-1625: \u2705 MISSION-1600: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:20.768543+00:00",
+    "msg_id": "19f000ba5aeee7c9",
+    "subject": "\u2705 MISSION-1659: \u2705 MISSION-1656: \u2705 MISSION-1629: \u2705 MISSION-1626: \u2705 MISSION-1599: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:32:23.012273+00:00",
+    "msg_id": "19f000b9ecb9ce53",
+    "subject": "\u2705 MISSION-1658: \u2705 MISSION-1657: \u2705 MISSION-1628: \u2705 MISSION-1627: \u2705 MISSION-1598: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:33:49.770553+00:00",
+    "msg_id": "19f000df51a04381",
+    "subject": "\u2705 MISSION-1687: \u2705 MISSION-1658: \u2705 MISSION-1657: \u2705 MISSION-1628: \u2705 MISSION-1627: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:33:51.692132+00:00",
+    "msg_id": "19f000dea89d2293",
+    "subject": "\u2705 MISSION-1686: \u2705 MISSION-1659: \u2705 MISSION-1656: \u2705 MISSION-1629: \u2705 MISSION-1626: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:33:54.251485+00:00",
+    "msg_id": "19f000de3bf33109",
+    "subject": "\u2705 MISSION-1685: \u2705 MISSION-1660: \u2705 MISSION-1655: \u2705 MISSION-1630: \u2705 MISSION-1625: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:33:56.616591+00:00",
+    "msg_id": "19f000dd62c20ff5",
+    "subject": "\u2705 MISSION-1684: \u2705 MISSION-1661: \u2705 MISSION-1654: \u2705 MISSION-1631: \u2705 MISSION-1624: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:33:58.553230+00:00",
+    "msg_id": "19f000dcccefb44b",
+    "subject": "\u2705 MISSION-1683: \u2705 MISSION-1662: \u2705 MISSION-1653: \u2705 MISSION-1632: \u2705 MISSION-1623: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:01.175591+00:00",
+    "msg_id": "19f000dc2105b0e9",
+    "subject": "\u2705 MISSION-1682: \u2705 MISSION-1663: \u2705 MISSION-1652: \u2705 MISSION-1633: \u2705 MISSION-1622: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:03.466478+00:00",
+    "msg_id": "19f000dba99436d4",
+    "subject": "\u2705 MISSION-1681: \u2705 MISSION-1664: \u2705 MISSION-1651: \u2705 MISSION-1634: \u2705 MISSION-1621: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:05.926248+00:00",
+    "msg_id": "19f000db218acd16",
+    "subject": "\u2705 MISSION-1680: \u2705 MISSION-1665: \u2705 MISSION-1650: \u2705 MISSION-1635: \u2705 MISSION-1620: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:08.384149+00:00",
+    "msg_id": "19f000da92d90c32",
+    "subject": "\u2705 MISSION-1679: \u2705 MISSION-1666: \u2705 MISSION-1649: \u2705 MISSION-1636: \u2705 MISSION-1619: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:10.535556+00:00",
+    "msg_id": "19f000d9e480dd58",
+    "subject": "\u2705 MISSION-1678: \u2705 MISSION-1667: \u2705 MISSION-1648: \u2705 MISSION-1637: \u2705 MISSION-1618: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:13.004748+00:00",
+    "msg_id": "19f000d967da3a74",
+    "subject": "\u2705 MISSION-1677: \u2705 MISSION-1668: \u2705 MISSION-1647: \u2705 MISSION-1638: \u2705 MISSION-1617: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:15.260990+00:00",
+    "msg_id": "19f000d8cc8f98c7",
+    "subject": "\u2705 MISSION-1676: \u2705 MISSION-1669: \u2705 MISSION-1646: \u2705 MISSION-1639: \u2705 MISSION-1616: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:17.803635+00:00",
+    "msg_id": "19f000d8460ed8d8",
+    "subject": "\u2705 MISSION-1675: \u2705 MISSION-1670: \u2705 MISSION-1645: \u2705 MISSION-1640: \u2705 MISSION-1615: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:20.875821+00:00",
+    "msg_id": "19f000d7b7e2b327",
+    "subject": "\u2705 MISSION-1674: \u2705 MISSION-1671: \u2705 MISSION-1644: \u2705 MISSION-1641: \u2705 MISSION-1614: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:34:23.026236+00:00",
+    "msg_id": "19f000d74da9aa99",
+    "subject": "\u2705 MISSION-1673: \u2705 MISSION-1672: \u2705 MISSION-1643: \u2705 MISSION-1642: \u2705 MISSION-1613: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:35:49.861375+00:00",
+    "msg_id": "19f000fc945f9979",
+    "subject": "\u2705 MISSION-1702: \u2705 MISSION-1673: \u2705 MISSION-1672: \u2705 MISSION-1643: \u2705 MISSION-1642: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:35:51.808083+00:00",
+    "msg_id": "19f000fbe8e18261",
+    "subject": "\u2705 MISSION-1701: \u2705 MISSION-1674: \u2705 MISSION-1671: \u2705 MISSION-1644: \u2705 MISSION-1641: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:35:54.266920+00:00",
+    "msg_id": "19f000fb592fe79e",
+    "subject": "\u2705 MISSION-1700: \u2705 MISSION-1675: \u2705 MISSION-1670: \u2705 MISSION-1645: \u2705 MISSION-1640: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:35:56.518077+00:00",
+    "msg_id": "19f000fab31f451c",
+    "subject": "\u2705 MISSION-1699: \u2705 MISSION-1676: \u2705 MISSION-1669: \u2705 MISSION-1646: \u2705 MISSION-1639: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:35:58.758085+00:00",
+    "msg_id": "19f000fa33564743",
+    "subject": "\u2705 MISSION-1698: \u2705 MISSION-1677: \u2705 MISSION-1668: \u2705 MISSION-1647: \u2705 MISSION-1638: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:01.536847+00:00",
+    "msg_id": "19f000f9891a9763",
+    "subject": "\u2705 MISSION-1697: \u2705 MISSION-1678: \u2705 MISSION-1667: \u2705 MISSION-1648: \u2705 MISSION-1637: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:04.301415+00:00",
+    "msg_id": "19f000f8e92126c3",
+    "subject": "\u2705 MISSION-1696: \u2705 MISSION-1679: \u2705 MISSION-1666: \u2705 MISSION-1649: \u2705 MISSION-1636: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:06.554359+00:00",
+    "msg_id": "19f000f852bf236f",
+    "subject": "\u2705 MISSION-1695: \u2705 MISSION-1680: \u2705 MISSION-1665: \u2705 MISSION-1650: \u2705 MISSION-1635: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:08.908886+00:00",
+    "msg_id": "19f000f7c1f8d42c",
+    "subject": "\u2705 MISSION-1694: \u2705 MISSION-1681: \u2705 MISSION-1664: \u2705 MISSION-1651: \u2705 MISSION-1634: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:11.264030+00:00",
+    "msg_id": "19f000f730cfc888",
+    "subject": "\u2705 MISSION-1693: \u2705 MISSION-1682: \u2705 MISSION-1663: \u2705 MISSION-1652: \u2705 MISSION-1633: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:13.412640+00:00",
+    "msg_id": "19f000f6ab7d4b00",
+    "subject": "\u2705 MISSION-1692: \u2705 MISSION-1683: \u2705 MISSION-1662: \u2705 MISSION-1653: \u2705 MISSION-1632: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:15.799251+00:00",
+    "msg_id": "19f000f607abbeab",
+    "subject": "\u2705 MISSION-1691: \u2705 MISSION-1684: \u2705 MISSION-1661: \u2705 MISSION-1654: \u2705 MISSION-1631: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:18.230903+00:00",
+    "msg_id": "19f000f58519551d",
+    "subject": "\u2705 MISSION-1690: \u2705 MISSION-1685: \u2705 MISSION-1660: \u2705 MISSION-1655: \u2705 MISSION-1630: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:19.967039+00:00",
+    "msg_id": "19f000f4f1de5841",
+    "subject": "\u2705 MISSION-1689: \u2705 MISSION-1686: \u2705 MISSION-1659: \u2705 MISSION-1656: \u2705 MISSION-1629: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:36:22.017461+00:00",
+    "msg_id": "19f000f49d0b9eeb",
+    "subject": "\u2705 MISSION-1688: \u2705 MISSION-1687: \u2705 MISSION-1658: \u2705 MISSION-1657: \u2705 MISSION-1628: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:37:49.875690+00:00",
+    "msg_id": "19f001198ed7a5b3",
+    "subject": "\u2705 MISSION-1717: \u2705 MISSION-1688: \u2705 MISSION-1687: \u2705 MISSION-1658: \u2705 MISSION-1657: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:37:51.934952+00:00",
+    "msg_id": "19f001193d218fa2",
+    "subject": "\u2705 MISSION-1716: \u2705 MISSION-1689: \u2705 MISSION-1686: \u2705 MISSION-1659: \u2705 MISSION-1656: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:37:54.178883+00:00",
+    "msg_id": "19f00118b71b6d82",
+    "subject": "\u2705 MISSION-1715: \u2705 MISSION-1690: \u2705 MISSION-1685: \u2705 MISSION-1660: \u2705 MISSION-1655: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:37:57.221687+00:00",
+    "msg_id": "19f001181501b7b0",
+    "subject": "\u2705 MISSION-1714: \u2705 MISSION-1691: \u2705 MISSION-1684: \u2705 MISSION-1661: \u2705 MISSION-1654: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:37:58.890512+00:00",
+    "msg_id": "19f00117822a043d",
+    "subject": "\u2705 MISSION-1713: \u2705 MISSION-1692: \u2705 MISSION-1683: \u2705 MISSION-1662: \u2705 MISSION-1653: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:02.166328+00:00",
+    "msg_id": "19f001170e12d317",
+    "subject": "\u2705 MISSION-1712: \u2705 MISSION-1693: \u2705 MISSION-1682: \u2705 MISSION-1663: \u2705 MISSION-1652: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:04.621760+00:00",
+    "msg_id": "19f00116429efeec",
+    "subject": "\u2705 MISSION-1711: \u2705 MISSION-1694: \u2705 MISSION-1681: \u2705 MISSION-1664: \u2705 MISSION-1651: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:06.262248+00:00",
+    "msg_id": "19f00115d7e03d09",
+    "subject": "\u2705 MISSION-1710: \u2705 MISSION-1695: \u2705 MISSION-1680: \u2705 MISSION-1665: \u2705 MISSION-1650: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:09.576234+00:00",
+    "msg_id": "19f001154574ece4",
+    "subject": "\u2705 MISSION-1709: \u2705 MISSION-1696: \u2705 MISSION-1679: \u2705 MISSION-1666: \u2705 MISSION-1649: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:11.790161+00:00",
+    "msg_id": "19f001149bc19175",
+    "subject": "\u2705 MISSION-1708: \u2705 MISSION-1697: \u2705 MISSION-1678: \u2705 MISSION-1667: \u2705 MISSION-1648: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:14.235956+00:00",
+    "msg_id": "19f00113e90f20a7",
+    "subject": "\u2705 MISSION-1707: \u2705 MISSION-1698: \u2705 MISSION-1677: \u2705 MISSION-1668: \u2705 MISSION-1647: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:16.317748+00:00",
+    "msg_id": "19f0011377e787f7",
+    "subject": "\u2705 MISSION-1706: \u2705 MISSION-1699: \u2705 MISSION-1676: \u2705 MISSION-1669: \u2705 MISSION-1646: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:18.850983+00:00",
+    "msg_id": "19f00112c33a12b1",
+    "subject": "\u2705 MISSION-1705: \u2705 MISSION-1700: \u2705 MISSION-1675: \u2705 MISSION-1670: \u2705 MISSION-1645: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:21.120217+00:00",
+    "msg_id": "19f001125f379ff9",
+    "subject": "\u2705 MISSION-1704: \u2705 MISSION-1701: \u2705 MISSION-1674: \u2705 MISSION-1671: \u2705 MISSION-1644: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:38:23.667394+00:00",
+    "msg_id": "19f00111cf6e412b",
+    "subject": "\u2705 MISSION-1703: \u2705 MISSION-1702: \u2705 MISSION-1673: \u2705 MISSION-1672: \u2705 MISSION-1643: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:39:50.707030+00:00",
+    "msg_id": "19f001375df1b99e",
+    "subject": "\u2705 MISSION-1732: \u2705 MISSION-1703: \u2705 MISSION-1702: \u2705 MISSION-1673: \u2705 MISSION-1672: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:39:52.998860+00:00",
+    "msg_id": "19f00136cafcc860",
+    "subject": "\u2705 MISSION-1731: \u2705 MISSION-1704: \u2705 MISSION-1701: \u2705 MISSION-1674: \u2705 MISSION-1671: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:39:55.314746+00:00",
+    "msg_id": "19f00136299699f0",
+    "subject": "\u2705 MISSION-1730: \u2705 MISSION-1705: \u2705 MISSION-1700: \u2705 MISSION-1675: \u2705 MISSION-1670: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:39:57.264539+00:00",
+    "msg_id": "19f001359c81282d",
+    "subject": "\u2705 MISSION-1729: \u2705 MISSION-1706: \u2705 MISSION-1699: \u2705 MISSION-1676: \u2705 MISSION-1669: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:39:59.822638+00:00",
+    "msg_id": "19f0013511e10711",
+    "subject": "\u2705 MISSION-1728: \u2705 MISSION-1707: \u2705 MISSION-1698: \u2705 MISSION-1677: \u2705 MISSION-1668: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:02.075933+00:00",
+    "msg_id": "19f0013467dccf46",
+    "subject": "\u2705 MISSION-1727: \u2705 MISSION-1708: \u2705 MISSION-1697: \u2705 MISSION-1678: \u2705 MISSION-1667: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:04.736189+00:00",
+    "msg_id": "19f00133bfabd37d",
+    "subject": "\u2705 MISSION-1726: \u2705 MISSION-1709: \u2705 MISSION-1696: \u2705 MISSION-1679: \u2705 MISSION-1666: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:06.382608+00:00",
+    "msg_id": "19f001333c1a3325",
+    "subject": "\u2705 MISSION-1725: \u2705 MISSION-1710: \u2705 MISSION-1695: \u2705 MISSION-1680: \u2705 MISSION-1665: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:08.616128+00:00",
+    "msg_id": "19f00132bc8c489b",
+    "subject": "\u2705 MISSION-1724: \u2705 MISSION-1711: \u2705 MISSION-1694: \u2705 MISSION-1681: \u2705 MISSION-1664: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:12.211738+00:00",
+    "msg_id": "19f00131e1a5a798",
+    "subject": "\u2705 MISSION-1723: \u2705 MISSION-1712: \u2705 MISSION-1693: \u2705 MISSION-1682: \u2705 MISSION-1663: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:14.689957+00:00",
+    "msg_id": "19f0013154be287f",
+    "subject": "\u2705 MISSION-1722: \u2705 MISSION-1713: \u2705 MISSION-1692: \u2705 MISSION-1683: \u2705 MISSION-1662: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:16.616565+00:00",
+    "msg_id": "19f00130d5ca4078",
+    "subject": "\u2705 MISSION-1721: \u2705 MISSION-1714: \u2705 MISSION-1691: \u2705 MISSION-1684: \u2705 MISSION-1661: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:19.072673+00:00",
+    "msg_id": "19f001302f769ee9",
+    "subject": "\u2705 MISSION-1720: \u2705 MISSION-1715: \u2705 MISSION-1690: \u2705 MISSION-1685: \u2705 MISSION-1660: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:20.917205+00:00",
+    "msg_id": "19f0012f9669b044",
+    "subject": "\u2705 MISSION-1719: \u2705 MISSION-1716: \u2705 MISSION-1689: \u2705 MISSION-1686: \u2705 MISSION-1659: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:40:23.991205+00:00",
+    "msg_id": "19f0012f2ca6e8be",
+    "subject": "\u2705 MISSION-1718: \u2705 MISSION-1717: \u2705 MISSION-1688: \u2705 MISSION-1687: \u2705 MISSION-1658: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:41:50.415361+00:00",
+    "msg_id": "19f001548b811b38",
+    "subject": "\u2705 MISSION-1747: \u2705 MISSION-1718: \u2705 MISSION-1717: \u2705 MISSION-1688: \u2705 MISSION-1687: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:41:52.694190+00:00",
+    "msg_id": "19f001541efdbf5b",
+    "subject": "\u2705 MISSION-1746: \u2705 MISSION-1719: \u2705 MISSION-1716: \u2705 MISSION-1689: \u2705 MISSION-1686: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:41:54.552695+00:00",
+    "msg_id": "19f0015392b3a050",
+    "subject": "\u2705 MISSION-1745: \u2705 MISSION-1720: \u2705 MISSION-1715: \u2705 MISSION-1690: \u2705 MISSION-1685: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:41:56.927831+00:00",
+    "msg_id": "19f00152f2ca8c1d",
+    "subject": "\u2705 MISSION-1744: \u2705 MISSION-1721: \u2705 MISSION-1714: \u2705 MISSION-1691: \u2705 MISSION-1684: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:41:59.221926+00:00",
+    "msg_id": "19f001524a24c653",
+    "subject": "\u2705 MISSION-1743: \u2705 MISSION-1722: \u2705 MISSION-1713: \u2705 MISSION-1692: \u2705 MISSION-1683: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:01.679507+00:00",
+    "msg_id": "19f00151c6b23d8a",
+    "subject": "\u2705 MISSION-1742: \u2705 MISSION-1723: \u2705 MISSION-1712: \u2705 MISSION-1693: \u2705 MISSION-1682: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:04.072696+00:00",
+    "msg_id": "19f00150e60f77d2",
+    "subject": "\u2705 MISSION-1741: \u2705 MISSION-1724: \u2705 MISSION-1711: \u2705 MISSION-1694: \u2705 MISSION-1681: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:06.697018+00:00",
+    "msg_id": "19f001506a8d0b88",
+    "subject": "\u2705 MISSION-1740: \u2705 MISSION-1725: \u2705 MISSION-1710: \u2705 MISSION-1695: \u2705 MISSION-1680: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:09.257326+00:00",
+    "msg_id": "19f001501447061f",
+    "subject": "\u2705 MISSION-1739: \u2705 MISSION-1726: \u2705 MISSION-1709: \u2705 MISSION-1696: \u2705 MISSION-1679: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:11.494749+00:00",
+    "msg_id": "19f0014f42981318",
+    "subject": "\u2705 MISSION-1738: \u2705 MISSION-1727: \u2705 MISSION-1708: \u2705 MISSION-1697: \u2705 MISSION-1678: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:13.762150+00:00",
+    "msg_id": "19f0014ec0da7d14",
+    "subject": "\u2705 MISSION-1737: \u2705 MISSION-1728: \u2705 MISSION-1707: \u2705 MISSION-1698: \u2705 MISSION-1677: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:16.096362+00:00",
+    "msg_id": "19f0014e2402e1a3",
+    "subject": "\u2705 MISSION-1736: \u2705 MISSION-1729: \u2705 MISSION-1706: \u2705 MISSION-1699: \u2705 MISSION-1676: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:18.973343+00:00",
+    "msg_id": "19f0014db87d2f4e",
+    "subject": "\u2705 MISSION-1735: \u2705 MISSION-1730: \u2705 MISSION-1705: \u2705 MISSION-1700: \u2705 MISSION-1675: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:21.546104+00:00",
+    "msg_id": "19f0014d2f5a0400",
+    "subject": "\u2705 MISSION-1734: \u2705 MISSION-1731: \u2705 MISSION-1704: \u2705 MISSION-1701: \u2705 MISSION-1674: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:42:23.777026+00:00",
+    "msg_id": "19f0014ca13a6e76",
+    "subject": "\u2705 MISSION-1733: \u2705 MISSION-1732: \u2705 MISSION-1703: \u2705 MISSION-1702: \u2705 MISSION-1673: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:43:50.225251+00:00",
+    "msg_id": "19f00171ed8c5f9d",
+    "subject": "\u2705 MISSION-1762: \u2705 MISSION-1733: \u2705 MISSION-1732: \u2705 MISSION-1703: \u2705 MISSION-1702: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:43:52.037191+00:00",
+    "msg_id": "19f0017165f10fa7",
+    "subject": "\u2705 MISSION-1761: \u2705 MISSION-1734: \u2705 MISSION-1731: \u2705 MISSION-1704: \u2705 MISSION-1701: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:43:54.723790+00:00",
+    "msg_id": "19f00170c92a0a76",
+    "subject": "\u2705 MISSION-1760: \u2705 MISSION-1735: \u2705 MISSION-1730: \u2705 MISSION-1705: \u2705 MISSION-1700: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:43:57.967712+00:00",
+    "msg_id": "19f001700e8062f2",
+    "subject": "\u2705 MISSION-1759: \u2705 MISSION-1736: \u2705 MISSION-1729: \u2705 MISSION-1706: \u2705 MISSION-1699: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:43:59.764212+00:00",
+    "msg_id": "19f0016f9b10821a",
+    "subject": "\u2705 MISSION-1758: \u2705 MISSION-1737: \u2705 MISSION-1728: \u2705 MISSION-1707: \u2705 MISSION-1698: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:02.097258+00:00",
+    "msg_id": "19f0016ee0585b70",
+    "subject": "\u2705 MISSION-1757: \u2705 MISSION-1738: \u2705 MISSION-1727: \u2705 MISSION-1708: \u2705 MISSION-1697: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:04.310794+00:00",
+    "msg_id": "19f0016e7495b694",
+    "subject": "\u2705 MISSION-1756: \u2705 MISSION-1739: \u2705 MISSION-1726: \u2705 MISSION-1709: \u2705 MISSION-1696: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:06.510110+00:00",
+    "msg_id": "19f0016ddab16cbe",
+    "subject": "\u2705 MISSION-1755: \u2705 MISSION-1740: \u2705 MISSION-1725: \u2705 MISSION-1710: \u2705 MISSION-1695: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:09.170270+00:00",
+    "msg_id": "19f0016d2d8b3581",
+    "subject": "\u2705 MISSION-1754: \u2705 MISSION-1741: \u2705 MISSION-1724: \u2705 MISSION-1711: \u2705 MISSION-1694: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:11.406931+00:00",
+    "msg_id": "19f0016c82ba7a34",
+    "subject": "\u2705 MISSION-1753: \u2705 MISSION-1742: \u2705 MISSION-1723: \u2705 MISSION-1712: \u2705 MISSION-1693: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:13.377970+00:00",
+    "msg_id": "19f0016be3694a63",
+    "subject": "\u2705 MISSION-1752: \u2705 MISSION-1743: \u2705 MISSION-1722: \u2705 MISSION-1713: \u2705 MISSION-1692: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:15.619830+00:00",
+    "msg_id": "19f0016b7557a43d",
+    "subject": "\u2705 MISSION-1751: \u2705 MISSION-1744: \u2705 MISSION-1721: \u2705 MISSION-1714: \u2705 MISSION-1691: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:18.145140+00:00",
+    "msg_id": "19f0016ad6f14879",
+    "subject": "\u2705 MISSION-1750: \u2705 MISSION-1745: \u2705 MISSION-1720: \u2705 MISSION-1715: \u2705 MISSION-1690: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:20.256801+00:00",
+    "msg_id": "19f0016a5b98056f",
+    "subject": "\u2705 MISSION-1749: \u2705 MISSION-1746: \u2705 MISSION-1719: \u2705 MISSION-1716: \u2705 MISSION-1689: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T18:44:22.530933+00:00",
+    "msg_id": "19f00169d81c5fed",
+    "subject": "\u2705 MISSION-1748: \u2705 MISSION-1747: \u2705 MISSION-1718: \u2705 MISSION-1717: \u2705 MISSION-1688: \u2705",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-06-25T19:01:49.259299+00:00",
+    "msg_id": "19f0027877cc1404",
+    "subject": "Tech Scan 2026-06-25 19:00 UTC \u2014 1 trial / 0 killed (Hale adjudicated)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
     "status": "actioned"
   }
 ]

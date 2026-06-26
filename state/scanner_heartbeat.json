@@ -1,11 +1,11 @@
 {
-  "ts": "2026-06-25T11:00:13.632670+00:00",
-  "finding_count": 8,
-  "content_hash": "540b6557910c2d2cfd510cd189c473f1caaacd1b",
+  "ts": "2026-06-25T19:00:14.891135+00:00",
+  "finding_count": 1,
+  "content_hash": "242b2db856d6849a3e1f5d200685109bcbf51ad4",
   "sectors": [
-    "agentic",
-    "mcp",
-    "ai-writing"
+    "travel-b2b",
+    "competitor",
+    "automation"
   ],
   "zero_streak": 0,
   "frozen": false

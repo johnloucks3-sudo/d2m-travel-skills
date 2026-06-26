@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T12:00:00.330901+00:00",
+  "generated_at": "2026-06-25T23:51:39.709518+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
     "open_tasks_count": 5,
@@ -21,56 +21,5 @@
   "exercise": {},
   "red_items": [
     "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
-  ],
-  "continuity_recert": {
-    "timestamp": "2026-06-25T12:00:00.281856+00:00",
-    "overall": "RED",
-    "metrics": {
-      "failed_unit_count": {
-        "value": 7,
-        "status": "RED",
-        "threshold_red": ">2",
-        "failed_units": [
-          "chrome-cdp-health.service",
-          "claude-usage-push.service",
-          "d2m-booking-monitor.service",
-          "d2m-ita-fare-watch.service",
-          "mcleod-daily-brief.service",
-          "portal-keepalive.service",
-          "thunderbird-silversea-session.service"
-        ],
-        "commander_gated": [
-          "tess-token-keepalive.service"
-        ]
-      },
-      "heartbeat_ping_miss_24h": {
-        "value": 113,
-        "status": "RED",
-        "threshold_red": ">1",
-        "last_scan_ts": "2026-06-25 05:50:29",
-        "note": "current consecutive DEGRADED scans (0 = last scan healthy)"
-      },
-      "scrape_checkpoint_completion_pct": {
-        "value": null,
-        "status": "N/A",
-        "note": "No scrape run detected today (no .done files found)",
-        "bookings_total": 4,
-        "bookings_done": 0,
-        "missing_bookings": [
-          "3096289_Ely",
-          "3078056_Nichols",
-          "3071222_Furlow",
-          "2984034_McLeod"
-        ]
-      }
-    },
-    "red_items": [
-      "failed_unit_count=7 (threshold >2)",
-      "heartbeat_miss_24h=113 (threshold >1)"
-    ],
-    "commander_gated": [
-      "tess-token-keepalive.service"
-    ]
-  },
-  "_last_updated": "2026-06-25T12:00:00.281856+00:00"
+  ]
 }

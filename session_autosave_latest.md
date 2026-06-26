@@ -1,19 +1,18 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-25 12:20:14 MDT
+## Generated: 2026-06-25 20:20:41 MDT
 
 ---
 
 ### Recent Commits
-- d0c6d02e1 feat(ci): Dani identity layer added to CI registry with probe
-- c452acc55 feat(dani): identity layer — trainee mode for non-Commander users
-- 428dd4220 fix(inbox): stop feedback loop, thread replies, single result email
-- 7afe0f115 feat(inbox): closed-loop email doctrine — DIRECTION/QUESTION/CC now reply
-- 0e8599f8b fix(digest): Path A gap — route COS:/HALE: directive forwards from Commander
+- 119d51e9b feat(poe): full alias coverage, points scraper, daily 0600 MT timer
+- 946fce13d fix(poe): rotate key, fix file-over-env priority, update broken model IDs
+- b837be604 feat(poe): add nano-banana-pro + GPT nano family, correct image-model labels
+- 45b8c188a feat(poe): update model table — Commander's full alias set
+- ddd92500d feat(poe): open model selection — any Poe model ID works, add deepseek-v4/kimi/grok4 aliases
 
 ### Uncommitted Changes
  ? Blackboard
  M CLAUDE.md
- M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
@@ -22,7 +21,6 @@
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/brief_feedback_config.json
  M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/claude_outbox.md
@@ -31,6 +29,8 @@
  M OpsCenter/collaboration/wing_comms.md
  M OpsCenter/context_d2mc2c.json
  M OpsCenter/eod_feedback_config.json
+ M OpsCenter/eod_incubator_config.json
+ M OpsCenter/executor_run.lock
 
 ### Inbox Status
 - Claude inbox: 0

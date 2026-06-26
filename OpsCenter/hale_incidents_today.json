@@ -1,23 +1,23 @@
 {
-  "date": "2026-06-23",
+  "date": "2026-06-25",
   "summary": {
-    "auto_healed": 1,
+    "auto_healed": 0,
     "self_repaired": 0,
     "unresolved": 0,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "05:47",
-      "service": "thunderbird-telegram-gw",
+      "time": "13:00",
+      "service": "d2m-ita-fare-watch",
       "event_type": "auto_healed",
-      "action": "auto_healed_verified",
-      "status": "GREEN",
-      "note": "auto-heal verified (systemctl is-active: active)",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
       "elon_invoked": false
     },
     {
-      "time": "09:02",
+      "time": "15:26",
       "service": "thunderbird-silversea-session",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
@@ -26,44 +26,8 @@
       "elon_invoked": false
     },
     {
-      "time": "13:05",
-      "service": "hale-chatlog-backup",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "13:05",
-      "service": "thunderbird-blackboard-sync",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "13:30",
-      "service": "thunderbird-eod-brief",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "15:10",
+      "time": "15:31",
       "service": "tess-token-keepalive",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "15:43",
-      "service": "thunderbird-silversea-session",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",

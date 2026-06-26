@@ -1,14 +1,6 @@
 [
   {
     "role": "Commander",
-    "text": "Search for the document. Made this AM. Look for autonomy, grants,  builds on mission board. Forget WhatsApp for now"
-  },
-  {
-    "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n**Done — found it. The position paper on wing management gaps from this morning: \"Session Continuity (P1)\" is your Hale bus request.**\n\n---\n\n## HALE BUS ARCHITECTURE — DESIGN & BUILD\n\n**Per your paper (lines 82–89): A lightweight JSON state file written by any Hale instance, read by all others at startup.**\n\nI'm building this now:\n\n### **1. STATE BUS SCHEMA**\n\n```json\n{\n  \"bus_version\": \"1.0\",\n  \"last_updated\": \"2026-06-24T21:47:00-06:00\",\n  \"instance\": \"claude_code\",\n  \"session_id\": \"sess_20260624_214700\",\n  \n  \"cross_instance_state\": {\n    \"active_decisions\": [\n      {\n        \"id\": \"hale_decision_001\",\n        \"timestamp\": \"2026-06-24T21:30:00-06:00\",\n        \"decision\": \"Gmail C2 deep dive tasking dispatched\",\n        \"status\": \"in_progress\",\n        \"assigned_to\":"
-  },
-  {
-    "role": "Commander",
     "text": "Weapons Free to build now.  It's CI"
   },
   {
@@ -78,5 +70,13 @@
   {
     "role": "Hale, Sonnet",
     "text": "<b>Hale, Sonnet</b>\n\n**Done — audit complete. Zero spurious email-generated tasks found.**\n\nCurrent state:\n- Mission board contains 441 total tasks\n- **No tasks created today (2026-06-25)** in the recorded entries\n- Email ingestion scripts (`email_task_ingest.py`, `run_commander_directive_sweep.py`) have not created entries in mission_board.json as of this check\n\n**Result:** Mission board is clean. No removal action required.\n\nIf email ingestion spawned spurious tasks in a different location or log (Telegram, inbox, state files), I'll need specific coordinates to audit those. Standing by.\n\n*2026-06-25 12:20 MT*"
+  },
+  {
+    "role": "Commander",
+    "text": "Proceed"
+  },
+  {
+    "role": "Hale, Sonnet",
+    "text": "<b>Hale, Sonnet</b>\n\n---\n\n**Done — HALE BUS CI hardwired into session lifecycle.**\n\n**What was installed:**\n\n| Component | File | Purpose | Status |\n|-----------|------|---------|--------|\n| **Session startup L1** | `OpsCenter/session_init.py` | Load inter-Hale state first (MANDATORY) | ✅ ACTIVE |\n| **Session startup L2** | `OpsCenter/hale_session_startup.py` | Check persona inboxes, surface alerts | ✅ UPDATED |\n| **Session end** | `hooks/post_stop_hale_bus.sh` | Checkpoint state to HALE BUS | ✅ CREATED |\n| **Hook registration** | `.claude/settings.json` | Register stop hook in Claude Code | ✅ WIRED |\n\n**How it works:**\n\n1. **Session starts** → `session_init.py` fires (via SessionStart hook)\n   - L1: Load HALE BUS state from `core/hale_bus/hale_bus_state.json`\n   - L1: Print critical direc"
   }
 ]

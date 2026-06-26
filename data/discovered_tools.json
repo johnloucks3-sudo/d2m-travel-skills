@@ -1,0 +1,32 @@
+[
+  {
+    "name": "OpenStyleGen",
+    "url": "https://github.com/opentone/OpenStyleGen",
+    "cost": "free, open source",
+    "capability": "An open-source tool for style transfer in writing, allowing tone matching and format control.",
+    "d2m_score": 7,
+    "integration_path": "Use the provided Python API to integrate into the existing pipeline.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-25"
+  },
+  {
+    "name": "EmailPolisher",
+    "url": "https://emailpolisher.ai",
+    "cost": "free tier available with basic features",
+    "capability": "AI-driven email rewriting tool that focuses on tone, format, and style transfer.",
+    "d2m_score": 6,
+    "integration_path": "Use REST API for integration into the Python pipeline.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-25"
+  },
+  {
+    "name": "ToneMaster",
+    "url": "https://tonemaster.io",
+    "cost": "free tier with limited usage",
+    "capability": "AI tool for tone correction and style transfer in business correspondence.",
+    "d2m_score": 5,
+    "integration_path": "REST API available for integration.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-25"
+  }
+]

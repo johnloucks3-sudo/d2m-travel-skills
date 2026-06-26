@@ -9,7 +9,7 @@
 
 ```
 === THUNDERBIRD BLACKBOARD [2026-06-01 08:46 MT] ===
-Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN | Poe:675,320pts($20.46)
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged
@@ -86,7 +86,7 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-06-25 15:30 UTC)
+## COMMANDER-READY (2026-06-25 22:36 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -102,29 +102,31 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-06-25 09:30
+## STATE BRIDGE BRIEFING — 2026-06-25 16:36
 
-### Since last session (2026-06-25 15:00:05 → still open)
+### Since last session (2026-06-25 21:45:22 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `7afe0f115` feat(inbox): closed-loop email doctrine — DIRECTION/QUESTION/CC now reply  _21 minutes ago_
-- `0e8599f8b` fix(digest): Path A gap — route COS:/HALE: directive forwards from Commander  _30 minutes ago_
-- `d0083e627` fix(briefing): restore article hyperlinks per Commander directive 2026-06-25  _37 minutes ago_
-- `8802e8483` feat(intel): MyClaw Agentic Blowback newsletter — integrated to Qdrant  _37 minutes ago_
-- `511a3593d` fix(ship-intel): capacity_data init as {} not [] to prevent list.get() crash  _40 minutes ago_
+- `119d51e9b` feat(poe): full alias coverage, points scraper, daily 0600 MT timer  _78 minutes ago_
+- `946fce13d` fix(poe): rotate key, fix file-over-env priority, update broken model IDs  _2 hours ago_
+- `b837be604` feat(poe): add nano-banana-pro + GPT nano family, correct image-model labels  _2 hours ago_
+- `45b8c188a` feat(poe): update model table — Commander's full alias set  _2 hours ago_
+- `ddd92500d` feat(poe): open model selection — any Poe model ID works, add deepseek-v4/kimi/grok4 aliases  _2 hours ago_
+
+_No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (2s ago)
-- `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `dossiers/Nichols_Regent_3078056.md` (43m ago)
-- `hale_brief.md` (3.5h ago)
-- `dossiers/Loucks_Regent_Grandeur_3122006.md` (11.5h ago)
-- `dossiers/Ely_Darrow_Regent_3096289.md` (11.6h ago)
-- `OpsCenter/opencode_memory.md` (16.7h ago)
-- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (20.2h ago)
+- `hale_state.json` (0s ago)
+- `OpsCenter/collaboration/blackboard.md` (1.3h ago)
+- `dossiers/Nichols_Regent_3078056.md` (7.8h ago)
+- `hale_brief.md` (10.6h ago)
+- `dossiers/Loucks_Regent_Grandeur_3122006.md` (18.6h ago)
+- `dossiers/Ely_Darrow_Regent_3096289.md` (18.7h ago)
+- `OpsCenter/opencode_memory.md` (23.8h ago)
+- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (1.1d ago)
 
-**Mission board:** 82 open (8 P0, 65 P1)
+**Mission board:** 38 open (8 P0, 21 P1)
   - 🔴 MISSION-065: Pacific Voyage Blog
   - 🔴 MISSION-148: Telegram Feature Expansion
   - 🔴 MISSION-152: Phase E: Signal
@@ -132,5 +134,5 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
   - 🔴 MISSION-214: Regent Portal On-Demand
 
 ### Suggested next actions
-1. No carry-over flagged. Confirm AM brief p
+1. No 
 <!-- COMMANDER-READY:END -->

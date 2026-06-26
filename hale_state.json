@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-25T18:21:05.287545+00:00",
+    "last_health_check": "2026-06-26T02:25:53.923604+00:00",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-25T18:21:05.287545+00:00"
+    "last_updated": "2026-06-26T02:25:53.923604+00:00"
   },
   "open_tasks": [
     {

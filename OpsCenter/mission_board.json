@@ -9811,7 +9811,7 @@
     {
       "id": "MISSION-440",
       "title": "\u2705 EMAIL CLOSED-LOOP",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "DOCTRINE \u2014 Standing Order SO_EMAIL_CLOSED_LOOP_20260625 Commander email directive: \u2705 EMAIL CLOSED-LOOP DOCTRINE \u2014 Standing Order SO_EMAIL_CLOSED_LOOP_20260625. Commander, Per your directive: \"send this entire directive to my email.\" Below is the full Standing Order \u2014 EMAIL CLOSED-LOOP DOCTRINE \u2014 as committed to the Wing this session. # SO \u2014 EMAIL CLOSED-L",
@@ -9821,12 +9821,13 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-25T15:09:04.064614+00:00",
-      "updated_at": "2026-06-25T15:09:04.064625+00:00"
+      "updated_at": "2026-06-25T15:09:04.064625+00:00",
+      "completed_at": "2026-06-25T19:05:01.044764+00:00"
     },
     {
       "id": "MISSION-441",
       "title": "Validate SO_EMAIL_CLOSED_LOOP_20260625 is",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "100% mirrored in code Audit: every clause in standing_orders/SO_EMAIL_CLOSED_LOOP_20260625.md must have a corresponding code path in core/email/thunderbird_commander_inbox.py and scripts/d2m_commander_digest.py. Test DIRECTION/QUESTION/CC/INFORMATION classification live against real emails. Confirm confirmation emails actually send. Confirm no silent reads in any path. Produce pass/fail checklist per SO clause.",
@@ -9836,7 +9837,8 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-25T15:10:12.646698+00:00",
-      "updated_at": "2026-06-25T15:10:12.646710+00:00"
+      "updated_at": "2026-06-25T15:10:12.646710+00:00",
+      "completed_at": "2026-06-25T19:05:01.097843+00:00"
     },
     {
       "id": "MISSION-651",

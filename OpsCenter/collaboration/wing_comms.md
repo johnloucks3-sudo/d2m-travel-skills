@@ -1,4 +1,31 @@
 ---
+msg_id: WC-20260625-0002
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-25T18:35:00Z
+
+WATCHER DISPATCH — INBOX SCAN COMPLETE
+
+Scanned opencode_inbox.md for PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE tasks.
+
+RESULTS:
+  Tasks found with actionable status: 1
+  Tasks processed: 1
+  Tasks failed: 0
+
+EXECUTED:
+  · RELAY-43e4f685 (UNREAD → COMPLETE)
+    POST-COMMIT relay from Claude Haiku 4.5
+    Commit: f006f82fc — feat: HALE BUS CI hardwire into session lifecycle
+    Stat: 100 files changed, 44710 insertions(+), 10644 deletions(-)
+    Action: Acknowledged. Major CI integration — HALE BUS hardwired into session lifecycle. Informational relay — no further execution required.
+
+INBOX STATUS: CLEAN — 582 blocks reviewed, 1 processed, 0 failures.
+
+EMAIL STATUS: Summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
 msg_id: WC-20260625-0001
 msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
 from: HALE-OC (JET)
@@ -9960,3 +9987,186 @@ summary: |
 
   INBOX STATUS: CLEAN — 0 remaining actionable items.
   Commander notified via email at johnloucks3@gmail.com.
+## WC-20260625-0015 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T19:00:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4854 lines / 410 sections reviewed.
+  Actionable tasks: 1 (RELAY-2875a07d — UNREAD).
+
+  EXECUTED:
+    · RELAY-2875a07d → COMPLETE 2026-06-25T19:00:00Z
+      Post-commit relay: e29af9e7b — fix(mission-flood): remove 1337 feedback-loop missions, fix inbox re-ingestion
+      3 files changed, 30823 insertions(+), 17601 deletions(-) | author: Claude Haiku 4.5
+      Type: Bug fix — removed 1337 runaway feedback-loop missions; inbox re-ingestion pipeline fixed
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+## WC-20260625-0016 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T19:10:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4883 lines / 410+ sections reviewed.
+  Actionable tasks: 1 (RELAY-4ce9bad8 — UNREAD).
+
+  EXECUTED:
+    · RELAY-4ce9bad8 → COMPLETE 2026-06-25T19:10:00Z
+      Post-commit relay: fa42ddf9f — fix(inbox): kill empty ack emails for DIRECTION and CC classifications
+      1 file changed, 2 insertions(+), 23 deletions(-) | author: Claude Haiku 4.5
+      Type: Bug fix — inbox classification fix; empty ack emails for DIRECTION/CC classifications eliminated
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+
+## WC-20260625-0017 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T19:06:06Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4915 lines / 412 sections reviewed.
+  Actionable tasks: 1 (RELAY-10292d75 — UNREAD).
+
+  EXECUTED:
+    · RELAY-10292d75 → COMPLETE 2026-06-25T19:06:06Z
+      Post-commit relay: d25a9b2d6 — fix(inbox): CC + INFORMATION paths now actually file emails per SO_EMAIL_CLOSED_LOOP_20260625
+      1 file changed, 36 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
+      Type: Bug fix — CC + INFORMATION email paths now correctly file emails per SO_EMAIL_CLOSED_LOOP_20260625
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+
+## WC-20260625-0018 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T19:55:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4947 lines / 589 sections reviewed.
+  Actionable tasks: 1 (RELAY-0931d8ce — UNREAD).
+
+  EXECUTED:
+    · RELAY-0931d8ce → COMPLETE 2026-06-25T19:55:00Z
+      Post-commit relay: 9525d1b7c — feat(model-broker): replace OpenRouter with Poe as alternate model provider
+      2 files changed, 245 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+      Type: Feature — model broker updated; OpenRouter replaced with Poe as alternate provider
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-25 14:17:29
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+
+## WC-20260625-0019 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T20:35:00Z
+from: HALE-OC (OpenCode / JET)
+priority: P0
+status: COMPLETE
+
+summary: |
+  Watcher dispatch T2-COMMS-BUILD-20260518 executed by HALE-OC (OpenCode).
+  Inbox sweep: 4975 lines / 590 sections reviewed.
+  Actionable tasks: 1 (RELAY-149bbe51 — UNREAD).
+
+  EXECUTED:
+    · RELAY-149bbe51 → COMPLETE 2026-06-25T20:35:00Z
+      Post-commit relay: ddd92500d — feat(poe): open model selection — any Poe model ID works, add deepseek-v4/kimi/grok4 aliases
+      1 file changed, 93 insertions(+), 83 deletions(-) | author: Claude Haiku 4.5
+      Type: Feature — Poe model broker now open; any Poe model ID accepted; deepseek-v4/kimi/grok4 aliases registered
+      Action: Acknowledged. Informational relay — no further execution required.
+
+  INBOX STATUS: CLEAN — 0 remaining actionable items.
+  Commander notified via email at johnloucks3@gmail.com.
+
+---
+## WC-20260625-WATCHER — RELAY-d6998bba — 2026-06-25T20:41:00Z
+type: WATCHER-DISPATCH
+dispatch_id: T2-COMMS-BUILD-20260518
+processed_by: HALE-OC (OpenCode / JET)
+
+INBOX SWEEP: 838 sections | 5003 lines | 1 actionable found
+
+EXECUTED:
+  ✅ RELAY-d6998bba (UNREAD → COMPLETE 2026-06-25T20:41:00Z)
+     [POST-COMMIT] 45b8c188a: feat(poe): update model table — Commander's full alias set
+     1 file changed, 68 insertions(+), 25 deletions(-) | author: Claude Haiku 4.5
+     Type: Informational post-commit relay. No execution required — acknowledged and logged.
+
+C2 EMAIL: Sent to johnloucks3@gmail.com | message_id: 19f008537744631c
+STATUS: INBOX CLEAN
+
+---
+## WC-20260625-0020 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T21:00:00Z
+from: HALE-OC (OpenCode / JET)
+type: WATCHER-DISPATCH-RESULT
+priority: P0
+
+INBOX SCAN — 2026-06-25T21:00:00Z
+  File: opencode_inbox.md (5038 lines)
+  Actionable tasks found: 1
+  Tasks processed: 1
+  Tasks failed: 0
+
+EXECUTED:
+  ✅ RELAY-aefa6721 (UNREAD → COMPLETE)
+     [POST-COMMIT] b837be604: feat(poe): add nano-banana-pro + GPT nano family, correct image-model labels
+     1 file changed, 19 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+     Disposition: Informational post-commit relay acknowledged. No execution required.
+
+STATUS: INBOX CLEAN — 0 remaining actionable items.
+Commander notification: Email dispatched to johnloucks3@gmail.com.
+
+---
+## WC-20260625-0021 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-25T21:05:00Z
+from: HALE-OC (OpenCode / JET)
+type: WATCHER-DISPATCH-RESULT
+priority: P0
+
+INBOX SCAN — 2026-06-25T21:05:00Z
+  File: opencode_inbox.md (5072 lines)
+  Actionable tasks found: 1
+  Tasks processed: 1
+  Tasks failed: 0
+
+EXECUTED:
+  ✅ RELAY-f30281ce (UNREAD → COMPLETE 2026-06-25T21:05:00Z)
+     [POST-COMMIT] 946fce13d: fix(poe): rotate key, fix file-over-env priority, update broken model IDs
+     1 file changed, 9 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+     Disposition: Informational post-commit relay acknowledged. Poe API key rotated,
+     file-over-env priority corrected, broken model IDs updated. No further execution required.
+
+STATUS: INBOX CLEAN — 0 remaining actionable items.
+Commander notification: Email dispatched to johnloucks3@gmail.com.
+
+---
+## WC-20260625-WATCHER — HALE-OC Watcher Dispatch T2-COMMS-BUILD-20260518 — 2026-06-25T21:20:00Z
+
+**INBOX SCAN COMPLETE**
+- Total lines scanned: 5105
+- Actionable tasks found: 1
+
+**TASK PROCESSED:**
+- RELAY-97ce34a5 (UNREAD → COMPLETE)
+  - Post-commit relay from CC: 119d51e9b
+  - feat(poe): full alias coverage, points scraper, daily 0600 MT timer
+  - 4 files changed, 488 insertions(+), 82 deletions(-)
+  - Author: Claude Haiku 4.5
+  - Action: Acknowledged and marked COMPLETE
+
+**STATUS:** INBOX CLEAN — 0 remaining actionable items.
+Commander notification: Email dispatched to johnloucks3@gmail.com.

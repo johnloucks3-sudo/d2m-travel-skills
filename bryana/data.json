@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T12:21:24.718795",
+  "generated_at": "2026-06-25T20:22:01.966824",
   "clients": [
     {
       "client": "Furlow / Ely-Darrow / Nichols",
@@ -340,7 +340,7 @@
     "tess": "OFFLINE",
     "telegram": "LIVE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
-    "last_updated": "2026-06-25T18:21:05.287545+00:00",
+    "last_updated": "2026-06-26T02:21:53.594682+00:00",
     "spsa_last": "",
     "pipeline_total": 0,
     "bookings_count": 26

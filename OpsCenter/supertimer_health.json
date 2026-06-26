@@ -3,8 +3,8 @@
     "status": "GREEN",
     "tasks_ran": 2,
     "tasks_failed": 0,
-    "duration_sec": 0.1753088950063102,
-    "ts": "2026-06-25T18:19:01.879988+00:00",
+    "duration_sec": 0.1638668040104676,
+    "ts": "2026-06-26T02:25:53.885615+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -12,8 +12,8 @@
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.05952822900144383,
-    "ts": "2026-06-25T18:16:58.042338+00:00",
+    "duration_sec": 0.0673063260037452,
+    "ts": "2026-06-26T02:21:53.432111+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -21,8 +21,8 @@
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.0675865109951701,
-    "ts": "2026-06-25T18:19:01.774630+00:00",
+    "duration_sec": 0.07347084899083711,
+    "ts": "2026-06-26T02:21:53.505796+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -30,71 +30,71 @@
     "status": "GREEN",
     "tasks_ran": 6,
     "tasks_failed": 0,
-    "duration_sec": 0.8441518339968752,
-    "ts": "2026-06-25T17:32:40.015078+00:00",
+    "duration_sec": 0.579566028987756,
+    "ts": "2026-06-26T01:35:49.641376+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "infra_bot": {
     "status": "RED",
-    "tasks_ran": 5,
-    "tasks_failed": 4,
-    "duration_sec": 2.5936949840106536,
-    "ts": "2026-06-25T18:19:04.299121+00:00",
+    "tasks_ran": 2,
+    "tasks_failed": 2,
+    "duration_sec": 1.664529569010483,
+    "ts": "2026-06-26T02:25:55.387077+00:00",
     "error": "",
-    "consecutive_failures": 2622
+    "consecutive_failures": 3087
   },
   "audit_bot": {
     "status": "GREEN",
-    "tasks_ran": 2,
+    "tasks_ran": 3,
     "tasks_failed": 0,
-    "duration_sec": 0.16737771301995963,
-    "ts": "2026-06-25T14:02:39.274365+00:00",
+    "duration_sec": 11.525233971013222,
+    "ts": "2026-06-26T02:04:03.197295+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "comms_bot": {
-    "status": "GREEN",
-    "tasks_ran": 1,
+    "status": "IDLE",
+    "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 5.369448380020913,
-    "ts": "2026-06-25T18:19:07.074323+00:00",
+    "duration_sec": 0.06446745598805137,
+    "ts": "2026-06-26T02:25:53.786805+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "intel_bot": {
     "status": "RED",
     "tasks_ran": 2,
-    "tasks_failed": 1,
-    "duration_sec": 20.13775076699676,
-    "ts": "2026-06-25T18:19:21.844444+00:00",
+    "tasks_failed": 2,
+    "duration_sec": 18.4270085709868,
+    "ts": "2026-06-26T02:26:12.150850+00:00",
     "error": "",
-    "consecutive_failures": 30
+    "consecutive_failures": 495
   },
   "metrics_bot": {
     "status": "GREEN",
     "tasks_ran": 5,
     "tasks_failed": 0,
-    "duration_sec": 0.9365915610105731,
-    "ts": "2026-06-25T18:12:40.869067+00:00",
+    "duration_sec": 1.117840918013826,
+    "ts": "2026-06-26T02:19:54.291602+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "client_bot": {
     "status": "RED",
-    "tasks_ran": 3,
-    "tasks_failed": 3,
-    "duration_sec": 121.29091906402027,
-    "ts": "2026-06-25T18:21:02.996885+00:00",
+    "tasks_ran": 2,
+    "tasks_failed": 2,
+    "duration_sec": 1.4841247019940056,
+    "ts": "2026-06-26T02:25:55.207096+00:00",
     "error": "",
-    "consecutive_failures": 2595
+    "consecutive_failures": 3060
   },
   "backup_bot": {
     "status": "GREEN",
-    "tasks_ran": 2,
+    "tasks_ran": 6,
     "tasks_failed": 0,
-    "duration_sec": 11.143689287011512,
-    "ts": "2026-06-25T16:45:53.743240+00:00",
+    "duration_sec": 25.63191932401969,
+    "ts": "2026-06-26T00:49:10.344423+00:00",
     "error": "",
     "consecutive_failures": 0
   }

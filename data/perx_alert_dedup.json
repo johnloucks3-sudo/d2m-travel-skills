@@ -170,5 +170,69 @@
   "silver-nova-may2027-window_le_havre_nodate:URGENT": {
     "date": "2026-06-25",
     "ts": "2026-06-25T12:04:44.700753"
+  },
+  "silver-nova-2026_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864754"
+  },
+  "silver-nova-2026_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864773"
+  },
+  "silver-nova-may2027-voyage1_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864785"
+  },
+  "silver-nova-may2027-voyage1_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864796"
+  },
+  "silver-nova-may2027-window_seven_seas_cruises_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864807"
+  },
+  "silver-nova-may2027-window_viking_ocean_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T12:51:33.864817"
+  },
+  "norway-2027-silversea_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491847"
+  },
+  "norway-2027-regent_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491861"
+  },
+  "silver-nova-2026_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491868"
+  },
+  "grandeur-2026_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491874"
+  },
+  "med-2027-luxury_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491878"
+  },
+  "grandeur-dec29-2026_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491885"
+  },
+  "silver-nova-may2027-voyage1_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491891"
+  },
+  "silver-nova-may2027-window_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491896"
+  },
+  "luxury-2027-atlas_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491902"
+  },
+  "luxury-2027-explora_seabourn_cruise_nodate:URGENT": {
+    "date": "2026-06-25",
+    "ts": "2026-06-25T17:27:56.491909"
   }
 }

@@ -22,9 +22,9 @@ Template: `storage/templates/d2m_canonical_darknavy.html` ({{BODY_CONTENT}} plac
 - Config: `OpsCenter/eod_incubator_config.json` | Full SO: `standing_orders/SO_EOD_INCUBATOR_PROTOCOL_20260610.md`
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-25 12:20 MT -->
+<!-- Last sync: 2026-06-25 20:26 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-25 12:20 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-06-25 20:26 MT] ===
 Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
