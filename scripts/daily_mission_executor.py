@@ -238,30 +238,19 @@ NEXT: [what should happen next]
 
     start = time.time()
     try:
-        proc = subprocess.run(
-            [
-                "/home/john/.local/bin/claude",
-                "--model", "claude-haiku-4-5-20251001",
-                "--dangerously-skip-permissions",
-                "-p", prompt,
-            ],
-            capture_output=True,
-            text=True,
-            timeout=TASK_TIMEOUT,
-            env=env,
-            cwd=str(THUNDERBIRD),
+        from scripts.bg_llm import bg_complete
+        output = bg_complete(
+            prompt=prompt,
+            system="You are Hale, COS for Dreams2Memories Travel. Execute the mission task described and provide a detailed analysis and action report.",
+            max_tokens=4096,
         )
         elapsed = time.time() - start
-        if proc.returncode == 0 and proc.stdout.strip():
+        if output.strip():
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_text(proc.stdout)
-            return {"success": True, "output": proc.stdout[:500], "elapsed": elapsed}
+            output_path.write_text(output)
+            return {"success": True, "output": output[:500], "elapsed": elapsed}
         else:
-            err = proc.stderr[:300] if proc.stderr else "no stderr"
-            return {"success": False, "output": f"rc={proc.returncode}: {err}", "elapsed": elapsed}
-    except subprocess.TimeoutExpired:
-        elapsed = time.time() - start
-        return {"success": False, "output": f"TIMEOUT after {TASK_TIMEOUT}s", "elapsed": elapsed}
+            return {"success": False, "output": "bg_llm returned empty response", "elapsed": elapsed}
     except Exception as e:
         return {"success": False, "output": str(e), "elapsed": time.time() - start}
 

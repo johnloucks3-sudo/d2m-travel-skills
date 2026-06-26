@@ -109,30 +109,17 @@ For each promising tool (max 5), return:
 Return ONLY zero-cost options. If nothing new found, return tools: [] with honest summary."""
 
     try:
-        result = subprocess.run(
-            ["claude", "--print", "--output-format", "json", "-p", prompt],
-            capture_output=True, text=True, timeout=120,
-            env={**os.environ, "ANTHROPIC_LOG": "error"},
-        )
-        out = result.stdout.strip()
-        # `--output-format json` wraps the agent reply in an envelope:
-        #   {"type":"result","result":"<agent text>", ...}
-        # The old code json.loads'd the whole envelope and looked for "tools" on
-        # it — which never exists — so every run reported 0 tools. Unwrap first.
-        inner = out
-        try:
-            env = json.loads(out)
-            if isinstance(env, dict) and "result" in env:
-                inner = env["result"]
-        except Exception:
-            pass
-        start = inner.find("{")
-        end   = inner.rfind("}") + 1
+        import sys as _sys
+        _root = Path(__file__).parent.parent.parent
+        if str(_root) not in _sys.path:
+            _sys.path.insert(0, str(_root))
+        from scripts.bg_llm import bg_complete
+        out = bg_complete(prompt=prompt, system="You are a technology research AI scanning for zero-cost writing and AI tools.", max_tokens=2048)
+        start = out.find("{")
+        end   = out.rfind("}") + 1
         if start >= 0 and end > start:
-            return json.loads(inner[start:end])
+            return json.loads(out[start:end])
         return {"tools": [], "summary": "Harvest returned no structured data."}
-    except subprocess.TimeoutExpired:
-        return {"tools": [], "summary": "Harvest timed out (120s)."}
     except Exception as e:
         return {"tools": [], "summary": f"Harvest error: {e}"}
 

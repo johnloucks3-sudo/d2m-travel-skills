@@ -28,6 +28,13 @@ from pathlib import Path
 from datetime import datetime, date
 
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
+sys.path.insert(0, str(THUNDERBIRD_DIR))
+
+
+def _bg_complete(prompt: str, system: str = "", timeout: int = 90) -> str:
+    """Call bg_llm.py for free overnight inference (Gemini → Poe, no Claude Max)."""
+    from scripts.bg_llm import bg_complete
+    return bg_complete(prompt=prompt, system=system or "You are a professional travel writing AI.", max_tokens=2048)
 CONFIG_DIR      = THUNDERBIRD_DIR / "config"
 LOGS_DIR        = THUNDERBIRD_DIR / "logs"
 DATA_DIR        = THUNDERBIRD_DIR / "data"
@@ -201,15 +208,7 @@ Return ONLY valid JSON — no markdown, no explanation outside the JSON:
     )
 
     try:
-        result = subprocess.run(
-            ["claude", "--print", "--output-format", "json", "-p", user_msg],
-            input=system,
-            capture_output=True,
-            text=True,
-            timeout=60,
-            env={**os.environ, "ANTHROPIC_LOG": "error"},
-        )
-        out = result.stdout.strip()
+        out = _bg_complete(prompt=user_msg, system=system, timeout=90)
         start = out.find("{")
         end   = out.rfind("}") + 1
         if start >= 0 and end > start:
@@ -217,11 +216,6 @@ Return ONLY valid JSON — no markdown, no explanation outside the JSON:
         return {
             "polished": draft, "changes": [], "confidence": 0.0,
             "tier_applied": tier, "error": "No JSON in response",
-        }
-    except subprocess.TimeoutExpired:
-        return {
-            "polished": draft, "changes": [], "confidence": 0.0,
-            "tier_applied": tier, "error": "Timeout (60s)",
         }
     except Exception as e:
         return {
@@ -328,11 +322,7 @@ Include ONLY principles supported by repeated evidence in the log.
 Merge with existing rules, do not duplicate."""
 
     try:
-        result = subprocess.run(
-            ["claude", "--print", "--output-format", "json", "-p", prompt],
-            capture_output=True, text=True, timeout=60,
-        )
-        out = result.stdout.strip()
+        out = _bg_complete(prompt=prompt, system="You are an AI writing coach extracting principles from document polish logs.")
         start = out.find("{")
         end   = out.rfind("}") + 1
         if start >= 0 and end > start:

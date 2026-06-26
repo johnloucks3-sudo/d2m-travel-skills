@@ -155,76 +155,30 @@ def _call_openrouter(prompt: str, system: str, model_id: str, max_tokens: int = 
 
 
 def _call_claude(prompt: str, system: str, max_tokens: int = 2000) -> str:
-    """Call Claude via CLI subprocess (Max plan, $0). Replaced direct SDK call
-    which was failing with 401 when the API key expired. 2026-03-27 COS fix."""
-    import subprocess
-    full_prompt = f"{system}\n\n---\n\n{prompt}"
-    # Strip the dead API key so the CLI uses Max plan OAuth
-    env = os.environ.copy()
-    env.pop("ANTHROPIC_API_KEY", None)
-    env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
-    cmd = [
-        CLAUDE_CMD,
-        "--print",
-        "--model", "haiku",
-        "--dangerously-skip-permissions",
-        "--output-format", "text",
-        "-p", "-",
-    ]
+    """Free overnight inference via bg_llm (Gemini 2.5 Flash-Lite → Poe DeepSeek).
+    Zero Claude Max tokens. 2026-06-25 migration per Token-Discipline SO."""
+    _root = Path(__file__).parent.parent.parent
+    if str(_root) not in sys.path:
+        sys.path.insert(0, str(_root))
     try:
-        result = subprocess.run(
-            cmd,
-            input=full_prompt,
-            capture_output=True,
-            text=True,
-            timeout=120,
-            env=env,
-        )
-        if result.returncode != 0:
-            log.error(f"Claude CLI failed (exit {result.returncode}): {result.stderr[:300]}")
-            raise RuntimeError(f"CLI exit {result.returncode}")
-        output = result.stdout.strip()
-        if not output or "issue with the selected model" in output:
-            raise RuntimeError(f"CLI returned unusable output: {output[:100]}")
-        return output
+        from scripts.bg_llm import bg_complete
+        return bg_complete(prompt=prompt, system=system, max_tokens=max_tokens)
     except Exception as e:
-        log.warning(f"Claude CLI (haiku) unavailable ({e}) — retrying on Claude Sonnet (MAX, $0)")
+        log.error(f"bg_llm failed ({e}) — falling back to _call_claude_sonnet_fallback")
         return _call_claude_sonnet_fallback(prompt, system, max_tokens)
 
 
 def _call_claude_sonnet_fallback(prompt: str, system: str, max_tokens: int = 2000) -> str:
-    """Fallback on Claude Sonnet via CLI (MAX plan, $0) when the haiku call fails.
-
-    Commander directive 2026-06-20: research/incubator/tech-search must NOT use
-    opencode. The former OpenCode ZEN (deepseek-v4-flash-free) fallback is retired —
-    that model was broken and was the root cause of incubator search failures.
-    """
-    import subprocess
-    full_prompt = f"{system}\n\n---\n\n{prompt}"
-    env = os.environ.copy()
-    env.pop("ANTHROPIC_API_KEY", None)
-    env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
-    cmd = [
-        CLAUDE_CMD,
-        "--print",
-        "--model", "sonnet",
-        "--dangerously-skip-permissions",
-        "--output-format", "text",
-        "-p", "-",
-    ]
+    """Fallback: Poe DeepSeek if Gemini fails. Zero Claude Max tokens."""
+    _root = Path(__file__).parent.parent.parent
+    if str(_root) not in sys.path:
+        sys.path.insert(0, str(_root))
     try:
-        result = subprocess.run(
-            cmd, input=full_prompt, capture_output=True,
-            text=True, timeout=180, env=env,
-        )
-        output = result.stdout.strip()
-        if result.returncode != 0 or not output or "issue with the selected model" in output:
-            log.error(f"Claude Sonnet fallback failed (exit {result.returncode}): {result.stderr[:200]}")
-            return f"[Claude unavailable — incubator skipped this item]"
-        return output
+        from scripts.bg_llm import bg_complete
+        return bg_complete(prompt=prompt, system=system, model="deepseek", max_tokens=max_tokens)
     except Exception as e:
-        log.error(f"Claude Sonnet fallback failed: {e}")
-        return f"[Claude unavailable: {e}]"
+        log.error(f"All free providers failed: {e}")
+        return f"[bg_llm unavailable: {e}]"
 
 
 def _load_am_categories() -> list:
