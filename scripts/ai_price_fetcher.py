@@ -184,15 +184,19 @@ def xai_search(line_name: str, months_ahead: int = 6) -> str:
         return ""
 
 def multi_search(line_name: str, months_ahead: int = 6) -> str:
-    """Multi-source search: Gemini grounded (primary) + DeepSeek (secondary) + optional Perplexity/XAI."""
+    """Multi-source search: Gemini grounded + Perplexity sonar + DeepSeek fallback."""
     parts = []
 
     gem = gemini_grounded_search(line_name, months_ahead)
     print(f"  [1a] Gemini+Search: {len(gem)} chars")
     if gem: parts.append(f"--- GEMINI GOOGLE SEARCH ---\n{gem}")
 
+    ppx = perplexity_search(line_name, months_ahead)
+    print(f"  [1b] Perplexity:    {len(ppx)} chars")
+    if ppx: parts.append(f"--- PERPLEXITY SONAR ---\n{ppx}")
+
     ds = deepseek_search(line_name, months_ahead)
-    print(f"  [1b] DeepSeek:      {len(ds)} chars")
+    print(f"  [1c] DeepSeek:      {len(ds)} chars")
     if ds: parts.append(f"--- DEEPSEEK ---\n{ds}")
 
     return "\n\n".join(parts)
