@@ -135,14 +135,34 @@ def embed(texts: list[str], model: str = EMBED_MODEL) -> list[list[float]]:
 # Wing-specific convenience functions
 # ---------------------------------------------------------------------------
 
+def _sonar_search(query: str, max_tokens: int = 800) -> str:
+    """Internal: call /chat/completions with sonar model (cheap, $0.005/call).
+
+    Used by intel_sweep and cruise_search to avoid the expensive /v1/responses
+    Response API (which spins up GPT-5.4-mini + Gemini-3-flash internally at
+    full provider rates — ~$0.45/call vs $0.005/call for sonar).
+    """
+    payload = {
+        "model": "sonar",
+        "messages": [{"role": "user", "content": query}],
+        "max_tokens": max_tokens,
+        "temperature": 0.1,
+    }
+    resp = requests.post(
+        f"{API_BASE}/chat/completions", headers=_headers(), json=payload, timeout=30
+    )
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"]
+
+
 def cruise_search(query: str) -> str:
     """Search for cruise availability, pricing, or itinerary info."""
-    return deep_search_text(f"luxury cruise {query} 2026 2027 pricing availability per person")
+    return _sonar_search(f"luxury cruise {query} 2026 2027 pricing availability per person")
 
 
 def intel_sweep(topic: str) -> str:
     """Research sweep for Dembe-style OSINT — current events, industry news."""
-    return deep_search_text(f"{topic} latest news developments 2026")
+    return _sonar_search(f"{topic} latest news developments 2026")
 
 
 def flight_intel(origin: str, destination: str, travel_date: str) -> list[dict]:
