@@ -848,16 +848,7 @@ if __name__ == '__main__':
         source_lists.append(px)
         print(f"  +{len(px)} Perx sailings")
 
-    # Commander directive 2026-06-26: exclude Seabourn from all sources
-    EXCLUDED_LINES = {'seabourn', 'seabourn cruise line', 'seabourn cruises'}
-    filtered_lists = []
-    for lst in source_lists:
-        filtered = [r for r in lst if (r.get('line') or r.get('cruise_line') or '').lower().strip() not in EXCLUDED_LINES]
-        filtered_lists.append(filtered)
-    excl_count = sum(len(l) for l in source_lists) - sum(len(l) for l in filtered_lists)
-    if excl_count:
-        print(f"  Excluded {excl_count} Seabourn records")
-    source_lists = filtered_lists
+    # Seabourn inclusion restored 2026-06-26 — all luxury/ultra-luxury lines included
 
     # Commander directive 2026-06-26: Viking = ocean ships only (exclude river fleet)
     # Viking Ocean fleet uses astronomical/classical names; river fleet uses Norse mythology names.

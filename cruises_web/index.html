@@ -122,7 +122,7 @@ main{max-width:1100px;margin:0 auto;padding:20px}
 <div class="trust-bar">
   We source <strong>consortium &amp; negotiated rates</strong> not available online &mdash;
   pricing provided after you select your preferred sailing &nbsp;&middot;&nbsp;
-  <strong>14,911 sailings</strong> &middot; <strong>16 luxury lines</strong> &middot; Response within <strong>2 business hours</strong>
+  <strong>14,911 sailings</strong> &middot; <strong>luxury &amp; ultra-luxury lines</strong> &middot; Response within <strong>2 business hours</strong>
 </div>
 
 <div class="search-hero">
@@ -196,7 +196,7 @@ main{max-width:1100px;margin:0 auto;padding:20px}
       <div class="modal-sailings" id="m-sailings"></div>
       <div class="sla-box">Our advisors will respond with <strong>accurate, current pricing</strong> within <strong>2 business hours</strong>.</div>
       <div class="harlan-note">
-        <strong>Why no prices shown?</strong> We source consortium and negotiated rates -- often below published fares -- available only through accredited travel advisors. We confirm live pricing directly with the cruise line before quoting you.
+        <strong>About pricing:</strong> Indicative fares are sourced from public booking engines and updated periodically. Actual pricing varies by cabin category, availability, and promotions. Your D2M advisor will confirm live rates within 2 business hours. We also source consortium and negotiated rates not available on public sites.
       </div>
       <form id="price-form" onsubmit="submitReq(event)">
         <div class="fg"><label>Your Name *</label><input type="text" id="f-name" required placeholder="First and last name"></div>
@@ -256,6 +256,9 @@ function loadDropdowns() {
     return Promise.all([rs[0].json(), rs[1].json()]);
   }).then(function(data) {
     var lines = data[0], regions = data[1];
+    // Sort alphabetically
+    lines.sort(function(a,b){return a.line.localeCompare(b.line);});
+    regions.sort(function(a,b){return a.region.localeCompare(b.region);});
     var ls = document.getElementById('f-line');
     lines.forEach(function(l) {
       var o = document.createElement('option');
@@ -362,11 +365,11 @@ function renderGrid(results) {
   }
   var selIds = {};
   sel.forEach(function(s) { selIds[s.id] = true; });
-  var full = sel.length >= 4;
+  var full = sel.length >= 8;
   grid.innerHTML = results.map(function(r) {
     var added = !!selIds[r.id];
     var btnCls = added ? 'added' : (full && !added ? 'full' : '');
-    var btnTxt = added ? 'Selected' : (full && !added ? 'Max 4' : '+ Compare');
+    var btnTxt = added ? 'Selected' : (full && !added ? 'Max 8' : '+ Compare');
     var srcList = r.sources || [];
     var badges = srcList.map(function(s) {
       var m = ({vtg:['V','sv'], cruisemapper:['CM','sc'], deluxe:['DC','sd']})[s] || [s.slice(0,2).toUpperCase(), 'sc'];
@@ -412,18 +415,18 @@ function toggleSel(r) {
   var idx = -1;
   sel.forEach(function(s, i) { if (s.id === r.id) idx = i; });
   if (idx >= 0) sel.splice(idx, 1);
-  else { if (sel.length >= 4) return; sel.push(r); }
+  else { if (sel.length >= 8) return; sel.push(r); }
   localStorage.setItem('d2m_sel', JSON.stringify(sel));
   renderTray();
   var selIds = {};
   sel.forEach(function(s) { selIds[s.id] = true; });
-  var full = sel.length >= 4;
+  var full = sel.length >= 8;
   document.querySelectorAll('.btn-add').forEach(function(b) {
     var rid = parseInt(b.getAttribute('data-rid'));
     if (!rid) return;
     var a = !!selIds[rid];
     b.className = 'btn-add' + (a ? ' added' : (full && !a ? ' full' : ''));
-    b.textContent = a ? 'Selected' : (full && !a ? 'Max 4' : '+ Compare');
+    b.textContent = a ? 'Selected' : (full && !a ? 'Max 8' : '+ Compare');
   });
 }
 
