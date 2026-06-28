@@ -1,0 +1,3262 @@
+[
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-11-07",
+    "date_str": "Nov 7",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 18299,
+    "price_orig": 18299,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "53047",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-11-16",
+    "date_str": "Nov 16",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 11699,
+    "price_orig": 28499,
+    "discount": 59,
+    "suite": true,
+    "vtg_fd": "53042",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-11-27",
+    "date_str": "Nov 27",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14269,
+    "price_orig": 15004,
+    "discount": 5,
+    "suite": true,
+    "vtg_fd": "53044",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-11-27",
+    "date_str": "Nov 27",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 18199,
+    "price_orig": 18199,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "53053",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-12-06",
+    "date_str": "Dec 6",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 13979,
+    "price_orig": 24799,
+    "discount": 44,
+    "suite": false,
+    "vtg_fd": "17770",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-12-13",
+    "date_str": "Dec 13",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 14279,
+    "price_orig": 21499,
+    "discount": 34,
+    "suite": true,
+    "vtg_fd": "26255",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-12-15",
+    "date_str": "Dec 15",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 19999,
+    "price_orig": 28499,
+    "discount": 30,
+    "suite": true,
+    "vtg_fd": "53043",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-12-22",
+    "date_str": "Dec 22",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 22299,
+    "price_orig": 24257,
+    "discount": 8,
+    "suite": true,
+    "vtg_fd": "53056",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-12-26",
+    "date_str": "Dec 26",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 17499,
+    "price_orig": 18779,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "53045",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-01-02",
+    "date_str": "Jan 2, 2027",
+    "nights": 19,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 29099,
+    "price_orig": 32032,
+    "discount": 9,
+    "suite": false,
+    "vtg_fd": "30659",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-01-20",
+    "date_str": "Jan 20, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 16654,
+    "price_orig": 21799,
+    "discount": 24,
+    "suite": false,
+    "vtg_fd": "53057",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-01-31",
+    "date_str": "Jan 31, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 17299,
+    "price_orig": 17299,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "53054",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-02-04",
+    "date_str": "Feb 4, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 22999,
+    "price_orig": 25049,
+    "discount": 8,
+    "suite": true,
+    "vtg_fd": "53046",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-02-09",
+    "date_str": "Feb 9, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14299,
+    "price_orig": 17999,
+    "discount": 21,
+    "suite": false,
+    "vtg_fd": "53055",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-02-13",
+    "date_str": "Feb 13, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 25599,
+    "price_orig": 28499,
+    "discount": 10,
+    "suite": true,
+    "vtg_fd": "53048",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-02-18",
+    "date_str": "Feb 18, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 11999,
+    "price_orig": 20999,
+    "discount": 43,
+    "suite": false,
+    "vtg_fd": "53058",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-02-24",
+    "date_str": "Feb 24, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 11999,
+    "price_orig": 20999,
+    "discount": 43,
+    "suite": false,
+    "vtg_fd": "53049",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-03-01",
+    "date_str": "Mar 1, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 11499,
+    "price_orig": 20999,
+    "discount": 45,
+    "suite": false,
+    "vtg_fd": "53059",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-03-07",
+    "date_str": "Mar 7, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 12199,
+    "price_orig": 16665,
+    "discount": 27,
+    "suite": true,
+    "vtg_fd": "53050",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-03-18",
+    "date_str": "Mar 18, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 22499,
+    "price_orig": 24499,
+    "discount": 8,
+    "suite": true,
+    "vtg_fd": "53051",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-10-28",
+    "date_str": "Oct 28, 2027",
+    "nights": 13,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 18187,
+    "price_orig": 19122,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "58346",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-11-09",
+    "date_str": "Nov 9, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 13999,
+    "price_orig": 14789,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "50267",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-11-09",
+    "date_str": "Nov 9, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 17034,
+    "price_orig": 18204,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "57660",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-11-18",
+    "date_str": "Nov 18, 2027",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Punta Arenas, Ch",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 17999,
+    "price_orig": 19343,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "59560",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-11-20",
+    "date_str": "Nov 20, 2027",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Ushuaia, Argenti",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Ushuaia, Argentina",
+    "region": "South America",
+    "price_disc": 18172,
+    "price_orig": 19493,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "54379",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-11-27",
+    "date_str": "Nov 27, 2027",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 19388,
+    "price_orig": 20798,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "58138",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-11-30",
+    "date_str": "Nov 30, 2027",
+    "nights": 13,
+    "from_port": "Buenos Aires, Argentina Ushuaia, Argenti",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Ushuaia, Argentina",
+    "region": "South America",
+    "price_disc": 17525,
+    "price_orig": 18434,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "55057",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-12-04",
+    "date_str": "Dec 4, 2027",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 20378,
+    "price_orig": 21920,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "56980",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-12-13",
+    "date_str": "Dec 13, 2027",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14749,
+    "price_orig": 15598,
+    "discount": 5,
+    "suite": true,
+    "vtg_fd": "58924",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-12-21",
+    "date_str": "Dec 21, 2027",
+    "nights": 13,
+    "from_port": "Buenos Aires, Argentina Ushuaia, Argenti",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Ushuaia, Argentina",
+    "region": "South America",
+    "price_disc": 19412,
+    "price_orig": 20910,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "57011",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-12-22",
+    "date_str": "Dec 22, 2027",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Ushuaia, Argenti",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Ushuaia, Argentina",
+    "region": "South America",
+    "price_disc": 18399,
+    "price_orig": 19811,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "57778",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-01-02",
+    "date_str": "Jan 2, 2028",
+    "nights": 13,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 19299,
+    "price_orig": 20840,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "59796",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-01-14",
+    "date_str": "Jan 14, 2028",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Ushuaia, Argenti",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Ushuaia, Argentina",
+    "region": "South America",
+    "price_disc": 16699,
+    "price_orig": 17870,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "52067",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-01-24",
+    "date_str": "Jan 24, 2028",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 15399,
+    "price_orig": 18744,
+    "discount": 18,
+    "suite": true,
+    "vtg_fd": "57953",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2028-02-02",
+    "date_str": "Feb 2, 2028",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Punta Arenas, Ch",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 17999,
+    "price_orig": 19349,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "54885",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-02-02",
+    "date_str": "Feb 2, 2028",
+    "nights": 13,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 19299,
+    "price_orig": 20840,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "58485",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2028-02-11",
+    "date_str": "Feb 11, 2028",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 20918,
+    "price_orig": 22605,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "55496",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-02-14",
+    "date_str": "Feb 14, 2028",
+    "nights": 10,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14399,
+    "price_orig": 15245,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "53921",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2028-02-18",
+    "date_str": "Feb 18, 2028",
+    "nights": 9,
+    "from_port": "Punta Arenas, Chile Punta Arenas, Chile",
+    "to_port": "",
+    "route": "Punta Arenas, Chile Punta Arenas, Chile",
+    "region": "South America",
+    "price_disc": 19838,
+    "price_orig": 21308,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "53811",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-02-23",
+    "date_str": "Feb 23, 2028",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 17509,
+    "price_orig": 18744,
+    "discount": 7,
+    "suite": true,
+    "vtg_fd": "55329",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2028-02-27",
+    "date_str": "Feb 27, 2028",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14749,
+    "price_orig": 15598,
+    "discount": 5,
+    "suite": true,
+    "vtg_fd": "54277",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-03-05",
+    "date_str": "Mar 5, 2028",
+    "nights": 12,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 16749,
+    "price_orig": 17880,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "54915",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2028-03-07",
+    "date_str": "Mar 7, 2028",
+    "nights": 11,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 14749,
+    "price_orig": 15499,
+    "discount": 5,
+    "suite": true,
+    "vtg_fd": "54995",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-06-30",
+    "date_str": "Jun 30",
+    "nights": 9,
+    "from_port": "Trondheim, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Trondheim, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 7999,
+    "price_orig": 11799,
+    "discount": 32,
+    "suite": false,
+    "vtg_fd": "47900",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-07-19",
+    "date_str": "Jul 19",
+    "nights": 12,
+    "from_port": "Oslo, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Oslo, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 7499,
+    "price_orig": 10403,
+    "discount": 28,
+    "suite": true,
+    "vtg_fd": "25350",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-07-28",
+    "date_str": "Jul 28",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10762,
+    "price_orig": 14999,
+    "discount": 28,
+    "suite": false,
+    "vtg_fd": "27861",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-11",
+    "date_str": "Aug 11",
+    "nights": 9,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 13499,
+    "price_orig": 19499,
+    "discount": 31,
+    "suite": false,
+    "vtg_fd": "26591",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-08-15",
+    "date_str": "Aug 15",
+    "nights": 15,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 15525,
+    "price_orig": 22163,
+    "discount": 30,
+    "suite": true,
+    "vtg_fd": "28034",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-20",
+    "date_str": "Aug 20",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland New York (Manhattan),",
+    "to_port": "",
+    "route": "Reykjavik, Iceland New York (Manhattan), NY",
+    "region": "World",
+    "price_disc": 8299,
+    "price_orig": 12680,
+    "discount": 35,
+    "suite": true,
+    "vtg_fd": "27132",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-08-29",
+    "date_str": "Aug 29",
+    "nights": 12,
+    "from_port": "Oslo, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Oslo, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 13519,
+    "price_orig": 19154,
+    "discount": 29,
+    "suite": true,
+    "vtg_fd": "28735",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-30",
+    "date_str": "Aug 30",
+    "nights": 12,
+    "from_port": "New York (Manhattan), NY Reykjavik, Icel",
+    "to_port": "",
+    "route": "New York (Manhattan), NY Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 6499,
+    "price_orig": 16999,
+    "discount": 62,
+    "suite": false,
+    "vtg_fd": "27560",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-09-09",
+    "date_str": "Sep 9",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10437,
+    "price_orig": 23099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "29207",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-09-11",
+    "date_str": "Sep 11",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland New York (Manhattan),",
+    "to_port": "",
+    "route": "Reykjavik, Iceland New York (Manhattan), NY",
+    "region": "World",
+    "price_disc": 8025,
+    "price_orig": 9519,
+    "discount": 16,
+    "suite": true,
+    "vtg_fd": "47737",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-06-05",
+    "date_str": "Jun 5, 2027",
+    "nights": 7,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 6236,
+    "price_orig": 7699,
+    "discount": 19,
+    "suite": true,
+    "vtg_fd": "44537",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-06-19",
+    "date_str": "Jun 19, 2027",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 8999,
+    "price_orig": 8999,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "29636",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-06-30",
+    "date_str": "Jun 30, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11699,
+    "price_orig": 11699,
+    "discount": 0,
+    "suite": false,
+    "vtg_fd": "44876",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-07-04",
+    "date_str": "Jul 4, 2027",
+    "nights": 11,
+    "from_port": "Tromso, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Tromso, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 10500,
+    "price_orig": 12833,
+    "discount": 18,
+    "suite": false,
+    "vtg_fd": "44109",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-09",
+    "date_str": "Jul 9, 2027",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10764,
+    "price_orig": 12281,
+    "discount": 12,
+    "suite": true,
+    "vtg_fd": "40035",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-20",
+    "date_str": "Jul 20, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 10299,
+    "price_orig": 11780,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "42993",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-30",
+    "date_str": "Jul 30, 2027",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 17899,
+    "price_orig": 21187,
+    "discount": 16,
+    "suite": false,
+    "vtg_fd": "43330",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-08-05",
+    "date_str": "Aug 5, 2027",
+    "nights": 10,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 13799,
+    "price_orig": 16099,
+    "discount": 14,
+    "suite": true,
+    "vtg_fd": "44763",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-08-23",
+    "date_str": "Aug 23, 2027",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11499,
+    "price_orig": 13266,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "42987",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-08-29",
+    "date_str": "Aug 29, 2027",
+    "nights": 15,
+    "from_port": "Nuuk, Greenland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Nuuk, Greenland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14662,
+    "price_orig": 17086,
+    "discount": 14,
+    "suite": false,
+    "vtg_fd": "47549",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-09-04",
+    "date_str": "Sep 4, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 8154,
+    "price_orig": 9401,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "40017",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-09-14",
+    "date_str": "Sep 14, 2027",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland Dover, England",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Dover, England",
+    "region": "Northern Europe",
+    "price_disc": 9060,
+    "price_orig": 10517,
+    "discount": 14,
+    "suite": false,
+    "vtg_fd": "49647",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-06-16",
+    "date_str": "Jun 16, 2028",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10749,
+    "price_orig": 11234,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "31450",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-06-22",
+    "date_str": "Jun 22, 2028",
+    "nights": 15,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "14467",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-06-27",
+    "date_str": "Jun 27, 2028",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland Longyearbyen, Spitsbe",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Longyearbyen, Spitsbergen, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "31928",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-07",
+    "date_str": "Jul 7, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "36168",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-19",
+    "date_str": "Jul 19, 2028",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 10589,
+    "price_orig": 11054,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "40414",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-07-24",
+    "date_str": "Jul 24, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "11769",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-29",
+    "date_str": "Jul 29, 2028",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 16815,
+    "price_orig": 18083,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "46392",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-08-05",
+    "date_str": "Aug 5, 2028",
+    "nights": 9,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 10818,
+    "price_orig": 11308,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "26365",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-08-13",
+    "date_str": "Aug 13, 2028",
+    "nights": 15,
+    "from_port": "Toronto, ON, Canada Nuuk, Greenland",
+    "to_port": "",
+    "route": "Toronto, ON, Canada Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14313,
+    "price_orig": 15260,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "42761",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-08-28",
+    "date_str": "Aug 28, 2028",
+    "nights": 15,
+    "from_port": "Nuuk, Greenland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Nuuk, Greenland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14804,
+    "price_orig": 15817,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "17364",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-09-04",
+    "date_str": "Sep 4, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "21539",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-09-12",
+    "date_str": "Sep 12, 2028",
+    "nights": 17,
+    "from_port": "Nuuk, Greenland St. John's, NL, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland St. John's, NL, Canada",
+    "region": "World",
+    "price_disc": 15786,
+    "price_orig": 16930,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "10441",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-04-06",
+    "date_str": "Apr 6, 2027",
+    "nights": 10,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Seville, Spain",
+    "region": "Mediterranean",
+    "price_disc": 5019,
+    "price_orig": 11099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "38848",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-04-15",
+    "date_str": "Apr 15, 2027",
+    "nights": 8,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Malaga, Spain",
+    "region": "Mediterranean",
+    "price_disc": 3699,
+    "price_orig": 8999,
+    "discount": 59,
+    "suite": false,
+    "vtg_fd": "25864",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-04-17",
+    "date_str": "Apr 17, 2027",
+    "nights": 10,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Las Palmas, Grand Canary Island, Canary Islands",
+    "region": "Mediterranean",
+    "price_disc": 4499,
+    "price_orig": 11099,
+    "discount": 59,
+    "suite": false,
+    "vtg_fd": "13734",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-04-27",
+    "date_str": "Apr 27, 2027",
+    "nights": 10,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Lisbon, Portugal",
+    "region": "Mediterranean",
+    "price_disc": 5019,
+    "price_orig": 11099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "19981",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-10-14",
+    "date_str": "Oct 14",
+    "nights": 7,
+    "from_port": "St. Maarten Barbados",
+    "to_port": "",
+    "route": "St. Maarten Barbados",
+    "region": "Caribbean",
+    "price_disc": 6299,
+    "price_orig": 8255,
+    "discount": 24,
+    "suite": true,
+    "vtg_fd": "47860",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-09-20",
+    "date_str": "Sep 20",
+    "nights": 18,
+    "from_port": "New York (Manhattan), NY St. John's, NL,",
+    "to_port": "",
+    "route": "New York (Manhattan), NY St. John's, NL, Canada",
+    "region": "World",
+    "price_disc": 9699,
+    "price_orig": 25199,
+    "discount": 62,
+    "suite": false,
+    "vtg_fd": "37335",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-30",
+    "date_str": "Jul 30, 2027",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 17899,
+    "price_orig": 21187,
+    "discount": 16,
+    "suite": false,
+    "vtg_fd": "43330",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-29",
+    "date_str": "Jul 29, 2028",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 16815,
+    "price_orig": 18083,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "46392",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-08-13",
+    "date_str": "Aug 13, 2028",
+    "nights": 15,
+    "from_port": "Toronto, ON, Canada Nuuk, Greenland",
+    "to_port": "",
+    "route": "Toronto, ON, Canada Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14313,
+    "price_orig": 15260,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "42761",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-09-12",
+    "date_str": "Sep 12, 2028",
+    "nights": 17,
+    "from_port": "Nuuk, Greenland St. John's, NL, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland St. John's, NL, Canada",
+    "region": "World",
+    "price_disc": 15786,
+    "price_orig": 16930,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "10441",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-01",
+    "date_str": "Jul 1",
+    "nights": 9,
+    "from_port": "Rome (Civitavecchia), Italy Athens (Pira",
+    "to_port": "",
+    "route": "Rome (Civitavecchia), Italy Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 3299,
+    "price_orig": 6150,
+    "discount": 46,
+    "suite": false,
+    "vtg_fd": "18054",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-10",
+    "date_str": "Jul 10",
+    "nights": 10,
+    "from_port": "Athens (Piraeus), Greece Athens (Piraeus",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 2999,
+    "price_orig": 9499,
+    "discount": 68,
+    "suite": false,
+    "vtg_fd": "47868",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-10",
+    "date_str": "Jul 10",
+    "nights": 30,
+    "from_port": "Athens (Piraeus), Greece Barcelona, Spai",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_disc": 3799,
+    "price_orig": 12199,
+    "discount": 69,
+    "suite": false,
+    "vtg_fd": "11276",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-20",
+    "date_str": "Jul 20",
+    "nights": 10,
+    "from_port": "Athens (Piraeus), Greece Rome (Civitavec",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Rome (Civitavecchia), Italy",
+    "region": "Mediterranean",
+    "price_disc": 3299,
+    "price_orig": 9499,
+    "discount": 65,
+    "suite": false,
+    "vtg_fd": "47876",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-30",
+    "date_str": "Jul 30",
+    "nights": 10,
+    "from_port": "Rome (Civitavecchia), Italy Barcelona, S",
+    "to_port": "",
+    "route": "Rome (Civitavecchia), Italy Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_disc": 3099,
+    "price_orig": 8899,
+    "discount": 65,
+    "suite": false,
+    "vtg_fd": "47879",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-09",
+    "date_str": "Aug 9",
+    "nights": 7,
+    "from_port": "Barcelona, Spain Monte Carlo, Monaco",
+    "to_port": "",
+    "route": "Barcelona, Spain Monte Carlo, Monaco",
+    "region": "Mediterranean",
+    "price_disc": 9993,
+    "price_orig": 14240,
+    "discount": 30,
+    "suite": false,
+    "vtg_fd": "27676",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-16",
+    "date_str": "Aug 16",
+    "nights": 5,
+    "from_port": "Monte Carlo, Monaco Valletta, Malta",
+    "to_port": "",
+    "route": "Monte Carlo, Monaco Valletta, Malta",
+    "region": "Mediterranean",
+    "price_disc": 2899,
+    "price_orig": 4282,
+    "discount": 32,
+    "suite": true,
+    "vtg_fd": "12033",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-16",
+    "date_str": "Aug 16",
+    "nights": 11,
+    "from_port": "Monte Carlo, Monaco Athens (Piraeus), Gr",
+    "to_port": "",
+    "route": "Monte Carlo, Monaco Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 5399,
+    "price_orig": 8301,
+    "discount": 35,
+    "suite": true,
+    "vtg_fd": "47880",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-21",
+    "date_str": "Aug 21",
+    "nights": 6,
+    "from_port": "Valletta, Malta Athens (Piraeus), Greece",
+    "to_port": "",
+    "route": "Valletta, Malta Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 2799,
+    "price_orig": 5138,
+    "discount": 46,
+    "suite": true,
+    "vtg_fd": "16985",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-27",
+    "date_str": "Aug 27",
+    "nights": 8,
+    "from_port": "Athens (Piraeus), Greece Catania, Sicily",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Catania, Sicily, Italy",
+    "region": "Mediterranean",
+    "price_disc": 2999,
+    "price_orig": 5575,
+    "discount": 46,
+    "suite": false,
+    "vtg_fd": "16300",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-08-27",
+    "date_str": "Aug 27",
+    "nights": 13,
+    "from_port": "Athens (Piraeus), Greece Rome (Civitavec",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Rome (Civitavecchia), Italy",
+    "region": "Mediterranean",
+    "price_disc": 4299,
+    "price_orig": 11299,
+    "discount": 62,
+    "suite": false,
+    "vtg_fd": "47884",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-09-04",
+    "date_str": "Sep 4",
+    "nights": 5,
+    "from_port": "Catania, Sicily, Italy Rome (Civitavecch",
+    "to_port": "",
+    "route": "Catania, Sicily, Italy Rome (Civitavecchia), Italy",
+    "region": "Mediterranean",
+    "price_disc": 1799,
+    "price_orig": 3589,
+    "discount": 50,
+    "suite": false,
+    "vtg_fd": "17773",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-09-09",
+    "date_str": "Sep 9",
+    "nights": 6,
+    "from_port": "Rome (Civitavecchia), Italy Dubrovnik, C",
+    "to_port": "",
+    "route": "Rome (Civitavecchia), Italy Dubrovnik, Croatia",
+    "region": "Mediterranean",
+    "price_disc": 2799,
+    "price_orig": 6799,
+    "discount": 59,
+    "suite": false,
+    "vtg_fd": "36363",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-09-15",
+    "date_str": "Sep 15",
+    "nights": 7,
+    "from_port": "Dubrovnik, Croatia Venice, Italy",
+    "to_port": "",
+    "route": "Dubrovnik, Croatia Venice, Italy",
+    "region": "Mediterranean",
+    "price_disc": 6999,
+    "price_orig": 8299,
+    "discount": 16,
+    "suite": false,
+    "vtg_fd": "47887",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-09-22",
+    "date_str": "Sep 22",
+    "nights": 8,
+    "from_port": "Venice, Italy Athens (Piraeus), Greece",
+    "to_port": "",
+    "route": "Venice, Italy Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 7499,
+    "price_orig": 9969,
+    "discount": 25,
+    "suite": false,
+    "vtg_fd": "47866",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-04-06",
+    "date_str": "Apr 6, 2027",
+    "nights": 10,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Seville, Spain",
+    "region": "Mediterranean",
+    "price_disc": 5019,
+    "price_orig": 11099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "38848",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-04-15",
+    "date_str": "Apr 15, 2027",
+    "nights": 8,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Malaga, Spain",
+    "region": "Mediterranean",
+    "price_disc": 3699,
+    "price_orig": 8999,
+    "discount": 59,
+    "suite": false,
+    "vtg_fd": "25864",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-04-16",
+    "date_str": "Apr 16, 2027",
+    "nights": 9,
+    "from_port": "Seville, Spain Casablanca, Morocco",
+    "to_port": "",
+    "route": "Seville, Spain Casablanca, Morocco",
+    "region": "World",
+    "price_disc": 6294,
+    "price_orig": 9899,
+    "discount": 36,
+    "suite": false,
+    "vtg_fd": "32642",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-05-01",
+    "date_str": "May 1, 2027",
+    "nights": 8,
+    "from_port": "Nice, France Naples, Italy",
+    "to_port": "",
+    "route": "Nice, France Naples, Italy",
+    "region": "Mediterranean",
+    "price_disc": 5443,
+    "price_orig": 8999,
+    "discount": 40,
+    "suite": false,
+    "vtg_fd": "22372",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-05-16",
+    "date_str": "May 16, 2027",
+    "nights": 7,
+    "from_port": "Valletta, Malta Nice, France",
+    "to_port": "",
+    "route": "Valletta, Malta Nice, France",
+    "region": "Mediterranean",
+    "price_disc": 5978,
+    "price_orig": 5978,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "20708",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-05-23",
+    "date_str": "May 23, 2027",
+    "nights": 8,
+    "from_port": "Nice, France Rome (Civitavecchia), Italy",
+    "to_port": "",
+    "route": "Nice, France Rome (Civitavecchia), Italy",
+    "region": "Mediterranean",
+    "price_disc": 6599,
+    "price_orig": 6599,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "29565",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-06-07",
+    "date_str": "Jun 7, 2027",
+    "nights": 12,
+    "from_port": "Naples, Italy Athens (Piraeus), Greece",
+    "to_port": "",
+    "route": "Naples, Italy Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 8975,
+    "price_orig": 8975,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "28839",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-06-19",
+    "date_str": "Jun 19, 2027",
+    "nights": 8,
+    "from_port": "Athens (Piraeus), Greece Athens (Piraeus",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 6499,
+    "price_orig": 8999,
+    "discount": 28,
+    "suite": false,
+    "vtg_fd": "31927",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-06-27",
+    "date_str": "Jun 27, 2027",
+    "nights": 11,
+    "from_port": "Athens (Piraeus), Greece Athens (Piraeus",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Athens (Piraeus), Greece",
+    "region": "Mediterranean",
+    "price_disc": 9499,
+    "price_orig": 11899,
+    "discount": 20,
+    "suite": false,
+    "vtg_fd": "28889",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-07-08",
+    "date_str": "Jul 8, 2027",
+    "nights": 11,
+    "from_port": "Athens (Piraeus), Greece Nice, France",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Nice, France",
+    "region": "Mediterranean",
+    "price_disc": 7899,
+    "price_orig": 11899,
+    "discount": 34,
+    "suite": false,
+    "vtg_fd": "25126",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-07-19",
+    "date_str": "Jul 19, 2027",
+    "nights": 8,
+    "from_port": "Nice, France Barcelona, Spain",
+    "to_port": "",
+    "route": "Nice, France Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_disc": 7299,
+    "price_orig": 10999,
+    "discount": 34,
+    "suite": true,
+    "vtg_fd": "29699",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-07-27",
+    "date_str": "Jul 27, 2027",
+    "nights": 8,
+    "from_port": "Barcelona, Spain Lisbon, Portugal",
+    "to_port": "",
+    "route": "Barcelona, Spain Lisbon, Portugal",
+    "region": "Mediterranean",
+    "price_disc": 20999,
+    "price_orig": 25312,
+    "discount": 17,
+    "suite": true,
+    "vtg_fd": "24687",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-08-20",
+    "date_str": "Aug 20, 2027",
+    "nights": 9,
+    "from_port": "Florence / Pisa (Livorno), Italy Dubrovn",
+    "to_port": "",
+    "route": "Florence / Pisa (Livorno), Italy Dubrovnik, Croatia",
+    "region": "Mediterranean",
+    "price_disc": 6599,
+    "price_orig": 9899,
+    "discount": 33,
+    "suite": false,
+    "vtg_fd": "22259",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-08-29",
+    "date_str": "Aug 29, 2027",
+    "nights": 7,
+    "from_port": "Dubrovnik, Croatia Venice, Italy",
+    "to_port": "",
+    "route": "Dubrovnik, Croatia Venice, Italy",
+    "region": "Mediterranean",
+    "price_disc": 5196,
+    "price_orig": 9599,
+    "discount": 46,
+    "suite": false,
+    "vtg_fd": "20793",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-09-23",
+    "date_str": "Sep 23, 2027",
+    "nights": 8,
+    "from_port": "Athens (Piraeus), Greece Naples, Italy",
+    "to_port": "",
+    "route": "Athens (Piraeus), Greece Naples, Italy",
+    "region": "Mediterranean",
+    "price_disc": 5999,
+    "price_orig": 8999,
+    "discount": 33,
+    "suite": false,
+    "vtg_fd": "21576",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-10-01",
+    "date_str": "Oct 1, 2027",
+    "nights": 8,
+    "from_port": "Naples, Italy Barcelona, Spain",
+    "to_port": "",
+    "route": "Naples, Italy Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_disc": 5443,
+    "price_orig": 8999,
+    "discount": 40,
+    "suite": false,
+    "vtg_fd": "24819",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-06-30",
+    "date_str": "Jun 30",
+    "nights": 9,
+    "from_port": "Trondheim, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Trondheim, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 7999,
+    "price_orig": 11799,
+    "discount": 32,
+    "suite": false,
+    "vtg_fd": "47900",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-07-19",
+    "date_str": "Jul 19",
+    "nights": 12,
+    "from_port": "Oslo, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Oslo, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 7499,
+    "price_orig": 10403,
+    "discount": 28,
+    "suite": true,
+    "vtg_fd": "25350",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-07-28",
+    "date_str": "Jul 28",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10762,
+    "price_orig": 14999,
+    "discount": 28,
+    "suite": false,
+    "vtg_fd": "27861",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-11",
+    "date_str": "Aug 11",
+    "nights": 9,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 13499,
+    "price_orig": 19499,
+    "discount": 31,
+    "suite": false,
+    "vtg_fd": "26591",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-08-15",
+    "date_str": "Aug 15",
+    "nights": 15,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 15525,
+    "price_orig": 22163,
+    "discount": 30,
+    "suite": true,
+    "vtg_fd": "28034",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-20",
+    "date_str": "Aug 20",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland New York (Manhattan),",
+    "to_port": "",
+    "route": "Reykjavik, Iceland New York (Manhattan), NY",
+    "region": "World",
+    "price_disc": 8299,
+    "price_orig": 12680,
+    "discount": 35,
+    "suite": true,
+    "vtg_fd": "27132",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-08-29",
+    "date_str": "Aug 29",
+    "nights": 12,
+    "from_port": "Oslo, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Oslo, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 13519,
+    "price_orig": 19154,
+    "discount": 29,
+    "suite": true,
+    "vtg_fd": "28735",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-08-30",
+    "date_str": "Aug 30",
+    "nights": 12,
+    "from_port": "New York (Manhattan), NY Reykjavik, Icel",
+    "to_port": "",
+    "route": "New York (Manhattan), NY Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 6499,
+    "price_orig": 16999,
+    "discount": 62,
+    "suite": false,
+    "vtg_fd": "27560",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-09-09",
+    "date_str": "Sep 9",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10437,
+    "price_orig": 23099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "29207",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-09-11",
+    "date_str": "Sep 11",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland New York (Manhattan),",
+    "to_port": "",
+    "route": "Reykjavik, Iceland New York (Manhattan), NY",
+    "region": "World",
+    "price_disc": 8025,
+    "price_orig": 9519,
+    "discount": 16,
+    "suite": true,
+    "vtg_fd": "47737",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-09-21",
+    "date_str": "Sep 21",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Dublin, Ireland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Dublin, Ireland",
+    "region": "World",
+    "price_disc": 4099,
+    "price_orig": 11899,
+    "discount": 66,
+    "suite": false,
+    "vtg_fd": "32411",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-04-27",
+    "date_str": "Apr 27, 2027",
+    "nights": 10,
+    "from_port": "Las Palmas, Grand Canary Island, Canary ",
+    "to_port": "",
+    "route": "Las Palmas, Grand Canary Island, Canary Islands Lisbon, Portugal",
+    "region": "Mediterranean",
+    "price_disc": 5019,
+    "price_orig": 11099,
+    "discount": 55,
+    "suite": false,
+    "vtg_fd": "19981",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-05-07",
+    "date_str": "May 7, 2027",
+    "nights": 7,
+    "from_port": "Lisbon, Portugal Bordeaux, France",
+    "to_port": "",
+    "route": "Lisbon, Portugal Bordeaux, France",
+    "region": "Mediterranean",
+    "price_disc": 5999,
+    "price_orig": 8999,
+    "discount": 33,
+    "suite": false,
+    "vtg_fd": "26286",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-05-11",
+    "date_str": "May 11, 2027",
+    "nights": 9,
+    "from_port": "London (Tower Bridge), England Glasgow (",
+    "to_port": "",
+    "route": "London (Tower Bridge), England Glasgow (Greenock), Scotland",
+    "region": "World",
+    "price_disc": 5989,
+    "price_orig": 9899,
+    "discount": 39,
+    "suite": false,
+    "vtg_fd": "33680",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-05-14",
+    "date_str": "May 14, 2027",
+    "nights": 9,
+    "from_port": "Bordeaux, France Dover, England",
+    "to_port": "",
+    "route": "Bordeaux, France Dover, England",
+    "region": "Northern Europe",
+    "price_disc": 5989,
+    "price_orig": 9899,
+    "discount": 39,
+    "suite": false,
+    "vtg_fd": "25382",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-05-23",
+    "date_str": "May 23, 2027",
+    "nights": 9,
+    "from_port": "Dover, England London (Tower Bridge), En",
+    "to_port": "",
+    "route": "Dover, England London (Tower Bridge), England",
+    "region": "Northern Europe",
+    "price_disc": 6599,
+    "price_orig": 9899,
+    "discount": 33,
+    "suite": false,
+    "vtg_fd": "29193",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-05-27",
+    "date_str": "May 27, 2027",
+    "nights": 9,
+    "from_port": "Bergen, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Bergen, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 6599,
+    "price_orig": 9899,
+    "discount": 33,
+    "suite": false,
+    "vtg_fd": "37912",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-06-05",
+    "date_str": "Jun 5, 2027",
+    "nights": 7,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 6236,
+    "price_orig": 7699,
+    "discount": 19,
+    "suite": true,
+    "vtg_fd": "44537",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-06-19",
+    "date_str": "Jun 19, 2027",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 8999,
+    "price_orig": 8999,
+    "discount": 0,
+    "suite": true,
+    "vtg_fd": "29636",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-06-30",
+    "date_str": "Jun 30, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11699,
+    "price_orig": 11699,
+    "discount": 0,
+    "suite": false,
+    "vtg_fd": "44876",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-07-04",
+    "date_str": "Jul 4, 2027",
+    "nights": 11,
+    "from_port": "Tromso, Norway Oslo, Norway",
+    "to_port": "",
+    "route": "Tromso, Norway Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 10500,
+    "price_orig": 12833,
+    "discount": 18,
+    "suite": false,
+    "vtg_fd": "44109",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-09",
+    "date_str": "Jul 9, 2027",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10764,
+    "price_orig": 12281,
+    "discount": 12,
+    "suite": true,
+    "vtg_fd": "40035",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-20",
+    "date_str": "Jul 20, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 10299,
+    "price_orig": 11780,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "42993",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-07-30",
+    "date_str": "Jul 30, 2027",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 17899,
+    "price_orig": 21187,
+    "discount": 16,
+    "suite": false,
+    "vtg_fd": "43330",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-08-05",
+    "date_str": "Aug 5, 2027",
+    "nights": 10,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 13799,
+    "price_orig": 16099,
+    "discount": 14,
+    "suite": true,
+    "vtg_fd": "44763",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-08-23",
+    "date_str": "Aug 23, 2027",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11499,
+    "price_orig": 13266,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "42987",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2027-08-29",
+    "date_str": "Aug 29, 2027",
+    "nights": 15,
+    "from_port": "Nuuk, Greenland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Nuuk, Greenland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14662,
+    "price_orig": 17086,
+    "discount": 14,
+    "suite": false,
+    "vtg_fd": "47549",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-09-04",
+    "date_str": "Sep 4, 2027",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Reykjavik, Iceland",
+    "region": "World",
+    "price_disc": 8154,
+    "price_orig": 9401,
+    "discount": 13,
+    "suite": false,
+    "vtg_fd": "40017",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-09-14",
+    "date_str": "Sep 14, 2027",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland Dover, England",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Dover, England",
+    "region": "Northern Europe",
+    "price_disc": 9060,
+    "price_orig": 10517,
+    "discount": 14,
+    "suite": false,
+    "vtg_fd": "49647",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2027-09-25",
+    "date_str": "Sep 25, 2027",
+    "nights": 11,
+    "from_port": "Dover, England Lisbon, Portugal",
+    "to_port": "",
+    "route": "Dover, England Lisbon, Portugal",
+    "region": "Mediterranean",
+    "price_disc": 7710,
+    "price_orig": 12799,
+    "discount": 40,
+    "suite": false,
+    "vtg_fd": "35953",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-06-16",
+    "date_str": "Jun 16, 2028",
+    "nights": 11,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 10749,
+    "price_orig": 11234,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "31450",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-06-22",
+    "date_str": "Jun 22, 2028",
+    "nights": 15,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "14467",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-06-27",
+    "date_str": "Jun 27, 2028",
+    "nights": 11,
+    "from_port": "Reykjavik, Iceland Longyearbyen, Spitsbe",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Longyearbyen, Spitsbergen, Norway",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "31928",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-07",
+    "date_str": "Jul 7, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "36168",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-19",
+    "date_str": "Jul 19, 2028",
+    "nights": 10,
+    "from_port": "Reykjavik, Iceland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 10589,
+    "price_orig": 11054,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "40414",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-07-24",
+    "date_str": "Jul 24, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "11769",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-07-29",
+    "date_str": "Jul 29, 2028",
+    "nights": 16,
+    "from_port": "Nuuk, Greenland Toronto, ON, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland Toronto, ON, Canada",
+    "region": "World",
+    "price_disc": 16815,
+    "price_orig": 18083,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "46392",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-08-05",
+    "date_str": "Aug 5, 2028",
+    "nights": 9,
+    "from_port": "Reykjavik, Iceland Oslo, Norway",
+    "to_port": "",
+    "route": "Reykjavik, Iceland Oslo, Norway",
+    "region": "Northern Europe",
+    "price_disc": 10818,
+    "price_orig": 11308,
+    "discount": 4,
+    "suite": false,
+    "vtg_fd": "26365",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-08-13",
+    "date_str": "Aug 13, 2028",
+    "nights": 15,
+    "from_port": "Toronto, ON, Canada Nuuk, Greenland",
+    "to_port": "",
+    "route": "Toronto, ON, Canada Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14313,
+    "price_orig": 15260,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "42761",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-08-28",
+    "date_str": "Aug 28, 2028",
+    "nights": 15,
+    "from_port": "Nuuk, Greenland Nuuk, Greenland",
+    "to_port": "",
+    "route": "Nuuk, Greenland Nuuk, Greenland",
+    "region": "World",
+    "price_disc": 14804,
+    "price_orig": 15817,
+    "discount": 6,
+    "suite": false,
+    "vtg_fd": "17364",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2028-09-04",
+    "date_str": "Sep 4, 2028",
+    "nights": 12,
+    "from_port": "Oslo, Norway Reykjavik, Iceland",
+    "to_port": "",
+    "route": "Oslo, Norway Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_disc": 11800,
+    "price_orig": 12421,
+    "discount": 5,
+    "suite": false,
+    "vtg_fd": "21539",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2028-09-12",
+    "date_str": "Sep 12, 2028",
+    "nights": 17,
+    "from_port": "Nuuk, Greenland St. John's, NL, Canada",
+    "to_port": "",
+    "route": "Nuuk, Greenland St. John's, NL, Canada",
+    "region": "World",
+    "price_disc": 15786,
+    "price_orig": 16930,
+    "discount": 7,
+    "suite": false,
+    "vtg_fd": "10441",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-09-20",
+    "date_str": "Sep 20",
+    "nights": 18,
+    "from_port": "New York (Manhattan), NY St. John's, NL,",
+    "to_port": "",
+    "route": "New York (Manhattan), NY St. John's, NL, Canada",
+    "region": "World",
+    "price_disc": 9699,
+    "price_orig": 25199,
+    "discount": 62,
+    "suite": false,
+    "vtg_fd": "37335",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-11-12",
+    "date_str": "Nov 12",
+    "nights": 16,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 15699,
+    "price_orig": 20799,
+    "discount": 25,
+    "suite": true,
+    "vtg_fd": "53060",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2027-01-02",
+    "date_str": "Jan 2, 2027",
+    "nights": 19,
+    "from_port": "Buenos Aires, Argentina Buenos Aires, Ar",
+    "to_port": "",
+    "route": "Buenos Aires, Argentina Buenos Aires, Argentina",
+    "region": "South America",
+    "price_disc": 29099,
+    "price_orig": 32032,
+    "discount": 9,
+    "suite": false,
+    "vtg_fd": "30659",
+    "sources": [
+      "atlas_vtg"
+    ],
+    "scraped": "2026-06-26"
+  }
+]

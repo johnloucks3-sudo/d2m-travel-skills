@@ -22,6 +22,17 @@ T2_CSV    = Path("/home/john/Thunderbird/output/T2_MASTER_CRUISE_OCTOBER_NOVEMBE
 VTG_FILE  = Path("/home/john/Thunderbird/intel/vtg_structured_20260626.txt")
 GENERATED = "2026-06-26"
 
+# ── Canonical line names — normalize variant scraped names to one standard form
+LINE_CANONICAL = {
+    'Atlas':                    'Atlas Ocean Voyages',
+    'Crystal':                  'Crystal Cruises',
+    'Ponant':                   'PONANT',
+    'Paul Gauguin':             'Paul Gauguin Cruises',
+    'Regent':                   'Regent Seven Seas Cruises',
+    'Silversea':                'Silversea Cruises',
+    'Ritz-Carlton Yacht Club':  'Ritz-Carlton Yacht Collection',
+}
+
 # ── Region inference from port/route keywords ───────────────────────────────
 REGION_MAP = [
     ("Mediterranean",  ["mediterranean","athens","piraeus","rome","civitavecchia","barcelona",
@@ -114,7 +125,7 @@ def parse_vtg(path):
                 iso_date = d.strftime("%Y-%m-%d")
             except:
                 iso_date = ''
-            canonical = ln.replace(' Ocean Voyages', '')
+            canonical = LINE_CANONICAL.get(ln, ln)
             deals.append({
                 'line':      canonical,
                 'ship':      ship.strip(),
@@ -234,8 +245,9 @@ def _norm_record(r, source_key):
     dep = r.get('departure') or r.get('departure_date') or r.get('date') or r.get('date_str') or ''
     route = r.get('route') or ''
     from_port = r.get('from_port') or r.get('port') or ''
+    raw_line = r.get('line') or r.get('cruise_line') or ''
     return {
-        'line':       r.get('line') or r.get('cruise_line') or '',
+        'line':       LINE_CANONICAL.get(raw_line, raw_line),
         'ship':       r.get('ship') or r.get('ship_name') or '',
         'departure':  dep,
         'date_str':   dep,
@@ -272,9 +284,12 @@ SOURCE_BADGE = {
     'cruisesonly': ('C', '#ff5722', '#fff', 'CruisesOnly'),
     'cruiseplum':  ('L', '#9c27b0', '#fff', 'CruisePlum'),
     'vtg':         ('V', '#c0392b', '#fff', 'VacationsToGo'),
-    'oceania_vtg': ('OC', '#00609c', '#fff', 'Oceania via VTG'),
-    'crystal_vtg': ('CR', '#7b2d8b', '#fff', 'Crystal Cruises via VTG'),
-    't2':          ('T', '#1a1a1a', '#fff', 'T2 Exercise'),
+    'oceania_vtg':   ('OC', '#00609c', '#fff', 'Oceania via VTG'),
+    'crystal_vtg':   ('CR', '#7b2d8b', '#fff', 'Crystal Cruises via VTG'),
+    'regent_vtg':    ('RG', '#1a3a5c', '#fff', 'Regent via VTG'),
+    'silversea_vtg': ('SS', '#8b6914', '#fff', 'Silversea via VTG'),
+    'atlas_vtg':     ('AT', '#2e7d32', '#fff', 'Atlas Ocean via VTG'),
+    't2':            ('T',  '#1a1a1a', '#fff', 'T2 Exercise'),
 }
 
 def badge_html(sources):
@@ -751,6 +766,12 @@ filterTable();
     return html
 
 
+def _latest_intel(stem: str) -> Path | None:
+    """Return the most recent intel/<stem>_vtg_YYYYMMDD.json, or None."""
+    candidates = sorted(INTEL_DIR.glob(f"{stem}_vtg_*.json"), reverse=True)
+    return candidates[0] if candidates else None
+
+INTEL_DIR         = Path("/home/john/Thunderbird/intel")
 OCEANIA_FILE      = Path("/home/john/Thunderbird/intel/oceania_vtg_20260626.json")
 CRYSTAL_FILE      = Path("/home/john/Thunderbird/intel/crystal_vtg_20260626.json")
 CRUISEMAPPER_FILE = Path("/home/john/Thunderbird/intel/cruisemapper_live.json")
@@ -775,7 +796,10 @@ def build_sqlite(records):
             route     TEXT,
             region    TEXT,
             sources   TEXT,
-            multi     INTEGER DEFAULT 0
+            multi     INTEGER DEFAULT 0,
+            price_ind REAL,
+            price_ts  TEXT,
+            price_src TEXT
         )
     """)
     conn.execute("CREATE INDEX idx_line ON cruises(line)")
@@ -801,10 +825,13 @@ def build_sqlite(records):
             r.get('region') or '',
             json.dumps(sources),
             1 if len(sources) > 1 else 0,
+            r.get('price_ind'),
+            r.get('price_ts'),
+            r.get('price_src'),
         ))
     conn.executemany(
-        "INSERT INTO cruises(line,ship,departure,nights,from_port,route,region,sources,multi) "
-        "VALUES(?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO cruises(line,ship,departure,nights,from_port,route,region,sources,multi,"
+        "price_ind,price_ts,price_src) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
         rows
     )
     conn.execute(
@@ -832,6 +859,13 @@ if __name__ == '__main__':
         crystal = json.loads(CRYSTAL_FILE.read_text())
         source_lists.append(crystal)
         print(f"  +{len(crystal)} Crystal Cruises deals")
+
+    for stem, label in [("regent", "Regent"), ("silversea", "Silversea"), ("atlas", "Atlas Ocean")]:
+        f = _latest_intel(stem)
+        if f:
+            records = json.loads(f.read_text())
+            source_lists.append(records)
+            print(f"  +{len(records)} {label} VTG deals ({f.name})")
 
     if CRUISEMAPPER_FILE.exists():
         cm = parse_source_json(CRUISEMAPPER_FILE, 'cruisemapper')
