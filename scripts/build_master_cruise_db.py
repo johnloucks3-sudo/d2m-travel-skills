@@ -289,6 +289,9 @@ SOURCE_BADGE = {
     'regent_vtg':    ('RG', '#1a3a5c', '#fff', 'Regent via VTG'),
     'silversea_vtg': ('SS', '#8b6914', '#fff', 'Silversea via VTG'),
     'atlas_vtg':     ('AT', '#2e7d32', '#fff', 'Atlas Ocean via VTG'),
+    'regent_perx':   ('RP', '#1a3a5c', '#e0c068', 'Regent via Perx'),
+    'silversea_perx':('SP', '#8b6914', '#e0c068', 'Silversea via Perx'),
+    'atlas_perx':    ('AP', '#2e7d32', '#e0c068', 'Atlas Ocean via Perx'),
     't2':            ('T',  '#1a1a1a', '#fff', 'T2 Exercise'),
 }
 
@@ -766,9 +769,9 @@ filterTable();
     return html
 
 
-def _latest_intel(stem: str) -> Path | None:
-    """Return the most recent intel/<stem>_vtg_YYYYMMDD.json, or None."""
-    candidates = sorted(INTEL_DIR.glob(f"{stem}_vtg_*.json"), reverse=True)
+def _latest_intel(stem: str, suffix: str = "vtg") -> Path | None:
+    """Return the most recent intel/<stem>_<suffix>_YYYYMMDD.json, or None."""
+    candidates = sorted(INTEL_DIR.glob(f"{stem}_{suffix}_*.json"), reverse=True)
     return candidates[0] if candidates else None
 
 INTEL_DIR         = Path("/home/john/Thunderbird/intel")
@@ -866,6 +869,13 @@ if __name__ == '__main__':
             records = json.loads(f.read_text())
             source_lists.append(records)
             print(f"  +{len(records)} {label} VTG deals ({f.name})")
+
+    for stem, label in [("regent", "Regent"), ("silversea", "Silversea"), ("atlas", "Atlas Ocean")]:
+        f = _latest_intel(stem, suffix="perx")
+        if f:
+            records = parse_source_json(f, f"{stem}_perx")
+            source_lists.append(records)
+            print(f"  +{len(records)} {label} Perx sailings ({f.name})")
 
     if CRUISEMAPPER_FILE.exists():
         cm = parse_source_json(CRUISEMAPPER_FILE, 'cruisemapper')

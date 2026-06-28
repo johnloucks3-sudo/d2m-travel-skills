@@ -70,17 +70,15 @@ python3 -c "from scripts.parse_vtg import fetch_vtg; fetch_vtg(line_id=47, out='
 
 ---
 
-### 4. Perx (Cruise Competition Intelligence)
+### 4a. Perx (Cruise Competition Intelligence — Fare Watch)
 **Script:** `scripts/perx_intel_monitor.py`
 **Output:** `data/perx_intel_history.json`, `data/perx_eod_queue.json`
 **Auth:** Django `sessionid` cookie (~30-day expiry) + `csrftoken`
 **Cookie file:** `creds/perx_cookies.json` — GITIGNORED
-**Current sessionid:** `j5ruzz1nsx1qq3jifi5iub5c19k2p117` (expires 2026-07-26)
 **API status:** `sail-personalize` endpoint returns 400 since ~May 2026 — DEAD
 **Working method:** HTML heuristic — scrapes fare watch pages for price signal indicators only
 **What it produces:** Price trend signals, sale alerts, competitor positioning intel
 **NOT for DB prices** — Perx prices are TA-interline, not consumer-facing
-**API discovery (per Commander):** Perx has an internal API — record located somewhere in Wing intelligence files. Dembe to locate and document endpoint pattern.
 **Fare watches active:** 8 (as of 2026-06-26)
 **Run cadence:** Nightly (`perx-intel-monitor.timer` or Dembe overnight sweep)
 **Command:**
@@ -88,6 +86,27 @@ python3 -c "from scripts.parse_vtg import fetch_vtg; fetch_vtg(line_id=47, out='
 python3 scripts/perx_intel_monitor.py
 ```
 **Session refresh:** When sessionid expires → Commander re-authenticates at perx.com → export cookies → update `creds/perx_cookies.json`
+
+---
+
+### 4b. Perx (Sailing DB Feed — Luxury Lines)
+**Script:** `scripts/fetch_perx_sailings.py` ← NEW 2026-06-28
+**Output:** `intel/regent_perx_YYYYMMDD.json`, `intel/silversea_perx_YYYYMMDD.json`, `intel/atlas_perx_YYYYMMDD.json`
+**Auth:** Same `creds/perx_cookies.json` as 4a (Django sessionid)
+**Cookie file:** `creds/perx_cookies.json` — GITIGNORED — expires ~Jul 26
+**Endpoint:** `https://www.perx.com/cruises/search/?cruise_line_id={id}&size=200&order_by=cabin_b%3A%3Adeparture_date`
+**Line IDs (confirmed 2026-06-28):** Regent=1595 · Silversea=1589 · Atlas=3921
+**Parse method:** BeautifulSoup `div.cruise-search-result[id]` — skips price-only sub-rows
+**Fields extracted:** line, ship (from URL slug), departure (from href), nights, from_port, to_port, route_name (h3), region (inferred), price_orig (list-price span), price_disc (your-price span), itinerary_id, detail_url
+**Source badges:** `regent_perx` (RP gold) · `silversea_perx` (SP gold) · `atlas_perx` (AP gold)
+**Records per run:** Regent ~17 · Silversea ~41 · Atlas ~7 = ~65 total
+**NOT for client pricing** — TA-interline rates, internal pipeline only
+**Timer:** ExecStartPre step 1b in `cruise-db-refresh.service` (runs monthly before DB rebuild)
+**Command:**
+```bash
+python3 scripts/fetch_perx_sailings.py [--lines regent silversea atlas]
+```
+**Session refresh:** When `< 3 cards` returned → Telegram alert fires → Commander copies fresh cookies from perx.com (logged in) → saves to `creds/perx_cookies.json` as JSON array format
 
 ---
 
