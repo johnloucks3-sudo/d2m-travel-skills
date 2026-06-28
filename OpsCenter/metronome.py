@@ -161,21 +161,11 @@ def _write_wing_nudge(message):
 
 
 def _auto_restart_sonnet(age_s, reason=""):
-    """Auto-restart stalled Sonnet dispatch."""
-    ts = int(datetime.now(timezone.utc).timestamp())
-    outfile = os.path.join(ROOT, "output", f"two_brain_autorestart_{ts}.md")
-    try:
-        result = subprocess.run(
-            [sys.executable, DISPATCH_SCRIPT,
-             "--task", f"metronome-autorestart-{ts}",
-             "--output", outfile,
-             "--prompt", f"METRONOME auto-restart. Previous dispatch stalled at {age_s}s. {reason}. WRITE to {outfile}",
-             "--model", "sonnet"],
-            capture_output=True, text=True, timeout=30
-        )
-        _write_wing_nudge(f"METRONOME auto-restarted Sonnet dispatch (stalled {age_s}s). Output: {outfile}")
-    except Exception as e:
-        _write_wing_nudge(f"METRONOME failed to auto-restart: {e}")
+    """Token-free alert — auto-restart suspended per SO 2026-06-28 (free-model period).
+    Writes nudge + Telegram only. No model spawn."""
+    msg = f"METRONOME: session idle {age_s}s ({reason}). Sonnet auto-restart SUSPENDED."
+    _write_wing_nudge(msg)
+    _telegram_alert(f"⚡ *METRONOME* — Session idle {age_s}s. Auto-restart suspended (free-model period). Open Claude Code to resume.")
 
 
 def _record_deepseek_call():

@@ -19,11 +19,26 @@
     "status": "approved",
     "description": "Wire claude agents --json output into hale_state.json wing_health section"
   },
+  "tonight_incubator": {
+    "topic": "Email Scanner Ground-Up Redesign",
+    "injected": "2026-06-28",
+    "priority": "P0",
+    "brief": "The current email scanner (thunderbird_email_intel.py) is dead — killed 2026-06-28. Research architectures for a zero-model or free-model email processing pipeline. Requirements: (1) alert Commander via Telegram when D2M-relevant email arrives, (2) NO paid model calls in the background loop, (3) rule-based classification first (sender whitelist, subject keywords), (4) optional on-demand AI processing triggered manually by Commander. Research: Gmail watch push notifications vs polling, filter-first vs classify-first, sender-based routing. Deliverable: design doc + recommended implementation.",
+    "search_angles": [
+      "Gmail push notifications vs polling for real-time alerts",
+      "Rule-based email classification without LLM",
+      "Zero-token email alerting pipelines open source 2025-2026",
+      "Lightweight email triage architectures for small business",
+      "Sender whitelist + keyword filter patterns Gmail API Python"
+    ],
+    "owner": "ELON",
+    "skip_rotation": false
+  },
   "techpulse_format": "Tool: [Name] / What: [one line] / Case: [one line] / Rec: [Adopt|Watch|Skip]",
   "techpulse_routing": "Adopt or Watch \u2192 Telegram page to Commander. Skip \u2192 AM brief only.",
   "search_posture": "24/7 continuous \u2014 permanent sectors run every night, rotation supplements. Anything breaking on Anthropic changelog, HN, GitHub AI releases \u2192 surface immediately, do not wait for EOD.",
   "nomination_time": "17:30",
   "execute_window_minutes": 5,
   "last_updated": "2026-06-19",
-  "last_nomination_sent": "2026-06-25T23:30:02.343005"
+  "last_nomination_sent": "2026-06-28T16:20:20.901503"
 }
