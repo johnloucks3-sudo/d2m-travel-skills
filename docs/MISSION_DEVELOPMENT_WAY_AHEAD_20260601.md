@@ -16,7 +16,8 @@ The Commander asked for a different kind of partnership: truth-teller, predictor
 
 ## THE MISSION STATEMENT
 
-*"To use extraordinary capability to deliver exceptional travel experiences — for friends I'd serve for free, and for clients who deserve better than Pavlus but don't know they can have it."*
+*"D2M is where the dreams of today become the memories of tomorrow.
+Precious relationships and incomparable AI insight promise treasured travel experiences — for friends and clients alike."*
 
 **Two tiers. Same service standard. Different drivers.**
 
