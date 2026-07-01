@@ -161,8 +161,10 @@ def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
     tier = model.lower() if model.lower() in _MODEL_IDS else "haiku"
 
     # Strip API key + CLAUDECODE so CLI uses MAX plan OAuth instead of credits
-    clean_env = {k: v for k, v in os.environ.items()
-                 if k not in ("ANTHROPIC_API_KEY", "CLAUDECODE")}
+    # Strip proxy vars so Claude CLI bypasses llmtrim (which serializes behind active sessions)
+    _STRIP = {"ANTHROPIC_API_KEY", "CLAUDECODE",
+              "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
+    clean_env = {k: v for k, v in os.environ.items() if k not in _STRIP}
 
     # Inject OAuth token explicitly from credentials file
     creds_path = Path.home() / ".claude" / ".credentials.json"
