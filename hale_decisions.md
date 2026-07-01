@@ -5613,3 +5613,34 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 ## 2026-07-01 (amendment) — Canary policy refined by Commander
 **Directive:** "Canary period is hereby waived UNLESS Hale suggests it. Must ask 1st." + apology to Sterling (persona).
 **Final policy:** Client-path 7-day canary is WAIVED BY DEFAULT. It applies only when Hale recommends it for a specific risky client-path adoption/migration AND asks the Commander first (Hale proposes → Commander decides; never unilateral). Sterling's guardrail retained as advisory. WF-17 client-send gate unchanged. Codified in CLAUDE.md L202.
+
+## 2026-07-01 20:39 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+### 2026-07-01 15:49:50 — Autonomous Decision (T1)
+**Decision:** Sig block fix — created .opencode/skills/commander-sig/SKILL.md with standalone brand line, Authorized by prefix, Owner on own line
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+
+### 2026-07-01 15:49:50 — Autonomous Decision (T1)
+**Decision:** Airline alert suppression — added SUPPRESSED_CLIENTS for westbrook, justin loucks, ryan loucks in airline_monitor.py
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+
+### 2026-07-01 15:49:50 — Autonomous Decision (T1)
+**Decision:** Westbrook Bar re-do email — John note → Dani body → Commander sig, 5 excursions + 6 restaurant links, staged to drafts
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+
+## 2026-07-01 — reverie-api.service RETIRED (verified-dead); cruise-db-refresh FIXED
+**reverie-api:** disabled + stopped. Evidence: cloudflared route api-reverie:8802 pruned as dead 2026-06-22 (MISSION-259); venv .venv_new deleted; unit in 203/EXEC restart loop since. Frontend (reverie-frontend :8888) unaffected — active, HTTP 200, still routed. CI probe to be narrowed to frontend-only at PR-integration. Full verified-decommission (code removal) deferred.
+**cruise-db-refresh:** root cause = `from scripts.link_resolver import ...` added by cruise-db work (c3764e8a8 era) fails in script-mode execution (scripts/ on sys.path, not repo root). One-line sys.path anchor fixed it; unit rebuilt DB clean. Was failing every ~20min since.

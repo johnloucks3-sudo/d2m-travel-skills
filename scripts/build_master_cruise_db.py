@@ -14,6 +14,13 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
+# CI TRINITY Leg 1: Cruise link resolver for external itinerary URLs
+# Script-mode execution puts scripts/ (not repo root) on sys.path — anchor the repo
+# root so the `scripts.` package import resolves. Fixes cruise-db-refresh.service
+# status=1 failure loop (2026-07-01).
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.link_resolver import resolve_sailing
+
 DB_PATH = Path("/home/john/Thunderbird/output/cruises.db")
 
 OUT_DIR   = Path("/home/john/Thunderbird/cruises_web")
@@ -263,6 +270,8 @@ def _norm_record(r, source_key):
         'vtg_fd':     r.get('vtg_fd') or None,
         'sources':    r.get('sources') or [source_key],
         'scraped':    GENERATED,
+        'booking_url': '',
+        'booking_label': '',
     }
 
 def parse_source_json(path, source_key):
@@ -395,6 +404,7 @@ def build_html(records):
             f'  <td class="price">{price_td}</td>\n'
             f'  <td class="num" style="color:#856404;">{disc_td}</td>\n'
             f'  <td class="cov">{badge_html(r["sources"])}</td>\n'
+            f'  <td class="link">{"<a href=\""+r["booking_url"]+"\" target=_blank title=\""+r["booking_label"]+"\">&#8599;</a>" if r.get("booking_url") else "—"}</td>\n'
             f'</tr>\n'
         )
 
@@ -499,6 +509,9 @@ def build_html(records):
   .price {{ text-align: right; color: #1a7a1a; font-size: 0.82rem; white-space: nowrap; }}
   .route {{ color: #444; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
   .cov   {{ white-space: nowrap; }}
+  .link  {{ text-align: center; white-space: nowrap; }}
+  .link a {{ color: #0033A0; text-decoration: none; font-size: 1.1rem; padding: 2px 6px; border-radius: 3px; }}
+  .link a:hover {{ background: #0033A0; color: #fff; }}
 
   /* Source badges */
   .badge {{ display: inline-block; min-width: 18px; height: 18px; border-radius: 3px;
@@ -641,6 +654,7 @@ def build_html(records):
         <th onclick="sortTable(6)">Price PPDO ↕</th>
         <th onclick="sortTable(7)">Discount ↕</th>
         <th>Sources</th>
+        <th>Link</th>
       </tr>
     </thead>
     <tbody id="tableBody">
@@ -802,7 +816,9 @@ def build_sqlite(records):
             multi     INTEGER DEFAULT 0,
             price_ind REAL,
             price_ts  TEXT,
-            price_src TEXT
+            price_src TEXT,
+            booking_url TEXT,
+            booking_label TEXT
         )
     """)
     conn.execute("CREATE INDEX idx_line ON cruises(line)")
@@ -818,6 +834,7 @@ def build_sqlite(records):
     rows = []
     for r in records:
         sources = r.get('sources') or []
+        # booking_url already resolved in main flow (CI Trinity Leg 1)
         rows.append((
             r.get('line') or '',
             r.get('ship') or '',
@@ -828,13 +845,15 @@ def build_sqlite(records):
             r.get('region') or '',
             json.dumps(sources),
             1 if len(sources) > 1 else 0,
-            r.get('price_ind'),
+            r.get('price_disc'),
             r.get('price_ts'),
             r.get('price_src'),
+            r.get('booking_url', ''),
+            r.get('booking_label', ''),
         ))
     conn.executemany(
         "INSERT INTO cruises(line,ship,departure,nights,from_port,route,region,sources,multi,"
-        "price_ind,price_ts,price_src) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
+        "price_ind,price_ts,price_src,booking_url,booking_label) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         rows
     )
     conn.execute(
@@ -922,6 +941,24 @@ if __name__ == '__main__':
     merged = merge_all(source_lists)
     multi = sum(1 for r in merged if len(r['sources']) > 1)
     print(f"  Total: {len(merged)} records · {multi} multi-source")
+
+    print("Resolving external booking links (CI Trinity Leg 1)…")
+    from scripts.link_resolver import resolve_sailing
+    link_count = 0
+    for r in merged:
+        resolved = resolve_sailing(
+            line=r.get("line", ""),
+            ship=r.get("ship", ""),
+            departure=r.get("departure"),
+            voyage_code=r.get("voyage_code"),
+            from_port=r.get("from_port"),
+            nights=r.get("nights"),
+        )
+        r["booking_url"] = resolved.get("url", "")
+        r["booking_label"] = resolved.get("label", "")
+        if r["booking_url"]:
+            link_count += 1
+    print(f"  {link_count}/{len(merged)} records have booking URLs")
 
     print("Saving JSON export…")
     OUT_JSON.write_text(json.dumps(merged, indent=2, default=str))
