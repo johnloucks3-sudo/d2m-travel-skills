@@ -53,6 +53,12 @@ CLAUDE_CLI = Path.home() / ".local/bin/claude"
 POLL_INTERVAL = 5
 DEFAULT_TIMEOUT = 1800
 
+# Minimal MCP config — suppresses the 97-server MCP startup that caused 130s hangs
+_EMPTY_MCP_CONFIG = Path("/tmp/thunderbird_empty_mcp.json")
+if not _EMPTY_MCP_CONFIG.exists():
+    import json as _json_init
+    _EMPTY_MCP_CONFIG.write_text(_json_init.dumps({"mcpServers": {}}))
+
 
 D2MC_TOKEN = ROOT / "config" / "persona_gmail_token.json"
 
@@ -176,10 +182,12 @@ def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
         "--model", tier,
         "--dangerously-skip-permissions",
         "--output-format", "text",
+        "--strict-mcp-config",
+        "--mcp-config", str(_EMPTY_MCP_CONFIG),
         "-p", prompt,
     ]
 
-    print(f"[START] {task} — invoking Claude CLI ({tier})")
+    print(f"[START] {task} — invoking Claude CLI ({tier}, no-MCP)")
     result = subprocess.run(
         cmd,
         capture_output=True,
