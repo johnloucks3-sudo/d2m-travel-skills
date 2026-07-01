@@ -5663,3 +5663,12 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 **Binding on ALL Hale instances (CC, OpenCode, headless, any session).**
 A cloud Ultraplan session (session_01Tvf3Xe3GRgkJW4Rd4Wqvrj) is executing the email-overhaul plan against a **2026-06-12 GitHub clone ~3 weeks behind this box**. Its PR, if merged, SILENTLY REVERTS: today's Part1+PhaseA commits (16:57), last night's 7 dispatch fixes, and ~3 weeks of drift in core/email/* + OpsCenter/email_task_ingest.py + dispatch_and_email.py. Part 1 + Phase A are ALREADY DONE on the box.
 **Disposition when the PR lands:** extract NEW-FILE-ONLY artifacts (deploy/n8n/wf17_email_canary.json, scripts/email_canary_scoreboard.py, anything else net-new) by cherry-pick/copy; DISCARD every edit to existing files. Merge executor: CC Hale only, after diff review. No exceptions.
+
+## 2026-07-01 — Secrets audit + gated GitHub sync built (Commander directive)
+**Audit findings (unpushed range 271 commits since 2026-06-12):**
+- gitleaks: CLEAN (no rule-based leaks).
+- Tracked credential-shaped files found + UNTRACKED (gitignored, kept on disk for runtime): config/poe_cookies.json (LIVE Poe login), core/travel/data/centrav_session.json (values in history are OLD/dead — verified committed!=live).
+- 4 cookie-*.py scripts + silversea_session.json: verified NO embedded credential values (filename noise) → allowlisted in the gate.
+- MISSION-SEC-05 burned "DO NOT DELETE API Keys.txt": no longer tracked (already handled).
+**Gate built:** scripts/github_safe_sync.py — gitleaks + credential-shaped-tracked-file scan + PAT check + one-time Poe-history ack. Timer d2m-github-sync.timer STAGED (0330 MT) but NOT enabled until gate clears.
+**REMAINING BLOCKER (Commander action):** unpushed history at commit 403407aa8 (2026-06-25) still contains the LIVE config/poe_cookies.json blob. Options: (a) rotate Poe login at poe.com → run `github_safe_sync.py --ack-poe-rotated` (fast, leaves a dead credential in history — acceptable); or (b) history-rewrite to purge the blob (git filter-repo, heavier, rewrites 271 commits). Recommend (a). Until cleared: NO push, cloud sessions = plan-refinement only.
