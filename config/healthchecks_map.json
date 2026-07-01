@@ -1,0 +1,8 @@
+{
+  "thunderbird-supertimer.service": {
+    "name": "wing-master-heartbeat",
+    "ping_url": "https://hc-ping.com/352d27e0-adc7-48d3-a6db-af606f3752b5",
+    "service": "hosted hc-ping.com",
+    "wired": "2026-07-01"
+  }
+}
