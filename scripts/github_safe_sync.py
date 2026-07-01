@@ -107,13 +107,16 @@ def push() -> int:
     if not tok:
         print("BLOCKED(auth): no GITHUB_TOKEN available")
         return 3
-    r = _run(["git", "-c", f"http.extraHeader=Authorization: Bearer {tok}",
-              "push", REMOTE, f"{BRANCH}:{BRANCH}"], timeout=600)
+    # GitHub HTTPS uses Basic auth (token as password via x-access-token), NOT a
+    # Bearer header — the Bearer form returns "invalid credentials" even on a valid
+    # token (diagnosed 2026-07-01). Inject via an ephemeral credential URL.
+    push_url = f"https://x-access-token:{tok}@github.com/johnloucks3-sudo/thunderbird-os.git"
+    r = _run(["git", "push", push_url, f"{BRANCH}:{BRANCH}"], timeout=600)
     if r.returncode != 0:
-        err = (r.stderr or r.stdout)[-300:]
+        err = ((r.stderr or r.stdout)[-300:]).replace(tok, "***")   # never print the token
         print(f"BLOCKED(auth/push): {err}")
         return 3
-    print(f"PUSHED {BRANCH} → {REMOTE}. {r.stderr.strip()[-160:] or 'ok'}")
+    print(f"PUSHED {BRANCH} → {REMOTE}. {(r.stderr.strip()[-160:] or 'ok').replace(tok, '***')}")
     return 0
 
 
