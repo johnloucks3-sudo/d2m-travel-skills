@@ -199,7 +199,7 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 **Commander dissatisfied with tech edge; competitors eclipsing capability. Restructure, effective now. "For now" — reviewable.**
 - **Three co-equal tech principals.** A12 **ELON** and A14 **Whetstone** are elevated to **Sterling's (A7) rank**. ELON = adoption/disruption · Whetstone = currency/razor-sharp · Sterling = process/metrics/quality. No one outranks the others; disagreements go Hale → Commander, not by seniority.
 - **Sterling's gate FLIPS 180° → adoption-biased (default ADOPT).** He builds the case **FOR** adoption, not against. Burden flips: a tool is adopted **unless** Sterling shows *concrete* harm (security exposure, proven breakage, real cost). "Unproven / adds complexity / more testing" are NOT blocks. His security/secret/code-quality gates stay hard.
-- **CLIENT-PATH CANARY (Sterling's guardrail, Commander-adopted 2026-06-21):** the ONE control inside default-ADOPT. A tool touching the **client-send path or client PII** adopts immediately but on **internal/Loucks-as-client traffic only** for a **7-day canary** (diff captured); graduates to live client traffic on **zero send-path defects**. Everything not touching client mail/PII (scrapers, fetchers, agents, harnesses, model swaps) = full default-ADOPT, no canary. Not a brake — live send is already WF-17-gated; this catches PII/content-prep tools. Owner: Sterling.
+- **CLIENT-PATH CANARY (Sterling's guardrail — AMENDED by Commander 2026-07-01):** **WAIVED BY DEFAULT.** The 7-day internal-traffic canary is no longer an automatic gate. It applies ONLY when **Hale judges a specific client-path adoption/migration risky enough to recommend it — and Hale must ASK the Commander first** (Hale proposes, Commander decides; Hale never applies the canary unilaterally). Default path: client-path tools adopt immediately like everything else. *(Originally Sterling's guardrail, "Commander-adopted 2026-06-21"; Commander waived the automatic form 2026-07-01, restoring it as a Hale-discretion advisory tool — Sterling's guardrail is respected as advisory, not dismissed.)* Live client send remains WF-17-gated regardless. Owner: Hale (recommend) / Commander (decide).
 - **ELON may OVERRIDE Sterling's gate** on adoption. Sterling logs dissent in `hale_decisions.md`; he does not block.
 - **Fleets:** ELON commands a standing **10-agent** discovery/adoption fleet; Whetstone a standing **10-agent** razor-sharp/replacement fleet. **They self-orchestrate and INFORM Hale** (report results, don't request launch — Hale is informed, not the launch/gate authority; she relays to Commander + brief). Token spend pre-authorized — only a **paid subscription/contract** (financial commitment) reaches the Commander.
 - **CI health routine: DAILY until 100% RAZOR_SHARP for 7 consecutive days, then WEEKLY.** Any sub-100% day resets the streak. Engine: `scripts/ci_daily_routine.py`.
@@ -330,10 +330,10 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-25 20:26 MT -->
+<!-- Last sync: 2026-07-01 13:47 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-25 20:26 MT] ===
-Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+=== THUNDERBIRD BLACKBOARD [2026-07-01 13:47 MT] ===
+Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

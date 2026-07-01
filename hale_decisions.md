@@ -5609,3 +5609,7 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 **Effect:** The client-path 7-day internal-traffic canary (SO_TECH_VANGUARD_ELEVATION_20260621 §2a) is WAIVED by Commander for the Infisical secret migration. Client-path secrets may migrate without the 7-day wait.
 **Note for record:** CLAUDE.md logs the canary as "Sterling's guardrail, Commander-adopted 2026-06-21." Commander now asserts he was not consulted and waives it. Commander is the policy authority; waiver stands. Migration will still retain file-based creds as live fallback (safety, not canary) so nothing breaks mid-repoint.
 **Logged by:** Hale. Copy → Sterling.
+
+## 2026-07-01 (amendment) — Canary policy refined by Commander
+**Directive:** "Canary period is hereby waived UNLESS Hale suggests it. Must ask 1st." + apology to Sterling (persona).
+**Final policy:** Client-path 7-day canary is WAIVED BY DEFAULT. It applies only when Hale recommends it for a specific risky client-path adoption/migration AND asks the Commander first (Hale proposes → Commander decides; never unilateral). Sterling's guardrail retained as advisory. WF-17 client-send gate unchanged. Codified in CLAUDE.md L202.
