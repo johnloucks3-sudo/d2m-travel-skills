@@ -152,17 +152,30 @@ async def warm(check_only: bool) -> int:
             final_url = (page.url or "").lower()
             bounced_to_login = "login" in final_url or "trust" in final_url
 
+            # #LogoutButton is an UNRELIABLE authenticated marker \u2014 it isn't present on
+            # the homepage even when the session is live, producing false "dead" readings
+            # that fire bogus relogin/Telegram alarms (fixed 2026-07-01). The reliable
+            # signal is: not bounced to /login AND authenticated content in the body.
             logout_visible = False
             try:
                 logout_visible = await page.locator("#LogoutButton").is_visible()
             except Exception:
                 logout_visible = False
 
-            authenticated = (not bounced_to_login) and logout_visible
+            body_authed = False
+            try:
+                txt = (await page.evaluate("() => document.body.innerText"))[:6000].lower()
+                body_authed = any(m in txt for m in ("logout", "sign out", "my account", "dashboard"))
+            except Exception:
+                body_authed = False
+
+            # Authenticated iff we were NOT bounced to login AND at least one positive
+            # marker (button OR body content) confirms a live agent session.
+            authenticated = (not bounced_to_login) and (logout_visible or body_authed)
 
             log(f"warm GET {WARM_URL} \u2192 {page.url}")
             log(f"  bounced_to_login={bounced_to_login}  logout_visible={logout_visible}  "
-                f"=> authenticated={authenticated}")
+                f"body_authed={body_authed}  => authenticated={authenticated}")
 
             if not authenticated:
                 log("NOT AUTHENTICATED — Centrav session is dead.")
