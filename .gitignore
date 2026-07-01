@@ -183,3 +183,5 @@ reverie/
 tools/fieldflow/
 cache/sheets_mirror/
 deploy/free_tools/.secrets
+deploy/free_tools/.infisical_admin
+deploy/free_tools/.infisical_runtime
