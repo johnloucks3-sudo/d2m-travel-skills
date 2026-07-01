@@ -128,8 +128,13 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 
 **Budget estimate (2 PAX, premium cabin, RT):** $2,200–$3,600
 
-#### ⭐ FARE FOUND — Delta Basic Economy, DEN–GRB · **$636**
-*Source: Commander, 2026-07-01. Basis (RT vs one-way · per-person vs 2-PAX total) to confirm at booking. Pending Harlan sign-off + Delta portal verification at purchase.*
+#### ⭐ FARE OPTIONS — Delta, DEN–GRB (two economy tiers to weigh)
+| Fare class | Price | Seats together? | Changes/refund | Source |
+|---|---|---|---|---|
+| **Delta Basic Economy** ⭐ found | **$636** | ❌ assigned at check-in (couple may split) | ❌ none | Commander 2026-07-01 |
+| **Delta Economy (Main Cabin)** | ~$800–$1,100 (est.) | ✅ advance seat selection | ✅ changeable, no change fee | Estimate — verify at booking |
+
+*The Main Cabin premium over Basic Economy (~$150–$450 for the pair, est.) buys advance seat selection (you + Susie together) and a changeable ticket. Basic Economy basis (RT/OW · pp/2-PAX) to confirm at booking. Both pending Harlan sign-off + Delta portal verification at purchase.*
 
 > **⚠️ BASIC ECONOMY — FARE RULES (read before booking, especially for a couple):**
 > - **Seats assigned at check-in, NOT in advance** — John & Susie may be split across the cabin. Seat selection only by paying to upgrade to Main Cabin.
@@ -229,7 +234,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | Deposit paid | ($324.91) | ✅ Paid | Email #95833 |
 | **Balance due at check-in** | **$1,789.84** | 🟡 Sep 7 | Email #95833 |
 | Air — Delta Basic Economy DEN–GRB | **$636** | ❌ Not booked (fare found) | Commander 2026-07-01 · basis TBC · Harlan verify at booking |
-| Air (est., 2 PAX, premium RT alt) | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
+| Air — Delta Economy (Main Cabin) alt | ~$800–$1,100 | ❌ Not booked | Estimate — seats together + changeable |
+| Air — premium cabin (2 PAX RT) fallback | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
 | GRB hotel (1 night) | ~$120–$400 | ❌ Not booked | Estimate only |
 | Rental car (8 days, all-in) | ~$700–$1,200 | ❌ Not booked | Estimate only |
 | Activities + dining (est.) | ~$600–$1,200 | ❌ Not booked | Estimate only |
