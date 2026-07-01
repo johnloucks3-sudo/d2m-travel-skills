@@ -139,6 +139,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 
 **Why United is the play (Commander directive 2026-07-01):** The Commander holds **United benefits** (MileagePlus card) → **free checked bag + Group 2 boarding**, which carry even onto Basic Economy. That neutralizes the exact downsides that make Delta Basic Economy cheap-but-painful. Net: United gives *regular Economy* comfort (seats together, changeable, free bag, early boarding, MileagePlus earning) at close to Basic-Economy economics. Routing via ORD (DEN→ORD→GRB).
 
+**🔔 UNITED FARE WATCH ACTIVE (2026-07-01):** Two watches monitoring United DEN→GRB (~0800 dep) + GRB→DEN (~1500 dep), 2 PAX, via client_bot every 5 min. United-at-your-times (Amadeus indicative): **outbound best 07:32 $334pp; return nearest afternoon 17:31 $329pp.** ⚠️ **No United ~1500 GRB departure exists** — closest afternoon is 17:31 (5:31pm); a morning 10:34 option also runs. Time-constrained United RT ≈ $1,326/2pax vs the $937 cheapest-anytime you found — the $937 likely uses off-preference times. Alert set if either leg drops <$300pp. IDs: `loucks-doorcounty-united-den-grb-out` / `-return`.
+
 **LIVE Centrav pull (2026-07-01, authenticated B2B session):** Economy RT ≈ **$1,100 for 2 PAX** — DEN→GRB Sep 6 lowest $622/2pax (range to $1,074), GRB→DEN Sep 14 lowest $478/2pax (range to $1,247). Screenshots in `core/travel/data/centrav_economy_*.png`. **⚠️ Carrier not labeled in the scrape** — to capture the United card benefits (free bag + Group 2), confirm **United metal** on the chosen itinerary at booking; the lowest fare may be another carrier or a Basic Economy bucket. Harlan sign-off at purchase.
 
 > **⚠️ BASIC ECONOMY — FARE RULES (read before booking, especially for a couple):**
