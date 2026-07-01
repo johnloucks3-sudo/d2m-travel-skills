@@ -45,12 +45,14 @@ PROCESSED_LABEL = "THUNDERBIRD-DirectiveReplied"
 COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
+MSG_STATE_FILE = ROOT / "logs" / "commander_directive_msgs.json"
 
-# Command detection: keyword (COS/COO/HALE/VIC) followed by ANY non-letter separator
-# Matches: COS: COS-- COS- COS — HALE: HALE-- COO: COO-- Vic: etc.
+# Command detection: COS/COO/HALE/VIC/DANI/WILCO/ROGER + any non-letter separator.
+# Also: ANY email from johnloucks3 to d2mconcierge is treated as a directive (chat mode).
 import re as _re
-COMMAND_PATTERN = _re.compile(r'^(cos|coo|hale|vic)\W', _re.IGNORECASE)
+COMMAND_PATTERN = _re.compile(r'^(cos|coo|hale|vic|dani|wilco|roger)\W', _re.IGNORECASE)
 SUBJECT_PREFIXES = ("re:", "fwd:", "fw:", "aw:")
+CHAT_MODE = True  # When True, ALL emails from johnloucks3 trigger a reply (no prefix required)
 
 tracker = SweepTracker("commander_directive_sweep", cooldown_minutes=2)
 
@@ -82,6 +84,27 @@ def save_thread_state(thread_ids: set):
         }, indent=2))
     except Exception as e:
         log_line(f"failed to save thread state: {e}")
+
+def load_processed_msg_ids() -> set:
+    """Message-level dedup: track which message IDs have been replied to.
+    This enables chat mode — every NEW message from Commander triggers a reply,
+    even in the same thread. Only prevents re-replying to the exact same message."""
+    try:
+        if MSG_STATE_FILE.exists():
+            data = json.loads(MSG_STATE_FILE.read_text())
+            return set(data.get("processed_msg_ids", []))
+    except Exception:
+        pass
+    return set()
+
+def save_processed_msg_ids(msg_ids: set):
+    try:
+        MSG_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        MSG_STATE_FILE.write_text(json.dumps({
+            "processed_msg_ids": sorted(msg_ids)
+        }, indent=2))
+    except Exception as e:
+        log_line(f"failed to save msg state: {e}")
 
 def clean_subject(subj: str) -> str:
     """Strip Re:/Fwd: prefixes from subject for prefix detection."""
@@ -179,11 +202,17 @@ def load_wing_context() -> str:
     return "\n".join(lines) if lines else "Wing state unavailable."
 
 def has_command_prefix_in_subject(subj: str) -> bool:
-    """Subject must START WITH COS/COO/HALE/VIC + any non-letter separator."""
+    """Subject must START WITH COS/COO/HALE/VIC/DANI/WILCO/ROGER + any non-letter separator.
+    In CHAT_MODE, ANY subject is accepted (no prefix required)."""
+    if CHAT_MODE:
+        return True
     return bool(COMMAND_PATTERN.match(clean_subject(subj)))
 
 def has_command_prefix_in_body(body: str) -> bool:
-    """Body must START WITH COS/COO/HALE/VIC + any non-letter separator."""
+    """Body must START WITH one of the command prefixes + any non-letter separator.
+    In CHAT_MODE, ANY body is accepted (no prefix required)."""
+    if CHAT_MODE:
+        return True
     return bool(COMMAND_PATTERN.match(body.strip()))
 
 try:
@@ -247,6 +276,7 @@ try:
 
     # Load previously identified directive thread IDs
     directive_thread_ids = load_thread_state()
+    processed_msg_ids = load_processed_msg_ids()
     new_directive_ids = set()
 
     # Get/create processed label
@@ -414,6 +444,7 @@ try:
 
             # Only mark processed when reply actually sent (rc=0)
             if rc == 0:
+                processed_msg_ids.add(msg_id)
                 if label_id:
                     try:
                         service.users().messages().modify(
@@ -532,9 +563,15 @@ try:
                         log_line(f"  d2mc skip (Re: ack): {d_subject[:60]}")
                         continue
 
-                # Dedup guard: skip if this thread was already processed in a prior run
-                if d_thread_id in directive_thread_ids:
-                    log_line(f"  d2mc skip (already processed thread {d_thread_id[:12]}): {d_subject[:60]}")
+                # CHAT MODE: message-level dedup (not thread-level).
+                # Track individual message IDs so Commander can reply repeatedly
+                # in the same thread — every new message triggers a new reply.
+                # Prevents re-replying to the exact same message on re-scans.
+                processed_msg_ids = load_processed_msg_ids()
+                if d_msg_id not in processed_msg_ids:
+                    log_line(f"  d2mc NEW MSG (thread {d_thread_id[:12]}): {d_subject[:80]}")
+                else:
+                    log_line(f"  d2mc skip (already processed msg {d_msg_id[:12]}): {d_subject[:60]}")
                     if d2mc_label_id:
                         try:
                             d2mc_service.users().messages().modify(
@@ -544,17 +581,6 @@ try:
                         except Exception:
                             pass
                     continue
-
-                # Pre-emptive label: apply BEFORE dispatch to prevent duplicate sends
-                # if scanner re-fires before dispatch completes (race condition fix)
-                if d2mc_label_id:
-                    try:
-                        d2mc_service.users().messages().modify(
-                            userId="me", id=d_msg_id,
-                            body={"addLabelIds": [d2mc_label_id]}
-                        ).execute()
-                    except Exception as _label_err:
-                        log_line(f"  pre-label failed: {_label_err}")
 
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
                 new_directive_ids.add(d_thread_id)
@@ -612,15 +638,25 @@ try:
 
                 if rc2 == 0:
                     tasked += 1
+                    processed_msg_ids.add(d_msg_id)
+                    if d2mc_label_id:
+                        try:
+                            d2mc_service.users().messages().modify(
+                                userId="me", id=d_msg_id,
+                                body={"addLabelIds": [d2mc_label_id]}
+                            ).execute()
+                        except Exception:
+                            pass
                 else:
-                    log_line(f"  d2mc dispatch FAILED (rc={rc2}) — label already applied, will not retry")
+                    log_line(f"  d2mc dispatch FAILED (rc={rc2}) — will retry next cycle")
             except Exception as e:
                 log_line(f"  d2mc msg {d_msg_id} failed: {e}")
 
     all_directive_ids = directive_thread_ids | new_directive_ids
     save_thread_state(all_directive_ids)
+    save_processed_msg_ids(processed_msg_ids)
 
-    log_line(f"done — scanned={len(all_msgs)+len(d2mc_msgs)} tasked={tasked} tracked_threads={len(all_directive_ids)}")
+    log_line(f"done — scanned={len(all_msgs)+len(d2mc_msgs)} tasked={tasked} tracked_threads={len(all_directive_ids)} processed_msgs={len(processed_msg_ids)}")
     tracker.mark_complete(status="ok", note=f"found={len(all_msgs)} tasked={tasked}")
     sys.exit(0)
 
