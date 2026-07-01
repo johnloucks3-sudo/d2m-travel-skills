@@ -44,6 +44,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+# Unbuffered output so log files get content even if process is killed
+sys.stdout.reconfigure(line_buffering=True)
+sys.stderr.reconfigure(line_buffering=True)
+
 CLAUDE_CLI = Path.home() / ".local/bin/claude"
 
 POLL_INTERVAL = 5
