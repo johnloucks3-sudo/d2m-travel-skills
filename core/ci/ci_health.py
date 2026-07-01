@@ -6,6 +6,7 @@ returns page-worthy degradations.
 from __future__ import annotations
 import fcntl
 import json
+import logging
 import subprocess
 import time
 from datetime import datetime, timezone
@@ -14,12 +15,60 @@ from pathlib import Path
 from core.ci.registry import load_registry, razor_sharp_status, DEFAULT_REGISTRY
 from core.ci.replacement import needs_replacement
 
+logger = logging.getLogger(__name__)
+
 DASHBOARD = Path("/home/john/Thunderbird/output/CI_DASHBOARD.md")
 HISTORY_DIR = Path("/home/john/Thunderbird/config/ci_history")
 PROBE_TIMEOUT = 60
 HISTORY_KEEP = 50  # entries retained per skill
 
 _ICON = {"RAZOR_SHARP": "🟢", "DULL": "🟡", "RED": "🔴", "REPLACE": "🔁"}
+
+
+def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -> tuple[bool, str]:
+    """
+    Attempt autonomous repair of a RED CI skill. Fires immediately on RED — no threshold.
+    Returns (repaired, detail).
+    """
+    try:
+        from core.ci.ci_auto_repair_engine import run_repair
+        from core.notify.hale_notify import notify_hale, notify_sterling
+    except ImportError as e:
+        logger.warning("Repair modules unavailable: %s", e)
+        return False, f"repair import failed: {e}"
+
+    logger.info("[CI-REPAIR] %s RED — attempting autonomous repair", skill_id)
+    try:
+        repaired = run_repair(skill_id)
+    except Exception as e:
+        logger.error("[CI-REPAIR] %s repair exception: %s", skill_id, e)
+        repaired = False
+
+    if repaired:
+        # Verify with a re-probe
+        ok, detail, _, _ = run_probe(probe_cmd)
+        if ok:
+            logger.info("[CI-REPAIR] %s RECOVERED autonomously", skill_id)
+            try:
+                notify_hale(skill_id, "ci-sweep-repair", "RED→GREEN autonomously",
+                            repaired=True, client_affecting=False)
+            except Exception:
+                pass
+            return True, "auto-repaired"
+        logger.warning("[CI-REPAIR] %s repair ran but probe still RED", skill_id)
+        repaired = False
+
+    # Repair failed — escalate appropriately
+    logger.warning("[CI-REPAIR] %s repair FAILED — escalating", skill_id)
+    try:
+        if client_affecting:
+            notify_hale(skill_id, "ci-sweep", "RED — auto-repair failed (client-affecting)",
+                        repaired=False, client_affecting=True)
+        else:
+            notify_sterling(skill_id, f"CI auto-repair failed for {skill_id} — manual intervention needed")
+    except Exception:
+        pass
+    return False, "repair-failed"
 
 
 def run_probe(cmd: str) -> tuple[bool, str, int, bool]:
@@ -70,6 +119,19 @@ def sweep(registry_path: Path = DEFAULT_REGISTRY, update_verified: bool = True) 
     results = []
     for s in reg["skills"]:
         probe_ok, detail, ms, timed_out = run_probe(s["health_probe"])
+
+        # Attempt autonomous repair immediately on RED (no threshold — sweep runs infrequently)
+        if not probe_ok and update_verified:
+            repaired, repair_detail = _try_repair(
+                s["id"], s["health_probe"],
+                client_affecting=s.get("client_affecting", False)
+            )
+            if repaired:
+                probe_ok = True
+                detail = repair_detail
+                ms = 0
+                timed_out = False
+
         if probe_ok and update_verified:
             s["last_verified"] = now.isoformat()
 

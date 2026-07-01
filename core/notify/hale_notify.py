@@ -104,30 +104,47 @@ def notify_sterling(issue: str, detail: str):
 
 
 def ci_auto_repair(skill_id: str) -> bool:
-    """Attempt autonomous repair of a CI skill. Returns True if repaired."""
-    repair_map = {
-        "credential-keepalive": [
-            VENV_PYTHON, str(ROOT / "scripts/keepalive_supervisor.py"), "--force-all"
-        ],
-        "fare-watch-centrav": [
-            VENV_PYTHON, str(ROOT / "scripts/centrav_session_relogin.py"), "--force"
-        ],
-        "portal-access": [
-            VENV_PYTHON, str(ROOT / "scripts/portal_keepalive.py")
-        ],
-    }
-    cmd = repair_map.get(skill_id)
-    if not cmd:
-        return False
+    """Attempt autonomous repair of a CI skill via ci_auto_repair_engine. Returns True if repaired."""
     _log(f"CI-REPAIR: attempting auto-repair for {skill_id}")
     try:
-        result = subprocess.run(cmd, timeout=120, capture_output=True, text=True)
-        success = result.returncode == 0
-        _log(f"CI-REPAIR: {skill_id} → {'OK' if success else 'FAIL'} rc={result.returncode}")
+        from core.ci.ci_auto_repair_engine import run_repair
+        success = run_repair(skill_id)
+        _log(f"CI-REPAIR: {skill_id} → {'OK' if success else 'FAIL'}")
         return success
-    except Exception as e:
-        _log(f"CI-REPAIR: {skill_id} exception — {e}")
-        return False
+    except ImportError:
+        # Fallback: direct subprocess for the most critical skills
+        repair_map = {
+            "credential-keepalive": [
+                VENV_PYTHON, str(ROOT / "scripts/keepalive_supervisor.py"), "--force-all"
+            ],
+            "fare-watch-centrav": [
+                VENV_PYTHON, str(ROOT / "scripts/centrav_session_relogin.py"), "--force"
+            ],
+            "portal-access": [
+                VENV_PYTHON, str(ROOT / "scripts/centrav_session_relogin.py")
+            ],
+            "regent-portal-live": [
+                VENV_PYTHON, str(ROOT / "scripts/rssc_session_keepalive.py")
+            ],
+            "dani-identity-layer": [
+                "systemctl", "--user", "restart", "thunderbird-telegram-gw.service"
+            ],
+            "supertimer-bot-health": [
+                "systemctl", "--user", "restart", "thunderbird-supertimer.service"
+            ],
+        }
+        cmd = repair_map.get(skill_id)
+        if not cmd:
+            _log(f"CI-REPAIR: {skill_id} — no repair registered")
+            return False
+        try:
+            result = subprocess.run(cmd, timeout=120, capture_output=True, text=True)
+            success = result.returncode == 0
+            _log(f"CI-REPAIR: {skill_id} (fallback) → {'OK' if success else 'FAIL'} rc={result.returncode}")
+            return success
+        except Exception as e:
+            _log(f"CI-REPAIR: {skill_id} exception — {e}")
+            return False
 
 
 if __name__ == "__main__":
