@@ -58,6 +58,31 @@ def log(m: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)
 
 
+def _telegram_dead_session_alert() -> None:
+    """FIX-3 2026-06-27: Immediate Telegram page to Commander when Centrav session dies."""
+    import os, urllib.request, urllib.parse
+    token = os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
+    if not token:
+        log("  [telegram] no token in env — skipping page (fare-watch will still go dark in brief)")
+        return
+    commander_id = 7554895206
+    msg = (
+        "🔴 CENTRAV SESSION DEAD\n"
+        "Fare-watch is now DARK — no flight prices will be checked until re-auth.\n\n"
+        "Fix: open yoga browser → run:\n"
+        "  cd ~/Thunderbird && .venv/bin/python scripts/centrav_serve.py\n\n"
+        "All 4 flight watches suspended until resolved."
+    )
+    try:
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = urllib.parse.urlencode({"chat_id": commander_id, "text": msg}).encode()
+        req = urllib.request.Request(url, data=data, method="POST")
+        urllib.request.urlopen(req, timeout=10)
+        log("  [telegram] Commander paged: Centrav session dead")
+    except Exception as e:
+        log(f"  [telegram] page failed (non-fatal): {e}")
+
+
 def _clear_stale_centrav_autherror() -> None:
     """On a confirmed-live warm, scrub any stale Centrav auth_error from the
     fare-watch state the keepalive supervisor reads. The warm-ping is the live
@@ -127,22 +152,34 @@ async def warm(check_only: bool) -> int:
             final_url = (page.url or "").lower()
             bounced_to_login = "login" in final_url or "trust" in final_url
 
-            logout = None
+            logout_visible = False
             try:
-                logout = await page.query_selector("#LogoutButton")
+                logout_visible = await page.locator("#LogoutButton").is_visible()
             except Exception:
-                logout = None
+                logout_visible = False
 
-            authenticated = (not bounced_to_login) and (logout is not None)
+            authenticated = (not bounced_to_login) and logout_visible
 
-            log(f"warm GET {WARM_URL} → {page.url}")
-            log(f"  bounced_to_login={bounced_to_login}  logout_present={logout is not None}  "
+            log(f"warm GET {WARM_URL} \u2192 {page.url}")
+            log(f"  bounced_to_login={bounced_to_login}  logout_visible={logout_visible}  "
                 f"=> authenticated={authenticated}")
 
             if not authenticated:
                 log("NOT AUTHENTICATED — Centrav session is dead.")
-                log("  The trust cookie/session expired. One manual login required:")
-                log("    .venv/bin/python scripts/centrav_serve.py")
+                log("  Attempting autonomous headless relogin via trusted Firefox profile...")
+                try:
+                    import subprocess as _sp
+                    result = _sp.run(
+                        [sys.executable, str(ROOT / "scripts" / "centrav_session_relogin.py")],
+                        timeout=120,
+                    )
+                    if result.returncode == 0:
+                        log("  RELOGIN SUCCESS — session restored autonomously. Warm cycle complete.")
+                        return 0
+                    log(f"  Relogin returned rc={result.returncode} — escalating to Commander")
+                except Exception as _e:
+                    log(f"  Relogin attempt error: {_e} — escalating to Commander")
+                # Relogin failed — page Commander (relogin script sends its own specific Telegram)
                 log("  session.json left UNTOUCHED (no clobber).")
                 return 2
 

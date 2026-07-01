@@ -110,7 +110,7 @@ def ci_auto_repair(skill_id: str) -> bool:
             VENV_PYTHON, str(ROOT / "scripts/keepalive_supervisor.py"), "--force-all"
         ],
         "fare-watch-centrav": [
-            VENV_PYTHON, str(ROOT / "scripts/centrav_session_auto_keepalive.py"), "--force"
+            VENV_PYTHON, str(ROOT / "scripts/centrav_session_relogin.py"), "--force"
         ],
         "portal-access": [
             VENV_PYTHON, str(ROOT / "scripts/portal_keepalive.py")
