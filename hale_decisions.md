@@ -5644,3 +5644,17 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 ## 2026-07-01 — reverie-api.service RETIRED (verified-dead); cruise-db-refresh FIXED
 **reverie-api:** disabled + stopped. Evidence: cloudflared route api-reverie:8802 pruned as dead 2026-06-22 (MISSION-259); venv .venv_new deleted; unit in 203/EXEC restart loop since. Frontend (reverie-frontend :8888) unaffected — active, HTTP 200, still routed. CI probe to be narrowed to frontend-only at PR-integration. Full verified-decommission (code removal) deferred.
 **cruise-db-refresh:** root cause = `from scripts.link_resolver import ...` added by cruise-db work (c3764e8a8 era) fails in script-mode execution (scripts/ on sys.path, not repo root). One-line sys.path anchor fixed it; unit rebuilt DB clean. Was failing every ~20min since.
+
+### 2026-07-01 16:47:00 — Autonomous Decision (T1)
+**Decision:** A2A broadcast fix — converted from sequential 11-persona loop to concurrent asyncio.gather (was causing MCP -32001 timeout). Restarted dreams2memories MCP backend + API server with fix loaded.
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+
+## 2026-07-01 — Email-tasking Phase A executed (protected-file edits logged)
+**Plan:** Ultraplan-approved (cloud failed → local fallback execution per armed clause).
+**Protected files edited** (SO 2026-06-08, protections SUSPENDED via .protections_lifted): email_task_ingest.py, thunderbird_commander_inbox.py, dispatch_and_email.py — idempotency guards (message-ID keyed via new core/email/email_audit.py), verify-then-label reordering, dispatch outcome recording. email_intel decomposed (deadline-bounded calls, resumable cursor, 480s budget).
+**Latent bug logged, deliberately NOT fixed:** commander_inbox QUESTION path calls dispatch_and_email with invalid args (--no-reply, missing --subject) → argparse rc=2 → dead code; real send happens via _send_email_to_commander. Fixing would DOUBLE-SEND replies. Decide disposition at Phase C gate.
+**1.6 finding:** brief credential section reads creds/*.json file expiry directly (credentials_health_check.py) — NOT timer journals. R9 timer-disable blocker was overstated; timer-disable wave unblocked.

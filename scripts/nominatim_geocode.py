@@ -59,16 +59,32 @@ def port_to_city_distances(port: str, cities: list[str]) -> list[dict]:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="OSM Nominatim geocoder for D2M port logistics")
-    parser.add_argument("place", help="Place to geocode")
+    parser.add_argument("place", nargs="?", help="Place to geocode (positional)")
+    parser.add_argument("--query", help="Place to geocode (alias for positional)")
     parser.add_argument("--distance", help="Calculate distance to this second place")
+    parser.add_argument("--json", action="store_true", dest="json_out",
+                        help="Output JSON {latitude, longitude, display_name} to stdout")
     args = parser.parse_args()
 
-    geo = geocode(args.place)
+    # Resolve place: --query takes precedence over positional
+    place = args.query or args.place
+    if not place:
+        parser.error("provide a place as positional argument or --query <place>")
+
+    geo = geocode(place)
     if not geo:
-        print(f"Not found: {args.place}")
+        print(f"Not found: {place}")
         sys.exit(1)
-    print(f"Location: {geo['display']}")
-    print(f"Coords: {geo['lat']}, {geo['lon']}")
+
+    if args.json_out:
+        print(json.dumps({
+            "latitude": geo["lat"],
+            "longitude": geo["lon"],
+            "display_name": geo["display"],
+        }))
+    else:
+        print(f"Location: {geo['display']}")
+        print(f"Coords: {geo['lat']}, {geo['lon']}")
 
     if args.distance:
         time.sleep(1)

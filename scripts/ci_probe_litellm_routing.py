@@ -28,8 +28,10 @@ def fail(m):
 
 def main():
     # 1. Check LiteLLM installed
+    # NOTE: litellm does not expose __version__ on all builds; import success
+    # is the correct installed-check (AttributeError on __version__ → false RED).
     r = subprocess.run(
-        [str(PYBIN), "-c", "import litellm; print(litellm.__version__)"],
+        [str(PYBIN), "-c", "import litellm; print('OK')"],
         capture_output=True,
         text=True,
         timeout=5

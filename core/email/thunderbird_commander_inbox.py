@@ -57,6 +57,17 @@ from typing import Any, Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
+# ── Audit trail (A2/A3) — defensive import; pipeline must never break ──────
+_THUNDERBIRD_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(_THUNDERBIRD_ROOT) not in sys.path:
+    sys.path.insert(0, str(_THUNDERBIRD_ROOT))
+try:
+    from core.email.email_audit import record as _audit_record, already_done as _audit_already_done
+except ImportError:  # pragma: no cover
+    def _audit_record(*a, **k): return True   # type: ignore[misc]
+    def _audit_already_done(*a, **k): return False  # type: ignore[misc]
+
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -1419,10 +1430,18 @@ def _send_email_to_commander(
 
 
 def _dispatch_question_and_reply(
-    question_subject: str, question_body: str,
+    question_subject: str, question_body: str, msg_id: str = "",
     thread_id: str = None, in_reply_to: str = None
 ):
-    """Dispatch question to Sonnet, reply in-thread with the actual answer."""
+    """Dispatch question to Sonnet, reply in-thread with the actual answer.
+
+    msg_id is the inbound Gmail message ID — used for audit trail idempotency.
+    """
+    # ── A3: Idempotency guard — don't double-reply if thread re-enters ──
+    if msg_id and _audit_already_done(msg_id, "reply_sent"):
+        logger.info(f"[QUESTION] SKIP reply for {msg_id[:12]} — already sent (audit)")
+        return
+
     prompt = (
         f"You are Hale, COS of Thunderbird Wing, Dreams2Memories Travel.\n"
         f"Commander asked the following question via email. Answer it directly and completely.\n"
@@ -1452,7 +1471,8 @@ def _dispatch_question_and_reply(
     except Exception as e:
         answer = f"Wing attempted to answer but hit an error: {e}"
 
-    _send_email_to_commander(
+    # ── A4: act → verify → record → (label already applied by caller on dispatch init) ──
+    send_ok = _send_email_to_commander(
         subject=f"✅ Answer: {question_subject[:70]}",
         body=(
             f"{answer}\n\n"
@@ -1462,6 +1482,13 @@ def _dispatch_question_and_reply(
         in_reply_to=in_reply_to,
         original_subject=question_subject,
     )
+    # Record to audit after verified send
+    if msg_id:
+        _audit_record(msg_id, "inbox", thread_id=thread_id,
+                      classified_as="QUESTION",
+                      action_taken="reply_sent",
+                      outcome="ok" if send_ok else "failed",
+                      detail=f"question_reply dispatch {'ok' if send_ok else 'failed'}")
 
 
 def _send_telegram_confirmation(message: str):
@@ -1514,39 +1541,77 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
         # Get Message-ID header for in-thread replies
         in_reply_to = email.get("message_id_header")  # set below in scan; fallback None
 
+        # A4: per-email success flag — label applied ONLY after verified success
+        _email_actioned_ok = False
+
         try:
             body_full = email.get("body", "")
 
             if classification == "DIRECTION":
                 # Create mission + reply in-thread with mission ID (no ack, just result)
-                mission_desc = f"Commander email directive: {subject}. {body_preview[:200]}"
-                result = subprocess.run(
-                    [sys.executable,
-                     str(THUNDERBIRD_DIR / "OpsCenter/mission_board_sync.py"),
-                     "add", subject[:120], mission_desc, "P1"],
-                    capture_output=True, text=True,
-                    cwd=str(THUNDERBIRD_DIR), timeout=30,
-                )
-                mission_id = ""
-                if "Created:" in result.stdout:
-                    mission_id = result.stdout.split("Created:")[-1].strip().split()[0]
-                _send_telegram_confirmation(
-                    f"⚡ DIRECTION\n📧 {subject[:80]}\n→ {mission_id or 'queued'} on board."
-                )
-                # No email ack — Telegram is sufficient; email acks were creating inbox noise
+
+                # ── A3: Idempotency guard — skip duplicate mission creation ──
+                if _audit_already_done(msg_id, "mission_created"):
+                    logger.info(
+                        f"  [DIRECTION] SKIP {msg_id[:12]} — mission already created (audit)"
+                    )
+                    _audit_record(msg_id, "inbox", classified_as="DIRECTION",
+                                  outcome="skipped-duplicate",
+                                  detail="mission_created already in audit trail")
+                    _email_actioned_ok = True  # already handled; label it so we don't re-sweep
+                else:
+                    mission_desc = f"Commander email directive: {subject}. {body_preview[:200]}"
+                    result = subprocess.run(
+                        [sys.executable,
+                         str(THUNDERBIRD_DIR / "OpsCenter/mission_board_sync.py"),
+                         "add", subject[:120], mission_desc, "P1"],
+                        capture_output=True, text=True,
+                        cwd=str(THUNDERBIRD_DIR), timeout=30,
+                    )
+                    mission_id = ""
+                    # ── A4: verify success before recording and labeling ──
+                    if "Created:" in result.stdout:
+                        mission_id = result.stdout.split("Created:")[-1].strip().split()[0]
+                        # A3: record successful mission creation
+                        _audit_record(msg_id, "inbox", thread_id=thread_id,
+                                      classified_as="DIRECTION",
+                                      action_taken="mission_created", outcome="ok",
+                                      detail=f"mission_id={mission_id} subject={subject[:80]}")
+                        _email_actioned_ok = True
+                    else:
+                        # Mission board call did not confirm creation — do NOT label, allow retry
+                        logger.warning(
+                            f"  [DIRECTION] mission_board_sync gave no 'Created:' for {msg_id[:12]} "
+                            f"rc={result.returncode} stdout={result.stdout[:200]!r}"
+                        )
+                        _audit_record(msg_id, "inbox", thread_id=thread_id,
+                                      classified_as="DIRECTION",
+                                      action_taken="mission_created", outcome="failed",
+                                      detail=f"no 'Created:' in stdout: {result.stdout[:200]!r}")
+                        # _email_actioned_ok stays False → no label → next sweep retries
+
+                    _send_telegram_confirmation(
+                        f"⚡ DIRECTION\n📧 {subject[:80]}\n→ {mission_id or 'queued'} on board."
+                    )
+                    # No email ack — Telegram is sufficient; email acks were creating inbox noise
                 stats["direction"] += 1
 
             elif classification == "QUESTION":
-                # No ack — dispatch Sonnet, reply in-thread with the actual answer
+                # No ack — dispatch Sonnet, reply in-thread with the actual answer.
+                # QUESTION reply is async; "success" here = dispatch thread started.
+                # We do NOT guard with already_done for reply_sent because the async
+                # thread records that after the actual send (see _dispatch_question_and_reply).
+                # Label after initiating dispatch (prevents re-dispatching every sweep).
                 _send_telegram_confirmation(
                     f"⚡ QUESTION\n📧 {subject[:80]}\n→ Researching now."
                 )
                 threading.Thread(
                     target=_dispatch_question_and_reply,
-                    args=(subject, body_full),
+                    args=(subject, body_full, msg_id),
                     kwargs={"thread_id": thread_id, "in_reply_to": in_reply_to},
                     daemon=True,
                 ).start()
+                _email_actioned_ok = True  # dispatch initiated; label to prevent re-dispatch
                 stats["information"] += 1
 
             elif classification == "CC":
@@ -1563,25 +1628,42 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                 _send_telegram_confirmation(
                     f"⚡ CC\n📧 {subject[:80]}\n→ Filed: intel/cc_received_{cc_ts}.txt"
                 )
-                _send_email_to_commander(
-                    subject=f"✅ CC Logged: {subject[:70]}",
-                    body=(
-                        f"CC received and filed.\n\n"
-                        f"What was noted: {subject}\n"
-                        f"Where filed: intel/cc_received_{cc_ts}.txt\n"
-                        f"Action: None identified — logged for reference. Reply if action needed.\n\n"
-                        f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
-                    ),
-                    thread_id=thread_id,
-                    in_reply_to=in_reply_to,
-                    original_subject=subject,
-                )
+
+                # ── A3: Idempotency guard before sending ack ──
+                if _audit_already_done(msg_id, "ack_sent"):
+                    logger.info(f"  [CC] SKIP ack for {msg_id[:12]} — already sent")
+                    _email_actioned_ok = True
+                else:
+                    # ── A4: act → verify (return value) → record → then label ──
+                    ack_ok = _send_email_to_commander(
+                        subject=f"✅ CC Logged: {subject[:70]}",
+                        body=(
+                            f"CC received and filed.\n\n"
+                            f"What was noted: {subject}\n"
+                            f"Where filed: intel/cc_received_{cc_ts}.txt\n"
+                            f"Action: None identified — logged for reference. Reply if action needed.\n\n"
+                            f"— Hale · {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+                        ),
+                        thread_id=thread_id,
+                        in_reply_to=in_reply_to,
+                        original_subject=subject,
+                    )
+                    # Record to audit BEFORE applying label
+                    _audit_record(msg_id, "inbox", thread_id=thread_id,
+                                  classified_as="CC",
+                                  action_taken="ack_sent",
+                                  outcome="ok" if ack_ok else "failed",
+                                  detail=f"cc_file=intel/cc_received_{cc_ts}.txt")
+                    if ack_ok:
+                        _email_actioned_ok = True
+                    # If ack failed: _email_actioned_ok stays False → no label → retry next sweep
                 stats["information"] += 1
 
             elif classification == "TEST":
                 _send_telegram_confirmation(
                     f"⚡ TEST\n📧 {subject[:80]}\n→ Scanner live."
                 )
+                _email_actioned_ok = True
                 stats["test"] += 1
 
             else:  # INFORMATION
@@ -1599,6 +1681,11 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
                     f"⚡ INFORMATION\n📧 {subject[:80]}\n"
                     f"→ Saved: intel/email_forward_{info_ts}.txt"
                 )
+                _audit_record(msg_id, "inbox", thread_id=thread_id,
+                              classified_as="INFORMATION",
+                              action_taken=None, outcome="ok",
+                              detail=f"filed=intel/email_forward_{info_ts}.txt")
+                _email_actioned_ok = True
                 stats["information"] += 1
 
             logger.info(f"  [{classification}] {subject[:60]} → confirmed")
@@ -1614,11 +1701,17 @@ def run_commander_inbox_sweep(hours_back: float = 4) -> Dict[str, Any]:
 
         except Exception as e:
             logger.error(f"Sweep error for {msg_id}: {e}")
+            _audit_record(msg_id, "inbox", classified_as=classification,
+                          outcome="failed", detail=f"sweep exception: {e}")
             stats["errors"] += 1
 
-        processed_ids.add(msg_id)
-        if label_service and processed_label_id:
-            _apply_label(label_service, msg_id, processed_label_id)
+        # ── A4: label ONLY after verified success — label-race fix ──
+        # Previously: processed_ids.add() and _apply_label() were unconditional
+        # (outside try/except), so a failed action still got labeled, preventing retry.
+        if _email_actioned_ok:
+            processed_ids.add(msg_id)
+            if label_service and processed_label_id:
+                _apply_label(label_service, msg_id, processed_label_id)
 
         time.sleep(0.3)
 

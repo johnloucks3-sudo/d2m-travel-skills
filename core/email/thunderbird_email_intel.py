@@ -81,6 +81,18 @@ CLAUDE_CLI = os.path.expanduser("~/.local/bin/claude")
 SWEEP_LOOKBACK_HOURS = 6
 MAX_EMAILS_PER_SWEEP = 50
 
+# Phase A1 — deadline-bounded execution
+# BATCH_SIZE: checkpoint progress every N emails (not a prompt payload — still 1 email/call)
+BATCH_SIZE = 8
+# Default wall-clock budget for the entire sweep (comms_bot ceiling is 600s)
+DEFAULT_BUDGET_SECONDS = 480
+# Per-Claude-call timeout ceiling; each call also respects remaining budget
+CALL_TIMEOUT_SEC = 120
+# Max attempts before a failing email is permanently skipped (not retried forever)
+MAX_ATTEMPTS_BEFORE_SKIP = 3
+# Cursor file — progress metadata only, NOT a dedup source (processed_ids owns dedup)
+CURSOR_FILE = THUNDERBIRD_DIR / "OpsCenter" / "state" / "email_intel_cursor.json"
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(
     level=logging.INFO,
@@ -112,6 +124,29 @@ def _save_state(state: Dict[str, Any]):
     if len(state.get("processed_ids", [])) > 2000:
         state["processed_ids"] = state["processed_ids"][-2000:]
     STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+
+# ============================================================================
+# PHASE A1 — CURSOR (progress metadata, separate from dedup state)
+# ============================================================================
+
+def _load_cursor() -> Dict[str, Any]:
+    """Load sweep cursor. Returns empty dict if missing or corrupt."""
+    try:
+        if CURSOR_FILE.exists():
+            return json.loads(CURSOR_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+
+def _save_cursor(cursor: Dict[str, Any]) -> None:
+    """Persist cursor to disk. Non-fatal on failure."""
+    try:
+        CURSOR_FILE.parent.mkdir(parents=True, exist_ok=True)
+        CURSOR_FILE.write_text(json.dumps(cursor, indent=2), encoding="utf-8")
+    except Exception as exc:
+        logger.warning(f"Cursor save failed (non-fatal): {exc}")
 
 
 # ============================================================================
@@ -432,11 +467,17 @@ def send_staff_paper(
 
 def _call_opus(system_prompt: str, user_prompt: str,
                max_tokens: int = 1200, temperature: float = 0.2,
-               max_retries: int = 3) -> str:
-    """Call Claude Opus via CLI subprocess for email analysis.
+               max_retries: int = 3,
+               _deadline: Optional[float] = None) -> str:
+    """Call Claude Haiku via CLI subprocess for email analysis.
 
     Uses the Claude Code CLI with Max plan OAuth ($0 cost).
     Strips ANTHROPIC_API_KEY so CLI uses Max plan instead of API credits.
+
+    Phase A1: _deadline is a monotonic time value (time.monotonic()).
+    Each subprocess call respects both CALL_TIMEOUT_SEC and remaining budget.
+    If _deadline is passed and less than 10s remain, raises RuntimeError
+    immediately without spawning a subprocess (avoids overrunning budget).
     """
     combined_prompt = f"{system_prompt}\n\n---\n\n{user_prompt}"
 
@@ -470,12 +511,24 @@ def _call_opus(system_prompt: str, user_prompt: str,
 
     last_error = None
     for attempt in range(max_retries):
+        # Phase A1: compute per-attempt timeout bounded by remaining budget
+        if _deadline is not None:
+            remaining = _deadline - time.monotonic()
+            if remaining < 10:
+                raise RuntimeError(
+                    f"Budget exhausted before Claude call (attempt {attempt + 1}): "
+                    f"{remaining:.1f}s remaining"
+                )
+            call_timeout = min(CALL_TIMEOUT_SEC, int(remaining - 5))
+        else:
+            call_timeout = CALL_TIMEOUT_SEC
+
         try:
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=300,
+                timeout=call_timeout,
                 env=clean_env,
             )
             if result.returncode == 0 and result.stdout.strip():
@@ -491,7 +544,7 @@ def _call_opus(system_prompt: str, user_prompt: str,
                     logger.warning(f"Retrying in {wait}s (attempt {attempt + 1}/{max_retries})...")
                     time.sleep(wait)
         except subprocess.TimeoutExpired:
-            last_error = RuntimeError("Opus CLI timed out after 300s")
+            last_error = RuntimeError(f"Opus CLI timed out after {call_timeout}s")
             logger.error(str(last_error))
             if attempt < max_retries - 1:
                 logger.warning(f"Retrying after timeout (attempt {attempt + 1}/{max_retries})...")
@@ -727,6 +780,7 @@ def _draft_client_response(
     analysis: Dict,
     client_info: Dict,
     use_claude: bool = False,
+    _deadline: Optional[float] = None,
 ) -> Optional[str]:
     """Generate a draft client response in Commander's voice."""
     voice_profile = _load_voice_profile()
@@ -785,7 +839,7 @@ def _draft_client_response(
         if use_claude:
             return _call_claude_sonnet(system_prompt, user_prompt)
         else:
-            return _call_opus(system_prompt, user_prompt, max_tokens=1500)
+            return _call_opus(system_prompt, user_prompt, max_tokens=1500, _deadline=_deadline)
     except Exception as e:
         logger.error(f"Draft response generation failed: {e}")
         return None
@@ -900,6 +954,7 @@ def _append_to_dossier(dossier_path: str, email_data: Dict, summary: str,
 
 def _consult_a2_supplier_intel(
     email_data: Dict, supplier_info: Dict, analysis: Dict,
+    _deadline: Optional[float] = None,
 ) -> Optional[str]:
     """Consult A2 (Dembe) for market intelligence assessment on supplier email.
 
@@ -947,6 +1002,7 @@ def _consult_a2_supplier_intel(
         a2_response = _call_opus(
             a2_system_prompt, a2_user_prompt,
             max_tokens=600, temperature=0.2,
+            _deadline=_deadline,
         )
         logger.info(f"  A2 (Dembe) market intel assessment complete ({len(a2_response)} chars)")
         return a2_response
@@ -958,6 +1014,7 @@ def _consult_a2_supplier_intel(
 def _process_supplier_email(
     service, email_data: Dict, supplier_info: Dict,
     client_registry: Dict, context_summary: str,
+    _deadline: Optional[float] = None,
 ) -> Dict[str, Any]:
     """Process a supplier email: analyze, consult A2, send staff paper, draft client emails."""
 
@@ -973,7 +1030,7 @@ def _process_supplier_email(
         f"Body:\n{email_data['body']}"
     )
 
-    raw_response = _call_opus(SUPPLIER_SYSTEM_PROMPT, user_prompt)
+    raw_response = _call_opus(SUPPLIER_SYSTEM_PROMPT, user_prompt, _deadline=_deadline)
     analysis = _parse_json_response(raw_response)
 
     result = {
@@ -994,7 +1051,7 @@ def _process_supplier_email(
     # pricing changes, availability updates, itinerary mods, fare alerts, competitor intel
     a2_assessment = None
     if analysis.get("action_needed") or analysis.get("opportunity") or analysis.get("risk"):
-        a2_assessment = _consult_a2_supplier_intel(email_data, supplier_info, analysis)
+        a2_assessment = _consult_a2_supplier_intel(email_data, supplier_info, analysis, _deadline=_deadline)
         result["a2_intel"] = a2_assessment
 
     # Send staff paper if action needed or opportunity detected
@@ -1050,6 +1107,7 @@ def _process_supplier_email(
                 draft_body = _call_opus(
                     "You write emails in John Loucks' voice. Short, warm, not salesy.",
                     promo_prompt, max_tokens=800,
+                    _deadline=_deadline,
                 )
                 draft_id = _create_gmail_draft(
                     service, target_email,
@@ -1066,6 +1124,7 @@ def _process_supplier_email(
 
 def _process_client_email(
     service, email_data: Dict, client_info: Dict,
+    _deadline: Optional[float] = None,
 ) -> Dict[str, Any]:
     """Process a client email: analyze, draft response, send staff paper, update dossier."""
 
@@ -1091,7 +1150,7 @@ def _process_client_email(
         f"Body:\n{email_data['body']}"
     )
 
-    raw_response = _call_opus(CLIENT_SYSTEM_PROMPT, user_prompt)
+    raw_response = _call_opus(CLIENT_SYSTEM_PROMPT, user_prompt, _deadline=_deadline)
     analysis = _parse_json_response(raw_response)
 
     result = {
@@ -1119,7 +1178,7 @@ def _process_client_email(
 
     # Draft response
     draft_body = _draft_client_response(
-        email_data, analysis, client_info, use_claude=use_claude,
+        email_data, analysis, client_info, use_claude=use_claude, _deadline=_deadline,
     )
     if draft_body:
         # Extract reply-to address
@@ -1179,6 +1238,7 @@ def _process_client_email(
 
 def _process_general_email(
     service, email_data: Dict, context_summary: str,
+    _deadline: Optional[float] = None,
 ) -> Dict[str, Any]:
     """Process a general email (not supplier, not known client)."""
 
@@ -1192,7 +1252,7 @@ def _process_general_email(
         f"Body:\n{email_data['body']}"
     )
 
-    raw_response = _call_opus(GENERAL_SYSTEM_PROMPT, user_prompt)
+    raw_response = _call_opus(GENERAL_SYSTEM_PROMPT, user_prompt, _deadline=_deadline)
     analysis = _parse_json_response(raw_response)
 
     result = {
@@ -1230,6 +1290,7 @@ def run_email_intel_sweep(
     lookback_hours: int = SWEEP_LOOKBACK_HOURS,
     max_emails: int = MAX_EMAILS_PER_SWEEP,
     dry_run: bool = False,
+    budget_seconds: int = DEFAULT_BUDGET_SECONDS,
 ) -> Dict[str, Any]:
     """Main entry point: scan inbox, classify, analyze, act.
 
@@ -1238,20 +1299,39 @@ def run_email_intel_sweep(
       2. Match sender against client registry → client sweep
       3. Everything else → general sweep (only if relevant)
 
+    Phase A1 additions:
+      - budget_seconds: global wall-clock budget; sweep exits cleanly before
+        comms_bot/systemd ceiling is hit (default 480s < 600s comms_bot limit).
+      - Incremental state save after every BATCH_SIZE emails processed.
+      - Cursor file (OpsCenter/state/email_intel_cursor.json) tracks per-run
+        progress metadata and per-email attempt counts.
+      - Emails that fail MAX_ATTEMPTS_BEFORE_SKIP times are permanently skipped
+        (added to processed_ids) so they don't poison every future sweep.
+      - _call_opus receives a deadline so each subprocess respects remaining budget.
+
     Args:
         lookback_hours: How far back to scan (default 6h)
         max_emails: Max emails to process per sweep
         dry_run: If True, analyze but don't send papers/drafts/update dossiers
+        budget_seconds: Max wall-clock seconds for the entire sweep (default 480)
 
     Returns:
         Summary dict with counts and per-email results
     """
+    sweep_start = time.monotonic()
+    deadline = sweep_start + budget_seconds
+
     logger.info("=" * 60)
     logger.info("EMAIL INTELLIGENCE OFFICER — SWEEP STARTING")
+    logger.info(f"Budget: {budget_seconds}s | Deadline in: {budget_seconds}s")
     logger.info("=" * 60)
 
     state = _load_state()
     processed_ids = set(state.get("processed_ids", []))
+
+    # Load cursor for attempt-count tracking (skip-after-N)
+    cursor = _load_cursor()
+    attempt_counts: Dict[str, int] = cursor.get("attempt_counts", {})
 
     # --- FAST PATH: Connect to Gmail and check for new emails FIRST ---
     # Skip expensive registry builds if there is nothing new to process.
@@ -1302,27 +1382,89 @@ def run_email_intel_sweep(
     context_summary = _build_context_summary(client_registry)
 
     sweep_results = []
-    stats = {"supplier": 0, "client": 0, "general": 0, "skipped": len(message_stubs) - len(new_stubs),
-             "drafts": 0, "papers": 0}
+    initial_skipped = len(message_stubs) - len(new_stubs)
+    # `stats` = incremental counters, reset after each checkpoint to avoid double-counting
+    stats = {"supplier": 0, "client": 0, "general": 0, "skipped": initial_skipped,
+             "drafts": 0, "papers": 0, "budget_exit": False, "permanently_skipped": 0}
+    # `totals` = cumulative sweep totals, never reset — used for the final summary
+    totals = {"supplier": 0, "client": 0, "general": 0, "drafts": 0, "papers": 0}
 
-    for stub in new_stubs:
+    def _checkpoint(reason: str = "") -> None:
+        """Save state and cursor after each batch — the resume mechanism."""
+        # Accumulate into cumulative totals BEFORE resetting incremental counters
+        totals["supplier"] += stats["supplier"]
+        totals["client"] += stats["client"]
+        totals["general"] += stats["general"]
+        totals["drafts"] += stats["drafts"]
+        totals["papers"] += stats["papers"]
+
+        state["processed_ids"] = list(processed_ids)
+        state["last_run"] = datetime.now().isoformat()
+        state["stats"]["total"] += len(sweep_results)
+        state["stats"]["supplier"] += stats["supplier"]
+        state["stats"]["client"] += stats["client"]
+        state["stats"]["general"] += stats["general"]
+        state["stats"]["skipped"] += stats["skipped"]
+        state["stats"]["drafts_created"] += stats["drafts"]
+        state["stats"]["staff_papers_sent"] += stats["papers"]
+        # Reset incremental counters so they don't double-count on next checkpoint
+        stats["supplier"] = stats["client"] = stats["general"] = 0
+        stats["skipped"] = 0
+        stats["drafts"] = stats["papers"] = 0
+        if not dry_run:
+            _save_state(state)
+        cursor["attempt_counts"] = attempt_counts
+        cursor["last_checkpoint"] = datetime.now().isoformat()
+        cursor["last_checkpoint_reason"] = reason
+        cursor["elapsed_sec"] = round(time.monotonic() - sweep_start, 1)
+        _save_cursor(cursor)
+
+    emails_since_checkpoint = 0
+
+    for idx, stub in enumerate(new_stubs):
         msg_id = stub["id"]
+
+        # --- Budget gate: check before starting each email ---
+        elapsed = time.monotonic() - sweep_start
+        remaining = budget_seconds - elapsed
+        if remaining < 15:
+            logger.warning(
+                f"Budget nearly exhausted ({remaining:.1f}s left) — "
+                f"saving cursor and exiting cleanly after {idx} emails."
+            )
+            stats["budget_exit"] = True
+            _checkpoint(reason="budget_exhausted")
+            break
+
+        # --- Skip-after-N: permanently skip chronically failing emails ---
+        if attempt_counts.get(msg_id, 0) >= MAX_ATTEMPTS_BEFORE_SKIP:
+            logger.warning(
+                f"Permanently skipping {msg_id} — "
+                f"{attempt_counts[msg_id]} failed attempts (>= {MAX_ATTEMPTS_BEFORE_SKIP})"
+            )
+            processed_ids.add(msg_id)
+            stats["permanently_skipped"] = stats.get("permanently_skipped", 0) + 1
+            emails_since_checkpoint += 1
+            continue
 
         # Read full message
         try:
             email_data = _read_email(service, msg_id)
         except HttpError as e:
             logger.error(f"Failed to read {msg_id}: {e}")
+            attempt_counts[msg_id] = attempt_counts.get(msg_id, 0) + 1
+            emails_since_checkpoint += 1
             continue
 
         from_addr = email_data["headers"].get("From", "")
         subject = email_data["headers"].get("Subject", "(no subject)")
-        logger.info(f"\n--- Processing: {subject[:60]} from {from_addr[:40]}")
+        logger.info(f"\n--- Processing [{idx + 1}/{len(new_stubs)}]: {subject[:60]} from {from_addr[:40]}")
 
         # Classify: supplier, client, or general
         supplier_match = _match_supplier(from_addr, supplier_lookup)
         client_match = _match_client(from_addr, client_registry)
 
+        # Pass deadline into processing so _call_opus obeys the budget
         try:
             if supplier_match:
                 logger.info(f"  SUPPLIER: {supplier_match['domain']} ({supplier_match['category']})")
@@ -1330,6 +1472,7 @@ def run_email_intel_sweep(
                     result = _process_supplier_email(
                         service, email_data, supplier_match,
                         client_registry, context_summary,
+                        _deadline=deadline,
                     )
                 else:
                     result = {"type": "supplier", "dry_run": True}
@@ -1340,6 +1483,7 @@ def run_email_intel_sweep(
                 if not dry_run:
                     result = _process_client_email(
                         service, email_data, client_match,
+                        _deadline=deadline,
                     )
                 else:
                     result = {"type": "client", "dry_run": True}
@@ -1350,6 +1494,7 @@ def run_email_intel_sweep(
                 if not dry_run:
                     result = _process_general_email(
                         service, email_data, context_summary,
+                        _deadline=deadline,
                     )
                 else:
                     result = {"type": "general", "dry_run": True}
@@ -1366,8 +1511,9 @@ def run_email_intel_sweep(
             result["from"] = from_addr
             sweep_results.append(result)
 
-            # Only mark as processed on SUCCESS
+            # Only mark as processed on SUCCESS; clear attempt count
             processed_ids.add(msg_id)
+            attempt_counts.pop(msg_id, None)
 
         except Exception as e:
             logger.error(f"Processing failed for {msg_id}: {traceback.format_exc()}")
@@ -1378,46 +1524,56 @@ def run_email_intel_sweep(
                 "type": "error",
                 "error": str(e),
             })
-            # NOT marked as processed — will be retried on next sweep
+            # Increment attempt counter — not marked processed; will retry unless limit hit
+            attempt_counts[msg_id] = attempt_counts.get(msg_id, 0) + 1
+            logger.warning(
+                f"  Attempt {attempt_counts[msg_id]}/{MAX_ATTEMPTS_BEFORE_SKIP} "
+                f"for {msg_id} — will {'permanently skip next sweep' if attempt_counts[msg_id] >= MAX_ATTEMPTS_BEFORE_SKIP else 'retry next sweep'}"
+            )
+
+        emails_since_checkpoint += 1
 
         # Throttle between emails to avoid rate limiting
         if not dry_run:
             time.sleep(2)
 
-    # Save state
-    state["processed_ids"] = list(processed_ids)
-    state["last_run"] = datetime.now().isoformat()
-    state["stats"]["total"] += len(sweep_results)
-    state["stats"]["supplier"] += stats["supplier"]
-    state["stats"]["client"] += stats["client"]
-    state["stats"]["general"] += stats["general"]
-    state["stats"]["skipped"] += stats["skipped"]
-    state["stats"]["drafts_created"] += stats["drafts"]
-    state["stats"]["staff_papers_sent"] += stats["papers"]
+        # --- Checkpoint every BATCH_SIZE emails ---
+        if emails_since_checkpoint >= BATCH_SIZE:
+            _checkpoint(reason=f"batch_of_{BATCH_SIZE}_at_idx_{idx}")
+            emails_since_checkpoint = 0
 
-    if not dry_run:
-        _save_state(state)
+    # Final checkpoint at end of loop (catches remainder < BATCH_SIZE)
+    if emails_since_checkpoint > 0:
+        _checkpoint(reason="sweep_complete")
+
+    elapsed_total = time.monotonic() - sweep_start
+    exit_status = "budget_exit" if stats.get("budget_exit") else "success"
 
     summary = {
-        "status": "success",
+        "status": exit_status,
         "dry_run": dry_run,
         "sweep_time": datetime.now().isoformat(),
+        "elapsed_sec": round(elapsed_total, 1),
+        "budget_seconds": budget_seconds,
         "lookback_hours": lookback_hours,
         "emails_found": len(message_stubs),
+        "new_to_process": len(new_stubs),
         "processed": len(sweep_results),
-        "skipped": stats["skipped"],
-        "supplier_emails": stats["supplier"],
-        "client_emails": stats["client"],
-        "general_emails": stats["general"],
-        "drafts_created": stats["drafts"],
-        "staff_papers_sent": stats["papers"],
+        "permanently_skipped": stats.get("permanently_skipped", 0),
+        "supplier_emails": totals["supplier"],
+        "client_emails": totals["client"],
+        "general_emails": totals["general"],
+        "drafts_created": totals["drafts"],
+        "staff_papers_sent": totals["papers"],
         "results": sweep_results,
     }
 
     logger.info(f"\n{'=' * 60}")
-    logger.info(f"SWEEP COMPLETE — {len(sweep_results)} processed")
-    logger.info(f"  Supplier: {stats['supplier']} | Client: {stats['client']} | General: {stats['general']}")
-    logger.info(f"  Drafts: {stats['drafts']} | Staff Papers: {stats['papers']}")
+    logger.info(f"SWEEP {exit_status.upper()} — {len(sweep_results)} processed in {elapsed_total:.1f}s")
+    logger.info(f"  Supplier: {totals['supplier']} | Client: {totals['client']} | General: {totals['general']}")
+    logger.info(f"  Drafts: {totals['drafts']} | Staff Papers: {totals['papers']}")
+    if stats.get("budget_exit"):
+        logger.info(f"  BUDGET EXIT: cursor saved — next sweep will resume from remaining emails")
     logger.info(f"{'=' * 60}")
 
     return summary
@@ -1668,11 +1824,14 @@ if __name__ == "__main__":
     if "--sweep" in sys.argv:
         dry_run = "--dry-run" in sys.argv
         hours = 6
+        budget = DEFAULT_BUDGET_SECONDS
         for arg in sys.argv[1:]:
             if arg.startswith("--hours="):
                 hours = int(arg.split("=", 1)[1])
+            elif arg.startswith("--budget-seconds="):
+                budget = int(arg.split("=", 1)[1])
 
-        result = run_email_intel_sweep(lookback_hours=hours, dry_run=dry_run)
+        result = run_email_intel_sweep(lookback_hours=hours, dry_run=dry_run, budget_seconds=budget)
         print(json.dumps(result, indent=2, default=str))
 
     elif "--voice-bootstrap" in sys.argv:
@@ -1704,9 +1863,10 @@ if __name__ == "__main__":
         print("Thunderbird Email Intelligence Officer")
         print("=" * 40)
         print("Usage:")
-        print("  --sweep              Run full email intelligence sweep")
-        print("  --sweep --dry-run    Analyze only, no actions")
-        print("  --sweep --hours=12   Scan last 12 hours")
+        print("  --sweep                        Run full email intelligence sweep")
+        print("  --sweep --dry-run              Analyze only, no actions")
+        print("  --sweep --hours=12             Scan last 12 hours")
+        print("  --sweep --budget-seconds=300   Override wall-clock budget (default 480s)")
         print("  --voice-bootstrap    Build voice profile from 4 months of sent mail")
         print("  --voice-refresh      Weekly voice profile update (1 month)")
         print("  --status             Show last run stats")

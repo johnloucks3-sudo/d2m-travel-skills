@@ -26,6 +26,9 @@ import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+# Statuses that mean no itinerary is expected
+INACTIVE_STATUSES = {"complete", "archived"}
+
 THUNDERBIRD_ROOT = Path("/home/john/Thunderbird")
 VENV_PY = str(THUNDERBIRD_ROOT / ".venv" / "bin" / "python3")
 ITINERARY_ENGINE = THUNDERBIRD_ROOT / "itinerary" / "luxury_itinerary_generator.py"
@@ -35,23 +38,9 @@ DRAFTS_DIR = THUNDERBIRD_ROOT / "drafts"
 SAIL_WINDOW_DAYS = 30  # Flag gap if sail date within this many days
 ID = "lifecycle-itineraries"
 
-# Date patterns to extract from dossier files
-DATE_PATTERNS = [
-    # YYYY-MM-DD
-    re.compile(r"\b(20\d{2}-\d{2}-\d{2})\b"),
-    # Month DD YYYY or Month D, YYYY
-    re.compile(
-        r"\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|"
-        r"Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|"
-        r"Dec(?:ember)?)\s+(\d{1,2})(?:st|nd|rd|th)?[,\s]+(\d{4})\b",
-        re.IGNORECASE,
-    ),
-]
-
-MONTH_MAP = {
-    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
-    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
-}
+# Patterns for parsing YAML frontmatter fields only
+_DEPARTURE_RE = re.compile(r'^departure:\s*["\']?(20\d{2}-\d{2}-\d{2})["\']?', re.MULTILINE)
+_STATUS_RE = re.compile(r'^status:\s*(\S+)', re.MULTILINE)
 
 
 def fail(m: str) -> None:
@@ -59,39 +48,53 @@ def fail(m: str) -> None:
     sys.exit(1)
 
 
-def extract_dates_from_dossier(path: Path) -> list[datetime]:
-    """Extract plausible sail/departure dates from a dossier file."""
-    dates = []
-    now = datetime.now(tz=timezone.utc)
-    horizon = now + timedelta(days=365)
+def parse_frontmatter(path: Path) -> dict | None:
+    """Parse YAML frontmatter from a dossier and return {departure, status}.
 
+    Only reads the frontmatter block (between the first two '---' lines) to
+    avoid false-positive date matches from port-call schedules, FPDs, or
+    payment dates in the dossier body.
+
+    Returns None if no frontmatter found.
+    """
     try:
         text = path.read_text(errors="ignore")
     except Exception:
-        return dates
+        return None
 
-    # ISO dates
-    for m in DATE_PATTERNS[0].finditer(text):
+    # Require frontmatter block: starts with '---' on first non-empty line
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        return None
+
+    # Collect frontmatter lines up to closing '---'
+    fm_lines = []
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        fm_lines.append(line)
+    else:
+        # No closing '---' found — no valid frontmatter
+        return None
+
+    fm_text = "\n".join(fm_lines)
+
+    result: dict = {}
+
+    # Extract departure field
+    dep_m = _DEPARTURE_RE.search(fm_text)
+    if dep_m:
         try:
-            d = datetime.fromisoformat(m.group(1)).replace(tzinfo=timezone.utc)
-            if now < d < horizon:
-                dates.append(d)
+            result["departure"] = datetime.fromisoformat(dep_m.group(1)).replace(tzinfo=timezone.utc)
         except Exception:
             pass
 
-    # Month name dates
-    for m in DATE_PATTERNS[1].finditer(text):
-        try:
-            mon = m.group(1)[:3].lower()
-            day = int(m.group(2))
-            year = int(m.group(3))
-            d = datetime(year, MONTH_MAP.get(mon, 0) or 1, day, tzinfo=timezone.utc)
-            if now < d < horizon:
-                dates.append(d)
-        except Exception:
-            pass
+    # Extract status field (first word only, strip punctuation)
+    st_m = _STATUS_RE.search(fm_text)
+    if st_m:
+        result["status"] = st_m.group(1).strip("\"'").lower()
 
-    return dates
+    return result if result else None
 
 
 def itinerary_artifact_exists(dossier_name: str) -> bool:
@@ -152,18 +155,37 @@ def main() -> None:
             )
 
     # ── CHECK 3: No upcoming sail (within 30d) lacks an itinerary artifact ──
+    # Uses YAML frontmatter departure: field ONLY — avoids false positives from
+    # port-call schedules, payment dates, FPDs in the dossier body.
+    # A booking is a gap iff:
+    #   (a) frontmatter departure is within 30d
+    #   (b) status is NOT complete/archived (absent status → treat as active)
+    #   (c) no itinerary artifact exists in output/validation_emails/ or drafts/
     now = datetime.now(tz=timezone.utc)
     window_end = now + timedelta(days=SAIL_WINDOW_DAYS)
     gaps = []  # (dossier_name, sail_date)
+    all_upcoming = []
 
     if DOSSIERS_DIR.exists():
         for dossier_path in DOSSIERS_DIR.glob("*.md"):
-            dates = extract_dates_from_dossier(dossier_path)
-            for sail_dt in dates:
-                if now < sail_dt <= window_end:
-                    # Sailing is within the 30-day window — check for artifact
-                    if not itinerary_artifact_exists(dossier_path.name):
-                        gaps.append((dossier_path.name, sail_dt.date().isoformat()))
+            fm = parse_frontmatter(dossier_path)
+            if fm is None:
+                continue  # No frontmatter → skip (template or non-booking dossier)
+
+            sail_dt = fm.get("departure")
+            if sail_dt is None:
+                continue  # No departure field → skip
+
+            status = fm.get("status", "active")
+            if status in INACTIVE_STATUSES:
+                continue  # Voyage complete/archived — no itinerary expected
+
+            if sail_dt > now:
+                all_upcoming.append((sail_dt, dossier_path.stem))
+
+            if now < sail_dt <= window_end:
+                if not itinerary_artifact_exists(dossier_path.name):
+                    gaps.append((dossier_path.name, sail_dt.date().isoformat()))
 
     if gaps:
         gap_str = "; ".join(f"{d[0]} sails {d[1]}" for d in gaps[:3])
@@ -175,13 +197,6 @@ def main() -> None:
 
     # Informational: nearest sail date
     nearest_info = "no bookings within 1 year found in dossiers"
-    all_upcoming = []
-    if DOSSIERS_DIR.exists():
-        for dossier_path in DOSSIERS_DIR.glob("*.md"):
-            dates = extract_dates_from_dossier(dossier_path)
-            for d in dates:
-                if d > now:
-                    all_upcoming.append((d, dossier_path.stem))
     if all_upcoming:
         all_upcoming.sort()
         nearest_dt, nearest_name = all_upcoming[0]

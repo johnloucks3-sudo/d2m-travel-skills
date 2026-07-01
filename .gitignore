@@ -185,3 +185,6 @@ cache/sheets_mirror/
 deploy/free_tools/.secrets
 deploy/free_tools/.infisical_admin
 deploy/free_tools/.infisical_runtime
+core/email/email_audit.db
+core/email/email_audit.db-wal
+core/email/email_audit.db-shm

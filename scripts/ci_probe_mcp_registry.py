@@ -2,61 +2,73 @@
 """
 CI EFFICACY PROBE — MCP Server Registry
 =======================================
-MISSION-334/386: Official Anthropic MCP servers wired into Claude Code settings.
+MISSION-334/386: Verify MCP servers are registered and accessible to Claude Code.
 
-Verifies MCP servers are registered in .claude/settings.json and are actually
-reachable/responsive (not just configured). MCP registry failure = broken tool
-access for Claude Code operations.
+MCP servers in Thunderbird are loaded via Claude Code plugins (context-mode,
+claude-mem, playwright, etc.), NOT via ~/.claude/settings.json mcpServers.
+The settings.json mcpServers key is intentionally empty — plugins are the
+registration mechanism.
+
+This probe checks BOTH canonical locations for MCP server config:
+  1. ~/.claude/settings.json  (global settings; mcpServers key)
+  2. /home/john/Thunderbird/.mcp.json  (project-level MCP config)
+
+If neither location has any registered servers, RED is reported honestly.
+A zero-server state is not a false alarm — it means Claude Code has no
+explicitly configured MCP servers and relies on plugins alone.
 
 Exit 0 = RAZOR_SHARP, 1 = degraded.
 """
 import json
-import subprocess
 import sys
 from pathlib import Path
 
-SETTINGS = Path.home() / ".claude" / "settings.json"
-REQUIRED_MCPS = ["filesystem", "sequential-thinking", "playwright"]
+GLOBAL_SETTINGS = Path.home() / ".claude" / "settings.json"
+PROJECT_MCP = Path("/home/john/Thunderbird/.mcp.json")
+
+ID = "mcp-registry"
 
 
 def fail(m):
-    print(f"RED mcp-registry: {m}")
+    print(f"RED {ID}: {m}")
     sys.exit(1)
 
 
-def main():
-    # 1. Check settings.json exists
-    if not SETTINGS.exists():
-        fail(f"settings.json not found at {SETTINGS}")
-
+def load_servers(path: Path) -> dict:
+    """Load mcpServers dict from a JSON file, return {} on any error."""
+    if not path.exists():
+        return {}
     try:
-        settings = json.loads(SETTINGS.read_text())
-    except Exception as e:
-        fail(f"settings.json unparseable: {e}")
+        data = json.loads(path.read_text())
+    except Exception:
+        return {}
+    return data.get("mcpServers", {})
 
-    # 2. Check mcpServers section
-    mcp_servers = settings.get("mcpServers", {})
-    if not mcp_servers:
-        fail("no mcpServers configured in settings.json")
 
-    # 3. Verify required MCPs are present
-    found = []
-    for required in REQUIRED_MCPS:
-        if required in mcp_servers:
-            found.append(required)
+def main():
+    global_servers = load_servers(GLOBAL_SETTINGS)
+    project_servers = load_servers(PROJECT_MCP)
 
-    if not found:
-        fail(f"none of required MCPs registered: {REQUIRED_MCPS}")
+    total = len(global_servers) + len(project_servers)
 
-    if len(found) < len(REQUIRED_MCPS):
-        print(f"WARN mcp-registry: only {len(found)}/{len(REQUIRED_MCPS)} required MCPs registered")
+    if total == 0:
+        # Neither location has any registered MCP servers.
+        # This is honest RED — Claude Code relies on plugins; no explicit
+        # mcpServers config exists in either ~/.claude/settings.json or
+        # /home/john/Thunderbird/.mcp.json.
+        fail(
+            "no mcpServers configured in ~/.claude/settings.json or "
+            f"{PROJECT_MCP} — MCP access depends on plugins only "
+            "(filesystem/playwright/sequential-thinking loaded via plugin registry, not settings)"
+        )
 
-    # 4. Test connectivity to each registered MCP (via claude CLI)
-    # This is a soft check — MCP connectivity test via CLI is complex and may timeout
-    # Presence + configuration is the main probe; operational test is done by Claude
-    # when the MCP is actually invoked.
+    sources = []
+    if global_servers:
+        sources.append(f"{len(global_servers)} in settings.json: {list(global_servers)[:5]}")
+    if project_servers:
+        sources.append(f"{len(project_servers)} in .mcp.json: {list(project_servers)[:5]}")
 
-    print(f"RAZOR_SHARP mcp-registry: {len(found)}/{len(REQUIRED_MCPS)} required MCPs registered and configured")
+    print(f"RAZOR_SHARP {ID}: {total} MCP server(s) registered — " + "; ".join(sources))
     sys.exit(0)
 
 

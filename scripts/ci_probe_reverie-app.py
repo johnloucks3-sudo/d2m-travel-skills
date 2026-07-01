@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-"""CI probe — Reverie application (API + frontend).
-Efficacy check: BOTH reverie-api.service (port 8802) AND reverie-frontend.service (port 8888)
-must be active and respond over HTTP.
+"""CI probe — Reverie application (frontend-only).
+Efficacy check: reverie-frontend.service active and responding on port 8888.
+
+reverie-api.service RETIRED 2026-07-01 (verified-dead: cloudflared route
+api-reverie:8802 pruned as dead 2026-06-22 per MISSION-259, venv deleted,
+unit was in a 203/EXEC restart loop). Frontend serves static itinerary UI
+independently. See hale_decisions.md 2026-07-01.
+
 Exit 0 = GREEN, exit 1 = RED.
 """
 import subprocess
@@ -11,9 +16,7 @@ import urllib.error
 import socket
 
 ID = "reverie-app"
-API_PORT = 8802
 FRONTEND_PORT = 8888
-API_PATHS = ["/api/health", "/api/docs", "/", ]
 FRONTEND_PATH = "/"
 
 
@@ -46,37 +49,17 @@ def http_check(port, paths):
             if 500 <= e.code <= 599:
                 fail(f"HTTP {e.code} on port {port}{path} — server error")
         except (ConnectionRefusedError, socket.timeout, OSError):
-            # Connection refused means port is not listening — keep trying paths? No, same port.
             fail(f"Cannot connect to port {port} — service not listening")
     fail(f"No path responded successfully on port {port} (tried: {paths})")
 
 
 def main():
-    errors = []
+    if not service_active("reverie-frontend.service"):
+        fail("reverie-frontend.service not active")
 
-    # Check API service
-    api_active = service_active("reverie-api.service")
-    if not api_active:
-        errors.append("reverie-api.service not active")
-
-    # Check frontend service
-    fe_active = service_active("reverie-frontend.service")
-    if not fe_active:
-        errors.append("reverie-frontend.service not active")
-
-    if errors:
-        fail("; ".join(errors))
-
-    # Check API HTTP
-    api_path, api_code = http_check(API_PORT, API_PATHS)
-
-    # Check frontend HTTP
     fe_path, fe_code = http_check(FRONTEND_PORT, [FRONTEND_PATH])
 
-    print(
-        f"GREEN {ID}: API HTTP {api_code} on :{API_PORT}{api_path}; "
-        f"frontend HTTP {fe_code} on :{FRONTEND_PORT}{fe_path}"
-    )
+    print(f"GREEN {ID}: frontend HTTP {fe_code} on :{FRONTEND_PORT}{fe_path} (api retired 2026-07-01)")
     sys.exit(0)
 
 

@@ -31,6 +31,13 @@ _TB_ROOT = "/home/john/Thunderbird"
 if _TB_ROOT not in sys.path:
     sys.path.insert(0, _TB_ROOT)
 
+# ── Audit trail (A2/A3) — defensive import; pipeline must never break ──────
+try:
+    from core.email.email_audit import record as _audit_record, already_done as _audit_already_done
+except ImportError:  # pragma: no cover
+    def _audit_record(*a, **k): return True   # type: ignore[misc]
+    def _audit_already_done(*a, **k): return False  # type: ignore[misc]
+
 # ── Hale Dispatcher integration (Hale Everywhere — Phase 2 hook) ──────────────
 # Defensive: ingest service must keep running if Hale infra fails to import.
 try:
@@ -287,6 +294,16 @@ def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
         "priority": "HIGH" if "🔴" in subject or "RED" in subject.upper() else "NORMAL",
     }
 
+    # ── A3: Idempotency guard — skip if this email was already turned into a task ──
+    if _audit_already_done(msg_id, "mission_created"):
+        logging.info(
+            f"[EMAIL INGEST] SKIP {msg_id[:12]} — already queued (audit: mission_created)"
+        )
+        _audit_record(msg_id, "ingest", classified_as="commander_email",
+                      action_taken=None, outcome="skipped-duplicate",
+                      detail="route_task: already_done=True")
+        return
+
     # Write to opencode_inbox.md FIRST — always. This is the primary C2 channel
     # that the thunderbird_tasking_watcher monitors. [COS]/[COO] emails MUST
     # reach the watcher regardless of Hale dispatcher routing.
@@ -304,8 +321,15 @@ def route_task(persona: str, subject: str, body: str, msg_id: str, sender: str):
         with open(queue_path, "w") as f:
             json.dump(queue, f, indent=2)
         logging.info(f"[EMAIL INGEST] Task queued: {task_json['task_id']}")
+        # ── A3: Record successful task creation ──
+        _audit_record(msg_id, "ingest", classified_as="commander_email",
+                      action_taken="mission_created",
+                      detail=f"task_id={task_json['task_id']} persona={persona}")
     except Exception as e:
         logging.error(f"[EMAIL INGEST] Failed to queue task: {e}")
+        _audit_record(msg_id, "ingest", classified_as="commander_email",
+                      action_taken="mission_created", outcome="failed",
+                      detail=f"queue write failed: {e}")
 
     # ── Hale Dispatcher (fast-path for high-tier tasks) ──
     # Runs alongside the watcher path — does NOT early-return. The watcher

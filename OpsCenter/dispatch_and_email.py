@@ -44,6 +44,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+# ── Audit trail (A2/A3) — defensive import; pipeline must never break ──────
+try:
+    from core.email.email_audit import record as _audit_record
+except ImportError:  # pragma: no cover
+    def _audit_record(*a, **k): return True   # type: ignore[misc]
+
 # Unbuffered output so log files get content even if process is killed
 sys.stdout.reconfigure(line_buffering=True)
 sys.stderr.reconfigure(line_buffering=True)
@@ -224,8 +230,21 @@ def main():
         else:
             msg_id = _send_new_email(body, args.subject)
             print(f"[EMAIL] new email — message_id={msg_id}")
+        # ── A3: record confirmed dispatch outcome ──
+        # Key on outbound msg_id (may be None on _send_new_email if token missing).
+        # Use args.task as fallback so we always get an audit row.
+        audit_key = msg_id or f"dispatch-{args.task}"
+        _audit_record(audit_key, "dispatch",
+                      thread_id=args.thread_id or None,
+                      action_taken="reply_sent", outcome="ok",
+                      detail=f"task={args.task} subject={args.subject[:80]!r}")
     except Exception as e:
         print(f"[SEND ERR] {e}")
+        # ── A3: record failure so callers can detect it in audit ──
+        _audit_record(f"dispatch-{args.task}", "dispatch",
+                      thread_id=args.thread_id or None,
+                      action_taken="reply_sent", outcome="failed",
+                      detail=f"send exception: {e}")
         sys.exit(3)
 
     sys.exit(0)
