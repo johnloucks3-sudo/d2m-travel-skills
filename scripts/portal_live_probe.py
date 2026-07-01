@@ -92,6 +92,10 @@ PORTALS = {
         "manual_cmd": "python3 scripts/perx_session_keepalive.py",
         "client_affecting": True,
         "note": "Perx.com — Silversea agent rate access.",
+        # Perx /account/ ALWAYS 302s to /login/ even with valid session (JS-rendered auth).
+        # HTTP probe is unreliable. Use cookie expiry check instead.
+        "use_cookie_expiry_check": True,
+        "cookie_expiry_min_seconds": 300,
     },
 }
 
@@ -116,8 +120,49 @@ def _load_cookies(cookie_file: Path) -> dict:
     return {}
 
 
+def _probe_cookie_expiry(name: str, cfg: dict) -> dict:
+    """Check portal health via cookie expiry timestamps (for sites that always redirect on HTTP)."""
+    import time as _time
+    cookie_file: Path = cfg["cookie_file"]
+    if not cookie_file.exists():
+        return {"status": "NO_COOKIES", "alive": False, "reason": "Cookie file missing"}
+    try:
+        raw = json.loads(cookie_file.read_text())
+        cookies = raw if isinstance(raw, list) else []
+    except Exception:
+        return {"status": "NO_COOKIES", "alive": False, "reason": "Cookie file unreadable"}
+
+    # Find sessionid
+    sess = next((c for c in cookies if c.get("name") == "sessionid"
+                 and cfg["cookie_file"].name.split("_")[0] in c.get("domain", "").lower()
+                 + name.lower()), None)
+    if sess is None:
+        # Try any matching domain
+        sess = next((c for c in cookies if c.get("name") == "sessionid"), None)
+    if sess is None:
+        return {"status": "DEAD", "alive": False, "reason": "No sessionid cookie found"}
+
+    expiry = sess.get("expires") or sess.get("expiry", -1)
+    min_sec = cfg.get("cookie_expiry_min_seconds", 300)
+
+    if expiry and expiry > 0:
+        remaining = expiry - _time.time()
+        if remaining < min_sec:
+            return {"status": "DEAD", "alive": False,
+                    "reason": f"sessionid expires in {remaining:.0f}s (< {min_sec}s threshold)"}
+        return {"status": "ALIVE", "alive": True,
+                "reason": f"sessionid valid for {remaining/3600:.1f}h more"}
+    # Session cookie (no expiry) — assume alive (will fail when Playwright login is needed)
+    return {"status": "ALIVE", "alive": True, "reason": "sessionid present (session cookie, no expiry)"}
+
+
 def probe_portal(name: str, cfg: dict) -> dict:
     """Hit the portal endpoint. Return {status, final_url, alive, reason}."""
+    # Some portals (e.g. Perx) always redirect to login even with valid session cookies.
+    # For these, use cookie expiry check instead of HTTP probe.
+    if cfg.get("use_cookie_expiry_check"):
+        return _probe_cookie_expiry(name, cfg)
+
     cookies = _load_cookies(cfg["cookie_file"])
     if not cookies:
         return {"status": "NO_COOKIES", "alive": False, "reason": f"Cookie file missing or empty: {cfg['cookie_file'].name}"}

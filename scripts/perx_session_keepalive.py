@@ -61,21 +61,44 @@ def _load_existing_cookies() -> list:
 
 
 def _check_session_http(cookies: list) -> bool:
-    """Return True if existing cookies are valid on an authenticated endpoint."""
-    jar = {c["name"]: c["value"] for c in cookies if "perx" in c.get("domain", "")}
-    if not jar.get("sessionid"):
+    """Return True if existing cookies are valid on an authenticated endpoint.
+
+    Perx's /account/ always 302s even when authenticated (requires full page
+    load with JS). Instead we check cookie expiry timestamps — if the sessionid
+    cookie has a future expiry it's valid; if no expiry (session cookie) we do
+    a follow-redirect probe and confirm the final URL isn't the login page.
+    """
+    all_cookies = {c["name"]: c for c in cookies if "perx" in c.get("domain", "")}
+    if not all_cookies.get("sessionid"):
         return False
+
+    session_cookie = all_cookies["sessionid"]
+    expiry = session_cookie.get("expires") or session_cookie.get("expiry", -1)
+
+    if expiry and expiry > 0:
+        from datetime import datetime, timezone
+        exp_dt = datetime.fromtimestamp(expiry, tz=timezone.utc)
+        remaining = (exp_dt - datetime.now(tz=timezone.utc)).total_seconds()
+        if remaining < 300:  # less than 5 minutes — treat as expired
+            log.info("sessionid expires in %.0fs — refreshing", remaining)
+            return False
+        log.info("sessionid valid for %.0f more seconds (until %s)", remaining,
+                 exp_dt.strftime("%H:%M UTC"))
+        return True
+
+    # Session cookie (no expiry field): follow redirects and check final URL
+    jar = {c["name"]: c["value"] for c in cookies if "perx" in c.get("domain", "")}
     try:
-        # /account/ redirects to /login/ when session is expired
         resp = requests.get(
-            "https://www.perx.com/account/",
+            "https://www.perx.com/account/profile/",
             cookies=jar,
             headers=HEADERS,
-            allow_redirects=False,
+            allow_redirects=True,
             timeout=15,
         )
-        # 200 = authenticated page loaded; 302 to /login/ = expired
-        return resp.status_code == 200
+        valid = "login" not in resp.url
+        log.info("HTTP probe final URL: %s → %s", resp.url, "valid" if valid else "expired")
+        return valid
     except Exception as exc:
         log.warning("HTTP session check failed: %s", exc)
         return False
@@ -103,7 +126,7 @@ async def _login_playwright() -> list:
     Returns the new cookies on success, [] on failure.
     """
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.firefox.launch(headless=True)
         # DO NOT add existing cookies — stale cookies redirect to marketing page
         context = await browser.new_context(
             viewport={"width": 1920, "height": 1080},
@@ -112,7 +135,7 @@ async def _login_playwright() -> list:
         page = await context.new_page()
         try:
             log.info("Navigating to Perx login form...")
-            await page.goto("https://www.perx.com/account/login/", wait_until="networkidle", timeout=60000)
+            await page.goto("https://www.perx.com/account/login/", wait_until="domcontentloaded", timeout=90000)
             await page.wait_for_timeout(2000)
 
             inputs = await page.evaluate(
@@ -142,7 +165,7 @@ async def _login_playwright() -> list:
             await page.locator('#login-modal input[name="username"]').fill(EMAIL)
             await page.locator('#login-modal input[name="password"]').fill(PASSWORD)
             await page.locator('#login-modal button[type="submit"]').click()
-            await page.wait_for_load_state("networkidle", timeout=30000)
+            await page.wait_for_load_state("domcontentloaded", timeout=30000)
             await page.wait_for_timeout(3000)
 
             post_url = page.url
