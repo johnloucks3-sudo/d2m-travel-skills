@@ -873,6 +873,26 @@ def repair_transfer_scan() -> bool:
     return r.returncode == 0
 
 
+def repair_healthchecks() -> bool:
+    # Backstop; containers also carry --restart unless-stopped (docker self-heals).
+    import time
+    subprocess.run(["docker", "restart", "healthchecks"], timeout=30, capture_output=True)
+    time.sleep(5)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_healthchecks.py")],
+                       capture_output=True, timeout=20)
+    return p.returncode == 0
+
+
+def repair_infisical() -> bool:
+    import time
+    for c in ("infisical-postgres", "infisical-redis", "infisical"):
+        subprocess.run(["docker", "restart", c], timeout=30, capture_output=True)
+    time.sleep(8)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_infisical.py")],
+                       capture_output=True, timeout=20)
+    return p.returncode == 0
+
+
 REPAIR_FUNCTIONS: Dict[str, Any] = {
     # Original 9 skills
     "portal-access": repair_portal_access,
@@ -922,6 +942,9 @@ REPAIR_FUNCTIONS: Dict[str, Any] = {
     "lifecycle-excursion-engine": repair_lifecycle_excursion_engine,
     "hotel-scan": repair_hotel_scan,
     "transfer-scan": repair_transfer_scan,
+    # TOTAL-CI M5 — adopted free tools (2026-07-01)
+    "healthchecks": repair_healthchecks,
+    "infisical": repair_infisical,
 }
 
 
