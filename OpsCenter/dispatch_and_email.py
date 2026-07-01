@@ -150,9 +150,11 @@ _MODEL_IDS = {
     "opus":   "claude-opus-4-8",
 }
 
-# Strip vars that cause issues in headless/systemd context
-_STRIP = {"ANTHROPIC_API_KEY", "CLAUDECODE",
-          "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
+# Strip vars that cause issues in headless/systemd context.
+# ANTHROPIC_BASE_URL=http://localhost:5099 routes Claude CLI to the MAX proxy
+# which is dead when no proxy is running — causes a >130s hang then timeout.
+_STRIP = {"ANTHROPIC_API_KEY", "ANTHROPIC_BASE_URL", "ANTHROPIC_AUTH_TOKEN",
+          "CLAUDECODE", "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
 
 
 def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
