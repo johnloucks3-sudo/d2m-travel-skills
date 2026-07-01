@@ -5526,3 +5526,86 @@ Lifted: all internal file/edit/bash/relay protections (incl. the 6 SO-2026-06-08
 **Notes:** OpenCode inline dispatch completed in 4.6s. Output: 63 chars. Model: Opus
 
 ---
+
+## 2026-06-28 20:10 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-28 23:40 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-29 01:40 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-29 08:25 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-29 13:25 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+### 2026-06-29 07:37:04 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Evaluate this implementation plan for Dani Direct-Client-Cha...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 120.1s. Output: 8060 chars. Model: Opus
+
+---
+
+## 2026-06-29 18:50 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-29 20:20 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-29 22:50 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 03:50 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 06:20 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 07:21 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 13:36 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 14:21 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-06-30 20:36 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 00:01 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 01:16 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 03:16 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 06:22 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 09:07 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 10:07 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-01 15:09 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+---
+## 2026-07-01 — Commander override: Sterling client-path 7-day canary WAIVED
+**Directive (verbatim):** "disregard Sterling canary, he never asked me if it was OK"
+**Effect:** The client-path 7-day internal-traffic canary (SO_TECH_VANGUARD_ELEVATION_20260621 §2a) is WAIVED by Commander for the Infisical secret migration. Client-path secrets may migrate without the 7-day wait.
+**Note for record:** CLAUDE.md logs the canary as "Sterling's guardrail, Commander-adopted 2026-06-21." Commander now asserts he was not consulted and waives it. Commander is the policy authority; waiver stands. Migration will still retain file-based creds as live fallback (safety, not canary) so nothing breaks mid-repoint.
+**Logged by:** Hale. Copy → Sterling.
