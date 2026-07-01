@@ -42,7 +42,7 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 ---
 
 # DOSSIER — John & Susan Loucks | Door County, WI | Country House Resort
-**Status: 35% COMPLETE | Last updated: 2026-07-01** *(Delta Basic Economy DEN–GRB fare $636 recorded — Commander)*
+**Status: 35% COMPLETE | Last updated: 2026-07-01** *(Air options recorded: United Economy REC + Delta BE $636 — Commander)*
 **Balance due at check-in: $1,789.84 | Confirmation #95833**
 **Check-in: Sep 7, 2026 | Check-out: Sep 14, 2026 | 7 nights**
 
@@ -128,13 +128,17 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 
 **Budget estimate (2 PAX, premium cabin, RT):** $2,200–$3,600
 
-#### ⭐ FARE OPTIONS — Delta, DEN–GRB (two economy tiers to weigh)
-| Fare class | Price | Seats together? | Changes/refund | Source |
-|---|---|---|---|---|
-| **Delta Basic Economy** ⭐ found | **$636** | ❌ assigned at check-in (couple may split) | ❌ none | Commander 2026-07-01 |
-| **Delta Economy (Main Cabin)** | ~$800–$1,100 (est.) | ✅ advance seat selection | ✅ changeable, no change fee | Estimate — verify at booking |
+#### ⭐ FARE OPTIONS — DEN–GRB, 2 PAX RT
 
-*The Main Cabin premium over Basic Economy (~$150–$450 for the pair, est.) buys advance seat selection (you + Susie together) and a changeable ticket. Basic Economy basis (RT/OW · pp/2-PAX) to confirm at booking. Both pending Harlan sign-off + Delta portal verification at purchase.*
+| Carrier / class | Price (2 PAX RT) | Seats together? | Bag | Boarding | Changes | Source |
+|---|---|---|---|---|---|---|
+| **United Economy (Main Cabin)** ⭐ RECOMMENDED | **~$1,056–$1,300** (~$528–$650 pp) | ✅ advance selection | ✅ **free checked bag** (United card) | ✅ **Group 2** (United card) | ✅ changeable | Amadeus indicative 2026-07-01 — verify live |
+| Delta Basic Economy | **$636** | ❌ assigned at check-in (may split) | ❌ no free bag | ❌ boards last | ❌ none | Commander 2026-07-01 |
+| Delta Economy (Main Cabin) | ~$800–$1,100 (est.) | ✅ advance | paid | standard | ✅ | Estimate |
+
+**Why United is the play (Commander directive 2026-07-01):** The Commander holds **United benefits** (MileagePlus card) → **free checked bag + Group 2 boarding**, which carry even onto Basic Economy. That neutralizes the exact downsides that make Delta Basic Economy cheap-but-painful. Net: United gives *regular Economy* comfort (seats together, changeable, free bag, early boarding, MileagePlus earning) at close to Basic-Economy economics. Routing via ORD (DEN→ORD→GRB).
+
+*⚠️ United price is **indicative** (Amadeus test API) — verify live on united.com / Centrav B2B before booking. Delta BE basis (RT/OW · pp/2-PAX) to confirm. All pending Harlan sign-off at purchase.*
 
 > **⚠️ BASIC ECONOMY — FARE RULES (read before booking, especially for a couple):**
 > - **Seats assigned at check-in, NOT in advance** — John & Susie may be split across the cabin. Seat selection only by paying to upgrade to Main Cabin.
@@ -233,7 +237,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | **Booking total** | **$2,114.75** | ✅ | Email #95833 |
 | Deposit paid | ($324.91) | ✅ Paid | Email #95833 |
 | **Balance due at check-in** | **$1,789.84** | 🟡 Sep 7 | Email #95833 |
-| Air — Delta Basic Economy DEN–GRB | **$636** | ❌ Not booked (fare found) | Commander 2026-07-01 · basis TBC · Harlan verify at booking |
+| Air — **United Economy DEN–GRB** ⭐ REC (2 PAX RT) | ~$1,056–$1,300 | ❌ Not booked | Amadeus indicative 2026-07-01 · United card = free bag + Grp 2 · verify live |
+| Air — Delta Basic Economy DEN–GRB | **$636** | ❌ Not booked (fare found) | Commander 2026-07-01 · basis TBC |
 | Air — Delta Economy (Main Cabin) alt | ~$800–$1,100 | ❌ Not booked | Estimate — seats together + changeable |
 | Air — premium cabin (2 PAX RT) fallback | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
 | GRB hotel (1 night) | ~$120–$400 | ❌ Not booked | Estimate only |
