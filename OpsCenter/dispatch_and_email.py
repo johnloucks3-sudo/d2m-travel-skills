@@ -179,11 +179,13 @@ def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
         "-p", prompt,
     ]
 
+    print(f"[START] {task} — invoking Claude CLI ({tier})")
     result = subprocess.run(
         cmd,
         capture_output=True,
         text=True,
         timeout=300,
+        stdin=subprocess.DEVNULL,
         env=clean_env,
     )
 
