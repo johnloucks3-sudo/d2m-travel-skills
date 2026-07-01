@@ -190,3 +190,4 @@ core/email/email_audit.db-wal
 core/email/email_audit.db-shm
 config/poe_cookies.json
 core/travel/data/centrav_session.json
+.github/workflows/
