@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
-OPENCODE_CLI = Path.home() / ".local" / "bin" / "opencode"
+OPENCODE_CLI = Path(os.path.expanduser("~/.opencode/bin/opencode"))
 
 
 def fail(m):

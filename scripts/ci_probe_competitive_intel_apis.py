@@ -53,7 +53,7 @@ try:
 except Exception as e:
     print(f'PERPLEXITY_ERROR: {e}')
 """
-        import os
+        pass  # os already imported at module level
         import requests
 
         try:

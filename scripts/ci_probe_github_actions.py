@@ -77,7 +77,7 @@ def main():
         repo_name = remote_url.split("/")[-1].replace(".git", "")
         repo_owner = remote_url.split("/")[-2]
 
-        import subprocess
+        pass  # subprocess already imported at module level
         r = subprocess.run(
             ["curl", "-s", "-H", f"Authorization: Bearer {gh_token}",
              f"https://api.github.com/repos/{repo_owner}/{repo_name}"],
