@@ -42,7 +42,7 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 ---
 
 # DOSSIER — John & Susan Loucks | Door County, WI | Country House Resort
-**Status: 35% COMPLETE | Last updated: 2026-07-01** *(Air options recorded: United Economy REC + Delta BE $636 — Commander)*
+**Status: 35% COMPLETE | Last updated: 2026-07-01** *(Air: United Economy $937 RECOMMENDED — Commander actual fare; Delta BE $636 + Centrav ~$1,100 as refs)*
 **Balance due at check-in: $1,789.84 | Confirmation #95833**
 **Check-in: Sep 7, 2026 | Check-out: Sep 14, 2026 | 7 nights**
 
@@ -132,13 +132,14 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 
 | Carrier / class | Price (2 PAX RT) | Seats together? | Bag | Boarding | Changes | Source |
 |---|---|---|---|---|---|---|
-| **United Economy (Main Cabin)** ⭐ RECOMMENDED | **~$1,056–$1,300** (~$528–$650 pp) | ✅ advance selection | ✅ **free checked bag** (United card) | ✅ **Group 2** (United card) | ✅ changeable | Amadeus indicative 2026-07-01 — verify live |
+| **Economy — LIVE Centrav B2B** ⭐ bookable | **≈ $1,100** ($622 out DEN→GRB + $478 rtn GRB→DEN · ~$550 pp) | depends on fare | depends on carrier | depends on carrier | depends on fare | **Centrav B2B live pull 2026-07-01** |
+| **United Economy** ⭐⭐ RECOMMENDED — actual fare | **$937** (for the booking shown) | ✅ advance selection | ✅ **free checked bag** (United card) | ✅ **Group 2** (United card) | ✅ changeable | **Commander 2026-07-01 (united.com booking screen)** |
 | Delta Basic Economy | **$636** | ❌ assigned at check-in (may split) | ❌ no free bag | ❌ boards last | ❌ none | Commander 2026-07-01 |
 | Delta Economy (Main Cabin) | ~$800–$1,100 (est.) | ✅ advance | paid | standard | ✅ | Estimate |
 
 **Why United is the play (Commander directive 2026-07-01):** The Commander holds **United benefits** (MileagePlus card) → **free checked bag + Group 2 boarding**, which carry even onto Basic Economy. That neutralizes the exact downsides that make Delta Basic Economy cheap-but-painful. Net: United gives *regular Economy* comfort (seats together, changeable, free bag, early boarding, MileagePlus earning) at close to Basic-Economy economics. Routing via ORD (DEN→ORD→GRB).
 
-*⚠️ United price is **indicative** (Amadeus test API) — verify live on united.com / Centrav B2B before booking. Delta BE basis (RT/OW · pp/2-PAX) to confirm. All pending Harlan sign-off at purchase.*
+**LIVE Centrav pull (2026-07-01, authenticated B2B session):** Economy RT ≈ **$1,100 for 2 PAX** — DEN→GRB Sep 6 lowest $622/2pax (range to $1,074), GRB→DEN Sep 14 lowest $478/2pax (range to $1,247). Screenshots in `core/travel/data/centrav_economy_*.png`. **⚠️ Carrier not labeled in the scrape** — to capture the United card benefits (free bag + Group 2), confirm **United metal** on the chosen itinerary at booking; the lowest fare may be another carrier or a Basic Economy bucket. Harlan sign-off at purchase.
 
 > **⚠️ BASIC ECONOMY — FARE RULES (read before booking, especially for a couple):**
 > - **Seats assigned at check-in, NOT in advance** — John & Susie may be split across the cabin. Seat selection only by paying to upgrade to Main Cabin.
@@ -237,7 +238,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | **Booking total** | **$2,114.75** | ✅ | Email #95833 |
 | Deposit paid | ($324.91) | ✅ Paid | Email #95833 |
 | **Balance due at check-in** | **$1,789.84** | 🟡 Sep 7 | Email #95833 |
-| Air — **United Economy DEN–GRB** ⭐ REC (2 PAX RT) | ~$1,056–$1,300 | ❌ Not booked | Amadeus indicative 2026-07-01 · United card = free bag + Grp 2 · verify live |
+| Air — **United Economy** ⭐⭐ REC (booking shown) | **$937** | ❌ Not booked | Commander 2026-07-01 · free bag + Grp 2 · seats together · changeable |
+| Air — Economy RT (LIVE Centrav B2B) ref | ≈$1,100 (2 PAX) | ❌ Not booked | Centrav live pull 2026-07-01 |
 | Air — Delta Basic Economy DEN–GRB | **$636** | ❌ Not booked (fare found) | Commander 2026-07-01 · basis TBC |
 | Air — Delta Economy (Main Cabin) alt | ~$800–$1,100 | ❌ Not booked | Estimate — seats together + changeable |
 | Air — premium cabin (2 PAX RT) fallback | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
