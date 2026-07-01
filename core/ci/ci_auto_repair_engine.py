@@ -831,6 +831,48 @@ def repair_lifecycle_itineraries() -> bool:
         return False
 
 
+# ============================================================================
+# TOTAL-CI REPAIR FUNCTIONS — M3 missing products + scanner revivals (2026-07-01)
+# ============================================================================
+
+def repair_lifecycle_travel_surveys() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "travel_survey_generator.py"),
+                        "--window", "30"], cwd=str(THUNDERBIRD_ROOT),
+                       capture_output=True, text=True, timeout=120)
+    return r.returncode == 0
+
+
+def repair_lifecycle_booking_surveys() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "booking_survey_generator.py")],
+                       cwd=str(THUNDERBIRD_ROOT), capture_output=True, text=True, timeout=120)
+    return r.returncode == 0
+
+
+def repair_lifecycle_proposal_engine() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "proposal_engine.py"), "--self-test"],
+                       cwd=str(THUNDERBIRD_ROOT), capture_output=True, text=True, timeout=60)
+    return r.returncode == 0
+
+
+def repair_lifecycle_excursion_engine() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "excursion_engine.py"),
+                        "--window", "180", "--force"], cwd=str(THUNDERBIRD_ROOT),
+                       capture_output=True, text=True, timeout=300)
+    return r.returncode == 0
+
+
+def repair_hotel_scan() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "hotel_scan.py")],
+                       timeout=REPAIR_TIMEOUT_SECONDS, capture_output=True, text=True)
+    return r.returncode == 0
+
+
+def repair_transfer_scan() -> bool:
+    r = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "transfer_scan.py")],
+                       timeout=REPAIR_TIMEOUT_SECONDS, capture_output=True, text=True)
+    return r.returncode == 0
+
+
 REPAIR_FUNCTIONS: Dict[str, Any] = {
     # Original 9 skills
     "portal-access": repair_portal_access,
@@ -873,6 +915,13 @@ REPAIR_FUNCTIONS: Dict[str, Any] = {
     "lifecycle-arc": repair_lifecycle_arc,
     "lifecycle-validations": repair_lifecycle_validations,
     "lifecycle-itineraries": repair_lifecycle_itineraries,
+    # TOTAL-CI M3 — missing products + scanner revivals (2026-07-01)
+    "lifecycle-travel-surveys": repair_lifecycle_travel_surveys,
+    "lifecycle-booking-surveys": repair_lifecycle_booking_surveys,
+    "lifecycle-proposal-engine": repair_lifecycle_proposal_engine,
+    "lifecycle-excursion-engine": repair_lifecycle_excursion_engine,
+    "hotel-scan": repair_hotel_scan,
+    "transfer-scan": repair_transfer_scan,
 }
 
 
