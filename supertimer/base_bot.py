@@ -160,8 +160,12 @@ class BotBase:
                                             error=str(exc)[:200])
                     results.append(result)
                     task_states[task.name] = {
-                        "last_run": now if result.success else
-                                    task_states.get(task.name, {}).get("last_run", 0),
+                        # Always advance last_run so a failed task retries at its normal
+                        # interval rather than immediately on every cycle (infinite-DUE loop).
+                        # last_success tracks the last clean completion separately.
+                        "last_run": now,
+                        "last_success": now if result.success else
+                                        task_states.get(task.name, {}).get("last_success", 0),
                         "last_attempt": now,
                         "last_status": "ok" if result.success else "fail",
                         "last_error": result.error,
