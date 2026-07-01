@@ -440,10 +440,12 @@ def _call_opus(system_prompt: str, user_prompt: str,
     """
     combined_prompt = f"{system_prompt}\n\n---\n\n{user_prompt}"
 
-    # Strip ANTHROPIC_API_KEY so CLI uses Max plan OAuth ($0)
-    # Also strip CLAUDECODE to allow subprocess invocation from within Claude Code
-    clean_env = {k: v for k, v in os.environ.items()
-                 if k not in ("ANTHROPIC_API_KEY", "CLAUDECODE")}
+    # Strip vars that break headless CLI invocation:
+    # ANTHROPIC_BASE_URL=localhost:5099 routes to dead MAX proxy → 130s hang
+    # ANTHROPIC_API_KEY has no credits on MAX plan (OAuth only)
+    _STRIP = {"ANTHROPIC_API_KEY", "ANTHROPIC_BASE_URL", "ANTHROPIC_AUTH_TOKEN",
+              "CLAUDECODE", "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
+    clean_env = {k: v for k, v in os.environ.items() if k not in _STRIP}
 
     # Inject OAuth token explicitly so CLI auth works when spawned from another session
     creds_path = Path.home() / ".claude" / ".credentials.json"

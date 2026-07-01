@@ -8,7 +8,7 @@
     },
     "comms_bot": {
       "interval_sec": 120,
-      "timeout_sec": 360,
+      "timeout_sec": 660,
       "description": "Commander directive sweep, inbox hygiene, email intel",
       "script": "supertimer/bots/comms_bot.py"
     },
@@ -65,6 +65,12 @@
       "timeout_sec": 600,
       "description": "Anti-theater audit, lessons tracker, timer self-audit, validation report",
       "script": "supertimer/bots/audit_bot.py"
+    },
+    "repair_bot": {
+      "interval_sec": 60,
+      "timeout_sec": 300,
+      "description": "Auto-repair trigger (10-error threshold) \u2014 suppresses cascading failures and notification spam",
+      "script": "supertimer/bots/repair_bot.py"
     }
   },
   "leader": {
