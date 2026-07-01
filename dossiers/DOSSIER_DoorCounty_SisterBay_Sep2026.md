@@ -42,7 +42,7 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 ---
 
 # DOSSIER — John & Susan Loucks | Door County, WI | Country House Resort
-**Status: 35% COMPLETE | Last updated: 2026-06-10**
+**Status: 35% COMPLETE | Last updated: 2026-07-01** *(Delta Basic Economy DEN–GRB fare $636 recorded — Commander)*
 **Balance due at check-in: $1,789.84 | Confirmation #95833**
 **Check-in: Sep 7, 2026 | Check-out: Sep 14, 2026 | 7 nights**
 
@@ -127,6 +127,19 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 - Alternate gateway: MKE (Milwaukee) if GRB options thin — adds ~2 hr drive to Sister Bay
 
 **Budget estimate (2 PAX, premium cabin, RT):** $2,200–$3,600
+
+#### ⭐ FARE FOUND — Delta Basic Economy, DEN–GRB · **$636**
+*Source: Commander, 2026-07-01. Basis (RT vs one-way · per-person vs 2-PAX total) to confirm at booking. Pending Harlan sign-off + Delta portal verification at purchase.*
+
+> **⚠️ BASIC ECONOMY — FARE RULES (read before booking, especially for a couple):**
+> - **Seats assigned at check-in, NOT in advance** — John & Susie may be split across the cabin. Seat selection only by paying to upgrade to Main Cabin.
+> - **No changes / non-refundable** — Delta Basic Economy tickets generally cannot be changed or cancelled for credit. Locked once purchased.
+> - **Boards last (final zone)** — overhead bin space may be gone by boarding.
+> - **No upgrades, limited/complimentary elite benefits.** SkyMiles earn reduced.
+> - **Carry-on:** Delta *does* allow one full-size carry-on + personal item on Basic Economy (Delta differs from some carriers here).
+> - *Fare rules evolve — verify current Delta Basic Economy terms on the confirmation screen at purchase.*
+>
+> **Trade-off:** ~$636 vs the ~$2,200–$3,600 premium estimate is a large saving, but for a 7-night anniversary-style trip the split-seats + no-change rigidity are the costs. Main Cabin (changeable, seats together) typically sits between the two. Commander's call.
 
 ### Hotel — Green Bay, Night of Sep 6
 | Option | Distance to GRB | Est. Rate | Notes |
@@ -215,7 +228,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | **Booking total** | **$2,114.75** | ✅ | Email #95833 |
 | Deposit paid | ($324.91) | ✅ Paid | Email #95833 |
 | **Balance due at check-in** | **$1,789.84** | 🟡 Sep 7 | Email #95833 |
-| Air (est., 2 PAX, premium RT) | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
+| Air — Delta Basic Economy DEN–GRB | **$636** | ❌ Not booked (fare found) | Commander 2026-07-01 · basis TBC · Harlan verify at booking |
+| Air (est., 2 PAX, premium RT alt) | ~$2,200–$3,600 | ❌ Not booked | Estimate only |
 | GRB hotel (1 night) | ~$120–$400 | ❌ Not booked | Estimate only |
 | Rental car (8 days, all-in) | ~$700–$1,200 | ❌ Not booked | Estimate only |
 | Activities + dining (est.) | ~$600–$1,200 | ❌ Not booked | Estimate only |
