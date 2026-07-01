@@ -149,67 +149,51 @@ _MODEL_IDS = {
     "sonnet": "claude-sonnet-4-6",
     "opus":   "claude-opus-4-8",
 }
-_COST_PER_TOK = {
-    "haiku":  (0.25e-6, 1.25e-6),
-    "sonnet": (3.0e-6,  15.0e-6),
-    "opus":   (15.0e-6, 75.0e-6),
-}
+
+# Strip vars that cause issues in headless/systemd context
+_STRIP = {"ANTHROPIC_API_KEY", "CLAUDECODE",
+          "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
 
 
 def _get_reply(prompt: str, output: str, task: str, model: str) -> str:
-    """Generate reply via Claude CLI (MAX plan OAuth, $0) — not direct API credits."""
+    """Generate reply via Claude CLI (OAuth MAX plan, no-MCP, no-proxy)."""
     tier = model.lower() if model.lower() in _MODEL_IDS else "haiku"
+    model_id = _MODEL_IDS[tier]
 
-    # Strip API key + CLAUDECODE so CLI uses MAX plan OAuth instead of credits
-    # Strip proxy vars so Claude CLI bypasses llmtrim (which serializes behind active sessions)
-    _STRIP = {"ANTHROPIC_API_KEY", "CLAUDECODE",
-              "HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy"}
     clean_env = {k: v for k, v in os.environ.items() if k not in _STRIP}
-
-    # Inject OAuth token explicitly from credentials file
-    creds_path = Path.home() / ".claude" / ".credentials.json"
-    if creds_path.exists():
-        import json as _json
-        try:
-            creds = _json.loads(creds_path.read_text())
-            token = creds.get("claudeAiOauth", {}).get("accessToken", "")
-            if token:
-                clean_env["CLAUDE_CODE_OAUTH_TOKEN"] = token
-        except Exception:
-            pass
 
     cmd = [
         str(CLAUDE_CLI),
-        "--print",
-        "--model", tier,
-        "--dangerously-skip-permissions",
+        "-p", prompt,
+        "--model", model_id,
         "--output-format", "text",
         "--strict-mcp-config",
         "--mcp-config", str(_EMPTY_MCP_CONFIG),
-        "-p", prompt,
     ]
 
     print(f"[START] {task} — invoking Claude CLI ({tier}, no-MCP)")
+
+    out_path = Path(output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
     result = subprocess.run(
         cmd,
         capture_output=True,
         text=True,
-        timeout=300,
         stdin=subprocess.DEVNULL,
         env=clean_env,
+        timeout=DEFAULT_TIMEOUT,
     )
 
-    if result.returncode != 0 or not result.stdout.strip():
-        stderr = result.stderr.strip()[:300] if result.stderr else "No stderr"
-        raise RuntimeError(f"CLI error (exit {result.returncode}): {stderr}")
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"Claude CLI rc={result.returncode}: {result.stderr[:500]}"
+        )
 
     body = result.stdout.strip()
-
-    out_path = Path(output)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(body, encoding="utf-8")
 
-    print(f"[CLI] {task} — MAX plan OAuth ({tier}), $0")
+    print(f"[CLI] {task} — {len(body)} chars")
     return body
 
 
