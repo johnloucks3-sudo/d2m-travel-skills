@@ -167,6 +167,16 @@ def alert_relay(msg: str) -> None:
 
 def main() -> None:
     log.info("=== SUPERTIMER LEADER TICK ===")
+    # M5: hydrate os.environ from Infisical so every bot (and any os.getenv consumer
+    # it spawns) reads secrets from the vault, with .env as fallback. Never fatal.
+    try:
+        sys.path.insert(0, "/home/john/Thunderbird")
+        from core.secrets.infisical_client import hydrate_environ
+        n = hydrate_environ()
+        if n:
+            log.info(f"hydrated {n} secrets from Infisical into runtime env")
+    except Exception as e:
+        log.warning(f"Infisical hydrate skipped (non-fatal): {e}")
     registry = load_registry()
     state = load_state()
     health = load_health()

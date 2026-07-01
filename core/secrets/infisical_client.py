@@ -80,9 +80,42 @@ def get_secret(name: str, default: str | None = None, fallback_env: bool = True)
     return default
 
 
+def list_secrets() -> dict[str, str]:
+    """Return ALL secrets in the configured project/env (empty on failure)."""
+    c = _load_cfg()
+    tok = _login()
+    if not tok:
+        return {}
+    try:
+        url = (f"{c['INFISICAL_URL']}/api/v3/secrets/raw"
+               f"?workspaceId={c['INFISICAL_PROJECT_ID']}&environment={c['INFISICAL_ENV']}")
+        req = urllib.request.Request(url, headers={"Authorization": f"Bearer {tok}"})
+        j = json.loads(urllib.request.urlopen(req, timeout=12).read())
+        return {s["secretKey"]: s["secretValue"] for s in j.get("secrets", [])}
+    except Exception:
+        return {}
+
+
+def hydrate_environ(overwrite: bool = True) -> int:
+    """Overlay Infisical secrets into os.environ so every os.getenv consumer gets
+    them transparently — the whole-Wing .env repoint in one call. Infisical is the
+    source of truth; whatever loaded .env earlier remains the fallback for any key
+    NOT in Infisical (or if Infisical is unreachable → this is a no-op, .env stands).
+    Returns count of vars set."""
+    secrets = list_secrets()
+    n = 0
+    for k, v in secrets.items():
+        if overwrite or k not in os.environ:
+            os.environ[k] = v
+            n += 1
+    return n
+
+
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1 and sys.argv[1] == "--hydrate":
+        print(f"hydrated {hydrate_environ()} vars from Infisical into os.environ")
+    elif len(sys.argv) > 1:
         v = get_secret(sys.argv[1])
         print(f"{sys.argv[1]} = {'<found len %d>' % len(v) if v else '<not found>'}")
     else:
