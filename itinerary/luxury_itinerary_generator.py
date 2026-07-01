@@ -26,7 +26,7 @@ from typing import Dict, List, Optional
 # Google API imports
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-from google.auth.oauthlib.flow import InstalledAppFlow
+from google_auth_oauthlib.flow import InstalledAppFlow
 from google.api_core.exceptions import GoogleAPIError
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError

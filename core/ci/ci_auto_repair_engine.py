@@ -666,6 +666,171 @@ def repair_regent_portal_live() -> bool:
 # REPAIR ROUTER — maps ALL skill IDs to their repair function
 # ============================================================================
 
+# ============================================================================
+# TOTAL-CI REPAIR FUNCTIONS — Infrastructure (M1) + Lifecycle products (M2)
+# Added 2026-07-01 per SO_TOTAL_CI_20260701. Service-type = restart+reprobe;
+# oauth/product-type = re-run the pipeline. Sudo/docker repairs return False
+# (→ escalate) when they can't self-heal without Commander/privilege.
+# ============================================================================
+
+def _restart_and_reprobe(unit: str, probe_file: str, wait: int = 5) -> bool:
+    """Restart a user service, wait, then re-run its probe. True if probe GREEN."""
+    import time
+    r = subprocess.run(["systemctl", "--user", "restart", unit],
+                       timeout=30, capture_output=True)
+    if r.returncode != 0:
+        return False
+    time.sleep(wait)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / probe_file)],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_n8n() -> bool:
+    return _restart_and_reprobe("n8n.service", "ci_probe_n8n.py", wait=6)
+
+
+def repair_cloudflared_tunnel() -> bool:
+    return _restart_and_reprobe("cloudflared.service", "ci_probe_cloudflared-tunnel.py", wait=8)
+
+
+def repair_ttyd() -> bool:
+    import time
+    for unit in ("ttyd-terminal.service", "ttyd.service"):
+        if subprocess.run(["systemctl", "--user", "restart", unit],
+                          timeout=30, capture_output=True).returncode == 0:
+            break
+    time.sleep(4)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_ttyd.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_tailscale() -> bool:
+    # tailscaled is a SYSTEM unit → needs sudo; autonomous attempt is best-effort.
+    # If it can't self-heal it returns False and escalates (non-client-affecting).
+    import time
+    r = subprocess.run(["sudo", "-n", "systemctl", "restart", "tailscaled.service"],
+                       timeout=30, capture_output=True)
+    if r.returncode != 0:
+        subprocess.run(["/usr/bin/tailscale", "up"], timeout=30, capture_output=True)
+    time.sleep(6)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_tailscale.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_gdrive_mx() -> bool:
+    # The probe attempts a token refresh + live list; running it IS the repair.
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_gdrive-mx.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_evernote_mx() -> bool:
+    import time
+    backup = THUNDERBIRD_ROOT / "api" / "thunderbird_evernote_backup.py"
+    if backup.exists():
+        subprocess.run([VENV_PY, str(backup)], timeout=300, capture_output=True,
+                       cwd=str(THUNDERBIRD_ROOT))
+        time.sleep(5)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_evernote-mx.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_cruise_db_site() -> bool:
+    import time
+    builder = THUNDERBIRD_ROOT / "scripts" / "build_master_cruise_db.py"
+    if builder.exists():
+        subprocess.run([VENV_PY, str(builder)], timeout=300, capture_output=True,
+                       cwd=str(THUNDERBIRD_ROOT))
+        time.sleep(5)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_cruise-db-site.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_reverie_app() -> bool:
+    import time
+    for unit in ("reverie-api.service", "reverie-frontend.service"):
+        subprocess.run(["systemctl", "--user", "restart", unit], timeout=30, capture_output=True)
+    time.sleep(6)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_reverie-app.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_qdrant() -> bool:
+    import time
+    if subprocess.run(["docker", "start", "qdrant"], timeout=30,
+                      capture_output=True).returncode != 0:
+        subprocess.run(["docker", "restart", "qdrant"], timeout=60, capture_output=True)
+    time.sleep(5)
+    p = subprocess.run([VENV_PY, str(THUNDERBIRD_ROOT / "scripts" / "ci_probe_qdrant.py")],
+                       capture_output=True, timeout=45)
+    return p.returncode == 0
+
+
+def repair_lifecycle_dossiers() -> bool:
+    engine = THUNDERBIRD_ROOT / "core" / "ops" / "dossier_freshness.py"
+    try:
+        r = subprocess.run([VENV_PY, str(engine)], capture_output=True, text=True,
+                           timeout=120, cwd=str(THUNDERBIRD_ROOT))
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
+def repair_lifecycle_tp() -> bool:
+    engine = THUNDERBIRD_ROOT / "core" / "booking" / "thunderbird_tp_scheduler.py"
+    out = THUNDERBIRD_ROOT / "OpsCenter" / "staff_tasking_schedule.json"
+    try:
+        r = subprocess.run([VENV_PY, str(engine), "--json"], capture_output=True,
+                           text=True, timeout=120, cwd=str(THUNDERBIRD_ROOT))
+        if r.returncode == 0 and r.stdout.strip():
+            out.write_text(r.stdout)
+            return True
+        return False
+    except Exception:
+        return False
+
+
+def repair_lifecycle_arc() -> bool:
+    router = THUNDERBIRD_ROOT / "core" / "ops" / "lifecycle_router.py"
+    try:
+        r = subprocess.run([VENV_PY, str(router), "validate"], capture_output=True,
+                           text=True, timeout=30, cwd=str(THUNDERBIRD_ROOT))
+        return r.returncode == 0 and "VALIDATION ERRORS" not in r.stdout
+    except Exception:
+        return False
+
+
+def repair_lifecycle_validations() -> bool:
+    engine = THUNDERBIRD_ROOT / "scripts" / "render_dani_validation_emails.py"
+    try:
+        r = subprocess.run([VENV_PY, str(engine)], capture_output=True, text=True,
+                           timeout=300, cwd=str(THUNDERBIRD_ROOT))
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
+def repair_lifecycle_itineraries() -> bool:
+    # Fix the known google_auth_oauthlib import-namespace bug in-place.
+    engine = THUNDERBIRD_ROOT / "itinerary" / "luxury_itinerary_generator.py"
+    try:
+        text = engine.read_text()
+        old = "from google.auth.oauthlib.flow import InstalledAppFlow"
+        new = "from google_auth_oauthlib.flow import InstalledAppFlow"
+        if old in text:
+            engine.write_text(text.replace(old, new, 1))
+            return True
+        return False  # already fixed or a different failure → escalate
+    except Exception:
+        return False
+
+
 REPAIR_FUNCTIONS: Dict[str, Any] = {
     # Original 9 skills
     "portal-access": repair_portal_access,
@@ -692,6 +857,22 @@ REPAIR_FUNCTIONS: Dict[str, Any] = {
     "opencode-integration": repair_opencode_integration,
     "pii-governance": repair_pii_governance,
     "regent-portal-live": repair_regent_portal_live,
+    # TOTAL-CI Infrastructure (M1, 2026-07-01)
+    "n8n": repair_n8n,
+    "cloudflared-tunnel": repair_cloudflared_tunnel,
+    "ttyd": repair_ttyd,
+    "tailscale": repair_tailscale,
+    "gdrive-mx": repair_gdrive_mx,
+    "evernote-mx": repair_evernote_mx,
+    "cruise-db-site": repair_cruise_db_site,
+    "reverie-app": repair_reverie_app,
+    "qdrant": repair_qdrant,
+    # TOTAL-CI Lifecycle products (M2, 2026-07-01)
+    "lifecycle-dossiers": repair_lifecycle_dossiers,
+    "lifecycle-tp": repair_lifecycle_tp,
+    "lifecycle-arc": repair_lifecycle_arc,
+    "lifecycle-validations": repair_lifecycle_validations,
+    "lifecycle-itineraries": repair_lifecycle_itineraries,
 }
 
 

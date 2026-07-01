@@ -47,6 +47,10 @@ def needs_replacement(history: list[dict], sla_ms: int, policy: dict,
                       f"(max {policy['failures_in_window_max']})")
 
     # Latency spike — any single run > factor x SLA
+    # Defensive: a null/absent SLA (e.g. backup jobs with no latency budget) disables
+    # the latency-breach trigger rather than crashing the sweep.
+    if not sla_ms:
+        return (False, "")
     spike = sla_ms * policy["latency_breach_factor"]
     for h in last5:
         if h["ok"] and h["duration_ms"] > spike:
