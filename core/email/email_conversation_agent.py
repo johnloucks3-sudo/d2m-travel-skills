@@ -347,13 +347,15 @@ def handle_commander(msg: dict, state: dict, sb: dict, dry_run: bool) -> dict:
     })
 
     user_text = _strip_quoted_reply(msg["body"]) or msg["subject"]
-    thread["messages"].append({"role": "user", "content": user_text, "ts": _now_iso(),
-                               "gmail_id": msg["gmail_id"]})
 
     if dry_run:
         log.info("[DRY-RUN] Commander msg on thread %s: %r", thread_id, user_text[:80])
         return {"category": "commander", "action": "dry_run", "thread_id": thread_id}
 
+    # Build the model input from the EXISTING history + this new turn. Do NOT
+    # mutate persistent history yet — a failed model call or failed send must not
+    # leave a dangling user turn, which would corrupt the thread (consecutive
+    # user roles) on the next cycle. History is committed only after success.
     messages = build_messages(thread["messages"], user_text)
     reply_text = call_hale(messages)
 
@@ -366,10 +368,14 @@ def handle_commander(msg: dict, state: dict, sb: dict, dry_run: bool) -> dict:
         to=COMMANDER_ADDRESS,
     )
 
-    thread["messages"].append({"role": "assistant", "content": reply_text, "ts": _now_iso()})
-    thread["last_updated"] = _now_iso()
-
     ok = send_result.get("status") == "success"
+    if ok:
+        # Commit both turns only now — history stays clean if anything above failed.
+        thread["messages"].append({"role": "user", "content": user_text, "ts": _now_iso(),
+                                   "gmail_id": msg["gmail_id"]})
+        thread["messages"].append({"role": "assistant", "content": reply_text, "ts": _now_iso()})
+        thread["last_updated"] = _now_iso()
+
     log_interaction(sb, {
         "category": "commander",
         "action": "replied" if ok else "reply_failed",
@@ -380,6 +386,9 @@ def handle_commander(msg: dict, state: dict, sb: dict, dry_run: bool) -> dict:
         "reply_message_id": send_result.get("message_id"),
     })
     log.info("Commander reply %s on thread %s", send_result.get("status"), thread_id)
+    if not ok:
+        # Signal the caller NOT to mark-read/dedup so the message is retried.
+        raise RuntimeError(f"Commander reply not sent: {send_result.get('error') or send_result.get('status')}")
     return {"category": "commander", "action": "replied", "result": send_result}
 
 
@@ -419,6 +428,11 @@ def handle_client(msg: dict, state: dict, sb: dict, dry_run: bool) -> dict:
         else f"Re: {msg['subject']}",
         body=reply_text,
     )
+
+    # A failed draft must retry — don't let the caller mark it read/processed.
+    if draft_result.get("status") not in ("success", "created", "draft_created"):
+        raise RuntimeError(f"Client draft not created: "
+                           f"{draft_result.get('error') or draft_result.get('status')}")
 
     log_interaction(sb, {
         "category": "client_inquiry", "action": "drafted_wf17",
