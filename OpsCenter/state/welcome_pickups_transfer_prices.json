@@ -1,0 +1,323 @@
+[
+  {
+    "city": "athens",
+    "label": "Athens (ATH)",
+    "checked_at": "2026-07-02T14:50:59.836871+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/athens/airport-taxi/",
+      "price_count": 6,
+      "min_usd": 19.0,
+      "max_usd": 115.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        40.0,
+        55.0,
+        80.0,
+        115.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/athens/airport-to-city/",
+      "price_count": 15,
+      "min_usd": 5.5,
+      "max_usd": 165.0,
+      "sample_prices": [
+        5.5,
+        9.0,
+        16.0,
+        19.0,
+        20.0,
+        40.0,
+        43.0,
+        54.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "piraeus",
+    "label": "Piraeus Port",
+    "checked_at": "2026-07-02T14:51:00.768304+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/piraeus/airport-taxi/",
+      "price_count": 5,
+      "min_usd": 19.0,
+      "max_usd": 130.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        60.0,
+        81.0,
+        130.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/piraeus/airport-to-city/",
+      "price_count": 15,
+      "min_usd": 5.0,
+      "max_usd": 140.0,
+      "sample_prices": [
+        5.0,
+        5.2,
+        6.1,
+        7.0,
+        8.4,
+        26.0,
+        33.0,
+        40.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "venice",
+    "label": "Venice (VCE)",
+    "checked_at": "2026-07-02T14:51:02.710309+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/venice/airport-taxi/",
+      "price_count": 11,
+      "min_usd": 19.0,
+      "max_usd": 238.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        40.0,
+        56.5,
+        63.2,
+        67.8,
+        75.9,
+        170.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/venice/airport-to-city/",
+      "price_count": 15,
+      "min_usd": 5.0,
+      "max_usd": 140.0,
+      "sample_prices": [
+        5.0,
+        5.2,
+        6.1,
+        7.0,
+        8.4,
+        26.0,
+        33.0,
+        40.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "stockholm",
+    "label": "Stockholm (ARN)",
+    "checked_at": "2026-07-02T14:51:04.285995+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/stockholm/airport-taxi/",
+      "price_count": 10,
+      "min_usd": 19.0,
+      "max_usd": 127.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        39.0,
+        44.0,
+        51.0,
+        53.0,
+        57.0,
+        59.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/stockholm/airport-to-city/",
+      "price_count": 15,
+      "min_usd": 5.0,
+      "max_usd": 140.0,
+      "sample_prices": [
+        5.0,
+        5.2,
+        6.1,
+        7.0,
+        8.4,
+        26.0,
+        33.0,
+        40.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "copenhagen",
+    "label": "Copenhagen (CPH)",
+    "checked_at": "2026-07-02T14:51:06.341155+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/copenhagen/airport-taxi/",
+      "price_count": 8,
+      "min_usd": 5.0,
+      "max_usd": 125.0,
+      "sample_prices": [
+        5.0,
+        6.5,
+        19.0,
+        25.0,
+        34.0,
+        45.0,
+        67.0,
+        125.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/copenhagen/airport-to-city/",
+      "price_count": 15,
+      "min_usd": 5.0,
+      "max_usd": 140.0,
+      "sample_prices": [
+        5.0,
+        5.2,
+        6.1,
+        7.0,
+        8.4,
+        26.0,
+        33.0,
+        40.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "helsinki",
+    "label": "Helsinki (HEL)",
+    "checked_at": "2026-07-02T14:51:07.930194+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/helsinki/airport-taxi/",
+      "price_count": 6,
+      "min_usd": 19.0,
+      "max_usd": 89.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        45.0,
+        50.0,
+        53.0,
+        89.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/helsinki/airport-to-city/",
+      "price_count": 6,
+      "min_usd": 6.9,
+      "max_usd": 102.0,
+      "sample_prices": [
+        6.9,
+        40.0,
+        45.0,
+        53.0,
+        89.0,
+        102.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "tallinn",
+    "label": "Tallinn (TLL)",
+    "checked_at": "2026-07-02T14:51:09.217700+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/tallinn/airport-taxi/",
+      "price_count": 6,
+      "min_usd": 10.0,
+      "max_usd": 35.0,
+      "sample_prices": [
+        10.0,
+        12.0,
+        19.0,
+        23.0,
+        25.0,
+        35.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/tallinn/airport-to-city/",
+      "price_count": 1,
+      "min_usd": 10.0,
+      "max_usd": 10.0,
+      "sample_prices": [
+        10.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "oslo",
+    "label": "Oslo (OSL)",
+    "checked_at": "2026-07-02T14:51:10.549030+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/oslo/airport-taxi/",
+      "price_count": 7,
+      "min_usd": 19.0,
+      "max_usd": 153.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        102.0,
+        111.0,
+        113.0,
+        150.5,
+        153.0
+      ],
+      "status": "ok"
+    },
+    "airport_to_city": {
+      "url": "https://www.welcomepickups.com/oslo/airport-to-city/",
+      "price_count": 9,
+      "min_usd": 10.2,
+      "max_usd": 180.0,
+      "sample_prices": [
+        10.2,
+        10.5,
+        20.4,
+        21.2,
+        76.4,
+        94.0,
+        97.6,
+        130.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "city": "panama-city",
+    "label": "Panama City (PTY)",
+    "checked_at": "2026-07-02T14:51:11.431638+00:00",
+    "airport_taxi": {
+      "url": "https://www.welcomepickups.com/panama-city/airport-taxi/",
+      "price_count": 5,
+      "min_usd": 19.0,
+      "max_usd": 130.0,
+      "sample_prices": [
+        19.0,
+        25.0,
+        60.0,
+        81.0,
+        130.0
+      ],
+      "status": "ok"
+    },
+    "status": "ok"
+  }
+]
