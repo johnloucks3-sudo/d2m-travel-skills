@@ -6572,7 +6572,7 @@
     {
       "id": "MISSION-322",
       "title": "Fix MISSION-SEC-01 \u2014 apex d2mluxury.quest DNS 525 error",
-      "status": "active",
+      "status": "pending_commander",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Access Cloudflare dashboard to route apex domain to tunnel or origin; current 525 error means the front door of the business is broken for anyone who doesn't type www.",
@@ -6589,10 +6589,14 @@
         {
           "ts": "2026-06-22T19:30:03.818833+00:00",
           "entry": "COMMANDER ACTION: sudo bash scripts/fix_d2m_ssl_525.sh on YOGA (needs TTY). Root cause diagnosed: no SSL cert on origin."
+        },
+        {
+          "ts": "2026-07-02T05:36:23.401630+00:00",
+          "entry": "A7 recon 2026-07-02: Two stacked issues found. (1) SSL mode Full-Strict but no origin cert \u2014 known, fix script exists at scripts/fix_d2m_ssl_525.sh. (2) NEW: d2m-dashboard.service (port 8901) DEAD since 2026-06-29 22:43 MT \u2014 origin down. DNS route and tunnel confirmed healthy. PATH A (fastest): Cloudflare SSL\u2192Flexible + restart service. PATH B: run certbot script. Full plan: OpsCenter/state/dns_525_fix_plan_20260702.md. Monitoring gap logged \u2014 port 8901 not in health check (compounding rule queued)."
         }
       ],
       "created_at": "2026-06-21T09:35:11.909263+00:00",
-      "updated_at": "2026-06-22T19:19:35.269084+00:00",
+      "updated_at": "2026-07-02T05:36:23.401630+00:00",
       "source": "weekly_report",
       "log": []
     },
@@ -9790,9 +9794,16 @@
       "id": "MISSION-438",
       "title": "Renew Perplexity API key \u2014 ELON fleet returning 401",
       "description": "Perplexity pplx-TbGO... returned 401 on 2026-06-24. Log into perplexity.ai, regenerate, update .env PERPLEXITY_API_KEY. Serper fallback active but lower quality.",
-      "status": "active",
+      "status": "pending_commander",
       "priority": "P2",
-      "assigned_to": "Commander"
+      "assigned_to": "Commander",
+      "updated_at": "2026-07-02T05:36:23.401630+00:00",
+      "logs": [
+        {
+          "ts": "2026-07-02T05:36:23.401630+00:00",
+          "entry": "A7 diagnosis 2026-07-02: Key pplx-TbGO... confirmed 401 (revoked/expired). Single source .env. 5 dependent scripts. Serper fallback active. Commander action: perplexity.ai/settings/api \u2192 generate new key \u2192 update .env PERPLEXITY_API_KEY. Verification test documented in OpsCenter/state/perplexity_api_status_20260702.md."
+        }
+      ]
     },
     {
       "id": "MISSION-439",
