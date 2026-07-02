@@ -132,29 +132,16 @@ def run_engine(window_days: int = 180, dry_run: bool = False, force: bool = Fals
                 scan_status = f"Scan error: {exc}"
                 print(f"[SCAN] {rec.client}: error — {exc}")
 
-        # Build and stage notification draft
-        body_html = build_body_html(
-            client_name=rec.client,
-            cruise_line=rec.cruise_line,
-            ship=rec.ship,
-            departure=rec.departure,
-            days_to_departure=days_left,
-            scan_status=scan_status,
-        )
-        full_html = build_email_html(body_html)
-
+        # Notification: LOG-ONLY — no Gmail draft.
+        # (Commander directive 2026-07-02: these excursion notification drafts were
+        # flooding johnloucks3 — 599 accumulated — and are extraneous. The scan above
+        # is the useful work; the notification is recorded to a log, not the mailbox.)
         subject = f"[Wing] Excursion Research Triggered — {rec.client} ({days_left}d to departure)"
-        draft_path = DRAFTS_DIR / f"excursion_notify_{safe_client}_{today.isoformat()}.html"
-
-        if not dry_run:
-            success = stage_draft(full_html, TO_EMAIL, subject, draft_path)
-            if success:
-                print(f"[DRAFT] Staged notification for {rec.client} → {draft_path.name}")
-            else:
-                print(f"[WARN] Draft staging may have failed for {rec.client}")
-        else:
-            draft_path.write_text(full_html, encoding="utf-8")
-            print(f"[DRY RUN] Draft written (not staged): {draft_path.name}")
+        notif_log = THUNDERBIRD / "logs" / "excursion_notifications.log"
+        notif_log.parent.mkdir(parents=True, exist_ok=True)
+        with open(notif_log, "a", encoding="utf-8") as _nf:
+            _nf.write(f"{datetime.utcnow().isoformat()} | {subject} | {scan_status}\n")
+        print(f"[NOTIFY] {rec.client}: logged (no Gmail draft) — {scan_status}")
 
         entries[key] = {
             "client": rec.client,
