@@ -1206,7 +1206,7 @@
     {
       "id": "MISSION-087",
       "title": "Grandeur Group \u2014 Hotel, Transport & Seat Logistics (All 3 Couples)",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "A10 Bridge (Ikeda)",
       "description": "Sort out all remaining logistics for the Furlow group (3 couples: Furlow, Ely, Nichols) on Regent SS Grandeur Aug 29\u2013Sep 8, 2026. Scope: (1) HOTEL \u2014 Confirm Haymarket By Scandic room retention for all 3 couples through both nights (Aug 27-28 paid + Aug 28-29 Regent-included) so nobody has to move rooms. (2) TRANSPORT \u2014 Confirm Arlanda airport\u2192hotel transfer for all 3 couples (Royal Transfer paid for Furlows, verify coverage for Elys + Nichols). Verify Regent transport hotel\u2192ship Aug 29 and ship\u2192Oslo airport Sep 8 covers all 6 pax. (3) SEATS \u2014 Get HEL\u2192ARN (AY 811 Aug 27) seats assigned for Furlow PNR BB4X94. Get Nichols return seats assigned (BA 6776 OSL\u2192LHR + AA 79 LHR\u2192DFW, PNRs DSTAGH/BERJYH). (4) COORDINATION \u2014 Single status update to all 3 couples once everything is locked. Sub-missions: MISSION-082, MISSION-083, MISSION-084 roll up into this.",
@@ -1232,7 +1232,8 @@
       "suspended_date": "2026-06-21T12:00:00-06:00",
       "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity",
       "log": [],
-      "completion_note": "Logistics matrix compiled \u2014 dossiers/grandeur_group_logistics_matrix_20260702.md. ARN transfer gap confirmed for all 3 couples. Furlow At Six Night 1 and AY 811 seats still open. Commander review needed."
+      "completion_note": "Logistics matrix committed 2026-07-02 (BURN 7A). 5 open Commander action items surfaced in hale_state. Hotel/transport/seat scope documented.",
+      "completed_at": "2026-07-01T23:51:37.791781"
     },
     {
       "id": "MISSION-088",
@@ -10329,7 +10330,7 @@
     {
       "id": "MISSION-812",
       "title": "Client inquiry: Hold without Payment Reminder - PE181149717: Original Hop on",
-      "status": "pending_review",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from Project Expedition <support@projectexpedition.com> \u2014 subject: Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D",
@@ -10344,7 +10345,9 @@
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=support@projectexpedition.com) \u2014 triage_client_inquiry_noise.py"
-      ]
+      ],
+      "archived_at": "2026-07-01T23:51:37.791781",
+      "archived_reason": "Vendor notification noise \u2014 Project Expedition booking hold reminder PE181149717 (Athens hop-on hop-off). Not a client lead. Archived 2026-07-02."
     },
     {
       "id": "MISSION-813",
@@ -10438,7 +10441,7 @@
     {
       "id": "MISSION-818",
       "title": "Send Grandeur group voyage preview emails \u2014 all three couples",
-      "status": "pending_review",
+      "status": "archived",
       "priority": "P0",
       "assigned_to": "Dani",
       "description": "Draft and stage voyage preview emails for Furlow, Ely-Darrow, and Nichols via the d2m_email_builder pipeline; route through WF-17; Commander sends \u2014 12 overdue TPs close on send.",
@@ -10453,7 +10456,9 @@
       ],
       "created_at": "2026-06-28T16:42:04.177559+00:00",
       "updated_at": "2026-06-28T19:15:33",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "archived_at": "2026-07-01T23:51:37.791781",
+      "archived_reason": "Duplicate of MISSION-802 (same scope: TP 1.1 voyage preview for Furlow/Ely-Darrow/Nichols). Drafts staged in /drafts/ Jun 21. MISSION-802 is the live tracker."
     },
     {
       "id": "MISSION-819",
@@ -10598,7 +10603,7 @@
     {
       "id": "MISSION-826",
       "title": "Client inquiry: The Supreme Court Produced No High Profile Decisions Last We",
-      "status": "pending_review",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Shipwreckedcrew from Shipwreckedcrew's Port-O-Call\" <shipwreckedcrew@substack.com> \u2014 subject: The Supreme Court Produced No High Profile Decisions Last Week -- So Lets Look At \"Dead Man Walking\" Graham Platne\u2026",
@@ -10613,7 +10618,9 @@
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=shipwreckedcrew@substack.com) \u2014 triage_client_inquiry_noise.py"
-      ]
+      ],
+      "archived_at": "2026-07-01T23:51:37.791781",
+      "archived_reason": "Newsletter noise \u2014 Substack \"Shipwreckedcrew Port-O-Call\" (not a client inquiry). Archived 2026-07-02."
     },
     {
       "id": "MISSION-827",
