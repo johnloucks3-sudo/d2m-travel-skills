@@ -1,0 +1,154 @@
+{
+  "name": "D2M — Email Canary Shadow Classifier (WF-17)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 */2 * * *"
+            }
+          ]
+        }
+      },
+      "id": "c17a0001-0001-4000-8000-000000000001",
+      "name": "Schedule — Every 2hr",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300],
+      "notes": "Runs every 2 hours. Safe to activate after Gmail OAuth2 credential is wired."
+    },
+    {
+      "parameters": {
+        "command": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/email_canary_shadow.py --limit 25 --n8n-ingest"
+      },
+      "id": "c17a0001-0002-4000-8000-000000000002",
+      "name": "Run Canary Shadow Classifier",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "notes": "Reads last 25 inbox emails, classifies each 2 ways, writes to audit DB. Never sends/labels/creates missions. Fails soft."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse canary output and forward summary for optional Telegram notification.\n// Output is plain text; extract the Done/DRY-RUN summary line.\nconst stdout = $input.item.json.stdout || '';\nconst stderr = $input.item.json.stderr || '';\nconst exitCode = $input.item.json.exitCode ?? -1;\n\nconst summaryMatch = stdout.match(/(Done\\..+|DRY-RUN.+)/);\nconst summary = summaryMatch ? summaryMatch[1] : 'Canary run complete (no summary line)';\n\nreturn [{\n  json: {\n    summary,\n    exit_code: exitCode,\n    has_errors: stderr.includes('[ERROR]') || exitCode !== 0,\n    stderr_preview: stderr.slice(0, 300),\n    ts: new Date().toISOString(),\n  }\n}];"
+      },
+      "id": "c17a0001-0003-4000-8000-000000000003",
+      "name": "Parse Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "err-check",
+              "leftValue": "={{ $json.has_errors }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "c17a0001-0004-4000-8000-000000000004",
+      "name": "Errors Only Gate",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300],
+      "notes": "Only pages Telegram on error. Normal successful runs are silent."
+    },
+    {
+      "parameters": {
+        "chatId": "7554895206",
+        "text": "=⚡ Canary ERROR (exit={{ $json.exit_code }})\n{{ $json.summary }}\nStderr: {{ $json.stderr_preview }}",
+        "additionalFields": {}
+      },
+      "id": "c17a0001-0005-4000-8000-000000000005",
+      "name": "Telegram — Canary Error Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1120, 200],
+      "notes": "IMPORTANT: Wire the Telegram Bot API credential (D2MC2C bot token) before activating.",
+      "credentials": {
+        "telegramApi": {
+          "id": "TELEGRAM_CRED_ID",
+          "name": "D2M Telegram Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule — Every 2hr": {
+      "main": [
+        [
+          {
+            "node": "Run Canary Shadow Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Canary Shadow Classifier": {
+      "main": [
+        [
+          {
+            "node": "Parse Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Output": {
+      "main": [
+        [
+          {
+            "node": "Errors Only Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Errors Only Gate": {
+      "main": [
+        [
+          {
+            "node": "Telegram — Canary Error Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "_canary_notes": {
+    "purpose": "Phase B email-canary: shadow-classify inbox emails 2 ways, record to audit DB. Zero production risk.",
+    "before_activating": [
+      "1. Wire Gmail OAuth2 web-client credential in n8n (same client_id/secret as gmail_token.json). Node 'Run Canary Shadow Classifier' calls the Python script which handles auth directly via token file — no n8n Gmail credential needed for the script itself.",
+      "2. Wire Telegram Bot credential (D2MC2C bot token) in node 'Telegram — Canary Error Alert'.",
+      "3. Verify dry-run passes: python3 scripts/email_canary_shadow.py --dry-run --limit 5",
+      "4. Set active: true in this JSON and import, OR toggle Active in n8n UI."
+    ],
+    "safety": "NEVER sends, labels, or creates missions. Read + classify + record only. Fails soft on per-email errors.",
+    "scoreboard": "python3 scripts/email_canary_scoreboard.py → output/EMAIL_CANARY_SCOREBOARD.md"
+  }
+}
