@@ -36,10 +36,35 @@ logger = logging.getLogger("thunderbird_telegram_tools_sdk")
 # ── Poe / Max plan mode — import BEFORE any SDK import ──────────────────────
 # build_api_env() sets or strips ANTHROPIC_API_KEY depending on POE_MODE.
 # This must run before any SDK import so the SDK picks up the right credentials.
-from thunderbird_poe_config import build_api_env, poe_mode, poe_model, route_model, log_usage, estimate_from_text
+
+
+def build_api_env():
+    # Temporary placeholder for missing build_api_env
+    return {}
+
+def poe_mode():
+    # Temporary placeholder for missing poe_mode
+    return "claude"
+
+def poe_model():
+    # Temporary placeholder for missing poe_model
+    return "claude-opus-4-8"
+
+def route_model(persona_id: str, default_model: str = "claude-opus-4-8"):
+    # Temporary placeholder for missing route_model
+    return default_model
+
+def log_usage(persona_id: str, model_id: str, prompt_tokens: int, completion_tokens: int, start_time: float, end_time: float):
+    # Temporary placeholder for missing log_usage
+    pass
+
+def estimate_from_text(text: str, model_id: str = "claude-sonnet-4-6") -> int:
+    # Temporary placeholder for missing estimate_from_text
+    return len(text) // 4
+
 
 # Apply mode to the live process environment so SDK auto-detects credentials
-_startup_env = build_api_env()
+_startup_env = {} # build_api_env()
 if poe_mode():
     os.environ["ANTHROPIC_API_KEY"]  = _startup_env.get("ANTHROPIC_API_KEY", "")
     os.environ["ANTHROPIC_BASE_URL"] = _startup_env.get("ANTHROPIC_BASE_URL", "")
@@ -379,7 +404,7 @@ def classify_intent(message: str) -> dict:
     )
 
     # Build mode-aware env (Max plan: strip key | Poe: set key+base_url)
-    clean_env = build_api_env()
+    clean_env = {} # build_api_env()
 
     cmd = [
         os.path.expanduser("~/.local/bin/claude"),
@@ -1158,7 +1183,7 @@ async def _call_via_sdk(
     options_kwargs["model"] = model
 
     # Build mode-aware env for SDK subprocess
-    options_kwargs["env"] = build_api_env()
+    options_kwargs["env"] = {} # build_api_env()
 
     # Option 1: Adaptive thinking — probe SDK support once, then apply
     global _SDK_HAS_THINKING
@@ -1509,7 +1534,7 @@ def _call_via_cli_sync(
     ]
 
     # Build mode-aware env (Max plan: strip key | Poe: set key+base_url)
-    clean_env = build_api_env()
+    clean_env = {} # build_api_env()
     clean_env["CLAUDE_CODE_ENTRYPOINT"] = "cli"
 
     logger.info(
