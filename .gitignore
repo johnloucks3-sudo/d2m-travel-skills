@@ -60,6 +60,8 @@ logs/
 # Node
 node_modules/
 .vite/
+# CloakBrowser stealth tier — deps + Chromium stay local, never committed
+tools/cloak/node_modules/
 
 # Credentials (catch-all)
 *credentials*.json
@@ -194,3 +196,6 @@ core/travel/data/centrav_session.json
 
 # Email registry cache — contains client PII, never commit (SO PII fence)
 config/email_registry_cache.json
+
+# Camofox API key
+deploy/camofox/.env

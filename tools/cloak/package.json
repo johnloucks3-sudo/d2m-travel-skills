@@ -1,0 +1,15 @@
+{
+  "name": "d2m-cloak-tier",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CloakBrowser stealth-fetch tier for Anansi escalation (Akamai/Imperva/Cloudflare bypass).",
+  "main": "cloak_fetch.mjs",
+  "scripts": {
+    "fetch": "node cloak_fetch.mjs"
+  },
+  "dependencies": {
+    "cloakbrowser": "0.3.31",
+    "playwright-core": "1.60.0"
+  }
+}
