@@ -51,6 +51,7 @@ SEAT_TO_FILE = {
     "ikeda":     "a10-ikeda.md",
     "reyes":     "a8-reyes.md",       # stub created 2026-07-02 — now seated
     "whetstone": "a14-whetstone.md",  # stub created 2026-07-02 — now seated
+    "talon":     "talon.md",          # CONDOR wing commander (CC) — seated 2026-07-02
 }
 
 NO_FILE_SEATS = set()  # all declared CC seats now have files

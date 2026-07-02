@@ -4,14 +4,39 @@
     "lane": "lead",
     "pii": false
   },
+  "jet": {
+    "engine": "oc",
+    "lane": "infra",
+    "pii": false
+  },
   "dembe": {
-    "engine": "cc",
+    "engine": "oc",
     "lane": "research",
     "pii": false
   },
+  "castillo": {
+    "engine": "oc",
+    "lane": "tempo",
+    "pii": false
+  },
   "sterling": {
-    "engine": "cc",
+    "engine": "oc",
     "lane": "gate",
+    "pii": false
+  },
+  "elon": {
+    "engine": "oc",
+    "lane": "adoption",
+    "pii": false
+  },
+  "whetstone": {
+    "engine": "oc",
+    "lane": "currency",
+    "pii": false
+  },
+  "ikeda": {
+    "engine": "oc",
+    "lane": "crisis",
     "pii": false
   },
   "harlan": {
@@ -19,15 +44,10 @@
     "lane": "finance",
     "pii": true
   },
-  "elon": {
+  "talon": {
     "engine": "cc",
-    "lane": "adoption",
-    "pii": false
-  },
-  "whetstone": {
-    "engine": "cc",
-    "lane": "currency",
-    "pii": false
+    "lane": "strike",
+    "pii": true
   },
   "dani": {
     "engine": "cc",
@@ -48,20 +68,5 @@
     "engine": "cc",
     "lane": "client",
     "pii": true
-  },
-  "ikeda": {
-    "engine": "cc",
-    "lane": "crisis",
-    "pii": false
-  },
-  "oc-scout-1": {
-    "engine": "oc",
-    "lane": "research",
-    "pii": false
-  },
-  "oc-scout-2": {
-    "engine": "oc",
-    "lane": "scaffold",
-    "pii": false
   }
 }

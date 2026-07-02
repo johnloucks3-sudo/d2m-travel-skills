@@ -1,5 +1,15 @@
 {
   "mcpServers": {
+    "qdrant": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-qdrant"],
+      "env": {
+        "QDRANT_URL": "http://127.0.0.1:6333",
+        "COLLECTION_NAME": "thunderbird_memories"
+      },
+      "description": "SHARED BRAIN — mcp-server-qdrant over the live Qdrant thunderbird_memories collection. Mounted by BOTH CC and OC so any seat reads/writes the same memory (HALE-OS shared-brain layer). uvx launches on connect."
+    },
     "graphiti": {
       "type": "http",
       "url": "http://127.0.0.1:8766",

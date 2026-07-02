@@ -1,14 +1,17 @@
-# wing_org.yaml — THE DECLARED ORG CHART (HALE-OS control plane, v1)
+# wing_org.yaml — THE DECLARED ORG CHART (HALE-OS control plane, v2)
 # Change this file → run scripts/wing_org_compile.py → the whole wing re-seats.
 # Roles → engines → models → tools → lanes → gates. Declare once, compile everywhere.
-# Authored 2026-07-02 (ELON/Fable) · goal: 100% Integration by 2030.
+# v2 (2026-07-02, Commander directive): TWO WINGS —
+#   WIND wing (JET, OpenCode)   = Support & Infrastructure: ops, intel, process, innovation, finance-analysis.
+#   CONDOR wing (TALON, Claude Code) = Strike: client ops, voice-matched copy, proposals, premium output.
+#   HALE = VCS super-manager over BOTH wings; runs on CC (lead) AND a full OC twin (hale-oc).
 #
 # ENGINES: cc = Claude Code (Agent Teams seat) · oc = OpenCode seat
-# MODELS (cc): fable | opus | sonnet | haiku    MODELS (oc): deepseek-v3.2 | grok-4 | r1 (Poe/free lane)
-# GATES (never bypassable by the runtime — they live above it): wf17 | spend | strategic
-# pii: true  → seat may receive client PII → MUST be cc engine (compiler enforces this)
+# MODELS (cc): fable | opus | sonnet | haiku    MODELS (oc): deepseek-v3.2 | grok-4 | r1
+# GATES (never bypassable by the runtime): wf17 | spend | strategic
+# pii: true → seat may receive client PII → MUST be cc engine (compiler enforces: pii+oc = exit 1)
 
-version: 1
+version: 2
 reset_note: "Weekly reset 2100 MT. Fable/Opus liberal — headroom confirmed 2026-07-02."
 
 lead:
@@ -18,24 +21,53 @@ lead:
   escalate: opus            # T3 / strategic reasoning
   tools: [all-mcp, Agent, SendMessage]
   gates: [wf17, spend, strategic]
-  role: "Super-manager. Owns master plan, lane split, task boards, gate holds, synthesis."
+  persona: Personas/hale_cos.md
+  role: "Super-manager over BOTH wings (WIND+CONDOR). Owns master plan, lane split, task boards, gate holds, synthesis."
+
+# HALE-OC — CC-Hale's twin in every aspect, on OpenCode (durable ops-side super-manager).
+# Same persona, authority, gates, memory (Hale Bus), voice. Different engine only.
+hale_oc:
+  seat: hale-oc
+  engine: oc
+  model: grok-4            # strongest OC seat — mirrors Hale's judgment on the OC side
+  escalate: "dispatch CC-Hale (opus) via brain_bridge for T3/strategic + anything PII"
+  tools: [mcp-core, brain_bridge, relay, SendMessage]
+  gates: [wf17, spend, strategic]
+  pii: false               # OC engine — twin carries Hale's authority but NOT client PII (fence)
+  persona: Personas/hale_cos.md     # SAME persona file as CC-Hale — twin in every aspect
+  twin_of: hale
+  shared_state: [core/hale_bus/hale_bus_state.json, hale_state.json, hale_decisions.md, hale_brief.md]
+  role: "OC-side Hale twin. Identical identity/authority/gates/voice as CC-Hale; shares state via Hale Bus. Runs WIND ops durably; hands PII + client-send + T3 to CC-Hale."
+
+wings:
+  WIND:
+    commander: jet
+    engine: oc
+    domain: "Support & Infrastructure — ops, intel, process, innovation, cost analysis. Non-client, non-PII."
+  CONDOR:
+    commander: talon
+    engine: cc
+    domain: "Strike — client ops, voice-matched copy, proposals, premium output. PII-cleared."
 
 seats:
-  # ---- CC plane: reasoning, gates, client-creative chain (PII-cleared) ----
-  dembe:      {engine: cc, model: sonnet, lane: research,   pii: false, tools: [web, anansi, mcp-core]}
-  sterling:   {engine: cc, model: opus,   lane: gate,       pii: false, tools: [code, git, metrics]}
-  harlan:     {engine: cc, model: haiku,  lane: finance,    pii: true,  tools: [sheets, tess]}
-  elon:       {engine: cc, model: sonnet, lane: adoption,   pii: false, tools: [all]}
-  whetstone:  {engine: cc, model: sonnet, lane: currency,   pii: false, tools: [ci, web]}
-  dani:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [gmail-draft, dossiers]}
-  reyes:      {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [excursions, dossiers]}
-  luna:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [copy]}
-  naia:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [brand]}
-  ikeda:      {engine: cc, model: haiku,  lane: crisis,     pii: false, tools: [logistics]}
+  # ================= WIND wing → OpenCode (JET) =================
+  jet:        {engine: oc, model: deepseek-v3.2, wing: WIND, lane: infra,    pii: false, tools: [code, git, shell, systemd, mcp-core], role: "WIND Commander — infrastructure, automation, system health, bulk ops"}
+  dembe:      {engine: oc, model: deepseek-v3.2, wing: WIND, lane: research, pii: false, tools: [web, anansi, mcp-core]}
+  castillo:   {engine: oc, model: deepseek-v3.2, wing: WIND, lane: tempo,    pii: false, tools: [mcp-core], role: "Deputy COS / Tempo — T0-T3 classification, OODA, escalation"}
+  sterling:   {engine: oc, model: grok-4,        wing: WIND, lane: gate,     pii: false, tools: [code, git, metrics]}
+  elon:       {engine: oc, model: grok-4,        wing: WIND, lane: adoption, pii: false, tools: [all]}
+  whetstone:  {engine: oc, model: deepseek-v3.2, wing: WIND, lane: currency, pii: false, tools: [ci, web]}
+  ikeda:      {engine: oc, model: deepseek-v3.2, wing: WIND, lane: crisis,   pii: false, tools: [logistics]}
 
-  # ---- OC plane: bulk research + scaffold, ZERO Claude bucket, NEVER PII ----
-  oc-scout-1: {engine: oc, model: deepseek-v3.2, lane: research, pii: false, tools: [web]}
-  oc-scout-2: {engine: oc, model: grok-4,        lane: scaffold, pii: false, tools: [code]}
+  # Harlan: WIND-domain (finance) BUT pii:true (client P&L / TESS) → PII fence pins him to CC.
+  harlan:     {engine: cc, model: haiku,  wing: WIND, lane: finance, pii: true, tools: [sheets, tess], note: "WIND-aligned; PII-fenced to CC by compiler"}
+
+  # ================= CONDOR wing → Claude Code (TALON) =================
+  talon:      {engine: cc, model: opus,   wing: CONDOR, lane: strike,  pii: true, tools: [all], role: "CONDOR Commander — client-voice rubric, kills bad drafts, owns terminal effect"}
+  dani:       {engine: cc, model: sonnet, wing: CONDOR, lane: client,  pii: true, tools: [gmail-draft, dossiers]}
+  reyes:      {engine: cc, model: sonnet, wing: CONDOR, lane: client,  pii: true, tools: [excursions, dossiers]}
+  luna:       {engine: cc, model: sonnet, wing: CONDOR, lane: client,  pii: true, tools: [copy]}
+  naia:       {engine: cc, model: sonnet, wing: CONDOR, lane: client,  pii: true, tools: [brand]}
 
 # Non-negotiable banner injected into EVERY seat prompt by the compiler:
 banner: |
@@ -46,7 +78,7 @@ banner: |
   4. Report past-tense to the board. Claim one task, do it, mark done, release the lock.
 
 split_rule:
-  static_cc:  [architecture, integration, client-voice, merge]
-  static_oc:  [research, scaffold, bulk]
+  static_cc:  [architecture, integration, client-voice, merge, client-send-draft]   # CONDOR
+  static_oc:  [research, scaffold, bulk, infra, automation, intel]                   # WIND
   dynamic:    [phase2-uniform-queues]   # pull-claimed by whoever's free
-  invariant:  "CC always owns merge/integrate. Cross-lane deps resolve on the brain_bridge board."
+  invariant:  "CC always owns merge/integrate + all PII + client-send-draft. WIND (OC) never touches PII. Cross-wing deps resolve on the brain_bridge board. Hale (CC lead + OC twin) holds the 3 gates on both wings."
