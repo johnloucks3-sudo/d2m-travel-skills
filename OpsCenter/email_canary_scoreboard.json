@@ -1,0 +1,7 @@
+{
+  "canary_start": "2026-07-02",
+  "canary_end": "2026-07-09",
+  "systems": ["n8n_python", "lindy_ai"],
+  "emails_processed": 0,
+  "entries": []
+}
