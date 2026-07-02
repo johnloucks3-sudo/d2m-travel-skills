@@ -1,0 +1,52 @@
+# wing_org.yaml — THE DECLARED ORG CHART (HALE-OS control plane, v1)
+# Change this file → run scripts/wing_org_compile.py → the whole wing re-seats.
+# Roles → engines → models → tools → lanes → gates. Declare once, compile everywhere.
+# Authored 2026-07-02 (ELON/Fable) · goal: 100% Integration by 2030.
+#
+# ENGINES: cc = Claude Code (Agent Teams seat) · oc = OpenCode seat
+# MODELS (cc): fable | opus | sonnet | haiku    MODELS (oc): deepseek-v3.2 | grok-4 | r1 (Poe/free lane)
+# GATES (never bypassable by the runtime — they live above it): wf17 | spend | strategic
+# pii: true  → seat may receive client PII → MUST be cc engine (compiler enforces this)
+
+version: 1
+reset_note: "Weekly reset 2100 MT. Fable/Opus liberal — headroom confirmed 2026-07-02."
+
+lead:
+  seat: hale
+  engine: cc
+  model: sonnet
+  escalate: opus            # T3 / strategic reasoning
+  tools: [all-mcp, Agent, SendMessage]
+  gates: [wf17, spend, strategic]
+  role: "Super-manager. Owns master plan, lane split, task boards, gate holds, synthesis."
+
+seats:
+  # ---- CC plane: reasoning, gates, client-creative chain (PII-cleared) ----
+  dembe:      {engine: cc, model: sonnet, lane: research,   pii: false, tools: [web, anansi, mcp-core]}
+  sterling:   {engine: cc, model: opus,   lane: gate,       pii: false, tools: [code, git, metrics]}
+  harlan:     {engine: cc, model: haiku,  lane: finance,    pii: true,  tools: [sheets, tess]}
+  elon:       {engine: cc, model: sonnet, lane: adoption,   pii: false, tools: [all]}
+  whetstone:  {engine: cc, model: sonnet, lane: currency,   pii: false, tools: [ci, web]}
+  dani:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [gmail-draft, dossiers]}
+  reyes:      {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [excursions, dossiers]}
+  luna:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [copy]}
+  naia:       {engine: cc, model: sonnet, lane: client,     pii: true,  tools: [brand]}
+  ikeda:      {engine: cc, model: haiku,  lane: crisis,     pii: false, tools: [logistics]}
+
+  # ---- OC plane: bulk research + scaffold, ZERO Claude bucket, NEVER PII ----
+  oc-scout-1: {engine: oc, model: deepseek-v3.2, lane: research, pii: false, tools: [web]}
+  oc-scout-2: {engine: oc, model: grok-4,        lane: scaffold, pii: false, tools: [code]}
+
+# Non-negotiable banner injected into EVERY seat prompt by the compiler:
+banner: |
+  You are a Thunderbird Wing seat. HARD RULES, no exception:
+  1. You may NEVER send to a client address. Client-ready output = draft + STOP + notify Hale (WF-17).
+  2. If pii:false you must NEVER be handed client names, booking refs, or payment data.
+  3. You do not spend money or set strategy. Prepare, recommend, execute inside your lane.
+  4. Report past-tense to the board. Claim one task, do it, mark done, release the lock.
+
+split_rule:
+  static_cc:  [architecture, integration, client-voice, merge]
+  static_oc:  [research, scaffold, bulk]
+  dynamic:    [phase2-uniform-queues]   # pull-claimed by whoever's free
+  invariant:  "CC always owns merge/integrate. Cross-lane deps resolve on the brain_bridge board."

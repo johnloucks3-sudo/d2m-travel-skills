@@ -1,0 +1,12 @@
+{
+  "oc-scout-1": {
+    "mode": "subagent",
+    "model": "deepseek-v3.2",
+    "permission": "read-write-nopii"
+  },
+  "oc-scout-2": {
+    "mode": "subagent",
+    "model": "grok-4",
+    "permission": "read-write-nopii"
+  }
+}

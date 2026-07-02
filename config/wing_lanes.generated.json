@@ -1,0 +1,67 @@
+{
+  "hale": {
+    "engine": "cc",
+    "lane": "lead",
+    "pii": false
+  },
+  "dembe": {
+    "engine": "cc",
+    "lane": "research",
+    "pii": false
+  },
+  "sterling": {
+    "engine": "cc",
+    "lane": "gate",
+    "pii": false
+  },
+  "harlan": {
+    "engine": "cc",
+    "lane": "finance",
+    "pii": true
+  },
+  "elon": {
+    "engine": "cc",
+    "lane": "adoption",
+    "pii": false
+  },
+  "whetstone": {
+    "engine": "cc",
+    "lane": "currency",
+    "pii": false
+  },
+  "dani": {
+    "engine": "cc",
+    "lane": "client",
+    "pii": true
+  },
+  "reyes": {
+    "engine": "cc",
+    "lane": "client",
+    "pii": true
+  },
+  "luna": {
+    "engine": "cc",
+    "lane": "client",
+    "pii": true
+  },
+  "naia": {
+    "engine": "cc",
+    "lane": "client",
+    "pii": true
+  },
+  "ikeda": {
+    "engine": "cc",
+    "lane": "crisis",
+    "pii": false
+  },
+  "oc-scout-1": {
+    "engine": "oc",
+    "lane": "research",
+    "pii": false
+  },
+  "oc-scout-2": {
+    "engine": "oc",
+    "lane": "scaffold",
+    "pii": false
+  }
+}
