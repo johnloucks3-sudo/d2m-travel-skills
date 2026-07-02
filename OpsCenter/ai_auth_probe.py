@@ -184,19 +184,37 @@ def repair_opencode() -> bool:
 
 
 def repair_telegram() -> bool:
-    """Restart thunderbird-telegram-gw.service → re-probe."""
-    log("REPAIR: telegram — restarting thunderbird-telegram-gw.service")
-    try:
-        subprocess.run(
-            ["systemctl", "--user", "restart", "thunderbird-telegram-gw.service"],
-            timeout=15, capture_output=True,
-        )
-        time.sleep(5)
-        ok, _ = probe_telegram()
-        return ok
-    except Exception as e:
-        log(f"REPAIR: telegram restart error: {e}")
+    """Restart thunderbird-telegram-gw.service with exponential backoff retry."""
+    log("REPAIR: telegram — validating token and restarting service")
+
+    token = (os.environ.get("TELEGRAM_C2_BOT_TOKEN")
+             or os.environ.get("TELEGRAM_BOT_TOKEN", ""))
+    if not token:
+        log("REPAIR FAIL: TELEGRAM_C2_BOT_TOKEN not set — cannot retry")
         return False
+
+    for attempt in range(1, 4):
+        log(f"REPAIR: telegram attempt {attempt}/3 — restarting service")
+        try:
+            subprocess.run(
+                ["systemctl", "--user", "restart", "thunderbird-telegram-gw.service"],
+                timeout=15, capture_output=True,
+            )
+            backoff = 2 ** attempt
+            log(f"REPAIR: telegram waiting {backoff}s before re-probe (attempt {attempt})")
+            time.sleep(backoff)
+
+            ok, detail = probe_telegram()
+            if ok:
+                log(f"REPAIR SUCCESS: telegram recovered on attempt {attempt}/3")
+                return True
+            else:
+                log(f"REPAIR: telegram re-probe failed on attempt {attempt}/3 — {detail[:100]}")
+        except Exception as e:
+            log(f"REPAIR: telegram attempt {attempt}/3 error: {e}")
+
+    log("REPAIR EXHAUSTED: telegram — 3 attempts failed")
+    return False
 
 
 def repair_mcp() -> bool:
