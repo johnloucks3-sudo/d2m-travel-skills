@@ -32,6 +32,16 @@ NAV = {
     "05_Your_Options_and_Investment": "Your Options",
 }
 
+# filename-stem -> Google Doc title (to match _gdoc_links.json for the "suggest edits" link)
+DOC_TITLES = {
+    "00_Trip_Book": "Spencer Grand Tour — Trip Book (Overview)",
+    "01_Day_by_Day_Itinerary": "Spencer Grand Tour — Day-by-Day Itinerary",
+    "02_Shore_Excursion_Menu": "Spencer Grand Tour — Shore Excursion Menu",
+    "03_Florence_and_Tuscany_Options": "Spencer Grand Tour — Florence & Tuscany Options",
+    "04_Swiss_Alps_Journey": "Spencer Grand Tour — Swiss Alps Journey",
+    "05_Your_Options_and_Investment": "Spencer Grand Tour — Your Options & Investment",
+}
+
 CSS = """
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -80,6 +90,9 @@ section.doc th { background: #0a0a68; color: #e8f1ff; text-align: left; font-wei
 section.doc td { color: #d0e4ff; padding: 10px 12px; border: 1px solid rgba(180,200,255,0.15); vertical-align: top; }
 section.doc tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
 section.doc img { max-width: 100%; height: auto; }
+.editbar { background: rgba(120,150,255,0.16); border: 1px solid rgba(180,200,255,0.4);
+  border-radius: 8px; padding: 9px 14px; margin: 0 0 20px; font-size: 14px; }
+.editbar a { color: #dbe8ff; }
 .foot { text-align: center; color: #8fa8d8; font-size: 12px; padding: 10px 20px 40px; }
 @media (max-width: 620px) { section.doc { padding: 24px 20px 30px; font-size: 16px; } .hero h1 { font-size: 26px; } }
 """
@@ -101,13 +114,28 @@ def main():
     stems = [s for s in NAV if (d / f"{s}.md").exists()]
     stems += [f.stem for f in sorted(d.glob("*.md")) if f.stem not in NAV]
 
+    # Google Doc edit links (optional)
+    links_file = d / "_gdoc_links.json"
+    gdoc = {}
+    if links_file.exists():
+        import json as _json
+        gdoc = _json.loads(links_file.read_text()).get("docs", {})
+
     navlinks, sections = [], []
     for i, stem in enumerate(stems):
         f = d / f"{stem}.md"
         label = NAV.get(stem, stem.replace("_", " "))
         anchor = f"doc{i}"
         navlinks.append(f'<a href="#{anchor}">{label}</a>')
-        sections.append(f'<section class="doc" id="{anchor}">\n{render_md(f.read_text(encoding="utf-8"))}\n</section>')
+        edit_url = gdoc.get(DOC_TITLES.get(stem, ""))
+        edit_banner = (
+            f'<div class="editbar">✏️ <a href="{edit_url}" target="_blank" rel="noopener">'
+            f'Open the working copy to suggest edits (Google Doc)</a></div>'
+        ) if edit_url else ""
+        sections.append(
+            f'<section class="doc" id="{anchor}">\n{edit_banner}\n'
+            f'{render_md(f.read_text(encoding="utf-8"))}\n</section>'
+        )
 
     html = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
