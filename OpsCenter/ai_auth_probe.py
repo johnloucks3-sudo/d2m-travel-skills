@@ -122,25 +122,39 @@ def probe_opencode() -> tuple[bool, str]:
 
 
 def probe_telegram() -> tuple[bool, str]:
-    """Verify Telegram bot token responds to getMe with ok=true."""
+    """Verify Telegram bot token responds to getMe with ok=true.
+
+    Opens a direct connection (proxy bypassed) — HTTPS_PROXY at 43117 is the
+    LLM routing layer and is irrelevant to Telegram API auth. Routing through it
+    caused false-positive escalations whenever the local proxy was down.
+    Network-layer errors (ECONNRESET, timeout) return 'network_error:' prefix
+    so run_probe_cycle() skips escalation, same as 'rate_limit:'.
+    """
     token = (os.environ.get("TELEGRAM_C2_BOT_TOKEN")
              or os.environ.get("TELEGRAM_BOT_TOKEN", ""))
     if not token:
         return False, "TELEGRAM_C2_BOT_TOKEN not set in environment"
     try:
+        # ProxyHandler({}) bypasses HTTP_PROXY/HTTPS_PROXY env vars
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
         req = urllib.request.Request(
             f"https://api.telegram.org/bot{token}/getMe",
             headers={"User-Agent": "thunderbird-probe/1.0"},
         )
-        with urllib.request.urlopen(req, timeout=10) as resp:
+        with opener.open(req, timeout=10) as resp:
             data = json.loads(resp.read())
             if data.get("ok"):
                 return True, f"bot={data.get('result', {}).get('username', '?')}"
             return False, f"ok=false: {data}"
     except urllib.error.HTTPError as e:
+        if e.code == 401:
+            return False, "auth failure: HTTP 401 — invalid token"
         return False, f"HTTP {e.code}: {e.reason}"
+    except OSError as e:
+        # ECONNRESET, ETIMEDOUT, ECONNREFUSED — network layer, not auth
+        return False, f"network_error: {e}"
     except Exception as e:
-        return False, str(e)
+        return False, f"network_error: {e}"
 
 
 def probe_mcp() -> tuple[bool, str]:
@@ -261,10 +275,10 @@ def run_probe_cycle() -> dict:
         # Orient + Decide
         log(f"FAIL: {name} — {detail}")
 
-        # rate_limit prefix = transient model throttle, not auth failure — log and skip
-        if detail.startswith("rate_limit:"):
-            log(f"SKIP ESCALATION: {name} — rate-limit/model-unavailable, not auth failure: {detail[:120]}")
-            results[name] = "rate_limit_skip"
+        # rate_limit / network_error prefix = transient issue, not auth failure — log and skip
+        if detail.startswith("rate_limit:") or detail.startswith("network_error:"):
+            log(f"SKIP ESCALATION: {name} — transient/network issue, not auth failure: {detail[:120]}")
+            results[name] = "network_skip"
             continue
 
         if repair_fn is None:
