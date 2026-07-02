@@ -945,7 +945,10 @@ async def _call_via_anthropic_direct(
             response = client.beta.messages.create(
                 model=model,
                 max_tokens=8192,
-                thinking={"type": "adaptive", "effort": "high"},
+                # Per Opus 4.8 spec: thinking takes {"type": "adaptive"} only.
+                # effort belongs in output_config={"effort": "high"} — add when
+                # the Anthropic SDK exposes output_config (not yet in 0.86.0).
+                thinking={"type": "adaptive"},
                 system=system,
                 messages=[{"role": "user", "content": user_content}],
                 betas=["files-api-2025-04-14"],
@@ -1191,7 +1194,9 @@ async def _call_via_sdk(
         _SDK_HAS_THINKING = _sdk_supports_thinking()
         logger.info("SDK thinking support: %s", _SDK_HAS_THINKING)
     if _SDK_HAS_THINKING:
-        options_kwargs["thinking"] = {"type": "adaptive", "effort": "high"}
+        # Per Opus 4.8 spec: effort belongs in output_config, not thinking.
+        # output_config not yet in claude_code_sdk 0.86.0 — set when supported.
+        options_kwargs["thinking"] = {"type": "adaptive"}
 
     # MCP config — let the SDK pick up from mcp.json automatically
     # The SDK inherits the user's ~/.claude/mcp.json when running
