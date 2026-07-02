@@ -15,7 +15,7 @@
     {
       "id": "portal-access",
       "name": "Cruise-line Portal Access",
-      "ci_tool": "camoufox (fingerprint/behavioral) + setup-browser-cookies skill (Commander's authenticated session, real residential IP Imperva trusts) + throttle-from-request-1 (>=3s) doctrine — $0, NO PROXY",
+      "ci_tool": "camoufox (fingerprint/behavioral) + setup-browser-cookies skill (Commander's authenticated session, real residential IP Imperva trusts) + throttle-from-request-1 (>=3s) doctrine \u2014 $0, NO PROXY",
       "wraps": [
         "scripts/regent_oa_reauth.py",
         "scripts/centrav_session_warm.py",
@@ -35,14 +35,14 @@
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
       "last_reeval": "2026-06-20",
       "status": "unknown",
-      "spend_gate": "CLOSED 2026-06-20 — $0 path adopted (cookie-import + throttle); no proxy purchase",
+      "spend_gate": "CLOSED 2026-06-20 \u2014 $0 path adopted (cookie-import + throttle); no proxy purchase",
       "throttle_guard": "core/ci/portal_guard.py (Throttle >=3s/host + abort-on-403/429; tested)",
       "binary_version": "135.0.1-beta.24",
       "binary_version_basis": "latest-SUPPORTED Linux x86_64 release per the camoufox wrapper resolver (CONSTRAINTS >=beta.19, <1). NOT the raw GitHub latest tag.",
       "binary_currency_check": "probe asserts installed version.json == wrapper resolver verdict (`camoufox version` -> 'Up to date!'). RED only when a FETCHABLE supported update exists. Reuses the wrapper's own is_supported() logic; no hardcoded version number.",
-      "binary_alpha_exclusion_note": "Whetstone REFRESH 2026-06-21: raw GitHub latest is v150.0.2-beta.25 (Firefox 150), BUT its only Linux x86_64 asset is camoufox-150.0.2-alpha.26-lin.x86_64.zip — an ALPHA build, which the wrapper rejects (is_supported()=False). 135.0.1-beta.24 is therefore the latest INSTALLABLE supported Linux build, and `fetch` correctly reports up-to-date (verified no-op). DO NOT force-install the 150 alpha: a partial/alpha anti-detection fingerprint is plausibly MORE detectable and defeats the tool's purpose. Advance only when a beta/stable Linux x86_64 build of 150+ ships.",
+      "binary_alpha_exclusion_note": "Whetstone REFRESH 2026-06-21: raw GitHub latest is v150.0.2-beta.25 (Firefox 150), BUT its only Linux x86_64 asset is camoufox-150.0.2-alpha.26-lin.x86_64.zip \u2014 an ALPHA build, which the wrapper rejects (is_supported()=False). 135.0.1-beta.24 is therefore the latest INSTALLABLE supported Linux build, and `fetch` correctly reports up-to-date (verified no-op). DO NOT force-install the 150 alpha: a partial/alpha anti-detection fingerprint is plausibly MORE detectable and defeats the tool's purpose. Advance only when a beta/stable Linux x86_64 build of 150+ ships.",
       "binary_currency_window_days": 90,
-      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21); + binary-staleness assertion added 2026-06-21 (Whetstone REFRESH) — was previously blind to binary version (only checked pip wrapper currency)"
+      "probe_note": "efficacy probe (replaced presence/import check 2026-06-21); + binary-staleness assertion added 2026-06-21 (Whetstone REFRESH) \u2014 was previously blind to binary version (only checked pip wrapper currency)"
     },
     {
       "id": "web-fetch",
@@ -70,7 +70,7 @@
     },
     {
       "id": "cloak-browser-regent",
-      "name": "CloakBrowser Tier 3 — Regent Akamai Wall Bypass",
+      "name": "CloakBrowser Tier 3 \u2014 Regent Akamai Wall Bypass",
       "ci_tool": "tools/cloak/cloak_fetch.mjs (cloakbrowser npm) via core/web/smart_fetch.py Tier 3",
       "wraps": [
         "core/web/smart_fetch.py",
@@ -201,7 +201,7 @@
     },
     {
       "id": "email-handling",
-      "name": "Email Handling (d2m → Commander delivery)",
+      "name": "Email Handling (d2m \u2192 Commander delivery)",
       "ci_tool": "scripts/d2m_commander_digest.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_email_handling.py",
       "id_owner": "hale",
@@ -212,12 +212,12 @@
       "status": "unknown",
       "probe_note": "efficacy: received==delivered to Commander; RED on gap/stale (built 2026-06-21)",
       "reeval_cadence_days": 7,
-      "fallback": "none — email delivery is primary channel; manual verification required on failure",
+      "fallback": "none \u2014 email delivery is primary channel; manual verification required on failure",
       "last_verified": "2026-07-02T05:02:47.397233+00:00"
     },
     {
       "id": "client-path-canary",
-      "name": "Client-Path Canary Monitoring (SO_TECH_VANGUARD_ELEVATION_20260621 §2a)",
+      "name": "Client-Path Canary Monitoring (SO_TECH_VANGUARD_ELEVATION_20260621 \u00a72a)",
       "ci_tool": "config/client_path_canary_registry.json",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_client_path_canary.py",
       "id_owner": "sterling",
@@ -255,13 +255,13 @@
       "currency_window_hours": 24,
       "reeval_cadence_days": 14,
       "latency_sla_ms": 5000,
-      "fallback": "none — if RED, restart thunderbird-telegram-gw.service and verify _thread_ctx set at both engine call sites",
+      "fallback": "none \u2014 if RED, restart thunderbird-telegram-gw.service and verify _thread_ctx set at both engine call sites",
       "active_workaround": null,
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
       "last_reeval": "2026-06-25",
       "status": "unknown",
       "client_affecting": false,
-      "probe_note": "Verifies: (1) gateway service active, (2) BRYANA_TRAINEE_PROMPT present in module, (3) non-Commander user_id triggers trainee branch. RED on gateway down or identity gate missing. Built 2026-06-25 after Bryana/Dani audit — V1 identity failure, V2 Wing architecture disclosure, V3 unauthorized scope execution.",
+      "probe_note": "Verifies: (1) gateway service active, (2) BRYANA_TRAINEE_PROMPT present in module, (3) non-Commander user_id triggers trainee branch. RED on gateway down or identity gate missing. Built 2026-06-25 after Bryana/Dani audit \u2014 V1 identity failure, V2 Wing architecture disclosure, V3 unauthorized scope execution.",
       "incident_ref": "Bryana-Dani audit 2026-06-25",
       "commits": [
         "c452acc5"
@@ -269,7 +269,7 @@
     },
     {
       "id": "fare-watch-centrav",
-      "name": "Flight Fare Watch — Centrav B2B Source",
+      "name": "Flight Fare Watch \u2014 Centrav B2B Source",
       "ci_tool": "scripts/fare_watch_centrav.py + scripts/centrav_session_warm.py",
       "wraps": [
         "scripts/fare_watch_centrav.py",
@@ -290,13 +290,13 @@
       "last_reeval": "2026-06-27",
       "status": "unknown",
       "client_affecting": false,
-      "dead_man_switch": "scripts/fare_watch_deadman.py — pages Commander at 48h dark; repeats every 24h",
-      "probe_note": "EFFICACY probe: checks OpsCenter/fare_watches/last_check.json — watches_checked>=1 AND last run <25h ago. RED on 0 checked or stale. Centrav session death = RED. Added 2026-06-27 (Wing Exercise BURNING HOT CI).",
-      "incident_ref": "27-day blind spot 2026-05-30 to 2026-06-27 — session died, no alarm fired"
+      "dead_man_switch": "scripts/fare_watch_deadman.py \u2014 pages Commander at 48h dark; repeats every 24h",
+      "probe_note": "EFFICACY probe: checks OpsCenter/fare_watches/last_check.json \u2014 watches_checked>=1 AND last run <25h ago. RED on 0 checked or stale. Centrav session death = RED. Added 2026-06-27 (Wing Exercise BURNING HOT CI).",
+      "incident_ref": "27-day blind spot 2026-05-30 to 2026-06-27 \u2014 session died, no alarm fired"
     },
     {
       "id": "fare-watch-ita",
-      "name": "Flight Fare Watch — ITA Matrix Source",
+      "name": "Flight Fare Watch \u2014 ITA Matrix Source",
       "ci_tool": "scripts/ita_fare_watch_poll.py + core/travel/ita_matrix.py",
       "wraps": [
         "scripts/ita_fare_watch_poll.py",
@@ -319,13 +319,13 @@
       "client_affecting": false,
       "binary_dep": "~/.cache/ms-playwright/firefox-*/firefox/firefox",
       "binary_check_script": "scripts/check_deps.py",
-      "probe_note": "EFFICACY probe: (1) Firefox binary exists (NOT chromium — registry had wrong dep pre-2026-06-28), (2) ita_fare_watch.log shows successful run <25h. RED on missing binary or stale log. Built 2026-06-27, binary_dep corrected 2026-06-28 (incident: Firefox missing silently for unknown duration).",
-      "incident_ref": "Binary missing for unknown duration — discovered 2026-06-27; chromium vs Firefox confusion discovered 2026-06-28 (client_bot 299 consecutive failures)",
-      "binary_dep_note": "ita_fare_watch_poll.py and thunderbird_booking_monitor.py explicitly use Firefox because chromium_headless_shell SIGTRAP's on this openSUSE host. Registry previously listed chromium — corrected 2026-06-28 after incident."
+      "probe_note": "EFFICACY probe: (1) Firefox binary exists (NOT chromium \u2014 registry had wrong dep pre-2026-06-28), (2) ita_fare_watch.log shows successful run <25h. RED on missing binary or stale log. Built 2026-06-27, binary_dep corrected 2026-06-28 (incident: Firefox missing silently for unknown duration).",
+      "incident_ref": "Binary missing for unknown duration \u2014 discovered 2026-06-27; chromium vs Firefox confusion discovered 2026-06-28 (client_bot 299 consecutive failures)",
+      "binary_dep_note": "ita_fare_watch_poll.py and thunderbird_booking_monitor.py explicitly use Firefox because chromium_headless_shell SIGTRAP's on this openSUSE host. Registry previously listed chromium \u2014 corrected 2026-06-28 after incident."
     },
     {
       "id": "fare-watch-amadeus",
-      "name": "Flight Fare Watch — Amadeus API (API-native, no browser)",
+      "name": "Flight Fare Watch \u2014 Amadeus API (API-native, no browser)",
       "ci_tool": "scripts/amadeus_fare_watch.py (--run-all mode)",
       "wraps": [
         "scripts/amadeus_fare_watch.py",
@@ -341,12 +341,12 @@
       "reeval_cadence_days": 14,
       "latency_sla_ms": 30000,
       "fallback": "Centrav B2B (fare-watch-centrav); ITA Matrix (fare-watch-ita daily)",
-      "active_workaround": "DORMANT — awaiting Commander API keys (GITHUB_TOKEN valid PAT / Amadeus prod keys). Not a failure; keys are a Commander action.",
+      "active_workaround": "DORMANT \u2014 awaiting Commander API keys (GITHUB_TOKEN valid PAT / Amadeus prod keys). Not a failure; keys are a Commander action.",
       "last_verified": "2026-06-28T13:55:14.340788+00:00",
       "last_reeval": "2026-06-28",
       "status": "unknown",
       "client_affecting": false,
-      "probe_note": "EFFICACY probe: (1) credentials in .env, (2) token cache parseable, (3) >=1 active amadeus watch in DB, (4) at least 1 watch checked within 8h. Runs every 6h via supertimer client_bot. No browser dependency — pure REST API. Token auto-refreshes on every run (29min TTL). 5 active watches: DEN→GRB, COS→GRB, DEN→VCE (Business), RSW→PTY, RIC→PTY. ATH→DEN test API has no inventory — monitored separately. Deployed 2026-06-28 as PRIMARY fare source."
+      "probe_note": "EFFICACY probe: (1) credentials in .env, (2) token cache parseable, (3) >=1 active amadeus watch in DB, (4) at least 1 watch checked within 8h. Runs every 6h via supertimer client_bot. No browser dependency \u2014 pure REST API. Token auto-refreshes on every run (29min TTL). 5 active watches: DEN\u2192GRB, COS\u2192GRB, DEN\u2192VCE (Business), RSW\u2192PTY, RIC\u2192PTY. ATH\u2192DEN test API has no inventory \u2014 monitored separately. Deployed 2026-06-28 as PRIMARY fare source."
     },
     {
       "id": "supertimer-bot-health",
@@ -372,8 +372,8 @@
       "last_reeval": "2026-06-28",
       "status": "unknown",
       "client_affecting": true,
-      "probe_note": "Checks: (1) thunderbird-supertimer.service active, (2) no bot >= 10 consecutive_failures in OpsCenter/supertimer_health.json, (3) Firefox playwright binary exists. RED triggers: bot failure storm masks real errors; Firefox missing crashes ita_fare_watch_poll + booking_monitor. Incident 2026-06-28: intel_bot 3622 failures (perx-intel rc=2 not in allowed_rcs), client_bot 299 failures (Firefox binary missing), infra_bot 384 failures (TESS invalid_client) — cascaded undetected for ~6h.",
-      "incident_ref": "Multi-bot cascade 2026-06-28 — 3 bots, 6h undetected, root cause: Firefox missing + wrong allowed_rcs + TESS token expiry",
+      "probe_note": "Checks: (1) thunderbird-supertimer.service active, (2) no bot >= 10 consecutive_failures in OpsCenter/supertimer_health.json, (3) Firefox playwright binary exists. RED triggers: bot failure storm masks real errors; Firefox missing crashes ita_fare_watch_poll + booking_monitor. Incident 2026-06-28: intel_bot 3622 failures (perx-intel rc=2 not in allowed_rcs), client_bot 299 failures (Firefox binary missing), infra_bot 384 failures (TESS invalid_client) \u2014 cascaded undetected for ~6h.",
+      "incident_ref": "Multi-bot cascade 2026-06-28 \u2014 3 bots, 6h undetected, root cause: Firefox missing + wrong allowed_rcs + TESS token expiry",
       "consecutive_failure_threshold": 10
     },
     {
@@ -428,7 +428,7 @@
       "reeval_cadence_days": 30,
       "latency_sla_ms": 30000,
       "fallback": "Manual git push + local test run",
-      "active_workaround": "DORMANT — awaiting Commander API keys (GITHUB_TOKEN valid PAT / Amadeus prod keys). Not a failure; keys are a Commander action.",
+      "active_workaround": "DORMANT \u2014 awaiting Commander API keys (GITHUB_TOKEN valid PAT / Amadeus prod keys). Not a failure; keys are a Commander action.",
       "status": "unknown",
       "client_affecting": false,
       "last_verified": null,
@@ -591,7 +591,7 @@
     },
     {
       "id": "cloudflared-tunnel",
-      "name": "Cloudflare Tunnel — d2mluxury.quest",
+      "name": "Cloudflare Tunnel \u2014 d2mluxury.quest",
       "ci_tool": "cloudflared.service",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_cloudflared-tunnel.py",
       "id_owner": "elon",
@@ -703,13 +703,13 @@
       "client_affecting": true,
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
       "last_reeval": "2026-07-01",
-      "probe_note": "SQLite has >=1 cruise row (15,370 verified). NOTE: cruise-db-refresh.service was FAILED at M1 build — flagged for Whetstone.",
+      "probe_note": "SQLite has >=1 cruise row (15,370 verified). NOTE: cruise-db-refresh.service was FAILED at M1 build \u2014 flagged for Whetstone.",
       "dead_man_switch": "0 rows or site 5xx = page"
     },
     {
       "id": "reverie-app",
       "name": "Reverie Itinerary App (frontend)",
-      "ci_tool": "reverie-frontend.service (port 8888) — api retired 2026-07-01",
+      "ci_tool": "reverie-frontend.service (port 8888) \u2014 api retired 2026-07-01",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_reverie-app.py",
       "id_owner": "elon",
       "gate_owner": "sterling",
@@ -746,7 +746,7 @@
     },
     {
       "id": "lifecycle-dossiers",
-      "name": "Lifecycle — Dossier Freshness Scanner",
+      "name": "Lifecycle \u2014 Dossier Freshness Scanner",
       "ci_tool": "core/ops/dossier_freshness.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_lifecycle_dossiers.py",
       "id_owner": "hale",
@@ -766,7 +766,7 @@
     },
     {
       "id": "lifecycle-tp",
-      "name": "Lifecycle — Touchpoint Scheduler",
+      "name": "Lifecycle \u2014 Touchpoint Scheduler",
       "ci_tool": "core/booking/thunderbird_tp_scheduler.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_lifecycle_tp.py",
       "id_owner": "hale",
@@ -786,7 +786,7 @@
     },
     {
       "id": "lifecycle-arc",
-      "name": "Lifecycle — Arc Dispatch Router",
+      "name": "Lifecycle \u2014 Arc Dispatch Router",
       "ci_tool": "core/ops/lifecycle_router.py + D2M/arc_price_dispatcher.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_lifecycle_arc.py",
       "id_owner": "hale",
@@ -805,7 +805,7 @@
     },
     {
       "id": "lifecycle-validations",
-      "name": "Lifecycle — Monthly Trip Validations",
+      "name": "Lifecycle \u2014 Monthly Trip Validations",
       "ci_tool": "scripts/render_dani_validation_emails.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_lifecycle_validations.py",
       "id_owner": "hale",
@@ -825,7 +825,7 @@
     },
     {
       "id": "lifecycle-itineraries",
-      "name": "Lifecycle — Itinerary Generator Health",
+      "name": "Lifecycle \u2014 Itinerary Generator Health",
       "ci_tool": "itinerary/luxury_itinerary_generator.py",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_lifecycle_itineraries.py",
       "id_owner": "hale",
@@ -840,7 +840,7 @@
       "client_affecting": true,
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
       "last_reeval": "2026-07-01",
-      "probe_note": "Engine imports clean AND no within-30d sail lacks staged itinerary (catches MISSION-802 class). Hardened 2026-07-01: probe now reads YAML frontmatter departure: field only (not full dossier body) — eliminates false positives from port-call dates, FPDs, payment dates. Also checks frontmatter status: field (skips complete/archived). client_affecting: true (missed itinerary = broken 30-day promise).",
+      "probe_note": "Engine imports clean AND no within-30d sail lacks staged itinerary (catches MISSION-802 class). Hardened 2026-07-01: probe now reads YAML frontmatter departure: field only (not full dossier body) \u2014 eliminates false positives from port-call dates, FPDs, payment dates. Also checks frontmatter status: field (skips complete/archived). client_affecting: true (missed itinerary = broken 30-day promise).",
       "dead_man_switch": "sail <30d with no itinerary = page"
     },
     {
@@ -915,7 +915,7 @@
       "reeval_cadence_days": 14,
       "latency_sla_ms": 300000,
       "fallback": "Manual /excursion-analysis by Dembe",
-      "active_workaround": "cruise_excursion_scan may time out when Chrome:9222 offline — engine soft-fails, stages notification regardless",
+      "active_workaround": "cruise_excursion_scan may time out when Chrome:9222 offline \u2014 engine soft-fails, stages notification regardless",
       "status": "unknown",
       "client_affecting": false,
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
@@ -967,7 +967,7 @@
     },
     {
       "id": "healthchecks",
-      "name": "Healthchecks.io — Dead-Man Switch Service",
+      "name": "Healthchecks.io \u2014 Dead-Man Switch Service",
       "ci_tool": "docker: healthchecks/healthchecks :8123",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_healthchecks.py",
       "id_owner": "elon",
@@ -987,7 +987,7 @@
     },
     {
       "id": "infisical",
-      "name": "Infisical — Secrets Manager (self-hosted)",
+      "name": "Infisical \u2014 Secrets Manager (self-hosted)",
       "ci_tool": "docker: infisical + postgres + redis :8899",
       "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_infisical.py",
       "id_owner": "elon",
@@ -997,7 +997,7 @@
       "reeval_cadence_days": 30,
       "latency_sla_ms": 8000,
       "fallback": "existing file-based creds/ + .env (pre-migration)",
-      "active_workaround": "secrets not yet migrated in — file-based creds remain authoritative until client-path 7-day canary completes",
+      "active_workaround": "secrets not yet migrated in \u2014 file-based creds remain authoritative until client-path 7-day canary completes",
       "status": "unknown",
       "client_affecting": false,
       "last_verified": "2026-07-02T05:02:47.397233+00:00",
@@ -1007,12 +1007,12 @@
     }
   ],
   "accountable_owner": "hale",
-  "accountability_doctrine": "Hale owns the entire CI process — health, maintenance, improvement. Accountability is NOT delegable; only tasks are. Persona owners (ELON=ID, Dembe=ISR/killchain, Whetstone=currency/engage, Sterling=gate) execute delegated tasks; Hale retains responsibility and MUST be made aware of every engage/escalate (OpsCenter/ci_awareness.jsonl → OODA Observe + morning brief). The 10-hour blind spot happened because nothing reached the accountable party.",
+  "accountability_doctrine": "Hale owns the entire CI process \u2014 health, maintenance, improvement. Accountability is NOT delegable; only tasks are. Persona owners (ELON=ID, Dembe=ISR/killchain, Whetstone=currency/engage, Sterling=gate) execute delegated tasks; Hale retains responsibility and MUST be made aware of every engage/escalate (OpsCenter/ci_awareness.jsonl \u2192 OODA Observe + morning brief). The 10-hour blind spot happened because nothing reached the accountable party.",
   "known_failures": [
     {
       "id": "CI-WINGPAGE-SILENT-DROP",
       "discovered": "2026-06-28",
-      "description": "wing_page.py --message/--priority CLI args are a silent no-op — module has no argparse main block. Any caller using subprocess with these args sends nothing and gets exit 0.",
+      "description": "wing_page.py --message/--priority CLI args are a silent no-op \u2014 module has no argparse main block. Any caller using subprocess with these args sends nothing and gets exit 0.",
       "affected": [
         "red_star_scanner.py (fixed)",
         "any other caller using CLI --message pattern"
