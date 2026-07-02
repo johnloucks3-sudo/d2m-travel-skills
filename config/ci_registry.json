@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-01",
+  "updated": "2026-07-02",
   "_doc": "Critical Infrastructure registry. This table IS the razor-sharp policy (SO_CI_RAZOR_SHARP_20260620.md). RAZOR_SHARP iff probe==GREEN AND age(last_verified)<currency_window_hours AND age(last_reeval)<reeval_cadence_days. REPLACE per replacement_policy (chronic fail/latency). Owners: id=ELON(discovery), access=Dembe, gate=Sterling, keeper=Whetstone(currency+updating). Hale has standing authority to direct refresh/revision/replacement immediately (only spend reaches Commander). Zero standing workarounds: active_workaround must be logged + burned down.",
   "replacement_policy": {
     "_doc": "A CI tool -> REPLACE (ELON nominates replacement, Whetstone integrates, old tool -> graveyard) when ANY trigger fires. Failure = probe/op not-ok or timed out, or an active_workaround in place.",
@@ -1004,6 +1004,30 @@
       "last_reeval": "2026-07-01",
       "probe_note": "Adopted 2026-07-01 (M5, free/self-hosted). HTTP 200 on /api/status :8899. Target: kill the silent-credential-death class via expiry-aware rotation. client_affecting flips to true when client-path secrets migrate under Sterling's 7-day canary.",
       "dead_man_switch": "stack down = page (will hold live credentials post-migration)"
+    },
+    {
+      "id": "home-dir-health",
+      "name": "Home Directory Health",
+      "ci_tool": "scripts/home_dir_ci_probe.py",
+      "wraps": [
+        "scripts/home_dir_ci_probe.py"
+      ],
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/home_dir_ci_probe.py",
+      "id_owner": "sterling",
+      "access_owner": "sterling",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "category": "infrastructure",
+      "client_affecting": false,
+      "currency_window_hours": 24,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 60000,
+      "fallback": "Manual: du -sh /home/john/*/ && find /home/john -maxdepth 1 -type f",
+      "active_workaround": null,
+      "last_verified": null,
+      "last_reeval": null,
+      "status": "unknown",
+      "probe_note": "Read-only survey of /home/john: cache bloat (>2GB CRITICAL), Downloads size (>500MB WARNING), loose files at home root, critical bins (claude, n8n), major-dir growth vs baseline (>500MB WARNING). Writes JSON report to OpsCenter/state/home_dir_health_YYYYMMDD.json and updates growth baseline."
     }
   ],
   "accountable_owner": "hale",
