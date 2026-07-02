@@ -1,0 +1,27 @@
+{
+  "source": "trivago.com",
+  "city": "Stockholm (Grandeur Aug 2026 \u2014 pre/post)",
+  "checked_at": "2026-07-02T14:37:37.151157+00:00",
+  "http_status": 200,
+  "body_bytes": 328350,
+  "accessible": true,
+  "price_count": 10,
+  "hotel_price_benchmark_usd": {
+    "min": 120.0,
+    "max": 393.0,
+    "samples": [
+      120.0,
+      160.0,
+      170.0,
+      185.0,
+      271.0,
+      289.0,
+      314.0,
+      319.0,
+      382.0,
+      393.0
+    ]
+  },
+  "note": "Prices are global static benchmarks embedded in Trivago HTML \u2014 NOT city-specific. City-specific hotel search requires browser. For luxury pre/post cruise hotels, visit property website directly for accurate rates.",
+  "hotel_gap": "City-specific hotel pricing requires browser or hotel direct site. This is the one remaining zero-obstacle gap in D2M pricing stack."
+}
