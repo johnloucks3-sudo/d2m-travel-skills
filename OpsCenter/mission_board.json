@@ -10146,7 +10146,7 @@
     {
       "id": "MISSION-803",
       "title": "Fix commission calculation in financial pulse \u2014 correct $3K delta",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Update the financial pulse commission calculation to use per-booking host rates (OA Viking 80/20, Nexion Regent 70/30, C&TU Silversea 80/20) instead of flat 15%/80% assumption, eliminating the $3,018 brief error.",
@@ -10161,7 +10161,8 @@
       ],
       "created_at": "2026-06-27T00:03:31.121807+00:00",
       "updated_at": "2026-06-27T02:47:26",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "completed_at": "2026-07-02T05:38:11.555320+00:00"
     },
     {
       "id": "MISSION-804",
@@ -10242,7 +10243,7 @@
     {
       "id": "MISSION-808",
       "title": "Add circuit breaker to inbox ingest loop to prevent ghost mission flood",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Wire a deduplication guard and max-per-run cap into the email ingest pipeline so a feedback loop can never again generate 1,337+ ghost missions; add an efficacy probe to the CI registry.",
@@ -10257,7 +10258,8 @@
       ],
       "created_at": "2026-06-27T00:03:31.122255+00:00",
       "updated_at": "2026-06-27T03:49:18",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "completed_at": "2026-07-02T05:38:12.549181+00:00"
     },
     {
       "id": "MISSION-809",

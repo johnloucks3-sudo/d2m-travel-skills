@@ -15,7 +15,7 @@
       },
       "last_health_check": "2026-06-05T21:24:44.578424"
     },
-    "last_health_check": "2026-06-26T02:25:53.923604+00:00",
+    "last_health_check": "2026-06-28T16:14:15.705772+00:00",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,9 +107,16 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-26T02:25:53.923604+00:00"
+    "last_updated": "2026-06-28T16:14:15.705772+00:00"
   },
   "open_tasks": [
+    {
+      "id": "MISSION-814",
+      "title": "CC-Fleet Subagent Validation",
+      "priority": "P0",
+      "status": "active",
+      "blocker": "Free API keys (Groq/Cerebras) rejecting model requests"
+    },
     {
       "id": "MISSION-SEC-05",
       "title": "Rotate burned credentials pushed to GitHub \u2014 runbook Tier 2",
@@ -142,22 +149,27 @@
     }
   ],
   "financial_pulse": {
-    "last_checked": "2026-06-24T14:29:31.604380+00:00",
+    "last_checked": "2026-07-01T12:00:00+00:00",
     "sheet_status": "ONLINE",
     "sheet_bookings": 26,
     "sheet_commission_expected": 21849.16,
     "sheet_d2m_share": 16493.72,
     "raw_snippet": "D2M share $23,068.88 across 26 bookings. Balance due: $87,959.50.",
-    "harlan_verified_total": 18830.83,
-    "harlan_note": "Harlan MISSION-426 2026-06-24: Sheet 30,117.57 is WRONG (flat 15%/80% assumption). Verified D2M share: 6,493.72 confirmed + ,060.10 estimated + 77.11 ancillary = 8,830.93. No commission is late \u2014 all pre-voyage. Loucks 566910-25 is Interline, not D2M."
+    "harlan_verified_total": 18830.93,
+    "total_d2m_pipeline": 18830.93,
+    "harlan_note": "Harlan MISSION-426 2026-06-24: Sheet $21,849.16 is WRONG (flat 15%/80% assumption). Verified D2M share: $6,493.72 confirmed + $12,060.10 estimated + $277.11 ancillary = $18,830.93. No commission is late \u2014 all pre-voyage. Loucks 566910-25 is Interline, not D2M.",
+    "pipeline_note": "total_d2m_pipeline = Harlan-verified D2M commission share (MISSION-803 fix 2026-07-01). Gross booking balance due $87,959.50 is not the pipeline figure shown in brief."
   },
   "session_context": {
-    "last_checkpoint": "2026-06-10T06:45:59.958182-06:00"
+    "last_checkpoint": "2026-06-30T12:55:58.080873+00:00",
+    "last_mission": "MISSION-073",
+    "status": "COMPLETED",
+    "summary": "Air Pricing & Fare Watch Campaign \u2014 all 6 routes Centrav B2B priced, 38 fare watches active, 3 dossiers stamped. Terminal objective complete."
   },
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 147
+      "active": 252
     },
     "DEM": {
       "last_seen": false,
@@ -180,8 +192,8 @@
       "active": 0
     },
     "VIC": {
-      "last_seen": false,
-      "active": 0
+      "last_seen": true,
+      "active": 1
     },
     "PAD": {
       "last_seen": false,
@@ -220,10 +232,31 @@
       "brain": "Brain 2 (Sonnet \u2014 free model escalation)",
       "reason": "Auto-classified + optimized | Model: haiku | Strategies: output_specification",
       "elapsed": 0.2
+    },
+    {
+      "ts": "2026-07-01T05:30:01.268315-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: TP-3 \u2014 Flight Plannin",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 0.0
+    },
+    {
+      "ts": "2026-07-01T05:30:03.596554-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: ARC1-A \u2014 Airfare + Ho",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 0.0
+    },
+    {
+      "ts": "2026-07-01T05:30:06.259814-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Erik McLeod & Melissa McGlasson\nTP: TP-4",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 0.0
     }
   ],
   "project_tracking": {
-    "last_updated": "2026-06-05T23:18:54.447536+00:00",
+    "last_updated": "2026-06-30T12:55:58.080889+00:00",
     "active_projects": [
       {
         "id": "PROJ-NICHOLS-TP05",
@@ -303,6 +336,15 @@
         "deadline": "2026-07-22",
         "owner": "HALE",
         "notes": "FPD $11,943.15 due Jul 22, 2026. Commander directive 2026-06-09: DO NOT CONTACT until client returns from Silver Muse (Jul 6). Activate Jul 7 \u2014 15 days to FPD. Dossier: McLeod_McGlasson_Multi.md booking_2=2984034. Source: Regent invoice 23-May-26 verified by Harlan."
+      },
+      {
+        "id": "PROJ-AIR-PRICING-MISSION-073",
+        "name": "TRINITY Air Pricing \u2014 All Groups Centrav B2B",
+        "status": "COMPLETED",
+        "deadline": "2026-06-30",
+        "mission": "MISSION-073",
+        "owner": "HALE",
+        "notes": "6 routes priced. 38 fare watches. McLeod contact hold until Jul 7. Centrav fares refresh Jul 1."
       }
     ],
     "infrastructure_status": {
@@ -372,9 +414,50 @@
       "amount": 24798,
       "condition": "date>=2026-07-11",
       "condition_type": "date"
+    },
+    {
+      "id": "MISSION-802-ITINERARY-BUILD",
+      "trigger_date": "2026-07-22",
+      "priority": "P1",
+      "message": "MISSION-802 \u2014 Furlow/Ely-Darrow/Nichols Group HTML Itinerary BUILD DUE TODAY.\n30-day send target: Jul 29 (30 days before Aug 29 sail). 7-day review window starts now.\nBuild: day-by-day horizontal itinerary, 3 couples, per-couple excursions, shared dining, flight timeline, suite numbers. MINUS photos (placeholders only). Stage in drafts/. Notify Commander via Telegram when ready.\nReference: sent voyage preview emails (johnloucks3 sent, subject 'SS Grandeur \u2014 Storied Scandinavia'), dossiers/Furlow_*, dossiers/Ely_*, dossiers/Nichols_*, docs/ITINERARY_PLATFORM_VISION_20260626.md",
+      "client": "Furlow / Ely-Darrow / Nichols \u2014 Grandeur Aug 2026",
+      "condition": "date>=2026-07-22",
+      "condition_type": "date",
+      "source": "Commander directive 2026-06-27 \u2014 30-day itinerary promise made in voyage preview emails"
+    },
+    {
+      "id": "MISSION-802-FORMAT-REVIEW",
+      "trigger_date": "2026-07-15",
+      "priority": "P1",
+      "message": "MISSION-802 PRE-BUILD REVIEW \u2014 1 week before Jul 22 itinerary build.\nSurface to Commander: (1) itinerary layout format for approval, (2) content check vs. portal since Jun 27, (3) open items status (Copenhagen Sep 4 excursion / AY 811 BB4X94 seats / At Six FHR / ARN transport all 3 couples), (4) photo availability in Drive.\nAsk: any format or content changes before Jul 22 build begins?",
+      "client": "Furlow / Ely-Darrow / Nichols \u2014 Grandeur Aug 2026",
+      "condition": "date>=2026-07-15",
+      "condition_type": "date",
+      "source": "Commander directive 2026-06-27 \u2014 review one week before build"
     }
   ],
   "lessons_implementation_rate_pct": 100.0,
   "lessons_total": 5,
-  "lessons_implemented": 5
+  "lessons_implemented": 5,
+  "handoff_queue": [
+    {
+      "id": "excursion-planner-suite",
+      "from": "claude-code",
+      "to": "opencode",
+      "claimed_at": "2026-06-26T21:19:10.540072",
+      "status": "CLAIMED_BY_OPENCODE",
+      "systems": [
+        "keyword_auto_router.py",
+        "excursion_planner_unified.html",
+        "excursion_planner_sync_protocol",
+        "free_model_router",
+        "hale_bus_handoff.py"
+      ],
+      "next_actions": [
+        "Kuklinski deployment 2026-06-30",
+        "Furlow/Ely/Nichols deployment 2026-07-05",
+        "McLeod deployment 2026-07-15"
+      ]
+    }
+  ]
 }

@@ -340,11 +340,61 @@ def _append_ingestion_log(entry: dict):
     INGESTION_LOG.write_text(json.dumps(existing, indent=2))
 
 
+_CIRCUIT_BREAKER_LOG = Path(__file__).parent.parent / "OpsCenter" / "circuit_breaker.log"
+_CIRCUIT_BREAKER_MAX_ACTIVE = 50   # halt ingest if board has >= this many active+in_progress missions
+_CIRCUIT_BREAKER_MAX_PER_RUN = 10  # halt this ingest run if we've already created this many missions this run
+_circuit_breaker_run_count = 0     # module-level counter reset each process lifetime
+
+
+def _circuit_breaker_log(msg: str):
+    """Append timestamped entry to circuit_breaker.log and emit to logger."""
+    ts = datetime.now(timezone.utc).isoformat()
+    entry = f"[{ts}] {msg}\n"
+    log.warning("CIRCUIT BREAKER: %s", msg)
+    try:
+        with open(_CIRCUIT_BREAKER_LOG, "a") as fh:
+            fh.write(entry)
+    except Exception as e:
+        log.error("Could not write circuit_breaker.log: %s", e)
+
+
 def _create_mission_board_ticket(ticket: dict):
-    """Add a P1 mission to the board for client inquiries."""
+    """Add a P1 mission to the board for client inquiries.
+
+    Circuit breaker (MISSION-808, 2026-07-01):
+    - Halts if total active+in_progress missions on board >= _CIRCUIT_BREAKER_MAX_ACTIVE
+    - Halts if this process has already created >= _CIRCUIT_BREAKER_MAX_PER_RUN missions
+    Both conditions log to OpsCenter/circuit_breaker.log and return without writing.
+    """
+    global _circuit_breaker_run_count
+
     try:
         mb = json.loads(MISSION_BOARD_PATH.read_text())
         missions = mb.get("missions", [])
+
+        # ── CIRCUIT BREAKER: absolute board cap ─────────────────────────────
+        active_count = sum(
+            1 for m in missions
+            if m.get("status") in ("active", "in_progress")
+        )
+        if active_count >= _CIRCUIT_BREAKER_MAX_ACTIVE:
+            _circuit_breaker_log(
+                f"BOARD CAP TRIPPED — {active_count} active/in_progress missions >= threshold "
+                f"{_CIRCUIT_BREAKER_MAX_ACTIVE}. Refused to create ticket for message_id="
+                f"{ticket.get('message_id','?')} title={ticket.get('mission_title','?')!r}. "
+                "Alert: manual triage required before ingest resumes."
+            )
+            return
+
+        # ── CIRCUIT BREAKER: per-run burst cap ──────────────────────────────
+        if _circuit_breaker_run_count >= _CIRCUIT_BREAKER_MAX_PER_RUN:
+            _circuit_breaker_log(
+                f"BURST CAP TRIPPED — already created {_circuit_breaker_run_count} missions this "
+                f"run (threshold {_CIRCUIT_BREAKER_MAX_PER_RUN}). Refused ticket for message_id="
+                f"{ticket.get('message_id','?')} title={ticket.get('mission_title','?')!r}. "
+                "Remaining emails deferred to next scheduled run."
+            )
+            return
 
         # Generate next mission ID
         numeric_ids = [
@@ -369,7 +419,8 @@ def _create_mission_board_ticket(ticket: dict):
         mb["missions"] = missions
         mb["last_updated"] = datetime.now(timezone.utc).isoformat()
         MISSION_BOARD_PATH.write_text(json.dumps(mb, indent=2))
-        log.info("  → Created %s on mission board", new_mission["id"])
+        _circuit_breaker_run_count += 1
+        log.info("  → Created %s on mission board (run count: %d)", new_mission["id"], _circuit_breaker_run_count)
     except Exception as e:
         log.error("Failed to create mission board ticket: %s", e)
 
