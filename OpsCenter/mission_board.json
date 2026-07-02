@@ -9447,9 +9447,9 @@
       "title": "INTEGRATE_NOW: Duffel API \u2014 NDC Flight Search & Booking for D2M",
       "description": "Duffel (duffel.com) is the only self-serve NDC+GDS flight API available to independent advisors without volume minimums. 300+ airlines. Per-booking fee model. REST API. Practical for Spencer group air + future client air booking workflow. Register \u2192 get API key \u2192 add DUFFEL_API_KEY to .env \u2192 build thunderbird_duffel.py adapter. Replaces manual airline-group-desk calls for routine routing research.",
       "priority": "P1",
-      "status": "pending_review",
+      "status": "pending_commander",
       "created_at": "2026-06-22T19:30:42.051663+00:00",
-      "updated_at": "2026-06-24T14:29:15.922270+00:00",
+      "updated_at": "2026-07-02T05:43:10.770047+00:00",
       "logs": [
         {
           "ts": "2026-06-22T19:30:42.051663+00:00",
@@ -9466,6 +9466,10 @@
         {
           "ts": "2026-06-24T14:32:17.577600+00:00",
           "msg": "duffel_flight_search.py built. Needs DUFFEL_API_KEY signup at duffel.com (Commander action, 5 min). First use: Spencer DEN-FCO fare intel."
+        },
+        {
+          "ts": "2026-07-02T05:43:10.770047+00:00",
+          "entry": "ELON eval 2026-07-02 complete. Full evaluation: intel/incubator/duffel_api_eval_20260702.md. Verdict: INTEGRATE_NOW. Adapters already built (scripts/duffel_flight_search.py + core/ai_infra/thunderbird_duffel.py). Blocked ONLY on Commander registering at app.duffel.com (~5 min) and adding DUFFEL_API_KEY to .env. Starter plan is free. No IATA required. 300+ airlines incl all US majors (AA/UA/DL). First use: Spencer DEN-FCO fare intel."
         }
       ],
       "log": []
@@ -10172,7 +10176,7 @@
     {
       "id": "MISSION-804",
       "title": "Build client-facing workflow for cruise discovery tool",
-      "status": "pending_review",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "Dani",
       "description": "Document how Dani references d2mluxury.quest/cruises in client communications and prospect calls, so the tool converts into actual sales conversations, not just a live URL.",
@@ -10183,10 +10187,14 @@
       "logs": [
         "[2026-06-27T00:03:31] Created by Weekly Report Generator",
         "[2026-06-27T02:47:37] \u2705 Auto-executed by daily_mission_executor \u2014 8s \u2014 SUCCESS: MISSION-804: Build client-facing workflow for cruise discovery tool\n\n## Analysis and Action Report\n\n**Objective:** To document how Dani references `d2mluxury.quest/cruises` in client communications an",
-        "[2026-06-27T02:47:37] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-06-27T02:47:37] \u23f8 pending_review: STATUS: COMPLETE not found",
+        {
+          "ts": "2026-07-02T05:43:10.770047+00:00",
+          "entry": "ELON 2026-07-02: Workflow documented at docs/cruise_discovery_client_workflow_20260702.md. Query script created at scripts/query_cruise_db.py. CRITICAL FINDING: data/master_cruise.db exists but is EMPTY (0 tables) \u2014 needs rebuild via scripts/build_master_cruise_db.py before workflow is operational. d2mluxury.quest/cruises offline (dashboard service down since Jun 29). Marking complete on workflow/script deliverables; DB rebuild is a separate P0 follow-on."
+        }
       ],
       "created_at": "2026-06-27T00:03:31.121906+00:00",
-      "updated_at": "2026-06-27T02:47:37",
+      "updated_at": "2026-07-02T05:43:10.770047+00:00",
       "source": "weekly_report"
     },
     {
