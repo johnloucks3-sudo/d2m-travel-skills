@@ -35,8 +35,11 @@ let browser;
 try {
   browser = await launch({ headless: true, humanize: true });
   const page = await browser.newPage();
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout });
+  const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout });
   await page.waitForTimeout(3000);
+  // Surface the HTTP status on stderr so the Python caller can parse it (stdout stays content-only).
+  const httpStatus = resp && typeof resp.status === 'function' ? resp.status() : null;
+  if (httpStatus != null) process.stderr.write('[cloak_fetch] HTTP ' + httpStatus + '\n');
   let content;
   if (output === 'html') {
     content = await page.content();

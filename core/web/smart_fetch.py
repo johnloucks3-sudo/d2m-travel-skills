@@ -21,6 +21,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 # Repo root = three levels up from this file (core/web/smart_fetch.py -> repo root).
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -53,6 +54,25 @@ _WALL_SIGNATURES = (
 )
 _WALL_STATUSES = {403, 429, 503}
 _BODY_SNIFF_BYTES = 6144  # inspect first ~6KB only
+
+# Domains KNOWN to sit behind a hard anti-bot edge (Akamai/Imperva/Cloudflare) that
+# a plain HTTP fetch cannot clear. For these we skip the wasted lower-tier round-trips
+# and go straight to Tier 3 (CloakBrowser). VERIFIED: rssc.com curl->403, cloak->200.
+# Matched on hostname suffix (parsed), never substring — path segments must not false-match.
+# NOTE: this defeats the public-site EDGE wall only; authenticated login/reCAPTCHA-gated
+# portals (e.g. the Regent B2B booking portal) still require a real session (MISSION-214).
+_KNOWN_WALLED_HOSTS = (
+    "rssc.com",  # Regent Seven Seas — Akamai edge (MISSION-214 / MISSION-1498)
+)
+
+
+def _is_known_walled(url: str) -> bool:
+    """True if url's hostname is (or is a subdomain of) a known hard-walled domain."""
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:  # noqa: BLE001
+        return False
+    return any(host == d or host.endswith("." + d) for d in _KNOWN_WALLED_HOSTS)
 
 
 def _is_walled(status, body) -> bool:
@@ -103,7 +123,7 @@ def _run_anansi(url: str, output: str, timeout: int, browser: bool = False):
 
 
 def _run_cloak(url: str, output: str, timeout: int):
-    """Returns (status, content, error). Cloak surfaces content; status stays None (page rendered)."""
+    """Returns (status, content, error). Cloak emits the rendered page's HTTP status on stderr."""
     cmd = [_NODE, str(_CLOAK), url, "--output", output, "--timeout", str(timeout * 1000)]
     try:
         proc = subprocess.run(
@@ -113,10 +133,19 @@ def _run_cloak(url: str, output: str, timeout: int):
         return None, "", "cloak timeout"
     except Exception as e:  # noqa: BLE001
         return None, "", f"cloak spawn error: {e}"
+    status = _parse_cloak_status(proc.stderr)
     content = (proc.stdout or "").strip()
     if proc.returncode != 0 or not content:
-        return None, "", (proc.stderr or "cloak nonzero exit / empty").strip()
-    return None, content, None
+        return status, "", (proc.stderr or "cloak nonzero exit / empty").strip()
+    return status, content, None
+
+
+def _parse_cloak_status(stderr: str):
+    """cloak_fetch.mjs prints `[cloak_fetch] HTTP <status>` on stderr; extract the code."""
+    if not stderr:
+        return None
+    m = re.search(r"\[cloak_fetch\]\s+HTTP\s+(\d{3})\b", stderr)
+    return int(m.group(1)) if m else None
 
 
 # --- public API --------------------------------------------------------------
@@ -127,6 +156,16 @@ def fetch(url: str, output: str = "markdown", allow_browser_tier: bool = False, 
     Returns dict: tier_used (1|2|3|None), status, walled (bool, final), content, error.
     """
     result = {"tier_used": None, "status": None, "walled": False, "content": "", "error": None}
+
+    # Known-walled fast path — domains behind a hard Akamai/Imperva/Cloudflare edge that a
+    # plain HTTP fetch can never clear go STRAIGHT to Tier 3, skipping the wasted lower tiers.
+    if _is_known_walled(url):
+        status3, content3, err3 = _run_cloak(url, output, timeout)
+        if err3 is None and content3:
+            result.update(tier_used=3, status=status3, walled=False, content=content3)
+            _log(3, url, status3)
+            return result
+        # Cloak failed on a known wall — fall through to try the normal ladder as a backstop.
 
     # Tier 1 — anansi HTTP fetch.
     status, content, err = _run_anansi(url, output, timeout, browser=False)
