@@ -110,30 +110,137 @@ def _build_gmail_service():
 
 
 # ── Classifier ────────────────────────────────────────────────────────────────
+#
+# MISSION-431 DEFECT FIX (Sterling A7): the original classifier ended with a
+# `return "client_inquiry"` DEFAULT. Any email that missed the narrow keyword
+# lists fell through to client_inquiry → a P1 mission ticket + an auto-drafted
+# junk reply. 326 newsletters/promos/self-sends/alerts polluted the board.
+#
+# New contract:
+#   * Default fallthrough is "other" (non-actionable) — NEVER client_inquiry.
+#   * client_inquiry is returned ONLY on a positive signal:
+#       (a) sender is a KNOWN client (reuse thunderbird_commander_inbox tiering), OR
+#       (b) client-inquiry body/subject signals present AND sender is NOT bulk noise.
+#   * Bulk/newsletter/promo/noreply senders → "spam" via the canonical
+#     _NOISE_PATTERNS regex (imported, single source of truth).
+#
+# We import — never reinvent — the noise regex + client tiering from the
+# commander inbox module (read-only reuse).
+
+# Positive-signal keyword list ported from classify_email() in
+# core/email/thunderbird_commander_inbox.py (client_inquiry_signals, ~638-662).
+_CLIENT_INQUIRY_SIGNALS = (
+    "i want to book",
+    "we are interested in",
+    "looking for a quote",
+    "can you help with",
+    "do you have availability",
+    "please send me",
+    "i need a hotel",
+    "we need flights",
+    "our family wants to",
+    "hello dani",
+    "dear dani",
+    "hi john",
+    "dear john",
+    "questions about",
+    "can you recommend",
+    "looking for recommendations",
+    "what options",
+    "would like to discuss",
+    "can we schedule a call",
+    "schedule a time",
+)
+
+# Import canonical noise regex + client tiering (read-only reuse — do NOT modify
+# thunderbird_commander_inbox.py). CLIENT_ADDRESSES must be populated once before
+# _determine_email_tier can report "CLIENT", so we prime it at import time.
+try:
+    from core.email.thunderbird_commander_inbox import (  # type: ignore
+        _NOISE_PATTERNS,
+        _determine_email_tier,
+        _populate_client_addresses,
+    )
+    try:
+        _populate_client_addresses()
+    except Exception as e:  # pragma: no cover — defensive
+        log.debug("client address population skipped: %s", e)
+except Exception as e:  # pragma: no cover — module unavailable
+    log.debug("commander inbox helpers unavailable: %s — noise/client reuse disabled", e)
+    _NOISE_PATTERNS = re.compile(r"(?:no-?reply|noreply|newsletter|unsubscribe)", re.IGNORECASE)
+
+    def _determine_email_tier(sender: str) -> str:  # type: ignore
+        return "INTAKE"
+
+
+def _is_noise_sender(from_lower: str) -> bool:
+    """True if the sender matches the canonical bulk/newsletter/noreply regex."""
+    try:
+        return bool(_NOISE_PATTERNS.search(from_lower))
+    except Exception:
+        return False
+
 
 def _classify_email(from_addr: str, subject: str, snippet: str) -> str:
     """
-    Classify an inbound email. Tries hale_inbox_tools Gemini classifier first,
-    falls back to local keyword heuristics.
+    Classify an inbound email.
 
     Returns one of: booking_confirmation | client_inquiry | supplier_intel |
-                    invoice | internal_wing | spam
+                    invoice | internal_wing | spam | other
+
+    Order of precedence (see module docstring for the MISSION-431 rationale):
+      1. internal_wing  — our own addresses (fast exit)
+      2. booking/invoice/supplier keyword checks — BEFORE the noise short-circuit,
+         so legitimate transactional mail from noreply@ senders is preserved.
+      3. noise fast-path — bulk/newsletter/promo/noreply → spam, BEFORE any
+         Gemini/LLM call (junk never triggers a network round-trip).
+      4. Gemini classifier — maps booking/vendor/financial/noise ONLY. It is NOT
+         allowed to emit client_inquiry; the positive-signal gate is the sole path.
+      5. positive-signal gate — client_inquiry only on (a) known client OR
+         (b) inquiry signals + non-bulk sender.
+      6. DEFAULT → "other" (non-actionable).
     """
     from_lower = from_addr.lower()
     subject_lower = subject.lower()
+    text_lower = (subject_lower + " " + snippet.lower())
 
-    # Internal wing — fast exit
+    # 1. Internal wing — fast exit
     domain = from_lower.split("@")[-1] if "@" in from_lower else ""
     if from_lower in WING_ADDRESSES or domain == "d2mluxury.quest":
         return "internal_wing"
 
-    # Try hale_inbox_tools Gemini classifier (maps its categories to ours)
+    # ── Keyword sets ──────────────────────────────────────────────────────────
+    booking_kw = {"confirmation", "confirmed", "booking", "reservation", "receipt",
+                  "invoice", "itinerary", "e-ticket", "your trip", "booking ref"}
+    supplier_kw = {"silversea", "regent", "viking", "princess", "celebrity", "royal caribbean",
+                   "cunard", "oceania", "seabourn", "holland america", "norwegian", "msc",
+                   "centrav", "tess", "agency", "commission", "host agency", "nexion",
+                   "travel weekly", "virtuoso"}
+
+    # 2. Booking / invoice detection — BEFORE the noise short-circuit, because
+    #    real confirmations often come from noreply@ senders (which the noise
+    #    regex would otherwise flag as spam — regression on criterion 4).
+    if sum(1 for k in booking_kw if k in subject_lower) >= 1:
+        if any(k in subject_lower for k in {"invoice", "payment", "charge", "receipt", "commission"}):
+            return "invoice"
+        return "booking_confirmation"
+
+    #    Supplier intel — vendor keyword in sender or subject.
+    if any(k in from_lower for k in supplier_kw) or any(k in subject_lower for k in supplier_kw):
+        return "supplier_intel"
+
+    # 3. Noise fast-path — bulk/newsletter/promo/noreply → spam, BEFORE Gemini.
+    if _is_noise_sender(from_lower):
+        return "spam"
+
+    # 4. Gemini classifier (deterministic path skips this if it raises).
+    #    client_inquiry is intentionally NOT in the map — the positive-signal
+    #    gate below is the ONLY route to client_inquiry (MISSION-431 fix).
     try:
         from core.email.hale_inbox_tools import _classify_message  # type: ignore
         raw = _classify_message(from_addr, subject, snippet)
         category_map = {
             "booking_confirmation": "booking_confirmation",
-            "client_inquiry": "client_inquiry",
             "vendor": "supplier_intel",
             "financial": "invoice",
             "noise": "spam",
@@ -143,30 +250,19 @@ def _classify_email(from_addr: str, subject: str, snippet: str) -> str:
     except Exception as e:
         log.debug("hale_inbox_tools classifier unavailable: %s — using fallback", e)
 
-    # ── Keyword fallback ──────────────────────────────────────────────────────
-    booking_kw = {"confirmation", "confirmed", "booking", "reservation", "receipt",
-                  "invoice", "itinerary", "e-ticket", "your trip", "booking ref"}
-    supplier_kw = {"silversea", "regent", "viking", "princess", "celebrity", "royal caribbean",
-                   "cunard", "oceania", "seabourn", "holland america", "norwegian", "msc",
-                   "centrav", "tess", "agency", "commission", "host agency", "nexion",
-                   "travel weekly", "virtuoso"}
-    spam_kw = {"unsubscribe", "newsletter", "marketing", "offer", "deal", "sale",
-               "% off", "limited time", "click here"}
+    # 5. Positive-signal gate — the ONLY path to client_inquiry.
+    #    (a) known client sender
+    try:
+        if _determine_email_tier(from_addr) == "CLIENT":
+            return "client_inquiry"
+    except Exception:
+        pass
+    #    (b) strong inquiry signals AND sender is not bulk noise
+    if any(sig in text_lower for sig in _CLIENT_INQUIRY_SIGNALS) and not _is_noise_sender(from_lower):
+        return "client_inquiry"
 
-    words = set((subject_lower + " " + snippet.lower()).split())
-
-    if booking_kw & set(subject_lower.split()) or sum(1 for k in booking_kw if k in subject_lower) >= 1:
-        if any(k in subject_lower for k in {"invoice", "payment", "charge", "receipt", "commission"}):
-            return "invoice"
-        return "booking_confirmation"
-
-    if any(k in subject_lower for k in spam_kw):
-        return "spam"
-
-    if any(k in from_lower for k in supplier_kw) or any(k in subject_lower for k in supplier_kw):
-        return "supplier_intel"
-
-    return "client_inquiry"
+    # 6. DEFAULT — non-actionable. Never client_inquiry.
+    return "other"
 
 
 # ── Handlers ──────────────────────────────────────────────────────────────────
@@ -394,6 +490,7 @@ def run_pipeline(hours: int = 24, dry_run: bool = False) -> dict:
         "invoice": 0,
         "internal_wing": 0,
         "spam": 0,
+        "other": 0,
     }
     processed = []
 
@@ -422,7 +519,7 @@ def run_pipeline(hours: int = 24, dry_run: bool = False) -> dict:
             result = _handle_invoice(msg, body, dry_run)
             processed.append(result)
 
-        # internal_wing and spam: count only
+        # internal_wing, spam, and other: count only — no mission, no storage
 
     report = {
         "ts": datetime.now(timezone.utc).isoformat(),
