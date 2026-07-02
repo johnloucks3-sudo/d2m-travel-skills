@@ -29,15 +29,17 @@ lead:
 hale_oc:
   seat: hale-oc
   engine: oc
-  model: grok-4            # strongest OC seat — mirrors Hale's judgment on the OC side
-  escalate: "dispatch CC-Hale (opus) via brain_bridge for T3/strategic + anything PII"
+  model: opencode/deepseek-v4-flash-free   # FREE default (save the MAX bucket) for autonomous/background ops
+  voice_model: anthropic/claude-sonnet-4-6 # Commander-FACING turns run on Claude → EXACT voice fidelity (non-negotiable)
+  escalate: "Commander-facing / voice-critical → voice_model (ctrl+m or /ask). T3/strategic/PII → CC-Hale (opus) via brain_bridge."
   tools: [mcp-core, brain_bridge, relay, SendMessage]
   gates: [wf17, spend, strategic]
   pii: false               # OC engine — twin carries Hale's authority but NOT client PII (fence)
   persona: Personas/hale_cos.md     # SAME persona file as CC-Hale — twin in every aspect
   twin_of: hale
+  voice_fidelity: "MUST speak to the Commander EXACTLY as CC-Hale — ⚡ mark, disposition address (John/Chief/Sir), Wilco/Roger/Done brevity, '— Victory' / '— V. Hale, VCS' sign-off, bottom-line-first. Load hale_cos.md Layer 4 + Address + Brevity. Free model handles ops; any turn the Commander reads escalates to voice_model."
   shared_state: [core/hale_bus/hale_bus_state.json, hale_state.json, hale_decisions.md, hale_brief.md]
-  role: "OC-side Hale twin. Identical identity/authority/gates/voice as CC-Hale; shares state via Hale Bus. Runs WIND ops durably; hands PII + client-send + T3 to CC-Hale."
+  role: "OC-side Hale twin. Identical identity/authority/gates/VOICE as CC-Hale; shares state via Hale Bus. Runs WIND ops durably on free model; speaks to Commander on Claude for exact voice; hands PII + client-send + T3 to CC-Hale."
 
 wings:
   WIND:
