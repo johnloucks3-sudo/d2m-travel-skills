@@ -1,0 +1,381 @@
+{
+  "generated_at": "2026-07-02T22:34:39.709105+00:00",
+  "summary": {
+    "total_findings": 22,
+    "red": 5,
+    "warn": 8,
+    "stub": 5,
+    "info": 4
+  },
+  "loops": {
+    "readiness": {
+      "loop": "readiness",
+      "mode": "PARTIAL",
+      "mode_note": "PARTIAL: dashboard is last-persisted read (may be stale); ci_sweep.py is BROKEN (malformed registry entry) so real-time probing is unavailable. last_verified staleness check is LIVE.",
+      "source": "CI_DASHBOARD.md (ts=2026-07-02T05:03:20.006618+00:00, age=17.5h); ci_registry.json (47 clean entries, 1 malformed, 14 past currency window)",
+      "findings_count": 8,
+      "findings": [
+        {
+          "id": "CI-DASHBOARD-STALE",
+          "severity": "WARN",
+          "title": "CI dashboard is stale",
+          "detail": "Last sweep: 2026-07-02T05:03:20.006618+00:00 (17.5h ago). Real-time status unknown until ci_sweep runs.",
+          "action": "Run ci_sweep.py once registry defect is fixed."
+        },
+        {
+          "id": "CI-DEGRADED-EMAIL-HANDLING-(D2M-\u2192-COMMANDE",
+          "severity": "WARN",
+          "title": "CI skill degraded: Email Handling (d2m \u2192 Commander delivery)",
+          "detail": "Last known status: \ud83d\udfe1 DULL",
+          "action": "Check skill registry + probe; page Whetstone if REPLACE.",
+          "source": "CI_DASHBOARD.md (last-known, may be stale)"
+        },
+        {
+          "id": "CI-DEGRADED-CLIENT-PATH-CANARY-MONITORING-",
+          "severity": "WARN",
+          "title": "CI skill degraded: Client-Path Canary Monitoring (SO_TECH_VANGUARD_ELEVATION_20260621 \u00a72a)",
+          "detail": "Last known status: \ud83d\udfe1 DULL",
+          "action": "Check skill registry + probe; page Whetstone if REPLACE.",
+          "source": "CI_DASHBOARD.md (last-known, may be stale)"
+        },
+        {
+          "id": "CI-DEGRADED-FLIGHT-FARE-WATCH-\u2014-AMADEUS-AP",
+          "severity": "RED",
+          "title": "CI skill degraded: Flight Fare Watch \u2014 Amadeus API (API-native, no browser)",
+          "detail": "Last known status: \ud83d\udd01 REPLACE",
+          "action": "Check skill registry + probe; page Whetstone if REPLACE.",
+          "source": "CI_DASHBOARD.md (last-known, may be stale)"
+        },
+        {
+          "id": "CI-DEGRADED-GITHUB-ACTIONS-CI/CD",
+          "severity": "RED",
+          "title": "CI skill degraded: GitHub Actions CI/CD",
+          "detail": "Last known status: \ud83d\udd01 REPLACE",
+          "action": "Check skill registry + probe; page Whetstone if REPLACE.",
+          "source": "CI_DASHBOARD.md (last-known, may be stale)"
+        },
+        {
+          "id": "CI-DEGRADED-MCP-SERVER-REGISTRY",
+          "severity": "RED",
+          "title": "CI skill degraded: MCP Server Registry",
+          "detail": "Last known status: \ud83d\udd01 REPLACE",
+          "action": "Check skill registry + probe; page Whetstone if REPLACE.",
+          "source": "CI_DASHBOARD.md (last-known, may be stale)"
+        },
+        {
+          "id": "CI-REGISTRY-MALFORMED",
+          "severity": "RED",
+          "title": "ci_sweep broken: 1 malformed registry entry",
+          "detail": "Missing required fields. Blocks all real-time probing. Entry IDs: ['?']",
+          "action": "Fix malformed registry entry so ci_sweep.py can run."
+        },
+        {
+          "id": "CI-SKILLS-PAST-CURRENCY-WINDOW",
+          "severity": "WARN",
+          "title": "14 CI skill(s) past last_verified currency window",
+          "detail": [
+            {
+              "id": "headless-dispatch",
+              "name": "Headless AI Dispatch (claude -p / MAX OAuth)",
+              "age_h": 17.5,
+              "window_h": 2,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "credential-keepalive",
+              "name": "Credential & OAuth Keepalive",
+              "age_h": 17.5,
+              "window_h": 3,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "self-observability",
+              "name": "Armed Overwatch (Self-Observability F2T2EA)",
+              "age_h": 17.5,
+              "window_h": 1,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "email-handling",
+              "name": "Email Handling (d2m \u2192 Commander delivery)",
+              "age_h": 17.5,
+              "window_h": 8,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "fare-watch-amadeus",
+              "name": "Flight Fare Watch \u2014 Amadeus API (API-native, no browser)",
+              "age_h": 104.7,
+              "window_h": 8,
+              "last_verified": "2026-06-28T13:55:14.340788+00:00"
+            },
+            {
+              "id": "supertimer-bot-health",
+              "name": "Supertimer Bot Health (consecutive-failure + Firefox dependency)",
+              "age_h": 17.5,
+              "window_h": 2,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "regent-portal-live",
+              "name": "Regent Portal Live Session",
+              "age_h": 17.5,
+              "window_h": 2,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "cloudflared-tunnel",
+              "name": "Cloudflare Tunnel \u2014 d2mluxury.quest",
+              "age_h": 17.5,
+              "window_h": 6,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "tailscale",
+              "name": "Tailscale Mesh VPN",
+              "age_h": 17.5,
+              "window_h": 6,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            },
+            {
+              "id": "gdrive-mx",
+              "name": "Google Drive OAuth Integration",
+              "age_h": 17.5,
+              "window_h": 12,
+              "last_verified": "2026-07-02T05:02:47.397233+00:00"
+            }
+          ],
+          "action": "Probe these skills or explain why delayed; update last_verified."
+        }
+      ]
+    },
+    "taskings": {
+      "loop": "taskings",
+      "mode": "LIVE",
+      "mode_note": "LIVE: deferred_alerts use real trigger_date fields. Mission staleness is a 14-day-no-update PROXY \u2014 missions have no due-date field.",
+      "source": "hale_state.json deferred_alerts (7 total, 1 past-due, 2 due-soon\u22647d); mission_board.json (1115 total, 360 active, 7 P0, 340 P1)",
+      "findings_count": 4,
+      "findings": [
+        {
+          "id": "ALERTS-PAST-DUE",
+          "severity": "RED",
+          "title": "1 deferred alert(s) past trigger date",
+          "detail": [
+            {
+              "id": "MISSION-COMMANDER-196-CALL",
+              "priority": "P0",
+              "trigger_date": "2026-06-24",
+              "days_overdue": 8.9,
+              "message": "Call United Group Desk (800-426-1122 opt 3) with Spencer DEN-FCO 12-pax brief from Dembe. Request written quote. Documen"
+            }
+          ],
+          "action": "Hale: action each overdue alert or re-date with commander justification."
+        },
+        {
+          "id": "ALERTS-DUE-SOON",
+          "severity": "WARN",
+          "title": "2 deferred alert(s) due within 7 days",
+          "detail": [
+            {
+              "id": "MCLEOD-2984034-FPD-TRIGGER",
+              "priority": "P0",
+              "trigger_date": "2026-07-07",
+              "days_until": 4.1,
+              "message": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment."
+            },
+            {
+              "id": "MCLEOD-2984034-TP11-SEND",
+              "priority": "P1",
+              "trigger_date": "2026-07-07",
+              "days_until": 4.1,
+              "message": "McLeod Regent Grandeur 2984034 \u2014 TP 1.1 Voyage Preview draft was staged 2026-06-24 with contact hold. Send today: review"
+            }
+          ],
+          "action": "Hale: pre-position for these triggers now."
+        },
+        {
+          "id": "MISSIONS-P0-STALE",
+          "severity": "WARN",
+          "title": "2 P0 mission(s) with no update in >14 days (staleness proxy \u2014 no due-date field)",
+          "detail": [
+            {
+              "id": "MISSION-802",
+              "title": "Deploy TP 1.1 Voyage Preview to all three Aug 29 Grandeur couples",
+              "status": "pending_review",
+              "age_days": Infinity
+            },
+            {
+              "id": "MISSION-152",
+              "title": "Phase E: Signal",
+              "status": "suspended",
+              "age_days": 25.3
+            }
+          ],
+          "action": "Hale: update, close, or kill stale P0 missions. Each unactioned P0 is wasted board space.",
+          "mode_note": "PROXY: missions have no due-date; age of last update used as staleness signal."
+        },
+        {
+          "id": "MISSIONS-OPEN-SUMMARY",
+          "severity": "INFO",
+          "title": "Mission board: 7 P0 open, 340 P1 open (360 total non-terminal)",
+          "detail": {
+            "total_missions": 1115,
+            "active": 360,
+            "p0_open": 7,
+            "p1_open": 340,
+            "p0_stale_gt14d": 2
+          },
+          "action": "No action if board is current. Flag if counts are growing uncontrolled."
+        }
+      ]
+    },
+    "push_to_limits": {
+      "loop": "push_to_limits",
+      "mode": "PARTIAL",
+      "mode_note": "PARTIAL: dossier freshness + idle drafts are LIVE. Staff suggestions + autonomy underuse are STUBS (no source).",
+      "source": "core.ops.dossier_freshness.check_dossier_freshness(); draft_metadata.json (2 client drafts, 2 idle >48h)",
+      "findings_count": 4,
+      "findings": [
+        {
+          "id": "DOSSIERS-CURRENT",
+          "severity": "INFO",
+          "title": "All active dossiers current (none stale within 60-day departure window)",
+          "detail": "check_dossier_freshness() returned 0 stale items."
+        },
+        {
+          "id": "WF17-DRAFTS-IDLE",
+          "severity": "WARN",
+          "title": "2 WF-17 client draft(s) sitting idle >48h",
+          "detail": [
+            {
+              "draft_id": "r285374437196920475",
+              "subject": "THUNDERBIRD SITREP \u2014 HALE Email Routing Restore | ETB-20260608 | ELON Tasked",
+              "to": "johnloucks3@gmail.com",
+              "created_at": "2026-06-08T11:55:04.488127",
+              "age_h": Infinity
+            },
+            {
+              "draft_id": "r-901242484749075735",
+              "subject": "Westbrook Family \u2014 Kotor Excursion & Birthday Dinner Options (Jul 22, Celebrity ",
+              "to": "johnloucks3@gmail.com",
+              "created_at": "2026-07-01T16:32:33.707507",
+              "age_h": Infinity
+            }
+          ],
+          "action": "PUSH: Surface idle drafts to Commander NOW \u2014 Commander is the only authorized sender. Every hour an idle draft sits, the window for a timely client touch narrows."
+        },
+        {
+          "id": "STAFF-SUGGESTIONS-UNACTIONED",
+          "severity": "STUB",
+          "title": "[STUB] Un-actioned staff suggestions \u2014 no machine-readable source",
+          "detail": "There is no structured output file tracking staff-suggestion \u2192 action taken. Hale tracks them in conversation context only.",
+          "action": "PENDING SOURCE: Build staff_suggestions.jsonl (append on suggestion, mark closed on action). Wire here when live.",
+          "mode": "STUB"
+        },
+        {
+          "id": "AUTONOMY-BAND-UNDERUSE",
+          "severity": "STUB",
+          "title": "[STUB] Autonomy band underuse \u2014 no metric source",
+          "detail": "No metric currently tracks whether Hale is requesting Commander approval for actions inside her 95% authorized band. Proxy would require parsing conversation logs for question-marks vs. execute+report patterns.",
+          "action": "PENDING SOURCE: Wire to hale_decisions.md gate-type field or conversation telemetry to detect X-minus behavior automatically.",
+          "mode": "STUB"
+        }
+      ]
+    },
+    "compliance": {
+      "loop": "compliance",
+      "mode": "PARTIAL",
+      "mode_note": "PARTIAL: git log on 6 protected files + draft routing are LIVE. Creative-chain checklist + SO text scan are STUBS (no source).",
+      "source": "git log (6 protected files, last 20 commits \u2192 20 hits); draft_metadata.json (2 client drafts checked)",
+      "findings_count": 4,
+      "findings": [
+        {
+          "id": "PROTECTED-FILES-CHANGES-AUTHORIZED",
+          "severity": "INFO",
+          "title": "20 recent commit(s) touched protected files \u2014 AUTHORIZED (.protections_lifted sentinel active, SO 2026-06-21)",
+          "detail": {
+            "sentinel": "/home/john/Thunderbird/.protections_lifted",
+            "suspension_note": "Protections suspended by Commander directive 2026-06-21. Commits are authorized. Noted for the record only.",
+            "commits": [
+              "b0259d377 Part1+PhaseA: 24h-review cleanup wave + email-tasking stabilization",
+              "793e8adba fix(dispatch): strip ANTHROPIC_BASE_URL from clean_env \u2014 actual root cause",
+              "94a4e04cb fix(dispatch): revert to CLI, TTY-guard all SessionStart hooks",
+              "d05535569 fix(dispatch): strip proxy vars from clean_env to bypass llmtrim serialization",
+              "408224145 fix(dispatch): add --strict-mcp-config to skip 97-server MCP startup",
+              "1b5e208de fix(dispatch): stdin=DEVNULL prevents Claude CLI stdin hang in systemd context",
+              "587bc206c fix(dispatch): add line-buffered stdout/stderr for log visibility",
+              "2afbcc126 fix(email-scan): label-after-success, 30s\u2192160s wrapper timeout",
+              "d25a9b2d6 fix(inbox): CC + INFORMATION paths now actually file emails per SO_EMAIL_CLOSED_LOOP_20260625",
+              "fa42ddf9f fix(inbox): kill empty ack emails for DIRECTION and CC classifications"
+            ]
+          },
+          "action": "No action required while protections suspended. When sentinel removed, re-check this gate."
+        },
+        {
+          "id": "WF17-ROUTING-OK",
+          "severity": "INFO",
+          "title": "WF-17 routing OK: all 2 client draft(s) addressed to wing accounts"
+        },
+        {
+          "id": "CREATIVE-CHAIN-CHECKLIST",
+          "severity": "STUB",
+          "title": "[STUB] Creative-chain completion checklist \u2014 no data source in draft_metadata",
+          "detail": "draft_metadata.json has no 'chain_steps_completed' field. Cannot verify Reyes/Luna/Naia/Dani/TALON/JET sign-off automatically.",
+          "action": "PENDING SOURCE: Add chain_steps_completed[] to draft_metadata entries at creation time. Wire checklist enforcement here.",
+          "mode": "STUB"
+        },
+        {
+          "id": "SO-TEXT-COMPLIANCE",
+          "severity": "STUB",
+          "title": "[STUB] SO text compliance scan \u2014 no NLP/semantic source",
+          "detail": "Standing-order text adherence (e.g., banned phrasing, model routing, header format) cannot be auto-checked without conversation log ingestion.",
+          "action": "PENDING SOURCE: Conversation log export + pattern match on banned phrases would make this LIVE. Out of scope for this release.",
+          "mode": "STUB"
+        }
+      ]
+    },
+    "complaints": {
+      "loop": "complaints",
+      "mode": "PARTIAL",
+      "mode_note": "PARTIAL: staff_comments_live.jsonl is LIVE (cursor-based). Client complaint signals are STUB (no source defined).",
+      "source": "staff_comments_live.jsonl (3 total, 2 unread since cursor=2026-06-11T14:13:06.243044+00:00)",
+      "findings_count": 2,
+      "findings": [
+        {
+          "id": "STAFF-COMMENTS-P1",
+          "severity": "WARN",
+          "title": "2 unread P1 staff comment(s)",
+          "detail": [
+            {
+              "ts": "2026-06-11T16:30:40.537184+00:00",
+              "author": "Hale (Claude Code / yoga)",
+              "msg_type": null,
+              "content": "Commander back on Claude Code (yoga) 2026-06-11 ~09:05 MT. Active session = Claude Code. Decision st"
+            },
+            {
+              "ts": "2026-06-16T20:02:26.643133+00:00",
+              "author": "Hale (VCS)",
+              "msg_type": null,
+              "content": "MILESTONE: Grace public chat LIVE (grace.d2mluxury.quest) + first gift DELIVERED to Stefanie Burcham"
+            }
+          ],
+          "action": "Review and acknowledge; advance cursor when actioned."
+        },
+        {
+          "id": "CLIENT-COMPLAINTS-STUB",
+          "severity": "STUB",
+          "title": "[STUB] Client complaint signals \u2014 no defined source",
+          "detail": "There is no CRM complaint field, no email sentiment scan, and no structured complaint log. Client dissatisfaction is currently invisible to automation. Signals that COULD work: email subject-line scan for 'issue'/'problem'/'unhappy', TESS note fields, dossier flags.",
+          "action": "PENDING SOURCE: Add complaint_flag boolean to dossier schema + TESS notes. Wire scan here to make LIVE.",
+          "mode": "STUB"
+        }
+      ]
+    }
+  },
+  "errors": {},
+  "meta": {
+    "author": "Sterling (A7)",
+    "version": "1.0.0",
+    "date": "2026-07-02"
+  }
+}
