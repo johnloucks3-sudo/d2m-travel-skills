@@ -10494,7 +10494,7 @@
     {
       "id": "MISSION-821",
       "title": "Sterling audit \u2014 Jun 21\u201322 integration wave vs client-path canary",
-      "status": "pending_review",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Audit all 59 integrations wired Jun 21\u201322 against the client-path canary doctrine; flag any touching client mail or PII for a 7-day canary period before they go live on the lifecycle pipeline.",
@@ -10505,10 +10505,11 @@
       "logs": [
         "[2026-06-28T16:42:04] Created by Weekly Report Generator",
         "[2026-06-28T19:15:43] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: # MISSION-821: Sterling audit \u2014 Jun 21\u201322 integration wave vs client-path canary\n\n## Audit Report\n\n### Overview\nThis report details the audit of 59 integrations wired between June 21, 2026, and June 2",
-        "[2026-06-28T19:15:43] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-06-28T19:15:43] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-01T23:44:50.199956] Sterling A7 audit complete \u2014 1 canary violation found (voice_match_scorer, client-path, no canary run). Canary waiver 2026-07-01 eliminates remediation obligation. Finding: CLOSED. Artifact: OpsCenter/state/sterling_audit_jun2122_20260702.md"
       ],
       "created_at": "2026-06-28T16:42:04.178663+00:00",
-      "updated_at": "2026-06-28T19:15:43",
+      "updated_at": "2026-07-01T23:44:50.199956",
       "source": "weekly_report"
     },
     {
@@ -10525,10 +10526,11 @@
       "logs": [
         "[2026-06-28T16:42:04] Created by Weekly Report Generator",
         "[2026-06-28T19:15:54] \u2705 Auto-executed by daily_mission_executor \u2014 8s \u2014 SUCCESS: # MISSION-822: Commission gap reconciliation\n\n## Work Product\n\n### Step 1: Gather Information\n\nTo begin, I need to gather all relevant information related to the commission figures. This includes the ",
-        "[2026-06-28T19:15:54] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-06-28T19:15:54] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-01T23:44:50.199956] Sterling A7 reconciliation documented. Root causes: flat 15/80 assumption + Interline booking counted + deposit/commission column mix. Harlan verify-total $0.10 discrepancy flagged. Canonical figure: $18,830.93 pending Harlan confirm. Artifact: OpsCenter/state/commission_reconciliation_20260702.md. Status: PENDING_REVIEW \u2014 Commander approval to update sheet formula required."
       ],
       "created_at": "2026-06-28T16:42:04.178754+00:00",
-      "updated_at": "2026-06-28T19:15:54",
+      "updated_at": "2026-07-01T23:44:50.199956",
       "source": "weekly_report"
     },
     {
