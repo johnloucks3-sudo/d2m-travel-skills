@@ -11,12 +11,12 @@
 | 4 | John & Susan Loucks | Seven Seas Grandeur | Regent | 2026-12-29 | 16 | Miami→Los Angeles (Panama/Pacific) | Grand Cayman, Cartagena, Canal, Puntarenas, Puerto Quetzal, Acapulco, Cabo, San Diego | **HIGH** (full times) | Loucks_Grandeur_2026-12-29_ports.md |
 | 5 | McLeod & McGlasson | Discovery Princess | Princess | 2027-03-13 | 7 | LA RT (Mexican Riviera) | Cabo, Mazatlán, Puerto Vallarta | **MEDIUM** (standard pattern, verify Mar-13 specific) | McLeod_DiscoveryPrincess_2027-03-13_ports.md |
 | 6 | John & Susan Loucks | Silver Nova | Silversea | 2027-05-05 | 24 (B2B2B) | Venice→Athens | 25+ Adriatic/Ionian/Aegean ports (3 segments) | **HIGH** ports (TA-portal) / LOW times | Loucks_SilverNova_2027-05-05_ports.md |
-| 7 | McLeod & McGlasson | Seven Seas Prestige | Regent | 2027-12-18 | 10 | Miami RT (Season to Cheer) | Puerto Plata, San Juan, St Kitts, Dominica, Antigua, Tortola | **HIGH** (full times) | McLeod_Prestige_2027-12-18_ports.md |
+| 7 | McLeod & McGlasson | Seven Seas Prestige | Regent | 2027-12-18 | 10 | Miami RT (Season to Cheer) | Puerto Plata, San Juan, St Kitts, Dominica, Antigua, Tortola | **HIGH (aggregator-corroborated, full times)** | McLeod_Prestige_2027-12-18_ports.md |
 
 *(o) = overnight in port · (x2) = multi-day call*
 
 ## Confidence Summary
-- **HIGH confidence (6 of 7):** #1 (ports), #2, #3 (ports), #4, #6, #7. All ports sourced from cruise-line dossiers, TA portal, master DB, or corroborated aggregators.
+- **HIGH confidence (6 of 7):** #1 (ports), #2, #3 (ports), #4, #6, #7. Sourcing tiers within HIGH: cruise-line invoice-grade dossier (#4 full times) > TA-portal (#6) / cruise-line dossier (#2, #3 ports) > aggregator-corroborated (#7). #1 Scandinavia ports HIGH but only 2 rows (Warnemünde/Oslo) are rssc.com line-confirmed — remaining rows reconstructed (see per-cell markers in that file, load-bearing for MISSION-802).
 - **MEDIUM confidence (1 of 7):** #5 Discovery Princess Mar 13 2027 — port SET and hours are the standard Discovery Princess Mexican Riviera product (HIGH), but the exact Mar-13-specific published day-by-day was not directly obtained (princess.com fetch failed; DB had no row). Date-mapped onto standard pattern. **Verify on Princess portal before client itinerary delivery.**
 - **NO voyages at LOW/unpublished.** All 7 have a usable port sequence.
 
