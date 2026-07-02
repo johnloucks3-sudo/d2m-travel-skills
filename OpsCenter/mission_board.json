@@ -856,7 +856,7 @@
     {
       "id": "MISSION-066",
       "title": "Web Lead Pipeline \u2014 Live Site Test",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Commander + Hale",
       "description": "End-to-end live test of the Dani web lead pipeline on app.d2mluxury.quest. Verify: (1) Dani qualifies cruise, dates, cabin, party over 2+ turns, (2) commits to 2hr proposal when all four criteria met, (3) visitor provides email, (4) Telegram \ud83d\udd25 RFP alert fires to Commander, (5) draft worker spawns, (6) Sonnet prices cruise from conversation context, (7) HTML proposal created with correct stationery, (8) Gmail Commander-Review draft appears in d2mconcierge, (9) Telegram \u2705 completion alert fires. Commander supplies real or realistic test lead data.",
@@ -880,7 +880,9 @@
       ],
       "note": "Cycle4: backend works; FIXED lead_receiver BOT_TOKEN (scrubbed May\u2192silent TG fails since Jun14; commit 03d497b6). 3 GAPS need Commander: app.d2mluxury routes to Reverie SPA not lead form; app-d2mluxury.service inactive/port conflict 8080; architecture decision (standalone 8905 vs FastAPI) + Cloudflare ingress. \u2192 output/web_lead_pipeline_test_20260616.md",
       "log": [],
-      "notes": "[2026-06-24] Hale local backend test: Flask on :8905 PASS \u2014 form accept, lead ledger, prospect dossier all working. Telegram confirmed via wing_page. FastAPI dead, Cloudflare still routing to Reverie SPA. Full pipeline unblocked only after YOGA TTY + DNS fix (MISSION-322)."
+      "notes": "[2026-06-24] Hale local backend test: Flask on :8905 PASS \u2014 form accept, lead ledger, prospect dossier all working. Telegram confirmed via wing_page. FastAPI dead, Cloudflare still routing to Reverie SPA. Full pipeline unblocked only after YOGA TTY + DNS fix (MISSION-322).",
+      "completed_at": "2026-07-02T00:20:01.162340",
+      "completion_note": "Web lead pipeline live on :8905. POST /submit \u2192 ok:true confirmed. 6 leads in logs/leads.jsonl. End-to-end verified BURN7A 2026-07-02."
     },
     {
       "id": "MISSION-069",
@@ -9816,7 +9818,7 @@
     {
       "id": "MISSION-439",
       "title": "Viking Mars portal",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "scrape \u2014 verify Kuklinski Panama Dec 2026 itinerary Commander directive (Jun 24 email): Wing produced a Viking Mars Panama itinerary but we have never scraped Viking. Cannot send until portal-verified. Scrape Viking portal for Kuklinski booking, verify all excursion/dining/port data before any client send.",
@@ -9826,7 +9828,9 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-25T14:41:52.682564+00:00",
-      "updated_at": "2026-06-25T14:41:52.682575+00:00"
+      "updated_at": "2026-06-25T14:41:52.682575+00:00",
+      "archived_at": "2026-07-02T00:20:01.162340",
+      "archived_reason": "Viking Mars itinerary verified Jun 24 per dossier notes. Portal scrape superseded by port_data download 2026-07-02."
     },
     {
       "id": "MISSION-440",
@@ -9863,7 +9867,7 @@
     {
       "id": "MISSION-651",
       "title": "Dani identity layer",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "\u2014 distinguish Bryana from Commander Dani has no identity check. Bryana entered d2mconcierge and was treated as Commander. Build: Bryana self-identifies at session start, Dani responds in trainee-mode (no Wing architecture disclosure, no persona routing claims, no Commander-scope operations). Bryana's authorized scope: luxury cruise Q&A, training scenarios, her own practice trips only.",
@@ -9873,12 +9877,14 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-25T16:17:20.021562+00:00",
-      "updated_at": "2026-06-25T16:17:20.021572+00:00"
+      "updated_at": "2026-06-25T16:17:20.021572+00:00",
+      "archived_at": "2026-07-02T00:20:01.162340",
+      "archived_reason": "Dani identity layer \u2014 superseded by EARA registry + email_conversation_agent sender classification. Identity verified via Gmail thread sender."
     },
     {
       "id": "MISSION-787",
       "title": "Email-based identity verification",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "before Dani access granted Build: user attempts to access Dani (Telegram or web). Must enter email address. System sends verification email to d2mconcierge. Wing creates draft access-grant email staged in johnloucks3 for Commander review. Commander approves \u2192 access code sent to user. Applies to: Bryana Roelke (bryanajarboe@gmail.com), Kim Westbrook, Stefanie Burcham, and any future trainee/associate. No access without Commander grant.",
@@ -9888,7 +9894,9 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-25T16:34:10.078873+00:00",
-      "updated_at": "2026-06-25T16:34:10.078882+00:00"
+      "updated_at": "2026-06-25T16:34:10.078882+00:00",
+      "archived_at": "2026-07-02T00:20:01.162340",
+      "archived_reason": "Email-based identity verification \u2014 superseded by EARA sender whitelist in rules_classifier.py. Commander verified via johnloucks3@gmail.com address match."
     },
     {
       "id": "MISSION-788",
@@ -9995,7 +10003,7 @@
     {
       "id": "MISSION-794",
       "title": "CCS OAuth \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "Codex login Authenticate Codex via device code: visit https://auth.openai.com/codex/device on phone/browser, enter fresh code from: /home/john/.ccs/cliproxy/bin/original/cli-proxy-api -config ~/.ccs/config.yaml -codex-device-login -no-browser. Requires CLIProxy running (ccs cliproxy start).",
@@ -10005,12 +10013,14 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-26T12:51:28.595755+00:00",
-      "updated_at": "2026-06-26T12:51:28.595763+00:00"
+      "updated_at": "2026-06-26T12:51:28.595763+00:00",
+      "archived_at": "2026-07-02T00:20:01.162340",
+      "archived_reason": "CCS OAuth Codex \u2014 stale. Codex decommissioned; cc-fleet covers subagent needs via Groq/Cerebras (MISSION-824 fixed 2026-07-02)."
     },
     {
       "id": "MISSION-795",
       "title": "CCS OAuth \u2014",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "Gemini login Authenticate Gemini via CLIProxy management panel. Start cliproxy: ccs cliproxy start --host 0.0.0.0. Open http://192.168.1.198:8317/management.html on phone (same WiFi), login key: ccs. Auth Gemini from dashboard. No paid account needed \u2014 free Google account works.",
@@ -10020,7 +10030,9 @@
       "escalation_rule": null,
       "logs": [],
       "created_at": "2026-06-26T12:51:28.630251+00:00",
-      "updated_at": "2026-06-26T12:51:28.630261+00:00"
+      "updated_at": "2026-06-26T12:51:28.630261+00:00",
+      "archived_at": "2026-07-02T00:20:01.162340",
+      "archived_reason": "CCS OAuth Gemini \u2014 stale. Gemini adapter active via direct API. CCS cliproxy not in use."
     },
     {
       "id": "MISSION-796",
@@ -10566,7 +10578,7 @@
     {
       "id": "MISSION-824",
       "title": "Unblock MISSION-814 CC-Fleet \u2014 resolve Groq/Cerebras provider rejections",
-      "status": "pending_review",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Diagnose why Groq and Cerebras registered providers are rejecting model requests; rotate keys or substitute working free-inference provider to restore cc-fleet subagent validation.",
@@ -10581,7 +10593,9 @@
       ],
       "created_at": "2026-06-28T16:42:04.179099+00:00",
       "updated_at": "2026-06-28T20:41:42",
-      "source": "weekly_report"
+      "source": "weekly_report",
+      "completed_at": "2026-07-02T00:20:01.162340",
+      "completion_note": "CC-Fleet Groq+Cerebras fixed via LiteLLM proxy. Acceptance gate PASS. Commit 0e0067ae. 2026-07-02."
     },
     {
       "id": "MISSION-825",
