@@ -1,8 +1,43 @@
 {
   "last_updated": "2026-07-02",
   "sectors": {
-    "D_agentic_apps": {"last_run": "2026-07-02", "file": "intel/incubator/sector_D_agentic_apps_20260702.md"},
-    "F_llm": {"last_run": "2026-07-02", "file": "intel/incubator/sector_F_llm_20260702.md"},
-    "G_travel_b2b": {"last_run": "2026-07-02", "file": "intel/incubator/sector_G_travel_b2b_20260702.md"}
+    "D_agentic_apps": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_D_agentic_apps_20260702.md"
+    },
+    "F_llm": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_F_llm_20260702.md"
+    },
+    "G_travel_b2b": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_G_travel_b2b_20260702.md"
+    },
+    "H_voice": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_H_voice_20260702.md",
+      "top_finding": "Zero voice tooling in stack — Deepgram Nova-3 API enables Commander voice-to-Wing intake in 1 day. Local Whisper for PII-safe transcription.",
+      "adopt_now": ["deepgram_nova3_api", "local_whisper_openai"],
+      "watch": ["elevenlabs_voice_cloning", "retell_ai_inbound", "twilio_voice_ai"]
+    },
+    "I_competitor": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_I_competitor_20260702.md",
+      "top_finding": "Fora (15k advisors, Sidekick AI, Virtuoso member) is the scale threat. AI agents already 15-25% of luxury bookings. Cruise lines have NOT deployed AI yet — 12-month D2M window open.",
+      "adopt_now": ["ai_augmented_human_verified_positioning", "competitor_google_alerts"],
+      "watch": ["fora_sidekick", "directbooker", "voyagier", "virtuoso_ai_program"]
+    },
+    "J_crm": {
+      "last_run": "2026-07-02",
+      "file": "intel/incubator/sector_J_crm_20260702.md",
+      "top_finding": "Build over buy — D2M custom dossier system is AI-native, git-versioned, Claude-readable. Missing: Gmail-to-dossier auto-extract and pipeline visualization. NetHunt trial worth 1 day to validate.",
+      "adopt_now": ["gmail_to_dossier_auto_extract_script", "pipeline_html_dashboard"],
+      "watch": ["nethunt_crm_trial", "ezus_demo", "ai_dossier_extraction_startups"]
+    }
+  },
+  "sweep_complete": {
+    "sectors_covered": ["D", "F", "G", "H", "I", "J"],
+    "note": "Sectors A/B/C/E not in original 10-sector EOD rotation for this Chronicle session. D/F/G/H/I/J complete as of 2026-07-02.",
+    "completed_at": "2026-07-02"
   }
 }
