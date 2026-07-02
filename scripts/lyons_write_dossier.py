@@ -3,7 +3,7 @@ from pathlib import Path
 OUT = Path("/home/john/Thunderbird/validations/rssc_scrape")
 DOSSIER = Path("/home/john/Thunderbird/dossiers/Lyons_Nancy_Ken.md")
 
-def fmt_excursions(d, date_sort=True):
+def fmt_excursions(d):
     items = list(d["excursions"].values())
     # sort by activity date
     months={'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
