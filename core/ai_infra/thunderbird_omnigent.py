@@ -48,7 +48,7 @@ def make_agent(
     tools: list[str] | None = None,
 ) -> Any:
     """Build an omnigent AgentDef backed by ClaudeSDKExecutor."""
-    from omnigent import AgentDef, MCPTool, FunctionTool
+    from omnigent import AgentDef, MCPTool
 
     tool_list = []
     if tools:

@@ -96,13 +96,13 @@ except ImportError:
 
 try:
     from core.ai_infra.thunderbird_personas import (
-        PERSONA_REGISTRY, call_persona, run_staff_meeting, get_roster,
+        PERSONA_REGISTRY, call_persona, run_staff_meeting,
         get_persona, build_system_prompt,
     )
 except ImportError:
     try:
         from thunderbird_personas import (
-            PERSONA_REGISTRY, call_persona, run_staff_meeting, get_roster,
+            PERSONA_REGISTRY, call_persona, run_staff_meeting,
             get_persona, build_system_prompt,
         )
     except ImportError:

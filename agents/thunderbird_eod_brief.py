@@ -33,10 +33,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
-try:
-    import httplib2
-except ImportError:
-    httplib2 = None
 
 # ---------------------------------------------------------------------------
 # BOOTSTRAP

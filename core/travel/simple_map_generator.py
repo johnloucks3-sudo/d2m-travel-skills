@@ -4,7 +4,6 @@ Fallback map generation using Python visualization libraries
 """
 
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from typing import List, Tuple

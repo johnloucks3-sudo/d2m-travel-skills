@@ -15,7 +15,6 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from html.parser import HTMLParser
-from io import StringIO
 
 try:
     from bs4 import BeautifulSoup, Tag

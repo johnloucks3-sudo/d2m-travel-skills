@@ -18,9 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
 try:
     import undetected_chromedriver as uc
-    from selenium.webdriver.common.by import By
     from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
 except ImportError:
     print("ERROR: undetected-chromedriver or selenium not installed.")
     print("Run: pip install undetected-chromedriver selenium")

@@ -274,7 +274,6 @@ class QdrantMemorySystem:
             mem.embed_directory("~/Thunderbird/dossiers")
             mem.embed_directory("~/Thunderbird/intel")
         """
-        import glob as glob_mod
         base = Path(directory).expanduser()
         files = sorted(base.glob(glob_pattern))
         if not files:

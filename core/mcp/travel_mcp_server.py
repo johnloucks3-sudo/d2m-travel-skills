@@ -29,8 +29,45 @@ from enum import Enum
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Ensure all tool module directories are in sys.path
+import sys as _sys_path
+_root = Path(__file__).parent.parent.parent
+_dirs = [
+    str(_root),                                    # Thunderbird root (for api.* package imports)
+    str(Path(__file__).parent),                    # core/mcp
+    str(_root / "api"),                            # api
+    str(_root / "core" / "travel"),                # core/travel
+    str(_root / "core" / "intel"),                 # core/intel
+    str(_root / "core" / "ai_infra"),              # core/ai_infra
+    str(_root / "core" / "booking"),               # core/booking
+    str(_root / "core" / "client"),                # core/client
+    str(_root / "core" / "communication"),         # core/communication
+    str(_root / "core" / "email"),                 # core/email
+    str(_root / "core" / "learning"),              # core/learning
+    str(_root / "core" / "ops"),                   # core/ops
+    str(_root / "core" / "scheduling"),            # core/scheduling
+    str(_root / "itinerary"),                      # itinerary
+    str(_root / "agents"),                         # agents
+    str(_root / "business"),                       # business
+    str(_root / "comms"),                          # comms (SSS, internal comms)
+    str(_root / "OpsCenter"),                      # OpsCenter
+    str(_root / "scripts"),                        # scripts
+    str(_root / "web"),                            # web
+    str(_root / "core" / "watchtower"),            # core/watchtower (health)
+    str(_root / "core" / "scraping"),              # core/scraping
+    str(_root / "core" / "security"),              # core/security
+    str(_root / "core" / "lifecycle"),             # core/lifecycle
+    str(_root / "core" / "search"),                # core/search
+    str(_root / "core" / "authority"),             # core/authority
+    str(_root / "core" / "hale"),                  # core/hale
+    str(_root / "core" / "hale_bus"),              # core/hale_bus
+    str(_root / "core" / "multi_model"),           # core/multi_model
+    str(_root / "core" / "crewai"),                # core/crewai
+]
+for _d in _dirs:
+    if _d not in _sys_path.path:
+        _sys_path.path.insert(0, _d)
 # Tool registrations
-from thunderbird_tech_monitor import register_tech_monitor_tools
 from thunderbird_v3 import register_v3_tools
 from itinerary_finishing_pipeline import register_itinerary_pipeline_tools
 try:
@@ -58,16 +95,46 @@ from thunderbird_trip_architect import register_trip_architect_tools
 from thunderbird_competitive_surveillance import register_surveillance_tools
 from thunderbird_price_monitor import register_price_monitor_tools
 from thunderbird_email_intel import register_email_intel_tools
-from thunderbird_gmail import register_gmail_tools
-from thunderbird_drive import register_drive_tools
-from thunderbird_keep import register_keep_tools
-from thunderbird_calendar_sync import register_calendar_tools
-from thunderbird_sheets_mcp import register_sheets_mcp_tools
-from thunderbird_docs_mcp import register_docs_mcp_tools
-from thunderbird_contacts_mcp import register_contacts_mcp_tools
-from thunderbird_forms_mcp import register_forms_mcp_tools
-from thunderbird_maps_mcp import register_maps_mcp_tools
-from thunderbird_photos_mcp import register_photos_mcp_tools
+try:
+    from thunderbird_gmail import register_gmail_tools
+except ImportError:
+    def register_gmail_tools(mcp): pass
+try:
+    from thunderbird_drive import register_drive_tools
+except ImportError:
+    def register_drive_tools(mcp): pass
+try:
+    from thunderbird_keep import register_keep_tools
+except ImportError:
+    def register_keep_tools(mcp): pass
+try:
+    from thunderbird_calendar_sync import register_calendar_tools
+except ImportError:
+    def register_calendar_tools(mcp): pass
+try:
+    from thunderbird_sheets_mcp import register_sheets_mcp_tools
+except ImportError:
+    def register_sheets_mcp_tools(mcp): pass
+try:
+    from thunderbird_docs_mcp import register_docs_mcp_tools
+except ImportError:
+    def register_docs_mcp_tools(mcp): pass
+try:
+    from thunderbird_contacts_mcp import register_contacts_mcp_tools
+except ImportError:
+    def register_contacts_mcp_tools(mcp): pass
+try:
+    from thunderbird_forms_mcp import register_forms_mcp_tools
+except ImportError:
+    def register_forms_mcp_tools(mcp): pass
+try:
+    from thunderbird_maps_mcp import register_maps_mcp_tools
+except ImportError:
+    def register_maps_mcp_tools(mcp): pass
+try:
+    from thunderbird_photos_mcp import register_photos_mcp_tools
+except ImportError:
+    def register_photos_mcp_tools(mcp): pass
 from thunderbird_telegram_mcp import register_telegram_mcp_tools
 from thunderbird_tess import register_tess_tools
 from thunderbird_shared_memory import register_memory_tools
@@ -120,6 +187,7 @@ except Exception as _e:
 try:
     import sys as _sys
     _sys.path.insert(0, str(Path(__file__).parent))
+    _sys.path.insert(0, str(Path(__file__).parent.parent / "intel"))
     from phantom_mcp_builder import PhantomMCPBuilder as _PhantomBuilder
     _phantom = _PhantomBuilder(server_path=Path(__file__))
     _PHANTOM_OK = True

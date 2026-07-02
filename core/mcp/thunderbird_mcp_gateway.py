@@ -7,7 +7,6 @@ import os
 import json
 from pathlib import Path
 from datetime import datetime
-import mcp.server.fastmcp as fastmcp_module
 from mcp.server.fastmcp import FastMCP
 
 GATEWAY_STATE_FILE = Path.home() / ".claude" / "gateway_state.json"

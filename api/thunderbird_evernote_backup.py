@@ -316,7 +316,6 @@ def _try_sdk_upload(token: str, zip_path: Path, note_title: str,
     try:
         from evernote.api.client import EvernoteClient
         from evernote.edam.type.ttypes import Note, Resource, ResourceAttributes, Data
-        from evernote.edam.notestore.ttypes import NoteFilter
         import evernote.edam.type.ttypes as Types
     except ImportError:
         logger.info("Evernote SDK not available — will use requests fallback")
@@ -419,15 +418,6 @@ def _requests_upload(token: str, zip_path: Path, note_title: str,
     `thrift` library directly (pip install thrift) to speak to Evernote.
     If thrift isn't available either, we raise with install instructions.
     """
-    try:
-        import thrift.transport.THttpClient as THttpClient
-        import thrift.protocol.TBinaryProtocol as TBinaryProtocol
-        # We need the generated Evernote Thrift stubs — these come with
-        # the evernote SDK package. If we got here, the SDK import failed,
-        # so we can't use the Thrift stubs either.
-    except ImportError:
-        pass
-
     # Since raw Thrift without the SDK stubs is impractical, use a minimal
     # HTTPS approach with the Evernote API's internal JSON-Thrift bridge.
     # The most reliable non-SDK method is actually through the Evernote

@@ -201,7 +201,6 @@ def format_wing_section(data: Dict) -> str:
 
 def format_spsa_section() -> str:
     """Format active SPSA cases section."""
-    from pathlib import Path as PathlibPath
     from core.ops.thunderbird_spsa import get_active_cases
 
     try:

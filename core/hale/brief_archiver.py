@@ -100,10 +100,7 @@ def backup_to_drive(brief_dir: Path) -> bool:
         return False
 
     try:
-        # Import MCP google_drive tools dynamically
-        # This is a placeholder; actual implementation depends on MCP availability
-        from mcp.claude_ai_google_drive import create_file as drive_create_file
-
+        # Drive backup not yet integrated; placeholder only
         logger.warning("Drive backup not yet integrated; placeholder only")
         # TODO: Implement actual Drive API calls via MCP
 

@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(ROOT, "core"))
 sys.path.insert(0, os.path.join(ROOT, "OpsCenter"))
 
 from decision_log import query as decision_log_query
-from ai_infra.client_memory_cache import get_client, set_client, list_clients, delete_client
+from ai_infra.client_memory_cache import get_client, set_client, list_clients
 from ops.session_checkpoint import write_checkpoint, read_latest as read_checkpoints
 
 def register_capability_tools(mcp):

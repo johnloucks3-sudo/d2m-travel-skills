@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # Try watchdog; fall back to polling if unavailable
 try:
     from watchdog.observers import Observer
-    from watchdog.events import FileSystemEventHandler, FileModifiedEvent
+    from watchdog.events import FileSystemEventHandler
     _HAS_WATCHDOG = True
 except ImportError:
     _HAS_WATCHDOG = False

@@ -26,7 +26,7 @@ Usage:
 """
 from __future__ import annotations
 import asyncio
-from typing import Any, Type
+from typing import Any
 
 TEMPORAL_HOST = "localhost:7233"
 TEMPORAL_NAMESPACE = "default"

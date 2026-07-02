@@ -340,7 +340,6 @@ def main():
 
     # 7. Format header row bold
     try:
-        from gspread.utils import rowcol_to_a1
         ws.format("A1:M1", {
             "textFormat": {"bold": True},
             "backgroundColor": {"red": 0.0, "green": 0.19, "blue": 0.53},  # navy #003087

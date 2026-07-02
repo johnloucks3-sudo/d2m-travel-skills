@@ -12,7 +12,7 @@ sys.path.insert(0, str(THUNDERBIRD_DIR / "core" / "email"))
 
 # Import the scanner functions
 try:
-    from thunderbird_email_scanner_fixed import classify_email, extract_staff_mention
+    from thunderbird_email_scanner_fixed import classify_email
 
     print("✓ Imported scanner functions")
 except ImportError as e:

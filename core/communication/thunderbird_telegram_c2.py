@@ -64,13 +64,11 @@ _bridge = ConversationBridge()
 
 from ai_infra.thunderbird_personas import (
     get_persona,
-    get_roster,
     PERSONA_REGISTRY,
     resolve_id,
 )
 from communication.thunderbird_telegram_tools_sdk import (
     call_cos_with_tools,
-    call_cos_via_cli,
     call_cos_via_sdk,
     classify_intent,
     _is_draft_request,
