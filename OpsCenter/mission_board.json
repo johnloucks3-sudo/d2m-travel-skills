@@ -1182,7 +1182,7 @@
     {
       "id": "MISSION-085",
       "title": "Grandeur Group \u2014",
-      "status": "suspended",
+      "status": "complete",
       "priority": "P1",
       "assigned_to": "A8 Reyes",
       "description": "Schengen Entry Verification US passports \u2014 Sweden/Norway/Denmark. Should be visa-free 90 days but needs formal verification documented in all 3 dossiers. Owner: Navarro (A1). All passports valid 2030+. P2",
@@ -1200,7 +1200,8 @@
       "definition_of_done": "Complete when visa-free status verified for all three couples across Sweden/Norway/Denmark by Navarro (A1), documented in all 3 dossiers, and Hale notified.",
       "suspended_date": "2026-06-21T12:00:00-06:00",
       "suspended_reason": "MISSION-320 audit \u2014 needs DOD clarity",
-      "log": []
+      "log": [],
+      "completion_note": "Schengen verification complete \u2014 dossiers/grandeur_group_schengen_verification_2026.md. Key finding: ETIAS NOT required (Q4 2026 launch; group departs Aug 29). All passports valid 2030+. No visa required any port."
     },
     {
       "id": "MISSION-087",
