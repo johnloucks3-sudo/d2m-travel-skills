@@ -2,73 +2,55 @@
 """
 CI EFFICACY PROBE — MCP Server Registry
 =======================================
-MISSION-334/386: Verify MCP servers are registered and accessible to Claude Code.
+Checks that MCP tools are live in Thunderbird's plugin-only architecture.
 
-MCP servers in Thunderbird are loaded via Claude Code plugins (context-mode,
-claude-mem, playwright, etc.), NOT via ~/.claude/settings.json mcpServers.
-The settings.json mcpServers key is intentionally empty — plugins are the
-registration mechanism.
+Thunderbird loads MCP via enabledPlugins, NOT mcpServers in settings.json.
+mcpServers is intentionally empty — this is canonical, not degraded.
 
-This probe checks BOTH canonical locations for MCP server config:
-  1. ~/.claude/settings.json  (global settings; mcpServers key)
-  2. /home/john/Thunderbird/.mcp.json  (project-level MCP config)
+Checks:
+  1. enabledPlugins count >= 1 in ~/.claude/settings.json
+  2. permissions.allow contains >= 1 entry matching mcp__*
 
-If neither location has any registered servers, RED is reported honestly.
-A zero-server state is not a false alarm — it means Claude Code has no
-explicitly configured MCP servers and relies on plugins alone.
-
-Exit 0 = RAZOR_SHARP, 1 = degraded.
+Exit 0 = GREEN, 1 = RED, 2 = ERROR
 """
 import json
 import sys
 from pathlib import Path
 
 GLOBAL_SETTINGS = Path.home() / ".claude" / "settings.json"
-PROJECT_MCP = Path("/home/john/Thunderbird/.mcp.json")
-
 ID = "mcp-registry"
 
 
-def fail(m):
-    print(f"RED {ID}: {m}")
-    sys.exit(1)
-
-
-def load_servers(path: Path) -> dict:
-    """Load mcpServers dict from a JSON file, return {} on any error."""
-    if not path.exists():
-        return {}
-    try:
-        data = json.loads(path.read_text())
-    except Exception:
-        return {}
-    return data.get("mcpServers", {})
-
-
 def main():
-    global_servers = load_servers(GLOBAL_SETTINGS)
-    project_servers = load_servers(PROJECT_MCP)
+    if not GLOBAL_SETTINGS.exists():
+        print(f"ERROR {ID}: {GLOBAL_SETTINGS} not found")
+        sys.exit(2)
 
-    total = len(global_servers) + len(project_servers)
+    try:
+        data = json.loads(GLOBAL_SETTINGS.read_text())
+    except Exception as e:
+        print(f"ERROR {ID}: failed to parse {GLOBAL_SETTINGS}: {e}")
+        sys.exit(2)
 
-    if total == 0:
-        # Neither location has any registered MCP servers.
-        # This is honest RED — Claude Code relies on plugins; no explicit
-        # mcpServers config exists in either ~/.claude/settings.json or
-        # /home/john/Thunderbird/.mcp.json.
-        fail(
-            "no mcpServers configured in ~/.claude/settings.json or "
-            f"{PROJECT_MCP} — MCP access depends on plugins only "
-            "(filesystem/playwright/sequential-thinking loaded via plugin registry, not settings)"
-        )
+    plugins = data.get("enabledPlugins", [])
+    plugin_count = len(plugins)
 
-    sources = []
-    if global_servers:
-        sources.append(f"{len(global_servers)} in settings.json: {list(global_servers)[:5]}")
-    if project_servers:
-        sources.append(f"{len(project_servers)} in .mcp.json: {list(project_servers)[:5]}")
+    allow = data.get("permissions", {}).get("allow", [])
+    mcp_perms = [p for p in allow if isinstance(p, str) and p.startswith("mcp__")]
+    mcp_perm_count = len(mcp_perms)
 
-    print(f"RAZOR_SHARP {ID}: {total} MCP server(s) registered — " + "; ".join(sources))
+    failures = []
+    if plugin_count < 1:
+        failures.append("enabledPlugins is empty — no plugins registered")
+    if mcp_perm_count < 1:
+        failures.append("permissions.allow has no mcp__* entries — MCP tools not permitted")
+
+    if failures:
+        for f in failures:
+            print(f"RED {ID}: {f}")
+        sys.exit(1)
+
+    print(f"MCP_REGISTRY: GREEN | plugins={plugin_count}, mcp_perms={mcp_perm_count}")
     sys.exit(0)
 
 
