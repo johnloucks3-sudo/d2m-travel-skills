@@ -1,0 +1,18 @@
+[Unit]
+Description=Thunderbird OC-lane brain_bridge worker (plan %i)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=python3 /home/john/Thunderbird/scripts/opencode_worker.py
+Environment=PLAN_ID=%i
+Environment=WORKER_ID=oc-scout-%i
+Environment=LANE=oc
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

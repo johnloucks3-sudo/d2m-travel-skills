@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "graphiti": {
+      "type": "http",
+      "url": "http://127.0.0.1:8766",
+      "description": "Graphiti temporal entity memory — shared across CC and OC"
+    },
+    "travel": {
+      "type": "http",
+      "url": "http://127.0.0.1:8765/mcp",
+      "description": "D2M Thunderbird travel automation — shared Streamable HTTP MCP (port 8765). Accessible by Claude Code, cc-fleet, and OpenCode simultaneously."
+    },
+    "travel-replica": {
+      "type": "http",
+      "url": "http://127.0.0.1:8768/mcp",
+      "description": "Second travel MCP instance for parallel agent load distribution (port 8768)."
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-07-02T21:39:00.056221+00:00",
+  "overall": 100,
+  "dimensions": {
+    "seat_integration": {
+      "score": 100,
+      "max": 100,
+      "detail": {
+        "hale": {
+          "engine": "cc",
+          "file": "cos-hale.md",
+          "found": true
+        },
+        "dembe": {
+          "engine": "cc",
+          "file": "a2-dembe.md",
+          "found": true
+        },
+        "dani": {
+          "engine": "cc",
+          "file": "a3-moreau.md",
+          "found": true
+        },
+        "luna": {
+          "engine": "cc",
+          "file": "a6-voss.md",
+          "found": true
+        },
+        "sterling": {
+          "engine": "cc",
+          "file": "a7-sterling.md",
+          "found": true
+        },
+        "reyes": {
+          "engine": "cc",
+          "file": "a8-reyes.md",
+          "found": true
+        },
+        "harlan": {
+          "engine": "cc",
+          "file": "a9-harlan.md",
+          "found": true
+        },
+        "ikeda": {
+          "engine": "cc",
+          "file": "a10-ikeda.md",
+          "found": true
+        },
+        "elon": {
+          "engine": "cc",
+          "file": "a12-elon.md",
+          "found": true
+        },
+        "naia": {
+          "engine": "cc",
+          "file": "exec-solberg-vega.md",
+          "found": true
+        },
+        "whetstone": {
+          "engine": "cc",
+          "file": "a14-whetstone.md",
+          "found": true
+        },
+        "oc-scout-2": {
+          "engine": "oc",
+          "file": "opencode_agents.generated.json",
+          "found": true
+        },
+        "oc-scout-1": {
+          "engine": "oc",
+          "file": "opencode_agents.generated.json",
+          "found": true
+        }
+      }
+    },
+    "plane_integration": {
+      "score": 100,
+      "max": 100,
+      "detail": {
+        "board_exists": true,
+        "total_plans": 2,
+        "cross_lane_plans": 1
+      }
+    },
+    "memory_integration": {
+      "score": 99,
+      "max": 100,
+      "detail": {
+        "qdrant": {
+          "up": true,
+          "collections": [
+            "thunderbird_memories"
+          ]
+        },
+        "graphiti_runbook": {
+          "exists": true,
+          "path": "/home/john/Thunderbird/docs/GRAPHITI_SELFHOST_RUNBOOK.md"
+        },
+        "graphiti_mcp_configured": true
+      }
+    },
+    "process_integration": {
+      "score": 99,
+      "max": 100,
+      "detail": {
+        "metronome_seq": {
+          "exists": true,
+          "path": "/home/john/Thunderbird/OpsCenter/.metronome_seq"
+        },
+        "opencode_worker_py": {
+          "exists": true,
+          "path": "/home/john/Thunderbird/scripts/opencode_worker.py"
+        },
+        "board_has_completed_task": true
+      }
+    }
+  },
+  "gaps_to_100": [
+    "Memory: ",
+    "Process: "
+  ]
+}
