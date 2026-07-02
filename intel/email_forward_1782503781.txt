@@ -1,0 +1,65 @@
+Subject: ⚓ Silver Nova May 2027 — Excursion Research v2 (Blank Slate, All Providers)
+From: johnloucks3@gmail.com
+Received: 2026-06-26T19:56:21.992358+00:00
+
+⚓ SILVER NOVA — MAY 2027 EXCURSION RESEARCH v2
+Booking 506101-26 · Segments SN270505010 / SN270515007 / SN270522007 · May
+5–29, 2027
+Travelers: Col. John A. Loucks III & Mrs. Susan D. Loucks · Commander's
+Eyes Only
+Prepared by: Dreams2Memories Travel, LLC · Hale COS + Dembe Research Wing ·
+2026-06-23
+⚠ BUDGET CEILING: $2,500 TOTAL FOR TWO — ALL PROVIDERS COMBINED
+BEST VALUE saves vs. original or top-rated option GOOD / CONSIDER strong
+option, moderate cost EXPENSIVE highest cost, consider alternatives SELF-GUIDED
+Commander decision — free RECOMMENDED Hale's first choice per port NO DATA
+🦯 Low distance / flat preferred (John) 🚫 No raw fish (Susan) 🍷 Culinary
+/ wine / leisurely 🚢 GGR = guaranteed return to ship ⚓ TENDER = boat
+transfer required
+A — SEARCH PARAMETERS & METHODOLOGY Search Scope
+
+Full blank-slate research across all 19 unique ports (B2B2B itinerary, May
+5–29, 2027). No previous bookings locked — Silversea and Project Expedition
+entries treated as candidates, not commitments. Shore excursions only (no
+multi-day land tours). GGR (guaranteed return to ship) required or
+meet-point specified. Budget ceiling: $2,500 TOTAL for both travelers.
+Traveler Parameters
+
+   - * John: * Mobility considerations — low walking distance, flat terrain
+   strongly preferred. No adventure/active activities. Sea-level or minimal
+   stairs.
+   - * Susan: * No raw fish. Both prefer culinary, wine, food tours,
+   leisurely cultural experiences. No athletic excursions.
+   - * Santorini directive: * Find a way to get into town and walk around
+   (cable car situation addressed in AFTER table).
+
+Sources Searched
+GetYourGuide (GYG)
+
+Primary scraper: scripts/test_tour_scrapers.py — Playwright headless
+Chromium with JS tour-card extraction. Searched all 19 ports for "food tour
+wine tasting." 403-blocked on Santorini and Athens; Katakolon/Dubrovnik
+returned wrong-city results (GYG index artifact). Prices via direct page
+extraction + WebSearch fallback.
+Project Expedition (PE)
+
+WebSearch via site:projectexpedition.com [port] food wine shore excursion .
+PE portal navigation times out headlessly (Akamai protection). WebSearch
+returns direct PE URLs with tour IDs and descriptions. Used for all ports
+where GYG was blocked or weak.
+Silversea (SS)
+
+Original dossier data from dossiers/Loucks_SilverNova_May2027_Excursions.md —
+portal-captured excursion inventory. Used for Nafplion (only viable option)
+and as BEFORE baseline for all 5 previously booked ports.
+Shore Excursions Group (SEG)
+
+Pre-loaded scan via scripts/cruise_excursion_scan.py →
+core/travel/data/loucks_cruise_excursions.json
+. GGR-guaranteed third-party provider. Used as price reference and backup
+option for several ports.
+Anansi + WebSearch (Perplexity)
+
+Used for price verification on GYG ports where scraper returned no price
+(Bari, Koper, Bodrum). Also used to search PE for specific ports and to
+find GYG tour IDs via search (Katakolon). Bot walls bypasse

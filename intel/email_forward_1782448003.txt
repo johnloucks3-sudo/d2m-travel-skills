@@ -1,0 +1,178 @@
+Subject: Thunderbird — Canonical Email Pattern (ALL emails · dark navy · USAFA colors RETIRED)
+From: johnloucks3@gmail.com
+Received: 2026-06-26T04:26:43.210728+00:00
+
+⚡ Canonical Email Pattern — Wing Standard
+
+  Thunderbird Wing · 2026-06-25 · ALL emails to johnloucks3 · USAFA colors permanently retired
+
+  ❌ RETIRED — Never Use These Again
+
+  USAFA cream #f7f3ea and blue #0000ff are gone from ALL email contexts — internal, personal, client, briefs, everything.
+
+  Commander directive 2026-06-25. No exceptions. No legacy modes.
+
+  Color Palette — Dark Navy System
+
+  
+    
+      Page outer
+      #07076b
+      body background
+    
+
+    
+      Card/panel
+      #09095a
+      content sections
+    
+
+    
+      Code/inset
+      #0d0d4a
+      code blocks, quoted
+    
+
+    
+      Body text
+      #e8f1ff
+      primary content
+    
+
+    
+      Headings
+      #a8c4ff
+      h1, h2
+    
+
+    
+      Labels/meta
+      #7090cc
+      secondary text
+    
+
+    
+      Body copy
+      #c8dcff
+      paragraph text on dark
+    
+
+    
+      OK/confirmed
+      #4ade80
+      verified, active
+    
+
+    
+      Warning/hold
+      #f59e0b
+      timers, caveats
+    
+
+    
+      Error/dead
+      #f87171
+      failures, disabled
+    
+
+  
+
+  The Canonical Send Pattern (Python)
+
+  
+    import base64
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+
+TOKEN = "/home/john/Thunderbird/creds/johnloucks3_token.json"
+creds = Credentials.from_authorized_user_file(TOKEN)
+service = build('gmail', 'v1', credentials=creds,
+                cache_discovery=False)   # ← always False
+
+msg = MIMEMultipart('alternative')
+msg['To'] = "johnloucks3@gmail.com"
+msg['From'] = "johnloucks3@gmail.com"  # ← always explicit
+msg['Subject'] = "Subject"
+msg.attach(MIMEText(html_body, 'html'))
+
+raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+result = service.users().messages().send(
+    userId='me', body={'raw': raw}).execute()
+print(f"SENT: {result['id']}")
+  
+
+  Which Email Type Gets What
+
+  
+    
+      Type
+      Action
+      From
+    
+
+    
+      Internal brief / report / intel
+      FULL SEND
+      johnloucks3
+    
+
+    
+      Personal / non-D2M
+      FULL SEND
+      johnloucks3
+    
+
+    
+      Wing instructions / system docs
+      FULL SEND
+      johnloucks3
+    
+
+    
+      Client TP / proposal / validation
+      DRAFT → WF-17
+      johnloucks3 (Commander sends)
+    
+
+  
+
+  Key Caveats
+
+  
+    
+      ❌
+      Do NOT use MCP Gmail tools for sends — scope failures, silent drops. Python only.
+    
+
+    
+      ❌
+      Do NOT use concierge@d2mluxury.quest as From — bounces iCloud. johnloucks3 only for now.
+    
+
+    
+      ✅
+      cache_discovery=False — always. Prevents 403s from stale discovery cache.
+    
+
+    
+      ✅
+      msg['From'] = 'johnloucks3@gmail.com' — always explicit.
+    
+
+    
+      ✅
+      Inline all CSS — <style> blocks strip in Gmail. style="" attributes survive.
+    
+
+  
+
+  Reusable Helper
+
+  Full reference: docs/EMAIL_SEND_CANONICAL.md
+
+  
+    from scripts.wing_email_sender import send_wing_email
+
+    msg_id = send_wing_

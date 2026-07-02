@@ -1,0 +1,36 @@
+Subject: Tech Scan 2026-07-01 11:00 UTC — 3 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-01T11:01:33.588819+00:00
+
+TECH SCAN — 2026-07-01 11:00 UTC
+airborne scanner pulse · 24 finds · sectors browser, llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 19 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Open-source Claude/Codex/Cursor limits tracker for Mac — https://github.com/aalksii/creditwatcher
+↳ real tool (github.com, mit) — worth a bounded look
+Claude Code Skills: 98 AI architectures, Haiku at 93% of Fable 5 quality — https://github.com/GPire/claude-skills-swarm
+↳ real tool (skill, github.com) — worth a bounded look
+AgentWire: Orchestrating many Claude Code sessions via tmux and voice-control — https://github.com/dotdevdotdev/agentwire-dev
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Introducing Claude Sonnet 5, our most agentic Sonnet yet.
+Anthropic embedded spyware in Claude Code — and attempted to hide it from you
+Claude Mythos 5/Fable 5 export restrictions lifted
+Introducing Claude Sonnet 5
+Claude Desktop is now available on Linux (Ubuntu and Debian) in beta.
+Claude Command Classifier: availability issues — https://news.ycombinator.com/item?id=48743618
+Can't copy-paste in Claude Code? "/tui default" and your back in business — https://news.ycombinator.com/item?
+Claude Code uses prompt caching — https://code.claude.com/docs/en/prompt-caching
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):Ask HN: Help my web browser project be better — https://news.ycombinator.com/item?id=48736
+Learn JavaScript with Claude in 2026: build real skills, not AI dependency — https://dev.t
+RAW — all finds this pulse (unfiltered)[llm] Introducing Claude Sonnet 5, our most agentic Sonnet yet. (Reddit r/ClaudeAI)
+[llm] Anthropic embedded spyware in Claude Code — and attempted to hide it from you (Reddit r/ClaudeAI)
+[llm] Claude Mythos 5/Fable 5 export restrictions lifted (Reddit r/ClaudeAI)
+[llm] Introducing Claude Sonnet 5 (Reddit r/ClaudeAI)
+[llm] Claude Desktop is now available on Linux (Ubuntu and Debian) in beta. (Reddit r/ClaudeAI)
+[llm] Open-source Claude/Codex/Cursor limits tracker for Mac — https://github.com/aalksii/creditwatcher (Hacker News — Claude Code)
+[llm] Claude Command Classifier: availability issues — https://news.ycombinator.com/item?id=48743618 (Hacker News — Claude Code)
+[llm] Can't copy-paste in Claude Code? "/tui default" and your back in business — https://news.ycombinator.com/item?id=4874341 (Hacker News — Claude Code)
+[llm] Claude Code uses prompt caching — https://code.claude.com/docs/en/prompt-caching (Hacker News — Claude Code)
+[llm] The Job archetypes of the future, according to Claude Code's creator — https://www.businessinsider.com/job-archetypes-ai (Hacker News — Claude Code)
+[llm] Vibe-coding video games with Claude (Day 75: Corner the Market) — https://gamevibe.us/75-corner-the-market (Hacker News — Claude Code)
+[llm] Claude Code users complain their chat records are being mysteriously wiped out — https://www.theregister.com/ai-and-ml/2 (Hacker News — Cla

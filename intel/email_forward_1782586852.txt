@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-06-27 19:00 UTC — 2 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-06-27T19:00:52.251524+00:00
+
+TECH SCAN — 2026-06-27 19:00 UTC
+airborne scanner pulse · 12 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 2 TRIAL · 10 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Skillmaxxing – make every agent self-evolving — https://github.com/Bennyoooo/skillmaxxing
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Smart model routing directly in Claude, Codex and Cursor — https://github.com/workweave/router
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I used Claude to fix my biggest frustration with PDFs
+Trump admin allows Anthropic to release Mythos AI model to some companies, government agencies: Reports
+What’s your most-used Claude prompt that you can’t live without?
+How Boris Cherny Uses Claude Code — https://howborisusesclaudecode.com
+Show HN: AI-whisper – Claude works better when Codex watches its back — https://ai-creed.dev/projects/ai-whisp
+Trump admin allows Anthropic to release Mythos AI model to some companies — https://www.cnbc.com/2026/06/26/us
+Show HN: Orchestrate Claude Code agents on a canvas — https://rondoflow.app/
+Show HN: Novakit.tech – pre-built Claude Code skills, no prompting required — https://novakit.tech/
+RAW — all finds this pulse (unfiltered)[llm] I used Claude to fix my biggest frustration with PDFs (Reddit r/ClaudeAI)
+[llm] Trump admin allows Anthropic to release Mythos AI model to some companies, government agencies: Reports (Reddit r/ClaudeAI)
+[llm] What’s your most-used Claude prompt that you can’t live without? (Reddit r/ClaudeAI)
+[llm] How Boris Cherny Uses Claude Code — https://howborisusesclaudecode.com (Hacker News — Claude Code)
+[llm] Show HN: AI-whisper – Claude works better when Codex watches its back — https://ai-creed.dev/projects/ai-whisper/ (Hacker News — Claude Code)
+[llm] Trump admin allows Anthropic to release Mythos AI model to some companies — https://www.cnbc.com/2026/06/26/us-governmen (Hacker News — Claude Code)
+[llm] Show HN: Skillmaxxing – make every agent self-evolving — https://github.com/Bennyoooo/skillmaxxing (Hacker News — Claude Code)
+[llm] Show HN: Smart model routing directly in Claude, Codex and Cursor — https://github.com/workweave/router (Hacker News — Claude Code)
+[llm] Show HN: Orchestrate Claude Code agents on a canvas — https://rondoflow.app/ (Hacker News — Claude Code)
+[llm] Show HN: Novakit.tech – pre-built Claude Code skills, no prompting required — https://novakit.tech/ (Hacker News — Claude Code)
+[llm] Show HN: Verity – self-healing review gate for Claude Code — https://verity.md (Hacker News — Claude Code)
+[llm] AI System Design Interview Questions: ChatGPT, RAG, LLM Inference, and Agents — https://dev.to/arslan_ah/ai-system-desig (dev.to Claude)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

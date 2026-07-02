@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-01 19:00 UTC — 3 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-01T19:00:29.079588+00:00
+
+TECH SCAN — 2026-07-01 19:00 UTC
+airborne scanner pulse · 17 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 14 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: I Made TS Compiler Graph MCP: 10x Fewer Tokens in Claude Code and Codex — https://github.com/samchon/ttsc/tree/master/pac
+↳ real tool (mcp, github.com) — worth a bounded look
+Recursive AI Research Skill for Claude Code / OpenClaw / Codex — https://github.com/Toadoum/ai-research-skill
+↳ real tool (skill, github.com) — worth a bounded look
+Heading OS – Run a company (as the CEO) from Claude Code, with data kept private — https://github.com/mishahanin/heading-os
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Introducing Claude Sonnet 5, our most agentic Sonnet yet.
+Anthropic embedded spyware in Claude Code — and attempted to hide it from you
+Looks like Anthropic quietly updated the Sonnet 5 'Agentic search' benchmark graph overnight
+Claude Code suddenly tried to open a Remote Desktop connection on my PC. This seriously scared me.
+HT-ML.app – Deploy HTML Artifacts from Claude Code and Codex — https://ht-ml.app/
+Stop wasting tokens everytime you continue a Claude Code session — https://recallplugin.dev
+Using network namespaces to discover how Claude Code scrapes — https://patrickmccanna.net/inspecting-claude-co
+What's hiding in your Claude Code config files? I mined mine-found 22 patterns — https://astgl.com/p/skill-min
+RAW — all finds this pulse (unfiltered)[agentic] Introducing Claude Sonnet 5, our most agentic Sonnet yet. (Reddit r/ClaudeAI)
+[claude-code] Anthropic embedded spyware in Claude Code — and attempted to hide it from you (Reddit r/ClaudeAI)
+[agentic] Looks like Anthropic quietly updated the Sonnet 5 'Agentic search' benchmark graph overnight (Reddit r/ClaudeAI)
+[claude-code] Claude Code suddenly tried to open a Remote Desktop connection on my PC. This seriously scared me. (Reddit r/ClaudeAI)
+[claude-code] Show HN: I Made TS Compiler Graph MCP: 10x Fewer Tokens in Claude Code and Codex — https://github.com/samchon/ttsc/tree/ (Hacker News — Claude Code)
+[claude-code] HT-ML.app – Deploy HTML Artifacts from Claude Code and Codex — https://ht-ml.app/ (Hacker News — Claude Code)
+[claude-code] Stop wasting tokens everytime you continue a Claude Code session — https://recallplugin.dev (Hacker News — Claude Code)
+[claude-code] Recursive AI Research Skill for Claude Code / OpenClaw / Codex — https://github.com/Toadoum/ai-research-skill (Hacker News — Claude Code)
+[claude-code] Heading OS – Run a company (as the CEO) from Claude Code, with data kept private — https://github.com/mishahanin/heading (Hacker News — Claude Code)
+[claude-code] Using network namespaces to discover how Claude Code scrapes — https://patrickmccanna.net/inspecting-claude-codes-networ (Hacker News — Claude Code)
+[claude-code] What's hiding in your Claude Code config files? I mined mine-found 22 patterns — https:/

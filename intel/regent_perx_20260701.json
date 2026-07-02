@@ -1,0 +1,308 @@
+[
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Splendor",
+    "departure": "2026-07-28",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "194226",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-splendor/itineraries/194226/sailings/2026-07-28",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Explorer",
+    "departure": "2026-07-08",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Anchorage, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "221111",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-explorer/itineraries/221111/sailings/2026-07-08",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Explorer",
+    "departure": "2026-07-29",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Vancouver, BC",
+    "to_port": "Anchorage, AK",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "221110",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-explorer/itineraries/221110/sailings/2026-07-29",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Voyager",
+    "departure": "2026-07-10",
+    "nights": 10,
+    "route": "10-nt Mediterranean",
+    "from_port": "Civitavecchia (Rome), Italy",
+    "to_port": "Lisbon, Portugal",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "222668",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-voyager/itineraries/222668/sailings/2026-07-10",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Navigator",
+    "departure": "2026-07-19",
+    "nights": 9,
+    "route": "9-nt Europe",
+    "from_port": "Dover, England",
+    "to_port": "Stockholm, Sweden",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200480",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-navigator/itineraries/200480/sailings/2026-07-19",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Splendor",
+    "departure": "2026-07-28",
+    "nights": 14,
+    "route": "14-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "194217",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-splendor/itineraries/194217/sailings/2026-07-28",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Voyager",
+    "departure": "2026-07-20",
+    "nights": 14,
+    "route": "14-nt Europe",
+    "from_port": "Lisbon, Portugal",
+    "to_port": "Southampton, England",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200487",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-voyager/itineraries/200487/sailings/2026-07-20",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Mariner",
+    "departure": "2026-07-17",
+    "nights": 14,
+    "route": "14-nt Europe",
+    "from_port": "Reykjavik, Iceland",
+    "to_port": "Southampton, England",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200486",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-mariner/itineraries/200486/sailings/2026-07-17",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Navigator",
+    "departure": "2026-07-28",
+    "nights": 15,
+    "route": "15-nt Europe",
+    "from_port": "Stockholm, Sweden",
+    "to_port": "Le Havre (Paris), France",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "194219",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-navigator/itineraries/194219/sailings/2026-07-28",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Mariner",
+    "departure": "2026-07-31",
+    "nights": 18,
+    "route": "18-nt Europe",
+    "from_port": "Southampton, England",
+    "to_port": "Copenhagen, Denmark",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "220357",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-mariner/itineraries/220357/sailings/2026-07-31",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Grandeur",
+    "departure": "2026-08-01",
+    "nights": 14,
+    "route": "14-nt Europe",
+    "from_port": "Reykjavik, Iceland",
+    "to_port": "Oslo, Norway",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "204761",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-grandeur/itineraries/204761/sailings/2026-08-01",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Grandeur",
+    "departure": "2026-07-05",
+    "nights": 7,
+    "route": "7-nt Europe",
+    "from_port": "Belfast, Northern Ireland",
+    "to_port": "Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200477",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-grandeur/itineraries/200477/sailings/2026-07-05",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Navigator",
+    "departure": "2026-07-05",
+    "nights": 14,
+    "route": "14-nt Europe",
+    "from_port": "Barcelona, Spain",
+    "to_port": "Dover, England",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200483",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-navigator/itineraries/200483/sailings/2026-07-05",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Grandeur",
+    "departure": "2026-07-12",
+    "nights": 10,
+    "route": "10-nt Europe",
+    "from_port": "Reykjavik, Iceland",
+    "to_port": "Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "200488",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-grandeur/itineraries/200488/sailings/2026-07-12",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Explorer",
+    "departure": "2026-07-15",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Vancouver, BC",
+    "to_port": "Anchorage, AK",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "221112",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-explorer/itineraries/221112/sailings/2026-07-15",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Grandeur",
+    "departure": "2026-07-22",
+    "nights": 10,
+    "route": "10-nt Arctic",
+    "from_port": "Reykjavik, Iceland",
+    "to_port": "Reykjavik, Iceland",
+    "region": "World",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "194221",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-grandeur/itineraries/194221/sailings/2026-07-22",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Regent Seven Seas Cruises",
+    "ship": "Seven Seas Explorer",
+    "departure": "2026-07-22",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Anchorage, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "221109",
+    "url": "https://www.perx.com/cruises/regent-seven-seas-cruises/seven-seas-explorer/itineraries/221109/sailings/2026-07-22",
+    "sources": [
+      "regent_perx"
+    ],
+    "scraped": "2026-07-01"
+  }
+]

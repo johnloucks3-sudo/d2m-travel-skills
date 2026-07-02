@@ -1,0 +1,27 @@
+[
+  {
+    "ts": "2026-06-26T15:18:48.627921-06:00",
+    "name": "Sarah Langford",
+    "email": "sarah.langford@test.com",
+    "phone": "303-555-7890",
+    "notes": "Party of 2, interested in balcony suite. Flexible on dates by a week.",
+    "sailings": [
+      {
+        "line": "Oceania Cruises",
+        "ship": "Sirena",
+        "departure": "",
+        "nights": 13,
+        "route": "Southampton, England \u2192 Oslo, Norway",
+        "region": "Baltic / N. Europe"
+      },
+      {
+        "line": "Oceania Cruises",
+        "ship": "Sirena",
+        "departure": "",
+        "nights": 11,
+        "route": "Oslo, Norway \u2192 Stockholm, Sweden",
+        "region": "Baltic / N. Europe"
+      }
+    ]
+  }
+]

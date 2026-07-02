@@ -1,0 +1,31 @@
+Subject: Tech Scan 2026-06-30 11:00 UTC — 3 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-06-30T11:00:34.755852+00:00
+
+TECH SCAN — 2026-06-30 11:00 UTC
+airborne scanner pulse · 10 finds · sectors agentic, ai-writing, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 7 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Shipwright Harness – open-source autonomous delivery agent for Claude Code (MIT) — https://github.com/app-vitals/shipwright
+↳ real tool (github.com, mit) — worth a bounded look
+Show HN: Agentic Orchestrator, a TUI for long-running coding agents — https://github.com/doordash-oss/agentic-orchestrator
+↳ real tool (github.com) — worth a bounded look
+Your MCP servers are burning 50k+ tokens before you type a word — https://dev.to/alih552/your-mcp-servers-are-burning-50k-tokens-b
+↳ real tool (server, mcp) — worth a bounded look
+👁 WATCH:After using my own Pro subscription for 18 months, my job finally got an enterprise license. I just had Opus s
+I have open-sourced gojaja, a CLI for local multi-agent collaboration — https://news.ycombinator.com/item?id=4
+Show HN: AMA2, messenger built for AI agent — https://ama2.me/
+You shouldn't copy-paste errors into Claude Code — https://home.robusta.dev/blog/you-really-shouldnt-copy-past
+AI loops: who pays for the tokens? — https://www.jackfranklin.co.uk/blog/claude-code-ai-feedback-skill/
+Vibe Coding to Agentic Engineering: A Three-Phase Workflow with Claude Code — https://www.apimatic.io/blog/age
+Claude Code to Outlook via pywin32 — no MCP, no permission, no problem. — https://dev.to/joseph_solomon_20a156
+RAW — all finds this pulse (unfiltered)[agentic] After using my own Pro subscription for 18 months, my job finally got an enterprise license. I just had Opus spawn 451 S (Reddit r/ClaudeAI)
+[agentic] I have open-sourced gojaja, a CLI for local multi-agent collaboration — https://news.ycombinator.com/item?id=48728744 (Hacker News — Claude Code)
+[agentic] Shipwright Harness – open-source autonomous delivery agent for Claude Code (MIT) — https://github.com/app-vitals/shipwri (Hacker News — Claude Code)
+[agentic] Show HN: Agentic Orchestrator, a TUI for long-running coding agents — https://github.com/doordash-oss/agentic-orchestrat (Hacker News — Claude Code)
+[agentic] Show HN: AMA2, messenger built for AI agent — https://ama2.me/ (Hacker News — Claude Code)
+[ai-writing] You shouldn't copy-paste errors into Claude Code — https://home.robusta.dev/blog/you-really-shouldnt-copy-paste-errors-i (Hacker News — Claude Code)
+[agentic] AI loops: who pays for the tokens? — https://www.jackfranklin.co.uk/blog/claude-code-ai-feedback-skill/ (Hacker News — Claude Code)
+[agentic] Vibe Coding to Agentic Engineering: A Three-Phase Workflow with Claude Code — https://www.apimatic.io/blog/agentic-engin (Hacker News — Claude Code)
+[mcp] Your MCP servers are burning 50k+ tokens before you type a word — https://dev.to/alih552/your-mcp-servers-are-burning-50 (dev.to Claude)
+[mcp] Claude Code to Outlook via pywin32 — no MCP, no permission, no problem. — https://dev.to/joseph_solomon_20a1569

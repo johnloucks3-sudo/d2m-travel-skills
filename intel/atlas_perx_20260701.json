@@ -1,0 +1,110 @@
+[
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-10",
+    "nights": 10,
+    "route": "10-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "222653",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-traveller/itineraries/222653/sailings/2026-07-10",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-07-19",
+    "nights": 12,
+    "route": "12-nt Arctic",
+    "from_port": "Oslo, Norway",
+    "to_port": "Longyearbyen, Norway",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "222651",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-navigator/itineraries/222651/sailings/2026-07-19",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-20",
+    "nights": 10,
+    "route": "10-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Civitavecchia (Rome), Italy",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "202551",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-traveller/itineraries/202551/sailings/2026-07-20",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Voyager",
+    "departure": "2026-07-29",
+    "nights": 10,
+    "route": "10-nt Arctic",
+    "from_port": "Longyearbyen, Norway",
+    "to_port": "Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "223058",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-voyager/itineraries/223058/sailings/2026-07-29",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Traveller",
+    "departure": "2026-07-30",
+    "nights": 10,
+    "route": "10-nt Mediterranean",
+    "from_port": "Civitavecchia (Rome), Italy",
+    "to_port": "Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "222652",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-traveller/itineraries/222652/sailings/2026-07-30",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  },
+  {
+    "line": "Atlas Ocean Voyages",
+    "ship": "World Navigator",
+    "departure": "2026-07-31",
+    "nights": 11,
+    "route": "11-nt Arctic",
+    "from_port": "Longyearbyen, Norway",
+    "to_port": "Reykjavik, Iceland",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "207091",
+    "url": "https://www.perx.com/cruises/atlas-ocean-voyages/world-navigator/itineraries/207091/sailings/2026-07-31",
+    "sources": [
+      "atlas_perx"
+    ],
+    "scraped": "2026-07-01"
+  }
+]

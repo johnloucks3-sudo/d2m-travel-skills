@@ -1,0 +1,740 @@
+[
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Ray",
+    "departure": "2026-07-05",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Monte Carlo, Monaco",
+    "to_port": "Civitavecchia (Rome), Italy",
+    "region": "Mediterranean",
+    "price_orig": 8900,
+    "price_disc": 3100,
+    "itinerary_id": "197913",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-ray/itineraries/197913/sailings/2026-07-05",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Nova",
+    "departure": "2026-07-05",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Lavrion (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 9900,
+    "price_disc": 3100,
+    "itinerary_id": "220365",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-nova/itineraries/220365/sailings/2026-07-05",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Nova",
+    "departure": "2026-07-19",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 9700,
+    "price_disc": 3200,
+    "itinerary_id": "227604",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-nova/itineraries/227604/sailings/2026-07-19",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Ray",
+    "departure": "2026-07-25",
+    "nights": 8,
+    "route": "8-nt Mediterranean",
+    "from_port": "Barcelona, Spain",
+    "to_port": "Monte Carlo, Monaco",
+    "region": "Mediterranean",
+    "price_orig": 8500,
+    "price_disc": 3200,
+    "itinerary_id": "226149",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-ray/itineraries/226149/sailings/2026-07-25",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Nova",
+    "departure": "2026-07-12",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Piraeus (Athens), Greece",
+    "region": "Mediterranean",
+    "price_orig": 9400,
+    "price_disc": 3300,
+    "itinerary_id": "197954",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-nova/itineraries/197954/sailings/2026-07-12",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Nova",
+    "departure": "2026-07-26",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Piraeus (Athens), Greece",
+    "to_port": "Fusina (Venice), Italy",
+    "region": "Mediterranean",
+    "price_orig": 9180,
+    "price_disc": 3600,
+    "itinerary_id": "201808",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-nova/itineraries/201808/sailings/2026-07-26",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Spirit",
+    "departure": "2026-07-01",
+    "nights": 11,
+    "route": "11-nt Europe",
+    "from_port": "IJmuiden (Amsterdam), Netherlands",
+    "to_port": "Southampton, England",
+    "region": "Northern Europe",
+    "price_orig": 11500,
+    "price_disc": 3200,
+    "itinerary_id": "197934",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-spirit/itineraries/197934/sailings/2026-07-01",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Muse",
+    "departure": "2026-07-12",
+    "nights": 9,
+    "route": "9-nt Mediterranean",
+    "from_port": "Fusina (Venice), Italy",
+    "to_port": "Fusina (Venice), Italy",
+    "region": "Mediterranean",
+    "price_orig": 9200,
+    "price_disc": 3400,
+    "itinerary_id": "197897",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-muse/itineraries/197897/sailings/2026-07-12",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Spirit",
+    "departure": "2026-07-12",
+    "nights": 11,
+    "route": "11-nt Europe",
+    "from_port": "Southampton, England",
+    "to_port": "IJmuiden (Amsterdam), Netherlands",
+    "region": "Northern Europe",
+    "price_orig": 12300,
+    "price_disc": 3200,
+    "itinerary_id": "197932",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-spirit/itineraries/197932/sailings/2026-07-12",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Muse",
+    "departure": "2026-07-03",
+    "nights": 9,
+    "route": "9-nt Mediterranean",
+    "from_port": "Fusina (Venice), Italy",
+    "to_port": "Fusina (Venice), Italy",
+    "region": "Mediterranean",
+    "price_orig": 8700,
+    "price_disc": 3800,
+    "itinerary_id": "220360",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-muse/itineraries/220360/sailings/2026-07-03",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Muse",
+    "departure": "2026-07-21",
+    "nights": 10,
+    "route": "10-nt Mediterranean",
+    "from_port": "Fusina (Venice), Italy",
+    "to_port": "Civitavecchia (Rome), Italy",
+    "region": "Mediterranean",
+    "price_orig": 10100,
+    "price_disc": 4000,
+    "itinerary_id": "197903",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-muse/itineraries/197903/sailings/2026-07-21",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-13",
+    "nights": 6,
+    "route": "6-nt Mediterranean",
+    "from_port": "Nice, France",
+    "to_port": "Valletta, Malta",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 4100,
+    "itinerary_id": "227602",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/227602/sailings/2026-07-13",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-13",
+    "nights": 12,
+    "route": "12-nt Mediterranean",
+    "from_port": "Nice, France",
+    "to_port": "Nice, France",
+    "region": "Mediterranean",
+    "price_orig": 11200,
+    "price_disc": 3900,
+    "itinerary_id": "227601",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/227601/sailings/2026-07-13",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-19",
+    "nights": 6,
+    "route": "6-nt Mediterranean",
+    "from_port": "Valletta, Malta",
+    "to_port": "Nice, France",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 4600,
+    "itinerary_id": "227605",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/227605/sailings/2026-07-19",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Endeavour",
+    "departure": "2026-06-29",
+    "nights": 9,
+    "route": "9-nt Arctic",
+    "from_port": "Tromso, Norway",
+    "to_port": "Longyearbyen, Norway",
+    "region": "Northern Europe",
+    "price_orig": 15000,
+    "price_disc": 7300,
+    "itinerary_id": "197884",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-endeavour/itineraries/197884/sailings/2026-06-29",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Dawn",
+    "departure": "2026-07-15",
+    "nights": 10,
+    "route": "10-nt Europe",
+    "from_port": "Copenhagen, Denmark",
+    "to_port": "Copenhagen, Denmark",
+    "region": "Northern Europe",
+    "price_orig": 12700,
+    "price_disc": 7000,
+    "itinerary_id": "197878",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-dawn/itineraries/197878/sailings/2026-07-15",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Wind Expedition",
+    "departure": "2026-07-14",
+    "nights": 12,
+    "route": "12-nt Arctic",
+    "from_port": "Reykjavik, Iceland",
+    "to_port": "Nuuk, Greenland",
+    "region": "World",
+    "price_orig": 18200,
+    "price_disc": 6700,
+    "itinerary_id": "215962",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-wind-expedition/itineraries/215962/sailings/2026-07-14",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Ray",
+    "departure": "2026-07-19",
+    "nights": 6,
+    "route": "6-nt Mediterranean",
+    "from_port": "Monte Carlo, Monaco",
+    "to_port": "Barcelona, Spain",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 8300,
+    "itinerary_id": "215101",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-ray/itineraries/215101/sailings/2026-07-19",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Dawn",
+    "departure": "2026-07-25",
+    "nights": 10,
+    "route": "10-nt Europe",
+    "from_port": "Copenhagen, Denmark",
+    "to_port": "Copenhagen, Denmark",
+    "region": "Northern Europe",
+    "price_orig": 16600,
+    "price_disc": 8500,
+    "itinerary_id": "218219",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-dawn/itineraries/218219/sailings/2026-07-25",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Wind Expedition",
+    "departure": "2026-07-01",
+    "nights": 13,
+    "route": "13-nt Arctic",
+    "from_port": "Nuuk, Greenland",
+    "to_port": "Reykjavik, Iceland",
+    "region": "World",
+    "price_orig": 28200,
+    "price_disc": 8600,
+    "itinerary_id": "216613",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-wind-expedition/itineraries/216613/sailings/2026-07-01",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Ray",
+    "departure": "2026-07-12",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Civitavecchia (Rome), Italy",
+    "to_port": "Monte Carlo, Monaco",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 9400,
+    "itinerary_id": "197920",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-ray/itineraries/197920/sailings/2026-07-12",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Dawn",
+    "departure": "2026-07-01",
+    "nights": 7,
+    "route": "7-nt Europe",
+    "from_port": "Copenhagen, Denmark",
+    "to_port": "Stockholm, Sweden",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 10300,
+    "itinerary_id": "197881",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-dawn/itineraries/197881/sailings/2026-07-01",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Cloud",
+    "departure": "2026-07-14",
+    "nights": 10,
+    "route": "10-nt Australia/New Zealand/South Pacific",
+    "from_port": "Darwin, Australia",
+    "to_port": "Broome, Australia",
+    "region": "Asia Pacific",
+    "price_orig": 0,
+    "price_disc": 12800,
+    "itinerary_id": "211907",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-cloud/itineraries/211907/sailings/2026-07-14",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-01",
+    "nights": 12,
+    "route": "12-nt Mediterranean",
+    "from_port": "Nice, France",
+    "to_port": "Nice, France",
+    "region": "Mediterranean",
+    "price_orig": 11300,
+    "price_disc": 4100,
+    "itinerary_id": "220363",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/220363/sailings/2026-07-01",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Origin",
+    "departure": "2026-07-04",
+    "nights": 7,
+    "route": "7-nt Galapagos",
+    "from_port": "San Cristobal (Galapagos), Ecuador",
+    "to_port": "San Cristobal (Galapagos), Ecuador",
+    "region": "World",
+    "price_orig": 0,
+    "price_disc": 14800,
+    "itinerary_id": "192579",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-origin/itineraries/192579/sailings/2026-07-04",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Endeavour",
+    "departure": "2026-07-08",
+    "nights": 9,
+    "route": "9-nt Arctic",
+    "from_port": "Longyearbyen, Norway",
+    "to_port": "Tromso, Norway",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 15400,
+    "itinerary_id": "183384",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-endeavour/itineraries/183384/sailings/2026-07-08",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Endeavour",
+    "departure": "2026-07-26",
+    "nights": 7,
+    "route": "7-nt Arctic",
+    "from_port": "Longyearbyen, Norway",
+    "to_port": "Longyearbyen, Norway",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 17600,
+    "itinerary_id": "191614",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-endeavour/itineraries/191614/sailings/2026-07-26",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-01",
+    "nights": 7,
+    "route": "7-nt Mediterranean",
+    "from_port": "Nice, France",
+    "to_port": "Palma (Majorca), Spain",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 7400,
+    "itinerary_id": "220366",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/220366/sailings/2026-07-01",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Whisper",
+    "departure": "2026-07-02",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Seward, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 8700,
+    "itinerary_id": "197949",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-whisper/itineraries/197949/sailings/2026-07-02",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Moon",
+    "departure": "2026-07-02",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Vancouver, BC",
+    "to_port": "Seward, AK",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 13900,
+    "itinerary_id": "221119",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-moon/itineraries/221119/sailings/2026-07-02",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Cloud",
+    "departure": "2026-07-04",
+    "nights": 10,
+    "route": "10-nt Australia/New Zealand/South Pacific",
+    "from_port": "Broome, Australia",
+    "to_port": "Darwin, Australia",
+    "region": "Asia Pacific",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "214211",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-cloud/itineraries/214211/sailings/2026-07-04",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Shadow",
+    "departure": "2026-07-08",
+    "nights": 5,
+    "route": "5-nt Mediterranean",
+    "from_port": "Palma (Majorca), Spain",
+    "to_port": "Nice, France",
+    "region": "Mediterranean",
+    "price_orig": 0,
+    "price_disc": 6600,
+    "itinerary_id": "220367",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-shadow/itineraries/220367/sailings/2026-07-08",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Whisper",
+    "departure": "2026-07-09",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Vancouver, BC",
+    "to_port": "Seward, AK",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "218189",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-whisper/itineraries/218189/sailings/2026-07-09",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Moon",
+    "departure": "2026-07-09",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Seward, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "226377",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-moon/itineraries/226377/sailings/2026-07-09",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Origin",
+    "departure": "2026-07-11",
+    "nights": 7,
+    "route": "7-nt Galapagos",
+    "from_port": "San Cristobal (Galapagos), Ecuador",
+    "to_port": "San Cristobal (Galapagos), Ecuador",
+    "region": "World",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "192578",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-origin/itineraries/192578/sailings/2026-07-11",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Whisper",
+    "departure": "2026-07-16",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Seward, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "197948",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-whisper/itineraries/197948/sailings/2026-07-16",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Moon",
+    "departure": "2026-07-16",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Vancouver, BC",
+    "to_port": "Seward, AK",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 14400,
+    "itinerary_id": "226376",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-moon/itineraries/226376/sailings/2026-07-16",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Moon",
+    "departure": "2026-07-23",
+    "nights": 7,
+    "route": "7-nt Alaska",
+    "from_port": "Seward, AK",
+    "to_port": "Vancouver, BC",
+    "region": "Alaska",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "226374",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-moon/itineraries/226374/sailings/2026-07-23",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Spirit",
+    "departure": "2026-07-23",
+    "nights": 12,
+    "route": "12-nt Europe",
+    "from_port": "IJmuiden (Amsterdam), Netherlands",
+    "to_port": "Copenhagen, Denmark",
+    "region": "Northern Europe",
+    "price_orig": 0,
+    "price_disc": 20700,
+    "itinerary_id": "227606",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-spirit/itineraries/227606/sailings/2026-07-23",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Cloud",
+    "departure": "2026-07-24",
+    "nights": 10,
+    "route": "10-nt Australia/New Zealand/South Pacific",
+    "from_port": "Broome, Australia",
+    "to_port": "Darwin, Australia",
+    "region": "Asia Pacific",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "215960",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-cloud/itineraries/215960/sailings/2026-07-24",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  },
+  {
+    "line": "Silversea Cruises",
+    "ship": "Silver Wind Expedition",
+    "departure": "2026-07-26",
+    "nights": 7,
+    "route": "7-nt Arctic",
+    "from_port": "Nuuk, Greenland",
+    "to_port": "Nuuk, Greenland",
+    "region": "World",
+    "price_orig": 0,
+    "price_disc": 0,
+    "itinerary_id": "215963",
+    "url": "https://www.perx.com/cruises/silversea-cruises/silver-wind-expedition/itineraries/215963/sailings/2026-07-26",
+    "sources": [
+      "silversea_perx"
+    ],
+    "scraped": "2026-06-28"
+  }
+]

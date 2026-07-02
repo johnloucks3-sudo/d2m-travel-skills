@@ -1,0 +1,86 @@
+Subject: ⚡ Thunderbird Token Savings Manual — All Wired & Active
+From: johnloucks3@gmail.com
+Received: 2026-06-27T03:17:07.334313+00:00
+
+ ⚡ Thunderbird Token Savings Manual
+
+Complete Integration Guide — All Wired & Active
+*✅ STATUS:* All features wired and active as of 2026-06-27. Hooks running
+automatically. Keywords enabled. OpenCode integration ready.
+Overview: Three Layers of Token Savings
+Layer Activation Cost Savings vs. Claude Best For
+*Sandbox (ctx)* Automatic or @ctx $0 99% Data extraction, filtering, log
+scanning
+*Free Models* Automatic or @free $0 100% Reasoning, synthesis, structured
+output
+*ZEN (Counter-Voice)* Automatic or @zen $0 (Poe points or free-infer)
+100% Independent
+reasoning, devil's advocate
+*OpenCode Handoff* @oc or @oc-takeover Depends on OC model 50-80% Extended
+sessions when CC is hot (>60%) Commander Keywords (Now Live)
+
+Type these keywords in your prompts to control routing. No code changes
+needed.
+@ctx — Sandbox Data Processing
+
+*Effect:* Forces all work to sandbox. Zero LLM tokens.
+
+*Example:* @ctx Extract JSON from this 500MB log file
+
+*Cost:* ~100 tokens (router only). No Claude tokens.
+@zen — ZEN Counter-Voice
+
+*Effect:* Independent reasoning via free models or Poe.
+
+*Example:* @zen Counter my argument with a refutation
+
+*Cost:* $0 (free) or Poe points (194K remaining).
+@free — All Free Models
+
+*Effect:* Routes all work through free_model_router.
+
+*Example:* @free Summarize this research paper
+
+*Cost:* $0. Providers: Groq, Cerebras, GitHub, Ollama.
+@oc — Hand Off to OpenCode
+
+*Effect:* Checkpoints state. Claude Code dormant. OpenCode takes over.
+
+*Example:* @oc I'm at 65% usage, take over
+
+*Cost:* Depends on OpenCode model.
+@cc or @back — Hand Back to Claude Code
+
+*Effect:* Release missions, hand back to CC with full state.
+
+*Example:* @cc I'm done, give it back to Claude Code
+
+*Cost:* Zero. Seamless handoff via hale_bus.
+Automatic Keyword Detection
+
+Keywords auto-detect without typing:
+
+   - *extract, filter, scan, count, parse* → ctx_execute_file ($0)
+   - *counter, zen, refute, challenge* → ZEN ($0)
+   - *compare, synthesis, arbitrate* → Free synthesis ($0)
+   - *monitor, health, audit* → ctx_batch_execute ($0)
+
+Free Model Providers (All Wired)
+Provider Models Cost Best Use
+*Groq* Llama 3.3-70B, Scout $0 Default reasoning
+*Cerebras* gpt-oss-120b, zai-glm-4.7 $0 Synthesis, speed burst
+*GitHub Models* DeepSeek-R1, Mistral Small $0 (GITHUB_TOKEN) Chain-of-thought,
+extraction
+*Ollama* Llama 3.2, Qwen 2.5 (local) $0 (local) PII tasks, no egress
+*Poe* DeepSeek, Grok, R1 194K points ZEN fallback Expected Token Burn
+Reduction
+Scenario Before After Savings
+Extract JSON from log 2,000 tokens 50 tokens *97%*
+ZEN counter-voice 1,500 tokens (Sonnet) 0 tokens *100%*
+Multi-source synthesis 3,000 tokens (Sonnet) 0 tokens *100%*
+*5h cycle average* ~320 Claude tokens ~120 Claude tokens *62%* Files Wired
+In Core (All Production Ready)
+
+   - core/ai_infra/keyword_auto_router.py (450 lines)
+   - core/ai_infra/session_startup_keyword_router.py (180 lines)
+   - core/ai_infra/claude_code

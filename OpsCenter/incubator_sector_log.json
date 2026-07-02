@@ -1,0 +1,8 @@
+{
+  "last_updated": "2026-07-02",
+  "sectors": {
+    "D_agentic_apps": {"last_run": "2026-07-02", "file": "intel/incubator/sector_D_agentic_apps_20260702.md"},
+    "F_llm": {"last_run": "2026-07-02", "file": "intel/incubator/sector_F_llm_20260702.md"},
+    "G_travel_b2b": {"last_run": "2026-07-02", "file": "intel/incubator/sector_G_travel_b2b_20260702.md"}
+  }
+}
