@@ -1,0 +1,19 @@
+{
+  "source": "kiwitaxi.com",
+  "checked_at": "2026-07-02T14:35:51.999639+00:00",
+  "http_status": 200,
+  "body_bytes": 226737,
+  "accessible": true,
+  "price_count": 3,
+  "global_price_range_usd": {
+    "min": 9.0,
+    "max": 3000.0,
+    "samples": [
+      9.0,
+      13.0,
+      3000.0
+    ]
+  },
+  "note": "Global benchmark only. Port-specific: use gyg_excursion_prices.py --category transfer",
+  "booking_url": "https://kiwitaxi.com/"
+}

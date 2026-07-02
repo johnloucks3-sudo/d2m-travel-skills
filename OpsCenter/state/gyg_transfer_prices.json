@@ -1,0 +1,29 @@
+[
+  {
+    "port": "athens",
+    "url": "https://www.getyourguide.com/s/?q=airport+transfer+athens",
+    "checked_at": "2026-07-02T14:35:54.360142+00:00",
+    "price_count": 25,
+    "min_pp": 26.0,
+    "max_pp": 284.0,
+    "sample_prices": [
+      26.0,
+      33.0,
+      35.0,
+      38.0,
+      40.0,
+      51.0,
+      65.0,
+      66.0
+    ],
+    "sample_titles": [
+      "GetYourGuide",
+      "Johannes Reck",
+      "Martin Sieber",
+      "Tobias Rein",
+      "search-result-page"
+    ],
+    "status": "ok",
+    "category": "transfer"
+  }
+]

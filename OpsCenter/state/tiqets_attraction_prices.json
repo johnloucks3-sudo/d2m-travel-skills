@@ -1,0 +1,26 @@
+{
+  "source": "tiqets.com",
+  "checked_at": "2026-07-02T14:35:52.910823+00:00",
+  "http_status": 200,
+  "body_bytes": 259897,
+  "accessible": true,
+  "price_count": 21,
+  "global_price_range_usd": {
+    "min": 13.09,
+    "max": 89.0,
+    "samples": [
+      13.09,
+      17.07,
+      19.35,
+      23.9,
+      25.04,
+      26.18,
+      27.32,
+      29.4,
+      29.95,
+      30.0
+    ]
+  },
+  "note": "Global benchmark only. Port-specific: use gyg_excursion_prices.py --category museum",
+  "booking_url": "https://www.tiqets.com/en/"
+}
