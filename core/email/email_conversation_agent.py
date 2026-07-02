@@ -53,11 +53,12 @@ if str(THUNDERBIRD_DIR) not in sys.path:
     sys.path.insert(0, str(THUNDERBIRD_DIR))
 
 # ── Configuration ────────────────────────────────────────────────────────────
-CLAUDE_MODEL = "claude-sonnet-4-6"
+CLAUDE_MODEL = "claude-haiku-4-5-20251001"  # Haiku: lower latency, sufficient for email routing
 MAX_TOKENS = 1500
 COMMANDER_ADDRESS = "johnloucks3@gmail.com"
 WING_INBOX = "d2mconcierge@gmail.com"
 POLL_MAX_MESSAGES = 20
+MAX_PER_RUN = 5  # Process at most 5 new messages per cycle to avoid API saturation
 # How many prior turns of a thread to feed the model (keeps token cost bounded).
 HISTORY_WINDOW = 20
 
@@ -465,11 +466,15 @@ def run_cycle(dry_run: bool = False) -> dict:
     summary = {"commander": 0, "client_drafted": 0, "skipped": 0, "already_seen": 0,
                "errors": 0}
 
+    new_this_run = 0
     for msg in unread:
         gid = msg["gmail_id"]
         if gid in processed_ids:
             summary["already_seen"] += 1
             continue
+        if new_this_run >= MAX_PER_RUN:
+            log.info("Per-run cap (%d) reached — deferring remaining messages", MAX_PER_RUN)
+            break
         try:
             if is_commander(msg["from_addr"]):
                 handle_commander(msg, state, sb, dry_run)
@@ -488,6 +493,7 @@ def run_cycle(dry_run: bool = False) -> dict:
         if not dry_run:
             processed_ids.add(gid)
             mark_read(service, gid)
+        new_this_run += 1
 
     if not dry_run:
         state["_processed_ids"] = list(processed_ids)[-1000:]  # bound growth
