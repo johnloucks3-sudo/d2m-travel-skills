@@ -181,88 +181,47 @@ def _is_noise_sender(from_lower: str) -> bool:
         return False
 
 
-def _classify_email(from_addr: str, subject: str, snippet: str) -> str:
+def _classify_email(from_addr: str, subject: str, snippet: str,
+                    registry: dict = None, use_ai: bool = False) -> str:
     """
-    Classify an inbound email.
+    Classify an inbound email — delegates to the ZERO-MODEL rules_classifier.
 
-    Returns one of: booking_confirmation | client_inquiry | supplier_intel |
-                    invoice | internal_wing | spam | other
+    ELON incubator brief (2026-07-01): the live per-email Gemini call is REMOVED
+    from the default/background path. rules_classifier.classify() is PURE (no
+    network, no model). `registry` is loaded ONCE per run and threaded in here.
 
-    Order of precedence (see module docstring for the MISSION-431 rationale):
-      1. internal_wing  — our own addresses (fast exit)
-      2. booking/invoice/supplier keyword checks — BEFORE the noise short-circuit,
-         so legitimate transactional mail from noreply@ senders is preserved.
-      3. noise fast-path — bulk/newsletter/promo/noreply → spam, BEFORE any
-         Gemini/LLM call (junk never triggers a network round-trip).
-      4. Gemini classifier — maps booking/vendor/financial/noise ONLY. It is NOT
-         allowed to emit client_inquiry; the positive-signal gate is the sole path.
-      5. positive-signal gate — client_inquiry only on (a) known client OR
-         (b) inquiry signals + non-bulk sender.
-      6. DEFAULT → "other" (non-actionable).
+    Categories map to this pipeline's handlers via _map_category():
+      financial → invoice handler; supplier_intel → supplier handler; etc.
+
+    `use_ai=True` (CLI --ai) routes ONLY-`other` messages through the on-demand
+    deep_classify() path. Off by default → background runs make ZERO model calls.
     """
-    from_lower = from_addr.lower()
-    subject_lower = subject.lower()
-    text_lower = (subject_lower + " " + snippet.lower())
+    from core.email.rules_classifier import classify, deep_classify  # type: ignore
 
-    # 1. Internal wing — fast exit
-    domain = from_lower.split("@")[-1] if "@" in from_lower else ""
-    if from_lower in WING_ADDRESSES or domain == "d2mluxury.quest":
-        return "internal_wing"
+    cat = classify(from_addr, subject, snippet, registry=registry)
+    if use_ai and cat == "other":
+        cat = deep_classify(from_addr, subject, snippet)  # ON-DEMAND ONLY
+    return _map_category(cat)
 
-    # ── Keyword sets ──────────────────────────────────────────────────────────
-    booking_kw = {"confirmation", "confirmed", "booking", "reservation", "receipt",
-                  "invoice", "itinerary", "e-ticket", "your trip", "booking ref"}
-    supplier_kw = {"silversea", "regent", "viking", "princess", "celebrity", "royal caribbean",
-                   "cunard", "oceania", "seabourn", "holland america", "norwegian", "msc",
-                   "centrav", "tess", "agency", "commission", "host agency", "nexion",
-                   "travel weekly", "virtuoso"}
 
-    # 2. Booking / invoice detection — BEFORE the noise short-circuit, because
-    #    real confirmations often come from noreply@ senders (which the noise
-    #    regex would otherwise flag as spam — regression on criterion 4).
-    if sum(1 for k in booking_kw if k in subject_lower) >= 1:
-        if any(k in subject_lower for k in {"invoice", "payment", "charge", "receipt", "commission"}):
-            return "invoice"
-        return "booking_confirmation"
+# rules_classifier categories → this pipeline's handler categories.
+_CATEGORY_MAP = {
+    "financial": "invoice",            # → _handle_invoice
+    "supplier_intel": "supplier_intel",
+    "booking_confirmation": "booking_confirmation",
+    "client_inquiry": "client_inquiry",
+    "internal_wing": "internal_wing",
+    "commander_directive": "other",    # count-only (no mission)
+    "direct_command": "other",         # count-only
+    "intel": "other",                  # count-only
+    "spam": "spam",
+    "other": "other",
+}
 
-    #    Supplier intel — vendor keyword in sender or subject.
-    if any(k in from_lower for k in supplier_kw) or any(k in subject_lower for k in supplier_kw):
-        return "supplier_intel"
 
-    # 3. Noise fast-path — bulk/newsletter/promo/noreply → spam, BEFORE Gemini.
-    if _is_noise_sender(from_lower):
-        return "spam"
-
-    # 4. Gemini classifier (deterministic path skips this if it raises).
-    #    client_inquiry is intentionally NOT in the map — the positive-signal
-    #    gate below is the ONLY route to client_inquiry (MISSION-431 fix).
-    try:
-        from core.email.hale_inbox_tools import _classify_message  # type: ignore
-        raw = _classify_message(from_addr, subject, snippet)
-        category_map = {
-            "booking_confirmation": "booking_confirmation",
-            "vendor": "supplier_intel",
-            "financial": "invoice",
-            "noise": "spam",
-        }
-        if raw in category_map:
-            return category_map[raw]
-    except Exception as e:
-        log.debug("hale_inbox_tools classifier unavailable: %s — using fallback", e)
-
-    # 5. Positive-signal gate — the ONLY path to client_inquiry.
-    #    (a) known client sender
-    try:
-        if _determine_email_tier(from_addr) == "CLIENT":
-            return "client_inquiry"
-    except Exception:
-        pass
-    #    (b) strong inquiry signals AND sender is not bulk noise
-    if any(sig in text_lower for sig in _CLIENT_INQUIRY_SIGNALS) and not _is_noise_sender(from_lower):
-        return "client_inquiry"
-
-    # 6. DEFAULT — non-actionable. Never client_inquiry.
-    return "other"
+def _map_category(cat: str) -> str:
+    """Map a rules_classifier category into the pipeline's handler categories."""
+    return _CATEGORY_MAP.get(cat, "other")
 
 
 # ── Handlers ──────────────────────────────────────────────────────────────────
@@ -471,13 +430,27 @@ def _fetch_unread_messages(svc, hours: int) -> list:
 
 # ── Main pipeline ─────────────────────────────────────────────────────────────
 
-def run_pipeline(hours: int = 24, dry_run: bool = False) -> dict:
+def run_pipeline(hours: int = 24, dry_run: bool = False, use_ai: bool = False) -> dict:
     """
     Fetch, classify, and route unread emails from johnloucks3 (last N hours).
     Returns the summary report dict.
+
+    The client/supplier registry is loaded ONCE here (cache-backed, no network in
+    the classify hot path) and threaded into every classify() call. use_ai only
+    affects `other` messages and is OFF by default (zero model calls background).
     """
     mode = "DRY-RUN" if dry_run else "LIVE"
-    log.info("=== EMAIL INGESTION PIPELINE [%s] — last %dh ===", mode, hours)
+    log.info("=== EMAIL INGESTION PIPELINE [%s] — last %dh (ai=%s) ===", mode, hours, use_ai)
+
+    # Load registry ONCE per run (cache-backed; refreshes from EARA only if stale).
+    try:
+        from core.email.rules_classifier import load_registry  # type: ignore
+        registry = load_registry()
+        log.info("Registry: %d clients, %d suppliers",
+                 len(registry["client_emails"]), len(registry["supplier_domains"]))
+    except Exception as e:
+        log.warning("Registry load failed (%s) — classifier uses its own fallback", e)
+        registry = None
 
     svc = _build_gmail_service()
     messages = _fetch_unread_messages(svc, hours)
@@ -495,7 +468,8 @@ def run_pipeline(hours: int = 24, dry_run: bool = False) -> dict:
     processed = []
 
     for msg in messages:
-        category = _classify_email(msg["from"], msg["subject"], msg["snippet"])
+        category = _classify_email(msg["from"], msg["subject"], msg["snippet"],
+                                   registry=registry, use_ai=use_ai)
         log.info("[%s] %s | %s", category.upper(), msg["from"][:40], msg["subject"][:60])
 
         counts[category] = counts.get(category, 0) + 1
@@ -573,6 +547,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Thunderbird Email Ingestion Pipeline")
     parser.add_argument("--dry-run", action="store_true", help="Show actions without writing files")
     parser.add_argument("--hours", type=int, default=24, help="Look-back window in hours (default: 24)")
+    parser.add_argument("--ai", action="store_true",
+                        help="ON-DEMAND ONLY: route only-'other'/ambiguous messages through "
+                             "deep_classify (Gemini). OFF by default — background runs make ZERO model calls.")
     parser.add_argument("--mark-complete", action="store_true", help="Mark MISSION-431 complete and exit")
     args = parser.parse_args()
 
@@ -580,5 +557,5 @@ if __name__ == "__main__":
         _mark_mission_431_complete()
         sys.exit(0)
 
-    report = run_pipeline(hours=args.hours, dry_run=args.dry_run)
+    report = run_pipeline(hours=args.hours, dry_run=args.dry_run, use_ai=args.ai)
     print(json.dumps(report, indent=2))
