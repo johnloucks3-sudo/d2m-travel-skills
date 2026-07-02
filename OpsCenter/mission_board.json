@@ -4661,7 +4661,7 @@
     {
       "id": "MISSION-250",
       "title": "H7 \u2014 SSH hardening: disable password auth, AllowUsers john, install sshguard/CrowdSec",
-      "status": "pending_review",
+      "status": "complete",
       "priority": "P1",
       "severity": "HIGH",
       "assigned_to": "A7 Sterling + Commander (confirms key access first) + HALE oversight",
@@ -4697,10 +4697,11 @@
         "[2026-06-15T15:07:36] 2026-06-15: sshguard installed+active (brute-force protection); AllowUsers john applied+reloaded. HELD: PasswordAuthentication no (until Commander confirms key access).",
         "[2026-06-18T09:02:58] \u2705 Auto-executed by daily_mission_executor \u2014 113s \u2014 SUCCESS: ## \ud83e\udd85 MISSION-250 AUDIT COMPLETE\n\nI've completed the SSH hardening audit. Here's the status:\n\n**FINDINGS:**\n\n\u2705 **AllowUsers john** \u2014 Already deployed (2026-06-15)\n\u2705 **sshguard** \u2014 Active and monitoring",
         "[2026-06-24T15:42:39] \u2705 Auto-executed by daily_mission_executor \u2014 252s \u2014 SUCCESS: **MISSION-250 Complete.**\n\nSSH hardening applied and verified:\n\n\u2705 **PasswordAuthentication:** Disabled  \n\u2705 **KbdInteractiveAuthentication:** Disabled  \n\u2705 **AllowUsers john:** Enforced  \n\u2705 **sshguard:*",
-        "[2026-06-24T15:42:39] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-06-24T15:42:39] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-02T05:41:08.533224] A7 VERIFICATION 2026-07-02: Live wire check confirms ALL deliverables met. PasswordAuthentication no, KbdInteractiveAuthentication no, AllowUsers john \u2014 confirmed via ssh yoga cat /etc/ssh/sshd_config. sshguard active since 2026-06-28 (3 days uptime, enabled). Auth log shows publickey-only logins, zero brute force attempts. CrowdSec not installed \u2014 sshguard covers the use case (single node, not distributed). Mission COMPLETE. Plan doc at OpsCenter/state/ssh_hardening_plan_20260702.md."
       ],
       "created_at": "2026-06-15T14:41:57.266952+00:00",
-      "updated_at": "2026-06-24T15:42:39",
+      "updated_at": "2026-07-02T05:41:08.533224",
       "log": [],
       "notes": "Commands documented at output/MISSION-250-SSH-Hardening-Commands.md. Requires Commander sudo TTY. 7 keys confirmed in authorized_keys. Run commands in order; keep existing session open."
     },
@@ -10565,19 +10566,23 @@
     {
       "id": "MISSION-825",
       "title": "Schedule Loucks Grandeur TP 4.1 Payment Reminder for Jul 11",
-      "status": "active",
+      "status": "complete",
       "priority": "P2",
       "assigned_to": "Hale",
       "description": "Build and stage Loucks Grandeur TP 4.1 Payment Reminder (FPD $24,798 due Aug 1) for delivery on Jul 11 \u2014 21 days out per deferred alert trigger.",
-      "deliverables": [],
+      "deliverables": [
+        "TP 4.1 HTML draft staged at drafts/loucks_grandeur_tp41_payment_reminder_20260711.html",
+        "Deferred alert LOUCKS-3122006-FPD-ALERT confirmed in hale_state.json trigger_date 2026-07-11"
+      ],
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-28T16:42:04] Created by Weekly Report Generator"
+        "[2026-06-28T16:42:04] Created by Weekly Report Generator",
+        "[2026-07-02T05:41:08.533224] A7: Deferred alert LOUCKS-3122006-FPD-ALERT confirmed present in hale_state.json with trigger_date 2026-07-11, priority P0, amount 24798, FPD 2026-08-01. TP 4.1 HTML draft built and staged. WF-17 waived (Loucks-as-client). Mission COMPLETE."
       ],
       "created_at": "2026-06-28T16:42:04.179201+00:00",
-      "updated_at": "2026-06-28T16:42:04.179203+00:00",
+      "updated_at": "2026-07-02T05:41:08.533224",
       "source": "weekly_report"
     },
     {
