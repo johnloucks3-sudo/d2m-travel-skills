@@ -104,12 +104,25 @@ def notify_sterling(issue: str, detail: str):
 
 
 def ci_auto_repair(skill_id: str) -> bool:
-    """Attempt autonomous repair of a CI skill via ci_auto_repair_engine. Returns True if repaired."""
-    _log(f"CI-REPAIR: attempting auto-repair for {skill_id}")
+    """Attempt autonomous repair of a CI skill. Returns True if repaired.
+
+    CUTOVER 2026-07-02 (Sterling A7): routed through the SAFE safety-contract
+    runner (rapid_repair / run_capability with the conservative armed-tier
+    policy) instead of the raw ci_auto_repair_engine.run_repair. SAFE tiers
+    auto-apply; CAUTION+DESTRUCTIVE stage. STAGED / not-repaired returns False.
+    (This helper currently has no callers — routed anyway as defense-in-depth so
+    no code path can raw-fire ungated destructive repairs.)
+    """
+    _log(f"CI-REPAIR: attempting SAFE auto-repair for {skill_id}")
     try:
-        from core.ci.ci_auto_repair_engine import run_repair
-        success = run_repair(skill_id)
-        _log(f"CI-REPAIR: {skill_id} → {'OK' if success else 'FAIL'}")
+        from core.ci.repairs.rapid_repair import _load_policy
+        from core.ci.repairs.schema import run_capability, Decision
+        import core.ci.repairs.rapid_repair  # noqa: F401  (registers all clusters)
+        r = run_capability(skill_id, apply=True, armed_tiers=_load_policy())
+        success = (r.decision == Decision.AUTO_APPLIED
+                   and r.verify_after.value == "GREEN")
+        _log(f"CI-REPAIR: {skill_id} → {r.decision.value} "
+             f"(verify={r.verify_after.value}) → {'OK' if success else 'not-recovered'}")
         return success
     except ImportError:
         # Fallback: direct subprocess for the most critical skills

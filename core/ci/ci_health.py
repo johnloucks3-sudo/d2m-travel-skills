@@ -29,46 +29,80 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
     """
     Attempt autonomous repair of a RED CI skill. Fires immediately on RED — no threshold.
     Returns (repaired, detail).
+
+    CUTOVER 2026-07-02 (Sterling A7): this path is routed through the SAFE
+    safety-contract runner (core.ci.repairs.schema.run_capability) with the SAME
+    conservative armed-tier policy as the heartbeat path — single-sourced from
+    config/ci_rapid_repair_policy.json. It NO LONGER calls the raw
+    ci_auto_repair_engine.run_repair (which fired ungated destructive functions).
+
+        SAFE (effective)         -> auto-applied + verify-after -> (True, "auto-repaired")
+        CAUTION/DESTRUCTIVE      -> STAGED (one-touch confirm)  -> (False, "staged:<token>")
+        anti-flap blocked        -> (False, "<reason>")
+
+    A STAGED outcome returns repaired=False so the caller keeps the skill RED on
+    the dashboard until an operator confirms the staged token — the honest state.
     """
     try:
-        from core.ci.ci_auto_repair_engine import run_repair
+        # Both live repair paths (this + the heartbeat) go through rapid_repair so
+        # the tier policy has ONE source of truth. Lazy import to keep ci_health
+        # importable even if the warehouse has a transient import problem.
+        from core.ci.repairs.rapid_repair import _load_policy
+        from core.ci.repairs.schema import run_capability, Decision, REGISTRY
+        # Ensure capabilities are registered (clusters register on import).
+        import core.ci.repairs.rapid_repair  # noqa: F401  (imports all clusters)
         from core.notify.hale_notify import notify_hale, notify_sterling
-    except ImportError as e:
-        logger.warning("Repair modules unavailable: %s", e)
+    except Exception as e:
+        logger.warning("Safe-repair modules unavailable: %s", e)
         return False, f"repair import failed: {e}"
 
-    logger.info("[CI-REPAIR] %s RED — attempting autonomous repair", skill_id)
+    if skill_id not in REGISTRY:
+        logger.warning("[CI-REPAIR] %s RED but NO RepairSpec — no autonomous action", skill_id)
+        return False, "no-capability"
+
+    armed = _load_policy()
+    logger.info("[CI-REPAIR] %s RED — safe runner (armed=%s)", skill_id, sorted(armed))
     try:
-        repaired = run_repair(skill_id)
+        r = run_capability(skill_id, apply=True, armed_tiers=armed)
     except Exception as e:
-        logger.error("[CI-REPAIR] %s repair exception: %s", skill_id, e)
-        repaired = False
+        logger.error("[CI-REPAIR] %s safe runner exception: %s", skill_id, e)
+        return False, f"repair-error: {e}"
 
-    if repaired:
-        # Verify with a re-probe
-        ok, detail, _, _ = run_probe(probe_cmd)
-        if ok:
-            logger.info("[CI-REPAIR] %s RECOVERED autonomously", skill_id)
-            try:
-                notify_hale(skill_id, "ci-sweep-repair", "RED→GREEN autonomously",
-                            repaired=True, client_affecting=False)
-            except Exception:
-                pass
-            return True, "auto-repaired"
-        logger.warning("[CI-REPAIR] %s repair ran but probe still RED", skill_id)
-        repaired = False
+    if r.decision == Decision.AUTO_APPLIED and r.verify_after.value == "GREEN":
+        logger.info("[CI-REPAIR] %s RECOVERED autonomously (safe runner)", skill_id)
+        try:
+            notify_hale(skill_id, "ci-sweep-repair", "RED→GREEN autonomously (SAFE)",
+                        repaired=True, client_affecting=False)
+        except Exception:
+            pass
+        return True, "auto-repaired"
 
-    # Repair failed — escalate appropriately
-    logger.warning("[CI-REPAIR] %s repair FAILED — escalating", skill_id)
+    if r.decision == Decision.STAGED:
+        logger.warning("[CI-REPAIR] %s STAGED (%s) token=%s — awaiting one-touch confirm",
+                       skill_id, r.risk_tier.value, r.staged_token)
+        try:
+            notify_sterling(skill_id, f"CI {skill_id} STAGED ({r.risk_tier.value}) "
+                            f"token={r.staged_token} — confirm to apply")
+        except Exception:
+            pass
+        return False, f"staged:{r.staged_token}"
+
+    if r.decision == Decision.SKIPPED_HEALTHY:
+        # Runner's independent explore saw GREEN — treat as recovered.
+        return True, "already-green"
+
+    # Applied-but-not-green, blocked, not-repairable, error -> escalate.
+    logger.warning("[CI-REPAIR] %s not auto-recovered (%s: %s) — escalating",
+                   skill_id, r.decision.value, r.note)
     try:
         if client_affecting:
-            notify_hale(skill_id, "ci-sweep", "RED — auto-repair failed (client-affecting)",
+            notify_hale(skill_id, "ci-sweep", f"RED — {r.decision.value} (client-affecting)",
                         repaired=False, client_affecting=True)
         else:
-            notify_sterling(skill_id, f"CI auto-repair failed for {skill_id} — manual intervention needed")
+            notify_sterling(skill_id, f"CI {skill_id} {r.decision.value}: {r.note[:150]}")
     except Exception:
         pass
-    return False, "repair-failed"
+    return False, f"{r.decision.value.lower()}"
 
 
 def run_probe(cmd: str) -> tuple[bool, str, int, bool]:
