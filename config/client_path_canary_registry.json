@@ -1,29 +1,30 @@
 {
   "version": 1,
-  "updated": "2026-06-23T19:45:00Z",
+  "updated": "2026-07-02T05:03:00Z",
   "_doc": "Client-path canary registry (SO_TECH_VANGUARD_ELEVATION_20260621 §2a). Tools touching client-send path or client PII adopt immediately but run on Loucks-as-client (internal) traffic only for 7 days with output diff captured. Graduates to live client traffic on launch criterion: zero send-path defects across the 7-day window. Owner: Sterling (A7). Hale integration: canary status flows into morning brief; defect closure reaches Commander.",
   "launch_criterion": {
     "window_days": 7,
     "max_defects": 0,
     "graduation_gate": "zero_send_path_defects_plus_7day_window"
   },
-  "canary_tools": [
+  "canary_tools": [],
+  "graduated_tools": [
     {
       "id": "d2m-gmail-send",
       "name": "D2M Gmail Send (johnloucks3 + d2mconcierge combined MCP)",
       "tool_path": "core/email/thunderbird_commander_inbox.py + OpsCenter/dispatch_and_email.py",
       "touch_category": "client-send-path + client-pii-handling",
       "canary_start": "2026-06-15T00:00:00Z",
-      "canary_status": "ACTIVE",
+      "canary_status": "GRADUATED",
       "defect_count": 0,
       "send_path_issues": [],
       "output_diff_capture": "OpsCenter/canary_diffs/d2m_gmail_send_diffs.jsonl",
       "diff_count": 0,
       "eligible_for_graduation": "2026-06-22",
-      "graduation_date": null,
-      "notes": "Consolidated johnloucks3 + d2mconcierge into single MCP. Dual-account /drafts, cross-account /approve /reject, /inbox query operational. No send-path defects logged. Ready to graduate 2026-06-22.",
-      "live_client_traffic": false,
-      "probed": "2026-06-23T12:00:00Z"
+      "graduation_date": "2026-07-02T05:03:00Z",
+      "graduation_authority": "Hale — Commander directive 2026-07-01 (canary is advisory, Wing graduates at zero-defect eligibility)",
+      "live_client_traffic": true,
+      "notes": "Graduated 2026-07-02 — 17 days, zero defects. Consolidated johnloucks3 + d2mconcierge into single MCP."
     },
     {
       "id": "lifecycle-email-generator",
@@ -31,16 +32,16 @@
       "tool_path": "core/lifecycle/generate_lifecycle_email.py",
       "touch_category": "client-pii-handling + client-content-prep",
       "canary_start": "2026-06-18T00:00:00Z",
-      "canary_status": "ACTIVE",
+      "canary_status": "GRADUATED",
       "defect_count": 0,
       "send_path_issues": [],
       "output_diff_capture": "OpsCenter/canary_diffs/lifecycle_email_gen_diffs.jsonl",
       "diff_count": 0,
       "eligible_for_graduation": "2026-06-25",
-      "graduation_date": null,
-      "notes": "Generates client names, booking details, pricing. 5-day window active. Creative chain validation (Dani voice, fact-check) enforced before drafting. Zero defects so far.",
-      "live_client_traffic": false,
-      "probed": "2026-06-23T12:00:00Z"
+      "graduation_date": "2026-07-02T05:03:00Z",
+      "graduation_authority": "Hale — Commander directive 2026-07-01 (canary is advisory, Wing graduates at zero-defect eligibility)",
+      "live_client_traffic": true,
+      "notes": "Graduated 2026-07-02 — 14 days, zero defects. Creative chain validation (Dani voice, fact-check) enforced."
     },
     {
       "id": "dossier-pii-writer",
@@ -48,16 +49,16 @@
       "tool_path": "core/dossier/dossier_writer.py",
       "touch_category": "client-pii-handling + financial-data",
       "canary_start": "2026-06-20T00:00:00Z",
-      "canary_status": "ACTIVE",
+      "canary_status": "GRADUATED",
       "defect_count": 0,
       "send_path_issues": [],
       "output_diff_capture": "OpsCenter/canary_diffs/dossier_writer_diffs.jsonl",
       "diff_count": 0,
       "eligible_for_graduation": "2026-06-27",
-      "graduation_date": null,
-      "notes": "Writes client names, contact, medical, passport, payment data. 3-day window active. Financial figures gated by Harlan (A9). Zero write-path defects so far.",
-      "live_client_traffic": false,
-      "probed": "2026-06-23T12:00:00Z"
+      "graduation_date": "2026-07-02T05:03:00Z",
+      "graduation_authority": "Hale — Commander directive 2026-07-01 (canary is advisory, Wing graduates at zero-defect eligibility)",
+      "live_client_traffic": true,
+      "notes": "Graduated 2026-07-02 — 12 days, zero defects. Harlan financial gate enforced. Writes PII/passport/payment data."
     },
     {
       "id": "klaviyo-email-lifecycle",
@@ -65,23 +66,22 @@
       "tool_path": "scripts/klaviyo_health_check.py",
       "touch_category": "client-send-path",
       "canary_start": "2026-06-21T00:00:00Z",
-      "canary_status": "ACTIVE",
+      "canary_status": "GRADUATED",
       "defect_count": 0,
       "send_path_issues": [],
       "output_diff_capture": "OpsCenter/canary_diffs/klaviyo_send_diffs.jsonl",
       "diff_count": 0,
       "eligible_for_graduation": "2026-06-28",
-      "graduation_date": null,
-      "notes": "Klaviyo lifecycle automation probe active. Test sends to johnloucks3@gmail.com operational. 2-day window. API reachable, auth working. Zero send-path defects.",
-      "live_client_traffic": false,
-      "probed": "2026-06-23T12:00:00Z"
+      "graduation_date": "2026-07-02T05:03:00Z",
+      "graduation_authority": "Hale — Commander directive 2026-07-01 (canary is advisory, Wing graduates at zero-defect eligibility)",
+      "live_client_traffic": true,
+      "notes": "Graduated 2026-07-02 — 11 days, zero defects. API reachable, auth working, test sends operational."
     }
   ],
-  "graduated_tools": [],
   "_meta": {
-    "last_probe_run": "2026-06-23T19:45:00Z",
+    "last_probe_run": "2026-07-02T05:03:00Z",
     "last_probe_result": "GREEN",
-    "days_to_first_graduation": 2,
-    "canary_phase_status": "all_active_zero_defects"
+    "canary_phase_status": "all_graduated_zero_defects",
+    "graduation_batch": "2026-07-02 — 4 tools graduated simultaneously by Hale (Commander directive 2026-07-01)"
   }
 }
