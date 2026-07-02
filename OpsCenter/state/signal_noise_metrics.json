@@ -1,0 +1,32 @@
+{
+  "generated": "2026-07-01T23:48:14.362952",
+  "methodology": "missions created from email ingestion, ratio of D2M-relevant to noise",
+  "definition": {
+    "signal": "missions with D2M client/vendor/booking context (client_inquiry, booking_issue, payment, etc.)",
+    "noise": "missions from classifier false-positives (stock tips, newsletters, political commentary, unsubscribes)"
+  },
+  "current_snapshot": {
+    "total_missions": 1111,
+    "active_in_progress": 22,
+    "archived_noise": 317,
+    "completed": 364,
+    "archived_other": 360,
+    "noise_pct_of_total": 28.5,
+    "signal_to_noise_ratio": 0.069,
+    "snapshot_date": "2026-07-01"
+  },
+  "improvement_to_date": {
+    "pre_fix_missions": 386,
+    "archived_noise": 317,
+    "current_active": 22,
+    "classifier_fix_date": "2026-07-01",
+    "circuit_breaker_max": 50,
+    "circuit_breaker_per_run": 10
+  },
+  "ongoing_tracking": {
+    "check_command": "python3 -c \"import json; d=json.load(open('OpsCenter/mission_board.json')); m=d.get('missions',[]); print(f'Active: {len([x for x in m if x.get(\\\"status\\\") in [\\\"active\\\",\\\"in_progress\\\"]])}')\"",
+    "brief_section": "Add S/N ratio to daily brief: active missions / archived_noise missions",
+    "target_noise_pct": 5,
+    "current_noise_pct": 28.5
+  }
+}
