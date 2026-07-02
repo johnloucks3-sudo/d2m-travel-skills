@@ -9910,7 +9910,7 @@
     {
       "id": "MISSION-789",
       "title": "Thunderbird \u2014 DeepInfra",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "Now Live (21 models in gateway) Commander email directive: Thunderbird \u2014 DeepInfra Now Live (21 models in gateway). \u26a1 DeepInfra Wired In \u2014 21 Models Live Delta update \u00b7 2026-06-25 \u00b7 Adds to prior provider-switching email New DeepInfra Commands (add to your pswitch table) Command Provider Notes pswitch diD",
@@ -9918,9 +9918,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-02T06:17:22] Archived 2026-07-02: DeepInfra confirmed wired \u2014 21 models in gateway/litellm_config.yaml (TIER 3 deepinfra-llama entry). Mission complete."
+      ],
       "created_at": "2026-06-26T04:10:42.613686+00:00",
-      "updated_at": "2026-06-26T04:10:42.613694+00:00"
+      "updated_at": "2026-07-02T06:17:22"
     },
     {
       "id": "MISSION-790",
@@ -10147,10 +10149,11 @@
       "logs": [
         "[2026-06-27T00:03:31] Created by Weekly Report Generator",
         "[2026-06-27T02:47:18] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: MISSION-802: Deploy TP 1.1 Voyage Preview to all three Aug 29 Grandeur couples\n\n**Analysis and Action Report**\n\n**Objective:**\nDraft and stage TP 1.1 Voyage Preview for Furlow, Ely-Darrow, and Nichols",
-        "[2026-06-27T02:47:18] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-06-27T02:47:18] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-02T06:17:22] Drafts confirmed: drafts/tp_1_1_ely_darrow_voyage_preview.html, drafts/tp_1_1_furlow_voyage_preview.html, drafts/tp_1_1_nichols_voyage_preview.html. Status: pending Commander send (WF-17). Also staged: Grandeur_ElyDarrow_TP11_Voyage_Preview_20260621.html, Grandeur_Furlow_TP11_Voyage_Preview_20260621.html, Grandeur_Nichols_TP11_Voyage_Preview_20260621.html."
       ],
       "created_at": "2026-06-27T00:03:31.121703+00:00",
-      "updated_at": "2026-06-27T02:47:18",
+      "updated_at": "2026-07-02T06:17:22",
       "source": "weekly_report"
     },
     {
@@ -10298,7 +10301,7 @@
     {
       "id": "MISSION-810",
       "title": "Implement keyword auto-routing",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "+ context-mode + OpenCode cross-talk Design complete. Build keyword_auto_router.py, hale_bus_handoff.py, keyword_router_enhanced.yaml config. Wire Commander @ctx/@zen/@free/@oc keywords. Test CC\u2194OC handoff via shared hale_bus_state.json. Goal: reduce token burn 60-80%, enable seamless OC takeover when CC >60%. Dependencies: free_model_ecosystem_20260625, keyword_auto_routing_plus_opencode design memories.",
@@ -10306,9 +10309,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-02T06:17:22] Archived 2026-07-02: keyword_auto_router.py confirmed built at core/ai_infra/keyword_auto_router.py + hale_bus_handoff.py at core/hale_bus/. Mission complete."
+      ],
       "created_at": "2026-06-27T01:13:35.913085+00:00",
-      "updated_at": "2026-06-27T01:13:35.913099+00:00"
+      "updated_at": "2026-07-02T06:17:22"
     },
     {
       "id": "MISSION-811",
@@ -21810,7 +21815,7 @@
     {
       "id": "MISSION-1484",
       "title": "\u26a1 Total CI:",
-      "status": "in_progress",
+      "status": "archived",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "M0\u2192M5 Complete \u2014 45 Skills Razor-Sharp \u00b7 2026-07-01 Commander email directive: \u26a1 Total CI: M0\u2192M5 Complete \u2014 45 Skills Razor-Sharp \u00b7 2026-07-01. Total CI Program \u2014 Milestone M0\u2013M5 Complete \u00b7 Thunderbird Wing",
@@ -21818,9 +21823,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-02T06:17:22] Archived 2026-07-02: Fragment/noise mission \u2014 title is a CI summary snippet, not a real mission. Total CI M0-M5 complete per 2026-07-01 Commander email."
+      ],
       "created_at": "2026-07-01T20:18:41.623207+00:00",
-      "updated_at": "2026-07-01T20:18:41.623220+00:00"
+      "updated_at": "2026-07-02T06:17:22"
     },
     {
       "id": "MISSION-1485",

@@ -1028,6 +1028,18 @@
       "last_reeval": null,
       "status": "unknown",
       "probe_note": "Read-only survey of /home/john: cache bloat (>2GB CRITICAL), Downloads size (>500MB WARNING), loose files at home root, critical bins (claude, n8n), major-dir growth vs baseline (>500MB WARNING). Writes JSON report to OpsCenter/state/home_dir_health_YYYYMMDD.json and updates growth baseline."
+    },
+    {
+      "skill": "litellm-gateway",
+      "description": "LiteLLM AI proxy (port 4000) \u2014 translates Anthropic\u2192OpenAI for cc-fleet Groq/Cerebras subagents",
+      "owner": "Whetstone",
+      "probe_script": "scripts/ci_probe_litellm_gateway.py",
+      "sla_ms": 3000,
+      "status": "RAZOR_SHARP",
+      "last_checked": "2026-07-02T00:15:00",
+      "consecutive_failures": 0,
+      "systemd_unit": "d2m-litellm-gateway.service",
+      "notes": "Must be running for cc-fleet Groq/Cerebras. Restarted 2026-07-02 after 3-day outage (Jun 29 silent death)."
     }
   ],
   "accountable_owner": "hale",
