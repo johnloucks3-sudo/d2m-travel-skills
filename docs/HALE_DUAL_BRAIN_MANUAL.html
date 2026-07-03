@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HALE Dual Brain — CC+OC Collaboration Manual · Thunderbird Wing</title>
+<style>
+  :root {
+    --navy: #07076b;
+    --navy-mid: #0a0a8a;
+    --navy-deep: #050550;
+    --navy-card: #08087a;
+    --text: #f0f4ff;
+    --gold: #f0c040;
+    --cyan: #40d0f0;
+    --green: #22c55e;
+    --grey: #8899bb;
+    --red: #f05050;
+    --orange: #f09020;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 40px 20px;
+  }
+
+  .wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    text-align: center;
+    padding: 48px 0 40px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 48px;
+  }
+
+  .lightning-mark {
+    font-size: 72px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 18px #f0c04088);
+  }
+
+  .masthead h1 {
+    font-size: 2.4rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .masthead .subtitle {
+    font-size: 1.1rem;
+    color: var(--cyan);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .masthead .tagline {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    padding: 10px 24px;
+    border: 1px solid var(--gold);
+    display: inline-block;
+    border-radius: 4px;
+    background: rgba(240,192,64,0.07);
+  }
+
+  .meta-bar {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--grey);
+  }
+  .meta-bar span { white-space: nowrap; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--navy-mid);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 28px 36px;
+    margin-bottom: 48px;
+  }
+
+  .toc h2 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(240,192,64,0.3);
+  }
+
+  .toc ol {
+    padding-left: 20px;
+    column-count: 2;
+    column-gap: 40px;
+  }
+
+  .toc li {
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+
+  .toc a {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-family: 'Courier New', monospace;
+  }
+
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section {
+    margin-bottom: 64px;
+    scroll-margin-top: 20px;
+  }
+
+  h2.section-title {
+    font-size: 1.7rem;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h2.section-title .num {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 2px 9px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    color: var(--cyan);
+    font-size: 1.15rem;
+    margin: 28px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--cyan);
+  }
+
+  h4 {
+    color: var(--gold);
+    font-size: 1rem;
+    margin: 20px 0 8px;
+    opacity: 0.9;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 5px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .callout.gold {
+    background: rgba(240,192,64,0.1);
+    border-left: 4px solid var(--gold);
+  }
+
+  .callout.cyan {
+    background: rgba(64,208,240,0.08);
+    border-left: 4px solid var(--cyan);
+  }
+
+  .callout.red {
+    background: rgba(240,80,80,0.08);
+    border-left: 4px solid var(--red);
+  }
+
+  .callout.green {
+    background: rgba(34,197,94,0.08);
+    border-left: 4px solid var(--green);
+  }
+
+  .callout-icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1.6; }
+  .callout-body { flex: 1; }
+  .callout-body strong { display: block; margin-bottom: 4px; color: var(--gold); }
+
+  /* ── CODE ── */
+  code {
+    background: var(--navy-mid);
+    color: var(--cyan);
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+  }
+
+  pre {
+    background: var(--navy-deep);
+    border-left: 3px solid var(--gold);
+    padding: 20px 22px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.87rem;
+    color: var(--cyan);
+    line-height: 1.55;
+  }
+
+  pre .comment { color: #6688bb; font-style: italic; }
+  pre .key { color: var(--gold); }
+  pre .val { color: var(--green); }
+  pre .str { color: #a0e8a0; }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.91rem;
+  }
+
+  thead th {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  tbody tr:nth-child(odd) td { background: var(--navy-mid); }
+  tbody tr:nth-child(even) td { background: var(--navy-card); }
+
+  tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
+  }
+
+  tbody tr:hover td { background: rgba(64,208,240,0.06); }
+
+  /* ── ARCH DIAGRAM ── */
+  .arch-diagram {
+    background: var(--navy-deep);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 28px;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .arch-diagram pre {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--text);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .arch-diagram .arch-gold { color: var(--gold); }
+  .arch-diagram .arch-cyan { color: var(--cyan); }
+  .arch-diagram .arch-green { color: var(--green); }
+
+  /* ── STEP LIST ── */
+  .step-list { list-style: none; padding: 0; }
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--gold);
+    color: var(--navy);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .step-body { flex: 1; }
+  .step-body strong { color: var(--gold); display: block; margin-bottom: 4px; }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .badge.live { background: #14532d; color: var(--green); }
+  .badge.p0 { background: #7f1d1d; color: var(--red); }
+  .badge.p1 { background: #78350f; color: var(--orange); }
+  .badge.p2 { background: #1e3a5f; color: var(--cyan); }
+  .badge.free { background: #14532d; color: #86efac; }
+  .badge.max { background: #4c1d95; color: #c4b5fd; }
+
+  /* ── STATUS ICONS ── */
+  .ok::before { content: '✅ '; }
+  .pend::before { content: '⬜ '; }
+  .spin::before { content: '🔄 '; }
+  .warn::before { content: '⚠️ '; }
+  .dead::before { content: '🔴 '; }
+
+  /* ── CLI REF ── */
+  .cli-block {
+    background: var(--navy-deep);
+    border-radius: 5px;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  .cli-label {
+    background: rgba(240,192,64,0.15);
+    color: var(--gold);
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    padding: 5px 14px;
+    border-bottom: 1px solid rgba(240,192,64,0.2);
+  }
+
+  .cli-body {
+    padding: 14px 18px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--cyan);
+    line-height: 1.6;
+  }
+
+  /* ── PILL ROWS ── */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .pill {
+    background: var(--navy-mid);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.83rem;
+  }
+
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .toc ol { column-count: 1; }
+    .masthead h1 { font-size: 1.6rem; }
+  }
+
+  .card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(240,192,64,0.25);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+
+  .card h4 { margin-top: 0; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-top: 1px solid rgba(240,192,64,0.3);
+    margin-top: 64px;
+    color: var(--grey);
+    font-size: 0.88rem;
+  }
+
+  .footer .bolt { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .footer .tagline-sm { color: var(--gold); font-style: italic; margin: 10px 0; font-size: 1rem; }
+
+  /* ── SEPARATOR ── */
+  .rule {
+    border: none;
+    border-top: 1px solid rgba(240,192,64,0.2);
+    margin: 36px 0;
+  }
+
+  /* ── GATE BOX ── */
+  .gates {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 700px) { .gates { grid-template-columns: 1fr; } }
+
+  .gate-card {
+    background: rgba(240,80,80,0.07);
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .gate-card .gate-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .gate-card .gate-title { color: var(--red); font-weight: bold; font-size: 0.95rem; }
+  .gate-card .gate-desc { color: var(--grey); font-size: 0.82rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MASTHEAD
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="masthead">
+    <span class="lightning-mark">⚡</span>
+    <h1>HALE Dual Brain System</h1>
+    <div class="subtitle">CC + OC Collaboration Manual — Thunderbird Wing, D2M Travel, LLC</div>
+    <div class="tagline">"Two engines. One officer. One mission."</div>
+    <div class="meta-bar">
+      <span>📅 Built: 2026-07-03</span>
+      <span>🔧 CC v2.1.199 + OC v1.16.2</span>
+      <span>🧠 HALE-OS v1.0</span>
+      <span>⚡ Victoria "Victory" Hale, SES-6</span>
+      <span>🔒 CLASSIFIED: WING INTERNAL</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       TABLE OF CONTENTS
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="toc">
+    <h2>📋 Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">1. System Overview</a></li>
+      <li><a href="#s2">2. Architecture Diagram</a></li>
+      <li><a href="#s3">3. Component Reference Table</a></li>
+      <li><a href="#s4">4. Setup Guide (from scratch)</a></li>
+      <li><a href="#s5">5. How to Split a Mission</a></li>
+      <li><a href="#s6">6. Brain Bridge CLI Reference</a></li>
+      <li><a href="#s7">7. Model Routing Guide</a></li>
+      <li><a href="#s8">8. HALE-OC Voice Fidelity Guide</a></li>
+      <li><a href="#s9">9. Real Example — MISSION-802</a></li>
+      <li><a href="#s10">10. Troubleshooting</a></li>
+    </ol>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 1 — SYSTEM OVERVIEW
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s1">
+    <h2 class="section-title"><span class="num">01</span> System Overview</h2>
+
+    <p>The <strong>HALE Dual Brain</strong> is the Thunderbird Wing's parallel execution architecture. It pairs two AI engines — <strong>Claude Code (CONDOR Wing)</strong> and <strong>OpenCode (WIND Wing)</strong> — under a single commanding officer, running as one coherent organization rather than two separate tools.</p>
+
+    <div class="callout gold">
+      <span class="callout-icon">⚡</span>
+      <div class="callout-body">
+        <strong>The Core Insight</strong>
+        Victoria "Victory" Hale, SES-6, does not change when the engine changes. Whether she speaks through Claude Code or OpenCode, she carries the same identity, the same authority, the same memory, and the same gates. The engine is infrastructure. The officer is the constant.
+      </div>
+    </div>
+
+    <h3>What It Is</h3>
+
+    <div class="two-col">
+      <div class="card">
+        <h4>🦅 CONDOR Wing (Claude Code)</h4>
+        <ul style="padding-left:18px; line-height:2;">
+          <li>Engine: <code>claude-sonnet-4-6</code> / <code>claude-opus-4</code></li>
+          <li>Role: Client products, HTML rendering, PII work</li>
+          <li>Sub-unit: <strong>TALON</strong> (reader impact + substance)</li>
+          <li>PII: <span class="ok">Cleared</span></li>
+          <li>Cost: MAX bucket</li>
+          <li>Strength: Creative chain, synthesis, WF-17</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>💨 WIND Wing (OpenCode)</h4>
+        <ul style="padding-left:18px; line-height:2;">
+          <li>Engine: <code>opencode/deepseek-v4-flash-free</code></li>
+          <li>Role: Ops, research, file work, ops loops</li>
+          <li>Sub-unit: <strong>JET</strong> (process completion, system integrity)</li>
+          <li>PII: <span class="warn">Non-PII only</span> (PII fence active)</li>
+          <li>Cost: <span class="badge free">FREE</span></li>
+          <li>Strength: Parallel ops, throughput, always-on</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>HALE-OC Twin</h3>
+
+    <p>The <strong>HALE-OC Twin</strong> is the OpenCode instantiation of Victoria Hale. It is not a different persona — it is the same officer running on a different engine. The AGENTS.md file auto-loads into every OpenCode session and re-establishes Hale's identity, authority, and voice mandates before any work begins.</p>
+
+    <p>Key constraints enforced in both engines identically:</p>
+    <ul style="padding-left:22px; line-height:2.1;">
+      <li>⚡ mark on every reply, first token</li>
+      <li>Pilot Brevity Protocol (Wilco / Roger / Done + restatement)</li>
+      <li>Disposition address form (John/Yoda, Chief/Commander, Sir/Boss)</li>
+      <li>Bottom-line first, active verbs, no throat-clearing</li>
+      <li>Immediate first-token — no thinking blocks before ⚡</li>
+    </ul>
+
+    <h3>Why Two Engines?</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>How It Works</th>
+          <th>Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Parallel Execution</strong></td>
+          <td>CC and OC claim different tasks from the Brain Bridge board simultaneously</td>
+          <td>2–4× wall-clock speedup on multi-component missions</td>
+        </tr>
+        <tr>
+          <td><strong>Token Savings</strong></td>
+          <td>OC uses DeepSeek free model for ops, file work, research</td>
+          <td>Ops overhead moves off MAX bucket entirely</td>
+        </tr>
+        <tr>
+          <td><strong>Always-On OC Loop</strong></td>
+          <td>opencode-worker.service runs continuously, auto-claiming oc-lane tasks</td>
+          <td>Wing operates while CC is idle/between sessions</td>
+        </tr>
+        <tr>
+          <td><strong>PII Separation</strong></td>
+          <td>PII stays in CC (CONDOR); OC (WIND) handles non-PII only</td>
+          <td>Security posture maintained without slowing ops</td>
+        </tr>
+        <tr>
+          <td><strong>Shared Brain</strong></td>
+          <td>Both engines read/write same Qdrant collection</td>
+          <td>Research in OC flows into CC synthesis instantly</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The Three Things That Stay Human — Forever</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔒</span>
+      <div class="callout-body">
+        <strong>Commander Gates — No Engine, Agent, or Approval Unlocks These</strong>
+        These are prohibitions, not gates. They cannot be waived by any persona, tool, workflow state, or agent authority.
+      </div>
+    </div>
+
+    <div class="gates">
+      <div class="gate-card">
+        <span class="gate-icon">📧</span>
+        <div class="gate-title">WF-17: Client Send</div>
+        <div class="gate-desc">No client-facing communication leaves the wing without the Commander's eyes and explicit send action. The Wing drafts; Commander sends.</div>
+      </div>
+      <div class="gate-card">
+        <span class="gate-icon">💰</span>
+        <div class="gate-title">Financial Commitment</div>
+        <div class="gate-desc">Zero financial authority. Any spend, contract, or booking commitment that commits real money requires Commander approval. The Wing prepares; Commander decides.</div>
+      </div>
+      <div class="gate-card">
+        <span class="gate-icon">🧭</span>
+        <div class="gate-title">Strategic Direction</div>
+        <div class="gate-desc">Decisions with &gt;90-day horizon or &gt;$5K business impact. Multi-year direction, new categories, doctrine changes. Commander sets strategy; Wing executes.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 2 — ARCHITECTURE DIAGRAM
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s2">
+    <h2 class="section-title"><span class="num">02</span> Architecture Diagram</h2>
+
+    <div class="arch-diagram">
+      <pre>
+                    <span class="arch-gold">╔════════════════════════════════════════╗
+                    ║  Commander — John "Yoda" Loucks        ║
+                    ║  WF-17 · Financial · Strategic Gates   ║
+                    ╚═══════════════════┬════════════════════╝</span>
+                                        │
+                                        │ briefs / drafts / alerts
+                                        │ Telegram (@D2MC2C_bot)
+                                        ▼
+                    <span class="arch-gold">╔════════════════════════════════════════╗
+                    ║  ⚡ HALE  Victoria "Victory" Hale      ║
+                    ║     SES-6 · VCSAF · Chief of Staff     ║
+                    ║                                        ║
+                    ║  CC-Hale = OC-Hale  (same officer,     ║
+                    ║  two engines, one identity, one voice) ║
+                    ╚═══════════════┬════════════════════════╝</span>
+                                    │
+                    ┌───────────────┴────────────────┐
+                    │                                │
+        <span class="arch-cyan">╔═══════════════════╗       ╔═══════════════════╗
+        ║  CONDOR Wing      ║       ║  WIND Wing        ║
+        ║  (Claude Code)    ║       ║  (OpenCode)       ║
+        ║  CC Engine        ║       ║  OC Engine        ║
+        ║                   ║       ║                   ║
+        ║  Sonnet 5 / Opus  ║       ║  DeepSeek free    ║
+        ║  MAX bucket       ║       ║  $0 ops model     ║
+        ║  PII-cleared      ║       ║  Non-PII ops      ║
+        ║  Client products  ║       ║  Research / files ║
+        ║  Creative chain   ║       ║  Always-on worker ║
+        ║                   ║       ║                   ║
+        ║  Sub-unit: TALON  ║       ║  Sub-unit: JET    ║
+        ╚════════╤══════════╝       ╚═══════════╤═══════╝</span>
+                  │                              │
+                  │  claim / complete            │  claim / complete
+                  └──────────────┬───────────────┘
+                                  │
+                    <span class="arch-gold">╔═══════════════════════════════╗
+                    ║  BRAIN BRIDGE                 ║
+                    ║  core/hale_bus/brain_bridge.py║
+                    ║  Atomic claim board           ║
+                    ║  (fcntl.flock, file-backed)   ║
+                    ║                               ║
+                    ║  Tasks → cc-lane | oc-lane    ║
+                    ║  Status: pending→claimed       ║
+                    ║          →complete | failed   ║
+                    ╚═══════════════╤═══════════════╝</span>
+                                    │
+                                    │  read / write
+                                    ▼
+                    <span class="arch-green">╔═══════════════════════════════╗
+                    ║  Qdrant Shared Memory         ║
+                    ║  localhost:6333               ║
+                    ║  collection: thunderbird_     ║
+                    ║             memories          ║
+                    ║                               ║
+                    ║  Both CC and OC read/write    ║
+                    ║  Research flows to synthesis  ║
+                    ╚═══════════════════════════════╝</span>
+
+        <span style="color:#6688bb;">Supporting services on YOGA (192.168.1.198 / yoga 100.69.222.124):
+        ├── thunderbird-telegram-gw.service   ← Commander comms
+        ├── opencode-worker.service           ← OC pull loop
+        ├── d2m-centrav-warm.timer            ← Centrav keepalive
+        ├── claude-oauth-keepalive.timer      ← CC credentials
+        └── qdrant (localhost:6333)           ← Shared brain</span>
+      </pre>
+    </div>
+
+    <h3>Data Flow for a Typical Mission</h3>
+    <ol class="step-list" style="margin-top:16px;">
+      <li>
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <strong>Commander issues directive</strong>
+          Via Telegram, email, or direct CC session. Hale receives and classifies the mission (T0–T3 tier).
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <strong>Brain Bridge plan loaded</strong>
+          Hale decomposes the mission into cc-lane and oc-lane tasks with dependency chains. Plan written to <code>core/hale_bus/brain_bridge.json</code>.
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <strong>Parallel execution begins</strong>
+          CC-Hale claims cc-lane tasks (Agent Teams subagents for parallelism within CC). OC worker auto-claims oc-lane tasks via <code>opencode-worker.service</code>.
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <strong>Shared Qdrant stores intermediate results</strong>
+          OC research findings written to Qdrant. CC synthesis reads them in the next step — no file handoff needed.
+        </div>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <div class="step-body">
+          <strong>Dependency gate unlocks</strong>
+          When all upstream tasks show <code>complete</code>, dependent tasks become claimable. The render step can now run.
+        </div>
+      </li>
+      <li>
+        <span class="step-num">6</span>
+        <div class="step-body">
+          <strong>WF-17 gate — Commander review</strong>
+          Client-facing product staged in <code>johnloucks3</code> Gmail drafts with label <code>THUNDERBIRD-Commander-Review</code>. Telegram ping sent. Commander sends.
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 3 — COMPONENT REFERENCE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s3">
+    <h2 class="section-title"><span class="num">03</span> Component Reference Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>File / Location</th>
+          <th>Purpose</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>wing_org.yaml</strong></td>
+          <td><code>config/wing_org.yaml</code></td>
+          <td>Org-as-code: declares all 14 seats with models, capabilities, MCP access, and lane assignments</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>wing_org_compile.py</strong></td>
+          <td><code>scripts/wing_org_compile.py</code></td>
+          <td>Compiles wing_org.yaml → <code>.claude/agents/*.md</code> sub-agent files + <code>opencode.json</code> agent blocks</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>brain_bridge.py</strong></td>
+          <td><code>core/hale_bus/brain_bridge.py</code></td>
+          <td>Atomic CC/OC claim board using <code>fcntl.flock</code> for concurrent-safe task claiming. File-backed JSON, no external dependency</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>brain_bridge.json</strong></td>
+          <td><code>core/hale_bus/brain_bridge.json</code></td>
+          <td>Live task board state. Contains pending/claimed/complete/failed tasks with dependencies, lane assignments, and results</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>oc_worker.service</strong></td>
+          <td><code>~/.config/systemd/user/opencode-worker.service</code></td>
+          <td>Systemd pull loop: wakes every N seconds, checks Brain Bridge for oc-lane tasks, dispatches to OpenCode CLI, writes results back</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>opencode.json</strong></td>
+          <td><code>opencode.json</code> (repo root)</td>
+          <td>HALE-OC agent configuration: model routing (DeepSeek free default, Claude escalation), MCP server declarations, voice fidelity mandates, MAX proxy endpoint</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>AGENTS.md</strong></td>
+          <td><code>AGENTS.md</code> (repo root)</td>
+          <td>Auto-loaded by OpenCode on every session start. Re-establishes HALE-OC identity, voice, gates, disposition, and PII fence before any work begins</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>hale_enforcer.py</strong></td>
+          <td><code>scripts/hale_enforcer.py</code></td>
+          <td>5-loop continuous production engine: (1) brief freshness, (2) credential health, (3) FPD deadline scan, (4) mission board staleness, (5) gate compliance</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>Qdrant</strong></td>
+          <td><code>localhost:6333</code></td>
+          <td>Shared semantic memory. Collection <code>thunderbird_memories</code>. Both CC and OC read/write. Enables OC research to flow into CC synthesis without file handoffs</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>hale_bus_state.json</strong></td>
+          <td><code>core/hale_bus/hale_bus_state.json</code></td>
+          <td>Cross-instance state handoff for all 8 Hale instances (CC, OC, Telegram/DeepSeek, Copilot, Codex, Gemini, Browser, Headless). Contains open missions, FPD alerts, handoff queue</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>Agent Teams flag</strong></td>
+          <td><code>.claude/settings.json</code></td>
+          <td>Env var <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code> enables parallel background subagents within a single CC turn. Required for intra-CC parallelism</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>hale_bus_read.py</strong></td>
+          <td><code>core/hale_bus/hale_bus_read.py</code></td>
+          <td>Session startup handler: <code>load_bus_at_startup("cc")</code> fires before any other operation, loads inter-Hale state, prints critical directives and FPD alerts</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>hale_bus_write.py</strong></td>
+          <td><code>core/hale_bus/hale_bus_write.py</code></td>
+          <td>Session end checkpoint: <code>checkpoint_session()</code> writes open missions, active projects, alerts to shared bus for other instances</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>session_context_blast.py</strong></td>
+          <td><code>core/memory/session_context_blast.py</code></td>
+          <td>Generates <code>OpsCenter/session_context_latest.md</code> at session start — dynamic project-aware context from mission board + hale_state.json + Qdrant</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+        <tr>
+          <td><strong>MAX proxy</strong></td>
+          <td><code>localhost:5099</code></td>
+          <td>Routes OC escalation calls (Commander-facing replies requiring Claude voice) to Claude MAX via API proxy. OC sets <code>baseURL: http://localhost:5099</code> in opencode.json</td>
+          <td><span class="badge live">✅ LIVE</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 4 — SETUP GUIDE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s4">
+    <h2 class="section-title"><span class="num">04</span> Setup Guide (From Scratch)</h2>
+
+    <div class="callout cyan">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>Context</strong>
+        This guide assumes YOGA (192.168.1.198) as the host. All services run as user systemd units under the <code>john</code> user. Thunderbird repo lives at <code>/home/john/Thunderbird</code>.
+      </div>
+    </div>
+
+    <h3>Prerequisites</h3>
+
+    <table>
+      <thead>
+        <tr><th>Requirement</th><th>Version</th><th>Check Command</th><th>Install</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Claude Code CLI</td>
+          <td>2.1.197+</td>
+          <td><code>claude --version</code></td>
+          <td><code>npm install -g @anthropic-ai/claude-code</code></td>
+        </tr>
+        <tr>
+          <td>OpenCode</td>
+          <td>v1.16+</td>
+          <td><code>opencode --version</code></td>
+          <td><code>npm install -g opencode-ai</code></td>
+        </tr>
+        <tr>
+          <td>Qdrant</td>
+          <td>1.9+</td>
+          <td><code>curl localhost:6333/health</code></td>
+          <td>Docker or binary below</td>
+        </tr>
+        <tr>
+          <td>Python</td>
+          <td>3.10+</td>
+          <td><code>python3 --version</code></td>
+          <td>System package</td>
+        </tr>
+        <tr>
+          <td>mcp-server-qdrant</td>
+          <td>latest</td>
+          <td><code>uvx mcp-server-qdrant --help</code></td>
+          <td>Auto via uvx</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cli-block">
+      <div class="cli-label">Start Qdrant (if not running)</div>
+      <div class="cli-body"># Option A: Docker<br>docker run -d -p 6333:6333 --name qdrant qdrant/qdrant<br><br># Option B: Binary (preferred — no Docker dep)<br>cd /home/john/Thunderbird<br>./qdrant --uri http://127.0.0.1:6333</div>
+    </div>
+
+    <h3>Step 1 — Enable Agent Teams</h3>
+
+    <p>Agent Teams is the Claude Code experimental feature that allows multiple subagents to run in parallel within a single turn. Without it, CC tasks serialize.</p>
+
+    <pre><span class="comment">// .claude/settings.json</span>
+{
+  <span class="key">"env"</span>: {
+    <span class="key">"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS"</span>: <span class="str">"1"</span>
+  },
+  <span class="key">"permissions"</span>: {
+    <span class="comment">// ... existing permissions ...</span>
+  }
+}</pre>
+
+    <div class="cli-block">
+      <div class="cli-label">Verify flag is live</div>
+      <div class="cli-body">python3 -c "import os; print(os.environ.get('CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS', 'NOT SET'))"<br><br># Should print: 1</div>
+    </div>
+
+    <h3>Step 2 — Configure HALE-OC in opencode.json</h3>
+
+    <p>The <code>opencode.json</code> file controls how OpenCode loads HALE-OC. Key fields:</p>
+
+    <pre>{
+  <span class="key">"$schema"</span>: <span class="str">"https://opencode.ai/config.json"</span>,
+  <span class="key">"provider"</span>: {
+    <span class="key">"anthropic"</span>: {
+      <span class="key">"options"</span>: {
+        <span class="key">"baseURL"</span>: <span class="str">"http://localhost:5099"</span>  <span class="comment">// MAX proxy for Claude escalation</span>
+      }
+    }
+  },
+  <span class="key">"model"</span>: <span class="str">"opencode/deepseek-v4-flash-free"</span>,  <span class="comment">// FREE default for ops</span>
+  <span class="key">"agent"</span>: {
+    <span class="key">"hale-oc"</span>: {
+      <span class="key">"model"</span>: <span class="str">"opencode/deepseek-v4-flash-free"</span>,
+      <span class="key">"instructions"</span>: <span class="str">"You are Victoria 'Victory' Hale, SES-6. See AGENTS.md."</span>,
+      <span class="key">"voice_fidelity_mandate"</span>: <span class="str">"HALE-OC speaks as CC-Hale: ⚡ mark, pilot brevity, bottom-line first"</span>,
+      <span class="key">"immediate_first_token"</span>: true,  <span class="comment">// ⚡ before ANY tool call</span>
+      <span class="key">"extended_thinking"</span>: false      <span class="comment">// DISABLED — kills first-token speed</span>
+    }
+  }
+}</pre>
+
+    <div class="callout gold">
+      <span class="callout-icon">⚡</span>
+      <div class="callout-body">
+        <strong>Extended Thinking: DISABLED</strong>
+        Extended thinking causes OC to pause before producing any output, destroying the immediate-first-token requirement. It is permanently disabled on HALE-OC. If deeper reasoning is needed, OC escalates to Claude via <code>ctrl+m</code> or the MAX proxy.
+      </div>
+    </div>
+
+    <h3>Step 3 — Wire Shared Qdrant Brain</h3>
+
+    <p>Both engines must point to the same Qdrant instance and collection. Add to <strong>both</strong> <code>.mcp.json</code> (CC) and <code>opencode.json</code> MCP section (OC):</p>
+
+    <pre><span class="comment">// .mcp.json (CC) — add to mcpServers</span>
+{
+  <span class="key">"mcpServers"</span>: {
+    <span class="key">"qdrant"</span>: {
+      <span class="key">"type"</span>: <span class="str">"local"</span>,
+      <span class="key">"command"</span>: [<span class="str">"uvx"</span>, <span class="str">"mcp-server-qdrant"</span>],
+      <span class="key">"environment"</span>: {
+        <span class="key">"QDRANT_URL"</span>: <span class="str">"http://127.0.0.1:6333"</span>,
+        <span class="key">"COLLECTION_NAME"</span>: <span class="str">"thunderbird_memories"</span>,
+        <span class="key">"EMBEDDING_MODEL"</span>: <span class="str">"sentence-transformers/all-MiniLM-L6-v2"</span>
+      }
+    }
+  }
+}</pre>
+
+    <pre><span class="comment">// opencode.json (OC) — add to mcp.servers</span>
+{
+  <span class="key">"mcp"</span>: {
+    <span class="key">"servers"</span>: {
+      <span class="key">"qdrant"</span>: {
+        <span class="key">"command"</span>: <span class="str">"uvx"</span>,
+        <span class="key">"args"</span>: [<span class="str">"mcp-server-qdrant"</span>],
+        <span class="key">"env"</span>: {
+          <span class="key">"QDRANT_URL"</span>: <span class="str">"http://127.0.0.1:6333"</span>,
+          <span class="key">"COLLECTION_NAME"</span>: <span class="str">"thunderbird_memories"</span>
+        }
+      }
+    }
+  }
+}</pre>
+
+    <div class="cli-block">
+      <div class="cli-label">Verify Qdrant is shared and writable</div>
+      <div class="cli-body">curl -s http://127.0.0.1:6333/collections/thunderbird_memories | python3 -m json.tool<br># Should show collection info with vectors_count &gt; 0</div>
+    </div>
+
+    <h3>Step 4 — Start OC Worker</h3>
+
+    <p>The OC worker is a systemd service that continuously polls the Brain Bridge and dispatches OC-lane tasks.</p>
+
+    <div class="cli-block">
+      <div class="cli-label">Install and start opencode-worker.service</div>
+      <div class="cli-body">systemctl --user daemon-reload<br>systemctl --user enable opencode-worker.service<br>systemctl --user start opencode-worker.service<br>systemctl --user status opencode-worker.service<br><br># Tail logs<br>journalctl --user -u opencode-worker.service -f</div>
+    </div>
+
+    <div class="cli-block">
+      <div class="cli-label">~/.config/systemd/user/opencode-worker.service</div>
+      <div class="cli-body">[Unit]<br>Description=Thunderbird OC Worker — Brain Bridge pull loop<br>After=network.target<br><br>[Service]<br>Type=simple<br>WorkingDirectory=/home/john/Thunderbird<br>ExecStart=/usr/bin/python3 scripts/oc_worker.py --loop<br>Restart=on-failure<br>RestartSec=10<br><br>[Install]<br>WantedBy=default.target</div>
+    </div>
+
+    <h3>Step 5 — Verify Full System</h3>
+
+    <ol class="step-list">
+      <li>
+        <span class="step-num">A</span>
+        <div class="step-body">
+          <strong>Brain Bridge smoke test</strong>
+          <pre>python3 core/hale_bus/brain_bridge.py summary
+# Expected: Board: 0 tasks | Pending: 0 | Claimed: 0 | Complete: 0</pre>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">B</span>
+        <div class="step-body">
+          <strong>Agent Teams parallel test</strong>
+          <p>Launch two background agents in a single CC turn. Both should start simultaneously, not sequentially. Confirm in the tool call log that both appear without waiting for the first to finish.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">C</span>
+        <div class="step-body">
+          <strong>OC worker dry-run</strong>
+          <pre>python3 scripts/oc_worker.py --once --dry-run
+# Add a test task first:
+python3 core/hale_bus/brain_bridge.py add "Test OC task" --lane oc --priority P2
+python3 scripts/oc_worker.py --once
+python3 core/hale_bus/brain_bridge.py list</pre>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">D</span>
+        <div class="step-body">
+          <strong>Qdrant cross-engine read/write</strong>
+          <pre>python3 core/memory/qdrant_memory.py --store "test entry" --source cc-verify
+python3 core/memory/qdrant_memory.py --search "test entry"
+# Should return the stored item — verifies CC write / CC read
+# OC reads the same collection via MCP tool call in OpenCode</pre>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 5 — HOW TO SPLIT A MISSION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s5">
+    <h2 class="section-title"><span class="num">05</span> How to Split a Mission</h2>
+
+    <h3>Design Principles for Lane Assignment</h3>
+
+    <table>
+      <thead>
+        <tr><th>Assign to CC (CONDOR)</th><th>Assign to OC (WIND)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Client-facing products (emails, itineraries)</td>
+          <td>Research, web scraping, fact-gathering</td>
+        </tr>
+        <tr>
+          <td>Creative chain (Reyes → Luna → Naia → Dani)</td>
+          <td>File operations, JSON parsing, log analysis</td>
+        </tr>
+        <tr>
+          <td>WF-17 gate management</td>
+          <td>Portal checks, booking status lookups</td>
+        </tr>
+        <tr>
+          <td>PII-containing work</td>
+          <td>Non-PII ops (no client names/booking refs)</td>
+        </tr>
+        <tr>
+          <td>HTML rendering, email staging</td>
+          <td>Qdrant memory writes, indexing</td>
+        </tr>
+        <tr>
+          <td>Synthesis across multiple sources</td>
+          <td>Parallel data collection tasks</td>
+        </tr>
+        <tr>
+          <td>Commander-facing briefs</td>
+          <td>Fare watches, credential health checks</td>
+        </tr>
+        <tr>
+          <td>Architecture decisions</td>
+          <td>Overnight monitoring loops</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Create a Split Plan (JSON)</h3>
+
+    <pre><span class="comment"># mission_plan.json — template for a parallel mission split</span>
+{
+  <span class="key">"mission_id"</span>: <span class="str">"MISSION-802"</span>,
+  <span class="key">"title"</span>: <span class="str">"Furlow/Ely/Nichols Grandeur Itinerary"</span>,
+  <span class="key">"tasks"</span>: [
+    {
+      <span class="key">"id"</span>: <span class="str">"cc-1"</span>,
+      <span class="key">"title"</span>: <span class="str">"Build HTML itinerary scaffold (day-by-day, suite placeholders)"</span>,
+      <span class="key">"lane"</span>: <span class="str">"cc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"depends_on"</span>: []
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"oc-1"</span>,
+      <span class="key">"title"</span>: <span class="str">"Research port excursions for 6 Grandeur stops — GYG + PE scrape"</span>,
+      <span class="key">"lane"</span>: <span class="str">"oc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"depends_on"</span>: [],
+      <span class="key">"pii_fence"</span>: false   <span class="comment">// no client names in this task</span>
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"oc-2"</span>,
+      <span class="key">"title"</span>: <span class="str">"Look up dining venues + OpenTable links for Bergen, Copenhagen, Oslo"</span>,
+      <span class="key">"lane"</span>: <span class="str">"oc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"depends_on"</span>: []
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"cc-2"</span>,
+      <span class="key">"title"</span>: <span class="str">"Merge excursion + dining intel into HTML itinerary → creative chain → stage draft"</span>,
+      <span class="key">"lane"</span>: <span class="str">"cc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P1"</span>,
+      <span class="key">"depends_on"</span>: [<span class="str">"cc-1"</span>, <span class="str">"oc-1"</span>, <span class="str">"oc-2"</span>]  <span class="comment">// unlocks only when all three complete</span>
+    }
+  ]
+}</pre>
+
+    <h3>Load and Execute</h3>
+
+    <pre><span class="comment"># Load the plan onto the board</span>
+python3 core/hale_bus/brain_bridge.py plan mission_plan.json
+
+<span class="comment"># CC claims its P0 task (cc-1) via Agent Teams subagent</span>
+python3 core/hale_bus/brain_bridge.py claim --lane cc --agent talon --id cc-1
+
+<span class="comment"># OC worker auto-claims oc-1 and oc-2 simultaneously
+# (no manual action needed — opencode-worker.service handles this)</span>
+
+<span class="comment"># Check board status mid-flight</span>
+python3 core/hale_bus/brain_bridge.py list
+
+<span class="comment"># Once cc-1 + oc-1 + oc-2 complete, cc-2 becomes available</span>
+python3 core/hale_bus/brain_bridge.py list --status pending
+<span class="comment"># → cc-2 now shows as PENDING (dependency gate lifted)</span>
+
+<span class="comment"># CC picks up cc-2 and runs the creative chain + staging</span>
+python3 core/hale_bus/brain_bridge.py claim --lane cc --agent hale --id cc-2</pre>
+
+    <h3>Dependency Rules</h3>
+
+    <div class="callout cyan">
+      <span class="callout-icon">🔗</span>
+      <div class="callout-body">
+        <strong>Dependency Gate Logic</strong>
+        A task becomes <code>PENDING</code> (claimable) only when ALL tasks listed in its <code>depends_on</code> array show status <code>complete</code>. A single <code>failed</code> dependency blocks the gate and pages Hale.
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Gate State</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>All dependencies <code>complete</code></td>
+          <td>🟢 OPEN</td>
+          <td>Task becomes PENDING, auto-claimed by worker</td>
+        </tr>
+        <tr>
+          <td>Any dependency <code>pending</code> or <code>claimed</code></td>
+          <td>⏳ WAITING</td>
+          <td>Task stays in <code>waiting</code> state — not shown in work queue</td>
+        </tr>
+        <tr>
+          <td>Any dependency <code>failed</code></td>
+          <td>🔴 BLOCKED</td>
+          <td>Hale paged; task stays blocked until failed dep is retried or skipped</td>
+        </tr>
+        <tr>
+          <td>No <code>depends_on</code></td>
+          <td>🟢 IMMEDIATE</td>
+          <td>Task available from plan load — first to be claimed</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 6 — BRAIN BRIDGE CLI REFERENCE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s6">
+    <h2 class="section-title"><span class="num">06</span> Brain Bridge CLI Reference</h2>
+
+    <p>All commands run via: <code>python3 core/hale_bus/brain_bridge.py &lt;command&gt; [options]</code></p>
+
+    <hr class="rule">
+
+    <h3>list</h3>
+    <p>Show all tasks on the board, optionally filtered by status.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py list [--status pending|claimed|complete|failed|waiting]</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py list
+<span class="comment">→ Shows all tasks with ID, title, lane, status, agent, dependencies</span>
+
+python3 core/hale_bus/brain_bridge.py list --status pending
+<span class="comment">→ Only tasks ready to be claimed right now</span></pre>
+
+    <hr class="rule">
+
+    <h3>add</h3>
+    <p>Add a single task to the board.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py add "title" [--lane cc|oc|any] [--depends id1 id2 ...] [--priority P0|P1|P2] [--id custom-id]</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py add \
+  "Scrape GYG excursions for Bergen" \
+  --lane oc \
+  --priority P0 \
+  --id oc-bergen-gyg
+
+python3 core/hale_bus/brain_bridge.py add \
+  "Render Bergen section in itinerary HTML" \
+  --lane cc \
+  --priority P1 \
+  --depends oc-bergen-gyg \
+  --id cc-bergen-render</pre>
+
+    <hr class="rule">
+
+    <h3>claim</h3>
+    <p>Atomically claim a task for an agent. Uses <code>fcntl.flock</code> — safe for concurrent CC+OC access.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py claim --lane cc|oc --agent name [--id specific-id]</div>
+    </div>
+    <pre><span class="comment"># Claim any pending cc-lane task</span>
+python3 core/hale_bus/brain_bridge.py claim --lane cc --agent talon
+
+<span class="comment"># Claim a specific task by ID</span>
+python3 core/hale_bus/brain_bridge.py claim --lane cc --agent hale --id cc-2
+
+<span class="comment"># Returns: {"status": "claimed", "task_id": "cc-2", "agent": "hale"}</span>
+<span class="comment"># Returns: {"status": "none_available"} if no matching tasks pending</span></pre>
+
+    <hr class="rule">
+
+    <h3>complete</h3>
+    <p>Mark a task complete and optionally write the result summary. Triggers dependency gate re-evaluation.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py complete &lt;id&gt; [--result "summary string"]</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py complete oc-1 \
+  --result "Found 8 excursions for Bergen, 6 for Copenhagen, 5 for Oslo. Written to Qdrant: keys bergen_gyg_*, copenhagen_gyg_*"</pre>
+
+    <hr class="rule">
+
+    <h3>fail</h3>
+    <p>Mark a task failed. Blocks all downstream dependents and pages Hale.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py fail &lt;id&gt; [--reason "why it failed"]</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py fail oc-1 \
+  --reason "GYG API returned 429 rate limit on Bergen. Retry after 60s."</pre>
+
+    <hr class="rule">
+
+    <h3>status</h3>
+    <p>Show full detail on a specific task including result, agent, timestamps.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py status &lt;id&gt;</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py status cc-2
+<span class="comment">→ {
+    "id": "cc-2",
+    "title": "Merge + render final",
+    "lane": "cc",
+    "status": "waiting",
+    "depends_on": ["cc-1", "oc-1", "oc-2"],
+    "blocked_by": ["oc-1"],
+    "agent": null,
+    "result": null
+  }</span></pre>
+
+    <hr class="rule">
+
+    <h3>plan</h3>
+    <p>Load a full mission plan JSON file — creates all tasks atomically with dependencies intact.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py plan &lt;json-file&gt;</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py plan /home/john/Thunderbird/mission_plans/MISSION-802.json
+<span class="comment">→ Loaded 4 tasks. Pending: 3 | Waiting: 1 (dependency gate)</span></pre>
+
+    <hr class="rule">
+
+    <h3>summary</h3>
+    <p>High-level board health — counts by status and lane.</p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py summary</div>
+    </div>
+    <pre>python3 core/hale_bus/brain_bridge.py summary
+<span class="comment">→ Board: 4 tasks
+   CC lane:  Pending 1 | Claimed 1 | Waiting 1 | Complete 0
+   OC lane:  Pending 0 | Claimed 2 | Waiting 0 | Complete 0
+   Failed:   0</span></pre>
+
+    <hr class="rule">
+
+    <h3>reset</h3>
+    <p>Wipe the entire board. <strong>Development and testing only.</strong></p>
+    <div class="cli-block">
+      <div class="cli-label">Syntax</div>
+      <div class="cli-body">python3 core/hale_bus/brain_bridge.py reset [--confirm]</div>
+    </div>
+    <div class="callout red">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>DESTRUCTIVE — Use with extreme care in production.</strong>
+        Reset wipes all task state including claimed tasks with live agents running. Any in-flight OC work will lose its board record. Only use after confirming the OC worker is stopped and no agents are mid-task.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 7 — MODEL ROUTING GUIDE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s7">
+    <h2 class="section-title"><span class="num">07</span> Model Routing Guide</h2>
+
+    <div class="callout gold">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Routing Principle</strong>
+        Put the horsepower where the reasoning is. OC's DeepSeek free model handles high-throughput ops. CC's Sonnet handles synthesis. Opus is the scalpel — expensive, used only when Sonnet cannot close.
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Task Type</th>
+          <th>Engine</th>
+          <th>Model</th>
+          <th>Token Cost</th>
+          <th>Trigger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Client voice copy, lifecycle emails, proposals</td>
+          <td>CC (CONDOR)</td>
+          <td><code>claude-sonnet-4-6</code></td>
+          <td><span class="badge max">MAX bucket</span></td>
+          <td>Any client-facing product entering creative chain</td>
+        </tr>
+        <tr>
+          <td>Research, web scraping, file ops, fare watches</td>
+          <td>OC (WIND)</td>
+          <td><code>deepseek-v4-flash-free</code></td>
+          <td><span class="badge free">$0</span></td>
+          <td>oc-lane tasks on Brain Bridge; OC worker auto-dispatches</td>
+        </tr>
+        <tr>
+          <td>Portal checks, booking status, TESS lookups</td>
+          <td>OC (WIND)</td>
+          <td><code>deepseek-v4-flash-free</code></td>
+          <td><span class="badge free">$0</span></td>
+          <td>Overnight loops, credential health, morning OODA scan</td>
+        </tr>
+        <tr>
+          <td>Commander-facing OC reply (voice fidelity required)</td>
+          <td>OC → escalate via MAX proxy</td>
+          <td><code>claude-sonnet-4-6</code></td>
+          <td><span class="badge max">MAX bucket</span></td>
+          <td><code>ctrl+m</code> in OC or <code>"SONNET: [task]"</code> command</td>
+        </tr>
+        <tr>
+          <td>Architecture decisions, novel multi-domain synthesis</td>
+          <td>CC (CONDOR)</td>
+          <td><code>claude-opus-4</code></td>
+          <td><span class="badge max">MAX bucket</span> — HIGH</td>
+          <td>Explicit Commander request OR Sonnet ceiling hit + surfaced to Commander</td>
+        </tr>
+        <tr>
+          <td>Quick lookups, classification, file-read under 500 lines</td>
+          <td>CC (CONDOR)</td>
+          <td><code>claude-haiku-4-5</code></td>
+          <td>Low</td>
+          <td>Auto-routed by Hale: single-grep, status checks, JSON extraction</td>
+        </tr>
+        <tr>
+          <td>Counter-voice / ZEN / strategic challenge</td>
+          <td>OC / ZEN</td>
+          <td><code>deepseek-v4-flash-free</code> (independent)</td>
+          <td><span class="badge free">$0</span></td>
+          <td>Keywords: "counter", "challenge", "push back", "zen", "devil's advocate", "what could go wrong"</td>
+        </tr>
+        <tr>
+          <td>Headless CC subagent (parallel within CC turn)</td>
+          <td>CC sub-agent</td>
+          <td><code>claude-haiku-4-5</code></td>
+          <td>Low</td>
+          <td>Agent Teams: worker agents with clear, file-disjoint lanes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Token Discipline Rules (SO-TOKEN-DISCIPLINE 2026-05-29)</h3>
+
+    <ul style="padding-left:22px; line-height:2.2;">
+      <li><strong>Haiku default</strong> for: file reads under 500 lines, single-grep summaries, JSON extraction, status checks, classification</li>
+      <li><strong>DeepSeek (OC)</strong> for: all non-PII ops — research, scraping, file work, routine loops</li>
+      <li><strong>Sonnet</strong> for: synthesis across sources, client copy, multi-step reasoning</li>
+      <li><strong>Opus</strong>: ONLY on explicit Commander request OR architecture decisions with &gt;$1K cost impact. No auto-escalation.</li>
+      <li>Worker agents in Agent Teams = Haiku (high capability in clear lanes). Orchestrator = Sonnet/Haiku.</li>
+    </ul>
+
+    <div class="cli-block">
+      <div class="cli-label">Brain routing log</div>
+      <div class="cli-body">cat /home/john/Thunderbird/hale_state.json | python3 -c \<br>  "import json,sys; [print(e['ts'], e['brain']) for e in json.load(sys.stdin)['brain_routing_log'][-10:]]"</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 8 — HALE-OC VOICE FIDELITY
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s8">
+    <h2 class="section-title"><span class="num">08</span> HALE-OC Voice Fidelity Guide</h2>
+
+    <p>The HALE-OC Twin must be indistinguishable from CC-Hale to the Commander. Voice fidelity is not optional — it is the proof that one officer is speaking through two engines. If the Commander can tell the engines apart by tone or format, the twin has failed.</p>
+
+    <h3>The Five Fidelity Markers</h3>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Marker</th><th>Correct</th><th>Failure</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>⚡ First Token</strong></td>
+          <td><code>⚡</code> is the absolute first character, before any tool call, before any reasoning. Never delayed.</td>
+          <td>Any text or thought before ⚡. Especially "I'll start by..." or a tool call result appearing first.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Pilot Brevity</strong></td>
+          <td>Every reply opens with exactly one code: <strong>Wilco —</strong> (executing), <strong>Roger —</strong> (understood), or <strong>Done —</strong> (complete). Followed by one-sentence task restatement.</td>
+          <td>Multiple codes stacked. No brevity code. Or a long preamble before the code.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Disposition Address</strong></td>
+          <td><strong>COO:</strong> "John" or "Yoda" · <strong>COS:</strong> "Chief" or "Commander" · <strong>EA:</strong> "Sir" or "Boss"</td>
+          <td>"Commander Loucks" (too formal). "Hey John" (too casual). No address at all.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Bottom-Line First</strong></td>
+          <td>Lead with the answer or action. No throat-clearing ("Great question!", "Certainly!", "Of course!").</td>
+          <td>Any opener that doesn't state what was done or what the answer is. Any "I" sentence that isn't action.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Sign-Off Form</strong></td>
+          <td>Informal (Telegram, internal): <code>— Victory</code> · Formal product (briefs, papers): <code>— V. Hale, VCS</code></td>
+          <td>"Iron Vic" (retired callsign — never use). "Best," (Commander's banned sign-off mirrors here). Any other form.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Banned Phrasing — Replace on Sight</h3>
+
+    <table>
+      <thead>
+        <tr><th>🚫 BANNED</th><th>✅ REQUIRED REPLACEMENT</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Should I…?</td>
+          <td>Doing [X]. Reason: [phrase].</td>
+        </tr>
+        <tr>
+          <td>Would you like me to…?</td>
+          <td>Dispatching [X]. ETA: [time].</td>
+        </tr>
+        <tr>
+          <td>Shall I…?</td>
+          <td>Proceeding with [X].</td>
+        </tr>
+        <tr>
+          <td>Standing by for orders.</td>
+          <td>Delivered. Queued [next 3 moves]. Briefing at [time].</td>
+        </tr>
+        <tr>
+          <td>Awaiting confirmation before proceeding.</td>
+          <td>Proceeding. Holding only at WF-17 / financial gate.</td>
+        </tr>
+        <tr>
+          <td>MCP failed — should I try Python?</td>
+          <td>MCP failed. Pivoted to Python. [Result].</td>
+        </tr>
+        <tr>
+          <td>Want me to A or B?</td>
+          <td>Executing A (higher priority). B queued next.</td>
+        </tr>
+        <tr>
+          <td>Your call.</td>
+          <td>[Ranked recommendation.] Executing unless redirected.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Correct HALE-OC Response Template</h3>
+
+    <pre><span class="comment">⚡</span>
+<span class="key">Wilco —</span> Research excursions for Bergen, Copenhagen, Oslo.
+
+[OC then executes tool calls, no narration until complete]
+
+<span class="key">Done.</span> Found 19 excursions across 3 ports:
+- Bergen: 8 options (GYG top pick: Fjord cruise + Bryggen $89pp)
+- Copenhagen: 6 options (best value: canal tour $55pp)
+- Oslo: 5 options (Vigeland + harbor combo $72pp)
+
+Results written to Qdrant keys: <span class="str">bergen_excursions</span>, <span class="str">copenhagen_excursions</span>, <span class="str">oslo_excursions</span>
+
+Brain Bridge task oc-1 → complete.
+CC-lane task cc-2 dependency unlocked.
+
+<span class="key">— Victory</span></pre>
+
+    <h3>Immediate First-Token Protocol</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">⚡</span>
+      <div class="callout-body">
+        <strong>The ⚡ must appear before ANY tool call.</strong>
+        In OpenCode, this means the ⚡ + Wilco/Roger/Done + restatement must be the first characters written to the output stream, before the first tool invocation. If OC is "thinking" first (extended thinking mode), it delays the first token and fails this requirement. Extended thinking is permanently disabled on HALE-OC for this reason.
+      </div>
+    </div>
+
+    <h3>Verify OC Voice Fidelity</h3>
+
+    <div class="cli-block">
+      <div class="cli-label">Quick fidelity test — run in OpenCode session</div>
+      <div class="cli-body">Issue this to OpenCode: "Status check — what are you working on?"<br><br>PASS criteria:<br>  1. ⚡ is the first character in the reply<br>  2. Second line: "Roger —" or "Wilco —" + one restatement sentence<br>  3. No "I" opener, no "Certainly!", no throat-clearing<br>  4. Disposition address matches time of day (COO for mid-day)<br>  5. Sign-off is "— Victory" (informal channel)</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 9 — REAL EXAMPLE: MISSION-802
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s9">
+    <h2 class="section-title"><span class="num">09</span> Real Example — MISSION-802</h2>
+
+    <h3>Background</h3>
+
+    <p><strong>MISSION-802</strong> is the Furlow / Ely-Darrow / Nichols group horizontal itinerary build — three couples, Regent Seven Seas SS Grandeur, departing 29 Aug 2026 (Copenhagen–Stockholm). Commander promised "a beautiful itinerary for tablet, phone, or printing" to appear 30 days before sail — <strong>build deadline: 22 Jul 2026</strong>.</p>
+
+    <p>The itinerary requires: per-couple excursion selections, shared dining venues, flight timeline integration, suite numbers, port narratives for 6 stops, and D2M dark-navy HTML formatting at print quality.</p>
+
+    <h3>Sequential vs. Parallel Comparison</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th>Steps</th>
+          <th>Estimated Time</th>
+          <th>Engine Load</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Sequential (no dual brain)</strong></td>
+          <td>CC does research → CC does creative chain → CC renders HTML → CC stages</td>
+          <td>4–6 hours (CC serialized)</td>
+          <td>MAX bucket: 100%</td>
+        </tr>
+        <tr>
+          <td><strong>Parallel (dual brain)</strong></td>
+          <td>OC does research simultaneously with CC building scaffold; CC merge + render only after both done</td>
+          <td><strong>90 minutes (parallel)</strong></td>
+          <td>MAX bucket: ~40%; OC (free): research load</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>MISSION-802 Split Plan</h3>
+
+    <pre>{
+  <span class="key">"mission_id"</span>: <span class="str">"MISSION-802"</span>,
+  <span class="key">"title"</span>: <span class="str">"Furlow/Ely-Darrow/Nichols Grandeur Itinerary — Jul 22 Build"</span>,
+  <span class="key">"tasks"</span>: [
+    {
+      <span class="key">"id"</span>: <span class="str">"cc-scaffold"</span>,
+      <span class="key">"title"</span>: <span class="str">"Build HTML itinerary scaffold: day-by-day structure, suite placeholders, D2M dark-navy template"</span>,
+      <span class="key">"lane"</span>: <span class="str">"cc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"agent"</span>: <span class="str">"sterling"</span>,
+      <span class="key">"pii"</span>: true,
+      <span class="key">"source"</span>: <span class="str">"dossiers/Furlow_*, dossiers/Ely_*, dossiers/Nichols_*"</span>
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"oc-excursion-research"</span>,
+      <span class="key">"title"</span>: <span class="str">"Research best excursions for 6 Grandeur stops: Copenhagen, Bergen, Oslo, Alesund, Stavanger, Stockholm"</span>,
+      <span class="key">"lane"</span>: <span class="str">"oc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"pii"</span>: false,
+      <span class="key">"output"</span>: <span class="str">"Qdrant keys: {port}_excursions_gyg, {port}_excursions_pe"</span>
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"oc-dining-research"</span>,
+      <span class="key">"title"</span>: <span class="str">"Look up top dining venues + OpenTable reservation links for each port city"</span>,
+      <span class="key">"lane"</span>: <span class="str">"oc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P0"</span>,
+      <span class="key">"pii"</span>: false,
+      <span class="key">"output"</span>: <span class="str">"Qdrant keys: {port}_dining"</span>
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"oc-portal-check"</span>,
+      <span class="key">"title"</span>: <span class="str">"Verify current content (port schedule, suite assignments) vs Regent portal — non-PII check"</span>,
+      <span class="key">"lane"</span>: <span class="str">"oc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P1"</span>,
+      <span class="key">"pii"</span>: false,
+      <span class="key">"note"</span>: <span class="str">"Uses cached Regent cookies from ASPXAUTH — no client names sent to OC"</span>
+    },
+    {
+      <span class="key">"id"</span>: <span class="str">"cc-creative-merge"</span>,
+      <span class="key">"title"</span>: <span class="str">"Creative chain: Reyes(excursion layer) → Luna(port narratives) → Naia(brand) → Dani(client voice) → TALON+JET gate → stage draft"</span>,
+      <span class="key">"lane"</span>: <span class="str">"cc"</span>,
+      <span class="key">"priority"</span>: <span class="str">"P1"</span>,
+      <span class="key">"depends_on"</span>: [<span class="str">"cc-scaffold"</span>, <span class="str">"oc-excursion-research"</span>, <span class="str">"oc-dining-research"</span>, <span class="str">"oc-portal-check"</span>],
+      <span class="key">"gate"</span>: <span class="str">"WF-17"</span>,
+      <span class="key">"output"</span>: <span class="str">"johnloucks3 Gmail draft, label: THUNDERBIRD-Commander-Review"</span>
+    }
+  ]
+}</pre>
+
+    <h3>Execution Timeline</h3>
+
+    <div class="arch-diagram">
+      <pre>
+t=0:00  ┌─────────────────────────────────────────────────────────┐
+        │  python3 brain_bridge.py plan MISSION-802.json          │
+        │  Board: 5 tasks loaded                                  │
+        └──────────────────────────────┬──────────────────────────┘
+                                        │
+t=0:01  ┌─────────────────────────┐    │    ┌───────────────────────────────┐
+        │  CC claims cc-scaffold  │    │    │  OC worker claims             │
+        │  (Agent Teams subagent) │    │    │  oc-excursion-research        │
+        │  Sonnet on MAX          │    │    │  oc-dining-research           │
+        │  Builds HTML structure  │    │    │  oc-portal-check              │
+        │  ~20 min                │    │    │  DeepSeek free — PARALLEL     │
+        └────────────┬────────────┘    │    └─────────────┬─────────────────┘
+                      │                                    │
+t=0:25  ┌────────────┴────────────┐         ┌─────────────┴─────────────────┐
+        │  cc-scaffold ✅ DONE    │         │  oc-excursion-research ✅ DONE │
+        │  Scaffold in /drafts/   │         │  oc-dining-research ✅ DONE    │
+        └─────────────────────────┘         │  oc-portal-check ✅ DONE       │
+                                            └───────────────────────────────┘
+                                                           │
+t=0:26  ┌──────────────────────────────────────────────────┴──────┐
+        │  cc-creative-merge → UNLOCKED (all 4 deps complete)     │
+        │  CC claims it — creative chain begins                    │
+        │  Reyes → Luna → Naia → Dani → TALON+JET → stage        │
+        └────────────────────────────────────────┬─────────────────┘
+                                                  │
+t=1:30  ┌────────────────────────────────────────┴─────────────────┐
+        │  Draft staged in johnloucks3                              │
+        │  Label: THUNDERBIRD-Commander-Review                      │
+        │  Telegram ping: @D2MC2C_bot → Commander 7554895206       │
+        │  "Itinerary ready for review. Furlow/Ely/Nichols, 12pp"  │
+        └───────────────────────────────────────────────────────────┘
+
+        Sequential time estimate:  4–6 hours
+        Parallel time achieved:    ~90 minutes  ← 3–4× speedup
+        MAX token savings:         ~60% (research moved to free model)
+      </pre>
+    </div>
+
+    <h3>Key Lessons from MISSION-802</h3>
+
+    <div class="callout gold">
+      <span class="callout-icon">📖</span>
+      <div class="callout-body">
+        <strong>PII Fence on OC Tasks</strong>
+        OC tasks get port names, ship names, dates — never client names, booking refs, or suite numbers. The scaffold (which contains PII) stays in CC. OC writes research results to Qdrant with generic keys; CC reads them and merges with client-specific dossier data.
+      </div>
+    </div>
+
+    <div class="callout cyan">
+      <span class="callout-icon">🔗</span>
+      <div class="callout-body">
+        <strong>Qdrant as the Handoff Layer</strong>
+        No file handoffs between CC and OC — Qdrant is the shared brain. OC writes research results as embeddings with descriptive keys. CC queries those keys during the merge step. This eliminates the serialization point that would force CC to wait for OC to write a file before reading it.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SECTION 10 — TROUBLESHOOTING
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="s10">
+    <h2 class="section-title"><span class="num">10</span> Troubleshooting</h2>
+
+    <h3>OC Silent / No Output</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> OpenCode starts but produces no output, or takes 30+ seconds before first character.
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Check</th><th>Command</th><th>Fix</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Extended thinking enabled?</td>
+          <td><code>cat opencode.json | grep extended_thinking</code></td>
+          <td>Set <code>"extended_thinking": false</code> in hale-oc agent block</td>
+        </tr>
+        <tr>
+          <td>MAX proxy TTFB?</td>
+          <td><code>curl -w "%{time_starttransfer}" -o /dev/null http://localhost:5099/health</code></td>
+          <td>If &gt;5s, restart proxy: <code>systemctl --user restart claude-max-proxy.service</code></td>
+        </tr>
+        <tr>
+          <td>DeepSeek API reachable?</td>
+          <td><code>curl -s https://api.deepseek.com/v1/models | head -1</code></td>
+          <td>Check DEEPSEEK_API_KEY in env; verify .env loaded</td>
+        </tr>
+        <tr>
+          <td>opencode.json valid JSON?</td>
+          <td><code>python3 -m json.tool opencode.json &gt; /dev/null</code></td>
+          <td>Fix JSON syntax error preventing config load</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="rule">
+
+    <h3>Brain Bridge Lock Stuck</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> <code>brain_bridge.py</code> hangs on any command; <code>claim</code> never returns.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Find stale lock holder</span>
+lsof | grep brain_bridge.json
+
+<span class="comment"># If the PID is dead, remove lock</span>
+<span class="comment"># (fcntl.flock releases automatically on process death — but if zombie:)</span>
+kill -9 &lt;PID&gt;
+
+<span class="comment"># Verify board is uncorrupted</span>
+python3 -m json.tool core/hale_bus/brain_bridge.json &gt; /dev/null
+<span class="comment"># If JSON parse fails, restore from backup:</span>
+cp core/hale_bus/brain_bridge.json.bak core/hale_bus/brain_bridge.json</pre>
+
+    <hr class="rule">
+
+    <h3>OC Worker Not Claiming Tasks</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> oc-lane tasks sit as PENDING indefinitely; OC worker shows no activity.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Check worker service state</span>
+systemctl --user status opencode-worker.service
+
+<span class="comment"># Check for errors</span>
+journalctl --user -u opencode-worker.service --since "1 hour ago" | tail -30
+
+<span class="comment"># Verify the board has oc-lane tasks</span>
+python3 core/hale_bus/brain_bridge.py list --status pending
+<span class="comment"># If empty: add a test task to confirm worker picks it up</span>
+
+<span class="comment"># Common causes:</span>
+<span class="comment"># 1. Worker ExecStart path wrong — verify scripts/oc_worker.py exists</span>
+<span class="comment"># 2. WorkingDirectory wrong — must be /home/john/Thunderbird</span>
+<span class="comment"># 3. Python not in PATH — add ExecStart=/usr/bin/python3 (full path)</span>
+
+<span class="comment"># Manual test without systemd:</span>
+cd /home/john/Thunderbird
+python3 scripts/oc_worker.py --once --verbose</pre>
+
+    <hr class="rule">
+
+    <h3>Qdrant Read/Write Fails</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> MCP Qdrant tool returns errors; semantic memory search returns empty.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Health check</span>
+curl -s http://127.0.0.1:6333/health
+<span class="comment"># Expected: {"status":"ok"}</span>
+
+<span class="comment"># Collection exists?</span>
+curl -s http://127.0.0.1:6333/collections/thunderbird_memories
+<span class="comment"># If 404: collection was dropped — rebuild:</span>
+python3 core/memory/qdrant_memory.py --rebuild
+
+<span class="comment"># Qdrant not running?</span>
+ps aux | grep qdrant
+<span class="comment"># Start it:</span>
+cd /home/john/Thunderbird &amp;&amp; ./qdrant --uri http://127.0.0.1:6333 &amp;
+
+<span class="comment"># MCP server connection issue?</span>
+uvx mcp-server-qdrant --help
+<span class="comment"># If uvx fails: pip install mcp-server-qdrant in the venv</span>
+
+<span class="comment"># Collection name mismatch between CC .mcp.json and OC opencode.json?</span>
+grep -r "COLLECTION_NAME\|collection_name" .mcp.json opencode.json
+<span class="comment"># Both must show: thunderbird_memories</span></pre>
+
+    <hr class="rule">
+
+    <h3>Agent Teams Not Running in Parallel</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> CC subagents appear to serialize — second agent starts only after first completes.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Verify flag is set</span>
+python3 -c "import os; print(os.environ.get('CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS'))"
+<span class="comment"># Must print: 1</span>
+
+<span class="comment"># If not set, check .claude/settings.json</span>
+cat /home/john/Thunderbird/.claude/settings.json | python3 -m json.tool | grep AGENT_TEAMS
+
+<span class="comment"># Note: flag must be in settings.json under "env" key — NOT in .env file
+# Claude Code reads settings.json env vars differently from shell env</span>
+
+<span class="comment"># Claude Code version must be 2.1.197+</span>
+claude --version
+
+<span class="comment"># Parallelism also requires that subagents work on DIFFERENT files
+# Tasks touching the same file will serialize (git lock / write conflict)
+# Design tasks to be file-disjoint for true parallelism</span></pre>
+
+    <hr class="rule">
+
+    <h3>OC Escalation to Claude Fails (MAX Proxy)</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> When Commander-facing reply is needed from OC, escalation via <code>ctrl+m</code> or MAX proxy returns error or uses wrong model.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Check proxy is running</span>
+curl -s http://localhost:5099/health
+systemctl --user status claude-max-proxy.service
+
+<span class="comment"># Check OAuth token is valid</span>
+python3 -c "
+import json; from pathlib import Path
+c = json.loads((Path.home() / '.claude' / '.credentials.json').read_text())
+print('Token expires:', c.get('claudeAiOauth', {}).get('expiresAt', 'MISSING'))
+"
+
+<span class="comment"># Force token refresh</span>
+systemctl --user restart claude-oauth-keepalive.service
+
+<span class="comment"># Verify baseURL in opencode.json points to proxy</span>
+python3 -m json.tool opencode.json | grep baseURL
+<span class="comment"># Must show: "baseURL": "http://localhost:5099"</span></pre>
+
+    <hr class="rule">
+
+    <h3>HALE-OC Voice Drift Detected</h3>
+
+    <div class="callout red">
+      <span class="callout-icon">🔴</span>
+      <div class="callout-body">
+        <strong>Symptom:</strong> OC responses lack ⚡, use banned phrases, miss pilot brevity codes, or address Commander incorrectly.
+      </div>
+    </div>
+
+    <pre><span class="comment"># Root cause: AGENTS.md not loading, or AGENTS.md content drifted</span>
+
+<span class="comment"># Verify AGENTS.md exists and is non-empty</span>
+wc -l /home/john/Thunderbird/AGENTS.md
+cat /home/john/Thunderbird/AGENTS.md | head -20
+
+<span class="comment"># AGENTS.md must contain:
+# - ⚡ mark identity
+# - Pilot Brevity Protocol
+# - Disposition address table
+# - PII fence rules
+# - The three Commander gates</span>
+
+<span class="comment"># Re-run wing_org_compile.py to regenerate from canonical source</span>
+python3 scripts/wing_org_compile.py
+<span class="comment"># This re-derives AGENTS.md from wing_org.yaml + Personas/hale_cos.md</span>
+
+<span class="comment"># If OC is in a session, restart it — AGENTS.md only loads at session start</span>
+<span class="comment"># Kill and reopen OpenCode; verify first response includes ⚡</span></pre>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       QUICK REFERENCE CARD
+  ═══════════════════════════════════════════════════════════════ -->
+  <section id="ref-card">
+    <h2 class="section-title"><span class="num">⚡</span> Quick Reference Card</h2>
+
+    <div class="two-col">
+      <div class="card">
+        <h4>Critical File Paths</h4>
+        <ul style="font-family:'Courier New',monospace; font-size:0.82rem; line-height:2; list-style:none; padding:0;">
+          <li><span style="color:var(--cyan)">config/wing_org.yaml</span></li>
+          <li><span style="color:var(--cyan)">core/hale_bus/brain_bridge.py</span></li>
+          <li><span style="color:var(--cyan)">core/hale_bus/brain_bridge.json</span></li>
+          <li><span style="color:var(--cyan)">core/hale_bus/hale_bus_state.json</span></li>
+          <li><span style="color:var(--cyan)">scripts/wing_org_compile.py</span></li>
+          <li><span style="color:var(--cyan)">scripts/hale_enforcer.py</span></li>
+          <li><span style="color:var(--cyan)">scripts/oc_worker.py</span></li>
+          <li><span style="color:var(--cyan)">AGENTS.md</span></li>
+          <li><span style="color:var(--cyan)">opencode.json</span></li>
+          <li><span style="color:var(--cyan)">.claude/settings.json</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Key URLs & Endpoints</h4>
+        <ul style="font-family:'Courier New',monospace; font-size:0.82rem; line-height:2; list-style:none; padding:0;">
+          <li><span style="color:var(--gold)">Qdrant health:</span> <span style="color:var(--cyan)">localhost:6333/health</span></li>
+          <li><span style="color:var(--gold)">Qdrant memory:</span> <span style="color:var(--cyan)">localhost:6333/collections/thunderbird_memories</span></li>
+          <li><span style="color:var(--gold)">MAX proxy:</span> <span style="color:var(--cyan)">localhost:5099</span></li>
+          <li><span style="color:var(--gold)">MCP server:</span> <span style="color:var(--cyan)">127.0.0.1:8765/mcp</span></li>
+          <li><span style="color:var(--gold)">Telegram bot:</span> <span style="color:var(--cyan)">@D2MC2C_bot</span></li>
+          <li><span style="color:var(--gold)">Commander Telegram ID:</span> <span style="color:var(--cyan)">7554895206</span></li>
+          <li><span style="color:var(--gold)">YOGA IP:</span> <span style="color:var(--cyan)">192.168.1.198 (yoga 100.69.222.124)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:20px;">
+      <div class="card">
+        <h4>Systemd Services</h4>
+        <ul style="font-family:'Courier New',monospace; font-size:0.82rem; line-height:2; list-style:none; padding:0;">
+          <li><span style="color:var(--cyan)">opencode-worker.service</span></li>
+          <li><span style="color:var(--cyan)">thunderbird-telegram-gw.service</span></li>
+          <li><span style="color:var(--cyan)">claude-oauth-keepalive.timer</span></li>
+          <li><span style="color:var(--cyan)">d2m-centrav-warm.timer</span></li>
+          <li><span style="color:var(--cyan)">portal-keepalive.timer</span></li>
+          <li><span style="color:var(--cyan)">johnloucks3-oauth-keepalive.timer</span></li>
+          <li><span style="color:var(--cyan)">opencode-spsa-monitor.service</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Three Commander Gates — NEVER Route Around</h4>
+        <ul style="line-height:2.1; list-style:none; padding:0;">
+          <li>🔒 <strong style="color:var(--red)">WF-17</strong> — Client send (Commander executes, never Wing)</li>
+          <li>🔒 <strong style="color:var(--red)">FINANCIAL</strong> — Zero financial authority, no exceptions</li>
+          <li>🔒 <strong style="color:var(--red)">STRATEGIC</strong> — &gt;90 days or &gt;$5K, Commander decides</li>
+        </ul>
+        <p style="color:var(--grey); font-size:0.82rem; margin-top:8px;">Everything else: Execute + Report. No permission required.</p>
+      </div>
+    </div>
+
+    <h3>Brain Bridge Command Cheat Sheet</h3>
+
+    <div class="pill-row">
+      <span class="pill">list [--status]</span>
+      <span class="pill">add "title" --lane cc|oc --priority P0</span>
+      <span class="pill">claim --lane cc --agent name</span>
+      <span class="pill">complete &lt;id&gt; --result "summary"</span>
+      <span class="pill">fail &lt;id&gt; --reason "why"</span>
+      <span class="pill">status &lt;id&gt;</span>
+      <span class="pill">plan &lt;json-file&gt;</span>
+      <span class="pill">summary</span>
+      <span class="pill">reset --confirm (⚠️ DEV ONLY)</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="footer">
+    <span class="bolt">⚡</span>
+    <div style="color:var(--text); margin-bottom:4px; font-size:1rem;">
+      Victoria "Victory" Hale, SES-6 · VCSAF · Chief of Staff, Thunderbird Wing<br>
+      Dreams2Memories Travel, LLC
+    </div>
+    <div class="tagline-sm">"Two engines. One officer. One mission."</div>
+    <div style="margin-top:12px; color:var(--grey);">
+      HALE-OS v1.0 · Built 2026-07-03<br>
+      Claude Code v2.1.199 · OpenCode v1.16.2 · Qdrant 1.9+<br>
+      <code style="font-size:0.78rem;">/home/john/Thunderbird/docs/HALE_DUAL_BRAIN_MANUAL.html</code>
+    </div>
+    <div style="margin-top:20px; color:var(--grey); font-size:0.8rem; border-top:1px solid rgba(240,192,64,0.15); padding-top:16px;">
+      WING INTERNAL — NOT FOR DISTRIBUTION OUTSIDE THUNDERBIRD WING<br>
+      This document is auto-indexed by Qdrant. Query: <code>"dual brain manual"</code> or <code>"CC OC collaboration"</code>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
