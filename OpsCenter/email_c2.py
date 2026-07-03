@@ -163,7 +163,13 @@ def _is_wing_email(subject: str, body: str) -> bool:
 
     Body matching is anchored to the START of the body (first 50 chars) to prevent
     false-positives on words like 'cos' or 'vic' appearing mid-sentence.
+
+    Re:/Fwd:/Fw: subjects are ALWAYS rejected — prevents the D2MC feedback loop where
+    the Commander's reply to a Wing reply retriggers the engine.
     """
+    # Loop guard — skip all replies and forwards
+    if re.match(r"^\s*(Re|Fwd?)\s*:", subject, re.IGNORECASE):
+        return False
     if WING_TRIGGER.lower() in subject.lower():
         return True
     # Subject: word-boundary match anywhere (Commander intentionally addresses by name)
