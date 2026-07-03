@@ -27,6 +27,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 ---
 
 ### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 961, Deck 9 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance ✅ PURCHASED 2026-06-23**
+
+> 🎂 **SPECIAL OCCASION — Amy Darrow's birthday: August 31** (source: TESS ID 3787974, DOB 1959-08-31; verified 2026-07-03). Falls **during the voyage** (embark Aug 29) — celebrate onboard, parallel to Heidi Nichols' Aug 29 embark-day birthday. Weave warmly into the Ely-Darrow portal.
+> 🔒 **INTERNAL ONLY — NEVER in client copy:** Amy's Parkinson's diagnosis and all insurance/medical detail are confidential. Client-facing portal copy carries the birthday celebration ONLY; no medical, no insurance mention.
 > ⚠️ **CABIN CHANGE (10 APR 2026):** Suite changed from 1212 → **961** per RSSC Invoice 3096289.
 
 ### RSSC PORTAL DATA (Scraped Mar 24, 2026)

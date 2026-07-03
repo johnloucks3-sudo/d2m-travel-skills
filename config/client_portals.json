@@ -21,6 +21,39 @@
     "added": "2026-07-03",
     "note": "Pro bono. 4 Regent bookings (Aug26 Splendor, Dec26 Grandeur=Loucks companion, 2x Sep27 Splendor) scraped from Nancy's rssc.com account 2026-07-03 via CloakBrowser + Silversea May27. Dossier: dossiers/Lyons_Nancy_Ken_MultiTrip.md."
   },
+  "furlow.d2mluxury.quest": {
+    "slug": "furlow-scandinavia",
+    "name": "John & Melissa Furlow — Storied Scandinavia",
+    "dir": "output/Grandeur_Scandinavia_Portal/furlow",
+    "user": "furlow",
+    "pw": "furlow-2b91ef4c",
+    "drive_folder": "1mLT4XXjEEZietHXrOIyBJM2VZkqI8vvt",
+    "drive_link": "https://drive.google.com/drive/folders/1mLT4XXjEEZietHXrOIyBJM2VZkqI8vvt",
+    "added": "2026-07-03",
+    "note": "Grandeur Storied Scandinavia Aug 29-Sep 8 2026, suite 827, booking 3071222. Per-couple portal (segregated). Ground truth: dossiers/Furlow_Regent_3071222.md + group tracker."
+  },
+  "elydarrow.d2mluxury.quest": {
+    "slug": "elydarrow-scandinavia",
+    "name": "Al Ely & Amy Darrow — Storied Scandinavia",
+    "dir": "output/Grandeur_Scandinavia_Portal/elydarrow",
+    "user": "elydarrow",
+    "pw": "elydarrow-7d34a1b8",
+    "drive_folder": "1_CW70a6hlbfc6vZmn2UAAU_59iKHCC0u",
+    "drive_link": "https://drive.google.com/drive/folders/1_CW70a6hlbfc6vZmn2UAAU_59iKHCC0u",
+    "added": "2026-07-03",
+    "note": "Grandeur Storied Scandinavia, suite 961, booking 3096289. Per-couple portal (segregated). Ground truth: dossiers/Ely_Darrow_Regent_3096289.md + group tracker."
+  },
+  "nichols.d2mluxury.quest": {
+    "slug": "nichols-scandinavia",
+    "name": "Larry & Heidi Nichols — Storied Scandinavia",
+    "dir": "output/Grandeur_Scandinavia_Portal/nichols",
+    "user": "nichols",
+    "pw": "nichols-5e82c30f",
+    "drive_folder": "1caAxZmbXPWXUSoW3BGTmRgKGUkWoyxQN",
+    "drive_link": "https://drive.google.com/drive/folders/1caAxZmbXPWXUSoW3BGTmRgKGUkWoyxQN",
+    "added": "2026-07-03",
+    "note": "Grandeur Storied Scandinavia, suite 939, booking 3078056. Heidi birthday Aug 29 embark day. Per-couple portal (segregated). Ground truth: dossiers/Nichols_Regent_3078056.md + group tracker."
+  },
   "_queued": {
     "mcleod.d2mluxury.quest": "ONE page, all 4 cruises — build after Loucks test passes",
     "kuklinski-kyle.d2mluxury.quest": "per-suite page 1 of 3",
