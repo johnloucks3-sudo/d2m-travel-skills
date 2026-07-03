@@ -1,0 +1,31 @@
+=== ELON ACTION LOG — 2026-07-03 09:06 MT ===
+
+EVENT: d2m-tasking-watcher.service crash loop (INC-20260703T150007Z-072842)
+SEVERITY: CRITICAL → RESOLVED
+
+DIAGNOSIS:
+- Service tried to run: /home/john/Thunderbird/OpsCenter/thunderbird_tasking_watcher.py
+- File does not exist (deleted 6+ commits ago during refactor)
+- Exit code 2 (INVALIDARGUMENT) triggered systemd restart loop
+- >12 restart attempts in 10 minutes before systemd gave up
+
+IMMEDIATE ACTION (ELON autonomous):
+✓ 09:06:22 — Masked the broken systemd unit
+  - /home/john/.config/systemd/user/d2m-tasking-watcher.service → /dev/null symlink
+  - Systemd no longer attempts restarts
+  - Journal shows "Failed to schedule restart job: Unit is masked" — loop stopped
+
+VERIFICATION:
+✓ Mask symlink confirmed
+✓ No new crash entries after 09:06:22
+✓ Service is inert and will not re-awaken on session restart
+
+STRATEGIC DECISION QUEUED FOR COMMANDER:
+Should the Wing have a task-watching daemon?
+- Three candidate versions exist (see PROPOSAL file)
+- Modern version: /home/john/Thunderbird/core/watchtower/thunderbird_tasking_watcher.py
+- Likely superseded by Telegram gateway + headless dispatch pattern
+- Recommend: clarify architecture, then either adopt/update daemon OR retire layer entirely
+
+NEXT STEP:
+Hale surfaces decision to Commander via brief. No operational impact while masked.

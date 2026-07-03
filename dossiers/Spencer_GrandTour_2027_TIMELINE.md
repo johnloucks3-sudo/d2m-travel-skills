@@ -145,6 +145,18 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 | **D.4** | **🔴 THE SPLIT** | **Jun 23** | **two simultaneous movements** — Tim's 4 (5yo+2yo) **same-day Civitavecchia→FCO→DEN** (afternoon FCO departure — ticket air accordingly) **and** the 8 Civitavecchia→Florence. Pre-staged separate transfers, toddler gate/seat assist, luggage split | Hale/Reyes |
 | **D.4-T** | Civitavecchia→Florence transfer (the 8) | Jun 23 | **PRESENT OPTIONS + MAKE THE CASE, client chooses** (D2M way): (A) private van ~3 hr door-to-door w/ luggage — *recommended, post-cruise w/ bags* vs (B) express train (Civitavecchia→Roma Termini→Frecciarossa→Florence, two transfers) | Intel/Dani |
 | **D.5** | Florence (8) | Jun 23–25/26 | hotel; cooking class (loc TBD); 🎉 Lillianna grad keepsake | Reyes/Luna |
+
+---
+
+## VENDOR INQUIRIES & CONFIRMATIONS (Updated 2026-07-03)
+
+### Walkabout Tours Florence — Private Cooking Class
+- **Inquiry sent:** 2026-07-03 (OC-lane JET task: spencer-walkabout-quote)
+- **Status:** Draft email staged for Hale review/send
+- **Details:** Private/exclusive Tuscan farmhouse cooking class, 8 adults, Jun 24–25, 2027
+- **Scope:** Per-person or buyout pricing; transport from central Florence included?
+- **Vendor contact:** info@walkaboutflorence.com
+- **Next action:** Await Hale send and vendor response
 | **D.6** | Switzerland (8) | ~25/26–30 | Zermatt + Interlaken; 🎉 **Mike Yaggi Matterhorn touch**; Swiss rail | Reyes/Luna |
 | **D.7** | Zurich (8) | Jul 1–2 | hotel; chocolate tour | Reyes |
 | **D.8** | Return — ZRH→DEN (8) | **Jul 2** | Icelandair; arrival watch | Hale |
@@ -239,3 +251,10 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 *Proposed by Opus 2026-06-09 from the Commander working doc. This is a PROPOSAL — Commander
 to confirm structure, then it becomes the Spencer scheduling source. Operational detail:
 Commander_Review/Spencer_Grand_Tour_2027_Working CC edits.md + output/Spencer_Grand_Tour_Research_MASTER.md.*
+
+---
+## ⭐ CLIENT PREFERENCE — Florence Cooking Class (noted 2026-07-02)
+**Bill's daughter politely requested the Florence cooking class be through "Walkabout Tours in Florence"** (walkaboutflorence.com), per Bill Spencer's email 2026-07-02 ("...that's what I've been told"). 
+→ This is a CLIENT-SPECIFIED operator. Use **Walkabout Tours Florence** for the cooking class — supersedes generic recommendations (InTavola / Colle Bereto Chianti). 
+→ TO CONFIRM: exact Walkabout Tours Florence cooking-class product, group-of-8 availability & price, in-city vs. countryside variant. Requester = Bill's daughter (Amanda or Katie Yaggi — Bill said "my daughter").
+Also confirmed in same email: Coffee Cup Cafe, Monument CO — Tue Jul 7, 12:00 (Bill + Kathleen). On johnloucks3 calendar.

@@ -711,10 +711,17 @@ async def consolidated_morning_brief():
         if airline_impacts:
             alert_section = "## CLIENT ALERTS (PRIORITY)\n"
             for impact in airline_impacts[:5]:
+                sev = impact.get("severity", "MEDIUM").upper()
+                emoji = "🔵"
+                if sev == "CRITICAL":
+                    emoji = "🔴"
+                elif sev == "HIGH":
+                    emoji = "🟡"
+                
                 alert_section += (
-                    f"  [{impact['severity']}] {impact.get('client', '?')}: "
+                    f"  • {emoji} [{sev}] {impact.get('client', '?')}: "
                     f"{impact.get('title', '?')}\n"
-                    f"  Airport: {impact.get('airport', '?')} | "
+                    f"    Airport: {impact.get('airport', '?')} | "
                     f"Source: {impact.get('source', '?')}\n\n"
                 )
             sections.insert(0, alert_section)  # Insert at TOP

@@ -1,35 +1,35 @@
 {
-  "run_at": "2026-06-23T13:33:50.256828",
+  "run_at": "2026-07-03T08:43:43.112752",
   "tasks_attempted": 4,
-  "tasks_succeeded": 4,
+  "tasks_succeeded": 0,
   "results": [
     {
-      "id": "MISSION-422",
-      "title": "Draft TP 1.1 Voyage Preview for Grandeur Aug 29 cluster \u2014 Ely-Darrow, Furlow, Nichols",
-      "success": true,
-      "elapsed": 172.6208143234253,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-422_20260623.md"
+      "id": "MISSION-856",
+      "title": "Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25",
+      "success": false,
+      "elapsed": 0.05599379539489746,
+      "output_path": null
     },
     {
-      "id": "MISSION-425",
-      "title": "Add efficacy test coverage for ELON sprint integrations (top 10 by risk)",
-      "success": true,
-      "elapsed": 386.65104579925537,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-425_20260623.md"
+      "id": "MISSION-857",
+      "title": "Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel H",
+      "success": false,
+      "elapsed": 0.0013842582702636719,
+      "output_path": null
     },
     {
-      "id": "MISSION-426",
-      "title": "TESS reconciliation \u2014 confirm received commissions vs expected $30,117.57",
-      "success": true,
-      "elapsed": 186.46580123901367,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-426_20260623.md"
+      "id": "MISSION-858",
+      "title": "Client inquiry: A special birthday treat from Disney is coming soon!",
+      "success": false,
+      "elapsed": 0.0016160011291503906,
+      "output_path": null
     },
     {
-      "id": "MISSION-427",
-      "title": "Wire client-path canary monitoring instrument for Vanguard SO enforcement",
-      "success": true,
-      "elapsed": 285.27452993392944,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-427_20260623.md"
+      "id": "MISSION-859",
+      "title": "Client inquiry: BREAKING:  Trump tours restoration project at Lafayette Park",
+      "success": false,
+      "elapsed": 0.0013594627380371094,
+      "output_path": null
     }
   ]
 }

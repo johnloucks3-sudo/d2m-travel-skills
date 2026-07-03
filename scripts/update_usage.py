@@ -76,6 +76,14 @@ def main():
         cwd=str(TB), capture_output=True
     )
 
+    # Check overflow threshold
+    import importlib.util, os
+    watcher = TB / "scripts" / "cc_overflow_watcher.py"
+    spec = importlib.util.spec_from_file_location("cc_overflow_watcher", watcher)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    mod.check(verbose=True)
+
     print(f"✅ Ledger updated: Wkly {wkly}% | Sonnet {sonnet}% | Runs {runs_used}/{runs_total}")
     print(f"   Snapshot ts: {ts[:16]}")
     print(f"   Chyron synced.")

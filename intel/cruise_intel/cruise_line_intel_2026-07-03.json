@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-03",
+  "lines": {
+    "Regent Seven Seas Cruises": {
+      "summary": "[ERROR] HTTP Error 400: Bad Request"
+    },
+    "Silversea Cruises": {
+      "summary": "[ERROR] HTTP Error 400: Bad Request"
+    },
+    "Viking Ocean Cruises": {
+      "summary": "[ERROR] HTTP Error 400: Bad Request"
+    },
+    "Princess Cruises": {
+      "summary": "[ERROR] HTTP Error 400: Bad Request"
+    },
+    "Carnival Cruise Line": {
+      "summary": "[ERROR] HTTP Error 400: Bad Request"
+    }
+  }
+}

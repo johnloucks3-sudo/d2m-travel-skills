@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jun 25–Jul 01, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jun 25–Jul 01, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-01 17:21 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>56</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$0</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>536</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-06-25 → 2026-07-01 · 56 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — guard: cloud Ultraplan PR = do-not-merge (June-12 base would revert 3 weeks) <span style="color:#aaa;font-size:0.78rem;">(dd747c501)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — Part1+PhaseA: 24h-review cleanup wave + email-tasking stabilization <span style="color:#aaa;font-size:0.78rem;">(b0259d377)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-01</strong> — fix(cruise-db): anchor repo root on sys.path — ends cruise-db-refresh failure loop <span style="color:#aaa;font-size:0.78rem;">(f890540db)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — fare-watch: HARD United alert <$900/2pax RT + 4h timer (Commander) <span style="color:#aaa;font-size:0.78rem;">(63527d3ed)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — fare-watch: drop time constraints on Loucks United watches (Commander) <span style="color:#aaa;font-size:0.78rem;">(3fe524f34)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — fare-watch: 2 United watches for Loucks Door County (DEN-GRB ~0800 / GRB-DEN ~1500) <span style="color:#aaa;font-size:0.78rem;">(e7225a5e7)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-01</strong> — dossier(loucks-doorcounty): United Economy $937 = confirmed air REC <span style="color:#aaa;font-size:0.78rem;">(a715351bd)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-01</strong> — dossier(loucks-doorcounty): add United Economy as REC air option (card benefits) <span style="color:#aaa;font-size:0.78rem;">(89f7358fa)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-01</strong> — dossier(loucks-doorcounty): pair Basic Economy $636 with Main Cabin Economy option <span style="color:#aaa;font-size:0.78rem;">(b2fb08224)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-01</strong> — dossier(loucks-doorcounty-sep2026): record Delta Basic Economy DEN-GRB $636 <span style="color:#aaa;font-size:0.78rem;">(d336ee6af)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-01</strong> — fix(centrav): reliable liveness detection — stop false-dead false-pages <span style="color:#aaa;font-size:0.78rem;">(88238dec9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: .env repoint sweep via runtime hydration (covers all consumers) <span style="color:#aaa;font-size:0.78rem;">(96f49bd81)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: repoint amadeus creds → Infisical (proof, with .env fallback chain) <span style="color:#aaa;font-size:0.78rem;">(127ec9a31)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: Infisical FULLY migrated + Wing reader (autonomous, zero manual steps) <span style="color:#aaa;font-size:0.78rem;">(d5551c173)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: Wing master heartbeat dead-man LIVE (external Healthchecks) <span style="color:#aaa;font-size:0.78rem;">(792543416)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — gov: canary amended — waived by default, Hale-recommend + Commander-decide <span style="color:#aaa;font-size:0.78rem;">(10cce2b0d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: dead-man wiring + secret-migration engines (bootstrap-ready) <span style="color:#aaa;font-size:0.78rem;">(7dae3985f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: Infisical + Healthchecks.io DEPLOYED + registered as CI skills <span style="color:#aaa;font-size:0.78rem;">(9ebf189fa)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M5: free-tools deploy package (Infisical + Healthchecks) — ready-to-run <span style="color:#aaa;font-size:0.78rem;">(2fef688ef)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — ci: registry timestamp refresh + total-CI status after M4 clean sweep <span style="color:#aaa;font-size:0.78rem;">(018c66217)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M3(total-ci): 6 missing lifecycle products + scanner revivals wired <span style="color:#aaa;font-size:0.78rem;">(0f1cf588c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — feat(lifecycle): 4 new CI-standard pipeline products + probes <span style="color:#aaa;font-size:0.78rem;">(bbb5c0f95)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — feat(ci): revive hotel-scan + transfer-scan to CI standard <span style="color:#aaa;font-size:0.78rem;">(1ee2bc93d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M1+M2(total-ci): 14 new CI capabilities — infra + lifecycle products <span style="color:#aaa;font-size:0.78rem;">(0348d028f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — M0(total-ci): CI Qualification Standard SO + verified autonomy scorecard <span style="color:#aaa;font-size:0.78rem;">(77168b96a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — feat(ci): autonomous repair pipeline — full 23-probe coverage <span style="color:#aaa;font-size:0.78rem;">(0c7583964)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — feat(centrav): autonomous headless relogin via trusted Firefox profile <span style="color:#aaa;font-size:0.78rem;">(222e4be95)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-01</strong> — fix(ci-probes): fix 3 probe bugs — opencode path, shadow import conflicts <span style="color:#aaa;font-size:0.78rem;">(6a589f8b3)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-01</strong> — feat(ci): autonomous CI hardening — browser pool, HALE/Sterling router, perx probe fix <span style="color:#aaa;font-size:0.78rem;">(645b0fed1)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-01</strong> — fix(comms_bot): strip ANTHROPIC_BASE_URL in email-intel, bump bot timeout 360→660s <span style="color:#aaa;font-size:0.78rem;">(3d3e6cc39)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): strip ANTHROPIC_BASE_URL from clean_env — actual root cause <span style="color:#aaa;font-size:0.78rem;">(793e8adba)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): revert to CLI, TTY-guard all SessionStart hooks <span style="color:#aaa;font-size:0.78rem;">(94a4e04cb)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): strip proxy vars from clean_env to bypass llmtrim serialization <span style="color:#aaa;font-size:0.78rem;">(d05535569)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): add --strict-mcp-config to skip 97-server MCP startup <span style="color:#aaa;font-size:0.78rem;">(408224145)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): stdin=DEVNULL prevents Claude CLI stdin hang in systemd context <span style="color:#aaa;font-size:0.78rem;">(1b5e208de)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(dispatch): add line-buffered stdout/stderr for log visibility <span style="color:#aaa;font-size:0.78rem;">(587bc206c)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(email-scan): label-after-success, 30s→160s wrapper timeout <span style="color:#aaa;font-size:0.78rem;">(2afbcc126)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(supertimer): always advance last_run on failure to prevent infinite-DUE loop <span style="color:#aaa;font-size:0.78rem;">(14a382aa6)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-06-30</strong> — fix(supertimer): bump claude-oauth timeout 60→180s, email-intel 300→600s <span style="color:#aaa;font-size:0.78rem;">(29486b969)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-06-28</strong> — feat(mission): lock revised D2M mission statement 2026-06-28 <span style="color:#aaa;font-size:0.78rem;">(2eaf4456f)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$0.00</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">536 of 1096</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

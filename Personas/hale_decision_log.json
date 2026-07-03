@@ -25,6 +25,33 @@
       "streak_after": 1,
       "autonomy_tier": "COS (Operational)",
       "address_to_use": "Commander"
+    },
+    {
+      "ts": "2026-06-30T12:56:22.483729+00:00",
+      "domain": "ops",
+      "category": "MISSION-073",
+      "decision": "TECHNIQUE: Centrav B2B cabin restriction for international routes \u2014 single-cabin search avoids MCP timeout",
+      "rationale": "RIC\u2192PTY and RSW\u2192PTY connecting routes with cabin:all exploded combinatorial space and timed out. Restricting to economy returned fast results.",
+      "commander_approved": true,
+      "source_session": "2026-06-30 Air Pricing Campaign"
+    },
+    {
+      "ts": "2026-06-30T12:56:22.483739+00:00",
+      "domain": "tech",
+      "category": "MISSION-073",
+      "decision": "FIX: Centrav warm-ping changed from query_selector to locator.is_visible()",
+      "rationale": "query_selector checks DOM presence (always true after page load). is_visible() checks actual visibility for real session state.",
+      "commander_approved": true,
+      "source_session": "2026-06-30 Air Pricing Campaign"
+    },
+    {
+      "ts": "2026-06-30T12:56:22.483743+00:00",
+      "domain": "pricing",
+      "category": "MISSION-073",
+      "decision": "AUTHORITATIVE SOURCE: Centrav B2B is primary air pricing source (9-69% cheaper than Amadeus consumer)",
+      "rationale": "Domestic routes: 55-69% cheaper. International: 9% cheaper. Amadeus has no business class on domestic routes. Centrav is the authoritative source going forward.",
+      "commander_approved": true,
+      "source_session": "2026-06-30 Air Pricing Campaign"
     }
   ]
 }

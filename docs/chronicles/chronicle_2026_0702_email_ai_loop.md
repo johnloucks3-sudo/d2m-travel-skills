@@ -191,3 +191,35 @@ n8n handles scheduling, triggers, and workflow orchestration. Python handles the
 
 *Chronicle logged by V. Hale, VCS · Thunderbird Wing · 2026-07-02*  
 *"The Wing got its voice tonight."*
+
+---
+
+## BURN SESSION ADDENDUM — 2026-07-02 (continued overnight)
+
+### Additional Work Completed After Initial Chronicle
+
+| Item | Result |
+|------|--------|
+| Cruise DB rebuild | ✅ 15,368 sailings live (`output/cruises.db` → `data/master_cruise.db`) |
+| d2m-dashboard.service | ✅ Restarted (was dead 3 days) — port 8901 live |
+| TP 1.3 Hotel Options | ✅ 3 drafts in johnloucks3 (Furlow/Ely-Darrow/Nichols) |
+| Furlow logistics matrix | ✅ 5 open items documented — 2 need Commander now |
+| SSH hardening | ✅ Confirmed secure since Jun 24, sshguard active |
+| Loucks TP 4.1 | ✅ Draft staged, fires Jul 11 on deferred alert |
+| Commission recon | ⚠️ $18,830.93 canonical — 3 Commander gates pending |
+| Sterling audit | ✅ 1 canary violation (voice_match_scorer), waived |
+| Silver Nova excursion brief | ✅ Sent to johnloucks3 — $1,308/$2,500, name error on Athens PE booking |
+| Port data | ✅ All 7 client voyages downloaded to dossiers/port_data/ |
+| Email agent fix | ✅ Sonnet→Haiku, 5-msg/run cap, 5min systemd window |
+| At Six action plan | ✅ Full checklist with ref numbers and phone numbers |
+| Signal/noise metrics | ✅ 28.5% noise current, target 5%, circuit breaker holding |
+
+### Key Commander Actions Before Jul 7 Window Opens
+
+1. Furlow AY 811 seats — CRITICAL (PNR BB4X94, no seats assigned)
+2. Furlow At Six hotel — OVERDUE (book + cancel Haymarket 131-2656351)
+3. ARN → At Six transfer — NOT BOOKED any couple (see At Six action plan)
+4. Centrav + Regent re-auth (MISSION-819/820) before Jul 7
+5. Duffel signup — app.duffel.com/join (5 min, 300+ airlines)
+6. Commission recon — 3 yes/no questions
+

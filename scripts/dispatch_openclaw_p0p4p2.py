@@ -11,8 +11,6 @@ from pathlib import Path
 # Add Thunderbird to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from OpsCenter.opencode_headless_claude_dispatch import dispatch_to_headless_claude
-
 OPENCLAW_PROMPT = """You are DeepSeek V3.1 running as an autonomous code generation agent for Dreams2Memories Travel, LLC (Thunderbird OS).
 
 MISSION: Implement 3 OpenClaw architectural patterns (P0, P4, P2) in Thunderbird codebase.

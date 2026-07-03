@@ -37,9 +37,9 @@ wf17_exception_date: 2026-06-10
 ---
 
 # DOSSIER — John & Susan Loucks | Silver Nova | May 2027
-**Status: ✅ CONFIRMED — Booking 506101-26 | Last updated: 2026-06-10 (Agency PDF verified)**
+**Status: ✅ CONFIRMED — Booking 506101-26 | Last updated: 2026-06-29 (Centrav PDFs verified)**
 **FPD: Dec 6, 2026 — 60-day alert Oct 7, 2026 | 30-day alert Nov 6, 2026**
-**Cruise: CONFIRMED | Transfers: ALL QUOTED | Hotels: CONFIRMED DATES | Flights: ✅ CENTRAV LIVE 2026-06-11 (May 1/29 dates) — Turkish Business $3,952 pp ($7,904/2) · United-via-MUC $6,443 pp ($12,886/2, nonstop+miles) | Watches: Turkish floor + United code-shares**
+**Cruise: CONFIRMED | Transfers: ALL QUOTED | Hotels: CONFIRMED DATES | Flights: ✅ CENTRAV CONFIRMED 2026-06-29 — 🇹🇷 Turkish Business DEN✈IST✈VCE May 1–3 / ATH✈IST✈DEN May 30 · $3,952 pp ($7,904/2) | 🔁 Re-verified 2026-06-30 (same $7,904) | Watches: Turkish floor + United code-shares**
 
 ---
 
@@ -132,14 +132,14 @@ wf17_exception_date: 2026-06-10
 
 | Dates | Segment | Status |
 |-------|---------|--------|
-| **May 1, 2027 (SAT)** | DEN → VCE — **Depart May 1, arrive VCE Sun May 2 = Sina check-in day (no gap). Icelandair KEF→VCE flies Sun ✓; Lufthansa via MUC / United Polaris also in scope.** Shifted from Apr 30 per Commander 2026-06-11. | ✅ B2B FARE WINDOW OPEN |
-| **May 2–5 (3 nights)** | Venice pre-cruise — **Sina Palazzo Sant'Angelo** (Grand Canal, SLH) · Premium Deluxe, breakfast incl · **Conf TZ201ZG53502** · €1,914 (€1,671 room + €216 Antinoo's dinner + €27 city tax) · CLUBBB flexible — **no prepay, free cancel until Apr 30** | ✅ **BOOKED 2026-06-11** (was Molino Stucky/4nts) · ⚠️ **May 1 arrival night uncovered** — extend Sina +1 or land May 2 |
+| **May 1, 2027 (SAT)** | DEN → VCE — **Depart May 1, arrive VCE May 3** via Turkish Airlines TK202 DEN→IST (8:25p→5:10p+1) then TK1867 IST→VCE (6:50a→8:20a). **Confirmed Centrav B2B $7,904/2 pax ($3,952 pp).** Sina check-in May 3 (2-night gap covered by IST overnight). | ✅ **CENTRAV CONFIRMED 2026-06-29** |
+| **May 2–5 (3 nights)** | Venice pre-cruise — **Sina Palazzo Sant'Angelo** (Grand Canal, SLH) · Premium Deluxe, breakfast incl · **Conf TZ201ZG53502** · €1,914 (€1,671 room + €216 Antinoo's dinner + €27 city tax) · CLUBBB flexible — **no prepay, free cancel until Apr 30** | ✅ **BOOKED 2026-06-11** (was Molino Stucky/4nts) · ⚠️ **May 1–2 IST overnight = no gap at Sina** — land May 3, check in same day ✓ |
 | May 5, 2027 | Embarkation — Venice to Silver Nova | Confirmed |
 | May 5–15, 2027 (10 nights) | Segment 1 — SN27050510 | IN PROCESS |
 | May 15–22, 2027 (7 nights) | Segment 2 — SN27051507 | IN PROCESS |
 | May 22–29, 2027 (7 nights) | Segment 3 — SN27052207 | IN PROCESS |
 | May 29, 2027 | Disembarkation Piraeus · **0900 transfer ship → ATH** (Kiwitaxi Minivan $111) | Confirmed |
-| **May 29, 2027** | **ATH → DEN (return, SAME DAY)** — Commander 2026-06-11: fly home May 29 | NEEDS BOOKING — afternoon dep after 0900 transfer |
+| **May 30, 2027** | **ATH → DEN (return)** — Turkish Airlines TK1844 ATH→IST 10:25a→12:00p, then TK201 IST→DEN 2:45p→6:25p. **Confirmed Centrav B2B ($7,904/2 total out+back).** | ✅ **CENTRAV CONFIRMED 2026-06-29** |
 | ~~May 29–Jun 1 · Athens Gate Hotel · Jun 1 flight~~ | ❌ **CANCELLED** — Commander dropped the 3-night Athens post-stay 2026-06-11 | OBE |
 
 *Detailed port itinerary: pull from Silversea TA portal via /silversea-ta skill*
@@ -173,7 +173,7 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 ## FLIGHT RESEARCH
 *Status as of 2026-06-06: **✅ CENTRAV B2B PRICING PULLED LIVE.** All cabins priced. Commander prefers Icelandair Saga Premium. Fare watches active with 8% drop thresholds. Session cookies saved and auto-keepalive being built (MISSION-149).*
 
-> ⚠️ **The 2026-06-06 table below is SUPERSEDED on dates** — it priced the old Apr 30 / Jun 1 one-way legs. Real trip is **May 1 / May 29** round-trip. See the authoritative multi-city pull immediately below.
+> ⚠️ **The 2026-06-06 table below is SUPERSEDED on dates** — it priced the old Apr 30 / Jun 1 one-way legs. Real trip is **May 1 out / May 30 return** round-trip on Turkish. See the authoritative multi-city pull immediately below.
 
 ---
 
@@ -197,14 +197,13 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 - `loucks-silvernova-air-2027` → Turkish/route-floor, baseline **$3,952pp**, alert <$3,750 + connection-improvement flag. ITA-polled daily.
 - `loucks-silvernova-united-2027` → United/Star Alliance via MUC, baseline **$6,443pp**, alert <$6,100. Checked in warm-Centrav sessions.
 
-### FLIGHT REQUIREMENTS (Commander confirmed 2026-06-06)
+### FLIGHT REQUIREMENTS (Confirmed 2026-06-29 — Turkish Booked)
 
-- **Cabin:** Business class — cheapest available
-- **Carrier preference:** **Icelandair Saga Premium preferred** (Commander, 2026-06-06). Lufthansa Business (via MUC) and United Polaris also in scope.
-- **Outbound date:** Apr 30, 2027 (FRI) — arrive VCE May 1, 4 nights pre-cruise. **CONFIRMED.**
-- **Return date:** Jun 1, 2027 from ATH (Tuesday)
+- **Cabin:** Business class J — Turkish Airlines confirmed
+- **Outbound:** May 1, 2027 (SAT) DEN→IST 8:25p, then IST→VCE May 3 6:50a — overnight in Istanbul
+- **Return:** May 30, 2027 (SUN) ATH→IST 10:25a→12:00p, then IST→DEN 2:45p→6:25p
 - **Passengers:** 2 (John + Susie)
-- **MUC connection OK** (Lufthansa via Munich is acceptable)
+- **Price:** $7,904 total / $3,952 pp (Centrav B2B net, confirmed 2026-06-29)
 
 **Notes:**
 - Apr 30 = Friday — **Icelandair IS available** (KEF→VCE flies Tue/Fri/Sun).
@@ -473,6 +472,25 @@ All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shor
 
 > **Cross-reference:** This is one of the 4 Project Expedition holds tracked in `Loucks_SilverNova_May2027_Excursions.md` § ACTUAL BOOKINGS (line ~50). Pay-by date (04 May 2027) matches the supplement. No discrepancy.
 
+### Tour Detail — Sights of Athens Route Intel (Michael G / PE support@projectexpedition.com · Jun 21, 2026)
+*Operator confirmed: all voucher locations are valid pickup points. Ticket ref HL941012.*
+
+| Line | Color | Coverage | Key stops |
+|------|-------|----------|-----------|
+| **Blue** | Piraeus | Port → Acropolis | Cruise terminals (Piraeus port start) · Pasalimani · Mikrolimano · Acropolis Museum · Acropolis/Parthenon |
+| **Orange** | Athens | City center | Acropolis · Parthenon · Plaka · Hadrian's Gate · Temple of Olympian Zeus · Syntagma · Panathenaic Stadium · National Library · National Archaeological Museum · Monastiraki/Thission |
+| **Yellow** | Glyfada (Riviera) | Athenian Riviera | Niarchos Foundation · Marina Alimou · Flisvou sunset · Agios Kosmas beach · Glyfada terminal |
+| **Green** | Vouliagmeni | Southern coast | Allied Forces Cemetery · Byzantine Museum · Kavouri Oceanis beach · Vouliagmeni Lake / thermal baths |
+
+**Logistics confirmed by operator:**
+- Board at **either cruise terminal in Piraeus** (Blue Line) — direct from ship on May 15
+- Low-floor buses with designated wheelchair space ✅ (mobility-friendly for John)
+- Free earphones + free Wi-Fi on all buses
+- 16 languages of recorded commentary
+- 3-day ticket covers all 4 lines, unlimited rides (May 15–17, 2027 from first use at 09:00)
+
+> ⚠️ **Mobility note:** Blue Line (Piraeus → Acropolis) and Yellow Line (Glyfada Riviera) are lightest-impact — mostly scenic riding. Orange Line (Plaka/Monastiraki cobblestones) and Green Line require walking to enjoy sites. Recommend John ride the bus for panoramic views; Susie can hop off at interest points.
+
 ---
 
 ## PRICING RESEARCH QUEUE
@@ -580,3 +598,4 @@ All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shor
 *Format: Spencer Grand Tour working document standard*
 *Session 9 updated: 2026-06-10 — BOOKING CONFIRMED. Agency PDF 506101-26 ingested. Booking #506101-26 assigned. Suite 8071/Superior Veranda. Deposit $8,612.50 PAID. Balance $25,837.50 due Dec 6, 2026. Commission $5,517.18 / D2M share $4,413.74 (80%). Host agency transfer RESOLVED (Cruises & Tours Unlimited). YAML frontmatter added per dossier schema v2.0.*
 *Session 10 updated: 2026-06-13 — EXCURSION PLAN built from 3 official Silversea Tour Programmes. Mobility port-by-port stub RESOLVED. Supplement created (`Loucks_SilverNova_May2027_Excursions.md`) + onboard one-pager (`output/...html`/`.pdf`). Recommended one-per-port ≈ $2,100 pp gross / ~$1,300–1,600 pp net of shore credit. 7 ⭐ limited-mobility-suitable tours anchor the plan. OPEN: confirm shore-credit per-person vs per-booking + SBC excursion eligibility before the booking window opens (~T-130).*
+*Session 11 updated: 2026-07-02 — Official Silversea voyage confirmation email received and ingested. Source: guestconfirmation@silversea.com → JOHNLOUCKS3@gmail.com, dated 2026-06-10. Subject: "SILVERSEA VOYAGE CONFIRMATION 506101-26 COLONEL JOHN ALDON LOUCKS." Guest name on Silversea record: COLONEL JOHN ALDON LOUCKS. Agency of record: Cruises & Tours Unlimited. All data consistent with Harlan portal-verified figures — no changes to financials or cabin details. Booking Master Sheet row 27 upserted (506101-26). Blackboard YAML updated.*

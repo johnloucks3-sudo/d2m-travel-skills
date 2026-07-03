@@ -697,9 +697,10 @@ MODEL_TAGS = {
 
 def _call_claude(system_prompt: str, query: str, max_tokens: int = 2000,
                  model: str = "sonnet") -> str:
-    """Call Claude via CLI subprocess. Cost: $0 (Max plan).
+    """Call Claude via CLI subprocess (primary) or direct API (fallback).
 
-    Strips ANTHROPIC_API_KEY from env to force Max plan OAuth.
+    Primary: claude CLI (Max plan, $0 cost, 20s timeout).
+    Fallback: Anthropic API direct with ANTHROPIC_API_KEY if CLI fails.
     """
     import subprocess
 
@@ -710,7 +711,7 @@ def _call_claude(system_prompt: str, query: str, max_tokens: int = 2000,
         "--model", model,
         "--dangerously-skip-permissions",
         "--output-format", "text",
-        "-p", "-",  # read prompt from stdin to avoid ARG_MAX on large emails
+        "-p", "-",
     ]
 
     clean_env = {
@@ -724,14 +725,14 @@ def _call_claude(system_prompt: str, query: str, max_tokens: int = 2000,
             input=query,
             capture_output=True,
             text=True,
-            timeout=600,
+            timeout=20,
             cwd=os.path.expanduser("~/Thunderbird"),
             env=clean_env,
         )
 
         if result.returncode != 0:
             stderr = result.stderr.strip()[:500] if result.stderr else "No stderr"
-            raise RuntimeError(f"Claude CLI failed (exit {result.returncode}): {stderr}")
+            raise RuntimeError(f"Claude CLI exited {result.returncode}: {stderr}")
 
         response = result.stdout.strip()
         if not response:
@@ -740,7 +741,39 @@ def _call_claude(system_prompt: str, query: str, max_tokens: int = 2000,
         return response
 
     except subprocess.TimeoutExpired:
-        raise RuntimeError("Claude CLI timed out after 600s")
+        logger.warning("Claude CLI timed out after 20s, trying direct API fallback")
+    except RuntimeError:
+        logger.warning("Claude CLI failed, trying direct API fallback")
+    except FileNotFoundError:
+        logger.warning("Claude CLI not found, trying direct API fallback")
+
+    # ---- Fallback: direct Anthropic API ----
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise RuntimeError("No ANTHROPIC_API_KEY for fallback, cannot call Claude")
+
+    import json as _json
+    try:
+        import urllib.request as _urllib
+        req = _urllib.Request(
+            "https://api.anthropic.com/v1/messages",
+            data=_json.dumps({
+                "model": model if model in ("sonnet", "claude-sonnet-4-20250514") else "claude-sonnet-4-20250514",
+                "max_tokens": min(max_tokens, 500),
+                "system": system_prompt,
+                "messages": [{"role": "user", "content": query}],
+            }).encode(),
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01",
+            },
+        )
+        resp = _urllib.urlopen(req, timeout=15)
+        data = _json.loads(resp.read())
+        return data["content"][0]["text"]
+    except Exception as api_err:
+        raise RuntimeError(f"Claude API fallback failed: {api_err}")
 
 
 def call_persona(persona_id: str, query: str, max_tokens: int = 2000,

@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-02 19:00 UTC — 4 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-02T19:00:41.973753+00:00
+
+TECH SCAN — 2026-07-02 19:00 UTC
+airborne scanner pulse · 17 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 4 TRIAL · 13 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Claude's AskUserQuestion: "No response after 60s – continued without an answer" — https://github.com/anthropics/claude-code/issues
+↳ real tool (github.com) — worth a bounded look
+Show HN: Muxer – open-source model multiplexer for Claude Code — https://github.com/DangerousYams/muxer
+↳ real tool (github.com) — worth a bounded look
+FleetView – a browser cockpit for running many Claude Code agents at once — https://github.com/schoppllc/Terminalcontrol
+↳ real tool (github.com) — worth a bounded look
+I put Claude Code on my Garmin running watch — https://github.com/fashton28/garmin-code
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Show HN: Flashtype – Markdown editor for Claude and Codex with in-line diffs — https://flashtype.com/
+Blog HN: Claude Code Making an Ass Out of You and Me — https://news.ycombinator.com/item?id=48763592
+Claude Code SOCKS5 Bypass Shows Why Egress Filters Belong at the Boundary — https://medium.com/@Koukyosyumei/c
+Porting the Moebius 0.2B image model to run in Claude Code on web — https://simonwillison.net/2026/Jun/22/port
+Claudoro: A Pomodoro Timer for Claude Code — https://benemson.com/blog/agents/claudoro-pomodoro-timer-claude-c
+Anthropic embedded spyware in Claude Code – and attempted to hide it from you — https://old.reddit.com/r/Claud
+Why Claude switched models in your conversation with Fable 5 — https://support.claude.com/en/articles/15363606
+Show HN: Agent Sessions – A model agnostic Claude managed agents alternative — https://www.agentsessions.dev/
+RAW — all finds this pulse (unfiltered)[llm] Claude's AskUserQuestion: "No response after 60s – continued without an answer" — https://github.com/anthropics/claude-c (Hacker News — Claude Code)
+[llm] Show HN: Muxer – open-source model multiplexer for Claude Code — https://github.com/DangerousYams/muxer (Hacker News — Claude Code)
+[llm] Show HN: Flashtype – Markdown editor for Claude and Codex with in-line diffs — https://flashtype.com/ (Hacker News — Claude Code)
+[llm] FleetView – a browser cockpit for running many Claude Code agents at once — https://github.com/schoppllc/Terminalcontrol (Hacker News — Claude Code)
+[llm] Blog HN: Claude Code Making an Ass Out of You and Me — https://news.ycombinator.com/item?id=48763592 (Hacker News — Claude Code)
+[llm] Claude Code SOCKS5 Bypass Shows Why Egress Filters Belong at the Boundary — https://medium.com/@Koukyosyumei/claude-code (Hacker News — Claude Code)
+[llm] Porting the Moebius 0.2B image model to run in Claude Code on web — https://simonwillison.net/2026/Jun/22/porting-moebiu (Hacker News — Claude Code)
+[llm] Claudoro: A Pomodoro Timer for Claude Code — https://benemson.com/blog/agents/claudoro-pomodoro-timer-claude-code (Hacker News — Claude Code)
+[llm] Anthropic embedded spyware in Cl

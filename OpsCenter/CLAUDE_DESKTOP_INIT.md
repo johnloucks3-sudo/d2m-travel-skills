@@ -102,10 +102,10 @@ Acknowledge with: "Thunderbird Wing online. Sonnet 4.6. Ready, Yoda."
 
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-06-25 20:26 MT -->
+<!-- Last sync: 2026-07-03 10:04 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-06-25 20:26 MT] ===
-Budget: Claude MAX Wkly-40% | Sonnet-46% | Runs-9/15 | Sess-4% | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+=== THUNDERBIRD BLACKBOARD [2026-07-03 10:04 MT] ===
+Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

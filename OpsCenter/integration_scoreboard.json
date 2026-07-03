@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T21:39:00.056221+00:00",
+  "generated_at": "2026-07-02T21:41:12.173821+00:00",
   "overall": 100,
   "dimensions": {
     "seat_integration": {
@@ -61,12 +61,12 @@
           "file": "a14-whetstone.md",
           "found": true
         },
-        "oc-scout-2": {
+        "oc-scout-1": {
           "engine": "oc",
           "file": "opencode_agents.generated.json",
           "found": true
         },
-        "oc-scout-1": {
+        "oc-scout-2": {
           "engine": "oc",
           "file": "opencode_agents.generated.json",
           "found": true

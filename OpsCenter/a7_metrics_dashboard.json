@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-25T23:51:39.709518+00:00",
+  "generated_at": "2026-07-03T14:43:44.031024+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
-    "open_tasks_count": 5,
+    "open_tasks_count": 6,
     "system_mode": "UNKNOWN"
   },
   "quality": {
@@ -20,6 +20,7 @@
   "cost_control": {},
   "exercise": {},
   "red_items": [
-    "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
+    "Quality score (42%) below red threshold (60%). Review latest 1 exercises.",
+    "Open tasks (6) exceeds 5."
   ]
 }

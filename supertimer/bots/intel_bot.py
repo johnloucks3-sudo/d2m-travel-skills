@@ -25,7 +25,8 @@ class IntelBot(BotBase):
              interval_sec=900, timeout_sec=90),      # every 15m (was 30m)
         Task("perx-intel",
              sys_py("scripts/perx_intel_monitor.py"),
-             interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
+             interval_sec=43200, timeout_sec=180,    # 2x/day (was daily)
+             allowed_rcs=(0, 2)),                    # rc=2=URGENT signals found (normal operation)
         Task("flight-scan",
              venv("scripts/flight_scan_trigger.py"),
              interval_sec=43200, timeout_sec=180),   # 2x/day (was daily)
@@ -49,7 +50,8 @@ class IntelBot(BotBase):
              venv("core/intel/dembe_intel_sweep.py")
              if (ROOT / "core/intel/dembe_intel_sweep.py").exists()
              else sys_py("scripts/perx_intel_monitor.py"),
-             interval_sec=21600, timeout_sec=180),   # every 6h (was daily)
+             interval_sec=21600, timeout_sec=180,    # every 6h (was daily)
+             allowed_rcs=(0, 2)),                    # rc=2=URGENT signals found (normal operation)
     ]
 
 if __name__ == "__main__":

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silver Nova May 2027 — Voyage Itinerary | D2M</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#07076b;color:#f7f3ea;min-height:100vh}
+/* ── Top bar ── */
+.top-bar{background:#07076b;border-bottom:3px solid #c8a400;padding:16px 32px}
+.top-bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.voyage-title{font-size:22px;letter-spacing:1px;color:#f7f3ea}
+.voyage-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:3px}
+.top-btn{background:#c8a400;color:#07076b;border:none;border-radius:4px;padding:7px 16px;font-size:11px;font-weight:700;cursor:pointer;font-family:Georgia,serif;text-decoration:none;display:inline-block}
+.top-btn:hover{background:#f0e040}
+.top-btn.outline{background:transparent;color:#c8a400;border:1.5px solid #c8a400}
+.top-btn.outline:hover{background:rgba(200,164,0,.1)}
+/* ── Stats bar ── */
+.stats-bar{background:rgba(0,0,0,.25);border-bottom:1px solid rgba(200,164,0,.3);padding:10px 32px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.stat{text-align:center}
+.stat-val{font-size:20px;font-weight:700;color:#c8a400;line-height:1}
+.stat-lbl{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-top:2px}
+.stat-div{width:1px;height:30px;background:rgba(200,164,0,.25)}
+/* ── Segment headers ── */
+.seg-header{background:rgba(200,164,0,.1);border-top:1px solid rgba(200,164,0,.3);border-bottom:1px solid rgba(200,164,0,.3);padding:8px 32px;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#c8a400;font-weight:700;display:flex;align-items:center;gap:12px}
+/* ── Day row — Silversea style ── */
+.day-rows{padding:0}
+.day-row{display:flex;align-items:stretch;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s}
+.day-row:hover{background:rgba(255,255,255,.04)}
+.day-row.sea-row{background:rgba(26,58,128,.25)}
+.day-row.embark-row{background:rgba(26,90,48,.2);border-left:4px solid #1a7a1a}
+.day-row.disembark-row{background:rgba(90,26,26,.2);border-left:4px solid #8b0000}
+.day-row.turnover-row{border-left:4px solid #c8a400}
+/* Day cell */
+.day-cell{width:52px;flex-shrink:0;padding:14px 0 14px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.06)}
+.day-num{font-size:22px;font-weight:700;color:#c8a400;line-height:1}
+.day-dow{font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-top:1px}
+/* Date cell */
+.date-cell{width:72px;flex-shrink:0;padding:14px 0 14px 12px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.06)}
+.date-mon{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px}
+.date-day{font-size:15px;font-weight:700;color:#f7f3ea;line-height:1.1}
+/* Port cell */
+.port-cell{width:200px;flex-shrink:0;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.06)}
+.port-flag{font-size:16px;margin-bottom:2px}
+.port-name{font-size:14px;font-weight:700;color:#f7f3ea;line-height:1.2}
+.port-country{font-size:9px;color:rgba(255,255,255,.4);margin-top:1px}
+.port-times{font-size:9px;color:#c8a400;margin-top:3px}
+.port-pips{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.pip{font-size:7px;font-weight:700;border-radius:2px;padding:1px 4px}
+.pip-tender{background:#8b0000;color:#fff}
+.pip-turn{background:#c8a400;color:#07076b}
+.pip-confirm{background:#1a7a1a;color:#fff}
+.pip-pending{background:#b8860b;color:#fff}
+.pip-open{background:#c85000;color:#fff}
+/* Photo cell — Silversea-style image area */
+.photo-cell{width:160px;flex-shrink:0;overflow:hidden;position:relative;border-right:1px solid rgba(255,255,255,.06)}
+.photo-inner{width:100%;height:100%;min-height:90px;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative}
+.photo-sea{background:linear-gradient(135deg,#0d2460,#1a3a80)}
+.photo-port{background:linear-gradient(135deg,#1a1a6b,#2a2a9b)}
+.photo-embark{background:linear-gradient(135deg,#0d3020,#1a5a30)}
+.photo-disembark{background:linear-gradient(135deg,#3a0d0d,#5a1a1a)}
+.photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);padding:4px 6px}
+.photo-port-label{font-size:8px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.8)}
+/* Excursion cell */
+.exc-cell{flex:1;padding:12px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.06)}
+.exc-none{font-size:11px;color:rgba(255,255,255,.2);font-style:italic}
+.exc-label{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:rgba(200,164,0,.6);margin-bottom:3px}
+.exc-name{font-size:12px;font-weight:700;color:#f7f3ea;line-height:1.3}
+.exc-provider{font-size:8px;font-weight:800;border-radius:2px;padding:2px 5px;color:#fff;display:inline-block;margin-top:3px}
+.prov-GYG{background:#d4380d}
+.prov-PE{background:#0055b3}
+.prov-SS{background:#5a2d82}
+.prov-SEG{background:#006b5a}
+.prov-TBL{background:#8b4513}
+.prov-SELF{background:#555}
+.exc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.tag-s{font-size:8px;font-weight:700;border-radius:2px;padding:1px 5px}
+.tag-green{background:#1a7a1a;color:#fff}
+.tag-gold{background:#c8a400;color:#07076b}
+.tag-blue{background:#07076b;color:#f7f3ea;border:1px solid rgba(255,255,255,.2)}
+.tag-orange{background:#c85000;color:#fff}
+.tag-teal{background:#006b5a;color:#fff}
+.tag-yellow{background:#b8860b;color:#fff}
+/* Price cell */
+.price-cell{width:100px;flex-shrink:0;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;text-align:right;border-right:1px solid rgba(255,255,255,.06)}
+.price-main{font-size:18px;font-weight:700;color:#f7f3ea;line-height:1}
+.price-sub{font-size:8px;color:rgba(255,255,255,.4);margin-top:2px}
+.price-free{font-size:14px;font-weight:700;color:#1a7a1a}
+/* Notes cell */
+.notes-cell{width:220px;flex-shrink:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center}
+.notes-text{font-size:10px;color:rgba(255,255,255,.55);line-height:1.5}
+.notes-warn{font-size:9px;color:#ffcc00;background:rgba(255,204,0,.08);border-radius:3px;padding:3px 6px;margin-top:4px;line-height:1.4}
+.notes-meet{font-size:9px;color:rgba(255,255,255,.35);font-style:italic;margin-top:3px}
+.notes-url a{font-size:9px;color:#c8a400;text-decoration:none}
+.notes-url a:hover{text-decoration:underline}
+/* Action cell */
+.action-cell{width:90px;flex-shrink:0;padding:12px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.btn-book{background:#c8a400;color:#07076b;border:none;border-radius:4px;padding:5px 10px;font-size:9px;font-weight:700;cursor:pointer;font-family:Georgia,serif;text-decoration:none;display:block;text-align:center;width:68px;transition:background .15s}
+.btn-book:hover{background:#f0e040}
+.btn-swap{background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:4px 8px;font-size:9px;cursor:pointer;font-family:Georgia,serif;text-decoration:none;display:block;text-align:center;width:68px;transition:all .15s}
+.btn-swap:hover{border-color:#c8a400;color:#c8a400}
+/* ── Budget footer ── */
+.budget-footer{background:#07076b;border-top:3px solid #c8a400;padding:18px 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;bottom:0}
+.bf-label{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(200,164,0,.6)}
+.bf-val{font-size:24px;font-weight:700;color:#c8a400;line-height:1}
+.bf-remain{font-size:24px;font-weight:700;color:#4cff4c}
+.bf-bar-wrap{flex:1;min-width:150px}
+.bf-bar-bg{background:rgba(255,255,255,.1);border-radius:4px;height:6px;overflow:hidden}
+.bf-bar-fill{height:6px;border-radius:4px;background:linear-gradient(to right,#4cff4c,#c8a400);width:0;transition:width .5s}
+.bf-note{font-size:9px;color:rgba(255,255,255,.35);margin-top:4px}
+.bf-div{width:1px;height:40px;background:rgba(200,164,0,.2)}
+/* ── Sea day ── */
+.sea-full-row{background:linear-gradient(135deg,rgba(26,58,128,.3),rgba(13,31,74,.3));display:flex;align-items:center;padding:16px 32px;border-bottom:1px solid rgba(255,255,255,.06);gap:16px}
+.sea-icon{font-size:28px;opacity:.4}
+.sea-label{font-size:13px;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase}
+.sea-sublabel{font-size:10px;color:rgba(255,255,255,.2);margin-top:2px}
+/* ── Key ── */
+.key-bar{background:rgba(0,0,0,.2);border-bottom:1px solid rgba(200,164,0,.15);padding:8px 32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.key-item{display:flex;align-items:center;gap:5px;font-size:9px;color:rgba(255,255,255,.45)}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-row">
+    <div>
+      <div class="voyage-title">⚓ m/v Silver Nova · May 2027 Voyage</div>
+      <div class="voyage-sub">Athens to Venice · May 5–29, 2027 · Booking 506101-26 · Col. & Mrs. John A. Loucks III</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <a href="/cruises/excursions_nova.html" class="top-btn outline">← Excursion Planner</a>
+      <button class="top-btn" onclick="window.print()">🖨 Print Itinerary</button>
+      <a href="/cruises" class="top-btn outline">Cruise Search</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-val">25</div><div class="stat-lbl">Days at Sea</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">21</div><div class="stat-lbl">Ports of Call</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">9</div><div class="stat-lbl">Countries</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Segments</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val" id="s-booked">5 SS + 4 PE</div><div class="stat-lbl">Booked Excursions</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val" id="s-spent" style="color:#ff6b6b">$0</div><div class="stat-lbl">Excursion Budget</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val" id="s-remain" style="color:#4cff4c">$2,500</div><div class="stat-lbl">Remaining</div></div>
+</div>
+
+<div id="sync-bar" style="display:none;background:#0d2a0d;border-bottom:1px solid #2a6a2a;padding:7px 32px;font-size:10px;color:#4cff4c;letter-spacing:.5px">↻ Synced from Excursion Planner — showing your selected excursions · <a href="/cruises/excursions_nova.html" style="color:#c8a400;text-decoration:none">← Change selections</a></div>
+<div class="key-bar">
+  <span class="key-item"><span class="pip pip-confirm">CONFIRMED</span> Booked &amp; paid on Silversea</span>
+  <span class="key-item"><span class="pip pip-pending">PENDING</span> PE hold — payment due</span>
+  <span class="key-item"><span class="pip pip-open">OPEN</span> Recommended but not booked</span>
+  <span class="key-item"><span class="pip pip-tender">⚓ TENDER</span> Tender port</span>
+  <span class="key-item">✅ = Silversea mobility-suitable flag</span>
+  <span class="key-item">★ GGR = guaranteed return to ship</span>
+</div>
+
+<div id="itinerary-rows"></div>
+
+<div class="budget-footer">
+  <div><div class="bf-label" id="bf-label">Recommended Total</div><div class="bf-val" id="bf-spent">$0</div></div>
+  <div class="bf-div"></div>
+  <div><div class="bf-label">Remaining of $2,500</div><div class="bf-remain" id="bf-remain">$2,500</div></div>
+  <div class="bf-div"></div>
+  <div class="bf-bar-wrap">
+    <div class="bf-bar-bg"><div class="bf-bar-fill" id="bf-bar"></div></div>
+    <div class="bf-note">Budget ceiling $2,500 · 2 pax · All providers · Ceiling excludes confirmed SS bookings already paid</div>
+  </div>
+  <div><a href="/cruises/excursions_nova.html" class="top-btn">Select &amp; Compare Excursions →</a></div>
+</div>
+
+<script>
+var DAYS=[
+{day:1,date:'May 5',dow:'Tue',month:'MAY',dayN:5,port:'Venice',country:'Italy',flag:'🇮🇹',type:'embark',seg:1,note:'Embarkation Day. Transfer from Marco Polo Airport. Board ship by 15:00.',options:[]},
+{day:2,date:'May 6',dow:'Wed',month:'MAY',dayN:6,port:'Koper',country:'Slovenia',flag:'🇸🇮',type:'port',arrive:'07:00',allAboard:'17:30',seg:1,options:[
+ {p:'GYG',name:'Koper Stroll & Taste',desc:'Flat food & wine tour — cheese, prosciutto, local wine, olive oil.',dur:2.5,total:58,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/koper-l2650/'},
+ {p:'SS',code:'KOP-M',name:'Lipizzaner Horses & Karst Farm',total:298,status:'CONFIRMED',ggr:true,tags:[{t:'CONFIRMED',c:'tag-green'}]},
+]},
+{day:3,date:'May 7',dow:'Thu',month:'MAY',dayN:7,port:'Zadar',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',seg:1,options:[
+ {p:'GYG',name:'Zadar Speedboat · Islands · Food · Wine',desc:'Speedboat, island food & wine. Mostly seated.',dur:3.5,total:64,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/zadar-l1328/'},
+]},
+{day:4,date:'May 8',dow:'Fri',month:'MAY',dayN:8,port:'Split',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',seg:1,options:[
+ {p:'GYG',name:'Split Walking Tour + Eats',desc:"Diocletian's Palace walk, food stops, all flat.",dur:2,total:34,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/split-l268/split-walking-tour-t54976/'},
+ {p:'SS',code:'SPL-B',name:'Picturesque Trogir ✅',total:158,status:'CONFIRMED',ggr:true,tags:[{t:'CONFIRMED',c:'tag-green'},{t:'✅ Mobility',c:'tag-teal'}]},
+]},
+{day:5,date:'May 9',dow:'Sat',month:'MAY',dayN:9,port:'Dubrovnik',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',seg:1,options:[
+ {p:'PE',code:'PE136377',name:'Dubrovnik Food & Wine Walk',desc:'Guided food/wine tour of Old Town. GGR.',dur:3.5,total:107,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'}],url:'https://www.projectexpedition.com/tours/dubrovnik-croatia-p136377'},
+ {p:'PE',code:'PE181140617',name:'Dubrovnik Panorama',total:107,status:'PENDING',warn:'Pay by Apr 27, 2027',tags:[{t:'PENDING',c:'tag-yellow'}]},
+]},
+{day:6,date:'May 10',dow:'Sun',month:'MAY',dayN:10,port:'Bari',country:'Italy',flag:'🇮🇹',type:'port',arrive:'07:00',allAboard:'18:00',seg:1,options:[
+ {p:'GYG',name:'Bari Street Food Walking Tour',desc:'Focaccia, burrata, taralli, wine. Flat.',dur:2.5,total:88,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/bari-l721/'},
+ {p:'PE',code:'PE181142217',name:'PE · Bari Street Food Tour',total:136,status:'PENDING',warn:'Pay by Apr 27, 2027',tags:[{t:'PENDING',c:'tag-yellow'}]},
+]},
+{day:7,date:'May 11',dow:'Mon',month:'MAY',dayN:11,port:'Kotor',country:'Montenegro',flag:'🇲🇪',type:'port',arrive:'07:00',allAboard:'17:00',tender:true,seg:1,options:[
+ {p:'GYG',name:'Kotor Private Walk + Wine & Food',desc:'Private guide, 8 tastings inside flat old town. Tender port.',dur:3,total:228,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'}],url:'https://www.getyourguide.com/kotor-l32202/'},
+]},
+{day:8,date:'May 12',dow:'Tue',month:'MAY',dayN:12,port:'At Sea',country:'Adriatic Sea',flag:'🌊',type:'sea',seg:1,options:[]},
+{day:9,date:'May 13',dow:'Wed',month:'MAY',dayN:13,port:'Katakolon',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'17:00',seg:1,options:[
+ {p:'GYG',name:'Olympia + Honey Farm + Winery',desc:'Olympia, honey farm tasting, family winery lunch. GGR.',dur:6,total:150,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/katakolon-l8869/'},
+]},
+{day:10,date:'May 14',dow:'Thu',month:'MAY',dayN:14,port:'Gythion',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'16:00',seg:1,options:[
+ {p:'SELF',name:'Self-Guided · Mani Waterfront',desc:'Flat promenade, tavernas, coffee. Commander choice.',total:0,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:11,date:'May 15',dow:'Fri',month:'MAY',dayN:15,port:'Athens / Piraeus',country:'Greece',flag:'🇬🇷',type:'turnover',arrive:'07:00',allAboard:'18:00',seg:2,note:'Segment 1 → 2 turnaround. New passengers boarding.',options:[
+ {p:'PE',code:'PE181149717',name:'Athens Hop-On Hop-Off',desc:'Athens HOHO from Piraeus. Bus-based, minimal walking. GGR.',dur:5,total:60,ggr:true,recommended:true,status:'PENDING',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'PENDING',c:'tag-yellow'}],warn:'Pay by May 4, 2027',url:'https://www.projectexpedition.com/tours/athens-p149717'},
+]},
+{day:12,date:'May 16',dow:'Sat',month:'MAY',dayN:16,port:'Paros',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'17:00',tender:true,seg:2,options:[
+ {p:'GYG',name:'Paros Wine Tasting & Village Tour',desc:'Village highlights + island winery. Relaxed, food-forward.',dur:3.5,total:80,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],warn:'Not yet booked — confirm before departure',url:'https://www.getyourguide.com/paros-island-l1310/'},
+]},
+{day:13,date:'May 17',dow:'Sun',month:'MAY',dayN:17,port:'Crete / Souda Bay',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'18:00',seg:2,options:[
+ {p:'SS',code:'SDH-I',name:'Treasures of Cretan Culture ✅',desc:'Winery + soap workshop. ✅ Mobility-suitable. The gem of Crete.',dur:4.25,total:178,ggr:true,status:'CONFIRMED',recommended:true,tags:[{t:'CONFIRMED',c:'tag-green'},{t:'✅ Mobility',c:'tag-teal'},{t:'GEM',c:'tag-gold'}]},
+]},
+{day:14,date:'May 18',dow:'Mon',month:'MAY',dayN:18,port:'Gythion',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'16:00',seg:2,options:[
+ {p:'SELF',name:'Self-Guided · Mani Waterfront',desc:'Second Gythion call. Flat harbor, cafes.',total:0,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:15,date:'May 19',dow:'Tue',month:'MAY',dayN:19,port:'Milos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'17:00',tender:true,seg:2,options:[
+ {p:'GYG',name:'Milos Catamaran Island Tour',desc:'Sea caves, colored beaches, Kleftiko. Seated/aboard, accessible. Tender port.',dur:5,total:130,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],warn:'Not yet booked — strong option vs ship day',url:'https://www.getyourguide.com/milos-island-l3834/'},
+]},
+{day:16,date:'May 20',dow:'Wed',month:'MAY',dayN:20,port:'Kusadasi',country:'Turkey',flag:'🇹🇷',type:'port',arrive:'08:00',allAboard:'18:00',seg:2,options:[
+ {p:'SELF',name:'Self-Guided · Grand Bazaar',desc:"Bazaar 5min walk from pier, flat. John's been here 3×.",total:0,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:17,date:'May 21',dow:'Thu',month:'MAY',dayN:21,port:'Mykonos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'10:00',allAboard:'19:00',tender:true,seg:2,options:[
+ {p:'SELF',name:'Self-Guided · Mykonos Town',desc:'Tender to Chora. Windmills, Little Venice, flat lanes.',total:0,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:18,date:'May 22',dow:'Fri',month:'MAY',dayN:22,port:'Athens / Cape Sounio',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'18:00',seg:2,options:[
+ {p:'PE',code:'PE181156317',name:'Cape Sounio & Temple of Poseidon',desc:'Coastal drive, clifftop Temple of Poseidon. Coach + short walk. GGR.',dur:5,total:161,ggr:true,status:'PENDING',recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'PENDING',c:'tag-yellow'}],warn:"⚠ Susan listed as 'John Loucks' — fix before paying. Pay by May 12, 2027.",url:'https://www.projectexpedition.com/tours/cape-sounio-p181156317'},
+]},
+{day:19,date:'May 23',dow:'Sat',month:'MAY',dayN:23,port:'Santorini',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'19:00',tender:true,seg:2,options:[
+ {p:'GYG',name:'Santorini Winery Tour + Village',desc:'Seated tasting at 2–3 volcanic vineyards, caldera views.',dur:4,total:130,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],warn:'Not yet booked — confirm before departure',url:'https://www.getyourguide.com/santorini-l975/'},
+]},
+{day:20,date:'May 24',dow:'Sun',month:'MAY',dayN:24,port:'Nafplion',country:'Greece',flag:'🇬🇷',type:'turnover',arrive:'07:00',allAboard:'17:00',seg:3,note:'Segment 2 → 3 turnaround.',options:[
+ {p:'SS',code:'NAV-F',name:'Wine Tasting in Nemea ✅',desc:'Skouras winery: 5 wines + snacks. ✅ Mobility-suitable.',dur:2.75,total:238,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'GEM',c:'tag-gold'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SS',code:'NAP-B',name:'Corinth & Nemea Wineries',total:198,status:'CONFIRMED',tags:[{t:'CONFIRMED',c:'tag-green'}]},
+]},
+{day:21,date:'May 25',dow:'Mon',month:'MAY',dayN:25,port:'At Sea',country:'Aegean Sea',flag:'🌊',type:'sea',seg:3,options:[]},
+{day:22,date:'May 26',dow:'Tue',month:'MAY',dayN:26,port:'Bodrum',country:'Turkey',flag:'🇹🇷',type:'port',arrive:'08:00',allAboard:'18:00',seg:3,options:[
+ {p:'GYG',name:'Bodrum Bay Gulet Boat Trip',desc:'Gulet tour, lunch, swimming, scenic coast. Best Bodrum experience.',dur:5,total:90,ggr:true,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],warn:'Not yet booked — fill fast in summer',url:'https://www.getyourguide.com/bodrum-l2397/'},
+]},
+{day:23,date:'May 27',dow:'Wed',month:'MAY',dayN:27,port:'Rhodes',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'18:00',seg:3,options:[
+ {p:'SELF',name:"Self-Guided · Medieval Old Town",desc:"UNESCO Crusader city — flat cobblestone, Knights' Street. Pier adjacent.",total:0,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:24,date:'May 28',dow:'Thu',month:'MAY',dayN:28,port:'Patmos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'15:00',tender:true,seg:3,options:[
+ {p:'GYG',name:"Monastery of St. John + Cave of Apocalypse",desc:'Same sites as SS PAT-A. Local guide, bus up hill. Saves $88.',dur:3,total:70,ggr:false,recommended:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],warn:'Tender port — no GGR via GYG. SS PAT-A is confirmed alternative.',url:'https://www.getyourguide.com/patmos-l89366/'},
+ {p:'SS',code:'PAT-A',name:"St. John's Patmos (Confirmed)",total:158,status:'CONFIRMED',tags:[{t:'CONFIRMED',c:'tag-green'}]},
+]},
+{day:25,date:'May 29',dow:'Fri',month:'MAY',dayN:29,port:'Athens / Piraeus',country:'Greece',flag:'🇬🇷',type:'disembark',arrive:'06:00',seg:3,note:'Disembarkation by 09:00. Transfer to ATH pre-arranged.',options:[]},
+];
+
+// ── Segment labels ──────────────────────────────────────────────────
+var SEG_LABELS = {
+  1: 'Segment 1 — Venice to Athens · May 5–15, 2027 · 10 nights · 7 port days + 1 sea day',
+  2: 'Segment 2 — Athens to Nafplion · May 15–24, 2027 · 9 nights · 8 port days + 1 sea day',
+  3: 'Segment 3 — Nafplion to Athens · May 24–29, 2027 · 5 nights · 4 port days + 1 sea day',
+};
+
+// ── Render ──────────────────────────────────────────────────────────
+var container = document.getElementById('itinerary-rows');
+var currentSeg = 0;
+// ── Load planner selections from localStorage ──────────────────────
+var _plannerTrip = null;
+try{ _plannerTrip = JSON.parse(localStorage.getItem('novaTrip')||'null'); }catch(e){}
+var _hasPlannerData = _plannerTrip && Object.keys(_plannerTrip).length > 0;
+var totalRec = 0;
+
+DAYS.forEach(function(d){
+  // Segment header
+  if(d.seg !== currentSeg){
+    currentSeg = d.seg;
+    var sh = document.createElement('div');
+    sh.className = 'seg-header';
+    sh.innerHTML = '<span>SEG '+d.seg+'</span><span>'+SEG_LABELS[d.seg]+'</span>';
+    container.appendChild(sh);
+  }
+
+  var row = document.createElement('div');
+
+  if(d.type==='sea'){
+    row.className='sea-full-row';
+    row.innerHTML='<div class="sea-icon">🌊</div>'
+      +'<div><div class="sea-label">Day '+d.day+' · '+d.dow+' '+d.date+' — At Sea</div>'
+      +'<div class="sea-sublabel">'+d.country+' · Silversea culinary program, enrichment lectures, spa</div></div>';
+    container.appendChild(row);
+    return;
+  }
+
+  row.className='day-row'+(d.type==='embark'?' embark-row':d.type==='disembark'?' disembark-row':d.type==='turnover'?' turnover-row':'');
+
+  var rec = d.options.find(function(o){ return o.recommended; });
+  var confirmed = d.options.find(function(o){ return o.status==='CONFIRMED'; });
+  var pending = d.options.find(function(o){ return o.status==='PENDING'; });
+  // Prefer planner selection > confirmed > recommended
+  var _ps = _plannerTrip && _plannerTrip[d.day] && _plannerTrip[d.day].opt;
+  var plannerOpt = _ps ? d.options.find(function(o){return o.name===_ps.name;}) : null;
+
+  var pips='';
+  if(d.tender) pips+='<div class="pip pip-tender">⚓ TENDER</div>';
+  if(d.type==='turnover') pips+='<div class="pip pip-turn">SEG TURN</div>';
+  if(confirmed) pips+='<div class="pip pip-confirm">CONFIRMED</div>';
+  if(pending && !confirmed) pips+='<div class="pip pip-pending">PENDING</div>';
+  if(rec && !confirmed && !pending && rec.p!=='SELF' && rec.total>0 && rec.tags.some(function(t){return t.t==='OPEN';})) pips+='<div class="pip pip-open">OPEN</div>';
+
+  var photoClass = d.type==='embark'?'photo-embark':d.type==='disembark'?'photo-disembark':'photo-port';
+  var specialNote = d.type==='embark'?'Embarkation — Board by 15:00':d.type==='disembark'?'Disembarkation — Off by 09:00':d.note||'';
+
+  var dispOpt = plannerOpt || confirmed || rec || d.options[0];
+  if(dispOpt && dispOpt.total) totalRec += dispOpt.total;
+  // Time math: ship arrives → 1hr buffer → excursion start → +dur → return
+  var excStart=null, excEnd=null;
+  if(d.arrive && dispOpt && dispOpt.dur){
+    var _am=d.arrive.split(':'); var _sm=parseInt(_am[0])*60+parseInt(_am[1])+60;
+    var _em=_sm+Math.round(dispOpt.dur*60);
+    var _sh=(_sm/60|0)%24; excStart=(_sh<10?'0':'')+_sh+':'+(_sm%60<10?'0':'')+_sm%60;
+    var _eh=(_em/60|0)%24; excEnd=(_eh<10?'0':'')+_eh+':'+(_em%60<10?'0':'')+_em%60;
+  }
+
+  var excHtml = '';
+  if(d.type==='embark'||d.type==='disembark'){
+    excHtml = '<div class="exc-none">'+specialNote+'</div>';
+  } else if(!dispOpt){
+    excHtml = '<div class="exc-none">—</div>';
+  } else {
+    var tagsHtml = (dispOpt.tags||[]).map(function(t){ return '<span class="tag-s '+t.c+'">'+t.t+'</span>'; }).join('');
+    var excLabel = plannerOpt ? (plannerOpt.name===rec?.name ? 'RECOMMENDED' : 'YOUR PICK') : (rec ? 'RECOMMENDED' : 'OPTION');
+    excHtml = '<div class="exc-label">'+excLabel+'</div>'
+      +'<div class="exc-name">'+dispOpt.name+'</div>'
+      +'<span class="exc-provider prov-'+(dispOpt.p||'SELF')+'">'+dispOpt.p+'</span>'
+      +(dispOpt.code?' <span style="font-size:9px;color:rgba(255,255,255,.35)">'+dispOpt.code+'</span>':'')
+      +'<div class="exc-tags" style="margin-top:5px">'+tagsHtml+'</div>'
+      +(excStart?'<div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:4px">🕐 ~'+excStart+' – '+excEnd+' · '+dispOpt.dur+'hr · 2 pax</div>':'');
+  }
+
+  var priceHtml = '';
+  if(d.type==='embark'||d.type==='disembark'){
+    priceHtml = '';
+  } else if(!dispOpt){
+    priceHtml = '';
+  } else if(dispOpt.total>0){
+    priceHtml = '<div class="price-main">$'+dispOpt.total+'</div><div class="price-sub">2 pax'+(dispOpt.pp?' · $'+dispOpt.pp+'pp':'')+'</div>';
+  } else if(dispOpt.p==='TBL'){
+    priceHtml = '<div class="price-main" style="font-size:12px;color:rgba(255,255,255,.4)">QUOTE</div>';
+  } else {
+    priceHtml = '<div class="price-free">FREE</div><div class="price-sub">self-guided</div>';
+  }
+
+  var notesHtml = '';
+  if(dispOpt && dispOpt.desc) notesHtml += '<div class="notes-text">'+dispOpt.desc+'</div>';
+  if(dispOpt && dispOpt.warn) notesHtml += '<div class="notes-warn">⚠ '+dispOpt.warn+'</div>';
+  if(dispOpt && dispOpt.meet) notesHtml += '<div class="notes-meet">📍 '+dispOpt.meet+'</div>';
+  if(specialNote && d.type!=='embark' && d.type!=='disembark') notesHtml += '<div class="notes-warn">'+specialNote+'</div>';
+
+  var actionHtml = '';
+  if(dispOpt && dispOpt.url && dispOpt.p!=='SELF'){
+    actionHtml += '<a class="btn-book" href="'+dispOpt.url+'" target="_blank" rel="noopener">Book ↗</a>';
+  }
+  actionHtml += '<a class="btn-swap" href="/cruises/excursions_nova.html#day-'+d.day+'">Swap ↺</a>';
+
+  row.innerHTML =
+    '<div class="day-cell"><div class="day-num">'+d.day+'</div><div class="day-dow">'+d.dow+'</div></div>'
+    +'<div class="date-cell"><div class="date-mon">'+d.month+'</div><div class="date-day">'+d.dayN+'</div></div>'
+    +'<div class="port-cell">'
+      +'<div class="port-flag">'+d.flag+'</div>'
+      +'<div class="port-name">'+d.port+'</div>'
+      +'<div class="port-country">'+d.country+'</div>'
+      +(d.arrive&&d.allAboard?'<div class="port-times">'+d.arrive+' → '+d.allAboard+'</div>':d.arrive?'<div class="port-times">Arr '+d.arrive+'</div>':'')
+      +(pips?'<div class="port-pips">'+pips+'</div>':'')
+    +'</div>'
+    +'<div class="photo-cell"><div class="photo-inner '+photoClass+'">'+d.flag
+      +'<div class="photo-overlay"><div class="photo-port-label">'+d.port+'</div></div>'
+    +'</div></div>'
+    +'<div class="exc-cell">'+excHtml+'</div>'
+    +'<div class="price-cell">'+priceHtml+'</div>'
+    +'<div class="notes-cell">'+notesHtml+'</div>'
+    +'<div class="action-cell">'+actionHtml+'</div>';
+
+  container.appendChild(row);
+});
+
+// ── Budget display ──────────────────────────────────────────────────
+var remain = 2500 - totalRec;
+document.getElementById('bf-spent').textContent = '$'+totalRec.toLocaleString();
+document.getElementById('bf-remain').textContent = '$'+Math.max(0,remain).toLocaleString();
+document.getElementById('bf-remain').style.color = remain < 300 ? '#ff6b6b' : '#4cff4c';
+document.getElementById('bf-bar').style.width = Math.min(100,(totalRec/2500)*100)+'%';
+document.getElementById('s-spent').textContent = '$'+totalRec.toLocaleString();
+document.getElementById('s-remain').textContent = '$'+Math.max(0,remain).toLocaleString();
+// Dynamic booked count
+var nC=DAYS.reduce(function(a,d){return a+(d.options.some(function(o){return o.status==='CONFIRMED';})?1:0);},0);
+var nP=DAYS.reduce(function(a,d){return a+(d.options.some(function(o){return o.status==='PENDING';})?1:0);},0);
+document.getElementById('s-booked').textContent = nC+' confirmed · '+nP+' pending payment';
+// Sync indicator
+if(_hasPlannerData){
+  document.getElementById('sync-bar').style.display='block';
+  document.getElementById('bf-label').textContent='Your Selected Total';
+}
+</script>
+</body>
+</html>

@@ -14,7 +14,7 @@ import json
 import sys
 from pathlib import Path
 
-DB = Path('/home/john/Thunderbird/data/master_cruise.db')
+DB = Path('/home/john/Thunderbird/output/cruises.db')
 
 
 def get_table_name(conn):
@@ -48,20 +48,18 @@ def search(destination=None, months=None, line=None, limit=10):
     params = []
 
     if destination:
-        # Search across common text columns
+        # Actual schema: route, region, from_port, ship
         q += """ AND (
-            destination LIKE ? OR ports LIKE ? OR itinerary_name LIKE ?
-            OR ship_name LIKE ? OR embark_port LIKE ? OR debark_port LIKE ?
+            route LIKE ? OR region LIKE ? OR from_port LIKE ? OR ship LIKE ?
         )"""
-        params += [f'%{destination}%'] * 6
+        params += [f'%{destination}%'] * 4
 
     if line:
-        q += " AND cruise_line LIKE ?"
+        q += " AND line LIKE ?"
         params.append(f'%{line}%')
 
     if months:
         month_list = months.split()
-        # Handle month names and numbers
         month_map = {
             'jan': '01', 'feb': '02', 'mar': '03', 'apr': '04',
             'may': '05', 'jun': '06', 'jul': '07', 'aug': '08',
@@ -79,11 +77,10 @@ def search(destination=None, months=None, line=None, limit=10):
 
         if normalized:
             placeholders = ','.join('?' * len(normalized))
-            # Try sail_date column first (ISO format); fall back to departure_date
-            q += f" AND (strftime('%m', sail_date) IN ({placeholders}) OR strftime('%m', departure_date) IN ({placeholders}))"
-            params += normalized * 2
+            q += f" AND strftime('%m', departure) IN ({placeholders})"
+            params += normalized
 
-    q += f" ORDER BY sail_date LIMIT {limit}"
+    q += f" ORDER BY departure LIMIT {limit}"
 
     try:
         rows = conn.execute(q, params).fetchall()

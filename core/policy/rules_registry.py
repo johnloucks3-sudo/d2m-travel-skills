@@ -698,4 +698,17 @@ REGISTRY: Tuple[Rule, ...] = (
         message="Spawn prompt contains potential client-send instruction.",
         so_ref="HEADLESS_CLAUDE_SPAWN_GUIDE.md",
     ),
+    # ---- ALLOW rules docstring intent — checked after all DENY/GATE ----
+    Rule(
+        id="DANI-CLIENT-CHAT-020",
+        action_type=ActionType.TELEGRAM_SEND,
+        platforms=ALL,
+        decision=Decision.ALLOW,
+        predicate=lambda ctx: (
+            ctx.get("extra", {}).get("action") == "telegram_send"
+            and ctx.get("extra", {}).get("bot", "").lower() == "dani"
+        ),
+        message="Dani client-chat Telegram sends are explicitly permitted (Commander directive 2026-06-29).",
+        so_ref="DANI_DIRECT_CLIENT_CHAT_PLAN.md",
+    ),
 )

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grandeur · Storied Scandinavia | D2M</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#07076b;color:#f7f3ea;min-height:100vh}
+/* ── Top bar ── */
+.top-bar{background:#07076b;border-bottom:3px solid #c8a400;padding:16px 24px}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.voyage-title{font-size:20px;letter-spacing:1px;color:#f7f3ea}
+.voyage-sub{font-size:10px;color:rgba(255,255,255,.45);margin-top:3px}
+.top-btn{background:#c8a400;color:#07076b;border:none;border-radius:4px;padding:7px 14px;font-size:10px;font-weight:700;cursor:pointer;font-family:Georgia,serif;text-decoration:none;display:inline-block}
+.top-btn:hover{background:#f0e040}
+.top-btn.outline{background:transparent;color:#c8a400;border:1.5px solid #c8a400}
+.top-btn.outline:hover{background:rgba(200,164,0,.1)}
+/* ── Stats bar ── */
+.stats-bar{background:rgba(0,0,0,.25);border-bottom:1px solid rgba(200,164,0,.3);padding:10px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.stat{text-align:center}
+.stat-val{font-size:18px;font-weight:700;color:#c8a400;line-height:1}
+.stat-lbl{font-size:7px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-top:2px}
+.stat-div{width:1px;height:28px;background:rgba(200,164,0,.2)}
+/* ── Couple key ── */
+.couple-key{background:rgba(0,0,0,.15);border-bottom:1px solid rgba(200,164,0,.15);padding:7px 24px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.ck-item{display:flex;align-items:center;gap:5px;font-size:9px}
+.ck-swatch{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.ck-sw-0{background:#1a6b9b}
+.ck-sw-1{background:#1a7a4a}
+.ck-sw-2{background:#9b7a1a}
+/* ── Legend bar ── */
+.legend-bar{background:rgba(0,0,0,.2);border-bottom:1px solid rgba(200,164,0,.12);padding:6px 24px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:8px;color:rgba(255,255,255,.45)}
+.pip{font-size:7px;font-weight:700;border-radius:2px;padding:1px 4px}
+.pip-confirm{background:#1a7a1a;color:#fff}
+.pip-pending{background:#b8860b;color:#fff}
+.pip-open{background:#c85000;color:#fff}
+.pip-flag{background:#8b0000;color:#fff}
+/* ── Section header ── */
+.sec-header{background:rgba(200,164,0,.08);border-top:1px solid rgba(200,164,0,.25);border-bottom:1px solid rgba(200,164,0,.25);padding:7px 24px;font-size:8px;text-transform:uppercase;letter-spacing:2px;color:#c8a400;font-weight:700;display:flex;align-items:center;gap:10px}
+.sec-sub{font-size:8px;color:rgba(255,255,255,.3);text-transform:none;letter-spacing:0}
+/* ── Itinerary rows ── */
+.itin{width:100%}
+.day-row{display:flex;border-bottom:1px solid rgba(255,255,255,.05);min-height:0}
+.day-row:hover{background:rgba(255,255,255,.03)}
+.day-row.embark{background:rgba(26,90,48,.15);border-left:3px solid #1a7a1a}
+.day-row.disembark{background:rgba(90,26,26,.15);border-left:3px solid #8b0000}
+.day-row.travel{background:rgba(200,164,0,.06);border-left:3px solid #c8a400}
+.day-row.sea{background:rgba(26,58,128,.2);border-left:3px solid #1a3a80}
+/* ── Cells ── */
+.cell{padding:10px 10px;display:flex;flex-direction:column;justify-content:center;flex-shrink:0;border-right:1px solid rgba(255,255,255,.05)}
+.day-c{width:44px;padding-left:14px}
+.day-num{font-size:18px;font-weight:700;color:#c8a400;line-height:1}
+.day-dow{font-size:7px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.date-c{width:66px}
+.date-mon{font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px}
+.date-day{font-size:14px;font-weight:700;color:#f7f3ea;line-height:1.1}
+.port-c{width:170px}
+.port-flag{font-size:15px}
+.port-name{font-size:12px;font-weight:700;color:#f7f3ea;line-height:1.2;margin-top:1px}
+.port-sub{font-size:8px;color:rgba(255,255,255,.35);margin-top:1px}
+.port-times{font-size:8px;color:#c8a400;margin-top:2px}
+.pips{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap}
+.photo-c{width:120px;overflow:hidden}
+.photo-in{width:100%;height:100%;min-height:72px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.photo-port{background:linear-gradient(135deg,#1a1a6b,#2a2a9b)}
+.photo-sea{background:linear-gradient(135deg,#0d2460,#1a3a80)}
+.photo-embark{background:linear-gradient(135deg,#0d3020,#1a5a30)}
+.photo-disembark{background:linear-gradient(135deg,#3a0d0d,#5a1a1a)}
+.photo-travel{background:linear-gradient(135deg,#4a3a00,#6b5500)}
+/* ── Couple columns ── */
+.cpl-wrap{flex:1;display:flex;border-right:1px solid rgba(255,255,255,.05)}
+.cpl-c{flex:1;padding:8px 8px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.04);min-height:68px}
+.cpl-c:last-child{border-right:none}
+.cpl-top{display:flex;align-items:center;gap:4px;margin-bottom:2px}
+.cpl-suite{font-size:7px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px}
+.cpl-status{font-size:7px;font-weight:700;border-radius:2px;padding:1px 4px}
+.st-ok{background:#1a7a1a;color:#fff}
+.st-gap{background:#c85000;color:#fff}
+.st-na{background:rgba(255,255,255,.1);color:rgba(255,255,255,.3)}
+.cpl-exc{font-size:11px;font-weight:700;color:#f7f3ea;line-height:1.3}
+.cpl-time{font-size:8px;color:rgba(255,255,255,.35);margin-top:1px}
+.cpl-note{font-size:8px;color:rgba(255,255,255,.25);font-style:italic;margin-top:1px}
+.cpl-multi{margin-top:3px;padding-top:3px;border-top:1px solid rgba(255,255,255,.06)}
+.cpl-empty{font-size:10px;color:rgba(255,255,255,.18);font-style:italic}
+.cpl-double{font-size:9px;color:#c8a400;font-style:italic;margin-top:1px}
+/* ── Notes cell ── */
+.notes-c{width:160px;padding:8px 10px}
+.notes-t{font-size:9px;color:rgba(255,255,255,.5);line-height:1.5}
+.notes-w{font-size:8px;color:#ffcc00;background:rgba(255,204,0,.08);border-radius:3px;padding:3px 5px;margin-top:3px;line-height:1.3}
+.notes-b{font-size:9px;color:#c8a400;font-weight:700;margin-top:2px}
+.notes-url a{font-size:8px;color:#c8a400;text-decoration:none}
+.notes-url a:hover{text-decoration:underline}
+/* ── Sea full row ── */
+.sea-row{display:flex;align-items:center;padding:14px 24px;background:linear-gradient(135deg,rgba(26,58,128,.25),rgba(13,31,74,.25));border-bottom:1px solid rgba(255,255,255,.05);gap:14px}
+.sea-icon{font-size:24px;opacity:.4}
+.sea-label{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase}
+.sea-sub{font-size:9px;color:rgba(255,255,255,.18);margin-top:2px}
+/* ── Open items ── */
+.open-section{border-top:2px solid #c8a400;margin-top:0}
+.open-hdr{background:rgba(200,164,0,.1);padding:10px 24px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#c8a400}
+.open-item{display:flex;align-items:flex-start;gap:10px;padding:8px 24px;border-bottom:1px solid rgba(255,255,255,.05);font-size:10px;line-height:1.5}
+.open-item:last-child{border-bottom:none}
+.open-dot{flex-shrink:0;width:18px;text-align:center;font-size:12px}
+.open-text{color:rgba(255,255,255,.75)}
+.open-tag{font-size:7px;font-weight:700;border-radius:2px;padding:1px 5px;margin-left:6px;flex-shrink:0}
+.ot-red{background:#8b0000;color:#fff}
+.ot-yellow{background:#b8860b;color:#fff}
+.ot-blue{background:#1a6b9b;color:#fff}
+.ot-green{background:#1a7a1a;color:#fff}
+/* ── Shared dining ── */
+.dining-bar{background:rgba(200,164,0,.06);border-bottom:1px solid rgba(200,164,0,.15);padding:8px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.dining-item{display:flex;align-items:center;gap:6px;font-size:9px;color:rgba(255,255,255,.55)}
+.dining-name{font-weight:700;color:#f7f3ea;font-size:10px}
+.dining-date{color:rgba(255,255,255,.35)}
+/* ── Responsive ── */
+@media(max-width:900px){
+  .cpl-wrap{flex-direction:column}
+  .cpl-c{border-right:none;border-bottom:1px solid rgba(255,255,255,.04);padding:6px 10px;min-height:0}
+  .cpl-c:last-child{border-bottom:none}
+  .port-c{width:130px}
+  .photo-c{width:80px}
+  .notes-c{width:120px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-row">
+    <div>
+      <div class="voyage-title">🛳 Regent SS Grandeur · Storied Scandinavia</div>
+      <div class="voyage-sub">Stockholm → Oslo · Aug 29 – Sep 8, 2026 · 10 Nights</div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="top-btn" onclick="window.print()">🖨 Print</button>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-val">10</div><div class="stat-lbl">Nights</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">Ports of Call</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Couples</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">$47,112</div><div class="stat-lbl">Paid in Full</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val">20/21</div><div class="stat-lbl">Excursions Booked</div></div>
+  <div class="stat-div"></div>
+  <div class="stat"><div class="stat-val" style="color:#ff6b6b">6</div><div class="stat-lbl">Open Items</div></div>
+</div>
+
+<div class="couple-key">
+  <span class="ck-item"><span class="ck-swatch ck-sw-0"></span> <b>Furlow</b> · 827 · $15,486</span>
+  <span class="ck-item"><span class="ck-swatch ck-sw-1"></span> <b>Ely-Darrow</b> · 961 · $16,640</span>
+  <span class="ck-item"><span class="ck-swatch ck-sw-2"></span> <b>Nichols</b> · 939 · $14,986</span>
+  <span class="ck-item" style="margin-left:auto;color:rgba(255,255,255,.3);font-size:8px">FPD Apr 1 · All excursions $0 Regent Choice</span>
+</div>
+
+<div class="legend-bar">
+  <span class="legend-item"><span class="pip pip-confirm">CONFIRMED</span></span>
+  <span class="legend-item"><span class="pip pip-pending">PENDING</span> Regent Choice — not yet selected</span>
+  <span class="legend-item"><span class="pip pip-open">⚠ GAP</span> No excursion booked</span>
+  <span class="legend-item"><span class="pip pip-flag">🔴 FLAG</span> Needs attention</span>
+  <span class="legend-item">🎂 Heidi's birthday Aug 29</span>
+</div>
+
+<div class="dining-bar">
+  <span style="font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:#c8a400;font-weight:700">Shared Dining</span>
+  <span class="dining-item"><span class="dining-name">Pacific Rim</span> <span class="dining-date">Aug 30 · 6:30 PM</span> — Pan-Asian (also Heidi's bday dinner)</span>
+  <span class="dining-item"><span class="dining-name">Chartreuse</span> <span class="dining-date">Sep 2 · 7:30 PM</span> — French</span>
+  <span class="dining-item"><span class="dining-name">Prime 7</span> <span class="dining-date">Sep 4 · 6:30 PM</span> — Steakhouse</span>
+</div>
+
+<div id="itinerary"></div>
+
+<div class="open-section" id="open-items">
+  <div class="open-hdr">⚠ Open Items &amp; Flags</div>
+</div>
+
+<script>
+var COUPLES = [
+  { id:0, name:"Furlow",   suite:"827", paid:"$15,486", short:"Furlow" },
+  { id:1, name:"Ely-Darrow", suite:"961", paid:"$16,640", short:"Ely" },
+  { id:2, name:"Nichols",  suite:"939", paid:"$14,986", short:"Nichls" },
+];
+
+var DAYS = [
+  // ── Pre-cruise travel ──
+  {day:null,date:"Aug 26",dow:"Wed",type:"travel",port:"DFW → HEL (fly)",flag:"✈️",sub:"AA 9018 / Finnair · 4:50 PM → 10:45 AM +1",couples:{}},
+  {day:null,date:"Aug 27",dow:"Thu",type:"travel",port:"HEL → ARN → At Six",flag:"✈️",sub:"AY 811 1:15 PM → 1:15 PM · At Six Stockholm",couples:{0:{note:"HEL→ARN UNASSIGNED"},1:{note:"OK"},2:{note:"✅ All seats"}}},
+  {day:null,date:"Aug 28",dow:"Fri",type:"travel",port:"Stockholm",flag:"🏙️",sub:"Regent hotel night · Board Aug 29",couples:{}},
+  // ── Cruise ──
+  {day:1,date:"Aug 29",dow:"Sat",type:"embark",port:"Stockholm",flag:"🇸🇪",sub:"",arrive:"Embark",aa:"",couples:{
+    0:{exc:"Embarkation · Board by 15:00",cls:"na"},
+    1:{exc:"Embarkation · Board by 15:00",cls:"na"},
+    2:{exc:"🎂 Happy Birthday Heidi!",cls:"na"}
+  },note:"Pacific Rim 18:30 (shared, booked)"},
+  {day:2,date:"Aug 30",dow:"Sun",type:"port",port:"Stockholm",flag:"🇸🇪",sub:"",arrive:"Overnight",aa:"",couples:{
+    0:{exc:"Highlights of Stockholm & Vasa Museum",time:"09:00",cls:"ok",suite:"827"},
+    1:{exc:"GG-Swedish Nature Experience",time:"10:30",cls:"ok",suite:"961"},
+    2:{exc:"Highlights of Stockholm & Vasa Museum",time:"09:00",cls:"ok",suite:"939"}
+  },note:"Pacific Rim 18:30 🎂"},
+  {day:3,date:"Aug 31",dow:"Mon",type:"sea",port:"At Sea",flag:"🌊",sub:"Baltic Sea",couples:{}},
+  {day:4,date:"Sep 1",dow:"Tue",type:"port",port:"Berlin / Warnemünde",flag:"🇩🇪",sub:"",arrive:"AM",aa:"PM",couples:{
+    0:{exc:"SG-The Berlin Experience",time:"07:30",cls:"ok",suite:"827"},
+    1:{exc:"Amazing Rostock",time:"09:00",cls:"ok",suite:"961"},
+    2:{exc:"SG-The Berlin Experience",time:"07:30",cls:"ok",suite:"939"}
+  }},
+  {day:5,date:"Sep 2",dow:"Wed",type:"port",port:"Berlin / Warnemünde",flag:"🇩🇪",sub:"",arrive:"AM",aa:"PM",couples:{
+    0:{exc:"Amazing Rostock",time:"09:00",cls:"ok",suite:"827"},
+    1:{exc:"Medieval Flavors of Rostock",time:"14:30",cls:"ok",suite:"961"},
+    2:{exc:"Amazing Rostock + Medieval Flavors",time:"09:00 + 14:30",cls:"ok",multi:true,suite:"939"}
+  },note:"Chartreuse 19:30"},
+  {day:6,date:"Sep 3",dow:"Thu",type:"port",port:"Copenhagen",flag:"🇩🇰",sub:"",arrive:"AM",aa:"overnight",couples:{
+    0:{exc:"A Tour of Two Kingdoms",time:"08:45",cls:"ok",suite:"827"},
+    1:{exc:"Christiansborg Palace & Tivoli Gardens",time:"13:30",cls:"ok",suite:"961"},
+    2:{exc:"A Tour of Two Kingdoms",time:"08:45",cls:"ok",suite:"939"}
+  }},
+  {day:7,date:"Sep 4",dow:"Fri",type:"port",port:"Copenhagen",flag:"🇩🇰",sub:"",arrive:"overnight",aa:"PM",couples:{
+    0:{exc:"⚠ NONE BOOKED",cls:"gap",suite:"827"},
+    1:{exc:"A Tour of Two Kingdoms",time:"09:00",cls:"ok",suite:"961"},
+    2:{exc:"Tivoli Gardens & Canal Cruise",time:"10:15",cls:"ok",suite:"939"}
+  },note:"Prime 7 18:30 · 🔴 Furlow gap"},
+  {day:8,date:"Sep 5",dow:"Sat",type:"sea",port:"At Sea",flag:"🌊",sub:"North Sea",couples:{}},
+  {day:9,date:"Sep 6",dow:"Sun",type:"port",port:"Kristiansand",flag:"🇳🇴",sub:"",arrive:"AM",aa:"PM",couples:{
+    0:{exc:"Explore Kristiansand on Foot",time:"10:00",cls:"ok",suite:"827"},
+    1:{exc:"—",cls:"na",suite:"961"},
+    2:{exc:"—",cls:"na",suite:"939"}
+  }},
+  {day:10,date:"Sep 7",dow:"Mon",type:"port",port:"Oslo",flag:"🇳🇴",sub:"",arrive:"AM",aa:"PM",couples:{
+    0:{exc:"Hadeland Glass Works & Fram Museum",time:"09:30",cls:"ok",suite:"827"},
+    1:{exc:"Oslo During World War II",time:"09:00",cls:"ok",suite:"961"},
+    2:{exc:"Panoramic Oslo",time:"09:15",cls:"ok",suite:"939"}
+  }},
+  // ── Disembark ──
+  {day:null,date:"Sep 8",dow:"Tue",type:"disembark",port:"Disembark Oslo → fly home",flag:"✈️",sub:"OSL→LHR→DFW · BA 6776 + AA 79",couples:{}}
+];
+
+var OPEN_ITEMS = [
+  {icon:"🔴",text:"Furlow Sep 4 Copenhagen — no excursion booked (was Tivoli Gardens in old dossier, not in portal Mar 24)",tag:"GAP",tc:"ot-red"},
+  {icon:"🔴",text:"Furlow HEL→ARN seat unassigned (PNR BB4X94)",tag:"SEAT",tc:"ot-red"},
+  {icon:"🔴",text:"ARN→At Six transfers ×3 — not yet booked",tag:"BOOK",tc:"ot-red"},
+  {icon:"🟡",text:"At Six Night 1 (Aug 27): Ely D2M ✓ · Nichols Amex ✓ (Trip ZO-AX1049-13385) · Furlow Amex — need conf #",tag:"HOTEL",tc:"ot-yellow"},
+  {icon:"🟡",text:"Amy Darrow Parkinson's — flagged for trip-jeopardy monitoring",tag:"HEALTH",tc:"ot-yellow"},
+  {icon:"🟡",text:"Ely-Darrow email deliverability: d2mluxury.quest → me.com SPF/DKIM failing",tag:"EMAIL",tc:"ot-yellow"}
+];
+
+// ── Render ──
+var container = document.getElementById('itinerary');
+
+function render(){
+  var html = '';
+
+  DAYS.forEach(function(d){
+    // Section header for cruise vs pre/post
+    if(d.day === null && d.type === 'travel' && d.date === 'Aug 26'){
+      html += '<div class="sec-header">✈️ PRE-CRUISE · Travel to Stockholm <span class="sec-sub">Aug 26–28</span></div>';
+    }
+    if(d.day === 1){
+      html += '<div class="sec-header">🛳 CRUISE · Storied Scandinavia <span class="sec-sub">Aug 29 – Sep 8 · 10 Nights</span></div>';
+    }
+    if(d.day === null && d.type === 'disembark'){
+      html += '<div class="sec-header">✈️ POST-CRUISE · Fly Home <span class="sec-sub">Sep 8</span></div>';
+    }
+
+    // Sea day — full-width row
+    if(d.type === 'sea'){
+      html += '<div class="sea-row">'
+        + '<div class="sea-icon">🌊</div>'
+        + '<div><div class="sea-label">Day ' + d.day + ' · ' + d.dow + ' ' + d.date + ' — At Sea</div>'
+        + '<div class="sea-sub">' + d.sub + '</div></div>'
+        + '</div>';
+      return;
+    }
+
+    // Regular day row
+    var rowCls = d.type==='embark'?'embark':d.type==='disembark'?'disembark':d.type==='travel'?'travel':'';
+    html += '<div class="day-row ' + rowCls + '">';
+
+    // Day cell
+    html += '<div class="cell day-c">'
+      + (d.day ? '<div class="day-num">'+d.day+'</div><div class="day-dow">'+d.dow+'</div>' : '<div class="day-num" style="font-size:13px">—</div><div class="day-dow">'+d.dow+'</div>')
+      + '</div>';
+
+    // Date cell
+    var dateParts = d.date.split(' ');
+    html += '<div class="cell date-c">'
+      + '<div class="date-mon">' + dateParts[0].toUpperCase() + '</div>'
+      + '<div class="date-day">' + dateParts[1] + '</div>'
+      + '</div>';
+
+    // Port cell
+    var pips = '';
+    if(d.type==='embark') pips += '<span class="pip pip-confirm">EMBARK</span>';
+    if(d.type==='disembark') pips += '<span class="pip pip-confirm">DISEMBARK</span>';
+    html += '<div class="cell port-c">'
+      + '<div class="port-flag">' + d.flag + '</div>'
+      + '<div class="port-name">' + d.port + '</div>'
+      + (d.sub ? '<div class="port-sub">' + d.sub + '</div>' : '')
+      + (d.arrive && d.aa ? '<div class="port-times">' + d.arrive + ' → ' + d.aa + '</div>' : d.arrive ? '<div class="port-times">' + d.arrive + '</div>' : '')
+      + (pips ? '<div class="pips">' + pips + '</div>' : '')
+      + '</div>';
+
+    // Photo cell
+    var pCls = d.type==='embark'?'photo-embark':d.type==='disembark'?'photo-disembark':d.type==='travel'?'photo-travel':'photo-port';
+    html += '<div class="cell photo-c"><div class="photo-in ' + pCls + '">' + d.flag + '</div></div>';
+
+    // Couple columns
+    html += '<div class="cpl-wrap">';
+    for(var c=0; c<3; c++){
+      var cd = d.couples[c] || {};
+      html += '<div class="cpl-c" style="border-left:2px solid ' + (c===0?'#1a6b9b':c===1?'#1a7a4a':'#9b7a1a') + '">';
+
+      if(d.type === 'embark' || d.type === 'disembark' || d.type === 'travel'){
+        if(cd.note){
+          html += '<div class="cpl-empty">' + cd.note + '</div>';
+        } else if(cd.exc){
+          html += '<div class="cpl-empty">' + cd.exc + '</div>';
+        } else {
+          html += '<div class="cpl-empty">—</div>';
+        }
+      } else if(cd.exc){
+        if(cd.cls === 'na' && cd.exc === '—'){
+          html += '<div class="cpl-empty">—</div>';
+        } else if(cd.cls === 'gap'){
+          html += '<div class="cpl-status st-gap" style="display:inline-block;margin-bottom:3px">⚠ NO EXCURSION</div>'
+            + '<div class="cpl-exc" style="color:#ff6b6b">' + cd.exc + '</div>';
+        } else {
+          var stCls = cd.cls === 'ok' ? 'st-ok' : 'st-na';
+          html += '<div class="cpl-top">'
+            + (cd.suite ? '<span class="cpl-suite">' + cd.suite + '</span>' : '')
+            + '<span class="cpl-status ' + stCls + '">' + (cd.cls==='ok'?'✓':'—') + '</span>'
+            + '</div>'
+            + '<div class="cpl-exc">' + cd.exc + '</div>'
+            + (cd.time ? '<div class="cpl-time">🕐 ' + cd.time + '</div>' : '');
+          if(cd.multi){
+            html += '<div class="cpl-double">2 excursions today</div>';
+          }
+        }
+      } else {
+        html += '<div class="cpl-empty">—</div>';
+      }
+
+      html += '</div>';
+    }
+    html += '</div>';
+
+    // Notes cell
+    html += '<div class="cell notes-c">';
+    if(d.note){
+      html += '<div class="notes-t">' + d.note + '</div>';
+    }
+    // Check for flags per day
+    if(d.day === 7){
+      html += '<div class="notes-w">🔴 Furlow gap</div>';
+    }
+    html += '</div>';
+
+    html += '</div>';
+  });
+}
+
+render();
+
+// ── Open items ──
+var oiContainer = document.getElementById('open-items');
+OPEN_ITEMS.forEach(function(o){
+  var div = document.createElement('div');
+  div.className = 'open-item';
+  div.innerHTML = '<div class="open-dot">' + o.icon + '</div>'
+    + '<div class="open-text">' + o.text + '</div>'
+    + '<span class="open-tag ' + o.tc + '">' + o.tag + '</span>';
+  oiContainer.appendChild(div);
+});
+</script>
+</body>
+</html>

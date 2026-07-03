@@ -8,7 +8,7 @@ ALIASES (convenience shortcuts):
   deepseek-v4 → deepseek-v4-pro-t
   grok        → grok-4.1-fast-non-reasoning
   grok4       → grok-4.3
-  r1          → deepseek-r1-di
+   r1          → deepseek-v4-flash-e
   kimi        → kimi-k2.5
   kimi2       → kimi-k2.7-code
   gpt4o       → gpt-4o
@@ -103,8 +103,8 @@ ALIASES = {
     "ds3":             "deepseek-v3.2",
     "deepseek-v4":     "deepseek-v4-flash-e",
     "ds4":             "deepseek-v4-flash-e",
-    "r1":              "deepseek-r1-n",
-    "dr1":             "deepseek-r1-n",
+    "r1":              "deepseek-v4-flash-e",
+    "dr1":             "deepseek-v4-flash-e",
     # ── Other ────────────────────────────────────────────────────────────────
     "o3":              "o3",
     # ── Nano Banana (IMAGE generation) ───────────────────────────────────────
@@ -148,7 +148,7 @@ ALIAS_INFO = {
     "grok-imagine":  ("Grok Imagine",                  "?",    "image generation"),
     "deepseek":      ("DeepSeek V3.2",                 "128K", "[PII-FENCE]"),
     "deepseek-v4":   ("DeepSeek V4 Flash-E",           "128K", "[PII-FENCE]"),
-    "r1":            ("DeepSeek R1-N",                 "128K", "chain-of-thought [PII-FENCE]"),
+    "r1":            ("DeepSeek V4 Flash-E",           "128K", "lightweight, cheap [PII-FENCE]"),
     "o3":            ("OpenAI o3",                     "200K", "hard reasoning"),
 }
 

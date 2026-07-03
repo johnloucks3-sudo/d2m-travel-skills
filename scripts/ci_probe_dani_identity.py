@@ -3,8 +3,8 @@
 
 Checks:
   1. thunderbird-telegram-gw.service is active
-  2. BRYANA_TRAINEE_PROMPT constant is present in the gateway module
-  3. Non-Commander user_id causes _build_dani_claude_prompt to use trainee prompt
+  2. DANI_CLIENT_PROMPT constant is present in the gateway module
+  3. Non-Commander user_id causes _build_dani_claude_prompt to use client prompt
   4. Commander user_id causes _build_dani_claude_prompt to use full persona prompt
 
 Exit 0 = GREEN. Exit 1 = RED.
@@ -26,9 +26,9 @@ r = subprocess.run(
 )
 results.append(check("gateway service active", r.stdout.strip() == "active", r.stdout.strip()))
 
-# 2. BRYANA_TRAINEE_PROMPT present in module source
+# 2. DANI_CLIENT_PROMPT present in module source
 gw = open("/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py").read()
-results.append(check("BRYANA_TRAINEE_PROMPT defined", "BRYANA_TRAINEE_PROMPT" in gw))
+results.append(check("DANI_CLIENT_PROMPT defined", "DANI_CLIENT_PROMPT" in gw))
 results.append(check("_thread_ctx declared", "_thread_ctx = threading.local()" in gw))
 results.append(check("_thread_ctx.user_id set at engine call", gw.count("_thread_ctx.user_id = user_id") >= 2,
                       f"{gw.count('_thread_ctx.user_id = user_id')} call sites (need >=2)"))

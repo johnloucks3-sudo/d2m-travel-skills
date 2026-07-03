@@ -1,0 +1,231 @@
+# Keyword Auto-Routing Config — Commander escalation & intelligent dispatch
+# Version: 1.0
+# Updated: 2026-06-27
+# Reference: project_keyword_auto_routing_plus_opencode.md
+
+routing_rules:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 1: SANDBOX DATA PROCESSING (zero-cost, no LLM)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  ctx_data_processing:
+    keywords:
+      - extract
+      - filter
+      - scan
+      - count
+      - parse
+      - aggregate
+      - csv
+      - json
+      - logs
+      - search
+      - compile
+      - deduplicate
+      - sort
+      - merge
+    tool: ctx_execute_file
+    model: none
+    max_tokens: null
+    intent: "data extraction and aggregation via sandbox"
+
+  ctx_parallel_monitoring:
+    keywords:
+      - monitor
+      - status
+      - health
+      - audit
+      - sweep
+      - scan-multi
+      - batch-check
+      - parallel
+      - concurrent
+      - check-all
+    tool: ctx_batch_execute
+    model: none
+    max_tokens: null
+    intent: "parallel command execution and monitoring"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 2: ZEN COUNTER-REASONING (free models or Poe points)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  zen_independent_reasoning:
+    keywords:
+      - counter
+      - zen
+      - refute
+      - challenge
+      - alternative
+      - adversarial
+      - devil
+      - push-back
+      - conflict
+      - disagree
+      - contrary
+      - objection
+      - weakness
+      - flaw
+    tool: free_infer
+    provider_chain:
+      - github-r1          # GitHub DeepSeek-R1 (reasoning tier)
+      - cerebras-gpt       # Cerebras gpt-oss-120b
+      - groq-llama         # Groq Llama 3.3-70B
+      - poe-deepseek       # Fallback to Poe points
+    model: DeepSeek-R1
+    max_tokens: 500
+    temperature: 0.9
+    intent: "independent counter-perspective with chain-of-thought"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 3: FREE MODEL SYNTHESIS (reasoning tier)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  free_synthesis:
+    keywords:
+      - compare
+      - synthesis
+      - conflicting
+      - multi-source
+      - arbitrate
+      - weigh
+      - judge
+      - evaluate
+      - reconcile
+      - integrate
+      - combine
+      - prioritize
+      - tradeoff
+    tool: free_infer
+    provider_chain:
+      - cerebras-gpt       # Cerebras gpt-oss-120b (reasoning tier)
+      - github-r1          # GitHub DeepSeek-R1
+      - groq-llama         # Groq fallback
+    model: gpt-oss-120b
+    max_tokens: 1000
+    temperature: 0.7
+    intent: "reasoning synthesis across multiple sources"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 4: FREE MODEL STRUCTURED EXTRACTION (fast, deterministic)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  free_extraction:
+    keywords:
+      - extract-json
+      - parse-structured
+      - csv-output
+      - table-format
+      - schema-validate
+      - format-only
+      - deterministic
+      - structured-output
+    tool: free_infer
+    provider: github-mistral
+    model: mistral-small-2503
+    max_tokens: 2000
+    temperature: 0.3
+    intent: "deterministic structured extraction (JSON/CSV/table)"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 5: OPENCODE HANDOFF (when Claude Code is hot)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  opencode_handoff:
+    keywords:
+      - "@oc"
+      - "@oc-takeover"
+      - "@oc-primary"
+    tool: hale_bus_handoff
+    model: opencode
+    intent: "hand off to OpenCode orchestration"
+
+  opencode_handback:
+    keywords:
+      - "@cc"
+      - "@back"
+      - "@cc-takeover"
+    tool: hale_bus_handoff
+    model: claude-code
+    intent: "hand back to Claude Code orchestration"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAYER 6: DEFAULT (Claude)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  default_claude:
+    keywords: []
+    tool: ask_claude
+    model: claude-haiku-4-5-20251001
+    max_tokens: 2048
+    temperature: 0.7
+    escalate_on_error: true
+    escalate_to: claude-sonnet-4-6
+    intent: "default Claude routing (Haiku → Sonnet escalation)"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# COMMANDER ESCALATION KEYWORDS
+# ═══════════════════════════════════════════════════════════════════════════
+# When usage is high, Commander can type to force behavior:
+#
+#   @ctx              → Force all new work to sandbox (ctx_execute_file)
+#   @ctx-only         → Sandbox only (no Claude, no free models)
+#   @zen              → Spawn ZEN immediately (free-infer R1 or Poe)
+#   @zen-only         → Counter-reasoning only (no synthesis)
+#   @free             → All tasks → free_model_router (Groq/Cerebras/GitHub/Ollama)
+#   @free-only        → Free models only (no Claude)
+#   @oc               → Hand off to OpenCode, Claude dormant (except WF-17)
+#   @oc-takeover      → OpenCode primary orchestrator, Claude fallback
+#   @oc-primary       → OpenCode takes 90% of work, Claude monitoring
+#
+# Parsed by: core/ai_infra/keyword_auto_router.py parse_commander_keyword()
+# Status: active, wire into session startup
+
+# ═══════════════════════════════════════════════════════════════════════════
+# FREE MODEL PROVIDER CONFIG
+# ═══════════════════════════════════════════════════════════════════════════
+
+providers:
+  cerebras:
+    api_url: "https://api.cerebras.ai/v1"
+    env_key: "CEREBRAS_API_KEY"
+    models:
+      gpt:        "gpt-oss-120b"        # reasoning tier
+      fast:       "zai-glm-4.7"         # fast burst
+
+  github:
+    api_url: "https://models.inference.ai.azure.com"
+    env_key: "GITHUB_TOKEN"
+    models:
+      r1:         "DeepSeek-R1"         # reasoning
+      r1-0528:    "DeepSeek-R1-0528"    # dated variant
+      mistral:    "mistral-small-2503"  # fast extraction
+
+  groq:
+    api_url: "https://api.groq.com/openai/v1"
+    env_key: "GROQ_API_KEY"
+    models:
+      llama:      "llama-3.3-70b-versatile"
+      scout:      "llama-4-scout-17b"
+
+  ollama:
+    api_url: "http://localhost:11434/v1"
+    env_key: null
+    models:
+      llama:      "llama3.2:3b"
+      qwen:       "qwen2.5-coder:7b"
+
+  poe:
+    api_url: "https://api.poe.com"
+    env_key: "POE_API_KEY"
+    models:
+      deepseek:   "deepseek"
+      grok:       "grok-4"
+      r1:         "deepseek-r1"
+
+  # deepinfra: blocked by MISSION-394 (requires paid balance)
+  deepinfra:
+    status: "BLOCKED"
+    reason: "HTTP 402 (paid balance required)"
+    mission: "MISSION-394"

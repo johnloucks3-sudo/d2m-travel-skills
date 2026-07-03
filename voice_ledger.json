@@ -1,7 +1,7 @@
 {
   "meta": {
     "created": "2026-03-20T20:53:06.267501+00:00",
-    "last_updated": "2026-06-21T09:10:00.611762+00:00",
+    "last_updated": "2026-07-01T23:32:10.452192+00:00",
     "version": 1
   },
   "global_rules": [
@@ -11,7 +11,7 @@
       "source": "mar20_email_analysis",
       "example": "Thanks,\nJohn",
       "created": "2026-03-20T20:53:06.267506+00:00",
-      "applied_count": 1518
+      "applied_count": 1538
     },
     {
       "domain": "tone",
@@ -19,7 +19,7 @@
       "source": "mar20_email_analysis",
       "example": null,
       "created": "2026-03-20T20:53:06.267816+00:00",
-      "applied_count": 1518
+      "applied_count": 1538
     },
     {
       "domain": "anti_pattern",
@@ -27,7 +27,7 @@
       "source": "mar20_email_analysis",
       "example": null,
       "created": "2026-03-20T20:53:06.267969+00:00",
-      "applied_count": 1518
+      "applied_count": 1538
     }
   ],
   "tier_rules": {

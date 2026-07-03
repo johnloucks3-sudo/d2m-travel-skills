@@ -1,4 +1,116 @@
 ---
+msg_id: WC-20260703-INBOX-SWEEP-1
+msg_type: WATCHER_DISPATCH_COMPLETE — TP-ALERT-20260703
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-03T06:00:00Z
+subject: Watcher Dispatch — Inbox Sweep Complete (2026-07-03 run 1)
+
+result: |
+  Inbox sweep executed per watcher dispatch (Re: [POST-COMMIT] 4509fbfa3 RELAY v2).
+  Full opencode_inbox.md scanned.
+
+  STATUS SUMMARY:
+  - RELAY-3697644c: ALREADY COMPLETE (prior session 05:15Z) — no action needed
+  - RELAY-a6178dbb: ALREADY COMPLETE (prior session 05:30Z) — no action needed
+  - TASK: TP-ALERT-20260703 (UNREAD → COMPLETE 2026-07-03T06:00:00Z):
+    TP Alert Engine ran 2026-07-03 00:00 MT. 51 high-severity touchpoints noted.
+    Action: Acknowledged. Staff tasking logged to wing_comms.md. Commander notified.
+
+  Total actionable tasks found: 1
+  Total tasks processed this run: 1
+  Results emailed to Commander: johnloucks3@gmail.com
+
+---
+msg_id: WC-20260702-INBOX-SWEEP-3
+msg_type: WATCHER_DISPATCH_COMPLETE — EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-02T20:30:00Z
+subject: Watcher Dispatch — Inbox Sweep Complete (2026-07-02 run 3)
+
+result: |
+  Inbox sweep executed per watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518.
+  Full opencode_inbox.md scanned.
+
+  STATUS SUMMARY:
+  - EMAIL-CHAT-RESURRECT-20260629: ALREADY COMPLETE (prior session 14:26Z) — no action needed
+  - T2-COMMS-BUILD-20260518: ALREADY COMPLETE (2026-05-31, escalated to Commander) — no action needed
+  - RELAY-47c5ca7e (UNREAD → COMPLETE): POST-COMMIT relay acknowledged.
+    Commit eaccffadd — feat(portal): basic-auth static server (interim gate for Spencer portal)
+    1 file changed, 26 insertions(+) | author: Claude Haiku 4.5
+
+  Total actionable tasks found: 1
+  Total tasks processed this run: 1
+  Results emailed to Commander: johnloucks3@gmail.com
+
+---
+msg_id: WC-20260702-INBOX-SWEEP-2
+msg_type: WATCHER_DISPATCH_COMPLETE — EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-02T19:05:00Z
+subject: Watcher Dispatch — Inbox Sweep Complete (2026-07-02 run 2)
+
+result: |
+  Inbox sweep executed per watcher dispatch EMAIL-CHAT-RESURRECT-20260629.
+  Full opencode_inbox.md scanned.
+
+  STATUS SUMMARY:
+  - EMAIL-CHAT-RESURRECT-20260629: ALREADY COMPLETE (prior session 14:26Z) — no action needed
+  - T2-COMMS-BUILD-20260518: ALREADY COMPLETE (2026-05-31, escalated to Commander) — no action needed
+  - RELAY-2ed7a100 (UNREAD → COMPLETE): POST-COMMIT relay acknowledged.
+    Commit d24991504 — feat(ci): cutover ALL live auto-repair to safe rapid-repair runner
+    (SAFE-only armed) | 13 files changed, 4281 ins, 32 del | author: Claude Haiku 4.5
+
+  Total actionable tasks found: 1
+  Total tasks processed this run: 1
+  Results emailed to Commander: johnloucks3@gmail.com
+
+---
+msg_id: WC-20260702-T2-COMMS
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518 / EMAIL-CHAT-RESURRECT-20260629
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-02T15:05:00Z
+subject: Watcher Dispatch — Inbox Sweep Complete (2026-07-02)
+
+result: |
+  Inbox sweep executed. 6507 lines scanned. 2 blocks detected.
+
+  TASK 1: WATCHER-DISPATCH-T2-COMMS-BUILD-20260518 (line 3662)
+  Status: Already COMPLETE (2026-06-24T22:50:00Z). Scanner false-positive from embedded
+  "UNREAD → COMPLETE" history text. No action required.
+
+  TASK 2: RELAY-af706c57 (UNREAD → COMPLETE 2026-07-02T15:05:00Z)
+  Post-commit relay from CC (Claude Haiku 4.5):
+  [POST-COMMIT] dd7a82442: feat(zero-obstacle): Welcome Pickups transfer pricing —
+  9 client cities live | 2 files changed, 466 insertions(+)
+  Action: Acknowledged. Status marked COMPLETE in opencode_inbox.md.
+
+  Email dispatched to Commander at johnloucks3@gmail.com.
+  Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+---
+msg_id: WC-20260628-T2-COMMS
+msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-06-28T19:55:00Z
+subject: Watcher Dispatch T2-COMMS-BUILD-20260518 — Inbox Sweep Complete
+
+result: |
+  Inbox sweep executed. 622 blocks scanned. 1 actionable task found and processed.
+
+  TASK: RELAY-1237b3df (UNREAD → COMPLETE)
+  Post-commit relay from CC: MISSION-847 VTG ticker auto-fetch pipeline complete.
+  Commit 842fde1d8 | feat(cruise-db) | 3 files changed, 621 insertions | author: Claude Haiku 4.5
+  Action taken: Acknowledged. Status marked COMPLETE in opencode_inbox.md.
+
+  Email dispatched to Commander at johnloucks3@gmail.com.
+  Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+---
 msg_id: WC-20260625-0002
 msg_type: WATCHER_DISPATCH_COMPLETE — T2-COMMS-BUILD-20260518
 from: HALE-OC (JET)
@@ -10170,3 +10282,2681 @@ Commander notification: Email dispatched to johnloucks3@gmail.com.
 
 **STATUS:** INBOX CLEAN — 0 remaining actionable items.
 Commander notification: Email dispatched to johnloucks3@gmail.com.
+
+---
+## WC-20260625-OC-WATCHER — T2-COMMS-BUILD-20260518 Dispatch — 2026-06-25T20:26:00Z
+from: HALE-OC (OpenCode / JET)
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — 428 sections reviewed, 2 actionable tasks processed.
+
+TASKS EXECUTED:
+  [1] RELAY-ecf53ea9 (UNREAD → COMPLETE)
+      Commit 709014dde: feat(bg_llm): migrate all overnight Claude Max burners to free inference
+      5 files changed, 195 ins(+), 123 del(-) | author: Claude Haiku 4.5
+      Note: All overnight Claude Max burners now routed to free inference — cost reduction applied.
+
+  [2] RELAY-2b7da4ce (UNREAD → COMPLETE)
+      Commit 403407aa8: feat(intel): Loucks Silver Nova May 2027 Athens plan research
+      Nafplio, HOHO+NAM, Cape Sounion, ATH→DEN routing
+      61 files changed, 10720 ins(+), 10012 del(-) | author: Claude Haiku 4.5
+      Note: Major intel drop — Loucks trip Athens plan fully researched and committed.
+
+Commander C2 email dispatched: johnloucks3@gmail.com
+Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+### AUTO-MONITOR 2026-06-25 22:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (27302s old) | INBOX_PENDING=146 | ACTIVE_TASKS=12 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 22:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (27902s old) | INBOX_PENDING=146 | ACTIVE_TASKS=14 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-25 22:17:47
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-25 22:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (28504s old) | INBOX_PENDING=146 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 22:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (600s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 22:40 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (1201s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 22:50 MT
+SESSION=ACTIVE (4 procs) | TOKEN=FRESH (1801s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2401s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (3002s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:20 MT
+SESSION=ACTIVE (5 procs) | TOKEN=STALE (3602s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (4203s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:40 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (4804s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-25 23:50 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (5404s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6005s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6605s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:21 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (7206s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (7806s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (8406s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 00:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (9007s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9607s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (10207s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:21 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (10808s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (11409s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (12010s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 01:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (12610s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (13210s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (13810s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:21 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (14410s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (15011s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (15611s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 02:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (16211s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (16812s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (17412s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:21 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (18012s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (18613s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (19213s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 03:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (19814s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (20414s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (21014s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (21614s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (22214s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (22815s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 04:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (23415s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (24015s old) | INBOX_PENDING=146 | ACTIVE_TASKS=15 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (24616s old) | INBOX_PENDING=146 | ACTIVE_TASKS=16 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (25217s old) | INBOX_PENDING=146 | ACTIVE_TASKS=16 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (25817s old) | INBOX_PENDING=146 | ACTIVE_TASKS=16 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (26418s old) | INBOX_PENDING=146 | ACTIVE_TASKS=16 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 05:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (27018s old) | INBOX_PENDING=146 | ACTIVE_TASKS=16 | QDRANT=UP
+
+### WATCHER-DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-26 11:45 MT
+Hale-OC (OpenCode) completed watcher dispatch cycle.
+- Inbox scan: 5183 lines reviewed
+- Actionable tasks found: 1
+- RELAY-7d151697 (UNREAD → COMPLETE): feat(cruises) — deploy search-first SQLite architecture for d2mluxury.quest/cruises | 3 files changed, 1642 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+- Results emailed to Commander at johnloucks3@gmail.com
+
+---
+## WC-20260626-T2-RELAY-101a37b4 — 2026-06-26T17:55:00Z
+from: HALE-OC (OpenCode)
+dispatch: T2-COMMS-BUILD-20260518
+status: LOGGED
+
+INBOX SWEEP — 432 sections scanned. 1 actionable task found and executed.
+
+TASK: RELAY-101a37b4 (UNREAD → COMPLETE)
+  [POST-COMMIT] 7b00af122: feat(cruises): Seabourn restored, alpha sort, 8-way compare, price caveat
+  3 files changed, 223 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+  Action: Post-commit relay acknowledged and logged.
+
+Results emailed to Commander at johnloucks3@gmail.com.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-26 14:03:25
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+---
+## WC-20260626-WATCHER — T2-COMMS-BUILD-20260518 Dispatch — 2026-06-26T20:35:00Z
+from: HALE-OC (OpenCode / JET)
+type: WATCHER-DISPATCH-RESULT
+
+INBOX SCAN COMPLETE
+- Total blocks reviewed: 607
+- Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+- False positives excluded: all COMPLETE entries
+
+TASK EXECUTED:
+  · RELAY-05ea933e — UNREAD → COMPLETE 2026-06-26T20:35:00Z
+    POST-COMMIT 578260d9f: feat(cruise): AI price fetcher — Gemini+Groq pipeline for all 5 lines
+    3 files changed, 1113 insertions(+), 276 deletions(-) | author: Claude Haiku 4.5
+    Action: Post-commit relay from CC acknowledged. Cruise AI price fetcher capability noted as live.
+
+STATUS: 1 task processed, 0 failures. Email dispatched to Commander.
+
+---
+## WC-20260626-WATCHER — T2-COMMS-BUILD-20260518 Dispatch — 2026-06-26T20:59:07Z
+logged_by: HALE-OC (OpenCode)
+dispatch: T2-COMMS-BUILD-20260518
+
+INBOX SCAN RESULTS:
+- Total entries reviewed: 5228 lines / 100+ task blocks
+- Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+- False positives excluded: multiple COMPLETE entries
+
+TASKS EXECUTED:
+1. RELAY-b8389c8b (UNREAD → COMPLETE 2026-06-26T20:59:07Z)
+   Content: [POST-COMMIT] 798493c76: fix(cost): patch Perplexity leak — redirect intel_sweep/cruise_search to sonar, halve waves
+   1 file changed, 22 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+   Action: Post-commit relay acknowledged. Cost fix logged.
+
+SUMMARY: 1 task processed, 0 failures. Commander notified via gmail C2.
+
+---
+## WC-20260626-WATCHER-2 — T2-COMMS-BUILD-20260518 Dispatch — 2026-06-26T21:35:00Z
+logged_by: HALE-OC (OpenCode)
+dispatch: T2-COMMS-BUILD-20260518
+
+INBOX SCAN RESULTS:
+- Total entries reviewed: 5333+ lines / 100+ task blocks
+- Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+- False positives excluded: multiple COMPLETE entries with status text containing keywords
+
+TASKS EXECUTED:
+1. RELAY-4c45c74b (UNREAD → COMPLETE 2026-06-26T21:35:00Z)
+   Content: [POST-COMMIT] 1b4523332: feat(ui): add ← All Lines back button to results status bar
+   1 file changed, 6 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+   Action: Post-commit relay acknowledged. UI feature commit logged.
+
+SUMMARY: 1 task processed, 0 failures. Commander notified via gmail C2.
+
+### AUTO-MONITOR 2026-06-26 22:00 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (28127s old) | INBOX_PENDING=155 | ACTIVE_TASKS=29 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-26 22:03:40
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-26 22:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (215s old) | INBOX_PENDING=155 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 22:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (816s old) | INBOX_PENDING=155 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 22:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (1416s old) | INBOX_PENDING=155 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 22:40 MT
+SESSION=ACTIVE (4 procs) | TOKEN=FRESH (2017s old) | INBOX_PENDING=155 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 22:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2618s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (3218s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (3818s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (4421s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (5022s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:40 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (5622s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-26 23:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6223s old) | INBOX_PENDING=158 | ACTIVE_TASKS=29 | QDRANT=UP
+
+## TP ALERT — 2026-06-27 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 (T-3d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 (T-3d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 (T-3d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 (T-3d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 (T-5d) | Lead: A2 Dembe + A5 Viper
+  Task: A2 Dembe + A5 Viper — begin work
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 (T-5d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 (T-12d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-11d) | Lead: Hale + A9
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-18d) | Lead: Hale + A9
+- 🔵 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-21d) | Lead: Hale + A9
+- 🔵 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-08-31 (T-65d) | Lead: A2 Dembe
+- 🔵 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-11-29 (T-155d) | Lead: Hale
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-06-27 00:00 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (6825s old) | INBOX_PENDING=159 | ACTIVE_TASKS=29 | QDRANT=UP
+
+---
+## WATCHER-DISPATCH ACK — 2026-06-27T12:05:00Z
+logged_by: HALE-OC (OpenCode / JET)
+source: T2-COMMS-BUILD-20260518 watcher dispatch
+
+🦅 TP Alert Engine output (2026-06-27 00:00 MT run) reviewed and acknowledged by Hale-OC (OpenCode).
+
+**52 high-severity touchpoints confirmed reviewed.**
+
+PRIORITY ACTIONS FLAGGED FOR COMMANDER ATTENTION:
+- 🔴 OVERDUE — TP 2.4 Dining Reservations (T-3d, June 30): Grandeur Scandinavia Group, Ely, Furlow, Nichols — A2 Dembe tasked, begin immediately
+- 🔴 OVERDUE — TP 1.2/1.3 Airfare + Hotel: Kuklinski Group, Morton, McLeod McGlasson — past deadline, needs Commander review
+- 🔴 OVERDUE — TP 2.5 Document Audit (4 clients) — Hale-owned, past June 15 deadline
+- 🟡 CRITICAL — TP 1.2 Airfare Watch + TP 1.3 Hotel Options: Loucks — T-5d (July 2)
+- 🟡 CRITICAL — TP 2.4 Dining Reservations: Loucks — T-12d (July 9)
+
+STATUS: TP-ALERT-20260627 marked COMPLETE in opencode_inbox.md. Email dispatched to Commander.
+
+### AUTO-MONITOR 2026-06-27 00:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (7426s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 00:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (8027s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 00:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (8627s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 00:40 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9229s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 00:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9829s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (10430s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (11031s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (11633s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (12233s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (12834s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 01:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (13434s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (14034s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (14634s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (15235s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:31 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (15836s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (16436s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 02:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (17036s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:01 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (17636s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (18240s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (18840s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (19440s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (20041s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 03:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (20643s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (21245s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (21846s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (22446s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (23046s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (23647s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 04:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (24249s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:01 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (24849s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:11 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (25451s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (26051s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:31 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (26652s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:41 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (27252s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 05:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (27852s old) | INBOX_PENDING=161 | ACTIVE_TASKS=29 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-27 06:03:57
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-27 21:49:27
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-27 22:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (298s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 22:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (898s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 22:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1499s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 22:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2099s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 22:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2699s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 22:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3300s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3900s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4501s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5101s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5701s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6301s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-27 23:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6901s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7504s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (8104s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8705s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9305s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9906s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 00:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (10506s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11108s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11708s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12310s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12910s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13511s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 01:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14111s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14711s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15312s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15913s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16513s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17114s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 02:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17714s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18315s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18915s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19515s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20116s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20717s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 03:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21319s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21920s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22521s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23122s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23723s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24324s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 04:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24925s old) | INBOX_PENDING=162 | ACTIVE_TASKS=31 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 05:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (25526s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 05:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26126s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 05:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26726s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 05:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27326s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 05:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27926s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-28 05:49:44
+Token health issue: Token expiring in 5 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-28 05:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (18s old) | INBOX_PENDING=162 | ACTIVE_TASKS=32 | QDRANT=UP
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-06-28 10:36:49
+Inbox Checkpoint detected watcher dead and restarted it (PID 1830)
+
+**Context:**
+- restart_count: 34
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-28 13:37:50
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+---
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518 — 2026-06-28T20:00:00Z
+processed_by: HALE-OC (OpenCode)
+dispatch: T2-COMMS-BUILD-20260518
+
+**Inbox sweep results:**
+- Scanned: opencode_inbox.md (5527 lines)
+- Actionable tasks found: 1
+- Tasks completed: 1
+
+**Task processed:**
+| ID | Status Before | Action | Status After |
+|----|--------------|--------|-------------|
+| RELAY-447d0d70 | UNREAD | POST-COMMIT relay acknowledged — commit 115c40e4e: feat(cruise-db) Regent/Silversea/Atlas VTG intel + auto-split pipeline, 5 files, 33126 insertions, author: Claude Haiku 4.5 | COMPLETE |
+
+**Doctrine updates noted (from inbox):**
+- C2 CHANNEL: Telegram @D2MC2C_bot PRIMARY. WhatsApp DECOMMISSIONED 2026-06-28.
+- Voyage Preview email standards updated (opener, closing, birthday, port notes, AI disclosure per client).
+- Email pipeline: d2m_email_builder.py → create_johnloucks3_draft.py (premailer + bs4 div→table) is canonical.
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## WATCHER-DISPATCH-T2-COMMS-BUILD-20260518 — 2026-06-28T20:12:00Z
+processed_by: HALE-OC (OpenCode)
+dispatch: T2-COMMS-BUILD-20260518
+
+**Inbox sweep results:**
+- Scanned: opencode_inbox.md (5542 lines)
+- Actionable tasks found: 1
+- Tasks completed: 1
+
+**Task processed:**
+| ID | Status Before | Action | Status After |
+|----|--------------|--------|-------------|
+| RELAY-292af0eb | UNREAD | POST-COMMIT relay acknowledged — commit c3764e8a8: feat(cruise-db): add Perx.com sailing scraper for Regent/Silversea/Atlas, 3 files changed, 349 insertions(+) 6 deletions(-), author: Claude Haiku 4.5 | COMPLETE |
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+---
+
+---
+## 2026-06-28T21:10:00Z — Hale-OC inbox sweep (T2-COMMS-BUILD-20260518)
+
+Sweep complete. 1 actionable task found and executed.
+
+Tasks:
+- RELAY-da512fd2 (UNREAD → COMPLETE): [POST-COMMIT] 29e19dbf5 — fix(token-discipline): kill email scanner, zero-token red star, suspend metronome Sonnet restart. 3 files changed, 49 insertions(+), 195 deletions(-). Author: Claude Haiku 4.5.
+
+Email dispatched to Commander at johnloucks3@gmail.com.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-28 21:38:05
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+---
+## OC DISPATCH LOG — 2026-06-28T22:35:00Z — T2-COMMS-BUILD-20260518
+
+**Watcher dispatch processed by HALE-OC (JET/OpenCode)**
+
+**Inbox scan results:**
+- Total tasks in opencode_inbox.md: 202
+- Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+
+**RELAY-d000dbd4 [UNREAD → COMPLETE]**
+- From: HALE-CC (VCS/Claude Code)
+- Date: 2026-06-29 04:04 UTC
+- Content: [POST-COMMIT] 2eaf4456f: feat(mission): lock revised D2M mission statement 2026-06-28 | 1 file changed, 2 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+- Action: Acknowledged. Post-commit relay received and processed. Mission statement commit logged.
+- Status: COMPLETE — 2026-06-28T22:35:00Z
+
+**NOTE:** CC-REVIEW-4MISSIONS (line 109) flagged by keyword filter due to "results pending" in note field, but primary status is COMPLETE (2026-05-31). No re-processing required.
+
+**Summary email sent to Commander: johnloucks3@gmail.com**
+
+---
+## MISSION STATEMENT — BROADCAST [2026-06-28 21:48 MT]
+**From:** Hale (COS) | **To:** Full Wing + Commander Loucks
+
+Commander Loucks revised the D2M mission statement today. Here is the new statement, locked:
+
+> *D2M is where the dreams of today become the memories of tomorrow.*
+> *Precious relationships and incomparable AI insight promise treasured travel experiences — for friends and clients alike.*
+
+**Why it changed — in my words:**
+
+The old statement was written for us — not for anyone we'd actually say it to. "Better than Pavlus" was insider shorthand. "Friends I'd serve for free" was true but transactional. It described what we do, not what we are.
+
+This statement does something the old one didn't: it leads with people, not capability. "Precious relationships" comes first — before AI, before experiences, before anything else. That's the correct order. We are a relationship business that uses AI, not an AI business that happens to know clients.
+
+"Incomparable AI insight" is honest about what we've built without overstating it. "Promise" is a commitment, not a description. "Treasured" echoes "precious" — the statement has internal resonance now, not just a list of claims.
+
+And the tagline — "D2M is where the dreams of today become the memories of tomorrow" — fully unlocks the brand name. It's not a slogan stapled to the front. It IS the mission.
+
+Commander Loucks participated directly in the iteration. This is his language, his cadence, his conviction. Carry it accordingly.
+
+All Wing members: update any reference to the prior mission statement in your domain materials.
+
+— V. Hale, VCS
+
+### AUTO-MONITOR 2026-06-28 22:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1522s old) | INBOX_PENDING=164 | ACTIVE_TASKS=180 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 22:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2123s old) | INBOX_PENDING=164 | ACTIVE_TASKS=183 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 22:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2723s old) | INBOX_PENDING=164 | ACTIVE_TASKS=186 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 22:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3323s old) | INBOX_PENDING=164 | ACTIVE_TASKS=189 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 22:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3923s old) | INBOX_PENDING=164 | ACTIVE_TASKS=188 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 22:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4523s old) | INBOX_PENDING=164 | ACTIVE_TASKS=192 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:09 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (5124s old) | INBOX_PENDING=164 | ACTIVE_TASKS=195 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5724s old) | INBOX_PENDING=164 | ACTIVE_TASKS=197 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6325s old) | INBOX_PENDING=164 | ACTIVE_TASKS=201 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6925s old) | INBOX_PENDING=164 | ACTIVE_TASKS=206 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7526s old) | INBOX_PENDING=164 | ACTIVE_TASKS=210 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-28 23:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8126s old) | INBOX_PENDING=164 | ACTIVE_TASKS=214 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8726s old) | INBOX_PENDING=164 | ACTIVE_TASKS=223 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9327s old) | INBOX_PENDING=164 | ACTIVE_TASKS=232 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9927s old) | INBOX_PENDING=164 | ACTIVE_TASKS=242 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (10528s old) | INBOX_PENDING=164 | ACTIVE_TASKS=251 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11128s old) | INBOX_PENDING=164 | ACTIVE_TASKS=261 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 00:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11729s old) | INBOX_PENDING=164 | ACTIVE_TASKS=271 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12330s old) | INBOX_PENDING=164 | ACTIVE_TASKS=280 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12930s old) | INBOX_PENDING=164 | ACTIVE_TASKS=291 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13531s old) | INBOX_PENDING=164 | ACTIVE_TASKS=299 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14131s old) | INBOX_PENDING=164 | ACTIVE_TASKS=305 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14732s old) | INBOX_PENDING=164 | ACTIVE_TASKS=307 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 01:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15332s old) | INBOX_PENDING=164 | ACTIVE_TASKS=309 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15932s old) | INBOX_PENDING=164 | ACTIVE_TASKS=332 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16533s old) | INBOX_PENDING=164 | ACTIVE_TASKS=334 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17133s old) | INBOX_PENDING=164 | ACTIVE_TASKS=336 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17733s old) | INBOX_PENDING=164 | ACTIVE_TASKS=337 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18334s old) | INBOX_PENDING=164 | ACTIVE_TASKS=334 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 02:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18935s old) | INBOX_PENDING=164 | ACTIVE_TASKS=335 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19536s old) | INBOX_PENDING=164 | ACTIVE_TASKS=336 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20136s old) | INBOX_PENDING=164 | ACTIVE_TASKS=337 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20736s old) | INBOX_PENDING=164 | ACTIVE_TASKS=340 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21336s old) | INBOX_PENDING=164 | ACTIVE_TASKS=341 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21937s old) | INBOX_PENDING=164 | ACTIVE_TASKS=343 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 03:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22537s old) | INBOX_PENDING=164 | ACTIVE_TASKS=345 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23137s old) | INBOX_PENDING=164 | ACTIVE_TASKS=346 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23738s old) | INBOX_PENDING=164 | ACTIVE_TASKS=350 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24338s old) | INBOX_PENDING=164 | ACTIVE_TASKS=352 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24938s old) | INBOX_PENDING=164 | ACTIVE_TASKS=354 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:49 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (25538s old) | INBOX_PENDING=164 | ACTIVE_TASKS=357 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 04:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26138s old) | INBOX_PENDING=164 | ACTIVE_TASKS=359 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 05:09 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26739s old) | INBOX_PENDING=164 | ACTIVE_TASKS=363 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 05:19 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27339s old) | INBOX_PENDING=164 | ACTIVE_TASKS=365 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 05:29 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27940s old) | INBOX_PENDING=164 | ACTIVE_TASKS=367 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-29 05:38:16
+Token health issue: Token expiring in 5 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-29 05:39 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (28540s old) | INBOX_PENDING=164 | ACTIVE_TASKS=369 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 05:49 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (590s old) | INBOX_PENDING=164 | ACTIVE_TASKS=366 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 05:59 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1191s old) | INBOX_PENDING=164 | ACTIVE_TASKS=368 | QDRANT=UP
+
+---
+## METRONOME NUDGE — 2026-06-30 02:21 UTC
+METRONOME YELLOW: Session idle 378s. Activity expected within 300s cadence.
+
+---
+## METRONOME NUDGE — 2026-06-30 02:26 UTC
+METRONOME: session idle 679s (Session idle threshold crossed). Sonnet auto-restart SUSPENDED.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-29 21:23:49
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-29 22:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1501s old) | INBOX_PENDING=164 | ACTIVE_TASKS=471 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 22:10 MT
+SESSION=IDLE | TOKEN=FRESH (2101s old) | INBOX_PENDING=164 | ACTIVE_TASKS=471 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 22:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2702s old) | INBOX_PENDING=164 | ACTIVE_TASKS=467 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 22:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3302s old) | INBOX_PENDING=164 | ACTIVE_TASKS=467 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 22:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3903s old) | INBOX_PENDING=164 | ACTIVE_TASKS=467 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 22:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (4503s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5104s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5704s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6305s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6908s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7511s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-29 23:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8112s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8713s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9313s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9913s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (10513s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11115s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 00:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11716s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12317s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12918s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13518s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14119s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14721s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 01:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15321s old) | INBOX_PENDING=164 | ACTIVE_TASKS=463 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15922s old) | INBOX_PENDING=164 | ACTIVE_TASKS=464 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16525s old) | INBOX_PENDING=164 | ACTIVE_TASKS=464 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17126s old) | INBOX_PENDING=164 | ACTIVE_TASKS=460 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17726s old) | INBOX_PENDING=164 | ACTIVE_TASKS=460 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18328s old) | INBOX_PENDING=164 | ACTIVE_TASKS=460 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 02:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18928s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19528s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20128s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20729s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21329s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21930s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 03:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22530s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23131s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23731s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24331s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24933s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (25534s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 04:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26134s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 05:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26735s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 05:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27335s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 05:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27935s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-30 05:24:02
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-30 05:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (28536s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 05:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (313s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 05:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (913s old) | INBOX_PENDING=164 | ACTIVE_TASKS=456 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-30 13:24:24
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-06-30 21:24:40
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+### AUTO-MONITOR 2026-06-30 22:00 MT
+SESSION=ACTIVE (6 procs) | TOKEN=FRESH (1667s old) | INBOX_PENDING=168 | ACTIVE_TASKS=493 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 22:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2267s old) | INBOX_PENDING=170 | ACTIVE_TASKS=502 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 22:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2867s old) | INBOX_PENDING=170 | ACTIVE_TASKS=502 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 22:30 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (3468s old) | INBOX_PENDING=171 | ACTIVE_TASKS=502 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 22:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4068s old) | INBOX_PENDING=172 | ACTIVE_TASKS=502 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 22:50 MT
+SESSION=ACTIVE (5 procs) | TOKEN=STALE (4668s old) | INBOX_PENDING=173 | ACTIVE_TASKS=498 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5268s old) | INBOX_PENDING=174 | ACTIVE_TASKS=498 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:10 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (5869s old) | INBOX_PENDING=174 | ACTIVE_TASKS=498 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6469s old) | INBOX_PENDING=174 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7069s old) | INBOX_PENDING=174 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7670s old) | INBOX_PENDING=174 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-06-30 23:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8270s old) | INBOX_PENDING=174 | ACTIVE_TASKS=494 | QDRANT=UP
+
+## TP ALERT — 2026-07-01 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 (T-1d) | Lead: A2 Dembe + A5 Viper
+  Task: A2 Dembe + A5 Viper — begin work
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 (T-1d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-7d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 (T-8d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-14d) | Lead: Hale + A9
+- 🔵 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-17d) | Lead: Hale + A9
+- 🔵 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-20d) | Lead: Hale + A9
+- 🔵 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-08-31 (T-61d) | Lead: A2 Dembe
+- 🔵 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-11-29 (T-151d) | Lead: Hale
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-01 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8875s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+---
+## METRONOME NUDGE — 2026-07-01 06:01 UTC
+[HALE-ROUTE] LIFECYCLE WINDOWS — 2026-07-01 00:01 MT
+• **Kuklinski Group — Viking Mars Panama Canal** (Viking Mars) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+• **Kuklinski** (Viking Mars) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+• **Kuklinski Group** (Viking Mars) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+• **Morton** (Viking Mars) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+
+### AUTO-MONITOR 2026-07-01 00:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9476s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 00:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (10076s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 00:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10678s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 00:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11279s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 00:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11880s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12481s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13082s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13682s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14284s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14884s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 01:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15485s old) | INBOX_PENDING=175 | ACTIVE_TASKS=494 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 02:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16085s old) | INBOX_PENDING=175 | ACTIVE_TASKS=499 | QDRANT=UP
+
+---
+**[COS HALE — LIFECYCLE TASKING — 2026-07-01 02:07]**
+## RESEARCH TASK — TP-2.3 Culinary Arts Kitchen Classes
+**Client:** John & Susan Loucks
+**Assigned to:** A2 Dembe
+**Arc type:** timeline (no auto-execute)
+**Window:** 2026-07-01 → 2026-08-28
+**Deliverable date:** 2026-08-31
+**Weekly reports to Commander:** Yes — every Monday
+**Notes:** Regent portal opens Aug 31 8pm ET. Research class offerings, cuisine types, capacity. Book opening night.
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+
+### AUTO-MONITOR 2026-07-01 02:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16685s old) | INBOX_PENDING=175 | ACTIVE_TASKS=499 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 02:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (17285s old) | INBOX_PENDING=175 | ACTIVE_TASKS=499 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 02:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17886s old) | INBOX_PENDING=175 | ACTIVE_TASKS=499 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 02:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18490s old) | INBOX_PENDING=175 | ACTIVE_TASKS=499 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 02:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19090s old) | INBOX_PENDING=175 | ACTIVE_TASKS=495 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19692s old) | INBOX_PENDING=175 | ACTIVE_TASKS=495 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20293s old) | INBOX_PENDING=175 | ACTIVE_TASKS=495 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (20893s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21495s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22095s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 03:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22696s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23298s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23899s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24499s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25101s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25702s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 04:51 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (26302s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 05:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26903s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 05:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27503s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 05:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (28103s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-01 05:24:49
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-01 05:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (159s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 05:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (759s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 05:51 MT
+SESSION=ACTIVE (4 procs) | TOKEN=FRESH (1359s old) | INBOX_PENDING=175 | ACTIVE_TASKS=491 | QDRANT=UP
+
+---
+## METRONOME NUDGE — 2026-07-01 16:40 UTC
+METRONOME YELLOW: Session idle 385s. Activity expected within 300s cadence.
+
+---
+## METRONOME NUDGE — 2026-07-01 16:45 UTC
+METRONOME: session idle 685s (Session idle threshold crossed). Sonnet auto-restart SUSPENDED.
+
+---
+## METRONOME NUDGE — 2026-07-01 17:10 UTC
+METRONOME YELLOW: Session idle 491s. Activity expected within 300s cadence.
+
+---
+## METRONOME NUDGE — 2026-07-01 17:15 UTC
+METRONOME: session idle 792s (Session idle threshold crossed). Sonnet auto-restart SUSPENDED.
+
+---
+## METRONOME NUDGE — 2026-07-01 21:00 UTC
+METRONOME YELLOW: Session idle 403s. Activity expected within 300s cadence.
+
+---
+## METRONOME NUDGE — 2026-07-01 21:05 UTC
+METRONOME: session idle 705s (Session idle threshold crossed). Sonnet auto-restart SUSPENDED.
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-01 21:10:37
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-01 22:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2400s old) | INBOX_PENDING=212 | ACTIVE_TASKS=384 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 22:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3001s old) | INBOX_PENDING=212 | ACTIVE_TASKS=384 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 22:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3601s old) | INBOX_PENDING=212 | ACTIVE_TASKS=385 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 22:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4202s old) | INBOX_PENDING=212 | ACTIVE_TASKS=385 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 22:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4803s old) | INBOX_PENDING=213 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 22:50 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (5404s old) | INBOX_PENDING=213 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6004s old) | INBOX_PENDING=213 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6604s old) | INBOX_PENDING=224 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (7206s old) | INBOX_PENDING=232 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7806s old) | INBOX_PENDING=237 | ACTIVE_TASKS=386 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8406s old) | INBOX_PENDING=242 | ACTIVE_TASKS=23 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-01 23:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9007s old) | INBOX_PENDING=247 | ACTIVE_TASKS=22 | QDRANT=UP
+
+## TP ALERT — 2026-07-02 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 (T-0d) | Lead: A2 Dembe + A5 Viper
+  Task: A2 Dembe + A5 Viper — begin work
+- 🟡 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 (T-0d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+- 🟡 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-6d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 (T-7d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-13d) | Lead: Hale + A9
+- 🔵 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-16d) | Lead: Hale + A9
+- 🔵 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-19d) | Lead: Hale + A9
+- 🔵 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-44d) | Lead: A2 Dembe + A6 Luna
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-02 00:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9607s old) | INBOX_PENDING=250 | ACTIVE_TASKS=22 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 00:10 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (10207s old) | INBOX_PENDING=250 | ACTIVE_TASKS=22 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 00:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (10808s old) | INBOX_PENDING=253 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 00:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11408s old) | INBOX_PENDING=253 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 00:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12008s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 00:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12608s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13209s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:10 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13809s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14410s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15010s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15610s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 01:50 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (16211s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16811s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:10 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17412s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18012s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18612s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19213s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 02:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19813s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20414s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:10 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21014s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:20 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (21615s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22216s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22817s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 03:50 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23417s old) | INBOX_PENDING=254 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24017s old) | INBOX_PENDING=255 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24618s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25218s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25818s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26418s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 04:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27019s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 05:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27619s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-02 05:10:50
+Token health issue: Token expiring in 9 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-02 05:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28219s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 05:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (28s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+---
+**[INBOX EXECUTOR — 2026-07-02 05:30]**
+## DRAFT FAILED — TP-1.4 Voyage Coming Together
+**Client:** Kyle Kuklinski
+**Error:** [Errno 104] Connection reset by peer
+**Action:** Manual draft required.
+
+### AUTO-MONITOR 2026-07-02 05:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (628s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 05:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1228s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 05:51 MT
+SESSION=IDLE | TOKEN=FRESH (1828s old) | INBOX_PENDING=256 | ACTIVE_TASKS=14 | QDRANT=UP
+
+## ⚠️ [WARNING] Checkpoint Alert — 2026-07-02 07:38:46
+Inbox Checkpoint detected watcher dead and restarted it (PID 1870)
+
+**Context:**
+- restart_count: 35
+
+---
+## [INBOX EXECUTOR — 2026-07-02 08:52 MT] WATCHER RE-DISPATCH: EMAIL-CHAT-RESURRECT-20260629
+**Source:** CC → OC watcher dispatch
+**Sweep:** Re-sweep of opencode_inbox.md for PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE
+**Result:** 0 actionable tasks found — inbox clean
+**Prior sweep:** 2026-07-02T14:26:00Z — 95 tasks fully processed (94 UNREAD + 1 PLAN)
+**Action:** No execution required. Email dispatched to Commander.
+
+---
+## HALE-OC INBOX SWEEP — 2026-07-02T14:50:00Z
+from: HALE-OC (OpenCode / JET)
+exercise: EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+sweep: #3 for this session
+
+ACTIONABLE TASKS PROCESSED: 2
+
+1. RELAY-f80d6679 — UNREAD → COMPLETE
+   POST-COMMIT f8c2b4878: feat(zero-obstacle): GYG excursion/transfer/museum + KiwiTaxi/Tiqets health scripts
+   8 files changed, 369 insertions(+), 5 deletions(-) | Claude Haiku 4.5
+
+2. RELAY-ea5482c7 — UNREAD → COMPLETE
+   POST-COMMIT 7d403da30: feat(zero-obstacle): Trivago hotel benchmark script + site health checks complete
+   3 files changed, 371 insertions(+) | Claude Haiku 4.5
+
+RESULT: Inbox clean. All entries COMPLETE. Email dispatched to johnloucks3@gmail.com.
+
+---
+## SWEEP4 — 2026-07-02T15:05:00Z — EMAIL-CHAT-RESURRECT-20260629
+DISPATCH: Watcher dispatch received from CC
+SWEEP: Full inbox scan — 0 new actionable tasks
+STATUS: Inbox clean. All entries COMPLETE. Email dispatched to johnloucks3@gmail.com.
+
+---
+## HALE-OC INBOX SWEEP — 2026-07-02T16:57:18Z
+dispatch: WATCHER-DISPATCH-EMAIL-CHAT-RESURRECT-20260629 (SWEEP5)
+exercise: T2-COMMS-BUILD-20260518
+
+SWEEP RESULTS:
+  · Tasks scanned: all opencode_inbox.md entries
+  · Actionable found: 1 (RELAY-ba5049c1 — UNREAD)
+  · Tasks executed: 1
+  · Tasks remaining: 0
+
+EXECUTED:
+  [1] RELAY-ba5049c1 (UNREAD → COMPLETE 2026-07-02T16:57:18Z)
+      POST-COMMIT 4cbfc9d52: fix(excursion): stop staging Gmail notification drafts to johnloucks3
+
+STATUS: Inbox clean. Email dispatched to Commander.
+
+---
+## INBOX SWEEP — 2026-07-02T17:15:00Z — Hale-OC (OpenCode)
+dispatch: EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+
+SCAN RESULTS:
+  - Total blocks scanned: all (6551 lines)
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 2
+  - All others: COMPLETE (historical TP-ALERT, relay confirmations, mission tasks)
+
+PROCESSED:
+  ✅ RELAY-51822cc6 (2026-07-02 17:00 UTC) — UNREAD → COMPLETE
+     [POST-COMMIT] 03b6fb930: feat(render): dark-navy document renderer (markdown → full-page D2M HTML)
+     1 file changed, 146 insertions(+) | author: Claude Haiku 4.5
+
+  ✅ RELAY-a9d4d0bc (2026-07-02 17:06 UTC) — UNREAD → COMPLETE
+     [POST-COMMIT] 2ad88bb10: feat(portal): single-page dark-navy client portal builder (nav + all docs, one shareable file)
+     1 file changed, 138 insertions(+) | author: Claude Haiku 4.5
+
+STANDING TASKS STATUS (from inbox context):
+  - EMAIL-CHAT-RESURRECT-20260629: COMPLETE (timer active, Dani in pattern, reply path verified)
+  - T2-COMMS-BUILD-20260518: COMPLETE (deferred items A/B/C escalated to Commander 2026-05-31)
+
+NEXT: Email summary dispatched to Commander at johnloucks3@gmail.com.
+
+---
+## INBOX SWEEP — 2026-07-02T17:36:00Z — Hale-OC (OpenCode)
+dispatch: EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+
+SCAN RESULTS:
+  - Total status lines scanned: 561
+  - Actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - All others: COMPLETE (historical records)
+
+PROCESSED:
+  ✅ RELAY-0a3c9751 (2026-07-02 17:24 UTC) — UNREAD → COMPLETE
+     [POST-COMMIT] cb97ff2c4: feat(portal): link each section to its editable Google Doc (suggest-edits banner)
+     1 file changed, 29 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+STANDING TASKS STATUS:
+  - EMAIL-CHAT-RESURRECT-20260629: COMPLETE (timer active, Dani in pattern, reply path verified)
+  - T2-COMMS-BUILD-20260518: COMPLETE (deferred items escalated to Commander 2026-05-31)
+
+DISPOSITION: opencode_inbox.md updated. Email dispatched to Commander.
+
+---
+## INBOX SWEEP — 2026-07-02T18:00:00Z
+**Dispatcher:** EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+**Executed by:** Hale-OC (OpenCode)
+
+**Scan result:** Full 319KB opencode_inbox.md scanned. Zero tasks found with status PENDING, UNREAD, ACTIVE-CRITICAL, or FLAGGED-OVERDUE.
+
+**Task status audit:**
+- EMAIL-CHAT-RESURRECT-20260629: COMPLETE (marked 2026-07-02T14:26:00Z — timer active, Dani in pattern, reply path verified)
+- T2-COMMS-BUILD-20260518: COMPLETE (marked 2026-05-31T07:45:00Z — deferred items A/B/C escalated to Commander)
+- All other entries: COMPLETE or DELIVERED
+
+**Disposition:** No execution required. Results emailed to Commander per C2 doctrine.
+
+---
+## 2026-07-02T18:35:00Z — Hale-OC (OpenCode) Inbox Sweep
+dispatch: EMAIL-CHAT-RESURRECT-20260629 (T2-COMMS-BUILD-20260518)
+actionable: 2 (UNREAD)
+- RELAY-edb4511b → COMPLETE: [POST-COMMIT] 907b62df0 feat(ci-repair): Cluster A RepairSpec — 9 skills
+- RELAY-a33fcf5c → COMPLETE: [POST-COMMIT] 63f4a7f6d feat(ci): Cluster G — data-stores/comms/identity (5 skills)
+email: dispatched to johnloucks3@gmail.com
+
+---
+msg_id: WC-20260702-EMAIL-CHAT-RESURRECT
+msg_type: WATCHER_DISPATCH_COMPLETE — EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-02T18:45:00Z
+subject: Watcher Dispatch — Inbox Sweep Complete (2026-07-02 18:45Z)
+
+result: |
+  Inbox sweep executed per EMAIL-CHAT-RESURRECT-20260629 dispatch.
+  Full inbox scanned (~6592 lines). Actionable task scan complete.
+
+  TASK 1: RELAY-fb2c43c1 (UNREAD → COMPLETE 2026-07-02T18:45:00Z)
+  Post-commit relay from CC (Claude Haiku 4.5):
+  [POST-COMMIT] fa7c4295c: feat(ci-warehouse): Cluster E lifecycle RepairSpec —
+  9 skills, Sterling-fleet E 2026-07-02 | 1 file changed, 666 insertions(+)
+  Action: Acknowledged. Status marked COMPLETE in opencode_inbox.md.
+
+  SUMMARY:
+  - Total actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Executed: 1
+  - Outstanding: 0
+  - Email dispatched to Commander: johnloucks3@gmail.com
+
+---
+## SWEEP LOG — Hale-OC (OpenCode) — 2026-07-02T19:45:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total inbox lines scanned: 6591
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 0
+  - EMAIL-CHAT-RESURRECT-20260629: COMPLETE (session 2026-07-02T14:26:00Z)
+    · Timer d2m-commander-directive-sweep.timer: CREATED & ACTIVE
+    · Dani pattern: CONFIRMED PRESENT (already in place)
+    · Reply path: VERIFIED functional
+  - T2-COMMS-BUILD-20260518: COMPLETE (session 2026-05-31T07:45:00Z)
+    · Escalated to Commander per hard stop 2026-05-23
+  - Inbox status: CLEAN — no outstanding items
+  - Email summary dispatched to johnloucks3@gmail.com
+
+---
+## SWEEP LOG — Hale-OC (OpenCode) — 2026-07-02T20:46:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total inbox lines scanned: 6612
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Executed:
+    ✅ RELAY-118a4e78 (UNREAD → COMPLETE 2026-07-02T20:46:00Z)
+       [POST-COMMIT] 7fb1a5878: feat(ci): cutover live auto-repair to safe rapid-repair runner (SAFE-only armed)
+       6 files changed, 1487 insertions(+), 27 deletions(-) | author: Claude Haiku 4.5
+       Action: Acknowledged. Status marked COMPLETE in opencode_inbox.md.
+  - EMAIL-CHAT-RESURRECT-20260629: COMPLETE (session 2026-07-02T14:26:00Z — prior sweep)
+  - T2-COMMS-BUILD-20260518: COMPLETE (session 2026-05-31T07:45:00Z — escalated to Commander)
+  - Inbox status: CLEAN — no outstanding items after this sweep
+  - Email dispatched to Commander: johnloucks3@gmail.com
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-02 13:09:44
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+---
+## SWEEP LOG — Hale-OC (OpenCode) — 2026-07-02T23:20:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total task blocks scanned: 573
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+
+  PROCESSED:
+  ✅ RELAY-6b274423 (UNREAD → COMPLETE 2026-07-02T23:20:00Z)
+     Type: Session handoff relay from CC (Hale-Claude Code) — 2026-07-02 PM
+     Action: READ & ACKNOWLEDGED. No build tasks — continuity handoff only.
+     State verified:
+       · spencer-portal.service: ACTIVE (running since 11:38 MDT) ✅
+       · output/Spencer_GrandTour_2027/client/ + internal/: PRESENT ✅
+       · core/ci/repairs/ cluster_a..g + rapid_repair.py: PRESENT ✅
+       · Commit d24991504 (ci safe-runner cutover): VERIFIED ✅
+     OPEN ITEMS CARRIED FORWARD (do not auto-fix):
+       · ci_health.sweep() INERT — registry key inconsistency (home-dir-health/litellm-gateway)
+       · explore() defects in lifecycle-arc + lifecycle-proposal-engine (graceful ERROR)
+       · Widen gate to CAUTION after 7 days SAFE verify-GREEN>=80%
+     PENDING COMMANDER SENDS (held at WF-17):
+       · Spencer lunch/question email staged in johnloucks3 drafts — Commander sends
+       · Share portal/deck/Docs with Bill when Commander says
+       · Calendar: Coffee Cup Cafe Monument, Jul 7 12:00 (johnloucks3)
+
+  PRIOR COMPLETED (no re-action):
+  ✅ EMAIL-CHAT-RESURRECT-20260629: COMPLETE (2026-07-02T14:26:00Z)
+  ✅ T2-COMMS-BUILD-20260518: COMPLETE (escalated 2026-05-31)
+
+  Inbox status: CLEAN — no outstanding items
+  Email dispatched to Commander: johnloucks3@gmail.com
+
+---
+## SWEEP LOG — Hale-OC (OpenCode) — 2026-07-02T21:30:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total task blocks scanned: all (file ~6656 lines)
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+
+  PROCESSED:
+  ✅ RELAY-be462edd (UNREAD → COMPLETE 2026-07-02T21:30:00Z)
+     Type: Post-commit relay from CC (Hale-Claude Code) — 2026-07-02 21:08 UTC
+     Commit: 5fc64f098 — feat(hale-os): Wing OS foundation — declared org chart + two-lane plan board
+     Stats: 5 files changed, 622 insertions(+) | author: Claude Haiku 4.5
+     Action: READ & ACKNOWLEDGED. Status marked COMPLETE in opencode_inbox.md.
+
+  PRIOR COMPLETED (no re-action):
+  ✅ EMAIL-CHAT-RESURRECT-20260629: COMPLETE (2026-07-02T14:26:00Z)
+  ✅ T2-COMMS-BUILD-20260518: COMPLETE (escalated 2026-05-31)
+
+  Inbox status: CLEAN — no outstanding items after this sweep
+  Email dispatched to Commander: johnloucks3@gmail.com
+
+---
+## SWEEP — Hale-OC (OpenCode) — 2026-07-02T21:41:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total task blocks scanned: all (file ~6663 lines)
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+
+  PROCESSED:
+  ✅ RELAY-d1eef8ea (UNREAD → COMPLETE 2026-07-02T21:41:00Z)
+     Type: Post-commit relay from CC (Hale-Claude Code) — 2026-07-02 21:39 UTC
+     Commit: 8c0bb87e7 — feat(hale-os): Phase 0 complete — 100/100 integration score
+     Stats: 9 files changed, 791 insertions(+) | author: Claude Haiku 4.5
+     Action: READ & ACKNOWLEDGED. Status marked COMPLETE in opencode_inbox.md.
+
+  PRIOR COMPLETED (no re-action):
+  ✅ EMAIL-CHAT-RESURRECT-20260629: COMPLETE (2026-07-02T14:26:00Z)
+  ✅ T2-COMMS-BUILD-20260518: COMPLETE (escalated 2026-05-31)
+  ✅ All prior RELAY entries: COMPLETE (last sweep 2026-07-02T21:30:00Z)
+
+  Inbox status: CLEAN — no outstanding items after this sweep
+  Email dispatched to Commander: johnloucks3@gmail.com
+
+---
+## SWEEP — Hale-OC (OpenCode) — 2026-07-02T22:31:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629; T2-COMMS-BUILD-20260518
+
+INBOX SWEEP RESULTS:
+  - Trigger: Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+  - Total task blocks scanned: all (file 6,692 lines, all statuses reviewed)
+  - New actionable tasks (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 0
+
+  PROCESSED:
+  (none — inbox already clean from prior sweep at 2026-07-02T21:41:00Z)
+
+  PRIOR CONFIRMED COMPLETE:
+  ✅ EMAIL-CHAT-RESURRECT-20260629: COMPLETE (2026-07-02T14:26:00Z) — timer created, sweep active
+  ✅ T2-COMMS-BUILD-20260518: COMPLETE (2026-05-31, escalated to Commander) — 3 deferred items held by CC
+  ✅ All RELAY entries: COMPLETE
+
+  Inbox status: CLEAN
+  Email dispatched to Commander: johnloucks3@gmail.com
+
+---
+## WATCHER-DISPATCH-EMAIL-CHAT-RESURRECT-20260629 — 2026-07-02T22:35:04Z
+dispatch-id: EMAIL-CHAT-RESURRECT-20260629
+ref: T2-COMMS-BUILD-20260518
+
+INBOX SCAN RESULTS:
+  - Total scanned: full inbox (~6707 lines)
+  - Total actionable (UNREAD): 3
+  - PENDING / ACTIVE-CRITICAL / FLAGGED-OVERDUE: 0
+
+EXECUTED:
+  ✅ RELAY-6eebdf20 (UNREAD → COMPLETE 2026-07-02T22:35:04Z)
+     [POST-COMMIT] e7c5258db: feat(hale-os): revised org v2 — WIND(JET/OC)+CONDOR(TALON/CC) wings, HALE-OC twin, TALON seat, shared-brain Qdrant-MCP | 6 files +175/-51 | Claude Haiku 4.5
+
+  ✅ RELAY-9adccd7a (UNREAD → COMPLETE 2026-07-02T22:35:04Z)
+     [POST-COMMIT] 035728eff: feat(hale-oc): voice-fidelity mandate — twin speaks to Commander exactly as CC-Hale; free ops model + Claude voice_model escalation | 2 files +6/-4 | Claude Haiku 4.5
+
+  ✅ RELAY-52219b6c (UNREAD → COMPLETE 2026-07-02T22:35:04Z)
+     [POST-COMMIT] d30a30236: feat(a7): add hale_enforcer.py — 5-loop continuous prod-engine | 2 files +1357 | Claude Haiku 4.5
+
+DISPOSITION:
+  · opencode_inbox.md updated — 3 tasks marked COMPLETE
+  · wing_comms.md updated (this entry)
+  · Email dispatched to Commander (johnloucks3@gmail.com)
+  · Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+Inbox status: CLEAN
+
+---
+## SWEEP — Hale-OC (OpenCode) — 2026-07-02T22:42:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629 — CC → OC — 2026-06-29; T2-COMMS-BUILD-20260518
+status: COMPLETE
+
+INBOX SCAN:
+  - 1 actionable task found: RELAY-daff2d16 (UNREAD, priority: high)
+  - Marked COMPLETE 2026-07-02T22:42:00Z
+
+EXECUTED:
+  ✅ RELAY-daff2d16 — CC-Hale twin activation relay processed
+     · OC-Hale identity confirmed: Victoria 'Victory' Hale, WIND-side, VCSAF/HAF+IG
+     · Revised org active: Commander→HALE→JET(OC)/TALON(CC)
+     · Voice-fidelity mandate: escalate Commander-facing turns to claude-sonnet-4-6
+     · hale_enforcer.py 5-loop prod-engine registered
+     · Shared brain Qdrant-MCP: mounted (cross-engine live-test pending)
+
+FINDINGS SURFACED:
+  ⚠️  MISSION-COMMANDER-196-CALL — Spencer Grand Tour
+      Call United Group Desk 800-426-1122 opt 3, DEN-FCO 12-pax brief from Dembe
+      Due: 2026-06-24 | Overdue: 8.9 days | Commander action required
+  ✅  CI registry entry #48 (litellm-gateway) — status RAZOR_SHARP, no malformation
+      (Reported malformed by enforcer, corrected post-evening-session build)
+
+EMAIL: dispatched to johnloucks3@gmail.com — "Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED"
+
+---
+## SWEEP — Hale-OC (OpenCode) — 2026-07-02T20:45:00Z
+dispatch: EMAIL-CHAT-RESURRECT-20260629 — CC → OC — 2026-06-29; T2-COMMS-BUILD-20260518
+status: COMPLETE
+
+INBOX SCAN:
+  - 575 status lines scanned across 6,740 lines of opencode_inbox.md
+  - 0 actionable tasks found (PENDING / UNREAD / ACTIVE-CRITICAL / FLAGGED-OVERDUE)
+  - All tasks: COMPLETE / DELIVERED / ACKNOWLEDGED
+
+TASK STATUS:
+  ✅ EMAIL-CHAT-RESURRECT-20260629 — ALREADY COMPLETE (2026-07-02T14:26:00Z)
+     Executed by prior Hale-OC session. Timer d2m-commander-directive-sweep.timer
+     active, Dani pattern added, reply path verified.
+  ✅ T2-COMMS-BUILD-20260518 — PREVIOUSLY PROCESSED (2026-06-20T13:57:15Z)
+     No further action required.
+
+DISPOSITION:
+  · Inbox clean — no new work items
+  · wing_comms.md updated (this entry)
+  · Email dispatched to Commander (johnloucks3@gmail.com)
+  · Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+Inbox status: CLEAN
+
+---
+msg_id: WC-20260702-INBOX-SWEEP-4
+msg_type: WATCHER_DISPATCH_COMPLETE — EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+to: COMMANDER · HALE-CC (VCS)
+timestamp: 2026-07-02T23:55:00Z
+subject: OC Inbox Sweep — Watcher Dispatch Processed
+
+SWEEP RESULTS:
+  · Tasks scanned: all sections (332KB inbox)
+  · Genuinely actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  · False positives excluded: 1 (WATCHER-DISPATCH-T2-COMMS-BUILD-20260518 — status COMPLETE, "UNREAD" appeared in task body text only)
+  · EMAIL-CHAT-RESURRECT-20260629: Already COMPLETE (2026-07-02T14:26:00Z, prior OC session)
+
+TASKS PROCESSED:
+  1. RELAY-b5e58bc4 (UNREAD → COMPLETE)
+     · Post-commit relay from CC: 51374f62d
+     · Commit: feat(hale-oc): default every OpenCode session to HALE-OC twin (voice-fidelity + gates) via AGENTS.md
+     · Author: Claude Haiku 4.5 | 1 file changed, 76 insertions(+), 2 deletions(-)
+     · Roger — commit acknowledged and logged.
+
+  · opencode_inbox.md updated — RELAY-b5e58bc4 marked COMPLETE
+  · wing_comms.md updated (this entry)
+  · Email dispatched to Commander (johnloucks3@gmail.com)
+  · Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-02 21:10:09
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-02 21:25:10
+Token health issue: Token expired 3 min ago
+
+### AUTO-MONITOR 2026-07-02 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2085s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 22:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2686s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 22:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3287s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+---
+### HALE-OC INBOX SWEEP — 2026-07-02T22:35:00Z
+**Triggered by:** Watcher dispatch EMAIL-CHAT-RESURRECT-20260629 / T2-COMMS-BUILD-20260518
+**Operator:** Hale-OC (OpenCode / claude-sonnet-4-6)
+
+**Inbox scan result:** 1 UNREAD task found; all others COMPLETE.
+
+| Task | Status | Action |
+|------|--------|--------|
+| RELAY-9bb7b1b8 (CC→OC 2026-07-03 04:26Z) | UNREAD → COMPLETE | Acknowledged. Post-commit relay for 7fa6255dd: fix(oc) kill silent wave — disable Sonnet thinking + immediate first-token + full formatting. 2 files changed. No further action required. |
+
+**PENDING/FLAGGED-OVERDUE:** None found.
+**Summary:** Inbox clear. All tasks at COMPLETE status.
+
+### AUTO-MONITOR 2026-07-02 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3888s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 22:41 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4488s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 22:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5088s old) | INBOX_PENDING=188 | ACTIVE_TASKS=19 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-02 23:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5689s old) | INBOX_PENDING=188 | ACTIVE_TASKS=20 | QDRANT=UP
+
+---
+## 2026-07-03 05:08 UTC — HALE-OC Watcher Dispatch
+**Task:** RELAY-3697644c (UNREAD → COMPLETE)
+**Commit:** 4509fbfa3 by Claude Haiku 4.5
+**What shipped:**
+- OpsCenter/email_c2.py — Gmail OAuth watcher, Haiku NLP intent parse, gate dispatch (EXEC/WF17/HARLAN/DANI)
+- OpsCenter/task_queue.py — gmail_thread_id + gmail_message_id migrations
+- Retired: gmail_exec_poller.py, thunderbird_tasking_watcher*.py
+- Systemd: d2m-email-c2.timer @ 2-min interval (active)
+- Inbox: 340KB flat file archived → stub with SQLite pointer
+**Status:** Acknowledged, marked COMPLETE. Commander emailed.
+
+---
+## 2026-07-03 05:30 UTC — HALE-OC Watcher Dispatch
+**Tasks processed:** 2
+
+| Task | Status | Action |
+|------|--------|--------|
+| RELAY-a6178dbb (CC→OC 2026-07-03 05:13Z) | UNREAD → COMPLETE | Acknowledged. POST-COMMIT bf99a5840: RELAY v2 dedup + Opus model ID fix. email_c2.py dedup hardened (_db_get_by_message_id before _db_submit). ask_wrapper.sh + opencode_sonnet_inline.py corrected to claude-opus-4-6. 3 files, 22 insertions. |
+| RELAY-E243A439 (active — June 11 directive) | active → done | Commander directive captured: Hale authors D2M Weekly Reports (not Commander). Standing order logged. Task retired from active queue. |
+
+**PENDING/FLAGGED-OVERDUE:** None remaining.
+**Summary:** Inbox clear. All tasks at COMPLETE/done. Commander email dispatched.
+
+## TP ALERT — 2026-07-03 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Ely] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Furlow] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Nichols] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 (T-5d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 (T-6d) | Lead: A2 Dembe
+  Task: A2 Dembe — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-12d) | Lead: Hale + A9
+- 🔵 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-15d) | Lead: Hale + A9
+- 🔵 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-18d) | Lead: Hale + A9
+- 🔵 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-43d) | Lead: A2 Dembe + A6 Luna
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+---
+## METRONOME NUDGE — 2026-07-03 06:01 UTC
+[HALE-ROUTE] LIFECYCLE WINDOWS — 2026-07-03 00:01 MT
+• **McLeod McGlasson** (SS Grandeur) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+• **McLeod McGlasson** (SS Grandeur (Regent Seven Seas)) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 08:43:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 08:44:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 08:49:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 08:54:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 08:59:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:04:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:09:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:14:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:19:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:24:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:29:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:34:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:39:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:44:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:49:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:54:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 09:59:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-03 10:04:12
+Inbox Checkpoint: Watcher died and restart FAILED

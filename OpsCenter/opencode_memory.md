@@ -1,5 +1,8 @@
 # OpenCode Memory — Active Operational State
 **Last Compaction:** 2026-06-01 | **Hard cap: 200 lines** | **Archive:** `archives/opencode_memory_20260523_full.md`
+**2026-07-02 session:** DeepSeek R1 → V4 Flash-E migration across 5 Poe-layer files (poe_call.py, thunderbird_poe_config.py, openrouter_call.py, provider_switch.sh, litellm_config.yaml). Validated: direct deepseek-v4-flash-e call, r1 alias, and --list all return correctly. GitHub/OpenRouter/DeepInfra R1 refs left as-is (separate APIs). Open: voice agent offline.
+**2026-06-28 session:** Built daily airfare scan pipeline to completion: v8 run (18/27 OK), systemd timer installed & active at 03:03 MT, Telegram alert layer (threshold alerts + post-scan summary) wired into `scripts/daily_airfare_scan.py`, TG token injected into systemd service env, all 27 watches assigned travel_date, dashboard regenerates cleanly. Open: dashboard carrier (?) cosmetic regex.
+**2026-06-28 session (cont):** Dani conversation retrieval technique documented. `thunderbird-telegram-gw.service` holds exclusive long-poll on @d2m_dani_bot — direct `getUpdates` returns 409 Conflict. Solution: read `OpsCenter/context_dani.json` (rolling ~20-exchange context file) to reconstruct Dani↔client threads. Written to `memory/feedback_dani_conversation_retrieval.md`. Used to surface Kim Westbrook ↔ Dani conversation around Celebrity Ascent / Capri planning.
 **2026-06-01 session:** Regent Portal Automation Plan + Opus eval + /ask-opus syntax fix + Monday spike pending
 **2026-06-04 session:** CCP v2.0 + Campaign Plan v2 drive edits downloaded, all 3 documents reformatted (Verdana, standard layout), re-uploaded. Annex C corrected: "inbox as roadblock" moved from Accepts to Does NOT Accept. Hale overdue protocol added to AGENTS.md (Rule 0, INBOX DISCIPLINE section). MISSION-110 created. Phase I (SHAPE) activated per Commander approval.
 **2026-06-04 session (cont):** Explora Journeys grand slam research for Susie & John. Key findings: Explora II May 17→Jun 7 2027 (21n Istanbul→Athens→Venice→Athens) at $32,330/2pp retail OT1. 18% OA commission ($5,819 gross / $4,656 D2M net). Full suite range pricing compiled (OT1→OR from $32K→$291K / 2pp). All suite specs (377-1,346 sqft), dining venues (11, Anthology $165 surcharge), ship comparison documented. ETAC portal blocked — awaiting Jennifer Greenfield. Saved to Drive (Trip Dossiers + D2M root). Explora Journeys TESS record 49525 found (0 bookings).
@@ -603,3 +606,30 @@ Builder: python3 scripts/d2m_email_builder.py --body [body.html] --to [addr] --s
 Skill: /d2m-email (Claude Code skill — full format reference + quick reference body elements)
 
 **2026-06-24 session (T2 build):** Full T2 fallback build executed per Opus v2 plan. Delivered: (1) `bin/claude-fb` — MAX fallback wrapper (T0→T1→T2 auto-route), (2) `~/.claude-code-router/config.json` — ccr 2.x, LiteLLM free pool default, retired 1.x `config-router.json`, (3) `hooks/detect_max_exhaustion.sh` — stop hook, writes flag on abnormal exit, (4) registered stop hook in `settings.json`, (5) D5 — stale `"OpenRouter $0"` reason strings updated, (6) D2 — `claude-api` alias to `.bashrc`, (7) D6 — configs reconciled, canonical=`~/.claude/gateway/litellm_config.yaml`. T1 gated on Commander funding Anthropic key.
+
+
+## 2026-06-26
+**Built:** Grandeur preview drafts — 3 per-couple itinerary preview emails (Furlow, Ely-Darrow, Nichols) with HTML links to per-couple pages, excursion highlights, dining, and open items. Dark navy template. Drafts in d2mconcierge inbox.
+**Learned:**  takes  — wraps AFA stationery for plain text, passes HTML through as-is. No  param; use  for Telegram notifications. concierge@d2mluxury.quest alias not verified on d2mconcierge — from defaults to d2mconcierge@gmail.com.
+**Open:** Need to register concierge@d2mluxury.quest as Gmail send-as alias on d2mconcierge for branded From.
+
+## 2026-06-26
+**Built:** Grandeur preview drafts — 3 per-couple itinerary preview emails (Furlow, Ely-Darrow, Nichols) with HTML links to per-couple pages, excursion highlights, dining, and open items. Dark navy template.
+
+**Learned:** gmail_create_draft_sync takes body=full_html — passes HTML through as-is (no AFA wrapping when HTML tags detected). No persona_id param; uses persona_display for Telegram. concierge alias not verified on d2mconcierge — from defaults to d2mconcierge@gmail.com.
+
+**Open:** Register concierge@d2mluxury.quest as Gmail send-as alias on d2mconcierge for branded From header.
+
+**Script:** scripts/build_grandeur_preview_drafts.py
+\n## 2026-07-01 Session\n- **Built:** Westbrook Bar excursion email (John note → Dani body → Commander sig), 5 bookable excursions + 6 restaurant links, staged to johnloucks3 drafts\n- **Fixed:** Commander sig block — added standalone brand line, Authorized by prefix, Owner on own line. Codified in .opencode/skills/commander-sig/SKILL.md\n- **Fixed:** Airline alert suppression — SUPPRESSED_CLIENTS for Westbrook, Justin Loucks, Ryan Loucks in airline_monitor.py\n- **Updated:** AGENTS.md — added commander-sig skill reference, airline alert monitoring section\n- **Logged:** hale_decisions.md entries for sig fix, airline suppression, Bar email
+
+## 2026-07-01: A2A Broadcast Fix & claude CLI Hang Investigation
+
+**What was built/fixed:**
+- `thunderbird_a2a.py`: Broadcast changed from sequential 11-persona loop → fire-and-forget via daemon thread dispatch
+- Added `a2a_ping` test tool (instant response — proves MCP registration inside `register_a2a_tools()` works)
+
+**What's left open:**
+- All A2A tools (`a2a_ask`, `a2a_broadcast`, `a2a_chain`) still hang because they depend on `claude` CLI subprocess which is unresponsive (>30s timeout for trivial prompts)
+- Root cause: `~/.local/bin/claude` (Claude Code v2.1.185) hangs in this environment — likely OAuth/rate-limit/recursive-call issue
+- Non-A2A tools (e.g. `read_excel_booking_data`) work fine — MCP server itself is healthy

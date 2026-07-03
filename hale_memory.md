@@ -257,3 +257,63 @@ Chief prefers "Chief", "boss", or "Yoda" — never "Commander" in conversation.
 
 ### Template Reference
 `storage/templates/d2m_canonical_darknavy.html` — full template with `{{BODY_CONTENT}}` placeholder
+
+---
+
+## TRINITY AIR PRICING CAMPAIGN — MISSION-073 (2026-06-30, COMPLETE)
+
+### Core Discovery: Centrav B2B vs Amadeus Consumer
+Centrav B2B wholesale is 9–69% cheaper than Amadeus consumer pricing. Centrav is the **authoritative pricing source** for all D2M air. Amadeus is fallback only.
+
+| Route | Centrav/pp | Amadeus/pp | Savings |
+|-------|-----------|-----------|---------|
+| RIC→PTY Dec 16 | $785 | $862 | 9% |
+| FLL→RIC Dec 27 | $194 | $636 | 69% |
+| RSW→PTY Dec 16 | $627 | $1,378 | 55% |
+| DEN→MIA Dec 18 biz | $904 | N/A (no GDS biz) | — |
+| MIA→DEN Dec 29 biz | $910 | N/A (no GDS biz) | — |
+
+### Centrav Techniques (Critical Knowledge)
+1. **CABIN RESTRICTION** — International connecting routes (RIC→PTY, RSW→PTY) MUST use single-cabin search (`cabin: "economy"`). `cabin: "all"` times out on MCP (too many combos: connections × cabin classes × fare families).
+2. **RE-AUTH FLOW** — Requires interactive human: `centrav_serve.py` on YOGA display → CAPTCHA → OTP → "Remember this Browser" check. Headless Firefox CANNOT re-auth alone.
+3. **LOCKFILE CLEANUP** — Firefox crash leaves `.parentlock` symlink + `lock` file in `core/travel/data/centrav_ff_profile/`. Fix: `rm -f .parentlock lock` before retry.
+4. **WARM-PING FIX** — Session check: `page.query_selector("#LogoutButton")` checks DOM presence (always true). Use `page.locator("#LogoutButton").is_visible()` for actual visibility.
+
+### Fare Watch System
+- Two JSON formats coexist in the codebase:
+  - **Dict format (ACTIVE):** `core/travel/data/fare_watches.json` — `{"watch_id": {fields}}`
+  - **Array format (STALE):** `data/fare_watches.json` — `{"watches": [{fields}]}`
+- Script reads via `Path(__file__).parent / "data" / "fare_watches.json"`
+- 38 active watches total (33 legacy restored from `.bak.20260616`, 5 new)
+- Alert thresholds: ~10% bands around current Centrav price
+- Backup in same dir: `fare_watches.json.bak.20260616`
+
+### Routes Priced (All Centrav B2B, Jun 30)
+| Group | Route | Cabin | Total/pp | Status |
+|-------|-------|-------|---------|--------|
+| Kuklinski (4) | RIC→PTY Dec 16 | Economy | $785 | Ready to book |
+| Kuklinski (4) | FLL→RIC Dec 27 | Economy | $194 | Ready to book |
+| Morton/Dodge (2) | RSW→PTY Dec 16 | Economy | $627 | Ready to book |
+| McLeod (2) | DEN→MIA Dec 18 | Business | $904 | Hold until Jul 7 |
+| McLeod (2) | MIA→DEN Dec 29 | Business | $910 | Hold until Jul 7 |
+| Loucks (2) | DEN→IST→VCE / ATH→IST→DEN | Business (TK) | $3,952 | Verified Jun 29+30 |
+
+### Constraints
+- McLeod contact hold until Jul 7 (clients on Silver Muse Jun 23–Jul 6)
+- All Centrav fares expire Jul 1 (standard daily filed-fare refresh — re-check before booking)
+- Amadeus `search_airports` returns empty for RIC, PTY, MIA but works for RSW — no root cause. `search_flights` works with direct IATA codes regardless.
+- Domestic routes (DEN↔MIA) have no business class through Amadeus GDS — Centrav has them.
+
+### Dossiers Updated (Jun 30)
+- `DOSSIER_Loucks_SilverNova_May2027.md` — Turkish Airlines logo, Centrav re-verify Jun 30
+- `DOSSIER_VikingMars_PanamaCanal_Dec2026.md` — Full air pricing section added
+- `McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md` — Air row: PENDING → CENTRAV PRICED
+
+### Fare Watches Created (5 new)
+| Watch ID | Route | Alert Below | Alert Above |
+|----------|-------|------------|------------|
+| kuklinski-ric-pty-dec16 | RIC→PTY Dec 16 | $700 | $860 |
+| kuklinski-fll-ric-dec27 | FLL→RIC Dec 27 | $170 | $210 |
+| morton-rsw-pty-dec16 | RSW→PTY Dec 16 | $560 | $690 |
+| mcleod-den-mia-dec18 | DEN→MIA Dec 18 biz | $810 | $990 |
+| mcleod-mia-den-dec29 | MIA→DEN Dec 29 biz | $820 | $1,000 |

@@ -1,7 +1,2507 @@
 {
   "canary_start": "2026-07-02",
   "canary_end": "2026-07-09",
-  "systems": ["n8n_python", "lindy_ai"],
-  "emails_processed": 0,
-  "entries": []
+  "systems": [
+    "n8n_python",
+    "lindy_ai"
+  ],
+  "emails_processed": 253,
+  "entries": [
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f1d91ace9d8f85",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic Releases Sonnet 5",
+      "ts": "2026-07-02T05:54:13.848244+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f1b37bb7ca81bc",
+      "from": "googleone-updates-noreply@google.com",
+      "subject": "Your month with Google One",
+      "ts": "2026-07-02T05:54:14.201258+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f19946ba4ca36d",
+      "from": "noreply-photos@google.com",
+      "subject": "5 ways to get creative with Google Photos \ud83c\udfa8",
+      "ts": "2026-07-02T05:54:30.860157+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f187767733a2c1",
+      "from": "aidisruption@substack.com",
+      "subject": "Execute not ask what a financial Agent should be",
+      "ts": "2026-07-02T05:54:31.155070+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f135b3d849eade",
+      "from": "aidisruption@substack.com",
+      "subject": "How Does Codex Stay on Track for Hours?",
+      "ts": "2026-07-02T05:54:47.707089+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f1345856906fb3",
+      "from": "aidisruption@substack.com",
+      "subject": "Gemini 3.5 Released",
+      "ts": "2026-07-02T05:54:48.000323+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f0dfeba1ae3c71",
+      "from": "aidisruption@substack.com",
+      "subject": "GPT-5.6 Suddenly Launched",
+      "ts": "2026-07-02T05:55:04.566142+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f08862a99acea7",
+      "from": "support@projectexpedition.com",
+      "subject": "Project Expedition | Your next booking could earn more than commission",
+      "ts": "2026-07-02T06:01:57.828179+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f08319ee457dba",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181156317: Cape Sounio and Temple of Poseidon Swimming & Sunset Experience",
+      "ts": "2026-07-02T06:01:58.692940+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f08319b9cce7d9",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D",
+      "ts": "2026-07-02T06:01:59.100901+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f083197e966f53",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181140617: Dubrovnik Panorama Tour & Dubrovnik On Your Own",
+      "ts": "2026-07-02T06:01:59.715618+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f0831979eaf557",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181142217: Bari Street Food Tour - Eat, Learn and have fun with a Local",
+      "ts": "2026-07-02T06:06:28.742563+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f05ce7ce670036",
+      "from": "google-noreply@google.com",
+      "subject": "Learn more about our updated Terms of Service",
+      "ts": "2026-07-02T06:06:29.454342+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f04faf7b6cd6e0",
+      "from": "noreply-photos@google.com",
+      "subject": "Share & relive your best memories together \ud83d\udcf8\u2728",
+      "ts": "2026-07-02T06:06:29.747262+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f03d00bd0f3211",
+      "from": "aidisruption@substack.com",
+      "subject": "Codex App: 10 Official Tips",
+      "ts": "2026-07-02T06:06:30.054629+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f230c4f0cc63bc",
+      "from": "googleplay-noreply@google.com",
+      "subject": "Your Google Play Order Receipt from Jul 2, 2026",
+      "ts": "2026-07-02T13:39:34.254996+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f22c39d25532eb",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic Restores Fable 5 Access",
+      "ts": "2026-07-02T13:39:34.554209+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1fb6b9dbcf2b7",
+      "from": "johnloucks3@gmail.com",
+      "subject": "[Wing] Excursion Research Triggered \u2014 Grandeur Scandinavia Group (59d to departure)",
+      "reply_status": "success",
+      "reply_message_id": "19f230ea7f4a912b",
+      "ts": "2026-07-02T13:39:51.134260+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f590ae7265e5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: [Wing] Excursion Research Triggered \u2014 John & Susan Loucks (68d to departure)",
+      "reply_status": "success",
+      "reply_message_id": "19f230fbc1e219bc",
+      "ts": "2026-07-02T13:41:02.277134+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f61148c6cad0",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \u26a1 Total CI: M0\u2192M5 Complete \u2014 45 Skills Razor-Sharp \u00b7 2026-07-01",
+      "reply_status": "success",
+      "reply_message_id": "19f230ff0db18f83",
+      "ts": "2026-07-02T13:41:15.075315+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f7a2fb04a848",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Excursion Options \u2014 Bar, Montenegro (Jul 22, Celebrity Ascent)",
+      "reply_status": "success",
+      "reply_message_id": "19f231110d688666",
+      "ts": "2026-07-02T13:42:29.125569+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f590ae7265e5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: [Wing] Excursion Research Triggered \u2014 John & Susan Loucks (68d to departure)",
+      "reply_status": "success",
+      "reply_message_id": "19f23114d2c4c2f0",
+      "ts": "2026-07-02T13:42:44.626324+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f61148c6cad0",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \u26a1 Total CI: M0\u2192M5 Complete \u2014 45 Skills Razor-Sharp \u00b7 2026-07-01",
+      "reply_status": "success",
+      "reply_message_id": "19f23116d601db01",
+      "ts": "2026-07-02T13:42:52.771060+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f590ae7265e5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "[Wing] Excursion Research Triggered \u2014 John & Susan Loucks (68d to departure)",
+      "reply_status": "success",
+      "reply_message_id": "19f2311a6c435b6a",
+      "ts": "2026-07-02T13:43:07.619752+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f582dfa40f30",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your Voyage Preferences \u2014 Loucks Silver Nova May 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f231200b53bec7",
+      "ts": "2026-07-02T13:43:30.558030+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f536838aeeb2",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Riley Grace",
+      "reply_status": "success",
+      "reply_message_id": "19f2312a183853d5",
+      "ts": "2026-07-02T13:44:11.412969+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1e968c731e1c1",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Kim's Kotor Excursion & Bar Options (Jul 22, Celebrity Ascent)",
+      "reply_status": "success",
+      "reply_message_id": "19f2312f8f18a4b6",
+      "ts": "2026-07-02T13:44:33.943236+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1a2ed96874791",
+      "from": "johnloucks3@gmail.com",
+      "subject": "First pass at your excursions for Viking Mars 17-27 December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f231372db23d54",
+      "ts": "2026-07-02T13:45:05.377609+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1596e9b46ce48",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: THUNDERBIRD COMMAND BRIEF // Jun 28 \u2014 COS-APPROVED",
+      "reply_status": "success",
+      "reply_message_id": "19f23140c6e2dcf9",
+      "ts": "2026-07-02T13:45:44.597458+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f0feac4bef443b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Something new from D2M \u2014 take it for a spin",
+      "reply_status": "success",
+      "reply_message_id": "19f2314fac8b1b76",
+      "ts": "2026-07-02T13:46:45.629355+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f0b7e21770d2df",
+      "from": "johnloucks3@gmail.com",
+      "subject": "SS Grandeur \u2014 Storied Scandinavia | Voyage Preview",
+      "reply_status": "success",
+      "reply_message_id": "19f23158dced67a4",
+      "ts": "2026-07-02T13:47:23.108163+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f0b7b92cbc0765",
+      "from": "johnloucks3@gmail.com",
+      "subject": "SS Grandeur \u2014 Storied Scandinavia | Voyage Preview",
+      "reply_status": "success",
+      "reply_message_id": "19f23160353cd209",
+      "ts": "2026-07-02T13:47:53.014348+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f0b78ffb811773",
+      "from": "johnloucks3@gmail.com",
+      "subject": "SS Grandeur \u2014 Storied Scandinavia | Voyage Preview",
+      "reply_status": "success",
+      "reply_message_id": "19f23165f2b25aba",
+      "ts": "2026-07-02T13:48:16.494874+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efedac46455833",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: \ud83e\udd9e Agencies Face Agentic Blowback",
+      "reply_status": "success",
+      "reply_message_id": "19f2317f8fcf83af",
+      "ts": "2026-07-02T13:50:01.530449+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efed78cc640b4e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83d\udd34 THUNDERBIRD BRIEFING // Jun 25 \u2014 77 ACTION ITEMS NEED ATTENTION",
+      "reply_status": "success",
+      "reply_message_id": "19f2318240ef7789",
+      "ts": "2026-07-02T13:50:13.016273+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19efeb4c47545ffd",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Writes 80% of Code, Engineers Grow Lonelier",
+      "ts": "2026-07-02T13:50:20.520158+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efbb9b604bf30f",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: D2M Inbox Digest \u2014 4 item(s)",
+      "reply_status": "success",
+      "reply_message_id": "19f23186d5f6cb24",
+      "ts": "2026-07-02T13:50:31.418050+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efba92322f2121",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your Panama Canal Voyage \u2014 Viking Mars | December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f2318df737865a",
+      "ts": "2026-07-02T13:51:00.598626+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efba6e2998b439",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your Viking Mars Air \u2014 Panama Canal | December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f231994c8c5f2e",
+      "ts": "2026-07-02T13:51:47.097122+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efb063e04a6a37",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Your Panama Canal Voyage \u2014 Seven Seas Grandeur | December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f231a424d483a4",
+      "ts": "2026-07-02T13:52:31.575140+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efb12e597d95f1",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Door County Air \u2014 DEN to Green Bay | September 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f231ab86699af4",
+      "ts": "2026-07-02T13:53:01.750011+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efb0b934c24ecb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \u26a0\ufe0f P0 \u2014 Amy Darrow Insurance Deadline: June 26 (2 Days)",
+      "reply_status": "success",
+      "reply_message_id": "19f231bd8690de93",
+      "ts": "2026-07-02T13:54:15.475548+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19e237c43f5da4ba",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Confirmed: your trip to Stockholm",
+      "reply_status": "success",
+      "reply_message_id": "19f231d1c640da03",
+      "ts": "2026-07-02T13:55:38.530165+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e997c718f1d626",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: COS-- Re: Good news \u2014 I worked out a path forward",
+      "ts": "2026-07-02T13:55:38.848533+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef60f3b12e37cb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Amy's travel insurance \u2014 two options that still work",
+      "reply_status": "success",
+      "reply_message_id": "19f231dba73befdf",
+      "ts": "2026-07-02T13:56:19.074557+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ef994ca0e79946",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic Releases Claude Tag",
+      "ts": "2026-07-02T13:56:26.394957+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eec1a4bddbf21c",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "D2M Monthly Validation Report \u2014 2026-06",
+      "ts": "2026-07-02T13:56:26.744462+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef60f3b12e37cb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Amy's travel insurance \u2014 two options that still work",
+      "reply_status": "success",
+      "reply_message_id": "19f231e8fd8f6ff5",
+      "ts": "2026-07-02T13:57:13.344609+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef60f3b12e37cb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Amy's travel insurance \u2014 two options that still work",
+      "reply_status": "success",
+      "reply_message_id": "19f231ec4e289ad4",
+      "ts": "2026-07-02T13:57:26.967237+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef4d97d763a1fd",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83d\uddfa\ufe0f Travel AI Competitive Surveillance \u2014 June 23, 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f231eeb5434255",
+      "ts": "2026-07-02T13:57:37.021698+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef4d751e102197",
+      "from": "johnloucks3@gmail.com",
+      "subject": "MCP GATEWAY",
+      "reply_status": "success",
+      "reply_message_id": "19f232f307f01041",
+      "ts": "2026-07-02T14:15:23.509633+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee233e10502a5b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Scandinavia \u2014 Travel Insurance Options",
+      "reply_status": "success",
+      "reply_message_id": "19f232f717de30fd",
+      "ts": "2026-07-02T14:15:39.654868+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef4bc57c4e2e07",
+      "from": "johnloucks3@gmail.com",
+      "subject": "D2M Builder Test \u2014 Canonical Dark Navy",
+      "reply_status": "success",
+      "reply_message_id": "19f232fa7ed8fa15",
+      "ts": "2026-07-02T14:15:53.338784+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef4a67bc4ffb9e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Panama December \u2014 Hotels, Transfers & Five Quick Questions",
+      "reply_status": "success",
+      "reply_message_id": "19f2330d8a22dcc3",
+      "ts": "2026-07-02T14:17:11.773722+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ef46e1e8ac504d",
+      "from": "aidisruption@substack.com",
+      "subject": "Building Agents as Easy as Building Blocks!",
+      "ts": "2026-07-02T14:17:12.130167+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef17a144b83e86",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Silversea cruise",
+      "reply_status": "success",
+      "reply_message_id": "19f2331863d7c995",
+      "ts": "2026-07-02T14:17:56.206583+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef16438a4c3a3b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Silversea cruise",
+      "reply_status": "success",
+      "reply_message_id": "19f2331f7eeba7f3",
+      "ts": "2026-07-02T14:18:25.106489+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ef0e531a1deea2",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: T2 EXERCISE \u2014 STATUS UPDATE FROM HALE-CC (VCS) \u2014 COMPLETED",
+      "reply_status": "success",
+      "reply_message_id": "19f233213d9b014a",
+      "ts": "2026-07-02T14:18:32.251265+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ef0618216c6b27",
+      "from": "noreply-photos@google.com",
+      "subject": "4 ways to edit with Google Photos \ud83e\ude84",
+      "ts": "2026-07-02T14:18:32.646533+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee2f344f5d13d5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: I Tried 33 Claude Code Skills. These Are The Best",
+      "reply_status": "success",
+      "reply_message_id": "19f23331b1c0825b",
+      "ts": "2026-07-02T14:19:40.146143+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee233e10502a5b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: Scandinavia \u2014 Travel Insurance Options",
+      "reply_status": "success",
+      "reply_message_id": "19f23338566473ec",
+      "ts": "2026-07-02T14:20:06.936733+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eef86e2a582cca",
+      "from": "johnloucks3@gmail.com",
+      "subject": "COS This should be sent to inbox from now on\u26a0\ufe0f D2M FPD ALERT // Jun 22 \u2014 2 ACTIVE DEADLINES (4d + 30d)",
+      "reply_status": "success",
+      "reply_message_id": "19f2333d694ae809",
+      "ts": "2026-07-02T14:20:27.899797+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eef8644ac982e5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "\ud83e\udd85 Thunderbird Incubator \u2014 3 IMPLEMENTs \u00b7 22 Jun 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f2333fe1565e7a",
+      "ts": "2026-07-02T14:20:38.516164+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eef85829e71d27",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Tech Monitor Digest \u2014 June 22, 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f233454313eb86",
+      "ts": "2026-07-02T14:21:00.022860+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eef850c6763c81",
+      "from": "johnloucks3@gmail.com",
+      "subject": "\ud83d\uddfa\ufe0f Competitive Surveillance: Travel AI \u2014 June 22, 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f2334a468a76d4",
+      "ts": "2026-07-02T14:21:20.630561+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f582dfa40f30",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Your Voyage Preferences \u2014 Loucks Silver Nova May 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f234d2f3d30692",
+      "ts": "2026-07-02T14:48:08.727485+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f0feac4bef443b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: Something new from D2M \u2014 take it for a spin",
+      "reply_status": "success",
+      "reply_message_id": "19f234d8ea690429",
+      "ts": "2026-07-02T14:48:33.260975+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eef846b0c31a40",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Silver Spirit Intel \u2014 Daily Briefing (June 22, 2026)",
+      "reply_status": "success",
+      "reply_message_id": "19f234dea3693621",
+      "ts": "2026-07-02T14:48:56.885136+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eef436faa921a0",
+      "from": "aidisruption@substack.com",
+      "subject": "With this Skill, Claude Code finally remembers!",
+      "ts": "2026-07-02T14:48:57.429951+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eeb0c326077171",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: T2 EXERCISE \u2014 STATUS UPDATE FROM HALE-CC (VCS) \u2014 COMPLETED",
+      "reply_status": "success",
+      "reply_message_id": "19f234e14cacb60c",
+      "ts": "2026-07-02T14:49:07.562044+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee83e0839f983d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Thunderbird Evening Sync \u2014 1 errors",
+      "reply_status": "success",
+      "reply_message_id": "19f235f8e347c694",
+      "ts": "2026-07-02T15:08:13.122694+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee6fe048ecb804",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: WAR \u2014 Week of Jun 14\u2013Jun 20, 2026 \u00b7 103 commits",
+      "reply_status": "success",
+      "reply_message_id": "19f235fdd1c6ba32",
+      "ts": "2026-07-02T15:08:33.143165+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee5030255a21fd",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking PE181156317 - We are following up with operator",
+      "ts": "2026-07-02T15:08:33.507164+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee42605f41fcba",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D",
+      "ts": "2026-07-02T15:08:33.918450+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee42603e01a443",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181142217: Bari Street Food Tour - Eat, Learn and have fun with a Local",
+      "ts": "2026-07-02T15:08:34.217917+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee426000768472",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181140617: Dubrovnik Panorama Tour & Dubrovnik On Your Own",
+      "ts": "2026-07-02T15:08:41.941329+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee2f344f5d13d5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "I Tried 33 Claude Code Skills. These Are The Best",
+      "reply_status": "success",
+      "reply_message_id": "19f236174bed295d",
+      "ts": "2026-07-02T15:10:17.708179+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ee233e10502a5b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Scandinavia \u2014 Travel Insurance Options",
+      "reply_status": "success",
+      "reply_message_id": "19f23627f21aa570",
+      "ts": "2026-07-02T15:11:25.740415+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee1b3b3247f78d",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T15:11:26.033418+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ee1b3b3247f78d",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T15:11:26.365706+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19edcaf618149643",
+      "from": "johnloucks3@gmail.com",
+      "subject": "TEST",
+      "reply_status": "success",
+      "reply_message_id": "19f2362bbb1b0f40",
+      "ts": "2026-07-02T15:11:40.803894+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19edbc81391d7991",
+      "from": "noreply-photos@google.com",
+      "subject": "Find and organize your photos in a flash \u26a1\ufe0f",
+      "ts": "2026-07-02T15:11:41.206330+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19edb508705e6296",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: \ud83d\udd34 THUNDERBIRD BRIEFING // Jun 18 \u2014 77 ACTION ITEMS NEED ATTENTION",
+      "reply_status": "success",
+      "reply_message_id": "19f2364015bb5f1b",
+      "ts": "2026-07-02T15:13:04.759810+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19edaa9b426f5c4b",
+      "from": "aidisruption@substack.com",
+      "subject": "OpenAI's Q1 Financial Results Leaked",
+      "ts": "2026-07-02T15:13:05.171032+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed98c2441133ce",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Booking Confirmation - PE181149717",
+      "reply_status": "success",
+      "reply_message_id": "19f2364f069a9d5a",
+      "ts": "2026-07-02T15:14:06.152802+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed98c2441133ce",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE181149717",
+      "ts": "2026-07-02T15:14:13.418620+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed89d30211d64e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: [Correction] [Action Required] Secure your Gemini API access by Jun 19, 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f23654c225e129",
+      "ts": "2026-07-02T15:14:29.550964+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed7c9148d2050e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: A better insurance option before we lock yours in",
+      "reply_status": "success",
+      "reply_message_id": "19f236605b4aa165",
+      "ts": "2026-07-02T15:15:16.451724+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed25f292ec84a2",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: ATTN: Curtis, medical background files for Susan Loucks, 9 July appt w/ Dr Smith",
+      "reply_status": "success",
+      "reply_message_id": "19f236638a43ac0f",
+      "ts": "2026-07-02T15:15:29.657753+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed6fadb78677a4",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE181142217",
+      "ts": "2026-07-02T15:15:30.068251+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed6dc66733c473",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE181140617",
+      "ts": "2026-07-02T15:16:14.044836+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed2bfba4b7d57d",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: A little help for your Roman summer \u2014 meet Dani",
+      "ts": "2026-07-02T15:16:14.396928+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed65533a619bfe",
+      "from": "support@projectexpedition.com",
+      "subject": "PE181156317: Cape Sounio and Temple of Poseidon Swimming & Sunset Experience",
+      "ts": "2026-07-02T15:16:14.718509+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed64deaaed5573",
+      "from": "support@projectexpedition.com",
+      "subject": "Pending Confirmation from Operator - PE181156317",
+      "ts": "2026-07-02T15:16:15.122355+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed63ae9ad90ef1",
+      "from": "support@projectexpedition.com",
+      "subject": "Pending Confirmation from Operator - PE181149717",
+      "ts": "2026-07-02T15:16:15.681207+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed62804d08d104",
+      "from": "support@projectexpedition.com",
+      "subject": "Pending Confirmation from Operator - PE181142217",
+      "ts": "2026-07-02T15:18:14.122236+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed6214adc5eecd",
+      "from": "support@projectexpedition.com",
+      "subject": "Pending Confirmation from Operator - PE181140617",
+      "ts": "2026-07-02T15:18:14.528281+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed601602a94ac6",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: \ud83e\udd85 Overnight Attack \u2014 AAR + Final-Inch Queue (8 cycles, 2 P0 security)",
+      "reply_status": "success",
+      "reply_message_id": "19f23690a35e5c85",
+      "ts": "2026-07-02T15:18:35.018675+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecc5378ea426fb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Silversea cruise",
+      "reply_status": "success",
+      "reply_message_id": "19f236996422b51a",
+      "ts": "2026-07-02T15:19:10.523190+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed575ef014975e",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Integrates with the Apple Ecosystem",
+      "ts": "2026-07-02T15:19:10.947049+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed5590ca411b79",
+      "from": "carly@projectexpedition.com",
+      "subject": "Your Questions, Our Answers: Join the Q&A Today at 12 ET!",
+      "ts": "2026-07-02T15:20:15.451541+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed3dc7ba4f703e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Susan's eyes \u2014 second-opinion options + Susie's questions (Dr. Smith, Jul 9)",
+      "reply_status": "success",
+      "reply_message_id": "19f236af428a80f9",
+      "ts": "2026-07-02T15:20:40.358944+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed3c1baa38f11d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Scanner verify 2 \u2014 no prefix",
+      "reply_status": "success",
+      "reply_message_id": "19f236b19d45a080",
+      "ts": "2026-07-02T15:20:49.558170+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed3bc07b285b5a",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Scanner test \u2014 no prefix",
+      "reply_status": "success",
+      "reply_message_id": "19f236b3d3b06451",
+      "ts": "2026-07-02T15:20:58.810262+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed2bfba4b7d57d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: A little help for your Roman summer \u2014 meet Dani",
+      "reply_status": "success",
+      "reply_message_id": "19f236b866666bd8",
+      "ts": "2026-07-02T15:21:17.412049+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed25f292ec84a2",
+      "from": "johnloucks3@gmail.com",
+      "subject": "ATTN: Curtis, medical background files for Susan Loucks, 9 July appt w/ Dr Smith",
+      "reply_status": "success",
+      "reply_message_id": "19f236c8eaf5708c",
+      "ts": "2026-07-02T15:22:24.904260+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed20e0d117ab74",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: 2nd reminder: more details needed for your claim: 0011252480-001",
+      "reply_status": "success",
+      "reply_message_id": "19f236cfc6417132",
+      "ts": "2026-07-02T15:22:53.065982+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea92e5ecc44f92",
+      "from": "specialservices@silversea.com",
+      "subject": "RE: [EXTERNAL] Re: Bon Voyage Gift Order \u2014 Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "ts": "2026-07-02T15:22:53.367536+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecc9a3e60200f8",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fw: The Travel Buzz with Oya \u2013 Your Advocate at Explora Journeys \u2013 Welcome to June!",
+      "reply_status": "success",
+      "reply_message_id": "19f236d39f1326a8",
+      "ts": "2026-07-02T15:23:08.722611+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "client_inquiry",
+      "action": "drafted_wf17",
+      "thread_id": "19ecc9a3e60200f8",
+      "from": "stef@bbenefits.net",
+      "subject": "Re: Fw: The Travel Buzz with Oya \u2013 Your Advocate at Explora Journeys \u2013 Welcome to June!",
+      "draft_id": "r-2620232269579416244",
+      "draft_status": "success",
+      "note": "WF-17: staged for Commander review, NOT sent.",
+      "ts": "2026-07-02T15:23:44.664180+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed04e5119b5d6f",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83e\udd85 THUNDERBIRD // Tuesday Jun 16 \u00b7 0600 MT",
+      "reply_status": "success",
+      "reply_message_id": "19f236e92cbeb592",
+      "ts": "2026-07-02T15:24:36.993201+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed0917f024c787",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83d\udd34 THUNDERBIRD BRIEFING // Jun 16 \u2014 76 ACTION ITEMS NEED ATTENTION",
+      "reply_status": "success",
+      "reply_message_id": "19f236ecee2989f6",
+      "ts": "2026-07-02T15:24:52.596806+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ed08fbcaf79734",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: THUNDERBIRD COMMAND BRIEF // Jun 16 \u2014 COS-APPROVED",
+      "reply_status": "success",
+      "reply_message_id": "19f236ef0356edfe",
+      "ts": "2026-07-02T15:25:01.565038+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ed064e45829df1",
+      "from": "aidisruption@substack.com",
+      "subject": "Loop Engineering: Analysis & Application Case Studies",
+      "ts": "2026-07-02T15:25:01.916447+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ece46d9958280c",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Al Ely, here\u2019s your Annual Premier $15K travel protection quote.",
+      "reply_status": "success",
+      "reply_message_id": "19f236f720020ac4",
+      "ts": "2026-07-02T15:25:34.449823+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecd9105e8c5232",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Buddy 3/3 \u2014 Gift Offer + Starter Prompts (review)",
+      "reply_status": "success",
+      "reply_message_id": "19f237087a3f70b0",
+      "ts": "2026-07-02T15:26:44.965313+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eccc3489f36335",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T15:26:45.406334+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecc9a3e60200f8",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fw: The Travel Buzz with Oya \u2013 Your Advocate at Explora Journeys \u2013 Welcome to June!",
+      "reply_status": "success",
+      "reply_message_id": "19f237163c7d32f5",
+      "ts": "2026-07-02T15:27:41.724783+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecc5378ea426fb",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Silversea cruise",
+      "reply_status": "success",
+      "reply_message_id": "19f23728f768d3ba",
+      "ts": "2026-07-02T15:28:58.216264+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ecb2a24bc0e911",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Runs Core Banking, Aviation & Insurance",
+      "ts": "2026-07-02T15:28:58.726760+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ec822c75d68d6c",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Door County Pre-Stage \u2014 4 Booking Links Ready (15 min to execute)",
+      "reply_status": "success",
+      "reply_message_id": "19f237322f5bf531",
+      "ts": "2026-07-02T15:29:35.954121+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ec849312d3db0a",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: SIG TEST \u2014 Dani Moreau \u00b7 Concierge Intelligence",
+      "reply_status": "success",
+      "reply_message_id": "19f2373466c856c8",
+      "ts": "2026-07-02T15:29:45.319795+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ec849353e9997e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: SIG TEST \u2014 Victoria Hale \u00b7 Chief of Staff",
+      "reply_status": "success",
+      "reply_message_id": "19f23736ce8b901a",
+      "ts": "2026-07-02T15:29:54.897984+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ec7d23621a4b5e",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T15:29:55.364538+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ec7c1c1aafa942",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Al Ely Passport",
+      "reply_status": "success",
+      "reply_message_id": "19f2373a4d57db66",
+      "ts": "2026-07-02T15:30:09.384365+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19ecd9105e8c5232",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Buddy 3/3 \u2014 Gift Offer + Starter Prompts (review)",
+      "reply_status": "success",
+      "reply_message_id": "19f23abde54e766f",
+      "ts": "2026-07-02T16:31:34.385026+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19efba92322f2121",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Your Panama Canal Voyage \u2014 Viking Mars | December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f23ae497c6867a",
+      "ts": "2026-07-02T16:34:12.717143+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1a2ed96874791",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: First pass at your excursions for Viking Mars 17-27 December 2026",
+      "reply_status": "success",
+      "reply_message_id": "19f23aeefdf32adf",
+      "ts": "2026-07-02T16:34:54.989794+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f582dfa40f30",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Your Voyage Preferences \u2014 Loucks Silver Nova May 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f23afbb5eabb18",
+      "ts": "2026-07-02T16:35:47.372134+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f1f590ae7265e5",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: [Wing] Excursion Research Triggered \u2014 John & Susan Loucks (68d to departure)",
+      "reply_status": "success",
+      "reply_message_id": "19f23afeb81a5482",
+      "ts": "2026-07-02T16:35:59.600783+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ec30aa60b8537e",
+      "from": "yodainva@gmail.com",
+      "subject": "Fwd: You've Earned Your Economy Plus Seat Upgrades From Your United Business Card",
+      "ts": "2026-07-02T17:16:27.210154+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb87648a230cf5",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Travel Insurance \u2014 Pre-Existing Waiver Window",
+      "ts": "2026-07-02T17:16:28.450281+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb8764a456d280",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Josh Morton Guest Profile \u2014 Quick Request",
+      "ts": "2026-07-02T17:16:29.467488+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ebbcb2534c22ec",
+      "from": "aidisruption@substack.com",
+      "subject": "OpenAI Buys Another Firm for 24/7 Agents",
+      "ts": "2026-07-02T17:16:30.805384+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb7bead0363a17",
+      "from": "noreply-photos@google.com",
+      "subject": "Dreams2Memories, welcome to Google Photos",
+      "ts": "2026-07-02T17:17:21.845786+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea3dbe104d920e",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Your Silver Muse Mediterranean \u2014 16 Days Out",
+      "ts": "2026-07-02T17:19:16.657319+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb70ce29d7da9e",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Bon Voyage, Erik & Melissa \u2014 Your Silver Muse Mediterranean Is One Week Out",
+      "ts": "2026-07-02T17:19:17.821018+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb6a0e02094195",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Fable 5 Trashed in Under 24 Hours",
+      "ts": "2026-07-02T17:19:19.050357+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eb338ede654a1a",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Grand Tour \u2014 circling back ",
+      "ts": "2026-07-02T17:19:20.207590+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eaf9d70716dd4e",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Test",
+      "ts": "2026-07-02T17:20:43.015743+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eaef4441833a35",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T17:28:21.820097+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eaef444dddf869",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Your Google Account was recovered successfully",
+      "ts": "2026-07-02T17:28:23.414284+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eaef4441833a35",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T17:28:24.642664+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eac5f4ba2d2e51",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: \ud83d\udd17 MCP connectors are here. Actors now work where you do.",
+      "ts": "2026-07-02T17:28:25.768828+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eac4cb2ff4def5",
+      "from": "aidisruption@substack.com",
+      "subject": "OpenAI Files for IPO, Eyes Fall Listing",
+      "ts": "2026-07-02T17:28:26.998153+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19eab782f51518a7",
+      "from": "google-noreply@google.com",
+      "subject": "New privacy settings for Search services",
+      "ts": "2026-07-02T17:31:03.719972+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea92e5ecc44f92",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Bon Voyage Gift Order \u2014 Booking 298475-25 | McLeod/McGlasson | Silver Muse June 23, 2026",
+      "ts": "2026-07-02T17:31:04.936318+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea7538ab796312",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: [A3] Client: Kuklinski Group (3 bookings) \u2014 Re: Join Susie & John on the Mediterrane",
+      "ts": "2026-07-02T17:31:06.129010+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea725291a0ebda",
+      "from": "aidisruption@substack.com",
+      "subject": "Small-Team Coding Agent KB Management",
+      "ts": "2026-07-02T17:31:07.356403+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e9db525207e1c6",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Join Susie & John on the Mediterranean \u2014 Silver Nova, May 2027",
+      "ts": "2026-07-02T17:31:08.360009+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eafbbae4b9f0a1",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Blue label test",
+      "reply_status": "success",
+      "reply_message_id": "19f23f50b008f662",
+      "ts": "2026-07-02T17:51:30.438753+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eafb36136cd180",
+      "from": "johnloucks3@gmail.com",
+      "subject": "FPD status check",
+      "reply_status": "success",
+      "reply_message_id": "19f23f55019875f8",
+      "ts": "2026-07-02T17:51:48.078693+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eafa731fe64424",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Pipeline test - KillMode fix",
+      "reply_status": "success",
+      "reply_message_id": "19f23f576fe8cef4",
+      "ts": "2026-07-02T17:51:57.980848+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19eafa02bcd71766",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Claude Fable 5 is here",
+      "reply_status": "success",
+      "reply_message_id": "19f23f5f8e69d39e",
+      "ts": "2026-07-02T17:52:31.044907+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19e9db525207e1c6",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Join Susie & John on the Mediterranean \u2014 Silver Nova, May 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f23f63d3cb183a",
+      "ts": "2026-07-02T17:52:48.770731+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e9db525207e1c6",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Join Susie & John on the Mediterranean \u2014 Silver Nova, May 2027",
+      "ts": "2026-07-02T17:53:18.188664+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea4a42a02b4058",
+      "from": "googleone-noreply@google.com",
+      "subject": "Dreams2Memories, you\u2019ve got storage to share \ud83c\udf89",
+      "ts": "2026-07-02T17:53:19.368516+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ea20120f13d164",
+      "from": "aidisruption@substack.com",
+      "subject": "Advanced Use Cases of Claude Dynamic Workflows",
+      "ts": "2026-07-02T17:53:20.514759+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e9ef5c13946997",
+      "from": "googleone-noreply@google.com",
+      "subject": "Save 16% by switching to an annual plan",
+      "ts": "2026-07-02T17:53:21.640549+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e97e9c9ae70002",
+      "from": "aidisruption@substack.com",
+      "subject": "OpenAI's \"Dreaming\" Gives ChatGPT Long-Term Memory",
+      "ts": "2026-07-02T17:53:22.767772+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e8e8af8a7b7b8b",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Furlow Trip Validation Report \u2014 Inv #3071222 \u2014 Storied Scandinavia",
+      "ts": "2026-07-02T17:55:17.976293+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e8e94bf7f6956f",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Lessons Learned \u2014 Trip Validation Series \u2014 SO-2026-06-03",
+      "ts": "2026-07-02T17:55:19.198164+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e8d6778364a8b8",
+      "from": "aidisruption@substack.com",
+      "subject": "The Merger of ChatGPT and Codex",
+      "ts": "2026-07-02T17:55:20.331665+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19e8ad4ce5d8408e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Loucks excursions Dec 2026-Jan 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f23f9303f68382",
+      "ts": "2026-07-02T17:56:02.308492+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19e8ad4ce5d8408e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Loucks excursions Dec 2026-Jan 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f23f9983a8c585",
+      "ts": "2026-07-02T17:56:28.990788+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19e8ad4ce5d8408e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Loucks excursions Dec 2026-Jan 2027",
+      "reply_status": "success",
+      "reply_message_id": "19f23fd2762bd7d1",
+      "ts": "2026-07-02T18:00:22.015269+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7e09744432db8",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "A9 Finance \u2014 May 31",
+      "ts": "2026-07-02T18:00:23.645525+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7d4cbde8fa13d",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "SWITCHBLADE-4 [ISSUES] 79% \u2014 2026-05-31",
+      "ts": "2026-07-02T18:00:27.014990+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7e097457e68dd",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Creative Opportunities \u2014 May 31",
+      "ts": "2026-07-02T18:00:28.042356+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7e28f4d8fbcbe",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "SWITCHBLADE-4 [ISSUES] 79% \u2014 2026-05-31",
+      "ts": "2026-07-02T18:00:29.103422+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e88e33b0fdac03",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Looking forward to our chat \u2014 a little prep for you",
+      "ts": "2026-07-02T18:00:38.661493+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e888da1bd1de05",
+      "from": "googleone-noreply@google.com",
+      "subject": "Welcome to Google One, Dreams2Memories",
+      "ts": "2026-07-02T18:00:39.865984+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e888d8e8d2da66",
+      "from": "googleplay-noreply@google.com",
+      "subject": "Your Google Play Order Receipt from Jun 2, 2026",
+      "ts": "2026-07-02T18:00:41.045711+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e885d0c0b23aef",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic Files for IPO",
+      "ts": "2026-07-02T18:00:42.162818+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e855bed7cee9e5",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:00:43.299627+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f23fddec2f1581",
+      "from": "carly@projectexpedition.com",
+      "subject": "5 destinations. 5 experiences. One summer to book them.",
+      "ts": "2026-07-02T18:02:39.380397+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e831ad42cbb110",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Code Releases Dynamic Workflows",
+      "ts": "2026-07-02T18:02:40.525712+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7f5c4a0447f71",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:02:41.774122+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7f5c4a0447f71",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:02:42.958184+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7f5c4adc9f7e7",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Your Google Account was recovered successfully",
+      "ts": "2026-07-02T18:02:44.083573+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7f5c4a0447f71",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:04:39.787219+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e7def9d0e412ea",
+      "from": "aidisruption@substack.com",
+      "subject": "AI Software Reversal: Usage Billing Stocks Lead",
+      "ts": "2026-07-02T18:04:40.974113+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e75d6f1d531f9a",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:04:41.952510+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e759272e52db13",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "From AI Model to AI Board of Directors",
+      "ts": "2026-07-02T18:04:43.109287+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e6e9e6978cc16d",
+      "from": "aidisruption@substack.com",
+      "subject": "DeepSeek V4 Also Supports Multimodal in Claude Code",
+      "ts": "2026-07-02T18:04:44.238776+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e64485ce1d45a8",
+      "from": "aidisruption@substack.com",
+      "subject": "Grok Build Enters the AI Coding Arena",
+      "ts": "2026-07-02T18:06:39.451513+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e5f4b87695bda1",
+      "from": "aidisruption@substack.com",
+      "subject": "World's Cheapest Designer: Claude Code + Design.md",
+      "ts": "2026-07-02T18:06:40.780792+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e5a00a2ed31671",
+      "from": "aidisruption@substack.com",
+      "subject": "2026 Latest .codex Directory and Configuration Explained",
+      "ts": "2026-07-02T18:06:41.990451+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e4fd157d78f06b",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic to Make Money for First Time",
+      "ts": "2026-07-02T18:06:43.132020+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e48b181adda2a9",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Westbrook Family \u2014 Mediterranean Cruise Comparison (Explora II vs Celebrity Ascent)",
+      "ts": "2026-07-02T18:06:44.266889+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e4a7b6ac454e52",
+      "from": "aidisruption@substack.com",
+      "subject": "Two MCPs + Claude Code = Double the Power",
+      "ts": "2026-07-02T18:08:39.404027+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e4556acaa338dd",
+      "from": "aidisruption@substack.com",
+      "subject": "Google\u2019s Search Box Just Became an Agent After I/O",
+      "ts": "2026-07-02T18:08:40.589166+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e402c4caa5f49d",
+      "from": "aidisruption@substack.com",
+      "subject": "Cursor Launches New Model Composer 2.5",
+      "ts": "2026-07-02T18:08:41.672130+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e3b454a4da978b",
+      "from": "aidisruption@substack.com",
+      "subject": "Codex Control: iPhone, Mac, Mac mini, Remote Server",
+      "ts": "2026-07-02T18:08:42.810702+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e3b00c42954ebd",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic open-sources law-firm Skills for Claude",
+      "ts": "2026-07-02T18:08:43.978706+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2405435667d90",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Grand Tour \u2014 Lunch Friday July 10th?",
+      "reply_status": "success",
+      "reply_message_id": "19f24072087952bb",
+      "ts": "2026-07-02T18:11:14.803517+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e35f22901b907b",
+      "from": "aidisruption@substack.com",
+      "subject": "Perplexity Opens Up Its Skills Design Core",
+      "ts": "2026-07-02T18:11:15.111430+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e2c1f86be99f57",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Specialty Dining Aboard Viking Mars \u2014 Preferences Before We Plan",
+      "ts": "2026-07-02T18:11:15.519676+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e2b9a2048c028b",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude's 15 Agent Workflows: Digital Employees for SMEs",
+      "ts": "2026-07-02T18:11:15.817768+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e26a1bd1a46565",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic Open-Sources Financial Skills!",
+      "ts": "2026-07-02T18:11:16.133852+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e214c350151bb7",
+      "from": "aidisruption@substack.com",
+      "subject": "Cloudflare Just Onboarded All Major Coding Agents",
+      "ts": "2026-07-02T18:12:39.334117+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e1cabcf9edb324",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Your Google Account was recovered successfully",
+      "ts": "2026-07-02T18:12:39.692331+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e1cabce4eaa62e",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:12:40.104634+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e12242399608b8",
+      "from": "aidisruption@substack.com",
+      "subject": "AI Mania vs. 3 Real Risks: US Stocks Won\u2019t Crash, But\u2026",
+      "ts": "2026-07-02T18:12:40.410041+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e078373554915a",
+      "from": "aidisruption@substack.com",
+      "subject": "OpenAI Puts GPT-5-Level Reasoning Into Voice Model",
+      "ts": "2026-07-02T18:12:40.819413+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f240f1f38f75dc",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Spencer Family Grand Tour \u2014 Your Journey Overview",
+      "reply_status": "success",
+      "reply_message_id": "19f241cf5c2b7b15",
+      "ts": "2026-07-02T18:35:05.450902+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2405435667d90",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Grand Tour \u2014 Lunch Friday July 10th?",
+      "reply_status": "success",
+      "reply_message_id": "19f24200d6800542",
+      "ts": "2026-07-02T18:38:28.404235+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dfa5612ab5d068",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:38:28.730560+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19df5c9a440680d1",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Venice Portfolio: The Westbrook Family",
+      "ts": "2026-07-02T18:38:29.119794+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19df1746c4c1b411",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:38:29.529861+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19deee53cddd56d3",
+      "from": "aidisruption@substack.com",
+      "subject": "11 Tips to Spend Tokens Smarter on GPT-5.5 & Claude 4.7",
+      "ts": "2026-07-02T18:38:36.540174+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19deed90b5b35589",
+      "from": "aidisruption@substack.com",
+      "subject": "Grok 4.3 Released",
+      "ts": "2026-07-02T18:38:36.904894+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dde527b6a8fb6b",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: How to Use Third-Party APIs in Claude Code Desktop",
+      "ts": "2026-07-02T18:38:37.313626+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19de65b9ead362ad",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Regent Seven Seas Cruises Invoice: 3071222 Guest: FURLOW",
+      "ts": "2026-07-02T18:38:37.667963+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19ddc18c19e0a6fc",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Spencer Grand Tour 2027",
+      "ts": "2026-07-02T18:38:38.030334+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19de3ac5e33bbe1f",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Code: Memory Management for Long Tasks",
+      "ts": "2026-07-02T18:40:39.693211+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dd9619834eddf5",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Unlocks 8 Creative Software Like Adobe & Blender",
+      "ts": "2026-07-02T18:40:40.006247+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dd927417cc12b2",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic\u2019s $30B Revenue Crushes OpenAI",
+      "ts": "2026-07-02T18:40:40.310911+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dd3f95e6cc604a",
+      "from": "aidisruption@substack.com",
+      "subject": "Musk vs. Altman: The AI Century Lawsuit Begins in Court",
+      "ts": "2026-07-02T18:40:40.604301+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19dcee5f9b8ef331",
+      "from": "aidisruption@substack.com",
+      "subject": "DeepSeek V4 Pro Goes Head-to-Head with GPT-5.3 Codex High",
+      "ts": "2026-07-02T18:40:40.976805+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d2a8f69e51424d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Silver Muse Mediterranean \u2014 Your Complete Transfer Plan",
+      "reply_status": "success",
+      "reply_message_id": "19f2424574387193",
+      "ts": "2026-07-02T18:43:09.189089+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19dcd8abb5c3f127",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your Japan Itinerary Proposal | August 8\u201316, 2026 | Dreams2Memories Travel, LLC",
+      "reply_status": "success",
+      "reply_message_id": "19f2424c4f0c1b24",
+      "ts": "2026-07-02T18:43:37.500856+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19dcc39c03c45042",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Erik & Melissa \u2014 Your Silver Muse Mediterranean Is 58 Days Out",
+      "reply_status": "success",
+      "reply_message_id": "19f2426030e26631",
+      "ts": "2026-07-02T18:44:58.764456+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19dcc27bb9dd6ad8",
+      "from": "johnloucks3@gmail.com",
+      "subject": "McLeod activities for Claude",
+      "reply_status": "success",
+      "reply_message_id": "19f24263c6d2032e",
+      "ts": "2026-07-02T18:45:14.015480+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d83f0e61e4f5cd",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:45:14.406881+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d65099d812b80f",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Project Expedition booking still using LGT account",
+      "reply_status": "success",
+      "reply_message_id": "19f24307c9e584bc",
+      "ts": "2026-07-02T18:56:25.769530+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d62bc0eff87bf7",
+      "from": "aidisruption@substack.com",
+      "subject": "GPT-6 Revealed",
+      "ts": "2026-07-02T18:56:26.079374+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d5e6cdf10cda72",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:56:26.484000+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d5d88f1a8bece7",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Bans OpenClaw",
+      "ts": "2026-07-02T18:56:26.992913+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d58f68126e4fcc",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:56:27.310893+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d5868d854d1166",
+      "from": "aidisruption@substack.com",
+      "subject": "When a Shortage of Computing Power Backfires on Microsoft?",
+      "ts": "2026-07-02T18:57:24.555052+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d4e1a08041cd99",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Leaked Claude Code: Vibe Coding Isn't All That",
+      "ts": "2026-07-02T18:57:24.850272+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d535f71be9a86e",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: Google Open-Sources Gemma 4, Beats 13x Larger Qwen3.5",
+      "ts": "2026-07-02T18:57:25.158259+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d5123410b37ec2",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Hotel Saturnia & International \u2014 Venice Research Brief",
+      "reply_status": "success",
+      "reply_message_id": "19f2431b72ff3e1d",
+      "ts": "2026-07-02T18:57:46.136790+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d4c8356cf3718d",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:57:46.455691+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d493ee4c4e23e0",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Here is the plan",
+      "reply_status": "success",
+      "reply_message_id": "19f2433b18c3f226",
+      "ts": "2026-07-02T18:59:55.483248+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d46360676b4e20",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Regent Seven Seas Grandeur 29 August 2026 \u2014 Booking Information for Furlow, Ely/Darrow, and Nichols and...we wanna go with you on MAGNA!",
+      "ts": "2026-07-02T18:59:55.795952+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d35d6772b293f4",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:59:56.302869+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d35d6772b293f4",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T18:59:56.609278+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d2f6495264bedd",
+      "from": "hello@newsletters.venturebeat.com",
+      "subject": "Welcome to AGI Weekly: Innovate with informed AI insights",
+      "ts": "2026-07-02T18:59:57.018180+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d2a8f69e51424d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Silver Muse Mediterranean \u2014 Your Complete Transfer Plan",
+      "reply_status": "success",
+      "reply_message_id": "19f24352f821d820",
+      "ts": "2026-07-02T19:01:33.376479+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d2758785645755",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-02T19:01:33.792830+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d0bdc945ad6d25",
+      "from": "johnloucks3@gmail.com",
+      "subject": "[A9] Client: Loucks \u2014 The Points Guy: Why you might want to ge",
+      "reply_status": "success",
+      "reply_message_id": "19f24356f9a22a95",
+      "ts": "2026-07-02T19:01:49.556871+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d0bdb7b85a945b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: The Points Guy: Why you might want to get a premium credit card instead of purchasing travel insurance [A9]",
+      "reply_status": "success",
+      "reply_message_id": "19f24364764c5223",
+      "ts": "2026-07-02T19:02:45.078909+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d0657719e972e3",
+      "from": "googleplay-noreply@google.com",
+      "subject": "Your new privacy settings on Play",
+      "ts": "2026-07-02T19:02:45.467503+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19d0653ea42f4214",
+      "from": "no-reply@google.com",
+      "subject": "\u2705 Dreams2memories, finish setting up your Galaxy Z Fold6 device with Google",
+      "ts": "2026-07-02T19:03:22.441685+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d025f6076e4267",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: What Organized Travel Actually Looks Like",
+      "reply_status": "success",
+      "reply_message_id": "19f243714e7bc405",
+      "ts": "2026-07-02T19:03:37.590470+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d02562851a26fa",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Persona Gmail Live \u2014 COS Test",
+      "reply_status": "success",
+      "reply_message_id": "19f243754738f2b0",
+      "ts": "2026-07-02T19:03:53.820980+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19d65099d812b80f",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: Project Expedition booking still using LGT account",
+      "reply_status": "success",
+      "reply_message_id": "19f24acd8469a96b",
+      "ts": "2026-07-02T21:12:15.565705+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f27eb5758c45bb",
+      "from": "aidisruption@substack.com",
+      "subject": "Anthropic's Secret Spyware in Claude Code",
+      "ts": "2026-07-03T12:19:52.372229+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2405435667d90",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Grand Tour \u2014 Lunch Friday July 10th?",
+      "reply_status": "success",
+      "reply_message_id": "19f282a598c892d7",
+      "ts": "2026-07-03T13:28:11.980046+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f28617b38b704e",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your family's Grand Tour website is live \u2014 everything in one place",
+      "reply_status": "success",
+      "reply_message_id": "19f28637a7e5ae0e",
+      "ts": "2026-07-03T14:30:35.962714+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f28787976d56bf",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Lunch Tuesday at the Coffee Cup \u2014 and where the Grand Tour stands",
+      "reply_status": "success",
+      "reply_message_id": "19f2879b7627d3d9",
+      "ts": "2026-07-03T14:54:53.779076+00:00",
+      "system": "n8n_python"
+    }
+  ]
 }

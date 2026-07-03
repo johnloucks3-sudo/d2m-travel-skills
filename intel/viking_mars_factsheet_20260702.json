@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "ship_name": "Viking Mars",
+    "cruise_line": "Viking Ocean Cruises",
+    "report_date": "2026-07-02T16:01:49.489617Z",
+    "confidence_scale": "VERIFIED (primary source confirmed) / INFERRED (dossier/intel) / UNKNOWN (no source found)"
+  },
+  "ship_specs": {
+    "passenger_capacity": {
+      "value": 930,
+      "confidence": "VERIFIED",
+      "source": "internal viking_mars.json (icruise capacity_guests)",
+      "notes": "Source: icruise data seed, Apr 29 2026"
+    },
+    "ship_id": {
+      "value": "ship_731",
+      "confidence": "VERIFIED",
+      "source": "internal icruise_id from viking_mars.json",
+      "notes": "Thunderbird internal reference"
+    },
+    "d2m_priority": {
+      "value": "CRITICAL",
+      "confidence": "VERIFIED",
+      "source": "internal strategic classification",
+      "notes": "Target client: Kuklinski (3 couples, Dec 2026)"
+    },
+    "typical_tonnage": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official Viking Ocean spec sheet"
+    },
+    "deck_count": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Dossier references Deck 3, 4, 8 (implies \u22658 decks), but official count not verified"
+    },
+    "launch_year": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official Viking Ocean spec sheet"
+    },
+    "refurbishment_dates": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official Viking Ocean spec sheet or cruise industry sources"
+    }
+  },
+  "dining": {
+    "venues_found": {
+      "value": [
+        "World Caf\u00e9",
+        "The Restaurant",
+        "Manfredi's",
+        "The Chef's Table"
+      ],
+      "confidence": "INFERRED",
+      "source": "internal viking_mars.json (seed data from icruise)",
+      "notes": "4 venues documented; field 'specialty_featured' empty in seed"
+    },
+    "specialty_restaurants": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official Viking Ocean specification; Kuklinski lifecycle references ARC4-A preferences (specialty dining) but no details in current dossiers"
+    },
+    "hours_of_operation": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official ship documentation"
+    },
+    "reservation_policy": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Requires official Viking Ocean spec sheet"
+    },
+    "cost_structure": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Included vs specialty; requires official pricing"
+    }
+  },
+  "onboard_credit": {
+    "grant_amounts": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Kuklinski booking shows $400 SBC ($200 Viking + $200 D2M) but per-booking grant not documented",
+      "related_booking": "Kuklinski 3 couples, 9593880 / 9593873 / 9595029"
+    },
+    "transfer_rules": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Whether OBC can be transferred between guests on same booking"
+    },
+    "use_restrictions": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "What the OBC can be used for (dining, excursions, spa, etc.)"
+    },
+    "expiration_policy": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Expiration date or use-by window"
+    }
+  },
+  "excursion_booking": {
+    "booking_window_open": {
+      "value": "Aug 2, 2026 (Kuklinski group)",
+      "confidence": "VERIFIED",
+      "source": "dossier GROUP_Kuklinski_VikingMars_Panama_Dec2026_TRACKER.md",
+      "notes": "Documented suspense calendar shows 'Viking excursion booking window opens Aug 2'"
+    },
+    "booking_cutoff": {
+      "value": "Aug 1, 2026 (Kuklinski) / Sep 23, 2026 (Morton/Dodge)",
+      "confidence": "INFERRED",
+      "source": "dossier suspense calendar (TP 2.1 due day before window)",
+      "notes": "Inferred from 'recs due day prior'; exact cutoff policy not documented"
+    },
+    "booking_methods": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Portal vs phone vs onboard; requires official Viking Ocean spec"
+    },
+    "cancellation_policy": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Refund timeline; requires official Viking Ocean spec"
+    }
+  },
+  "disembarkation": {
+    "embarkation_date": {
+      "value": "Dec 17, 2026",
+      "confidence": "VERIFIED",
+      "source": "dossier GROUP_Kuklinski_VikingMars_Panama_Dec2026_TRACKER.md",
+      "notes": "Panama City embarkation at 3:00 PM"
+    },
+    "disembarkation_date": {
+      "value": "Dec 27, 2026",
+      "confidence": "VERIFIED",
+      "source": "dossier GROUP_Kuklinski_VikingMars_Panama_Dec2026_TRACKER.md",
+      "notes": "Fort Lauderdale disembarkation at 5:00 AM"
+    },
+    "embarkation_procedures": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Check-in windows, document requirements; requires official ship documentation"
+    },
+    "final_day_timeline": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Dining, cabin checkout, muster drill timing; requires official spec"
+    },
+    "luggage_handling": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Luggage tag timeline, deck collection, porterage; requires official spec"
+    }
+  },
+  "specialty_restaurant_policy": {
+    "venue_count": {
+      "value": 4,
+      "confidence": "INFERRED",
+      "source": "internal viking_mars.json dining.restaurants array",
+      "notes": "4 venues listed (World Caf\u00e9, The Restaurant, Manfredi's, The Chef's Table); may not be exhaustive"
+    },
+    "gratuity_policy": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Included or additional; requires official Viking Ocean spec"
+    },
+    "dress_code": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "Formal/casual/smart casual per venue; requires official spec"
+    },
+    "reservation_windows": {
+      "value": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "source": "Not in available internal data",
+      "notes": "How far in advance; first-come-first-serve or advance assignment; requires official spec"
+    }
+  },
+  "guest_reviews": {
+    "average_rating": {
+      "value": 4.6,
+      "confidence": "VERIFIED",
+      "source": "internal viking_mars.json (icruise_seed, Apr 29 2026)",
+      "max_scale": 5.0,
+      "review_count": 318
+    },
+    "category_breakdown": {
+      "cabin": 4.7,
+      "dining": 4.6,
+      "service": 4.7,
+      "entertainment": 4.4,
+      "value": 4.5,
+      "confidence": "VERIFIED",
+      "source": "icruise reviews (Apr 29 2026)",
+      "notes": "318 total reviews; sourced from icruise_seed"
+    }
+  },
+  "onboard_activities": {
+    "activities_found": {
+      "value": [
+        "S.A.L.T. Lab Workshop (10:00)",
+        "Destination Enrichment Lecture (11:30)",
+        "Evening Entertainment Show (21:00)"
+      ],
+      "confidence": "INFERRED",
+      "source": "internal viking_mars.json (onboard_events seed)",
+      "notes": "Sample activities; full schedule requires official Viking Ocean documentation"
+    }
+  }
+}

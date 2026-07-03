@@ -231,19 +231,22 @@ def list_watches(active_only: bool = True) -> dict:
     for wid, w in watches.items():
         if active_only and not w.get("active", True):
             continue
-        price = w["current_price_pp"]
-        baseline = w["baseline_price_pp"]
-        pax = w["passengers"]
-        change = ((price - baseline) / baseline * 100) if baseline else 0
+        price = w.get("current_price_pp")
+        baseline = w.get("baseline_price_pp")
+        pax = w.get("passengers", 2)
+        change = ((price - baseline) / baseline * 100) if (baseline and price is not None) else 0
+
+        price_str = f"${price:,.0f}" if price is not None else "N/A"
+        total_str = f"${price * pax:,.0f} ({pax} pax)" if price is not None else "N/A"
 
         items.append({
             "id": wid,
-            "label": w["label"],
-            "type": w["watch_type"],
-            "provider": w["provider"],
-            "travel_date": w["travel_date"],
-            "price_pp": f"${price:,.0f}",
-            "total": f"${price * pax:,.0f} ({pax} pax)",
+            "label": w.get("label", "?"),
+            "type": w.get("watch_type", "?"),
+            "provider": w.get("provider", "?"),
+            "travel_date": w.get("travel_date") or w.get("outbound_date", ""),
+            "price_pp": price_str,
+            "total": total_str,
             "vs_baseline": f"{change:+.1f}%",
             "last_checked": w.get("last_checked", "never")[:10] if w.get("last_checked") else "never",
             "active": w.get("active", True),

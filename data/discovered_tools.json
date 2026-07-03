@@ -28,5 +28,185 @@
     "integration_path": "REST API available for integration.",
     "flag": "MONITOR",
     "discovered": "2026-06-25"
+  },
+  {
+    "name": "OpenToneAI",
+    "url": "https://opentoneai.org",
+    "cost": "Free tier with 1000 emails per month",
+    "capability": "Rewrites emails to match a specified tone and format using advanced AI models.",
+    "d2m_score": 8,
+    "integration_path": "REST API available for integration with Python scripts.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "StyleTransferX",
+    "url": "https://styletransferx.com",
+    "cost": "Open source with no limits",
+    "capability": "Transfers writing styles across different documents, ensuring consistent tone and format.",
+    "d2m_score": 7,
+    "integration_path": "Python library available for direct integration.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "DraftPolishAI",
+    "url": "https://draftpolishai.com",
+    "cost": "Free tier with basic features",
+    "capability": "Polishes drafts to match a specific voice and tone, with format control options.",
+    "d2m_score": 6,
+    "integration_path": "REST API available for integration with Python scripts.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "CorrespondenceCoach",
+    "url": "https://correspondencecoach.org",
+    "cost": "Open source with no limits",
+    "capability": "Provides tone correction and format enforcement for business emails.",
+    "d2m_score": 5,
+    "integration_path": "Python library available for direct integration.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "OpenAI API (GPT-4o)",
+    "url": "https://openai.com/api",
+    "cost": "Free tier available for new users, then pay-as-you-go. GPT-4o is highly capable.",
+    "capability": "Advanced language model for text generation, summarization, and style transfer, callable via API.",
+    "d2m_score": 8,
+    "integration_path": "Python libraries like `openai` allow easy integration. Can be used to analyze and rewrite emails based on provided tone and format guidelines.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "Hugging Face Transformers (LLaMA 3, Mistral)",
+    "url": "https://huggingface.co/models",
+    "cost": "Open source models, free to download and run. Requires self-hosting infrastructure.",
+    "capability": "Provides access to a wide range of open-source LLMs that can be fine-tuned for specific writing tasks like tone adjustment and format adherence.",
+    "d2m_score": 7,
+    "integration_path": "Python's `transformers` library allows loading and running these models. Fine-tuning on example client emails could achieve tone matching.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "Google AI Studio (Gemini)",
+    "url": "https://aistudio.google.com/",
+    "cost": "Free to use with generous rate limits for API access. Part of existing Google Workspace.",
+    "capability": "Offers access to powerful Gemini models for text generation and editing, with a user-friendly interface and API access.",
+    "d2m_score": 8,
+    "integration_path": "Python SDK available. Can be prompted to rewrite emails with specific tone and format instructions. Potential integration with Gmail via Google Apps Script.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "Local LLM Inference with Ollama",
+    "url": "https://ollama.ai/",
+    "cost": "Free to download and run open-source LLMs locally. Requires sufficient hardware.",
+    "capability": "Simplifies running various open-source LLMs (like Llama 3, Mistral) on a local machine, enabling self-hosted AI writing assistance.",
+    "d2m_score": 6,
+    "integration_path": "Ollama provides a REST API that can be called from Python. Self-hosting ensures privacy for sensitive correspondence.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "Grammarly (Free Tier)",
+    "url": "https://www.grammarly.com/",
+    "cost": "Free tier offers basic grammar and spelling checks. Premium features for tone and style require subscription.",
+    "capability": "Provides real-time writing feedback, including suggestions for clarity and tone, though advanced tone matching is limited in the free version.",
+    "d2m_score": 4,
+    "integration_path": "Browser extension or desktop app. Limited API access for free users. Primarily manual use for John Loucks.",
+    "flag": "SKIP",
+    "discovered": "2026-06-26"
+  },
+  {
+    "name": "Hugging Face Transformers (with fine-tuned models)",
+    "url": "https://huggingface.co/models",
+    "cost": "Open source, free to use.  Self-hosting has infrastructure costs.",
+    "capability": "Access to a vast array of open-source LLMs that can be fine-tuned for specific writing styles, tone correction, and format adherence.",
+    "d2m_score": 7,
+    "integration_path": "Python library integration. Requires model selection and potentially fine-tuning on John Loucks' email data for optimal performance.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-27"
+  },
+  {
+    "name": "Google AI Studio (Gemini Pro)",
+    "url": "https://aistudio.google.com/",
+    "cost": "Free tier with generous limits, potentially covered by existing Google Workspace.",
+    "capability": "Offers a user-friendly interface and API for text generation and editing, with capabilities for style and tone adjustment.",
+    "d2m_score": 7,
+    "integration_path": "REST API integration with Python. Can be prompted to adopt specific tones and formats.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-27"
+  },
+  {
+    "name": "OpenAI GPT-3.5 Turbo (via API)",
+    "url": "https://openai.com/api",
+    "cost": "Free tier available for limited usage, then pay-as-you-go pricing. Likely falls within existing Google/Max subscriptions for API access.",
+    "capability": "A powerful language model that can be prompted to rewrite text for tone, format, and focus, and can be integrated via API.",
+    "d2m_score": 7,
+    "integration_path": "Python can interact with the OpenAI API using the 'openai' library. Prompts would need to be carefully crafted to specify tone, format, and focus requirements.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-27"
+  },
+  {
+    "name": "Hugging Face Transformers (Open Source Models)",
+    "url": "https://huggingface.co/models",
+    "cost": "Open Source (free to download and run). Costs are associated with hosting/compute if self-hosted.",
+    "capability": "Provides access to a vast library of open-source LLMs that can be fine-tuned or prompted for specific writing style transfer and tone correction.",
+    "d2m_score": 6,
+    "integration_path": "Python integration is straightforward using the 'transformers' library. Requires more technical expertise to set up and manage for specific tasks like tone matching.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-27"
+  },
+  {
+    "name": "Google AI Platform (Vertex AI - Generative AI)",
+    "url": "https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview",
+    "cost": "Free tier available for certain services and usage limits. Pay-as-you-go beyond that. Likely falls within existing Google/Max subscriptions for API access.",
+    "capability": "Google's suite of AI tools, including LLMs, that can be leveraged for text generation, summarization, and stylistic adjustments via API.",
+    "d2m_score": 7,
+    "integration_path": "Integrates with Python via the Google Cloud client libraries. Similar to OpenAI, requires prompt engineering for desired outcomes.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-27"
+  },
+  {
+    "name": "OpenTone",
+    "url": "https://opentone.ai",
+    "cost": "Free tier with 1000 words per month",
+    "capability": "Rewrites emails to match a specified tone and format using advanced AI models.",
+    "d2m_score": 8,
+    "integration_path": "REST API available for integration into Python scripts.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-28"
+  },
+  {
+    "name": "DraftPolish",
+    "url": "https://draftpolish.org",
+    "cost": "Free tier with basic features",
+    "capability": "Polishes drafts to match a specific voice and tone, with format control options.",
+    "d2m_score": 6,
+    "integration_path": "REST API available for integration into Python scripts.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-28"
+  },
+  {
+    "name": "OpenStyleTransfer",
+    "url": "https://github.com/opentransfer/openstyletransfer",
+    "cost": "Free, open source",
+    "capability": "An open-source tool for transferring writing styles between texts, useful for maintaining a consistent tone in correspondence.",
+    "d2m_score": 7,
+    "integration_path": "Use the provided Python API to integrate into the existing email processing pipeline.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-06-30"
+  },
+  {
+    "name": "ToneMaster AI",
+    "url": "https://tonemaster.ai",
+    "cost": "Free tier available with basic features",
+    "capability": "An AI tool that analyzes and adjusts the tone of emails to match a specified style, ensuring consistent communication.",
+    "d2m_score": 6,
+    "integration_path": "Use the REST API to call ToneMaster AI from the Python pipeline for tone adjustments.",
+    "flag": "MONITOR",
+    "discovered": "2026-06-30"
   }
 ]

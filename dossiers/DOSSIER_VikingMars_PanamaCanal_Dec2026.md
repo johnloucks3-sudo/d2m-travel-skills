@@ -9,7 +9,23 @@ Route: Panama City (Fuerte Amador) → Panama Canal → Caribbean → Ft. Lauder
 Embarkation: December 17, 2026 — Panama City (Fuerte Amador)
 Disembarkation: December 27, 2026 — Ft. Lauderdale, Florida
 Duration: 10 nights
-Last Updated: March 07, 2026
+Last Updated: June 30, 2026
+
+### ✈️ AIR PRICING — Centrav B2B (searched 2026-06-30)
+
+| Group | Leg | Cabin | Net total | $/pp | Source |
+|-------|-----|-------|-----------|------|--------|
+| **Kyle & Rosalie Kuklinski** (4 pax) | RIC→PTY Dec 16 | Economy | **$3,141** | $785 | Centrav B2B |
+| | FLL→RIC Dec 27 | Economy | **$777** | $194 | Centrav B2B |
+| | **Total RT** | | **$3,918** | **$980** | |
+| **Roger & Dr Nicholas Kuklinski** (2 pax) | RIC→PTY Dec 16 | (share Kyle's outbound routing) |
+| **Erica Dodge / Morton** (2 pax) | RSW→PTY Dec 16 | Economy | **$1,254** | $627 | Centrav B2B |
+| | FLL→RSW return | *(likely drive — ~2 hrs)* | | | |
+
+**Notes:**
+- Amadeus consumer retail was 9–69% higher. Centrav B2B wholesale saves significantly.
+- FLL→RIC return at $194/pp for 4 pax = 69% under Amadeus retail.
+- FPD Mar 31, 2026 — air can be booked separately from cruise.
 
 ────────────────────────────────────────────────────────────
 1. GENERAL TRIP NOTES

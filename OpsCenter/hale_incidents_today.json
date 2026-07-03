@@ -1,15 +1,15 @@
 {
-  "date": "2026-06-25",
+  "date": "2026-07-03",
   "summary": {
-    "auto_healed": 0,
+    "auto_healed": 1,
     "self_repaired": 0,
     "unresolved": 0,
     "elon_proposals_new": 0
   },
   "incidents": [
     {
-      "time": "13:00",
-      "service": "d2m-ita-fare-watch",
+      "time": "08:51",
+      "service": "d2m-brief-telegram",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -17,7 +17,25 @@
       "elon_invoked": false
     },
     {
-      "time": "15:26",
+      "time": "08:51",
+      "service": "alsa-mic-restore",
+      "event_type": "auto_healed",
+      "action": "auto_healed_verified",
+      "status": "GREEN",
+      "note": "auto-heal verified (systemctl is-active: active)",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:51",
+      "service": "d2m-fare-watch-alert",
+      "event_type": "auto_healed",
+      "action": "queued_for_brief",
+      "status": "YELLOW",
+      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:51",
       "service": "thunderbird-silversea-session",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
@@ -26,12 +44,66 @@
       "elon_invoked": false
     },
     {
-      "time": "15:31",
-      "service": "tess-token-keepalive",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
+      "time": "08:52",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...T08:49:47-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:49:47-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:49:47-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T08:49:57-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 11.\n2026-07-03T08:49:57-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:49:57-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:49:57-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "08:58",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...T08:51:50-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:51:50-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:51:50-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T08:52:00-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 12.\n2026-07-03T08:52:00-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:52:00-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:52:00-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:07",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...3T08:59:08-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:59:08-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:59:08-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T08:59:18-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 7.\n2026-07-03T08:59:18-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:59:18-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:59:18-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:07",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...3T08:59:48-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:59:48-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:59:48-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T08:59:58-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 4.\n2026-07-03T08:59:58-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T08:59:58-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T08:59:58-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:10",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...T09:01:51-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T09:01:51-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T09:01:51-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T09:02:01-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 12.\n2026-07-03T09:02:01-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T09:02:01-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T09:02:01-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:27",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...ystemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 1.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T09:06:22-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed to schedule restart job: Unit d2m-tasking-watcher.service is masked.\n2026-07-03T09:06:22-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
+      "elon_invoked": false
+    },
+    {
+      "time": "09:27",
+      "service": "d2m-tasking-watcher",
+      "event_type": "crash_loop",
+      "action": "hale_owns_repair_no_commander_page",
+      "status": "RED",
+      "note": "CRASH LOOP: Tasking Watcher restarted >3x in 10 min. NOT restarting.\nLast journal:\n...ystemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Scheduled restart job, restart counter is at 1.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: Started D2M Thunderbird Bidirectional Tasking Watcher.\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Main process exited, code=exited, status=2/INVALIDARGUMENT\n2026-07-03T09:06:17-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.\n2026-07-03T09:06:22-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed to schedule restart job: Unit d2m-tasking-watcher.service is masked.\n2026-07-03T09:06:22-06:00 yoga systemd[1615]: d2m-tasking-watcher.service: Failed with result 'exit-code'.",
       "elon_invoked": false
     }
   ],

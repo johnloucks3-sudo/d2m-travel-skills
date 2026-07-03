@@ -1,12 +1,14 @@
 {
   "centrav": {
-    "last_check": "2026-06-10T14:42:32.958549+00:00",
-    "status": "UNCLEAR",
-    "detail": "Login incomplete. URL: https://www.centrav.com/login"
-  },
-  "regent": {
-    "last_check": "2026-06-10T14:42:35.713896+00:00",
-    "status": "HEALTHY",
-    "detail": "Session verified at 2026-06-10T08:42:35.713804"
+    "status": "OK",
+    "last_verified": "2026-06-29T13:38:26.572152Z",
+    "cookies": [
+      "trustId07cc8dbd25dcface7c116c80c7289109",
+      "_gat_gtag_UA_84997498_3",
+      "laravel_session",
+      "_ga_BRSGVXC6DN",
+      "_ga",
+      "_gid"
+    ]
   }
 }

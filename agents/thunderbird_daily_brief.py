@@ -483,6 +483,32 @@ def collect_fare_watches() -> tuple[list[dict], list[dict]]:
                 client_fares.append(entry)
 
         # Add global alerts/warnings as synthetic entries
+        # FIX-1 2026-06-27: Surface DARK state when fare-watch ran 0/N or last run >25h ago
+        import datetime as _dt
+        _now = _dt.datetime.now(_dt.timezone.utc)
+        _checked = int(data.get("watches_checked", 0))
+        _total = int(data.get("watches_total", 0))
+        _started = data.get("started_at", "")
+        _hours_since = 999.0
+        try:
+            _ts = _dt.datetime.fromisoformat(_started.replace("Z", "+00:00"))
+            _hours_since = (_now - _ts).total_seconds() / 3600
+        except Exception:
+            pass
+        if _total > 0 and (_checked == 0 or _hours_since > 25):
+            _dark_msg = (
+                f"⚠️ FARE-WATCH DARK — {_checked}/{_total} checked, "
+                f"last run {_hours_since:.0f}h ago. "
+                "Centrav session likely expired. Re-auth: centrav_serve.py"
+            )
+            client_fares.insert(0, {
+                "watch_id": "FARE-WATCH-DARK",
+                "status": "error",
+                "best_fare": "",
+                "error": _dark_msg,
+                "alerts": [],
+            })
+
         for w in warnings:
             client_fares.append({
                 "watch_id": "SYSTEM",

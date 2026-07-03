@@ -400,6 +400,62 @@ def _log(msg: str):
 
 
 
+def _fix_crossed_tags(html: str) -> str:
+    """Fix crossed/nested HTML tag boundaries that Telegram HTML parser rejects.
+
+    Telegram requires strictly nested tags — <b><i>text</i></b> OK,
+    <b><i>text</b></i> → 400 error. This walks the tag stack and
+    inserts missing close tags or removes orphaned closes to restore
+    valid nesting.
+    """
+    VALID_TAGS = {"b", "i", "u", "s", "code", "pre", "blockquote"}
+    result = list(html)
+    stack = []
+    inserts = []
+    removes = []
+
+    i = 0
+    while i < len(html):
+        if html[i] != '<':
+            i += 1
+            continue
+        m = re.match(r'</?(\w+)[^>]*>', html[i:])
+        if not m:
+            i += 1
+            continue
+        full_tag = m.group(0)
+        tag_name = m.group(1).lower()
+        if tag_name not in VALID_TAGS:
+            i += len(full_tag)
+            continue
+        if full_tag.startswith('</'):
+            if stack and stack[-1][0] == tag_name:
+                stack.pop()
+            elif stack:
+                while stack and stack[-1][0] != tag_name:
+                    opened_tag, _ = stack.pop()
+                    inserts.append((i, f"</{opened_tag}>"))
+                if stack:
+                    stack.pop()
+                else:
+                    removes.append((i, i + len(full_tag)))
+            else:
+                removes.append((i, i + len(full_tag)))
+        else:
+            stack.append((tag_name, i))
+        i += len(full_tag)
+
+    removes.sort(key=lambda x: x[0], reverse=True)
+    inserts.sort(key=lambda x: x[0], reverse=True)
+
+    for start, end in removes:
+        del result[start:end]
+    for pos, text in inserts:
+        result.insert(pos, text)
+
+    return ''.join(result)
+
+
 def _sanitize_html(text: str) -> str:
     """Convert Gemini's output to clean Telegram HTML.
 
@@ -410,15 +466,16 @@ def _sanitize_html(text: str) -> str:
     3. Auto-closes unclosed tags (Gemini often forgets)
     4. Strips unsupported HTML tags
     """
-    # Convert markdown bold **text** → <b>text</b>
-    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
-    text = re.sub(r'__(.+?)__', r'<b>\1</b>', text)
-    # Convert markdown italic *text* → <i>text</i>
-    text = re.sub(r'(?<!</b>)\*(.+?)\*(?!<)', r'<i>\1</i>', text)
-    text = re.sub(r'(?<!</)_(.+?)_(?!>)', r'<i>\1</i>', text)
-    # Convert markdown code `text` → <code>text</code>
+    # Convert markdown code `text` → <code>text</code> FIRST
+    # (before bold/italic to prevent * inside backtick spans from crossing tags)
     text = re.sub(r'```(\w*)\n?(.*?)```', r'<pre>\2</pre>', text, flags=re.DOTALL)
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    # Convert markdown bold **text** → <b>text</b>
+    text = re.sub(r'\*\*([^<]+?)\*\*', r'<b>\1</b>', text)
+    text = re.sub(r'__([^<]+?)__', r'<b>\1</b>', text)
+    # Convert markdown italic *text* → <i>text</i>
+    text = re.sub(r'(?<!</b>)\*([^<]+?)\*(?!<)', r'<i>\1</i>', text)
+    text = re.sub(r'(?<!</)_([^<]+?)_(?!>)', r'<i>\1</i>', text)
     # Convert markdown headers ## text → <b>text</b>
     text = re.sub(r'^#{1,6}\s+(.+)$', r'<b>\1</b>', text, flags=re.MULTILINE)
     # Convert markdown links [text](url) → <a href="url">text</a>
@@ -459,6 +516,8 @@ def _sanitize_html(text: str) -> str:
 
     for i, tag in enumerate(tags):
         text = text.replace(f"\x00TAG{i}\x00", tag)
+
+    text = _fix_crossed_tags(text)
 
     return text
 

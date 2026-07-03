@@ -38,12 +38,17 @@ class ClientBot(BotBase):
         Task("tess-sync",
              venv("scripts/tess_dossier_sync.py"),
              interval_sec=43200, timeout_sec=120),   # 2x/day (was daily)
+        Task("fare-watch-amadeus",
+             sys_py("scripts/amadeus_fare_watch.py"),
+             interval_sec=21600, timeout_sec=120,    # every 6h — API, no browser needed
+             allowed_rcs=(0, 2)),                    # rc=2 = alerts found (normal)
         Task("fare-watch",
              sys_py("scripts/fare_watch_centrav.py"),
-             interval_sec=14400, timeout_sec=180),   # every 4h (was daily)
+             interval_sec=14400, timeout_sec=180,    # every 4h — centrav secondary/legacy
+             allowed_rcs=(0, 2, 3)),                 # rc=2=alerts, rc=3=session dead (skip gracefully)
         Task("ita-fare-watch",
              venv("scripts/ita_fare_watch_poll.py"),
-             interval_sec=14400, timeout_sec=600),   # every 4h (was 6h) — serialized, no overlap
+             interval_sec=86400, timeout_sec=600),   # daily only — rate-limited, secondary source
         Task("booking-monitor",
              venv("core/booking/thunderbird_booking_monitor.py"),
              interval_sec=10800, timeout_sec=600),    # every 3h (was 2h) — avoid 2h collision with ita (4h offset)

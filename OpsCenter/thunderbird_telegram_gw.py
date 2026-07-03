@@ -62,6 +62,7 @@ import sys
 import tempfile
 import threading
 import time
+import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
@@ -294,24 +295,30 @@ _PERSONA_CACHE: dict[str, str] = {}
 _thread_ctx = threading.local()  # carries user_id into engine functions without signature changes
 
 BRYANA_EMAIL = "bryanajarboe@gmail.com"
-BRYANA_TRAINEE_PROMPT = """You are Dani Moreau — D2M Luxury Travel Concierge.
-You are speaking with Bryana, a D2M trainee/associate who is learning the luxury cruise business.
+DANI_CLIENT_PROMPT = """You are Dani Moreau — Luxury AI Travel Concierge for Dreams2Memories Travel, LLC.
 
-YOUR ROLE WITH BRYANA:
-- Answer luxury cruise Q&A, ship comparisons, destination questions, booking process questions
-- Help her work through training scenarios and practice trip planning
-- Be warm, educational, and encouraging — she is building her knowledge base
+YOUR ROLE WITH CLIENTS:
+- You are a warm, knowledgeable luxury travel concierge. You help with cruise Q&A, ship comparisons, destination questions, booking processes, and general travel advice.
+- You call clients by name, remember details, and keep responses mobile-friendly (≤4096 chars, scannable).
+- Sign-off: "Thanks" or "Thank you" — NEVER "Best."
 
-HARD LIMITS — DO NOT cross these with Bryana under any circumstances:
-- NEVER mention internal Wing personas by name (Hale, Dembe, Sterling, ELON, etc.) — these are internal only
-- NEVER claim to be routing tasks to other staff or sending anything "to Dembe" or anywhere else
-- NEVER discuss Commander's actual client bookings, dossiers, or financial data
-- NEVER treat Bryana as the Commander or act on operational directives from her
-- NEVER provide access to internal Wing systems, files, or architecture
-- If she asks about something outside your training scope, say: "That's a great question for John directly."
+HARD LIMITS — never cross these:
+- NEVER mention internal Wing personas by name (Hale, Dembe, Sterling, ELON, etc.) — these are internal only.
+- NEVER claim to be routing tasks to other staff or sending anything to anyone.
+- NEVER discuss OTHER clients' bookings, dossiers, or financial data.
+- NEVER provide access to internal Wing systems, files, or architecture.
+- NEVER act on operational directives from a client (e.g. "send John an email saying..."). You are NOT the Commander. You cannot book, hold, commit, or change anything financial.
+- NEVER make financial commitments or promises about pricing, discounts, or upgrades.
 
-You handle the conversation yourself. You do not route. You do not dispatch. You are her training resource."""
+You handle the conversation yourself. You do not route. You do not dispatch. You are D2M's concierge — knowledgeable, warm, and clear about what you can and cannot do."""
 _PERSONA_LOCK = threading.Lock()
+
+# ── Dani session relay state ──────────────────────────────────────────────────────
+_DANI_RELAY_TIMERS: dict[int, threading.Timer] = {}  # chat_id → pending relay timer
+_DANI_RELAY_LOCK = threading.Lock()
+_DANI_SESSION_PTR: dict[int, int] = {}  # chat_id → last relayed exchange index
+_DANI_CLIENT_NAMES: dict[int, str] = {}  # chat_id → captured client name (for relay header)
+# ─────────────────────────────────────────────────────────────────────────────────
 
 
 def _load_persona_cache() -> None:
@@ -1048,8 +1055,8 @@ def _build_dani_claude_prompt(context_text: str, message: str) -> str:
     if is_commander:
         persona = _PERSONA_CACHE.get("dani_system", "")
     else:
-        # Non-Commander user (Bryana or unknown) — trainee mode
-        persona = BRYANA_TRAINEE_PROMPT
+        # Non-Commander user (client or Bryana) — client-facing concierge
+        persona = DANI_CLIENT_PROMPT
 
     parts = []
     if persona:
@@ -2094,6 +2101,27 @@ def handle_message(
     # ── Load context ──────────────────────────────────────────────────────────
     context_text = _format_context(ctx_file)
 
+    # ── Inject pending red-star email context (cleared after one use) ─────────
+    _RED_STAR_PENDING = Path(THUNDERBIRD) / "OpsCenter" / "state" / "red_star_pending.json"
+    if _RED_STAR_PENDING.exists():
+        try:
+            import json as _json
+            _rs = _json.loads(_RED_STAR_PENDING.read_text())
+            _rs_block = (
+                "\n\n[RED STAR PENDING EMAIL CONTEXT]\n"
+                f"Star: {_rs.get('star','')}  Action: {_rs.get('action','')}\n"
+                f"Subject: {_rs.get('subject','')}\n"
+                f"From: {_rs.get('sender','')}\n"
+                f"Date: {_rs.get('date','')}\n"
+                f"Body preview:\n{_rs.get('snippet','')}\n"
+                "[END RED STAR CONTEXT]"
+            )
+            context_text = (context_text + _rs_block) if context_text else _rs_block
+            _RED_STAR_PENDING.unlink()  # consume once
+            log.info("[%s] Red-star context injected and cleared", bot_name)
+        except Exception as _rse:
+            log.warning("red_star_pending load failed: %s", _rse)
+
     # ── Invoke engine ─────────────────────────────────────────────────────────
     log.info("[%s] Invoking engine for: %s...", bot_name, msg[:80])
     start_t = time.time()
@@ -2163,11 +2191,17 @@ def handle_message(
     # ── Save to rolling context ───────────────────────────────────────────────
     # Use first 800 chars of response to keep context compact
     response_snippet = raw_response[:800].strip()
+    # Use client identity for non-Commander Dani conversations
+    if bot_name == "Dani" and user_id != COMMANDER_ID:
+        client_name = _DANI_CLIENT_NAMES.get(chat_id, f"User-{chat_id}")
+        user_label = client_name
+    else:
+        user_label = "Commander"
     _append_exchange(
         ctx_file,
         user_msg=msg,
         assistant_msg=response_snippet,
-        user_label="Commander",
+        user_label=user_label,
         assistant_label=assistant_label,
     )
 
@@ -2178,6 +2212,66 @@ def handle_message(
         except Exception:
             pass
 
+    # Dani client-chat session relay: schedule/refresh 120s inactivity timer
+    if bot_name == "Dani" and user_id != COMMANDER_ID:
+        _schedule_dani_session_relay(chat_id, delay=120.0)
+
+
+# ── Dani session relay ────────────────────────────────────────────────────────────
+
+
+def _relay_dani_session(chat_id: int, last_n: int = 3) -> None:
+    """Relay last N Dani-client exchanges from context_dani.json to D2MC2C."""
+    try:
+        if not CTX_DANI.exists():
+            return
+        lock = _CTX_LOCKS.get(CTX_DANI, threading.Lock())
+        with lock:
+            exchanges = json.loads(CTX_DANI.read_text())
+        if not exchanges:
+            return
+
+        with _DANI_RELAY_LOCK:
+            ptr = _DANI_SESSION_PTR.get(chat_id, 0)
+            new_exchanges = exchanges[ptr:]
+            if not new_exchanges:
+                return
+            _DANI_SESSION_PTR[chat_id] = len(exchanges)
+
+        client_name = _DANI_CLIENT_NAMES.get(chat_id, f"User-{chat_id}")
+
+        lines = [
+            f"⏰ <b>Dani Session Relay (client: {html.escape(client_name)})</b>",
+            f"<i>Session ended — relaying {len(new_exchanges)} recent exchange(s)</i>",
+        ]
+        for ex in new_exchanges:
+            user_part = html.escape(str(ex.get("user_msg", "")))
+            asst_part = html.escape(str(ex.get("assistant_msg", "")))[:500]
+            lines.append(f"\n<b>Client:</b> {user_part}")
+            lines.append(f"\n<b>Dani:</b> {asst_part}")
+
+        body = "\n".join(lines)
+        for chunk in fmt_process(body, CHUNK_SIZE):
+            tg_send(TOKEN_D2MC2C, RELAY_CHAT_ID, chunk)
+    except Exception as e:
+        log.warning("Dani session relay failed (chat_id=%s): %s", chat_id, e)
+
+
+def _schedule_dani_session_relay(chat_id: int, delay: float = 120.0) -> None:
+    """Schedule or reset a Dani session-end relay timer.
+
+    Cancels any existing timer for this chat_id, then sets a new one.
+    Uses a threading.Lock to guard the shared timer dict.
+    """
+    with _DANI_RELAY_LOCK:
+        existing = _DANI_RELAY_TIMERS.get(chat_id)
+        if existing is not None:
+            existing.cancel()
+        t = threading.Timer(delay, _relay_dani_session, args=(chat_id,))
+        t.daemon = True
+        _DANI_RELAY_TIMERS[chat_id] = t
+        t.start()
+
 
 # ── Engine function wrappers (match handle_message signature) ─────────────────
 
@@ -2185,6 +2279,8 @@ def handle_message(
 def hale_claude_engine(
     context_text: str, message: str, model_override: str | None
 ) -> str:
+    # Telegram always uses headless Claude with full MCP tools.
+    # FREE_MODEL_MODE applies to background tasks only (incubator, scans, intel).
     prompt = _build_hale_claude_prompt(context_text, message)
     # Haiku default for Telegram C2 chat — Sonnet auto-escalates via keyword routing
     model = model_override or HAIKU_MODEL
@@ -2270,6 +2366,15 @@ def bot_poll_loop(
                 # (full Telegram metadata) for verified_directive cross-check.
                 if user_id == COMMANDER_ID:
                     _capture_commander_source(msg_obj)
+                else:
+                    # Dani client identity capture — store name for session relay
+                    if bot_name == "Dani":
+                        from_info = msg_obj.get("from", {}) or {}
+                        first_name = from_info.get("first_name", "") or ""
+                        last_name = from_info.get("last_name", "") or ""
+                        uname = from_info.get("username", "") or ""
+                        display = first_name or last_name or uname or f"User-{user_id}"
+                        _DANI_CLIENT_NAMES[chat_id] = display
 
                 # Dispatch in a thread so we don't block the poll loop
                 if msg_obj.get("voice"):
@@ -2638,6 +2743,15 @@ def main() -> None:
 
     active = len([b for b in bot_configs if b["token"]])
     log.info("%d bot threads running. Gateway v2.0 LIVE.", active)
+
+    # Startup sweep — warn if Dani context has stale exchanges (prior process)
+    try:
+        if CTX_DANI.exists():
+            stale = len(json.loads(CTX_DANI.read_text()))
+            if stale > 0:
+                log.warning("Dani context has %d stale exchanges from prior process", stale)
+    except Exception as _se:
+        log.warning("Dani context startup sweep failed: %s", _se)
 
     # Keep main thread alive — monitor worker threads.
     # M-153 liveness fix: a dead poll thread = that bot is SILENTLY dead while

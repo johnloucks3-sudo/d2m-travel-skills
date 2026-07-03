@@ -11,7 +11,7 @@ Use poe_call.py instead:
 Model mapping:
   deepseek (was deepseek-v3.1) → deepseek-v3.2 via Poe
   grok     (was grok-4.1-fast) → grok-4.1-fast-non-reasoning via Poe
-  r1       (was deepseek-r1)   → deepseek-r1-di via Poe
+   r1       (was deepseek-r1)   → deepseek-v4-flash-e via Poe
   gemma-3  (was free OR)       → gemma-4-31b via Poe
 
 Available model keys (OpenRouter — NO LONGER ACTIVE):
@@ -33,7 +33,7 @@ _POE = os.path.join(os.path.dirname(__file__), "poe_call.py")
 _MODEL_MAP = {
     "deepseek": "deepseek", "deepseek-chat": "deepseek",
     "grok": "grok",
-    "r1": "r1", "deepseek-r1": "r1",
+    "r1": "r1", "deepseek-r1": "r1", "deepseek-v4-flash": "r1",
     "gemma-3": "deepseek",  # no Gemma-3; deepseek is the closest free-tier equiv
     "nemotron": "deepseek",
 }

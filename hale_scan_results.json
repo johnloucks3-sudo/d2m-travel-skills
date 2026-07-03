@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T01:00:00.077728",
+  "timestamp": "2026-07-03T01:00:00.683819",
   "scans": {
     "deadline_radar": [],
     "stale_tasks": [
@@ -7,57 +7,71 @@
         "type": "stale_task",
         "mission_id": "MISSION-SEC-05",
         "title": "Rotate burned credentials pushed to GitHub \u2014 runbook Tier 2",
-        "age_hours": 181.0,
+        "age_hours": 373.0,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-214",
         "title": "Regent Portal On-Demand",
-        "age_hours": 99.6,
+        "age_hours": 291.6,
         "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-236",
         "title": "Manual Regent OA re-authentication to restore B2B portal coverage",
-        "age_hours": 59.4,
-        "priority": "MEDIUM"
+        "age_hours": 251.4,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-310",
         "title": "COMMANDER: set provider",
-        "age_hours": 59.2,
-        "priority": "MEDIUM"
+        "age_hours": 251.2,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-314",
         "title": "COMMANDER: backup crypt",
-        "age_hours": 59.2,
-        "priority": "MEDIUM"
+        "age_hours": 251.2,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-317",
         "title": "Call United Group Desk \u2014 Spencer DEN-FCO 12-pax air quote",
-        "age_hours": 59.7,
-        "priority": "MEDIUM"
-      },
-      {
-        "type": "stale_task",
-        "mission_id": "MISSION-322",
-        "title": "Fix MISSION-SEC-01 \u2014 apex d2mluxury.quest DNS 525 error",
-        "age_hours": 59.7,
-        "priority": "MEDIUM"
+        "age_hours": 251.7,
+        "priority": "HIGH"
       },
       {
         "type": "stale_task",
         "mission_id": "MISSION-323",
         "title": "Burcham destination clarification \u2014 Commander touch before Wing invests",
-        "age_hours": 59.7,
-        "priority": "MEDIUM"
+        "age_hours": 251.7,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-806",
+        "title": "Commander: fix apex d2mluxury.quest DNS 525 via Cloudflare dashboard",
+        "age_hours": 150.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-807",
+        "title": "Establish signal/noise ratio metric for daily intel protocol",
+        "age_hours": 150.9,
+        "priority": "HIGH"
+      },
+      {
+        "type": "stale_task",
+        "mission_id": "MISSION-820",
+        "title": "Restore Regent portal cookies (direct + OA) for McLeod FPD prep",
+        "age_hours": 110.3,
+        "priority": "HIGH"
       }
     ],
     "staff_gaps": [],
@@ -65,7 +79,7 @@
     "conflict_detection": [
       {
         "type": "priority_conflict",
-        "issue": "9 active missions may indicate priority overload",
+        "issue": "20 active missions may indicate priority overload",
         "priority": "MEDIUM"
       }
     ]

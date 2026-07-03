@@ -212,3 +212,109 @@ TP-ALERT-20260624 — TP Alert Engine ran 2026-06-24 at 18:00 MT — 52 high-sev
 **Action taken:** TP-ALERT-20260624 → COMPLETE 2026-06-24T18:XX:XXZ. Full acknowledgment written here. Results emailed to Commander.
 
 **Next:** Standing by for new tasking.
+
+---
+## WC-20260626-0001 — WATCHER DISPATCH T2-COMMS-BUILD-20260518 — 2026-06-26T21:10:00Z
+**Processed by:** HALE-OC (OpenCode / JET)
+**Inbox scan:** 607 sections scanned. 1 actionable task found and executed.
+
+**EXECUTED:**
+  ✅ RELAY-499b9b39 (UNREAD → COMPLETE 2026-06-26T21:10:00Z)
+     POST-COMMIT 10675955b: feat(price-fetcher): activate Perplexity sonar in multi_search — 3-source pipeline live
+     1 file changed, 6 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+     Action: Acknowledged. Perplexity sonar now active as a 3rd source in multi_search price pipeline. Informational relay — no further execution required.
+
+**Status:** Inbox clear as of 2026-06-26T21:10:00Z. Commander notified via C2 email.
+
+---
+## WC-20260626-WATCHER — T2-COMMS-BUILD-20260518 Dispatch
+**Time:** 2026-06-26T21:15:00Z
+**By:** HALE-OC (OpenCode)
+**Inbox scan:** 611 blocks reviewed
+**Actionable:** 1 (RELAY-780d63cb — UNREAD)
+**False positives excluded:** 0
+
+**EXECUTED:**
+  · RELAY-780d63cb → COMPLETE 2026-06-26T21:15:00Z
+    Post-commit relay from CC acknowledged.
+    Commit bd1988574: feat(price-fetcher): activate XAI Grok-3 — 4-source search pipeline complete
+    1 file changed, 6 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+    Action: Acknowledged. XAI Grok-3 now active as 4th source in price-fetcher multi_search pipeline. Informational relay — no further execution required.
+
+**Status:** Inbox clear as of 2026-06-26T21:15:00Z. Commander notified via C2 email.
+
+---
+## WC-20260626-WATCHER — 2026-06-26T21:15:00Z
+from: HALE-OC (OpenCode) — Watcher Dispatch T2-COMMS-BUILD-20260518
+type: WATCHER_DISPATCH_RESULT
+
+INBOX SWEEP COMPLETE — 2026-06-26T21:15:00Z
+- Entries scanned: 439
+- Actionable found: 1
+
+PROCESSED:
+  · RELAY-df3df091 (UNREAD → COMPLETE)
+    POST-COMMIT 97866ed4d: feat(ui): add Oceania to D2M partners, gold-fill toggle button
+    1 file changed, 5 ins(+), 4 del(-) | author: Claude Haiku 4.5
+    Action: Acknowledged, logged.
+
+STATUS: All clear. 0 failures.
+
+---
+## WATCHER-DISPATCH — T2-COMMS-BUILD-20260518 — 2026-06-26T21:30:00Z
+from: Hale-CC (OpenCode/VCS)
+to: Commander / Wing
+
+INBOX SCAN RESULTS:
+  - Total actionable (PENDING/UNREAD/ACTIVE-CRITICAL/FLAGGED-OVERDUE): 1
+  - Tasks processed: 1
+  - Failures: 0
+
+TASKS EXECUTED:
+  ✅ RELAY-2a0f259f — [POST-COMMIT] 09485396f: fix(ui): resolve all Dani P0/P1 QA findings on cruise discovery tool
+     1 file changed, 34 insertions(+), 15 deletions(-) | author: Claude Haiku 4.5
+     Action: Acknowledged, logged. Status: UNREAD → COMPLETE
+
+STATUS: All clear. 0 failures.
+
+---
+## WC-20260627-WATCHER — 2026-06-27T04:48:00Z
+type: WATCHER-DISPATCH-RESULT
+exercise: T2-COMMS-BUILD-20260518
+from: HALE-OC (OpenCode / JET)
+to: WING / COMMANDER
+
+INBOX SWEEP — 2026-06-27T04:48:00Z
+  Lines scanned: 5346 | Actionable: 1 | Processed: 1
+
+TASK EXECUTED:
+  ✅ RELAY-0f02051a (UNREAD → COMPLETE 2026-06-27T04:48:00Z)
+     Commit: d926c5072
+     Message: feat(drafts): add Grandeur per-couple itinerary preview builder script
+     Stat: 1 file changed, 247 insertions(+) | author: Claude Haiku 4.5
+     Action: Informational post-commit relay acknowledged. No execution required.
+
+EMAIL DISPATCHED: johnloucks3@gmail.com
+  Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED
+
+
+---
+## 2026-07-02T14:26:00Z — WATCHER-DISPATCH-EMAIL-CHAT-RESURRECT-20260629 — COMPLETE
+
+**Hale-OC (OpenCode)** processed watcher dispatch at 2026-07-02T14:26:00Z.
+
+**Tasks processed:** 95 (94 UNREAD + 1 PLAN — EMAIL-CHAT-RESURRECT-20260629)
+
+**EMAIL-CHAT-RESURRECT-20260629 findings:**
+- Pattern: `dani` already in `run_commander_directive_sweep.py:53` ✅
+- CHAT_MODE=True: all johnloucks3 emails trigger reply ✅  
+- Reply path: `dispatch_and_email.py` functional ✅
+- **Timer created:** `d2m-commander-directive-sweep.timer` — every 5 min — ACTIVE ✅
+- Log: `logs/commander_directive_sweep.log` — last run clean (13:39 UTC)
+- d2mconcierge token: intermittent ConnectionReset (non-fatal)
+
+**94 RELAY/CC-REPLY tasks:** acknowledged, all informational post-commit relays.
+
+**Infra note:** `d2m-red-star-scanner.timer` also missing — out of scope per task.
+
+**Email dispatched:** johnloucks3@gmail.com — Subject: Re: T2 EXERCISE — STATUS UPDATE FROM HALE-CC (VCS) — COMPLETED

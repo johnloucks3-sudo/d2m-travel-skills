@@ -134,7 +134,80 @@ def main() -> int:
         for w in result["warnings"]:
             logger.warning("  %s", w)
 
+    # FIX-8 2026-06-27: Anansi fallback when Centrav auth fails — degraded-not-blind
+    if ok == 0 and total > 0:
+        auth_errors = [
+            e for e in result.get("errors", [])
+            if "auth" in str(e.get("error", "")).lower() or "session expired" in str(e.get("error", "")).lower()
+        ]
+        if auth_errors:
+            logger.info("Centrav auth dead — triggering Anansi fallback for %d flight watches", total)
+            try:
+                _run_anansi_fallback(result)
+            except Exception as exc:
+                logger.warning("Anansi fallback failed (non-fatal): %s", exc)
+
     return 0
+
+
+def _run_anansi_fallback(centrav_result: dict) -> None:
+    """FIX-8 2026-06-27: When Centrav is dead, query Anansi for flight price estimates.
+    Records results with source='inferred' so the DB stays populated and the brief
+    shows degraded-but-not-blind status rather than 0/N checked."""
+    import sqlite3
+    import subprocess
+
+    DB_PATH = _TB / "core" / "fare_watch" / "fare_watch.db"
+    LAST_CHECK = _TB / "OpsCenter" / "fare_watches" / "last_check.json"
+
+    con = sqlite3.connect(str(DB_PATH))
+    watches = con.execute(
+        "SELECT id, label, route, travel_date, passengers, baseline_price_pp "
+        "FROM fare_watches WHERE watch_type='flight' AND status IN ('active','triggered')"
+    ).fetchall()
+    con.close()
+
+    fallback_results = {}
+    now_str = datetime.now().isoformat()
+
+    for (watch_id, label, route, travel_date, passengers, baseline) in watches:
+        query = (
+            f"cheapest economy flights {route} on {travel_date} "
+            f"for {passengers} passengers round trip price per person USD"
+        )
+        logger.info("  Anansi fallback: %s (%s)", watch_id, route)
+        try:
+            proc = subprocess.run(
+                ["anansi", query],
+                capture_output=True, text=True, timeout=30,
+                cwd=str(_TB)
+            )
+            snippet = (proc.stdout or "").strip()[:500]
+            fallback_results[watch_id] = {
+                "status": "fallback",
+                "source": "anansi",
+                "query": query,
+                "snippet": snippet,
+                "note": "FALLBACK — Centrav dead; price is web estimate, not B2B fare",
+                "checked_at": now_str,
+            }
+            logger.info("    → %s", snippet[:120] if snippet else "(no output)")
+        except Exception as exc:
+            fallback_results[watch_id] = {"status": "fallback_error", "error": str(exc)}
+            logger.warning("    Anansi failed for %s: %s", watch_id, exc)
+
+    # Merge fallback results into last_check.json so brief sees them
+    try:
+        existing = json.loads(LAST_CHECK.read_text()) if LAST_CHECK.exists() else {}
+        existing.setdefault("results", {}).update(fallback_results)
+        existing["fallback_anansi"] = True
+        existing["fallback_at"] = now_str
+        existing["watches_checked"] = len([r for r in existing["results"].values()
+                                           if r.get("status") not in ("auth_error", "error")])
+        LAST_CHECK.write_text(json.dumps(existing, indent=2))
+        logger.info("Anansi fallback: %d results written to last_check.json", len(fallback_results))
+    except Exception as exc:
+        logger.warning("Failed to write Anansi fallback to last_check.json: %s", exc)
 
 
 if __name__ == "__main__":

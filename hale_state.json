@@ -169,7 +169,7 @@
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 252
+      "active": 11
     },
     "DEM": {
       "last_seen": false,
@@ -192,8 +192,8 @@
       "active": 0
     },
     "VIC": {
-      "last_seen": true,
-      "active": 1
+      "last_seen": false,
+      "active": 0
     },
     "PAD": {
       "last_seen": false,
@@ -201,7 +201,7 @@
     },
     "ELON": {
       "last_seen": true,
-      "active": 13
+      "active": 2
     }
   },
   "brain_routing_log": [
@@ -250,6 +250,13 @@
     {
       "ts": "2026-07-01T05:30:06.259814-06:00",
       "task": "Write a lifecycle touchpoint email for this client:\nClient: Erik McLeod & Melissa McGlasson\nTP: TP-4",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 0.0
+    },
+    {
+      "ts": "2026-07-02T05:30:02.111605-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: TP-1.4 \u2014 Voyage Comin",
       "brain": "Brain 2 (Sonnet)",
       "reason": "Commander override: SONNET",
       "elapsed": 0.0

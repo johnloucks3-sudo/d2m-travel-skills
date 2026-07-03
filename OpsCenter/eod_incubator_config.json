@@ -23,7 +23,7 @@
     "topic": "Email Scanner Ground-Up Redesign",
     "injected": "2026-06-28",
     "priority": "P0",
-    "brief": "The current email scanner (thunderbird_email_intel.py) is dead — killed 2026-06-28. Research architectures for a zero-model or free-model email processing pipeline. Requirements: (1) alert Commander via Telegram when D2M-relevant email arrives, (2) NO paid model calls in the background loop, (3) rule-based classification first (sender whitelist, subject keywords), (4) optional on-demand AI processing triggered manually by Commander. Research: Gmail watch push notifications vs polling, filter-first vs classify-first, sender-based routing. Deliverable: design doc + recommended implementation.",
+    "brief": "The current email scanner (thunderbird_email_intel.py) is dead \u2014 killed 2026-06-28. Research architectures for a zero-model or free-model email processing pipeline. Requirements: (1) alert Commander via Telegram when D2M-relevant email arrives, (2) NO paid model calls in the background loop, (3) rule-based classification first (sender whitelist, subject keywords), (4) optional on-demand AI processing triggered manually by Commander. Research: Gmail watch push notifications vs polling, filter-first vs classify-first, sender-based routing. Deliverable: design doc + recommended implementation.",
     "search_angles": [
       "Gmail push notifications vs polling for real-time alerts",
       "Rule-based email classification without LLM",
@@ -40,5 +40,5 @@
   "nomination_time": "17:30",
   "execute_window_minutes": 5,
   "last_updated": "2026-06-19",
-  "last_nomination_sent": "2026-06-28T16:20:20.901503"
+  "last_nomination_sent": "2026-07-02T23:30:03.604023"
 }

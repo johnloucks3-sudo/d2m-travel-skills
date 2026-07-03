@@ -1,0 +1,31 @@
+{
+  "handoff_from": "claude-code",
+  "handoff_to": "opencode",
+  "timestamp": "2026-06-26T20:05:00-06:00",
+  "systems": [
+    "keyword_auto_router.py",
+    "excursion_planner_unified.html",
+    "excursion_planner_sync_protocol",
+    "free_model_router (Groq, Cerebras, GitHub, Ollama)",
+    "hale_bus_handoff.py inter-instance communication"
+  ],
+  "status": "LIVE",
+  "next_phase": [
+    "Kuklinski Viking Mars planner deployment (ETA 2026-06-30)",
+    "Furlow/Ely/Nichols group planner (ETA 2026-07-05)",
+    "McLeod multi-voyage consolidation (ETA 2026-07-15)",
+    "Monitor keyword router efficacy metrics"
+  ],
+  "handoff_protocol": {
+    "opencode_claim": "OpenCode claims work via hale_bus.claim_work('opencode', 'excursion-planner-suite')",
+    "state_transfer": "All session state in hale_bus_state.json — OpenCode loads on startup",
+    "sendback_to_cc": "If CC needed: hale_bus.release_work('opencode', 'excursion-planner-suite', results) → CC loads on next session",
+    "shared_state": "/home/john/Thunderbird/core/hale_bus/hale_bus_state.json"
+  },
+  "watch_list": [
+    "localStorage sync timing (target: 500ms debounce)",
+    "Keyword router classification accuracy",
+    "Free model provider fallback chain",
+    "Voyage data bootstrap from sessionStorage"
+  ]
+}

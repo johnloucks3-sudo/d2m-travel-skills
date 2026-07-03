@@ -34,20 +34,20 @@ from dotenv import load_dotenv
 _TB_ROOT = Path(__file__).parent.parent.parent
 load_dotenv(_TB_ROOT / ".env")
 
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-if not OPENROUTER_API_KEY:
-    print("ERROR: OPENROUTER_API_KEY not set", file=sys.stderr)
+XAI_API_KEY = os.environ.get("XAI_API_KEY", "")
+if not XAI_API_KEY:
+    print("ERROR: XAI_API_KEY not set", file=sys.stderr)
     sys.exit(1)
 
 GROK_MODEL = "x-ai/grok-4.3"
-OPENROUTER_BASE = "https://openrouter.ai/api/v1/chat/completions"
+XAI_BASE = "https://api.xai.com/v1/chat/completions"
 INTEL_DIR = _TB_ROOT / "core" / "intel" / "intel"
 OUTPUT_DIR = _TB_ROOT / "output"
 INTEL_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 HEADERS = {
-    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+    "Authorization": f"Bearer {XAI_API_KEY}",
     "HTTP-Referer": "https://dreams2memories.com",
     "X-Title": "Thunderbird Wing Twitter OSINT",
     "Content-Type": "application/json",
@@ -161,7 +161,7 @@ def _call_grok(topic: dict, max_tokens: int = 800, thread_harvest: bool = False)
 
     try:
         resp = requests.post(
-            OPENROUTER_BASE,
+            XAI_BASE,
             headers=HEADERS,
             json=payload,
             timeout=60,

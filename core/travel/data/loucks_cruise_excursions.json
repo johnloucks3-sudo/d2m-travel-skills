@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-06-23T15:10:16.177596",
+  "scanned_at": "2026-07-02T12:48:40.278139",
   "sources": [
     "Shore Excursions Group",
     "ToursByLocals (gap ports, quote-priced)"
@@ -226,7 +226,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Walking Tour",
-          "reviews": 47,
+          "reviews": 48,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1448,7 +1448,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Culinary / Food",
-          "reviews": 275,
+          "reviews": 276,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1461,7 +1461,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 27,
+          "reviews": 29,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1487,7 +1487,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 58,
+          "reviews": 59,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",

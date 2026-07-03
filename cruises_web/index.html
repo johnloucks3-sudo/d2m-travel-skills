@@ -763,9 +763,11 @@ function renderGrid(results) {
     var multiStar = r.multi ? '<span class="multi-star" title="Confirmed by 2+ sources">✦</span>' : '';
     var route = (r.route || '').replace(/^[A-Z]{2}\d+\s*/,'');
     var siteUrl = LINE_URLS[r.line] || '';
-    var bookLink = siteUrl
-      ? '<a class="result-book" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" title="Visit ' + escH(r.line) + ' website" onclick="event.stopPropagation()">Visit line site ↗</a>'
-      : '';
+    var bookLink = r.booking_url
+      ? '<a class="result-book" href="' + escH(r.booking_url) + '" target="_blank" rel="noopener" title="' + escH(r.booking_label || 'View sailing details') + '" onclick="event.stopPropagation()">View itinerary ↗</a>'
+      : (siteUrl
+        ? '<a class="result-book" href="' + escH(siteUrl) + '" target="_blank" rel="noopener" title="Visit ' + escH(r.line) + ' website" onclick="event.stopPropagation()">Visit line site ↗</a>'
+        : '');
 
     return '<div class="result-card' + (r.multi ? ' multi' : '') + '" id="rc-' + r.id + '">' +
       '<div class="result-meta">' +

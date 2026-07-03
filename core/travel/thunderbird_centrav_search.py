@@ -38,6 +38,7 @@ SESSION_FILE = THUNDERBIRD / "core" / "travel" / "data" / "centrav_session.json"
 ALT_COOKIES = THUNDERBIRD / "creds" / "centrav_cookies.json"
 DATA_DIR = THUNDERBIRD / "core" / "travel" / "data"
 OUTPUT_DIR = THUNDERBIRD / "output"
+PROFILE_DIR = THUNDERBIRD / "core" / "travel" / "data" / "centrav_ff_profile"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -477,16 +478,21 @@ async def run_centrav_search(
     }
 
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
+        context = await pw.firefox.launch_persistent_context(
+            str(PROFILE_DIR),
             headless=True,
-            args=["--no-sandbox", "--disable-blink-features=AutomationControlled",
-                  "--disable-dev-shm-usage"],
-        )
-        context = await browser.new_context(
+            args=["--no-sandbox"],
             viewport={"width": 1440, "height": 900},
-            user_agent=_UA,
             locale="en-US",
         )
+
+        # Supplement with stored cookies from session file
+        cookies = _build_playwright_cookies()
+        if cookies:
+            try:
+                await context.add_cookies(cookies)
+            except Exception:
+                pass
 
         session_ok = await _check_session_live(context)
         if not session_ok:
@@ -501,7 +507,7 @@ async def run_centrav_search(
                 "Re-authenticate manually: "
                 "python3 scripts/centrav_flights.py --centrav-login --headless false"
             )
-            await browser.close()
+            await context.close()
             return output
 
         for cabin in cabins:
@@ -520,8 +526,7 @@ async def run_centrav_search(
         except Exception:
             pass
 
-        await browser.close()
-
+        await context.close()
     return output
 
 
@@ -533,11 +538,20 @@ async def check_session_only() -> dict:
         return {"valid": False, "error": "playwright not installed"}
 
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True,
-                                           args=["--no-sandbox", "--disable-dev-shm-usage"])
-        context = await browser.new_context(user_agent=_UA)
+        context = await pw.firefox.launch_persistent_context(
+            str(PROFILE_DIR),
+            headless=True,
+            args=["--no-sandbox"],
+        )
+        # Supplement with stored cookies
+        cookies = _build_playwright_cookies()
+        if cookies:
+            try:
+                await context.add_cookies(cookies)
+            except Exception:
+                pass
         valid = await _check_session_live(context)
-        await browser.close()
+        await context.close()
 
     cookies = _build_playwright_cookies()
     return {

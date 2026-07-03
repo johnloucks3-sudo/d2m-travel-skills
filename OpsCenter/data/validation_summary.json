@@ -1,12 +1,12 @@
 {
-  "generated": "2026-06-21T21:33:23.690355Z",
+  "generated": "2026-06-29T02:12:00.611665Z",
   "clients": [
     {
       "client_id": "furlow_john_melissa",
       "client_names": "John & Melissa Furlow",
       "departure": "2026-08-29",
       "completion_pct": 88.9,
-      "risk_score": 77.62,
+      "risk_score": 69.74,
       "risk_level": "MEDIUM",
       "missing_count": 1,
       "report_path": "/home/john/Thunderbird/OpsCenter/validations/2026-06/furlow_john_melissa_validation.html"
@@ -16,7 +16,7 @@
       "client_names": "Kyle & Rosalie Kuklinski + Roger & Dr Nicholas Kuklinski + Joshua Morton & Erica Dodge",
       "departure": "2026-12-17",
       "completion_pct": 36.1,
-      "risk_score": 495.84,
+      "risk_score": 476.45,
       "risk_level": "HIGH",
       "missing_count": 9,
       "report_path": "/home/john/Thunderbird/OpsCenter/validations/2026-06/kuklinski_kyle_group_validation.html"
@@ -26,7 +26,7 @@
       "client_names": "John & Susan Loucks",
       "departure": "2026-12-29",
       "completion_pct": 75.0,
-      "risk_score": 254.67,
+      "risk_score": 245.33,
       "risk_level": "HIGH",
       "missing_count": 0,
       "report_path": "/home/john/Thunderbird/OpsCenter/validations/2026-06/loucks_grandeur_3122006_validation.html"
@@ -36,7 +36,7 @@
       "client_names": "John & Susan Loucks",
       "departure": "2027-05-05",
       "completion_pct": 75.0,
-      "risk_score": 424.0,
+      "risk_score": 414.67,
       "risk_level": "HIGH",
       "missing_count": 0,
       "report_path": "/home/john/Thunderbird/OpsCenter/validations/2026-06/loucks_silver_nova_2027_validation.html"
@@ -46,7 +46,7 @@
       "client_names": "Nancy & Ken Lyons",
       "departure": "2026-08-09",
       "completion_pct": 72.2,
-      "risk_score": 67.87,
+      "risk_score": 58.17,
       "risk_level": "HIGH",
       "missing_count": 4,
       "report_path": "/home/john/Thunderbird/OpsCenter/validations/2026-06/lyons_nancy_ken_validation.html"

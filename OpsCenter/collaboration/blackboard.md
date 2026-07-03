@@ -1,138 +1,89 @@
-# THUNDERBIRD BLACKBOARD — HALE ↔ WING COMMUNICATION CHANNEL
-# CC (Hale) writes HALE→OC. OC writes OC→HALE. Both read at session start.
-# Auto-status section updated by blackboard_sync.py.
-# Updated: 2026-06-01 | Architecture: 5-Persona (SO-2026-05-30)
 
----
+## Morning Intel Brief - Airline Route Monitoring Sweep (URGENT - Communication Failure)
 
-## AUTO-STATUS [updated by blackboard_sync.py]
+**Timestamp:** 2026-06-27T01:40:22.926910
 
-```
-=== THUNDERBIRD BLACKBOARD [2026-06-01 08:46 MT] ===
-Budget: Claude UNKNOWN | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN | Poe:675,320pts($20.46)
-Active tasks: 0
-Last Deepseek ruling: NONE
-Open items: none logged
-Next priority: check session_autosave_latest.md
-Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
-Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
-Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
-================================================
-```
+Commander,
 
----
+Roger — Completed the two-step airline route monitoring sweep as directed. Below is a summary of the findings:
 
-## HALE → OC (Claude Code writes here — OC reads at session start)
+**1. Airline Route Change Scan & Client Impact Analysis:**
 
-**Last updated:** 2026-06-01
+*   **Articles Scanned:** 24
+*   **Route Change Articles:** 24
+*   **Client Impacts Detected:** 9
+*   **Critical Impacts:** 9
 
-**Current Wing state:**
-- 5-Persona restructure approved and active (SO-2026-05-30)
-- AGENTS.md created — OC now auto-loads Wing context every session
-- OAuth token: EXPIRED — run token refresh before Gmail MCP calls
-- WF-17 queue: 5 drafts staged (Kuklinski x4, Nichols x1) — Commander review pending
-- McLeod departure 18 Jun — 17 days out — escalation posture needed
+**2. Client Impacts Detected:**
 
-**OC priorities this session:**
-1. Check token status: `systemctl --user status claude-oauth-keepalive.timer`
-2. Run mission board: `python3 OpsCenter/mission_board_sync.py list`
-3. Report status as Hale with 🦅
+Critical impacts were detected for the following clients related to route changes and news impacting their tracked airports (SEA and DEN) and relevant airlines:
 
-**Capabilities available in CC (Claude Code) — call via /ask:**
-- Full MCP suite: Gmail (d2mconcierge + johnloucks3), Google Drive, Calendar, Playwright browser
-- Skills: /email-draft, /trip-validation, /itinerary, /cruise-research, /flight-price, /hotel-price
-- Subagents: Sterling (A7), Harlan (A9), Intel (A2), Dani (A3) — spawnable via Agent tool
-- Workflows: multi-agent fan-out for research, code review, email batch
-- Web browsing (headless Playwright) for portal scraping, cruise research
+*   **Westbrook, Ron & Lindy (Silver Nova Trans-Pacific Apr 23–May 11):** 3 critical impacts related to Seattle (SEA) airport and United, Delta, Alaska, and American Airlines.
+*   **Loucks, Justin & Ryan:** 6 critical impacts related to Denver (DEN) airport and Alaska Airlines.
 
----
+**3. Telegram Alert Status:**
 
-## OC → HALE (OpenCode writes here — CC reads at next session)
+Wilco — Attempted to send immediate Telegram alerts for the detected client impacts. However, the alert function failed with the error: `Telegram alert failed: No module named 'thunderbird_telegram'`.
 
-**Last updated:** 2026-06-03 12:00 MT
+**Action Taken:** The full details of the impacts, including all 9 critical alerts, have been logged to `/home/john/Thunderbird/output/airline_alerts.json` for your review.
 
-**Completed this session:**
-- Inbox sweep: TP-ALERT-20260603 (12:00 MT) → COMPLETE, acknowledged in wing_comms.md
-- All PENDING/UNREAD tasks in opencode_inbox.md cleared (0 remaining)
-- claude_outbox.md updated
-- wing_comms.md updated
+**URGENT - Communication System Failure:**
 
-**Blocked / needs CC help:** —
-  - A12 ELON content-hash dedup fix still pending (since May 22+ backlog)
+This brief is being delivered to `OpsCenter/collaboration/blackboard.md` because both direct email sending (via `gmail_send_as_persona`) and Gmail draft creation (via `gmail_create_draft_sync` due to an unexpected `persona_id` argument) have failed. The `thunderbird_telegram` module is also missing, preventing Telegram alerts.
 
-**Handoffs to CC:** —
+I will prioritize investigating and resolving these critical communication pathway issues immediately.
 
----
+Thanks,
 
-## STANDING CONTEXT (permanent — both sides read)
-
-| Rule | Detail |
-|---|---|
-| Email drafts | d2mconcierge ONLY — never johnloucks3 |
-| Client sends | WF-17 gate — Commander sends — never Wing |
-| PII fence | Never route client data to DeepSeek/external LLMs |
-| Mission board | `mission_board_sync.py` only — never write JSON directly |
-| $ figures | Harlan 6-step sign-off required before WF-17 |
-| Dani chain | 6 steps mandatory for every client product |
-
-**Primary sources (client data):** TESS portal → booking record → client dossier (in priority order)
-
-**Key scripts:**
-- Email draft: `core/email/thunderbird_gmail.py → gmail_create_draft_sync()`
-- Drive write: `scripts/drive_upload_robust.py → upload_file()`
-- Mission board: `OpsCenter/mission_board_sync.py`
-- Headless CC: `ask 'task'` or `OpsCenter/dispatch_claude.py`
-- Trip validation: `itinerary/validate_dossier.py`
-- Itinerary: `itinerary/luxury_itinerary_generator.py` (photos required)
+Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-06-25 22:36 UTC)
+## COMMANDER-READY (2026-07-03 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
-### Open P0/P1 nags (5)
+### Open P0/P1 nags (7)
 - [P0] MCLEOD-2984034-FPD-TRIGGER
 - [P0] MISSION-COMMANDER-196-CALL
 - [P1] MCLEOD-SILVER-MUSE-WELCOME-HOME
 - [P1] MCLEOD-2984034-TP11-SEND
 - [P0] LOUCKS-3122006-FPD-ALERT
+- [P1] MISSION-802-ITINERARY-BUILD
+- [P1] MISSION-802-FORMAT-REVIEW
 - (none)
 
 ### Blockers (0)
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-06-25 16:36
+## STATE BRIDGE BRIEFING — 2026-07-03 09:30
 
-### Since last session (2026-06-25 21:45:22 → still open)
+### Since last session (2026-07-03 15:00:03 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `119d51e9b` feat(poe): full alias coverage, points scraper, daily 0600 MT timer  _78 minutes ago_
-- `946fce13d` fix(poe): rotate key, fix file-over-env priority, update broken model IDs  _2 hours ago_
-- `b837be604` feat(poe): add nano-banana-pro + GPT nano family, correct image-model labels  _2 hours ago_
-- `45b8c188a` feat(poe): update model table — Commander's full alias set  _2 hours ago_
-- `ddd92500d` feat(poe): open model selection — any Poe model ID works, add deepseek-v4/kimi/grok4 aliases  _2 hours ago_
+- `92d612da6` SO: TALON/JET division of labor — codified from both wings' independent position papers, Commander approved  _15 minutes ago_
+- `d3956c73c` spencer: client-inbox-watch — d2mconcierge client-sender watcher + registry (Bill Spencer), 10-min timer  _26 minutes ago_
+- `fe655464b` spencer: gdoc→portal sync engine + daily timer; portal nav adds Build Your Journey, PERT timeline, briefing deck  _2 hours ago_
+- `6784c8519` docs(hale-os): HALE Dual Brain instruction manual — 2040 lines, 92KB  _3 hours ago_
+- `29201e6b4` feat(hale-os): oc_worker.py + opencode-worker.service — WIND wing pull loop  _3 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (0s ago)
-- `OpsCenter/collaboration/blackboard.md` (1.3h ago)
-- `dossiers/Nichols_Regent_3078056.md` (7.8h ago)
-- `hale_brief.md` (10.6h ago)
-- `dossiers/Loucks_Regent_Grandeur_3122006.md` (18.6h ago)
-- `dossiers/Ely_Darrow_Regent_3096289.md` (18.7h ago)
-- `OpsCenter/opencode_memory.md` (23.8h ago)
-- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (1.1d ago)
+- `dossiers/Spencer_GrandTour_2027_TIMELINE.md` (18m ago)
+- `hale_brief.md` (20m ago)
+- `dossiers/Spencer_Prospect.md` (23m ago)
+- `OpsCenter/collaboration/blackboard.md` (29m ago)
+- `dossiers/spencer_bill_family_voyage_2027.md` (2.9h ago)
+- `hale_state.json` (8.5h ago)
+- `AGENTS.md` (11.1h ago)
+- `OpsCenter/opencode_memory.md` (15.8h ago)
 
-**Mission board:** 38 open (8 P0, 21 P1)
+**Mission board:** 374 open (13 P0, 345 P1)
   - 🔴 MISSION-065: Pacific Voyage Blog
   - 🔴 MISSION-148: Telegram Feature Expansion
   - 🔴 MISSION-152: Phase E: Signal
   - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
-  - 🔴 MISSION-214: Regent Portal On-Demand
-
-### Suggested next actions
-1. No 
+  - 🔴 MISSION
 <!-- COMMANDER-READY:END -->

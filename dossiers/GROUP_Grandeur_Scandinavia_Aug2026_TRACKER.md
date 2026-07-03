@@ -42,12 +42,12 @@ All paid in full (Harlan-verified 2026-06-09 vs invoice). All same DFW flights, 
 
 | Element | Truth | Status |
 |---|---|---|
-| **Pre-cruise hotel Night 1** (Aug 27–28) | **At Six Stockholm**, all 3 couples | ⚠️ to arrange (replaces Haymarket) |
+| **Pre-cruise hotel Night 1** (Aug 27–28) | **At Six Stockholm** — Ely: D2M-purchased ✓ · Nichols: Amex FHR ✓ (Trip #ZO-AX1049-13385) · Furlow: Amex FHR — ⚠️ **need conf #** | per-couple |
 | **Pre-cruise hotel Night 2** (Aug 28–29) | **At Six Stockholm** — Regent included, Conf #9092637820900 | ✅ confirmed |
 | **ARN → At Six transfer** (Aug 27) | new transfer, ×3 couples | ⚠️ **NOT YET BOOKED — D2M to arrange** |
 | **At Six → pier** (Aug 29 embark) | Regent included | ✅ confirmed |
-| ~~Haymarket By Scandic~~ (Bedsonline 131-2656351) | superseded by At Six | 🔴 **CANCEL — Commander approval** |
-| ~~ARN→Haymarket transfers~~ | superseded | 🔴 **CANCEL ×3:** Ely #1095091/AE693884 · Nichols #1095089/LN693883 · Furlow #1095074/DVF6U6 |
+| ~~Haymarket By Scandic~~ (Bedsonline 131-2656351) | superseded by At Six | ✅ **CANCELLED** |
+| ~~ARN→Haymarket transfers~~ | superseded | ✅ **CANCELLED ×3:** Ely #1095091/AE693884 · Nichols #1095089/LN693883 · Furlow #1095074/DVF6U6 |
 | **Travel insurance (incl. CFAR)** | **MOOT — all 3 couples** (declined/closed) | ✅ resolved — do not raise in client comms |
 
 ## DINING — confirmed, identical for all 3 couples
@@ -65,14 +65,15 @@ Excursions: all confirmed per couple (Regent Choice, $0) — Furlow 7 · Ely 5 �
 
 *(All At Six / cancellation items are CLIENT-DIRECTED — the clients chose At Six. These are D2M execution tasks, not approval gates.)*
 
-| # | Action | Owner | Deadline |
-|---|---|---|---|
-| 1 | **Cancel Haymarket hotel** (Bedsonline 131-2656351) — client-directed | D2M execute | **before Aug 24 free-cancel cliff** |
-| 2 | **Cancel 3 ARN→Haymarket transfers** (1095091 · 1095089 · 1095074) | D2M execute | **before Aug 23 cliff** |
-| 3 | **Book ARN → At Six transfer ×3** | D2M execute | now → well before Aug 27 |
-| 4 | **Confirm HEL→ARN seats** — Ely (#s TBD), Furlow (pending) | D2M | track AY 811 / Finnair |
+| # | Action | Owner | Status |
+|---|---|---|---|---|
+| 1 | ~~Cancel Haymarket hotel (Bedsonline 131-2656351)~~ | D2M | ✅ **DONE** |
+| 2 | ~~Cancel 3 ARN→Haymarket transfers (1095091 · 1095089 · 1095074)~~ | D2M | ✅ **DONE** |
+| 3 | **Book ARN → At Six transfer ×3** | D2M | ⏳ open |
+| 4 | **Confirm HEL→ARN seats** — Furlow (pending) | D2M | track AY 811 / Finnair |
 | 5 | **Capture Furlow DOB / anniversary / loyalty #s** | D2M (ask Missy) | when appropriate |
-| 6 | ⛔ Reconcile dossiers — **HOLD until final COS version confirmed** | Hale | after version verified |
+| 6 | **Confirm Furlow At Six Night 1 conf #** — Amex FHR | D2M | ⏳ open |
+| 7 | ⛔ Reconcile dossiers — **HOLD until final COS version confirmed** | Hale | after version verified |
 
 ## 💰 REFUND RECEIVABLES (Harlan — track on Haymarket cancellation)
 Money owed back when the Haymarket bookings cancel (client-directed move to At Six):
@@ -87,10 +88,12 @@ Money owed back when the Haymarket bookings cancel (client-directed move to At S
 
 **Harlan action:** confirm each amount actually paid, track as receivable, verify refund posts after cancellation.
 
-## 🛡️ INSURANCE — MOOT, ALL 3 COUPLES (Commander-arbitrated 2026-06-09)
-This file is authoritative: insurance/CFAR is moot for Furlow, Ely-Darrow, and Nichols.
-Supersedes any remaining "deferred/wants CFAR/follow-up" status lines still scattered in
-the individual dossiers (historical email logs retained as record). Do not raise in client comms.
+## 🛡️ INSURANCE
+| Couple | Status |
+|---|---|
+| Furlow | Declined — moot |
+| **Ely-Darrow** | **Seven Corners — purchased 2026-06-23** ✅ |
+| Nichols | Declined — moot |
 
 ## 📅 SUSPENSE CALENDAR (T-81 → departure)
 

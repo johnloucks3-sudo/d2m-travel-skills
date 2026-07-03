@@ -1,0 +1,536 @@
+{
+  "status": "complete",
+  "provider": "amadeus",
+  "started_at": "2026-07-03T08:32:37.679548+00:00",
+  "watches_total": 27,
+  "watches_ok": 27,
+  "watches_error": 0,
+  "alerts_fired": 8,
+  "results": {
+    "kuklinski-flights-ric-pty": {
+      "status": "ok",
+      "origin": "RIC",
+      "dest": "PTY",
+      "date": "2026-12-17",
+      "cabin": "economy",
+      "adults": 4,
+      "lowest_pp": 862.25,
+      "lowest_total": 3449.0,
+      "highest_pp": 862.25,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:10.947887+00:00",
+      "watch_id": "kuklinski-flights-ric-pty",
+      "label": "Kuklinski Group \u2014 Flights RIC \u2192 PTY Dec 17 (4 pax, not yet booked)",
+      "baseline_pp": 550.0
+    },
+    "morton-dodge-flights-rsw-pty": {
+      "status": "ok",
+      "origin": "RSW",
+      "dest": "PTY",
+      "date": "2026-12-17",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 839.91,
+      "lowest_total": 1679.82,
+      "highest_pp": 1542.19,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:17.199453+00:00",
+      "watch_id": "morton-dodge-flights-rsw-pty",
+      "label": "Morton/Dodge \u2014 Flights RSW \u2192 PTY Dec 17 (2 pax, not yet booked)",
+      "baseline_pp": 420.0
+    },
+    "mcleod-flights-vce-den-jul2026": {
+      "status": "ok",
+      "origin": "VCE",
+      "dest": "DEN",
+      "date": "2026-07-06",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 694.03,
+      "lowest_total": 1388.06,
+      "highest_pp": 1424.03,
+      "carriers": [
+        "TP",
+        "UX"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:29.136555+00:00",
+      "watch_id": "mcleod-flights-vce-den-jul2026",
+      "label": "McLeod/McGlasson VCE\u2192DEN Jul 6 2026 via Toronto (BOOKED \u2014 Business)",
+      "baseline_pp": 3200.0
+    },
+    "flight-kuklinski-cos-fll-2026-12-15": {
+      "status": "ok",
+      "origin": "COS",
+      "dest": "FLL",
+      "date": "2026-12-15",
+      "cabin": "economy",
+      "adults": 6,
+      "lowest_pp": 239.17,
+      "lowest_total": 1435.02,
+      "highest_pp": 509.1,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:34.705123+00:00",
+      "watch_id": "flight-kuklinski-cos-fll-2026-12-15",
+      "label": "COS/DEN->FLL Dec 15-16 2026 \u2014 Kuklinski/Morton group positioning",
+      "baseline_pp": 450.0
+    },
+    "grandeur-scandinavia-group-flights": {
+      "status": "ok",
+      "origin": "DFW",
+      "dest": "ARN",
+      "date": "2026-08-29",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 526.4,
+      "lowest_total": 1052.8,
+      "highest_pp": 655.5,
+      "carriers": [
+        "UA",
+        "AC"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:49.144710+00:00",
+      "watch_id": "grandeur-scandinavia-group-flights",
+      "label": "Grandeur Scandinavia Group \u2014 SS Grandeur \u00b7 Regent Seven Seas",
+      "baseline_pp": 491.0
+    },
+    "ely-flights": {
+      "status": "ok",
+      "origin": "DFW",
+      "dest": "ARN",
+      "date": "2026-08-29",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 526.4,
+      "lowest_total": 1052.8,
+      "highest_pp": 655.5,
+      "carriers": [
+        "UA",
+        "AC"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:54.894527+00:00",
+      "watch_id": "ely-flights",
+      "label": "Ely \u2014 Grandeur \u00b7 Regent",
+      "baseline_pp": 491.0
+    },
+    "furlow-flights": {
+      "status": "ok",
+      "origin": "DFW",
+      "dest": "ARN",
+      "date": "2026-08-29",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 526.4,
+      "lowest_total": 1052.8,
+      "highest_pp": 655.5,
+      "carriers": [
+        "UA",
+        "AC"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:30:58.358907+00:00",
+      "watch_id": "furlow-flights",
+      "label": "Furlow \u2014 SS Grandeur \u00b7 Regent Seven Seas",
+      "baseline_pp": 491.0
+    },
+    "kuklinski-flights": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "PTY",
+      "date": "2026-12-17",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 731.75,
+      "lowest_total": 1463.5,
+      "highest_pp": 1489.75,
+      "carriers": [
+        "UA",
+        "CM"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:02.550148+00:00",
+      "watch_id": "kuklinski-flights",
+      "label": "Kuklinski \u2014 Viking Mars \u00b7 Viking",
+      "baseline_pp": 711.5
+    },
+    "morton-flights": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "PTY",
+      "date": "2026-12-17",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 731.75,
+      "lowest_total": 1463.5,
+      "highest_pp": 1489.75,
+      "carriers": [
+        "UA",
+        "CM"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:06.243987+00:00",
+      "watch_id": "morton-flights",
+      "label": "Morton \u2014 Viking Mars \u00b7 Viking",
+      "baseline_pp": 711.5
+    },
+    "nichols-flights": {
+      "status": "ok",
+      "origin": "DFW",
+      "dest": "ARN",
+      "date": "2026-08-29",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 526.4,
+      "lowest_total": 1052.8,
+      "highest_pp": 655.5,
+      "carriers": [
+        "UA",
+        "AC"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:10.441856+00:00",
+      "watch_id": "nichols-flights",
+      "label": "Nichols \u2014 Grandeur \u00b7 Regent",
+      "baseline_pp": 491.0
+    },
+    "john-&-susan-loucks-flights": {
+      "status": "ok",
+      "origin": "COS",
+      "dest": "MIA",
+      "date": "2026-12-27",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 270.21,
+      "lowest_total": 540.42,
+      "highest_pp": 978.45,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:16.003778+00:00",
+      "watch_id": "john-&-susan-loucks-flights",
+      "label": "John & Susan Loucks \u2014 Seven Seas Grandeur \u00b7 ",
+      "baseline_pp": 313.0
+    },
+    "loucks-grandeur-panama-cos-fll-dec2026": {
+      "status": "ok",
+      "origin": "COS",
+      "dest": "FLL",
+      "date": "2026-12-27",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 547.18,
+      "lowest_total": 1094.36,
+      "highest_pp": 688.49,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:20.170887+00:00",
+      "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+      "label": "Loucks \u2014 Grandeur Panama Canal outbound COS\u2192FLL Dec 27 2026",
+      "baseline_pp": 416.0
+    },
+    "loucks-grandeur-panama-lax-cos-jan2027": {
+      "status": "ok",
+      "origin": "LAX",
+      "dest": "COS",
+      "date": "2027-01-14",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 229.17,
+      "lowest_total": 458.34,
+      "highest_pp": 419.21,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:24.368586+00:00",
+      "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+      "label": "Loucks \u2014 Grandeur Panama Canal return LAX\u2192COS Jan 14 2027",
+      "baseline_pp": 416.0
+    },
+    "loucks-grandeur-panama-sna-cos-jan2027": {
+      "status": "ok",
+      "origin": "SNA",
+      "dest": "COS",
+      "date": "2027-01-14",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 319.19,
+      "lowest_total": 638.38,
+      "highest_pp": 602.12,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:28.873619+00:00",
+      "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+      "label": "Loucks \u2014 Grandeur Panama Canal return SNA\u2192COS Jan 14 2027 (alt)",
+      "baseline_pp": 416.0
+    },
+    "loucks-silver-nova-may2027-outbound": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "VCE",
+      "date": "2027-04-30",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 657.9,
+      "lowest_total": 1315.8,
+      "highest_pp": 657.9,
+      "carriers": [
+        "EI"
+      ],
+      "offer_count": 2,
+      "checked_at": "2026-07-03T08:31:33.586721+00:00",
+      "watch_id": "loucks-silver-nova-may2027-outbound",
+      "label": "Loucks Silver Nova May 2027 \u2014 DEN\u2192VCE Apr 30 outbound (Business)",
+      "baseline_pp": 3589.0
+    },
+    "loucks-silver-nova-may2027-return": {
+      "status": "ok",
+      "origin": "ATH",
+      "dest": "DEN",
+      "date": "2027-06-01",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 2933.73,
+      "lowest_total": 5867.46,
+      "highest_pp": 2933.73,
+      "carriers": [
+        "A3"
+      ],
+      "offer_count": 2,
+      "checked_at": "2026-07-03T08:31:38.602390+00:00",
+      "watch_id": "loucks-silver-nova-may2027-return",
+      "label": "Loucks Silver Nova May 2027 \u2014 ATH\u2192DEN Jun 1 return (Business)",
+      "baseline_pp": 5504.5
+    },
+    "loucks-den-grb-sep2026": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "GRB",
+      "date": "2026-09-06",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 300.21,
+      "lowest_total": 600.42,
+      "highest_pp": 486.1,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:43.722909+00:00",
+      "watch_id": "loucks-den-grb-sep2026",
+      "label": "Loucks \u2014 DEN\u2192GRB Sep 6, 2026 (United Economy, 2 pax, United CC)",
+      "baseline_pp": 316.0
+    },
+    "loucks-grb-den-sep2026": {
+      "status": "ok",
+      "origin": "GRB",
+      "dest": "DEN",
+      "date": "2026-09-14",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 378.17,
+      "lowest_total": 756.34,
+      "highest_pp": 747.47,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:49.458317+00:00",
+      "watch_id": "loucks-grb-den-sep2026",
+      "label": "Loucks \u2014 GRB\u2192DEN Sep 14, 2026 (United Economy, 2 pax, United CC)",
+      "baseline_pp": 306.0
+    },
+    "mcleod-mcglasson-flights": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "ARN",
+      "date": "2026-12-19",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 613.1,
+      "lowest_total": 1226.2,
+      "highest_pp": 662.0,
+      "carriers": [
+        "UA",
+        "AF"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:31:57.444833+00:00",
+      "watch_id": "mcleod-mcglasson-flights",
+      "label": "McLeod McGlasson \u2014 SS Grandeur \u00b7 Regent Seven Seas",
+      "baseline_pp": 0.0
+    },
+    "lyons-flights": {
+      "status": "ok",
+      "origin": "JAX",
+      "dest": "ARN",
+      "date": "2026-08-11",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 477.2,
+      "lowest_total": 954.4,
+      "highest_pp": 770.2,
+      "carriers": [
+        "UA",
+        "VS"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:04.560660+00:00",
+      "watch_id": "lyons-flights",
+      "label": "Lyons \u2014 Seven Seas Splendor \u00b7 Regent Seven Seas",
+      "baseline_pp": 0.0
+    },
+    "kuklinski-ric-pty-dec16": {
+      "status": "ok",
+      "origin": "RIC",
+      "dest": "PTY",
+      "date": "2026-12-16",
+      "cabin": "economy",
+      "adults": 4,
+      "lowest_pp": 862.25,
+      "lowest_total": 3449.0,
+      "highest_pp": 862.25,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:11.649478+00:00",
+      "watch_id": "kuklinski-ric-pty-dec16",
+      "label": "Kuklinski RIC\u2192PTY Dec 16 (4 pax economy)",
+      "baseline_pp": 785.0
+    },
+    "kuklinski-fll-ric-dec27": {
+      "status": "ok",
+      "origin": "FLL",
+      "dest": "RIC",
+      "date": "2026-12-27",
+      "cabin": "economy",
+      "adults": 4,
+      "lowest_pp": 549.24,
+      "lowest_total": 2196.96,
+      "highest_pp": 719.18,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:14.348850+00:00",
+      "watch_id": "kuklinski-fll-ric-dec27",
+      "label": "Kuklinski FLL\u2192RIC Dec 27 (4 pax economy)",
+      "baseline_pp": 194.0
+    },
+    "morton-rsw-pty-dec16": {
+      "status": "ok",
+      "origin": "RSW",
+      "dest": "PTY",
+      "date": "2026-12-16",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 839.91,
+      "lowest_total": 1679.82,
+      "highest_pp": 2230.25,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:19.666463+00:00",
+      "watch_id": "morton-rsw-pty-dec16",
+      "label": "Morton/Dodge RSW\u2192PTY Dec 16 (2 pax economy)",
+      "baseline_pp": 627.0
+    },
+    "mcleod-den-mia-dec18": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "MIA",
+      "date": "2026-12-18",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 368.37,
+      "lowest_total": 736.74,
+      "highest_pp": 748.15,
+      "carriers": [
+        "UA",
+        "AS"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:23.146943+00:00",
+      "watch_id": "mcleod-den-mia-dec18",
+      "label": "McLeod DEN\u2192MIA Dec 18 (2 pax business)",
+      "baseline_pp": 904.0
+    },
+    "mcleod-mia-den-dec29": {
+      "status": "ok",
+      "origin": "MIA",
+      "dest": "DEN",
+      "date": "2026-12-29",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 292.37,
+      "lowest_total": 584.74,
+      "highest_pp": 406.77,
+      "carriers": [
+        "UA",
+        "AS"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:27.139715+00:00",
+      "watch_id": "mcleod-mia-den-dec29",
+      "label": "McLeod MIA\u2192DEN Dec 29 (2 pax business)",
+      "baseline_pp": 910.0
+    },
+    "loucks-doorcounty-united-den-grb-out": {
+      "status": "ok",
+      "origin": "DEN",
+      "dest": "GRB",
+      "date": "2026-09-06",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 300.21,
+      "lowest_total": 600.42,
+      "highest_pp": 486.1,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:31.749535+00:00",
+      "watch_id": "loucks-doorcounty-united-den-grb-out",
+      "label": "Loucks Door County \u2014 United DEN \u2192 GRB Sep 6 (2 pax, ANY time)",
+      "baseline_pp": 468.5
+    },
+    "loucks-doorcounty-united-grb-den-return": {
+      "status": "ok",
+      "origin": "GRB",
+      "dest": "DEN",
+      "date": "2026-09-14",
+      "cabin": "economy",
+      "adults": 2,
+      "lowest_pp": 378.17,
+      "lowest_total": 756.34,
+      "highest_pp": 747.47,
+      "carriers": [
+        "UA"
+      ],
+      "offer_count": 10,
+      "checked_at": "2026-07-03T08:32:37.278584+00:00",
+      "watch_id": "loucks-doorcounty-united-grb-den-return",
+      "label": "Loucks Door County \u2014 United GRB \u2192 DEN Sep 14 (2 pax, ANY time)",
+      "baseline_pp": 468.5
+    }
+  },
+  "errors": []
+}

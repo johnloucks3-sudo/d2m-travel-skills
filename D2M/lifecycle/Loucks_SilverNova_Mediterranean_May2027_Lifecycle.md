@@ -125,6 +125,7 @@ Dani is authorized to send lifecycle emails to both John and Susan once Hale app
 
 | Date | Item | Status | Owner |
 |---|---|---|---|
+| 2026-07-02 | Silversea official confirmation email received Jun 10, 2026 — booking 506101-26 confirmed. Guest name on booking: COLONEL JOHN ALDON LOUCKS. Dossier + YAML + Booking Master updated. | ✅ Resolved | Hale |
 | 2026-06-10 | Suite category confirmed: 8071 / Superior Veranda (not Medallion/Classic as previously researched) | ✅ Resolved | Hale |
 | 2026-06-10 | Host agency transfer resolved: Cruises & Tours Unlimited, Jacksonville FL | ✅ Resolved | Hale |
 | 2026-06-10 | Drive dossier (ID: 149j1EiNfqpzOgnwJZfWOB8_0RHBCzLAz) showing stale BLOCKED status | 🔴 Needs update | Hale |

@@ -77,4 +77,22 @@ try:
 except Exception as e:
     print(f"[CREDENTIALS] ⚠️ Could not verify: {e}")
 
+# 🆕 Keyword Router & Context-Mode Tools (SO-2026-06-27)
+print("[KEYWORD ROUTER] Loading auto-routing config...")
+try:
+    from core.ai_infra.session_startup_keyword_router import (
+        init_keyword_router,
+        session_startup_banner,
+    )
+
+    router, prior_context = init_keyword_router("claude-code")
+    session_startup_banner("claude-code", prior_context)
+
+    # Export router globally so main loop can access
+    os.environ["KEYWORD_ROUTER_LOADED"] = "1"
+    print("[KEYWORD ROUTER] ✅ Active — @ctx, @zen, @free, @oc keywords enabled")
+
+except Exception as e:
+    print(f"[KEYWORD ROUTER] ⚠️ Failed to load: {e} (falling back to default routing)")
+
 print("[SESSION] Initialization complete")

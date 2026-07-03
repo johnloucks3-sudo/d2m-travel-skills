@@ -154,6 +154,12 @@ fpd_note: fpd_amount 22663 is the WHOLE-TRIP total, not the cruise FPD; cruise i
 **Jun 20 — Project Expedition** (Re: Hold without Payment Reminder - PE181140617: Dubrovnik Panorama Tour & Dubrovnik On Your Own)
 > [EMAIL LOG 2026-06-20] Project Expedition payment reminder received for Dubrovnik shore excursion PE181140617 (3-hour tour, May 9, 2027, 10:00 AM; 2 adults: John & Susan Loucks). Booking status: Hold without Payment. Amount due: $107.24 by April 27, 2027. Full refund if cancelled by May 7, 2027, 10:00 AM local. **NOTE: This tour references Silversea Silver Nova but no 2027 voyage is documented in current dossier. VERIFY: Is this tied to a confirmed May 2027 Silver Nova cruise? Need to locate cruise dates and confirm booking ownership.**
 
+**Jun 27 — Project Expedition** (Re: Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D)
+> **May 2027 Athens Excursion Added:** PE181149717 | Sights of Athens Hop-on-Hop-off Classic Tour (Piraeus & Beaches, 72-hour pass) | May 15-18, 2027, 9:00 AM | 2 travelers (John & Susan Loucks) | Cost: $60.06 | Status: Hold without Payment | Payment deadline: May 4, 2027 | Tour operator: Sights of Athens (+302104176144) | Reference: RA8F6DN / Product ID: PQM51G | Booked through Project Expedition | Full refund if cancelled before May 14, 2027 at 9:00 AM. Note: Booking discovered via Project Expedition reminder email (Jun 27, 2026); not previously logged. Verify if this is part of a broader May 2027 cruise extension or standalone trip.
+
+**Jun 27 — Project Expedition** (Re: Hold without Payment Reminder - PE181140617: Dubrovnik Panorama Tour & Dubrovnik On Your Own)
+> 2026-06-27: Received Project Expedition payment reminder for Dubrovnik Panorama Tour & On Your Own (PE181140617). Booked for May 9, 2027 (Silver Nova voyage), 2 travelers (John & Susan Loucks), $107.24 final payment due by April 27, 2027. Operator: Dubrovnik transfer travel agency (+385922376373, hrvojedk@gmail.com). Status: Hold without Payment — pending finalization. Recommend proactive follow-up ~2 weeks before deadline.
+
 ---
 
 ---
@@ -891,6 +897,18 @@ Status changes since Mar 24 validation:
 
 
 ### OPEN ACTION ITEMS
+
+- [ ] Cross-reference with Silver Nova May 2027 itinerary project to ensure excursion is incorporated into final voyage itinerary once paid (auto-intel Jun 27)
+
+- [ ] Create deferred alert for ~April 15, 2027 to proactively contact Commander if payment hasn't been finalized (auto-intel Jun 27)
+
+- [ ] Log Dubrovnik excursion PE181140617 in EMAIL LOG with hold-without-payment status and April 27, 2027 payment deadline (auto-intel Jun 27)
+
+- [ ] Investigate: Is this part of a larger May 2027 itinerary? Confirm with Commander and update dossier with full trip context (auto-intel Jun 27)
+
+- [ ] Set calendar alert: May 4, 2027 — payment deadline for PE181149717 (notify Commander for approval to pay) (auto-intel Jun 27)
+
+- [ ] Log PE181149717 excursion in Loucks dossier: Athens Hop-on-Hop-off Tour, May 15-18, 2027, $60.06, hold-without-payment status (auto-intel Jun 27)
 > The following items struck 2026-06-21 — built on the false "Susan medical emergency" premise (contamination corrected above), now VOID:
 > ~~Call John URGENT — confirm 566910-25 cancelled/proceeding~~ · ~~Update dossier w/ medical emergency note + cascade tree~~ · ~~File Allianz medical claim~~ · ~~If cruise cancelled: Hilton/JAL/Southwest refunds~~ · ~~If proceeding: source 2-pax replacement transfer~~. The PE151557101 refund track (factual, separate) is retained below.
 

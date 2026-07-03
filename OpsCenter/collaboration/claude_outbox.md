@@ -508,3 +508,123 @@ what_next: |
 **ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
 
 ---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-26 20:06 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-27 20:09 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-28 20:12 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-29 21:05 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-06-30 00:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-06-30 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-06-30 06:00 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-30 06:01 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-06-30 06:02 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-06-30 21:07 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-01 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-01 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-01 06:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-01 06:04 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-01 21:09 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-02 00:01 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-02 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-02 06:01 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-02 06:03 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-02 21:09 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-03 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-03 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-03 06:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-03 06:02 MT
+**2 tasks queued** for next 90 days

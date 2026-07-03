@@ -243,3 +243,149 @@ task: |
 
 **A2 Dembe:** Extract top-3 options (value/recommended/luxury). Post selections to wing_comms for Dani pickup.
 **Next step:** Send ARC1-B email — Dani drafts once A2+A9 clear.
+
+---
+## TASK: TASK-1.4-kuklinski_group
+status: READ
+read: 2026-06-30T18:25:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-06-30T00:00:35.697678
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: kuklinski_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+
+---
+## TASK: TASK-1.4-westbrook_group
+status: READ
+read: 2026-06-30T18:25:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-06-30T00:00:35.697678
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: westbrook_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+---
+## RELAY-e6540d6c from OC — 2026-06-30 12:52 UTC
+priority: high
+status: COMPLETE
+completed: 2026-06-30T18:25:00Z
+task: |
+  [SESSION RELAY Jun 30] MISSION-073 AIR PRICING CAMPAIGN COMPLETE — 6 routes Centrav B2B priced, 38 fare watches active, 3 dossiers stamped. Full techniques cataloged in memory/centrav_techniques_Jun2026.md — Centrav cabin restriction for international routes (single-cabin avoids MCP timeout), warm-ping fix (query_selector→locator.is_visible), Firefox lockfile cleanup, fare watch restore from .bak.20260616. Key delta: Centrav B2B 9-69% cheaper than Amadeus consumer. McLeod contact hold until Jul 7 (Silver Muse). Centrav fares refresh Jul 1. Terminal objective: COMPLETE.
+
+---
+## TASK: TASK-1.4-kuklinski_group
+status: READ
+read: 2026-07-01T08:00:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-01T00:02:31.440736
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: kuklinski_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+
+---
+## TASK: TASK-1.4-westbrook_group
+status: READ
+read: 2026-07-01T08:00:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-01T00:02:31.440736
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: westbrook_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+---
+## TASK: TASK-1.4-kuklinski_group
+status: READ
+read: 2026-07-02T06:17:55Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-02T00:02:34.953970
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: kuklinski_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+
+---
+## TASK: TASK-1.4-westbrook_group
+status: READ
+read: 2026-07-02T06:17:55Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-02T00:02:34.953970
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: westbrook_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+---
+## TASK: TASK-1.4-kuklinski_group
+status: UNREAD
+from: Staff-Tasking-Timers-System
+injected: 2026-07-03T06:00:03.155263
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: kuklinski_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+
+---
+## TASK: TASK-1.4-westbrook_group
+status: UNREAD
+from: Staff-Tasking-Timers-System
+injected: 2026-07-03T06:00:03.155263
+priority: P1
+task: |
+  Deliverable: Voyage coming together email
+  Client: westbrook_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.

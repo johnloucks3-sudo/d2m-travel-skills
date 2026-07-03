@@ -48,14 +48,14 @@ from telegram.constants import ChatAction, ParseMode
 # This bot is CLIENT-FACING ONLY.
 
 # Import the existing persona system
-from thunderbird_personas import (
+from core.ai_infra.thunderbird_personas import (
     call_persona,
     get_persona,
     resolve_id,
 )
-from thunderbird_context import gather_commander_context
-from thunderbird_dani_engine import build_dani_context, cos_review, pre_send_evaluate
-from thunderbird_telegram_tools_sdk import call_cos_with_tools
+from core.client.thunderbird_context import gather_commander_context
+from core.email.thunderbird_dani_engine import build_dani_context, cos_review, pre_send_evaluate
+from core.communication.thunderbird_telegram_tools_sdk import call_cos_with_tools
 
 # ---------------------------------------------------------------------------
 # Config
@@ -733,7 +733,7 @@ async def handle_voice_message(update: Update, context: ContextTypes.DEFAULT_TYP
             tmp_path = tmp.name
         await file.download_to_drive(tmp_path)
 
-        groq_key = os.environ.get("GROQ_API_KEY", "os.environ.get("GROQ_API_KEY", "")")
+        groq_key = os.environ.get("GROQ_API_KEY", "")
         with open(tmp_path, "rb") as f:
             audio_data = f.read()
         os.unlink(tmp_path)

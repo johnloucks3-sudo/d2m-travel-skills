@@ -5677,3 +5677,52 @@ A cloud Ultraplan session (session_01Tvf3Xe3GRgkJW4Rd4Wqvrj) is executing the em
 Fresh repo-scoped fine-grained PAT (Contents:R/W on thunderbird-os) validated + vaulted in Infisical (replaced stale/mis-scoped one). Fixed my own Bearer-vs-Basic auth bug in github_safe_sync.py. First push in 3 weeks: bf1041b97..a5ceb5a06. origin/master now current. d2m-github-sync.timer ENABLED (daily 0330 MT, gate-guarded).
 **Untracked .github/workflows/** (PAT lacks 'workflow' scope): offbox_heartbeat.yml + secret-scan.yml were box-side additions never on GitHub; untracking unblocked the push, files remain on disk. NOTE: if Commander wants the off-box GitHub-Actions heartbeat dead-man live, the sync PAT needs Workflows:Read-and-write added — deferred, low priority (box has its own heartbeat via Healthchecks).
 **Cloud guard update:** future cloud/Ultraplan sessions now clone CURRENT code — the useless-or-dangerous root cause is closed. The EXISTING in-flight cloud PR is still June-12-based → its DO-NOT-MERGE guard STANDS (extract net-new files only).
+
+## 2026-07-02 00:42 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-02 02:36 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-02 05:21 UTC — AI Auth Probe Auto-Repair
+- **telegram**: detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy.
+
+## 2026-07-02 03:58 UTC — ELON: Telegram Bot Repair Fix Adopted
+
+**Incident:** INC-20260702T095150Z-8ce9a8 (Telegram "Connection reset by peer" — pattern 3x/7d)
+
+**Root Cause:** ai-auth-probe repair logic insufficient — single restart attempt, no backoff, no token validation.
+
+**Fix Adopted (ELON Authority):**
+- Enhanced repair_telegram() with exponential backoff (3 attempts, 2s/4s/8s delays)
+- Added token validation before retry (fail fast if credential missing)
+- Improved logging for visibility
+- Per SO_TECH_VANGUARD_ELEVATION_20260621: adoption-biased gate, ELON authority, no Sterling veto needed
+
+**Status:** ✅ Committed to main (9df1d6d3). Syntax verified.
+
+**Verification Tests Pending:**
+1. Manual probe cycle (simulate failure → verify 3 retries)
+2. Service lifecycle (kill service → verify repair attempts all 3)
+3. getMe call verification (bot health)
+4. Health probe freshness (hale_state.json timestamp)
+
+**Follow-on Missions:**
+- MISSION-1501: Monitor incidents 2026-07-02 → 07-05 (pattern recurrance check)
+- MISSION-1502: If pattern recurs → escalate to Dembe (gateway service deep dive)
+- MISSION-1503: Add Telegram health probe to morning brief template (currently stale)
+
+**Authority:** ELON autonomous adoption per SO-TECH-VANGUARD. Report in morning brief.
+
+
+## Session 2026-07-02 (afternoon) — Hale (Claude Code) autonomous decisions
+- **CI Rapid-Repair Warehouse** built end-to-end (4 phases, ~15 agents): 48 CI skills warehoused w/ uniform explore→assess→repair→verify + 3-tier risk gate (SAFE auto / CAUTION+DESTRUCTIVE staged). Neutralized the live hazard — 4 raw-fire auto-repair surfaces repointed to the safe runner (ARMED_TIERS={SAFE}). Honest: 48 dry-run-validated, 1 live-proven (fare-watch-ita), 46 unproven-until-incident. Open: ci_health.sweep inert (registry key inconsistency — fix end-to-end before re-enable); 2 explore() defects. Commit d24991504. Briefing published.
+- **Spencer Grand Tour**: client doc set (6) client-ified + per-section validated link blocks; dark-navy portal LIVE at spencer.d2mluxury.quest (interim basic-auth pw spencer-b7746957; CF Access dashboard step pending). 6 editable Google Docs in johnloucks3 Drive (Bill = editor). Briefing deck → editable Google Slides. PERT v1 + v2(+30d slip) published — availability risk = La Pergola + Zermatt only. Lunch/question email staged (johnloucks3). Cooking class = Walkabout Tours Florence (client request, patched + synced). Coffee Cup calendar event Jul 7 12:00 Monument.
+- Deleted 599 extraneous excursion notification drafts + fixed excursion_engine.py to log-only (root cause).
+- Decisions gate held throughout: no client sends executed (all staged for Commander); no financial commitments; no >90d/$5K strategic calls.
+
+## Session 2026-07-02 (evening) — REVISED ORG BUILT (weapons-free, Commander away)
+Built the JET/TALON/HALE/Commander revised org + integrated the relevant newly-found tools. Grounded in USAF doctrine (Dembe-cited: HAF/VCSAF, MAJCOM, ADCON vs OPCON — output/brain_bridge/USAF_ORG_MAPPING.md).
+- STRUCTURE (4 tiers, size+speed adapted): Commander(SecAF) → HALE(VCSAF/HAF + IG-compliance + IG-complaints + wingman; enforces WHAT/WHEN/standard, NOT operational command) → JET(WIND/OpenCode, organic ADCON) + TALON(CONDOR/Claude Code, organic ADCON; own HOW) → wing staff. No NAF/Group/Squadron. Continuous (per-cycle) enforcement.
+- BUILT & VERIFIED: config/wing_org.yaml v2 (WIND+CONDOR wings), compiler re-seats all 14 (PII PASS 0 violations), TALON seated (.claude/agents/talon.md, opus), HALE-OC twin (opencode.json, primary, free deepseek default + Claude voice_model for exact Commander voice + /ask escalation), shared brain Qdrant-MCP on BOTH engines (.mcp.json + opencode.json, uvx-launched), hale_enforcer.py (5 prod-loops, LIVE/PARTIAL/STUB honestly labeled, runs green). Doctrine: docs/THUNDERBIRD_REVISED_ORG_20260702.md.
+- HONEST GAPS: shared-brain cross-engine read/write not yet live-tested (needs both clients); OC-Hale voice fidelity on free model unproven (needs live OC voice-test; escalates to Claude if drift); hale_enforcer 5 STUB loops need data sources; CI registry entry #48 malformed → blocks ci_sweep wing-wide (real bug, surfaced by enforcer). Gates + 6 protected files untouched.

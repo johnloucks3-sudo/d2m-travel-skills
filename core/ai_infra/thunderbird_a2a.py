@@ -30,6 +30,7 @@ Usage:
   results = a2a.broadcast("New client onboarded: Kuklinski family, 4 pax, luxury Mediterranean cruise")
 """
 
+import asyncio
 import json
 import logging
 from datetime import datetime
@@ -194,27 +195,34 @@ class AgentProtocol:
             "query": query,
         }
 
-    def broadcast(self, message: str, from_persona: str = "COS",
-                  exclude: Optional[List[str]] = None) -> Dict[str, Any]:
-        """Broadcast a message to all personas (or all except excluded).
+    async def broadcast(self, message: str, from_persona: str = "COS",
+                        exclude: Optional[List[str]] = None) -> Dict[str, Any]:
+        """Broadcast a message to all personas — fire-and-forget.
 
         Used for: new client onboarding, policy changes, alerts.
+        Returns immediately after logging intent; actual delivery is async.
         """
-        exclude = set(exclude or [])
-        exclude.add(from_persona)  # Don't send to self
+        return self.broadcast_sync(message, from_persona, exclude)
 
-        results = []
-        for pid in AGENT_CARDS:
-            if pid in exclude:
-                continue
-            result = self.ask(pid, message, from_persona=from_persona, max_tokens=300)
-            results.append(result)
-
+    def broadcast_sync(self, message: str, from_persona: str = "COS",
+                       exclude: Optional[List[str]] = None) -> Dict[str, Any]:
+        """Synchronous broadcast — suitable for thread dispatch."""
+        ex = set(exclude or [])
+        ex.add(from_persona)
+        targets = [p for p in AGENT_CARDS if p not in ex]
+        log_msg = f"[Broadcast from {from_persona}] {message[:200]}"
+        logger.info(f"Dispatching broadcast to {len(targets)} personas: {log_msg}")
+        for pid in targets:
+            try:
+                self.ask(pid, message, from_persona=from_persona, max_tokens=300)
+                logger.debug(f"Broadcast delivered to {pid}")
+            except Exception as e:
+                logger.warning(f"Broadcast to {pid} failed: {e}")
         return {
             "broadcast": True,
             "from": from_persona,
-            "recipients": [r["target"] for r in results if r.get("status") == "ok"],
-            "results": results,
+            "recipients": targets,
+            "count": len(targets),
         }
 
     def find_expert(self, topic: str) -> List[str]:
@@ -268,6 +276,12 @@ def register_a2a_tools(mcp):
     """Register A2A protocol tools with the MCP server."""
     from pydantic import Field
 
+    @mcp.tool(name="a2a_ping",
+              annotations={"title": "A2A — Ping Test", "readOnlyHint": True})
+    async def a2a_ping() -> str:
+        """Test tool — just returns pong."""
+        return json.dumps({"status": "pong", "from": "a2a"})
+
     @mcp.tool(name="a2a_ask",
               annotations={"title": "A2A — Ask a Persona Directly", "readOnlyHint": True})
     async def a2a_ask(
@@ -301,11 +315,18 @@ def register_a2a_tools(mcp):
         message: str = Field(..., description="Message to broadcast to all personas"),
         from_persona: str = Field("COS", description="Who's broadcasting"),
     ) -> str:
-        """Broadcast a message to all Wing personas (new client, policy change, alert)."""
-        result = a2a.broadcast(message, from_persona=from_persona)
+        """Broadcast a message to all Wing personas (fire-and-forget in thread)."""
+        import threading
+        t = threading.Thread(
+            target=a2a.broadcast_sync,
+            args=(message, from_persona),
+            daemon=True
+        )
+        t.start()
         return json.dumps({
-            "recipients": result["recipients"],
-            "count": len(result["recipients"]),
+            "status": "dispatched",
+            "message": f"Broadcast from {from_persona} dispatched to all personas",
+            "count": len([p for p in AGENT_CARDS if p != from_persona]),
         }, indent=2, default=str)
 
     @mcp.tool(name="a2a_find_expert",

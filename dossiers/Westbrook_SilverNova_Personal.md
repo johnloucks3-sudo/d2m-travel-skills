@@ -191,6 +191,15 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 **Mar 29 — Ronald Westbrook** (Re: Re: Your Silver Nova Itinerary — A Fresh Look, Ron & Lindy)
 > Mar 29, 4:18 PM — Ron replied with confirmation that the corrected Victoria photo (Empress Hotel) matches his memory and expectation. Itinerary APPROVED. No further changes requested. Next open item: Seattle terminal transfer booking (deadline Apr 15).
 
+**Jul 01 — Ronald Westbrook** (Re: Fwd: Riley Grace)
+> 2026-07-01: Ron forwarded personal contact info (Riley Grace, landscaping) to D2M inbox. Email filed as non-travel. No action taken. Indicates Ron resuming normal activities post-bereavement.
+
+**Jul 01 — Ronald Westbrook** (Re: Fwd: Riley Grace)
+> 2026-07-01: Ron forwarded contact information for Riley Grace (yard work provider, 719-684-3450) to D2M email. Assessed as accidental recipient or personal matter unrelated to travel services. Responded with clarification and offered future travel assistance. No action required.
+
+**Jul 02 — Ronald Westbrook** (Re: SAT NIGHT DINNER)
+> 2026-07-02: Personal email from Ron to Commander re: USAFA Academy fireworks cancellation due to Colorado wildfire danger. No service request or D2M action required. (Non-operational)
+
 ---
 
 ---
@@ -805,3 +814,13 @@ atrium, dusk_bar, the_grill, salt_lab, owner_suite
 | May 8 | Ketchikan — Land & Sea 10:00 AM |
 | May 10 | Victoria, BC (9:00 AM-7:00 PM) |
 | May 11 | Debark Seattle 7:00 AM → UA 757 SEA→DEN 12:46 PM |
+
+
+### OPEN ACTION ITEMS
+- [ ] File in Ron's EMAIL LOG as personal/non-travel communication (2026-07-01) (auto-intel Jul 01)
+
+- [ ] File email in dossier EMAIL LOG section (auto-intel Jul 01)
+
+- [ ] Draft brief reply to Ron (low priority; personal/off-topic matter) (auto-intel Jul 01)
+
+- [ ] No follow-up required; monitor for future travel inquiry from Ron (auto-intel Jul 01)

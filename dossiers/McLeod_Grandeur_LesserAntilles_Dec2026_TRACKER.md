@@ -65,7 +65,7 @@ return: '2026-12-29'
 |---|---|---|
 | **Cruise booking** | ✅ CONFIRMED | Suite 863, E-Concierge (upgraded) |
 | **Payment** | 🟡 DEPOSIT ONLY | $11,943.15 due Jul 22 — see HOLD + CONFLICT |
-| **Air** | ⏳ PENDING | DEN↔MIA, business class (lifecycle TP 1.2) |
+| **Air** | ✅ **CENTRAV PRICED 2026-06-30** | DEN→MIA Dec 18 biz **$1,807** ($904 pp) | MIA→DEN Dec 29 biz **$1,819** ($910 pp) | **RT biz $3,626** ($1,813 pp) |
 | **Hotel (pre/post)** | ⏳ PENDING | Miami pre Dec 18 / post Dec 29 if needed (TP 1.3) |
 | **Transfers** | ⏳ PENDING | Airport↔port Miami |
 | **Excursions** | ⏳ PENDING | Regent portal; 5 ports (Charlotte Amalie, Roseau, St. John's, Basseterre, Tortola) |

@@ -130,6 +130,7 @@ def add_watch(
     label: str = "",
     provider: str = "",
     route: str = "",
+    # FIX-7 2026-06-27: validated below — provider=TBD/empty rejected at insert
     passengers: int = 2,
     alert_below: Optional[float] = None,
     alert_above: Optional[float] = None,
@@ -139,6 +140,14 @@ def add_watch(
     created_at: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Insert or replace a fare watch. Returns the stored record."""
+    # FIX-7 2026-06-27: Reject phantom watches — provider=TBD/empty means the watch can never execute
+    _provider_clean = (provider or "").strip().upper()
+    if not _provider_clean or _provider_clean in ("TBD", "UNKNOWN", "?", "NONE"):
+        raise ValueError(
+            f"add_watch({id!r}): provider={provider!r} is not valid. "
+            "Set a real provider (e.g. 'centrav', 'ita', 'amadeus') before registering. "
+            "A watch with no provider will never execute and pollutes the health metric."
+        )
     if baseline_price_pp is None:
         baseline_price_pp = current_price_pp
     ts = created_at or datetime.now().isoformat()

@@ -19,30 +19,36 @@ from typing import Optional
 
 logger = logging.getLogger("thunderbird_telegram_mcp")
 
-CONFIG_PATH = Path(__file__).parent.parent / "config" / "telegram_gw.env"
+CONFIG_PATHS = [
+    Path.home() / ".telegram_gw_live.env",
+    Path(__file__).parent.parent / ".env",
+    Path(__file__).parent.parent / "config" / "telegram_gw.env",
+]
 
 BOT_MAP = {}
 
 def _load_tokens():
-    if not CONFIG_PATH.exists():
-        logger.warning(f"Telegram config not found at {CONFIG_PATH}")
-        return {}
     tokens = {}
-    with open(CONFIG_PATH) as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith("TELEGRAM_D2MC2C_TOKEN="):
-                tokens["d2mc2c"] = line.split("=", 1)[1]
-            elif line.startswith("TELEGRAM_GOOSE_TOKEN="):
-                tokens["goose"] = line.split("=", 1)[1]
-            elif line.startswith("TELEGRAM_DANI_TOKEN="):
-                tokens["dani"] = line.split("=", 1)[1]
-            elif line.startswith("TELEGRAM_RELAY_TOKEN="):
-                tokens["relay"] = line.split("=", 1)[1]
-            elif line.startswith("TELEGRAM_RELAY_CHAT_ID="):
-                tokens["relay_chat_id"] = line.split("=", 1)[1]
-            elif line.startswith("TELEGRAM_COMMANDER_ID="):
-                tokens["commander_id"] = line.split("=", 1)[1]
+    for config_path in CONFIG_PATHS:
+        if not config_path.exists():
+            continue
+        with open(config_path) as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("TELEGRAM_D2MC2C_TOKEN="):
+                    tokens["d2mc2c"] = line.split("=", 1)[1]
+                elif line.startswith("TELEGRAM_GOOSE_TOKEN="):
+                    tokens["goose"] = line.split("=", 1)[1]
+                elif line.startswith("TELEGRAM_DANI_TOKEN="):
+                    tokens["dani"] = line.split("=", 1)[1]
+                elif line.startswith("TELEGRAM_RELAY_TOKEN="):
+                    tokens["relay"] = line.split("=", 1)[1]
+                elif line.startswith("TELEGRAM_RELAY_CHAT_ID="):
+                    tokens["relay_chat_id"] = line.split("=", 1)[1]
+                elif line.startswith("TELEGRAM_COMMANDER_ID="):
+                    tokens["commander_id"] = line.split("=", 1)[1]
+    if not tokens:
+        logger.warning(f"No Telegram tokens found in any config path: {CONFIG_PATHS}")
     return tokens
 
 _TOKENS = None

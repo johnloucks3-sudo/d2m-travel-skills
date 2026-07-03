@@ -1,0 +1,42 @@
+Subject: Tech Scan 2026-07-03 11:00 UTC — 10 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-03T11:02:25.105506+00:00
+
+TECH SCAN — 2026-07-03 11:00 UTC
+airborne scanner pulse · 24 finds · sectors agentic, claude-code, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 10 TRIAL · 14 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:_A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.com/docs/),
+↳ real tool (github.com) — worth a bounded look
+- [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) by [multica-ai](https://github.com/multica-ai) - 
+↳ real tool (skill, github.com) — worth a bounded look
+- [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current single-pa
+↳ real tool (mcp, github.com) — worth a bounded look
+- [Claude Code: Everything You Need to Know](https://github.com/wesammustafa/Claude-Code-Everything-You-Need-to-Know) by [wesammus
+↳ real tool (github.com) — worth a bounded look
+- [claude-howto](https://github.com/luongnv89/claude-howto) by [luongnv89](https://github.com/luongnv89) - A structured, chapter-b
+↳ real tool (github.com) — worth a bounded look
+- [explore-claude-code](https://github.com/LukeRenton/explore-claude-code) by [Luke Renton](https://github.com/LukeRenton) - An in
+↳ real tool (github.com) — worth a bounded look
+Sous-Chef, a Claude Code plugin where Fable reviews, Codex implements — https://github.com/tomascupr/sous-chef
+↳ real tool (plugin, github.com) — worth a bounded look
+Show HN: Meanwhile – turn Claude Code idle time into learning — https://github.com/riccardomusumeci11/meanwhile
+↳ real tool (github.com) — worth a bounded look
+Show HN: Muxer – open-source model multiplexer for Claude Code — https://github.com/DangerousYams/muxer
+↳ real tool (github.com) — worth a bounded look
+FleetView – a browser cockpit for running many Claude Code agents at once — https://github.com/schoppllc/Terminalcontrol
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:![Awesome Claude Code](assets/awesome-claude-code-banner.png)
+
+## The Claude Code Ticker - A Sample of Claude Code Projects Around GitHub
+
+- [Remote Control, Notifications & Voice I/O](#remote-control-notifications--voice-io)
+- [Multi-Agent Orchestration](#multi-agent-orchestration)
+- [Claude Code Hooks: Complete Guide](https://hidekazu-konishi.com/entry/claude_code_hooks_complete_guide.html
+Alibaba to ban Claude Code in workplace over alleged backdoor risks, source says — https://www.reuters.com/wor
+RAW — all finds this pulse (unfiltered)[claude-code] ![Awesome Claude Code](assets/awesome-claude-code-banner.png) (awesome-claude-code)
+[claude-code]  (awesome-claude-code)
+[claude-code] _A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.c (awesome-claude-code)
+[claude-code] ## The Claude Code Ticker - A Sample of Claude Code Projects Around GitHub (awesome-claude-code)
+[claude-code]  (awesome-claude-code)
+[voice] - [Rem

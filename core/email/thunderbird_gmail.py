@@ -150,6 +150,7 @@ def _resolve_wing_from(service, requested: str) -> str:
 # Persona display names for Send As support
 PERSONA_DISPLAY_NAMES = {
     "COS": "Victory Hale, D2M Travel",
+    "HALE": "Victory Hale, D2M Travel",
     "EXEC": "Naia Solberg-Vega, D2M Travel",
     "A2": "Marcus Dembe, D2M Travel",
     "A3": "Dani Moreau, D2M Travel",
@@ -2840,6 +2841,7 @@ def gmail_create_draft_sync(
     attachment_paths: Optional[List[str]] = None,
     # A8 — WF-17 deep-link Telegram notification fields
     notify_telegram: bool = False,
+    persona_id: Optional[str] = None,
     persona_display: str = "D2M Concierge",
     product_type: str = "",
     chain_status: Optional[dict] = None,
@@ -2862,6 +2864,9 @@ def gmail_create_draft_sync(
              "talon": False, "jet": False}
     """
     import base64 as _b64
+
+    if persona_id:
+        persona_display = PERSONA_DISPLAY_NAMES.get(persona_id.upper(), persona_display)
 
     # MISSION-180: client drafts stage in d2mconcierge (was drifting to johnloucks3).
     # Fail loud on wrong account; resolve branded From only if the alias is verified.

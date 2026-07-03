@@ -469,3 +469,34 @@ This is a once-in-a-lifetime multi-generational celebration. Quality over econom
 
 ## BOOKING MASTER ENTRY
 Row 36: Disney Wish Mediterranean Jun 15–23 2027 | Status: Pending | BN: 🟡 PENDING | Commission: N/A (vacationstogo.com)
+
+
+### EMAIL LOG
+
+**Jul 02 — Bill Spencer** (Re: Re: Spencer Family Grand Tour — Your Journey Overview)
+> [2026-07-02] Lunch meeting proposed: Tuesday July 7 at Noon, Coffee Cup Cafe Monument, with Bill & Kathleen to finalize Grand Tour details. Daughter requests Florence cooking class (June 23–25 segment, post-family split, 8 travelers remaining). Bill references 'Walkabout Tours in Florence' as vendor source. Pending vendor confirmation, pricing, and availability verification.
+
+
+**Jul 03 — Bill Spencer** (Re: Re: Grand Tour — Lunch Friday July 10th?)
+> **2026-07-03 — Bill Spencer | Cost Itemization Request & Lunch Confirmation.** Bill confirms Friday, July 10 lunch and requests detailed cost breakdown by trip component for family cost-sharing discussion during their July 4–5 gathering. Family willing to cut scope based on budget visibility. Notes: airfare top-of-mind; each family member needs pro-rata share clarity; discretionary elements likely candidates for cuts (third Florence night, Tuscany cooking class, Swiss luxury level). Action: itemized cost model + 2–3 scenario options ready for July 10 lunch. Sentiment: positive, collaborative, budget-conscious.
+
+### OPEN ACTION ITEMS
+- [ ] COMMANDER: Confirm availability Tuesday July 7, 2026, Noon, Coffee Cup Cafe Monument (auto-intel Jul 02)
+
+- [ ] Print/bring cost breakdown, scenario models, and discretionary-cut options to July 10 lunch meeting. (auto-intel Jul 03)
+
+- [ ] Confirm lunch time and location with Bill Spencer before July 6. (auto-intel Jul 03)
+
+- [ ] Prepare cost summary document 1–2 days before July 10 lunch for family to review during their July 4 gathering. (auto-intel Jul 03)
+
+- [ ] Model 2–3 cost scenarios (economy/comfort/luxury) showing cost delta for each discretionary item (third Florence night, cooking class, Swiss luxury level). (auto-intel Jul 03)
+
+- [ ] Build itemized cost spreadsheet: DEN-FCO airfare + ZRH-KEF-DEN airfare, cruise allocation per person, Rome 2-night hotel x12, Florence 2-night hotel x12, Milan 2-night hotel x12, Swiss region hotels x12, Italian train passes (Rome-Florence-Milan group 12), Swiss train passes/Jungfraujoch, guided tours by location, transfers, insurance—organized by family unit. (auto-intel Jul 03)
+
+- [ ] PREPARE: Compile cooking class options + alternatives for presentation at lunch meeting (auto-intel Jul 02)
+
+- [ ] RESEARCH: Gather pricing, class duration, included meals, age restrictions, and group-booking process (auto-intel Jul 02)
+
+- [ ] RESEARCH: Check class availability June 23–25, 2027 for group of 8 (post-split remaining travelers) (auto-intel Jul 02)
+
+- [ ] RESEARCH: Verify Walkabout Tours Florence offers cooking class experience (confirm vendor is active, reviews, legitimacy) (auto-intel Jul 02)

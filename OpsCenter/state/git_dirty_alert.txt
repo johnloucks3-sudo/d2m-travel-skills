@@ -1,7 +1,13 @@
-2026-06-24T21:47:00.338417: 62 uncommitted files
+2026-07-03T08:43:53.745816: 428 uncommitted files
+ M .ask_usage_log
  M Blackboard
  M CLAUDE.md
+ M D2M/clients/kuklinski_touchpoints.json
+ M D2M/lifecycle/Loucks_SilverNova_Mediterranean_May2027_Lifecycle.md
+ M OpsCenter/.lifecycle_alerted.json
+ M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
+ M OpsCenter/.regent_cookie_alert_dedup.json
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
  M OpsCenter/.supervisor_patterns.json
@@ -9,13 +15,7 @@
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/brief_feedback_config.json
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/claude_outbox.md
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/context_d2mc2c.json
- M OpsCenter/eod_feedback_config.json
- M OpsCenter/eod_incubator_config.json
- M OpsCenter/executor_run.lock
- M OpsCenter/fare_watches/last_check.json

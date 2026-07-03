@@ -48,7 +48,7 @@ MODELS = [
     # ── DeepSeek ────────────────────────────────────────────────────────────
     ("deepseek",       "deepseek-v3.2",                  "128K", "DeepSeek baseline",       "",                      "P"),
     ("deepseek-v4",    "deepseek-v4-flash-e",            "128K", "DeepSeek V4",             "",                      "P"),
-    ("r1",             "deepseek-r1-n",                  "128K", "Chain-of-thought",        "",                      "P"),
+    ("r1",             "deepseek-v4-flash-e",            "128K", "V4 Flash cheap",           "",                      "P"),
     # ── Other ────────────────────────────────────────────────────────────────
     ("o3",             "o3",                             "200K", "Hard reasoning",          "",                      ""),
     # ── Nano Banana (image gen) ───────────────────────────────────────────────

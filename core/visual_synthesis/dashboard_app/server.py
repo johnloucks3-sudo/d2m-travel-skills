@@ -122,14 +122,31 @@ def _cruise_db():
 # ── Cruises API endpoints (public — no auth required) ───────────────────────
 @app.get("/api/cruises/lines")
 async def cruises_lines():
-    """Return each cruise line with sailing count, sorted by count desc."""
+    """Return each cruise line with sailing count, year breakdown, and min price."""
     conn = _cruise_db()
-    rows = conn.execute(
-        "SELECT line, COUNT(*) as cnt FROM cruises WHERE line != '' "
-        "GROUP BY line ORDER BY cnt DESC"
-    ).fetchall()
+    rows = conn.execute("""
+        SELECT line,
+               COUNT(*) as cnt,
+               SUM(CASE WHEN departure >= '2026-01-01' AND departure < '2027-01-01' THEN 1 ELSE 0 END) as c2026,
+               SUM(CASE WHEN departure >= '2027-01-01' AND departure < '2028-01-01' THEN 1 ELSE 0 END) as c2027,
+               SUM(CASE WHEN departure >= '2028-01-01' THEN 1 ELSE 0 END) as c2028plus,
+               MIN(price_ind) as min_price,
+               GROUP_CONCAT(DISTINCT ship) as ships_raw
+        FROM cruises WHERE line != ''
+        GROUP BY line ORDER BY cnt DESC
+    """).fetchall()
     conn.close()
-    return JSONResponse([{"line": r["line"], "count": r["cnt"]} for r in rows])
+    out = []
+    for r in rows:
+        ships_str = r["ships_raw"] or ""
+        ships = list(dict.fromkeys(s.strip() for s in ships_str.split(",") if s.strip()))[:4]
+        out.append({
+            "line": r["line"], "count": r["cnt"],
+            "c2026": r["c2026"] or 0, "c2027": r["c2027"] or 0, "c2028plus": r["c2028plus"] or 0,
+            "min_price": r["min_price"],
+            "ships": ships,
+        })
+    return JSONResponse(out)
 
 
 @app.get("/api/cruises/regions")
@@ -153,6 +170,7 @@ async def cruises_search(
     nights_max: int = Query(default=999),
     departure_after: str = Query(default=""),
     departure_before: str = Query(default=""),
+    multi: bool = Query(default=False),
     limit: int = Query(default=50, le=200),
     offset: int = Query(default=0),
 ):
@@ -184,13 +202,17 @@ async def cruises_search(
     if departure_before:
         where.append("c.departure <= ?" if q.strip() else "departure <= ?")
         params.append(departure_before)
+    if multi:
+        where.append("c.multi = 1" if q.strip() else "multi = 1")
 
     where_sql = ("WHERE " + " AND ".join(where)) if where else ""
 
     if q.strip() and any("cruises_fts" in w for w in where):
         base = f"""
             SELECT c.id, c.line, c.ship, c.departure, c.nights,
-                   c.from_port, c.route, c.region, c.sources, c.multi
+                   c.from_port, c.route, c.region, c.sources, c.multi,
+                   c.price_ind, c.price_ts, c.price_src,
+                   c.booking_url, c.booking_label
             FROM cruises c
             JOIN cruises_fts ON cruises_fts.rowid = c.id
             {where_sql}
@@ -222,6 +244,11 @@ async def cruises_search(
             "region": r["region"],
             "sources": sources,
             "multi": bool(r["multi"]),
+            "price_ind": r["price_ind"],
+            "price_ts": r["price_ts"],
+            "price_src": r["price_src"],
+            "booking_url": r["booking_url"] if r["booking_url"] else None,
+            "booking_label": r["booking_label"] if r["booking_label"] else None,
         })
 
     return JSONResponse({"total": total, "offset": offset, "limit": limit, "results": results})
@@ -269,6 +296,72 @@ async def cruises_price_request(req: PriceRequest, background_tasks: BackgroundT
         "status": "received",
         "message": "Thank you! Our advisors will respond within 2 business hours.",
     })
+
+
+# ── Generic Travel Search Framework /api/travel/* ───────────────────────────
+# category param selects vertical. Currently only 'cruise' has data.
+# Aliases let the frontend migrate to /api/travel/* without breaking /api/cruises/*.
+
+@app.get("/api/travel/lines")
+async def travel_lines(category: str = Query(default="cruise")):
+    """Lines/operators by vertical. Alias of /api/cruises/lines for category=cruise."""
+    if category == "cruise":
+        return await cruises_lines()
+    return JSONResponse([])
+
+
+@app.get("/api/travel/regions")
+async def travel_regions(category: str = Query(default="cruise")):
+    """Regions by vertical. Alias of /api/cruises/regions for category=cruise."""
+    if category == "cruise":
+        return await cruises_regions()
+    return JSONResponse([])
+
+
+@app.get("/api/travel/search")
+async def travel_search(
+    category: str = Query(default="cruise"),
+    q: str = Query(default=""),
+    line: str = Query(default=""),
+    region: str = Query(default=""),
+    nights_min: int = Query(default=0),
+    nights_max: int = Query(default=999),
+    departure_after: str = Query(default=""),
+    departure_before: str = Query(default=""),
+    limit: int = Query(default=50, le=200),
+    offset: int = Query(default=0),
+):
+    """Multi-vertical search. Routes to per-category handler."""
+    if category == "cruise":
+        return await cruises_search(q=q, line=line, region=region,
+                                    nights_min=nights_min, nights_max=nights_max,
+                                    departure_after=departure_after,
+                                    departure_before=departure_before,
+                                    limit=limit, offset=offset)
+    return JSONResponse({"total": 0, "offset": offset, "limit": limit, "results": [],
+                         "note": f"Vertical '{category}' not yet populated."})
+
+
+@app.post("/api/travel/price-request")
+async def travel_price_request(req: PriceRequest, background_tasks: BackgroundTasks):
+    """Category-aware price request. Routes to per-category handler."""
+    return await cruises_price_request(req, background_tasks)
+
+
+@app.get("/api/travel/categories")
+async def travel_categories():
+    """Return active verticals with record counts."""
+    conn = _cruise_db()
+    cruise_count = conn.execute("SELECT COUNT(*) FROM cruises").fetchone()[0]
+    conn.close()
+    return JSONResponse([
+        {"category": "cruise", "label": "Cruises", "count": cruise_count, "status": "live"},
+        {"category": "air", "label": "Flights", "count": 0, "status": "planned"},
+        {"category": "excursion", "label": "Excursions", "count": 0, "status": "planned"},
+        {"category": "land", "label": "Land Tours", "count": 0, "status": "planned"},
+        {"category": "transfer", "label": "Transfers", "count": 0, "status": "planned"},
+    ])
+
 
 # Setup Jinja2 for brief rendering
 jinja_env = Environment(loader=FileSystemLoader(TEMPLATES))

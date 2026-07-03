@@ -30,7 +30,7 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-_TOKEN = "***REMOVED-SECRET***"
+_TOKEN = os.environ.get("TELEGRAM_RELAY_TOKEN") or "***REMOVED-SECRET***"
 _CHAT_ID = -5248121475
 _LAST_ID_FILE = Path(__file__).parent.parent.parent / "OpsCenter" / "relay_last_update_id.json"
 _BASE = f"https://api.telegram.org/bot{_TOKEN}"

@@ -27,6 +27,7 @@
 - .rtk/**
 - storage/backups/**
 - storage/browser_profiles/**
+- **/centrav_ff_profile/**
 
 # --- EXCLUDE: rclone's own log (race condition: file changes during sync) ---
 - .rclone_sync.log

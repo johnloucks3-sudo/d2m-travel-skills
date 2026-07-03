@@ -29,7 +29,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 draft_pending_tps: ["1.1"]
 draft_pending_notes: "TP 1.1 Voyage Preview drafted 2026-06-24, staged in johnloucks3 (r-936980813740879014), pending Commander send (WF-17)"
 completed_tps_basis: "RESOLVED 2026-06-09 (Commander + Harlan): Kyle paid ALL 3 Kuklinski-group bookings. Booking Master live read confirms conf 9595029 = PAID IN FULL, balance $0.00, FPD Mar-31 passed. Payment sequence 4.1-4.5 verifiably closed (same basis as Kuklinski/Nichols peers). The Apr-28 OVERDUE snapshot was stale. Client-facing TPs (0.5 etc.) NOT marked — lifecycle in RESET, TP 0.5 draft ready but not sent."
-fpd_status: PAID
+fpd_status: PENDING
 ---
 
 # CLIENT DOSSIER — Joshua Morton & Erica Dodge

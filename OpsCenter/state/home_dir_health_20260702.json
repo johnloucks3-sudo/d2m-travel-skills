@@ -1,6 +1,6 @@
 {
   "probe": "home-dir-health",
-  "timestamp": "2026-07-02T05:12:21.117608+00:00",
+  "timestamp": "2026-07-02T23:56:49.974999+00:00",
   "date": "20260702",
   "overall_status": "CRITICAL",
   "exit_code": 2,
@@ -8,11 +8,11 @@
     {
       "check": "cache_bloat",
       "path": "/home/john/.cache",
-      "size_mb": 3153.0,
-      "size_gb": 3.08,
+      "size_mb": 3707.0,
+      "size_gb": 3.62,
       "threshold_gb": 2.0,
       "status": "CRITICAL",
-      "note": "~/.cache is 3.1GB \u2014 exceeds 2.0GB threshold"
+      "note": "~/.cache is 3.6GB \u2014 exceeds 2.0GB threshold"
     },
     {
       "check": "downloads_size",
@@ -25,19 +25,19 @@
     {
       "check": "local_size",
       "path": "/home/john/.local",
-      "size_mb": 31410.0,
-      "size_gb": 30.67,
+      "size_mb": 31637.0,
+      "size_gb": 30.9,
       "threshold_gb": 35.0,
       "status": "OK",
-      "note": "~/.local is 30.7GB \u2014 within 35.0GB threshold"
+      "note": "~/.local is 30.9GB \u2014 within 35.0GB threshold"
     },
     {
       "check": "npm_cache_size",
       "path": "/home/john/.npm",
-      "size_mb": 176.0,
+      "size_mb": 431.0,
       "threshold_mb": 500,
       "status": "OK",
-      "note": "~/.npm is 176MB \u2014 within 500MB threshold"
+      "note": "~/.npm is 431MB \u2014 within 500MB threshold"
     },
     {
       "check": "critical_bins",
@@ -299,8 +299,8 @@
     {
       "check": "major_dir_growth",
       "major_dir_sizes": {
-        "/home/john/Thunderbird": 13665.0,
-        "/home/john/D2M": 6571.0,
+        "/home/john/Thunderbird": 14188.0,
+        "/home/john/D2M": 6572.0,
         "/home/john/Downloads": 283.0,
         "/home/john/OpenMontage": 411.0,
         "/home/john/google-cloud-sdk": 811.0,

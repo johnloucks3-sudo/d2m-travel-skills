@@ -1,19 +1,25 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-06-25 20:20:41 MDT
+## Generated: 2026-07-03 10:01:45 MDT
 
 ---
 
 ### Recent Commits
-- 119d51e9b feat(poe): full alias coverage, points scraper, daily 0600 MT timer
-- 946fce13d fix(poe): rotate key, fix file-over-env priority, update broken model IDs
-- b837be604 feat(poe): add nano-banana-pro + GPT nano family, correct image-model labels
-- 45b8c188a feat(poe): update model table — Commander's full alias set
-- ddd92500d feat(poe): open model selection — any Poe model ID works, add deepseek-v4/kimi/grok4 aliases
+- 10d52dd4c feat(portals): multi-client portal platform — one server all clients (vhost+auth+upload+files), generic gdoc sync, registry; first tenant Loucks Dec 2026
+- 92d612da6 SO: TALON/JET division of labor — codified from both wings' independent position papers, Commander approved
+- d3956c73c spencer: client-inbox-watch — d2mconcierge client-sender watcher + registry (Bill Spencer), 10-min timer
+- fe655464b spencer: gdoc→portal sync engine + daily timer; portal nav adds Build Your Journey, PERT timeline, briefing deck
+- 6784c8519 docs(hale-os): HALE Dual Brain instruction manual — 2040 lines, 92KB
 
 ### Uncommitted Changes
- ? Blackboard
+ M .ask_usage_log
+ m Blackboard
  M CLAUDE.md
+ M D2M/clients/kuklinski_touchpoints.json
+ M D2M/lifecycle/Loucks_SilverNova_Mediterranean_May2027_Lifecycle.md
+ M OpsCenter/.lifecycle_alerted.json
+ M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
+ M OpsCenter/.regent_cookie_alert_dedup.json
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
  M OpsCenter/.supervisor_patterns.json
@@ -21,22 +27,15 @@
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/brief_feedback_config.json
+ M OpsCenter/claude_inbox.md
  M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/claude_outbox.md
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/context_d2mc2c.json
- M OpsCenter/eod_feedback_config.json
- M OpsCenter/eod_incubator_config.json
- M OpsCenter/executor_run.lock
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 0
-0 pending task(s)
+- OpenCode inbox: 11 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

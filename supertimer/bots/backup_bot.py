@@ -21,7 +21,7 @@ class BackupBot(BotBase):
              interval_sec=86400, timeout_sec=120),
         Task("drive-sync",
              bash(f"{ROOT}/scripts/thunderbird-rclone-sync.sh"),
-             interval_sec=86400, timeout_sec=300),
+             interval_sec=86400, timeout_sec=600),
         Task("logrotate",
              bash(f"/usr/sbin/logrotate -s {ROOT}/logs/logrotate.state {ROOT}/config/logrotate.conf"),
              interval_sec=86400, timeout_sec=60),

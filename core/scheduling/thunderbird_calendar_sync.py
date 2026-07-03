@@ -43,7 +43,8 @@ from googleapiclient.errors import HttpError
 # ---------------------------------------------------------------------------
 
 THUNDERBIRD_DIR = Path.home() / "Thunderbird"
-CREDENTIALS_FILE = THUNDERBIRD_DIR / "credentials.json"           # Service account
+CREDENTIALS_FILE = THUNDERBIRD_DIR / "credentials.json"           # OAuth client (installed app)
+SERVICE_ACCOUNT_FILE = THUNDERBIRD_DIR / "creds" / "service_account.json"  # SA for Sheets/Calendar
 OAUTH_CREDENTIALS_FILE = THUNDERBIRD_DIR / "gmail_oauth_credentials.json"
 CALENDAR_TOKEN_FILE = THUNDERBIRD_DIR / "calendar_token.json"     # Separate from Gmail
 SYNC_STATE_FILE = THUNDERBIRD_DIR / "calendar_sync_state.json"
@@ -107,18 +108,29 @@ def _get_calendar_service():
             return _calendar_service
 
     # Strategy 2: Service account fallback
-    if CREDENTIALS_FILE.exists():
-        creds = sa_credentials.Credentials.from_service_account_file(
-            str(CREDENTIALS_FILE), scopes=CALENDAR_SCOPES
-        )
-        _calendar_service = build("calendar", "v3", credentials=creds)
-        logger.info("Calendar service: service account (shared calendar)")
-        return _calendar_service
+    if SERVICE_ACCOUNT_FILE.exists():
+        try:
+            raw = json.loads(SERVICE_ACCOUNT_FILE.read_text())
+        except Exception:
+            raw = {}
+        if raw.get("type") == "service_account":
+            creds = sa_credentials.Credentials.from_service_account_file(
+                str(SERVICE_ACCOUNT_FILE), scopes=CALENDAR_SCOPES
+            )
+            _calendar_service = build("calendar", "v3", credentials=creds)
+            logger.info("Calendar service: service account (shared calendar)")
+            return _calendar_service
+        else:
+            logger.warning(
+                f"service_account.json is type '{raw.get('type', 'unknown')}' — not a service account. "
+                "Skipping SA fallback."
+            )
 
     raise RuntimeError(
-        "No Calendar credentials found.\n"
-        f"  Option 1: Run  python3 thunderbird_calendar_sync.py --authorize\n"
-        f"  Option 2: Ensure service account file exists at {CREDENTIALS_FILE}"
+        "No Calendar credentials found. OAuth token is missing or expired.\n"
+        f"  Fix: cd /home/john/Thunderbird/core/scheduling && "
+        f"python3 thunderbird_calendar_sync.py --authorize\n"
+        f"  This opens a browser once to grant Calendar access, then saves {CALENDAR_TOKEN_FILE}"
     )
 
 
@@ -151,7 +163,7 @@ def authorize_calendar():
 def _get_sheets_client():
     """Return an authorized gspread client using the service account."""
     creds = sa_credentials.Credentials.from_service_account_file(
-        str(CREDENTIALS_FILE),
+        str(SERVICE_ACCOUNT_FILE),
         scopes=SHEETS_SCOPES,
     )
     return gspread.authorize(creds)

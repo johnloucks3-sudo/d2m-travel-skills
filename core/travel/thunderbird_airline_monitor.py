@@ -24,6 +24,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 
+# Ensure project root is on sys.path so `from core.*` imports work when this
+# script is invoked directly (python3 core/travel/thunderbird_airline_monitor.py).
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+
 import feedparser
 
 logger = logging.getLogger("thunderbird_airline_monitor")
@@ -59,6 +65,10 @@ TRACKED_AIRLINES = [
     "southwest", "swa", "united", "delta", "american",
     "alaska", "jetblue", "frontier", "spirit",
 ]
+
+# Clients who have opted out of airline route-change alerts.
+# Add client display name (lowercase key from dossiers) to suppress all alerts.
+SUPPRESSED_CLIENTS = {"westbrook", "justin loucks", "ryan loucks"}
 
 
 # ============================================================================
@@ -201,6 +211,8 @@ def check_client_airport_impact(articles: List[Dict] = None) -> List[Dict[str, A
         text = (article["title"] + " " + article["summary"]).lower()
 
         for client, airports in client_airports.items():
+            if client.lower() in SUPPRESSED_CLIENTS:
+                continue
             for airport in airports:
                 if airport.lower() in text:
                     airline_match = any(al in text for al in TRACKED_AIRLINES)
@@ -237,7 +249,7 @@ def send_telegram_alert(impacts: List[Dict]) -> bool:
         return False
 
     try:
-        from thunderbird_telegram import send_commander_message
+        from core.communication.telegram_c2 import dm_commander as send_commander_message
 
         msg_parts = ["*AIRLINE ALERT — CLIENT IMPACT DETECTED*\n"]
 

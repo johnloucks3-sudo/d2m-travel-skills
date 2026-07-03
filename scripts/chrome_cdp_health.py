@@ -90,19 +90,10 @@ def main() -> int:
         _update_hale_state("ONLINE")
         return 0
 
-    # Port not responding — attempt service restart
-    print(f"[chrome_cdp_health] Port 9222 not responding — restarting {SERVICE}...")
-    if not _service_restart():
-        print(f"[chrome_cdp_health] FAILED — systemctl restart {SERVICE} failed", file=sys.stderr)
-        _update_hale_state("OFFLINE")
-        return 2
-
-    if _wait_for_cdp():
-        print(f"[chrome_cdp_health] RESTARTED — Chrome 9222 now online after service restart")
-        _update_hale_state("ONLINE")
-        return 1
-
-    print(f"[chrome_cdp_health] FAILED — Chrome still not responding after restart", file=sys.stderr)
+    # Port not responding — probe only, NO auto-restart
+    # Auto-restart disabled 2026-06-27: was causing Chrome to spawn a visible window every 60s
+    # (infra_bot RED loop → always DUE → restart every tick). Start chrome-debug manually when needed.
+    print(f"[chrome_cdp_health] OFFLINE — port 9222 not responding (auto-restart disabled)")
     _update_hale_state("OFFLINE")
     return 2
 

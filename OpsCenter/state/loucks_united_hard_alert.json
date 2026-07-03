@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-07-03T14:53:46.271553+00:00",
+  "united_only": true,
+  "hard_threshold_2pax": 900.0,
+  "rt_2pax": 1128.88,
+  "out": {
+    "price": 600.42,
+    "dep": "09:45"
+  },
+  "rtn": {
+    "price": 528.46,
+    "dep": "10:45"
+  },
+  "armed": false,
+  "fired_this_run": false,
+  "last_alerted_rt": 1000000000.0
+}

@@ -6,6 +6,7 @@ subject: Viking June Free-Air Promo — Eligibility Assessment for Kuklinski Gro
 bookings: 9593880 / 9593873 / 9595029
 voyage: Viking Mars · Panama Canal & Central America · Dec 17–27, 2026
 status: RESEARCH COMPLETE — COMMANDER GATE FOR ANY ACTION
+fpd_status: PENDING
 ---
 
 # KUKLINSKI GROUP — VIKING FREE-AIR PROMO ELIGIBILITY

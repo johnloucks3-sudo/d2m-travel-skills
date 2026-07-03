@@ -1,0 +1,66 @@
+{
+  "plans": {
+    "DOGFOOD-1783026107": {
+      "created": "2026-07-02T15:01:47",
+      "tasks": {
+        "T1": {
+          "id": "T1",
+          "lane": "oc",
+          "task": "research graphiti self-host steps",
+          "depends_on": [],
+          "model": null,
+          "status": "completed",
+          "worker": "oc-scout-1",
+          "claimed_at": "2026-07-02T15:01:47",
+          "result": "graphiti runbook drafted",
+          "updated": "2026-07-02T15:01:47"
+        },
+        "T2": {
+          "id": "T2",
+          "lane": "oc",
+          "task": "scaffold compiler code",
+          "depends_on": [
+            "T1"
+          ],
+          "model": null,
+          "status": "completed",
+          "worker": "oc-scout-2",
+          "claimed_at": "2026-07-02T15:01:47",
+          "result": "compiler scaffolded",
+          "updated": "2026-07-02T15:01:47"
+        },
+        "T3": {
+          "id": "T3",
+          "lane": "cc",
+          "task": "merge + integrate to HALE-OS",
+          "depends_on": [
+            "T2"
+          ],
+          "model": null,
+          "status": "completed",
+          "worker": "hale",
+          "claimed_at": "2026-07-02T15:01:47",
+          "result": "integrated",
+          "updated": "2026-07-02T15:01:47"
+        }
+      }
+    },
+    "RACE-1783026107": {
+      "created": "2026-07-02T15:01:47",
+      "tasks": {
+        "T1": {
+          "id": "T1",
+          "lane": "oc",
+          "task": "only task",
+          "depends_on": [],
+          "model": null,
+          "status": "claimed",
+          "worker": "w1",
+          "claimed_at": "2026-07-02T15:01:47",
+          "result": null,
+          "updated": "2026-07-02T15:01:47"
+        }
+      }
+    }
+  }
+}

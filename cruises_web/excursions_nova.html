@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silver Nova May 2027 — Excursion Planner | D2M</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#f7f3ea;color:#1a1a2e}
+.hdr{background:#07076b;color:#f7f3ea;padding:16px 24px 12px;border-bottom:3px solid #c8a400}
+.hdr h1{font-size:17px;letter-spacing:.4px}
+.hdr .sub{font-size:10px;opacity:.7;margin:2px 0}
+.hdr-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.budget-block{background:rgba(0,0,0,.25);border:1px solid #c8a400;border-radius:6px;padding:9px 14px;min-width:210px;flex-shrink:0}
+.budget-title{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:#c8a400;margin-bottom:4px}
+.budget-nums{display:flex;gap:12px;align-items:baseline;margin-bottom:4px}
+.budget-spent{font-size:19px;font-weight:700;color:#ff6b6b}
+.budget-remain{font-size:19px;font-weight:700;color:#4cff4c}
+.budget-bar-bg{background:rgba(255,255,255,.15);border-radius:4px;height:5px;overflow:hidden;margin-bottom:3px}
+.budget-bar-fill{height:5px;border-radius:4px;background:linear-gradient(to right,#4cff4c,#c8a400);transition:width .4s}
+.budget-note{font-size:8px;color:rgba(255,255,255,.45)}
+.chips{display:flex;gap:5px;flex-wrap:wrap;padding:7px 24px;background:#07076b;border-bottom:2px solid #c8a400}
+.chip{display:inline-block;background:#f0ecdf;border:1px solid #07076b;border-radius:12px;padding:2px 8px;font-size:9px;color:#07076b}
+.chip-warn{background:#fff3cd;border-color:#c8a400}
+/* ── MY TRIP planning strip ── */
+.plan-strip-outer{background:#1a1a2e;border-bottom:2px solid #c8a400;padding:8px 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c8a400 #1a1a2e}
+.plan-strip-outer::-webkit-scrollbar{height:4px}
+.plan-strip-outer::-webkit-scrollbar-thumb{background:#c8a400}
+.plan-strip{display:flex;gap:6px;align-items:center;min-width:max-content}
+.plan-strip-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#c8a400;margin-right:4px;flex-shrink:0}
+.plan-chip{border-radius:5px;padding:5px 9px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px;border:1px solid #c8a400;background:#0d0d4a}
+.plan-chip:hover{background:#1a1a6b;transform:translateY(-1px)}
+.plan-chip.unset{border-style:dashed;border-color:rgba(200,164,0,.35);background:rgba(13,13,74,.5)}
+.plan-chip-flag{font-size:13px;flex-shrink:0}
+.plan-chip-body{min-width:0}
+.plan-chip-port{font-size:8px;color:rgba(255,255,255,.45);letter-spacing:.5px;text-transform:uppercase}
+.plan-chip-name{font-size:9px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+.plan-chip.unset .plan-chip-name{opacity:.35}
+.plan-chip-price{font-size:10px;font-weight:800;color:#c8a400;flex-shrink:0}
+.plan-chip.unset .plan-chip-price{opacity:.3}
+.plan-total-chip{background:#c8a400;color:#07076b;border-radius:5px;padding:6px 14px;font-weight:800;font-size:13px;flex-shrink:0;margin-left:4px}
+/* ── Nav ── */
+.seg-nav{background:#07076b;padding:0 24px;display:flex;align-items:center;gap:0;border-bottom:2px solid #c8a400}
+.seg-btn{background:transparent;border:none;border-bottom:3px solid transparent;color:rgba(255,255,255,.6);padding:9px 14px;font-size:11px;font-family:Georgia,serif;cursor:pointer;transition:all .15s;margin-bottom:-2px}
+.seg-btn:hover{color:#fff;border-bottom-color:rgba(200,164,0,.4)}
+.seg-btn.active{color:#c8a400;border-bottom-color:#c8a400;font-weight:700}
+.view-btn{background:#c8a400;color:#07076b;border:none;border-radius:4px;padding:5px 12px;font-size:10px;font-family:Georgia,serif;cursor:pointer;font-weight:700;margin-left:8px}
+.seg-spacer{flex:1}
+.back-link{color:rgba(255,255,255,.5);font-size:10px;text-decoration:none;padding:8px 0}
+.back-link:hover{color:#c8a400}
+/* ── Day card strip ── */
+.card-strip-wrap{position:sticky;top:0;z-index:50;background:#07076b;border-bottom:2px solid #c8a400;padding:8px 24px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c8a400 #07076b}
+.card-strip-wrap::-webkit-scrollbar{height:4px}
+.card-strip-wrap::-webkit-scrollbar-thumb{background:#c8a400}
+.card-strip{display:flex;gap:6px;min-width:max-content}
+.day-card{width:112px;flex-shrink:0;border-radius:7px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .15s;background:#0d0d4a}
+.day-card:hover{border-color:rgba(200,164,0,.5);transform:translateY(-2px)}
+.day-card.active{border-color:#c8a400;box-shadow:0 0 10px rgba(200,164,0,.4)}
+.day-card.has-sel{border-color:rgba(200,164,0,.35)}
+.card-photo{height:40px;display:flex;align-items:center;justify-content:center;font-size:18px;position:relative;overflow:hidden}
+.card-photo-port{background:linear-gradient(135deg,#1a2a7a,#07076b)}
+.card-photo-sea{background:linear-gradient(135deg,#1a3a80,#0d2460)}
+.card-photo-embark{background:linear-gradient(135deg,#1a5a30,#0d3020)}
+.card-photo-disembark{background:linear-gradient(135deg,#5a1a1a,#3a0d0d)}
+.card-exc-badge{position:absolute;top:3px;right:3px;background:#c8a400;color:#07076b;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px}
+.open-badge{position:absolute;top:3px;right:3px;background:#8b4513;color:#fff;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px}
+.booked-pip{position:absolute;top:3px;left:3px;background:#1a7a1a;color:#fff;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px}
+.sel-pip{position:absolute;bottom:3px;right:3px;background:#c8a400;color:#07076b;font-size:7px;font-weight:800;border-radius:3px;padding:1px 3px}
+.card-body{padding:4px 6px}
+.card-day-num{font-size:7px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase}
+.card-port-name{font-size:9px;color:#fff;font-weight:700;line-height:1.2}
+.card-country{font-size:7px;color:rgba(255,255,255,.5)}
+.card-time{font-size:7px;color:#c8a400;margin-top:1px}
+.tender-pip{display:inline-block;background:#8b0000;color:#fff;font-size:6px;border-radius:2px;padding:0 3px;margin-top:2px;font-weight:700}
+.seg-turn-pip{display:inline-block;background:#c8a400;color:#07076b;font-size:6px;border-radius:2px;padding:0 3px;margin-top:2px;font-weight:700}
+/* ── Port sections ── */
+.port-section{padding:0 24px 28px}
+.port-header{background:#07076b;color:#f7f3ea;padding:10px 16px;margin-top:18px;border-left:5px solid #c8a400;border-radius:0 6px 0 0}
+.port-header-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.port-header h2{font-size:14px}
+.port-meta{font-size:10px;opacity:.7;margin-top:2px}
+.port-time-bar{font-size:10px;color:#c8a400;font-weight:700}
+/* ── Tags ── */
+.tag{border-radius:3px;padding:1px 6px;font-size:9px;font-weight:700;white-space:nowrap;display:inline-block}
+.tag-green{background:#1a7a1a;color:#fff}
+.tag-yellow{background:#b8860b;color:#fff}
+.tag-red{background:#8b0000;color:#fff}
+.tag-blue{background:#07076b;color:#fff}
+.tag-gray{background:#666;color:#fff}
+.tag-gold{background:#c8a400;color:#07076b}
+.tag-orange{background:#c85000;color:#fff}
+.tag-teal{background:#006b5a;color:#fff}
+/* ── Provider ── */
+.provider{font-size:8px;font-weight:800;border-radius:3px;padding:2px 5px;color:#fff;display:inline-block}
+.prov-GYG{background:#d4380d}
+.prov-PE{background:#0055b3}
+.prov-SS{background:#5a2d82}
+.prov-SEG{background:#006b5a}
+.prov-TBL{background:#8b4513}
+.prov-SELF{background:#555}
+/* ── Excursion cards ── */
+.exc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px;padding:10px 0}
+.exc-card{background:#fff;border:2px solid #ddd;border-radius:5px;padding:10px 11px;position:relative;transition:border-color .15s,box-shadow .15s}
+.exc-card:hover{border-color:#07076b}
+.exc-card.recommended{border-color:#c8a400;box-shadow:0 0 12px rgba(200,164,0,.2);background:#fffdf0}
+.exc-card.user-selected{border-color:#c8a400 !important;box-shadow:0 0 16px rgba(200,164,0,.35) !important;background:#fffde0 !important}
+.exc-card.confirmed-booked{border-color:#1a7a1a;box-shadow:0 0 8px rgba(26,122,26,.15);background:#f0fff0}
+.rec-glow{position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(to right,#c8a400,#f0e040,#c8a400);border-radius:3px 3px 0 0}
+.booked-glow{position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(to right,#1a7a1a,#4cff4c,#1a7a1a);border-radius:3px 3px 0 0}
+.sel-glow{position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(to right,#c8a400,#fff700,#c8a400);border-radius:3px 3px 0 0;animation:pulse-glow 2s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{opacity:.7}50%{opacity:1}}
+.exc-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:5px}
+.exc-name{font-size:11px;font-weight:700;color:#07076b;line-height:1.3}
+.exc-price-block{text-align:right;flex-shrink:0}
+.exc-price{font-size:16px;font-weight:900;color:#07076b;line-height:1}
+.exc-price-sub{font-size:8px;color:#666;margin-top:1px}
+.exc-desc{font-size:10px;color:#444;line-height:1.5;margin:3px 0 5px}
+.exc-meta-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:3px 0}
+.exc-meta{font-size:9px;color:#555;background:#f0ecdf;border-radius:3px;padding:1px 5px}
+.exc-ggr{font-size:8px;color:#1a7a1a;font-weight:700}
+.exc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:7px;padding-top:7px;border-top:1px solid #e8e0cc;gap:6px}
+.exc-rating{font-size:10px;color:#b8860b;font-weight:700}
+.exc-book-link{background:#07076b;color:#f7f3ea;border:none;border-radius:3px;padding:4px 9px;font-size:9px;font-family:Georgia,serif;cursor:pointer;text-decoration:none;display:inline-block;transition:background .15s;white-space:nowrap}
+.exc-book-link:hover{background:#c8a400;color:#07076b}
+.exc-self-link{background:#f0ecdf;color:#07076b;border:1px solid #07076b}
+.exc-select-btn{background:#f0ecdf;color:#07076b;border:1.5px solid #07076b;border-radius:3px;padding:4px 9px;font-size:9px;font-family:Georgia,serif;cursor:pointer;font-weight:700;transition:all .15s;white-space:nowrap}
+.exc-select-btn:hover{background:#07076b;color:#f7f3ea}
+.exc-select-btn.sel{background:#c8a400;color:#07076b;border-color:#c8a400}
+.exc-warn{background:#fff3cd;border:1px solid #c8a400;border-radius:3px;padding:4px 7px;font-size:9px;color:#856404;margin-top:5px}
+.exc-meet{font-size:9px;color:#555;font-style:italic;margin-top:2px}
+.exc-tour-code{font-size:8px;color:#888;font-family:monospace}
+.booked-confirmed-badge{display:inline-block;background:#1a7a1a;color:#fff;font-size:8px;font-weight:800;border-radius:3px;padding:2px 5px;margin-bottom:3px}
+.pending-badge{display:inline-block;background:#b8860b;color:#fff;font-size:8px;font-weight:800;border-radius:3px;padding:2px 5px;margin-bottom:3px}
+.sea-day-block{background:linear-gradient(135deg,#1a3a80,#0d1f4a);color:#f7f3ea;border-radius:6px;padding:24px;text-align:center;margin-top:18px}
+.sea-day-block h2{font-size:16px;letter-spacing:2px;opacity:.7;text-transform:uppercase}
+.sea-day-block p{opacity:.5;font-size:11px;margin-top:5px}
+.embark-block{background:linear-gradient(135deg,#07076b,#1a2a7a);color:#f7f3ea;border-radius:6px;padding:22px;margin-top:18px;border-left:5px solid #c8a400}
+.rec-summary{font-size:9px;color:#888;padding:3px 0 5px;border-top:1px solid #ddd;margin-top:0}
+.no-exc{padding:14px;text-align:center;color:#888;font-style:italic;font-size:12px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-row">
+    <div>
+      <h1>⚓ SILVER NOVA MAY 2027 — EXCURSION PLANNER</h1>
+      <div class="sub">Booking 506101-26 · May 5–29, 2027 · Col. John A. Loucks III & Mrs. Susan D. Loucks · 25 days · 21 ports</div>
+    </div>
+    <div class="budget-block">
+      <div class="budget-title">My Trip Budget</div>
+      <div class="budget-nums">
+        <div><div style="font-size:7px;opacity:.6">SELECTED</div><div class="budget-spent" id="b-spent">$0</div></div>
+        <div style="opacity:.3;font-size:16px">|</div>
+        <div><div style="font-size:7px;opacity:.6">REMAINING</div><div class="budget-remain" id="b-remain">$2,500</div></div>
+      </div>
+      <div class="budget-bar-bg"><div class="budget-bar-fill" id="b-bar" style="width:0%"></div></div>
+      <div class="budget-note">Ceiling $2,500 · 2 pax · All providers · Click any card to SELECT</div>
+    </div>
+  </div>
+</div>
+
+<div class="chips">
+  <span class="chip">🦯 Low distance / flat (John)</span>
+  <span class="chip">🚫 No raw fish (Susan)</span>
+  <span class="chip">🍷 Culinary · Wine · Leisurely</span>
+  <span class="chip">✅ GGR = guaranteed return to ship</span>
+  <span class="chip chip-warn">⚠ PE181156317 Cape Sounio: Susan listed as "John Loucks" — fix before paying</span>
+</div>
+
+<!-- MY TRIP PLANNING STRIP -->
+<div class="plan-strip-outer">
+  <div class="plan-strip">
+    <div class="plan-strip-label">MY TRIP</div>
+    <div id="plan-strip"></div>
+    <div class="plan-total-chip" id="plan-total">$0 selected</div>
+  </div>
+</div>
+
+<div class="seg-nav">
+  <button class="seg-btn active" onclick="setSeg(0)">All 25 Days</button>
+  <button class="seg-btn" onclick="setSeg(1)">Seg 1 · May 5–15</button>
+  <button class="seg-btn" onclick="setSeg(2)">Seg 2 · May 15–24</button>
+  <button class="seg-btn" onclick="setSeg(3)">Seg 3 · May 24–29</button>
+  <span class="seg-spacer"></span>
+  <button class="view-btn" style="background:rgba(200,164,0,.18);color:#c8a400;border:1px solid #c8a400" onclick="acceptAllRec()" title="Reset all ports to recommended picks">✓ Recommended</button>
+  <button class="view-btn" style="background:rgba(255,100,100,.15);color:#ff9999;border:1px solid rgba(255,100,100,.4);margin-left:4px" onclick="clearAllSel()" title="Clear all selections">✗ Clear</button>
+  <button class="view-btn" style="margin-left:8px" onclick="window.location='/cruises/itinerary_nova.html'">📋 Itinerary →</button>
+  <a href="/cruises" class="back-link" style="margin-left:12px">← Search</a>
+</div>
+
+<div class="card-strip-wrap">
+  <div class="card-strip" id="card-strip"></div>
+</div>
+
+<div id="port-sections"></div>
+
+<script>
+var BUDGET = 2500;
+var CONFIRMED='CONFIRMED', PENDING='PENDING';
+var myTrip = {}; // dayNum → {opt, port, flag}
+
+var DAYS=[
+{day:1,date:'May 5',dow:'Tue',port:'Venice',country:'Italy',flag:'🇮🇹',type:'embark',seg:1,note:'Embarkation Day. Explore independently or pre-arranged Venice tour.',options:[]},
+{day:2,date:'May 6',dow:'Wed',port:'Koper',country:'Slovenia',flag:'🇸🇮',type:'port',arrive:'07:00',allAboard:'17:30',tender:false,seg:1,options:[
+ {p:'SS',code:'KOP-I',name:'Old Koper Walk + Wine Tasting',desc:'Flat old town walk, local wine, cheese & delicacies. 2hrs 1.5km.',dur:2,pp:69,total:138,mobility:'Flat town',ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'KOP-M',name:'Lipizzaner Horses & Karst Farm',desc:'Lipica Stud Farm — same horses as Spanish Riding School. Karst meats, cheese & wine. 4.5hrs.',dur:4.5,pp:149,total:298,ggr:true,status:CONFIRMED,tags:[{t:'CONFIRMED ✅',c:'tag-green'},{t:'BOOKED',c:'tag-green'}],warn:'Currently CONFIRMED on Silversea. V2 research shows GYG stroll cheaper ($58 total saves $240).'},
+ {p:'SS',code:'KOP-G',name:'Sail & Daily Catch',desc:'Seafood lunch + wine on sailing boat. Only 500m walking. ✅ Mobility-suitable.',dur:3.5,pp:219,total:438,mobility:'✅ 500m only',ggr:true,tags:[{t:'SPLURGE',c:'tag-orange'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SEG',name:'Lipica Stud Farm & Skocjan Caves',desc:'GGR-guaranteed Lipica stud farm + UNESCO Skocjan cave.',dur:5,pp:177,total:354,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/lipica-stud-farm-a-kocjan-caves/eukplipicafarm'},
+ {p:'GYG',name:'Koper Stroll & Taste',desc:'Flat old town food & wine tour: cheese, prosciutto, local wine, olive oil.',dur:2.5,pp:29,total:58,rating:'4.6★',mobility:'Flat · Minimal',ggr:true,meet:'Koper Town Square (Titov trg) — 0.3mi from pier',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/koper-l2650/',recommended:true},
+]},
+{day:3,date:'May 7',dow:'Thu',port:'Zadar',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:1,options:[
+ {p:'SS',code:'ZAD-C',name:'Taste of Zadar — Maraschino & Cake',desc:'Historic walk, Maraschino liqueur and traditional cake. 2.5hrs, 40 steps.',dur:2.5,pp:79,total:158,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'ZAD-S',name:'Lake Vrana, Winery & Han',desc:'Lake Vrana + Ottoman caravanserai + wine & Turkish coffee. 4.5hrs 750m.',dur:4.5,pp:149,total:298,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'WINE',c:'tag-teal'}]},
+ {p:'SEG',name:'Old Town Historical Walk',desc:'GGR-guaranteed Zadar walk — St Donatus, Roman Forum, Sea Organ.',dur:3,pp:82,total:164,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/old-town-historical-walk-treasures-zadar-church/euzagldzadhiscutvhar'},
+ {p:'GYG',name:'Zadar Speedboat · Islands · Food · Wine',desc:'Speedboat to nearby islands, local food, olive oil, wine at family farm. Mostly seated.',dur:3.5,pp:32,total:64,rating:'4.8★',mobility:'Seated · short walks',ggr:true,meet:'Zadar waterfront marina — 0.2mi',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/zadar-l1328/',recommended:true},
+]},
+{day:4,date:'May 8',dow:'Fri',port:'Split',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:1,options:[
+ {p:'SS',code:'SPL-B',name:'Picturesque Town of Trogir ✅',desc:'UNESCO Trogir + cathedral, coffee & rafioli cookies. Walk at discretion. ✅ Limited-mobility suitable.',dur:3.75,pp:79,total:158,ggr:true,status:CONFIRMED,tags:[{t:'CONFIRMED ✅',c:'tag-green'},{t:'✅ Mobility',c:'tag-teal'}],warn:'CONFIRMED on Silversea. GYG food tour = $34 saves $124.'},
+ {p:'SS',code:'SPL-C',name:"Diocletian's Palace + Olive Oil",desc:"Diocletian's Palace + 3 olive oil tastings + fleur de sel. 25 stairs.",dur:2.5,pp:79,total:158,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SEG',name:"Grand Diocletian Tour",desc:"GGR-guaranteed Diocletian's Palace & Split walk.",dur:3,pp:59,total:118,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/grand-diocletian-tour/euslgranddio'},
+ {p:'SEG',name:"Split Food Tasting Walk",desc:'GGR-guaranteed small-group food tasting walk in Split.',dur:3,pp:152,total:304,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'FOOD',c:'tag-yellow'}],url:'https://www.shoreexcursionsgroup.com/tour/small-group-split-food-tasting-walk/euslfoodtoursplit'},
+ {p:'GYG',name:"Split Walking Tour + Eats",desc:"Diocletian's Palace walk with food stops: cheese, ham, peka, pastry. All flat.",dur:2,pp:17,total:34,rating:'4.9★',mobility:"Flat",ggr:true,meet:"Peristyle — 0.4mi from pier",tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/split-l268/split-walking-tour-t54976/',recommended:true},
+]},
+{day:5,date:'May 9',dow:'Sat',port:'Dubrovnik',country:'Croatia',flag:'🇭🇷',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:1,options:[
+ {p:'SS',code:'DBV-A',name:'Stroll Medieval Dubrovnik',desc:'Old Town walk. Extensive cobblestone.',dur:2.25,pp:69,total:138,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SS',code:'DBV-E',name:'Leisurely Cavtat ✅',desc:'Gentle coastal village Cavtat — sparkling wine at 1930s villa. Only 15 steps. 0.56mi.',dur:4.25,pp:129,total:258,ggr:true,tags:[{t:'GENTLEST',c:'tag-teal'},{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'DBV-C',name:'Dubrovnik & Countryside',desc:'Winery + lunch + music. 6hrs, 20 steps.',dur:6,pp:149,total:298,ggr:true,tags:[{t:'WINE+LUNCH',c:'tag-teal'}]},
+ {p:'SEG',name:'Game of Thrones & Old Town',desc:'GGR-guaranteed Dubrovnik Old Town & GoT locations.',dur:3,pp:51,total:102,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'BUDGET',c:'tag-gray'}],url:'https://www.shoreexcursionsgroup.com/tour/game-of-thrones-and-the-old-town-tour/eudvgameold'},
+ {p:'SEG',name:'Korcula Island with Wine',desc:'GGR-guaranteed boat to Korcula island with wine tasting.',dur:5,pp:97,total:194,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'WINE',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/korcula-island-with-wine/eudvstonkorc'},
+ {p:'PE',code:'PE181140617',name:'PE · Dubrovnik Panorama + On Own',desc:'PE panorama transfer + free time in Dubrovnik.',dur:4,pp:54,total:107,ggr:true,status:PENDING,tags:[{t:'PENDING',c:'tag-yellow'},{t:'Pay by Apr 27 2027',c:'tag-orange'}],warn:'Hold without payment — pay by Apr 27, 2027.'},
+ {p:'PE',code:'PE136377',name:'Dubrovnik Food & Wine Walk',desc:'Guided food and wine tour of Dubrovnik Old Town. GGR.',dur:3.5,pp:54,total:107,ggr:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'GOOD',c:'tag-yellow'}],url:'https://www.projectexpedition.com/tours/dubrovnik-croatia-p136377',recommended:true},
+ {p:'SELF',name:'Self-Guided · Old Town',desc:'Stradun (flat). Skip the walls (stairs). Free.',dur:3,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:6,date:'May 10',dow:'Sun',port:'Bari',country:'Italy',flag:'🇮🇹',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:1,options:[
+ {p:'SS',code:'BRI-A',name:'Discover Bari Old Town',desc:'Bari old town walk, café stop. 4hrs, 80 stairs.',dur:4,pp:79,total:158,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SS',code:'BRI-J',name:'Bari Walk & Taste',desc:'Best Bari food tour — focaccia, panzerotto, sweets. 1.5–2mi cobble.',dur:4,pp:129,total:258,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'FOOD',c:'tag-teal'}]},
+ {p:'SEG',name:'Walking Tour of Bari',desc:'GGR-guaranteed Bari walk, local sights.',dur:3,pp:46,total:92,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'BUDGET',c:'tag-gray'}],url:'https://www.shoreexcursionsgroup.com/tour/walking-tour-of-bari-local-sights-italy-bari/eubawalk'},
+ {p:'PE',code:'PE181142217',name:'PE · Bari Street Food Tour',desc:'PE street food tour of Bari. Do Eat Better Experience.',dur:3.5,pp:68,total:136,ggr:true,status:PENDING,tags:[{t:'PENDING',c:'tag-yellow'},{t:'Pay by Apr 27 2027',c:'tag-orange'}],warn:'Hold without payment — pay by Apr 27, 2027.'},
+ {p:'GYG',name:'Bari Street Food Walking Tour',desc:'Focaccia barese, burrata, taralli, local wine. Flat old town.',dur:2.5,pp:44,total:88,rating:'4.9★',mobility:'Flat',ggr:true,meet:'Piazza Mercantile — 0.6mi or €8 taxi',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/bari-l721/',recommended:true},
+]},
+{day:7,date:'May 11',dow:'Mon',port:'Kotor',country:'Montenegro',flag:'🇲🇪',type:'port',arrive:'07:00',allAboard:'17:00',tender:true,seg:1,options:[
+ {p:'SS',code:'KTR-B',name:'Kotor — A Medieval Jewel',desc:'Old Town flat walk. Cheapest of the voyage. 2hrs, 1km cobble.',dur:2,pp:59,total:118,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'},{t:'Cheapest',c:'tag-green'}]},
+ {p:'SS',code:'KTR-G',name:'Brilliance of Boka Bay',desc:'Boat to Our Lady of the Rocks island + refreshments. 0.6mi.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'BOAT',c:'tag-teal'}]},
+ {p:'SS',code:'KTR-D',name:'Pearls of the Adriatic — Budva ✅',desc:'Scenic drive to Budva. Refreshments. ✅ Mobility-suitable. Skip 1,350-step city walls.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SELF',name:'Self-Guided · Kotor Old Town',desc:'Flat cobblestone inside the walls. Skip the city wall stairs.',dur:3,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+ {p:'GYG',name:'Kotor Private Walk + Wine & Food',desc:'Private guide, 8 tastings: Montenegrin wine, prosciutto, cheese, honey grappa. Flat inside walls.',dur:3,pp:114,total:228,rating:'4.9★',mobility:'Flat cobblestone · Private pace',ggr:true,meet:'Old Town gate — 0.1mi from tender',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'GOOD',c:'tag-yellow'},{t:'Private',c:'tag-blue'}],url:'https://www.getyourguide.com/kotor-l32202/',recommended:true},
+]},
+{day:8,date:'May 12',dow:'Tue',port:'At Sea',country:'Adriatic',flag:'🌊',type:'sea',seg:1,options:[]},
+{day:9,date:'May 13',dow:'Wed',port:'Katakolon',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'17:00',tender:false,seg:1,options:[
+ {p:'SS',code:'KAT-A',name:'Olympia — Birthplace of Olympics',desc:'Ancient Olympia only. 1.5hr walk on uneven paths.',dur:4,pp:79,total:158,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SS',code:'KAT-B',name:'Olympia & Peloponnese Wine',desc:'Olympia ruins + Mercouri Estate wine, olive oil, bread & cheese.',dur:5.5,pp:139,total:278,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'WINE',c:'tag-teal'}]},
+ {p:'SS',code:'KAT-H',name:'Olympian Gastronomy',desc:'Honey farm + farm-to-table lunch + 4 wines. 0.45mi flat.',dur:5.75,pp:199,total:398,ggr:true,tags:[{t:'FOOD',c:'tag-teal'},{t:'EXPENSIVE',c:'tag-red'}]},
+ {p:'SEG',name:'Ancient Olympia On Your Own',desc:'GGR-guaranteed transport to Olympia, free time to explore.',dur:4,pp:103,total:206,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/ancient-olympia-on-your-own/eukaolympia2'},
+ {p:'GYG',name:'Olympia + Honey Farm + Winery',desc:'Ancient Olympia with guide, honey farm tasting, family winery lunch. GGR.',dur:6,pp:75,total:150,rating:'★★★★',mobility:'Flat paths',ggr:true,meet:'Katakolon pier — 45min to Olympia',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.getyourguide.com/katakolon-l8869/',recommended:true},
+ {p:'SELF',name:'Self-Guided · Katakolon Village',desc:'Fishing village at the pier. Tavernas, beach, short walk.',dur:2,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:10,date:'May 14',dow:'Thu',port:'Gythion',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'16:00',tender:false,seg:1,options:[
+ {p:'SS',code:'GYT-E',name:'Villages of Mani',desc:'Scenic Mani tower villages + cape views. 4.5hrs, 1.6km cobble.',dur:4.5,pp:79,total:158,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'GYT-G',name:'Nectars of the Peloponnese',desc:'Olive Museum + estate wine tasting. 10 steps. Scenic Sparta drive.',dur:4.5,pp:139,total:278,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'WINE',c:'tag-teal'}]},
+ {p:'SELF',name:'Self-Guided · Mani Waterfront',desc:'Relaxed Laconian harbor, flat promenade, tavernas, coffee.',dur:3,pp:0,total:0,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}],recommended:true},
+]},
+{day:11,date:'May 15',dow:'Fri',port:'Athens / Piraeus',country:'Greece',flag:'🇬🇷',type:'turnover',arrive:'07:00',allAboard:'18:00',tender:false,seg:2,note:'Segment 1→2 turnaround.',options:[
+ {p:'SS',code:'PIR-S',name:'Athens at Your Leisure ✅',desc:'Self-paced city tour. ✅ Mobility-suitable.',dur:6,pp:69,total:138,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SS',code:'PIR-F1',name:'Acropolis + Airport Transfer',desc:'Acropolis + museum + airport drop-off. 80 stairs. Only if departing today.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SEG',name:'Athens Hop-On Hop-Off',desc:'GGR-guaranteed Athens HOHO from Piraeus.',dur:5,pp:59,total:118,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'BUDGET',c:'tag-gray'}],url:'https://www.shoreexcursionsgroup.com/tour/hop-on-hop-off-athens-highlights-tour/euatcsonoff2'},
+ {p:'PE',code:'PE181149717',name:'PE · Athens Hop-On Hop-Off',desc:'Athens HOHO — Acropolis overlook, Plaka, Syntagma. Bus-based, minimal walking. GGR.',dur:5,pp:30,total:60,ggr:true,status:PENDING,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'},{t:'PENDING',c:'tag-yellow'}],url:'https://www.projectexpedition.com/tours/athens-p149717',recommended:true,warn:'Pay by May 4, 2027.'},
+ {p:'SELF',name:'Self-Guided · Piraeus Waterfront',desc:'Marina, cafes, waterfront. No transit needed.',dur:2,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:12,date:'May 16',dow:'Sat',port:'Paros',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'17:00',tender:true,seg:2,options:[
+ {p:'SS',code:'NSA-D',name:'Chrissi Akti Beach',desc:'Golden sand beach, 200m walk. 3hrs free. Rest day option.',dur:4,pp:89,total:178,ggr:true,tags:[{t:'REST',c:'tag-blue'}]},
+ {p:'SS',code:'NSA-C',name:'Villages of Lefkes & Naoussa',desc:'Whitewashed Cycladic villages + coffee & sweet. 1.5km.',dur:3,pp:119,total:238,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'TBL',name:'Meet Paros — Private Shore Excursion',desc:'ToursByLocals private guide — village, historical sites, local experience. Quote-based.',dur:4,pp:0,total:0,tags:[{t:'PRIVATE',c:'tag-blue'},{t:'QUOTE',c:'tag-gray'}],url:'https://www.toursbylocals.com/tours/greece/paros/'},
+ {p:'GYG',name:'Paros Wine Tasting & Village Tour',desc:'Paros village highlights with island winery. Relaxed, food-forward.',dur:3.5,pp:40,total:80,rating:'★★★★',ggr:true,meet:'Tender pier',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],url:'https://www.getyourguide.com/paros-island-l1310/',recommended:true,warn:'Not yet booked — confirm before departure.'},
+ {p:'SELF',name:'Self-Guided · Naoussa Village',desc:'Tender to Paros. Naoussa: flat Cycladic harbor, windmills, tavernas.',dur:4,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:13,date:'May 17',dow:'Sun',port:'Crete / Souda Bay',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:2,options:[
+ {p:'SS',code:'SDH-I',name:'Treasures of Cretan Culture ✅',desc:'Winery (wine + olive oil) + soap workshop. ✅ Mobility-suitable. The standout Crete option.',dur:4.25,pp:89,total:178,ggr:true,status:CONFIRMED,tags:[{t:'CONFIRMED ✅',c:'tag-green'},{t:'✅ Mobility',c:'tag-teal'},{t:'GEM',c:'tag-gold'}],warn:'CONFIRMED on Silversea. Keep it — mobility + soap workshop unique.'},
+ {p:'SS',code:'SDH-B',name:'Rethymnon Highlights',desc:'Venetian old town + Fortezza fortress. Extensive walking.',dur:5,pp:79,total:158,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SEG',name:'Cretan Wines Jeep Safari',desc:'GGR-guaranteed Cretan wines jeep safari.',dur:5,pp:139,total:278,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'ACTIVE',c:'tag-orange'}],url:'https://www.shoreexcursionsgroup.com/tour/cretan-wines-jeep-safari/euchjeepwine',warn:'Active jeep — mobility concern for John.'},
+ {p:'GYG',name:"Chania Food Tour · Old Town",desc:"Chania Venetian town: olive oil, cheese, Cretan wine, honey. 30min bus from pier.",dur:3,pp:45,total:90,ggr:false,tags:[{t:'GOOD',c:'tag-yellow'},{t:'CHEAPER ALT',c:'tag-green'}],url:'https://www.getyourguide.com/chania-l2633/'},
+]},
+{day:14,date:'May 18',dow:'Mon',port:'Gythion',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'16:00',tender:false,seg:2,options:[
+ {p:'SS',code:'GYT-B',name:'A Glide in Diros Cave',desc:'Passive rowboat through lit underground lake. ⚠ 2mi walk to/from.',dur:3.5,pp:99,total:198,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'UNIQUE',c:'tag-teal'}]},
+ {p:'SS',code:'GYT-F',name:'Ancient Mystras',desc:'Byzantine ghost-city. 2km uphill. Not mobility-suitable.',dur:4,pp:119,total:238,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SELF',name:'Self-Guided · Mani Waterfront',desc:'Second Gythion call. Flat harbor, cafes, coastal walks.',dur:3,pp:0,total:0,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}],recommended:true},
+]},
+{day:15,date:'May 19',dow:'Tue',port:'Milos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'17:00',tender:true,seg:2,options:[
+ {p:'SS',code:'MLO-C',name:'Milos Island Tour',desc:"Venus de Milo site + volcanic island tour. 1.7km rocky terrain. ⚠ Hardest port for John.",dur:4,pp:99,total:198,ggr:true,tags:[{t:'SHIP DAY option',c:'tag-orange'}]},
+ {p:'SS',code:'MLO-D',name:'Flavours of Milos',desc:'5-stop food crawl: cheese pies, cave winery, sand-cooked lamb. Best food tour of voyage. Over budget.',dur:6,pp:269,total:538,ggr:true,tags:[{t:'FOOD SPLURGE',c:'tag-teal'},{t:'EXPENSIVE',c:'tag-red'}]},
+ {p:'TBL',name:'Milos Classics Tour',desc:'ToursByLocals private guide — full Milos island. Quote-based.',dur:7,pp:0,total:0,tags:[{t:'PRIVATE',c:'tag-blue'},{t:'QUOTE',c:'tag-gray'}],url:'https://www.toursbylocals.com/tours/greece/milos/'},
+ {p:'GYG',name:'Milos Catamaran Island Tour',desc:'Boat tour — sea caves, colored beaches, Kleftiko lagoon. Seated/aboard, accessible.',dur:5,pp:65,total:130,rating:'★★★★',ggr:true,meet:'Tender to Adamas marina',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],url:'https://www.getyourguide.com/milos-island-l3834/',recommended:true,warn:'Not yet booked. Strong ship-day candidate for John.'},
+ {p:'SELF',name:'Self-Guided · Adamas Village',desc:'Tender to Adamas. Flat harbor, cafes. Ship day option.',dur:2,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:16,date:'May 20',dow:'Wed',port:'Kusadasi',country:'Turkey',flag:'🇹🇷',type:'port',arrive:'08:00',allAboard:'18:00',tender:false,seg:2,options:[
+ {p:'SS',code:'KUS-G',name:'Easy Ephesus ✅',desc:'Ephesus + Celsus Library + museum. ✅ Mobility-suitable. Lowest SS price this voyage.',dur:3.5,pp:79,total:158,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'},{t:'Lowest SS',c:'tag-green'}]},
+ {p:'SS',code:'KUS-F',name:'Virgin Mary House & Ephesus',desc:'Adds pilgrimage site. 1.6mi, 80 steps.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SEG',name:'Guided Ephesus + Wine at Sirince',desc:'GGR-guaranteed Ephesus + wine tasting Sirince village.',dur:5,pp:62,total:124,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'WINE',c:'tag-teal'},{t:'BEST VALUE',c:'tag-green'}],url:'https://www.shoreexcursionsgroup.com/tour/guided-ephesus-wine-tasting-at-sirince-village/eukuephwwinetstr'},
+ {p:'SELF',name:'Self-Guided · Grand Bazaar',desc:"Bazaar is 5-min walk from pier, flat. Leather, ceramics, Turkish delight. John's been here 3×.",dur:3,pp:0,total:0,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}],recommended:true},
+]},
+{day:17,date:'May 21',dow:'Thu',port:'Mykonos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'10:00',allAboard:'19:00',tender:true,seg:2,options:[
+ {p:'SS',code:'JMK-B',name:'Mykonos Panorama ✅',desc:'Beaches + monastery + taverna: Greek appetizers & ouzo. ✅ Wheelchair accessible.',dur:3,pp:69,total:138,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SS',code:'JMK-C',name:'Elia Beach Break',desc:'Sunbed + umbrella + 3hrs leisure.',dur:4,pp:129,total:258,ggr:true,tags:[{t:'REST',c:'tag-blue'}]},
+ {p:'SEG',name:'Mykonos Town Walking Discovery',desc:'GGR-guaranteed Mykonos town walk.',dur:3,pp:80,total:160,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/mykonos-town-talking-discovery/eumywalkbigblu'},
+ {p:'SELF',name:'Self-Guided · Mykonos Town',desc:'Tender to Chora. Windmills, Little Venice, flat lanes.',dur:4,pp:0,total:0,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}],recommended:true},
+]},
+{day:18,date:'May 22',dow:'Fri',port:'Athens / Cape Sounio',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'18:00',tender:false,seg:2,options:[
+ {p:'SS',code:'PIR-S',name:'Athens at Your Leisure ✅',desc:'Self-paced Athens. ✅ Mobility-suitable.',dur:6,pp:69,total:138,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SEG',name:'Athens Hop-On Hop-Off',desc:'GGR-guaranteed Athens HOHO.',dur:5,pp:59,total:118,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/hop-on-hop-off-athens-highlights-tour/euatcsonoff2'},
+ {p:'PE',code:'PE181156317',name:'PE · Cape Sounio & Temple of Poseidon',desc:'Coastal drive to Cape Sounio. Temple of Poseidon clifftop views. Coach + short walk. GGR.',dur:5,pp:80,total:161,ggr:true,status:PENDING,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'GOOD',c:'tag-yellow'},{t:'PENDING',c:'tag-yellow'}],url:'https://www.projectexpedition.com/tours/cape-sounio-p181156317',recommended:true,warn:"⚠ Susan listed as 'John Loucks' on this booking — fix in PE portal BEFORE payment. Pay by May 12, 2027."},
+ {p:'SELF',name:'Self-Guided · Piraeus',desc:'Waterfront, marina, cafes.',dur:2,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:19,date:'May 23',dow:'Sat',port:'Santorini',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'19:00',tender:true,seg:2,options:[
+ {p:'SS',code:'JTR-M',name:'Villages of Santorini',desc:'Cheapest SS Santorini. Cable car €10 extra. 1.6km cobble.',dur:4,pp:79,total:158,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SS',code:'JTR-A',name:'Oia & Winery',desc:'Winery (wine + snacks + caldera views) + iconic Oia.',dur:3.75,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'WINE',c:'tag-teal'}]},
+ {p:'SEG',name:'Shared Shuttle Transfers',desc:'GGR-guaranteed Santorini shuttle transfers, self-paced.',dur:4,pp:61,total:122,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/shared-shuttle-transfers-in-santorini/eusnshuttletrans'},
+ {p:'SELF',name:'Self-Guided · Fira + Cable Car',desc:'Tender to Fira. Cable car up ($6/way). Flat clifftop. Taxi to Oia ~€8.',dur:5,pp:10,total:20,tags:[{t:'SELF-GUIDED',c:'tag-blue'}],warn:'Cable car line 30–60min peak season — take early tender.'},
+ {p:'GYG',name:'Santorini Winery Tour + Village',desc:'Seated tasting at 2–3 volcanic vineyards with caldera views. Comfortable transport.',dur:4,pp:65,total:130,rating:'★★★★',ggr:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'OPEN',c:'tag-orange'}],url:'https://www.getyourguide.com/santorini-l975/',recommended:true,warn:'Not yet booked — confirm before departure.'},
+ {p:'GYG',name:'Santorini Caldera Catamaran',desc:'Catamaran sailing, BBQ lunch, wine. Mostly seated/aboard.',dur:5,pp:85,total:170,rating:'4.8★',ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}],url:'https://www.getyourguide.com/santorini-l975/'},
+]},
+{day:20,date:'May 24',dow:'Sun',port:'Nafplion',country:'Greece',flag:'🇬🇷',type:'turnover',arrive:'07:00',allAboard:'17:00',tender:false,seg:3,note:'Segment 2→3 turnaround.',options:[
+ {p:'SS',code:'NAV-K',name:'Nemea Wine Escape',desc:'Nemea wine estate. Wine + cheese + bread. Minimal paved walking.',dur:3,pp:99,total:198,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'WINE',c:'tag-teal'}]},
+ {p:'SS',code:'NAP-B',name:'Corinth & Nemea Wineries',desc:'Canal of Corinth overlook + Nemea wine country. Coach-based, comfortable. CONFIRMED.',dur:7,pp:99,total:198,ggr:true,status:CONFIRMED,tags:[{t:'CONFIRMED ✅',c:'tag-green'},{t:'BOOKED',c:'tag-green'}],warn:'Currently CONFIRMED on Silversea for this port.'},
+ {p:'TBL',name:'Mycenae, Epidaurus & Nafplio Private',desc:'ToursByLocals full-day — Mycenae + Epidaurus theater. Quote-based.',dur:8,pp:0,total:0,tags:[{t:'PRIVATE',c:'tag-blue'},{t:'QUOTE',c:'tag-gray'}],url:'https://www.toursbylocals.com/tours/greece/nafplio/'},
+ {p:'SS',code:'NAV-F',name:'Wine Tasting in Nemea ✅',desc:'Skouras winery: 1,000-barrel cellar, 5 wines + snacks. ✅ Mobility-suitable. Upgrade from NAV-K.',dur:2.75,pp:119,total:238,ggr:true,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'GEM',c:'tag-gold'},{t:'✅ Mobility',c:'tag-teal'}],url:'https://www.silversea.com/destinations/cruise-excursions.html',recommended:true},
+ {p:'SELF',name:"Self-Guided · Nafplion Old Town",desc:"One of Greece's most beautiful towns — flat historic center, Venetian mansions, waterfront.",dur:3,pp:0,total:0,tags:[{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}]},
+]},
+{day:21,date:'May 25',dow:'Mon',port:'At Sea',country:'Aegean',flag:'🌊',type:'sea',seg:3,options:[]},
+{day:22,date:'May 26',dow:'Tue',port:'Bodrum',country:'Turkey',flag:'🇹🇷',type:'port',arrive:'08:00',allAboard:'18:00',tender:false,seg:3,options:[
+ {p:'SS',code:'BXN-C',name:'Bodrum Castle & Museum',desc:'Castle + underwater archaeology museum. 1mi, 50 stairs.',dur:2.5,pp:69,total:138,ggr:true,tags:[{t:'BUDGET',c:'tag-gray'}]},
+ {p:'SS',code:'BXN-K',name:'Ancient City of Stratonikeia',desc:'UNESCO Anatolian ruins + village café. 1mi.',dur:4,pp:79,total:158,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'BXN-E',name:'Aegean Coastal Gulet Cruise',desc:'Traditional gulet sailing — leisurely, wine/beer + snacks. Few steps to board.',dur:4.5,pp:189,total:378,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'THEIR STYLE',c:'tag-teal'}]},
+ {p:'SEG',name:'Bodrum Castle & Halicarnassus + Lunch',desc:'GGR-guaranteed Bodrum Castle tour with lunch.',dur:5,pp:79,total:158,ggr:true,tags:[{t:'GGR',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/bodrum-castle-halicarnassus-mausoleum-etrim-lunch/eubucastlemaus'},
+ {p:'SELF',name:'Self-Guided · Bodrum Castle + Bazaar',desc:'Castle (€15) 5min walk from pier. Old town bazaar. Very pleasant independent day.',dur:3,pp:15,total:30,tags:[{t:'SELF-GUIDED',c:'tag-blue'}]},
+ {p:'GYG',name:'Bodrum Bay Gulet Boat Trip',desc:'Traditional gulet tour, lunch, swimming, scenic coast. Seated best Bodrum experience.',dur:5,pp:45,total:90,rating:'★★★★',ggr:true,meet:'Bodrum marina — 10min walk',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'},{t:'OPEN',c:'tag-orange'}],url:'https://www.getyourguide.com/bodrum-l2397/',recommended:true,warn:'Not yet booked. Gulet tours fill fast — book in advance.'},
+]},
+{day:23,date:'May 27',dow:'Wed',port:'Rhodes',country:'Greece',flag:'🇬🇷',type:'port',arrive:'08:00',allAboard:'18:00',tender:false,seg:3,options:[
+ {p:'SS',code:'RHO-C',name:'Medieval Rhodes & Palace',desc:'Old Town + Palace of Grand Master. 0.5mi, 50 steps.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'RHO-R',name:"Ancient Kameiros & Philerimos",desc:"'Little Pompeii' ruins + monastery. 1km.",dur:4,pp:99,total:198,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'}]},
+ {p:'SS',code:'RHO-E',name:'Panoramic Rhodes ✅',desc:'Philerimos monastery + Lindos views + pottery demo. ✅ Mobility-suitable.',dur:4.5,pp:79,total:158,ggr:true,tags:[{t:'GEM',c:'tag-gold'},{t:'✅ Mobility',c:'tag-teal'}]},
+ {p:'SEG',name:'Lindos On Your Own',desc:'GGR-guaranteed transport to Lindos, free time.',dur:4,pp:48,total:96,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'BUDGET',c:'tag-gray'}],url:'https://www.shoreexcursionsgroup.com/tour/lindos-on-your-own/eurhlindosoyo'},
+ {p:'SEG',name:'Butterfly Valley + Wine Tasting',desc:'GGR-guaranteed Butterfly Valley + Rhodian wine.',dur:5,pp:128,total:256,ggr:true,tags:[{t:'GGR',c:'tag-teal'},{t:'WINE',c:'tag-teal'}],url:'https://www.shoreexcursionsgroup.com/tour/butterfly-valley-wine-tasting/eurhbutterflywine'},
+ {p:'SELF',name:'Self-Guided · Medieval Old Town',desc:"UNESCO Crusader city — flat cobblestone. Knights' Street, Palace entry. Pier adjacent.",dur:4,pp:0,total:0,tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'SELF-GUIDED',c:'tag-blue'},{t:'FREE',c:'tag-green'}],recommended:true},
+]},
+{day:24,date:'May 28',dow:'Thu',port:'Patmos',country:'Greece',flag:'🇬🇷',type:'port',arrive:'07:00',allAboard:'15:00',tender:true,seg:3,options:[
+ {p:'SS',code:'PAT-A',name:"St. John's Patmos & Churches",desc:'Grotto of Apocalypse + Monastery. Strenuous uphill. ⚠ Mobility concern.',dur:2.75,pp:79,total:158,ggr:true,status:CONFIRMED,tags:[{t:'CONFIRMED ✅',c:'tag-green'},{t:'⚠ STRENUOUS',c:'tag-orange'}],warn:'CONFIRMED on Silversea. Uphill walk — flagged for John. GYG same tour $35pp.'},
+ {p:'SS',code:'PAT-C',name:'Patmos Island & Beach Break',desc:'Least walking. Scenic coastal drive + refreshments. 0.09mi.',dur:2.5,pp:139,total:278,ggr:true,tags:[{t:'GENTLEST',c:'tag-teal'},{t:'EXPENSIVE',c:'tag-red'}]},
+ {p:'SS',code:'PAT-I',name:'Patmos Wine Experience',desc:'Patoinos winery, 3 wines + platter. 3hrs.',dur:3,pp:169,total:338,ggr:true,tags:[{t:'WINE',c:'tag-teal'},{t:'EXPENSIVE',c:'tag-red'}]},
+ {p:'TBL',name:'Scenic Patmos — Private Guide',desc:'ToursByLocals private half-day. Quote-based.',dur:4,pp:0,total:0,tags:[{t:'PRIVATE',c:'tag-blue'},{t:'QUOTE',c:'tag-gray'}],url:'https://www.toursbylocals.com/tours/greece/patmos/'},
+ {p:'GYG',name:'Monastery of St. John + Cave of Apocalypse',desc:"Same sites as SS PAT-A — local guide, bus up the hill. Saves $88 vs Silversea.",dur:3,pp:35,total:70,rating:'4.7★',ggr:false,meet:'Tender pier',tags:[{t:'RECOMMENDED',c:'tag-gold'},{t:'BEST VALUE',c:'tag-green'},{t:'Saves $88',c:'tag-green'}],url:'https://www.getyourguide.com/patmos-l89366/patmos-monastery-of-st-john-cave-of-the-apocalypse-tour-t1021482/',recommended:true,warn:'Tender port — GYG has no GGR. SS PAT-A keeps guaranteed return. Commander decides.'},
+]},
+{day:25,date:'May 29',dow:'Fri',port:'Athens / Piraeus',country:'Greece',flag:'🇬🇷',type:'disembark',arrive:'06:00',seg:3,note:'Disembarkation by 09:00. Transfer to ATH pre-arranged.',options:[
+ {p:'SS',code:'PIR-F1',name:'Acropolis + Airport Transfer',desc:'Acropolis visit combined with airport drop-off. 80 stairs.',dur:4,pp:109,total:218,ggr:true,tags:[{t:'IF LATE FLIGHT',c:'tag-gray'}]},
+ {p:'SS',code:'PIR-S',name:'Athens at Your Leisure ✅',desc:'If time before flight. ✅ Mobility-suitable.',dur:4,pp:69,total:138,ggr:true,tags:[{t:'GOOD',c:'tag-yellow'},{t:'✅ Mobility',c:'tag-teal'}]},
+]},
+];
+
+// ── Init myTrip from localStorage or recommended ──────────────────
+var _saved = null;
+try{ _saved = JSON.parse(localStorage.getItem('novaTrip')||'null'); }catch(e){}
+if(_saved && Object.keys(_saved).length){
+  DAYS.forEach(function(d){
+    var s = _saved[d.day];
+    if(s && s.opt){ var opt=d.options.find(function(o){return o.name===s.opt.name;}); if(opt) myTrip[d.day]={opt:opt,port:d.port,flag:d.flag}; }
+  });
+} else {
+  DAYS.forEach(function(d){
+    var rec = d.options.find(function(o){ return o.recommended; });
+    if(rec) myTrip[d.day] = {opt:rec, port:d.port, flag:d.flag};
+  });
+}
+
+// ── Budget ──────────────────────────────────────────────────────────
+function recalcBudget(){
+  var total = 0;
+  Object.keys(myTrip).forEach(function(k){ if(myTrip[k] && myTrip[k].opt && myTrip[k].opt.total) total += myTrip[k].opt.total; });
+  var remain = BUDGET - total;
+  document.getElementById('b-spent').textContent = '$'+total.toLocaleString();
+  document.getElementById('b-remain').textContent = '$'+Math.max(0,remain).toLocaleString();
+  document.getElementById('b-remain').style.color = remain < 300 ? '#ff6b6b' : '#4cff4c';
+  document.getElementById('b-bar').style.width = Math.min(100,(total/BUDGET)*100)+'%';
+  document.getElementById('plan-total').textContent = '$'+total.toLocaleString()+' selected';
+  renderPlanStrip();
+}
+
+// ── Planning strip ──────────────────────────────────────────────────
+function renderPlanStrip(){
+  var portDays = DAYS.filter(function(d){ return d.type!=='sea' && d.options.length>0; });
+  var html = portDays.map(function(d){
+    var sel = myTrip[d.day];
+    if(sel && sel.opt){
+      var n = sel.opt.name; if(n.length>22) n=n.substring(0,22)+'…';
+      return '<div class="plan-chip" onclick="scrollToDay('+d.day+')" title="'+d.port+': '+sel.opt.name+'">'
+        +'<span class="plan-chip-flag">'+d.flag+'</span>'
+        +'<div class="plan-chip-body"><div class="plan-chip-port">'+d.port+'</div><div class="plan-chip-name">'+n+'</div></div>'
+        +'<div class="plan-chip-price">'+(sel.opt.total>0?'$'+sel.opt.total:'FREE')+'</div></div>';
+    } else {
+      return '<div class="plan-chip unset" onclick="scrollToDay('+d.day+')" title="'+d.port+': nothing selected">'
+        +'<span class="plan-chip-flag">'+d.flag+'</span>'
+        +'<div class="plan-chip-body"><div class="plan-chip-port">'+d.port+'</div><div class="plan-chip-name">— open —</div></div>'
+        +'<div class="plan-chip-price">$0</div></div>';
+    }
+  }).join('');
+  document.getElementById('plan-strip').innerHTML = html;
+}
+
+// ── SELECT an option ────────────────────────────────────────────────
+function selectOpt(dayNum, optName){
+  var day = DAYS.find(function(d){ return d.day===dayNum; });
+  var opt = day.options.find(function(o){ return o.name===optName; });
+  if(!opt) return;
+  var alreadySel = myTrip[dayNum] && myTrip[dayNum].opt && myTrip[dayNum].opt.name===optName;
+  if(alreadySel){
+    delete myTrip[dayNum];
+  } else {
+    myTrip[dayNum] = {opt:opt, port:day.port, flag:day.flag};
+  }
+  // Update button states in this port
+  document.querySelectorAll('.selBtn[data-day="'+dayNum+'"]').forEach(function(btn){
+    var isSel = myTrip[dayNum] && myTrip[dayNum].opt && myTrip[dayNum].opt.name===btn.dataset.opt;
+    btn.textContent = isSel ? '✓ SELECTED' : 'SELECT';
+    btn.className = 'exc-select-btn selBtn' + (isSel ? ' sel' : '');
+    var card = btn.closest('.exc-card');
+    if(card){
+      card.classList.toggle('user-selected', !!isSel);
+      var glows = card.querySelectorAll('.rec-glow,.booked-glow,.sel-glow');
+      glows.forEach(function(g){ if(g.classList.contains('sel-glow')) g.remove(); });
+      if(isSel){
+        var g = document.createElement('div');
+        g.className = 'sel-glow';
+        card.insertBefore(g, card.firstChild);
+      }
+    }
+  });
+  // Update strip pip on day card
+  document.querySelectorAll('.day-card[data-day="'+dayNum+'"]').forEach(function(c){
+    var existing = c.querySelector('.sel-pip');
+    if(existing) existing.remove();
+    if(myTrip[dayNum]){
+      var pip = document.createElement('div');
+      pip.className = 'sel-pip';
+      pip.textContent = '★';
+      c.querySelector('.card-photo').appendChild(pip);
+    }
+  });
+  recalcBudget();
+  try{ localStorage.setItem('novaTrip', JSON.stringify(myTrip)); }catch(e){}
+}
+
+function acceptAllRec(){
+  DAYS.forEach(function(d){
+    var rec=d.options.find(function(o){return o.recommended;});
+    if(rec) myTrip[d.day]={opt:rec,port:d.port,flag:d.flag};
+  });
+  document.querySelectorAll('.selBtn').forEach(function(btn){
+    var dayNum=parseInt(btn.dataset.day);
+    var isSel=myTrip[dayNum]&&myTrip[dayNum].opt&&myTrip[dayNum].opt.name===btn.dataset.opt;
+    btn.textContent=isSel?'✓ SELECTED':'SELECT';
+    btn.className='exc-select-btn selBtn'+(isSel?' sel':'');
+    var card=btn.closest('.exc-card');
+    if(card){
+      card.classList.toggle('user-selected',!!isSel);
+      card.querySelectorAll('.sel-glow').forEach(function(g){g.remove();});
+      if(isSel){var g=document.createElement('div');g.className='sel-glow';card.insertBefore(g,card.firstChild);}
+    }
+  });
+  DAYS.forEach(function(d){
+    document.querySelectorAll('.day-card[data-day="'+d.day+'"]').forEach(function(c){
+      var ep=c.querySelector('.sel-pip'); if(ep) ep.remove();
+      if(myTrip[d.day]){var pip=document.createElement('div');pip.className='sel-pip';pip.textContent='★';c.querySelector('.card-photo').appendChild(pip);}
+    });
+  });
+  recalcBudget();
+  try{ localStorage.setItem('novaTrip', JSON.stringify(myTrip)); }catch(e){}
+}
+
+function clearAllSel(){
+  myTrip={};
+  document.querySelectorAll('.selBtn').forEach(function(btn){
+    btn.textContent='SELECT'; btn.className='exc-select-btn selBtn';
+    var card=btn.closest('.exc-card');
+    if(card){ card.classList.remove('user-selected'); card.querySelectorAll('.sel-glow').forEach(function(g){g.remove();}); }
+  });
+  document.querySelectorAll('.sel-pip').forEach(function(p){p.remove();});
+  recalcBudget();
+  try{ localStorage.setItem('novaTrip', JSON.stringify(myTrip)); }catch(e){}
+}
+
+// ── Build day card strip ────────────────────────────────────────────
+var strip = document.getElementById('card-strip');
+DAYS.forEach(function(d){
+  var isSea = d.type==='sea';
+  var hasBooked = d.options.some(function(o){ return o.status===CONFIRMED||o.status===PENDING; });
+  var hasOpen = d.options.some(function(o){ return o.recommended && o.warn && o.warn.toLowerCase().indexOf('not yet')>-1; });
+  var excCount = d.options.filter(function(o){ return o.total>0 || o.p==='TBL'; }).length;
+  var photoClass = isSea?'card-photo-sea':d.type==='embark'?'card-photo-embark':d.type==='disembark'?'card-photo-disembark':'card-photo-port';
+  var icon = d.type==='embark'?'⚓':d.type==='disembark'?'🛬':d.flag;
+  var badge = '';
+  if(!isSea && d.type!=='embark' && d.type!=='disembark'){
+    if(hasOpen) badge='<div class="open-badge">OPEN</div>';
+    else if(excCount>0) badge='<div class="card-exc-badge">'+excCount+'</div>';
+    if(hasBooked) badge+='<div class="booked-pip">BKD</div>';
+  }
+  var timeStr = d.arrive && d.allAboard ? d.arrive+'–'+d.allAboard : '';
+  var c = document.createElement('div');
+  c.className='day-card'+(isSea?' sea-card':'');
+  c.dataset.day = d.day;
+  c.dataset.seg = d.seg;
+  c.innerHTML='<div class="card-photo '+photoClass+'">'+icon+badge+'</div>'
+    +'<div class="card-body"><div class="card-day-num">'+d.dow+' · D'+d.day+'</div>'
+    +'<div class="card-port-name">'+d.port+'</div>'
+    +'<div class="card-country">'+d.country+'</div>'
+    +(timeStr?'<div class="card-time">'+timeStr+'</div>':'')
+    +(d.tender?'<div class="tender-pip">⚓ TENDER</div>':'')
+    +(d.type==='turnover'?'<div class="seg-turn-pip">SEG TURN</div>':'')
+    +'</div>';
+  c.onclick=(function(n){ return function(){ scrollToDay(n); }; })(d.day);
+  strip.appendChild(c);
+  // Add ★ if already in myTrip (from recommended init)
+  if(myTrip[d.day]){
+    var pip = document.createElement('div');
+    pip.className='sel-pip'; pip.textContent='★';
+    c.querySelector('.card-photo').appendChild(pip);
+  }
+});
+
+// ── Build port sections ─────────────────────────────────────────────
+var sectEl = document.getElementById('port-sections');
+DAYS.forEach(function(d){
+  var sec = document.createElement('div');
+  sec.className='port-section'; sec.id='day-'+d.day; sec.dataset.seg=d.seg;
+  var html='';
+  if(d.type==='sea'){
+    html='<div class="sea-day-block"><h2>'+d.flag+' Day '+d.day+' · '+d.date+'</h2><p>'+d.country+' · Spa, lectures, culinary program aboard</p></div>';
+  } else if(d.type==='embark'||d.type==='disembark'){
+    var bg=d.type==='disembark'?'background:linear-gradient(135deg,#5a1a1a,#3a0d0d)':'';
+    var ico=d.type==='disembark'?'🛬 Disembarkation':'⚓ Embarkation';
+    html='<div class="embark-block" style="'+bg+'"><div style="font-size:9px;opacity:.6;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px">Day '+d.day+' · '+d.dow+' '+d.date+'</div>'
+      +'<h2 style="font-size:15px;color:#c8a400">'+d.port+', '+d.country+' '+d.flag+' — '+ico+'</h2>'
+      +'<p style="font-size:11px;opacity:.8;margin-top:5px">'+d.note+'</p>';
+    if(d.options.length) html+='<div class="exc-grid" style="margin-top:10px">'+buildCards(d.options,d.day)+'</div>';
+    html+='</div>';
+  } else {
+    var segBadge=d.type==='turnover'?' <span class="tag tag-gold" style="font-size:8px">SEG TURN</span>':'';
+    var tBadge=d.tender?' <span class="tag tag-red" style="font-size:8px">⚓ TENDER</span>':'';
+    var tStr=(d.arrive&&d.allAboard)?d.arrive+' → All Aboard '+d.allAboard:'';
+    html='<div class="port-header"><div class="port-header-row">'
+      +'<div><div style="font-size:9px;opacity:.6;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Day '+d.day+' · '+d.dow+' '+d.date+'</div>'
+      +'<h2>'+d.flag+' '+d.port+', '+d.country+segBadge+tBadge+'</h2>'
+      +(d.note?'<div class="port-meta">'+d.note+'</div>':'')+'</div>'
+      +(tStr?'<div class="port-time-bar">'+tStr+'</div>':'')
+      +'</div></div>';
+    if(!d.options.length){
+      html+='<div class="no-exc">No excursions.</div>';
+    } else {
+      html+='<div class="exc-grid">'+buildCards(d.options,d.day)+'</div>';
+    }
+  }
+  sec.innerHTML=html;
+  sectEl.appendChild(sec);
+});
+
+function buildCards(opts, dayNum){
+  var sorted = opts.slice().sort(function(a,b){ return (a.total||0)-(b.total||0); });
+  return sorted.map(function(o){
+    var isBooked = o.status===CONFIRMED, isPending = o.status===PENDING;
+    var isSel = myTrip[dayNum] && myTrip[dayNum].opt && myTrip[dayNum].opt.name===o.name;
+    var cls = isSel?' user-selected':isBooked?' confirmed-booked':o.recommended?' recommended':'';
+    var provCls = 'prov-'+(o.p||'SELF');
+    var tagsHtml = (o.tags||[]).map(function(t){ return '<span class="tag '+t.c+'">'+t.t+'</span>'; }).join(' ');
+    var priceHtml = o.total>0 ? '<div class="exc-price">$'+o.total+'</div><div class="exc-price-sub">2 pax · $'+o.pp+'pp</div>'
+      : o.p==='TBL' ? '<div class="exc-price" style="font-size:12px;color:#555">QUOTE</div><div class="exc-price-sub">contact TBL</div>'
+      : '<div class="exc-price" style="color:#1a7a1a;font-size:17px">FREE</div><div class="exc-price-sub">self-guided</div>';
+    var linkBtn = o.url ? '<a class="exc-book-link" href="'+o.url+'" target="_blank" rel="noopener">Book / View ↗</a>'
+      : '<span class="exc-book-link exc-self-link" style="cursor:default">Self-Arranged</span>';
+    var metas=[];
+    if(o.dur) metas.push(o.dur+'h');
+    if(o.mobility) metas.push(o.mobility);
+    if(o.ggr) metas.push('<span class="exc-ggr">✓ GGR</span>');
+    var glowEl = isSel ? '<div class="sel-glow"></div>' : isBooked ? '<div class="booked-glow"></div>' : o.recommended ? '<div class="rec-glow"></div>' : '';
+    var badgeEl = isBooked ? '<div class="booked-confirmed-badge">✅ CONFIRMED BOOKING</div>' : isPending ? '<div class="pending-badge">⏳ PENDING PAYMENT</div>' : '';
+    var codeEl = o.code ? '<span class="exc-tour-code">'+o.code+'</span> ' : '';
+    var selBtn = dayNum ? '<button class="exc-select-btn selBtn'+(isSel?' sel':'')
+      +'" data-day="'+dayNum+'" data-opt="'+encodeURIComponent(o.name)
+      +'" onclick="selectOpt('+dayNum+',decodeURIComponent(this.dataset.opt))">'
+      +(isSel?'✓ SELECTED':'SELECT')+'</button>' : '';
+    return '<div class="exc-card'+cls+'">'+glowEl+badgeEl
+      +'<div class="exc-card-top"><div>'
+      +'<div style="display:flex;gap:4px;align-items:center;margin-bottom:4px;flex-wrap:wrap">'
+      +'<span class="provider '+provCls+'">'+o.p+'</span>'+codeEl+tagsHtml+'</div>'
+      +'<div class="exc-name">'+o.name+'</div></div>'
+      +'<div class="exc-price-block">'+priceHtml+'</div></div>'
+      +'<div class="exc-desc">'+o.desc+'</div>'
+      +'<div class="exc-meta-row">'+metas.map(function(m){ return '<span class="exc-meta">'+m+'</span>'; }).join('')+'</div>'
+      +(o.meet?'<div class="exc-meet">📍 '+o.meet+'</div>':'')
+      +(o.warn?'<div class="exc-warn">⚠ '+o.warn+'</div>':'')
+      +'<div class="exc-footer">'+(o.rating?'<div class="exc-rating">'+o.rating+'</div>':'<div></div>')
+      +'<div style="display:flex;gap:5px">'+selBtn+linkBtn+'</div></div></div>';
+  }).join('');
+}
+
+// ── Segment filter ──────────────────────────────────────────────────
+function setSeg(n){
+  document.querySelectorAll('.seg-btn').forEach(function(b,i){ b.classList.toggle('active',i===n); });
+  document.querySelectorAll('.port-section').forEach(function(s){ s.style.display=(n===0||parseInt(s.dataset.seg)===n)?'block':'none'; });
+  document.querySelectorAll('.day-card').forEach(function(c){ c.style.opacity=(n===0||parseInt(c.dataset.seg)===n)?'1':'0.35'; });
+}
+setSeg(0);
+
+function scrollToDay(n){
+  setSeg(0);
+  var el=document.getElementById('day-'+n);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.day-card').forEach(function(c){ c.classList.toggle('active',parseInt(c.dataset.day)===n); });
+}
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var n=parseInt(e.target.id.split('-')[1]);
+      document.querySelectorAll('.day-card').forEach(function(c){ c.classList.toggle('active',parseInt(c.dataset.day)===n); });
+      var card=document.querySelector('.day-card[data-day="'+n+'"]');
+      if(card) card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    }
+  });
+},{threshold:0.25});
+document.querySelectorAll('.port-section').forEach(function(s){ obs.observe(s); });
+
+// ── Init planning strip ─────────────────────────────────────────────
+recalcBudget();
+</script>
+</body>
+</html>

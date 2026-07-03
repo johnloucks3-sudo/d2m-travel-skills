@@ -182,6 +182,8 @@ Fares: Kyle/Roger = OMAFSV26-3 (DV1 $3,799pp) | Josh/Erica = OMAPSF26-3 (V1 $3,0
 | 2026-06-20 | Your Viking Mars Panama Voyage — Where We Stand | Kyle |
 | 2026-06-20 | Panama December — Hotels, Transfers & Five Quick Questions | Kyle |
 | 2026-06-20 | Panama Excursions — Our Picks and a 3-Minute Survey, Kyle | Kyle |
+| 2026-06-30 | Re: First pass at your excursions for Viking Mars 17-27 December 2026 | Kyle |
+| 2026-06-30 | First pass at your excursions for Viking Mars 17-27 December 2026 | Kyle |
 
 ---
 

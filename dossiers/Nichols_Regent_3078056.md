@@ -156,7 +156,7 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ALL CONFIRMED** | DFW→HEL: 5D/5H; HEL→ARN: 2D/2F (Heidi confirmed Mar 16) |
 | 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **REBOOKING** | ARN→At Six to book; ARN→Haymarket (#1095089/LN693883) cancelling |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **REBOOKING** | At Six Stockholm, Aug 27-28 (client-directed; replaces Haymarket) |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ✅ **CONFIRMED** | At Six Stockholm, Aug 27-28. Amex FHR Conf #9092637820900. Client confirmed via email 2026-05-13. |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Conf #9092637820900) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3078056, Suite 939 |
@@ -200,13 +200,20 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 ### ISSUES NEEDING RESOLUTION
 
 1. **Return Flight Seat Assignments** — Seats NOT assigned on BA 6776 (OSL→LHR, Sep 8) and AA 79 (LHR→DFW, Sep 8). Outbound flights confirmed (5D/5H + 2D/2F). Contact BA/AA to assign return seats for Larry & Heidi.
-2. **At Six Stockholm — Night 1 booking + ARN→At Six transfer** (client-directed) — book At Six Aug 27-28 (replaces Haymarket) and the ARN→At Six transfer; cancel Haymarket group booking (131-2656351) and ARN→Haymarket transfer (#1095089/LN693883). Both nights now At Six — no room change.
+2. ~~**At Six Stockholm Night 1**~~ — **RESOLVED** (Heidi confirmed via email 2026-05-13). Amex FHR Conf #9092637820900. **ARN→At Six transfer still needed** — book to replace ARN→Haymarket (#1095089/LN693883, cancelling).
 3. ~~**Insurance Policy Clarification**~~ — **MOOT** (Commander-arbitrated 2026-06-09, all 3 couples). CFAR dropped; no further action. Historical email log above retained as record.
 4. **Schengen Visa/Entry Requirements** — Confirm Sweden/Norway entry requirements for US passports (6+ month validity). Both passports valid through Feb 2030.
 
 **Special Note:** Heidi's birthday = Aug 29 (embarkation day). Relevant for dining reservations (opens May 31) — consider noting for onboard surprise/celebration.
 
 **Status:** Items 1–4 target resolution by May 15, 2026 (E-45 milestone).
+
+---
+
+### EMAIL LOG (continued)
+
+**May 13 — Heidi Nichols → Commander** (Re: Confirmed: your trip to Stockholm)
+> Heidi confirmed At Six Stockholm booking. Commander replied "Got it." Client-side confirmation on record.
 
 ---
 
