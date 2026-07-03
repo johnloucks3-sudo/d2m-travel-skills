@@ -44,9 +44,12 @@ CREATE INDEX IF NOT EXISTS idx_status_priority
 
 # Migrations: columns added after initial release
 _MIGRATIONS = [
-    "ALTER TABLE tasks ADD COLUMN api_target  TEXT",
-    "ALTER TABLE tasks ADD COLUMN api_method  TEXT",
-    "ALTER TABLE tasks ADD COLUMN api_params  TEXT",
+    "ALTER TABLE tasks ADD COLUMN api_target        TEXT",
+    "ALTER TABLE tasks ADD COLUMN api_method        TEXT",
+    "ALTER TABLE tasks ADD COLUMN api_params        TEXT",
+    # RELAY v2 — Email C2 thread reply support (2026-07-02)
+    "ALTER TABLE tasks ADD COLUMN gmail_thread_id   TEXT",
+    "ALTER TABLE tasks ADD COLUMN gmail_message_id  TEXT",
 ]
 
 # ── Connection ──────────────────────────────────────────────────────────────
