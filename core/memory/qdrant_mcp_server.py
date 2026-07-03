@@ -29,8 +29,6 @@ Mount in ~/.claude/mcp.json:
 CI registry: config/ci_registry.json — probe GET /healthz + GET /collections/thunderbird_memories
 """
 
-from __future__ import annotations
-
 import json
 import logging
 import os
@@ -49,10 +47,7 @@ from core.memory.qdrant_memory import QdrantMemorySystem
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [qdrant-mcp] %(message)s")
 logger = logging.getLogger("qdrant_mcp")
 
-mcp = FastMCP(
-    name="thunderbird-qdrant",
-    description="Semantic memory search and indexing for the Thunderbird Wing knowledge corpus.",
-)
+mcp = FastMCP(name="thunderbird-qdrant")
 
 # ── register the three core tools ─────────────────────────────────────────────
 # Delegates to QdrantMemorySystem which holds all chunking/embedding/upsert logic.
