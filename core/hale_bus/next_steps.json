@@ -103,11 +103,11 @@
       "by": "cc",
       "priority": "P1",
       "tag": "proposal",
-      "status": "open",
+      "status": "done",
       "claimed_by": null,
       "added_at": "2026-07-03T21:41:23.873460+00:00",
-      "done_at": null,
-      "note": null
+      "done_at": "2026-07-03T21:45:00.085526+00:00",
+      "note": "GO executed 2026-07-03 — Regent Portfolio Brief No.1 delivered"
     },
     {
       "id": "ns-9f10e48",
@@ -130,6 +130,18 @@
       "status": "open",
       "claimed_by": null,
       "added_at": "2026-07-03T21:44:51.568993+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9f703c2",
+      "text": "Regent agent-portal: CONFIRMED booking-level visibility for all D2M-booked clients (suite#, guests+ages, credits, financials, dining/checkin) — McLeod 2984034 verified. OPEN: pull the agent PROFILE/PREFERENCES + SAVED-VOYAGES pages to confirm drink/dietary/suite prefs agent-visibility (not on booking page).",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "regent-portfolio",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:51:22.050434+00:00",
       "done_at": null,
       "note": null
     }
