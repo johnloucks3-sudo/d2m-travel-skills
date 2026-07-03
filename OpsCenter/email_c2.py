@@ -23,6 +23,13 @@ Chat commands (subject only, no Haiku needed):
     [WING] ABORT <task-id>    — or —  Hale, abort RELAY-XXXXXXXX
     [WING] BLACKBOARD         — or —  Hale, blackboard
     [WING] BRIEF              — or —  Hale, brief
+
+Thread Continuation (reply to any Wing email to stay in the same chain):
+    Reply APPROVE             — releases a HARLAN-gated task
+    Reply STATUS / LIST / ... — chat commands work in body of a reply too
+    Reply with any text       — treated as a follow-up task in the same thread
+    Re: / Fwd: from Commander in a known Wing thread → continuation path
+    Re: / Fwd: from Commander in an UNKNOWN thread   → ignored (loop guard)
 """
 
 import sys
@@ -135,6 +142,27 @@ def _db_get_by_message_id(gmail_message_id: str):
         ).fetchone()
         return dict(row) if row else None
 
+def _db_get_active_thread_ids() -> set:
+    """Return set of gmail_thread_ids for open (non-terminal) Wing tasks."""
+    from OpsCenter.task_queue import get_db
+    with get_db() as conn:
+        rows = conn.execute(
+            "SELECT DISTINCT gmail_thread_id FROM tasks "
+            "WHERE gmail_thread_id != '' "
+            "  AND status NOT IN ('completed', 'failed', 'aborted')"
+        ).fetchall()
+        return {r[0] for r in rows}
+
+def _db_get_by_thread_id(thread_id: str) -> dict | None:
+    """Return the most-recent task for a thread (any status)."""
+    from OpsCenter.task_queue import get_db
+    with get_db() as conn:
+        row = conn.execute(
+            "SELECT * FROM tasks WHERE gmail_thread_id=? ORDER BY created_at DESC LIMIT 1",
+            (thread_id,)
+        ).fetchone()
+        return dict(row) if row else None
+
 def _db_list(limit=10):
     from OpsCenter.task_queue import get_db
     with get_db() as conn:
@@ -243,6 +271,61 @@ def fetch_wing_emails():
             log.warning("Failed to fetch message %s: %s", meta["id"], e)
 
     return emails
+
+def fetch_continuation_replies(active_thread_ids: set) -> list:
+    """Fetch unread replies FROM Commander in known Wing task threads.
+
+    These are Commander's Re: messages in threads we own — the continuation path.
+    Distinct from the main fetch: _is_wing_email() rejects Re: subjects, so
+    continuations need their own query path.
+    """
+    if not active_thread_ids:
+        return []
+    service = _wing_service()
+    continuations = []
+    for tid in active_thread_ids:
+        try:
+            thread = service.users().threads().get(
+                userId="me", id=tid, format="metadata",
+                metadataHeaders=["From", "Subject", "Message-ID"],
+            ).execute()
+            for msg in thread.get("messages", []):
+                if "UNREAD" not in msg.get("labelIds", []):
+                    continue
+                headers = {h["name"].lower(): h["value"]
+                           for h in msg.get("headers", [])}
+                from_addr = headers.get("from", "")
+                if COMMANDER_TO not in from_addr:
+                    continue  # skip Wing's own replies
+                subject = headers.get("subject", "")
+                # Must be a reply to count as continuation
+                if not re.match(r"^\s*Re\s*:", subject, re.IGNORECASE):
+                    continue
+                mid = headers.get("message-id", "")
+                # Skip if already ingested as a task
+                if mid and _db_get_by_message_id(mid):
+                    continue
+                # Full fetch for body
+                full = service.users().messages().get(
+                    userId="me", id=msg["id"], format="full"
+                ).execute()
+                body = _extract_text_body(full["payload"])
+                service.users().messages().modify(
+                    userId="me", id=msg["id"],
+                    body={"removeLabelIds": ["UNREAD"]},
+                ).execute()
+                continuations.append({
+                    "gmail_msg_id":       msg["id"],
+                    "thread_id":          tid,
+                    "message_id_header":  mid,
+                    "subject":            subject,
+                    "body":               body.strip(),
+                    "is_continuation":    True,
+                })
+                log.info("Continuation reply in thread %s: %s", tid, subject[:60])
+        except Exception as e:
+            log.warning("Continuation fetch for thread %s failed: %s", tid, e)
+    return continuations
 
 # ── Intent parsing (Haiku) ────────────────────────────────────────────────
 def parse_intent(subject: str, body: str) -> dict:
@@ -462,6 +545,75 @@ def dispatch(email: dict, parsed: dict, task_id: str) -> None:
     except Exception as e:
         log.error("Thread reply failed for %s: %s", task_id, e)
 
+# ── Thread continuation handler ───────────────────────────────────────────
+def handle_continuation(email: dict) -> None:
+    """Process Commander's reply in an existing Wing task thread.
+
+    Priority order:
+      1. APPROVE  → releases a HARLAN-gated task and executes it
+      2. Chat command in body (STATUS / LIST / ABORT / BLACKBOARD / BRIEF)
+      3. General follow-up → new sub-task submitted in same thread
+    """
+    thread_id  = email["thread_id"]
+    body       = email["body"].strip()
+    msg_id_hdr = email["message_id_header"]
+    subject    = email["subject"]
+    parent     = _db_get_by_thread_id(thread_id)
+
+    def _ack(text: str, html_body=None):
+        try:
+            _reply_in_thread(thread_id, msg_id_hdr, subject, text, html_body)
+        except Exception as e:
+            log.error("Continuation reply failed: %s", e)
+
+    # ── 1. APPROVE — release HARLAN gate ──────────────────────────────────
+    body_upper = body.upper().strip()
+    if body_upper.startswith("APPROVE") and parent and parent["status"] == "gated_harlan":
+        log.info("HARLAN APPROVE received for task %s", parent["id"])
+        # Original task intent is stored as first line of content
+        original_intent = (parent.get("content") or "").split("\n")[0]
+        original_body   = (parent.get("content") or "").split("\n", 1)[-1]
+        t_start = time.time()
+        result  = execute_exec_task(original_intent, original_body)
+        _db_update(parent["id"], "completed", result=result)
+        elapsed = time.time() - t_start
+        plain = f"✅ HARLAN APPROVED — {parent['id']}\n\n{result}\n\nElapsed: {elapsed:.1f}s"
+        html  = build_reply_html(parent["id"], "HARLAN→EXEC", original_intent[:40], result, elapsed)
+        _ack(plain, html)
+        return
+
+    # ── 2. Chat command in body ────────────────────────────────────────────
+    # Commander may reply with just "STATUS RELAY-XXXXXXXX" in the body
+    body_clean = body.strip()
+    for cmd in CHAT_HANDLERS:
+        if body_clean.upper().startswith(cmd):
+            args = body_clean[len(cmd):].strip()
+            log.info("Chat command in continuation body: %s %s", cmd, args)
+            try:
+                reply_text = CHAT_HANDLERS[cmd](args)
+            except Exception as e:
+                reply_text = f"❌ {cmd} failed: {e}"
+            _ack(f"[{cmd}]\n\n{reply_text}")
+            return
+
+    # ── 3. General follow-up — new sub-task in same thread ────────────────
+    parent_ctx = ""
+    if parent:
+        parent_ctx = f"\n\n[Continuation of {parent['id']}: {(parent.get('content') or '')[:200]}]"
+
+    parsed  = parse_intent(subject, body + parent_ctx)
+    task_id = _db_submit(
+        content          = f"[FOLLOW-UP {parent['id'] if parent else thread_id}]\n{body[:800]}",
+        gmail_thread_id  = thread_id,
+        gmail_message_id = msg_id_hdr,
+        task_type        = "email_c2_continuation",
+        source           = "email_c2",
+    )
+    log.info("Continuation sub-task %s submitted in thread %s", task_id, thread_id)
+    _ack(f"⚡ {task_id} — follow-up received. Working on it…")
+    _db_update(task_id, "active")
+    dispatch(email, parsed, task_id)
+
 # ── Main poll cycle ───────────────────────────────────────────────────────
 def run_once():
     log.info("── Email C2 poll cycle ──")
@@ -473,13 +625,30 @@ def run_once():
         log.error("Gmail fetch failed: %s", e)
         return
 
+    # Also fetch Commander's replies in existing Wing threads (continuation path)
+    try:
+        active_threads = _db_get_active_thread_ids()
+        continuations  = fetch_continuation_replies(active_threads)
+        emails = emails + continuations
+    except Exception as e:
+        log.warning("Continuation fetch failed: %s", e)
+
     if not emails:
         log.info("No [WING] emails found")
         return
 
-    log.info("Found %d [WING] email(s)", len(emails))
+    log.info("Found %d email(s) (%d continuation(s))",
+             len(emails), sum(1 for e in emails if e.get("is_continuation")))
 
     for email in emails:
+        # ── Thread continuation — Commander replied in an existing Wing thread ──
+        if email.get("is_continuation"):
+            log.info("Continuation reply in thread %s", email["thread_id"])
+            try:
+                handle_continuation(email)
+            except Exception as e:
+                log.error("handle_continuation failed: %s", e)
+            continue
         subject    = email["subject"]
         thread_id  = email["thread_id"]
         msg_id_hdr = email["message_id_header"]
