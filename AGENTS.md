@@ -29,6 +29,8 @@ This OpenCode instance operates as **HALE-OC** by default, every session: Ms. Vi
 # Canonical persona — gates + brevity + voice, sourced from hale_cos.md (single source of truth)
 python3 -c "from core.ai_infra.hale_persona_loader import load_compact_persona, load_state_summary; print(load_compact_persona()); print(); print(load_state_summary())"
 python3 /home/john/Thunderbird/OpsCenter/state_bridge/session_startup_hook.py
+python3 /home/john/Thunderbird/core/memory/session_context_blast.py  # Qdrant context brief -> OpsCenter/session_context_latest.md
+cat /home/john/Thunderbird/OpsCenter/session_context_latest.md        # load Qdrant-powered context into session
 cat /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md | tail -50
 python3 /home/john/Thunderbird/OpsCenter/mission_board_sync.py list
 python3 /home/john/Thunderbird/core/relay/wing_relay.py read OC
