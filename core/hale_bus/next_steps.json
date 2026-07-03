@@ -108,6 +108,30 @@
       "added_at": "2026-07-03T21:41:23.873460+00:00",
       "done_at": null,
       "note": null
+    },
+    {
+      "id": "ns-9f10e48",
+      "text": "Regent Portfolio Run No.2: build agent-portal full-base sweep (regent_cookies) — live financials + Society tiers for all 6 Regent clients, not just Lyons",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "regent-portfolio",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:44:51.528726+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9f10e70",
+      "text": "Nancy Lyons PLATINUM milestone note (Dani voice, WF-17) timed to Aug 2026 Athens sailing → open next-voyage conversation",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "lyons",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:44:51.568993+00:00",
+      "done_at": null,
+      "note": null
     }
   ],
   "meta": {
