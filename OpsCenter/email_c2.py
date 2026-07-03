@@ -12,17 +12,17 @@ Usage:
     python3 OpsCenter/email_c2.py --once    # single poll cycle (systemd timer mode)
     python3 OpsCenter/email_c2.py --loop    # continuous loop for dev/testing
 
-Trigger (Commander sends):
-    TO:      d2mconcierge@gmail.com
-    SUBJECT: [WING] <what you want done>
-    BODY:    any context
+Trigger (Commander sends TO d2mconcierge@gmail.com):
+    Formal:   Subject: [WING] <what you want done>
+    Natural:  Subject: Hale, <task>       (or COO / COS / Vic in subject)
+              Body:    Hale — <task>       (persona name in first 200 chars of body)
 
 Chat commands (subject only, no Haiku needed):
-    [WING] STATUS <task-id>
-    [WING] LIST
-    [WING] ABORT <task-id>
-    [WING] BLACKBOARD
-    [WING] BRIEF
+    [WING] STATUS <task-id>   — or —  Hale, status RELAY-XXXXXXXX
+    [WING] LIST               — or —  Hale, list
+    [WING] ABORT <task-id>    — or —  Hale, abort RELAY-XXXXXXXX
+    [WING] BLACKBOARD         — or —  Hale, blackboard
+    [WING] BRIEF              — or —  Hale, brief
 """
 
 import sys
@@ -55,7 +55,9 @@ logging.basicConfig(
 log = logging.getLogger("email_c2")
 
 # ── Constants ─────────────────────────────────────────────────────────────
-WING_TRIGGER   = "[WING]"
+WING_TRIGGER      = "[WING]"
+# Natural-language persona triggers — Commander uses these in subject or body
+PERSONA_TRIGGERS  = {"COS", "HALE", "COO", "VIC"}
 COMMANDER_TO   = "johnloucks3@gmail.com"
 BLACKBOARD     = _ROOT / "OpsCenter" / "collaboration" / "blackboard.md"
 ASK_WRAPPER    = Path.home() / ".local" / "bin" / "ask"
@@ -156,12 +158,36 @@ def _extract_text_body(payload):
             return text
     return ""
 
+def _is_wing_email(subject: str, body: str) -> bool:
+    """True if email is a Wing task — [WING] in subject OR persona name in subject/body."""
+    if WING_TRIGGER.lower() in subject.lower():
+        return True
+    combined = (subject + " " + (body or "")[:200]).upper()
+    return any(re.search(rf'\b{name}\b', combined) for name in PERSONA_TRIGGERS)
+
+def _clean_subject(subject: str) -> str:
+    """Strip [WING] / persona prefix from subject for clean intent parsing."""
+    s = re.sub(r"^\[WING\]\s*", "", subject, flags=re.IGNORECASE)
+    s = re.sub(
+        rf"^({'|'.join(PERSONA_TRIGGERS)})[,:\s]+",
+        "", s, flags=re.IGNORECASE
+    )
+    return s.strip()
+
 def fetch_wing_emails():
-    """Return list of unread [WING] emails from Commander in d2mconcierge inbox."""
+    """Return list of unread Wing emails from Commander in d2mconcierge inbox.
+    Matches [WING] in subject OR persona name (HALE/COS/COO/VIC) in subject/body.
+    """
     service = _wing_service()
+    # Broad query: [WING] subject OR any persona trigger word in message
+    persona_terms = " OR ".join(PERSONA_TRIGGERS)
+    query = (
+        f'from:{COMMANDER_TO} is:unread '
+        f'(subject:"{WING_TRIGGER}" OR {persona_terms})'
+    )
     result = service.users().messages().list(
         userId="me",
-        q=f'from:{COMMANDER_TO} subject:"{WING_TRIGGER}" is:unread',
+        q=query,
         maxResults=20,
     ).execute()
 
@@ -178,6 +204,11 @@ def fetch_wing_emails():
             message_id_hdr = headers.get("message-id", "")
             thread_id     = msg["threadId"]
             body          = _extract_text_body(msg["payload"])
+
+            # Python-level confirm — broad query may pull non-Wing emails
+            if not _is_wing_email(subject, body):
+                log.debug("Skipping non-Wing email: %s", subject[:60])
+                continue
 
             # Mark read immediately
             service.users().messages().modify(
@@ -201,7 +232,7 @@ def fetch_wing_emails():
 # ── Intent parsing (Haiku) ────────────────────────────────────────────────
 def parse_intent(subject: str, body: str) -> dict:
     """Classify task intent with Haiku. Returns {intent, gate, route, summary}."""
-    clean_subject = re.sub(r"^\[WING\]\s*", "", subject, flags=re.IGNORECASE).strip()
+    clean_subject = _clean_subject(subject)
 
     try:
         import anthropic
@@ -296,8 +327,10 @@ CHAT_HANDLERS = {
 }
 
 def detect_chat_command(subject: str):
-    """If subject is a chat command, return (cmd, args) else None."""
-    clean = re.sub(r"^\[WING\]\s*", "", subject, flags=re.IGNORECASE).strip()
+    """If subject is a chat command, return (cmd, args) else None.
+    Handles both [WING] STATUS and natural 'Hale, status RELAY-...' forms.
+    """
+    clean = _clean_subject(subject)
     for cmd in CHAT_HANDLERS:
         if clean.upper().startswith(cmd):
             args = clean[len(cmd):].strip()
