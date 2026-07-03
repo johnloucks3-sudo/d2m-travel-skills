@@ -254,3 +254,38 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] f055dc332: memory: autonomous gap-closure loop + Commander refinement (in loop as director not catalyst); next_steps for both missing links |  37 files changed, 480 insertions(+), 470 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-34c5339d from CC — 2026-07-03 21:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] deab6a48c: point-paper: AI-originated project proposal pattern (front-end of loop) + first PP: Regent Portfolio Intelligence |  18 files changed, 84 insertions(+), 50 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-0978a00a from CC — 2026-07-03 21:44 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bbf0fb134: regent-portfolio: Brief No.1 delivered (GO executed) — found Lyons Platinum-imminent; agent-portal full-base sweep queued as Run No.2 |  1 file changed, 24 insertions(+) | author: Claude Haiku 4.5
+
+---
+## RELAY-c016685f from CC — 2026-07-03 21:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 363236094: regent-portfolio: McLeod agent-side capture verified (booking-level visibility); Nancy Platinum practice note (WF-17 held) |  2 files changed, 42 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-a22fd2fa from CC — 2026-07-03 21:57 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b95ed8476: regent: agent-side profile/preferences depth tool + verified boundary (agent=booking-deep; prefs/tier/saved=guest-only) |  2 files changed, 139 insertions(+) | author: Claude Haiku 4.5
+
+---
+## RELAY-0e259642 from CC — 2026-07-03 22:01 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 31b08b7a3: feat(ops): self_audit_gate.py — pre-done QC gate (ns-9ebfa45) |  1 file changed, 253 insertions(+) | author: Claude Haiku 4.5

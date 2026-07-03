@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-06-25T18:34:05.926248+00:00",
-    "msg_id": "19f000db218acd16",
-    "subject": "\u2705 MISSION-1680: \u2705 MISSION-1665: \u2705 MISSION-1650: \u2705 MISSION-1635: \u2705 MISSION-1620: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
     "timestamp": "2026-06-25T18:34:08.384149+00:00",
     "msg_id": "19f000da92d90c32",
     "subject": "\u2705 MISSION-1679: \u2705 MISSION-1666: \u2705 MISSION-1649: \u2705 MISSION-1636: \u2705 MISSION-1619: \u2705",
@@ -3997,6 +3989,14 @@
     "subject": "D2M Inbox Digest \u2014 1 item(s)",
     "sender": "johnloucks3@gmail.com",
     "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-03T22:06:11.602955+00:00",
+    "msg_id": "19f2a03a72144e4c",
+    "subject": "D2M Inbox Digest \u2014 1 item(s)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
     "status": "actioned"
   }
 ]

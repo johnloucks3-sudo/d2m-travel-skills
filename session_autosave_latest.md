@@ -1,14 +1,14 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-03 15:37:05 MDT
+## Generated: 2026-07-03 16:10:23 MDT
 
 ---
 
 ### Recent Commits
-- 6b9d15ba2 hale-bus: shared next_steps.py backlog (CC/OC/Commander grab-the-reins queue) + fix brain_bridge search/backfill payload-key bug (source->filename/content)
-- ded0e6122 feat(memory): wire session_context_blast to OC startup + 30-min systemd timer
-- 6924a5bc1 feat(ci): Qdrant semantic memory — full Wing CI integration (Opus GO 2026-07-03)
-- 5ee373ab6 scandinavia: HOLD all 3 portals — Wing review Jul 10 (P1), target send Jul 20 gated on ARN->At Six transfer booking (P0)
-- a44d0715a scandinavia: fix Ely-Darrow missing 3 excursions (Christiansborg/Two Kingdoms/Oslo WWII); excursion count-validation lesson
+- 31b08b7a3 feat(ops): self_audit_gate.py — pre-done QC gate (ns-9ebfa45)
+- b95ed8476 regent: agent-side profile/preferences depth tool + verified boundary (agent=booking-deep; prefs/tier/saved=guest-only)
+- 363236094 regent-portfolio: McLeod agent-side capture verified (booking-level visibility); Nancy Platinum practice note (WF-17 held)
+- bbf0fb134 regent-portfolio: Brief No.1 delivered (GO executed) — found Lyons Platinum-imminent; agent-portal full-base sweep queued as Run No.2
+- deab6a48c point-paper: AI-originated project proposal pattern (front-end of loop) + first PP: Regent Portfolio Intelligence
 
 ### Uncommitted Changes
  m Blackboard
@@ -19,23 +19,23 @@
  M OpsCenter/.supervisor_patterns.json
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/a7_metrics_dashboard.json
  M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/opencode_inbox.md
  M OpsCenter/collaboration/routing_log.md
  M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/executor_last_run.json
  M OpsCenter/itinerary_watchdog_status.json
  M OpsCenter/keepalive_health.json
+ M OpsCenter/mission_board.json
  M OpsCenter/nexus.lock
  M OpsCenter/oc_worker_status.json
- D OpsCenter/pinecone_connector.py
- D OpsCenter/pinecone_ingest.py
- D OpsCenter/pinecone_ingest_master.py
+ M OpsCenter/qdrant_watchdog_status.json
+ M OpsCenter/session_context_latest.md
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 26 pending task(s)
+- OpenCode inbox: 32 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

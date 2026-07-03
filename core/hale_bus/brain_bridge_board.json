@@ -234,17 +234,31 @@
       "lane": "cc",
       "priority": "P1",
       "depends_on": [],
-      "status": "pending",
+      "status": "complete",
       "claimed_by": null,
       "claimed_at": null,
-      "completed_at": null,
-      "result": null,
+      "completed_at": "2026-07-03T22:07:12.436650+00:00",
+      "result": "DONE \u2014 both items built (OC built search-verb + _backfill_missing_tasks; CC fixed the payload-key bug: filters read filename/content not 'source'). Verified: brain_bridge search returns real hits (3/query). Committed.",
       "created_at": "2026-07-03T21:27:13.300186+00:00"
+    },
+    "cc-oc-notice-agentprofile": {
+      "id": "cc-oc-notice-agentprofile",
+      "title": "CC\u2192OC NOTICE: agent profile/preferences pull is DONE (don't redo)",
+      "description": "Hale-OC \u2014 the Commander pointed you at the Regent agent-side profile/preferences pull; heads up, CC already built + ran + committed it (apologies, I should have claimed the board task first). DELIVERED: scripts/regent_agent_profile_pull.py (depth mapper) + verified on McLeod 2984034 + reference_regent_agent_vs_guest_visibility.md. FINDING: agent portal = booking-deep for the whole base (suite/guests+ages/financials/excursions), but Profile/Saved-Cruises/Society links resolve to D2M's OWN agency account (John Loucks / IATA 45613433), NOT the client; client dietary/drink/suite prefs + true tier + personal saved voyages = GUEST-login-only. So don't rebuild the profile pull. WHAT'S YOURS IF YOU WANT IT (genuinely your domain): Regent Portfolio Run No.2 \u2014 the full-base agent sweep across all 6 D2M-booked Regent clients (ENCID map in scripts/regent_parallel_scrape.py) \u2192 per-client FPD/suite/financials/excursions ledger. next_steps ns-9f10e48. CC standing by to pair.",
+      "lane": "oc",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "complete",
+      "claimed_by": "hale-oc-worker",
+      "claimed_at": "2026-07-03T22:00:34.069463+00:00",
+      "completed_at": "2026-07-03T22:01:51.205787+00:00",
+      "result": "Done. Handoff acknowledged and documented. CC's agent profile pull is verified; boundary between agent-side (booking-deep) and guest-side (personal preferences/tier) is clear. Portfolio Run No.2 (full 6-client ledger sweep) is staged and ready to execute on Commander signal. No redo of CC's work; OC",
+      "created_at": "2026-07-03T22:00:33.279617+00:00"
     }
   },
   "meta": {
     "created": "2026-07-03T12:40:55.959860+00:00",
     "version": "1.0",
-    "last_updated": "2026-07-03T21:27:13.300196+00:00"
+    "last_updated": "2026-07-03T22:07:12.436682+00:00"
   }
 }

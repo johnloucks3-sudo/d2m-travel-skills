@@ -5598,5 +5598,21 @@
     "label": "Perx discount signal(s): 77% off, 75% OFF, 60% off",
     "excerpt": "**PERX** (an interline travel agency) offers airline employees and retirees vacation discounts of **up to 75\u201377% off retail rates**, which significantly exceeds the **>30%** threshold you mentioned, covering cruises, resorts, hotels, and tours worldwide[1][6][10].\n\n### Key Details on PERX Discounts & Eligibility\n| Feature | Description |\n| :--- | :--- |\n| **Discount Depth** | Up to **75% OFF** ret",
     "trigger_count": 3
+  },
+  {
+    "ts": "2026-07-03T21:55:28.098293+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% discount",
+    "excerpt": "There is **no recent 2026 news** indicating a new discount rate of **>30%** for \"PERX interline\" because **PERX already offers airline employees discounts of up to 75\u201377%** on vacations, which significantly exceeds the 30% threshold you mentioned.\n\n### Key Details on PERX Discounts for Airline Employees:\n| Feature | Discount Range | Eligible Users |\n|---------|----------------|----------------|\n|",
+    "trigger_count": 1
+  },
+  {
+    "ts": "2026-07-03T22:10:29.153593+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 60% off, 30% discount",
+    "excerpt": "There are **no 2026 news developments** indicating that PERX (the interline travel agency) has introduced a new discount program specifically labeled \u201c>30%\u201d for airline employees, because PERX already offers **discounts of up to 75%\u201377%** on cruises, resorts, and tours for eligible airline staff and their families, which far exceeds the 30% threshold mentioned in your query[1][6].\n\n### Key Facts A",
+    "trigger_count": 2
   }
 ]

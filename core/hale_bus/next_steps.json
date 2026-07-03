@@ -31,11 +31,12 @@
       "by": "cc",
       "priority": "P1",
       "tag": "spencer",
-      "status": "open",
-      "claimed_by": null,
+      "status": "done",
+      "claimed_by": "oc",
       "added_at": "2026-07-03T21:29:43.896553+00:00",
-      "done_at": null,
-      "note": null
+      "done_at": "2026-07-03T22:12:33.005833+00:00",
+      "note": "Full research complete. Walkabout: walkabouttours.com (old domain dead), private-8 est €560-720. La Pergola: CALL THIS WEEK +39 06 3509 2152. Venture Ashore: TA registration available. Hotelbeds: Florence/Zurich rates pulled. output/spencer_research_20260703.md",
+      "claimed_at": "2026-07-03T21:57:57.886434+00:00"
     },
     {
       "id": "ns-9e33500",
@@ -67,11 +68,12 @@
       "by": "cc",
       "priority": "P1",
       "tag": "autonomy",
-      "status": "open",
-      "claimed_by": null,
+      "status": "done",
+      "claimed_by": "oc",
       "added_at": "2026-07-03T21:39:18.725845+00:00",
-      "done_at": null,
-      "note": null
+      "done_at": "2026-07-03T22:01:28.634511+00:00",
+      "note": "Built core/ops/self_audit_gate.py — 7 check types (count_match, required_fields, per_pax_consistency, couples_consistency, financial_totals, stale_placeholder, harlan_gate). CLI + importable. Committed 31b08b7a.",
+      "claimed_at": "2026-07-03T21:57:57.922749+00:00"
     },
     {
       "id": "ns-9ebfa6e",
@@ -139,11 +141,11 @@
       "by": "cc",
       "priority": "P1",
       "tag": "regent-portfolio",
-      "status": "open",
+      "status": "done",
       "claimed_by": null,
       "added_at": "2026-07-03T21:51:22.050434+00:00",
-      "done_at": null,
-      "note": null
+      "done_at": "2026-07-03T22:00:33.223766+00:00",
+      "note": "DONE by CC — built scripts/regent_agent_profile_pull.py, ran on McLeod 2984034. Result: agent side = booking/suite/guests+ages/financials/excursions; Profile+Saved+Society links go to the AGENCY's own account (John Loucks/IATA), NOT the client; client prefs/tier/personal-saved = GUEST-login-only. See reference_regent_agent_vs_guest_visibility.md. Committed."
     },
     {
       "id": "ns-9fc93c6",
@@ -154,6 +156,18 @@
       "status": "open",
       "claimed_by": null,
       "added_at": "2026-07-03T21:57:26.598032+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-a0b2b5e",
+      "text": "STANDING RULE: When Hale writes 'next action:' (or 'next I'm doing X') in a recap, that IS the announcement of the next task. Commander silence / no redirect = CLEARED to execute. Do not wait for an explicit 'go' — the stated next action is authorized unless the Commander redirects.",
+      "by": "commander",
+      "priority": "P1",
+      "tag": null,
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T22:13:22.910184+00:00",
       "done_at": null,
       "note": null
     }
