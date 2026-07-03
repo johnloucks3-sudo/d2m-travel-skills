@@ -164,8 +164,11 @@ class BrainBridge:
             from core.memory.qdrant_memory import QdrantMemorySystem
             mem = QdrantMemorySystem()
             raw = mem.search_memories(f"brain bridge task: {query}", top_k=top_k)
-            # post-filter to brain_bridge task chunks (source filename starts with bb_task_)
-            results = [r for r in raw if 'bb_task_' in r.get('source', '') or 'brain_bridge' in r.get('source', '').lower()]
+            # post-filter to brain_bridge task chunks. Payload keys are filename/filepath/content
+            # (NOT 'source') — bb tasks embed as temp files named bb_task_*.md.
+            def _hay(r):
+                return (r.get('filename', '') + ' ' + r.get('filepath', '') + ' ' + r.get('content', '')).lower()
+            results = [r for r in raw if 'bb_task_' in _hay(r) or 'brain bridge task' in _hay(r)]
             # On first successful search after a failure, backfill any missing tasks
             self._backfill_missing_tasks()
             return results
@@ -201,10 +204,11 @@ class BrainBridge:
             for task in all_tasks:
                 try:
                     task_query = f"brain bridge task: {task.get('id')} {task.get('title')}"
-                    found = mem.search_memories(task_query, top_k=1)
-                    # Check if the task_id appears in any result
+                    found = mem.search_memories(task_query, top_k=3)
+                    # Task IDs live in the embedded chunk CONTENT (payload has content/filename,
+                    # NOT 'source'). Check content for the task_id.
                     task_id = task.get('id')
-                    is_indexed = any(task_id in str(r.get('source', '')) for r in found)
+                    is_indexed = any(task_id in (r.get('content', '') or '') for r in found)
 
                     if not is_indexed:
                         # Re-embed this task

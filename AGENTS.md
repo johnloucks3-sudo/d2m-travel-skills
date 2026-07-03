@@ -358,3 +358,10 @@ python3 /home/john/Thunderbird/core/relay/wing_relay.py send OC "Closing. Built:
 
 ---
 *AGENTS.md v1.0 | SO-2026-05-30 approved 2026-06-01 | Sterling owns updates to this file*
+
+## SHARED NEXT-STEPS BACKLOG (grab the reins — 2026-07-03)
+`core/hale_bus/next_steps.py` — a shared file-locked queue BOTH brains (CC + OC) and the Commander write to, so nothing goes undone waiting on someone to claim it.
+- At session start AND after finishing any thread: `python3 core/hale_bus/next_steps.py list --status open`
+- CLAIM anything in your lane: `... claim <id> --by cc|oc`. Do it. Then `... done <id> --note "..."`.
+- Commander dictates: `... dictate "text"`. Add your own: `... add "text" --by cc|oc --priority P0|P1|P2 --tag x`.
+- Rule: see an open item you can do → claim + do it. Do not leave it because "the other one might."
