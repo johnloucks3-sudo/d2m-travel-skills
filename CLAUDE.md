@@ -321,6 +321,11 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 
 ---
 
+## ⚠️ HARD RULE — TALON / JET DIVISION OF LABOR (SO 2026-07-03)
+**Tiebreak (5-second test):** human reads it, meant to feel something → **TALON** (CONDOR/Claude — client copy, proposals, narrative, pricing judgment, brand/voice, WF-17 draft). System consumes it or a fact needs verifying → **JET** (WIND/OpenCode — TESS ops, dossier/portal sync, rate pulls, vendor inquiries, registration recon, call sheets, batch/timers).
+**Handoff:** JET pulls & verifies first (structured, sourced) → TALON writes around the confirmed figure → gate checks the finished draft → WF-17. Copy never flows backward to get its own facts.
+**Hale's discipline:** ops/mechanical work is JET's — post to `core/hale_bus/brain_bridge.py add --lane oc` immediately, never grind it in the Claude lane. Full SO + both wings' position papers: `standing_orders/SO_TALON_JET_DIVISION_OF_LABOR_20260703.md`.
+
 ## REFERENCE TABLES & SECTIONS
 **Identity, Wing roster, commission defaults, cruise lines, and full protocols:** See `docs/CLAUDE_REFERENCE.md` — load on demand.
 
@@ -330,9 +335,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-01 13:47 MT -->
+<!-- Last sync: 2026-07-03 09:14 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-01 13:47 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-03 09:14 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

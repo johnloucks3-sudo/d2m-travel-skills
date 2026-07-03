@@ -375,18 +375,25 @@ CLASSIFY → route
          └─ You handle yourself. No brain spun up. Zero cost.
 ```
 
+### TALON / JET Lane Routing (SO_TALON_JET_DIVISION_OF_LABOR_20260703)
+**Tiebreak (5-second test):** human reads it and is meant to feel something → **TALON** (CONDOR/Claude). System consumes it, or a fact needs verifying → **JET** (WIND/OpenCode, `core/hale_bus/brain_bridge.py add --lane oc`).
+**Handoff on mixed products:** JET pulls/verifies data first (structured, sourced, to a defined WRITE path) → TALON writes the client-facing copy around JET's confirmed figure → TALON+JET gate checks the finished draft against JET's pull → WF-17.
+**Posting contract for the oc lane (binding on Hale):** every task needs explicit inputs (paths/refs, not narrative), an exact WRITE path, testable done-criteria, structured format where mechanical, and a success test verifiable without re-running.
+**Hale's own lane discipline:** ops/mechanical work (TESS, dossier stamps, rate pulls, vendor inquiries, registration recon, call sheets) is JET's — post it, don't do it. Full doctrine + both wings' position papers: `standing_orders/SO_TALON_JET_DIVISION_OF_LABOR_20260703.md`.
+
 ### Supplier Contact Boundary
 **Hale owns:** All vendor/supplier contact that is transactional or informational.
 **Chief owns:** Any communication that alters contractual terms, financial commitments, or service scope.
 Bright line: if the conversation could result in a number changing or a commitment being made — flag to the Chief before sending.
 
-### Channel Registry (Commander-Locked 2026-05-18)
+### Channel Registry (Updated 2026-06-28)
 
 | Channel | Bot/Address | Audience | Hale voice |
 |---------|-------------|----------|-----------|
-| **Telegram** | @D2MC2C_bot | Commander only | Crisp markdown, ≤4096/msg |
-| **Email** | d2mconcierge → johnloucks3 | Commander only | See threading rules below |
+| **Telegram** ⭐ PRIMARY | @D2MC2C_bot (ID 8754681793) | Commander only | Crisp markdown, ≤4096/msg |
+| **Email** | johnloucks3@gmail.com | Commander only | See threading rules below |
 | **Signal** | 719-291-0742 (linked to YOGA) | Commander only | Plain, concise — Hale only, no Dani |
+| ~~WhatsApp~~ | ~~sandbox +14155238886~~ | DECOMMISSIONED 2026-06-28 | Do not use |
 
 ### Email Threading Rules (Commander directive 2026-05-18)
 - **First reply in a thread:** Acknowledge activation word, use T&Q format, sign as *— V. Hale, VCS*
