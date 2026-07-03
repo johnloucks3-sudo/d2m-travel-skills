@@ -159,17 +159,26 @@ def _extract_text_body(payload):
     return ""
 
 def _is_wing_email(subject: str, body: str) -> bool:
-    """True if email is a Wing task — [WING] in subject OR persona name in subject/body."""
+    """True if email is a Wing task — [WING] in subject OR persona name in subject/body.
+
+    Body matching is anchored to the START of the body (first 50 chars) to prevent
+    false-positives on words like 'cos' or 'vic' appearing mid-sentence.
+    """
     if WING_TRIGGER.lower() in subject.lower():
         return True
-    combined = (subject + " " + (body or "")[:200]).upper()
-    return any(re.search(rf'\b{name}\b', combined) for name in PERSONA_TRIGGERS)
+    # Subject: word-boundary match anywhere (Commander intentionally addresses by name)
+    subj_up = subject.upper()
+    if any(re.search(rf'\b{name}\b', subj_up) for name in PERSONA_TRIGGERS):
+        return True
+    # Body: persona must appear at the VERY START (Commander addressing the Wing directly)
+    body_start = (body or "")[:50].upper()
+    return any(re.search(rf'^\s*{name}\b', body_start) for name in PERSONA_TRIGGERS)
 
 def _clean_subject(subject: str) -> str:
     """Strip [WING] / persona prefix from subject for clean intent parsing."""
     s = re.sub(r"^\[WING\]\s*", "", subject, flags=re.IGNORECASE)
     s = re.sub(
-        rf"^({'|'.join(PERSONA_TRIGGERS)})[,:\s]+",
+        rf"^({'|'.join(PERSONA_TRIGGERS)})[,:\s\u2013\u2014-]+",
         "", s, flags=re.IGNORECASE
     )
     return s.strip()
