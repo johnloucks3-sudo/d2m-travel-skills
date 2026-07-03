@@ -10,12 +10,22 @@
     "added": "2026-07-03",
     "note": "First tenant of the multi-client portal server (Spencer-approach rollout, Commander directive 2026-07-03). Commander's own trip — booking 3122006."
   },
+  "lyons.d2mluxury.quest": {
+    "slug": "lyons-voyages",
+    "name": "The Lyons Voyages",
+    "dir": "output/Lyons_Voyages",
+    "user": "lyons",
+    "pw": "lyons-9c3e71a4",
+    "drive_folder": "1JDTbANJxIEyCTiPz-Tvs4YKAzPeHiibL",
+    "drive_link": "https://drive.google.com/drive/folders/1JDTbANJxIEyCTiPz-Tvs4YKAzPeHiibL",
+    "added": "2026-07-03",
+    "note": "Pro bono. 4 Regent bookings (Aug26 Splendor, Dec26 Grandeur=Loucks companion, 2x Sep27 Splendor) scraped from Nancy's rssc.com account 2026-07-03 via CloakBrowser + Silversea May27. Dossier: dossiers/Lyons_Nancy_Ken_MultiTrip.md."
+  },
   "_queued": {
     "mcleod.d2mluxury.quest": "ONE page, all 4 cruises — build after Loucks test passes",
     "kuklinski-kyle.d2mluxury.quest": "per-suite page 1 of 3",
     "kuklinski-roger.d2mluxury.quest": "per-suite page 2 of 3",
     "kuklinski-morton.d2mluxury.quest": "per-suite page 3 of 3",
-    "lyons.d2mluxury.quest": "pro bono — ONE page, all 4 cruises",
     "spencer.d2mluxury.quest": "MIGRATE from legacy spencer-portal.service:8920 once Loucks pattern proven"
   }
 }
