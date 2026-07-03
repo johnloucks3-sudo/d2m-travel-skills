@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 260,
+  "emails_processed": 261,
   "entries": [
     {
       "category": "spam",
@@ -2576,6 +2576,17 @@
       "reply_status": "success",
       "reply_message_id": "19f2974c7a1969aa",
       "ts": "2026-07-03T19:29:07.038085+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f29af3ff3c556f",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Nancy Lyons may be emailing you",
+      "reply_status": "success",
+      "reply_message_id": "19f29af949274f74",
+      "ts": "2026-07-03T20:33:20.600329+00:00",
       "system": "n8n_python"
     }
   ]

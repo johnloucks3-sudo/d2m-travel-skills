@@ -5566,5 +5566,21 @@
     "label": "Perx discount signal(s): 30% discount",
     "excerpt": "There is no 2026 news about an airline interline rate discount exceeding 30% as a new development; instead, **PERX.com** (an interline travel agency) has consistently offered airline employees and retirees discounts of **up to 75\u201377%** off retail rates on cruises, resorts, and tours since at least 2023, with the 30\u201360% range being a common observed depth for specific sailings rather than a new 202",
     "trigger_count": 1
+  },
+  {
+    "ts": "2026-07-03T20:24:05.066240+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 75% OFF, 60% off",
+    "excerpt": "**PERX.com** is the interline travel agency offering airline employees discounts of **up to 77% off** retail rates, with substantial savings of **up to 75% OFF** on cruises, resorts, and tours, exceeding the **>30%** threshold you mentioned[1][9].\n\n### Key Details on PERX Discounts for Airline Employees\n| Feature | Description |\n| :--- | :--- |\n| **Discount Depth** | Up to **77% off** for airline",
+    "trigger_count": 3
+  },
+  {
+    "ts": "2026-07-03T20:39:07.804485+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 30% discount, 75% OFF",
+    "excerpt": "**PERX** (an interline travel agency) offers airline employees and retirees vacation discounts of **up to 75\u201377% off retail rates**, which frequently exceeds the **30% discount** threshold you mentioned, particularly for cruises, all-inclusive resorts, and tours[1][6].\n\n### Key Details About PERX Discounts & Eligibility\n| Feature | Description |\n|---------|-------------|\n| **Discount Depth** | Up",
+    "trigger_count": 3
   }
 ]

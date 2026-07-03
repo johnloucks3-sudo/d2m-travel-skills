@@ -198,3 +198,17 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] f2359d6e8: scandinavia portals: real port images (5 ports, Wikimedia) + ship photos all inline base64; Furlow Sep-4 Copenhagen confirmed open day |  27 files changed, 188 insertions(+), 139 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-1dba35e5 from CC — 2026-07-03 20:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 293529d25: test: add APPROVE + sub-task thread-continuation iterations |  24 files changed, 241 insertions(+), 137 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-939cdb0d from CC — 2026-07-03 20:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9c642dc5c: skill(itinerary): add Step 1.5 visual-QC — view every image before embedding, Pexels-first sourcing, per-couple accuracy (Commander directive) |  1 file changed, 17 insertions(+) | author: Claude Haiku 4.5
