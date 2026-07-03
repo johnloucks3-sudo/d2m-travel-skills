@@ -1,0 +1,15 @@
+{
+  "_doc": "Client inbound watch registry — scripts/client_inbox_watch.py polls d2mconcierge for mail from these senders. On hit: Telegram page to Commander + entry in OpsCenter/client_inbox_queue.jsonl. Response flow: Wing drafts reply into johnloucks3 drafts (WF-17 — Commander sends).",
+  "account_token": "/home/john/Thunderbird/gmail_token.json",
+  "clients": [
+    {
+      "name": "Bill Spencer",
+      "program": "Spencer Grand Tour 2027",
+      "addresses": ["bkspencer381@gmail.com", "bkspencer381@q.com"],
+      "dossier": "dossiers/Spencer_Prospect.md",
+      "voice_memory": "feedback_voice_spencer_website_email_diffs_20260703.md",
+      "added": "2026-07-03",
+      "note": "Commander directive 2026-07-03: Dani alert for Bill's questions/comments in d2mconcierge; drafts of responses staged to johnloucks3."
+    }
+  ]
+}
