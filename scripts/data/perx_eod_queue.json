@@ -5558,5 +5558,13 @@
     "label": "Perx discount signal(s): 60% off",
     "excerpt": "There is no recent 2026 news about a new discount program called \"Perx interline rate discount >30%\"; instead, **PERX.com** (an interline travel agency) has consistently offered airline employees discounts of **up to 75\u201377%** off retail rates on cruises, resorts, and tours, with many deals exceeding the 30% threshold you mentioned[1][3].\n\n### Key Details About PERX Discounts (Current as of July 20",
     "trigger_count": 1
+  },
+  {
+    "ts": "2026-07-03T20:09:04.049306+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 30% discount",
+    "excerpt": "There is no 2026 news about an airline interline rate discount exceeding 30% as a new development; instead, **PERX.com** (an interline travel agency) has consistently offered airline employees and retirees discounts of **up to 75\u201377%** off retail rates on cruises, resorts, and tours since at least 2023, with the 30\u201360% range being a common observed depth for specific sailings rather than a new 202",
+    "trigger_count": 1
   }
 ]

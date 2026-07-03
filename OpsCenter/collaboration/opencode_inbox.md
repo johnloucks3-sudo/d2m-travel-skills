@@ -184,3 +184,10 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 5f3bf441a: email_c2: thread-continuation chat — APPROVE gate, body commands, sub-task dispatch |  1 file changed, 170 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-722408c0 from CC — 2026-07-03 20:03 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7b6eddc96: scandinavia portals: inline images as base64 (render-proof), transfer wording -> D2M mid-July, fix Regent->D2M transfer error |  23 files changed, 136 insertions(+), 117 deletions(-) | author: Claude Haiku 4.5
