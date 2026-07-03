@@ -124,6 +124,15 @@ def _db_get(task_id):
         row = conn.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
         return dict(row) if row else None
 
+def _db_get_by_message_id(gmail_message_id: str):
+    """Dedup check — returns existing task if this Gmail message was already ingested."""
+    from OpsCenter.task_queue import get_db
+    with get_db() as conn:
+        row = conn.execute(
+            "SELECT id, status FROM tasks WHERE gmail_message_id=?", (gmail_message_id,)
+        ).fetchone()
+        return dict(row) if row else None
+
 def _db_list(limit=10):
     from OpsCenter.task_queue import get_db
     with get_db() as conn:
@@ -447,6 +456,16 @@ def run_once():
             continue
 
         # ── Task email — parse with Haiku, then dispatch ──
+
+        # Dedup: skip if this Gmail message was already ingested (handles mark-read
+        # before DB insert crash-recovery — email stays read, task already exists)
+        if msg_id_hdr:
+            existing = _db_get_by_message_id(msg_id_hdr)
+            if existing:
+                log.info("Skipping duplicate message %s (task %s already exists)",
+                         msg_id_hdr, existing["id"])
+                continue
+
         task_id = _db_submit(
             content          = f"{subject}\n{email['body'][:800]}",
             gmail_thread_id  = thread_id,

@@ -4,7 +4,7 @@ OpenCode → Claude inline wrapper (NO SCREEN SWITCHING).
 
 Usage:
   python3 opencode_sonnet_inline.py "Your task description here"
-  python3 opencode_sonnet_inline.py "Your task" --model claude-opus-4-7
+  python3 opencode_sonnet_inline.py "Your task" --model claude-opus-4-6
 
 Spawns Claude (Sonnet or Opus), waits for output, displays inline.
 """
@@ -44,7 +44,7 @@ def main():
 
     if not task_description:
         print("Usage: python3 opencode_sonnet_inline.py 'Your task description'")
-        print("       python3 opencode_sonnet_inline.py 'task' --model claude-opus-4-7")
+        print("       python3 opencode_sonnet_inline.py 'task' --model claude-opus-4-6")
         sys.exit(1)
 
     print(f"\n🚀 Dispatching to {model_label}...\n")
