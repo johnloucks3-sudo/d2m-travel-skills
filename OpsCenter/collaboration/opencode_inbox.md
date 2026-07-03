@@ -191,3 +191,10 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 7b6eddc96: scandinavia portals: inline images as base64 (render-proof), transfer wording -> D2M mid-July, fix Regent->D2M transfer error |  23 files changed, 136 insertions(+), 117 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-c55b4854 from CC — 2026-07-03 20:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f2359d6e8: scandinavia portals: real port images (5 ports, Wikimedia) + ship photos all inline base64; Furlow Sep-4 Copenhagen confirmed open day |  27 files changed, 188 insertions(+), 139 deletions(-) | author: Claude Haiku 4.5

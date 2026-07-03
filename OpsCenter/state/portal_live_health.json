@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-07-03T20:10:03.160313+00:00",
+  "checked_at_utc": "2026-07-03T20:15:00.260084+00:00",
   "overall": "ALIVE",
   "portals_checked": 4,
   "failures": 0,
@@ -9,7 +9,7 @@
       "alive": true,
       "reason": "HTTP 200, URL ok",
       "http_status": 200,
-      "probed_at": "2026-07-03T20:10:03.160313+00:00",
+      "probed_at": "2026-07-03T20:15:00.260084+00:00",
       "client_affecting": true
     },
     "regent_d2m": {
@@ -17,7 +17,7 @@
       "alive": true,
       "reason": "HTTP 403, URL ok",
       "http_status": 403,
-      "probed_at": "2026-07-03T20:10:03.160313+00:00",
+      "probed_at": "2026-07-03T20:15:00.260084+00:00",
       "client_affecting": true
     },
     "regent_oa": {
@@ -25,14 +25,14 @@
       "alive": true,
       "reason": "HTTP 403, URL ok",
       "http_status": 403,
-      "probed_at": "2026-07-03T20:10:03.160313+00:00",
+      "probed_at": "2026-07-03T20:15:00.260084+00:00",
       "client_affecting": true
     },
     "perx": {
       "status": "ALIVE",
       "alive": true,
-      "reason": "sessionid valid for 300.2h more",
-      "probed_at": "2026-07-03T20:10:03.160313+00:00",
+      "reason": "sessionid valid for 300.1h more",
+      "probed_at": "2026-07-03T20:15:00.260084+00:00",
       "client_affecting": true
     }
   }
