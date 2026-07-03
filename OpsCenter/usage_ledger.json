@@ -1,14 +1,6 @@
 {
   "routine_runs": [
     {
-      "ts": "2026-06-26T22:46:00.391026+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-799"
-      ]
-    },
-    {
       "ts": "2026-06-27T02:47:49.890649+00:00",
       "count": 4,
       "succeeded": 4,
@@ -645,6 +637,17 @@
       "ts": "2026-07-03T14:43:51.226188+00:00",
       "count": 4,
       "succeeded": 0,
+      "missions": [
+        "MISSION-856",
+        "MISSION-857",
+        "MISSION-858",
+        "MISSION-859"
+      ]
+    },
+    {
+      "ts": "2026-07-03T18:00:41.655039+00:00",
+      "count": 4,
+      "succeeded": 4,
       "missions": [
         "MISSION-856",
         "MISSION-857",

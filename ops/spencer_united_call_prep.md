@@ -23,8 +23,8 @@ Best time: Tuesday–Thursday, 9:00–11:00 AM CT (lowest hold volume; avoid Mon
 
 1. Request a **group air quote** for 12 passengers, Denver (DEN) to Rome Fiumicino (FCO), **June 12, 2027** (Saturday), nonstop preferred.
 2. Quote **two cabin classes separately** (the 12 pax split cabins — see Section 3):
-   - **Business Class (Polaris)** — 8 seats (Tim's family 4 + Yaggi family 4)
-   - **Premium Economy** — 4 seats (Bill/Kathleen/Billy/Amanda)
+   - **Business Class (Polaris)** — 4 seats (Yaggi family only) [CORRECTED 2026-07-03 per Bill Spencer email]
+   - **Premium Economy / Economy Plus** — 8 seats (Tim's family 4 + Bill/Kathleen/Billy/Amanda 4)
 3. Ask for **group hold terms**: How long can seats be held without ticketing? What deposit is required? Is the group rate refundable / changeable?
 4. Ask whether **names can be added later** (group blocks typically allow name substitution — confirm timeline).
 5. Ask for the **group's minimum pax count** before the rate dissolves (in case someone drops).
@@ -46,8 +46,8 @@ Have these ready. The rep will ask.
 | **Route** | Denver (DEN) → Rome Fiumicino (FCO) |
 | **Date** | June 12, 2027 (Saturday) |
 | **Total pax this leg** | 12 (10 adults + 2 children) |
-| **Business Class seats** | 8 pax: Tim Spencer + JoAnne Spencer + James Spencer (age 5) + Judah Spencer (age 2) [Tim's family, 4]; Mike Yaggi + Katie Yaggi + Lillianna Yaggi + Clara Yaggi [Yaggi family, 4] |
-| **Premium Economy seats** | 4 pax: Bill Spencer + Kathleen Spencer + Billy Spencer + Amanda Spencer |
+| **Business Class seats** | 4 pax: Mike Yaggi + Katie Yaggi + Lillianna Yaggi + Clara Yaggi [Yaggi family only] [CORRECTED 2026-07-03 per Bill Spencer email] |
+| **Premium Economy / Economy Plus seats** | 8 pax: Tim Spencer + JoAnne Spencer + James Spencer (age 5) + Judah Spencer (age 2) [Tim's family, 4 — extra legroom requested] + Bill Spencer + Kathleen Spencer + Billy Spencer + Amanda Spencer [Core 4] |
 | **Trip organizer / agent** | John Loucks, Dreams2Memories Travel, LLC |
 | **Agency phone** | 719-291-0742 |
 | **Preferred carrier** | United (nonstop DEN–FCO) |
@@ -71,7 +71,7 @@ Use these to calibrate whether the group desk quote is reasonable.
 
 | Segment | Pax | Class | My Range (per person) | My Range (group total) |
 |---|---|---|---|---|
-| Tim's family | 4 | Business | $5,500–$7,500 | $22,000–$30,000 |
+| Tim's family | 4 | **Premium Economy / Economy Plus** [CORRECTED 2026-07-03] | $2,000–$3,400 | $8,000–$13,600 |
 | Yaggi family | 4 | Business | $5,500–$7,500 | $22,000–$30,000 |
 | Bill/Kathleen/Billy/Amanda | 4 | Premium Economy | $1,800–$2,600 | $7,200–$10,400 |
 | **LEG 1 TOTAL** | **12** | | | **$51,200–$70,400** |
@@ -84,7 +84,7 @@ push back and ask if there is a group rate versus the published walk-up fare.
 | Leg | Travelers | My Low Estimate | My High Estimate |
 |---|---|---|---|
 | LEG 1: DEN→FCO Jun 12 (all 12) | 12 | $51,200 | $70,400 |
-| LEG 2: FCO→DEN Jun 23 (Tim's 4) | 4 | $20,000 | $28,000 |
+| LEG 2: FCO→DEN Jun 23 (Tim's 4) | 4 | $7,600 | $12,800 | ← PE/Economy+ [CORRECTED] |
 | LEG 3: ZRH→DEN Jul 2 (8 pax) | 8 | $24,000 | $36,800 |
 | **GRAND TOTAL** | **12** | **$95,200** | **$135,200** |
 
@@ -103,13 +103,13 @@ push back and ask if there is a group rate versus the published walk-up fare.
 
 I have a group of 12 travelers departing Denver, DEN, to Rome Fiumicino, FCO, on June 12, 2027 — that's a Saturday. I'd like a group rate quote and I need to understand your hold terms.
 
-The group splits by cabin. Eight of the passengers are in Business Class, and four are in Premium Economy. Can you quote those separately?
+The group splits by cabin. Four of the passengers are in Business Class, and eight are in Premium Economy / Economy Plus. Can you quote those separately?
 
 [Wait for confirmation]
 
-Great. Here's the breakdown — Business Class, 8 seats: that's two family groups of 4. Premium Economy, 4 seats: 2 adults and 2 adult children, same booking.
+Great. Here's the breakdown — Business Class, 4 seats: one family of four. Premium Economy / Economy Plus, 8 seats: two groups of four — one group has 2 young children who'll need extra legroom.
 
-We also have 2 children in the Business Class group — ages 5 and 2 at time of travel. Both need paid seats.
+We also have 2 children in the Premium Economy group — ages 5 and 2 at time of travel. Both need paid seats. [CORRECTED 2026-07-03 per Bill Spencer email — children are Tim's family, PE/Economy Plus]
 
 A few questions while you're pulling that up:
 - How long can I hold seats without ticketing, and what deposit is required?
@@ -140,7 +140,7 @@ Thank you — and one last thing: do you have a direct number or extension so I 
 - **Group desk vs. published fare delta:** Unknown until the rep quotes. Historical group discount is 8–10%; if they offer less, it may not be worth the group block paperwork.
 - **Name-add deadline:** Critical. Bill's group can likely hold seats in fall 2026 if United allows name substitution through, e.g., March 2027. This is the hedge against peak-June availability tightening.
 - **Nonstop service confirmation:** United's DEN–FCO nonstop is seasonal. June 2027 Saturday service not yet confirmed in any source — get it in writing from the rep.
-- **Children group-block treatment:** Airline group desks occasionally price children differently in Business; confirm both children count toward the 8-seat Business block.
+- **Children group-block treatment:** Airline group desks occasionally price children differently in Premium Economy; confirm both children (Tim's family) count toward the 8-seat PE block. [CORRECTED 2026-07-03 — children are in Tim's PE group, not Business]
 - **D2M agency credentials:** If the rep requires an IATA/ARC number for a formal group quote, Hale will need to verify D2M's agency number before the call. Check with Hale if unsure.
 
 ---

@@ -376,7 +376,7 @@ PRICING TIER DIFFERENTIATORS REMAIN:
 ## CONFIRMED ITINERARY (21 days)
 | Dates | Segment | Detail | Pax |
 |---|---|---|---|
-| Jun 12 | DEN → FCO | United Business Class nonstop | All 12 |
+| Jun 12 | DEN → FCO | United nonstop — **Yaggi family (4): Business Class · Tim's family (4): Premium Economy Plus · Bill/Kathleen/Billy/Mandy (4): Premium Economy** | All 12 |
 | Jun 12–15 | Rome | 3 nights, 5-star, Spanish Steps/Borghese area | All 12 |
 | Jun 15–23 | Disney Wish | Mediterranean, 8 nights · Deposit placed 2026-05-04 via vacationstogo.com | All 12 |
 | Jun 23 | Tim's family exits | FCO → DEN (no earlier than 1100 departure) | Tim's 4 |
@@ -476,6 +476,9 @@ Row 36: Disney Wish Mediterranean Jun 15–23 2027 | Status: Pending | BN: 🟡 
 **Jul 02 — Bill Spencer** (Re: Re: Spencer Family Grand Tour — Your Journey Overview)
 > [2026-07-02] Lunch meeting proposed: Tuesday July 7 at Noon, Coffee Cup Cafe Monument, with Bill & Kathleen to finalize Grand Tour details. Daughter requests Florence cooking class (June 23–25 segment, post-family split, 8 travelers remaining). Bill references 'Walkabout Tours in Florence' as vendor source. Pending vendor confirmation, pricing, and availability verification.
 
+
+**Jul 03 — Bill Spencer** (Re: Re: Grand Tour — Lunch Friday July 10th?) — CABIN CORRECTION
+> **2026-07-03 — CABIN ASSIGNMENT CORRECTED.** Bill Spencer confirmed in writing: **Mike Yaggi's family (4 pax) = Business Class. Tim's family (4 pax) = Premium Economy Plus/extra legroom — same as Bill/Kathleen/Billy/Mandy.** (Quote: "Mike is wanting the quote on business class for his four, and Tim is the extra legroom economy plus/premium economy quote — like the rest of us.") All prior drafts showing Tim in Business Class are WRONG. Source of truth: this entry.
 
 **Jul 03 — Bill Spencer** (Re: Re: Grand Tour — Lunch Friday July 10th?)
 > **2026-07-03 — Bill Spencer | Cost Itemization Request & Lunch Confirmation.** Bill confirms Friday, July 10 lunch and requests detailed cost breakdown by trip component for family cost-sharing discussion during their July 4–5 gathering. Family willing to cut scope based on budget visibility. Notes: airfare top-of-mind; each family member needs pro-rata share clarity; discretionary elements likely candidates for cuts (third Florence night, Tuscany cooking class, Swiss luxury level). Action: itemized cost model + 2–3 scenario options ready for July 10 lunch. Sentiment: positive, collaborative, budget-conscious.

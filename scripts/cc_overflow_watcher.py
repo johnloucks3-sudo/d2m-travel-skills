@@ -21,8 +21,8 @@ LEDGER = TB / "OpsCenter" / "usage_ledger.json"
 FLAG = TB / ".cc_overflow_mode"
 
 THRESHOLD = 75        # % weekly usage → switch to overflow
-OVERFLOW_MODEL = "poe-deepseek"   # OC's primary model via gateway
-OVERFLOW_LABEL = "DeepSeek V3.2 (Poe) — CC overflow to OC"
+OVERFLOW_MODEL = "opencode/deepseek-v4-flash-free"   # Zen free tier — zero Poe points
+OVERFLOW_LABEL = "DeepSeek V4 Flash (Zen free) — CC overflow to OC"
 
 def latest_snapshot():
     try:

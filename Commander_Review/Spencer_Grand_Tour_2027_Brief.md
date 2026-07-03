@@ -69,6 +69,11 @@
 **SCOPE OF WORK — D2M MANAGES**
 
 **Flights:** DEN→FCO Jun 11 (12 pax), FCO→DEN Jun 23 (4 pax), ZRH→DEN Jul 2 (8 pax)
+**Cabin class [CONFIRMED 2026-07-03 per Bill Spencer email]:**
+- Mike Yaggi's group (4 pax — Mike, Katie, Lillie, Clara): **Business Class**
+- Tim's family (4 pax — Tim, Joanne, James, Judah): **Premium Economy Plus / Economy Plus** (extra legroom for 2 young grandchildren)
+- Bill's core group (4 pax — Bill, Kathleen, Billy, Amanda): **Premium Economy**
+- ⚠️ United DEN–FCO nonstop has no PE cabin — Tim's family and Bill's group require connecting routing on Leg 1 (e.g., Lufthansa DEN–MUC–FCO)
 **Accommodation:** Rome (3 nights), Florence (2), Interlaken (5), Zurich (2) — all 8 pax after split
 **Ground transport:** Airport transfers, port transfers, high-speed rail (Rome→Florence, Florence→Interlaken, Interlaken→Zurich)
 **Excursions:** Vatican, Colosseum, Accademia, Zermatt/Matterhorn, Jungfraujoch, Grindelwald, Lauterbrunnen, hike, Lindt
@@ -79,7 +84,7 @@
 **QUESTIONS FOR BILL**
 
 1. **Billy & Mandy rooms:** Bill flagged this. Separate rooms, or two-bedroom suite / apartment-style? Ask.
-2. **Airline preferences:** Nonstop? Carriers? Business class? Miles/loyalty programs? Send survey for details — just the big picture now.
+2. **Airline preferences:** ~~Business class?~~ **RESOLVED [2026-07-03]** — Mike BC / Tim PE+ / Bill PE (confirmed in writing by Bill). Still open: nonstop preference, carriers, loyalty programs.
 3. **Flight from Rome:** Tim's family ~1100 departure. Build transfer around that — cruise disembarkation same morning with two small children. OK, ask.
 4. **Mobility / dietary / allergies:** Flag for hotels and excursions. Standard.
 5. **Switzerland — Zermatt:** Day-trip vs. 1-2 nights based in Zermatt. Model both.

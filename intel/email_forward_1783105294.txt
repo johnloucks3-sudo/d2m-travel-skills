@@ -1,0 +1,19 @@
+Subject: Tech Scan 2026-07-03 19:00 UTC — 2 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-03T19:01:34.953056+00:00
+
+TECH SCAN — 2026-07-03 19:00 UTC
+airborne scanner pulse · 4 finds · sectors ai-writing, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 2 TRIAL · 2 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:- [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current single-pa
+↳ real tool (mcp, github.com) — worth a bounded look
+Show HN: Scopewalker, an MCP server for codebase complexity metrics — https://github.com/timohaa/scopewalker-mcp
+↳ real tool (server, mcp, github.com) — worth a bounded look
+👁 WATCH:- [Writing & Prose Quality](#writing--prose-quality)
+- [Writing a Good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) by [HumanLayer](https:/
+RAW — all finds this pulse (unfiltered)[ai-writing] - [Writing & Prose Quality](#writing--prose-quality) (awesome-claude-code)
+[mcp] - [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current (awesome-claude-code)
+[ai-writing] - [Writing a Good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) by [HumanLayer](https://www.human (awesome-claude-code)
+[mcp] Show HN: Scopewalker, an MCP server for codebase complexity metrics — https://github.com/timohaa/scopewalker-mcp (Hacker News — Claude Code)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

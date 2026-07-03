@@ -285,8 +285,9 @@ def call_opencode_engine(system_prompt: str, user_msg: str) -> str:
             log.error("OpenCode error on %s: %s", model, e)
             continue
 
-    log.warning("OpenCode chain exhausted — Poe fallback (use_poe_if_needed)")
-    return call_poe_engine(system_prompt, user_msg)
+    # DISABLED 2026-07-03: Poe fallback was hemorrhaging points. Use MAX + DeepSeek v4 FREE instead.
+    log.error("OpenCode chain exhausted — returning error (no Poe fallback)")
+    return "[OpenCode exhausted — all models rate-limited or failed. Escalate to MAX Claude Opus.]"
 
 def call_poe_engine(system: str, user: str, model: str = "Gemini-2.5-Flash") -> str:
     """Poe fallback — invoked when OpenCode chain exhausted. SO-2026-05-19.
@@ -994,7 +995,7 @@ def process_haluyoda_message(update: dict) -> None:
         if text.upper().startswith("OVERRIDE:"):
             budget_override = True
             text = text[9:].strip()
-            tg_send(TOKEN_HALUYODA, chat_id, "🦅 Commander override active — routing through Poe.")
+            tg_send(TOKEN_HALUYODA, chat_id, "🦅 Commander override active — routing through MAX Claude.")
         if text.upper().startswith("OPUS:"):
             persona = "HALE-OPUS"
             text  = text[5:].strip()

@@ -1,398 +1,6 @@
 [
   {
-    "ts": "2026-07-03T08:02:46.056830-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:07:47.118532-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:12:47.115155-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:13:33.804332-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:17:47.545128-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:18:38.402471-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:22:51.695395-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:27:50.378047-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:28:37.363764-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:32:48.851038-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:44:18.662456-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:49:11.807157-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:54:11.633858-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T08:59:11.912316-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:04:13.387072-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:09:21.964364-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:14:13.555843-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:15:10.487746-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:19:14.551774-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:24:14.201939-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:25:05.388839-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:29:14.046647-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:34:14.452409-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:34:53.084634-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:39:19.604946-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:44:15.543754-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:49:16.719000-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:54:17.623228-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 6,
-    "client_alerts": 5,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "johnloucks3_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-03T09:59:17.749867-06:00",
+    "ts": "2026-07-03T11:59:32.925067-06:00",
     "event": "credentials_health_check",
     "alert_count": 5,
     "client_alerts": 4,
@@ -405,7 +13,384 @@
     ]
   },
   {
-    "ts": "2026-07-03T10:04:17.937273-06:00",
+    "ts": "2026-07-03T12:04:27.020213-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:09:28.269302-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:14:28.269717-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:19:28.556858-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:20:17.321491-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:24:28.649791-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:25:17.607432-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:29:30.582103-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:34:32.253593-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:35:17.995784-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:39:30.184457-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:44:30.445631-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:49:33.357297-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:54:31.541268-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T12:59:32.424257-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 4,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:04:35.057348-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:09:33.876982-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:14:34.693815-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:19:36.035649-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:24:36.959644-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:25:20.811218-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:29:37.007256-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:34:38.726302-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:35:22.513205-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:39:42.157385-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:40:28.384048-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:44:39.047610-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:49:39.206974-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:54:39.302360-06:00",
     "event": "credentials_health_check",
     "alert_count": 6,
     "client_alerts": 5,

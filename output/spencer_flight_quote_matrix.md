@@ -9,7 +9,7 @@
 | Group | Travelers | LEGs | Class |
 |---|---|---|---|
 | **Bill's group** | Bill Spencer, Kathleen Spencer, Billy Spencer, Amanda (last name TBD) | LEG 1 + LEG 3 | Premium Economy |
-| **Tim's family** | Tim Spencer, JoAnne Spencer, Robert (5), Judah (2) | LEG 1 + LEG 2 | Business |
+| **Tim's family** | Tim Spencer, JoAnne Spencer, Robert (5), Judah (2) | LEG 1 + LEG 2 | Premium Economy / Economy Plus |
 | **Yaggi family** | Mike Yaggi, Mrs. Yaggi (TBD), 2 kids (TBD) | LEG 1 + LEG 3 | Business |
 
 ⚠️ Amanda last name, Yaggi wife/kids names missing — family data sheet import incomplete. Collect via guest forms.
@@ -22,10 +22,10 @@
 
 | Group | Pax | Class | Est. /person | Est. Group Total |
 |---|---|---|---|---|
-| Tim's family | 4 | Business | $5,500–$7,500 | $22,000–$30,000 |
+| Tim's family | 4 | Premium Economy / Economy Plus | $1,800–$2,600 | $7,200–$10,400 |
 | Yaggi family | 4 | Business | $5,500–$7,500 | $22,000–$30,000 |
 | Bill/Kathleen/Billy/Amanda | 4 | Premium Economy | $1,800–$2,600 | $7,200–$10,400 |
-| **LEG 1 TOTAL** | **12** | | | **$51,200–$70,400** |
+| **LEG 1 TOTAL** | **12** | | | **$36,400–$50,800** |
 
 **Known nonstop carriers DEN–FCO:** United (seasonal, preferred) · Delta · American
 **Note:** No First Class requested. Quote Business + Premium Economy only per Commander instruction.
@@ -39,7 +39,7 @@ Two strollers. Robert age 5 + Judah age 2 = paid seats confirmed.
 
 | Travelers | Pax | Class | Est. /person | Est. Group Total |
 |---|---|---|---|---|
-| Tim, JoAnne, Robert, Judah | 4 | Business | $5,000–$7,000 | $20,000–$28,000 |
+| Tim, JoAnne, Robert, Judah | 4 | Premium Economy / Economy Plus | $1,000–$1,800 | $4,000–$7,200 |
 
 **Carriers to check:** United · Delta · American · ITA Airways (via connection)
 
@@ -63,11 +63,11 @@ Two strollers. Robert age 5 + Judah age 2 = paid seats confirmed.
 
 | Leg | Travelers | Low | High |
 |---|---|---|---|
-| LEG 1 DEN→FCO Jun 12 | All 12 | $51,200 | $70,400 |
-| LEG 2 FCO→DEN Jun 23 | Tim's 4 | $20,000 | $28,000 |
+| LEG 1 DEN→FCO Jun 12 | All 12 | $36,400 | $50,800 |
+| LEG 2 FCO→DEN Jun 23 | Tim's 4 | $4,000 | $7,200 |
 | LEG 3 ZRH→DEN Jul 2 | Remaining 8 | $24,000 | $36,800 |
-| **GRAND TOTAL** | **12** | **$95,200** | **$135,200** |
-| Per-person average | | ~$7,900 | ~$11,300 |
+| **GRAND TOTAL** | **12** | **$64,400** | **$94,800** |
+| Per-person average | | ~$5,400 | ~$7,900 |
 
 ---
 
@@ -86,7 +86,7 @@ Two strollers. Robert age 5 + Judah age 2 = paid seats confirmed.
 - [ ] Amanda's last name
 - [ ] Yaggi wife first name + kids names
 - [ ] Airline loyalty programs for all travelers
-- [ ] Confirm Yaggi return class (assumed Business — verify)
+- [x] Yaggi return class confirmed Business (LEG 3 ZRH→DEN) — 2026-07-03 per Bill Spencer email
 - [ ] Check group desk rates when inventory opens (~Aug 2026)
 - [ ] United DEN-FCO Jun 12 2027 — verify nonstop operates that Saturday
 

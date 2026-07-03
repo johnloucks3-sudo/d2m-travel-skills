@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-03 10:01:45 MDT
+## Generated: 2026-07-03 13:49:43 MDT
 
 ---
 
 ### Recent Commits
+- 11d90f658 scandinavia portals: infra (3 per-couple registry+dirs), Amy Darrow b'day Aug31 + medical guard, plan; CC-OC dual-brain build
+- a4266dba0 lyons: Silversea Silver Nova May 2027 confirmed booked (Commander) — restored to portal + dossier; details pending booking#
+- f22e8d892 lyons portal + regent-scrape skill: docs, portal build, memory; multi-client platform tenant #2 LIVE
+- ca3339064 lyons: Regent guest-account scrape via CloakBrowser (Akamai defeated) — 4 bookings captured; dossier + portal tenant; regent-scrape skill; Silversea challenge-walled
 - 10d52dd4c feat(portals): multi-client portal platform — one server all clients (vhost+auth+upload+files), generic gdoc sync, registry; first tenant Loucks Dec 2026
-- 92d612da6 SO: TALON/JET division of labor — codified from both wings' independent position papers, Commander approved
-- d3956c73c spencer: client-inbox-watch — d2mconcierge client-sender watcher + registry (Bill Spencer), 10-min timer
-- fe655464b spencer: gdoc→portal sync engine + daily timer; portal nav adds Build Your Journey, PERT timeline, briefing deck
-- 6784c8519 docs(hale-os): HALE Dual Brain instruction manual — 2040 lines, 92KB
 
 ### Uncommitted Changes
- M .ask_usage_log
+ D .cc_overflow_mode
  m Blackboard
  M CLAUDE.md
- M D2M/clients/kuklinski_touchpoints.json
- M D2M/lifecycle/Loucks_SilverNova_Mediterranean_May2027_Lifecycle.md
- M OpsCenter/.lifecycle_alerted.json
- M OpsCenter/.lifecycle_last_scan_date
+ M Commander_Review/Spencer_Grand_Tour_2027_Brief.md
+ M "Commander_Review/Spencer_Grand_Tour_2027_Working CC edits.md"
+ M Commander_Review/Spencer_Grand_Tour_2027_Working.md
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
  M OpsCenter/.metronome_seq
- M OpsCenter/.regent_cookie_alert_dedup.json
  M OpsCenter/.session_blast_fingerprint.json
- M OpsCenter/.silversea_api_alert_dedup.json
  M OpsCenter/.supervisor_patterns.json
- M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/brief_feedback_config.json
- M OpsCenter/claude_inbox.md
- M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/email_canary_scoreboard.json
+ M OpsCenter/eod_incubator_config.json
+ M OpsCenter/executor_last_run.json
+ M OpsCenter/hale_incident_signatures.json
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 11 pending task(s)
+- OpenCode inbox: 15 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

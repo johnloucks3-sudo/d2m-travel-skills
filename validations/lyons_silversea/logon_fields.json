@@ -1,0 +1,92 @@
+[
+ {
+  "type": "reset",
+  "id": "",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "text",
+  "id": "email-input-login",
+  "name": "Email",
+  "ph": ""
+ },
+ {
+  "type": "password",
+  "id": "password-input-login",
+  "name": "Password",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "RememberMe",
+  "name": "RememberMe",
+  "ph": ""
+ },
+ {
+  "type": "submit",
+  "id": "submitButton",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "reset",
+  "id": "btnLogin",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "ot-group-id-C0003",
+  "name": "ot-group-id-C0003",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "ot-group-id-OSSTA_BG",
+  "name": "ot-group-id-OSSTA_BG",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "ot-sub-group-id-C0002",
+  "name": "switch",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "ot-sub-group-id-C0004",
+  "name": "switch",
+  "ph": ""
+ },
+ {
+  "type": "text",
+  "id": "vendor-search-handler",
+  "name": "vendor-search-handler",
+  "ph": "Search…"
+ },
+ {
+  "type": "checkbox",
+  "id": "chkbox-id",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "select-all-hosts-groups-handler",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "select-all-vendor-groups-handler",
+  "name": "",
+  "ph": ""
+ },
+ {
+  "type": "checkbox",
+  "id": "select-all-vendor-leg-handler",
+  "name": "",
+  "ph": ""
+ }
+]

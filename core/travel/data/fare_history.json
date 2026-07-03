@@ -19708,5 +19708,50 @@
     "price_change_pct": -54.6,
     "alert_triggered": "PRICE DROP: $204/pp is below alert threshold $350",
     "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-flights-ric-pty",
+    "timestamp": "2026-07-03T11:40:46.796462",
+    "price_pp": 552.75,
+    "total": 2211.0,
+    "price_change_pct": 0.5,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "morton-dodge-flights-rsw-pty",
+    "timestamp": "2026-07-03T11:41:18.377256",
+    "price_pp": 451.0,
+    "total": 902.0,
+    "price_change_pct": 7.4,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "mcleod-flights-den-fco-jun2026",
+    "timestamp": "2026-07-03T11:41:48.719954",
+    "price_pp": 2548.0,
+    "total": 5096.0,
+    "price_change_pct": -27.2,
+    "alert_triggered": "PRICE DROP: $2,548/pp is below alert threshold $3,150",
+    "notes": ""
+  },
+  {
+    "watch_id": "mcleod-flights-vce-den-jul2026",
+    "timestamp": "2026-07-03T11:42:19.002292",
+    "price_pp": 2454.0,
+    "total": 4908.0,
+    "price_change_pct": -23.3,
+    "alert_triggered": "PRICE DROP: $2,454/pp is below alert threshold $2,880",
+    "notes": ""
+  },
+  {
+    "watch_id": "flight-kuklinski-cos-fll-2026-12-15",
+    "timestamp": "2026-07-03T11:42:52.930482",
+    "price_pp": 204.17,
+    "total": 1225.02,
+    "price_change_pct": -54.6,
+    "alert_triggered": "PRICE DROP: $204/pp is below alert threshold $350",
+    "notes": ""
   }
 ]

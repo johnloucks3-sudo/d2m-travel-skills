@@ -1,29 +1,5 @@
 [
   {
-    "timestamp": "2026-06-25T18:33:56.616591+00:00",
-    "msg_id": "19f000dd62c20ff5",
-    "subject": "\u2705 MISSION-1684: \u2705 MISSION-1661: \u2705 MISSION-1654: \u2705 MISSION-1631: \u2705 MISSION-1624: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T18:33:58.553230+00:00",
-    "msg_id": "19f000dcccefb44b",
-    "subject": "\u2705 MISSION-1683: \u2705 MISSION-1662: \u2705 MISSION-1653: \u2705 MISSION-1632: \u2705 MISSION-1623: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-25T18:34:01.175591+00:00",
-    "msg_id": "19f000dc2105b0e9",
-    "subject": "\u2705 MISSION-1682: \u2705 MISSION-1663: \u2705 MISSION-1652: \u2705 MISSION-1633: \u2705 MISSION-1622: \u2705",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
     "timestamp": "2026-06-25T18:34:03.466478+00:00",
     "msg_id": "19f000dba99436d4",
     "subject": "\u2705 MISSION-1681: \u2705 MISSION-1664: \u2705 MISSION-1651: \u2705 MISSION-1634: \u2705 MISSION-1621: \u2705",
@@ -3997,6 +3973,30 @@
     "subject": "(no subject)",
     "sender": "johnloucks3@gmail.com",
     "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-03T16:05:18.657579+00:00",
+    "msg_id": "19f28ba11a1f79d4",
+    "subject": "D2M Inbox Digest \u2014 1 item(s)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "QUESTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-03T16:07:19.759677+00:00",
+    "msg_id": "19f28ba32b62c0e5",
+    "subject": "\u2705 Answer: D2M Inbox Digest \u2014 1 item(s)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-03T19:01:35.015589+00:00",
+    "msg_id": "19f295a687649154",
+    "subject": "Tech Scan 2026-07-03 19:00 UTC \u2014 2 trial / 0 killed (Hale adjudicated)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
     "status": "actioned"
   }
 ]

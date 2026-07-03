@@ -33,7 +33,7 @@ note: HARD CASE — 12 pax, 3 family groups, 3 countries, mid-trip split. MUST H
 
 **Groups:** Yaggi (4, Business) · Spencer core 8 — of whom **Tim's family (4) branch home Jun 23**;
 the **remaining 8** (Bill, Kathleen, Billy/Nick, Amanda, Tim+Joanne... see manifest) continue to Switzerland.
-Flight classes: Yaggi Business · Tim's family Business · Bill's group quote Premium Economy + Business.
+Flight classes: Yaggi Business Class (4 pax) · Tim's family Premium Economy / Economy Plus (4 pax) · Bill's group Premium Economy (4 pax). [CORRECTED 2026-07-03 per Bill Spencer email — Tim = PE, not Business.]
 
 **Celebrations to weave in:** Bill & Kathleen 50th anniversary · Lillianna HS graduation ·
 Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = departure day.**
@@ -99,7 +99,7 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 | 7 | Swiss rail (pass vs point-to-point) | Spring 2027 (~3 mo out) | fares open closer in; pass needs no advance buy |
 | — | **each payment above** | within 15 days of paying | **top up the policy** to hold the waiver |
 
-**Air = 3 quote groups, different return legs:** Yaggi (4) Business DEN→FCO / ZRH→DEN Jul 2 · Tim's family (4) Business DEN→FCO / **FCO→DEN Jun 23** · Bill's core (4: Bill, Kathleen, Nick, Amanda) **PE + Business quote** DEN→FCO / ZRH→DEN Jul 2. Prior quotes (`Spencer_FlightQuotes_DMC_2027`) stale by Fall 2026 — Phase A refreshes, Phase B books off the refresh.
+**Air = 3 quote groups, different return legs:** Yaggi (4) **Business Class** DEN→FCO / ZRH→DEN Jul 2 · Tim's family (4) **Premium Economy / Economy Plus** DEN→FCO / **FCO→DEN Jun 23** · Bill's core (4: Bill, Kathleen, Billy, Amanda) **Premium Economy** DEN→FCO / ZRH→DEN Jul 2. [CORRECTED 2026-07-03 per Bill Spencer email.] Prior quotes (`Spencer_FlightQuotes_DMC_2027`) stale by Fall 2026 — Phase A refreshes, Phase B books off the refresh.
 **Open for Commander (not Bill):** hold group-air seats on a deposit early (Fall 2026) + name-list later — the hedge against peak-June scarcity, but it trips the insurance clock first.
 
 ### Original Phase B reference table (pre-reorder)
@@ -238,7 +238,7 @@ Mike Yaggi 50th birthday (May 6) · **Kathleen's 72nd birthday = Jun 12 = depart
 5. **Cruise excursions — your Santorini picks?** (Bill sending; D2M brings options for Chania, Rhodes, Mykonos, Naples)
 
 **Two confirmations:**
-6. **Air** — still 3 groups (Yaggi 4 Business · Tim's 4 Business · core 4 PE *and* Business to compare)? OK to **hold seats on a deposit this fall and add names later**? (peak-June premium for 12 is the hardest thing to secure)
+6. **Air** — ✅ CONFIRMED 3 groups per Bill Spencer email 2026-07-03: Yaggi 4 **Business Class** · Tim's 4 **Premium Economy / Economy Plus** · core 4 **Premium Economy**. OK to **hold seats on a deposit this fall and add names later**? (peak-June premium for 12 is the hardest thing to secure)
 7. **Insurance** — we'll bring options. Did the cruise deposit include any trip insurance, or build from scratch on land+air? *(Either way we can arrange a policy — just don't want you paying twice.)*
 
 **Can come on a form (no need to discuss at lunch):**

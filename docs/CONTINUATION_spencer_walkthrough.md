@@ -24,7 +24,7 @@ one phase at a time, let the Commander correct each.
 ## SPENCER KEY FACTS
 12 pax, 3 family groups, ~21 days, Jun 12–Jul 2 2027. Cruise spine = Disney Wish
 (Jun 15–23) booked by VTG (Christian Cornell), NOT D2M. D2M builds air (3 groups:
-Yaggi 4 Business, Tim's 4 Business, Bill's 8 quote PE+Business) + Rome + Florence +
+Yaggi 4 Business Class, Tim's 4 Premium Economy/Economy+, Bill's 4 Premium Economy [CORRECTED 2026-07-03 per Bill Spencer email]) + Rome + Florence +
 Switzerland (Zermatt+Interlaken) + Zurich + transfers + excursions + insurance + docs.
 **Mid-trip split Jun 23:** Tim's family (4, incl. 5yo+2yo) flies FCO→DEN; remaining 8
 continue to Florence→Switzerland→Zurich→ZRH→DEN Jul 2.

@@ -142,11 +142,67 @@
       "completed_at": "2026-07-03T15:10:14.825925+00:00",
       "result": "---\n\n**TASK_COMPLETE:** JET position paper written \u2014 WIND claims ops/sys/mechanical lane (TESS, portals, APIs, batch, call sheets); TALON keeps creative/judgment; tiebreak rule: if primarily systems\u2192JET, if primarily judgment\u2192TALON; mixed products route data-first through JET then to TALON; task pos",
       "created_at": "2026-07-03T15:08:14.830125+00:00"
+    },
+    "jet-scandi-furlow": {
+      "id": "jet-scandi-furlow",
+      "title": "JET: extract Furlow Scandinavia elements",
+      "description": "Read dossiers/Furlow_Regent_3071222.md (+ group tracker/matrix). Ground truth = the named dossier. Group tracker dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md + dossiers/grandeur_group_logistics_matrix_20260702.md SUPERSEDE the dossier on hotel/transfer/dining/insurance (hotel=At Six Stockholm NOT Haymarket; dining Pacific Rim Aug30 6:30p / Chartreuse Sep2 7:30p / Prime7 Sep4 6:30p; insurance MOOT do not mention). Extract ONLY facts present in these files; if a field is absent, write \"GAP: <field>\" \u2014 do NOT invent and do NOT pull from sheets/Drive yet. Voyage: SS Grandeur Storied Scandinavia, Stockholm->Berlin(Warnemunde)->Copenhagen(overnight Sep3)->Kristiansand->Oslo, Aug29-Sep8 2026. Extract for John & Melissa Furlow: booking#, suite#, guests+POC, DFW flight routing with seat numbers (DFW->HEL, HEL->ARN AY811, OSL->LHR->DFW return), At Six hotel conf#s (night1+night2), ARN->At Six transfer status, ALL excursions per port with names, special occasions, loyalty/DOB if present. WRITE structured JSON to output/Grandeur_Scandinavia_Portal/elements/furlow.json with keys: booking,suite,guests,poc,flights[],hotel,transfers,excursions_by_port{},dining(shared),occasions,gaps[]. Done-criteria: file parses as JSON and every gap is listed in gaps[].",
+      "lane": "oc",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "complete",
+      "claimed_by": "hale-oc-worker",
+      "claimed_at": "2026-07-03T19:35:58.502902+00:00",
+      "completed_at": "2026-07-03T19:38:26.017705+00:00",
+      "result": "\u2705 **TASK COMPLETE: JET-SCANDI-FURLOW EXTRACTION FINISHED**\n\n---\n\n## SUMMARY\n\n**Executed:** Full extraction of John & Melissa Furlow Scandinavia voyage elements for SS Grandeur (booking 3071222, Aug 29 \u2013 Sep 8, 2026).\n\n**Output:** Structured JSON with 13 identified gaps and 7 open actions.\n\n### Key F",
+      "created_at": "2026-07-03T19:35:47.270731+00:00"
+    },
+    "jet-scandi-ely": {
+      "id": "jet-scandi-ely",
+      "title": "JET: extract Ely-Darrow Scandinavia elements",
+      "description": "Read dossiers/Ely_Darrow_Regent_3096289.md (+ group tracker/matrix). Ground truth = the named dossier. Group tracker dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md + dossiers/grandeur_group_logistics_matrix_20260702.md SUPERSEDE the dossier on hotel/transfer/dining/insurance (hotel=At Six Stockholm NOT Haymarket; dining Pacific Rim Aug30 6:30p / Chartreuse Sep2 7:30p / Prime7 Sep4 6:30p; insurance MOOT do not mention). Extract ONLY facts present in these files; if a field is absent, write \"GAP: <field>\" \u2014 do NOT invent and do NOT pull from sheets/Drive yet. Voyage: SS Grandeur Storied Scandinavia, Stockholm->Berlin(Warnemunde)->Copenhagen(overnight Sep3)->Kristiansand->Oslo, Aug29-Sep8 2026. Extract for Al Ely & Amy Darrow: booking#, suite# (961, changed from 1212), guests+POC, flight routing incl DFW->Helsinki + HEL->ARN(PNR UXVXZP) + Oslo->London->Dallas return with seats, At Six hotel conf#s, ARN->At Six transfer, ALL excursions per port with names, insurance (Seven Corners purchased - internal only, not client copy), occasions. WRITE JSON to output/Grandeur_Scandinavia_Portal/elements/elydarrow.json (same keys as furlow). Done-criteria: valid JSON, gaps[] populated.",
+      "lane": "oc",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "complete",
+      "claimed_by": "hale-oc-worker",
+      "claimed_at": "2026-07-03T19:38:41.023436+00:00",
+      "completed_at": "2026-07-03T19:41:49.539176+00:00",
+      "result": "**\u2705 TASK COMPLETE \u2014 JET-SCANDI-ELY EXTRACTION**\n\n---\n\n## Deliverables\n\n| File | Size | Status |\n|---|---|---|\n| `/home/john/Thunderbird/output/Grandeur_Scandinavia_Portal/elements/elydarrow.json` | 312 lines | \u2705 Valid JSON, 5 GAP fields populated |\n| `/home/john/Thunderbird/output/oc_worker/task_jet",
+      "created_at": "2026-07-03T19:35:47.308058+00:00"
+    },
+    "jet-scandi-nichols": {
+      "id": "jet-scandi-nichols",
+      "title": "JET: extract Nichols Scandinavia elements",
+      "description": "Read dossiers/Nichols_Regent_3078056.md (+ group tracker/matrix). Ground truth = the named dossier. Group tracker dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md + dossiers/grandeur_group_logistics_matrix_20260702.md SUPERSEDE the dossier on hotel/transfer/dining/insurance (hotel=At Six Stockholm NOT Haymarket; dining Pacific Rim Aug30 6:30p / Chartreuse Sep2 7:30p / Prime7 Sep4 6:30p; insurance MOOT do not mention). Extract ONLY facts present in these files; if a field is absent, write \"GAP: <field>\" \u2014 do NOT invent and do NOT pull from sheets/Drive yet. Voyage: SS Grandeur Storied Scandinavia, Stockholm->Berlin(Warnemunde)->Copenhagen(overnight Sep3)->Kristiansand->Oslo, Aug29-Sep8 2026. Extract for Larry & Heidi Nichols: booking#, suite# (939), guests+POC, flight routing with seats incl HEL->ARN AY811 (2D/2F, PNR BERJYH), OSL->LHR->DFW, At Six hotel conf (Amex FHR Trip #ZO-AX1049-13385), ARN->At Six transfer, ALL excursions per port with names (7-8 excursions), occasions (HEIDI BIRTHDAY Aug 29 embark day - flag prominently). WRITE JSON to output/Grandeur_Scandinavia_Portal/elements/nichols.json (same keys). Done-criteria: valid JSON, Heidi birthday in occasions, gaps[] populated.",
+      "lane": "oc",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "complete",
+      "claimed_by": "hale-oc-worker",
+      "claimed_at": "2026-07-03T19:42:04.541789+00:00",
+      "completed_at": "2026-07-03T19:44:03.465037+00:00",
+      "result": "---\n\n## \u2705 TASK COMPLETE\n\n**Summary of Execution:**\n\n**HALE-OC JET (Mechanical Ops Lane)** executed task `jet-scandi-nichols` fully per brain bridge contract:\n\n1. **Read & Ground Truth** \u2014 Consumed 3 authoritative sources in priority order (Nichols dossier primary, group tracker & logistics matrix fo",
+      "created_at": "2026-07-03T19:35:47.343624+00:00"
+    },
+    "jet-scandi-photos": {
+      "id": "jet-scandi-photos",
+      "title": "JET: source Grandeur + port photos",
+      "description": "Source photos for the Scandinavia portal. SHIP: Seven Seas Grandeur - check local storage/output/grandeur_imgs/ first; if empty, list+download from Google Drive folder 1e-0rbVOhvI-jB4WPwBf1DBu591s0uXJ1 (use mcp drive tools or scripts/drive_upload_robust.py pattern). PORTS: find or note best sources for Stockholm, Berlin/Warnemunde, Copenhagen, Kristiansand, Oslo. Place any downloaded images in output/Grandeur_Scandinavia_Portal/assets/ and WRITE an inventory output/Grandeur_Scandinavia_Portal/assets/photo_inventory.md listing what was obtained + gaps. Done-criteria: photo_inventory.md exists listing ship photo count + per-port status.",
+      "lane": "oc",
+      "priority": "P2",
+      "depends_on": [],
+      "status": "complete",
+      "claimed_by": "hale-oc-worker",
+      "claimed_at": "2026-07-03T19:44:18.466704+00:00",
+      "completed_at": "2026-07-03T19:47:28.511811+00:00",
+      "result": "---\n\n## TASK EXECUTION COMPLETE \u2705\n\n**Summary of Work Performed:**\n\n**Phase 1 \u2014 JET Data Sourcing (OC Lane)**\n\n### \u2705 Deliverables Completed\n\n1. **Ship Photos Sourced (15/15):**\n   - Downloaded 5 high-quality venue JPGs (Grandeur exterior, dining venues)\n   - Downloaded 10 comprehensive deck plan GIFs",
+      "created_at": "2026-07-03T19:35:47.382031+00:00"
     }
   },
   "meta": {
     "created": "2026-07-03T12:40:55.959860+00:00",
     "version": "1.0",
-    "last_updated": "2026-07-03T15:23:25.168834+00:00"
+    "last_updated": "2026-07-03T19:47:28.511827+00:00"
   }
 }

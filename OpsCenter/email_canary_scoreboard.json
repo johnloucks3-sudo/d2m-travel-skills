@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 253,
+  "emails_processed": 260,
   "entries": [
     {
       "category": "spam",
@@ -2501,6 +2501,81 @@
       "reply_status": "success",
       "reply_message_id": "19f2879b7627d3d9",
       "ts": "2026-07-03T14:54:53.779076+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f2405435667d90",
+      "from": "bkspencer381@gmail.com",
+      "subject": "Re: Grand Tour \u2014 Lunch Friday July 10th?",
+      "ts": "2026-07-03T16:30:50.667908+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2405435667d90",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Grand Tour \u2014 Lunch Friday July 10th?",
+      "reply_status": "success",
+      "reply_message_id": "19f28eb7c95bfd89",
+      "ts": "2026-07-03T16:59:09.747807+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2935100df0ced",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: 100% of budget reached",
+      "reply_status": "success",
+      "reply_message_id": "19f2952bf1dbd495",
+      "ts": "2026-07-03T18:51:56.656687+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2405435667d90",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Grand Tour \u2014 Lunch Friday July 10th?",
+      "reply_status": "success",
+      "reply_message_id": "19f295556070970f",
+      "ts": "2026-07-03T18:54:47.007385+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2935100df0ced",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: 100% of budget reached",
+      "reply_status": "success",
+      "reply_message_id": "19f29701f419c68a",
+      "ts": "2026-07-03T19:24:01.790597+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2971b98d80e41",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Tech Scan 2026-07-03 19:00 UTC \u2014 2 trial / 0 killed (Hale adjudicated)",
+      "reply_status": "success",
+      "reply_message_id": "19f297322e2bcb58",
+      "ts": "2026-07-03T19:27:19.533866+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2935100df0ced",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: 100% of budget reached",
+      "reply_status": "success",
+      "reply_message_id": "19f2974c7a1969aa",
+      "ts": "2026-07-03T19:29:07.038085+00:00",
       "system": "n8n_python"
     }
   ]

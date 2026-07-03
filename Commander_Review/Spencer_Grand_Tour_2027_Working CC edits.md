@@ -64,7 +64,7 @@
 | 12 | Mr. Judah Benjamin Spencer | Feb 25, 2025 | 2 | Tim & Joanne's son | 6656 | 44661688 | Tim's Family |
 
 
-> ⭐ **Kathleen's 72nd birthday = Jun 12, 2027 = Departure Day.** Celebrate on the flight or at Rome hotel. ♦ **Joanne born Feb 29 (leap year).** 2027 birthday falls Mar 1. **Lillianna's middle name "Kathleen"** — named after grandmother. Suggests Yaggi family is deeply connected (likely son-in-law Mike or daughter Amanda married in). **Age pattern suggests:** Nick (48) and Tim (37) are Bill's sons. Amanda (40) likely Bill's daughter. Mike Yaggi (50) likely married a Spencer — possibly a sister not on this cruise. **OPEN:** Yaggi family connection to Spencers — confirm with Bill. **Tim's family branches FCO → DEN Jun 23 after cruise. Two strollers in Rome (James=5, Judah=2).** **Mike Yaggi's group (4 pax): Business Class flights. All others: Premium Economy.**
+> ⭐ **Kathleen's 72nd birthday = Jun 12, 2027 = Departure Day.** Celebrate on the flight or at Rome hotel. ♦ **Joanne born Feb 29 (leap year).** 2027 birthday falls Mar 1. **Lillianna's middle name "Kathleen"** — named after grandmother. Suggests Yaggi family is deeply connected (likely son-in-law Mike or daughter Amanda married in). **Age pattern suggests:** Nick (48) and Tim (37) are Bill's sons. Amanda (40) likely Bill's daughter. Mike Yaggi (50) likely married a Spencer — possibly a sister not on this cruise. **OPEN:** Yaggi family connection to Spencers — confirm with Bill. **Tim's family branches FCO → DEN Jun 23 after cruise. Two strollers in Rome (James=5, Judah=2).** **Mike Yaggi's group (4 pax): Business Class flights. Tim's family (4 pax): Premium Economy / Economy Plus (extra legroom — 2 young grandchildren). Bill's core group (4 pax): Premium Economy.** [CORRECTED 2026-07-03 per Bill Spencer email]
 
 
 ## CRUISE ITINERARY — CONFIRMED
@@ -103,15 +103,13 @@
 
 *Commander's handwritten notes captured from Google Doc*
 
-### Flight Class Split \[MTG — CONFIRMED\]
+### Flight Class Split \[MTG — CONFIRMED · CORRECTED 2026-07-03 per Bill Spencer email\]
 
-- **Mike Yaggi's group (4 pax): Business Class**
+- **Mike Yaggi's group (4 pax): Business Class** ✅ CONFIRMED
 
-- **Bill Spencer's group (8 pax): Quote Premium Economy** AND Business Class
+- **Tim's family (4 pax): Premium Economy / Economy Plus** ✅ CONFIRMED — Tim has two young grandchildren (James 5, Judah 2); extra legroom requested. Tim's family branches FCO→DEN Jun 23 after cruise.
 
-- \[VERIFY: What about Tim's family? Branches earlier — separate quote needed\] \[Verified\]
-
-- \[VERIFY: Nick Spencer + Amanda — which group/class?\] \[Verified\]
+- **Bill's core group (4 pax: Bill, Kathleen, Billy, Amanda): Premium Economy** ✅ CONFIRMED
 
 ### Switzerland \[MTG — CONFIRMED\]
 
@@ -194,7 +192,7 @@
 | - | - | - | - |
 | 1 | Disney Wish BN / DCL booking number | **Bill will send family list electronically \[MTG\]** | VTG conf \#s in hand |
 | 2 | Switzerland model: Zermatt + Interlaken | **CONFIRMED: Both \[MTG\]** | Structure/nights still TBD |
-| 3 | Tim's family flight class | BUSINESS | Not addressed in meeting notes |
+| 3 | Tim's family flight class | **PREMIUM ECONOMY / ECONOMY PLUS** [CONFIRMED 2026-07-03 per Bill Spencer email] | |
 | 4 | Billy + Amanda — which group? continue to Switz? | **YES** | Drives hotel room count Jun 23 onward |
 | 5 | Celebrations — who/what/where? | **Tentative \[MTG\]** | "Maybe??" noted by Commander |
 | 6 | Dietary restrictions / medical | **N**ONE | 12 pax including toddlers |

@@ -1,0 +1,22 @@
+[
+ {
+  "url": "https://my.silversea.com/",
+  "status": 200,
+  "title": "My Silversea",
+  "finalUrl": "https://my.silversea.com/account/logon?goto=https%3A%2F%2Fmy.silversea.com%3A443%2Fauth%2Foauth2%2Fauthorize%3Fclient_id%3Dssc_mysilversea%26redirect_uri%3Dhttps%3A%2F%2Fmy.silversea.com%2Foidc%2Flogin-callback%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520sscguest%26code_challenge%3D-FHJXx4fiK4WIRnAdGSvHLoP0W_K3-B79EjExi2mDNU%26code_challenge_method%3DS256%26state%3DOpenIdConnect.AuthenticationProperties%253DKEd2tBNqvh02dh3eulN2v-IWL8NFCjsGZ8fRsF0PgvO58nQzN3tZFd-4bb1vnHk8m7V9xhS9NqTkzuWvWh0IHaDH6bKLuTVflfLzg3AaxIAbtXJT3GXWbI4Df_iuVjcWHx2s5sULOynzPQI-DhLNG3VFvMZeROh-k436C3IibcxWY2uZM9koz2m5USovkjATbyM7yNQNRXFLFrKlZzRI_Sokmr2cqhZVN0dpGViZ8gcrwBeIXmQdS_GesFhqn5Bs7OCfT9tfizTvc6Qa36tf7w%26response_mode%3Dform_post%26nonce%3D639186910471319339.MWFiNDVlNDgtOTExMy00Yzc4LTk2NTUtYjM5MDBmYWM2Mzc2M2Q1ZDAzYzUtZjg0ZS00OTY4LWIxYjMtMDUyYWMxNmFjNDQx%26x-client-SKU%3DID_NET472%26x-client-ver%3D8.14.0.0&realm=/ssc"
+ },
+ {
+  "url": "https://www.silversea.com/my-silversea.html",
+  "status": 200,
+  "title": "My Silversea",
+  "finalUrl": "https://my.silversea.com/Account/LogOn?ReturnUrl=%2f"
+ },
+ {
+  "url": "https://myvoyage.silversea.com/",
+  "err": "page.goto: net::ERR_CONNECTION_RESET at https://myvoyage.silversea.com/\nCall log:\n\u001b[2m  - navigating to \"https://myvoyage.silversea.com/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+ },
+ {
+  "url": "https://www.silversea.com/booked-guests.html",
+  "err": "page.goto: Navigation to \"https://www.silversea.com/booked-guests.html\" is interrupted by another navigation to \"chrome-error://chromewebdata/\"\nCall log:\n\u001b[2m  - navigating to \"https://www.silversea.com/booked-guests.html\", waiting until \"domcontentloaded\"\u001b[22m\n"
+ }
+]

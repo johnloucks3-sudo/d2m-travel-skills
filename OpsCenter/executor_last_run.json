@@ -1,35 +1,35 @@
 {
-  "run_at": "2026-07-03T08:43:43.112752",
+  "run_at": "2026-07-03T12:00:09.782608",
   "tasks_attempted": 4,
-  "tasks_succeeded": 0,
+  "tasks_succeeded": 4,
   "results": [
     {
       "id": "MISSION-856",
       "title": "Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25",
-      "success": false,
-      "elapsed": 0.05599379539489746,
-      "output_path": null
+      "success": true,
+      "elapsed": 3.6270599365234375,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-856_20260703.md"
     },
     {
       "id": "MISSION-857",
       "title": "Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel H",
-      "success": false,
-      "elapsed": 0.0013842582702636719,
-      "output_path": null
+      "success": true,
+      "elapsed": 4.019732236862183,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-857_20260703.md"
     },
     {
       "id": "MISSION-858",
       "title": "Client inquiry: A special birthday treat from Disney is coming soon!",
-      "success": false,
-      "elapsed": 0.0016160011291503906,
-      "output_path": null
+      "success": true,
+      "elapsed": 8.654512882232666,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-858_20260703.md"
     },
     {
       "id": "MISSION-859",
       "title": "Client inquiry: BREAKING:  Trump tours restoration project at Lafayette Park",
-      "success": false,
-      "elapsed": 0.0013594627380371094,
-      "output_path": null
+      "success": true,
+      "elapsed": 3.5501627922058105,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-859_20260703.md"
     }
   ]
 }

@@ -10,8 +10,8 @@
 | Group | Travelers | LEG 1 | LEG 2 | LEG 3 | Class |
 |---|---|---|---|---|---|
 | **Bill's group** | Bill Spencer, Kathleen Spencer, Billy Spencer, Amanda (last name TBD) | ✅ DEN→FCO Jun 12 | — | ✅ ZRH→DEN Jul 2 | Premium Economy (⚠️ see LEG 1 note) |
-| **Tim's family** | Tim Spencer, [wife: JoAnne OR Katie — CONFIRM], [son: Robert OR James, age 5], Judah (2) | ✅ DEN→FCO Jun 12 | ✅ FCO→DEN Jun 23 | — | Business |
-| **Yaggi family** | Mike Yaggi, [wife: Katie per Dembe — CONFIRM], Lillie, Clara | ✅ DEN→FCO Jun 12 | — | ✅ ZRH→DEN Jul 2 | Business |
+| **Tim's family** | Tim Spencer, [wife: JoAnne OR Katie — CONFIRM], [son: Robert OR James, age 5], Judah (2) | ✅ DEN→FCO Jun 12 | ✅ FCO→DEN Jun 23 | — | **Premium Economy / Economy Plus** ✓ |
+| **Yaggi family** | Mike Yaggi, [wife: Katie per Dembe — CONFIRM], Lillie, Clara | ✅ DEN→FCO Jun 12 | — | ✅ ZRH→DEN Jul 2 | **Business Class** ✓ |
 
 **Open on roster:** Tim's wife name (JoAnne vs. Katie), Tim's son name (Robert vs. James). Commander to update. Amanda last name TBD. Judah (2) = paid seat confirmed.
 
@@ -21,19 +21,19 @@
 
 ### ⚠️ CRITICAL: NO PREMIUM ECONOMY ON DEN–FCO NONSTOP
 United 787 on Denver–Rome operates Economy + Business ONLY. No Premium Economy cabin.
-**Bill's group options for LEG 1:**
-- Option A: Upgrade to Business (same cabin as rest of group) — adds ~$3,000–$4,000/person vs. PremEco estimate
-- Option B: Connect through hub (EWR/ORD/IAD) to get Premium Economy — adds ~3–4 hrs travel time
-- **Commander decision needed before quoting Bill.**
+**RESOLVED 2026-07-03 per Bill Spencer email: Tim's family + Bill's group both confirmed Premium Economy.**
+**LEG 1 routing for Tim's family + Bill's group (8 pax): connecting carrier required — Lufthansa DEN–MUC–FCO or DEN–FRA–FCO.**
+- Yaggi family (Business) takes United nonstop as planned.
+- Tim's family + Bill's group route via connecting PE carrier (adds ~4–6 hrs vs. nonstop).
 
 ### LEG 1 — DEN → FCO | Jun 12, 2027 (Saturday) | All 12
 
 | Group | Pax | Class | Est. /person | Est. Total |
 |---|---|---|---|---|
-| Tim's family | 4 | Business | $5,374–$5,799 | $21,500–$23,200 |
-| Yaggi family | 4 | Business | $5,374–$5,799 | $21,500–$23,200 |
-| Bill/Kathleen/Billy/Amanda | 4 | **TBD — see above** | $5,374–$5,799 (Biz) | $21,500–$23,200 (Biz) |
-| **LEG 1 TOTAL (all Business)** | **12** | Business | $5,374–$5,799 | **$64,500–$69,600** |
+| Tim's family | 4 | **Premium Economy (connecting)** ✓ | $2,000–$3,400 | $8,000–$13,600 |
+| Yaggi family | 4 | **Business (nonstop)** ✓ | $5,500–$7,500 | $22,000–$30,000 |
+| Bill/Kathleen/Billy/Amanda | 4 | **Premium Economy (connecting)** ✓ | $2,000–$3,400 | $8,000–$13,600 |
+| **LEG 1 TOTAL** | **12** | Mixed (Yaggi BC + Tim/Bill PE) | — | **$38,000–$57,200** |
 
 **Carrier:** United Airlines — ONLY nonstop DEN–FCO. Boeing 787. Departs ~1730–1750 DEN, arrives ~1220+1 FCO (~10h 50m).
 **Confidence: INFERRED** — inventory opens ~Aug 2026 (330 days out).
@@ -42,7 +42,7 @@ United 787 on Denver–Rome operates Economy + Business ONLY. No Premium Economy
 
 | Pax | Class | Est. /person | Est. Total |
 |---|---|---|---|
-| 4 | Business | $3,900–$5,800 | $15,600–$23,200 |
+| 4 | **Premium Economy** ✓ (⚠️ verify PE cabin on UA787 FCO→DEN return) | $1,600–$2,800 | $6,400–$11,200 |
 
 **Constraints:** Cruise off Civitavecchia 0800. Transfer ~1h15m. Earliest FCO departure: **1200+**.
 **Carriers:** United nonstop (preferred) · Lufthansa via MUC/FRA · American via PHX/ORD
@@ -65,10 +65,10 @@ United 787 on Denver–Rome operates Economy + Business ONLY. No Premium Economy
 
 | Leg | Pax | Low | High |
 |---|---|---|---|
-| LEG 1 DEN→FCO Jun 12 (all Business) | 12 | $64,500 | $69,600 |
-| LEG 2 FCO→DEN Jun 23 | 4 | $15,600 | $23,200 |
-| LEG 3 ZRH→DEN Jul 2 | 8 | $18,800 | $31,176 |
-| **GRAND TOTAL** | | **~$98,900** | **~$124,000** |
+| LEG 1 DEN→FCO Jun 12 (Yaggi BC nonstop + Tim/Bill PE connecting) | 12 | $38,000 | $57,200 |
+| LEG 2 FCO→DEN Jun 23 (Tim's family PE) | 4 | $6,400 | $11,200 |
+| LEG 3 ZRH→DEN Jul 2 (Yaggi BC + Bill PE) | 8 | $23,600 | $38,000 |
+| **GRAND TOTAL** | | **~$68,000** | **~$106,400** |
 
 **⚠️ INFERRED — Do not present to Bill as confirmed fares. Inventory opens ~Aug 2026. Live quotes at that time.**
 
@@ -111,7 +111,7 @@ DMCs typically net-price to TA (agent marks up). No D2M agreement with any opera
 
 | # | Item | Owner | Urgency |
 |---|---|---|---|
-| 1 | **DEN→FCO: Business or connect for Bill's group?** | Commander decides | 🔴 Blocks LEG 1 quote |
+| 1 | **DEN→FCO routing for Tim/Bill** — ✅ **RESOLVED** PE connecting (Lufthansa DEN–MUC–FCO recommended) | Bill Spencer email 2026-07-03 | ✅ Done |
 | 2 | **Tim's wife + son names** (JoAnne/Robert vs. Katie/James) | Commander updates roster | 🟡 Before guest forms |
 | 3 | Judah (2) — own seat confirmed ✅ | — | Done |
 | 4 | Amanda's last name | Bill to provide | 🟡 Guest forms |

@@ -149,3 +149,24 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] ca3339064: lyons: Regent guest-account scrape via CloakBrowser (Akamai defeated) — 4 bookings captured; dossier + portal tenant; regent-scrape skill; Silversea challenge-walled |  9 files changed, 324 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-c5096206 from CC — 2026-07-03 16:04 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f22e8d892: lyons portal + regent-scrape skill: docs, portal build, memory; multi-client platform tenant #2 LIVE |  442 files changed, 189804 insertions(+), 11861 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-82268c1f from CC — 2026-07-03 17:27 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a4266dba0: lyons: Silversea Silver Nova May 2027 confirmed booked (Commander) — restored to portal + dossier; details pending booking# |  1 file changed, 4 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-a1897535 from CC — 2026-07-03 19:46 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 11d90f658: scandinavia portals: infra (3 per-couple registry+dirs), Amy Darrow b'day Aug31 + medical guard, plan; CC-OC dual-brain build |  2 files changed, 36 insertions(+) | author: Claude Haiku 4.5

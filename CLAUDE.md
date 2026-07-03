@@ -335,9 +335,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-03 10:04 MT -->
+<!-- Last sync: 2026-07-03 13:54 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-03 10:04 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-03 13:54 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

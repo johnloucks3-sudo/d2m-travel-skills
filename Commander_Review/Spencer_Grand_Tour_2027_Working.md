@@ -76,7 +76,7 @@
 > **CONFIRMED family tree:** Bill + Kathy = parents. Billy (son), Amanda (VERIFY daughter), Tim (son) = their children. Mike Yaggi = son-in-law (married into Spencers — which sibling TBD, possibly not on cruise).
 > **Tim's family branches FCO → DEN Jun 23 after cruise. Two strollers needed in Rome (James=5, Judah=2).**
 > **Billy + Amanda confirmed continuing to Switzerland (Q4 RESOLVED).**
-> **Flight classes: Yaggi group (4) = Business. All others = quote both Business AND Premium Economy.**
+> **Flight classes [UPDATED 2026-07-03 per Bill Spencer email]: Yaggi/Mike group (4) = Business Class. Tim's family (4) = Premium Economy / Economy Plus. Bill's group (4) = Premium Economy. ⚠️ United DEN–FCO nonstop has no PE cabin — Tim's family and Bill's group require connecting carrier for Leg 1 outbound.**
 
 ---
 
@@ -114,10 +114,11 @@
 ## MEETING NOTES — 27 MAY 2026
 *Commander's handwritten notes + CC edits incorporated*
 
-### Flight Class Split [CONFIRMED]
-- **Mike Yaggi's group (4 pax): Business Class**
-- **Bill Spencer's group (8 pax): Quote BOTH Premium Economy AND Business Class**
-- **Tim's family: Business Class** [RESOLVED]
+### Flight Class Split [CONFIRMED — UPDATED 2026-07-03 per Bill Spencer email]
+- **Mike Yaggi's group (4 pax): Business Class** [CONFIRMED]
+- **Tim's family (4 pax): Premium Economy / Economy Plus** [CONFIRMED] — Bill: "like the rest of us." Tim has two young grandchildren (James 5, Judah 2); extra legroom requested.
+- **Bill Spencer's group (4 pax): Premium Economy** [CONFIRMED]
+- ⚠️ United DEN–FCO nonstop (787) has no PE cabin — Tim's family and Bill's group require connecting routing on Leg 1 (e.g., Lufthansa DEN–MUC–FCO).
 - **Billy + Amanda: Continue to Switzerland — confirmed** [RESOLVED]
 
 ### Switzerland [CONFIRMED — BOTH]
@@ -172,7 +173,7 @@
 |---|---|---|---|
 | 1 | Disney Wish DCL booking number | **Bill will send electronically** | VTG conf #s in hand |
 | 2 | Switzerland model: Zermatt + Interlaken | **CONFIRMED: Both** | Structure/nights still TBD |
-| 3 | Tim's family flight class | **RESOLVED — BUSINESS** | |
+| 3 | Tim's family flight class | **RESOLVED — PREMIUM ECONOMY / ECONOMY PLUS** | Per Bill Spencer email 2026-07-03 |
 | 4 | Billy + Amanda — continue to Switzerland? | **RESOLVED — YES** | Hotel count for Florence onward = 4 rooms (2 couples + Billy + Amanda) |
 | 5 | Celebrations — who/what/where? | **CONFIRMED** | 50th Anniv (Bill+Kathy) · HS Grad (Lillianna) · 50th Bday (Mike Yaggi) |
 | 6 | Dietary restrictions / medical | **RESOLVED — NONE** | |
