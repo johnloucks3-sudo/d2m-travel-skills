@@ -144,6 +144,18 @@
       "added_at": "2026-07-03T21:51:22.050434+00:00",
       "done_at": null,
       "note": null
+    },
+    {
+      "id": "ns-9fc93c6",
+      "text": "Regent agent-vs-guest visibility CONFIRMED (McLeod): agent side = booking/suite/guests/ages/financials/excursions for whole base; preferences/tier/personal-saved = guest-login-only. reference_regent_agent_vs_guest_visibility.md",
+      "by": "cc",
+      "priority": "P2",
+      "tag": "regent-portfolio",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:57:26.598032+00:00",
+      "done_at": null,
+      "note": null
     }
   ],
   "meta": {
