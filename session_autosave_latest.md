@@ -1,30 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-03 14:43:01 MDT
+## Generated: 2026-07-03 15:37:05 MDT
 
 ---
 
 ### Recent Commits
+- 6b9d15ba2 hale-bus: shared next_steps.py backlog (CC/OC/Commander grab-the-reins queue) + fix brain_bridge search/backfill payload-key bug (source->filename/content)
+- ded0e6122 feat(memory): wire session_context_blast to OC startup + 30-min systemd timer
+- 6924a5bc1 feat(ci): Qdrant semantic memory — full Wing CI integration (Opus GO 2026-07-03)
+- 5ee373ab6 scandinavia: HOLD all 3 portals — Wing review Jul 10 (P1), target send Jul 20 gated on ARN->At Six transfer booking (P0)
 - a44d0715a scandinavia: fix Ely-Darrow missing 3 excursions (Christiansborg/Two Kingdoms/Oslo WWII); excursion count-validation lesson
-- 9c642dc5c skill(itinerary): add Step 1.5 visual-QC — view every image before embedding, Pexels-first sourcing, per-couple accuracy (Commander directive)
-- 293529d25 test: add APPROVE + sub-task thread-continuation iterations
-- f2359d6e8 scandinavia portals: real port images (5 ports, Wikimedia) + ship photos all inline base64; Furlow Sep-4 Copenhagen confirmed open day
-- 7b6eddc96 scandinavia portals: inline images as base64 (render-proof), transfer wording -> D2M mid-July, fix Regent->D2M transfer error
 
 ### Uncommitted Changes
- M .ask_usage_log
  m Blackboard
+ M CLAUDE.md
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/collaboration/blackboard_summary.txt
  M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/itinerary_watchdog_status.json
+ M OpsCenter/keepalive_health.json
  M OpsCenter/nexus.lock
  M OpsCenter/oc_worker_status.json
- M OpsCenter/supertimer_health.json
- M intel/cruise_intel/cruise_feedback_2026-07-03.json
- m reverie
- M session_autosave_latest.md
+ D OpsCenter/pinecone_connector.py
+ D OpsCenter/pinecone_ingest.py
+ D OpsCenter/pinecone_ingest_master.py
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 22 pending task(s)
+- OpenCode inbox: 26 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

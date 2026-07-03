@@ -5726,3 +5726,16 @@ Built the JET/TALON/HALE/Commander revised org + integrated the relevant newly-f
 - STRUCTURE (4 tiers, size+speed adapted): Commander(SecAF) → HALE(VCSAF/HAF + IG-compliance + IG-complaints + wingman; enforces WHAT/WHEN/standard, NOT operational command) → JET(WIND/OpenCode, organic ADCON) + TALON(CONDOR/Claude Code, organic ADCON; own HOW) → wing staff. No NAF/Group/Squadron. Continuous (per-cycle) enforcement.
 - BUILT & VERIFIED: config/wing_org.yaml v2 (WIND+CONDOR wings), compiler re-seats all 14 (PII PASS 0 violations), TALON seated (.claude/agents/talon.md, opus), HALE-OC twin (opencode.json, primary, free deepseek default + Claude voice_model for exact Commander voice + /ask escalation), shared brain Qdrant-MCP on BOTH engines (.mcp.json + opencode.json, uvx-launched), hale_enforcer.py (5 prod-loops, LIVE/PARTIAL/STUB honestly labeled, runs green). Doctrine: docs/THUNDERBIRD_REVISED_ORG_20260702.md.
 - HONEST GAPS: shared-brain cross-engine read/write not yet live-tested (needs both clients); OC-Hale voice fidelity on free model unproven (needs live OC voice-test; escalates to Claude if drift); hale_enforcer 5 STUB loops need data sources; CI registry entry #48 malformed → blocks ci_sweep wing-wide (real bug, surfaced by enforcer). Gates + 6 protected files untouched.
+
+### 2026-07-03 14:47:11 — Autonomous Decision (Tier T1)
+
+**Decision:** Opus inline dispatch: Read /home/john/Thunderbird/output/qdrant_ci_brief.md in ful...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 188.5s. Output: 489 chars. Model: Opus
+
+---

@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "ns-9e33489",
+      "text": "Fix brain_bridge task search: tasks embed as temp files that get deleted + search_tasks not surfacing them; and backfill is_indexed check reads 'source' key that payload lacks (re-embeds every task each connect)",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "brain-bridge",
+      "status": "done",
+      "claimed_by": "cc",
+      "added_at": "2026-07-03T21:29:43.817344+00:00",
+      "done_at": "2026-07-03T21:31:11.653064+00:00",
+      "note": "Fixed: search_tasks + backfill filters read filename/content not 'source'; verified 3 hits/query",
+      "claimed_at": "2026-07-03T21:30:09.951597+00:00"
+    },
+    {
+      "id": "ns-9e334b1",
+      "text": "Scandinavia portals: Wing QC review Jul 10, then send Jul 20 GATED on Commander booking ARN->At Six transfers",
+      "by": "cc",
+      "priority": "P0",
+      "tag": "scandinavia",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:29:43.857649+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9e334d8",
+      "text": "Spencer follow-ups: Hotelbeds wholesale hotel pull, Walkabout private-8 quote, Venture Ashore registration, La Pergola booking call",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "spencer",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:29:43.896553+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9e33500",
+      "text": "Lyons Silversea Silver Nova May 2027: obtain booking number to fill portal (Nancy will send)",
+      "by": "cc",
+      "priority": "P2",
+      "tag": "lyons",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:29:43.936480+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9e3354b",
+      "text": "Example: verify port images seasonally match Sept voyage before send",
+      "by": "commander",
+      "priority": "P1",
+      "tag": null,
+      "status": "dropped",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:29:44.011370+00:00",
+      "done_at": "2026-07-03T21:30:09.913481+00:00",
+      "note": "test item"
+    },
+    {
+      "id": "ns-9ebfa45",
+      "text": "Close autonomous-loop Link 1a: build a self-audit/gap-scan gate that runs before any 'done' is declared (generalize today's QC + count-match + per-couple checks). AI distrusts its own done.",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "autonomy",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:39:18.725845+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9ebfa6e",
+      "text": "Close autonomous-loop Link 1b: make ELON/Whetstone tool-discovery + dogfood cadence SELF-CATALYZING — proactive tool-scan fires on schedule + on any 'we hit a wall' event, reports finds unprompted. Commander confirms, not sparks. Verify ci_daily_routine/stack_freshness/fleets actually run.",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "autonomy",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:39:18.766239+00:00",
+      "done_at": null,
+      "note": null
+    }
+  ],
+  "meta": {
+    "created": "2026-07-03T21:29:43.817324+00:00"
+  }
+}

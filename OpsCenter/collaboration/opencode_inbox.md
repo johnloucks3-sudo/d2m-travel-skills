@@ -219,3 +219,31 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] a44d0715a: scandinavia: fix Ely-Darrow missing 3 excursions (Christiansborg/Two Kingdoms/Oslo WWII); excursion count-validation lesson |  27 files changed, 239 insertions(+), 147 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-1660dcae from CC — 2026-07-03 20:47 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5ee373ab6: scandinavia: HOLD all 3 portals — Wing review Jul 10 (P1), target send Jul 20 gated on ARN->At Six transfer booking (P0) |  25 files changed, 131 insertions(+), 106 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-64f2b1ad from CC — 2026-07-03 21:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6924a5bc1: feat(ci): Qdrant semantic memory — full Wing CI integration (Opus GO 2026-07-03) |  10 files changed, 635 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-50934d1e from CC — 2026-07-03 21:12 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ded0e6122: feat(memory): wire session_context_blast to OC startup + 30-min systemd timer |  1 file changed, 2 insertions(+) | author: Claude Haiku 4.5
+
+---
+## RELAY-8bc57785 from CC — 2026-07-03 21:31 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6b9d15ba2: hale-bus: shared next_steps.py backlog (CC/OC/Commander grab-the-reins queue) + fix brain_bridge search/backfill payload-key bug (source->filename/content) |  3 files changed, 169 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
