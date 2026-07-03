@@ -1,0 +1,21 @@
+{
+  "loucks.d2mluxury.quest": {
+    "slug": "loucks-grandeur-dec2026",
+    "name": "Loucks — Panama Canal & Pacific Gems",
+    "dir": "output/Loucks_Grandeur_Dec2026",
+    "user": "loucks",
+    "pw": "loucks-4f82c1d9",
+    "drive_folder": "1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
+    "drive_link": "https://drive.google.com/drive/folders/1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
+    "added": "2026-07-03",
+    "note": "First tenant of the multi-client portal server (Spencer-approach rollout, Commander directive 2026-07-03). Commander's own trip — booking 3122006."
+  },
+  "_queued": {
+    "mcleod.d2mluxury.quest": "ONE page, all 4 cruises — build after Loucks test passes",
+    "kuklinski-kyle.d2mluxury.quest": "per-suite page 1 of 3",
+    "kuklinski-roger.d2mluxury.quest": "per-suite page 2 of 3",
+    "kuklinski-morton.d2mluxury.quest": "per-suite page 3 of 3",
+    "lyons.d2mluxury.quest": "pro bono — ONE page, all 4 cruises",
+    "spencer.d2mluxury.quest": "MIGRATE from legacy spencer-portal.service:8920 once Loucks pattern proven"
+  }
+}

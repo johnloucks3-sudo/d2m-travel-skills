@@ -119,8 +119,19 @@ def main():
     a = ap.parse_args()
     d = Path(a.dir)
 
-    stems = [s for s in NAV if (d / f"{s}.md").exists()]
-    stems += [f.stem for f in sorted(d.glob("*.md")) if f.stem not in NAV]
+    # Per-client overrides: <dir>/portal.json {"nav": {...}, "doc_titles": {...}, "extra_nav": "<a ...>"}
+    # Falls back to the Spencer maps above when absent (legacy behavior).
+    nav, doc_titles, extra_nav = NAV, DOC_TITLES, EXTRA_NAV
+    pj = d / "portal.json"
+    if pj.exists():
+        import json as _json
+        cfg = _json.loads(pj.read_text())
+        nav = cfg.get("nav", {})
+        doc_titles = cfg.get("doc_titles", {})
+        extra_nav = cfg.get("extra_nav", "")
+
+    stems = [s for s in nav if (d / f"{s}.md").exists()]
+    stems += [f.stem for f in sorted(d.glob("*.md")) if f.stem not in nav]
 
     # Google Doc edit links (optional)
     links_file = d / "_gdoc_links.json"
@@ -132,10 +143,10 @@ def main():
     navlinks, sections = [], []
     for i, stem in enumerate(stems):
         f = d / f"{stem}.md"
-        label = NAV.get(stem, stem.replace("_", " "))
+        label = nav.get(stem, stem.replace("_", " "))
         anchor = f"doc{i}"
         navlinks.append(f'<a href="#{anchor}">{label}</a>')
-        edit_url = gdoc.get(DOC_TITLES.get(stem, ""))
+        edit_url = gdoc.get(doc_titles.get(stem, ""))
         edit_banner = (
             f'<div class="editbar">✏️ <a href="{edit_url}" target="_blank" rel="noopener">'
             f'Open the working copy to suggest edits (Google Doc)</a></div>'
@@ -150,7 +161,7 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{a.title}</title><style>{CSS}</style></head>
 <body>
-<div class="nav"><span class="brand">DREAMS2MEMORIES</span>{''.join(navlinks)}{EXTRA_NAV}</div>
+<div class="nav"><span class="brand">DREAMS2MEMORIES</span>{''.join(navlinks)}{extra_nav}</div>
 <div class="hero">
   <img src="{LOGO}" alt="Dreams2Memories Travel">
   <div class="wordmark">DREAMS2MEMORIES TRAVEL, LLC</div>
