@@ -30,6 +30,7 @@ NAV = {
     "03_Florence_and_Tuscany_Options": "Florence & Tuscany",
     "04_Swiss_Alps_Journey": "Switzerland",
     "05_Your_Options_and_Investment": "Your Options",
+    "06_Build_Your_Journey_Investment_Guide": "Build Your Journey",
 }
 
 # filename-stem -> Google Doc title (to match _gdoc_links.json for the "suggest edits" link)
@@ -40,7 +41,14 @@ DOC_TITLES = {
     "03_Florence_and_Tuscany_Options": "Spencer Grand Tour — Florence & Tuscany Options",
     "04_Swiss_Alps_Journey": "Spencer Grand Tour — Swiss Alps Journey",
     "05_Your_Options_and_Investment": "Spencer Grand Tour — Your Options & Investment",
+    "06_Build_Your_Journey_Investment_Guide": "Spencer Grand Tour — Build Your Journey (Investment Guide)",
 }
+
+# extra nav items served alongside index.html (standalone pages / downloads)
+EXTRA_NAV = (
+    '<a href="Spencer_PERT_Critical_Path_v2.html">Planning Timeline</a>'
+    '<a href="Spencer_Grand_Tour_Briefing.pptx">Briefing Deck ⬇</a>'
+)
 
 CSS = """
 * { box-sizing: border-box; }
@@ -142,7 +150,7 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{a.title}</title><style>{CSS}</style></head>
 <body>
-<div class="nav"><span class="brand">DREAMS2MEMORIES</span>{''.join(navlinks)}</div>
+<div class="nav"><span class="brand">DREAMS2MEMORIES</span>{''.join(navlinks)}{EXTRA_NAV}</div>
 <div class="hero">
   <img src="{LOGO}" alt="Dreams2Memories Travel">
   <div class="wordmark">DREAMS2MEMORIES TRAVEL, LLC</div>
