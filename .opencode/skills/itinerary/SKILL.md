@@ -46,6 +46,23 @@ import sys; sys.path.insert(0, '/home/john/Thunderbird')
 
 Target: 3 photos per day minimum. Use ACTUAL ship photos — never generic stock.
 
+## Step 1.5 — VISUAL QC EVERY IMAGE (MANDATORY — never skip)
+**Added 2026-07-03 (Commander directive: "Is anyone QCing your image work?"). A search result or filename is NOT proof. Before ANY image is embedded, OPEN IT with the Read tool — it renders the image visually — and look at it.**
+
+Real failures this step has caught: a "Berlin/Warnemünde" hero that was actually a black-and-white photo of the *inside* of a lighthouse's machinery; a "Norway/Lindesnes" hero that was an antique nautical *chart*, not a photo. Both would have shipped to a client without this step.
+
+**Reject on sight:** wrong subject · maps/charts/diagrams/blueprints · interiors when you wanted an exterior · black-and-white when color is expected · off-season (snow on a summer voyage — flag it) · low-res/watermarked · anything that doesn't sell the destination romantically.
+
+**Match the image to THIS couple's actual itinerary, not the region generally.** Example: on the Grandeur Scandinavia voyage, the couple doing "Amazing Rostock / Medieval Flavors of Rostock" gets a **Warnemünde/Rostock** image — NOT the Brandenburg Gate — while couples doing "The Berlin Experience" get Berlin. Per-couple accuracy is part of QC.
+
+**Source priority (best romantic/professional first):**
+1. **Pexels API** — professional stock, romantic travel imagery. `PEXELS_API_KEY` in `.env`. `GET https://api.pexels.com/v1/search?query=...&orientation=landscape` with `Authorization: <key>`; download `src.large2x`.
+2. **Unsplash** — `UNSPLASH_ACCESS_KEY` in `.env`.
+3. **Official cruise-line / Drive ship galleries** — for the actual ship (canonical ship photos).
+4. **Wikimedia Commons — LAST resort.** High map/interior/amateur noise; only if 1–3 fail, and QC especially hard.
+
+**QC record:** for each image note "viewed → passed" (or the reject reason + replacement). Resize to ≤1000px wide, quality ~82, and for portals inline as base64 data URIs so they render regardless of auth. **No image reaches a client-facing product unseen.**
+
 ## Step 2 — Read Client Dossier
 
 ```bash
