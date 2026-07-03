@@ -441,6 +441,27 @@
       "condition": "date>=2026-07-15",
       "condition_type": "date",
       "source": "Commander directive 2026-06-27 \u2014 review one week before build"
+    },
+    {
+      "id": "SCANDI-PORTAL-REVIEW",
+      "trigger_date": "2026-07-10",
+      "priority": "P1",
+      "message": "WING REVIEW \u2014 3 Grandeur Scandinavia per-couple portals (Furlow furlow.d2mluxury.quest / Ely-Darrow elydarrow.d2mluxury.quest / Nichols nichols.d2mluxury.quest). Full QC pass before the Jul 20 send: (1) excursion COUNT-MATCH each portal vs dossier ('6/7 excursions confirmed'), (2) every image VIEWED (Read tool) + per-couple accuracy (Ely=Warnem\u00fcnde not Berlin), (3) segregation (no cross-couple names), (4) Amy medical/insurance NOT in client copy, (5) facts vs dossier + tracker. WF-17 held \u2014 do not send.",
+      "client": "Grandeur Scandinavia \u2014 Furlow/Ely-Darrow/Nichols",
+      "condition": "date>=2026-07-10",
+      "condition_type": "date",
+      "source": "Commander directive 2026-07-03 \u2014 hold + review in a week"
+    },
+    {
+      "id": "SCANDI-PORTAL-SEND",
+      "trigger_date": "2026-07-20",
+      "priority": "P0",
+      "message": "TARGET SEND 20 JUL \u2014 3 Grandeur Scandinavia portals to Furlow / Ely-Darrow / Nichols. \u26d4 GATED: send ONLY AFTER Commander books the ARN->At Six arrival transfers (that logistics item is the hard dependency; portal copy already says 'arranged by D2M, mid-July'). WF-17: Commander sends. Confirm transfer booked, then release each couple their OWN link+login (Keep note 'D2M Client Portals').",
+      "client": "Grandeur Scandinavia \u2014 Furlow/Ely-Darrow/Nichols",
+      "condition": "date>=2026-07-20 AND arn_atsix_transfer_booked",
+      "condition_type": "date_and_dependency",
+      "dependency": "ARN->At Six transfers x3 booked by Commander",
+      "source": "Commander directive 2026-07-03 \u2014 target send Jul 20 after transfer booking"
     }
   ],
   "lessons_implementation_rate_pct": 100.0,

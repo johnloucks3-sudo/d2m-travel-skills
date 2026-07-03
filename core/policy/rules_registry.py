@@ -348,7 +348,7 @@ def _is_spawn(ctx: dict) -> bool:
     return _tool_is(ctx, "spawn", "headless")
 
 
-_SPAWN_SEND_TERMS = ("send to", "email")
+_SPAWN_SEND_TERMS = ("send to",)  # "email" removed 2026-07-03 — too broad; email-system arch prompts all contain "email" (MISSION-1506)
 
 
 # ===========================================================================

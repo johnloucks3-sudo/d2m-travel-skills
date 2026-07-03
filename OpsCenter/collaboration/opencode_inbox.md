@@ -212,3 +212,10 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 9c642dc5c: skill(itinerary): add Step 1.5 visual-QC — view every image before embedding, Pexels-first sourcing, per-couple accuracy (Commander directive) |  1 file changed, 17 insertions(+) | author: Claude Haiku 4.5
+
+---
+## RELAY-88f0aac5 from CC — 2026-07-03 20:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a44d0715a: scandinavia: fix Ely-Darrow missing 3 excursions (Christiansborg/Two Kingdoms/Oslo WWII); excursion count-validation lesson |  27 files changed, 239 insertions(+), 147 deletions(-) | author: Claude Haiku 4.5

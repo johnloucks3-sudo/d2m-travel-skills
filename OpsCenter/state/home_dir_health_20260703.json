@@ -1,6 +1,6 @@
 {
   "probe": "home-dir-health",
-  "timestamp": "2026-07-03T20:40:11.255632+00:00",
+  "timestamp": "2026-07-03T20:45:31.143151+00:00",
   "date": "20260703",
   "overall_status": "CRITICAL",
   "exit_code": 2,
@@ -8,11 +8,11 @@
     {
       "check": "cache_bloat",
       "path": "/home/john/.cache",
-      "size_mb": 4250.0,
+      "size_mb": 4246.0,
       "size_gb": 4.15,
       "threshold_gb": 2.0,
       "status": "CRITICAL",
-      "note": "~/.cache is 4.2GB \u2014 exceeds 2.0GB threshold"
+      "note": "~/.cache is 4.1GB \u2014 exceeds 2.0GB threshold"
     },
     {
       "check": "downloads_size",
@@ -25,7 +25,7 @@
     {
       "check": "local_size",
       "path": "/home/john/.local",
-      "size_mb": 31766.0,
+      "size_mb": 31767.0,
       "size_gb": 31.02,
       "threshold_gb": 35.0,
       "status": "OK",
