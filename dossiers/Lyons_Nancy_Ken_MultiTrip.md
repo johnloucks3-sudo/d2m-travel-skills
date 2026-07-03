@@ -62,8 +62,10 @@ handling: "Client-facing comms require WF-17 (Dani formats, COS reviews, Command
 | **Status** | ✅ Deposit received Jan 14 2026 · 🔴 Final Payment Due Apr 28, 2027 · Guest Registration to complete · Shore Excursions open Feb 27 2027 · Dining opens Jun 27 2027 · Check-in Sep 4 2027 |
 | **Note** | Back-to-back with Trip 3 on Splendor (Scotland disembarks London Sep 25, this embarks London Sep 25) — same suite #748. A continuous Sep–Oct 2027 UK/Iberia journey. |
 
-## TRIP 5 — SILVERSEA SILVER NOVA · May 2027 (SEPARATE LINE — with D2M/Loucks)
-> Not in the Regent account (different cruise line). Booked with D2M alongside the Loucks Silver Nova May 2027 voyage. Details to be pulled from Silversea account / D2M records — see Silversea access test 2026-07-03.
+## TRIP 5 — SILVERSEA SILVER NOVA · May 2027 — ✅ BOOKED (Commander-confirmed 2026-07-03)
+> **Commander confirms 2026-07-03: "keep silversea, she is booked for certain."** Nancy & Ken are booked on the Silver Nova, May 2027, sailing alongside John & Susan Loucks (Loucks own booking 506101-26, cabin 8071, May 5–29 2027 Venice→Athens).
+> **Details NOT yet in D2M records** — the Lyons Silversea booking number, cabin, and payment calendar are not in our files or captured from any portal. The booking is separate from the Loucks reservation.
+> **Silversea access 2026-07-03:** my.silversea.com reachable but the headless login hit a "Challenge Validation" bot wall; a manual Firefox login with the Regent password (GaBelle) failed — Nancy's Silversea credentials (if she has a guest account) differ from Regent, OR the booking is held agent-side. **NEXT: obtain the Lyons Silver Nova booking number** (from Commander, Silversea agent portal, or D2M booking records) to populate suite/dates/FPD. Until then the portal shows it as booked with "details firming up."
 
 ---
 
