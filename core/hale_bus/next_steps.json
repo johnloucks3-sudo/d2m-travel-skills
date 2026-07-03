@@ -84,6 +84,30 @@
       "added_at": "2026-07-03T21:39:18.766239+00:00",
       "done_at": null,
       "note": null
+    },
+    {
+      "id": "ns-9ede2fd",
+      "text": "STANDING PATTERN: AI proactively brings the Commander POINT PAPERS proposing projects (front-end of the loop). Format: output/point_papers/PP_<date>_<name>.md — Purpose/Background(opportunity spotted)/Discussion(ROI+risk)/Recommendation(GO-NOGO-MODIFY). He approves; AI executes.",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "autonomy",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:41:23.837186+00:00",
+      "done_at": null,
+      "note": null
+    },
+    {
+      "id": "ns-9ede321",
+      "text": "AWAITING COMMANDER DECISION: PP Regent Portfolio Intelligence Sweep (GO/NO-GO/MODIFY) — output/point_papers/PP_2026-07-03_Regent_Portfolio_Intelligence.md",
+      "by": "cc",
+      "priority": "P1",
+      "tag": "proposal",
+      "status": "open",
+      "claimed_by": null,
+      "added_at": "2026-07-03T21:41:23.873460+00:00",
+      "done_at": null,
+      "note": null
     }
   ],
   "meta": {
