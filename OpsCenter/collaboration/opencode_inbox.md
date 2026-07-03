@@ -170,3 +170,17 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 11d90f658: scandinavia portals: infra (3 per-couple registry+dirs), Amy Darrow b'day Aug31 + medical guard, plan; CC-OC dual-brain build |  2 files changed, 36 insertions(+) | author: Claude Haiku 4.5
+
+---
+## RELAY-ba5bb47e from CC — 2026-07-03 19:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 573a6ed83: scandinavia: 3 per-couple portals LIVE via CC-OC dual-brain; registry+plan; Amy b'day + medical guard + Sunday-brunch rule |  95 files changed, 20707 insertions(+), 1213 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-6286ce56 from CC — 2026-07-03 20:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5f3bf441a: email_c2: thread-continuation chat — APPROVE gate, body commands, sub-task dispatch |  1 file changed, 170 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5

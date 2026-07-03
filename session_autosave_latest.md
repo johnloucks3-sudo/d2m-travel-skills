@@ -1,25 +1,18 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-03 13:49:43 MDT
+## Generated: 2026-07-03 13:59:52 MDT
 
 ---
 
 ### Recent Commits
+- 573a6ed83 scandinavia: 3 per-couple portals LIVE via CC-OC dual-brain; registry+plan; Amy b'day + medical guard + Sunday-brunch rule
 - 11d90f658 scandinavia portals: infra (3 per-couple registry+dirs), Amy Darrow b'day Aug31 + medical guard, plan; CC-OC dual-brain build
 - a4266dba0 lyons: Silversea Silver Nova May 2027 confirmed booked (Commander) — restored to portal + dossier; details pending booking#
 - f22e8d892 lyons portal + regent-scrape skill: docs, portal build, memory; multi-client platform tenant #2 LIVE
 - ca3339064 lyons: Regent guest-account scrape via CloakBrowser (Akamai defeated) — 4 bookings captured; dossier + portal tenant; regent-scrape skill; Silversea challenge-walled
-- 10d52dd4c feat(portals): multi-client portal platform — one server all clients (vhost+auth+upload+files), generic gdoc sync, registry; first tenant Loucks Dec 2026
 
 ### Uncommitted Changes
- D .cc_overflow_mode
  m Blackboard
  M CLAUDE.md
- M Commander_Review/Spencer_Grand_Tour_2027_Brief.md
- M "Commander_Review/Spencer_Grand_Tour_2027_Working CC edits.md"
- M Commander_Review/Spencer_Grand_Tour_2027_Working.md
- M OpsCenter/.ci_rapid_repair_notify_dedup.json
- M OpsCenter/.metronome_seq
- M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.supervisor_patterns.json
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
@@ -27,15 +20,21 @@
  M OpsCenter/collaboration/opencode_inbox.md
  M OpsCenter/collaboration/routing_log.md
  M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/email_canary_scoreboard.json
- M OpsCenter/eod_incubator_config.json
- M OpsCenter/executor_last_run.json
- M OpsCenter/hale_incident_signatures.json
+ M OpsCenter/nexus.lock
+ M OpsCenter/oc_worker_status.json
+ M OpsCenter/state/overnight_ops_log.json
+ M OpsCenter/state/portal_live_health.json
+ M OpsCenter/supertimer_health.json
+ M bryana/data.json
+ M config/ci_restart_baseline.json
+ M intel/cruise_intel/cruise_feedback_2026-07-03.json
+ m reverie
+ M session_autosave_latest.md
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 15 pending task(s)
+- OpenCode inbox: 16 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

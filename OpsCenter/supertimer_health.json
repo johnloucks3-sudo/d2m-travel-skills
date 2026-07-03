@@ -3,8 +3,8 @@
     "status": "GREEN",
     "tasks_ran": 2,
     "tasks_failed": 0,
-    "duration_sec": 0.12821194999924046,
-    "ts": "2026-07-03T19:56:52.568108+00:00",
+    "duration_sec": 0.1546332169964444,
+    "ts": "2026-07-03T20:02:54.939202+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -30,17 +30,17 @@
     "status": "GREEN",
     "tasks_ran": 6,
     "tasks_failed": 0,
-    "duration_sec": 0.4635709060003137,
-    "ts": "2026-07-03T19:00:17.333456+00:00",
+    "duration_sec": 0.4696723650013155,
+    "ts": "2026-07-03T20:02:55.255361+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "infra_bot": {
-    "status": "GREEN",
-    "tasks_ran": 2,
+    "status": "IDLE",
+    "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.20552619400041294,
-    "ts": "2026-07-03T19:54:47.359357+00:00",
+    "duration_sec": 0.06376818499848014,
+    "ts": "2026-07-03T20:02:54.849209+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -55,10 +55,10 @@
   },
   "comms_bot": {
     "status": "GREEN",
-    "tasks_ran": 2,
+    "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 5.439841843002796,
-    "ts": "2026-07-03T19:55:55.605162+00:00",
+    "duration_sec": 0.12618995599768823,
+    "ts": "2026-07-03T20:02:54.911068+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -84,17 +84,17 @@
     "status": "IDLE",
     "tasks_ran": 0,
     "tasks_failed": 0,
-    "duration_sec": 0.06402709200119716,
-    "ts": "2026-07-03T19:53:47.035090+00:00",
+    "duration_sec": 0.06191478999971878,
+    "ts": "2026-07-03T19:58:52.698862+00:00",
     "error": "",
     "consecutive_failures": 0
   },
   "backup_bot": {
-    "status": "IDLE",
-    "tasks_ran": 0,
+    "status": "GREEN",
+    "tasks_ran": 2,
     "tasks_failed": 0,
-    "duration_sec": 0.05281640400062315,
-    "ts": "2026-07-03T17:57:08.931099+00:00",
+    "duration_sec": 15.77985062800144,
+    "ts": "2026-07-03T19:58:08.329772+00:00",
     "error": "",
     "consecutive_failures": 0
   },
@@ -102,8 +102,8 @@
     "status": "GREEN",
     "tasks_ran": 1,
     "tasks_failed": 0,
-    "duration_sec": 0.08970977699937066,
-    "ts": "2026-07-03T19:56:52.530030+00:00",
+    "duration_sec": 0.12325017100010882,
+    "ts": "2026-07-03T20:02:54.909544+00:00",
     "error": "",
     "consecutive_failures": 0
   }

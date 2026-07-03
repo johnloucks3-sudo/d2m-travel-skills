@@ -1,18 +1,5 @@
 [
   {
-    "ts": "2026-07-03T11:59:32.925067-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 5,
-    "client_alerts": 4,
-    "details": [
-      "regent_cookies: valid",
-      "regent_cookies_oa: valid",
-      "gmail_token: valid",
-      "perx_cookies: expired",
-      "room_res_cookies: expired"
-    ]
-  },
-  {
     "ts": "2026-07-03T12:04:27.020213-06:00",
     "event": "credentials_health_check",
     "alert_count": 5,
@@ -391,6 +378,20 @@
   },
   {
     "ts": "2026-07-03T13:54:39.302360-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 6,
+    "client_alerts": 5,
+    "details": [
+      "regent_cookies: valid",
+      "regent_cookies_oa: valid",
+      "gmail_token: valid",
+      "johnloucks3_token: valid",
+      "perx_cookies: expired",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-03T13:59:40.216054-06:00",
     "event": "credentials_health_check",
     "alert_count": 6,
     "client_alerts": 5,
