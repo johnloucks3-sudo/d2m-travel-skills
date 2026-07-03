@@ -23,6 +23,7 @@ Chat commands (subject only, no Haiku needed):
     [WING] ABORT <task-id>    — or —  Hale, abort RELAY-XXXXXXXX
     [WING] BLACKBOARD         — or —  Hale, blackboard
     [WING] BRIEF              — or —  Hale, brief
+    [WING] SEARCH <query>     — or —  Hale, search <query>
 
 Thread Continuation (reply to any Wing email to stay in the same chain):
     Reply APPROVE             — releases a HARLAN-gated task
@@ -416,12 +417,36 @@ def _chat_brief(_args: str) -> str:
         return content[:3000]
     return "hale_brief.md not found. Run morning brief generation first."
 
+def _chat_search(query: str) -> str:
+    if not query:
+        return "Usage: [WING] SEARCH <your query>\nExample: Hale, search Westbrook balcony preference"
+    try:
+        import sys as _sys
+        _root = "/home/john/Thunderbird"
+        if _root not in _sys.path:
+            _sys.path.insert(0, _root)
+        from core.memory.qdrant_memory import QdrantMemorySystem
+        mem = QdrantMemorySystem()
+        results = mem.search_memories(query, top_k=5)
+        if not results:
+            return f"No Wing memory found for: {query}"
+        lines = [f"Wing memory search: **{query}**\n"]
+        for i, r in enumerate(results, 1):
+            src = r.get('source', r.get('filepath', 'unknown'))
+            score = r.get('score', r.get('relevance', 0))
+            text = r.get('text', r.get('content', r.get('chunk', '')))[:300]
+            lines.append(f"{i}. [{src}] (score: {score:.3f})\n{text}\n")
+        return "\n".join(lines)
+    except Exception as exc:
+        return f"Search failed: {exc}"
+
 CHAT_HANDLERS = {
     "STATUS":     _chat_status,
     "LIST":       _chat_list,
     "ABORT":      _chat_abort,
     "BLACKBOARD": _chat_blackboard,
     "BRIEF":      _chat_brief,
+    "SEARCH":     _chat_search,
 }
 
 def detect_chat_command(subject: str):
@@ -534,6 +559,26 @@ def dispatch(email: dict, parsed: dict, task_id: str) -> None:
     else:  # EXEC
         result = execute_exec_task(intent, email["body"])
         _db_update(task_id, "completed", result=result)
+
+    # best-effort embed task result into Qdrant (non-blocking)
+    try:
+        import sys as _sys
+        _root = "/home/john/Thunderbird"
+        if _root not in _sys.path:
+            _sys.path.insert(0, _root)
+        from core.memory.qdrant_memory import QdrantMemorySystem as _QMS
+        _mem = _QMS()
+        import tempfile as _tf, os as _os
+        _text = f"# Email C2 Task Result\ntask_id: {task_id}\ncontent: {intent[:500]}\nresult: {result[:1000] if result else 'none'}"
+        with _tf.NamedTemporaryFile(mode='w', suffix='.md', delete=False, prefix='ec2_result_') as _f:
+            _f.write(_text)
+            _tmp = _f.name
+        try:
+            _mem.embed_new_memory(_tmp)
+        finally:
+            _os.unlink(_tmp)
+    except Exception:
+        pass
 
     elapsed = time.time() - t_start
     plain = f"{task_id} [{gate}]\n\n{result}\n\nElapsed: {elapsed:.1f}s"

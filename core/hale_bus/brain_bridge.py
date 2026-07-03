@@ -39,6 +39,35 @@ VALID_LANES   = {"cc", "oc", "any"}
 VALID_STATUSES = {"pending", "claimed", "complete", "blocked", "failed"}
 
 
+# ── Qdrant semantic layer (lazy import) ────────────────────────────────────────
+
+def _qdrant_embed_task(task: dict) -> None:
+    """Best-effort embed a brain_bridge task into Qdrant. Silent on failure."""
+    try:
+        import sys as _sys
+        _root = str(__file__).split('core/')[0]
+        if _root not in _sys.path:
+            _sys.path.insert(0, _root)
+        from core.memory.qdrant_memory import QdrantMemorySystem
+        mem = QdrantMemorySystem()
+        import tempfile, os
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, prefix='bb_task_') as f:
+            f.write(f"# Brain Bridge Task: {task.get('title','')}\n\n")
+            f.write(f"task_id: {task.get('id','')}\n")
+            f.write(f"lane: {task.get('lane','')}\n")
+            f.write(f"priority: {task.get('priority','')}\n")
+            f.write(f"status: {task.get('status','')}\n\n")
+            f.write(task.get('description', ''))
+            tmp = f.name
+        try:
+            mem.embed_new_memory(tmp)
+        finally:
+            os.unlink(tmp)
+    except Exception as _e:
+        import logging
+        logging.getLogger("brain_bridge").debug("Qdrant embed skipped: %s", _e)
+
+
 # ── helpers ────────────────────────────────────────────────────────────────────
 
 def _now() -> str:
@@ -120,8 +149,72 @@ class BrainBridge:
             "created_at": _now(),
         }
         board["meta"]["last_updated"] = _now()
+        task = board["tasks"][tid]
         _save(board, fd)
+        _qdrant_embed_task(task)
         return tid
+
+    def search_tasks(self, query: str, top_k: int = 10) -> list[dict]:
+        """Semantic search across brain_bridge tasks via Qdrant. Degrades gracefully if Qdrant down."""
+        try:
+            import sys as _sys
+            _root = str(__file__).split('core/')[0]
+            if _root not in _sys.path:
+                _sys.path.insert(0, _root)
+            from core.memory.qdrant_memory import QdrantMemorySystem
+            mem = QdrantMemorySystem()
+            raw = mem.search_memories(f"brain bridge task: {query}", top_k=top_k)
+            # post-filter to brain_bridge task chunks (source filename starts with bb_task_)
+            results = [r for r in raw if 'bb_task_' in r.get('source', '') or 'brain_bridge' in r.get('source', '').lower()]
+            # On first successful search after a failure, backfill any missing tasks
+            self._backfill_missing_tasks()
+            return results
+        except Exception as _e:
+            import logging
+            logging.getLogger("brain_bridge").debug("Qdrant search_tasks failed: %s", _e)
+            return []
+
+    def _backfill_missing_tasks(self) -> None:
+        """
+        Reconciliation: On first successful Qdrant connect after outage,
+        re-embed any tasks not yet in the index.
+        Silent on failure — best-effort operation.
+        """
+        try:
+            import sys as _sys
+            _root = str(__file__).split('core/')[0]
+            if _root not in _sys.path:
+                _sys.path.insert(0, _root)
+            from core.memory.qdrant_memory import QdrantMemorySystem
+
+            # Load all tasks from board
+            board = _load()
+            all_tasks = list(board["tasks"].values())
+
+            if not all_tasks:
+                return
+
+            mem = QdrantMemorySystem()
+
+            # For each task, try a semantic search to see if it's in the index
+            # If not found, re-embed it
+            for task in all_tasks:
+                try:
+                    task_query = f"brain bridge task: {task.get('id')} {task.get('title')}"
+                    found = mem.search_memories(task_query, top_k=1)
+                    # Check if the task_id appears in any result
+                    task_id = task.get('id')
+                    is_indexed = any(task_id in str(r.get('source', '')) for r in found)
+
+                    if not is_indexed:
+                        # Re-embed this task
+                        _qdrant_embed_task(task)
+                except Exception:
+                    # Silent on individual failures — keep trying other tasks
+                    pass
+        except Exception:
+            # Silent on backfill failure — don't block Qdrant operations
+            pass
 
     def claim(self, lane: str, agent: str) -> Optional[dict]:
         """
@@ -274,6 +367,10 @@ def _cli():
     s = sub.add_parser("status")
     s.add_argument("task_id")
 
+    sr = sub.add_parser("search")
+    sr.add_argument("query")
+    sr.add_argument("--top-k", type=int, default=10)
+
     pl = sub.add_parser("plan")
     pl.add_argument("json_file")
 
@@ -319,6 +416,18 @@ def _cli():
     elif args.cmd == "status":
         t = bb.get(args.task_id)
         print(json.dumps(t, indent=2) if t else f"Not found: {args.task_id}")
+
+    elif args.cmd == "search":
+        results = bb.search_tasks(args.query, top_k=args.top_k)
+        if not results:
+            print(f"No results for: {args.query}")
+        else:
+            print(f"Found {len(results)} results:")
+            for r in results:
+                source = r.get('source', 'unknown')
+                score = r.get('score', 0)
+                text = r.get('text', '')[:100]
+                print(f"  {source} (score: {score:.3f}) — {text}...")
 
     elif args.cmd == "plan":
         plan = json.loads(Path(args.json_file).read_text())

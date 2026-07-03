@@ -112,12 +112,12 @@
     ]
   },
   "mcp": {
-    "qdrant": {
+    "thunderbird-qdrant": {
       "type": "local",
-      "command": ["uvx", "mcp-server-qdrant"],
+      "command": ["python3", "/home/john/Thunderbird/core/memory/qdrant_mcp_server.py"],
       "environment": {
-        "QDRANT_URL": "http://127.0.0.1:6333",
-        "COLLECTION_NAME": "thunderbird_memories"
+        "QDRANT_HOST": "localhost",
+        "QDRANT_PORT": "6333"
       },
       "enabled": true
     }

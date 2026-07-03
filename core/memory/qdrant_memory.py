@@ -121,7 +121,7 @@ class QdrantMemorySystem:
     def __init__(self):
         _load_env()
         self._embedder = TextEmbedding(model_name=EMBEDDING_MODEL)
-        self.qdrant = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+        self.qdrant = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT, timeout=120)
         self._ensure_collection()
 
     # -- Collection setup ---------------------------------------------------

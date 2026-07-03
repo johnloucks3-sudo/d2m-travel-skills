@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-02",
+  "updated": "2026-07-03",
   "_doc": "Critical Infrastructure registry. This table IS the razor-sharp policy (SO_CI_RAZOR_SHARP_20260620.md). RAZOR_SHARP iff probe==GREEN AND age(last_verified)<currency_window_hours AND age(last_reeval)<reeval_cadence_days. REPLACE per replacement_policy (chronic fail/latency). Owners: id=ELON(discovery), access=Dembe, gate=Sterling, keeper=Whetstone(currency+updating). Hale has standing authority to direct refresh/revision/replacement immediately (only spend reaches Commander). Zero standing workarounds: active_workaround must be logged + burned down.",
   "replacement_policy": {
     "_doc": "A CI tool -> REPLACE (ELON nominates replacement, Whetstone integrates, old tool -> graveyard) when ANY trigger fires. Failure = probe/op not-ok or timed out, or an active_workaround in place.",
@@ -1040,6 +1040,22 @@
       "consecutive_failures": 0,
       "systemd_unit": "d2m-litellm-gateway.service",
       "notes": "Must be running for cc-fleet Groq/Cerebras. Restarted 2026-07-02 after 3-day outage (Jun 29 silent death)."
+    },
+    {
+      "id": "qdrant-memory",
+      "name": "qdrant-memory",
+      "description": "Thunderbird Wing semantic memory (Qdrant + FastEmbed)",
+      "probe_url": "http://localhost:6333/healthz",
+      "probe_collection": "http://localhost:6333/collections/thunderbird_memories",
+      "dull_threshold": 3,
+      "red_threshold_days": 7,
+      "owner": "Sterling",
+      "currency_owner": "Whetstone",
+      "added": "2026-07-03",
+      "note": "Weekly safety-net reindex via d2m-qdrant-reindex.timer",
+      "status": "unknown",
+      "last_verified": null,
+      "last_reeval": null
     }
   ],
   "accountable_owner": "hale",
