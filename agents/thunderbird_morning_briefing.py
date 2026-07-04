@@ -266,12 +266,30 @@ def fetch_anchor_dates_upcoming() -> dict:
             anchors = compute_anchors(
                 bk["booking_date"], bk["embark_date"], bk["disembark_date"],
                 bk["fpd"], bk.get("hard_dates"), key,
+                fpd_status=bk.get("fpd_status"),
             )
             all_anchors[key] = anchors
         return scan_all_bookings_due(all_anchors)
     except Exception as e:
         logger.error(f"Anchor dates fetch failed: {e}")
         return {}
+
+
+def fetch_heartbeat_findings() -> dict:
+    """Read the latest hale_heartbeat_scan.py results — overdue suspenses,
+    aging P0/P1 missions, stale CI tools. This is the validated, low-noise
+    process layer built 2026-07-04; it is the PRIMARY signal for 'what needs
+    the Commander's attention' going forward, ahead of the legacy anchor-date
+    system (which has its own, separately-tracked data-staleness issues —
+    see MISSION-1540)."""
+    p = THUNDERBIRD_DIR / "OpsCenter" / "state" / "heartbeat_scan_latest.json"
+    if not p.exists():
+        return {"findings": [], "scanned_at": None}
+    try:
+        return json.loads(p.read_text())
+    except (json.JSONDecodeError, OSError) as e:
+        logger.error(f"Heartbeat findings fetch failed: {e}")
+        return {"findings": [], "scanned_at": None}
 
 
 # ---------------------------------------------------------------------------
@@ -490,6 +508,7 @@ def build_executive_summary(
     rss_direct=None,
     recon_line: str = "",
     product_digest: str = "",
+    heartbeat: dict = None,
 ) -> dict:
     """Build counts and highlights for the exec summary banner."""
     # Count new items (after dedup)
@@ -505,11 +524,30 @@ def build_executive_summary(
     due_today = len(anchor_report.get("due_today", []))
     due_week = len(anchor_report.get("due_this_week", []))
 
-    # Determine alert level
-    if overdue > 0 or due_today > 0:
+    # Heartbeat scan counts — the validated process layer (2026-07-04). Overdue
+    # suspenses are the primary trigger the Commander asked to see on every
+    # login; they lead the banner ahead of the legacy anchor system.
+    heartbeat = heartbeat or {}
+    hb_findings = heartbeat.get("findings", [])
+    overdue_suspenses = [f for f in hb_findings if f.get("category") == "overdue_suspense"]
+    aging_missions = [f for f in hb_findings if f.get("category") == "aging_mission"]
+    stale_ci = [f for f in hb_findings if f.get("category") == "stale_ci_tool"]
+
+    # Determine alert level — overdue suspenses take priority (they're the
+    # validated, deliberately-deferred items the Commander asked to review),
+    # then anchor-date overdue/due-today, then aging missions as a lower tier.
+    if overdue_suspenses:
+        alert_level = "RED"
+        alert_icon = "&#9888;"
+        alert_text = f"{len(overdue_suspenses)} OVERDUE SUSPENSE{'S' if len(overdue_suspenses) != 1 else ''} TO REVIEW"
+    elif overdue > 0 or due_today > 0:
         alert_level = "RED"
         alert_icon = "&#9888;"  # warning triangle
         alert_text = f"{overdue + due_today} ACTION ITEMS NEED ATTENTION"
+    elif aging_missions:
+        alert_level = "GOLD"
+        alert_icon = "&#9733;"
+        alert_text = f"{len(aging_missions)} P0/P1 mission(s) aging"
     elif due_week > 0:
         alert_level = "GOLD"
         alert_icon = "&#9733;"  # star
@@ -530,6 +568,10 @@ def build_executive_summary(
         "overdue": overdue,
         "due_today": due_today,
         "due_week": due_week,
+        "overdue_suspenses": overdue_suspenses,
+        "aging_missions": aging_missions,
+        "stale_ci": stale_ci,
+        "heartbeat_scanned_at": heartbeat.get("scanned_at"),
         "alert_level": alert_level,
         "alert_icon": alert_icon,
         "alert_text": alert_text,
@@ -831,6 +873,45 @@ def render_briefing_html(
             bkey_text = f'<a href="{dossier_link}" style="color:#7eb8ff;text-decoration:underline;">{bkey}</a>' if dossier_link else bkey
             anchor_bullets.append(f'{prefix} {item.get("label","")} — {bkey_text}')
 
+    # ── Heartbeat / Validation card (2026-07-04) ──
+    # Overdue suspenses, aging P0/P1, stale CI tools — from hale_heartbeat_scan.py.
+    # This is the validated, deliberately-built process layer; leads the brief
+    # ahead of the legacy anchor-date system per Commander directive.
+    overdue_susp = summary.get("overdue_suspenses", [])
+    aging_miss = summary.get("aging_missions", [])
+    stale_ci_items = summary.get("stale_ci", [])
+
+    def _heartbeat_expanded() -> str:
+        sections = []
+        if overdue_susp:
+            rows = "".join(
+                f'<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
+                f'<span style="color:#ff4444;font-weight:700;">{f["what"]}</span><br>'
+                f'<span style="color:#6b7c99;font-size:11px;">{f["action"]}</span></div>'
+                for f in overdue_susp
+            )
+            sections.append(f'<div style="margin-bottom:14px;"><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Overdue Suspenses — review these</div>{rows}</div>')
+        if aging_miss:
+            rows = "".join(
+                f'<div style="padding:6px 0;color:#c8d0dc;font-size:12px;">{f["what"]}</div>'
+                for f in aging_miss
+            )
+            sections.append(f'<div style="margin-bottom:14px;"><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Aging P0/P1 Missions</div>{rows}</div>')
+        if stale_ci_items:
+            rows = "".join(
+                f'<div style="padding:4px 0;color:#8a9ab5;font-size:11px;">{f["what"]}</div>'
+                for f in stale_ci_items
+            )
+            sections.append(f'<div><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Stale CI Tools</div>{rows}</div>')
+        scanned = summary.get("heartbeat_scanned_at")
+        footer = f'<div style="margin-top:10px;color:#4a5568;font-size:10px;">Last scan: {scanned or "never run"}</div>'
+        return ("\n".join(sections) if sections else '<p style="color:#6b7c99;">Nothing crossed threshold — genuinely clear.</p>') + footer
+
+    heartbeat_bullets = [f'🔴 {f["what"]}' for f in overdue_susp[:2]]
+    heartbeat_bullets += [f'🟡 {f["what"]}' for f in aging_miss[:2]]
+    if not heartbeat_bullets:
+        heartbeat_bullets = ["Nothing crossed threshold — genuinely clear"]
+
     # ── Intel Crew summary ──
     crew_expanded = ""
     if intel_crew_report:
@@ -892,15 +973,24 @@ function toggle(id) {{
   </div>
 
   <div class="stat-bar">
+    <div class="stat"><span class="sn">{len(summary.get("overdue_suspenses", []))}</span><div class="sl">Suspenses</div></div>
     <div class="stat"><span class="sn">{summary["overdue"] + summary["due_today"]}</span><div class="sl">Actions</div></div>
     <div class="stat"><span class="sn">{summary["due_week"]}</span><div class="sl">This Week</div></div>
     <div class="stat"><span class="sn">{len(rss_direct) if rss_direct else 0}</span><div class="sl">Live Intel</div></div>
-    <div class="stat"><span class="sn">{len(by_cat)}</span><div class="sl">Categories</div></div>
     <div class="stat"><span class="sn">{summary["total_pricing"]}</span><div class="sl">Fares</div></div>
   </div>
 
   <div class="cards">
 """
+
+    # ── Heartbeat / Validation Card (leads — this is what Commander asked
+    #    to see on every login: overdue suspenses first) ──
+    html += _render_card_section(
+        "⚡", "Overdue Suspenses & Process Validation", "heartbeat",
+        heartbeat_bullets,
+        _heartbeat_expanded(),
+        accent="#ff4444" if overdue_susp else "#44c8c8"
+    )
 
     # ── Anchor Dates Card ──
     html += _render_card_section(
@@ -1458,12 +1548,19 @@ def run_briefing(preview: bool = False, weekly: bool = False):
     except Exception as e:
         logger.debug(f"Temporal intelligence skipped: {e}")
 
+    # Fetch heartbeat scan findings — overdue suspenses, aging P0/P1, stale CI
+    # (the validated process layer built 2026-07-04; primary login signal)
+    logger.info("Fetching heartbeat scan findings...")
+    heartbeat = fetch_heartbeat_findings()
+    logger.info(f"  {len(heartbeat.get('findings', []))} findings, scanned {heartbeat.get('scanned_at', 'never')}")
+
     # Build executive summary
     summary = build_executive_summary(
         commander_log, intel_log, pricing, tech_news, fare_log, anchor_report, today,
         rss_direct=rss_direct,
         recon_line=recon_line,
         product_digest=product_digest,
+        heartbeat=heartbeat,
     )
 
     # Scan overnight routine outputs

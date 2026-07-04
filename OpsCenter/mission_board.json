@@ -23002,6 +23002,26 @@
       ],
       "created_at": "2026-07-04T21:44:42.584077+00:00",
       "updated_at": "2026-07-04T21:44:42.584081+00:00"
+    },
+    {
+      "id": "MISSION-1540",
+      "title": "Harlan: verify + correct stale fpd_status in KNOWN_BOOKINGS (42 false-positive AM brief items)",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "harlan",
+      "description": "Commander asked 'why does my AM report show 70+ suspenses' 2026-07-04. Root cause: core/scheduling/thunderbird_anchor_dates.py::KNOWN_BOOKINGS is a hand-maintained, hardcoded Python dict, never synced against TESS/portal/dossier. Two bugs found and code-fixed same day: (1) no 'trip already sailed' exclusion -- 33/78 overdue items were for 3 bookings whose cruises had already completed (McLeod Silversea disembarked YESTERDAY, Loucks + Westbrook Silversea disembarked 2026-05-11) -- FIXED, code now skips anchors once disembark_date < today. (2) no fpd_status=PAID exclusion for payment-category reminders -- FIXED for bookings already marked PAID in the dict (McLeod). REMAINING 45 overdue items are payment-lifecycle reminders (FPD-21/-14/-7/final/confirm) for Furlow/Ely-Darrow/Nichols (24) and Kuklinski/Morton (18) -- KNOWN_BOOKINGS hardcodes fpd_status='PENDING' for all 6, but THIS SESSION's own hale_brief.md CLIENT WIRE table already shows both groups as PAID. Did not silently overwrite KNOWN_BOOKINGS based on inference (Pipeline Integrity Rule 5 -- financial facts trace to portal/TESS/dossier, not a memo or my own assumption). NEEDS: Harlan verifies actual FPD payment status per booking against portal/TESS, corrects KNOWN_BOOKINGS.fpd_status for the 6 affected bookings, and recommends whether KNOWN_BOOKINGS should be retired in favor of a live TESS/dossier query (architecture fix) vs. kept as a periodically-synced snapshot (process fix).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        {
+          "ts": "2026-07-04T21:55:37.618737+00:00",
+          "entry": "Created from Commander's 'why 70+ suspenses' question 2026-07-04. Code fix already applied for the unambiguous half (trip-completed exclusion); this mission covers the financial-fact verification half."
+        }
+      ],
+      "created_at": "2026-07-04T21:55:37.618753+00:00",
+      "updated_at": "2026-07-04T21:55:37.618757+00:00"
     }
   ],
   "suspense_watch": [

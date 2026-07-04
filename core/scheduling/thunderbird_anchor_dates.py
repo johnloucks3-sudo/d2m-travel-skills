@@ -80,6 +80,7 @@ def compute_anchors(
     final_payment_date: date,
     hard_dates: Optional[dict] = None,
     booking_label: str = "",
+    fpd_status: Optional[str] = None,
 ) -> list[dict]:
     """
     Compute all anchor dates for a booking.
@@ -118,6 +119,8 @@ def compute_anchors(
             "reminder_days": reminders,
             "source": "computed",
             "booking": booking_label,
+            "disembark_date": disembark_date,
+            "fpd_status": fpd_status,
         })
 
     # Hard dates from invoices
@@ -139,6 +142,8 @@ def compute_anchors(
                 "reminder_days": [14, 7, 1],
                 "source": "invoice",
                 "booking": booking_label,
+                "disembark_date": disembark_date,
+                "fpd_status": fpd_status,
             })
 
     # Sort chronologically
@@ -180,9 +185,25 @@ def scan_all_bookings_due(all_booking_anchors: dict, today: date = None) -> dict
             adate = a["date"]
             entry = {**a, "date": adate.isoformat()}
 
+            # Trip already happened — every lifecycle milestone for this booking
+            # (embarkation day, cancel-penalty tiers, dining-opens, etc.) is
+            # permanently "in the past" once disembark_date passes. That's not
+            # an overdue action, the trip is just over. (2026-07-04: this was
+            # the single biggest false-positive source — 33/78 "overdue" items
+            # were for 3 bookings whose cruises had already sailed.)
+            disembark = a.get("disembark_date")
+            if disembark and disembark < today:
+                continue
+
             if adate < today:
                 # Only flag overdue if it's a milestone or payment
                 if a["category"] in ("payment", "milestone", "documents", "deliverable"):
+                    # Booking is confirmed PAID -- payment-lifecycle reminders
+                    # (FPD-21/-14/-7, final payment, confirm-received) are noise
+                    # once the money is actually in. Non-payment categories
+                    # (documents/milestone/deliverable) still apply regardless.
+                    if a["category"] == "payment" and a.get("fpd_status") == "PAID":
+                        continue
                     report["overdue"].append(entry)
             elif adate == today:
                 report["due_today"].append(entry)
