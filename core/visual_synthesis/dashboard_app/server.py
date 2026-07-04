@@ -572,6 +572,10 @@ app.mount("/training", StaticFiles(directory=str(ROOT / "Bryana"), html=True), n
 app.mount("/intel", StaticFiles(directory=str(ROOT / "intel_web"), html=True), name="intel")
 app.mount("/cruises", StaticFiles(directory=str(ROOT / "cruises_web"), html=True), name="cruises")
 app.mount("/buddy", StaticFiles(directory="/srv/www/htdocs/buddy", html=True), name="buddy")
+# American Spirit — Commander's family piece (2026-07-04). Public by design: the
+# claude.ai artifact link in the sent family email is login-walled; this is the
+# open replacement his family can actually reach.
+app.mount("/american-spirit", StaticFiles(directory=str(ROOT / "american_spirit_web"), html=True), name="american_spirit")
 
 
 if __name__ == "__main__":
