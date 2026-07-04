@@ -201,19 +201,33 @@ def _save_dedup(dedup: dict) -> None:
     ALERT_DEDUP_FILE.write_text(json.dumps(dedup, indent=2), encoding="utf-8")
 
 
-def _is_already_sent_today(dedup: dict, key: str, level: str) -> bool:
-    """Return True if this alert key+level was already Telegram-sent today."""
+def _is_already_sent_today(dedup: dict, key: str, level: str, current_price: float = None) -> bool:
+    """Return True if this exact quote was already Telegram-sent.
+
+    Fixed 2026-07-04 (Commander: "same quotes each day... I only need to see
+    it once until it changes"): this used to re-send once every calendar day
+    regardless of whether the price had moved at all — a date-based cooldown,
+    same bug class as the staff-tasking/credentials-health fixes today. Now
+    compares against the LAST ALERTED PRICE for this key+level; only re-alerts
+    when the price has actually moved (>$1), not when the day rolls over.
+    """
     entry = dedup.get(f"{key}:{level}")
     if not entry:
         return False
-    sent_date = entry.get("date", "")
-    today = datetime.now().strftime("%Y-%m-%d")
-    return sent_date == today
+    last_price = entry.get("last_price")
+    if last_price is None:
+        # legacy dedup entry from before this fix — treat as stale, allow one fresh alert
+        return False
+    if current_price is None:
+        return True
+    return abs(last_price - current_price) < 1.0
 
 
-def _mark_sent(dedup: dict, key: str, level: str) -> None:
+def _mark_sent(dedup: dict, key: str, level: str, current_price: float = None) -> None:
     today = datetime.now().strftime("%Y-%m-%d")
-    dedup[f"{key}:{level}"] = {"date": today, "ts": datetime.now().isoformat()}
+    dedup[f"{key}:{level}"] = {
+        "date": today, "ts": datetime.now().isoformat(), "last_price": current_price,
+    }
 
 
 def _queue_for_eod(signals: list[dict]) -> None:
@@ -624,6 +638,12 @@ def _build_telegram_message(signals: list[dict], watches_run: int) -> str:
         ]
 
     lines.append("<i>— Intel (Dembe) · Thunderbird Perx Watch</i>")
+    # Commander 2026-07-04: "I need a visible verification loop... I only need
+    # to see it once until it changes." This stamp marks that the numbers above
+    # were pulled from a live scan this run, not carried forward/guessed —
+    # and that this exact price is new since the last alert (the dedup above
+    # is what makes that claim true, not decoration).
+    lines.append("<i>CHIEF SILVER — verified this run, new price since last alert</i>")
     return "\n".join(l for l in lines if l != "  ")
 
 
@@ -710,20 +730,23 @@ def run_perx_watch_cycle(
         _queue_for_eod(watch_signals)
         log.info("WATCH signals (%d) queued to EOD report — no Telegram", len(watch_signals))
 
-    # SIGNAL/URGENT → Telegram, deduped: one ping per key per day
+    # SIGNAL/URGENT → Telegram, one-and-done: only when the price actually moved
     if actionable and not dry_run:
         dedup = _load_dedup()
-        new_alerts = [s for s in actionable if not _is_already_sent_today(dedup, s["key"], s["level"])]
+        new_alerts = [
+            s for s in actionable
+            if not _is_already_sent_today(dedup, s["key"], s["level"], s.get("current_price"))
+        ]
         if new_alerts:
             msg = _build_telegram_message(new_alerts, watches_run)
             sent = _tg_send(msg)
             if sent:
                 for s in new_alerts:
-                    _mark_sent(dedup, s["key"], s["level"])
+                    _mark_sent(dedup, s["key"], s["level"], s.get("current_price"))
                 _save_dedup(dedup)
-            log.info("Telegram alert sent (%d new actionable signals): %s", len(new_alerts), sent)
+            log.info("Telegram alert sent (%d new/changed actionable signals): %s", len(new_alerts), sent)
         else:
-            log.info("All SIGNAL/URGENT signals already sent today — skipping Telegram")
+            log.info("All SIGNAL/URGENT signals unchanged from last alert — skipping Telegram")
     elif actionable and dry_run:
         log.info("dry-run: %d actionable signals would have been sent", len(actionable))
 

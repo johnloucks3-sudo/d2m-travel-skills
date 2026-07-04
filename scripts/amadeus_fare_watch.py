@@ -35,8 +35,23 @@ ROOT = Path("/home/john/Thunderbird")
 ENV_FILE = ROOT / ".env"
 TOKEN_CACHE = ROOT / "creds" / "amadeus_token_cache.json"
 FARE_DB = ROOT / "core" / "fare_watch" / "fare_watch.db"
+ALERT_DEDUP_FILE = ROOT / "OpsCenter" / "state" / "amadeus_fare_alert_dedup.json"
 AMADEUS_AUTH = "https://test.api.amadeus.com/v1/security/oauth2/token"
 AMADEUS_SEARCH = "https://test.api.amadeus.com/v2/shopping/flight-offers"
+
+
+def _load_alert_dedup() -> dict:
+    if ALERT_DEDUP_FILE.exists():
+        try:
+            return json.loads(ALERT_DEDUP_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _save_alert_dedup(dedup: dict) -> None:
+    ALERT_DEDUP_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ALERT_DEDUP_FILE.write_text(json.dumps(dedup, indent=2), encoding="utf-8")
 
 
 # ── credentials ──────────────────────────────────────────────────────────────
@@ -328,17 +343,35 @@ def run_all_watches() -> int:
                 "trigger": alert_triggered,
             })
 
-    # Report
+    # Report — one-and-done (Commander 2026-07-04: "same quotes each day...
+    # I only need to see it once until it changes"). alert_triggered above is
+    # a LEVEL check (still below/above threshold), which stays true run after
+    # run for a stable fare — same bug class fixed today in perx_intel_monitor.py.
+    # Only actually send when the triggering price has moved since the last
+    # alert for that watch id.
     if alerts:
-        lines = ["⚡ *FARE ALERT — Amadeus*"]
+        dedup = _load_alert_dedup()
+        new_alerts = []
         for a in alerts:
-            lines.append(
-                f"• *{a['label'][:60]}*\n"
-                f"  ${a['prev']:.0f} → ${a['new']:.0f}/pp ({a['pct']:+.1f}%) — {a['trigger']}"
-            )
-        msg = "\n".join(lines)
-        print("\n" + msg)
-        _send_telegram_alert(msg)
+            last = dedup.get(str(a["id"]), {}).get("last_price")
+            if last is None or abs(last - a["new"]) >= 1.0:
+                new_alerts.append(a)
+
+        if new_alerts:
+            lines = ["⚡ *FARE ALERT — Amadeus*"]
+            for a in new_alerts:
+                lines.append(
+                    f"• *{a['label'][:60]}*\n"
+                    f"  ${a['prev']:.0f} → ${a['new']:.0f}/pp ({a['pct']:+.1f}%) — {a['trigger']}"
+                )
+                dedup[str(a["id"])] = {"last_price": a["new"], "ts": now_iso}
+            lines.append("_CHIEF SILVER — verified this run, new price since last alert_")
+            msg = "\n".join(lines)
+            print("\n" + msg)
+            _send_telegram_alert(msg)
+            _save_alert_dedup(dedup)
+        else:
+            print(f"\n{len(alerts)} watch(es) still past threshold, price unchanged since last alert — no re-send")
         return 2  # rc=2 = alerts found (supertimer allowed_rcs includes 2)
 
     if errors:

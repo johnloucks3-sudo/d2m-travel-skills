@@ -43,6 +43,21 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 FARE_WATCHES_FILE = TB / "core" / "travel" / "data" / "fare_watches.json"  # consolidated single store (2026-06-16; was DATA_DIR)
+ALERT_DEDUP_FILE = TB / "OpsCenter" / "state" / "cruise_fare_alert_dedup.json"
+
+
+def _load_alert_dedup() -> dict:
+    if ALERT_DEDUP_FILE.exists():
+        try:
+            return json.loads(ALERT_DEDUP_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _save_alert_dedup(dedup: dict) -> None:
+    ALERT_DEDUP_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ALERT_DEDUP_FILE.write_text(json.dumps(dedup, indent=2), encoding="utf-8")
 LAST_CHECK_FILE = DATA_DIR / "fare_watches" / "last_check_cruise.json"
 LAST_CHECK_FILE.parent.mkdir(parents=True, exist_ok=True)
 
@@ -407,6 +422,7 @@ def _build_telegram_message(watch: Dict[str, Any], alerts: List[Dict], results: 
     lines.append("")
     lines.append(f"<i>Scanned: {', '.join(set(r.get('source', 'unknown').upper() for r in results if r.get('sailings')))}</i>")
     lines.append("<i>— A2 Dembe / Hale · Thunderbird Cruise Fare Watch</i>")
+    lines.append("<i>CHIEF SILVER — verified this run, new price since last alert</i>")
 
     return "\n".join(lines)
 
@@ -477,10 +493,30 @@ async def run_cruise_fare_watch_cycle(watch_id: Optional[str] = None) -> Dict[st
                     **alert
                 } for alert in alerts])
 
+                # ONE AND DONE (2026-07-04 — Commander: "same quotes each day...
+                # I only need to see it once until it changes"). _check_alerts
+                # is a threshold LEVEL check (price still below/above the bar),
+                # true again every run for a stable price — same bug class
+                # fixed today across the other fare-watch scripts. Only send
+                # when the price for this ship+source has actually moved.
+                dedup = _load_alert_dedup()
+                new_alerts = []
+                for alert in alerts:
+                    dkey = f"{watch_id}|{alert.get('ship')}|{alert.get('source')}"
+                    last = dedup.get(dkey, {}).get("last_price")
+                    if last is None or abs(last - alert.get("price_pp", 0)) >= 1.0:
+                        new_alerts.append(alert)
+                        dedup[dkey] = {"last_price": alert.get("price_pp"), "ts": datetime.now().isoformat()}
+
+                if new_alerts:
+                    _save_alert_dedup(dedup)
+                else:
+                    log.info("Watch %s: %d alert(s) unchanged from last send — skipping Telegram", watch_id, len(alerts))
+
                 # Send Telegram alert
                 token = _load_telegram_token()
-                if token:
-                    msg = _build_telegram_message(watch, alerts, scraped_results)
+                if token and new_alerts:
+                    msg = _build_telegram_message(watch, new_alerts, scraped_results)
                     sent = _send_telegram(token, msg)
                     log.info("Telegram alert sent: %s", sent)
                 else:
