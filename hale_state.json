@@ -124,26 +124,21 @@
       "status": "active"
     },
     {
-      "id": "MISSION-214",
-      "title": "Regent Portal On-Demand",
-      "priority": "P0",
-      "status": "in_progress"
-    },
-    {
-      "id": "MISSION-236",
-      "title": "Manual Regent OA re-authentication to restore B2B portal coverage",
-      "priority": "P1",
-      "status": "active"
-    },
-    {
       "id": "MISSION-317",
       "title": "Call United Group Desk \u2014 Spencer DEN-FCO 12-pax air quote",
       "priority": "P0",
+      "status": "active",
+      "note": "Scheduled Monday Jul 6 08:00 MT \u2014 holiday weekend, desk unstaffed today"
+    },
+    {
+      "id": "MISSION-1539",
+      "title": "Build real public homepage for d2mluxury.quest apex",
+      "priority": "P2",
       "status": "active"
     },
     {
-      "id": "MISSION-322",
-      "title": "Fix MISSION-SEC-01 \u2014 apex d2mluxury.quest DNS 525 error",
+      "id": "MISSION-1540",
+      "title": "Harlan: verify + correct stale fpd_status in KNOWN_BOOKINGS",
       "priority": "P1",
       "status": "active"
     }

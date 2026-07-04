@@ -2,6 +2,28 @@
 
 # OPENCODE HALE INIT — Key Protocols
 
+## ⚠️ MANDATORY SESSION STARTUP — HALE BUS (Standing Order 2026-06-24, enforced 2026-07-04)
+**Run before anything else:**
+```python
+from core.hale_bus.hale_bus_read import load_bus_at_startup
+load_bus_at_startup("opencode")
+```
+This loads inter-Hale state (open missions, active projects, alerts) written by other instances — Claude Code's checkpoint runs at session end. **At session end, write your own:**
+```python
+from core.hale_bus.hale_bus_write import checkpoint_session
+checkpoint_session("opencode")
+```
+Bus content is not a security perimeter (all instances read/write the same file) — no PII/secrets in it. Found 2026-07-04: OpenCode showed OFFLINE on the bus and this file had never referenced calling either function — fixed here.
+
+## ⚠️ DECISION MATRIX ON LOGIN (Commander directive 2026-07-04)
+Every session open, check `OpsCenter/state/heartbeat_scan_latest.json` (or run `python3 scripts/hale_heartbeat_scan.py`) for overdue suspenses, aging P0/P1 missions, and stale CI tools. Present decision-worthy findings via structured multiple-choice, one item per question — not a prose list. If genuinely zero findings, say so plainly.
+
+## ⚠️ HALE HEARTBEAT SCAN (built 2026-07-04)
+`scripts/hale_heartbeat_scan.py` — runs 4x/day via `hale-heartbeat.timer` (0300/0900/1500/2100 MT), zero-LLM, reads `overnight_ops_log.json` + `config/ci_registry.json` + `mission_board.json`. Every finding carries a `file` field (`file://` path to the most specific real source — a wrapped CI script, a client dossier match, or the mission board itself) for direct linking in any surfaced output. Quiet-exit if nothing crosses threshold.
+
+## ⚠️ ANCHOR-DATE SCANNER — KNOWN STALENESS ISSUE (found + partially fixed 2026-07-04)
+`core/scheduling/thunderbird_anchor_dates.py::KNOWN_BOOKINGS` is a hand-maintained, hardcoded dict — NOT synced with TESS/portal/dossier. Two bugs found: (1) no "trip already sailed" exclusion — FIXED, `compute_anchors()`/`scan_all_bookings_due()` now skip a booking's anchors once `disembark_date` has passed. (2) hardcoded `fpd_status` can be stale (says PENDING when actually PAID) — code now respects `fpd_status=="PAID"` when set, but the DATA itself needs Harlan's verification against portal/TESS (MISSION-1540, open). Do not trust `KNOWN_BOOKINGS.fpd_status` as ground truth without checking that mission's resolution first.
+
 ## D2M EMAIL TEMPLATE — HARD RULE (UPDATED 2026-06-25 — ALL EMAILS, NOT JUST CLIENTS)
 **Dark navy is the ONLY template for ALL emails to johnloucks3 — internal, personal, client, everything.**
 USAFA cream (#f7f3ea) / blue (#0000ff) are PERMANENTLY RETIRED across all contexts.
@@ -58,9 +80,9 @@ print(f"SENT: {result['id']}")
 - Config: `OpsCenter/eod_incubator_config.json` | Full SO: `standing_orders/SO_EOD_INCUBATOR_PROTOCOL_20260610.md`
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-03 16:10 MT -->
+<!-- Last sync: 2026-07-04 16:09 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-03 16:10 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-04 16:09 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
