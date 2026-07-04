@@ -40,3 +40,23 @@ Every one of these was **level-triggered** (re-fires every run while a condition
 
 ## STANDING QUESTION FOR SILVER TO CARRY
 Before any new persona/script/timer ships: **"When this condition is still true tomorrow, does it speak again, or does it stay quiet?"** If nobody can answer that in one sentence, it isn't ready.
+
+---
+
+## ENTRY 2026-07-04 (continued) — Full sweep tally, same session
+
+The pattern above turned out to be systemic, not four instances — twelve, once Silver went looking with the Commander's authority behind him. Full list, all fixed and committed same session:
+
+**Mission/inbox layer (first pass):** mission board dup-check, staff-tasking dedup, commander-directive self-noise filter, client-inquiry spam triage (89 items archived total), Gmail draft routing (d2mconcierge→johnloucks3), Gmail inbox-restore (47 messages recovered from silent archive), credentials-health false-alert thresholds, wing_page.py P2-suppress + dedup gate, draft-ready Telegram notice (default-on).
+
+**Second pass — two investigation agents dispatched, found 9 more:**
+- Two competing morning-brief pipelines emailing johnloucks3 at the same minute, daily → one silenced via `--local` flag (kept its `hale_brief.md` write, dropped the duplicate email).
+- `hale_decision_log_rollup.py` — regex never matched real entry format, sent false "0 decisions" ~2×/day for 2+ weeks. Worst offender: wrong data *and* duplicated.
+- `thunderbird_1730_nomination.py` — dead config key (`sectors_tonight`), frozen `gate_candidate`, no lock → up to 3 sends/day of "TBD".
+- `dembe_intel_sweep.py` — no dedup on the daily overdue-TP list.
+- Five scripts paging D2MC2C by calling `api.telegram.org` directly, bypassing wing_page.py entirely: `disk_pressure.py`, `blackboard_conflict_resolver.py`, `thunderbird_usage_monitor.py`, `hale_incident_router.py` (had a cooldown, not a one-time gate — same bug, shorter fuse), `portal_live_probe.py` (flagged worst of the five).
+- Flight/Perx/cruise fare-watch scripts (`amadeus_fare_watch.py`, `perx_intel_monitor.py`, `fare_watch_cruise_scanner.py`) — all three were threshold-LEVEL checks (still-below-the-bar, true every run) rather than crossing checks. Fixed to value-based dedup; each Telegram quote now carries `CHIEF SILVER — verified this run, new price since last alert` as the visible verification the Commander asked for.
+
+**Every single one of the twelve was the identical root cause.** Not twelve bugs. One bug, in twelve places, because nobody had ever asked the standing question above before shipping. That's the actual finding — the mechanism, not the count.
+
+**Mark:** three emoji attempts (⭐ star, 🪶 feather, 🎖️ medal) were each wrong for a specific stated reason before the Commander supplied the real Command Chief Insignia image. It lives at `storage/signatures/silver_mark.png` / `silver_mark_email.html` for HTML contexts; plain-text `CHIEF SILVER` for console/Telegram/logs. Never revert to an emoji placeholder.
