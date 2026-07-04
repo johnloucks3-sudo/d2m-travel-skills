@@ -413,11 +413,6 @@ def send_telegram_alerts(results: dict):
         except Exception:
             dedup_state = {}
 
-    # Clear dedup entries for anything no longer alerting (lets it re-fire fresh
-    # if the same credential breaks again later).
-    active_names = {a["name"] for a in client_alerts}
-    dedup_state = {k: v for k, v in dedup_state.items() if k.split("|", 1)[0] in active_names}
-
     new_alerts = []
     for a in client_alerts:
         key = f"{a['name']}|{a['status']}"
@@ -466,6 +461,29 @@ def print_summary(results: dict):
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 
+def _prune_dedup(results: dict):
+    """Clear dedup entries for anything no longer alerting, unconditionally,
+    every run — not just when send_telegram_alerts fires.
+
+    Fixed 2026-07-04 (flagged by fix-telegram-noise-batch2 during the same
+    session's portal_live_probe.py fix): the prune used to live inside
+    send_telegram_alerts(), which only runs when client_affecting_alerts is
+    non-empty. If ALL credentials recovered at once, the function never ran,
+    stale dedup keys lingered, and a later re-failure with the same
+    name+status would be wrongly suppressed as "already sent."
+    """
+    if not ALERT_DEDUP.exists():
+        return
+    try:
+        dedup_state = json.loads(ALERT_DEDUP.read_text())
+    except Exception:
+        return
+    active_names = {a["name"] for a in results["client_affecting_alerts"]}
+    pruned = {k: v for k, v in dedup_state.items() if k.split("|", 1)[0] in active_names}
+    if pruned != dedup_state:
+        ALERT_DEDUP.write_text(json.dumps(pruned, indent=2))
+
+
 def main():
     parser = argparse.ArgumentParser(description="Credentials health check")
     parser.add_argument("--quiet", action="store_true", help="Suppress Telegram alerts")
@@ -474,6 +492,7 @@ def main():
 
     results = run_check()
     save_state(results)
+    _prune_dedup(results)
 
     if args.json_out:
         print(json.dumps(results, indent=2))

@@ -411,16 +411,35 @@ def _render_incubator_section(cfg: dict) -> str:
     for sector in sectors[:3]:
         sector_rows += _bullet_row(f"&#x2192; {sector} &mdash; nightly scan")
 
-    # Gate line
-    if gate and gate.get("status") == "approved":
+    # Gate line — staleness-checked (2026-07-04, same fix as thunderbird_1730_nomination.py:
+    # this section used to render the same frozen gate_candidate every night since
+    # 2026-06-19 with no check for whether it was actually new). Reuses the sibling
+    # script's evaluate_gate() so both 1730 and 1800 agree on one fingerprint/first-seen
+    # record instead of tracking staleness twice.
+    gate_fresh = True
+    try:
+        from thunderbird_1730_nomination import evaluate_gate
+        gate_fresh, gate_updates = evaluate_gate(cfg, _mt_date_str())
+        if gate_updates:
+            cfg.update(gate_updates)
+            try:
+                EOD_CONFIG_PATH.write_text(json.dumps(cfg, indent=2))
+            except Exception as e:
+                logger.warning(f"eod_incubator_config gate-tracking write failed: {e}")
+    except Exception as e:
+        logger.warning(f"gate staleness check unavailable, showing gate as-is: {e}")
+
+    if gate and gate.get("status") == "approved" and gate_fresh:
         gate_line = _bullet_row(
             f'Gate: <strong>{gate.get("name","?")}</strong> &rarr; '
             f'{gate.get("owner","?")} build overnight &check;'
         )
-    elif gate:
+    elif gate and gate_fresh:
         gate_line = _bullet_row(
             f'Gate candidate: {gate.get("name","?")} &mdash; pending nomination at {nomination_time}'
         )
+    elif gate:
+        gate_line = _bullet_row(f'Gate: {gate.get("name","?")} &mdash; no change since last brief')
     else:
         gate_line = _bullet_row("Gate: Nothing passed tonight")
 
