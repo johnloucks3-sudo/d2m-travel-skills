@@ -1,0 +1,1349 @@
+Delivered-To: d2mconcierge@gmail.com
+Received: by 2002:a05:6a10:1110:b0:735:c3ec:8add with SMTP id r16csp1284574pxh;
+        Sat, 4 Jul 2026 11:29:55 -0700 (PDT)
+X-Received: by 2002:a05:651c:1472:b0:396:74ed:a7b1 with SMTP id 38308e7fff4ca-39b53bc88fdmr7649651fa.15.1783189795676;
+        Sat, 04 Jul 2026 11:29:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1783189795; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=j4xfufM/FNc0b4OsyLhxeDNBD0RQLwzly6eKuATpO9g05Yu77LXQZ2iLQQb4/C0W0D
+         GiB2RMCL+ntGNU+YocsPdSuW1gTJoZxImtWv1S0pPUnwXK980yCFavz3lU+tGaxgveCE
+         hP8TIa/7P3Sjiwr8OEgDdNub4wgL4jNsOWBHjVPKpJ/7Nln+p2VpPX261Gl53hQr++eh
+         d5J9RnBy4BKO6wT3Fe/a7tKGL8SF1vl2Rr7yjMr+PnuPc054PMF9Pu9Q6gQq4Dkj7WMQ
+         3IGOfMkW1L2AdLxJKjUvMZO26j66+9CZ5rOgu1OMzuSoZr+Fzt8gYVP/Kty1O8U9Oc2R
+         L4Tg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Z393yBvlqm0oKzMahRKkTLC4A+iXoRrVsxoAWQ4QIXE=;
+        fh=IfVh34amhx7/MisSB4SNioX6SvwcTIoDEYTWcVhx7Oo=;
+        b=QuIw5C9MApn40yqOgGIFAkP4PPFBm2koV8vwQ0ahZh0zO8U5Ja90LVtbAtORDTGaOW
+         bO9kGz/jhwCHHHtqtP31pV0NDv7HVUOFN1x595Lv8c6Kn9VQ0Q+jBxwlbhDkqnsEv80F
+         9phhcC0NvEpE166JY2Q4Z/5mVijS1TanvuV5+vIgmkwkHJGtB1jaiHlsXzAyqRGMOeMt
+         OvPnL/tDiugqaYEi2uTI1HiPqiOfBr701FjZVfPQn43HKXxBhjzMd2qCpRwSl2ZaMo8k
+         m5kHjWNwNizZUcByV4IwCmu2VTqYtpwiwO57hZddyK2fyLexK9SGspLy1ORK2hrsNlHN
+         5iDg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=mM7sOdvL;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of johnloucks3@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnloucks3@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <johnloucks3@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 38308e7fff4ca-39b5391d3absor2456391fa.9.2026.07.04.11.29.55
+        for <d2mconcierge@gmail.com>
+        (Google Transport Security);
+        Sat, 04 Jul 2026 11:29:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of johnloucks3@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=mM7sOdvL;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of johnloucks3@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=johnloucks3@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1783189795; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NgU25EpXL8FX7ePMDL2VpiJsC5eFsuXMk+zprczEfmarR+scQFA9UH/QS2RciU1pwd
+         5j8euDELUHrLAMVS0ctOpu7QJ4Csqx9ER405rIwKZxODrwgzcqq5h5pL2hfdARM+pFOE
+         WePgPts4wfmEAVBdfWPLYWStnyjNyaW2ccVjM0eIpGfx7cnWVHgxHMwNkkbIVRnsIDfO
+         IAd991Y04sGgOueWhmpNJBnIFJTofIjVE3HtgKfHqlQjb5+pdvUmSa0azupMgBZyt69y
+         CW/lqY3oZxw3altSuHUOwrCXSR8x0O523NtLrtfzd4u6Zw4+CQZ0DuyuycTRr1VVMnW1
+         c7gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Z393yBvlqm0oKzMahRKkTLC4A+iXoRrVsxoAWQ4QIXE=;
+        fh=IfVh34amhx7/MisSB4SNioX6SvwcTIoDEYTWcVhx7Oo=;
+        b=qz5yiL6i6a2hxWdDR5/xJH3cRTzoZSdx4mifk7E1r8YRR8sFkLVM2Ck8N6ZD5d/0Dz
+         eGBpdsSi/Ii4imkhZx1DlJ3qm4JUOheopY5s1DKUFs2V13sZvJ+a5rZzL2HfG9Q6Iv6H
+         mJdZgMKyz80CrYfdkitFqYeUPfPkSUCFQ6AXC+UNXZwlT4fgf0gKUOA6xkP2/YtLhM7L
+         /8eVy9M8uwYZ2AjAgYFi1XKT/lu8ONdkk1h1AYxMQnAezOL3QNQH4ppkLT5/lLvbQRH8
+         MicUxjHqRQfK86eqQRyp08s6Ocina3ykbeTXvo6x4LH7hP5/YImF1k5ONdY1TFUZSSjN
+         +Ajg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783189795; x=1783794595; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Z393yBvlqm0oKzMahRKkTLC4A+iXoRrVsxoAWQ4QIXE=;
+        b=mM7sOdvLd3tx/6mInLgWS8dHiTmTdmTvgu4O1dkvqDcjaAfRV4QEu1InjgDcTLwYxd
+         //CwfiwPBBMhuOWJrMfPDuOshX86oLS9Bkg4EAmkliJGbJayMkpQ6IFVX24zbDv5O9cQ
+         0IlKSP/g2zzEaiPlW9JnHDYhsbGXrySSt4D6qg3eEatAB7+91myXRMwi7IMHR1hD+pui
+         j3e4Smqni0RTylF+LQlqMxA6qic7+kfTYlpyRDXWMX2bmIoCM7NhQ9cZehmqy+lrwJFf
+         fK7xMiczOL64K6XMVTWA4LB2O7hwBS/IkoI/toKiu4knXyjbPj8MzNY2GliCvzN7WMa0
+         ewQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783189795; x=1783794595;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Z393yBvlqm0oKzMahRKkTLC4A+iXoRrVsxoAWQ4QIXE=;
+        b=BG3Ip5cbgltqsDUp6LHe//cOmZTctooawVMfh0FebmSMlMlaCxr2zhV/mL7l2a27Ah
+         rm7QdMzMIDZpIwuaZtczMPPotxaBWQh0uSJy5wFp6s1s/WRdZgQ1KPhbLyay+g16qSJa
+         CKgzMd4nPv+cwB5vBR4wbhmfRSC8iQRUcO25CGFdWudrZhe/8e6bCcSKGfVkkalyd8ZT
+         GSlyPvYgb2ZY+OEK/ACtDEX8m1DMsVOvMzDEwMr2M5nxJJX20c4WHVd92OeLKViPKpI5
+         e9WAkM6OHoBwn1eDFliPhhCBpqQ5mVmBEjlhmsZcXtaXfLqde6j+yv6G6ehEsarsEFJI
+         9olA==
+X-Gm-Message-State: AOJu0YwnzAZamP8O0C3PKT2dLb95XQsoP353YS/8IjLfPjIarN9xXCUz
+	E+IyVCnI1Nohf0grLloZXrXerGNO5FhU0tUpN/Avfy7fod+X8nXSGkwxYZjlNJn1jwUu9MdwbUo
+	fi4ku8eaerLbNjz4sxECUlTqIrlm6CNKWKHYfga8=
+X-Gm-Gg: AfdE7cnnkVc06xRUzRrU3trmqLUF2tgmoUGJBmKHlqXcKNvQrdMWGlB2D2blG/ylZ31
+	Fl5h9WDagzYQ8AF6LxeVe7VLyX8L4Kia6IiFd57EA1RpARkw3zHhxjtHvmtu5Da5BlS9FQwo2fb
+	Puex5BcFzfnj0bIR067xM+z31Gj//MIPcOTV1n6b4rwmpJDvRj27CEBPL9nxRt7tX/SQN+6sU8t
+	c1PnTM5I4tr1Q89SKMK6p2Nbordm3ggvcN2o9uzmsmHfDoZLiww8k8132tgg91bDACbWcoKtJse
+	ecdnzzRmkTNbieYco0gmjnRx53runW9bF11ISDu8x9PFJBQtoPmuRcerDX3oSyOlbEt2w392m9c
+	phhY1FD+Bj/szTE+C8kjHSf6A63E965RS4rf10rFQBHOVjoqc1qczhE2R
+X-Received: by 2002:a05:651c:19a5:b0:39b:7cd:e1ca with SMTP id
+ 38308e7fff4ca-39b53b9758bmr7694891fa.9.1783189794698; Sat, 04 Jul 2026
+ 11:29:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAFG02dGLFM-Ne2E3w4LAqLtrSbXBVFm_kJQ0Eep+R+oSp8h3eg@mail.gmail.com>
+In-Reply-To: <CAFG02dGLFM-Ne2E3w4LAqLtrSbXBVFm_kJQ0Eep+R+oSp8h3eg@mail.gmail.com>
+From: John Loucks3 <johnloucks3@gmail.com>
+Date: Sat, 4 Jul 2026 12:29:17 -0600
+X-Gm-Features: AVVi8Cc6R18kE3Nu6LubPoCB5sfWHwrYvvq4-RdSmAatbDovWYX_OkynlTxMMyY
+Message-ID: <CAFG02dHV5YXc+a4OuQ94UsMMhPJs3tLsADihYGR3jxBziacsAQ@mail.gmail.com>
+Subject: Fwd: What started as a family remembrance
+To: D2M Concierge <d2mconcierge@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000047baa20655cd3abc"
+
+--00000000000047baa20655cd3abc
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+COS, see the link as wellThis is what you helped me create
+
+---------- Forwarded message ---------
+From: John Loucks3 <johnloucks3@gmail.com>
+Date: Sat, Jul 4, 2026 at 12:25=E2=80=AFPM
+Subject: What started as a family remembrance
+To: Justin L. <cnuraptor@gmail.com>, Ryan Loucks <loucksrj@gmail.com>,
+Susan Loucks <susanna.loucks@gmail.com>, gregory loucks <greg.loucks@me.com=
+>,
+Karen Loucks <karen.loucks@me.com>, Stefanie Burcham <stef@bbenefits.net>,
+Mike Loucks <mikeloucks1966@gmail.com>, Roger Kuklinski <
+roger.kuklinski@gmail.com>, Kyle Kuklinski <kyle.kuklinski@gmail.com>,
+Nathan Burcham <nburcham1020@gmail.com>, Nick Kuklinski <nikpack@gmail.com>=
+,
+Dan Schmidt <danielschmidt892@gmail.com>, timothy schmidt <
+timothyschmidt46@gmail.com>, Tim J Schmidt <woodview@elknet.net>, Ronald
+Westbrook <rwestbrook3@gmail.com>, BRENT WESTBROOK <WESTY737@gmail.com>,
+Kim Westbrook <crnakim@yahoo.com>, Robyn Westbrook <fysti@hotmail.com>
+
+
+What started as a family remembrance
+Dear Loucks/Stoycos Family and friends for life =E2=80=94
+I sat down to write a family remembrance of "My American Story" -- my
+rememberance of my grandparents and their story.  It would be "My American
+Story," on paper, so you=E2=80=99d have it and we could swap stories. But t=
+he
+deeper I got into the research of my ancestors and WHY they came to this
+country, the more obvious it became: my story was in the way. The thing I
+actually wanted to hand you was already written =E2=80=94 by better voices =
+than
+mine, over two hundred and twenty-nine years. So I got out of the way.
+What follows is every president from Theodore Roosevelt forward =E2=80=94 b=
+oth
+parties, no exceptions =E2=80=94 plus the three men who laid the ground the=
+y all
+stand on. Read them in order. The names on the labels change color. What
+they=E2=80=99re saying doesn=E2=80=99t.
+
+George Washington =E2=98=85
+1796 =E2=80=94 Farewell Address
+=E2=80=9CThe name of American, which belongs to you in your national capaci=
+ty, must
+always exalt the just pride of patriotism more than any appellation derived
+from local discriminations.=E2=80=9D
+
+Thomas Jefferson =E2=98=85
+1801 =E2=80=94 First Inaugural
+=E2=80=9CEvery difference of opinion is not a difference of principle. We h=
+ave
+called by different names brethren of the same principle. We are all
+Republicans, we are all Federalists.=E2=80=9D
+
+Abraham Lincoln R
+1861 =E2=80=94 First Inaugural
+=E2=80=9CWe are not enemies, but friends. We must not be enemies=E2=80=A6 T=
+he mystic chords
+of memory will yet swell the chorus of the Union, when again touched, as
+surely they will be, by the better angels of our nature.=E2=80=9D
+
+Theodore Roosevelt R
+1910 =E2=80=94 Citizenship in a Republic
+=E2=80=9CIt is not the critic who counts=E2=80=A6 The credit belongs to the=
+ man who is
+actually in the arena, whose face is marred by dust and sweat and blood.=E2=
+=80=9D
+
+William Howard Taft R
+1912 =E2=80=94 Annual Message
+=E2=80=9C=E2=80=A6the wage earner, the farmer, and citizen of whatever occu=
+pation must
+cooperate in a spirit of high patriotism to promote that national
+solidarity.=E2=80=9D
+
+Woodrow Wilson D
+1917 =E2=80=94 War Message
+=E2=80=9CThe world must be made safe for democracy.=E2=80=9D
+
+Warren G. Harding R
+1920 =E2=80=94 Boston
+=E2=80=9CAmerica=E2=80=99s present need is not heroics but healing; not nos=
+trums but
+normalcy; not revolution but restoration.=E2=80=9D
+
+Calvin Coolidge R
+1923 =E2=80=94 The Destiny of America
+=E2=80=9CPatriotism is easy to understand in America. It means looking out =
+for
+yourself by looking out for your country.=E2=80=9D
+
+Herbert Hoover R
+=E2=80=9CFreedom is the open window through which pours the sunlight of the=
+ human
+spirit and human dignity.=E2=80=9D
+
+Franklin D. Roosevelt D
+1933 =E2=80=94 First Inaugural
+=E2=80=9CThe only thing we have to fear is fear itself.=E2=80=9D
+
+Harry S. Truman D
+=E2=80=9CAmerica was not built on fear. America was built on courage, on
+imagination, and an unbeatable determination to do the job at hand.=E2=80=
+=9D
+
+Dwight D. Eisenhower R
+1961 =E2=80=94 Farewell Address
+=E2=80=9CAmerica is today the strongest, the most influential, and most pro=
+ductive
+nation in the world.=E2=80=9D
+
+John F. Kennedy D
+1961 =E2=80=94 Inaugural
+=E2=80=9CAsk not what your country can do for you =E2=80=94 ask what you ca=
+n do for your
+country.=E2=80=9D
+
+Lyndon B. Johnson D
+1965 =E2=80=94 To Congress, after Selma
+=E2=80=9CIt is not just Negroes, but really it=E2=80=99s all of us, who mus=
+t overcome the
+crippling legacy of bigotry and injustice.=E2=80=9D
+
+Richard Nixon R
+1969 =E2=80=94 First Inaugural
+=E2=80=9CNo man can be fully free while his neighbor is not. This means bla=
+ck and
+white together, as one nation, not two.=E2=80=9D
+
+Gerald Ford R
+1974 =E2=80=94 Taking the oath
+=E2=80=9COur long national nightmare is over. Our Constitution works.=E2=80=
+=9D
+
+Jimmy Carter D
+1981 =E2=80=94 Farewell Address
+=E2=80=9CAmerica did not invent human rights. In a very real sense, human r=
+ights
+invented America.=E2=80=9D
+
+Ronald Reagan R
+1989 =E2=80=94 Farewell Address
+=E2=80=9CI=E2=80=99ve spoken of the shining city all my political life=E2=
+=80=A6 teeming with people
+of all kinds living in harmony and peace.=E2=80=9D
+
+George H.W. Bush R
+1989 =E2=80=94 Inaugural
+=E2=80=9CWe know what works: freedom works. We know what=E2=80=99s right: f=
+reedom is
+right.=E2=80=9D
+
+Bill Clinton D
+1993 =E2=80=94 First Inaugural
+=E2=80=9CThere is nothing wrong with America that cannot be cured by what i=
+s right
+with America.=E2=80=9D
+
+George W. Bush R
+2002 =E2=80=94 State of the Union
+=E2=80=9CWe have seen the state of our union in the endurance of rescuers=
+=E2=80=A6 in the
+unfurling of flags, the lighting of candles, the giving of blood, the
+saying of prayers.=E2=80=9D
+
+Barack Obama D
+2009 =E2=80=94 First Inaugural
+=E2=80=9CThe stale political arguments that have consumed us for so long no=
+ longer
+apply.=E2=80=9D
+
+Donald Trump R
+2017 =E2=80=94 Inaugural
+=E2=80=9CWe are one people, with one destiny. We all bleed the same blood, =
+we all
+salute the same great American flag.=E2=80=9D
+
+Joe Biden D
+2021 =E2=80=94 Inaugural
+=E2=80=9CPolitics doesn=E2=80=99t have to be a raging fire destroying every=
+thing in its
+path. Every disagreement doesn=E2=80=99t have to be a cause for total war.=
+=E2=80=9D
+
+Donald Trump R
+2025 =E2=80=94 Second Inaugural
+=E2=80=9CThe golden age of America begins right now.=E2=80=9D
+
+Two more =E2=80=94 not presidents
+These two never sat in the office. Their words got to me more than most who
+did.
+
+Martin Luther King Jr. =E2=98=85
+1963 =E2=80=94 The March on Washington
+=E2=80=9CI have a dream that my four little children will one day live in a=
+ nation
+where they will not be judged by the color of their skin but by the content
+of their character.=E2=80=9D
+
+Robert F. Kennedy =E2=98=85
+1968
+=E2=80=9CSome men see things as they are and say, why; I dream things that =
+never
+were and say, why not.=E2=80=9D
+
+What I did with all of it
+Twenty-seven voices were too many to just stare at, so, using my AI, I
+sorted every line by what it=E2=80=99s actually saying. Six themes kept com=
+ing up: *
+Courage, Duty, Unity, Healing, Renewal, Freedom. * Then I charted it, three
+ways, each one leading to the next.
+* First chart: * I drew one shape for each party =E2=80=94 how often its pr=
+esidents
+reach for each of the six themes =E2=80=94 and laid one over the other. The=
+y=E2=80=99re not
+identical. But they=E2=80=99re unmistakably the same animal, both leaning h=
+ardest
+on Unity and Renewal. Two parties, one instinct.
+* Second chart: * then I stretched all 27 voices out on a single timeline,
+1796 to 2025, and marked which themes each one touched. Pick any row and
+follow it. Unity alone gets handed from Washington to Jefferson to Lincoln
+to LBJ to Nixon to Reagan to Obama to Trump to Biden =E2=80=94 back and for=
+th
+across the aisle for two centuries, like a baton nobody ever drops for
+long.
+* Third chart: And THIS is the BEST ONE:  *the six themes themselves aren=
+=E2=80=99t
+a list =E2=80=94 they=E2=80=99re a loop. Courage is what Duty costs. Duty, =
+shared, becomes
+Unity. Unity is what makes Healing possible. Healing opens Renewal. Renewal
+re-secures Freedom. And Freedom, to survive, demands Courage again. I drew
+it as a real circle =E2=80=94 half red, half blue. Courage sits at the top,=
+ where
+the halves meet. Healing sits at the bottom, on the other seam. Neither
+half closes the circle alone.
+The whole thing is interactive here, click it to open =E2=80=94 hover any s=
+quare
+and the original line comes up:
+The American Spirit =E2=80=94 Six Themes, 27 Voices, 1796=E2=80=932025
+<https://claude.ai/code/artifact/a056de68-b3e6-4144-b819-8a5bb9b81f04>
+
+My hope is that you will help me complete the circle.  My prayer for this
+country is that we all  will continually work to become the country our
+ancestors dreamed of when they came here---which is ANOTHER story.
+Happy America 250
+Love,
+John
+
+--00000000000047baa20655cd3abc
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">COS, see the link as wellThis is what you helped me create=
+<br><br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" c=
+lass=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong=
+ class=3D"gmail_sendername" dir=3D"auto">John Loucks3</strong> <span dir=3D=
+"auto">&lt;<a href=3D"mailto:johnloucks3@gmail.com">johnloucks3@gmail.com</=
+a>&gt;</span><br>Date: Sat, Jul 4, 2026 at 12:25=E2=80=AFPM<br>Subject: Wha=
+t started as a family remembrance<br>To: Justin L. &lt;<a href=3D"mailto:cn=
+uraptor@gmail.com">cnuraptor@gmail.com</a>&gt;, Ryan Loucks &lt;<a href=3D"=
+mailto:loucksrj@gmail.com">loucksrj@gmail.com</a>&gt;, Susan Loucks &lt;<a =
+href=3D"mailto:susanna.loucks@gmail.com">susanna.loucks@gmail.com</a>&gt;, =
+gregory loucks &lt;<a href=3D"mailto:greg.loucks@me.com">greg.loucks@me.com=
+</a>&gt;, Karen Loucks &lt;<a href=3D"mailto:karen.loucks@me.com">karen.lou=
+cks@me.com</a>&gt;, Stefanie Burcham &lt;<a href=3D"mailto:stef@bbenefits.n=
+et">stef@bbenefits.net</a>&gt;, Mike Loucks &lt;<a href=3D"mailto:mikelouck=
+s1966@gmail.com">mikeloucks1966@gmail.com</a>&gt;, Roger Kuklinski &lt;<a h=
+ref=3D"mailto:roger.kuklinski@gmail.com">roger.kuklinski@gmail.com</a>&gt;,=
+ Kyle Kuklinski &lt;<a href=3D"mailto:kyle.kuklinski@gmail.com">kyle.kuklin=
+ski@gmail.com</a>&gt;, Nathan Burcham &lt;<a href=3D"mailto:nburcham1020@gm=
+ail.com">nburcham1020@gmail.com</a>&gt;, Nick Kuklinski &lt;<a href=3D"mail=
+to:nikpack@gmail.com">nikpack@gmail.com</a>&gt;, Dan Schmidt &lt;<a href=3D=
+"mailto:danielschmidt892@gmail.com">danielschmidt892@gmail.com</a>&gt;, tim=
+othy schmidt &lt;<a href=3D"mailto:timothyschmidt46@gmail.com">timothyschmi=
+dt46@gmail.com</a>&gt;, Tim J Schmidt &lt;<a href=3D"mailto:woodview@elknet=
+.net">woodview@elknet.net</a>&gt;, Ronald Westbrook &lt;<a href=3D"mailto:r=
+westbrook3@gmail.com">rwestbrook3@gmail.com</a>&gt;, BRENT WESTBROOK &lt;<a=
+ href=3D"mailto:WESTY737@gmail.com">WESTY737@gmail.com</a>&gt;, Kim Westbro=
+ok &lt;<a href=3D"mailto:crnakim@yahoo.com">crnakim@yahoo.com</a>&gt;, Roby=
+n Westbrook &lt;<a href=3D"mailto:fysti@hotmail.com">fysti@hotmail.com</a>&=
+gt;<br></div><br><br><div dir=3D"ltr">
+=20
+
+
+ <div style=3D"margin:0;padding:0;background:#07076b">
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"backgrou=
+nd:#07076b;max-width:680px" width=3D"100%">
+   <tbody><tr>
+    <td style=3D"padding:26px 22px 4px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:24px;font-weight:bol=
+d;color:#ffffff">
+      What started as a family remembrance
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">Dear Loucks/Stoycos Family and friends for life =E2=80=94
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         I sat down to write a family remembrance of &quot;My American Stor=
+y&quot; -- my rememberance of my grandparents and their story.=C2=A0 It wou=
+ld be &quot;My American Story,&quot; on paper, so you=E2=80=99d have it and=
+ we could swap stories. But the deeper I got into the research of my ancest=
+ors and WHY they came to this country, the more obvious it became: my story=
+ was in the way. The thing I actually wanted to hand you was already writte=
+n =E2=80=94 by better voices than mine, over two hundred and twenty-nine ye=
+ars. So I got out of the way.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         What follows is every president from Theodore Roosevelt forward =
+=E2=80=94 both parties, no exceptions =E2=80=94 plus the three men who laid=
+ the ground they all stand on. Read them in order. The names on the labels =
+change color. What they=E2=80=99re saying doesn=E2=80=99t.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      George Washington
+      <span style=3D"font-size:12px;color:#b3892d;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       =E2=98=85
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1796 =E2=80=94 Farewell Address
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #b3892d;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThe name of American, which belongs to you in your nation=
+al capacity, must always exalt the just pride of patriotism more than any a=
+ppellation derived from local discriminations.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Thomas Jefferson
+      <span style=3D"font-size:12px;color:#b3892d;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       =E2=98=85
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1801 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #b3892d;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CEvery difference of opinion is not a difference of princi=
+ple. We have called by different names brethren of the same principle. We a=
+re all Republicans, we are all Federalists.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Abraham Lincoln
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1861 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CWe are not enemies, but friends. We must not be enemies=
+=E2=80=A6 The mystic chords of memory will yet swell the chorus of the Unio=
+n, when again touched, as surely they will be, by the better angels of our =
+nature.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Theodore Roosevelt
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1910 =E2=80=94 Citizenship in a Republic
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CIt is not the critic who counts=E2=80=A6 The credit belon=
+gs to the man who is actually in the arena, whose face is marred by dust an=
+d sweat and blood.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      William Howard Taft
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1912 =E2=80=94 Annual Message
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9C=E2=80=A6the wage earner, the farmer, and citizen of what=
+ever occupation must cooperate in a spirit of high patriotism to promote th=
+at national solidarity.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Woodrow Wilson
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1917 =E2=80=94 War Message
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThe world must be made safe for democracy.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Warren G. Harding
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1920 =E2=80=94 Boston
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CAmerica=E2=80=99s present need is not heroics but healing=
+; not nostrums but normalcy; not revolution but restoration.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Calvin Coolidge
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1923 =E2=80=94 The Destiny of America
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CPatriotism is easy to understand in America. It means loo=
+king out for yourself by looking out for your country.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Herbert Hoover
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CFreedom is the open window through which pours the sunlig=
+ht of the human spirit and human dignity.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Franklin D. Roosevelt
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1933 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThe only thing we have to fear is fear itself.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Harry S. Truman
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CAmerica was not built on fear. America was built on coura=
+ge, on imagination, and an unbeatable determination to do the job at hand.=
+=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Dwight D. Eisenhower
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1961 =E2=80=94 Farewell Address
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CAmerica is today the strongest, the most influential, and=
+ most productive nation in the world.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      John F. Kennedy
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1961 =E2=80=94 Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CAsk not what your country can do for you =E2=80=94 ask wh=
+at you can do for your country.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Lyndon B. Johnson
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1965 =E2=80=94 To Congress, after Selma
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CIt is not just Negroes, but really it=E2=80=99s all of us=
+, who must overcome the crippling legacy of bigotry and injustice.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Richard Nixon
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1969 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CNo man can be fully free while his neighbor is not. This =
+means black and white together, as one nation, not two.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Gerald Ford
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1974 =E2=80=94 Taking the oath
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9COur long national nightmare is over. Our Constitution wor=
+ks.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Jimmy Carter
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1981 =E2=80=94 Farewell Address
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CAmerica did not invent human rights. In a very real sense=
+, human rights invented America.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Ronald Reagan
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1989 =E2=80=94 Farewell Address
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CI=E2=80=99ve spoken of the shining city all my political =
+life=E2=80=A6 teeming with people of all kinds living in harmony and peace.=
+=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      George H.W. Bush
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1989 =E2=80=94 Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CWe know what works: freedom works. We know what=E2=80=99s=
+ right: freedom is right.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Bill Clinton
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1993 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThere is nothing wrong with America that cannot be cured =
+by what is right with America.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      George W. Bush
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      2002 =E2=80=94 State of the Union
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CWe have seen the state of our union in the endurance of r=
+escuers=E2=80=A6 in the unfurling of flags, the lighting of candles, the gi=
+ving of blood, the saying of prayers.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Barack Obama
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      2009 =E2=80=94 First Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThe stale political arguments that have consumed us for s=
+o long no longer apply.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Donald Trump
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      2017 =E2=80=94 Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CWe are one people, with one destiny. We all bleed the sam=
+e blood, we all salute the same great American flag.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Joe Biden
+      <span style=3D"font-size:12px;color:#2e6da4;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       D
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      2021 =E2=80=94 Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #2e6da4;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CPolitics doesn=E2=80=99t have to be a raging fire destroy=
+ing everything in its path. Every disagreement doesn=E2=80=99t have to be a=
+ cause for total war.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Donald Trump
+      <span style=3D"font-size:12px;color:#c0392b;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       R
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      2025 =E2=80=94 Second Inaugural
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #c0392b;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CThe golden age of America begins right now.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:26px 22px 2px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:19px;font-weight:bol=
+d;color:#ffffff">
+      Two more =E2=80=94 not presidents
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         These two never sat in the office. Their words got to me more than=
+ most who did.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Martin Luther King Jr.
+      <span style=3D"font-size:12px;color:#b3892d;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       =E2=98=85
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1963 =E2=80=94 The March on Washington
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #b3892d;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CI have a dream that my four little children will one day =
+live in a nation where they will not be judged by the color of their skin b=
+ut by the content of their character.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:13px 22px 3px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:16px;font-weight:bol=
+d;color:#e8f1ff">
+      Robert F. Kennedy
+      <span style=3D"font-size:12px;color:#b3892d;background:#ffffff;border=
+-radius:3px;padding:0 5px">
+       =E2=98=85
+      </span>
+     </div>
+     <div style=3D"font-size:12px;color:#a8c4f0;margin-bottom:4px">
+      1968
+     </div>
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.6;color:#c8dcff;border-left:3px solid #b3892d;padding-left:14px;font-style=
+:italic">
+         =E2=80=9CSome men see things as they are and say, why; I dream thi=
+ngs that never were and say, why not.=E2=80=9D
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:26px 22px 2px 22px">
+     <div style=3D"font-family:Georgia,serif;font-size:19px;font-weight:bol=
+d;color:#ffffff">
+      What I did with all of it
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         Twenty-seven voices were too many to just stare at, so, using my A=
+I, I sorted every line by what it=E2=80=99s actually saying. Six themes kep=
+t coming up:
+         <b>
+          Courage, Duty, Unity, Healing, Renewal, Freedom.
+         </b>
+         Then I charted it, three ways, each one leading to the next.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         <b>
+          First chart:
+         </b>
+         I drew one shape for each party =E2=80=94 how often its presidents=
+ reach for each of the six themes =E2=80=94 and laid one over the other. Th=
+ey=E2=80=99re not identical. But they=E2=80=99re unmistakably the same anim=
+al, both leaning hardest on Unity and Renewal. Two parties, one instinct.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         <b>
+          Second chart:
+         </b>
+         then I stretched all 27 voices out on a single timeline, 1796 to 2=
+025, and marked which themes each one touched. Pick any row and follow it. =
+Unity alone gets handed from Washington to Jefferson to Lincoln to LBJ to N=
+ixon to Reagan to Obama to Trump to Biden =E2=80=94 back and forth across t=
+he aisle for two centuries, like a baton nobody ever drops for long.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         <b>
+          Third chart: And THIS is the BEST ONE:=C2=A0=C2=A0</b>the six the=
+mes themselves aren=E2=80=99t a list =E2=80=94 they=E2=80=99re a loop. Cour=
+age is what Duty costs. Duty, shared, becomes Unity. Unity is what makes He=
+aling possible. Healing opens Renewal. Renewal re-secures Freedom. And Free=
+dom, to survive, demands Courage again. I drew it as a real circle =E2=80=
+=94 half red, half blue. Courage sits at the top, where the halves meet. He=
+aling sits at the bottom, on the other seam. Neither half closes the circle=
+ alone.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">
+         The whole thing is interactive here, click it to open =E2=80=94 ho=
+ver any square and the original line comes up:
+         <br>
+         <a href=3D"https://claude.ai/code/artifact/a056de68-b3e6-4144-b819=
+-8a5bb9b81f04" style=3D"color:#a8c4f0" target=3D"_blank">
+          The American Spirit =E2=80=94 Six Themes, 27 Voices, 1796=E2=80=
+=932025
+         </a><br><br>My hope is that you will help me complete the circle.=
+=C2=A0 My prayer for this country is that we all=C2=A0 will continually wor=
+k to become the country our ancestors dreamed of when they came here---whic=
+h is ANOTHER story.=C2=A0</td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td style=3D"padding:8px 22px;padding-bottom:30px">
+     <table>
+      <tbody>
+       <tr>
+        <td style=3D"font-family:Georgia,serif;font-size:15px;line-height:1=
+.7;color:#e8f1ff">Happy America 250<br>Love,
+         <br>
+         John
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </td>
+   </tr>
+  </tbody></table>
+ </div>
+
+</div>
+</div></div>
+
+--00000000000047baa20655cd3abc--
