@@ -479,7 +479,17 @@ try:
         except Exception:
             pass
 
+        # At most ONE dispatch per run: the wrapper's 160s hard timeout only fits a
+        # single 130s dispatch. A second queued dispatch gets SIGKILLed mid-flight,
+        # which (post claim-before-dispatch) would silently drop the message
+        # (observed 2026-07-04 20:13 UTC). Skips/labels are cheap and unlimited;
+        # remaining directives dispatch on the next 2-min cycle.
+        d2mc_dispatched = 0
+
         for d_ref in d2mc_msgs:
+            if d2mc_dispatched >= 1:
+                log_line("  d2mc defer (1-dispatch-per-run cap) — remaining picked up next cycle")
+                break
             d_msg_id = d_ref["id"]
             try:
                 d_full = d2mc_service.users().messages().get(
@@ -590,6 +600,8 @@ try:
                 # Claim the message BEFORE dispatching so an overlapping sweep run
                 # cannot double-reply (2026-07-04: 12:32 remembrance email got 3
                 # replies from racing runs). Claim is rolled back on failure below.
+                # Counts as the run's single dispatch attempt regardless of outcome.
+                d2mc_dispatched += 1
                 processed_msg_ids.add(d_msg_id)
                 save_processed_msg_ids(processed_msg_ids)
 
