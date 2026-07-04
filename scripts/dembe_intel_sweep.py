@@ -44,6 +44,7 @@ from thunderbird_tp_scheduler import (
 ENV_FILE = THUNDERBIRD / ".env"
 STATE_FILE = THUNDERBIRD / "hale_state.json"
 QUEUE_LOG = THUNDERBIRD / "storage" / "lifecycle_draft_queue.jsonl"
+DEDUP_FILE = THUNDERBIRD / "OpsCenter" / "dembe_intel_dedup.json"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -56,6 +57,65 @@ logging.basicConfig(
 logger = logging.getLogger("dembe")
 
 SKIP_FILES = {"CLAUDE.md", "DOSSIER_Regent_Tips_Guide.md", "DANI_TESTER_BRIEFINGS.md"}
+
+
+def _load_dedup() -> dict:
+    """Load dedup state from JSON file."""
+    if not DEDUP_FILE.exists():
+        return {}
+    try:
+        with open(DEDUP_FILE) as f:
+            return json.load(f)
+    except Exception as exc:
+        logger.warning(f"Failed to load dedup state: {exc}")
+        return {}
+
+
+def _save_dedup(state: dict) -> None:
+    """Save dedup state to JSON file."""
+    try:
+        with open(DEDUP_FILE, "w") as f:
+            json.dump(state, f, indent=2)
+    except Exception as exc:
+        logger.error(f"Failed to save dedup state: {exc}")
+
+
+def _urgency_tier(tp, today: date) -> str:
+    """Bucket a hot TP into an urgency tier so escalation still alerts but a
+    static unchanged item goes quiet."""
+    if tp.status == TPStatus.OVERDUE:
+        days_overdue = (today - tp.deadline).days if tp.deadline else 0
+        if days_overdue <= 3:
+            return "overdue-1-3"
+        elif days_overdue <= 7:
+            return "overdue-4-7"
+        elif days_overdue <= 14:
+            return "overdue-8-14"
+        elif days_overdue <= 30:
+            return "overdue-15-30"
+        else:
+            return "overdue-31plus"
+    return "in-window"
+
+
+def compute_hot_tp_alerts(actionable_tps: list, dedup_state: dict, today: date) -> tuple[list, bool, dict]:
+    """
+    Determine the hot (overdue/in-window) TPs and whether any are new-or-
+    changed since the last dedup-tracked run.
+
+    Returns (hot_tps, has_new_or_changed, updated_dedup_state). Caller is
+    responsible for persisting updated_dedup_state via _save_dedup() only
+    when the message is actually sent.
+    """
+    hot_tps = [tp for tp in actionable_tps if tp.status in (TPStatus.OVERDUE, TPStatus.IN_WINDOW)][:6]
+    updated_state = dict(dedup_state)
+    has_new = False
+    for tp in hot_tps:
+        key = f"{tp.tp_id}|{tp.client}|{_urgency_tier(tp, today)}"
+        if key not in dedup_state:
+            has_new = True
+        updated_state[key] = today.isoformat()
+    return hot_tps, has_new, updated_state
 
 
 def _load_env() -> dict:
@@ -169,6 +229,7 @@ def build_intel_message(
     fpd_alerts: list[dict],
     queue_count: int,
     state: dict,
+    hot_tps: list | None = None,
 ) -> str:
     now_str = datetime.now().strftime("%H:%M MT")
     lines = [
@@ -194,7 +255,8 @@ def build_intel_message(
         lines.append("")
 
     # Upcoming TPs (overdue + in-window)
-    hot_tps = [tp for tp in actionable_tps if tp.status in (TPStatus.OVERDUE, TPStatus.IN_WINDOW)][:6]
+    if hot_tps is None:
+        hot_tps = [tp for tp in actionable_tps if tp.status in (TPStatus.OVERDUE, TPStatus.IN_WINDOW)][:6]
     if hot_tps:
         lines.append("📋 <b>HOT TPs (overdue / in window)</b>")
         for tp in hot_tps:
@@ -256,15 +318,23 @@ def main() -> None:
             except Exception:
                 pass
 
-    msg = build_intel_message(today, actionable, radar, fpd_alerts, queue_count, state)
+    dedup_state = _load_dedup()
+    hot_tps, has_new_or_changed, updated_dedup_state = compute_hot_tp_alerts(actionable, dedup_state, today)
+
+    msg = build_intel_message(today, actionable, radar, fpd_alerts, queue_count, state, hot_tps=hot_tps)
 
     if args.local or not token:
         print(msg)
         if not token:
             logger.warning("No TELEGRAM_D2MC2C_TOKEN — printed only")
+    elif not has_new_or_changed:
+        logger.info("Hot TP list unchanged since last run — skipping Telegram send (dedup)")
+        if not args.timer:
+            print("  ⏭️  Skipped Telegram send — no new/changed hot TP items (dedup)")
     else:
         ok = _tg_send_chunked(token, commander_id, msg)
         logger.info(f"Intel sweep sent to Telegram: {ok}")
+        _save_dedup(updated_dedup_state)
         if not args.timer:
             print(f"  {'✅' if ok else '❌'} Intel sweep posted to Telegram")
 
