@@ -82,6 +82,30 @@ def internal_ops_check():
                 f"{inbox}: task(s) injected UNREAD more than once without being read/closed: {dupes}"))
 
     findings += board_hygiene()
+    findings += memory_parity_check()
+    return findings
+
+
+def memory_parity_check():
+    """OC/CC memory parity canary (2026-07-04 — Commander: 'must have exact same
+    memory even if I am using a diff model'). Cheap structural check, not a live
+    LLM recall test: confirms AGENTS.md still chains to CC's memory index (read)
+    and still carries the write-back contract (write). If either line silently
+    disappears, OC quietly loses parity with CC and nobody notices until the
+    Commander is mid-cutover — the exact failure class this gate exists to catch."""
+    findings = []
+    agents_md = Path("/home/john/Thunderbird/AGENTS.md")
+    mem_dir = Path("/home/john/.claude/projects/-home-john-Thunderbird/memory")
+    if not agents_md.exists():
+        findings.append(("HOLD", "memory-parity", "AGENTS.md missing — OC has zero context, not just stale memory"))
+        return findings
+    text = agents_md.read_text()
+    if "cat /home/john/.claude/projects/-home-john-Thunderbird/memory/MEMORY.md" not in text:
+        findings.append(("HOLD", "memory-parity", "AGENTS.md no longer chains to CC's memory index — OC read-side parity broken"))
+    if "MEMORY WRITE-BACK" not in text:
+        findings.append(("HOLD", "memory-parity", "AGENTS.md missing write-back contract — OC write-side parity broken"))
+    if not mem_dir.exists() or not (mem_dir / "MEMORY.md").exists():
+        findings.append(("HOLD", "memory-parity", f"{mem_dir}/MEMORY.md not found — the shared memory substrate itself is gone"))
     return findings
 
 

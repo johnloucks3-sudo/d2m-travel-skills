@@ -1065,11 +1065,12 @@
    "last_verified": "2026-07-04T22:19:13.975024+00:00",
    "last_reeval": "2026-07-04T22:19:13.975024+00:00",
    "ci_tool": "Thunderbird Wing semantic memory (Qdrant + FastEmbed)",
-   "health_probe": "curl -sf --max-time 5 http://localhost:6333/collections/thunderbird_memories",
+   "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_qdrant_memory.py",
    "currency_window_hours": 24,
    "reeval_cadence_days": 30,
    "fallback": "systemctl --user restart qdrant; weekly reindex via d2m-qdrant-reindex.timer",
-   "keeper": "whetstone"
+   "keeper": "whetstone",
+   "probe_note": "REPLACED 2026-07-04: old probe was `curl .../collections/thunderbird_memories` -- only checked server liveness + collection existence, never the actual embed->store->query capability. That's why it stayed GREEN while the MCP tool 400'd on every real call. New probe does a real round trip against thunderbird_memories_mcp and fails loudly on any break."
   },
   {
    "id": "d2m-inbox-triage",

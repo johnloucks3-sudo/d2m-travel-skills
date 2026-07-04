@@ -38,6 +38,13 @@ python3 /home/john/Thunderbird/core/relay/wing_relay.py read OC
 cat /home/john/.claude/projects/-home-john-Thunderbird/memory/MEMORY.md
 cat /home/john/Thunderbird/hale_brief.md
 ```
+**⚠️ MEMORY WRITE-BACK (Commander directive 2026-07-04 — cutover to OC by Tue/Wed):** Read access alone rots the day OC becomes primary. When you (OC) learn something worth remembering long-term — a correction, a fact, a standing decision — write it to the SAME directory CC uses, in the SAME format, so CC can read it back after cutover:
+1. New file in `/home/john/.claude/projects/-home-john-Thunderbird/memory/` named `{type}_{topic}_slug.md` (type = user/feedback/project/reference).
+2. Frontmatter: `name`, `description`, `metadata: {type: ...}` — copy the shape of any existing file in that dir.
+3. Body: for feedback/project, lead with the rule/fact, then `**Why:**` and `**How to apply:**` lines. Link related memories with `[[slug]]`.
+4. Add a one-line pointer to `MEMORY.md` in the same directory, under the right section — never write memory content directly into `MEMORY.md` itself.
+One shared directory, both engines read AND write it — never a separate OC-side memory store. That's the whole fix; don't build anything fancier.
+
 **⚠️ BEFORE ANY NEW PROJECT/BUILD:** 3-minute Commander interview REQUIRED — confirm product type, lifecycle position, output format. No exceptions. (2026-06-22)
 **Plans require Commander approval before committing** — draft → Commander reviews → approves → THEN commit. Never mark done before Commander reads it.
 
