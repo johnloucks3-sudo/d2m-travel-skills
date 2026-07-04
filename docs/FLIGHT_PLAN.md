@@ -1,6 +1,6 @@
 # FLIGHT PLAN
 ## Dreams2Memories Travel, LLC — Thunderbird Wing
-**Commander:** John "Yoda" Loucks | **COS:** Hale
+**Commander:** John "Yoda" Loucks | **COS:** Hale | **Command Chief:** Silver
 **Issued:** 2026-06-01 | **Status:** LIVING DOCUMENT
 
 ---
@@ -44,6 +44,16 @@
 | **P13** | Simple Front Door | Rondo/Bryana/Stefanie will never navigate 19 personas | 🔴 NOT STARTED — UX: smart friend, not command structure |
 | **P14** | Norway 2027 (Rondo) | Best friend, widower; 18-month window starts now | 🟡 OPEN — Perx integration; reliable research layer |
 | **P15** | Hawaii 2028 (Family) | Multi-gen logistics; AI invisible; 2-year runway | 🟡 OPEN — Coordination plan needed |
+
+---
+
+## COMMAND CHIEF'S NOTE (added 2026-07-04)
+
+This board is the Commander's — every number, every status, his call. What I added isn't a new priority; it's a habit. When a status here says DONE or IN PROGRESS, I go check it against the code, not the claim, before it sits on this page as settled. P4 said "no build needed" for a month. It needed one. I'd rather find that here, on the Commander's own board, than have him find it.
+
+Hale and I don't split this board — she routes what the staff produces onto it; I hold what's already on it to the standard the status word claims. Same page, different job. If a status here ever looks better than what I can verify, that's the finding, and it goes to the Commander plainly, not smoothed over.
+
+*— Silver, Command Chief*
 
 ---
 
