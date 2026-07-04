@@ -40,6 +40,15 @@ sys.path.insert(0, str(THUNDERBIRD / "OpsCenter"))
 
 log = logging.getLogger("wing-page")
 
+# Commander directive 2026-07-04: D2MC2C is command-and-control — action items
+# and things the Commander must decide (drafts ready, real client/financial
+# alerts). Routine maintenance/system-health noise (keepalive OK, watchdog
+# green, "still valid" credential pings) does not belong there. P2 pages are
+# informational-only by definition (see docstring above) — they now log
+# locally instead of paging Telegram at all.
+PAGE_LOG = THUNDERBIRD / "OpsCenter" / "state" / "wing_page_maintenance_log.jsonl"
+DEDUP_STATE = THUNDERBIRD / "OpsCenter" / "state" / "wing_page_dedup.json"
+
 # Levels
 P0 = "P0"   # Red — Commander action required now
 P1 = "P1"   # Yellow — FYI, may need Commander soon
@@ -159,6 +168,53 @@ def _load_env() -> dict:
     return env
 
 
+def _fingerprint(page: "WingPage") -> str:
+    import hashlib
+    raw = f"{page.level}|{page.source}|{page.problem}"
+    return hashlib.sha256(raw.encode()).hexdigest()[:16]
+
+
+def _already_sent(fp: str) -> bool:
+    """ONE AND DONE (2026-07-04 — Commander directive): the identical page
+    (same level+source+problem) never repeats to Telegram once sent. Cleared
+    only by clear_page_dedup() when the underlying condition resolves."""
+    if not DEDUP_STATE.exists():
+        return False
+    try:
+        state = json.loads(DEDUP_STATE.read_text())
+    except Exception:
+        return False
+    return fp in state
+
+
+def _mark_sent(fp: str, problem: str):
+    state = {}
+    if DEDUP_STATE.exists():
+        try:
+            state = json.loads(DEDUP_STATE.read_text())
+        except Exception:
+            state = {}
+    import time as _time
+    state[fp] = {"problem": problem[:200], "sent_at": _time.time()}
+    DEDUP_STATE.write_text(json.dumps(state, indent=2))
+
+
+def clear_page_dedup(fp: str = None):
+    """Clear one fingerprint (or all, if fp=None) so a resolved condition can
+    page again if it recurs."""
+    if fp is None:
+        DEDUP_STATE.write_text("{}")
+        return
+    if not DEDUP_STATE.exists():
+        return
+    try:
+        state = json.loads(DEDUP_STATE.read_text())
+    except Exception:
+        return
+    state.pop(fp, None)
+    DEDUP_STATE.write_text(json.dumps(state, indent=2))
+
+
 def send_page(
     problem: str,
     discussion: str = "",
@@ -174,11 +230,30 @@ def send_page(
     Send a Wing page to Commander via Telegram.
     long_form=True: renders HTML screenshot + sends as photo.
     long_form=False: sends compact text message.
+
+    D2MC2C is command-and-control (Commander directive 2026-07-04): P2
+    (informational, no action needed — maintenance/system-health noise) is
+    logged to PAGE_LOG instead of paging Telegram. P0/P1 page Telegram once
+    per distinct problem (one-and-done) — an identical repeat send is
+    suppressed until clear_page_dedup() is called for that fingerprint.
     """
     page = WingPage(
         problem=problem, discussion=discussion, options=options,
         action=action, next_steps=next_steps, level=level, source=source,
     )
+
+    if level == P2:
+        PAGE_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(PAGE_LOG, "a") as f:
+            import time as _time
+            f.write(json.dumps({"ts": _time.time(), "source": source, "problem": problem}) + "\n")
+        return True
+
+    fp = _fingerprint(page)
+    if _already_sent(fp):
+        log.info(f"Suppressed repeat page (one-and-done): {problem[:60]}")
+        return True
+
     env = _load_env()
     token = env.get("TELEGRAM_D2MC2C_TOKEN", "")
     chat_id = env.get("TELEGRAM_COMMANDER_ID", "7554895206")
@@ -187,10 +262,10 @@ def send_page(
         log.error("TELEGRAM_D2MC2C_TOKEN not set")
         return False
 
-    if long_form:
-        return _send_screenshot(page, token, chat_id, screenshot_title)
-    else:
-        return _send_text(page, token, chat_id)
+    ok = _send_screenshot(page, token, chat_id, screenshot_title) if long_form else _send_text(page, token, chat_id)
+    if ok:
+        _mark_sent(fp, problem)
+    return ok
 
 
 def _send_text(page: WingPage, token: str, chat_id: str) -> bool:

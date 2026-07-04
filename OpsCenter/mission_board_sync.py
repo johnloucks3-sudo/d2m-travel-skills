@@ -133,6 +133,38 @@ def cmd_list_complete(board):
     return "\n".join(lines)
 
 
+def _normalize_title(title):
+    """Lowercase, strip punctuation/whitespace for duplicate comparison."""
+    return "".join(c for c in title.lower() if c.isalnum() or c.isspace()).split()
+
+
+def _find_open_duplicate(all_missions, title):
+    """ONE AND DONE (fixed 2026-07-04 — Sterling/A7): before creating a new
+    mission, check open missions for the same work already tracked under a
+    different ID (e.g. MISSION-SEC-05/1510/1522 were the same GitHub
+    credential rotation created 3 times; MISSION-820/1511/1523 were the same
+    Regent portal auth created 3 times). Exact/substring match only — no
+    fuzzy matching, which would silently merge genuinely distinct tasks."""
+    new_norm = _normalize_title(title)
+    new_set = set(new_norm)
+    if not new_set:
+        return None
+    for m in all_missions:
+        if m.get("status") not in ("active", "in_progress", "pending", "open"):
+            continue
+        existing_norm = _normalize_title(m.get("title", ""))
+        existing_set = set(existing_norm)
+        if not existing_set:
+            continue
+        if new_set == existing_set:
+            return m
+        # substring: shorter title's words are a subset of the longer title's words
+        shorter, longer = (new_set, existing_set) if len(new_set) <= len(existing_set) else (existing_set, new_set)
+        if shorter and shorter.issubset(longer) and len(shorter) >= 3:
+            return m
+    return None
+
+
 def cmd_add(board, args):
     """EXEC: add <title> <description> [P0|P1|P2|P3]"""
     args = list(args)
@@ -143,9 +175,21 @@ def cmd_add(board, args):
     # Parse simple format: EXEC: add MISSION-XXX title here
     title = " ".join(args[:3])
     desc = " ".join(args[3:]) if len(args) > 3 else "No description"
-    
+
     # Generate ID
     all_missions = board.get("missions", board.get("active_missions", []))
+
+    dup = _find_open_duplicate(all_missions, title)
+    if dup is not None:
+        dup.setdefault("logs", []).append(
+            f"{now_iso()}: duplicate creation attempt blocked — \"{title}\" already tracked here"
+        )
+        dup["updated_at"] = now_iso()
+        return (
+            f"⚠️ Duplicate blocked — already tracked as {dup['id']} ({dup.get('status')}): "
+            f"{dup['title']}\nNo new mission created. Use log/status/complete on {dup['id']} instead."
+        )
+
     existing_ids = [m["id"] for m in all_missions]
     # Find next available MISSION-NNN
     nums = []

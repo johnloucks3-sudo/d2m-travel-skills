@@ -311,13 +311,16 @@ def dispatch_to_inboxes(tasks: List[Dict]) -> None:
     updated = False
 
     for task in tasks:
-        # Check for dedup
+        # ONE AND DONE (fixed 2026-07-04 — Sterling/A7): a dedup_key that has
+        # ever been dispatched is never re-dispatched. The prior 24h cooldown
+        # re-injected the same still-PENDING task every day it stayed overdue
+        # (e.g. TASK-1.4-kuklinski_group/westbrook_group injected daily
+        # 2026-06-30 through 2026-07-04 with no status change). A task_id
+        # only re-injects if its send_date changes (new dedup_key).
         dedup_key = f"{task['task_id']}|{task['send_date']}"
         if dedup_key in dedup_state:
-            last_sent = datetime.fromisoformat(dedup_state[dedup_key])
-            if now - last_sent < timedelta(hours=24):
-                logger.info(f"Skipping duplicate task: {task['task_id']}")
-                continue
+            logger.info(f"Skipping already-dispatched task: {task['task_id']}")
+            continue
 
         # owners must be bound BEFORE the f-string below references {owners}.
         # Prior code assigned it ~10 lines later → UnboundLocalError on every dispatch.

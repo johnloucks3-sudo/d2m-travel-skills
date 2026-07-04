@@ -44,6 +44,7 @@ EXTENDED_PROMO = re.compile(
     r"(newsmax|dunkin|arbys|@costco|\.costco\.|anytimefitness|condenast|"
     r"rocketmoney|allrecipes|pointsguy|cruisecritic|teapartypatriots|"
     r"claremont\.org|spacewarfare|pwrmobile|exploringtwdc|justthenews|"
+    r"jacquielawson|@apify\.com|wellamoon\.com|"
     r"@campaigns\.|@emails?\.|@email\.|@eml\.|@latest\.|@digital\.|"
     r"@emailinfo\.|@info\.)",
     re.IGNORECASE,

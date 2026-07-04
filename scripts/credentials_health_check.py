@@ -42,6 +42,7 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 HEALTH_STATE = STATE_DIR / "credentials_health.json"
 OVERNIGHT_LOG = STATE_DIR / "overnight_ops_log.json"
+ALERT_DEDUP = STATE_DIR / "credentials_alert_dedup.json"
 
 MT = timezone(timedelta(hours=-6))
 
@@ -63,7 +64,7 @@ CREDENTIALS = {
         "file": CREDS_DIR / "centrav_cookies.json",
         "type": "cookies",
         "client_affecting": True,
-        "alert_hours_ahead": 48,
+        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
         "notes": "B2B flight pricing. Expired = no wholesale quotes. Needs OTP reauth.",
         "reauth_cmd": "python3 scripts/portal_keepalive.py --portal centrav",
         # A7 2026-06-11: laravel_session is the auth gate. Prior shortest-expiry logic
@@ -76,7 +77,7 @@ CREDENTIALS = {
         "file": CREDS_DIR / "regent_cookies.json",
         "type": "cookies",
         "client_affecting": True,
-        "alert_hours_ahead": 48,
+        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
         "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings.",
         "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_direct",
         "timer": "portal-keepalive.timer",
@@ -90,7 +91,7 @@ CREDENTIALS = {
         "file": CREDS_DIR / "regent_cookies_oa.json",
         "type": "cookies",
         "client_affecting": True,
-        "alert_hours_ahead": 48,
+        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
         "notes": "Regent portal (OA account). Loucks + McLeod OA bookings.",
         "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_oa",
         "timer": "portal-keepalive.timer",
@@ -295,6 +296,14 @@ def _check_oauth_token(token_file: Path) -> dict:
             return {"status": "valid", "reason": f"Access token expired but has refresh_token (auto-refreshes)", "expires_in_hours": 9999}
         return {"status": "expired", "reason": f"Token expired {abs(delta_hours):.1f}h ago, no refresh_token", "expires_in_hours": delta_hours}
 
+    # A short-lived access token with a refresh_token present is healthy at any
+    # remaining hour count — that's how OAuth access tokens normally behave
+    # (e.g. gmail_token cycles ~hourly). Fixed 2026-07-04: this used to report
+    # raw delta_hours even with refresh_token present, which perpetually tripped
+    # alert_hours_ahead=24 and fired a Telegram alert on every 5-min run.
+    if data.get("refresh_token"):
+        return {"status": "valid", "reason": f"Expires in {delta_hours:.1f}h — has refresh_token (auto-refreshes)", "expires_in_hours": 9999}
+
     return {"status": "valid", "reason": f"Expires in {delta_hours:.1f}h", "expires_in_hours": delta_hours}
 
 
@@ -383,9 +392,42 @@ def save_state(results: dict):
 
 
 def send_telegram_alerts(results: dict):
-    """Send D2MC2C alert for client-affecting credential failures."""
+    """Send D2MC2C alert for client-affecting credential failures.
+
+    ONE AND DONE (fixed 2026-07-04 — Commander directive, Silver/A7): this ran
+    on a 5-min timer and fired an identical Telegram push every single run for
+    any credential whose alert_hours_ahead exceeds its normal rotation window
+    (regent_cookies/regent_cookies_oa: 48h threshold on a ~7h auto-refreshing
+    cookie — perpetually "about to expire" by design, never actually a
+    problem). That was the flood hitting the Commander's phone/laptop.
+    Fix: alert once per (name, status) — same alert never repeats until it
+    either clears (credential recovers) or changes to a new status. No ack
+    needed; these are self-healing, no Commander action required.
+    """
     client_alerts = results["client_affecting_alerts"]
-    if not client_alerts:
+
+    dedup_state = {}
+    if ALERT_DEDUP.exists():
+        try:
+            dedup_state = json.loads(ALERT_DEDUP.read_text())
+        except Exception:
+            dedup_state = {}
+
+    # Clear dedup entries for anything no longer alerting (lets it re-fire fresh
+    # if the same credential breaks again later).
+    active_names = {a["name"] for a in client_alerts}
+    dedup_state = {k: v for k, v in dedup_state.items() if k.split("|", 1)[0] in active_names}
+
+    new_alerts = []
+    for a in client_alerts:
+        key = f"{a['name']}|{a['status']}"
+        if key not in dedup_state:
+            new_alerts.append(a)
+            dedup_state[key] = datetime.now(MT).isoformat()
+
+    ALERT_DEDUP.write_text(json.dumps(dedup_state, indent=2))
+
+    if not new_alerts:
         return
 
     try:
@@ -394,14 +436,14 @@ def send_telegram_alerts(results: dict):
         from OpsCenter.thunderbird_telegram_gw import send_telegram_message
 
         lines = ["🔴 CREDENTIAL ALERT — Client-affecting credentials expired/expiring\n"]
-        for a in client_alerts:
+        for a in new_alerts:
             lines.append(f"⛔ {a['name']}: {a['status']}")
             lines.append(f"   {a['reason']}")
             lines.append(f"   Fix: {a['reauth_cmd']}\n")
 
         msg = "\n".join(lines)
         send_telegram_message(msg)
-        log.info(f"D2MC2C alert sent for {len(client_alerts)} client-affecting credential(s)")
+        log.info(f"D2MC2C alert sent for {len(new_alerts)} NEW client-affecting credential alert(s)")
     except Exception as e:
         log.warning(f"Telegram alert failed: {e}")
 

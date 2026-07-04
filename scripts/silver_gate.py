@@ -41,6 +41,63 @@ def board_hygiene():
     except Exception as e: findings.append(("NOTE","board",f"board unreadable: {str(e)[:40]}"))
     return findings
 
+def internal_ops_check():
+    """Silver on internal processes (2026-07-04): same board-hygiene/no-orphan
+    checks (#5/#6), pointed at the Wing's own machinery instead of a client
+    portal — duplicate mission-board entries and re-injected inbox tasks are
+    the internal-ops equivalent of an unresolved client-facing miss."""
+    import json, collections
+    findings = []
+    root = Path("/home/john/Thunderbird")
+
+    # Duplicate OPEN mission-board entries (same work tracked under >1 ID)
+    try:
+        board = json.loads((root / "OpsCenter/mission_board.json").read_text())
+        open_m = [m for m in board.get("missions", [])
+                  if m.get("status") in ("active", "in_progress", "open", "pending")]
+        norm = lambda t: frozenset(w for w in re.sub(r'[^a-z0-9\s]', '', t.lower()).split())
+        seen = {}
+        for m in open_m:
+            key = norm(m.get("title", ""))
+            if not key:
+                continue
+            if key in seen:
+                findings.append(("HOLD", "board-dup",
+                    f"{m['id']} duplicates {seen[key]} — same work, two open mission IDs"))
+            else:
+                seen[key] = m["id"]
+    except Exception as e:
+        findings.append(("NOTE", "board-dup", f"mission board unreadable: {str(e)[:60]}"))
+
+    # Re-injected UNREAD inbox tasks (same task_id appears UNREAD more than once)
+    for inbox in ("claude_inbox.md", "OpsCenter/collaboration/opencode_inbox.md"):
+        p = root / inbox
+        if not p.exists():
+            continue
+        text = p.read_text()
+        ids = re.findall(r'## TASK: (\S+)\nstatus: UNREAD', text)
+        dupes = [tid for tid, c in collections.Counter(ids).items() if c > 1]
+        if dupes:
+            findings.append(("HOLD", "inbox-dup",
+                f"{inbox}: task(s) injected UNREAD more than once without being read/closed: {dupes}"))
+
+    findings += board_hygiene()
+    return findings
+
+
+def internal_ops_verdict():
+    f = internal_ops_check()
+    print("⭐ CHIEF SILVER — internal ops hygiene")
+    if not f:
+        print("  PASS. No duplicate open missions, no re-injected inbox tasks, board clean.")
+        return 0
+    print(f"  HOLD — {len(f)} finding(s):")
+    for _, cat, msg in f:
+        print(f"   • [{cat}] {msg}")
+    print("  — CMSgt S. Sterling, Command Chief")
+    return 1
+
+
 def run(cdir, others, dossier=None):
     cdir=Path(cdir); findings=[]; docs=sorted(cdir.glob("*.md"))
     docs=[d for d in docs if d.name!="portal.json"]
@@ -97,6 +154,8 @@ def verdict(cdir, others, dossier=None):
     return 1
 
 if __name__=="__main__":
+    if "--internal-ops" in sys.argv:
+        sys.exit(internal_ops_verdict())
     d=sys.argv[1]
     others=[]
     if "--others" in sys.argv: others=sys.argv[sys.argv.index("--others")+1].split(",")

@@ -2835,7 +2835,7 @@ def gmail_create_draft_sync(
     to: str,
     subject: str,
     body: str,
-    from_address: str = "concierge@d2mluxury.quest",
+    from_address: str = "johnloucks3@gmail.com",
     label_review: bool = True,
     cc: Optional[str] = None,
     attachment_paths: Optional[List[str]] = None,
@@ -2845,6 +2845,7 @@ def gmail_create_draft_sync(
     persona_display: str = "D2M Concierge",
     product_type: str = "",
     chain_status: Optional[dict] = None,
+    stage_in: str = "johnloucks3",
 ) -> dict:
     """Synchronous wrapper: create a Gmail draft with D2M stationery.
 
@@ -2854,6 +2855,16 @@ def gmail_create_draft_sync(
 
     cc: optional comma-separated CC addresses
     attachment_paths: list of absolute file paths to attach (text, HTML, PDF, images)
+
+    stage_in: which mailbox HOSTS the draft — "johnloucks3" (default, current SO
+        SO_TP_DRAFT_ROUTING_20260620) or "d2mconcierge" (explicit opt-in for the
+        rare case that still wants the old MISSION-180 behavior). Fixed 2026-07-04:
+        this function previously hardcoded d2mconcierge and *refused* to stage
+        anywhere else (_assert_wing_account raised RuntimeError), so every caller —
+        including current client TP drafts like build_grandeur_preview_drafts.py —
+        was staging in d2mconcierge's Drafts folder while the Commander reviews
+        from johnloucks3's, per the routing SO. The draft existed; it was just in
+        a mailbox he doesn't review from.
 
     A8 Extension — WF-17 deep-link Telegram notification:
         notify_telegram: if True, push draft alert to Commander via Telegram
@@ -2868,11 +2879,19 @@ def gmail_create_draft_sync(
     if persona_id:
         persona_display = PERSONA_DISPLAY_NAMES.get(persona_id.upper(), persona_display)
 
-    # MISSION-180: client drafts stage in d2mconcierge (was drifting to johnloucks3).
-    # Fail loud on wrong account; resolve branded From only if the alias is verified.
-    service = _get_wing_gmail_service()
-    _assert_wing_account(service)
-    from_address = _resolve_wing_from(service, from_address)
+    if stage_in == "d2mconcierge":
+        service = _get_wing_gmail_service()
+        _assert_wing_account(service)
+        from_address = _resolve_wing_from(service, from_address)
+        draft_account_email = "d2mconcierge@gmail.com"
+    else:
+        service = _get_commander_gmail_service()
+        draft_account_email = "johnloucks3@gmail.com"
+        # johnloucks3 has no d2mluxury.quest send-as alias verified on it yet
+        # (deliverability override, SO amended 2026-06-25) — send AS johnloucks3
+        # unless the caller explicitly asked for the branded concierge alias.
+        if from_address == "concierge@d2mluxury.quest":
+            from_address = "johnloucks3@gmail.com"
 
     stripped = body.strip()
     html_body = _wrap_body_html(body)
@@ -2935,7 +2954,7 @@ def gmail_create_draft_sync(
         "attachments": attached_files,
         "label_applied": label_review,
         "gmail_deep_link": (
-            f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
+            f"https://mail.google.com/mail/b/{draft_account_email}/#drafts/{message_id}"
             if message_id else ""
         ),
     }

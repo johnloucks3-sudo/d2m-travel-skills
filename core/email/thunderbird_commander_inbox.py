@@ -1303,9 +1303,20 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             logger.debug(f"Skipping scanner-generated email: {subject[:60]}")
             continue
 
+        body = _decode_body(msg.get("payload", {}))
+
         # Skip Wing notification emails that lack X-WING-SCANNER but are self-generated
-        # (dispatch_and_email.py sends "Directive logged" acks without the header)
+        # (dispatch_and_email.py sends "Directive logged" acks without the header).
+        # ONE AND DONE fix (2026-07-04 — Sterling/A7): these self-generated briefs
+        # frequently ship with subject "(no subject)" — the identifying text is in
+        # the BODY, not the subject. Checking subject alone let the Wing's own
+        # daily briefs (THUNDERBIRD COMMAND BRIEF, HALE Compressed Brief, Inbox
+        # Digest, ✅ Answer acks) get misclassified as DIRECTION and re-tasked
+        # onto the mission board every day it was sent (MISSION-1500/1507/1508/
+        # 1528/1529, MISSION-1501/1502/1518 — same broadcast, new mission daily).
         _subj_lower = subject.lower()
+        _body_lower = body[:300].lower()
+        _noise_check = _subj_lower + " " + _body_lower
         _WING_NOISE_PATTERNS = (
             "directive logged as mission",
             "hale is executing",
@@ -1316,14 +1327,17 @@ def scan_commander_inbox(hours_back: int = 4) -> List[Dict[str, Any]]:
             "thunderbird brief",
             "thunderbird eod",
             "thunderbird morning",
+            "thunderbird command brief",
+            "command brief",
+            "compressed brief",
             "agentic intel digest",
+            "inbox digest",
             "d2m fpd alert",
+            "✅ answer:",
         )
-        if any(p in _subj_lower for p in _WING_NOISE_PATTERNS):
+        if any(p in _noise_check for p in _WING_NOISE_PATTERNS):
             logger.debug(f"Skipping Wing-generated noise email: {subject[:60]}")
             continue
-
-        body = _decode_body(msg.get("payload", {}))
 
         # ── Classification: TEST | QUESTION | CC | DIRECTION | INFORMATION ──
         # Every email FROM Commander is processed — no prefix filter.

@@ -391,3 +391,40 @@ task: |
 
   Draft due by 2026-06-30T00:00:00.
   For WF-17 gate and Commander approval flow.
+
+---
+## TASK: TASK-1.4-kuklinski_group
+status: READ
+read: 2026-07-04T07:24:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-04T06:03:58.731033
+priority: P1
+result: Re-injection root cause fixed 2026-07-04 (staff_tasking_timers_system.py dedup was a 24h cooldown, not a one-time gate — re-injected this same overdue task daily since 2026-06-30). Dedup is now inject-once-per-task_id. The underlying deliverable (Kuklinski TP 1.4 voyage-coming-together email) is still genuinely PENDING on staff_tasking_schedule.json — routes to A2→A6→A3, not COS-authored.
+task: |
+  Deliverable: Voyage coming together email
+  Client: kuklinski_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
+
+
+---
+## TASK: TASK-1.4-westbrook_group
+status: READ
+read: 2026-07-04T07:24:00Z
+from: Staff-Tasking-Timers-System
+injected: 2026-07-04T06:03:58.731033
+priority: P1
+result: Re-injection root cause fixed 2026-07-04 (same staff_tasking_timers_system.py dedup fix). Underlying deliverable still genuinely PENDING, routes to A2→A6→A3.
+task: |
+  Deliverable: Voyage coming together email
+  Client: westbrook_group
+  Phase: 1 / Touchpoint 1.4
+  Send Date: 2026-07-14T00:00:00
+  Owners: A2→A6→A3
+
+  Draft due by 2026-06-30T00:00:00.
+  For WF-17 gate and Commander approval flow.
