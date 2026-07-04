@@ -10348,18 +10348,20 @@
     {
       "id": "MISSION-812",
       "title": "Client inquiry: Hold without Payment Reminder - PE181149717: Original Hop on",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from Project Expedition <support@projectexpedition.com> \u2014 subject: Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D",
       "created_at": "2026-06-27T12:00:19.137406+00:00",
-      "updated_at": "2026-07-02T05:39:59",
+      "updated_at": "2026-07-04T14:10:39",
       "logs": [
         "[2026-06-27T12:00:19.137406+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f08319ae40962f",
         "[2026-06-27T12:15:18] \u2705 Auto-executed by daily_mission_executor \u2014 18s \u2014 SUCCESS: # MISSION-812: Client inquiry: Hold without Payment Reminder - PE181149717\n\n## Work Product\n\n### 1. Task Execution\n\n**Step 1: Locate the Inbound Email**\n\nThe inbound email from Project Expedition was ",
         "[2026-06-27T12:15:18] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-02T05:39:59] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ## MISSION-812: Client inquiry: Hold without Payment Reminder - PE181149717\n\n**Analysis:**\n\nThe automated mission executor successfully processed an inbound client email regarding a \"Hold without Paym",
-        "[2026-07-02T05:39:59] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T05:39:59] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T14:10:39] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ## MISSION-812: Client inquiry: Hold without Payment Reminder - PE181149717\n\n**Analysis:**\n\nThe automated mission executor successfully processed an inbound client email regarding a \"Hold without Paym",
+        "[2026-07-04T14:10:39] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=support@projectexpedition.com) \u2014 triage_client_inquiry_noise.py",
@@ -10625,18 +10627,20 @@
     {
       "id": "MISSION-826",
       "title": "Client inquiry: The Supreme Court Produced No High Profile Decisions Last We",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Shipwreckedcrew from Shipwreckedcrew's Port-O-Call\" <shipwreckedcrew@substack.com> \u2014 subject: The Supreme Court Produced No High Profile Decisions Last Week -- So Lets Look At \"Dead Man Walking\" Graham Platne\u2026",
       "created_at": "2026-06-28T16:47:26.559923+00:00",
-      "updated_at": "2026-07-02T05:40:10",
+      "updated_at": "2026-07-04T14:10:46",
       "logs": [
         "[2026-06-28T16:47:26.559923+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0f06e676bcbaa",
         "[2026-06-28T20:41:47] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-826: Client Inquiry - Supreme Court & Graham Platen\n\n**Analysis:**\n\nThe client, \"Shipwreckedcrew,\" has initiated contact via email with a subject line referencing a lack of high-profile Suprem",
         "[2026-06-28T20:41:47] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-02T05:40:10] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: ### MISSION-826: Client Inquiry - Supreme Court & Graham Platen\n\n**Analysis:**\n\nThe client, \"Shipwreckedcrew,\" has reached out with an email referencing a perceived lack of high-profile Supreme Court ",
-        "[2026-07-02T05:40:10] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T05:40:10] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T14:10:46] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: ### MISSION-826: Client Inquiry - Supreme Court & Graham Platen\n\n**Analysis:**\n\nThe client, \"Shipwreckedcrew,\" initiated contact on June 28th, 2026, with an email subject referencing a lack of high-pr",
+        "[2026-07-04T14:10:46] \u23f8 pending_review: issue keywords detected"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=shipwreckedcrew@substack.com) \u2014 triage_client_inquiry_noise.py",
@@ -10648,12 +10652,12 @@
     {
       "id": "MISSION-827",
       "title": "Client inquiry: My American Trivia Quiz",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Sharyl Attkisson from Sharyl\u2019s Substack\" <sharylattkisson@substack.com> \u2014 subject: My American Trivia Quiz",
       "created_at": "2026-06-28T16:47:26.571380+00:00",
-      "updated_at": "2026-07-02T13:45:09",
+      "updated_at": "2026-07-04T14:10:51",
       "logs": [
         "[2026-06-28T16:47:26.571380+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0efde180c8f9f",
         "[2026-06-28T20:41:53] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: ### MISSION-827: Client inquiry: My American Trivia Quiz\n\n**STATUS:** COMPLETE\n\n**Work Product:**\n\n**Analysis:**\n\nThe client, Sharyl Attkisson, has sent an inquiry regarding \"My American Trivia Quiz.\"",
@@ -10662,7 +10666,9 @@
         "[2026-07-02T12:17:30] \u274c Auto-executed by daily_mission_executor \u2014 150s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T13:38:45] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T13:45:09] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: **Analysis:**\n\nThe \"daily_mission_executor\" task failed three times due to all LLM providers (Gemini and GitHub Models) failing. The failures occurred on 2026-07-02 at 09:41:21 (0 seconds of execution",
-        "[2026-07-02T13:45:09] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T13:45:09] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T14:10:51] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-827: Client Inquiry: My American Trivia Quiz\n\n**Analysis:**\n\nThe \"daily_mission_executor\" task, intended to process an inbound client email from \"Sharyl Attkisson from Sharyl\u2019s Substack\" regar",
+        "[2026-07-04T14:10:51] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=sharylattkisson@substack.com) \u2014 triage_client_inquiry_noise.py",
@@ -10672,12 +10678,12 @@
     {
       "id": "MISSION-828",
       "title": "Client inquiry: Cruise Extras People Never Regret Buying; Suite, Mini-Suite ",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from Cruise Critic <news@info.cruisecritic.com> \u2014 subject: Cruise Extras People Never Regret Buying; Suite, Mini-Suite or Balcony? & More",
       "created_at": "2026-06-28T16:47:26.581006+00:00",
-      "updated_at": "2026-07-02T21:53:19",
+      "updated_at": "2026-07-04T14:11:02",
       "logs": [
         "[2026-06-28T16:47:26.581006+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0efd4ada7f679",
         "[2026-06-28T20:41:58] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: ## MISSION-828: Client Inquiry: Cruise Extras People Never Regret Buying; Suite, Mini-Suite\n\n**Analysis:**\n\nThe client received an informational email from Cruise Critic regarding \"Cruise Extras Peopl",
@@ -10688,7 +10694,9 @@
         "[2026-07-02T13:45:13] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T17:51:19] \u274c Auto-executed by daily_mission_executor \u2014 7s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T21:53:19] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: # MISSION-828: Client inquiry: Cruise Extras People Never Regret Buying; Suite, Mini-Suite\n\n## Analysis and Action Report\n\n**Mission Objective:** Respond to a client inquiry regarding cruise extras, s",
-        "[2026-07-02T21:53:19] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T21:53:19] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T14:11:02] \u2705 Auto-executed by daily_mission_executor \u2014 8s \u2014 SUCCESS: # MISSION-828: Client Inquiry: Cruise Extras People Never Regret Buying; Suite, Mini-Suite\n\n**Analysis:**\n\nThe client inquiry, received via Cruise Critic, asks about cruise extras that are generally c",
+        "[2026-07-04T14:11:02] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=news@info.cruisecritic.com) \u2014 triage_client_inquiry_noise.py",
@@ -10698,12 +10706,12 @@
     {
       "id": "MISSION-829",
       "title": "Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Dunkin' Rewards\" <dunkinrewards@emailinfo.dunkinrewards.com> \u2014 subject: Your Dunkin\u2019 summer is heating up \ud83d\udd25",
       "created_at": "2026-06-28T16:47:26.593087+00:00",
-      "updated_at": "2026-07-02T13:45:17",
+      "updated_at": "2026-07-04T18:14:16",
       "logs": [
         "[2026-06-28T16:47:26.593087+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0efa3444dd334",
         "[2026-06-28T23:19:58] \u2705 Auto-executed by daily_mission_executor \u2014 1s \u2014 SUCCESS: MISSION-829: Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25\n\n**Analysis:**\n\nThe provided data is an automated email notification from \"Dunkin' Rewards\" to a client. The subject line \"Your Dunkin\u2019",
@@ -10712,7 +10720,9 @@
         "[2026-07-02T12:17:34] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T13:38:49] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T13:45:17] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-829: Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25\n\n**Analysis:**\n\nThe automated mission executor successfully identified and processed an inbound client email. However, the subsequent L",
-        "[2026-07-02T13:45:17] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T13:45:17] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T18:14:16] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: ### MISSION-829: Client inquiry: Your Dunkin\u2019 summer is heating up \ud83d\udd25\n\n**Analysis:**\n\nThe automated mission executor successfully identified and processed an inbound client email with the subject \"Your",
+        "[2026-07-04T18:14:16] \u23f8 pending_review: issue keywords detected"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (extended_promo, sender=dunkinrewards@emailinfo.dunkinrewards.com) \u2014 triage_client_inquiry_noise.py",
@@ -10722,12 +10732,12 @@
     {
       "id": "MISSION-830",
       "title": "Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel H",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Newsmax.com\" <newsmax@latest.newsmax.com> \u2014 subject: Soros Puts Millions to Stop GOP; Dems Can Register; Israel Hits Turkey; Mel Brooks",
       "created_at": "2026-06-28T16:47:26.602751+00:00",
-      "updated_at": "2026-07-02T21:53:25",
+      "updated_at": "2026-07-04T18:14:22",
       "logs": [
         "[2026-06-28T16:47:26.602751+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0ef8c9257e838",
         "[2026-06-28T23:20:02] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-830: Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel H\n\n**Analysis:**\n\nThis task is an automated alert triggered by an inbound client email. The email's subject line",
@@ -10738,7 +10748,9 @@
         "[2026-07-02T13:45:29] \u274c Auto-executed by daily_mission_executor \u2014 9s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T17:51:22] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T21:53:25] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ### MISSION-830: Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel H\n\n**Analysis:**\n\nThe mission executor failed to process the inbound client email due to LLM provider failur",
-        "[2026-07-02T21:53:25] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T21:53:25] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T18:14:22] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ### MISSION-830: Client inquiry: Soros Puts Millions to Stop GOP; Dems Can Register; Israel Hits Turkey; Mel Brooks\n\n**Analysis:**\n\nThe client inquiry originated from \"Newsmax.com\" with a subject line",
+        "[2026-07-04T18:14:22] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (extended_promo, sender=newsmax@latest.newsmax.com) \u2014 triage_client_inquiry_noise.py",
@@ -10748,19 +10760,21 @@
     {
       "id": "MISSION-831",
       "title": "Client inquiry: A special birthday treat from Disney is coming soon!",
-      "status": "archived_noise",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from All Things Disney <Allthingsdisney@email.exploringtwdc.com> \u2014 subject: A special birthday treat from Disney is coming soon!",
       "created_at": "2026-06-28T16:47:26.612043+00:00",
-      "updated_at": "2026-07-02T21:53:31",
+      "updated_at": "2026-07-04T18:14:27",
       "logs": [
         "[2026-06-28T16:47:26.612043+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0ef6b23a2acff",
         "[2026-06-28T23:20:07] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-831: Client inquiry: A special birthday treat from Disney is coming soon!\n\n**Analysis:**\n\nThe client has received an email from \"All Things Disney\" regarding a special birthday treat. This is ",
         "[2026-06-28T23:20:07] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-02T17:51:30] \u274c Auto-executed by daily_mission_executor \u2014 6s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-02T21:53:31] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ## MISSION-831: Client inquiry: A special birthday treat from Disney is coming soon!\n\n**Analysis:**\n\nThe client received an email from \"All Things Disney\" about a birthday treat. The automated mission",
-        "[2026-07-02T21:53:31] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-02T21:53:31] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T18:14:27] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ### MISSION-831: Client inquiry: A special birthday treat from Disney is coming soon!\n\n**Analysis:**\n\nThe client has received a promotional email from \"All Things Disney\" about a birthday treat. This ",
+        "[2026-07-04T18:14:27] \u23f8 pending_review: issue keywords detected"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=allthingsdisney@email.exploringtwdc.com) \u2014 triage_client_inquiry_noise.py",
@@ -10810,18 +10824,20 @@
     {
       "id": "MISSION-834",
       "title": "Client inquiry: Special Offer: $1/month for 1 year",
-      "status": "archived_noise",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from \"Cond\u00e9 Nast Traveler \" <condenasttraveler@eml.condenast.com> \u2014 subject: Special Offer: $1/month for 1 year",
       "created_at": "2026-06-28T16:47:26.640725+00:00",
-      "updated_at": "2026-07-03T01:53:35",
+      "updated_at": "2026-07-04T18:14:32",
       "logs": [
         "[2026-06-28T16:47:26.640725+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f0e94cc3b59f1c",
         "[2026-06-29T00:41:49] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-834: Client Inquiry: Special Offer: $1/month for 1 year\n\n**Analysis:**\n\nThis task involves responding to an inbound client email from \"Cond\u00e9 Nast Traveler\" regarding a special offer. The email",
         "[2026-06-29T00:41:49] \u23f8 pending_review: STATUS: COMPLETE not found",
         "[2026-07-03T01:53:35] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-834: Client Inquiry: Special Offer: $1/month for 1 year\n\n**Analysis:**\n\nThe automated daily mission executor successfully processed an inbound email from \"Cond\u00e9 Nast Traveler\" concerning a spe",
-        "[2026-07-03T01:53:35] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-03T01:53:35] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-04T18:14:32] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: ### MISSION-834: Client Inquiry: Special Offer: $1/month for 1 year\n\n**Analysis:**\n\nThe automated email ingestion pipeline correctly identified and processed an inbound client email from \"Cond\u00e9 Nast T",
+        "[2026-07-04T18:14:32] \u26a1 HALE auto-approved closure (STATUS: COMPLETE confirmed)"
       ],
       "notes": [
         "[2026-07-02T02:30:11.016814+00:00] archived_noise (canonical_noise, sender=condenasttraveler@eml.condenast.com) \u2014 triage_client_inquiry_noise.py",
@@ -22778,6 +22794,174 @@
       "created_at": "2026-07-04T12:35:49.695116+00:00",
       "updated_at": "2026-07-04T13:23:57.618775+00:00",
       "completed_at": "2026-07-04T13:23:57.670407+00:00"
+    },
+    {
+      "id": "MISSION-1530",
+      "title": "Trial Skyvern (AGPL,",
+      "status": "parked",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "self-host) for portal auto-relogin + credential vault + TOTP ELON adoption trial. Skyvern github.com/Skyvern-AI/skyvern = LLM+CV browser automation with a built-in Credential vault (passwords + auto TOTP) and SCHEDULED/recurring workflows \u2014 purpose-built to log into sites and survive form changes. Self-host via docker, points at any LLM (use our own models = ~zero marginal cost). Trial plan: (1) stand up Skyvern docker on yoga; (2) target CENTRAV first (no Akamai wall) \u2014 store creds in vault, build a login workflow, schedule it as the keep-alive; (3) measure vs our scripts/keepalive_supervisor.py. HARD LIMIT: Skyvern does NOT defeat Akamai/reCAPTCHA at the login wall \u2014 Regent/Imperva portals still need camoufox + Commander's residential-IP Firefox session for the initial auth. Skyvern replaces the RE-LOGIN LOGIC + credential storage + 2FA, not the anti-bot layer. Pair: Steel-browser (Apache-2.0, steel-dev/steel-browser) Profiles for durable session persistence if we want a cloud-browser layer. Owner: ELON/Whetstone. Ref: reference_credential_keepalive_packages_20260704",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": "2026-07-10",
+      "escalation_rule": null,
+      "logs": [
+        {
+          "ts": "2026-07-04T21:20:37.290615+00:00",
+          "entry": "Infra fully built and verified: Skyvern docker stack live on yoga (containers healthy, SELinux :z relabel required on all bind mounts). Discovered CREDENTIAL_VAULT_TYPE=skyvern in .env.example is NOT a real storage backend in this build (API rejects it, 'Credential storage not supported' -- only bitwarden/azure_vault/gcp/custom work). Attempted vaultwarden (official self-host path) but modern bw CLI has REMOVED non-interactive `register`; web-signup blocked by app's hard HTTPS requirement, which needed a self-signed TLS cert to even load -- deep rabbit hole, abandoned. PIVOT: built scripts/d2m_cred_vault (our own ~80-line FastAPI service, Fernet-encrypted at rest, matches Skyvern's documented CUSTOM vault HTTP contract exactly) -- containerized, wired via CUSTOM_CREDENTIAL_API_BASE_URL/TOKEN. VERIFIED end-to-end via live API: stored Centrav credential (cred_547679621928906540), confirmed encrypted on disk, confirmed retrieval. Launched /v1/run/tasks/login against centrav.com/login -- FAILED, but not on OTP/reCAPTOWN (never got that far): root cause is 'Your credit balance is too low to access the Anthropic API' -- the ANTHROPIC_API_KEY pulled from Thunderbird/.env has no funded balance on the Anthropic Console (separate pay-as-you-go pool from the Claude MAX subscription Hale runs on). This is a FINANCIAL gate (S/O/T doctrine) -- Hale has zero authority to fund it. BLOCKED on Commander: fund the Anthropic Console API key (any amount, $10-20 covers a long trial) OR authorize routing Skyvern to a different already-funded model provider."
+        },
+        {
+          "ts": "2026-07-04T21:25:04.269839+00:00",
+          "entry": "PARKED by Commander 2026-07-04 15:xx MT \u2014 'not as severe as I thought.' Review in 6 days (2026-07-10): does the Anthropic API key have funds yet, or has priority shifted? No action until then."
+        }
+      ],
+      "created_at": "2026-07-04T20:36:03.730257+00:00",
+      "updated_at": "2026-07-04T20:36:03.730272+00:00"
+    },
+    {
+      "id": "MISSION-1531",
+      "title": "Book ARN to At Six hotel transfers \u2014 all 3 couples (Furlow/Ely-Darrow/Nichols)",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Book Stockholm Arlanda airport-to-At Six Hotel transfers for all three Grandeur Scandinavia couples; this is the single gate blocking portal delivery to three clients on the July 20 target send date.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.166092+00:00",
+      "updated_at": "2026-07-04T21:11:35.166096+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1532",
+      "title": "Lift McLeod contact hold July 7 \u2014 send TP 1.1 and open FPD conversation",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Hale",
+      "description": "On July 7, verify McLeod FPD balance against live Regent portal, send staged TP 1.1 Voyage Preview from johnloucks3, and open the $11,943.15 FPD conversation with 15 days to the July 22 deadline.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.166842+00:00",
+      "updated_at": "2026-07-04T21:11:35.166846+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1533",
+      "title": "Execute Scandinavia portal Wing review July 10",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Run full QC pass on all three per-couple portals \u2014 excursion count-match vs. dossier, every image viewed, segregation verified, Amy medical guard confirmed absent from client copy, facts checked against dossier \u2014 before the July 20 send gate.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.167131+00:00",
+      "updated_at": "2026-07-04T21:11:35.167135+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1534",
+      "title": "Rotate burned GitHub credentials \u2014 MISSION-SEC-05 Tier 2 runbook",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Commander + Hale",
+      "description": "Execute the Tier 2 rotation runbook for all credentials exposed in the GitHub push; Commander authorizes, Hale executes rotation and verifies each credential revocation against live supplier portals.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.167390+00:00",
+      "updated_at": "2026-07-04T21:11:35.167393+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1535",
+      "title": "Send Kuklinski lifecycle TP push \u2014 four drafts sitting in johnloucks3",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Stage and surface for Commander review the four Kuklinski lifecycle drafts (TP 0.5, TP 4.1, TP 4.2, TP 4.3) that have been in johnloucks3 since June 19; Kuklinski sails December 17 and the lifecycle cadence is already behind.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.167650+00:00",
+      "updated_at": "2026-07-04T21:11:35.167652+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1536",
+      "title": "Lyons Silver Nova commission financial pass \u2014 add to pipeline tracker",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Harlan",
+      "description": "Run Harlan's six-step verification on the confirmed Lyons Silver Nova May 2027 booking to establish commission tier, dollar figure, and FPD, then add to the pipeline tracker and hale_state.json financial pulse.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.167847+00:00",
+      "updated_at": "2026-07-04T21:11:35.167910+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1537",
+      "title": "Connect Amadeus and GYG intel to one active client product",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Intel",
+      "description": "Route at least one Amadeus fare-watch result or GYG excursion pricing insight into an active client lifecycle email (Kuklinski or McLeod) to validate the new sourcing pipeline produces a client deliverable, not just a script output.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.168221+00:00",
+      "updated_at": "2026-07-04T21:11:35.168224+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1538",
+      "title": "Mission board hygiene pass \u2014 active working set under 50",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Audit the 383-mission board, separate active working missions from archived historical records, and produce a clean active mission list under 50 items traceable to current client work, infrastructure, or Commander actions.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-04T21:11:35] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-04T21:11:35.168474+00:00",
+      "updated_at": "2026-07-04T21:11:35.168476+00:00",
+      "source": "weekly_report"
     }
   ],
   "suspense_watch": [
@@ -22844,7 +23028,7 @@
     "MISSION-007",
     "MISSION-034"
   ],
-  "last_updated": "2026-07-04T12:15:25.544913+00:00",
+  "last_updated": "2026-07-04T21:11:35.168479+00:00",
   "t4_exercise_status": {
     "status": "CLOSED",
     "score": "9.5/10 GREEN",

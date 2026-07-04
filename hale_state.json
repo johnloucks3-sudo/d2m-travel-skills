@@ -169,7 +169,7 @@
   "staff_load": {
     "HALE": {
       "last_seen": true,
-      "active": 11
+      "active": 13
     },
     "DEM": {
       "last_seen": false,
@@ -192,8 +192,8 @@
       "active": 0
     },
     "VIC": {
-      "last_seen": false,
-      "active": 0
+      "last_seen": true,
+      "active": 1
     },
     "PAD": {
       "last_seen": false,
@@ -462,6 +462,15 @@
       "condition_type": "date_and_dependency",
       "dependency": "ARN->At Six transfers x3 booked by Commander",
       "source": "Commander directive 2026-07-03 \u2014 target send Jul 20 after transfer booking"
+    },
+    {
+      "id": "MISSION-1530-SKYVERN-REVIEW",
+      "trigger_date": "2026-07-10",
+      "priority": "P2",
+      "message": "MISSION-1530 (Skyvern credential keep-alive trial) parked 2026-07-04 \u2014 Commander deprioritized after seeing scope of the Anthropic API billing blocker. Review: is the API key funded, has priority changed, or stays parked another cycle?",
+      "condition": "date>=2026-07-10",
+      "condition_type": "date",
+      "source": "Commander directive 2026-07-04 \u2014 park with 6-day review"
     }
   ],
   "lessons_implementation_rate_pct": 100.0,
