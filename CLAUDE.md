@@ -20,6 +20,8 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 - Graceful fallback if RabbitMQ unavailable (continues session)
 **Status:** Active (enabled 2026-06-09 after Gate 4 PASS)
 
+**⚠️ DECISION MATRIX ON LOGIN (Commander directive 2026-07-04):** Check `OpsCenter/state/heartbeat_scan_latest.json` (and any aging P0/P1 missions) every session open. If decision-worthy items exist, present them via `AskUserQuestion` — one question per item, real grounded multiple-choice options — NOT a text list. Cap 4 questions/call; merge related items. See `feedback_decision_matrix_on_login` memory.
+
 ## KEYWORD TRIGGER — "STAFF COMMENTS?" (MISSION-172 Feedback Portal)
 **When Commander types:** `"STAFF COMMENTS?"`  
 **Auto-invokes:** `python3 OpsCenter/staff_comments_handler.py`  
@@ -335,9 +337,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-03 16:10 MT -->
+<!-- Last sync: 2026-07-04 15:39 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-03 16:10 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-04 15:39 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE

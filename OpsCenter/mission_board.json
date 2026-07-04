@@ -3673,7 +3673,7 @@
     {
       "id": "MISSION-214",
       "title": "Regent Portal On-Demand",
-      "status": "in_progress",
+      "status": "monitoring",
       "priority": "P0",
       "assigned_to": "unassigned",
       "description": "Capture \u2014 Loucks 3122006 Milestones Regent ASPXAUTH cannot be kept alive headless (Akamai blocks auto-login; 48h cookie). PROCEDURE at each milestone: (1) Commander logs into rssc.com in YOGA Firefox, (2) run: python3 scripts/regent_firefox_cookie_capture.py (auto-reads cookies.sqlite incl HttpOnly ASPXAUTH, writes creds/regent_cookies_oa.json + regent_cookies.json), (3) run scrape: loucks_3122006_scrape.py / loucks_excursion_times.py. MILESTONES (deferred alerts armed in hale_state): Aug-1 FPD 24798, Sep-30 dining open 8pmET, Nov-29 excursion clock-time rescrape, Dec-8 online checkin + guest registration. Booking 3122006 Seven Seas Grandeur Dec29 2026. P1",
@@ -3683,7 +3683,11 @@
       "escalation_rule": null,
       "logs": [
         "[2026-06-21T03:25:08] [2026-06-20 18:08 MT] INTEL: Cloudflare building ephemeral identity infra for AI agent web access \u2014 potential clean-IP proxy mechanism for Akamai bypass. Sterling's Imperva spend gate trigger. Monitor CF developer blog + beta program. Source: Commander Telegram 1806 MT.",
-        "[2026-07-03T21:59:22] 2026-07-03 15:5x: OC audit \u2014 ASPXAUTH present, cookies 27.2h old (~21h until 48h expiry). No action needed now. Commander re-auth recommended before 2026-07-04 18:00 MT to stay ahead of Akamai."
+        "[2026-07-03T21:59:22] 2026-07-03 15:5x: OC audit \u2014 ASPXAUTH present, cookies 27.2h old (~21h until 48h expiry). No action needed now. Commander re-auth recommended before 2026-07-04 18:00 MT to stay ahead of Akamai.",
+        {
+          "ts": "2026-07-04T21:39:29.004743+00:00",
+          "entry": "Commander decision 2026-07-04 (decision matrix): 'set a recurring cadence' -- converted from one-off task to standing monitored procedure. hale-credential-check.timer now runs scripts/credentials_health_check.py every 6h (0400/1000/1600/2200 MT); Regent expiry pages Telegram once (deduped) when it actually happens. No more forced calendar logins when the portal isn't needed -- re-auth happens on genuine expiry signal or ahead of a specific booking touch (McLeod pattern). MISSION-236 closed as duplicate."
+        }
       ],
       "created_at": "2026-06-12T15:40:37.112621+00:00",
       "updated_at": "2026-07-03T21:59:22.484752+00:00",
@@ -4133,7 +4137,7 @@
     {
       "id": "MISSION-236",
       "title": "Manual Regent OA re-authentication to restore B2B portal coverage",
-      "status": "active",
+      "status": "closed_duplicate",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Log into the Regent OA portal manually via yoga Firefox to bypass the reCAPTCHA block and restore automated keepalive coverage before the next Kuklinski or Loucks fare watch cycle.",
@@ -4146,6 +4150,10 @@
         {
           "ts": "2026-06-22T19:36:28.838799+00:00",
           "entry": "Regent OA re-authentication: regent_cookies_oa active (expires 7990h per brief credential check). Status: ALIVE. No re-auth needed right now. Monitor: when cookies expire, re-auth via regent_booking_capture.py scrape session. No action required today."
+        },
+        {
+          "ts": "2026-07-04T21:39:29.004762+00:00",
+          "entry": "Closed as duplicate of MISSION-214 (same blocker: Regent ASPXAUTH cannot be kept alive headless, needs manual Firefox re-auth). Commander decision 2026-07-04 via decision matrix. Standing alerting now handled by hale-credential-check.timer (every 6h)."
         }
       ],
       "created_at": "2026-06-14T23:55:34.404526+00:00",
@@ -6468,7 +6476,7 @@
       "description": "Call United Group Desk (800-426-1122, opt 3) before Jun 25 to establish group booking relationship and secure a 12-pax DEN-FCO quote before the Jul 17 booking window opens (MISSION-196, 230h+ open).",
       "deliverables": [],
       "dependencies": [],
-      "suspense_date": null,
+      "suspense_date": "2026-07-06",
       "escalation_rule": null,
       "logs": [
         "[2026-06-21T09:35:11] Created by Weekly Report Generator",
@@ -6479,6 +6487,10 @@
         {
           "ts": "2026-06-22T19:30:03.818833+00:00",
           "entry": "COMMANDER ACTION: Call United Group Desk 800-426-1122 opt 3. Quote for Spencer DEN-FCO 12-pax. Suspense 2026-06-24."
+        },
+        {
+          "ts": "2026-07-04T21:39:43.755320+00:00",
+          "entry": "Commander decision 2026-07-04 (decision matrix): schedule specific day. Today (Sat Jul 4) is a holiday weekend, group desk unlikely staffed -- scheduled for Monday Jul 6 (next business day). Reminder wired via hale_state.json deferred_alerts, 0800 MT ping with the DEN-FCO brief attached."
         }
       ],
       "created_at": "2026-06-21T09:35:11.908629+00:00",
@@ -10246,7 +10258,11 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-06-27T00:03:31] Created by Weekly Report Generator"
+        "[2026-06-27T00:03:31] Created by Weekly Report Generator",
+        {
+          "ts": "2026-07-04T21:39:50.682074+00:00",
+          "entry": "Commander decision 2026-07-04 (decision matrix): fixing now himself via Cloudflare dashboard. Hale will spot-check DNS resolution shortly to confirm and close the mission once verified."
+        }
       ],
       "created_at": "2026-06-27T00:03:31.122072+00:00",
       "updated_at": "2026-06-27T00:03:31.122074+00:00",
