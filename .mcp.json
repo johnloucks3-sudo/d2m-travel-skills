@@ -6,9 +6,10 @@
       "args": ["mcp-server-qdrant"],
       "env": {
         "QDRANT_URL": "http://127.0.0.1:6333",
-        "COLLECTION_NAME": "thunderbird_memories"
+        "COLLECTION_NAME": "thunderbird_memories_mcp",
+        "EMBEDDING_MODEL": "sentence-transformers/all-MiniLM-L6-v2"
       },
-      "description": "SHARED BRAIN — mcp-server-qdrant over the live Qdrant thunderbird_memories collection. Mounted by BOTH CC and OC so any seat reads/writes the same memory (HALE-OS shared-brain layer). uvx launches on connect."
+      "description": "SHARED BRAIN — mcp-server-qdrant, dedicated 'thunderbird_memories_mcp' collection (2026-07-04: mcp-server-qdrant ONLY supports named vectors; the original 'thunderbird_memories' collection (4473 pts, written by core/memory/qdrant_memory.py) uses an unnamed vector and is architecturally incompatible with this MCP tool — every qdrant-find/qdrant-store call 400'd with 'Not existing vector name: fast-all-minilm-l6-v2'. Fixed by giving the MCP tool its own collection rather than risking/migrating the existing 4473 points. Same embedding model (384-dim all-MiniLM-L6-v2) so semantically compatible, just structurally separate. Mounted by BOTH CC and OC."
     },
     "graphiti": {
       "type": "http",
