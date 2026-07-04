@@ -1,26 +1,36 @@
 """
-Thunderbird 1730 Nomination Ping
-Dreams2Memories Travel, LLC · A7 Sterling build · 2026-06-10
+Thunderbird Nomination Ping — 2x/day, 12h apart, half the sector list each time
+Dreams2Memories Travel, LLC · A7 Sterling build · 2026-06-10, split 2026-07-04
 
-Fires at 1730 MT via systemd timer. Sends a Telegram message to Commander
-notifying tonight's incubator sectors and gate candidate. Commander can
-redirect or cancel via Telegram before 1800 EOD brief fires.
+Fires TWICE daily, 12h apart (0530 and 1730 MT) via two systemd timers. Each
+fire covers HALF of rotation_sectors — together the two halves give total
+daily coverage of every rotation sector, instead of the old slow multi-night
+rotation (3/night out of 7 took days to cycle through). permanent_sectors
+run on every fire regardless of half (unchanged — they're not part of the split).
+
+Commander directive 2026-07-04: "I want 2 a day 12 hours apart firing 1/2 the
+list each time so we get total coverage."
 
 Send-only design: does NOT poll getUpdates (Telegram gateway is running
 and owns the polling loop). This script writes to eod_incubator_config.json
-to record tonight's plan (sectors + gate tracking); the 1800 EOD brief reads
-that config so the ping and the EOD brief stay coherent.
+to record the plan (sectors + gate tracking); the 1800 EOD brief reads
+that config so the pings and the EOD brief stay coherent. sectors_tonight
+accumulates across the day: after the AM half fires it holds half 1 only;
+after the PM half fires it holds both halves — full coverage, verifiable by
+the 1800 EOD brief.
 
-Per-day send-lock: OpsCenter/nomination_sent_YYYYMMDD.lock (MT date) — mirrors
-thunderbird_eod_brief.py. Sends at most once per calendar day (edge-triggered,
-not level-triggered — the message no longer re-fires on catch-up/off-schedule runs).
+Per-day-per-half send-lock: OpsCenter/nomination_sent_YYYYMMDD_half{N}.lock —
+each half sends at most once per calendar day (edge-triggered), but the day
+now allows 2 sends total (one per half), not 1.
 
 Usage:
-  python3 agents/thunderbird_1730_nomination.py          # Normal send
-  python3 agents/thunderbird_1730_nomination.py --dry-run # Print message, no send
-  python3 agents/thunderbird_1730_nomination.py --force   # Ignore send-lock
+  python3 agents/thunderbird_1730_nomination.py --half 1       # AM half (0530)
+  python3 agents/thunderbird_1730_nomination.py --half 2       # PM half (1730)
+  python3 agents/thunderbird_1730_nomination.py --half 1 --dry-run
+  python3 agents/thunderbird_1730_nomination.py --half 1 --force  # ignore lock
 
-Systemd timer: thunderbird-1730-nomination.timer (1730 MT daily)
+Systemd timers: thunderbird-nomination-half1.timer (0530 MT),
+                thunderbird-nomination-half2.timer (1730 MT)
 """
 
 import argparse
@@ -53,9 +63,11 @@ LOG_PATH = THUNDERBIRD_DIR / "logs" / "1730_nomination.log"
 TG_BASE = "https://api.telegram.org/bot{token}/{method}"
 COMMANDER_ID = 7554895206
 
-# CLAUDE.md EOD doctrine: "10 sectors A–J ... Rotate 3/night". This overrides the
-# config's stale rotation_count_per_night (2) — doctrine is the source of truth.
-NIGHTLY_SECTOR_COUNT = 3
+# SUPERSEDED 2026-07-04: old doctrine was "10 sectors A-J ... Rotate 3/night"
+# (slow multi-night cycle). Commander directive 2026-07-04 replaces this with
+# 2 fires/day, 12h apart, half the rotation_sectors list each — see
+# split_sectors() / select_sectors_for_half() below. Total daily coverage,
+# not a rotating sample.
 
 logging.basicConfig(
     level=logging.INFO,
@@ -117,20 +129,20 @@ def _days_between(d1_str: str, d2_str: str) -> int:
 
 
 # ---------------------------------------------------------------------------
-# SEND LOCK — OpsCenter/nomination_sent_YYYYMMDD.lock
+# SEND LOCK — OpsCenter/nomination_sent_YYYYMMDD_half{N}.lock (per half, per day)
 # ---------------------------------------------------------------------------
 
-def _lock_path(date_str: str) -> Path:
-    return LOCK_DIR / f"nomination_sent_{date_str.replace('-', '')}.lock"
+def _lock_path(date_str: str, half: int) -> Path:
+    return LOCK_DIR / f"nomination_sent_{date_str.replace('-', '')}_half{half}.lock"
 
 
-def _lock_exists(date_str: str) -> bool:
-    return _lock_path(date_str).exists()
+def _lock_exists(date_str: str, half: int) -> bool:
+    return _lock_path(date_str, half).exists()
 
 
-def _write_lock(date_str: str) -> None:
-    p = _lock_path(date_str)
-    p.write_text(json.dumps({"date": date_str, "sent_at": datetime.utcnow().isoformat()}))
+def _write_lock(date_str: str, half: int) -> None:
+    p = _lock_path(date_str, half)
+    p.write_text(json.dumps({"date": date_str, "half": half, "sent_at": datetime.utcnow().isoformat()}))
     logger.info(f"Nomination send-lock written: {p}")
 
 
@@ -155,24 +167,25 @@ def _write_config(cfg: dict) -> None:
 
 
 # ---------------------------------------------------------------------------
-# TONIGHT'S SECTORS — deterministic daily rotation over rotation_sectors
+# SECTOR SPLIT — half the rotation_sectors list per fire, full coverage per day
 # ---------------------------------------------------------------------------
 
-def select_tonight_sectors(cfg: dict, ref_date) -> list:
-    """Pick NIGHTLY_SECTOR_COUNT sectors from rotation_sectors.
-
-    Deterministic daily-advancing window: same set for a given date, advances
-    each night, cycles through the whole pool. Draws only from rotation_sectors
-    (the two permanent_sectors — LLM & AI APIs, Agentic Apps — run every night
-    per config posture and are not part of the nightly *nomination* rotation).
-    """
+def split_sectors(cfg: dict) -> tuple[list, list]:
+    """Fixed halving of rotation_sectors — half 1 (first ceil(n/2)), half 2
+    (remainder). Not date-rotating: the point of 2 fires/day 12h apart is
+    that BOTH halves run every single day, giving total coverage of every
+    rotation sector daily rather than a slow multi-night cycle."""
     rotation = cfg.get("rotation_sectors", [])
     if not rotation:
-        return []
-    count = min(NIGHTLY_SECTOR_COUNT, len(rotation))
-    doy = ref_date.timetuple().tm_yday
-    start = (doy * count) % len(rotation)
-    return [rotation[(start + i) % len(rotation)] for i in range(count)]
+        return [], []
+    mid = -(-len(rotation) // 2)  # ceil division
+    return rotation[:mid], rotation[mid:]
+
+
+def select_sectors_for_half(cfg: dict, half: int) -> list:
+    """Return the sector list for this fire's half (1 = AM/0530, 2 = PM/1730)."""
+    half1, half2 = split_sectors(cfg)
+    return half1 if half == 1 else half2
 
 
 # ---------------------------------------------------------------------------
@@ -248,9 +261,10 @@ def tg_send(token: str, chat_id: int, text: str) -> bool:
 # BUILD NOMINATION MESSAGE
 # ---------------------------------------------------------------------------
 
-def build_nomination_message(sectors: list, gate, gate_fresh: bool,
-                             execute_window: int = 5) -> str:
+def build_nomination_message(sectors: list, gate, gate_fresh: bool, half: int,
+                             full_day_sectors: list, execute_window: int = 5) -> str:
     sector_str = " &middot; ".join(sectors) if sectors else "TBD"
+    slot_label = "0530 (half 1/2)" if half == 1 else "1730 (half 2/2)"
 
     if gate and gate_fresh:
         gate_line = (
@@ -260,8 +274,13 @@ def build_nomination_message(sectors: list, gate, gate_fresh: bool,
     else:
         gate_line = "\nGate: No new candidate tonight"
 
+    coverage_line = ""
+    if half == 2:
+        coverage_line = f"\nToday's full coverage (both halves): {' &middot; '.join(full_day_sectors)}"
+
     msg = (
-        f"&#x1F985; <b>1730</b> &mdash; Tonight's sectors: {sector_str}"
+        f"&#x1F985; <b>{slot_label}</b> &mdash; This slot's sectors: {sector_str}"
+        f"{coverage_line}"
         f"{gate_line}\n"
         f"Executing in {execute_window} min unless redirected."
     )
@@ -273,36 +292,44 @@ def build_nomination_message(sectors: list, gate, gate_fresh: bool,
 # ---------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="Thunderbird 1730 Nomination Ping")
+    parser = argparse.ArgumentParser(description="Thunderbird Nomination Ping (half-split, 2x/day)")
+    parser.add_argument("--half", type=int, choices=[1, 2], required=True,
+                        help="Which half of rotation_sectors this fire covers (1=0530, 2=1730)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print message to stdout only, do not send")
     parser.add_argument("--force", action="store_true",
-                        help="Ignore per-day send-lock (testing only)")
+                        help="Ignore per-day-per-half send-lock (testing only)")
     args = parser.parse_args()
 
     (THUNDERBIRD_DIR / "logs").mkdir(exist_ok=True)
 
     date_str = _mt_date_str()
-    ref_date = _mt_now().date()
 
     cfg = _load_config()
     execute_window = cfg.get("execute_window_minutes", 5)
 
-    # ── Tonight's plan of record (sectors + gate tracking) ───────────────────
+    # ── This slot's sectors + gate tracking ──────────────────────────────────
     # Written to config regardless of send so the 1800 EOD brief, which reads the
-    # same file, stays coherent with this ping. Idempotent for a given date.
-    sectors = select_tonight_sectors(cfg, ref_date)
+    # same file, stays coherent. sectors_tonight ACCUMULATES across the day:
+    # half 1 (0530) sets it to half 1 only; half 2 (1730) unions in half 2, so by
+    # EOD-brief time (1800) it reflects verified full-day coverage of both halves.
+    sectors = select_sectors_for_half(cfg, args.half)
     gate_fresh, gate_updates = evaluate_gate(cfg, date_str)
     gate = cfg.get("gate_candidate")
 
-    cfg["sectors_tonight"] = sectors
+    prior_tonight = cfg.get("sectors_tonight", []) if cfg.get("sectors_tonight_date") == date_str else []
+    full_day_sectors = list(dict.fromkeys(prior_tonight + sectors))  # union, order-preserving
+
+    cfg["sectors_tonight"] = full_day_sectors
+    cfg["sectors_tonight_date"] = date_str
+    cfg[f"sectors_half{args.half}_sent_date"] = date_str
     cfg.update(gate_updates)
     if not args.dry_run:
         _write_config(cfg)
 
     # ── Build message ────────────────────────────────────────────────────────
-    msg = build_nomination_message(sectors, gate, gate_fresh, execute_window)
-    logger.info(f"Nomination message: {msg[:200]}")
+    msg = build_nomination_message(sectors, gate, gate_fresh, args.half, full_day_sectors, execute_window)
+    logger.info(f"Nomination message (half {args.half}): {msg[:200]}")
 
     if args.dry_run:
         print("=== DRY RUN — would send to Commander ===")
@@ -310,12 +337,12 @@ def main():
         plain = (re.sub(r"<[^>]+>", "", msg)
                  .replace("&middot;", "·").replace("&rarr;", "→"))
         print(plain)
-        print(f"\n[sectors_tonight={sectors} | gate_fresh={gate_fresh}]")
+        print(f"\n[half={args.half} sectors={sectors} | full_day_sectors={full_day_sectors} | gate_fresh={gate_fresh}]")
         return
 
-    # ── Per-day send-lock ────────────────────────────────────────────────────
-    if not args.force and _lock_exists(date_str):
-        logger.info(f"Nomination send-lock exists for {date_str} — already sent today. Exiting.")
+    # ── Per-day-per-half send-lock ───────────────────────────────────────────
+    if not args.force and _lock_exists(date_str, args.half):
+        logger.info(f"Nomination send-lock exists for {date_str} half {args.half} — already sent. Exiting.")
         return
 
     if not TOKEN_D2MC2C:
@@ -324,12 +351,12 @@ def main():
 
     success = tg_send(TOKEN_D2MC2C, COMMANDER_ID, msg)
     if success:
-        logger.info("1730 nomination ping sent to Commander")
+        logger.info(f"Nomination ping (half {args.half}) sent to Commander")
         cfg["last_nomination_sent"] = datetime.utcnow().isoformat()
         _write_config(cfg)
-        _write_lock(date_str)
+        _write_lock(date_str, args.half)
     else:
-        logger.error("1730 nomination ping FAILED")
+        logger.error(f"Nomination ping (half {args.half}) FAILED")
         sys.exit(1)
 
 

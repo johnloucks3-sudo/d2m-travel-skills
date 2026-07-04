@@ -16,9 +16,16 @@ class MissionBot(BotBase):
         Task("mission-board-promoter",
              sys_py("scripts/mission_board_promoter.py"),
              interval_sec=21600, timeout_sec=120),
-        Task("1730-nomination",
-             venv("agents/thunderbird_1730_nomination.py"),
-             interval_sec=86400, timeout_sec=180),
+        # REMOVED 2026-07-04 (Commander directive — 2x/day half-split coverage):
+        # this was a SECOND, uncoordinated scheduler for the same script the
+        # systemd timers own (thunderbird-nomination-half1/2.timer, 0530/1730
+        # MT). It fired at whatever wall-clock time 24h happened to elapse
+        # since its own last run (was 11:05, 07:39, etc. on different days) —
+        # the actual cause of the 2-3x/day sends, on top of the missing lock.
+        # The script now requires --half {1,2}; this untyped call would crash.
+        # Task("1730-nomination",
+        #      venv("agents/thunderbird_1730_nomination.py"),
+        #      interval_sec=86400, timeout_sec=180),
         Task("war-report",
              venv("scripts/generate_war.py"),
              interval_sec=86400, timeout_sec=120),
