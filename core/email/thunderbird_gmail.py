@@ -2840,7 +2840,7 @@ def gmail_create_draft_sync(
     cc: Optional[str] = None,
     attachment_paths: Optional[List[str]] = None,
     # A8 — WF-17 deep-link Telegram notification fields
-    notify_telegram: bool = False,
+    notify_telegram: Optional[bool] = None,
     persona_id: Optional[str] = None,
     persona_display: str = "D2M Concierge",
     product_type: str = "",
@@ -2959,8 +2959,15 @@ def gmail_create_draft_sync(
         ),
     }
 
-    # A8 — Push WF-17 deep-link Telegram notification
-    if notify_telegram:
+    # A8 — Push WF-17 deep-link Telegram notification.
+    # Commander directive 2026-07-04 (the Spencer "chips" draft that sat
+    # unnoticed until found by chance): a draft staged THUNDERBIRD-Commander-
+    # Review must never depend on the caller remembering to opt in. Default
+    # is now tied to label_review itself — notify_telegram=None (the default)
+    # notifies whenever label_review is True; pass notify_telegram=False
+    # explicitly to suppress (e.g. a caller that pages separately).
+    should_notify = label_review if notify_telegram is None else notify_telegram
+    if should_notify:
         try:
             _push_wf17_deep_link_alert(
                 draft_id=draft_id,
@@ -2972,6 +2979,7 @@ def gmail_create_draft_sync(
                 product_type=product_type,
                 chain_status=chain_status or {},
                 send_as_address=from_address,
+                draft_account_email=draft_account_email,
             )
         except Exception as tg_err:
             logger.warning(f"A8 WF17 Telegram push failed (draft already saved): {tg_err}")
@@ -2989,6 +2997,7 @@ def _push_wf17_deep_link_alert(
     product_type: str,
     chain_status: dict,
     send_as_address: str,
+    draft_account_email: str = USER_EMAIL,
 ) -> None:
     """A8 — Push enhanced WF-17 deep-link notification to Commander via Telegram.
 
@@ -3016,9 +3025,12 @@ def _push_wf17_deep_link_alert(
 
     tg_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
 
-    # Gmail deep-link — uses message_id (the underlying message, not draft envelope)
+    # Gmail deep-link — uses message_id (the underlying message, not draft envelope).
+    # Fixed 2026-07-04: must point at the account that actually HOSTS the draft
+    # (johnloucks3 by default now), not the hardcoded d2mconcierge USER_EMAIL —
+    # otherwise the Telegram link opens the wrong mailbox's (empty) draft view.
     gmail_link = (
-        f"https://mail.google.com/mail/b/{USER_EMAIL}/#drafts/{message_id}"
+        f"https://mail.google.com/mail/b/{draft_account_email}/#drafts/{message_id}"
         if message_id else ""
     )
 
