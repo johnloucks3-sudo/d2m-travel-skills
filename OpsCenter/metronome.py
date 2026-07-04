@@ -496,6 +496,17 @@ def _check_regent_cookie_expiry():
       - ASPXAUTH expires == -1 (session cookie — always flag as needs re-export)
     Includes re-export instructions in the alert text.
     """
+    # 2026-07-04 (Commander: "validate the doomsday, stop the log-in-again nag"):
+    # DISABLED. This fired a daily "log in to rssc.com via Firefox" Telegram alert
+    # per account whenever ASPXAUTH was within 72h of expiry — but that cookie
+    # naturally lives ~7-24h, so it was ALWAYS within 72h and nagged every single
+    # day, both accounts, whether or not the portal was actually needed. It also
+    # duplicated scripts/credentials_health_check.py, which now owns Regent
+    # credential alerting with a one-and-done dedup. Regent re-auth is on-demand:
+    # when we need the portal (e.g. McLeod FPD prep, Jul 7), the deferred_alert
+    # MCLEOD-2984034-FPD-TRIGGER surfaces it and the Commander re-auths then.
+    # Re-enable only if we want proactive Regent decay paging again.
+    return
     now = datetime.now(timezone.utc)
     today_str = now.strftime("%Y-%m-%d")
     threshold = REGENT_COOKIE_ALERT_HOURS * 3600

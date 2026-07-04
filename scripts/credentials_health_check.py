@@ -117,9 +117,12 @@ CREDENTIALS = {
     "perx_cookies": {
         "file": CREDS_DIR / "perx_cookies.json",
         "type": "cookies",
-        "client_affecting": True,
+        # 2026-07-04: NOT client-affecting. Perx is a pricing-intel scraper session
+        # (Silversea rate recon), not a login the Commander performs and not on any
+        # client-send path. Flagging it CLIENT drove the "3 client alerts" doomsday.
+        "client_affecting": False,
         "alert_hours_ahead": 24,
-        "notes": "Perx.com — Silversea agent rate access (Westbrook connection).",
+        "notes": "Perx.com — Silversea agent rate INTEL scraping (Westbrook recon). Non-client, auto-keepalive.",
         "reauth_cmd": "python3 scripts/perx_session_keepalive.py",
         "timer": "d2m-perx-session-keepalive.timer",
     },
@@ -176,6 +179,16 @@ def _check_cookies(cookie_file: Path, auth_cookie_names: list = None, auth_domai
     def _is_beacon(exp):
         return exp is not None and exp > (now + TEN_YEARS)
 
+    # Analytics / rate-limiter cookies are NEVER the auth gate. They carry tiny
+    # TTLs by design (_gat = 1 min) so they read as "expired" almost always —
+    # the source of the room_res_cookies false doomsday (2026-07-04). Skip by name.
+    _ANALYTICS_PREFIXES = ("_gat", "_ga", "_gid", "_hjSession", "_hjAbsolute",
+                           "_fbp", "__utm", "_dc_gtm", "sailthru_")
+
+    def _is_analytics(name):
+        n = (name or "").lower()
+        return any(n.startswith(p.lower()) for p in _ANALYTICS_PREFIXES)
+
     def _result(exp, name, label=""):
         delta = (exp - now) / 3600
         if delta < 0:
@@ -215,7 +228,7 @@ def _check_cookies(cookie_file: Path, auth_cookie_names: list = None, auth_domai
             if not _domain_match(c.get("domain", ""), auth_domain):
                 continue
             exp = c.get("expires", c.get("expiry"))
-            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp) or _is_analytics(c.get("name", "")):
                 continue
             if best_exp is None or exp < best_exp:
                 best_exp = exp
@@ -231,7 +244,7 @@ def _check_cookies(cookie_file: Path, auth_cookie_names: list = None, auth_domai
             if not _domain_match(c.get("domain", ""), auth_domain):
                 continue
             exp = c.get("expires", c.get("expiry"))
-            if not exp or exp < EPOCH_2000 or _is_beacon(exp):
+            if not exp or exp < EPOCH_2000 or _is_beacon(exp) or _is_analytics(c.get("name", "")):
                 continue
             if best_exp is None or exp < best_exp:
                 best_exp = exp
@@ -249,7 +262,7 @@ def _check_cookies(cookie_file: Path, auth_cookie_names: list = None, auth_domai
         if exp is None or exp <= 0:
             continue
         session_only = False
-        if exp < EPOCH_2000 or _is_beacon(exp):
+        if exp < EPOCH_2000 or _is_beacon(exp) or _is_analytics(name):
             continue
         if best_exp is None or exp < best_exp:
             best_exp = exp
@@ -386,7 +399,17 @@ def save_state(results: dict):
         "client_alerts": len(results["client_affecting_alerts"]),
         "details": [f"{a['name']}: {a['status']}" for a in results["alerts"]],
     }
-    existing.append(entry)
+    # STATE-CHANGE ONLY (2026-07-04): the check runs every ~4 min. Appending an
+    # identical entry every run is what rendered the morning brief's wall of 30
+    # red "credentials_health_check" lines — the doomsday the Commander sees.
+    # Only append when the alert signature changes vs the last entry; otherwise
+    # just refresh the last entry's timestamp so the brief shows one current line.
+    signature = sorted(entry["details"])
+    last_sig = sorted(existing[-1]["details"]) if existing else None
+    if existing and last_sig == signature:
+        existing[-1]["ts"] = entry["ts"]
+    else:
+        existing.append(entry)
     # Keep last 30 entries
     OVERNIGHT_LOG.write_text(json.dumps(existing[-30:], indent=2))
 
@@ -413,14 +436,7 @@ def send_telegram_alerts(results: dict):
         except Exception:
             dedup_state = {}
 
-    new_alerts = []
-    for a in client_alerts:
-        key = f"{a['name']}|{a['status']}"
-        if key not in dedup_state:
-            new_alerts.append(a)
-            dedup_state[key] = datetime.now(MT).isoformat()
-
-    ALERT_DEDUP.write_text(json.dumps(dedup_state, indent=2))
+    new_alerts = [a for a in client_alerts if f"{a['name']}|{a['status']}" not in dedup_state]
 
     if not new_alerts:
         return
@@ -428,7 +444,12 @@ def send_telegram_alerts(results: dict):
     try:
         import sys
         sys.path.insert(0, str(THUNDERBIRD))
-        from OpsCenter.thunderbird_telegram_gw import send_telegram_message
+        # 2026-07-04: was importing send_telegram_message (does not exist) —
+        # every alert crashed on import AND the dedup key was written BEFORE the
+        # send, so a real alert was recorded "sent" then silently lost. Now:
+        # correct send fn, and dedup keys are committed ONLY after a successful
+        # send, so a crash lets the next run retry instead of swallowing it.
+        from OpsCenter.hale_telegram_reporter import send_to_commander
 
         lines = ["🔴 CREDENTIAL ALERT — Client-affecting credentials expired/expiring\n"]
         for a in new_alerts:
@@ -436,11 +457,16 @@ def send_telegram_alerts(results: dict):
             lines.append(f"   {a['reason']}")
             lines.append(f"   Fix: {a['reauth_cmd']}\n")
 
-        msg = "\n".join(lines)
-        send_telegram_message(msg)
+        sent = send_to_commander("\n".join(lines), message_type="alert", urgent=True)
+        if not sent:
+            log.warning("Telegram send returned False — not deduped, will retry next run")
+            return
+        for a in new_alerts:
+            dedup_state[f"{a['name']}|{a['status']}"] = datetime.now(MT).isoformat()
+        ALERT_DEDUP.write_text(json.dumps(dedup_state, indent=2))
         log.info(f"D2MC2C alert sent for {len(new_alerts)} NEW client-affecting credential alert(s)")
     except Exception as e:
-        log.warning(f"Telegram alert failed: {e}")
+        log.warning(f"Telegram alert failed (not deduped — will retry next run): {e}")
 
 
 def print_summary(results: dict):
