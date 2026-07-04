@@ -10249,7 +10249,7 @@
     {
       "id": "MISSION-806",
       "title": "Commander: fix apex d2mluxury.quest DNS 525 via Cloudflare dashboard",
-      "status": "active",
+      "status": "resolved_new_finding",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Log into Cloudflare dashboard and route apex domain to tunnel or origin to resolve the 525 error blocking the front door (MISSION-322).",
@@ -10262,6 +10262,10 @@
         {
           "ts": "2026-07-04T21:39:50.682074+00:00",
           "entry": "Commander decision 2026-07-04 (decision matrix): fixing now himself via Cloudflare dashboard. Hale will spot-check DNS resolution shortly to confirm and close the mission once verified."
+        },
+        {
+          "ts": "2026-07-04T21:44:42.583738+00:00",
+          "entry": "VERIFIED 2026-07-04: Commander's Cloudflare fix worked. Apex + www now resolve, tunnel routes correctly, 525 SSL error is gone. NEW finding underneath (previously invisible while 525 blocked all access): root '/' returns 401 because core/visual_synthesis/dashboard_app/server.py serves BOTH the password-gated ops dashboard (at '/') AND public content (/cruises, /american-spirit -- both confirmed working, 307) on the same app/port. Apex root defaults to the private dashboard. Spun off as MISSION-1531 per Commander decision (real homepage, not a quick redirect)."
         }
       ],
       "created_at": "2026-06-27T00:03:31.122072+00:00",
@@ -22978,6 +22982,26 @@
       "created_at": "2026-07-04T21:11:35.168474+00:00",
       "updated_at": "2026-07-04T21:11:35.168476+00:00",
       "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-1539",
+      "title": "Build real public homepage for d2mluxury.quest apex",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "Commander decision 2026-07-04 (via decision matrix, after DNS/tunnel fix verification): d2mluxury.quest root currently 401s (shares a FastAPI app/port with the private ops dashboard at core/visual_synthesis/dashboard_app/server.py -- /cruises and /american-spirit work fine via StaticFiles mounts, only the bare '/' hits the auth-gated dashboard route). Commander wants a REAL public marketing homepage, not a stopgap redirect. Needs: D2M brand pass (Naia), creative chain per hard rule (Reyes/Luna/Naia/Dani -- this is client-facing/public), links out to /cruises, portal.d2mluxury.quest, contact. Architecture note: consider moving ops dashboard to its own subdomain (e.g. ops.d2mluxury.quest) as part of this so root is genuinely free. Needs its own dedicated session -- not squeezed into a DNS-check task. Reference: MISSION-806 (DNS fix, resolved).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        {
+          "ts": "2026-07-04T21:44:42.584070+00:00",
+          "entry": "Created from MISSION-806 DNS-check follow-on finding. Commander chose 'build a real public homepage' over quick redirect options."
+        }
+      ],
+      "created_at": "2026-07-04T21:44:42.584077+00:00",
+      "updated_at": "2026-07-04T21:44:42.584081+00:00"
     }
   ],
   "suspense_watch": [
