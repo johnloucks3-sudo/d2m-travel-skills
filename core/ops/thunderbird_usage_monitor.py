@@ -34,6 +34,31 @@ THUNDERBIRD_DIR  = Path.home() / "Thunderbird"
 POE_ENV_FILE     = THUNDERBIRD_DIR / "config" / "poe.env"
 TELEGRAM_BOT_ENV = THUNDERBIRD_DIR / "config" / "d2mc2c_bot.env"
 
+# One-and-done dedup (2026-07-04, Silver/A7): --alert runs on a 20-min timer and
+# re-sent every run while usage stayed in the WARN/CRIT/STOP band (hours at a
+# time). Key on (scope, level) — session|CRIT, weekly|WARN, etc. An unchanged
+# band stays silent, an escalation (WARN→CRIT) re-fires, and dropping out of the
+# band clears the key so the next entry pages fresh.
+DEDUP_STATE = THUNDERBIRD_DIR / "OpsCenter" / "state" / "thunderbird_usage_monitor_alert_dedup.json"
+
+def _dedup_new_keys(active_keys):
+    state = {}
+    if DEDUP_STATE.exists():
+        try:
+            state = json.loads(DEDUP_STATE.read_text())
+        except Exception:
+            state = {}
+    active_set = set(active_keys)
+    state = {k: v for k, v in state.items() if k in active_set}
+    new_keys = []
+    for k in active_keys:
+        if k not in state:
+            new_keys.append(k)
+            state[k] = datetime.now(timezone.utc).isoformat()
+    DEDUP_STATE.parent.mkdir(parents=True, exist_ok=True)
+    DEDUP_STATE.write_text(json.dumps(state, indent=2))
+    return new_keys
+
 # ── Limits ────────────────────────────────────────────────────────────────────
 # Session: 5-hour block (from ccusage historical data)
 SESSION_LIMIT = 59_826_434
@@ -182,7 +207,7 @@ def check_usage(send_alert: bool = False) -> dict:
     block  = get_active_block()
     weekly = get_weekly_data()
 
-    alerts = []
+    alert_items = []  # (dedup_key, message)
     status = {}
 
     # ── SESSION block ──────────────────────────────────────────────────────────
@@ -215,7 +240,7 @@ def check_usage(send_alert: bool = False) -> dict:
 
         print(s_msg.replace("<b>", "").replace("</b>", ""))
         if send_alert and slevel in ("WARN", "CRIT", "STOP"):
-            alerts.append(s_msg)
+            alert_items.append((f"session|{slevel}", s_msg))
 
     # ── WEEKLY limits ─────────────────────────────────────────────────────────
     if weekly:
@@ -260,17 +285,20 @@ def check_usage(send_alert: bool = False) -> dict:
 
         print(w_msg.replace("<b>", "").replace("</b>", "").replace("<code>", "").replace("</code>", ""))
         if send_alert and wlevel in ("WARN", "CRIT", "STOP"):
-            alerts.append(w_msg)
+            alert_items.append((f"weekly|{wlevel}", w_msg))
 
-    # ── Send combined Telegram alert ──────────────────────────────────────────
-    if alerts:
-        full_alert = (
-            "⚡ <b>Claude Max Plan — Usage Alert</b>\n"
-            "━━━━━━━━━━━━━━━━━━━━\n\n"
-            + "\n".join(alerts)
-        )
-        sent = send_telegram_alert(full_alert)
-        status["telegram_sent"] = sent
+    # ── Send combined Telegram alert (one-and-done dedup gate) ─────────────────
+    if send_alert:
+        new_keys = _dedup_new_keys([k for k, _ in alert_items])
+        new_msgs = [m for k, m in alert_items if k in new_keys]
+        if new_msgs:
+            full_alert = (
+                "⚡ <b>Claude Max Plan — Usage Alert</b>\n"
+                "━━━━━━━━━━━━━━━━━━━━\n\n"
+                + "\n".join(new_msgs)
+            )
+            sent = send_telegram_alert(full_alert)
+            status["telegram_sent"] = sent
 
     return status
 

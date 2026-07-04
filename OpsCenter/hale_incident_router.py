@@ -135,34 +135,67 @@ def mark_elon_invoked(sig: str) -> None:
 # Telegram (single chokepoint)
 # ─────────────────────────────────────────────────────────────────────────────
 
-_PAGE_COOLDOWN_MINUTES = 60  # suppress repeat pages for same signature within this window
+# A gap this long between two consecutive occurrences of the same signature means
+# the incident cleared in between — the later occurrence is a fresh recurrence that
+# is allowed to page again. A continuously-present incident (watchdog re-enqueues
+# every few minutes) never crosses this gap, so it pages exactly once.
+_RECUR_GAP_MINUTES = 60
+
+
+def _parse_ts(ts: str):
+    try:
+        dt = datetime.fromisoformat(ts.strip().replace("Z", "+00:00"))
+        return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
+    except Exception:
+        return None
+
+
+def _is_fresh_recurrence(entry: dict) -> bool:
+    """True when the incident cleared and is now recurring — i.e. the two most
+    recent occurrences are more than _RECUR_GAP_MINUTES apart. A first-ever
+    occurrence or a continuously-present incident returns False (stay silent)."""
+    occ = sorted(t for t in entry.get("occurrences", []) if t)
+    if len(occ) < 2:
+        return False
+    last, prev = _parse_ts(occ[-1]), _parse_ts(occ[-2])
+    if not last or not prev:
+        return False
+    return (last - prev) > timedelta(minutes=_RECUR_GAP_MINUTES)
 
 
 def page_commander(event: dict, reason: str) -> None:
     """ONLY function that sends Telegram to Commander. Logs every call.
-    Cooldown: same signature suppressed for PAGE_COOLDOWN_MINUTES to prevent blast loops."""
+
+    ONE AND DONE (2026-07-04, Silver/A7): replaces the old time-based 60-min
+    cooldown, which was level-triggered and re-paged hourly for as long as an
+    incident stayed unresolved (same "cooldown ≠ one-time gate" bug flagged in
+    silver_ground_truth.md #2). Now edge-triggered: page once per signature and
+    stay silent while the incident persists unchanged. Re-page only if the
+    escalation reason changes (incident actually changed/escalated) OR the
+    incident cleared and recurred (a gap in its occurrence history)."""
     if not BOT_TOKEN:
         log.error("page_commander: BOT_TOKEN not set — cannot page Commander")
         return
 
-    # Dedup: check last_paged for this signature
     details = str(event.get("details", ""))
     service = event.get("service", "unknown")
     sig = compute_signature(service, details)
     sigs = load_signatures()
-    last_paged = (sigs.get(sig) or {}).get("last_paged")
-    if last_paged:
-        cutoff = (datetime.now(timezone.utc) - timedelta(minutes=_PAGE_COOLDOWN_MINUTES)).isoformat()
-        if last_paged >= cutoff:
-            log.info(
-                "page_commander SUPPRESSED (cooldown %dmin): sig=%s service=%s — last_paged=%s",
-                _PAGE_COOLDOWN_MINUTES, sig, service, last_paged
-            )
-            return
+    entry = sigs.setdefault(sig, {"occurrences": [], "last_elon_invoke": None})
 
-    # Record this page before sending (prevents double-send on exception)
-    sigs.setdefault(sig, {"occurrences": [], "last_elon_invoke": None})
-    sigs[sig]["last_paged"] = datetime.now(timezone.utc).isoformat()
+    prev_reason = entry.get("paged_reason")
+    if prev_reason == reason and not _is_fresh_recurrence(entry):
+        log.info(
+            "page_commander SUPPRESSED (one-and-done): sig=%s service=%s reason=%s "
+            "— already paged, incident unchanged",
+            sig, service, reason,
+        )
+        return
+
+    # Record this page before sending (prevents double-send on exception).
+    # paged_reason encodes the escalation level, so an escalation re-pages.
+    entry["paged_reason"] = reason
+    entry["last_paged"] = datetime.now(timezone.utc).isoformat()
     save_signatures(sigs)
 
     msg = (

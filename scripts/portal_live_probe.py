@@ -43,6 +43,7 @@ import requests
 THUNDERBIRD = Path(__file__).parent.parent
 CREDS_DIR = THUNDERBIRD / "creds"
 STATE_FILE = THUNDERBIRD / "OpsCenter" / "state" / "portal_live_health.json"
+ALERT_DEDUP_FILE = THUNDERBIRD / "OpsCenter" / "state" / "portal_probe_alert_dedup.json"
 LOGS_DIR = THUNDERBIRD / "logs"
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
@@ -286,14 +287,42 @@ def run_probes(portals_to_check: list[str], dry_run: bool = False) -> int:
     if not dry_run:
         STATE_FILE.write_text(json.dumps(state, indent=2))
 
-    # Alert if failures remain
-    if failures and not dry_run:
-        alert_lines = ["🚨 PORTAL LIVE PROBE — Session Failure(s)"]
+    # Alert if failures remain — ONE AND DONE dedup (2026-07-04, Silver/A7).
+    # Mirrors scripts/credentials_health_check.py send_telegram_alerts(). This ran on
+    # a 10-min timer and re-paged D2MC2C every run for as long as any portal stayed
+    # broken (the single biggest repeat-noise contributor per the noise audit). Now:
+    # alert once per (portal, status). The dedup state is pruned every non-dry run to
+    # exactly the currently-failing set, so a portal that recovers drops its key and a
+    # later failure — including a failing→healthy→failing flip — pages fresh, while an
+    # ongoing failure stays silent after the first page.
+    if not dry_run:
+        dedup_state = {}
+        if ALERT_DEDUP_FILE.exists():
+            try:
+                dedup_state = json.loads(ALERT_DEDUP_FILE.read_text())
+            except Exception:
+                dedup_state = {}
+
+        active_names = {name for name, _, _ in failures}
+        dedup_state = {k: v for k, v in dedup_state.items() if k.split("|", 1)[0] in active_names}
+
+        new_failures = []
         for name, cfg, probe in failures:
-            alert_lines.append(f"\n❌ {name}: {probe['reason']}")
-            alert_lines.append(f"   Manual fix: {cfg['manual_cmd']}")
-        alert_lines.append("\nAuto-heal attempted — failed. Commander action required.")
-        _telegram_alert("\n".join(alert_lines))
+            key = f"{name}|{probe['status']}"
+            if key not in dedup_state:
+                new_failures.append((name, cfg, probe))
+                dedup_state[key] = now
+
+        ALERT_DEDUP_FILE.parent.mkdir(parents=True, exist_ok=True)
+        ALERT_DEDUP_FILE.write_text(json.dumps(dedup_state, indent=2))
+
+        if new_failures:
+            alert_lines = ["🚨 PORTAL LIVE PROBE — Session Failure(s)"]
+            for name, cfg, probe in new_failures:
+                alert_lines.append(f"\n❌ {name}: {probe['reason']}")
+                alert_lines.append(f"   Manual fix: {cfg['manual_cmd']}")
+            alert_lines.append("\nAuto-heal attempted — failed. Commander action required.")
+            _telegram_alert("\n".join(alert_lines))
 
     return len(failures)
 

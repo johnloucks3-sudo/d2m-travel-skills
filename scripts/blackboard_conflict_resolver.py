@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Detect duplicate blackboard section headers (race conditions between staff)."""
 import json, urllib.request, os, logging, re, time
+from datetime import datetime
 from pathlib import Path
 from collections import Counter
 
@@ -13,6 +14,29 @@ logging.basicConfig(filename=str(LOG_PATH), level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(message)s')
 
 BLACKBOARD = Path('/home/john/Thunderbird/OpsCenter/collaboration/blackboard.md')
+
+# One-and-done dedup (2026-07-04, Silver/A7): 5-min timer re-paged every run
+# while the same duplicate headers persisted. Key on the exact set of duplicate
+# headers — a persisting conflict stays silent, a new/changed conflict re-fires,
+# and the key clears once the duplicates are resolved so recurrence pages fresh.
+DEDUP_STATE = Path('/home/john/Thunderbird/OpsCenter/state/blackboard_conflict_resolver_alert_dedup.json')
+
+def _dedup_new_keys(active_keys):
+    state = {}
+    if DEDUP_STATE.exists():
+        try:
+            state = json.loads(DEDUP_STATE.read_text())
+        except Exception:
+            state = {}
+    state = {k: v for k, v in state.items() if k in active_keys}
+    new_keys = []
+    for k in active_keys:
+        if k not in state:
+            new_keys.append(k)
+            state[k] = datetime.now().isoformat()
+    DEDUP_STATE.parent.mkdir(parents=True, exist_ok=True)
+    DEDUP_STATE.write_text(json.dumps(state, indent=2))
+    return new_keys
 
 def tg(msg):
     try:
@@ -34,14 +58,17 @@ def main():
     text = BLACKBOARD.read_text(errors='ignore')
     headers = re.findall(r'^#+\s*\[?([A-Z]{2,}[A-Z0-9_-]*)\]?', text, re.M)
     dup = [h for h, c in Counter(headers).items() if c > 1]
+    active = {'dup:' + '|'.join(sorted(dup))} if dup else set()
+    new_keys = _dedup_new_keys(active)
     if dup:
-        winners = []
-        for h in dup:
-            # the LAST occurrence wins by timestamp / position
-            winners.append(f'{h} → keep last occurrence')
-        msg = ('🪧 BLACKBOARD CONFLICT — duplicate section headers:\n' +
-               '\n'.join(f'• {w}' for w in winners[:10]))
-        tg(msg)
+        if new_keys:
+            winners = []
+            for h in dup:
+                # the LAST occurrence wins by timestamp / position
+                winners.append(f'{h} → keep last occurrence')
+            msg = ('🪧 BLACKBOARD CONFLICT — duplicate section headers:\n' +
+                   '\n'.join(f'• {w}' for w in winners[:10]))
+            tg(msg)
         logging.info(f'conflicts: {dup}')
     else:
         logging.info('no duplicate headers')
