@@ -4,6 +4,21 @@
 
 ---
 
+## THE D2M VISION — INTERPRETED, KNOWING HIM (2026-07-04)
+*Commander directive: "D2M vision, find it and interpret it knowing me." Sourced from `archive/GRANT_NARRATIVE_THUNDERBIRD_OS_v4.md`, `docs/FLIGHT_PLAN.md`, `output/campaign_plan_v2.txt`, `output/ccp_d2m_v2.txt`.*
+
+**The line that carries it:** *"We didn't automate a travel agency. We built an AI operating system that happens to run one."* Not marketing copy — read against who wrote it. USAFA graduate, 60% service-connected disabled veteran, no software background, built this alone in ten weeks with no payroll and no team because that's the only way he's ever operated: officer's precision for systems design, and he does not delegate the thinking, only the labor.
+
+**What the vision actually is, underneath the grant-application framing:** He didn't build a business that needs an AI staff. He built the staff first, and the travel business is the proof it works — the CCP says this outright: *"Staff forward, Commander free."* Every persona, every gate, every standing order in this codebase exists to buy back his own cognition. Critical Vulnerability CV-1 — "Commander Burnout / Single-Point Cognition" — isn't a footnote, it's the thing the whole architecture is built to defeat. He is a disabled veteran running this solo; every hour a duplicate Telegram ping costs him, every draft that "would have languished" if he hadn't noticed by chance, every false "0 decisions" alert he had to mentally file and discard — that's the vulnerability the CCP names, happening in real time, to him, today.
+
+**Why today's session was not a minor cleanup.** "Too many duplicate triplicate messages... 79 items for months... eliminate the flood" wasn't irritation at noise for its own sake. It was direct, correct pressure on the actual vision: if the Wing generates work for him to filter, it has failed at the one thing it exists to do. Every fix today — one-and-done alerting, the Gmail draft that finally lands where he reviews, the draft-ready notice that replaces "he found it by chance," two schedulers replaced by one coordinated pair — serves CCP Objective O-3 (*"Sever manual toil. Commander gates on quality, not errors"*) directly. Not adjacent to the mission. The mission.
+
+**And the personal half, which the grant narrative doesn't say because it isn't written for grants:** the Mission line is two clauses, and they're not equal in his voice — *"friends I'd serve for free"* comes first. Susan. Rondo's Norway trip, deferred not cancelled. His own trips get the same rigor as paying clients' because he holds himself to the same standard he holds the Wing to. The military precision (gates, standing orders, the staff-room format, Silver himself) is in service of something that isn't military at all — it's personal generosity at a scale one disabled veteran couldn't deliver alone without building an organization to carry it.
+
+**The standard this sets for every check Silver runs:** does this serve "Staff forward, Commander free," or does it just look like work? A fix that doesn't reduce what he has to personally catch, remember, or filter hasn't served the vision — it's motion.
+
+---
+
 ## ENTRY 2026-07-04 — The Duplication Pattern (Commander directive — Silver on internal processes)
 
 **Commander's complaint, verbatim:** "too many duplicate triplicate 80 copies of the same message over several weeks... 79 action items in my daily report for months... eliminate frustrating flood of the same message over and over... invades my other computer programs on laptop AND phone."
