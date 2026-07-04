@@ -524,10 +524,12 @@ try:
                     "agentic intel digest", "tech monitor digest", "travel ai competitive",
                     "d2m fpd alert", "d2m inbox digest",
                 )
-                # Also check after stripping Re:/Fwd: — catches "Re: 🔴 THUNDERBIRD BRIEFING..."
-                _base_sub = clean_subject(_clean_sub)
-                if any(_clean_sub.startswith(p) for p in _SELF_REPORT_PREFIXES) or \
-                        any(_base_sub.startswith(p) for p in _SELF_REPORT_PREFIXES):
+                # A "Re:"/"Fwd:" on a report subject is the COMMANDER responding to the
+                # report — that is a directive, never a self-report. Only skip pristine
+                # (non-reply) report subjects. (2026-07-04: Commander's 13:05 "Re: Tech
+                # Scan" sat 35 min because the old Re-stripped match skip-labeled it.)
+                _is_reply = _clean_sub.startswith(("re:", "fwd:", "fw:"))
+                if not _is_reply and any(_clean_sub.startswith(p) for p in _SELF_REPORT_PREFIXES):
                     if d2mc_label_id:
                         try:
                             d2mc_service.users().messages().modify(
@@ -584,6 +586,12 @@ try:
 
                 log_line(f"  D2MC DIRECTIVE: {d_subject[:80]}")
                 new_directive_ids.add(d_thread_id)
+
+                # Claim the message BEFORE dispatching so an overlapping sweep run
+                # cannot double-reply (2026-07-04: 12:32 remembrance email got 3
+                # replies from racing runs). Claim is rolled back on failure below.
+                processed_msg_ids.add(d_msg_id)
+                save_processed_msg_ids(processed_msg_ids)
 
                 import time as _time2
                 ts2 = int(_time2.time())
@@ -648,8 +656,16 @@ try:
                         except Exception:
                             pass
                 else:
+                    # Roll back the pre-dispatch claim so the next cycle retries.
+                    processed_msg_ids.discard(d_msg_id)
+                    save_processed_msg_ids(processed_msg_ids)
                     log_line(f"  d2mc dispatch FAILED (rc={rc2}) — will retry next cycle")
             except Exception as e:
+                try:
+                    processed_msg_ids.discard(d_msg_id)
+                    save_processed_msg_ids(processed_msg_ids)
+                except Exception:
+                    pass
                 log_line(f"  d2mc msg {d_msg_id} failed: {e}")
 
     all_directive_ids = directive_thread_ids | new_directive_ids

@@ -1,6 +1,7 @@
 {
   "_doc": "Client inbound watch registry — scripts/client_inbox_watch.py polls d2mconcierge for mail from these senders. On hit: Telegram page to Commander + entry in OpsCenter/client_inbox_queue.jsonl. Response flow: Wing drafts reply into johnloucks3 drafts (WF-17 — Commander sends).",
-  "account_token": "/home/john/Thunderbird/gmail_token.json",
+  "account_token": "/home/john/Thunderbird/config/persona_gmail_token.json",
+  "_token_note": "MUST be the d2mconcierge token. /home/john/Thunderbird/gmail_token.json is actually johnloucks3 (verified via Gmail profile 2026-07-04) — the watch scanned the wrong mailbox 2026-07-03 to 2026-07-04.",
   "clients": [
     {
       "name": "Bill Spencer",
