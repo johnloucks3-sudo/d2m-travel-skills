@@ -34,7 +34,13 @@ STALE_MISSION_DAYS = 7
 TERMINAL_STATUSES = {
     "completed", "complete", "closed", "archived",
     "closed_duplicate", "resolved_new_finding",
+    "archived_noise", "killed", "eliminated",
 }
+# Deliberately NOT terminal: parked, suspended, deferred, hold_until_*,
+# pending_review, pending_commander, commander_review_pending,
+# awaiting_commander_decision, backlog, reply_drafted, in_progress, active,
+# monitoring — these are "come back later" states where a passed
+# suspense_date is exactly the review trigger, not stale noise.
 STATE_FILE = ROOT / "OpsCenter/state/heartbeat_scan_latest.json"
 DEDUP_FILE = ROOT / "OpsCenter/state/heartbeat_p0_dedup.json"
 
@@ -56,6 +62,7 @@ def scan_repeat_alerts() -> list[dict]:
                 "what": f'"{detail}" appeared {count}x in the ops log',
                 "why": f"crossed repeat threshold ({REPEAT_ALERT_THRESHOLD}+)",
                 "action": "Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday",
+                "file": str(p),
             })
     return findings
 
@@ -72,12 +79,17 @@ def scan_stale_ci_tools() -> list[dict]:
         cadence = s.get("reeval_cadence_days")
         if not cadence:
             continue
+        # Prefer the first wrapped script (the actual tool) over the registry
+        # file itself — that's what the Commander needs to look at.
+        wraps = s.get("wraps") or []
+        tool_file = str(ROOT / wraps[0]) if wraps else str(p)
         if not last_reeval:
             findings.append({
                 "category": "stale_ci_tool",
                 "what": f"{s.get('name', s.get('id'))} has NEVER been re-evaluated",
                 "why": "no last_reeval timestamp on record",
                 "action": f"Route to Whetstone for currency check",
+                "file": tool_file,
             })
             continue
         try:
@@ -91,10 +103,42 @@ def scan_stale_ci_tools() -> list[dict]:
                     "what": f"{s.get('name', s.get('id'))} last re-evaluated {age_days}d ago (cadence: {cadence}d)",
                     "why": f"exceeds its own {cadence}-day reeval cadence by {age_days - cadence}d",
                     "action": "Route to Whetstone for currency check",
+                    "file": tool_file,
                 })
         except (ValueError, AttributeError):
             continue
     return findings
+
+
+_DOSSIER_DIR = ROOT / "dossiers"
+_DOSSIER_STEMS = None  # lazy-built cache: {lowercase surname: full path}
+
+
+_DOSSIER_STOPWORDS = {
+    "atlas", "claude", "dossier", "grandeur", "group",
+    "prospect", "scandi", "silvernova",
+}  # dossier filename first-tokens that are ship names / generic labels, not
+   # client surnames — matching these produces false positives (2026-07-04:
+   # "United Group Desk" in a mission title matched GROUP_Kuklinski_*.md)
+
+
+def _mission_file_link(title: str, mission_board_path: Path) -> str:
+    """Best-effort: link to a matching client dossier if the mission title
+    names one, else fall back to the mission board itself. Same pattern the
+    brief's anchor card already uses for booking dossiers."""
+    global _DOSSIER_STEMS
+    if _DOSSIER_STEMS is None:
+        _DOSSIER_STEMS = {}
+        if _DOSSIER_DIR.exists():
+            for f in _DOSSIER_DIR.glob("*.md"):
+                stem = f.stem.split("_")[0].lower()
+                if stem and stem not in _DOSSIER_STOPWORDS and len(stem) >= 4:
+                    _DOSSIER_STEMS.setdefault(stem, f)
+    for word in title.replace("—", " ").replace("-", " ").split():
+        hit = _DOSSIER_STEMS.get(word.strip(",.").lower())
+        if hit:
+            return str(hit)
+    return str(mission_board_path)
 
 
 def scan_aging_missions() -> list[dict]:
@@ -124,6 +168,7 @@ def scan_aging_missions() -> list[dict]:
                     "what": f"{m.get('id')} ({m.get('priority')}) — \"{m.get('title', '')[:60]}\" open {age_days}d",
                     "why": f"P0/P1 untouched >= {STALE_MISSION_DAYS}d",
                     "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
+                    "file": _mission_file_link(m.get("title", ""), p),
                 })
         except (ValueError, AttributeError):
             continue
@@ -160,6 +205,7 @@ def scan_overdue_suspenses() -> list[dict]:
                 "what": f"{m.get('id')} ({m.get('priority')}/{m.get('status')}) — \"{m.get('title', '')[:60]}\" suspense {sd_date} ({days_overdue}d overdue)",
                 "why": f"suspense_date passed {days_overdue}d ago, status still open ({m.get('status')})",
                 "action": "Present as a decision-matrix item on next login (Commander directive 2026-07-04)",
+                "file": _mission_file_link(m.get("title", ""), p),
             })
     return findings
 
@@ -226,6 +272,8 @@ def main():
             print(f"  • {it['what']}")
             print(f"    why: {it['why']}")
             print(f"    Hale's next action: {it['action']}")
+            if it.get("file"):
+                print(f"    file://{it['file']}")
 
     _page_new_p0_findings(aging)
 

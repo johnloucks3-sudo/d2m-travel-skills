@@ -881,25 +881,33 @@ def render_briefing_html(
     aging_miss = summary.get("aging_missions", [])
     stale_ci_items = summary.get("stale_ci", [])
 
+    def _file_link(f: dict) -> str:
+        """Every line links to its actual file on disk — Commander is
+        usually on yoga where file:// paths resolve directly (2026-07-04)."""
+        path = f.get("file")
+        if not path:
+            return ""
+        return f' <a href="file://{path}" style="color:#7eb8ff;text-decoration:none;font-size:10px;">[open]</a>'
+
     def _heartbeat_expanded() -> str:
         sections = []
         if overdue_susp:
             rows = "".join(
                 f'<div style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
-                f'<span style="color:#ff4444;font-weight:700;">{f["what"]}</span><br>'
+                f'<span style="color:#ff4444;font-weight:700;">{f["what"]}</span>{_file_link(f)}<br>'
                 f'<span style="color:#6b7c99;font-size:11px;">{f["action"]}</span></div>'
                 for f in overdue_susp
             )
             sections.append(f'<div style="margin-bottom:14px;"><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Overdue Suspenses — review these</div>{rows}</div>')
         if aging_miss:
             rows = "".join(
-                f'<div style="padding:6px 0;color:#c8d0dc;font-size:12px;">{f["what"]}</div>'
+                f'<div style="padding:6px 0;color:#c8d0dc;font-size:12px;">{f["what"]}{_file_link(f)}</div>'
                 for f in aging_miss
             )
             sections.append(f'<div style="margin-bottom:14px;"><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Aging P0/P1 Missions</div>{rows}</div>')
         if stale_ci_items:
             rows = "".join(
-                f'<div style="padding:4px 0;color:#8a9ab5;font-size:11px;">{f["what"]}</div>'
+                f'<div style="padding:4px 0;color:#8a9ab5;font-size:11px;">{f["what"]}{_file_link(f)}</div>'
                 for f in stale_ci_items
             )
             sections.append(f'<div><div style="color:#e8c97a;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Stale CI Tools</div>{rows}</div>')
@@ -907,8 +915,8 @@ def render_briefing_html(
         footer = f'<div style="margin-top:10px;color:#4a5568;font-size:10px;">Last scan: {scanned or "never run"}</div>'
         return ("\n".join(sections) if sections else '<p style="color:#6b7c99;">Nothing crossed threshold — genuinely clear.</p>') + footer
 
-    heartbeat_bullets = [f'🔴 {f["what"]}' for f in overdue_susp[:2]]
-    heartbeat_bullets += [f'🟡 {f["what"]}' for f in aging_miss[:2]]
+    heartbeat_bullets = [f'🔴 {f["what"]}{_file_link(f)}' for f in overdue_susp[:2]]
+    heartbeat_bullets += [f'🟡 {f["what"]}{_file_link(f)}' for f in aging_miss[:2]]
     if not heartbeat_bullets:
         heartbeat_bullets = ["Nothing crossed threshold — genuinely clear"]
 
