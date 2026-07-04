@@ -2,7 +2,7 @@
 """
 silver_gate.py — CMSgt Steve "Silver" Sterling's back-of-task check battery.
 Deterministic gates (Silver never guesses a pass). Run before a portal reaches
-the Commander or a client. Emits a visible 🪶 CHIEF SILVER verdict.
+the Commander or a client. Emits a visible 🎖️ CHIEF SILVER verdict.
 
 Usage: python3 scripts/silver_gate.py <portal_client_dir> [--others name1,name2]
 Checks (portal-scoped, from the 2026-07-03 misses):
@@ -87,7 +87,7 @@ def internal_ops_check():
 
 def internal_ops_verdict():
     f = internal_ops_check()
-    print("🪶 CHIEF SILVER — internal ops hygiene")
+    print("🎖️ CHIEF SILVER — internal ops hygiene")
     if not f:
         print("  PASS. No duplicate open missions, no re-injected inbox tasks, board clean.")
         return 0
@@ -144,7 +144,7 @@ def run(cdir, others, dossier=None):
 def verdict(cdir, others, dossier=None):
     f=run(cdir, others, dossier)
     name=Path(cdir).parent.name
-    print(f"🪶 CHIEF SILVER — {name}")
+    print(f"🎖️ CHIEF SILVER — {name}")
     if not f:
         print("  PASS. Count consistent, images real and inlined, no cross-couple leak. Ships.")
         return 0
