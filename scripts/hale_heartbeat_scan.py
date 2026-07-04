@@ -8,10 +8,13 @@ QUIETLY if nothing crosses threshold — no output, no page, no token spend
 beyond the scan itself.
 
 Scans (v0, all read-only, no network, <1s):
-  1. Repeat alerts   — same alert firing N+ times in overnight_ops_log.json
-  2. Stale CI tools  — config/ci_registry.json entries not re-evaluated in
-                       reeval_cadence_days
-  3. Aging P0/P1     — mission_board.json items open > N days untouched
+  1. Repeat alerts    — same alert firing N+ times in overnight_ops_log.json
+  2. Stale CI tools   — config/ci_registry.json entries not re-evaluated in
+                        reeval_cadence_days
+  3. Aging P0/P1      — mission_board.json items open > N days untouched
+  4. Overdue suspenses — mission_board.json suspense_date passed on a still-OPEN
+                        item (terminal statuses excluded — a closed mission with
+                        a stale suspense_date is not a finding, just old data)
 
 Every finding is logged to OpsCenter/state/heartbeat_scan_latest.json for the
 next morning brief to pick up. NEW aging-P0 findings (not seen in the prior
@@ -28,6 +31,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 REPEAT_ALERT_THRESHOLD = 3
 STALE_MISSION_DAYS = 7
+TERMINAL_STATUSES = {
+    "completed", "complete", "closed", "archived",
+    "closed_duplicate", "resolved_new_finding",
+}
 STATE_FILE = ROOT / "OpsCenter/state/heartbeat_scan_latest.json"
 DEDUP_FILE = ROOT / "OpsCenter/state/heartbeat_p0_dedup.json"
 
@@ -123,6 +130,40 @@ def scan_aging_missions() -> list[dict]:
     return findings
 
 
+def scan_overdue_suspenses() -> list[dict]:
+    """Overdue suspense_date on a still-OPEN mission. Terminal statuses excluded
+    so a long-closed mission with a stale suspense_date isn't a false finding —
+    the exact 'first pass counted 15, all already closed' mistake caught 2026-07-04
+    while building this. 'parked' is intentionally NOT terminal — a parked item's
+    suspense_date passing is precisely the review trigger."""
+    p = ROOT / "OpsCenter/mission_board.json"
+    if not p.exists():
+        return []
+    d = json.loads(p.read_text())
+    missions = d if isinstance(d, list) else d.get("missions", d.get("active", []))
+    today = datetime.now(timezone.utc).date()
+    findings = []
+    for m in missions:
+        if m.get("status") in TERMINAL_STATUSES:
+            continue
+        sd = m.get("suspense_date")
+        if not sd:
+            continue
+        try:
+            sd_date = datetime.fromisoformat(sd.replace("Z", "+00:00")).date()
+        except (ValueError, AttributeError):
+            continue
+        days_overdue = (today - sd_date).days
+        if days_overdue > 0:
+            findings.append({
+                "category": "overdue_suspense",
+                "what": f"{m.get('id')} ({m.get('priority')}/{m.get('status')}) — \"{m.get('title', '')[:60]}\" suspense {sd_date} ({days_overdue}d overdue)",
+                "why": f"suspense_date passed {days_overdue}d ago, status still open ({m.get('status')})",
+                "action": "Present as a decision-matrix item on next login (Commander directive 2026-07-04)",
+            })
+    return findings
+
+
 def _page_new_p0_findings(aging_findings: list[dict]) -> None:
     """Page Telegram for aging-P0 findings not already paged (dedup by 'what' text,
     same one-and-done pattern as scripts/credentials_health_check.py)."""
@@ -160,7 +201,8 @@ def main():
     repeat = scan_repeat_alerts()
     stale = scan_stale_ci_tools()
     aging = scan_aging_missions()
-    all_findings = repeat + stale + aging
+    overdue = scan_overdue_suspenses()
+    all_findings = repeat + stale + aging + overdue
 
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps({
