@@ -1,4 +1,4 @@
 Pipeline: 26 bookings | Balance due: $87,959.50
-Commission expected: $30,117.57 | D2M share: $23,068.88
-Last verified: 2026-06-19 live (core/booking/booking_master.py)
-Harlan: Confirmed — $23,068.88 D2M share, source: booking_master live sheet read 2026-06-19
+Commission expected: $21,849.16 | D2M share: $18,830.93
+Last verified: 2026-07-05 (Harlan MISSION-426 per-booking audit)
+Harlan: Confirmed — $18,830.93 D2M share, source: per-booking methodology ($6,493.72 confirmed + $12,060.10 estimated + $277.11 ancillary). Previous naive 15%/80% sheet formula was WRONG ($23,068.88 false). No commission is late — all pre-voyage. Loucks 566910-25 is Interline, not D2M.

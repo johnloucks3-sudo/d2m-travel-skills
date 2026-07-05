@@ -84,9 +84,28 @@ def _read_bot_health() -> list[dict]:
 
 
 def _read_financial_pulse() -> dict:
+    # PRIMARY SOURCE: Harlan's verified commission audit in hale_state.json (MISSION-426)
+    # Per-booking methodology, not naive 15%/80% formula.
+    hale_state = ROOT / "hale_state.json"
+    if hale_state.exists():
+        try:
+            data = json.loads(hale_state.read_text())
+            fp = data.get("financial_pulse", {})
+            if fp.get("harlan_verified_total"):
+                return {
+                    "bookings": fp.get("sheet_bookings", 26),
+                    "commission": fp.get("sheet_commission_expected", 0),  # gross ref only
+                    "d2m_share": fp.get("harlan_verified_total", 0),      # VERIFIED by Harlan
+                    "balance_due": 87959.50,
+                    "source": "harlan_verified_mission_426",
+                }
+        except Exception as e:
+            log.warning(f"hale_state.json read failed: {e}")
+
+    # DEPRECATED FALLBACK: stale txt file
     fp = ROOT / "OpsCenter/state/financial_pulse_latest.txt"
     if not fp.exists():
-        # Try booking master directly
+        # FINAL FALLBACK: booking master (WARNING: naive 15%/80% formula, unreliable)
         try:
             bmc = BookingMasterClient()
             summary = bmc.commission_summary()
@@ -95,13 +114,14 @@ def _read_financial_pulse() -> dict:
                 "commission": summary.get("total_commission", 0),
                 "d2m_share": summary.get("total_d2m_share", 0),
                 "balance_due": summary.get("total_balance_due", 0),
-                "source": "live",
+                "source": "booking_master_naive",
             }
         except Exception:
             return {}
+
     text = fp.read_text(errors="ignore")
-    # Parse the simple txt format
-    result = {"source": "file"}
+    # Parse the simple txt format (deprecated fallback)
+    result = {"source": "txt_file_deprecated"}
     for line in text.splitlines():
         if "Pipeline:" in line:
             import re
