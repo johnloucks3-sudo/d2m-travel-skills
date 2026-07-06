@@ -200,3 +200,6 @@ config/email_registry_cache.json
 # Camofox API key
 deploy/camofox/.env
 /vendor/
+
+# Trained ML model artifacts — regenerated monthly by demand-predictor-retrain.timer
+core/ml/models/
