@@ -159,6 +159,81 @@ def format_scan_summary(scan_results):
                 high_priority.append(f"⚠️ {issue}")
         lines.append("")
 
+    # --- Phase 2: Predictive Intelligence ---
+
+    # Vendor Contract Expirations
+    vendor_contracts = scans.get("vendor_contract_expirations", [])
+    if vendor_contracts:
+        lines.append("### 📜 Vendor Contract Expirations")
+        for item in vendor_contracts:
+            priority = item.get("priority", "MEDIUM")
+            vendor = item.get("vendor", "unknown")
+            days = item.get("days_out", "?")
+            lines.append(f"- {vendor} expires in {days}d [**{priority}**]")
+            all_findings.append({"type": "vendor_contract", "priority": priority, "vendor": vendor})
+            if priority == "HIGH":
+                high_priority.append(f"📜 {vendor} contract expires in {days}d")
+        lines.append("")
+
+    # Insurance Policy Renewals
+    insurance = scans.get("insurance_policy_renewals", [])
+    if insurance:
+        lines.append("### 🛡️ Insurance Policy Renewals")
+        for item in insurance:
+            priority = item.get("priority", "MEDIUM")
+            policy = item.get("policy", "unknown")
+            days = item.get("days_out", "?")
+            lines.append(f"- {policy} renews in {days}d [**{priority}**]")
+            all_findings.append({"type": "insurance_renewal", "priority": priority, "policy": policy})
+            if priority == "HIGH":
+                high_priority.append(f"🛡️ {policy} renewal in {days}d")
+        lines.append("")
+
+    # Commission Reconciliation Cycle
+    recon = scans.get("commission_reconciliation_cycle", [])
+    if recon:
+        lines.append("### 💰 Commission Reconciliation Cycle")
+        for item in recon:
+            priority = item.get("priority", "MEDIUM")
+            issue = item.get("issue", "Reconciliation cycle flag")
+            lines.append(f"- {issue} [**{priority}**]")
+            all_findings.append({"type": "commission_reconciliation", "priority": priority, "issue": issue})
+            if priority == "HIGH":
+                high_priority.append(f"💰 {issue}")
+        lines.append("")
+
+    # Client Re-engagement Windows
+    reengagement = scans.get("client_reengagement_windows", [])
+    if reengagement:
+        lines.append("### 🔄 Client Re-engagement Windows")
+        for item in reengagement:
+            priority = item.get("priority", "MEDIUM")
+            client = item.get("client", "unknown")
+            days = item.get("days_since_last_departure", "?")
+            window = item.get("predicted_rebook_window", "?")
+            cohort = item.get("cohort_signal")
+            line = f"- {client}: {days}d since last voyage — predicted rebook window {window} [**{priority}**]"
+            lines.append(line)
+            if cohort:
+                lines.append(f"  - {cohort}")
+            all_findings.append({"type": "reengagement", "priority": priority, "client": client})
+            if priority == "HIGH":
+                high_priority.append(f"🔄 {client}: {days}d overdue, predicted window {window}")
+        lines.append("")
+
+    # Competitor Intel Freshness
+    competitor = scans.get("competitor_intel_freshness", [])
+    if competitor:
+        lines.append("### 🕵️ Competitor Intel Freshness")
+        for item in competitor:
+            priority = item.get("priority", "MEDIUM")
+            issue = item.get("issue", "Competitor intel stale")
+            lines.append(f"- {issue} [**{priority}**]")
+            all_findings.append({"type": "competitor_intel", "priority": priority, "issue": issue})
+            if priority == "HIGH":
+                high_priority.append(f"🕵️ {issue}")
+        lines.append("")
+
     # Summary footer
     total = len(all_findings)
     high_count = len(high_priority)

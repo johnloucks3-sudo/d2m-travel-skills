@@ -6,8 +6,12 @@ Performs automated scans to anticipate Commander needs
 
 import json
 import os
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+
+sys.path.insert(0, "/home/john/Thunderbird")
+from core.hale.predictive_intelligence import run_all as run_predictive_intelligence
 
 # Configuration
 SCAN_RESULTS_PATH = "/home/john/Thunderbird/hale_scan_results.json"
@@ -232,6 +236,8 @@ def main():
             "staff_gaps": scan_staff_gaps(),
             "data_consistency": scan_data_consistency(),
             "conflict_detection": scan_conflict_detection(),
+            # Phase 2 — predictive intelligence (docs/HALE_SCAN_INTEGRATION.md)
+            **run_predictive_intelligence(),
         },
     }
 

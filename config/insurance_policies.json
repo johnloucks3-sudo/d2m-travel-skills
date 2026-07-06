@@ -1,0 +1,11 @@
+{
+  "_doc": "Insurance policy renewal registry for Hale Scan Phase 2 predictive intelligence (core/hale/predictive_intelligence.py::scan_insurance_policy_renewals). Mirrors Drive/Thunderbird_Shield_Logistics once a Drive sync job populates it — until then this stays empty and the scan correctly reports zero findings rather than fabricating one.",
+  "_sync_status": "PENDING — no local mirror of Drive/Thunderbird_Shield_Logistics exists yet as of 2026-07-06",
+  "_schema": {
+    "policy": "string, e.g. 'E&O — Travel Agent Professional Liability'",
+    "carrier": "string, e.g. 'Travel Guard', 'CSA'",
+    "expires": "ISO date YYYY-MM-DD",
+    "notes": "string, optional"
+  },
+  "policies": []
+}

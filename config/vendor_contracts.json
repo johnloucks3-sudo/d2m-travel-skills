@@ -1,0 +1,11 @@
+{
+  "_doc": "Vendor/supplier contract expiration registry for Hale Scan Phase 2 predictive intelligence (core/hale/predictive_intelligence.py::scan_vendor_contract_expirations). Mirrors Drive/Thunderbird_Commercial_Ops once a Drive sync job populates it — until then this stays empty and the scan correctly reports zero findings rather than fabricating one.",
+  "_sync_status": "PENDING — no local mirror of Drive/Thunderbird_Commercial_Ops exists yet as of 2026-07-06",
+  "_schema": {
+    "vendor": "string, e.g. 'Regent Seven Seas — Nexion host agreement'",
+    "contract_type": "string, e.g. 'host agency agreement', 'GDS access', 'affiliate agreement'",
+    "expires": "ISO date YYYY-MM-DD",
+    "notes": "string, optional"
+  },
+  "contracts": []
+}

@@ -1,5 +1,5 @@
 # Hale Proactive Scan — Integration & Operations Guide
-## Status: ✅ LIVE (2026-04-12)
+## Status: ✅ LIVE (2026-04-12) · Phase 2 predictive intelligence added 2026-07-06
 
 ---
 
@@ -23,6 +23,38 @@ Runs 5-point scan:
 - **Conflict Detection:** Priority overload (>5 active missions)
 
 Each finding tagged with priority: **HIGH** (≤7d / >3d idle / critical) or **MEDIUM**.
+
+### 1b. **core/hale/predictive_intelligence.py** — Phase 2 Predictive Layer
+**Added:** 2026-07-06 · **Output:** merged into `hale_scan_results.json["scans"]`
+
+Runs 5 additional forward-looking scans, called from `hale_proactive_scan.py::main()`
+via `run_all()`:
+
+- **Vendor contract expirations** — reads `config/vendor_contracts.json` (mirrors
+  Drive/`Thunderbird_Commercial_Ops` once a sync job populates it; empty today, so
+  the scan correctly reports zero rather than fabricating a deadline).
+- **Insurance policy renewals** — reads `config/insurance_policies.json` (mirrors
+  Drive/`Thunderbird_Shield_Logistics`; same empty-registry-until-synced status).
+- **Commission reconciliation cycle** — flags if no `commission_reconciliation_*.md`
+  has been filed in `OpsCenter/state/` within `RECONCILIATION_GRACE_DAYS` (5) of the
+  1st of the current month.
+- **Client re-engagement windows** — parses `dossiers/*.md` for past embarkation
+  dates per client, flags clients whose most recent completed voyage is ≥18 months
+  (548 days) ago with no active follow-on mission on the board. Attaches a
+  `cohort_signal`/`predicted_rebook_window` using the modal historical quarter
+  across repeat-booking clients ("similar clients rebook in Q3" pattern).
+- **Competitor intel freshness** — flags if the newest file matching `*competitor*`
+  under `intel/` is older than `COMPETITOR_INTEL_STALE_DAYS` (7).
+
+Every function takes injectable `now=`/path parameters for testability and returns
+`[]` when its source has no data — see `tests/test_hale_predictive_intelligence.py`
+(17 tests, including a synthetic 6-month cohort-history validation of the Q3
+re-engagement prediction).
+
+**Populating the two Drive-backed registries:** once `Thunderbird_Commercial_Ops`
+and `Thunderbird_Shield_Logistics` are locally synced, append entries to the
+`contracts`/`policies` arrays in the two config files above — the scan needs no
+code change to pick them up.
 
 ### 2. **hale_scan_wirer.py** — Output Integrator
 **Location:** `scripts/hale_scan_wirer.py`
