@@ -5955,3 +5955,14 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 **Process fix (durable, Kaizen rule):** `wing-exercise` staff-consultation defaults updated — ELON and Whetstone are standing invitees on any T3 exercise classified as tech-adoption or infrastructure-pattern, not optional adds. See `Personas/hale_cos.md`.
 
 **Build authorized, in progress:** Phase 1 (file-locked hale_bus + cross-channel activity log), Phase 2 (confirmed-delivery auto-execute, Console/Wave/Telegram), Phase 3 (email folded in, gated on the `c2-fabric-roundtrip` canary rather than a time-based burn-in — Commander's override implemented safely via ELON/Whetstone's engineering answer, not by dropping the safeguard).
+
+## 2026-07-06 (morning, cont.) — Unified C2 Fabric BUILT and verified (all 3 phases)
+
+**Built, tested live, committed — not paper:**
+- **Phase 1:** `core/hale_bus/hale_bus_write.py` — fcntl file lock wraps every bus write; `append_channel_activity()`/`read_channel_activity()` give cross-channel visibility. Verified: 50-write concurrent stress test (20 threads) → 50/50 preserved, zero conflicts.
+- **Phase 2/3:** `core/ops/confirmed_auto_execute.py` — `notify_and_wait()` per ELON/Whetstone's engineering answer, not a calendar. Telegram: delivery confirmed via Bot API's own `ok=true`. Email: confirmed via UNREAD-label removal (actually opened), never "sent" alone. Verified live: real Telegram send returned delivered=true; real email send showed unread=True immediately, then flipped to read-confirmed=True after marking read — both states proven, not assumed.
+- **CI canary:** `scripts/ci_probe_c2_fabric_roundtrip.py`, registered in `config/ci_registry.json` per Whetstone's spec — confirmed round-trip on bus + AgentMail, single-leg failure suspends silence=GO on that channel immediately (stricter than the standard 3-fail REPLACE threshold, because a silent drop here can mis-fire an unapproved action as approved). Verified live, passes clean.
+
+**Doctrine fixes, durable:** `CLAUDE.md` — ELON+Whetstone now standing invitees on tech-adoption T2/T3 exercises. `Personas/hale_cos.md` — Obstacle-Routing & Independent Verification Protocol.
+
+**Status:** all three Gate-4-approved phases are live and verified against real systems, same session. Nothing deferred to "later" except Phase 3's original 30-day burn-in condition — which the Commander overrode and ELON/Whetstone's engineering answer replaced with a stricter, always-on canary instead.
