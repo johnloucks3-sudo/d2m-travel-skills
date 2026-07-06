@@ -1,0 +1,19 @@
+{
+  "ship_id": "viking_mars",
+  "cruise_line": "Viking Ocean",
+  "ship_name": "Viking Mars",
+  "source_url": "",
+  "fetched_at": "2026-07-06T23:49:33.816039+00:00",
+  "roster_type": "manual",
+  "note": "Manually keyed; no public per-ship officer page or press release found for Viking as of 2026-07-06 (WebSearch checked).",
+  "members": [
+    {
+      "name": "Atle Knutsen",
+      "title": "Captain",
+      "bio": "First Master of Viking Mars.",
+      "photo_url": null,
+      "years_at_line": null,
+      "specialties": []
+    }
+  ]
+}

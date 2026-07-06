@@ -1,0 +1,35 @@
+{
+  "ship_id": "silver_nova",
+  "cruise_line": "Silversea",
+  "ship_name": "Silver Nova",
+  "source_url": "https://www.silversea.com/about-silversea/press-releases/2023/august/silversea-reveals-line-up-senior-officers-silver-nova-maiden-voyage.html",
+  "fetched_at": "2026-07-06T23:49:28.504476+00:00",
+  "roster_type": "press_release",
+  "note": "Parsed from a dated press release \u2014 typically a maiden/inaugural-voyage announcement, not a live per-sailing feed. Crew rotate on multi-month contracts; this release may already be years old. Do not present as 'currently aboard' without independently reverifying for the specific voyage.",
+  "members": [
+    {
+      "name": "Captain Cosimo Pontillo",
+      "title": "Master",
+      "bio": "Captain Cosimo Pontillo, also known as Mino, was born in Scilla, a small Italian village on the Messina Straits. Pontillo graduated from the Messina Nautical High School in 1983, subsequently working aboard frigates in the Navy for one year and studying submarine rescue techniques for 6 months. After his time in the Navy, Pontillo began his career as a deck cadet on different cargo vessels around the world. He quickly obtained his Masters License and moved to the cruise industry, working with various cruise lines until 1994, when he joined Silversea Cruises for the launches of Silver Cloud\u00ae and Silver Wind\u00ae, working his way through the ranks to become Staff Captain. From 2000, Captain Pontillo spent six years working as a pilot in Messina, subsequently returning to Silversea, being promoted to the rank of Captain. Pontillo has taken the helm of most ships in the Silversea fleet, including various expedition vessels. After completing the Northwest Passage, Pontillo joined the newbuilding team for the launch of Silver Nova, following the project from the beginning with a wealth of experience and technical knowledge.",
+      "photo_url": null,
+      "years_at_line": null,
+      "specialties": []
+    },
+    {
+      "name": "Lester Woodfall",
+      "title": "Hotel Director",
+      "bio": "Lester Woodfall was born and raised in Southern India. On graduating from hotel school and completing his apprenticeship in luxury hotels in India, Woodfall moved his sights further afield, working in various five-star hotels in the Arabian Gulf. His international career began in luxury hotels in Bahrain, after which he moved to the United Arab Emirates, where he worked at a number of five-star resorts, before aspiring to a career at sea. Woodfall joined the cruise industry in 2001, working his way up through the ranks to become Food & Beverage Manager. He is now proud to be aboard Silver Nova as Hotel Director for her maiden season, using his knowledge and experience to lead the Hotel team, which spans various departments, from food & beverage to housekeeping, shore excursions, and entertainment. Woodfall looks forward to meeting all guests during the maiden voyage and throughout Silver Nova\u2019s inaugural season.",
+      "photo_url": null,
+      "years_at_line": null,
+      "specialties": []
+    },
+    {
+      "name": "Vicki Van Tassel",
+      "title": "Cruise Director",
+      "bio": "After an illustrious and extensive career in show business\u2014spanning from Broadway, national and international tours, and television shows to motion capture work, commercials, and stand-up comedy\u2014Vicki Van Tassel started her career at sea with Silversea in 2011, performing as a vocalist on three World Cruises and many Grand Voyages, learning from some of the best in the business. In 2015, she joined Silversea as a Cruise Director. Since then, Van Tassel has held the position of Cruise Director on almost every ship in Silversea\u2019s fleet, proudly opening\u00a0Silver Moon\u2120 and Silver Dawn\u2120, as well as hosting guests on the World Cruise 2023. Now, with the greatest sense of \u201chonour and pride,\u201d Van Tassel assumes the role of Cruise Director for the opening of Silver Nova, and looks forward to welcoming guests aboard the cruise line\u2019s latest ship. Other senior officers who will be aboard Silver Nova for her maiden voyage include Staff Captain, Jorge Rodriguez Ferreira; Chief Engineer, Rosario Costagliola; Executive Chef, Rohit Dimri; and Guest Relations Manager, Sascha Strack.",
+      "photo_url": null,
+      "years_at_line": null,
+      "specialties": []
+    }
+  ]
+}

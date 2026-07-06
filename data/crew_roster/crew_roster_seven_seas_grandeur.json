@@ -1,0 +1,51 @@
+{
+  "ship_id": "seven_seas_grandeur",
+  "cruise_line": "Regent Seven Seas",
+  "ship_name": "Seven Seas Grandeur",
+  "source_url": "https://www.rssc.com/ships/seven_seas_grandeur/officers",
+  "fetched_at": "2026-07-06T23:49:38.911174+00:00",
+  "roster_type": "line_published_officer_page",
+  "note": "Page explicitly labels this the ship's inaugural/maiden-voyage officer team. Regent does not refresh this page per sailing; crew rotate on multi-month contracts. Do not present any name here as 'currently aboard' without independently reverifying for the specific voyage.",
+  "members": [
+    {
+      "name": "Luciano Montesanto",
+      "title": "Captain",
+      "bio": "Born in Crotone, a small city of Calabria, Italy, Luciano completed his education and training by the age of 19 at the Nautical Institute, he began to sail the world as a cadet for a tanker shipping company. In 2002, after obtaining his Officer\u2019s License, his interests turned to the passenger cruise industry. Throughout his 20-year career, he has proudly participated in several new cruise ship constructions and sailed around the globe. Luciano was promoted to Captain of Seven Seas Splendor in 2022 and is now proud to be at the helm of Seven Seas Grandeur . While at home, he loves cooking, spending time with his dogs and traveling with his family.",
+      "photo_url": "https://www.rssc.com/sites/default/files/M19_CaptainLuciano_0.jpg",
+      "years_at_line": 20,
+      "specialties": []
+    },
+    {
+      "name": "Franck Galzy",
+      "title": "General Manager",
+      "bio": "General Manager Franck Galzy is responsible for overseeing the flawless delivery of hotel as well as food and beverage services. After graduating from the CAFA Sommelier Wine School in Angers, France, he began his career at the famous Crabwall Manor Hotel & Spa in the UK. Franck joined Regent in 1999, where he quickly made his way through the ranks. Franck became Regent\u2019s youngest General Manager in 2009 and has maintained the position for 11 years, coordinating many special events during some of the line\u2019s most spectacular voyages.",
+      "photo_url": "https://www.rssc.com/sites/default/files/M19_FranckGalzy_0.jpg",
+      "years_at_line": 11,
+      "specialties": []
+    },
+    {
+      "name": "David Nevin",
+      "title": "Cruise Director",
+      "bio": "Born in Halifax, Canada, and raised on a farm in the prairies of Saskatchewan \u2013 David trained in Musical Theatre at Sheridan College in Toronto and has appeared in musicals such as Evita, My Fair Lady and Grease! In 2001, David\u2019s career took a nautical turn when he embarked on his first cruise ship as a singer/dancer. Throughout his 20-year career at sea, David has risen through the ranks of the entertainment department. In 2016, he joined the Regent family as an Assistant Cruise Director and was promoted to Cruise Director on Seven Seas Voyager in 2018.",
+      "photo_url": "https://www.rssc.com/sites/default/files/M19_DavidNevin_0.jpg",
+      "years_at_line": 20,
+      "specialties": []
+    },
+    {
+      "name": "Antonio Lagana",
+      "title": "Chief Engineer",
+      "bio": "Chief Engineer Lagana lives in a small village about 1,500 feet above sea level close to Reggio Calabria, Italy, where he has a beautiful view of the Messina Strait. He studied in the Nautical College in Messina and after graduating spent three years in the Italian Navy and then working on cargo ships. In 2002, Chief Lagana started his career on cruise ships as 3rd Engineer and made his way up through the ranks to join Regent Seven Seas Cruises in 2011 as Staff Chief Engineer. On his vacations, he enjoys being with his wife and daughters and looking after his farm filled with olive trees and beautiful vineyards.",
+      "photo_url": "https://www.rssc.com/sites/default/files/M19_AntonioLagana-_0.jpg",
+      "years_at_line": null,
+      "specialties": []
+    },
+    {
+      "name": "Giuseppe Gargiulo",
+      "title": "Staff Captain",
+      "bio": "Born in Naples, Italy, Giuseppe dreamed of working aboard cruise ships since he was a child. Coming from a family of seafarers and fishermen, and having a strong passion for the sea, he studied at the Nautical School in Sorrento where he graduated in 1999. He started his career soon after as a Deck Cadet on cargo ships, and in 2003 he moved into the cruise industry and obtained his unlimited Master license in 2006. Giuseppe now resides in Sorrento, Italy, with his wife and children. During his vacation, he loves spending time with his lovely family, walking among the beautiful nature trails in Sorrento and Amalfi Coast, and taking boat trips and fishing.",
+      "photo_url": "https://www.rssc.com/sites/default/files/M19_GiuseppeGargiulo_0.jpg",
+      "years_at_line": null,
+      "specialties": []
+    }
+  ]
+}
