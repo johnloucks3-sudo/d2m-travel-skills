@@ -346,9 +346,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-06 15:51 MT -->
+<!-- Last sync: 2026-07-06 16:56 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-06 15:51 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-06 16:56 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
@@ -360,3 +360,42 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 ================================================
 ```
 # BLACKBOARD_END
+
+## ELON Proposal Closure Loop (Standing Order — Effective 2026-07-06)
+**See:** `OpsCenter/ELON_PROPOSAL_CLOSURE_PROTOCOL.md` (full protocol)
+
+**Weekly review:** Sunday 18:00 MT. Hale scans all open ELON proposals against closure targets (max 7 days). Overdue proposals escalate. Completed proposals → closure docs → archive. Metrics updated in hale_state.json.
+
+**First review:** 2026-07-14 18:00 MT. Monthly audit: 2026-08-06.
+
+## DEADWOOD REVIEW CYCLES (Standing Order — Effective 2026-07-06)
+**Commander Commitment:** Multiple parallel options are intentional. Merciless pruning on fixed schedule prevents code rot.
+
+**Review Gates:** Every 90 days, perpetually. Starting from feature ship date, then every 90 days after each review.
+
+**Ownership:**
+- **Hale:** Schedules reviews, triggers them, surfaces candidates
+- **Sterling (A7):** Sets purge criteria, audits what stays/goes, commits the removal
+
+**Process:**
+1. Feature shipped → mark deploy date
+2. Hale schedules first review at 90d, then every 90d thereafter (perpetual)
+3. Sterling audits: usage count, test coverage, maintenance cost
+4. Decision: KEEP or REMOVE
+5. Removal commits go to main with "chore: deadwood purge" message
+
+**Criteria for removal:**
+- Zero usage in 30 days (per instrumentation)
+- No tests (unmaintainable)
+- Superseded by newer approach
+- Cost to maintain > value
+
+**Standing order:** This is aggressive. Accept it. The alternative is bloatware.
+
+## PARITY AUDIT — CONSOLE VS EMAIL (Standing Order — Effective 2026-07-06)
+**Quarterly.** Every three months (1 Jan, 1 Apr, 1 Jul, 1 Oct), run `scripts/parity_audit.py` and surface findings to Commander. Also run off-cycle immediately if `~/.claude/mcp.json` or `core/email/hale_email_responder.py`'s `GLOBAL_MCP_CONFIG` is edited.
+
+**Zero tolerance for divergence.** If any tool is in Console but not Email (or vice versa), that's a process failure — remediate same week.
+
+**Baseline:** `docs/CONSOLE_VS_EMAIL_CAPABILITY_BASELINE_20260706.md` (why parity matters) + `docs/PARITY_AUDIT_BASELINE_2026-07-06.md` (mechanically-verified snapshot). Results land in `docs/parity_audit_results_{date}.md` each run.
+
