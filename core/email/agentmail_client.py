@@ -82,9 +82,16 @@ class AgentMailClient:
     def get_message(self, inbox_id: str, message_id: str):
         return self.client.inboxes.messages.get(inbox_id, message_id)
 
-    def reply_to_message(self, inbox_id: str, message_id: str, text: str, html: str | None = None):
+    def reply_to_message(self, inbox_id: str, message_id: str, text: str, html: str | None = None,
+                          attachments=None, to=None, cc=None, bcc=None):
+        # NOTE: replying to a message YOUR OWN inbox sent (not one it received) does not
+        # auto-fill `to` from the original recipient — it silently loops back to yourself.
+        # Always pass `to=` explicitly when continuing an outbound thread you started.
         check_and_record()
-        return self.client.inboxes.messages.reply(inbox_id, message_id, text=text, html=html)
+        return self.client.inboxes.messages.reply(
+            inbox_id, message_id, text=text, html=html, attachments=attachments,
+            to=to, cc=cc, bcc=bcc,
+        )
 
     def create_webhook(self, url: str, event_types: list[str]):
         return self.client.webhooks.create(url=url, event_types=event_types)
