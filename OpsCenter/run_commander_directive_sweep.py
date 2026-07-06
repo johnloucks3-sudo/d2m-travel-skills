@@ -29,9 +29,16 @@ Sweep Tracker: uses "commander_directive_sweep" with 4-min cooldown.
 """
 import base64
 import json
+import socket
 import subprocess
 import sys
+import time as _time_module
 from pathlib import Path
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -44,8 +51,45 @@ from OpsCenter.sweep_tracker import SweepTracker
 PROCESSED_LABEL = "THUNDERBIRD-DirectiveReplied"
 COMMANDER_QUERY = f"from:johnloucks3@gmail.com -label:{PROCESSED_LABEL} newer_than:7d"
 SCRIPTS_LOG = ROOT / "logs" / "commander_directive_sweep.log"
+RETRY_LOG = ROOT / "logs" / "commander_directive_sweep_retries.log"
 THREAD_STATE_FILE = ROOT / "logs" / "commander_directive_threads.json"
 MSG_STATE_FILE = ROOT / "logs" / "commander_directive_msgs.json"
+
+# Transient network errors worth retrying (DNS blips, dropped connections, timeouts).
+# Gmail's googleapiclient surfaces these as socket.timeout/ConnectionError; requests'
+# variants are included in case any call path goes through requests directly.
+_RETRYABLE_EXC = (socket.timeout, ConnectionError, TimeoutError)
+if requests is not None:
+    _RETRYABLE_EXC = _RETRYABLE_EXC + (requests.exceptions.Timeout, requests.exceptions.ConnectionError)
+
+
+def log_retry(msg: str):
+    from datetime import datetime, timezone
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    line = f"[{ts}] {msg}"
+    print(line, flush=True)
+    try:
+        RETRY_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(RETRY_LOG, "a") as f:
+            f.write(line + "\n")
+    except Exception:
+        pass
+
+
+def with_backoff(fn, *, max_retries=5, initial_delay=1, max_delay=30, label="api_call"):
+    """Call fn() with exponential backoff on transient network errors.
+    initial_delay=1s, doubling each retry, capped at max_delay=30s."""
+    delay = initial_delay
+    for attempt in range(1, max_retries + 1):
+        try:
+            return fn()
+        except _RETRYABLE_EXC as e:
+            if attempt == max_retries:
+                log_retry(f"  RETRY_EXHAUSTED ({label}): {type(e).__name__}: {e} — giving up after {max_retries} attempts")
+                raise
+            log_retry(f"  RETRY {attempt}/{max_retries} ({label}) after {type(e).__name__}: {e} — sleeping {delay}s")
+            _time_module.sleep(delay)
+            delay = min(delay * 2, max_delay)
 
 # Command detection: COS/COO/HALE/VIC/DANI/WILCO/ROGER + any non-letter separator.
 # Also: ANY email from johnloucks3 to d2mconcierge is treated as a directive (chat mode).
@@ -228,7 +272,7 @@ try:
 
     creds = Credentials.from_authorized_user_file(str(jl3_token_file))
     if creds.expired and creds.refresh_token:
-        creds.refresh(Request())
+        with_backoff(lambda: creds.refresh(Request()), label="jl3_token_refresh")
         jl3_token_file.write_text(creds.to_json())
     if not creds.valid:
         log_line("johnloucks3 token invalid — skipping")
@@ -243,7 +287,7 @@ try:
         try:
             d2mc_creds = Credentials.from_authorized_user_file(str(d2mc_token_file))
             if d2mc_creds.expired and d2mc_creds.refresh_token:
-                d2mc_creds.refresh(Request())
+                with_backoff(lambda: d2mc_creds.refresh(Request()), label="d2mc_token_refresh")
                 d2mc_token_file.write_text(d2mc_creds.to_json())
             if d2mc_creds.valid:
                 d2mc_service = build("gmail", "v1", credentials=d2mc_creds)
@@ -266,9 +310,12 @@ try:
     d2mc_msgs = []
     if d2mc_service:
         try:
-            _d2mc_page = d2mc_service.users().messages().list(
-                userId="me", q=D2MC_SELF_QUERY, maxResults=20
-            ).execute()
+            _d2mc_page = with_backoff(
+                lambda: d2mc_service.users().messages().list(
+                    userId="me", q=D2MC_SELF_QUERY, maxResults=20
+                ).execute(),
+                label="d2mc_messages_list",
+            )
             d2mc_msgs = _d2mc_page.get("messages", [])
         except Exception as e:
             log_line(f"d2mconcierge inbox scan failed: {e}")
@@ -282,16 +329,19 @@ try:
     # Get/create processed label
     label_id = None
     try:
-        labels = service.users().labels().list(userId="me").execute()
+        labels = with_backoff(lambda: service.users().labels().list(userId="me").execute(), label="jl3_labels_list")
         for lbl in labels.get("labels", []):
             if lbl["name"] == PROCESSED_LABEL:
                 label_id = lbl["id"]
                 break
         if not label_id:
-            lbl = service.users().labels().create(
-                userId="me",
-                body={"name": PROCESSED_LABEL, "labelListVisibility": "labelShow", "messageListVisibility": "show"}
-            ).execute()
+            lbl = with_backoff(
+                lambda: service.users().labels().create(
+                    userId="me",
+                    body={"name": PROCESSED_LABEL, "labelListVisibility": "labelShow", "messageListVisibility": "show"}
+                ).execute(),
+                label="jl3_labels_create",
+            )
             label_id = lbl["id"]
     except Exception:
         pass
@@ -314,10 +364,13 @@ try:
 
         # Step 1: metadata fetch (fast — no body)
         try:
-            msg_meta = service.users().messages().get(
-                userId="me", id=msg_id, format="metadata",
-                metadataHeaders=["From", "Subject", "Date", "Authentication-Results"]
-            ).execute()
+            msg_meta = with_backoff(
+                lambda: service.users().messages().get(
+                    userId="me", id=msg_id, format="metadata",
+                    metadataHeaders=["From", "Subject", "Date", "Authentication-Results"]
+                ).execute(),
+                label="jl3_msg_metadata",
+            )
         except Exception as e:
             log_line(f"metadata fetch failed {msg_id}: {e}")
             continue
@@ -343,9 +396,12 @@ try:
         to_addr = ""
         cc_addr = ""
         try:
-            msg_full = service.users().messages().get(
-                userId="me", id=msg_id, format="full"
-            ).execute()
+            msg_full = with_backoff(
+                lambda: service.users().messages().get(
+                    userId="me", id=msg_id, format="full"
+                ).execute(),
+                label="jl3_msg_full",
+            )
             full_hdrs = {h["name"]: h["value"] for h in msg_full["payload"]["headers"]}
             to_addr = full_hdrs.get("To", "")
             cc_addr = full_hdrs.get("Cc", "")
@@ -464,17 +520,20 @@ try:
     if d2mc_service and d2mc_msgs:
         d2mc_label_id = None
         try:
-            d2mc_labels = d2mc_service.users().labels().list(userId="me").execute()
+            d2mc_labels = with_backoff(lambda: d2mc_service.users().labels().list(userId="me").execute(), label="d2mc_labels_list")
             for lbl in d2mc_labels.get("labels", []):
                 if lbl["name"] == PROCESSED_LABEL:
                     d2mc_label_id = lbl["id"]
                     break
             if not d2mc_label_id:
-                lbl = d2mc_service.users().labels().create(
-                    userId="me",
-                    body={"name": PROCESSED_LABEL, "labelListVisibility": "labelShow",
-                          "messageListVisibility": "show"}
-                ).execute()
+                lbl = with_backoff(
+                    lambda: d2mc_service.users().labels().create(
+                        userId="me",
+                        body={"name": PROCESSED_LABEL, "labelListVisibility": "labelShow",
+                              "messageListVisibility": "show"}
+                    ).execute(),
+                    label="d2mc_labels_create",
+                )
                 d2mc_label_id = lbl["id"]
         except Exception:
             pass
@@ -492,9 +551,12 @@ try:
                 break
             d_msg_id = d_ref["id"]
             try:
-                d_full = d2mc_service.users().messages().get(
-                    userId="me", id=d_msg_id, format="full"
-                ).execute()
+                d_full = with_backoff(
+                    lambda: d2mc_service.users().messages().get(
+                        userId="me", id=d_msg_id, format="full"
+                    ).execute(),
+                    label="d2mc_msg_full",
+                )
                 d_hdrs = {h["name"]: h["value"] for h in d_full["payload"]["headers"]}
                 d_from = d_hdrs.get("From", "").lower()
                 d_to = d_hdrs.get("To", "").lower()
@@ -689,6 +751,9 @@ try:
     sys.exit(0)
 
 except Exception as e:
+    # After retry exhaustion (or any other unhandled error), exit gracefully rather
+    # than crash-looping the systemd timer. The next scheduled sweep will retry.
     log_line(f"error: {e}")
+    print(f"[run_commander_directive_sweep] FATAL after retries: {e}", file=sys.stderr)
     tracker.mark_failed(str(e)[:200])
-    sys.exit(1)
+    sys.exit(0)
