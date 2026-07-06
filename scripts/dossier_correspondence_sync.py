@@ -18,6 +18,7 @@ import re
 import base64
 import email.utils
 import logging
+import signal
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from typing import Optional
@@ -25,6 +26,16 @@ from typing import Optional
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
+
+OAUTH_REFRESH_TIMEOUT_SEC = 5
+
+
+class OAuthRefreshTimeout(Exception):
+    """Raised when a token refresh hangs past OAUTH_REFRESH_TIMEOUT_SEC."""
+
+
+def _alarm_handler(signum, frame):
+    raise OAuthRefreshTimeout("OAuth refresh exceeded timeout")
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
 BASE = Path("/home/john/Thunderbird")
@@ -58,7 +69,13 @@ log = logging.getLogger("corr_sync")
 
 
 def load_gmail_service(token_path: Path):
-    """Build Gmail API service from token file."""
+    """Build Gmail API service from token file.
+
+    Refresh is bounded to OAUTH_REFRESH_TIMEOUT_SEC — a hung refresh (Gmail
+    API backoff/rate-limiting) previously blocked forever and crashed the
+    whole process (INC-20260612T135256Z-886802). Raises OAuthRefreshTimeout
+    or the original exception on failure; caller skips the account.
+    """
     token_data = json.loads(token_path.read_text())
     creds = Credentials(
         token=token_data.get("token"),
@@ -69,7 +86,13 @@ def load_gmail_service(token_path: Path):
         scopes=token_data.get("scopes", ["https://www.googleapis.com/auth/gmail.modify"]),
     )
     if creds.expired and creds.refresh_token:
-        creds.refresh(Request())
+        old_handler = signal.signal(signal.SIGALRM, _alarm_handler)
+        signal.alarm(OAUTH_REFRESH_TIMEOUT_SEC)
+        try:
+            creds.refresh(Request())
+        finally:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, old_handler)
         token_data["token"] = creds.token
         token_data["expiry"] = creds.expiry.isoformat() + "Z" if creds.expiry else None
         token_path.write_text(json.dumps(token_data))
@@ -282,7 +305,11 @@ def run_sync(dry_run: bool = False, backfill_date: Optional[str] = None):
             continue
 
         log.info(f"Scanning {account_name}...")
-        service = load_gmail_service(token_path)
+        try:
+            service = load_gmail_service(token_path)
+        except Exception as exc:
+            log.error(f"  Skipping {account_name}: OAuth refresh failed ({exc})")
+            continue
 
         # Determine start date
         if backfill_date:
@@ -298,7 +325,11 @@ def run_sync(dry_run: bool = False, backfill_date: Optional[str] = None):
                 after = (now - timedelta(days=7)).strftime("%Y/%m/%d")
 
         log.info(f"  Fetching sent mail after {after}")
-        messages = fetch_sent_messages(service, after)
+        try:
+            messages = fetch_sent_messages(service, after)
+        except Exception as exc:
+            log.error(f"  Skipping {account_name}: message fetch failed ({exc})")
+            continue
         log.info(f"  Found {len(messages)} sent messages")
 
         for msg in messages:
