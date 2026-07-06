@@ -6092,3 +6092,30 @@ Checked all 4 items flagged in the brief before surfacing anything (per Failure 
 4. **Bonus find while checking the mission board (user's literal ask):** MISSION-1527 ("Decide d2m-tasking-watcher architecture") was still marked `active`/awaiting Commander decision, but ELON's PROPOSAL-20260705-d2m-tasking-watcher.md (already flagged 🟢 APPLY_AUTONOMOUSLY in this morning's brief) found the service was already retired back on 2026-06-06 with just a stale systemd reference, and masked it as routine infra maintenance. No architecture decision (retire/resurrect full/resurrect minimal) is needed — the retire path already happened. Closed MISSION-1527.
 
 Net: 1 of 4 aging proposals needed and got a real Commander decision. The other 3 were stale — resolved by later work that never closed the loop on the original ticket. Root cause pattern: several autonomous fixes/resolutions happen but don't always update the originating proposal/mission-board entry, so aged items can look open when they're actually done. Worth building a periodic reconciliation pass (proposal/mission status vs actual system state) rather than relying on catching it manually each time — flagging as a backlog item, not building it now.
+
+## 2026-07-06 22:19 MT — SECURITY ALERT + LOOP-ENGINEERING TASK
+
+**SECURITY AWARENESS:** claude-fable-5-free-desktop-app is a known impersonation pattern (Whetstone alert). No engagement; awareness only.
+
+**PENDING (Sterling):** Loop-engineering skim for heartbeat-scan/OODA loop improvements. Verdict due EOD.
+
+
+## 2026-07-06 22:25 MT — STERLING LOOP-ENGINEERING VERDICT
+
+**Task:** Skim loop-engineering for heartbeat-scan/OODA loop improvements.
+
+**Finding:** CI Auto-Repair Doctrine (2026-06-27) implements a tight OODA tripwire pattern: OBSERVE → ORIENT (counter) → DECIDE (threshold 10 failures) → ACT (repair) → ASSESS (verify). This pattern is applicable to heartbeat-scan escalation logic.
+
+**Verdict (one-line):** Adopt CI tripwire pattern (threshold-based escalation + state persistence) for heartbeat-scan — replaces continuous nagging with surgical escalation, tightens OODA feedback loop from hourly to failure-driven.
+
+**Action:** Reference `docs/CI_AUTO_REPAIR_DOCTRINE_20260627.md` §Tripwire & Repair Flow (lines 78–93). Implement counter-state persistence + threshold gate for deferred-alert overdue detection.
+
+---
+
+## 2026-07-06 (afternoon) — PROPOSAL-20260517-d2m-email-intel closed (stale, empty stub)
+
+Proposal file was 0 bytes — created 2026-05-17, never populated. Checked whether the implied capability ("D2M Email Intel") exists: it does, fully built and live. `core/email/thunderbird_email_intel.py` is wired into the scheduler's Morning Brief (12h lookback) and Midday Pulse (6h lookback) sweeps; state files show a checkpoint from today 16:05 MT (`sweep_complete`). Git history (`310b0b44a` through `a7b2de7d4`) shows the feature built out and hardened across dozens of commits from March through July 2026 — predating and superseding the empty proposal stub. Standalone `d2m-email-intel.timer` is disabled by design (folded into Supertimer consolidation), not a gap.
+
+**Verdict:** No decision needed — feature already shipped and running. Same pattern as the 3 stale QUEUE_FOR_COMMANDER proposals closed earlier today: autonomous work resolved the need without closing the originating ticket. Full findings: `OpsCenter/elon_proposals/D2M_EMAIL_INTEL_EXECUTION.md`.
+
+---
