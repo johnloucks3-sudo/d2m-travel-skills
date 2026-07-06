@@ -25,6 +25,12 @@
       "type": "http",
       "url": "http://127.0.0.1:8768/mcp",
       "description": "Second travel MCP instance for parallel agent load distribution (port 8768)."
+    },
+    "AgentMail": {
+      "type": "stdio",
+      "command": "/home/john/Thunderbird/scripts/agentmail_mcp_launch.sh",
+      "args": [],
+      "description": "Official AgentMail MCP server (npx agentmail-mcp) — native create_inbox/send_message/reply/threads tools for Hale's agent inbox (hale-thunderbird@agentmail.to). Launcher script injects the API key from gitignored config/agentmail_credentials.json rather than a literal secret in this tracked file. Internal/agent-identity mail only — not client-send."
     }
   }
 }
