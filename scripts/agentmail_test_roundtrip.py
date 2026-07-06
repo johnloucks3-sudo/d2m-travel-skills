@@ -23,13 +23,12 @@ def main():
     print(f"   {inboxes}")
 
     inbox_id = f"{INBOX_USERNAME}@agentmail.to"
-    existing = [i for i in inboxes.get("inboxes", inboxes if isinstance(inboxes, list) else [])
-                if i.get("inbox_id") == inbox_id or i.get("email") == inbox_id]
+    existing = [i for i in inboxes.inboxes if i.inbox_id == inbox_id]
     if not existing:
         print(f"2. Creating inbox {INBOX_USERNAME}...")
         created = client.create_inbox(INBOX_USERNAME, INBOX_DISPLAY)
         print(f"   {created}")
-        inbox_id = created.get("inbox_id") or created.get("inboxId") or inbox_id
+        inbox_id = created.inbox_id
     else:
         print(f"2. Inbox already exists: {inbox_id}")
 

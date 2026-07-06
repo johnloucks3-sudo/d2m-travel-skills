@@ -1,20 +1,20 @@
-"""AgentMail REST client — Thunderbird's own agent-native email channel.
+"""AgentMail wrapper — Thunderbird's agent-native email channel.
 
 Scope: internal/monitoring/agent-identity mail only (Hale's own inbox, wing-to-wing
 comms). NOT for client-facing sends — default inboxes are @agentmail.to, a cold
 domain; client mail stays on d2mconcierge/johnloucks3 Gmail + WF-17 per
-standing orders. See standing_orders/SO_TALON_JET... and CLAUDE.md email rules.
+standing orders in CLAUDE.md.
 
-API key resolution order: AGENTMAIL_API_KEY env var, then
-config/agentmail_credentials.json {"api_key": "..."}.
+Uses the official `agentmail` SDK (pip install agentmail). API key resolution
+order: AGENTMAIL_API_KEY env var, then config/agentmail_credentials.json
+{"api_key": "..."}.
 """
 import json
 import os
 from pathlib import Path
 
-import requests
+from agentmail import AgentMail
 
-BASE_URL = "https://api.agentmail.to/v0"
 CREDENTIALS_PATH = Path(__file__).resolve().parents[2] / "config" / "agentmail_credentials.json"
 
 
@@ -27,61 +27,62 @@ def _api_key() -> str:
     if key:
         return key
     if CREDENTIALS_PATH.exists():
-        data = json.loads(CREDENTIALS_PATH.read_text())
-        key = data.get("api_key")
+        key = json.loads(CREDENTIALS_PATH.read_text()).get("api_key")
         if key:
             return key
     raise AgentMailError(
         f"No AgentMail API key found (checked $AGENTMAIL_API_KEY and {CREDENTIALS_PATH}). "
-        "Sign up at https://console.agentmail.to/sign-up and paste the key into "
-        "config/agentmail_credentials.json as {\"api_key\": \"...\"}."
+        "Sign up at https://console.agentmail.to/sign-up, then Console -> API Keys, "
+        "and drop it into config/agentmail_credentials.json as {\"api_key\": \"...\"}."
     )
 
 
-class AgentMailClient:
-    def __init__(self, api_key: str | None = None):
-        self.api_key = api_key or _api_key()
-        self.session = requests.Session()
-        self.session.headers.update({
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-        })
+def get_client() -> AgentMail:
+    return AgentMail(api_key=_api_key())
 
-    def _request(self, method: str, path: str, **kwargs):
-        resp = self.session.request(method, f"{BASE_URL}{path}", timeout=30, **kwargs)
-        if not resp.ok:
-            raise AgentMailError(f"{method} {path} -> {resp.status_code}: {resp.text[:500]}")
-        return resp.json() if resp.content else {}
+
+class AgentMailClient:
+    """Thin, opinionated wrapper over the official SDK for Thunderbird's call sites."""
+
+    def __init__(self, api_key: str | None = None):
+        self.client = AgentMail(api_key=api_key or _api_key())
 
     def list_inboxes(self):
-        return self._request("GET", "/inboxes")
+        return self.client.inboxes.list()
 
-    def create_inbox(self, username: str, display_name: str):
-        return self._request("POST", "/inboxes", json={
-            "username": username,
-            "display_name": display_name,
-        })
+    def create_inbox(self, username: str, display_name: str, client_id: str | None = None):
+        # client_id makes this idempotent — safe to retry without creating duplicate inboxes.
+        return self.client.inboxes.create(
+            request={
+                "username": username,
+                "display_name": display_name,
+                "client_id": client_id or f"inbox-{username}",
+            }
+        )
 
-    def send_message(self, inbox_id: str, to: list[str], subject: str, text: str,
-                      html: str | None = None, cc: list[str] | None = None):
-        body = {"to": to, "subject": subject, "text": text}
-        if html:
-            body["html"] = html
-        if cc:
-            body["cc"] = cc
-        return self._request("POST", f"/inboxes/{inbox_id}/messages/send", json=body)
+    def send_message(self, inbox_id: str, to, subject: str, text: str,
+                      html: str | None = None, cc=None, bcc=None):
+        return self.client.inboxes.messages.send(
+            inbox_id,
+            to=to,
+            subject=subject,
+            text=text,
+            html=html,
+            cc=cc,
+            bcc=bcc,
+        )
 
-    def list_messages(self, inbox_id: str, limit: int = 20):
-        return self._request("GET", f"/inboxes/{inbox_id}/messages", params={"limit": limit})
+    def list_messages(self, inbox_id: str, limit: int = 20, labels=None):
+        return self.client.inboxes.messages.list(inbox_id, limit=limit, labels=labels)
 
     def get_message(self, inbox_id: str, message_id: str):
-        return self._request("GET", f"/inboxes/{inbox_id}/messages/{message_id}")
+        return self.client.inboxes.messages.get(inbox_id, message_id)
 
-    def reply_to_message(self, inbox_id: str, message_id: str, text: str):
-        return self._request("POST", f"/inboxes/{inbox_id}/messages/{message_id}/reply", json={"text": text})
+    def reply_to_message(self, inbox_id: str, message_id: str, text: str, html: str | None = None):
+        return self.client.inboxes.messages.reply(inbox_id, message_id, text=text, html=html)
 
     def create_webhook(self, url: str, event_types: list[str]):
-        return self._request("POST", "/webhooks", json={"url": url, "event_types": event_types})
+        return self.client.webhooks.create(url=url, event_types=event_types)
 
     def list_webhooks(self):
-        return self._request("GET", "/webhooks")
+        return self.client.webhooks.list()
