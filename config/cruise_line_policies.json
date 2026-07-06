@@ -1,0 +1,65 @@
+{
+  "_doc": "Cruise line compliance policy registry for core/compliance/cruise_line_policy_checker.py. Rules that came directly from the tasking brief (2026-07-06) are tagged CONFIRMED with that source. Rules filled from general industry knowledge (not verified against a live cruise-line source this session) are tagged INFERRED. Anything not yet sourced is UNKNOWN and the checker skips that test rather than fabricate a result (Negative-Space Rule, SO-PIPELINE-INTEGRITY-20260528). Sterling/Whetstone: replace INFERRED/UNKNOWN entries with CONFIRMED once verified against each line's official passenger contract / guest policy pages, then bump confidence.",
+  "_schema": {
+    "aliases": "array of strings matched case-insensitively against the cruise_line input to resolve to this entry",
+    "rules.min_age_alcohol_service": "integer minimum age to be served alcohol / access premium bars",
+    "rules.min_age_casino": "integer minimum age to enter/play the casino",
+    "rules.passport_validity_days_required": "integer days of passport validity required beyond the sail date (return-date buffer)",
+    "rules.mobility_aid_preapproval_required": "boolean — wheelchairs/scooters/non-collapsible mobility aids need pre-cruise clearance",
+    "rules.medical_equipment_requiring_preapproval": "array of medical equipment/conditions that require a pre-cruise medical form or special services desk notification (e.g. oxygen, dialysis, CPAP w/ supplemental O2)",
+    "rules.dress_code_enforced": "boolean — formal/smart-casual dress code is enforced in specialty venues",
+    "rules.visa_notes": "free-text notes on visa posture; the checker does not auto-determine visa need (nationality + itinerary dependent) but surfaces this note",
+    "each rule value": "{value, confidence: CONFIRMED|INFERRED|UNKNOWN, source, rule_id}"
+  },
+  "cruise_lines": {
+    "Regent Seven Seas": {
+      "aliases": ["regent", "regent seven seas", "regent seven seas cruises", "rssc", "seven seas grandeur", "seven seas prestige", "seven seas splendor", "seven seas explorer", "seven seas mariner", "seven seas navigator", "seven seas voyager"],
+      "rules": {
+        "min_age_alcohol_service": {"value": 18, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06", "rule_id": "REGENT-AGE-ALCOHOL"},
+        "min_age_casino": {"value": 18, "confidence": "INFERRED", "source": "Not independently verified this session — assumed to match alcohol-service age; confirm against rssc.com passenger contract", "rule_id": "REGENT-AGE-CASINO"},
+        "passport_validity_days_required": {"value": 180, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06 (\"passport req'd\"); 180-day buffer is D2M's standing validity check per dossiers/CLAUDE.md checklist convention", "rule_id": "REGENT-PASSPORT-180"},
+        "mobility_aid_preapproval_required": {"value": true, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06 (\"mobility aids pre-approval\")", "rule_id": "REGENT-MOBILITY-PREAPPROVAL"},
+        "medical_equipment_requiring_preapproval": {"value": ["oxygen concentrator", "supplemental oxygen", "dialysis", "cpap with oxygen", "non-collapsible wheelchair", "service animal"], "confidence": "INFERRED", "source": "Not independently verified this session — standard luxury-line special-services list; confirm against Regent's Special Needs guest form", "rule_id": "REGENT-MEDICAL-PREAPPROVAL"},
+        "dress_code_enforced": {"value": true, "confidence": "INFERRED", "source": "Regent markets itself as all-suite luxury with evening dress codes; not independently re-verified this session", "rule_id": "REGENT-DRESS-CODE"},
+        "visa_notes": {"value": "Itinerary + nationality dependent. Schengen 90/180 rule applies for US passport holders on European sailings.", "confidence": "INFERRED", "source": "General Schengen rule, not itinerary-specific verification", "rule_id": "REGENT-VISA-NOTE"}
+      }
+    },
+    "Silversea": {
+      "aliases": ["silversea", "silversea cruises", "silver nova", "silver muse", "silver dawn", "silver ray", "silver spirit", "silver whisper", "silver shadow", "silver moon", "silver origin", "silver endeavour"],
+      "rules": {
+        "min_age_alcohol_service": {"value": 16, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06", "rule_id": "SILVERSEA-AGE-ALCOHOL"},
+        "min_age_casino": {"value": 18, "confidence": "INFERRED", "source": "Not independently verified this session — casino access commonly gated at 18 even where alcohol age is lower; confirm against Silversea guest ticket contract", "rule_id": "SILVERSEA-AGE-CASINO"},
+        "passport_validity_days_required": {"value": 180, "confidence": "CONFIRMED", "source": "D2M standing 180-day validity check; general international travel norm", "rule_id": "SILVERSEA-PASSPORT-180"},
+        "mobility_aid_preapproval_required": {"value": true, "confidence": "INFERRED", "source": "Not independently verified this session — assumed consistent with luxury-line norm; confirm against Silversea Special Requirements form", "rule_id": "SILVERSEA-MOBILITY-PREAPPROVAL"},
+        "medical_equipment_requiring_preapproval": {"value": ["oxygen concentrator", "supplemental oxygen", "dialysis", "cpap with oxygen", "non-collapsible wheelchair", "service animal"], "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06 (\"medical form req'd for oxygen\") — oxygen entry confirmed; remaining list items INFERRED by analogy, confirm individually", "rule_id": "SILVERSEA-MEDICAL-PREAPPROVAL"},
+        "dress_code_enforced": {"value": true, "confidence": "INFERRED", "source": "Not independently verified this session", "rule_id": "SILVERSEA-DRESS-CODE"},
+        "visa_notes": {"value": "Itinerary + nationality dependent. Schengen 90/180 rule applies for US passport holders on European sailings.", "confidence": "INFERRED", "source": "General Schengen rule, not itinerary-specific verification", "rule_id": "SILVERSEA-VISA-NOTE"}
+      }
+    },
+    "Viking": {
+      "aliases": ["viking", "viking ocean", "viking ocean cruises", "viking cruises", "viking mars", "viking star", "viking sea", "viking sky", "viking sun", "viking jupiter", "viking venus", "viking orion", "viking saturn", "viking neptune", "viking polaris", "viking octantis"],
+      "rules": {
+        "min_age_alcohol_service": {"value": 21, "confidence": "INFERRED", "source": "Not independently verified this session — Viking's marketed adults-only (18+) sailing policy plus US-flag-adjacent alcohol norms; the tasking brief specifies 21+ for casino, not alcohol — confirm alcohol-service age against Viking guest ticket contract", "rule_id": "VIKING-AGE-ALCOHOL"},
+        "min_age_casino": {"value": 21, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06", "rule_id": "VIKING-AGE-CASINO"},
+        "min_age_sailing": {"value": 18, "confidence": "INFERRED", "source": "Viking markets its ocean product as an adults-only (18+) experience; not independently re-verified this session — confirm against current Viking passenger contract", "rule_id": "VIKING-MIN-AGE-SAILING"},
+        "passport_validity_days_required": {"value": 180, "confidence": "INFERRED", "source": "D2M standing 180-day validity check; not Viking-specific verification", "rule_id": "VIKING-PASSPORT-180"},
+        "mobility_aid_preapproval_required": {"value": true, "confidence": "INFERRED", "source": "Not independently verified this session — confirm against Viking Special Needs request form", "rule_id": "VIKING-MOBILITY-PREAPPROVAL"},
+        "medical_equipment_requiring_preapproval": {"value": ["oxygen concentrator", "supplemental oxygen", "dialysis", "cpap with oxygen", "non-collapsible wheelchair", "service animal"], "confidence": "INFERRED", "source": "Not independently verified this session — standard list by analogy, confirm individually", "rule_id": "VIKING-MEDICAL-PREAPPROVAL"},
+        "dress_code_enforced": {"value": true, "confidence": "CONFIRMED", "source": "Tasking brief 2026-07-06 (\"dress code enforcement\")", "rule_id": "VIKING-DRESS-CODE"},
+        "visa_notes": {"value": "Itinerary + nationality dependent. Schengen 90/180 rule applies for US passport holders on European sailings.", "confidence": "INFERRED", "source": "General Schengen rule, not itinerary-specific verification", "rule_id": "VIKING-VISA-NOTE"}
+      }
+    },
+    "Princess": {
+      "aliases": ["princess", "princess cruises", "discovery princess", "sun princess", "sky princess", "regal princess", "royal princess", "island princess", "coral princess", "diamond princess", "sapphire princess", "star princess", "grand princess", "caribbean princess", "crown princess", "ruby princess", "emerald princess", "enchanted princess", "majestic princess"],
+      "rules": {
+        "min_age_alcohol_service": {"value": 21, "confidence": "UNKNOWN", "source": "Not sourced this session — Princess is a mass-market US-flagged-adjacent line where 21+ alcohol policy is commonly reported, but not independently verified; confirm against Princess passenger contract before treating as authoritative", "rule_id": "PRINCESS-AGE-ALCOHOL"},
+        "min_age_casino": {"value": 18, "confidence": "UNKNOWN", "source": "Not sourced this session", "rule_id": "PRINCESS-AGE-CASINO"},
+        "passport_validity_days_required": {"value": 180, "confidence": "INFERRED", "source": "D2M standing 180-day validity check; not Princess-specific verification", "rule_id": "PRINCESS-PASSPORT-180"},
+        "mobility_aid_preapproval_required": {"value": true, "confidence": "UNKNOWN", "source": "Not sourced this session", "rule_id": "PRINCESS-MOBILITY-PREAPPROVAL"},
+        "medical_equipment_requiring_preapproval": {"value": ["oxygen concentrator", "supplemental oxygen", "dialysis", "cpap with oxygen", "non-collapsible wheelchair", "service animal"], "confidence": "UNKNOWN", "source": "Not sourced this session — standard list by analogy only", "rule_id": "PRINCESS-MEDICAL-PREAPPROVAL"},
+        "dress_code_enforced": {"value": false, "confidence": "UNKNOWN", "source": "Princess relaxed its formal-night dress code in recent years per general industry reporting; not independently verified this session", "rule_id": "PRINCESS-DRESS-CODE"},
+        "visa_notes": {"value": "Itinerary + nationality dependent.", "confidence": "UNKNOWN", "source": "Not sourced this session", "rule_id": "PRINCESS-VISA-NOTE"}
+      }
+    }
+  }
+}

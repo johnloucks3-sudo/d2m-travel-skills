@@ -1,0 +1,173 @@
+{
+  "_doc": "20 synthetic test bookings for cruise_line_policy_checker.py. Sail dates and cruise lines echo real D2M itineraries (Regent Grandeur Aug 2026 / Silversea Silver Nova May 2027 / Viking Mars Dec 2026 / Princess Discovery Mar 2027) for realism, but every guest name/DOB/passport/medical value here is fabricated for test coverage — none of it is real client data.",
+  "bookings": [
+    {
+      "booking_id": "REGENT-001",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A1", "dob": "2009-05-01", "passport_expiry": "2028-01-01"}
+      ]
+    },
+    {
+      "booking_id": "REGENT-002",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A2", "dob": "1980-01-01", "passport_expiry": "2028-06-01"}
+      ]
+    },
+    {
+      "booking_id": "REGENT-003",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A3", "dob": "1975-06-01", "passport_expiry": "2028-06-01",
+         "medical_equipment": ["Oxygen Concentrator"], "medical_preapproval_on_file": false}
+      ]
+    },
+    {
+      "booking_id": "REGENT-004",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A4", "dob": "1975-06-01", "passport_expiry": "2028-06-01",
+         "medical_equipment": ["Oxygen Concentrator"], "medical_preapproval_on_file": true}
+      ]
+    },
+    {
+      "booking_id": "REGENT-005",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A5", "dob": "1980-01-01", "passport_expiry": "2026-10-01"}
+      ]
+    },
+    {
+      "booking_id": "REGENT-006",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A6", "dob": "1980-01-01", "passport_expiry": "2026-07-01"}
+      ]
+    },
+    {
+      "booking_id": "REGENT-007",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A7", "dob": "1980-01-01"}
+      ]
+    },
+    {
+      "booking_id": "REGENT-008",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A8", "dob": "1960-01-01", "passport_expiry": "2028-06-01",
+         "mobility_aid": "wheelchair - non-collapsible", "mobility_preapproval_on_file": false}
+      ]
+    },
+    {
+      "booking_id": "REGENT-009",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A9", "dob": "1960-01-01", "passport_expiry": "2028-06-01",
+         "mobility_aid": "wheelchair - non-collapsible", "mobility_preapproval_on_file": true}
+      ]
+    },
+    {
+      "booking_id": "REGENT-010",
+      "cruise_line": "Regent Seven Seas",
+      "sail_date": "2026-08-29",
+      "guests": [
+        {"name": "Test Guest A10", "dob": "2010-06-01", "passport_expiry": "2026-08-01",
+         "medical_equipment": ["CPAP with oxygen"], "medical_preapproval_on_file": false}
+      ]
+    },
+    {
+      "booking_id": "SILVERSEA-001",
+      "cruise_line": "Silversea",
+      "sail_date": "2027-05-05",
+      "guests": [
+        {"name": "Test Guest B1", "dob": "2007-01-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "SILVERSEA-002",
+      "cruise_line": "Silversea",
+      "sail_date": "2027-05-05",
+      "guests": [
+        {"name": "Test Guest B2", "dob": "2012-01-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "SILVERSEA-003",
+      "cruise_line": "Silversea",
+      "sail_date": "2027-05-05",
+      "guests": [
+        {"name": "Test Guest B3", "dob": "2010-01-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "SILVERSEA-004",
+      "cruise_line": "Silversea",
+      "sail_date": "2027-05-05",
+      "guests": [
+        {"name": "Test Guest B4", "dob": "1990-01-01", "passport_expiry": "2029-01-01",
+         "medical_equipment": ["Oxygen Concentrator"], "medical_preapproval_on_file": false}
+      ]
+    },
+    {
+      "booking_id": "SILVERSEA-005",
+      "cruise_line": "Silversea",
+      "sail_date": "2027-05-05",
+      "guests": [
+        {"name": "Test Guest B5a", "dob": "1965-01-01", "passport_expiry": "2029-01-01"},
+        {"name": "Test Guest B5b", "dob": "1968-03-15", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "VIKING-001",
+      "cruise_line": "Viking",
+      "sail_date": "2026-12-17",
+      "guests": [
+        {"name": "Test Guest C1", "dob": "2007-06-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "VIKING-002",
+      "cruise_line": "Viking",
+      "sail_date": "2026-12-17",
+      "guests": [
+        {"name": "Test Guest C2", "dob": "2011-06-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "VIKING-003",
+      "cruise_line": "Viking",
+      "sail_date": "2026-12-17",
+      "guests": [
+        {"name": "Test Guest C3", "dob": "1980-01-01", "passport_expiry": "2029-01-01"}
+      ]
+    },
+    {
+      "booking_id": "PRINCESS-001",
+      "cruise_line": "Princess",
+      "sail_date": "2027-03-13",
+      "guests": [
+        {"name": "Test Guest D1", "dob": "1970-01-01", "passport_expiry": "2029-01-01",
+         "medical_equipment": ["Dialysis"], "medical_preapproval_on_file": false}
+      ]
+    },
+    {
+      "booking_id": "UNKNOWN-001",
+      "cruise_line": "Carnival Cruise Line",
+      "sail_date": "2027-01-01",
+      "guests": [
+        {"name": "Test Guest E1", "dob": "1980-01-01", "passport_expiry": "2029-01-01"}
+      ]
+    }
+  ]
+}
