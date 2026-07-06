@@ -1,0 +1,7 @@
+[Unit]
+Description=AgentMail Daily Digest to Telegram (ROE rule 4)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/agentmail_daily_digest.py daily

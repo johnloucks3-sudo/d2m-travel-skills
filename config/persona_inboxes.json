@@ -1,0 +1,30 @@
+{
+  "_doc": "Direct persona-to-Commander email addresses. ONLY johnloucks3 (and other Commander-owned addresses) may trigger a spawn on these inboxes — this is Commander<->persona correspondence, not a client channel. Arbitrary senders are ignored (prompt-injection guard, same principle as wf17_named_waivers.py).",
+  "allowed_senders": ["johnloucks3@gmail.com", "johnloucks75@gmail.com"],
+  "personas": {
+    "sterling-thunderbird@agentmail.to": {
+      "name": "Sterling",
+      "persona_file": "Personas/a7_sterling_personality.md",
+      "domain": "Process, technology, metrics, code, standing-order authorship. \"How will we know it worked?\"",
+      "status": "active"
+    },
+    "dembe-thunderbird@agentmail.to": {
+      "name": "Dembe",
+      "persona_file": "Personas/a2_dembe_personality.md",
+      "domain": "Research, market intelligence, strategy, destination/cruise/flight intel. Evidence-first, confidence-leveled.",
+      "status": "pending_capacity"
+    },
+    "harlan-thunderbird@agentmail.to": {
+      "name": "Harlan",
+      "persona_file": "Personas/a9_harlan_personality.md",
+      "domain": "Finance, commission audits, cost analysis, ROI. Dollar-figure-first.",
+      "status": "pending_capacity"
+    },
+    "reyes-thunderbird@agentmail.to": {
+      "name": "Reyes",
+      "persona_file": "Personas/a8_reyes_personality.md",
+      "domain": "Experience layer — excursions, dining, accessibility, port readiness.",
+      "status": "pending_capacity"
+    }
+  }
+}

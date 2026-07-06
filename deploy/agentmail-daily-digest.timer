@@ -1,0 +1,10 @@
+[Unit]
+Description=AgentMail digest — daily at 1800 MT (matches EOD brief cadence)
+
+[Timer]
+OnCalendar=*-*-* 18:00:00
+TimeZone=America/Denver
+Persistent=true
+
+[Install]
+WantedBy=timers.target

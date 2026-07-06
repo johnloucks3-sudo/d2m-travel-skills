@@ -1,0 +1,7 @@
+[Unit]
+Description=Persona Email Responder — direct Commander<->persona correspondence (Sterling et al)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/email/persona_email_responder.py
