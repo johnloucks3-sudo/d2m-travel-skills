@@ -1,0 +1,78 @@
+{
+  "client": "Kuklinski",
+  "tp": "2.3 Air Booking Decision",
+  "search_id": "kuklinski-air-booking-decision",
+  "type": "flights",
+  "due": "2026-07-17",
+  "trigger_date": "2026-07-03",
+  "run_date": "2026-07-03",
+  "routes": [
+    {
+      "origin": "RIC",
+      "dest": "PTY"
+    },
+    {
+      "origin": "RSW",
+      "dest": "FLL"
+    },
+    {
+      "origin": "MHT",
+      "dest": "FLL"
+    }
+  ],
+  "departure_date": "2026-12-15",
+  "adults": 2,
+  "search_result": {
+    "status": "ok",
+    "results": [
+      {
+        "status": "ok",
+        "origin": "RIC",
+        "dest": "PTY",
+        "date": "2026-12-15",
+        "cabin": "ECONOMY",
+        "adults": 2,
+        "lowest_pp": 794.75,
+        "lowest_total": 1589.5,
+        "highest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ],
+        "offer_count": 10,
+        "checked_at": "2026-07-06T22:40:27.099319+00:00"
+      },
+      {
+        "status": "ok",
+        "origin": "RSW",
+        "dest": "FLL",
+        "date": "2026-12-15",
+        "cabin": "ECONOMY",
+        "adults": 2,
+        "lowest_pp": 395.83,
+        "lowest_total": 791.66,
+        "highest_pp": 597.19,
+        "carriers": [
+          "UA"
+        ],
+        "offer_count": 10,
+        "checked_at": "2026-07-06T22:40:29.271412+00:00"
+      },
+      {
+        "status": "ok",
+        "origin": "MHT",
+        "dest": "FLL",
+        "date": "2026-12-15",
+        "cabin": "ECONOMY",
+        "adults": 2,
+        "lowest_pp": 338.16,
+        "lowest_total": 676.32,
+        "highest_pp": 509.1,
+        "carriers": [
+          "UA"
+        ],
+        "offer_count": 10,
+        "checked_at": "2026-07-06T22:40:32.651223+00:00"
+      }
+    ]
+  }
+}

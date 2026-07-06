@@ -1,0 +1,16 @@
+[Unit]
+Description=Thunderbird Lifecycle-TP Search Scheduler (Phase 1 — flights)
+After=network-online.target
+Documentation=https://github.com/anthropics/thunderbird-os
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/lifecycle_search_scheduler.py
+User=john
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

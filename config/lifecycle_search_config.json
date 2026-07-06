@@ -1,0 +1,40 @@
+{
+  "_comment": "Per-client lifecycle-TP-triggered search config for lifecycle_search_scheduler.py. Phase 1 scope: flights only. Seeded from docs/KUKLINSKI_LIFECYCLE_SCHEDULE.md (real dossier data, not illustrative).",
+  "clients": [
+    {
+      "client": "Kuklinski",
+      "searches": [
+        {
+          "id": "kuklinski-air-fare-watch-delivery",
+          "tp": "1.5 Air: Fare Watch Delivery",
+          "due": "2026-06-17",
+          "trigger_days_before": 14,
+          "type": "flights",
+          "routes": [
+            {"origin": "RIC", "dest": "PTY"},
+            {"origin": "RSW", "dest": "FLL"},
+            {"origin": "MHT", "dest": "FLL"}
+          ],
+          "departure_date": "2026-12-15",
+          "adults": 2,
+          "search_trigger": true
+        },
+        {
+          "id": "kuklinski-air-booking-decision",
+          "tp": "2.3 Air Booking Decision",
+          "due": "2026-07-17",
+          "trigger_days_before": 14,
+          "type": "flights",
+          "routes": [
+            {"origin": "RIC", "dest": "PTY"},
+            {"origin": "RSW", "dest": "FLL"},
+            {"origin": "MHT", "dest": "FLL"}
+          ],
+          "departure_date": "2026-12-15",
+          "adults": 2,
+          "search_trigger": true
+        }
+      ]
+    }
+  ]
+}
