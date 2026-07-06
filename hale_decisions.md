@@ -5966,3 +5966,14 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 **Doctrine fixes, durable:** `CLAUDE.md` — ELON+Whetstone now standing invitees on tech-adoption T2/T3 exercises. `Personas/hale_cos.md` — Obstacle-Routing & Independent Verification Protocol.
 
 **Status:** all three Gate-4-approved phases are live and verified against real systems, same session. Nothing deferred to "later" except Phase 3's original 30-day burn-in condition — which the Commander overrode and ELON/Whetstone's engineering answer replaced with a stricter, always-on canary instead.
+
+## 2026-07-06 (morning, cont.) — WF-17 named-waiver mechanism BUILT (Gate 4: Recommendation A approved)
+
+**Built, tested, committed:**
+- `config/wf17_named_waivers.json` — 5-name allowlist: Nancy Lyons, Kim Westbrook, Stefanie Burcham (Dani voice, d2mconcierge Gmail), Bryana Jarboe, Susan Loucks (Hale voice, AgentMail). Susan scoped to Recommendation A — general correspondence only, Loucks joint-trip carve-out (SO 2026-06-18) stays intact and untouched.
+- `core/email/wf17_named_waivers.py` — `get_waiver()`/`send_waived_client_email()`, `NotWaivedError` on any non-listed recipient. This replaces the prior ad-hoc pattern (one-off scripts like `send_cruise_tool_v2.py` bypassing `gmail_send_email`'s guard entirely) with one auditable, code-enforced mechanism.
+- `CLAUDE.md` — Nancy-only scope language struck through and superseded; new generalized-waiver block added, pointing to the allowlist + plan doc as authoritative.
+
+**Verified live:** all 5 names resolve to correct voice/channel; a random non-waived address correctly raises `NotWaivedError`; both send channels (d2mconcierge Gmail, AgentMail) tested against johnloucks3 as a safe internal target. Did **not** send unsolicited test emails to the five real correspondents — verification stayed internal.
+
+**Status:** mechanism is live and ready. First real use of each channel will be the actual next correspondence with each person, whenever that naturally occurs — not manufactured today.
