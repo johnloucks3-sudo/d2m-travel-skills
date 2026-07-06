@@ -15,14 +15,19 @@ import asyncio
 import json
 import re
 import sys
+import urllib.parse
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT         = Path(__file__).parent.parent
-COOKIES_FILE = ROOT / "config" / "poe_cookies.json"
-POINTS_FILE  = ROOT / "data" / "poe_points.json"
-POE_ENV      = ROOT / "config" / "poe.env"
-BLACKBOARD   = ROOT / "OpsCenter" / "collaboration" / "blackboard.md"
+ROOT           = Path(__file__).parent.parent
+COOKIES_FILE   = ROOT / "config" / "poe_cookies.json"
+POINTS_FILE    = ROOT / "data" / "poe_points.json"
+POE_ENV        = ROOT / "config" / "poe.env"
+BLACKBOARD     = ROOT / "OpsCenter" / "collaboration" / "blackboard.md"
+TELEGRAM_ENV   = ROOT / "config" / "telegram_gw.env"
+DOTENV         = ROOT / ".env"
+POINTS_THRESHOLD = 10_000  # ~1 week of lite usage
 
 
 def load_poe_env() -> dict:
@@ -97,6 +102,40 @@ async def scrape() -> dict:
         return result
 
 
+def _load_env_var(path: Path, key: str) -> str | None:
+    if not path.exists():
+        return None
+    for line in path.read_text().splitlines():
+        if line.startswith(f"{key}="):
+            return line.split("=", 1)[1].strip()
+    return None
+
+
+def send_telegram_alert(message: str) -> bool:
+    """Send low-balance alert to Commander via D2MC2C bot. Returns True on success."""
+    token = _load_env_var(DOTENV, "TELEGRAM_D2MC2C_TOKEN") or _load_env_var(DOTENV, "TELEGRAM_BOT_TOKEN")
+    chat_id = _load_env_var(TELEGRAM_ENV, "TELEGRAM_COMMANDER_ID")
+    if not token or not chat_id:
+        print("  ⚠️  Telegram alert skipped — token/chat_id not found")
+        return False
+    try:
+        payload = urllib.parse.urlencode({
+            "chat_id": chat_id,
+            "text": message,
+            "parse_mode": "HTML",
+        }).encode()
+        resp = urllib.request.urlopen(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=payload,
+            timeout=10,
+        )
+        body = json.loads(resp.read())
+        return bool(body.get("ok"))
+    except Exception as exc:
+        print(f"  ⚠️  Telegram alert send failed: {exc}")
+        return False
+
+
 def update_blackboard(pts: int, usd: float):
     if not BLACKBOARD.exists():
         return
@@ -130,6 +169,14 @@ async def main():
     if status == "ok" and pts is not None:
         print(f"  ✅  {pts:,} points available  ≈ ${usd:.2f}" if usd else f"  ✅  {pts:,} points available")
         update_blackboard(pts, usd or 0)
+        if pts < POINTS_THRESHOLD:
+            msg = (
+                f"🔴 THUNDERBIRD ALERT\n"
+                f"Poe points balance LOW: {pts:,} available (≈${usd:.2f})\n"
+                f"Threshold: {POINTS_THRESHOLD:,}. Recharge or expect API interruptions."
+            )
+            if send_telegram_alert(msg):
+                print(f"  📟  Low-balance Telegram alert sent to Commander")
     elif status == "auth_required":
         print("  ❌  Auth required — cookies expired")
         print("      Fix: copy fresh p-b cookie from browser → config/poe_cookies.json")
