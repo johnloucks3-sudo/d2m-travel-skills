@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ cover.client_name }} — {{ cover.voyage_name }} Memory Book</title>
+  <style>
+    {% include "d2m_base.css.j2" %}
+
+    .cover-page {
+      text-align: center;
+      padding: 140px 48px 100px 48px;
+      page-break-after: always;
+    }
+    .cover-page .kicker {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cover-page h1 { font-size: 40px; margin-bottom: 8px; }
+    .cover-page .ship { font-size: 20px; color: var(--gold-light); margin-bottom: 4px; }
+    .cover-page .dates { font-size: 14px; color: var(--muted); margin-bottom: 60px; }
+    .cover-page .booking { font-size: 11px; color: var(--muted); }
+
+    .section-page { page-break-before: always; padding-top: 20px; }
+    .section-title {
+      font-size: 22px;
+      color: var(--gold);
+      border-bottom: 1px solid var(--navy3);
+      padding-bottom: 8px;
+      margin-bottom: 6px;
+    }
+    .section-note { font-size: 13px; color: var(--text-light); margin-bottom: 18px; font-style: italic; }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .memory-grid figure { margin: 0; }
+    .memory-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--navy3);
+      display: block;
+    }
+    .memory-grid figcaption {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      text-align: center;
+    }
+
+    .closing-page {
+      page-break-before: always;
+      text-align: center;
+      padding: 160px 60px;
+    }
+    .closing-page p { font-size: 18px; color: var(--gold-light); line-height: 1.9; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  {# ── Cover ──────────────────────────────────────────────────── #}
+  <div class="cover-page">
+    <div class="kicker">Dreams2Memories Travel · Voyage Memory Book</div>
+    <h1>{{ cover.client_name }}</h1>
+    <div class="ship">{{ cover.ship_name }} &middot; {{ cover.voyage_name }}</div>
+    <div class="dates">{{ cover.voyage_dates }}</div>
+    {% if cover.booking_id %}<div class="booking">Booking {{ cover.booking_id }}</div>{% endif %}
+  </div>
+
+  {# ── Photo Sections ────────────────────────────────────────── #}
+  {% for pg in pages %}
+  <div class="section-page">
+    <div class="section-title">{{ pg.section_title }}</div>
+    {% if pg.note %}<div class="section-note">{{ pg.note }}</div>{% endif %}
+    <div class="memory-grid">
+      {% for photo in pg.photos %}
+      <figure>
+        <img src="{{ photo.data_uri }}" alt="{{ photo.caption }}">
+        {% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
+  {# ── Closing ───────────────────────────────────────────────── #}
+  <div class="closing-page">
+    <p>{{ closing_note }}</p>
+  </div>
+
+</div>
+</body>
+</html>
