@@ -71,6 +71,7 @@ TIER2_SERVICES: dict[str, str] = {
     "thunderbird-fare-watch": "Fare price monitoring",
     "d2m-mcp":                "MCP server (port 8765)",
     "thunderbird-tunnel":     "Cloudflared external tunnel",
+    "d2m-dashboard-refresh":  "ETB-006 Dashboard generator (Type=oneshot; normal state: inactive)",
 }
 
 # Port map for "port not responding" diagnostics
