@@ -5,17 +5,17 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-06-05T21:24:44.166183"
+        "last_check": "2026-07-06T16:58:29.645176"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-06-05T21:24:44.578386"
+        "last_check": "2026-07-06T16:58:30.574749"
       },
-      "last_health_check": "2026-06-05T21:24:44.578424"
+      "last_health_check": "2026-07-06T16:58:30.574777"
     },
-    "last_health_check": "2026-06-28T16:14:15.705772+00:00",
+    "last_health_check": "2026-07-06T16:58:30.575063",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-06-28T16:14:15.705772+00:00"
+    "last_updated": "2026-07-06T16:58:45.650286-06:00"
   },
   "open_tasks": [
     {
@@ -196,7 +196,7 @@
     },
     "ELON": {
       "last_seen": true,
-      "active": 2
+      "active": 3
     }
   },
   "brain_routing_log": [
@@ -478,8 +478,8 @@
     }
   ],
   "lessons_implementation_rate_pct": 100.0,
-  "lessons_total": 5,
-  "lessons_implemented": 5,
+  "lessons_total": 6,
+  "lessons_implemented": 6,
   "handoff_queue": [
     {
       "id": "excursion-planner-suite",
@@ -500,5 +500,19 @@
         "McLeod deployment 2026-07-15"
       ]
     }
-  ]
+  ],
+  "user_quotas": {
+    "bryana_jarboe": {
+      "used_this_month": 1,
+      "allowance": 750,
+      "pct_used": 0.1,
+      "trend": "no_prior_data"
+    }
+  },
+  "agentmail_quota_status": {
+    "last_checked": "2026-07-06T22:58:38.082732+00:00",
+    "sends_used_today": 61,
+    "sends_available_today": 29,
+    "pct_used": 61.0
+  }
 }

@@ -1,9 +1,9 @@
 [Unit]
-Description=Hale Email Responder every 5 minutes
+Description=Hale Email Responder every 15 minutes
 
 [Timer]
 OnBootSec=3min
-OnUnitActiveSec=5min
+OnUnitActiveSec=15min
 Persistent=true
 
 [Install]

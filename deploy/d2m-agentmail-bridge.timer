@@ -1,9 +1,9 @@
 [Unit]
-Description=d2mconcierge <-> AgentMail bridge every 5 minutes
+Description=d2mconcierge <-> AgentMail bridge every 15 minutes
 
 [Timer]
 OnBootSec=3min
-OnUnitActiveSec=5min
+OnUnitActiveSec=15min
 Persistent=true
 
 [Install]

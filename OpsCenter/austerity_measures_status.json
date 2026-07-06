@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "source_doc": "docs/AGENTMAIL_AUSTERITY_MEASURES_20260706.md",
+    "verified": "2026-07-06T17:10:00-06:00",
+    "incident": "c2-fabric-roundtrip fired every CI cycle instead of respecting 6h cadence, burned 61/90 daily buffer"
+  },
+  "measures": {
+    "responder_frequency_15min": {
+      "status": "active",
+      "timers": ["hale-email-responder", "wind-email-responder", "persona-email-responder", "dani-email-responder", "d2m-agentmail-bridge"],
+      "installed_config_verified": true,
+      "repo_deploy_source_drift_found": true,
+      "repo_deploy_source_corrected": "2026-07-06 — deploy/*.timer files were still committed at 5min, corrected to 15min this session"
+    },
+    "hard_circuit_breaker_95": {
+      "status": "active",
+      "file": "core/email/agentmail_quota.py",
+      "constant": "DAILY_HARD_STOP = 95",
+      "previously_documented_as_done": true,
+      "actually_found": "not implemented — only the 90 buffer check existed",
+      "implemented_this_session": true,
+      "tested": "94/95 blocked by 90-buffer (normal path); hard stop independently verified to block at 95 even with buffer artificially raised to 99"
+    },
+    "daily_digest_unchanged": {
+      "status": "confirmed_untouched",
+      "timer": "deploy/agentmail-daily-digest.timer",
+      "schedule": "OnCalendar=*-*-* 18:00:00 America/Denver"
+    }
+  },
+  "quota_budget": {
+    "working_quota_daily": 90,
+    "hard_stop_daily": 95,
+    "absolute_ceiling_daily": 100,
+    "emergency_buffer": 5,
+    "monthly_buffer": 2800,
+    "monthly_ceiling": 3000
+  },
+  "next_review": "monthly, Baldrige sweep (Sterling A7)"
+}
