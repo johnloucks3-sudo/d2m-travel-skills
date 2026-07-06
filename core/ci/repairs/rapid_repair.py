@@ -71,6 +71,7 @@ import core.ci.repairs.cluster_d   # noqa: F401,E402
 import core.ci.repairs.cluster_e   # noqa: F401,E402
 import core.ci.repairs.cluster_f   # noqa: F401,E402
 import core.ci.repairs.cluster_g   # noqa: F401,E402
+import core.ci.repairs.cluster_h   # noqa: F401,E402
 import core.ci.repairs._worked_examples  # noqa: F401,E402
 
 from core.ci.repairs.schema import (  # noqa: E402

@@ -1115,6 +1115,31 @@
       "spend_gate": "N/A \u2014 $0, no new infra",
       "silence_go_override": "Whetstone spec 2026-07-06: a SINGLE round-trip failure on either leg (bus or AgentMail) immediately suspends silence=GO auto-execute for that channel, reverting to explicit-reply-required, until this probe passes clean again. Does NOT wait for the standard consecutive_failures_max=3 / failures_in_window_max=5 REPLACE thresholds \u2014 those still govern whether AgentMail itself gets replaced, but this is stricter because a single silent drop on a silence=GO path can mis-fire an unapproved action as if approved.",
       "notes": "Added retroactively 2026-07-06 per Whetstone's staff input on the Unified C2 Fabric T3 exercise (Gate 4 approved, Commander overrode the original 30-day AgentMail burn-in recommendation in favor of this engineered per-day confirmed-receipt check)."
+    },
+    {
+      "id": "telegram-relay",
+      "name": "Telegram Relay \u2014 D2MC2C + Dani bots",
+      "ci_tool": "scripts/ci_probe_telegram_relay.py \u2014 live getMe check on both bots, not the cached hale_state.json status",
+      "wraps": [
+        "OpsCenter/thunderbird_telegram_gw.py",
+        "core/monitoring/telegram_bot_healthcheck.py",
+        "core/ops/confirmed_auto_execute.py (Telegram leg)"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_telegram_relay.py",
+      "currency_window_hours": 24,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 10000,
+      "fallback": "AgentMail (Primary C2) carries the load if Telegram is down; both channels checked by confirmed_auto_execute's cross-channel veto",
+      "active_workaround": null,
+      "last_verified": "2026-07-06T18:24:20.383383+00:00",
+      "last_reeval": "2026-07-06",
+      "status": "healthy",
+      "spend_gate": "N/A \u2014 $0, existing bots",
+      "notes": "GAP FOUND 2026-07-06 (Commander): Telegram had ZERO CI registry coverage despite core/monitoring/telegram_bot_healthcheck.py already detecting a real failure that morning (Dani bot DEAD, SSL handshake timeout) \u2014 that check writes to hale_state.json only, completely disconnected from CI's REPLACE-threshold doctrine. Real failures were being caught and then going nowhere. This entry closes that gap \u2014 Telegram now gets full CI history tracking, auto-repair attempts, and REPLACE-threshold counting like every other skill."
     }
   ],
   "accountable_owner": "hale",
