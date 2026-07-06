@@ -5929,3 +5929,17 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 **Doctrine updated:** `Personas/hale_cos.md` Channel Registry — Email/AgentMail now ⭐ PRIMARY C2, Telegram stays as live bridge/alert channel during the transition period (not decommissioned).
 
 **Known minor issue, not yet root-caused:** rapid back-to-back test sends produced duplicate inbound-queue entries for the same message_id despite message-id dedup logic; confirmed harmless (quota unaffected, Telegram bridge worst case pings twice). Watching under real (non-burst) traffic before spending more time on it.
+
+## 2026-07-06 (morning, cont.) — d2m<->AgentMail link + capability-limit test
+
+**d2m<->AgentMail link:** Commander directed linking d2mconcierge Gmail with AgentMail for the (already-authorized) Nancy Lyons WF-17 exception thread. True Gmail-side forwarding needs the `gmail.settings.sharing` OAuth scope — current grant is `gmail.modify` only, insufficient (confirmed via a live 403 test, not assumed). Getting that scope needs a fresh consent-screen click (human-only step). Built the link at the application layer instead, no new Google permission requested: `core/email/d2m_agentmail_bridge.py` polls d2mconcierge for replies from the named Lyons correspondents and relays them into `hale-thunderbird@agentmail.to`, landing Lyons-thread traffic in the same real-time/quota-guard/Telegram-bridge infra as Primary C2. Deployed as `d2m-agentmail-bridge.timer` (5-min poll), active. First run: 0 relayed — correct, she hasn't replied yet.
+
+**Capability-limit test — 4-turn threaded exchange (hale-thunderbird -> johnloucks3), all real sends:**
+1. Plain text — works.
+2. HTML (tables, inline styling, brand color) — works, renders correctly in Gmail.
+3. Attachment (test.txt) — works.
+4. Inline embedded image (cid reference) — works.
+
+**Real limit found, not cosmetic:** `reply_to_message()` replying to a message *your own inbox sent* (not one it received) does **not** auto-fill `to` from the original recipient — it silently loops back to the sender (labeled both sent+received, delivered nowhere externally). First pass of the test (turns 2-4 without explicit `to=`) never reached johnloucks3 at all — only caught by cross-checking AgentMail's `thread.get()` against an actual Gmail search, which disagreed. Fixed by adding explicit `to=`/`cc=`/`bcc=` params to `reply_to_message()` in the wrapper; re-ran, all 4 turns delivered and correctly threaded under one Gmail `threadId`.
+
+**Quota impact of all testing today:** 7/90 daily buffer used, all real sends accounted for — confirms the guard tracks accurately across both the listener-test and capability-test work this session.
