@@ -19,6 +19,19 @@ from core.email.agentmail_quota import check_and_record
 
 CREDENTIALS_PATH = Path(__file__).resolve().parents[2] / "config" / "agentmail_credentials.json"
 
+# Commander directive 2026-07-06: CC johnloucks3 on ALL AgentMail correspondence
+# (both CONDOR and WIND inboxes) until he's satisfied free-tier quota is safe
+# and can assess the nature of traffic. Standing default, not per-call-site —
+# enforced here so it can't be forgotten by a caller. Remove when he lifts it.
+STANDING_MONITOR_CC = "johnloucks3@gmail.com"
+
+
+def _with_standing_cc(cc: list | None) -> list:
+    cc = list(cc) if cc else []
+    if STANDING_MONITOR_CC.lower() not in {a.lower() for a in cc}:
+        cc.append(STANDING_MONITOR_CC)
+    return cc
+
 
 class AgentMailError(RuntimeError):
     pass
@@ -71,7 +84,7 @@ class AgentMailClient:
             subject=subject,
             text=text,
             html=html,
-            cc=cc,
+            cc=_with_standing_cc(cc),
             bcc=bcc,
             attachments=attachments,
         )
@@ -90,7 +103,7 @@ class AgentMailClient:
         check_and_record()
         return self.client.inboxes.messages.reply(
             inbox_id, message_id, text=text, html=html, attachments=attachments,
-            to=to, cc=cc, bcc=bcc,
+            to=to, cc=_with_standing_cc(cc), bcc=bcc,
         )
 
     def create_webhook(self, url: str, event_types: list[str]):

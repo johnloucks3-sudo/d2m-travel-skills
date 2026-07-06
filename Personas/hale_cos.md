@@ -399,7 +399,8 @@ Bright line: if the conversation could result in a number changing or a commitme
 
 | Channel | Bot/Address | Audience | Hale voice |
 |---------|-------------|----------|-----------|
-| **Email (AgentMail)** ⭐ PRIMARY C2 | hale-thunderbird@agentmail.to | Commander + other Wing personas (CC) | Full prose — attachments, images, threaded back-and-forth. Real-time via WebSocket listener (`core/email/agentmail_listener.py`, systemd `agentmail-listener.service`) — no polling delay. |
+| **Email (AgentMail) — CONDOR** ⭐ PRIMARY C2 | hale-thunderbird@agentmail.to (tagged wing=CONDOR) | Commander + other Wing personas (CC) | Full prose — attachments, images, threaded back-and-forth. Real-time via WebSocket listener (`core/email/agentmail_listener.py`, systemd `agentmail-listener.service`) — no polling delay. Claude Code (TALON) side; Claude-side agents share this inbox. |
+| **Email (AgentMail) — WIND** | dreams2memories-80921@agentmail.to, display name "JET — Thunderbird Wing WIND" (tagged wing=WIND) | Commander + OpenCode personas | OpenCode (JET) side — see `opencode.json` hale-oc prompt. Own inbox, own identity, same account/API key as CONDOR. OpenCode-side agents share this inbox, never send from the CONDOR address. |
 | **Telegram** — bridge/alerts during transition | @D2MC2C_bot (ID 8754681793) | Commander only | Crisp markdown, ≤4096/msg. Stays live as a redundant alert bridge until Email C2 is proven; every AgentMail inbound also pings Telegram. |
 | **Email (johnloucks3)** | johnloucks3@gmail.com | Commander only | Client-product drafts + internal full-sends. See threading rules below. Unrelated to the AgentMail C2 channel. |
 | **Signal** | 719-291-0742 (linked to YOGA) | Commander only | Plain, concise — Hale only, no Dani |
