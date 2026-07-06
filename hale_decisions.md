@@ -6072,3 +6072,23 @@ All six executed same session, not just planned:
 **Standing authorization noted (Commander, this incident):** "I approve whatever you develop, execute and that goes for in the future. Even irreversible ones as long as core data is not deleted." — durable, forward-looking; the one hard constraint is core data must never be deleted.
 
 **Durable artifacts:** `scripts/ci_probe_telegram_relay.py`, `scripts/ci_probe_gmail_accounts.py`, `core/ci/repairs/cluster_h.py` (3 RepairSpecs total), `config/ci_registry.json` (52→53 skills), rate limiter in `scripts/ci_probe_c2_fabric_roundtrip.py`, `docs/AGENTMAIL_AUSTERITY_MEASURES_20260706.md`.
+
+## 2026-07-06 — WF-17 waived send: TEST-DANI-RESPONDER-ONLY
+**Provenance:** waiver `TEST-DANI-RESPONDER-ONLY`, granted 2026-07-06, source `TEMPORARY — dani_email_responder test only, removed after verification`. To: johnloucks3@gmail.com. Subject: Re: Test task 2 — Dani responder fix verification. CC: johnloucks3@gmail.com. Voice track: dani.
+
+## 2026-07-06 — WF-17 waived send: Kim Westbrook
+**Provenance:** waiver `Kim Westbrook`, granted 2026-07-06, source `WF17_NAMED_WAIVER_EXPANSION_PLAN_20260706.md`. To: crnakim@yahoo.com. Subject: Re: Send me your to list and burning questions — I can help. CC: johnloucks3@gmail.com. Voice track: dani.
+
+## 2026-07-06 (afternoon) — Aging QUEUE_FOR_COMMANDER proposals reviewed and closed
+
+Checked all 4 items flagged in the brief before surfacing anything (per Failure B doctrine — verify against current state first):
+
+1. **PROPOSAL-20260516 / PROPOSAL-20260521 (Telegram auto-heal vs escalate-on-first-failure):** Surfaced to Commander via AskUserQuestion given today's fresh Telegram CI/RepairSpec work made the tradeoff concrete again. **Commander decision: keep current approach** — auto-restart + CI history/REPLACE-threshold tracking (built today, see cluster_h.py) already gives visibility without going fully manual. Both May proposals closed as superseded by the 2026-07-06 CI-gap fix.
+
+2. **PROPOSAL-20260614 (commander-directive-sweep DNS crash loop):** This was never actually a Commander gate — the proposal text itself said "Hale to review monitoring results and determine whether to escalate." Checked `journalctl --user -u thunderbird-commander-directive-sweep.service` over the last 7 days: zero errors, zero crash-exits. Option 1 (30s timeout wrapper) held for 22 days past the planned 48h check. No escalation to Option 2 (code-level backoff) needed. Resolved — Hale's own call, per the proposal's own routing.
+
+3. **PROPOSAL-20260627 (TESS token keepalive — invalid_client 400 error):** Checked `tess_token.json` directly: token refreshed today 14:46 MT, expires 16:46 MT — exactly the 90-min keepalive cadence working as designed. Whatever credential issue existed 9 days ago is already resolved (either Commander already rotated credentials without this being logged back to the proposal, or the invalid_client was itself transient/already self-healed). No Commander action needed — genuinely stale, not surfaced.
+
+4. **Bonus find while checking the mission board (user's literal ask):** MISSION-1527 ("Decide d2m-tasking-watcher architecture") was still marked `active`/awaiting Commander decision, but ELON's PROPOSAL-20260705-d2m-tasking-watcher.md (already flagged 🟢 APPLY_AUTONOMOUSLY in this morning's brief) found the service was already retired back on 2026-06-06 with just a stale systemd reference, and masked it as routine infra maintenance. No architecture decision (retire/resurrect full/resurrect minimal) is needed — the retire path already happened. Closed MISSION-1527.
+
+Net: 1 of 4 aging proposals needed and got a real Commander decision. The other 3 were stale — resolved by later work that never closed the loop on the original ticket. Root cause pattern: several autonomous fixes/resolutions happen but don't always update the originating proposal/mission-board entry, so aged items can look open when they're actually done. Worth building a periodic reconciliation pass (proposal/mission status vs actual system state) rather than relying on catching it manually each time — flagging as a backlog item, not building it now.
