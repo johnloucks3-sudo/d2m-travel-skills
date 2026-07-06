@@ -1,0 +1,53 @@
+{
+  "_doc": "Capacity-planning template for Bold Use #2 (direct persona-to-Commander email). NOT the live routing config -- that is config/persona_inboxes.json (read by core/email/persona_email_responder.py), which already has Sterling ACTIVE at sterling-thunderbird@agentmail.to. This file is the activation checklist + cost model for the remaining personas, gated on inbox capacity. When a persona below is activated: (1) create the inbox, (2) add it to persona_inboxes.json with status='active', (3) flip status here to 'deployed', (4) restart persona-email-responder.timer.",
+  "capacity_state": {
+    "provider": "AgentMail free tier",
+    "tier_limit": "3 inboxes total",
+    "inboxes_in_use": ["hale-thunderbird@agentmail.to (CONDOR)", "dreams2memories-80921@agentmail.to (WIND)", "sterling-thunderbird@agentmail.to (persona)"],
+    "free_slots_remaining": 0,
+    "activation_paths": [
+      {
+        "path": "AgentMail Developer tier",
+        "gives": "10 inboxes, no daily cap",
+        "gate": "financial commitment -- Commander's call, not made here"
+      },
+      {
+        "path": "Second free-tier provider (standing authorization 2026-07-06)",
+        "candidates_researched": [
+          {"name": "Robotomail", "status": "NOT USABLE -- 3-day trial then paid, verified live 2026-07-06, not actually free"},
+          {"name": "AI Inbx", "status": "NOT USABLE -- new signups temporarily paused, verified live 2026-07-06"}
+        ],
+        "gate": "Hale may self-serve sign up per Obstacle-Routing Protocol; re-check candidate availability before assuming still blocked -- both were checked and rejected same-day 2026-07-06, re-verify if this file is read on a later date"
+      }
+    ]
+  },
+  "personas": {
+    "dembe-thunderbird@agentmail.to": {
+      "name": "Dembe",
+      "persona_file": "Personas/a2_dembe_personality.md",
+      "domain": "Research, market intelligence, strategy, destination/cruise/flight intel. Evidence-first, confidence-leveled.",
+      "status": "template_only",
+      "activation_blocked_by": "no free inbox slot -- see capacity_state"
+    },
+    "harlan-thunderbird@agentmail.to": {
+      "name": "Harlan",
+      "persona_file": "Personas/a9_harlan_personality.md",
+      "domain": "Finance, commission audits, cost analysis, ROI. Dollar-figure-first.",
+      "status": "template_only",
+      "activation_blocked_by": "no free inbox slot -- see capacity_state"
+    },
+    "reyes-thunderbird@agentmail.to": {
+      "name": "Reyes",
+      "persona_file": "Personas/a8_reyes_personality.md",
+      "domain": "Experience layer -- excursions, dining, accessibility, port readiness.",
+      "status": "template_only",
+      "activation_blocked_by": "no free inbox slot -- see capacity_state"
+    }
+  },
+  "see_also": {
+    "live_routing_config": "config/persona_inboxes.json",
+    "responder_engine": "core/email/persona_email_responder.py",
+    "deploy_units": ["deploy/persona-email-responder.service", "deploy/persona-email-responder.timer"],
+    "verified_live_example": "Sterling -- real email in, correctly-voiced threaded reply out, citing actual 80% lessons_implementation_rate_pct standard (commit f3df55e85, 2026-07-06)"
+  }
+}
