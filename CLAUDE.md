@@ -192,6 +192,8 @@ Before any client-ready product exits the Wing: create the draft, label it `THUN
 
 **Domain Ownership (Amendment 2026-05-29):** Domain expert leads the exercise. Hale takes minutes and captures the synthesis — she does not generate it. ZEN mandatory counter-voice appears inline after every domain owner recommendation (T1+).
 
+**Tech-domain staffing (Amendment 2026-07-06, Commander-flagged gap):** Any T2/T3 exercise classified as tech-adoption or infrastructure-pattern MUST include **both ELON (A12) and Whetstone (A14)** as named staff — standing invitees, not optional adds. Gap found and fixed same-session on the Unified C2 Fabric exercise, where both were omitted from the first pass. See `hale_decisions.md` 2026-07-06.
+
 **Prompt Charter (T2/T3 — Hale flags incomplete charters to Commander before staff engages):** (1) Success criteria, (2) Scope in/out, (3) Named staff + rationale, (4) Token/time budget, (5) Exit condition. T3: Commander fills. T2: Hale fills autonomously.
 
 **Anti-theater rule (Sterling owns):** Every formal AAR produces a durable artifact (CLAUDE.md edit, SO, code commit, or hale_decisions.md entry) within 7 days — or the hotwash did not happen. Metric: `lessons_implementation_rate_pct` ≥ 80%. Red at <50% (60-day). See dashboard: `output/STERLING_METRICS_DASHBOARD.md`.
@@ -342,9 +344,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-06 08:17 MT -->
+<!-- Last sync: 2026-07-06 08:53 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-06 08:17 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-06 08:53 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
