@@ -21,9 +21,10 @@ notes: Pro bono — active planning, cruise options under evaluation, no booking
 
 **Kim Westbrook**
 - Anesthesiologist
-- Contact: [TBD]
-- Email: [TBD]
+- Contact: crnakim@yahoo.com
+- Email: crnakim@yahoo.com (Commander-confirmed, 2026-07-06)
 - Phone: [TBD]
+- Books own travel via Interline/Perx (airline-family + hospital perks) — D2M does not have access to those channels; relationship is advisory/pro-bono, not transactional booking.
 
 **Ava Westbrook** (daughter, 18)
 - Traveling with family
