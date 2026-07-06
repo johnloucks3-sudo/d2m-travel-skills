@@ -5911,3 +5911,21 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 3. Pre-seeded the cursor to now (the 74-item backlog was just delivered via the review artifact, not re-dumped into tomorrow's brief) and acknowledged the tasking-watcher proposal specifically now that it's been decided. The other 4 QUEUE_FOR_COMMANDER items (telegram-gw ×3, tess-token-keepalive ×1, commander-directive-sweep ×1) remain unacknowledged and will keep appearing in the brief until reviewed.
 
 **Not yet done:** the 4 remaining unacknowledged QUEUE_FOR_COMMANDER proposals still need actual review/decision — flagged, not resolved.
+
+## 2026-07-06 (morning) — Email (AgentMail) promoted to Primary C2
+
+**Commander directive (Telegram, then Claude Code session):** replace Gmail as Hale's own channel with AgentMail; account for the 100/day (3,000/mo) free-tier rate limit; grant "full permissions"; promote email to Primary C2 over Telegram — cites reliability, attachments/images, back-and-forth threading, multi-agent CC as the reasons.
+
+**Built same session:**
+- `core/email/agentmail_client.py` — official SDK wrapper (create/send/list/reply/webhooks)
+- `core/email/agentmail_quota.py` — hard buffer at 90/day, 2,800/month; raises loud before the free-tier cap, never silently drops. Verified: inbound listener never calls this — inbound duplicates/replays have zero quota impact (confirmed via `OpsCenter/state/agentmail_quota.json` count matching real sends only).
+- `core/email/agentmail_listener.py` + `agentmail-listener.service` (systemd, enabled, running) — real-time WebSocket inbound (no public URL/webhook, no ngrok, no Cloudflare route needed — outbound-only connection). Bridges every inbound to Telegram during the transition so nothing is missed on either channel.
+- `.mcp.json` (Claude Code) + `opencode.json` (OpenCode) — native AgentMail MCP tools on **both** Hale instances, closing a parity gap OC didn't have until this session.
+
+**"Full permissions" — clarified, not just granted:** the API key already has full account-level access; there is no technical scope to widen further. What does *not* change: the WF-17 client-send gate. "Full permissions on this account" is a technical/API statement, not a governance override — flagging this once per pushback doctrine, then proceeding on what was actually asked (full technical capability).
+
+**Capacity constraint flagged, not decided:** free tier caps at 3 inboxes (2 in use); full per-persona CC roster (Dani, Sterling, etc. each with their own address) needs the Developer tier (10 inboxes, no daily cap) — that's a spend decision, Commander's to make, not assumed here.
+
+**Doctrine updated:** `Personas/hale_cos.md` Channel Registry — Email/AgentMail now ⭐ PRIMARY C2, Telegram stays as live bridge/alert channel during the transition period (not decommissioned).
+
+**Known minor issue, not yet root-caused:** rapid back-to-back test sends produced duplicate inbound-queue entries for the same message_id despite message-id dedup logic; confirmed harmless (quota unaffected, Telegram bridge worst case pings twice). Watching under real (non-burst) traffic before spending more time on it.

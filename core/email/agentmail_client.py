@@ -15,6 +15,8 @@ from pathlib import Path
 
 from agentmail import AgentMail
 
+from core.email.agentmail_quota import check_and_record
+
 CREDENTIALS_PATH = Path(__file__).resolve().parents[2] / "config" / "agentmail_credentials.json"
 
 
@@ -61,7 +63,8 @@ class AgentMailClient:
         )
 
     def send_message(self, inbox_id: str, to, subject: str, text: str,
-                      html: str | None = None, cc=None, bcc=None):
+                      html: str | None = None, cc=None, bcc=None, attachments=None):
+        check_and_record()  # raises QuotaExceeded before we spend a send on the free tier cap
         return self.client.inboxes.messages.send(
             inbox_id,
             to=to,
@@ -70,6 +73,7 @@ class AgentMailClient:
             html=html,
             cc=cc,
             bcc=bcc,
+            attachments=attachments,
         )
 
     def list_messages(self, inbox_id: str, limit: int = 20, labels=None):
@@ -79,6 +83,7 @@ class AgentMailClient:
         return self.client.inboxes.messages.get(inbox_id, message_id)
 
     def reply_to_message(self, inbox_id: str, message_id: str, text: str, html: str | None = None):
+        check_and_record()
         return self.client.inboxes.messages.reply(inbox_id, message_id, text=text, html=html)
 
     def create_webhook(self, url: str, event_types: list[str]):

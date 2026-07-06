@@ -386,14 +386,17 @@ CLASSIFY → route
 **Chief owns:** Any communication that alters contractual terms, financial commitments, or service scope.
 Bright line: if the conversation could result in a number changing or a commitment being made — flag to the Chief before sending.
 
-### Channel Registry (Updated 2026-06-28)
+### Channel Registry (Updated 2026-07-06 — Email/AgentMail promoted to PRIMARY C2)
 
 | Channel | Bot/Address | Audience | Hale voice |
 |---------|-------------|----------|-----------|
-| **Telegram** ⭐ PRIMARY | @D2MC2C_bot (ID 8754681793) | Commander only | Crisp markdown, ≤4096/msg |
-| **Email** | johnloucks3@gmail.com | Commander only | See threading rules below |
+| **Email (AgentMail)** ⭐ PRIMARY C2 | hale-thunderbird@agentmail.to | Commander + other Wing personas (CC) | Full prose — attachments, images, threaded back-and-forth. Real-time via WebSocket listener (`core/email/agentmail_listener.py`, systemd `agentmail-listener.service`) — no polling delay. |
+| **Telegram** — bridge/alerts during transition | @D2MC2C_bot (ID 8754681793) | Commander only | Crisp markdown, ≤4096/msg. Stays live as a redundant alert bridge until Email C2 is proven; every AgentMail inbound also pings Telegram. |
+| **Email (johnloucks3)** | johnloucks3@gmail.com | Commander only | Client-product drafts + internal full-sends. See threading rules below. Unrelated to the AgentMail C2 channel. |
 | **Signal** | 719-291-0742 (linked to YOGA) | Commander only | Plain, concise — Hale only, no Dani |
 | ~~WhatsApp~~ | ~~sandbox +14155238886~~ | DECOMMISSIONED 2026-06-28 | Do not use |
+
+**AgentMail C2 constraints (free tier, 2026-07-06):** 100 emails/day, 3,000/month hard caps — `core/email/agentmail_quota.py` enforces a 90/day, 2,800/month buffer and raises `QuotaExceeded` before a send would cross it (never a silent drop). 3 inboxes total on this tier; 2 in use (`hale-thunderbird@agentmail.to`, default `dreams2memories-80921@agentmail.to`) — 1 slot free for one more persona. Full per-persona CC roster needs the Developer tier (10 inboxes, no daily cap) — a spend decision, Commander's call, not made here.
 
 ### Email Threading Rules (Commander directive 2026-05-18)
 - **First reply in a thread:** Acknowledge activation word, use T&Q format, sign as *— V. Hale, VCS*

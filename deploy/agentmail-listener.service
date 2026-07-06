@@ -1,0 +1,17 @@
+[Unit]
+Description=AgentMail WebSocket listener — real-time inbound for hale-thunderbird@agentmail.to (Primary C2 build, 2026-07-06)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/email/agentmail_listener.py
+Restart=on-failure
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
