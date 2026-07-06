@@ -26,17 +26,36 @@ This is a half-day build: one config file, one guard function, wired into the ex
 
 ---
 
-## 3. ISSUES STATED — per name, real, not smoothed over
+## 3. ISSUES — STATUS AFTER COMMANDER INPUT (2026-07-06, same session)
 
-**Issue 1 — Kim Westbrook has no contact info on file.** Her dossier (`dossiers/Westbrook_Brent_Kim_UPDATED.md`) shows email as `[TBD]` for both Kim and Brent. **The waiver can't function without an address.** Either you have it and it needs to go in the dossier, or this one waits on that first. Not a policy question — a data gap.
+**Issue 1 — RESOLVED.** Kim Westbrook's email confirmed: `crnakim@yahoo.com`. Updated in `dossiers/Westbrook_Brent_Kim_UPDATED.md` with source citation. Also noted per Commander: she books her own travel via Interline/Perx (airline-family + hospital perks) — channels D2M doesn't have access to. Relationship is advisory/pro-bono, not a transactional booking pipeline — this shapes what Dani would actually be corresponding about (trip ideas, planning help, NOT fare/booking transactions D2M can't execute anyway).
 
-**Issue 2 — Stefanie Burcham is a prospect, not a booked client, and she's your sister.** Two things stack here: (a) sending "client product" style emails to someone with no active booking risks a sales-y tone that doesn't fit a prospect relationship; (b) she's family — the highest reputational stakes of the five names. Staff (Dani, in the earlier consult) recommended keeping her fully reviewed regardless of waiver status — not blocking the waiver, just flagging that "waived" shouldn't mean "less careful" for this one specifically.
+**Issue 2 — REFRAMED, not a concern anymore.** Commander correction: **Stefanie, Kim, and Nancy are friends and family, not sales prospects** — the "prospect tone risk" I flagged doesn't apply because there's no sales motion here at all. Specifics that change the picture:
+- **Stefanie** — Commander's sister, and **she is herself a travel agent, affiliated with Nexion.** She's a peer in the industry, not a lead. Correspondence with her is professional-peer + family, not concierge-to-prospect.
+- **Kim** — self-books via Interline/Perx (see Issue 1), close to Rondo, "almost family." D2M's role is advisory only.
+- **Nancy** — books through her own travel partner, a friend in the industry. Same shape as Stefanie: peer + friend, not a funnel.
+This actually *lowers* risk versus my original framing — there's no "convert the prospect" pressure that could push tone in a wrong direction. Dani's voice for all three should read as **friend/peer**, not **concierge selling a product**.
 
-**Issue 3 — Bryana and Susan may not fit the "Dani client-voice" track at all.** Nancy, Kim, and Stefanie are travel-concierge relationships — Dani's lane. Bryana (gift-tier friend, building her own travel business, uses Hale directly per your own framing) and Susan (family, "used to be in the wing," already has internal-address status) look more like a **Hale-direct-access track** than a Dani-client-voice track. Putting all five under one identical mechanism may be forcing two different relationship shapes into one box. **Recommend:** the WF-17 allowlist mechanism is shared (same file, same guard), but Bryana/Susan's correspondence runs through Hale's voice, not Dani's — same safety rail, different voice, matching how each of them actually uses the Wing.
+**Issue 3 — CONFIRMED by Commander ("Agree").** Bryana and Susan run on the Hale-direct-voice track. Nancy, Kim, and Stefanie stay on Dani's track (per existing Lyons precedent and the friend/peer reframe above). Same allowlist mechanism, two voices.
 
-**Issue 4 — Susan Loucks has an existing carve-out that conflicts with this, and only you can resolve it.** SO 2026-06-18 explicitly reserves "Loucks personal trip as D2M client" emails to johnloucks3 only, excluding susanna.loucks from that one lane — meaning if Susan books/travels as a D2M client alongside you, that specific correspondence stays gated to your inbox by design, not hers. **Question for you:** does this new waiver apply to Susan's general correspondence (family/friend coordination she handles) while the Loucks-trip carve-out stays intact underneath it? Or does this waiver supersede that carve-out entirely? I can't determine your intent here — this is the one place in this plan where I'm asking rather than deciding.
+**Issue 4 — Commander wants further exploration + recommendations. Here they are:**
 
-**Issue 5 — Vendor review still owed, now more relevant.** Dembe's finding from the earlier AgentMail consult stands: no security/DPA review has been done on AgentMail, and this waiver expansion means more real PII (five people, not one) flows through a service integrated same-day. ELON's answer: this is a 20-minute ask (AgentMail's own ToS/security page + a direct support question on retention/subprocessors), not a delay — running in parallel with the build, not blocking it.
+The SO 2026-06-18 carve-out (Loucks-trip-as-D2M-client emails → johnloucks3 only, excluding Susan) has no stated rationale on file beyond "that's how the waiver was scoped" — I checked the original decision record (`docs/superpowers/specs/2026-06-19-hale-autonomy-authority-map-design.md` PL-004/PL-006) and found no documented reason (no "surprise" logic, no explicit privacy concern — it reads as simply narrow-scoped to the account owner at the time).
+
+**Recommendation A (narrower, matches "used to be in the wing" literally):** Treat today's directive as *reaffirming and formalizing* Susan's existing SO 2026-06-10 Wing-internal status — general correspondence, Wing-adjacent business she's involved in — onto the same named-waiver list for consistency and auditability. Leave the SO 2026-06-18 carve-out untouched: emails specifically about John & Susan's own trips as D2M clients still route to johnloucks3 only. Two scopes, no conflict, nothing lost. **This is my recommendation** — it does exactly what "used to be in the wing" describes (restore/formalize her Wing role) without touching a separate, deliberately-scoped rule that wasn't part of today's ask.
+
+**Recommendation B (broader):** If you actually want Susan to also receive your joint trip lifecycle emails directly (not routed through you first), that's a real amendment to PL-004/SO 2026-06-18 specifically — a separate, explicit decision, not a side effect of this waiver. I'd want that stated on its own, since it changes who sees your shared trip planning first.
+
+Recommend A unless you tell me otherwise — B is available if that's actually what you want.
+
+**Issue 5 — RESOLVED. Vendor review complete, real findings, not a guess:**
+- **SOC 2 Type II compliant** — 93 documented controls (security, availability, processing integrity, confidentiality, privacy), audited Aug–Nov 2025, full report available under NDA via their trust center (trust.delve.co/agentmail).
+- **Published subprocessor list** (agentmail.to/legal/subprocessors, updated Jun 2026): AWS (infra), Svix (webhooks), Clerk (auth), Stripe (billing), PostHog (analytics), Vercel (hosting), Google/Slack (internal comms), Plain (support) — all named, reputable, US/EU-hosted.
+- **DPA exists**, referenced as part of the binding Agreement in their ToS.
+- **GDPR rights supported** — access, deletion, portability, rectification, on request to support@agentmail.cc.
+- **One real gap found, not glossed over:** their published retention policy is boilerplate ("as long as necessary") — no fixed retention period stated for email content specifically. **Sent a direct question to support@agentmail.cc just now** (2026-07-06) asking for: (1) the specific retention period for message content/attachments, (2) whether a Free-tier account can get a signed DPA, (3) whether email content is used for training/analytics beyond delivery. Awaiting reply — will land in `hale-thunderbird@agentmail.to` and surface via the real-time listener already built.
+
+Net: this is a real, audited, SOC2-Type-II vendor with a published subprocessor list — a materially different risk picture than "zero operational history," which was accurate for *our* usage history, not the vendor's own security posture. The one open item (exact retention period) is in flight, not blocking.
 
 ---
 
@@ -48,4 +67,6 @@ This is a half-day build: one config file, one guard function, wired into the ex
 ---
 
 ## 5. GATE 4 — YOUR CALL
-Approve as written / Approve with Issue 4 resolved one way or the other / Revise / Hold Kim until contact info exists but approve the other four now.
+All 5 issues now resolved or have a stated recommendation. Only Issue 4 (Susan's carve-out) still needs your explicit pick: **Recommendation A (narrower, my default) or B (broader)**. Everything else — Kim's email, the friend/peer reframe, the Bryana/Susan Hale-voice split, the vendor review — is settled and ready to build.
+
+Say the word (and A or B for Susan) and I build the allowlist mechanism + wire all five in this session.
