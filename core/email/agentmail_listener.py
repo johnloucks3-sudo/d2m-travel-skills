@@ -39,7 +39,7 @@ def _notify_telegram(text: str):
     try:
         import subprocess
         subprocess.run(
-            ["python3", "/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py", "send", text[:4000]],
+            ["python3", "/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py", "--relay", text[:3900], "--source", "AgentMail"],
             timeout=15, capture_output=True,
         )
     except Exception:

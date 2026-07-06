@@ -199,3 +199,4 @@ config/email_registry_cache.json
 
 # Camofox API key
 deploy/camofox/.env
+vendor/

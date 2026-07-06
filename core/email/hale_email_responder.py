@@ -8,16 +8,21 @@ live session.
 
 This script: watches the AgentMail inbound queue for messages from
 Hale-voice-track named-waiver correspondents (Bryana Jarboe, Susan
-Loucks — see config/wf17_named_waivers.json), spawns a headless Claude
-agent with FULL Wing tool access (same MCP config as Console) to research
-and draft a reply, then sends it back via the same waived channel.
+Loucks — see config/wf17_named_waivers.json) AND from Commander himself
+(johnloucks3@gmail.com — closes the Seamless Comms Architecture email gap,
+2026-07-06: Commander emailing hale-thunderbird@agentmail.to gets an
+autonomous in-thread reply, not just a silent read at next Console
+session), spawns a headless Claude agent with FULL Wing tool access (same
+MCP config as Console) to research and draft a reply, then sends it back
+in-thread via the same channel it arrived on.
 
-SAFETY — only named-waiver Hale-track senders trigger this. Arbitrary
-inbound email does NOT spawn an agent (prompt-injection / abuse guard).
-The spawned agent inherits CLAUDE.md/hale_cos.md automatically (same
-directory context as Console) — same three gates, same doctrine, no
-special exemption. Run periodically (deploy/hale-email-responder.timer),
-not on every websocket event — headless spawns are expensive, batch them.
+SAFETY — only named-waiver Hale-track senders AND Commander's own address
+trigger this. Arbitrary inbound email does NOT spawn an agent
+(prompt-injection / abuse guard). The spawned agent inherits
+CLAUDE.md/hale_cos.md automatically (same directory context as Console) —
+same three gates, same doctrine, no special exemption. Run periodically
+(deploy/hale-email-responder.timer), not on every websocket event —
+headless spawns are expensive, batch them.
 """
 import json
 import sys
@@ -27,6 +32,7 @@ from pathlib import Path
 sys.path.insert(0, "/home/john/Thunderbird")
 
 from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+from core.email.agentmail_client import AgentMailClient
 from core.email.user_message_quota import record_query
 from core.email.wf17_named_waivers import load_waivers, send_waived_client_email
 
@@ -35,6 +41,8 @@ CHECKPOINT_PATH = Path("/home/john/Thunderbird/OpsCenter/state/hale_email_respon
 PENDING_PATH = Path("/home/john/Thunderbird/OpsCenter/state/hale_email_responder_pending.json")
 OUTPUT_DIR = Path("/home/john/Thunderbird/output")
 GLOBAL_MCP_CONFIG = "/home/john/.claude/mcp.json"
+COMMANDER_EMAIL = "johnloucks3@gmail.com"
+CONDOR_INBOX_ID = "hale-thunderbird@agentmail.to"
 
 
 def _hale_track_senders() -> dict:
@@ -76,13 +84,15 @@ def _pending_messages(processed: set, hale_senders: dict) -> list:
         if from_bare in hale_senders:
             entry["_waiver"] = hale_senders[from_bare]
             pending.append(entry)
+        elif from_bare == COMMANDER_EMAIL:
+            entry["_commander"] = True
+            pending.append(entry)
     return pending
 
 
 def _spawn_headless_reply(entry: dict) -> Path:
     """Spawn a headless Claude agent with full Wing tool access to draft a reply.
     Returns the output file path it will write to."""
-    waiver = entry["_waiver"]
     ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     # message_id in the filename, not just a timestamp — two messages processed
     # in the same second would otherwise collide on the same output path.
@@ -90,7 +100,31 @@ def _spawn_headless_reply(entry: dict) -> Path:
     output_file = OUTPUT_DIR / f"hale_email_reply_{ts}_{msg_id_slug}.md"
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    prompt = f"""You are Hale, responding to an email from {waiver['name']}, a trusted
+    if entry.get("_commander"):
+        task_name = "email_reply_Commander"
+        prompt = f"""You are Hale, responding to an email from the Commander
+(johnloucks3@gmail.com) sent to your primary C2 inbox (hale-thunderbird@agentmail.to).
+This is the Commander himself — full authority, full trust, same doctrine as a live
+Console session (CLAUDE.md + Personas/hale_cos.md apply in full, including the three
+Commander gates: client send, financial commitment, strategic >90d/$5K).
+
+---
+Subject: {entry['subject']}
+Content: {entry['preview']}
+---
+
+Research and answer using full Wing resources (mission board, dossiers, TESS,
+travel search — whatever the request calls for). If the request would cross one
+of the three gates, say so plainly instead of executing it.
+
+WRITE your complete reply (just the body text, no subject line, no signature
+block — the sender script adds that) to {output_file}.
+Do not output anything else.
+"""
+    else:
+        waiver = entry["_waiver"]
+        task_name = f"email_reply_{waiver['name'].replace(' ', '_')}"
+        prompt = f"""You are Hale, responding to an email from {waiver['name']}, a trusted
 Wing-adjacent friend on the WF-17 named-waiver list (Hale voice track,
 config/wf17_named_waivers.json). This is a legitimate, pre-authorized
 correspondent — not a cold inbound.
@@ -121,11 +155,11 @@ Do not output anything else.
         prompt=prompt,
         output_file=str(output_file),
         model="claude-sonnet-4-6",
-        task_name=f"email_reply_{waiver['name'].replace(' ', '_')}",
+        task_name=task_name,
         background=True,
         mcp_config=GLOBAL_MCP_CONFIG,
     )
-    print(f"[hale_email_responder] spawn result for {waiver['name']}: {result.get('status')}, output -> {output_file}")
+    print(f"[hale_email_responder] spawn result for {task_name}: {result.get('status')}, output -> {output_file}")
     return output_file
 
 
@@ -145,16 +179,21 @@ def main():
     still_pending_spawns = json.loads(PENDING_PATH.read_text()) if PENDING_PATH.exists() else []
     for entry in pending:
         from_bare = entry["from"].split("<")[-1].rstrip(">").lower() if "<" in entry["from"] else entry["from"].lower()
-        quota_status = record_query(from_bare)  # every query to Hale counts against her monthly quota
-        if quota_status.get("over_limit"):
-            print(f"[hale_email_responder] {quota_status['name']} is OVER monthly quota "
-                  f"({quota_status['count']}/{quota_status['limit']}) — still replying, flag for Commander")
+        is_commander = entry.get("_commander", False)
+        if not is_commander:
+            quota_status = record_query(from_bare)  # every query to Hale counts against her monthly quota
+            if quota_status.get("over_limit"):
+                print(f"[hale_email_responder] {quota_status['name']} is OVER monthly quota "
+                      f"({quota_status['count']}/{quota_status['limit']}) — still replying, flag for Commander")
         output_file = _spawn_headless_reply(entry)
         still_pending_spawns.append({
             "output_file": str(output_file),
             "to_email": from_bare,
             "subject": entry["subject"],
             "spawned_at": datetime.now(timezone.utc).isoformat(),
+            "_commander": is_commander,
+            "thread_id": entry.get("thread_id"),
+            "message_id": entry.get("message_id"),
         })
         processed.add(entry["message_id"])
 
@@ -172,12 +211,25 @@ def _check_and_send_pending_replies():
         out = Path(item["output_file"])
         if out.exists() and out.stat().st_size > 0:
             reply_text = out.read_text().strip()
-            sent = send_waived_client_email(
-                to_email=item["to_email"],
-                subject=f"Re: {item['subject']}",
-                text=reply_text,
-            )
-            print(f"[hale_email_responder] sent reply to {item['to_email']}: {sent}")
+            if item.get("_commander"):
+                # Within-wing reply, in-thread on the CONDOR inbox — not a client
+                # send, no waiver list involved (Commander replying to himself
+                # via his own primary C2 inbox needs no gate, SO 24 MAR 2026).
+                client = AgentMailClient()
+                sent = client.reply_to_message(
+                    inbox_id=CONDOR_INBOX_ID,
+                    message_id=item["message_id"],
+                    text=reply_text,
+                )
+                print(f"[hale_email_responder] sent in-thread reply to Commander "
+                      f"(thread {item.get('thread_id')}): status ok")
+            else:
+                sent = send_waived_client_email(
+                    to_email=item["to_email"],
+                    subject=f"Re: {item['subject']}",
+                    text=reply_text,
+                )
+                print(f"[hale_email_responder] sent reply to {item['to_email']}: {sent}")
         else:
             still_pending.append(item)
     PENDING_PATH.write_text(json.dumps(still_pending, indent=2))
