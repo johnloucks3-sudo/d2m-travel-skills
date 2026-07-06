@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CI Rapid-Repair Warehouse — Cluster H: Comms Channel Coverage (2 skills)
+CI Rapid-Repair Warehouse — Cluster H: Comms Channel Coverage (3 skills)
 Dreams2Memories Travel, LLC · Thunderbird Wing
 Author: Hale (Claude Code) · 2026-07-06
 
@@ -11,16 +11,23 @@ config/ci_registry.json despite core/monitoring/telegram_bot_healthcheck.py
 already detecting a real failure that morning (Dani bot DEAD, SSL handshake
 timeout). A working detector existed; it just never fed the CI/repair
 system, so a RED never had a chance to trigger repair. This cluster gives
-Telegram (and AgentMail, the newer Primary C2) a real RepairSpec each, so
+Telegram, AgentMail, and now the two Gmail accounts (the same class of gap,
+found in the same audit — "other channels") a real RepairSpec each, so
 detection is no longer the end of the story.
 
-Skills authored here (2):
+Skills authored here (3):
   telegram-relay   SAFE (idempotent gateway service restart) / DESTRUCTIVE
                    repairable=False if the bot token itself is invalid
   agentmail-health  DESTRUCTIVE repairable=False always — no local action can
                    fix a third-party vendor outage; this exists so an
                    AgentMail-wide failure is TRACKED and ESCALATED instead of
                    silently missing, same failure mode as the Telegram gap.
+  gmail-accounts   SAFE (token refresh retry) / DESTRUCTIVE repairable=False
+                   if the refresh itself fails (revoked grant — Commander
+                   must re-consent). johnloucks3 + d2mconcierge accounts had
+                   zero direct reachability coverage — "email-handling" only
+                   checked a digest-generation script, not the accounts
+                   themselves.
 """
 from __future__ import annotations
 
@@ -42,6 +49,7 @@ from core.ci.repairs.schema import (
 
 _PROBE_TELEGRAM = "ci_probe_telegram_relay.py"
 _PROBE_AGENTMAIL_C2 = "ci_probe_c2_fabric_roundtrip.py"
+_PROBE_GMAIL = "ci_probe_gmail_accounts.py"
 
 
 # ============================================================================
@@ -158,5 +166,79 @@ def _agentmail_health():
 
     def verify() -> ProbeState:
         return run_probe(_PROBE_AGENTMAIL_C2)
+
+    return explore, assess, repair, verify
+
+
+# ============================================================================
+# H.3  gmail-accounts
+#      SAFE   : getProfile() failed but refresh_token is present → force a
+#                token refresh retry (both accounts already auto-refresh
+#                on expiry inside get_commander_credentials/get_persona_
+#                credentials when refresh_token exists; this just forces
+#                that path with force_refresh=True and re-tests)
+#      DESTR  : refresh itself raises (grant revoked / invalid_grant) →
+#                NOT_REPAIRABLE, Commander must re-authenticate via OAuth
+# ============================================================================
+@repair_capability(
+    "gmail-accounts",
+    risk_tier=RiskTier.SAFE,
+    sources=[
+        "api/thunderbird_google_auth.py (get_commander_credentials, get_persona_credentials)",
+        "hale_decisions.md 2026-07-06 — CI gap incident, 'other channels' follow-up",
+    ],
+)
+def _gmail_accounts():
+    def explore() -> FailureContext:
+        return probe_context("gmail-accounts", _PROBE_GMAIL)
+
+    def assess(ctx: FailureContext) -> AssessResult:
+        detail = (ctx.probe_stderr or "").lower()
+        if "invalid_grant" in detail or "revoked" in detail or "unauthorized_client" in detail:
+            return AssessResult(
+                mode="grant_revoked",
+                repairable=False,
+                effective_tier=RiskTier.DESTRUCTIVE,
+                reason="OAuth grant itself is revoked/invalid — Commander must "
+                       "re-authenticate via the OAuth flow, no local fix exists",
+            )
+        return AssessResult(
+            mode="stale_token_or_transient",
+            repairable=True,
+            effective_tier=RiskTier.SAFE,
+            reason="Likely a stale access token — force a refresh retry using "
+                   "the existing refresh_token (idempotent, same path both "
+                   "accounts already use automatically on normal expiry)",
+        )
+
+    def repair(mode: str, apply: bool = False) -> RepairPlan:
+        plan = RepairPlan(
+            skill_id="gmail-accounts",
+            mode=mode,
+            actions=[
+                "get_commander_credentials(force_refresh=True)",
+                "get_persona_credentials(force_refresh=True)",
+                "re-verify via ci_probe_gmail_accounts.py",
+            ],
+        )
+        if not apply:
+            return plan
+        plan.applied = True
+        try:
+            import sys
+            sys.path.insert(0, "/home/john/Thunderbird")
+            sys.path.insert(0, "/home/john/Thunderbird/api")
+            from thunderbird_google_auth import get_commander_credentials, get_persona_credentials
+
+            get_commander_credentials(force_refresh=True)
+            get_persona_credentials(force_refresh=True)
+            plan.apply_ok = True
+        except Exception as e:
+            plan.apply_ok = False
+            plan.note = str(e)[:200]
+        return plan
+
+    def verify() -> ProbeState:
+        return run_probe(_PROBE_GMAIL)
 
     return explore, assess, repair, verify

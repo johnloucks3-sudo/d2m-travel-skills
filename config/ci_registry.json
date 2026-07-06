@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-04",
+  "updated": "2026-07-06T18:36:08.173216+00:00",
   "_doc": "Critical Infrastructure registry. This table IS the razor-sharp policy (SO_CI_RAZOR_SHARP_20260620.md). RAZOR_SHARP iff probe==GREEN AND age(last_verified)<currency_window_hours AND age(last_reeval)<reeval_cadence_days. REPLACE per replacement_policy (chronic fail/latency). Owners: id=ELON(discovery), access=Dembe, gate=Sterling, keeper=Whetstone(currency+updating). Hale has standing authority to direct refresh/revision/replacement immediately (only spend reaches Commander). Zero standing workarounds: active_workaround must be logged + burned down.",
   "replacement_policy": {
     "_doc": "A CI tool -> REPLACE (ELON nominates replacement, Whetstone integrates, old tool -> graveyard) when ANY trigger fires. Failure = probe/op not-ok or timed out, or an active_workaround in place.",
@@ -1140,6 +1140,30 @@
       "status": "healthy",
       "spend_gate": "N/A \u2014 $0, existing bots",
       "notes": "GAP FOUND 2026-07-06 (Commander): Telegram had ZERO CI registry coverage despite core/monitoring/telegram_bot_healthcheck.py already detecting a real failure that morning (Dani bot DEAD, SSL handshake timeout) \u2014 that check writes to hale_state.json only, completely disconnected from CI's REPLACE-threshold doctrine. Real failures were being caught and then going nowhere. This entry closes that gap \u2014 Telegram now gets full CI history tracking, auto-repair attempts, and REPLACE-threshold counting like every other skill."
+    },
+    {
+      "id": "gmail-accounts",
+      "name": "Gmail Accounts \u2014 johnloucks3 + d2mconcierge reachability",
+      "ci_tool": "scripts/ci_probe_gmail_accounts.py \u2014 live getProfile() call on both accounts, not just OAuth token expiry metadata",
+      "wraps": [
+        "core/google_auth or api/thunderbird_google_auth.py (both account credential paths)",
+        "gmail_token.json (johnloucks3) + config/persona_gmail_token.json (d2mconcierge)"
+      ],
+      "id_owner": "elon",
+      "access_owner": "dembe",
+      "gate_owner": "sterling",
+      "keeper": "whetstone",
+      "health_probe": "/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/ci_probe_gmail_accounts.py",
+      "currency_window_hours": 24,
+      "reeval_cadence_days": 30,
+      "latency_sla_ms": 10000,
+      "fallback": "None \u2014 both accounts are load-bearing; johnloucks3 is Commander comms + client-draft staging, d2mconcierge is the Dani-voice send identity",
+      "active_workaround": null,
+      "last_verified": "2026-07-06T18:36:08.173216+00:00",
+      "last_reeval": "2026-07-06",
+      "status": "healthy",
+      "spend_gate": "N/A \u2014 $0, existing OAuth creds",
+      "notes": "GAP FOUND 2026-07-06 (same audit that found the Telegram gap, per Commander: \"missing a whole batch of CI failures in Telegram relay and other channels\"). The pre-existing \"email-handling\" registry entry only checked scripts/d2m_commander_digest.py (a digest-generation script) \u2014 it never verified the two Gmail accounts themselves are reachable. Both accounts are the backbone of nearly every Wing product (client drafts, TP sends, internal briefs) \u2014 a silent auth failure on either would have gone undetected exactly like Telegram did."
     }
   ],
   "accountable_owner": "hale",
