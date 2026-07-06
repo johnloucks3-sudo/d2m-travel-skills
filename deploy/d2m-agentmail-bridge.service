@@ -1,0 +1,7 @@
+[Unit]
+Description=d2mconcierge <-> AgentMail bridge — relays Lyons WF-17-exception replies into Primary C2
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/email/d2m_agentmail_bridge.py
