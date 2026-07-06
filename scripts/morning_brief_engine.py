@@ -844,6 +844,34 @@ def _build_elon_proposals_section() -> str:
     return "\n".join(lines) + "\n"
 
 
+def _build_quota_review_section() -> str:
+    """Surface named-waiver user quota usage (Bryana Jarboe et al.) on the
+    quarterly review cadence (1st of Jan/Apr/Jul/Oct) or any time a user is
+    at/above 80% of their monthly allowance — otherwise silent, since daily
+    noise on a soft 750/month limit isn't useful."""
+    report_path = THUNDERBIRD / "OpsCenter" / f"bryana_usage_report_{date.today().strftime('%Y-%m')}.json"
+    if not report_path.exists():
+        return ""
+    try:
+        report = json.loads(report_path.read_text())
+    except Exception:
+        return ""
+
+    if not (report.get("is_quarterly_review_day") or report.get("recommend_rebalance")):
+        return ""
+
+    lines = ["### USER QUOTA REVIEW — Bryana Jarboe\n"]
+    lines.append(f"| Used | Allowance | % Used | Trend |")
+    lines.append(f"|---|---|---|---|")
+    lines.append(f"| {report['used_this_month']} | {report['allowance']} | {report['pct_used']}% | {report['trend']} |")
+    if report.get("recommend_rebalance"):
+        lines.append("\n⚠️ >=80% of monthly allowance used — rebalance decision recommended "
+                      "(upgrade AgentMail tier, adjust allowance, or both).")
+    if report.get("weekly_alert_weeks"):
+        lines.append(f"\n🔴 Weekly threshold (85%) crossed: {report['weekly_alert_weeks']}")
+    return "\n".join(lines) + "\n"
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -879,6 +907,7 @@ def main() -> None:
     # OVERNIGHT OPS + CREDENTIALS — run health check, inject into brief
     overnight_section = _build_overnight_section()
     elon_section = _build_elon_proposals_section()
+    quota_section = _build_quota_review_section()
 
     concerns = load_staff_concerns()
     tp_draft = load_tp_draft()
@@ -888,6 +917,8 @@ def main() -> None:
     combined_md = compressed_brief + "\n---\n\n" + overnight_section
     if elon_section:
         combined_md += "\n---\n\n" + elon_section
+    if quota_section:
+        combined_md += "\n---\n\n" + quota_section
     combined_md += "\n---\n\n" + md_brief
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")
