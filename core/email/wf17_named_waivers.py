@@ -58,7 +58,8 @@ def _log_provenance(waiver: dict, to_email: str, subject: str):
 
 
 def send_waived_client_email(to_email: str, subject: str, text: str, html: str | None = None,
-                              attachments: list | None = None) -> dict:
+                              attachments: list | None = None,
+                              in_reply_to_gmail_id: str | None = None) -> dict:
     """THE single send path for named-waiver correspondence. Checks the
     allowlist first — NotWaivedError if the recipient isn't on it, caller
     must fall back to the normal WF-17 draft-and-hold path. Routes to the
@@ -66,7 +67,13 @@ def send_waived_client_email(to_email: str, subject: str, text: str, html: str |
     logs a provenance stamp to hale_decisions.md on every send.
 
     attachments: list of {"filename": str, "path": str} — plain file paths,
-    each channel converts to its own native attachment format."""
+    each channel converts to its own native attachment format.
+
+    in_reply_to_gmail_id: pass the Gmail message id being replied to so this
+    send threads onto it (In-Reply-To/References + reused threadId) instead
+    of starting a new, disconnected thread every time (Commander finding,
+    2026-07-06 — every back-and-forth with a named-waiver correspondent
+    must stay in one thread)."""
     waiver = get_waiver(to_email)
     if waiver is None:
         raise NotWaivedError(
@@ -75,9 +82,11 @@ def send_waived_client_email(to_email: str, subject: str, text: str, html: str |
         )
 
     if waiver["send_channel"] == "d2mconcierge_gmail":
-        result = _send_via_d2mconcierge(to_email, waiver["cc"], subject, text, html, attachments)
+        result = _send_via_d2mconcierge(to_email, waiver["cc"], subject, text, html, attachments,
+                                         in_reply_to_gmail_id)
     elif waiver["send_channel"] == "agentmail_hale_thunderbird":
-        result = _send_via_agentmail(to_email, waiver["cc"], subject, text, html, attachments)
+        result = _send_via_agentmail(to_email, waiver["cc"], subject, text, html, attachments,
+                                      in_reply_to_gmail_id)
     else:
         raise NotWaivedError(f"Unknown send_channel {waiver['send_channel']!r} for {waiver['name']}")
 
@@ -85,7 +94,7 @@ def send_waived_client_email(to_email: str, subject: str, text: str, html: str |
     return {"waiver": waiver["name"], "channel": waiver["send_channel"], **result}
 
 
-def _send_via_d2mconcierge(to_email, cc, subject, text, html, attachments=None):
+def _send_via_d2mconcierge(to_email, cc, subject, text, html, attachments=None, in_reply_to_gmail_id=None):
     import base64
     from email.mime.application import MIMEApplication
     from email.mime.multipart import MIMEMultipart
@@ -97,6 +106,16 @@ def _send_via_d2mconcierge(to_email, cc, subject, text, html, attachments=None):
     msg["to"] = to_email
     msg["cc"] = ", ".join(cc)
     msg["subject"] = subject
+    thread_id = None
+    if in_reply_to_gmail_id:
+        orig = svc.users().messages().get(userId="me", id=in_reply_to_gmail_id, format="metadata",
+                                           metadataHeaders=["Message-ID"]).execute()
+        thread_id = orig.get("threadId")
+        orig_headers = {h["name"].lower(): h["value"] for h in orig.get("payload", {}).get("headers", [])}
+        rfc_message_id = orig_headers.get("message-id")
+        if rfc_message_id:
+            msg["In-Reply-To"] = rfc_message_id
+            msg["References"] = rfc_message_id
     alt = MIMEMultipart("alternative")
     alt.attach(MIMEText(text, "plain"))
     if html:
@@ -108,11 +127,14 @@ def _send_via_d2mconcierge(to_email, cc, subject, text, html, attachments=None):
         part.add_header("Content-Disposition", "attachment", filename=att["filename"])
         msg.attach(part)
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    sent = svc.users().messages().send(userId="me", body={"raw": raw}).execute()
-    return {"gmail_message_id": sent["id"]}
+    body = {"raw": raw}
+    if thread_id:
+        body["threadId"] = thread_id
+    sent = svc.users().messages().send(userId="me", body=body).execute()
+    return {"gmail_message_id": sent["id"], "thread_id": sent["threadId"]}
 
 
-def _send_via_agentmail(to_email, cc, subject, text, html, attachments=None):
+def _send_via_agentmail(to_email, cc, subject, text, html, attachments=None, in_reply_to_gmail_id=None):
     import base64
     from core.email.agentmail_client import AgentMailClient
     client = AgentMailClient()
@@ -128,9 +150,15 @@ def _send_via_agentmail(to_email, cc, subject, text, html, attachments=None):
                 "content_disposition": "attachment",
                 "content": content_b64,
             })
-    sent = client.send_message(
-        inbox_id="hale-thunderbird@agentmail.to",
-        to=[to_email], cc=cc, subject=subject, text=text, html=html,
-        attachments=am_attachments,
-    )
+    if in_reply_to_gmail_id:
+        sent = client.reply_to_message(
+            inbox_id="hale-thunderbird@agentmail.to", message_id=in_reply_to_gmail_id,
+            to=to_email, cc=cc, text=text, html=html, attachments=am_attachments,
+        )
+    else:
+        sent = client.send_message(
+            inbox_id="hale-thunderbird@agentmail.to",
+            to=[to_email], cc=cc, subject=subject, text=text, html=html,
+            attachments=am_attachments,
+        )
     return {"agentmail_message_id": sent.message_id}
