@@ -58,7 +58,6 @@ SERVICES = {
     "thunderbird-telegram-gw": "Telegram Gateway",
     "thunderbird-overwatch": "Hale-Loop Daemon",
     "thunderbird-mcp": "MCP Server",
-    "d2m-tasking-watcher": "Tasking Watcher",
 }
 
 # ── System mode (graceful degradation) ──
