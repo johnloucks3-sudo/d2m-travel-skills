@@ -112,6 +112,27 @@ def check_telegram_reply_since(since_ts: str) -> str | None:
     return None
 
 
+def check_email_reply(gmail_message_id: str) -> str | None:
+    """Cross-channel veto fix (Dembe's finding, 2026-07-06): a proposal sent by
+    email naturally gets replied to IN THE EMAIL THREAD, not on Telegram — the
+    Commander's instinct is to reply where the content lives. Without this
+    check, a 'no' typed into Gmail would be invisible to a timer only
+    listening on Telegram, and auto-execute would fire anyway. Checks the
+    same Gmail thread for any message newer than the notification that
+    wasn't sent by the notification's own sender."""
+    from thunderbird_google_auth import get_commander_gmail
+    svc = get_commander_gmail()
+    orig = svc.users().messages().get(userId="me", id=gmail_message_id, format="metadata").execute()
+    thread_id = orig["threadId"]
+    thread = svc.users().threads().get(userId="me", id=thread_id, format="metadata").execute()
+    for msg in thread.get("messages", []):
+        if msg["id"] == gmail_message_id:
+            continue
+        if int(msg.get("internalDate", 0)) > int(orig.get("internalDate", 0)):
+            return f"reply found in email thread (message {msg['id']})"
+    return None
+
+
 def notify_and_wait(action_description: str, channels=("telegram", "email"),
                      wait_seconds: int = 300, poll_interval: int = 15) -> dict:
     """The Phase 2/3 primitive. Returns {"decision": "GO"|"HOLD", "reason": str}.
@@ -139,10 +160,22 @@ def notify_and_wait(action_description: str, channels=("telegram", "email"),
 
     elapsed = 0
     while elapsed < wait_seconds:
-        reply = check_telegram_reply_since(start)
-        if reply and reply.strip().lower() not in ("roger", "wilco", "done", ""):
-            append_channel_activity("telegram", "auto_execute_decision", f"explicit reply: {reply[:100]}")
-            return {"decision": "HOLD", "reason": f"Commander replied: {reply}"}
+        # Cross-channel veto (Dembe's finding): check BOTH channels every cycle,
+        # not just the one the notification was sent through. A reply typed into
+        # the email thread must kill the timer just as fast as a Telegram reply —
+        # the Commander naturally replies where the content lives, not where the
+        # countdown was announced.
+        tg_reply = check_telegram_reply_since(start)
+        if tg_reply and tg_reply.strip().lower() not in ("roger", "wilco", "done", ""):
+            append_channel_activity("telegram", "auto_execute_decision", f"explicit reply (telegram): {tg_reply[:100]}")
+            return {"decision": "HOLD", "reason": f"Commander replied on Telegram: {tg_reply}"}
+
+        if "email" in refs:
+            email_reply = check_email_reply(refs["email"]["gmail_message_id"])
+            if email_reply:
+                append_channel_activity("email", "auto_execute_decision", f"explicit reply (email): {email_reply}")
+                return {"decision": "HOLD", "reason": f"Commander replied on email: {email_reply}"}
+
         time.sleep(poll_interval)
         elapsed += poll_interval
 
