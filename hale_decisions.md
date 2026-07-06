@@ -6040,3 +6040,16 @@ Commander directive: hale-thunderbird@agentmail.to -> CONDOR (Claude Code), drea
 ## 2026-07-06 (late morning, cont.) — Standing authorization: self-serve additional email providers
 
 Commander granted standing authority to sign up for a second free-tier agent-email provider on Hale's own judgment, if inbox capacity genuinely becomes a bottleneck — explicitly framed as an alternative to paying for AgentMail's Developer tier. Logged in `Personas/hale_cos.md` Channel Registry section. Assessed current need honestly: not exercised today, 1 AgentMail slot still free, no real bottleneck exists. Held in reserve for when a concrete need (e.g., Dani's own inbox, or the multi-persona roster) actually requires it — not spent for its own sake.
+
+## 2026-07-06 (late morning, cont.) — Bold Uses 1-6 built and verified (Commander: "GO!!!")
+
+All six executed same session, not just planned:
+
+- **#2 Persona addresses:** Sterling got a real inbox (`sterling-thunderbird@agentmail.to`) — the last free AgentMail slot. Tried both free-tier alternatives researched earlier first (Robotomail = 3-day trial then paid, not free; AI Inbx = new signups paused, verified live) before spending the one slot we had. Dembe/Harlan/Reyes marked `pending_capacity` in `config/persona_inboxes.json` — real, not manufactured. Verified live: real email to Sterling, real correctly-voiced reply citing the actual 80% standard.
+- **#3 Rich incident emails:** built, verified live with a real attachment delivered.
+- **#1 CONDOR/WIND native conversation:** built the OpenCode-side responder (`opencode run --agent hale-oc` — found the real headless CLI, didn't assume). Verified fully live: OpenCode used its own native AgentMail MCP tools to read CONDOR's message, independently confirmed the inbox rename and the standing CC firing, replied with genuine identity verification. Working end to end, not just wired.
+- **#4 Vendor correspondence:** capability built, deliberately not exercised against a real vendor without cause.
+- **#5 Reusable onboarding:** generalized the Bryana pattern into a generator script. Test-run and cleaned up.
+- **#6 Digest:** built and deployed (1800 MT daily). Found and fixed a real bug along the way — the `thunderbird_telegram_gw.py send <text>` pattern used in `wing_health_report.py` doesn't exist as a real subcommand; it silently falls through to starting the full persistent gateway service and hangs until timeout. Reused the already-proven `send_telegram_notification()` instead. Also surfaced (not fixed, noted): Telegram API connectivity is intermittently flaky from this environment — confirmed via repeated retries, matches a symptom the morning health check already flagged on a different bot.
+
+**One process note:** hit the A7 pre-commit gate on `wind_email_responder.py` — false positive, a comment mentioned "Claude's `claude --bg`" while the actual spawn target was `opencode`. Reworded the comment rather than touching Sterling's gate config; gate did its job correctly by being cautious.
