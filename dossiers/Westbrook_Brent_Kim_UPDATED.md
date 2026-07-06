@@ -3,18 +3,21 @@ client: Westbrook
 full_name: Brent Westbrook & Kim Westbrook (+ daughters Ava & Ally)
 status: active
 relationship: friend
-notes: Pro bono — ACTIVE TRIP, not "under evaluation." Option B (Celebrity Ascent) selected; live excursion planning underway as of 2026-07-01 (Bar/Montenegro, Kotor). Rondo Westbrook family connection. No commission charged. Booking confirmation # and payment status NOT YET CONFIRMED against portal/TESS — flag, don't assume, per Pipeline Integrity Rule 1.
+notes: Pro bono — ACTIVE TRIP, not "under evaluation." Option B (Celebrity Ascent) selected; live excursion planning underway as of 2026-07-01 (Bar/Montenegro, Kotor). Rondo Westbrook family connection. No commission charged. Booking confirmation # and payment status NOT YET CONFIRMED against portal/TESS — flag, don't assume, per Pipeline Integrity Rule 1. **PERMANENT: Kim will never be a converted/commission client — this is friend-tier only, always (Commander directive 2026-07-06).**
 ---
 
 # DOSSIER — Brent & Kim Westbrook + Ava & Ally
 **Updated 2026-07-06 (Hale, structural fields only, sourced from live Gmail correspondence — see below) | Original 2026-05-20**
 
 **⚠️ STATUS CORRECTION (2026-07-06):** This dossier's "NEXT ACTIONS" section (below) was stale — it still listed "Commander reviews comparison doc and selects Option A or B" as pending. Real Gmail evidence (johnloucks3 + d2mconcierge, searched 2026-07-06) shows **Option B (Celebrity Ascent) was selected weeks ago** and the trip is in active execution:
+- **DEPARTURE: 2026-07-17** (per the original Option B dates, Jul 17–27, Rome round trip) — **11 days out as of 2026-07-06.** (Correction: an earlier version of this note wrongly said Jul 22 was departure — that's actually a mid-cruise PORT DAY, Bar/Montenegro, not embarkation.)
+- **Pre-cruise:** Commander confirms a separate trip to drop Ava off at Auburn University happens before the Jul 17 departure — tight family travel stretch, worth factoring into timing of any outreach.
 - **2026-06-16** — Dani formally introduced to Kim & Brent ("A little help for your Roman summer — meet Dani")
-- **2026-05-28** — "Rome by Night" dining options sent, party of 4, Jul 16
+- **2026-05-28** — "Rome by Night" dining options sent, party of 4, Jul 16 (pre-cruise Rome night)
 - **2026-06-29** — Kim gave direct feedback on the d2mluxury.quest cruise discovery tool (positive — validated the Viator/GetYourGuide markup-avoidance thesis)
-- **2026-07-01** — Live excursion planning for **Bar, Montenegro** (Jul 22) — Commander and Kim went back and forth correcting Kotor vs. Bar as the actual port, settled on a Bar-area excursion
-- Correspondence has been **directly John↔Kim** (johnloucks3), with Dani-branded content forwarded/attached, not a live Dani-voice thread — worth deciding whether to formalize this as Dani's now that the WF-17 named-waiver channel exists (2026-07-06 build), or leave it as-is since it's clearly working and warm.
+- **2026-07-01** — Live excursion planning for the **Bar, Montenegro port day (Jul 22, mid-cruise)** — Commander and Kim went back and forth correcting Kotor vs. Bar as the actual port, settled on a Bar-area excursion
+- **🎂 July 22 is both John's AND Kim's birthday** — lands exactly on the Bar, Montenegro port day. Genuinely warm coincidence, worth leading with over any capability/process framing.
+- Correspondence has been **directly John↔Kim** (johnloucks3), with Dani-branded content forwarded/attached, not a live Dani-voice thread. **Commander directive 2026-07-06: add the new AgentMail email capability for Kim — smoother than Telegram, and matches how she already prefers to correspond. Commander's own read: "might be a blessing for her, or she might ignore" — keep this low-key, no formal capability-launch framing, fold it in naturally.**
 
 **Not yet confirmed (flag, not assumed):** exact booking confirmation number, cabin assignment, payment/FPD status. None of these appeared in the correspondence searched. Do not use dollar figures or payment status from this dossier in any client product until verified against portal/TESS per Harlan's freshness rules — this dossier predates the booking decision and was never updated with those specifics.
 
@@ -33,7 +36,8 @@ notes: Pro bono — ACTIVE TRIP, not "under evaluation." Option B (Celebrity Asc
 - Contact: crnakim@yahoo.com
 - Email: crnakim@yahoo.com (Commander-confirmed, 2026-07-06)
 - Phone: [TBD]
-- Books own travel via Interline/Perx (airline-family + hospital perks) — D2M does not have access to those channels; relationship is advisory/pro-bono, not transactional booking.
+- **Never a booking/commission client — permanent friend-tier relationship (Commander directive 2026-07-06).**
+- Books her own travel via **Interline** (Brent's Southwest employee benefit — D2M has no access, family/job-tied) and **Perx** (**correction 2026-07-06: D2M DOES have Perx access** — `scripts/perx_intel_monitor.py`, HTML-heuristic since the API is dead — Kim CAN be helped here, this was wrongly grouped with Interline earlier). Also independently uses GetYourGuide and other excursion tools for her own research — real opportunity to add value from D2M's existing excursion-research capability (GetYourGuide/Viator search tools, `/excursion-analysis` skill) without booking anything on her behalf.
 
 **Ava Westbrook** (daughter, 18)
 - Traveling with family
