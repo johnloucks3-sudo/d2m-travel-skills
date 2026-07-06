@@ -512,7 +512,13 @@ def tg_send(token: str, chat_id: int, text: str, parse_mode: str = "HTML") -> bo
 
 
 def tg_send_chunks(token: str, chat_id: int, chunks: list[str]) -> None:
-    """Send multiple chunks with 0.5s delay, plain-text fallback on error."""
+    """Send multiple chunks with 0.5s delay, plain-text fallback on error.
+
+    DEPRECATED as the default path for long-form content (briefs, sitreps) —
+    AgentMail email is now primary C2 and carries long content natively.
+    Still available for short multi-part Telegram sends. See
+    docs/AGENTMAIL_BOLD_USES_AND_OBE_AUDIT_20260706.md Part 2.
+    """
     for chunk in chunks:
         success = tg_send(token, chat_id, chunk, parse_mode="HTML")
         if not success:
