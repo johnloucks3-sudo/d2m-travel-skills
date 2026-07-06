@@ -32,8 +32,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-BRIDGE_PATH = Path(__file__).parent / "brain_bridge_board.json"
-LOCK_PATH   = Path(__file__).parent / "brain_bridge.lock"
+# BRAIN_BRIDGE_BOARD_PATH override exists so tests/smoke-runs can point at a
+# scratch file instead of the shared production board (mirrors the
+# HALE_BUS_STATE_PATH pattern in core/hale_bus/hale_bus_write.py).
+BRIDGE_PATH = Path(os.environ.get("BRAIN_BRIDGE_BOARD_PATH", str(Path(__file__).parent / "brain_bridge_board.json")))
+LOCK_PATH   = BRIDGE_PATH.with_suffix(".lock")
 
 VALID_LANES   = {"cc", "oc", "any"}
 VALID_STATUSES = {"pending", "claimed", "complete", "blocked", "failed"}

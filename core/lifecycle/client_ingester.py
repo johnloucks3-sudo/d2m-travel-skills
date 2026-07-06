@@ -83,7 +83,8 @@ def determine_phase(
     fpd: date,
     payment_status: Optional[str] = None,
     payment_date: Optional[date] = None,
-    client_label: str = ""
+    client_label: str = "",
+    as_of: Optional[date] = None
 ) -> Tuple[str, str]:
     """
     Determine client lifecycle phase based on anchor dates and payment status.
@@ -96,12 +97,15 @@ def determine_phase(
         payment_status: "paid", "pending", or "partial"
         payment_date: Actual date payment was received (if any)
         client_label: Human-readable client identifier
+        as_of: Reference date to evaluate against (default: today). Lets
+            callers (tests, event handlers) compute the phase for a fixed
+            point in time instead of the moment the process happens to run.
 
     Returns:
         Tuple: (phase_code, phase_name)
         e.g. ("PHASE_3", "Polish")
     """
-    today = date.today()
+    today = as_of or date.today()
 
     # Business logic priority: immovable dates override everything
 
@@ -155,7 +159,8 @@ def validate_anchor_dates(
     embark_date: Optional[date] = None,
     disembark_date: Optional[date] = None,
     fpd: Optional[date] = None,
-    client_label: str = ""
+    client_label: str = "",
+    as_of: Optional[date] = None
 ) -> Dict[str, any]:
     """
     Validate that all required anchor dates exist and are logically consistent.
@@ -214,12 +219,13 @@ def validate_anchor_dates(
             errors.append(f"{client_label}: booking_date not before embark")
 
         # Warning if FPD is very close to embark (< 14 days)
-        days_to_fpd = (fpd - date.today()).days
+        today = as_of or date.today()
+        days_to_fpd = (fpd - today).days
         if 0 <= days_to_fpd < 14:
             warnings.append(f"{client_label}: FPD approaching (T-{days_to_fpd} days)")
 
         # Warning if voyage dates are in the past (should be future-dated or current)
-        if embark_date < date.today():
+        if embark_date < today:
             warnings.append(f"{client_label}: embark_date is in the past")
 
     return {

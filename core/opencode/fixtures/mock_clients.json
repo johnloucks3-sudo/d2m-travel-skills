@@ -1,0 +1,35 @@
+[
+  {
+    "booking_id": "MOCK-NORMAL-001",
+    "client_label": "Normal Scenario — standard Regent T-120 gap",
+    "booking_date": "2025-09-15",
+    "fpd": "2026-05-01",
+    "embark_date": "2026-08-29",
+    "disembark_date": "2026-09-08",
+    "payment_status": "pending",
+    "payment_date": null,
+    "cruise_line": "Regent"
+  },
+  {
+    "booking_id": "MOCK-EARLY-EMBARK-002",
+    "client_label": "Early Embark Scenario — last-minute Viking booking, compressed lead time",
+    "booking_date": "2026-06-01",
+    "fpd": "2026-06-15",
+    "embark_date": "2026-07-15",
+    "disembark_date": "2026-07-22",
+    "payment_status": "paid",
+    "payment_date": "2026-06-14",
+    "cruise_line": "Viking"
+  },
+  {
+    "booking_id": "MOCK-LATE-FPD-003",
+    "client_label": "Late FPD Scenario — Regent contract term violated, FPD only 9 days before embark",
+    "booking_date": "2025-11-01",
+    "fpd": "2026-12-08",
+    "embark_date": "2026-12-17",
+    "disembark_date": "2026-12-27",
+    "payment_status": "paid",
+    "payment_date": "2026-12-05",
+    "cruise_line": "Regent"
+  }
+]
