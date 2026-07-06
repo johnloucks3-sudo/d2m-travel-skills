@@ -1,13 +1,22 @@
 ---
 client: Westbrook
 full_name: Brent Westbrook & Kim Westbrook (+ daughters Ava & Ally)
-status: pro_bono
+status: active
 relationship: friend
-notes: Pro bono — active planning, cruise options under evaluation, no booking yet. Rondo Westbrook family connection. No commission charged.
+notes: Pro bono — ACTIVE TRIP, not "under evaluation." Option B (Celebrity Ascent) selected; live excursion planning underway as of 2026-07-01 (Bar/Montenegro, Kotor). Rondo Westbrook family connection. No commission charged. Booking confirmation # and payment status NOT YET CONFIRMED against portal/TESS — flag, don't assume, per Pipeline Integrity Rule 1.
 ---
 
 # DOSSIER — Brent & Kim Westbrook + Ava & Ally
-**Updated 2026-05-20 | Status: Active Planning — Pro Bono (entire family)**
+**Updated 2026-07-06 (Hale, structural fields only, sourced from live Gmail correspondence — see below) | Original 2026-05-20**
+
+**⚠️ STATUS CORRECTION (2026-07-06):** This dossier's "NEXT ACTIONS" section (below) was stale — it still listed "Commander reviews comparison doc and selects Option A or B" as pending. Real Gmail evidence (johnloucks3 + d2mconcierge, searched 2026-07-06) shows **Option B (Celebrity Ascent) was selected weeks ago** and the trip is in active execution:
+- **2026-06-16** — Dani formally introduced to Kim & Brent ("A little help for your Roman summer — meet Dani")
+- **2026-05-28** — "Rome by Night" dining options sent, party of 4, Jul 16
+- **2026-06-29** — Kim gave direct feedback on the d2mluxury.quest cruise discovery tool (positive — validated the Viator/GetYourGuide markup-avoidance thesis)
+- **2026-07-01** — Live excursion planning for **Bar, Montenegro** (Jul 22) — Commander and Kim went back and forth correcting Kotor vs. Bar as the actual port, settled on a Bar-area excursion
+- Correspondence has been **directly John↔Kim** (johnloucks3), with Dani-branded content forwarded/attached, not a live Dani-voice thread — worth deciding whether to formalize this as Dani's now that the WF-17 named-waiver channel exists (2026-07-06 build), or leave it as-is since it's clearly working and warm.
+
+**Not yet confirmed (flag, not assumed):** exact booking confirmation number, cabin assignment, payment/FPD status. None of these appeared in the correspondence searched. Do not use dollar figures or payment status from this dossier in any client product until verified against portal/TESS per Harlan's freshness rules — this dossier predates the booking decision and was never updated with those specifics.
 
 ---
 
@@ -108,15 +117,15 @@ All four passengers (Brent, Kim, Ava, Ally) — no commission charged. This is a
 
 ---
 
-## NEXT ACTIONS
+## NEXT ACTIONS (corrected 2026-07-06 — see status correction above, real facts, not the stale 2026-05-20 checklist)
 
 1. ✅ Research both cruises, hotels, train logistics — COMPLETE
 2. ✅ Produce comparison document for Commander review — COMPLETE
-3. ⏳ Commander reviews comparison doc and selects Option A or B
-4. ⏳ Capture Brent & Kim contact details
-5. ⏳ Confirm specific cabin category and pricing
-6. ⏳ WF-17: Commander approval before any client contact
-7. ⏳ Dani reaches out with proposal framework
+3. ✅ Option B (Celebrity Ascent) selected — live since at least 2026-06-16
+4. ✅ Contact captured — crnakim@yahoo.com (Kim), WESTY737@gmail.com (Brent)
+5. ⏳ Booking confirmation #, cabin, payment/FPD status — NOT FOUND in correspondence, needs a direct check (portal/TESS) before any client-facing dollar figure or deadline is stated
+6. ✅ Active correspondence already running (johnloucks3 direct, Dani-branded content) — trip is 16 days out as of 2026-07-06 (Jul 22 excursion date confirmed live)
+7. ⏳ Decide: keep the current johnloucks3-personal correspondence pattern (working, warm) or formalize onto the new WF-17 named-waiver Dani-voice/d2mconcierge channel now that it exists — not urgent, trip is close, don't disrupt a working relationship mid-trip for a process upgrade
 
 ---
 
