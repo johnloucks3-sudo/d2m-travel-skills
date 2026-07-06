@@ -6030,3 +6030,9 @@ Commander waived his own review ("I do not need to review it"). Before sending, 
 **Item 4 (alternatives with calendar/chat):** Researched. Nylas has an "Agent Accounts" beta (multi-provider email+calendar, hosted mailbox). ELON's finding: Hale already has calendar via existing Workspace MCP tools on a separate rail — no gap to fill, switching would be churn not leverage. Not recommended.
 
 **Item 5 (ROE):** Full staff consultation (Sterling, Dembe, ELON). Dembe found a real race condition in the Commander's own example pattern — a proposal sent by email with a Telegram countdown could be silently overridden by a reply typed into the email thread, which the timer never checked. **Fixed same session** in `core/ops/confirmed_auto_execute.py` — both channels now checked every poll cycle, real-time, not end-of-day digest reconciliation. Full ROE: `docs/TELEGRAM_AGENTMAIL_ROE_20260706.md`.
+
+## 2026-07-06 (late morning, cont.) — CONDOR/WIND inbox split + standing CC
+
+Commander directive: hale-thunderbird@agentmail.to -> CONDOR (Claude Code), dreams2memories-80921@agentmail.to -> WIND (OpenCode, renamed "JET — Thunderbird Wing WIND"). Both tagged via inbox metadata. opencode.json's hale-oc prompt updated with its own AgentMail identity so OpenCode-side agents send from WIND, not CONDOR.
+
+**Standing CC (Commander directive, same message):** "for now, cc me in all correspondence so I can monitor until I am convinced our quota on FREE tier will be safe and so I can ascertain the nature of communication." Enforced at the client level (`core/email/agentmail_client.py::_with_standing_cc()`) — every send/reply on either inbox auto-adds johnloucks3, can't be skipped by a forgetful call site. Verified live: sent CONDOR->WIND without passing cc explicitly, confirmed delivery to johnloucks3. Remove `_with_standing_cc()` call sites when Commander lifts this.
