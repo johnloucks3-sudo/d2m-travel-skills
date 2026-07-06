@@ -3,8 +3,14 @@
   "waivers": [
     {
       "name": "Nancy Lyons",
-      "emails": ["klyons3@bellsouth.net", "nancylyons73@outlook.com"],
-      "cc": ["kenlyons73@bellsouth.net", "johnloucks3@gmail.com"],
+      "emails": [
+        "klyons3@bellsouth.net",
+        "nancylyons73@outlook.com"
+      ],
+      "cc": [
+        "kenlyons73@bellsouth.net",
+        "johnloucks3@gmail.com"
+      ],
       "voice_track": "dani",
       "send_channel": "d2mconcierge_gmail",
       "granted_date": "2026-07-05",
@@ -17,8 +23,12 @@
     },
     {
       "name": "Kim Westbrook",
-      "emails": ["crnakim@yahoo.com"],
-      "cc": ["johnloucks3@gmail.com"],
+      "emails": [
+        "crnakim@yahoo.com"
+      ],
+      "cc": [
+        "johnloucks3@gmail.com"
+      ],
       "voice_track": "dani",
       "send_channel": "d2mconcierge_gmail",
       "granted_date": "2026-07-06",
@@ -27,13 +37,17 @@
         "CC johnloucks3 every message",
         "Hale + Silver review every draft before send",
         "friend/peer voice, not concierge-to-prospect",
-        "advisory only — she books her own travel via Interline/Perx, D2M has no access to those channels"
+        "advisory only \u2014 she books her own travel via Interline/Perx, D2M has no access to those channels"
       ]
     },
     {
       "name": "Stefanie Burcham",
-      "emails": ["stef@bbenefits.net"],
-      "cc": ["johnloucks3@gmail.com"],
+      "emails": [
+        "stef@bbenefits.net"
+      ],
+      "cc": [
+        "johnloucks3@gmail.com"
+      ],
       "voice_track": "dani",
       "send_channel": "d2mconcierge_gmail",
       "granted_date": "2026-07-06",
@@ -41,14 +55,18 @@
       "conditions": [
         "CC johnloucks3 every message",
         "Hale + Silver review every draft before send",
-        "peer/family voice — she is a Nexion-affiliated travel agent and Commander's sister, not a sales prospect",
-        "highest reputational stakes of the five — extra care, not less, despite the waiver"
+        "peer/family voice \u2014 she is a Nexion-affiliated travel agent and Commander's sister, not a sales prospect",
+        "highest reputational stakes of the five \u2014 extra care, not less, despite the waiver"
       ]
     },
     {
       "name": "Bryana Jarboe",
-      "emails": ["bryanajarboe@gmail.com"],
-      "cc": ["johnloucks3@gmail.com"],
+      "emails": [
+        "bryanajarboe@gmail.com"
+      ],
+      "cc": [
+        "johnloucks3@gmail.com"
+      ],
       "voice_track": "hale",
       "send_channel": "agentmail_hale_thunderbird",
       "granted_date": "2026-07-06",
@@ -56,22 +74,26 @@
       "conditions": [
         "CC johnloucks3",
         "Hale reviews her own sends before they go",
-        "gift-tier friend — uses Hale directly, not Dani"
+        "gift-tier friend \u2014 uses Hale directly, not Dani"
       ]
     },
     {
       "name": "Susan Loucks",
-      "emails": ["susanna.loucks@gmail.com"],
-      "cc": ["johnloucks3@gmail.com"],
+      "emails": [
+        "susanna.loucks@gmail.com"
+      ],
+      "cc": [
+        "johnloucks3@gmail.com"
+      ],
       "voice_track": "hale",
       "send_channel": "agentmail_hale_thunderbird",
       "granted_date": "2026-07-06",
       "source": "WF17_NAMED_WAIVER_EXPANSION_PLAN_20260706.md",
-      "scope_note": "Recommendation A (Commander-approved): general Wing-adjacent correspondence only. Does NOT cover Loucks joint-trip-as-D2M-client lifecycle emails — those stay routed to johnloucks3 only per the existing SO 2026-06-18 carve-out (PL-004/PL-006), untouched by this waiver.",
+      "scope_note": "Recommendation A (Commander-approved): general Wing-adjacent correspondence only. Does NOT cover Loucks joint-trip-as-D2M-client lifecycle emails \u2014 those stay routed to johnloucks3 only per the existing SO 2026-06-18 carve-out (PL-004/PL-006), untouched by this waiver.",
       "conditions": [
         "CC johnloucks3",
         "Hale reviews her own sends before they go",
-        "does NOT cover Loucks joint-trip lifecycle emails — see scope_note, that stays johnloucks3-only"
+        "does NOT cover Loucks joint-trip lifecycle emails \u2014 see scope_note, that stays johnloucks3-only"
       ]
     }
   ]

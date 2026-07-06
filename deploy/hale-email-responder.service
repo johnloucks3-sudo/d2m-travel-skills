@@ -1,0 +1,7 @@
+[Unit]
+Description=Hale Email Responder — closes Console/Email capability gap (Bryana/Susan Hale-voice track)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/email/hale_email_responder.py

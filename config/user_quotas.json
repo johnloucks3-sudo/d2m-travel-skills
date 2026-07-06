@@ -1,0 +1,11 @@
+{
+  "_doc": "Per-correspondent monthly message quota for Hale-voice-track named-waiver users. Separate from the account-wide AgentMail free-tier buffer (core/email/agentmail_quota.py) — this tracks fairness/usage per person, not the platform ceiling.",
+  "users": {
+    "bryanajarboe@gmail.com": {
+      "name": "Bryana Jarboe",
+      "monthly_limit": 750,
+      "granted_date": "2026-07-06",
+      "note": "Gift-tier friend, Hale voice. 750/month 'for now' per Commander — soft alert, not a hard cutoff; raises for a quota increase conversation, does not stop serving her mid-conversation."
+    }
+  }
+}
