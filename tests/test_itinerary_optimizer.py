@@ -131,6 +131,18 @@ def test_real_voyage_no_false_positive_in_shoulder_season():
     assert optimize(stops) == []
 
 
+def test_real_scandinavia_voyage_copenhagen_matches_spec_worked_example():
+    """The spec's own worked example: Copenhagen Sep 4 (weekend, shoulder season)
+    -> suggest Sep 3 instead (the weekday day in the same overnight stay)."""
+    stops = load_voyage_from_mirror("3096289")
+    suggestions = optimize(stops)
+    copenhagen_hits = [s for s in suggestions if s.port.lower().startswith("copenhagen")]
+    assert len(copenhagen_hits) == 1
+    hit = copenhagen_hits[0]
+    assert hit.issue == "crowd"
+    assert "2026-09-03" in hit.alternative
+
+
 def test_real_scandinavia_voyage_grouping_captures_copenhagen_overnight():
     """Booking 3096289 (Ely-Darrow Scandinavia) — Copenhagen is a real 2-day
     overnight call (Sep 3-4, 2026); confirm grouping treats it as one PortCall."""

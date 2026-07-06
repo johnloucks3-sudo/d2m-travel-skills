@@ -511,41 +511,46 @@ def optimize(stops: list[PortStop]) -> list[Suggestion]:
                 ))
 
         # ── crowd check ──
+        # The weekend-congestion nudge is orthogonal to whole-season crowd level:
+        # a multi-day call spanning a weekend draws heavier local + day-tripper
+        # traffic on the weekend day regardless of whether the month overall is
+        # peak or just shoulder — so it fires on either. The alternate-port /
+        # "none identified" fallbacks are a whole-season concern and stay
+        # peak-only.
         level = crowd_level(call.region, month)
-        if level == "peak":
-            weekday_alt_date = _weekday_alternate_day(call)
-            if weekday_alt_date:
+        weekday_alt_date = _weekday_alternate_day(call) if level in ("peak", "shoulder") else None
+        if weekday_alt_date:
+            suggestions.append(Suggestion(
+                booking_id=booking_id, port=call.port, date=iso, issue="crowd",
+                alternative=f"shift flexible/must-do activities to {weekday_alt_date.isoformat()}",
+                reasoning=(f"{call.port} is in {level} cruise season for month {month}; "
+                           f"this call spans a weekend day. {weekday_alt_date.strftime('%A')} "
+                           f"({weekday_alt_date.isoformat()}) is the weekday day in the same "
+                           f"stay and typically sees lower combined ship + local-tourism traffic."),
+                confidence="INFERRED",
+                source=f"cruise-industry seasonal crowd pattern ({call.region}, month {month})",
+            ))
+        elif level == "peak":
+            alt = _best_alternate_port(call.region, call.port, month, "crowd")
+            if alt:
                 suggestions.append(Suggestion(
                     booking_id=booking_id, port=call.port, date=iso, issue="crowd",
-                    alternative=f"shift flexible/must-do activities to {weekday_alt_date.isoformat()}",
-                    reasoning=(f"{call.port} is in peak cruise season for month {month}; "
-                               f"this call spans a weekend day. {weekday_alt_date.strftime('%A')} "
-                               f"({weekday_alt_date.isoformat()}) is the weekday day in the same "
-                               f"stay and typically sees lower combined ship + local-tourism traffic."),
+                    alternative=alt,
+                    reasoning=(f"{call.port} is in peak cruise season for month {month}. "
+                               f"{alt} is a region port not flagged peak for the same window."),
                     confidence="INFERRED",
                     source=f"cruise-industry seasonal crowd pattern ({call.region}, month {month})",
                 ))
             else:
-                alt = _best_alternate_port(call.region, call.port, month, "crowd")
-                if alt:
-                    suggestions.append(Suggestion(
-                        booking_id=booking_id, port=call.port, date=iso, issue="crowd",
-                        alternative=alt,
-                        reasoning=(f"{call.port} is in peak cruise season for month {month}. "
-                                   f"{alt} is a region port not flagged peak for the same window."),
-                        confidence="INFERRED",
-                        source=f"cruise-industry seasonal crowd pattern ({call.region}, month {month})",
-                    ))
-                else:
-                    suggestions.append(Suggestion(
-                        booking_id=booking_id, port=call.port, date=iso, issue="crowd",
-                        alternative="none identified — recommend earliest-morning or last-departure excursion slots",
-                        reasoning=(f"{call.port} is in peak cruise season for month {month}; "
-                                   f"the whole region runs peak in this window, so no region "
-                                   f"alternate is off-peak either."),
-                        confidence="INFERRED",
-                        source=f"cruise-industry seasonal crowd pattern ({call.region}, month {month})",
-                    ))
+                suggestions.append(Suggestion(
+                    booking_id=booking_id, port=call.port, date=iso, issue="crowd",
+                    alternative="none identified — recommend earliest-morning or last-departure excursion slots",
+                    reasoning=(f"{call.port} is in peak cruise season for month {month}; "
+                               f"the whole region runs peak in this window, so no region "
+                               f"alternate is off-peak either."),
+                    confidence="INFERRED",
+                    source=f"cruise-industry seasonal crowd pattern ({call.region}, month {month})",
+                ))
 
     return suggestions
 
