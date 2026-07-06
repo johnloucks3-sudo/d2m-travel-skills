@@ -6119,3 +6119,6 @@ Proposal file was 0 bytes — created 2026-05-17, never populated. Checked wheth
 **Verdict:** No decision needed — feature already shipped and running. Same pattern as the 3 stale QUEUE_FOR_COMMANDER proposals closed earlier today: autonomous work resolved the need without closing the originating ticket. Full findings: `OpsCenter/elon_proposals/D2M_EMAIL_INTEL_EXECUTION.md`.
 
 ---
+
+## 2026-07-06 — Cross-channel context-miss rate (weekly)
+**Metric:** 0/0 messages (0.00%) — OK. Source: `OpsCenter/state/channel_context_miss.json`. Doctrine: `docs/TELEGRAM_AGENTMAIL_ROE_20260706.md`.

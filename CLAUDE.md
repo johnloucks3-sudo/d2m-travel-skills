@@ -337,6 +337,22 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 **Handoff:** JET pulls & verifies first (structured, sourced) → TALON writes around the confirmed figure → gate checks the finished draft → WF-17. Copy never flows backward to get its own facts.
 **Hale's discipline:** ops/mechanical work is JET's — post to `core/hale_bus/brain_bridge.py add --lane oc` immediately, never grind it in the Claude lane. Full SO + both wings' position papers: `standing_orders/SO_TALON_JET_DIVISION_OF_LABOR_20260703.md`.
 
+## ⚠️ HARD RULE — CHANNEL ROUTING RULES (TELEGRAM VS AGENTMAIL) (SO 2026-07-06)
+**Full ROE:** `docs/TELEGRAM_AGENTMAIL_ROE_20260706.md` · **Decision tree + examples:** `docs/CHANNEL_ROUTING_REFERENCE.md` · **Engine:** `core/email/channel_router.py`
+
+**The dividing line (Sterling):** durable artifact vs signal. Anything with substance the Commander re-reads (proposal, research reply, draft) is an AgentMail artifact. Anything that's just a nudge (notify, ack, status, "look now") rides Telegram. Quota is a constraint on this, not the rule itself.
+
+**The five rules, code-enforced via `route_by_content_type()`:**
+1. Content on email, control on Telegram.
+2. Notify-and-wait is always Telegram.
+3. **One thread, one medium — enforced by `channel_router.check_thread_handoff()`.** Hale must say **"continuing on Telegram"** (or the email equivalent) before switching channels mid-conversation. Never a silent switch. A silent switch is logged as an anomaly against the cross-channel context-miss metric, not just skipped.
+4. Daily digest rides Telegram, sourced from the AgentMail log.
+5. The five named-waiver correspondents (`config/wf17_named_waivers.json`) never route through Telegram — `channel_router` forces AgentMail for these regardless of message type.
+
+**Metric:** cross-channel context-miss rate (Commander replies "what?" or "where?"). Target **<2%**. Logged weekly to `hale_decisions.md` via `channel_router.log_weekly_context_miss_metric()`, reviewed in the Baldrige sweep.
+
+**Cross-channel veto (unaffected by this SO, already fixed 2026-07-06):** `core/ops/confirmed_auto_execute.py`'s notify-and-wait timer checks BOTH channels every poll cycle — a reply in an email thread kills the timer exactly as fast as a Telegram reply. See `core/ops/test_confirmed_auto_execute_veto.py`.
+
 ## REFERENCE TABLES & SECTIONS
 **Identity, Wing roster, commission defaults, cruise lines, and full protocols:** See `docs/CLAUDE_REFERENCE.md` — load on demand.
 
