@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "purpose": "Card -> lounge network entitlement map for core/travel/lounge_coordinator.py",
+    "source": "Publicly documented issuer benefit guides as of 2026-07; verify against the client's actual card benefits guide before a client-facing send — issuer terms change without notice.",
+    "last_updated": "2026-07-06"
+  },
+  "Amex Platinum": {
+    "issuer": "American Express",
+    "networks": [
+      {"network": "Centurion Lounge", "guests": 2, "condition": "cardholder + up to 2 guests free; additional guests $50 each"},
+      {"network": "Priority Pass Select", "guests": 2, "condition": "enrollment required via Amex Travel; restaurant credit at participating airport restaurants in lieu of lounge"},
+      {"network": "Delta Sky Club", "guests": 0, "condition": "only when flying Delta same-day, cardholder only, max 6 visits/year unless $75k+ annual spend"},
+      {"network": "Escape Lounges", "guests": 1, "condition": "cardholder + 1 guest, UK/US select airports"}
+    ]
+  },
+  "Amex Business Platinum": {
+    "issuer": "American Express",
+    "networks": [
+      {"network": "Centurion Lounge", "guests": 2, "condition": "cardholder + up to 2 guests free"},
+      {"network": "Priority Pass Select", "guests": 2, "condition": "enrollment required via Amex Travel"}
+    ]
+  },
+  "Amex Gold": {
+    "issuer": "American Express",
+    "networks": [],
+    "note": "No airport lounge network access on this card."
+  },
+  "Chase Sapphire Reserve": {
+    "issuer": "Chase",
+    "networks": [
+      {"network": "Priority Pass Select", "guests": 2, "condition": "unlimited visits, cardholder + 2 guests free; enrollment required via Chase"},
+      {"network": "Chase Sapphire Lounge by The Club", "guests": 2, "condition": "cardholder + 2 guests free at Chase-branded locations (e.g. LGA, BOS, PHL, SAN)"}
+    ]
+  },
+  "Chase Sapphire Preferred": {
+    "issuer": "Chase",
+    "networks": [],
+    "note": "No airport lounge network access on this card."
+  },
+  "Capital One Venture X": {
+    "issuer": "Capital One",
+    "networks": [
+      {"network": "Priority Pass Select", "guests": 2, "condition": "unlimited visits, cardholder + 2 guests free; enrollment required via Capital One"},
+      {"network": "Capital One Lounge", "guests": 2, "condition": "cardholder + 2 guests free at Capital One-branded locations (e.g. IAD, DFW, DEN)"}
+    ]
+  },
+  "Citi Prestige": {
+    "issuer": "Citi",
+    "networks": [
+      {"network": "Priority Pass Select", "guests": 2, "condition": "legacy benefit on grandfathered accounts only; new Citi Prestige applications closed 2020 — confirm the client's card is a legacy account before relying on this"}
+    ]
+  },
+  "United Club Infinite Card": {
+    "issuer": "Chase",
+    "networks": [
+      {"network": "United Club", "guests": 2, "condition": "cardholder + 2 guests (or immediate family) free, any United-operated flight"},
+      {"network": "Priority Pass Select", "guests": 1, "condition": "cardholder + 1 guest, restaurant/lounge network"}
+    ]
+  },
+  "Delta SkyMiles Reserve": {
+    "issuer": "American Express",
+    "networks": [
+      {"network": "Delta Sky Club", "guests": 0, "condition": "cardholder only, unlimited visits when flying Delta same-day"},
+      {"network": "Centurion Lounge", "guests": 0, "condition": "cardholder only, when flying Delta same-day"}
+    ]
+  }
+}

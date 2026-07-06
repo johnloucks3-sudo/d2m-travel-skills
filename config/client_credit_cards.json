@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "purpose": "Per-client credit card portfolio, keyed by client display name, for core/travel/lounge_coordinator.py.",
+    "status": "EMPTY TEMPLATE as of 2026-07-06 — no dossier or intake form currently captures card portfolio. Verified: grep of dossiers/ for card/lounge keywords returned no per-client card data (see hale_decisions.md entry this date). Do not infer a client's cards from spend patterns in a dossier (e.g. a 'cc' fare column) — that is a price-comparison artifact, not a card-ownership fact. Populate only from a confirmed source: client intake form or a direct client statement.",
+    "card_names_must_match": "config/credit_card_lounge_benefits.json keys exactly",
+    "last_updated": "2026-07-06"
+  },
+  "clients": {}
+}

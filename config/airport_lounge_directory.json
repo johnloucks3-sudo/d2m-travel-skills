@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "purpose": "Airport -> terminal -> lounge directory for core/travel/lounge_coordinator.py",
+    "source": "Publicly documented lounge locations as of 2026-07; hours/terminal assignments shift with airport construction — reverify before a client-facing send.",
+    "last_updated": "2026-07-06"
+  },
+  "DEN": {
+    "name": "Denver International",
+    "lounges": [
+      {"name": "Amex Centurion Lounge Denver", "terminal": "Concourse A", "network": "Centurion Lounge", "hours": "05:00-22:00 daily", "amenities": ["Full bar", "Chef-curated dining", "Showers", "Family room"]},
+      {"name": "United Club (Concourse B, Rotunda)", "terminal": "Concourse B", "network": "United Club", "hours": "05:00-22:00 daily", "amenities": ["Bar", "Snacks", "Wi-Fi", "Business center"]},
+      {"name": "Capital One Lounge Denver", "terminal": "Concourse C", "network": "Capital One Lounge", "hours": "05:00-22:00 daily", "amenities": ["Full bar", "Chef-curated buffet", "Showers", "Wellness room"]},
+      {"name": "The Club at DEN (Concourse C)", "terminal": "Concourse C", "network": "Priority Pass Select", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  },
+  "JFK": {
+    "name": "New York John F. Kennedy",
+    "lounges": [
+      {"name": "Amex Centurion Lounge JFK (Terminal 4)", "terminal": "Terminal 4", "network": "Centurion Lounge", "hours": "05:00-23:00 daily", "amenities": ["Full bar", "Sit-down dining", "Showers"]},
+      {"name": "Delta Sky Club (Terminal 4)", "terminal": "Terminal 4", "network": "Delta Sky Club", "hours": "05:00-23:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]},
+      {"name": "United Club (Terminal 7)", "terminal": "Terminal 7", "network": "United Club", "hours": "05:00-22:00 daily", "amenities": ["Bar", "Snacks"]},
+      {"name": "Priority Pass — Air France Lounge (Terminal 1)", "terminal": "Terminal 1", "network": "Priority Pass Select", "hours": "06:00-22:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  },
+  "LHR": {
+    "name": "London Heathrow",
+    "lounges": [
+      {"name": "Amex Centurion Lounge LHR (Terminal 3)", "terminal": "Terminal 3", "network": "Centurion Lounge", "hours": "05:00-22:00 daily", "amenities": ["Full bar", "Dining", "Showers"]},
+      {"name": "No1 Lounge (Terminal 3)", "terminal": "Terminal 3", "network": "Priority Pass Select", "hours": "04:30-22:00 daily", "amenities": ["Bar", "Buffet", "Spa treatments (paid)"]},
+      {"name": "United Club (Terminal 2)", "terminal": "Terminal 2", "network": "United Club", "hours": "05:00-21:30 daily", "amenities": ["Bar", "Snacks", "Showers"]}
+    ]
+  },
+  "MUC": {
+    "name": "Munich Airport",
+    "lounges": [
+      {"name": "Star Alliance Lounge (Terminal 2)", "terminal": "Terminal 2", "network": "United Club", "hours": "04:30-21:30 daily", "amenities": ["Bar", "Buffet", "Showers"], "note": "Reciprocal Star Alliance access for United Club members on same-day international Star Alliance flight"},
+      {"name": "Lufthansa Business Lounge (Terminal 2)", "terminal": "Terminal 2", "network": "Priority Pass Select", "hours": "05:00-21:30 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  },
+  "IST": {
+    "name": "Istanbul Airport",
+    "lounges": [
+      {"name": "Turkish Airlines CIP Lounge", "terminal": "Main Terminal", "network": "Priority Pass Select", "hours": "24 hours", "amenities": ["Full dining", "Golf simulator", "Cinema", "Showers", "Kids area"]}
+    ]
+  },
+  "VCE": {
+    "name": "Venice Marco Polo",
+    "lounges": [
+      {"name": "Venice VIP Lounge", "terminal": "Main Terminal", "network": "Priority Pass Select", "hours": "05:30-20:30 daily", "amenities": ["Bar", "Light buffet", "Wi-Fi"]}
+    ]
+  },
+  "ATH": {
+    "name": "Athens International",
+    "lounges": [
+      {"name": "Goldair Handling Lounge", "terminal": "Main Terminal", "network": "Priority Pass Select", "hours": "05:00-22:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi", "Showers"]}
+    ]
+  },
+  "FCO": {
+    "name": "Rome Fiumicino",
+    "lounges": [
+      {"name": "Alitalia/ITA Lounge (Terminal 3)", "terminal": "Terminal 3", "network": "Priority Pass Select", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]},
+      {"name": "United Club — Star Alliance partner lounge", "terminal": "Terminal 3", "network": "United Club", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Snacks"], "note": "Reciprocal Star Alliance access on same-day international Star Alliance flight"}
+    ]
+  },
+  "ARN": {
+    "name": "Stockholm Arlanda",
+    "lounges": [
+      {"name": "SAS Lounge (Terminal 5)", "terminal": "Terminal 5", "network": "Priority Pass Select", "hours": "04:30-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi", "Showers"]}
+    ]
+  },
+  "CPH": {
+    "name": "Copenhagen Airport",
+    "lounges": [
+      {"name": "SAS Lounge (Terminal 3)", "terminal": "Terminal 3", "network": "Priority Pass Select", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  },
+  "OSL": {
+    "name": "Oslo Airport",
+    "lounges": [
+      {"name": "SAS Lounge (Main Terminal)", "terminal": "Main Terminal", "network": "Priority Pass Select", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  },
+  "TXL": {
+    "name": "Berlin (Warnemünde ground transfer hub — nearest major airport BER)",
+    "lounges": [
+      {"name": "BER Lounge (Terminal 1)", "terminal": "Terminal 1", "network": "Priority Pass Select", "hours": "05:00-21:00 daily", "amenities": ["Bar", "Buffet", "Wi-Fi"]}
+    ]
+  }
+}
