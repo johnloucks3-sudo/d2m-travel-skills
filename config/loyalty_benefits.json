@@ -1,0 +1,41 @@
+{
+  "Bronze": {
+    "min_voyages": 1,
+    "discount_pct": 0,
+    "onboard_credit_usd": 0,
+    "priority_cabin_selection": false,
+    "concierge_perks": ["Welcome note from Dani"]
+  },
+  "Silver": {
+    "min_voyages": 2,
+    "discount_pct": 3,
+    "onboard_credit_usd": 100,
+    "priority_cabin_selection": false,
+    "concierge_perks": ["Welcome note from Dani", "Pre-cruise planning call"]
+  },
+  "Gold": {
+    "min_voyages": 4,
+    "discount_pct": 7,
+    "onboard_credit_usd": 250,
+    "priority_cabin_selection": true,
+    "concierge_perks": [
+      "Welcome note from Dani",
+      "Pre-cruise planning call",
+      "Priority dining reservations",
+      "Embarkation gift"
+    ]
+  },
+  "Platinum": {
+    "min_voyages": 6,
+    "discount_pct": 10,
+    "onboard_credit_usd": 500,
+    "priority_cabin_selection": true,
+    "concierge_perks": [
+      "Welcome note from Dani",
+      "Pre-cruise planning call",
+      "Priority dining reservations",
+      "Embarkation gift",
+      "Dedicated 24/7 concierge line"
+    ]
+  }
+}
