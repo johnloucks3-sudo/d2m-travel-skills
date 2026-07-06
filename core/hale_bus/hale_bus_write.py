@@ -8,12 +8,30 @@ Called at session end to persist state for other instances to read.
 Mandatory integration: append to every session's stop hook.
 """
 
+import fcntl
 import json
 import os
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
 HALE_BUS_PATH = Path.home() / "Thunderbird" / "core" / "hale_bus" / "hale_bus_state.json"
+LOCK_PATH = HALE_BUS_PATH.with_suffix(".lock")
+
+
+@contextmanager
+def _locked_bus():
+    """Advisory file lock — Unified C2 Fabric Phase 1 (2026-07-06). Prevents
+    concurrent writers (Console/Wave/Telegram/Email all now write this file)
+    from corrupting each other's updates. Read-modify-write happens inside
+    the lock so no writer can act on stale state."""
+    LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(LOCK_PATH, "w") as lockfile:
+        fcntl.flock(lockfile, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lockfile, fcntl.LOCK_UN)
 INSTANCE_MAPPING = {
     "CLAUDE_CODE": "claude_code",
     "OPENCODE": "opencode",
@@ -63,36 +81,77 @@ def write_bus_state(instance_type, open_missions, active_projects, alerts=None):
     alerts = alerts or []
     now = datetime.now(timezone.utc).isoformat()
 
-    # Read current bus state
+    with _locked_bus():
+        # Read current bus state
+        try:
+            bus_state = json.loads(HALE_BUS_PATH.read_text())
+        except (json.JSONDecodeError, OSError):
+            # Initialize fresh if file missing or corrupt
+            bus_state = {
+                "bus_version": "1.0",
+                "hale_instances": {k: {"status": "OFFLINE"} for k in INSTANCE_MAPPING.values()},
+            }
+
+        # Update this instance's entry
+        bus_state["last_updated"] = now
+        bus_state["source_instance"] = instance_type
+
+        if "hale_instances" not in bus_state:
+            bus_state["hale_instances"] = {}
+
+        bus_state["hale_instances"][instance_type] = {
+            "status": "ONLINE",
+            "last_seen": now,
+            "open_missions": open_missions,
+            "active_projects": active_projects,
+            "pending_decisions": [],
+            "alerts": alerts,
+        }
+
+        # Write back
+        HALE_BUS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        HALE_BUS_PATH.write_text(json.dumps(bus_state, indent=2))
+        return bus_state
+
+
+CHANNELS = ("console", "wave", "telegram", "email")
+
+
+def append_channel_activity(channel: str, event_type: str, detail: str, ref: str | None = None):
+    """Unified C2 Fabric Phase 1 — append a cross-channel activity entry so any
+    channel (Console/Wave/Telegram/Email) can see what happened on the others
+    without the Commander repeating context. Locked read-modify-write."""
+    if channel not in CHANNELS:
+        raise ValueError(f"channel must be one of {CHANNELS}, got {channel!r}")
+    now = datetime.now(timezone.utc).isoformat()
+    with _locked_bus():
+        try:
+            bus_state = json.loads(HALE_BUS_PATH.read_text())
+        except (json.JSONDecodeError, OSError):
+            bus_state = {"bus_version": "1.0", "hale_instances": {}}
+        activity = bus_state.setdefault("channel_activity", [])
+        activity.append({
+            "ts": now, "channel": channel, "event_type": event_type,
+            "detail": detail, "ref": ref,
+        })
+        # keep the log bounded — this is a visibility feed, not an audit archive
+        bus_state["channel_activity"] = activity[-500:]
+        HALE_BUS_PATH.write_text(json.dumps(bus_state, indent=2))
+    return bus_state["channel_activity"][-1]
+
+
+def read_channel_activity(since: str | None = None, channel: str | None = None) -> list:
+    """Read cross-channel activity, optionally filtered by ISO timestamp or channel."""
     try:
         bus_state = json.loads(HALE_BUS_PATH.read_text())
     except (json.JSONDecodeError, OSError):
-        # Initialize fresh if file missing or corrupt
-        bus_state = {
-            "bus_version": "1.0",
-            "hale_instances": {k: {"status": "OFFLINE"} for k in INSTANCE_MAPPING.values()},
-        }
-
-    # Update this instance's entry
-    bus_state["last_updated"] = now
-    bus_state["source_instance"] = instance_type
-
-    if "hale_instances" not in bus_state:
-        bus_state["hale_instances"] = {}
-
-    bus_state["hale_instances"][instance_type] = {
-        "status": "ONLINE",
-        "last_seen": now,
-        "open_missions": open_missions,
-        "active_projects": active_projects,
-        "pending_decisions": [],
-        "alerts": alerts,
-    }
-
-    # Write back
-    HALE_BUS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    HALE_BUS_PATH.write_text(json.dumps(bus_state, indent=2))
-    return bus_state
+        return []
+    entries = bus_state.get("channel_activity", [])
+    if since:
+        entries = [e for e in entries if e["ts"] > since]
+    if channel:
+        entries = [e for e in entries if e["channel"] == channel]
+    return entries
 
 
 def checkpoint_session(instance_type=None):
