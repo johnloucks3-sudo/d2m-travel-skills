@@ -22,6 +22,18 @@ Usage:
     prior = hale_bus_oc.read_prior_context()  # load from CC checkpoint
     for mission in prior["open_tasks"]:
         hale_bus_oc.claim_work(mission["id"], status="in_progress")
+
+CONCURRENCY NOTE (Unified C2 Fabric Phase 1, 2026-07-06): this class used to
+read+mutate+write hale_bus_state.json with no lock and no atomicity — a
+live, unlocked writer racing against hale_bus_write.py/c2_fabric_write.py's
+locked, atomic writers (called from several always-on keyword-router
+daemons: keyword_auto_router.py, session_startup_keyword_router.py,
+claude_code_prompt_handler.py, opencode_keyword_dispatcher.py). Caught mid-
+session: a torn/stale read here silently discarded a live channel_activity
+log written by the CI probe timer in between this class's read and write.
+Every public method below now runs its load-mutate-save as one critical
+section under the SAME fcntl lock hale_bus_write.py uses (_locked_bus) —
+two independent locks on this file would not coordinate with each other.
 """
 
 import json
@@ -29,6 +41,8 @@ import sys
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional, Any
+
+from core.hale_bus.hale_bus_write import HALE_BUS_PATH, _atomic_write_json, _locked_bus
 
 ROOT = Path(__file__).parent.parent.parent
 
@@ -42,7 +56,9 @@ class HaleBusHandoff:
             instance_type: "claude-code" or "opencode"
         """
         self.instance = instance_type
-        self.state_file = ROOT / "core" / "hale_bus" / "hale_bus_state.json"
+        # Same path hale_bus_write.py resolves to (env-override aware) so
+        # this class and the Phase 1 writers always lock/target one file.
+        self.state_file = HALE_BUS_PATH
         self.decisions_file = ROOT / "hale_decisions.md"
 
         # Ensure state file exists
@@ -52,7 +68,9 @@ class HaleBusHandoff:
         """Create state file if missing."""
         if not self.state_file.exists():
             self.state_file.parent.mkdir(parents=True, exist_ok=True)
-            self._save_state(self._blank_state())
+            with _locked_bus():
+                if not self.state_file.exists():
+                    self._save_state_unlocked(self._blank_state())
 
     def _blank_state(self) -> dict:
         """Return blank state structure."""
@@ -67,37 +85,43 @@ class HaleBusHandoff:
 
     def claim_work(self, mission_id: str, status: str = "in_progress"):
         """Register this instance as owner of a mission."""
-        state = self._load_state()
-        if "active_missions" not in state:
-            state["active_missions"] = {}
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            if "active_missions" not in state:
+                state["active_missions"] = {}
 
-        state["active_missions"][mission_id] = {
-            "owner": self.instance,
-            "status": status,
-            "claimed_at": datetime.utcnow().isoformat(),
-        }
-        self._save_state(state)
+            state["active_missions"][mission_id] = {
+                "owner": self.instance,
+                "status": status,
+                "claimed_at": datetime.utcnow().isoformat(),
+            }
+            self._save_state_unlocked(state)
         print(f"[{self.instance}] Claimed mission {mission_id} → {status}", file=sys.stderr)
 
     def release_work(self, mission_id: str):
         """Release ownership of a mission."""
-        state = self._load_state()
-        if "active_missions" in state and mission_id in state["active_missions"]:
-            del state["active_missions"][mission_id]
-            self._save_state(state)
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            released = "active_missions" in state and mission_id in state["active_missions"]
+            if released:
+                del state["active_missions"][mission_id]
+                self._save_state_unlocked(state)
+        if released:
             print(f"[{self.instance}] Released mission {mission_id}", file=sys.stderr)
 
     def update_mission_status(self, mission_id: str, status: str):
         """Update status of claimed mission."""
-        state = self._load_state()
-        if "active_missions" in state and mission_id in state["active_missions"]:
-            state["active_missions"][mission_id]["status"] = status
-            state["active_missions"][mission_id]["updated_at"] = datetime.utcnow().isoformat()
-            self._save_state(state)
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            if "active_missions" in state and mission_id in state["active_missions"]:
+                state["active_missions"][mission_id]["status"] = status
+                state["active_missions"][mission_id]["updated_at"] = datetime.utcnow().isoformat()
+                self._save_state_unlocked(state)
 
     def read_prior_context(self) -> dict:
         """Load inter-instance context from last session (prior instance's checkpoint)."""
-        state = self._load_state()
+        with _locked_bus():
+            state = self._load_state_unlocked()
 
         return {
             "alerts": state.get("deferred_alerts", []),
@@ -110,67 +134,75 @@ class HaleBusHandoff:
 
     def checkpoint_session(self):
         """Write session state for handoff to next instance."""
-        state = self._load_state()
+        with _locked_bus():
+            state = self._load_state_unlocked()
 
-        # Capture current open tasks
-        open_tasks = [
-            {"id": k, **v}
-            for k, v in state.get("active_missions", {}).items()
-            if v.get("status") != "complete"
-        ]
+            # Capture current open tasks
+            open_tasks = [
+                {"id": k, **v}
+                for k, v in state.get("active_missions", {}).items()
+                if v.get("status") != "complete"
+            ]
 
-        state["open_tasks"] = open_tasks
-        state["last_checkpoint"] = {
-            "instance": self.instance,
-            "timestamp": datetime.utcnow().isoformat(),
-            "mission_count": len(open_tasks),
-        }
+            state["open_tasks"] = open_tasks
+            state["last_checkpoint"] = {
+                "instance": self.instance,
+                "timestamp": datetime.utcnow().isoformat(),
+                "mission_count": len(open_tasks),
+            }
 
-        self._save_state(state)
+            self._save_state_unlocked(state)
+            alert_count = len(state.get("deferred_alerts", []))
+
         print(
             f"[{self.instance}] Checkpoint: {len(open_tasks)} open tasks, "
-            f"{len(state.get('deferred_alerts', []))} alerts",
+            f"{alert_count} alerts",
             file=sys.stderr
         )
 
     def handback_to_claude_code(self, releasing_instance: str = "opencode"):
         """Release instance missions, mark ready for Claude Code to claim."""
-        state = self._load_state()
+        with _locked_bus():
+            state = self._load_state_unlocked()
 
-        # Release all missions owned by releasing instance
-        active = state.get("active_missions", {})
-        for mission_id, mission in list(active.items()):
-            if mission.get("owner") == releasing_instance:
-                mission["status"] = "ready_for_cc"
-                mission["released_by"] = releasing_instance
-                mission["released_at"] = datetime.utcnow().isoformat()
+            # Release all missions owned by releasing instance
+            active = state.get("active_missions", {})
+            for mission_id, mission in list(active.items()):
+                if mission.get("owner") == releasing_instance:
+                    mission["status"] = "ready_for_cc"
+                    mission["released_by"] = releasing_instance
+                    mission["released_at"] = datetime.utcnow().isoformat()
 
-        state["last_handback"] = {
-            "from": releasing_instance,
-            "to": "claude-code",
-            "timestamp": datetime.utcnow().isoformat(),
-            "mission_count": sum(1 for m in active.values() if m.get("status") == "ready_for_cc"),
-        }
+            state["last_handback"] = {
+                "from": releasing_instance,
+                "to": "claude-code",
+                "timestamp": datetime.utcnow().isoformat(),
+                "mission_count": sum(1 for m in active.values() if m.get("status") == "ready_for_cc"),
+            }
 
-        self._save_state(state)
-        print(f"[{releasing_instance}] Handed back {state['last_handback']['mission_count']} missions to Claude Code", file=sys.stderr)
+            self._save_state_unlocked(state)
+            mission_count = state["last_handback"]["mission_count"]
+
+        print(f"[{releasing_instance}] Handed back {mission_count} missions to Claude Code", file=sys.stderr)
 
     def cache_zen_response(self, query: str, response: str, ttl_hours: int = 24):
         """Cache ZEN response for later reuse (24h TTL)."""
-        state = self._load_state()
-        if "cached_zen" not in state:
-            state["cached_zen"] = {}
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            if "cached_zen" not in state:
+                state["cached_zen"] = {}
 
-        state["cached_zen"][query] = {
-            "response": response,
-            "cached_at": datetime.utcnow().isoformat(),
-            "ttl_hours": ttl_hours,
-        }
-        self._save_state(state)
+            state["cached_zen"][query] = {
+                "response": response,
+                "cached_at": datetime.utcnow().isoformat(),
+                "ttl_hours": ttl_hours,
+            }
+            self._save_state_unlocked(state)
 
     def get_cached_zen(self, query: str) -> Optional[str]:
         """Retrieve cached ZEN response if still valid."""
-        state = self._load_state()
+        with _locked_bus():
+            state = self._load_state_unlocked()
         cached = state.get("cached_zen", {}).get(query)
 
         if not cached:
@@ -188,32 +220,34 @@ class HaleBusHandoff:
 
     def add_alert(self, alert_type: str, message: str, priority: str = "P1"):
         """Add deferred alert."""
-        state = self._load_state()
-        if "deferred_alerts" not in state:
-            state["deferred_alerts"] = []
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            if "deferred_alerts" not in state:
+                state["deferred_alerts"] = []
 
-        state["deferred_alerts"].append({
-            "type": alert_type,
-            "message": message,
-            "priority": priority,
-            "added_at": datetime.utcnow().isoformat(),
-        })
-        self._save_state(state)
+            state["deferred_alerts"].append({
+                "type": alert_type,
+                "message": message,
+                "priority": priority,
+                "added_at": datetime.utcnow().isoformat(),
+            })
+            self._save_state_unlocked(state)
 
     def add_fpd_alert(self, client_name: str, fpd_date: str, amount: float, booking_ref: str):
         """Add FPD deadline alert."""
-        state = self._load_state()
-        if "fpd_alerts" not in state:
-            state["fpd_alerts"] = []
+        with _locked_bus():
+            state = self._load_state_unlocked()
+            if "fpd_alerts" not in state:
+                state["fpd_alerts"] = []
 
-        state["fpd_alerts"].append({
-            "client": client_name,
-            "fpd": fpd_date,
-            "amount": amount,
-            "booking_ref": booking_ref,
-            "added_at": datetime.utcnow().isoformat(),
-        })
-        self._save_state(state)
+            state["fpd_alerts"].append({
+                "client": client_name,
+                "fpd": fpd_date,
+                "amount": amount,
+                "booking_ref": booking_ref,
+                "added_at": datetime.utcnow().isoformat(),
+            })
+            self._save_state_unlocked(state)
 
     def log_decision(self, decision_title: str, reasoning: str, decision_details: Dict[str, Any]):
         """Log decision to hale_decisions.md."""
@@ -230,8 +264,8 @@ class HaleBusHandoff:
         with open(self.decisions_file, "a") as f:
             f.write(entry + "\n")
 
-    def _load_state(self) -> dict:
-        """Load state from JSON file."""
+    def _load_state_unlocked(self) -> dict:
+        """Load state from JSON file. MUST be called from inside _locked_bus()."""
         if self.state_file.exists():
             try:
                 return json.loads(self.state_file.read_text())
@@ -240,13 +274,14 @@ class HaleBusHandoff:
                 return self._blank_state()
         return self._blank_state()
 
-    def _save_state(self, state: dict):
-        """Save state to JSON file."""
-        self.state_file.write_text(json.dumps(state, indent=2))
+    def _save_state_unlocked(self, state: dict):
+        """Atomically save state to JSON file. MUST be called from inside _locked_bus()."""
+        _atomic_write_json(self.state_file, state)
 
     def dump_state(self) -> str:
         """Pretty-print current state."""
-        state = self._load_state()
+        with _locked_bus():
+            state = self._load_state_unlocked()
         return json.dumps(state, indent=2)
 
 

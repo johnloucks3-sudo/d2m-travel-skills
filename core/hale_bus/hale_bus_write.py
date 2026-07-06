@@ -15,7 +15,12 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-HALE_BUS_PATH = Path.home() / "Thunderbird" / "core" / "hale_bus" / "hale_bus_state.json"
+# HALE_BUS_STATE_PATH override exists so concurrency tests can point at a
+# scratch file instead of the production bus (core/hale_bus/test_c2_fabric_concurrency.py).
+HALE_BUS_PATH = Path(os.environ.get(
+    "HALE_BUS_STATE_PATH",
+    str(Path.home() / "Thunderbird" / "core" / "hale_bus" / "hale_bus_state.json"),
+))
 LOCK_PATH = HALE_BUS_PATH.with_suffix(".lock")
 
 
@@ -24,7 +29,11 @@ def _locked_bus():
     """Advisory file lock — Unified C2 Fabric Phase 1 (2026-07-06). Prevents
     concurrent writers (Console/Wave/Telegram/Email all now write this file)
     from corrupting each other's updates. Read-modify-write happens inside
-    the lock so no writer can act on stale state."""
+    the lock so no writer can act on stale state.
+
+    core/hale_bus/c2_fabric_write.py imports this SAME contextmanager rather
+    than opening its own lock — two independent locks on one file would not
+    coordinate with each other and mutual exclusion would be lost."""
     LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(LOCK_PATH, "w") as lockfile:
         fcntl.flock(lockfile, fcntl.LOCK_EX)
@@ -32,6 +41,15 @@ def _locked_bus():
             yield
         finally:
             fcntl.flock(lockfile, fcntl.LOCK_UN)
+
+
+def _atomic_write_json(path: Path, data: dict):
+    """Write JSON via temp-file + os.replace so a reader never observes a
+    half-written file. Must be called from inside _locked_bus() — the lock
+    serializes writers, this makes each individual write crash-safe."""
+    tmp_path = path.with_suffix(f".tmp.{os.getpid()}")
+    tmp_path.write_text(json.dumps(data, indent=2))
+    os.replace(tmp_path, path)
 INSTANCE_MAPPING = {
     "CLAUDE_CODE": "claude_code",
     "OPENCODE": "opencode",
@@ -110,7 +128,7 @@ def write_bus_state(instance_type, open_missions, active_projects, alerts=None):
 
         # Write back
         HALE_BUS_PATH.parent.mkdir(parents=True, exist_ok=True)
-        HALE_BUS_PATH.write_text(json.dumps(bus_state, indent=2))
+        _atomic_write_json(HALE_BUS_PATH, bus_state)
         return bus_state
 
 
@@ -136,7 +154,7 @@ def append_channel_activity(channel: str, event_type: str, detail: str, ref: str
         })
         # keep the log bounded — this is a visibility feed, not an audit archive
         bus_state["channel_activity"] = activity[-500:]
-        HALE_BUS_PATH.write_text(json.dumps(bus_state, indent=2))
+        _atomic_write_json(HALE_BUS_PATH, bus_state)
     return bus_state["channel_activity"][-1]
 
 
