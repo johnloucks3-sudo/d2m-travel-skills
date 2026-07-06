@@ -57,12 +57,16 @@ def _log_provenance(waiver: dict, to_email: str, subject: str):
         f.write(entry)
 
 
-def send_waived_client_email(to_email: str, subject: str, text: str, html: str | None = None) -> dict:
+def send_waived_client_email(to_email: str, subject: str, text: str, html: str | None = None,
+                              attachments: list | None = None) -> dict:
     """THE single send path for named-waiver correspondence. Checks the
     allowlist first — NotWaivedError if the recipient isn't on it, caller
     must fall back to the normal WF-17 draft-and-hold path. Routes to the
     correct voice/channel per the waiver record, CCs johnloucks3 always,
-    logs a provenance stamp to hale_decisions.md on every send."""
+    logs a provenance stamp to hale_decisions.md on every send.
+
+    attachments: list of {"filename": str, "path": str} — plain file paths,
+    each channel converts to its own native attachment format."""
     waiver = get_waiver(to_email)
     if waiver is None:
         raise NotWaivedError(
@@ -71,9 +75,9 @@ def send_waived_client_email(to_email: str, subject: str, text: str, html: str |
         )
 
     if waiver["send_channel"] == "d2mconcierge_gmail":
-        result = _send_via_d2mconcierge(to_email, waiver["cc"], subject, text, html)
+        result = _send_via_d2mconcierge(to_email, waiver["cc"], subject, text, html, attachments)
     elif waiver["send_channel"] == "agentmail_hale_thunderbird":
-        result = _send_via_agentmail(to_email, waiver["cc"], subject, text, html)
+        result = _send_via_agentmail(to_email, waiver["cc"], subject, text, html, attachments)
     else:
         raise NotWaivedError(f"Unknown send_channel {waiver['send_channel']!r} for {waiver['name']}")
 
@@ -81,30 +85,52 @@ def send_waived_client_email(to_email: str, subject: str, text: str, html: str |
     return {"waiver": waiver["name"], "channel": waiver["send_channel"], **result}
 
 
-def _send_via_d2mconcierge(to_email, cc, subject, text, html):
+def _send_via_d2mconcierge(to_email, cc, subject, text, html, attachments=None):
     import base64
+    from email.mime.application import MIMEApplication
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
     from thunderbird_google_auth import get_persona_gmail
 
     svc = get_persona_gmail()
-    msg = MIMEMultipart("alternative")
+    msg = MIMEMultipart("mixed")
     msg["to"] = to_email
     msg["cc"] = ", ".join(cc)
     msg["subject"] = subject
-    msg.attach(MIMEText(text, "plain"))
+    alt = MIMEMultipart("alternative")
+    alt.attach(MIMEText(text, "plain"))
     if html:
-        msg.attach(MIMEText(html, "html"))
+        alt.attach(MIMEText(html, "html"))
+    msg.attach(alt)
+    for att in (attachments or []):
+        with open(att["path"], "rb") as f:
+            part = MIMEApplication(f.read())
+        part.add_header("Content-Disposition", "attachment", filename=att["filename"])
+        msg.attach(part)
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
     sent = svc.users().messages().send(userId="me", body={"raw": raw}).execute()
     return {"gmail_message_id": sent["id"]}
 
 
-def _send_via_agentmail(to_email, cc, subject, text, html):
+def _send_via_agentmail(to_email, cc, subject, text, html, attachments=None):
+    import base64
     from core.email.agentmail_client import AgentMailClient
     client = AgentMailClient()
+    am_attachments = None
+    if attachments:
+        am_attachments = []
+        for att in attachments:
+            with open(att["path"], "rb") as f:
+                content_b64 = base64.b64encode(f.read()).decode()
+            am_attachments.append({
+                "filename": att["filename"],
+                "content_type": "text/markdown",
+                "content_disposition": "attachment",
+                "content": content_b64,
+            })
     sent = client.send_message(
         inbox_id="hale-thunderbird@agentmail.to",
         to=[to_email], cc=cc, subject=subject, text=text, html=html,
+        attachments=am_attachments,
     )
     return {"agentmail_message_id": sent.message_id}
