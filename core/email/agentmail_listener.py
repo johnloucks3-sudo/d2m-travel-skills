@@ -68,16 +68,28 @@ def _record(event: MessageReceivedEvent):
 
 
 def main():
+    import time
     _load_seen()
     client = AgentMail(api_key=_api_key())
-    print(f"[agentmail_listener] connecting, subscribing to {INBOX_ID} ...")
-    with client.websockets.connect() as socket:
-        socket.send_subscribe(Subscribe(inbox_ids=[INBOX_ID]))
-        for event in socket:
-            if isinstance(event, Subscribed):
-                print(f"[agentmail_listener] subscribed: {event.inbox_ids}")
-            elif isinstance(event, MessageReceivedEvent):
-                _record(event)
+    backoff = 2
+    while True:
+        try:
+            print(f"[agentmail_listener] connecting, subscribing to {INBOX_ID} ...")
+            with client.websockets.connect() as socket:
+                socket.send_subscribe(Subscribe(inbox_ids=[INBOX_ID]))
+                for event in socket:
+                    if isinstance(event, Subscribed):
+                        print(f"[agentmail_listener] subscribed: {event.inbox_ids}")
+                        backoff = 2  # reset once a connection is confirmed live
+                    elif isinstance(event, MessageReceivedEvent):
+                        _record(event)
+        except Exception as e:
+            # AgentMail can send a server-initiated restart (close code 1012) — this is
+            # normal maintenance, not a failure. Reconnect in-process rather than relying
+            # on systemd to restart the whole process from scratch each time.
+            print(f"[agentmail_listener] connection dropped ({e!r}), reconnecting in {backoff}s")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 60)
 
 
 if __name__ == "__main__":
