@@ -81,13 +81,13 @@ STATE_DIR.mkdir(exist_ok=True)
 ALLOWLIST_DIRS = ["experiments/incubator/", "intel/digests/"]
 
 QUERIES_BY_DAY = {
-    0: ["Thunderbird AI travel CRM automation improvement 2026", "open source dev tooling travel advisor platform", "AI agent workflow orchestration Python 2026"],
-    1: ["Thunderbird observability logging monitoring improvement", "Python async task queue pattern travel CRM", "AI code review automation tool 2026"],
-    2: ["Thunderbird AI model routing agent improvement", "LLM prompt management open source tool 2026", "multi-agent orchestration framework Python"],
-    3: ["Thunderbird client-facing travel tech enhancement", "luxury travel advisor AI tool 2026", "automated itinerary generation personalization"],
-    4: ["Thunderbird data analytics CRM enhancement", "travel CRM data enrichment open source", "client preference learning recommendation engine"],
-    5: ["Thunderbird security compliance hardening", "AI pipeline security best practices 2026", "open source secret scanning CI/CD tool"],
-    6: ["Thunderbird architecture tech debt reduction", "Python monorepo build tool improvement", "API gateway pattern microservices 2026"],
+    0: ["AI travel agency CRM automation improvement 2026", "open source dev tooling travel advisor platform", "AI agent workflow orchestration Python 2026"],
+    1: ["AI travel agency observability logging monitoring improvement", "Python async task queue pattern travel CRM", "AI code review automation tool 2026"],
+    2: ["AI travel agency model routing agent improvement", "LLM prompt management open source tool 2026", "multi-agent orchestration framework Python"],
+    3: ["AI travel agency client-facing tech enhancement", "luxury travel advisor AI tool 2026", "automated itinerary generation personalization"],
+    4: ["AI travel agency data analytics CRM enhancement", "travel CRM data enrichment open source", "client preference learning recommendation engine"],
+    5: ["AI travel agency security compliance hardening", "AI pipeline security best practices 2026", "open source secret scanning CI/CD tool"],
+    6: ["AI travel agency architecture tech debt reduction", "Python monorepo build tool improvement", "API gateway pattern microservices 2026"],
 }
 
 
@@ -108,7 +108,7 @@ def _send_telegram(message: str, parse_mode: str = "Markdown"):
             r = requests.post(
                 url,
                 json={"chat_id": TELEGRAM_CHAT_ID, "text": chunk, "parse_mode": parse_mode},
-                timeout=10,
+                timeout=20,
             )
             r.raise_for_status()
         except Exception as e:
