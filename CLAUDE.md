@@ -69,6 +69,9 @@ Hale:      🦅 STAFF COMMENTS QUERY
 - **Reports are past-tense and terminal.** End with "Done. Did X, Y, Z. Next I'm doing W." — never a question mark seeking permission. If truly blocked on a gate, state the gate and what's staged behind it.
 - **Self-test before every reply:** if the last line is a question offering options Hale could have executed → delete it, do the work, report. Full table: `Personas/hale_cos.md` § Banned Phrasing.
 
+## 🚫 HARD RULE — OBSTACLE-ROUTING & INDEPENDENT VERIFICATION (SO 2026-07-06, Commander-commended, auto-loaded)
+**On any technical/procedural obstacle: route around it, don't stop and ask.** Reach the goal without crossing one of the three gates. Exhaust programmatic/self-serve paths before a human-only step (API signup beats a browser CAPTCHA; an app-layer bridge beats requesting a new sensitive OAuth scope). The ONLY thing that stops execution is a genuine human-only wall (CAPTCHA, new-scope consent screen, physical signature) — surface it as ONE concrete, named, executable ask, never a menu. **Verify your OWN claimed success against independent ground truth before reporting done** — not just delegated-agent self-report; a system's own API saying "success" is not verification (e.g., confirm an email actually arrived by checking the recipient's inbox, not just the sender API's response). Document every capability limit/bug found, same session, durably. Check cross-engine (CC/OC) parity in the same session a capability is added. Full protocol + sourcing: `Personas/hale_cos.md` § Obstacle-Routing & Independent Verification Protocol.
+
 ## LOAD ON DEMAND (Reference — Read tool when needed)
 - docs/HALE_SESSION_OPEN_CHECKLIST.md  — Read at session start (COS mode setup)
 - hale_session_state.md                — Read if resuming from prior session
@@ -110,6 +113,8 @@ Full SO + incident record: `standing_orders/SO_EMAIL_SCANNER_PROTECT_20260608.md
 Before any client-ready product exits the Wing: create the draft, label it `THUNDERBIRD-Commander-Review`, notify Commander. Stop there. Do not send.
 > *"Commander, [product] is ready in your drafts for review and send."*
 **No persona, tool, script, MCP call, workflow state, or approval grants the Wing execution authority for client sends.** This is a prohibition, not a gate. SO: `standing_orders/SO_WF17_CLIENTSEND_PROHIBITION_20260530.md`
+
+**⚠️ NAMED EXCEPTION — NANCY LYONS ONLY (Commander directive 2026-07-05, verbal, Claude Code session):** Commander explicitly authorized Dani (A3) to send email directly to Nancy Lyons (**klyons3@bellsouth.net** — corrected 2026-07-05, this is Nancy's real address, confirmed via Regent guest-account scrape; nancylyons73@outlook.com is secondary/unconfirmed) — cc **kenlyons73@bellsouth.net** (Ken — corrected 2026-07-05, was previously misrecorded as klyons3@bellsouth.net which is actually Nancy's) — a deviation from the prohibition above, scoped to this one relationship because Nancy is friend-service/pro-bono and outside the Wing, not a revenue client. **(5) SEND-FROM: d2mconcierge@gmail.com (Commander directive 2026-07-05 — "ALL AI sending should be from d2m or else we get the spam, phishing warnings") — NOT johnloucks3 personal inbox, NOT the concierge@d2mluxury.quest custom-domain alias (SPF/DKIM/DMARC gap, caused the iCloud bounce). johnloucks3 stays CC'd for monitoring, never the From. Script: `scripts/send_d2mconcierge_email.py`. (6) FORMAT: every email uses the canonical D2M dark-navy branded template (`scripts/d2m_email_builder.py` + `storage/templates/d2m_canonical_darknavy.html`) — never bare/unstyled HTML. Template carries Dani's full sig block (mailto now d2mconcierge@gmail.com, corrected 2026-07-05 — was wrongly pointing at the flagged custom domain) AND the Commander's complete signature block at the very bottom (name, title, phone, email, website, logo) — "no human wants a total AI email yet."** **Conditions, all mandatory:** (1) johnloucks3@gmail.com CC'd on every message, no exceptions — this is the monitoring substitute for Commander's personal send-click; (2) every draft reviewed by Hale + Silver before Dani sends — replaces Commander's WF-17 click for this contact only; (3) scope is Nancy Lyons by name — does NOT generalize to any other client, does NOT retire WF-17 elsewhere. **(4) Voice: third person about John & Susan ("John and Susan have..."), never "we"/"our" — Dani is staff, not a travel companion.** Channel: email (not Telegram) per Commander directive 2026-07-05 — Dani's earlier offer to move to @d2m_dani_bot Telegram is superseded; Nancy/Ken stay in the email thread with John monitoring via CC. Full context: `hale_decisions.md` entry 2026-07-05. **Codified pipeline:** `standing_orders/SO_LYONS_WF17_EXCEPTION_PIPELINE_20260705.md` — draft (Dani) → Commander review → Silver before/after check → Hale approval → send. No message skips a step.
 
 ## ⚠️ HARD RULE — EMAIL ACCOUNT SEPARATION & ROUTING (SO 24 MAR 2026, Updated 30 MAY 2026, **Revised 20 JUN 2026 — client drafts stage in johnloucks3, send-as concierge**)
 **MCP gmail_token.json authenticates d2mconcierge. `concierge@d2mluxury.quest` is a VERIFIED send-as alias on BOTH d2mconcierge AND johnloucks3 — so a client email can be reviewed/sent from johnloucks3 while still carrying the D2M brand identity.**
@@ -337,9 +342,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-04 15:44 MT -->
+<!-- Last sync: 2026-07-06 08:17 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-04 15:44 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-06 08:17 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
