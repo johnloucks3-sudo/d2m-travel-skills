@@ -6009,3 +6009,12 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 2. Even had a pass run, current `scripts/silver_gate.py` doesn't check narrative claims against a primary source — it's scoped to portal builds (excursion counts, images, segregation). A claim like this would not have been caught by existing tooling either.
 
 **Fix, durable:** any external-facing draft with a factual claim about a real person — client-tier or gift-tier, no distinction — gets checked against a primary source before staging. Not yet built as new tooling this session (that would be scope creep on a single-email fix); logged here as the standard going forward and a real gap in Silver's checklist to close.
+
+## 2026-07-06 — WF-17 waived send: Bryana Jarboe
+**Provenance:** waiver `Bryana Jarboe`, granted 2026-07-06, source `WF17_NAMED_WAIVER_EXPANSION_PLAN_20260706.md`. To: bryanajarboe@gmail.com. Subject: A Sharper Version of the Gift — You Can Now Email Me Directly. CC: johnloucks3@gmail.com. Voice track: hale.
+
+## 2026-07-06 (late morning, cont.) — Bryana capability email SENT (waiver used for real)
+
+Commander waived his own review ("I do not need to review it"). Before sending, caught one more thing: the built draft lived in johnloucks3 Gmail (standard D2M template pipeline), but Bryana's WF-17 waiver channel is AgentMail — sending from johnloucks3 would mean her natural "reply" lands in the Commander's personal inbox instead of `hale-thunderbird@agentmail.to`, breaking the reply-threading into the new email responder pipeline entirely. Added attachment support to `wf17_named_waivers.py`'s AgentMail path and sent through the correct channel instead.
+
+**Sent, verified live (not just API response):** `hale-thunderbird@agentmail.to` → `bryanajarboe@gmail.com`, CC johnloucks3, manual attached, landed in her INBOX (checked via Gmail search, not just the sender's own success signal). Deleted the now-redundant johnloucks3 draft. First real production use of the WF-17 named-waiver mechanism built earlier today.
