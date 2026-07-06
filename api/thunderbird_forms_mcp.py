@@ -73,17 +73,25 @@ def register_forms_mcp_tools(mcp: FastMCP):
         try:
             service = get_forms()
 
-            body = {
-                "info": {
-                    "title": title,
-                }
-            }
-            if description:
-                body["info"]["description"] = description
-
+            # Forms API only allows info.title on create — info.description (and
+            # everything else) must go through a follow-up batchUpdate, or create
+            # 400s with "Only info.title can be set when creating a form."
+            body = {"info": {"title": title}}
             result = service.forms().create(body=body).execute()
-
             form_id = result.get("formId", "")
+
+            if description:
+                service.forms().batchUpdate(
+                    formId=form_id,
+                    body={"requests": [{
+                        "updateFormInfo": {
+                            "info": {"description": description},
+                            "updateMask": "description",
+                        }
+                    }]},
+                ).execute()
+                result.setdefault("info", {})["description"] = description
+
             responder_uri = result.get("responderUri", "")
             form_url = result.get("info", {}).get("documentTitle", "")
 

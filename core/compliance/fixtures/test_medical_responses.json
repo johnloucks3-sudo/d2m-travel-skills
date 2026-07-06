@@ -1,0 +1,53 @@
+{
+  "_doc": "5 synthetic client medical-screening response sets for test_medical_screening.py. Fabricated names/answers only — no real client data. Mirrors the 5-client verification the task asked for, run against the pipeline rather than live human distribution.",
+  "respondents": [
+    {
+      "guest_name": "Test Guest — Oxygen",
+      "answers": [
+        {"question": "Do you require supplemental oxygen (concentrator, tank, or CPAP with oxygen) during travel?", "answer": "Yes"},
+        {"question": "Do you use a mobility aid (wheelchair, scooter, walker, cane)?", "answer": "No"},
+        {"question": "Do you have any food allergies or severe dietary restrictions?", "answer": "None"},
+        {"question": "Are you currently receiving dialysis or other regular medical treatment that must continue onboard?", "answer": ""},
+        {"question": "Any other medical condition, equipment, or service animal the ship's medical center should know about before embarkation?", "answer": "N/A"}
+      ]
+    },
+    {
+      "guest_name": "Test Guest — Mobility",
+      "answers": [
+        {"question": "Do you require supplemental oxygen (concentrator, tank, or CPAP with oxygen) during travel?", "answer": "No"},
+        {"question": "Do you use a mobility aid (wheelchair, scooter, walker, cane)?", "answer": "Yes"},
+        {"question": "If yes to a mobility aid — is it collapsible/foldable?", "answer": "No"},
+        {"question": "Do you have any food allergies or severe dietary restrictions?", "answer": "None"},
+        {"question": "Any other medical condition, equipment, or service animal the ship's medical center should know about before embarkation?", "answer": ""}
+      ]
+    },
+    {
+      "guest_name": "Test Guest — Allergy",
+      "answers": [
+        {"question": "Do you require supplemental oxygen (concentrator, tank, or CPAP with oxygen) during travel?", "answer": "No"},
+        {"question": "Do you use a mobility aid (wheelchair, scooter, walker, cane)?", "answer": "No"},
+        {"question": "Do you have any food allergies or severe dietary restrictions?", "answer": "Severe shellfish allergy"},
+        {"question": "Are you currently receiving dialysis or other regular medical treatment that must continue onboard?", "answer": "None"}
+      ]
+    },
+    {
+      "guest_name": "Test Guest — Dialysis",
+      "answers": [
+        {"question": "Do you require supplemental oxygen (concentrator, tank, or CPAP with oxygen) during travel?", "answer": "No"},
+        {"question": "Do you use a mobility aid (wheelchair, scooter, walker, cane)?", "answer": "No"},
+        {"question": "Do you have any food allergies or severe dietary restrictions?", "answer": "N/A"},
+        {"question": "Are you currently receiving dialysis or other regular medical treatment that must continue onboard?", "answer": "Yes, dialysis 3x weekly"}
+      ]
+    },
+    {
+      "guest_name": "Test Guest — Clean",
+      "answers": [
+        {"question": "Do you require supplemental oxygen (concentrator, tank, or CPAP with oxygen) during travel?", "answer": "No"},
+        {"question": "Do you use a mobility aid (wheelchair, scooter, walker, cane)?", "answer": "No"},
+        {"question": "Do you have any food allergies or severe dietary restrictions?", "answer": "None"},
+        {"question": "Are you currently receiving dialysis or other regular medical treatment that must continue onboard?", "answer": "No"},
+        {"question": "Any other medical condition, equipment, or service animal the ship's medical center should know about before embarkation?", "answer": "None of the above"}
+      ]
+    }
+  ]
+}
