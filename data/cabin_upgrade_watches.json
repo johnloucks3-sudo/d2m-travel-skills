@@ -1,0 +1,57 @@
+[
+  {
+    "booking_id": "McLeod_Regent_2984034",
+    "client_name": "Erik McLeod & Melissa McGlasson",
+    "ship": "SS Grandeur",
+    "cruise_line": "regent",
+    "current_cabin": "Concierge Suite E",
+    "current_price_pp": null,
+    "voyage_url": null,
+    "active": false,
+    "note": "NEEDS_VERIFICATION — current_price_pp and voyage_url not yet confirmed against portal/TESS (Pipeline Integrity Rule 4). Set active:true once populated. Dossier: McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md, suite 863/Deck 8."
+  },
+  {
+    "booking_id": "Loucks_Regent_3122006",
+    "client_name": "John & Susan Loucks",
+    "ship": "Seven Seas Grandeur",
+    "cruise_line": "regent",
+    "current_cabin": "Concierge Suite E",
+    "current_price_pp": null,
+    "voyage_url": null,
+    "active": false,
+    "note": "NEEDS_VERIFICATION — current_price_pp and voyage_url not yet confirmed against portal/TESS. Dossier: Loucks_Regent_Grandeur_3122006.md, suite 658/Deck 6."
+  },
+  {
+    "booking_id": "Furlow_Regent_3071222",
+    "client_name": "John & Melissa Furlow",
+    "ship": "SS Grandeur",
+    "cruise_line": "regent",
+    "current_cabin": "Concierge Suite D",
+    "current_price_pp": null,
+    "voyage_url": null,
+    "active": false,
+    "note": "NEEDS_VERIFICATION — current_price_pp and voyage_url not yet confirmed against portal/TESS. Dossier: Furlow_Regent_3071222_TIMELINE.md, suite 827/Deck 8."
+  },
+  {
+    "booking_id": "Nichols_Regent_3078056",
+    "client_name": "Larry & Heidi Nichols",
+    "ship": "SS Grandeur",
+    "cruise_line": "regent",
+    "current_cabin": "Concierge Suite D",
+    "current_price_pp": null,
+    "voyage_url": null,
+    "active": false,
+    "note": "NEEDS_VERIFICATION — current_price_pp and voyage_url not yet confirmed against portal/TESS. Dossier: Nichols_Regent_3078056.md, suite 939/Deck 9."
+  },
+  {
+    "booking_id": "Loucks_Silversea_SilverNova_May2027",
+    "client_name": "Colonel John Aldon Loucks & Ms Susan Dee Loucks",
+    "ship": "Silver Nova",
+    "cruise_line": "silversea",
+    "current_cabin": "Superior Veranda",
+    "current_price_pp": null,
+    "voyage_url": null,
+    "active": false,
+    "note": "NEEDS_VERIFICATION — current_price_pp and voyage_url not yet confirmed against portal/TESS. Dossier: DOSSIER_Loucks_SilverNova_May2027.md, cabin 8071. Medallion Suite already known WAITLISTED as of 2026-06-08 — worth re-checking once active."
+  }
+]
