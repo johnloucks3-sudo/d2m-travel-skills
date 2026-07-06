@@ -6,6 +6,7 @@ Accessible at https://itinerary.d2mluxury.quest/hale_dashboard.html
 import json
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -32,40 +33,74 @@ STATUS_COLORS = {
 }
 
 
-def svc_status(name: str) -> tuple[str, str]:
-    """Returns (label, color) for a systemd user service — timer-aware."""
-    try:
-        # Check if failed
-        failed = subprocess.run(
-            ["systemctl", "--user", "is-failed", f"{name}.service"],
-            capture_output=True, text=True, timeout=3
-        ).stdout.strip()
-        if failed == "failed":
-            return "FAILED", "#ef4444"
+def _classify(state: str, last: str) -> tuple[str, str]:
+    if state == "failed":
+        return "FAILED", "#ef4444"
+    if state == "active":
+        return "RUNNING", "#10b981"
+    if state == "inactive":
+        if last == "success":
+            return "OK (last run ✓)", "#10b981"
+        elif last in ("exit-code", "core-dump"):
+            return f"WARN ({last})", "#f59e0b"
+        else:
+            return "idle", "#6b7280"
+    if state == "activating":
+        return "STARTING", "#f59e0b"
+    return state or "unknown", "#6b7280"
 
-        # Get Result property (success/failure from last run)
+
+def _batched_svc_statuses(names: list[str], timeout: int = 10) -> dict[str, tuple[str, str]]:
+    """Single D-Bus round trip for all services (was 2 calls/service = 14 total)."""
+    units = [f"{n}.service" for n in names]
+    proc = subprocess.run(
+        ["systemctl", "--user", "show", *units, "-p", "Id,ActiveState,Result"],
+        capture_output=True, text=True, timeout=timeout,
+    )
+    statuses: dict[str, tuple[str, str]] = {}
+    for block in proc.stdout.strip().split("\n\n"):
+        props = dict(line.split("=", 1) for line in block.splitlines() if "=" in line)
+        unit_id = props.get("Id", "").removesuffix(".service")
+        if not unit_id:
+            continue
+        statuses[unit_id] = _classify(props.get("ActiveState", "unknown"), props.get("Result", ""))
+    return statuses
+
+
+def _single_svc_status(name: str, timeout: int = 10) -> tuple[str, str]:
+    """Fallback path for one service — used only if the batched call fails."""
+    try:
         result = subprocess.run(
-            ["systemctl", "--user", "show", f"{name}.service", "-p", "Result,ActiveState"],
-            capture_output=True, text=True, timeout=3
+            ["systemctl", "--user", "show", f"{name}.service", "-p", "ActiveState,Result"],
+            capture_output=True, text=True, timeout=timeout,
         ).stdout.strip()
         props = dict(line.split("=", 1) for line in result.splitlines() if "=" in line)
-        state = props.get("ActiveState", "unknown")
-        last = props.get("Result", "")
-
-        if state == "active":
-            return "RUNNING", "#10b981"
-        if state == "inactive":
-            if last == "success":
-                return "OK (last run ✓)", "#10b981"
-            elif last in ("exit-code", "core-dump"):
-                return f"WARN ({last})", "#f59e0b"
-            else:
-                return "idle", "#6b7280"
-        if state == "activating":
-            return "STARTING", "#f59e0b"
-        return state or "unknown", "#6b7280"
+        return _classify(props.get("ActiveState", "unknown"), props.get("Result", ""))
     except Exception:
         return "unknown", "#6b7280"
+
+
+def load_service_statuses(names: list[str]) -> dict[str, tuple[str, str]]:
+    """Resolve status for every service. Fast path: 1 batched systemctl call.
+    Belt-and-suspenders fallback: parallel per-service calls (ThreadPoolExecutor)
+    if the batch call fails or times out, so a single hung unit can't stall the rest."""
+    try:
+        statuses = _batched_svc_statuses(names, timeout=45)
+        missing = [n for n in names if n not in statuses]
+        if not missing:
+            return statuses
+    except Exception:
+        statuses = {}
+        missing = names
+
+    with ThreadPoolExecutor(max_workers=len(missing)) as pool:
+        futures = {pool.submit(_single_svc_status, n, 10): n for n in missing}
+        for fut in as_completed(futures, timeout=45):
+            statuses[futures[fut]] = fut.result()
+
+    for n in names:
+        statuses.setdefault(n, ("unknown", "#6b7280"))
+    return statuses
 
 
 def load_missions() -> list[dict]:
@@ -218,8 +253,9 @@ def build_html() -> str:
 
     # --- Service health HTML ---
     svc_rows = ""
+    svc_statuses = load_service_statuses(SERVICES)
     for svc in SERVICES:
-        state_val, col = svc_status(svc)
+        state_val, col = svc_statuses[svc]
         svc_rows += f"""
         <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #1e293b">
           <span style="font-size:13px">{svc}</span>
