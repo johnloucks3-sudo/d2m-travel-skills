@@ -1,0 +1,443 @@
+[
+  {
+    "client": "Kuklinski",
+    "booking_ref": "Viking 9593880",
+    "touchpoint_id": "TP 2.10",
+    "zone": "PREPARATION",
+    "content_type": "internal_research",
+    "send_date": "2026-07-20",
+    "draft_rule_days": 14,
+    "draft_due": "2026-07-06",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A2",
+        "sequence": 1,
+        "of": 1,
+        "action": "Draft TP 2.10 (internal_research)",
+        "description": "Dining research begins \u2014 restaurant profiles, menus, reservation strategy.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Kuklinski",
+    "booking_ref": "Viking 9593880",
+    "touchpoint_id": "TP 2.11",
+    "zone": "PREPARATION",
+    "content_type": "internal_alert",
+    "send_date": "2026-09-04",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-21",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "COS",
+        "sequence": 1,
+        "of": 1,
+        "action": "Draft TP 2.11 (internal_alert)",
+        "description": "Specialty dining booking window opens. Alert Commander.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Kuklinski",
+    "booking_ref": "Viking 9593880",
+    "touchpoint_id": "TP 2.13",
+    "zone": "PREPARATION",
+    "content_type": "internal_alert",
+    "send_date": "2026-09-04",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-21",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A3",
+        "sequence": 1,
+        "of": 2,
+        "action": "Draft TP 2.13 (internal_alert)",
+        "description": "Online check-in opens \u2014 alert client, assist with completion.",
+        "status": "queued"
+      },
+      {
+        "owner": "COS",
+        "sequence": 2,
+        "of": 2,
+        "action": "Draft TP 2.13 (internal_alert)",
+        "description": "Online check-in opens \u2014 alert client, assist with completion.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Kuklinski",
+    "booking_ref": "Viking 9593880",
+    "touchpoint_id": "TP 2.12",
+    "zone": "PREPARATION",
+    "content_type": "email",
+    "send_date": "2026-09-18",
+    "draft_rule_days": 14,
+    "draft_due": "2026-09-04",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A2",
+        "sequence": 1,
+        "of": 3,
+        "action": "Draft TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      },
+      {
+        "owner": "A6",
+        "sequence": 2,
+        "of": 3,
+        "action": "Draft TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      },
+      {
+        "owner": "A3",
+        "sequence": 3,
+        "of": 3,
+        "action": "Finalize TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Kuklinski",
+    "booking_ref": "Viking 9593880",
+    "touchpoint_id": "TP 3.1",
+    "zone": "PREPARATION",
+    "content_type": "email",
+    "send_date": "2026-09-18",
+    "draft_rule_days": 14,
+    "draft_due": "2026-09-04",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A3",
+        "sequence": 1,
+        "of": 2,
+        "action": "Draft TP 3.1 (email)",
+        "description": "Document audit email \u2014 passport, visa, insurance, emergency contacts.",
+        "status": "queued"
+      },
+      {
+        "owner": "COS",
+        "sequence": 2,
+        "of": 2,
+        "action": "Draft TP 3.1 (email)",
+        "description": "Document audit email \u2014 passport, visa, insurance, emergency contacts.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "McLeod",
+    "booking_ref": "Regent 2984034",
+    "touchpoint_id": "TP 2.10",
+    "zone": "PREPARATION",
+    "content_type": "internal_research",
+    "send_date": "2026-07-22",
+    "draft_rule_days": 14,
+    "draft_due": "2026-07-08",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A2",
+        "sequence": 1,
+        "of": 1,
+        "action": "Draft TP 2.10 (internal_research)",
+        "description": "Dining research begins \u2014 restaurant profiles, menus, reservation strategy.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "McLeod",
+    "booking_ref": "Regent 2984034",
+    "touchpoint_id": "TP 2.14",
+    "zone": "PREPARATION",
+    "content_type": "email",
+    "send_date": "2026-07-23",
+    "draft_rule_days": 14,
+    "draft_due": "2026-07-09",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A9",
+        "sequence": 1,
+        "of": 2,
+        "action": "Draft TP 2.14 (email)",
+        "description": "FPD confirmation email \u2014 payment received, balance zero.",
+        "status": "queued"
+      },
+      {
+        "owner": "A3",
+        "sequence": 2,
+        "of": 2,
+        "action": "Finalize TP 2.14 (email)",
+        "description": "FPD confirmation email \u2014 payment received, balance zero.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "McLeod",
+    "booking_ref": "Regent 2984034",
+    "touchpoint_id": "TP 2.11",
+    "zone": "PREPARATION",
+    "content_type": "internal_alert",
+    "send_date": "2026-09-06",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-23",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "COS",
+        "sequence": 1,
+        "of": 1,
+        "action": "Draft TP 2.11 (internal_alert)",
+        "description": "Specialty dining booking window opens. Alert Commander.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "McLeod",
+    "booking_ref": "Regent 2984034",
+    "touchpoint_id": "TP 2.13",
+    "zone": "PREPARATION",
+    "content_type": "internal_alert",
+    "send_date": "2026-09-06",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-23",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A3",
+        "sequence": 1,
+        "of": 2,
+        "action": "Draft TP 2.13 (internal_alert)",
+        "description": "Online check-in opens \u2014 alert client, assist with completion.",
+        "status": "queued"
+      },
+      {
+        "owner": "COS",
+        "sequence": 2,
+        "of": 2,
+        "action": "Draft TP 2.13 (internal_alert)",
+        "description": "Online check-in opens \u2014 alert client, assist with completion.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "McLeod",
+    "booking_ref": "Regent 2984034",
+    "touchpoint_id": "TP 2.12",
+    "zone": "PREPARATION",
+    "content_type": "email",
+    "send_date": "2026-09-20",
+    "draft_rule_days": 14,
+    "draft_due": "2026-09-06",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A2",
+        "sequence": 1,
+        "of": 3,
+        "action": "Draft TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      },
+      {
+        "owner": "A6",
+        "sequence": 2,
+        "of": 3,
+        "action": "Draft TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      },
+      {
+        "owner": "A3",
+        "sequence": 3,
+        "of": 3,
+        "action": "Finalize TP 2.12 (email)",
+        "description": "Dining recommendation and confirmation email \u2014 reservations confirmed or options presented.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Furlow",
+    "booking_ref": "Regent 3071222",
+    "touchpoint_id": "TP 3.3",
+    "zone": "EXECUTION",
+    "content_type": "proposal",
+    "send_date": "2026-08-08",
+    "draft_rule_days": 14,
+    "draft_due": "2026-07-25",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A2",
+        "sequence": 1,
+        "of": 4,
+        "action": "Draft TP 3.3 (proposal)",
+        "description": "Pre-voyage brief \u2014 full production, the flagship touchpoint of the lifecycle.",
+        "status": "queued"
+      },
+      {
+        "owner": "A6",
+        "sequence": 2,
+        "of": 4,
+        "action": "Draft TP 3.3 (proposal)",
+        "description": "Pre-voyage brief \u2014 full production, the flagship touchpoint of the lifecycle.",
+        "status": "queued"
+      },
+      {
+        "owner": "A9",
+        "sequence": 3,
+        "of": 4,
+        "action": "Draft TP 3.3 (proposal)",
+        "description": "Pre-voyage brief \u2014 full production, the flagship touchpoint of the lifecycle.",
+        "status": "queued"
+      },
+      {
+        "owner": "A3",
+        "sequence": 4,
+        "of": 4,
+        "action": "Finalize TP 3.3 (proposal)",
+        "description": "Pre-voyage brief \u2014 full production, the flagship touchpoint of the lifecycle.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Furlow",
+    "booking_ref": "Regent 3071222",
+    "touchpoint_id": "TP 3.4",
+    "zone": "EXECUTION",
+    "content_type": "alert",
+    "send_date": "2026-08-15",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-01",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A3",
+        "sequence": 1,
+        "of": 1,
+        "action": "Finalize TP 3.4 (alert)",
+        "description": "Luggage tags / boarding pass \u2014 alert client when available.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Furlow",
+    "booking_ref": "Regent 3071222",
+    "touchpoint_id": "TP 3.5",
+    "zone": "EXECUTION",
+    "content_type": "email",
+    "send_date": "2026-08-22",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-08",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A3",
+        "sequence": 1,
+        "of": 1,
+        "action": "Finalize TP 3.5 (email)",
+        "description": "Final confirmation \u2014 logistics check. Flight reconfirm, hotel, transfers.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Furlow",
+    "booking_ref": "Regent 3071222",
+    "touchpoint_id": "TP 3.6",
+    "zone": "EXECUTION",
+    "content_type": "email",
+    "send_date": "2026-08-29",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-15",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "A6",
+        "sequence": 1,
+        "of": 2,
+        "action": "Draft TP 3.6 (email)",
+        "description": "Embarkation day send-off \u2014 short, warm, a human moment.",
+        "status": "queued"
+      },
+      {
+        "owner": "A3",
+        "sequence": 2,
+        "of": 2,
+        "action": "Finalize TP 3.6 (email)",
+        "description": "Embarkation day send-off \u2014 short, warm, a human moment.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  },
+  {
+    "client": "Furlow",
+    "booking_ref": "Regent 3071222",
+    "touchpoint_id": "TP 4.1",
+    "zone": "EXECUTION",
+    "content_type": "internal_activation",
+    "send_date": "2026-08-29",
+    "draft_rule_days": 14,
+    "draft_due": "2026-08-15",
+    "draft_rule_exception": false,
+    "chain": [
+      {
+        "owner": "COS",
+        "sequence": 1,
+        "of": 1,
+        "action": "Draft TP 4.1 (internal_activation)",
+        "description": "Emergency contact active \u2014 Commander cell on 24-hour posture.",
+        "status": "queued"
+      }
+    ],
+    "gate": "WF-17",
+    "created_at": "2026-07-06"
+  }
+]
