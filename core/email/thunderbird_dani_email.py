@@ -325,6 +325,17 @@ def _phase_aggregate(sender_name: str, sender_email: str,
         # data-confidence classifier. is_commander=False hides financial/A9 data.
         context = build_dani_context(query, is_commander=False)
 
+        # Cruise Discovery (MISSION-804): if the inquiry names a destination/
+        # sailing/cruise, pull matches from master_cruise.db and inject as
+        # structured context. Pure data lookup — no client-facing text here.
+        try:
+            from scripts.cruise_discovery_handler import build_context_block
+            cruise_block = build_context_block(subject, body)
+            if cruise_block:
+                context += f"\n\n{cruise_block}"
+        except Exception as e:
+            logger.warning(f"[AGGREGATE] Cruise discovery lookup skipped: {e}")
+
         return {
             "query": query,
             "context": context,
