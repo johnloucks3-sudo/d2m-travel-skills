@@ -1,0 +1,10 @@
+[Unit]
+Description=D2M Booking Lifecycle Notification Scan Timer — daily date-driven events
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+AccuracySec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

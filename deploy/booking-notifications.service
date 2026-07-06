@@ -1,0 +1,15 @@
+[Unit]
+Description=D2M Booking Lifecycle Notification Scan (SMS/push/email-digest)
+After=network.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/notifications/booking_notifications.py --scan
+Environment=PYTHONPATH=/home/john/Thunderbird
+StandardOutput=append:/home/john/Thunderbird/OpsCenter/logs/booking_notifications_service.log
+StandardError=append:/home/john/Thunderbird/OpsCenter/logs/booking_notifications_service.log
+
+[Install]
+WantedBy=multi-user.target
