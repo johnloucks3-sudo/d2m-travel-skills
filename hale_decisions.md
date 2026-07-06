@@ -5977,3 +5977,25 @@ Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active wo
 **Verified live:** all 5 names resolve to correct voice/channel; a random non-waived address correctly raises `NotWaivedError`; both send channels (d2mconcierge Gmail, AgentMail) tested against johnloucks3 as a safe internal target. Did **not** send unsolicited test emails to the five real correspondents — verification stayed internal.
 
 **Status:** mechanism is live and ready. First real use of each channel will be the actual next correspondence with each person, whenever that naturally occurs — not manufactured today.
+
+## 2026-07-06 — WF-17 waived send: TEST-INTERNAL-ONLY
+**Provenance:** waiver `TEST-INTERNAL-ONLY`, granted 2026-07-06, source `TEMPORARY — responder-loop test only, removed after verification`. To: johnloucks3@gmail.com. Subject: Re: Test — email responder loop verification. CC: johnloucks3@gmail.com. Voice track: hale.
+
+## 2026-07-06 — WF-17 waived send: TEST-INTERNAL-ONLY
+**Provenance:** waiver `TEST-INTERNAL-ONLY`, granted 2026-07-06, source `TEMPORARY — responder-loop test only, removed after verification`. To: johnloucks3@gmail.com. Subject: Re: Test 3 — clean final verification. CC: johnloucks3@gmail.com. Voice track: hale.
+
+## 2026-07-06 (late morning) — Bryana capability parity: confirmed gap, built the fix, drafted her manual+email
+
+**Verified before promising anything:** checked whether Bryana could actually access the Wing solely through email. Answer was no — the AgentMail listener logged inbound mail to a queue file and pinged Telegram, but nothing processed it. An email would sit until a human opened Console.
+
+**Built the fix — `core/email/hale_email_responder.py`:** watches the inbound queue for Hale-voice-track named-waiver senders only (Bryana, Susan — prompt-injection guard, arbitrary inbound never triggers a spawn). Spawns a headless Claude agent via the approved wrapper (`core/ai_infra/thunderbird_headless_spawn.py`, per SO 24 APR 2026 — first attempt used raw subprocess.Popen and was correctly blocked by the A7 Sterling pre-commit gate) with the same global MCP config Console uses. Drafts a real, researched reply, sends it back via the waived AgentMail channel. Deployed as `hale-email-responder.timer`, 5-minute poll.
+
+**Verified live, twice:** first pass caught a stale CLI syntax from the headless-spawn doc (`claude agents --bg -p` doesn't exist in this Claude Code version; real syntax is `claude --bg '<prompt>'`) and a real filename-collision bug (two messages processed in the same second got identical output paths — fixed by including the message_id in the filename). Second pass, clean: injected a safe synthetic test message (from johnloucks3, never from a real correspondent), confirmed the agent correctly pulled real Wing context (named the actual Furlow/Ely-Darrow/Nichols Grandeur sailing), confirmed the reply was actually delivered to Gmail. Removed all test artifacts after.
+
+**Console vs Email capability, documented (`docs/CONSOLE_VS_EMAIL_CAPABILITY_BASELINE_20260706.md`):** tool access is now identical. Latency is not — minutes vs seconds — and that's correctly a property of an async channel, not a remaining gap to close.
+
+**Per-user quota tracker built** (`core/email/user_message_quota.py` + `config/user_quotas.json`): Bryana at 750/month, soft limit — flags for a conversation, never refuses to reply mid-thread. Real AgentMail Developer-tier pricing pulled from their own pricing page: $20/month, 10 inboxes, 10,000/month, no daily cap. Recommended against upgrading preemptively — watch actual combined account usage first.
+
+**Bryana's manual + email drafted, not sent:** `docs/BRYANA_WING_RESOURCES_MANUAL.md` (Rondo-manual-style) + a Hale-voice email continuing from her original mentor_welcome onboarding, D2M canonical template, manual attached as a real file. Staged in johnloucks3 drafts (labeled THUNDERBIRD-Commander-Review) rather than sent directly — even though her WF-17 waiver would technically permit it, this is the first-ever announcement of a brand-new capability and earns a look before it goes.
+
+**Side finding, fixed in passing:** the earlier AgentMail vendor-review question (sent to support@agentmail.cc) bounced — that address is on AgentMail's own SES suppression list. Resent to contact@agentmail.cc instead of retrying the same dead address.
