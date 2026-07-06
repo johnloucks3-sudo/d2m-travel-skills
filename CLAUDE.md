@@ -24,7 +24,7 @@ Key facts: Poe key rotated → new key under yodainva@gmail.com (194,914 pts). D
 
 ## KEYWORD TRIGGER — "STAFF COMMENTS?" (MISSION-172 Feedback Portal)
 **When Commander types:** `"STAFF COMMENTS?"`  
-**Auto-invokes:** `python3 OpsCenter/staff_comments_handler.py`  
+**Auto-invokes:** `python3 OpsCenter/staff_comments_feed.py` (renamed from `staff_comments_handler.py` under the SO-2026-06-11 realtime-feed doctrine — old script no longer exists, this pointer was stale)  
 **Purpose:** Surface staff feedback on recent implementations (dissents, observations, alternatives)
 
 **Behavior:**
@@ -346,9 +346,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-06 09:25 MT -->
+<!-- Last sync: 2026-07-06 15:51 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-06 09:25 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-06 15:51 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
