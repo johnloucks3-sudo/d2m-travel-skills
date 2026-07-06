@@ -1,0 +1,22 @@
+[Unit]
+Description=D2M Thunderbird Bidirectional Tasking Watcher
+Documentation=https://github.com/d2m/thunderbird
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/thunderbird_tasking_watcher_fixed.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/john/Thunderbird/OpsCenter/overwatch.log
+StandardError=append:/home/john/Thunderbird/OpsCenter/overwatch.log
+SyslogIdentifier=d2m-tasking-watcher
+
+# Give it a clean environment
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

@@ -90,6 +90,31 @@ def load_queue_summary() -> list[dict]:
     return entries
 
 
+def load_staff_concerns() -> list[dict]:
+    """Read open staff concerns about Mission Board from OpsCenter/staff_concerns.json."""
+    path = THUNDERBIRD / "OpsCenter" / "staff_concerns.json"
+    try:
+        raw = json.loads(path.read_text())
+        # Support both list format and {concerns: [...]} format
+        items = raw if isinstance(raw, list) else raw.get("concerns", [])
+        return [c for c in items if not c.get("resolved", False)]
+    except Exception:
+        return []
+
+
+def load_tp_draft() -> dict | None:
+    """Return the next pending TP lifecycle draft awaiting Commander approval."""
+    path = THUNDERBIRD / "OpsCenter" / "tp_draft_queue.json"
+    try:
+        items = json.loads(path.read_text())
+        for item in items:
+            if item.get("status") == "pending_approval":
+                return item
+    except Exception:
+        pass
+    return None
+
+
 def get_client_statuses() -> list[dict]:
     """Read all active dossiers and compute phase + open items."""
     records = scan_dossiers()
@@ -387,7 +412,7 @@ def generate_compressed_brief(
 # Brief generator
 # ---------------------------------------------------------------------------
 
-def generate_brief(state: dict, clients: list[dict], queue: list[dict]) -> tuple[str, str]:
+def generate_brief(state: dict, clients: list[dict], queue: list[dict], concerns: list[dict] | None = None, tp_draft: dict | None = None) -> tuple[str, str]:
     """Returns (markdown_brief, html_brief)."""
     today = date.today()
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M MT")
@@ -454,6 +479,36 @@ def generate_brief(state: dict, clients: list[dict], queue: list[dict]) -> tuple
     pipeline = financial.get("total_d2m_pipeline", 0)
     tess_received = financial.get("tess_received", 0)
 
+    # --- Staff concerns ---
+    concerns = concerns or []
+    if concerns:
+        concerns_lines = []
+        for c in concerns:
+            badge = "🔴" if c.get("priority") == "P0" else "🟡" if c.get("priority") == "P1" else "⚪"
+            who = c.get("staff") or c.get("source", "?")
+            mission_ref = c.get("mission_id") or c.get("mission", "—")
+            concerns_lines.append(
+                f"| {badge} {who} | {c.get('concern','?')} | {mission_ref} |"
+            )
+        concerns_table = "\n".join([
+            "| Staff | Concern | Mission |",
+            "|---|---|---|",
+        ] + concerns_lines)
+    else:
+        concerns_table = "_No staff concerns logged this cycle._"
+
+    # --- TP draft ---
+    if tp_draft:
+        tp_draft_section = (
+            f"**Client:** {tp_draft.get('client','?')}  \n"
+            f"**TP:** {tp_draft.get('tp_id','?')} — {tp_draft.get('label','?')}  \n"
+            f"**Owner:** {tp_draft.get('owner','Dani')}  \n\n"
+            f"{tp_draft.get('draft_preview','_Draft preview not available._')}  \n\n"
+            f"_Reply APPROVED or REVISE to this email._"
+        )
+    else:
+        tp_draft_section = "_No TP draft queued. Add to OpsCenter/tp_draft_queue.json with status=pending_approval._"
+
     md = f"""# HALE — Daily Brief
 *Generated: {now_str}*
 
@@ -493,6 +548,18 @@ def generate_brief(state: dict, clients: list[dict], queue: list[dict]) -> tuple
 
 ---
 
+### 5. STAFF CONCERNS — MISSION BOARD
+
+{concerns_table}
+
+---
+
+### 6. TP DRAFT FOR APPROVAL
+
+{tp_draft_section}
+
+---
+
 *— V. Hale, VCS · Thunderbird Wing · {now_str}*
 *Next brief: {(today + timedelta(days=1)).isoformat()} 06:00 MT*
 """
@@ -507,6 +574,39 @@ def generate_brief(state: dict, clients: list[dict], queue: list[dict]) -> tuple
 <tr style='background:#1a3557;color:#fff'><th>Client</th><th>TP</th><th>Phase</th><th>Deadline</th><th>Status</th></tr>
 {''.join(queue_rows_html)}
 </table>""" if queue_rows_html else "<p><em>Queue empty</em></p>"
+
+    # --- HTML: Staff concerns ---
+    if concerns:
+        concerns_rows_html = "".join(
+            f"<tr style='border-bottom:1px solid #e0d9cc'>"
+            f"<td style='padding:4px 8px'>{'🔴' if c.get('priority')=='P0' else '🟡' if c.get('priority')=='P1' else '⚪'} {c.get('staff') or c.get('source','?')}</td>"
+            f"<td style='padding:4px 8px'>{c.get('concern','?')}</td>"
+            f"<td style='padding:4px 8px'>{c.get('mission_id') or c.get('mission','—')}</td></tr>"
+            for c in concerns
+        )
+        concerns_html = (
+            f"<table style='width:100%;border-collapse:collapse;font-size:13px'>"
+            f"<tr style='background:#1a3557;color:#fff'><th style='padding:4px 8px'>Staff</th><th style='padding:4px 8px'>Concern</th><th style='padding:4px 8px'>Mission</th></tr>"
+            f"{concerns_rows_html}</table>"
+        )
+    else:
+        concerns_html = "<p><em>No concerns logged this cycle. Staff: add to OpsCenter/staff_concerns.json to surface here.</em></p>"
+
+    # --- HTML: TP draft ---
+    if tp_draft:
+        tp_draft_html = (
+            f"<table style='width:100%;font-size:13px;border-collapse:collapse;margin-bottom:8px'>"
+            f"<tr><td style='padding:3px 8px'><strong>Client:</strong></td><td style='padding:3px 8px'>{tp_draft.get('client','?')}</td></tr>"
+            f"<tr><td style='padding:3px 8px'><strong>TP:</strong></td><td style='padding:3px 8px'>{tp_draft.get('tp_id','?')} — {tp_draft.get('label','?')}</td></tr>"
+            f"<tr><td style='padding:3px 8px'><strong>Owner:</strong></td><td style='padding:3px 8px'>{tp_draft.get('owner','Dani')}</td></tr>"
+            f"</table>"
+            f"<div style='background:#fff;border:1px solid #ccc;padding:12px;font-size:13px;white-space:pre-wrap'>"
+            f"{tp_draft.get('draft_preview','Draft preview not available.')}"
+            f"</div>"
+            f"<p style='color:#1a3557;font-weight:bold;margin-top:8px'>Reply <strong>APPROVED</strong> or <strong>REVISE [notes]</strong> to this email.</p>"
+        )
+    else:
+        tp_draft_html = "<p><em>No TP draft queued. Add to OpsCenter/tp_draft_queue.json with status=pending_approval.</em></p>"
 
     html = f"""<div style="font-family:Georgia,serif;color:#1a3557;background:#f7f3ea;padding:24px;max-width:700px">
 <div style="background:#1a3557;color:#fff;padding:12px 16px;margin-bottom:16px">
@@ -523,6 +623,12 @@ def generate_brief(state: dict, clients: list[dict], queue: list[dict]) -> tuple
 <h3 style="color:#1a3557">3. Financial Pulse</h3>
 <table style='font-size:13px'><tr><td><strong>D2M pipeline</strong></td><td><strong>${pipeline:,.2f}</strong></td></tr>
 <tr><td>TESS received</td><td>${tess_received:,.2f}</td></tr></table>
+
+<h3 style="color:#1a3557">5. Staff Concerns — Mission Board</h3>
+{concerns_html}
+
+<h3 style="color:#1a3557">6. TP Draft for Approval</h3>
+{tp_draft_html}
 
 <p style="font-size:11px;color:#888;border-top:1px solid #ccc;padding-top:8px;margin-top:20px">
 — V. Hale, VCS · Thunderbird Wing · D2M<br>
@@ -645,6 +751,100 @@ def _build_overnight_section() -> str:
 
 
 # ---------------------------------------------------------------------------
+# ELON proposals section
+# ---------------------------------------------------------------------------
+
+def _build_elon_proposals_section() -> str:
+    """
+    Surface ELON technical proposals so they never again silently pile up
+    unread. Root cause (2026-07-05): proposals were written to
+    OpsCenter/elon_proposals/ and only ever counted (elon_proposals_new in
+    hale_incidents_today.json) — no brief ever listed them. This closes that
+    gap: new-since-last-brief proposals are listed with decision tag +
+    synopsis, and any QUEUE_FOR_COMMANDER proposal stays listed until
+    acknowledged via the seen-cursor file.
+    """
+    import re
+
+    proposals_dir = THUNDERBIRD / "OpsCenter" / "elon_proposals"
+    cursor_file = THUNDERBIRD / "OpsCenter" / "state" / "elon_proposals_seen.json"
+
+    lines = ["### ELON PROPOSALS\n*New technical proposals since last brief — nothing sits unseen*\n"]
+
+    if not proposals_dir.exists():
+        return ""
+
+    files = sorted(
+        [f for f in proposals_dir.iterdir() if f.suffix == ".md" and f.stat().st_size > 0],
+        key=lambda f: f.stat().st_mtime,
+    )
+    if not files:
+        return ""
+
+    try:
+        cursor = json.loads(cursor_file.read_text()) if cursor_file.exists() else {}
+    except Exception:
+        cursor = {}
+    last_seen_mtime = cursor.get("last_seen_mtime", 0)
+    acked_queued = set(cursor.get("acked_queue_for_commander", []))
+
+    def decision_of(text: str) -> str:
+        if re.search(r"QUEUE_FOR_COMMANDER", text):
+            return "QUEUE_FOR_COMMANDER"
+        if re.search(r"APPLY_AUTONOMOUSLY", text):
+            return "APPLY_AUTONOMOUSLY"
+        return "UNTAGGED"
+
+    def synopsis_of(text: str) -> str:
+        for pat in (r"\*\*Root cause[:\s]*\*\*[:\s]*(.+)", r"\*\*Recommendation[:\s]*\*\*[:\s]*(.+)",
+                    r"\*\*Decision[:\s]*\*\*[:\s]*(.+)"):
+            m = re.search(pat, text)
+            if m:
+                return re.sub(r"[`*]", "", m.group(1)).strip()[:160]
+        for l in text.splitlines():
+            l = l.strip()
+            if l and not l.startswith("#") and "written to" not in l.lower() and "proposal complete" not in l.lower():
+                return re.sub(r"[`*]", "", l)[:160]
+        return "(no synopsis)"
+
+    new_items = []
+    unacked_queued = []
+    newest_mtime = last_seen_mtime
+
+    for f in files:
+        mtime = f.stat().st_mtime
+        newest_mtime = max(newest_mtime, mtime)
+        text = f.read_text(errors="ignore")
+        decision = decision_of(text)
+        is_new = mtime > last_seen_mtime
+        if is_new:
+            new_items.append((f.name, decision, synopsis_of(text)))
+        if decision == "QUEUE_FOR_COMMANDER" and f.name not in acked_queued:
+            unacked_queued.append((f.name, synopsis_of(text)))
+
+    if new_items:
+        for name, decision, syn in new_items:
+            flag = "🔴" if decision == "QUEUE_FOR_COMMANDER" else ("🟢" if decision == "APPLY_AUTONOMOUSLY" else "⚪")
+            lines.append(f"| {flag} **{decision}** | {name} | {syn} |")
+    else:
+        lines.append("_No new proposals since last brief_")
+
+    if unacked_queued:
+        lines.append("")
+        lines.append(f"**⚠️ {len(unacked_queued)} QUEUE_FOR_COMMANDER proposal(s) still awaiting your decision (any age):**")
+        for name, syn in unacked_queued:
+            lines.append(f"- `{name}` — {syn}")
+
+    cursor_file.parent.mkdir(parents=True, exist_ok=True)
+    cursor_file.write_text(json.dumps({
+        "last_seen_mtime": newest_mtime,
+        "acked_queue_for_commander": list(acked_queued),  # ack happens via separate command, not auto
+    }, indent=2))
+
+    return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -678,11 +878,17 @@ def main() -> None:
 
     # OVERNIGHT OPS + CREDENTIALS — run health check, inject into brief
     overnight_section = _build_overnight_section()
+    elon_section = _build_elon_proposals_section()
 
-    md_brief, html_brief = generate_brief(state, clients, queue)
+    concerns = load_staff_concerns()
+    tp_draft = load_tp_draft()
+    md_brief, html_brief = generate_brief(state, clients, queue, concerns, tp_draft)
 
-    # Write hale_brief.md — compressed header first, overnight ops, full brief appended
-    combined_md = compressed_brief + "\n---\n\n" + overnight_section + "\n---\n\n" + md_brief
+    # Write hale_brief.md — compressed header first, overnight ops, ELON proposals, full brief appended
+    combined_md = compressed_brief + "\n---\n\n" + overnight_section
+    if elon_section:
+        combined_md += "\n---\n\n" + elon_section
+    combined_md += "\n---\n\n" + md_brief
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")
 

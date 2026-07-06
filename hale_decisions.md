@@ -5872,3 +5872,42 @@ Three mutually-inconsistent commission figures existed (theft of time + money by
 - `/home/john/Thunderbird/OpsCenter/state/financial_pulse_latest.txt` (regenerated with verified figure) ✅
 - Wing_Dashboard sheet cell H4 (live, synced via MCP) ✅
 - This decision log entry ✅
+
+## 2026-07-05 (evening, cont. 2) — MISSION-127 fully closed
+
+**Commander confirmed:** "should be set up" — NotebookLM notebook created, Drive source corpus linked (37 standing orders + 4 destination/brochure docs).
+
+**Result:** All five MISSION-127 subtasks now COMPLETE (Gemini adapter, large-context tier, file reader, Sheets MCP wire, NotebookLM workspace). Updated `mission_board.json` and `docs/GOOGLE_AI_INTEGRATION_STATUS.md` to reflect closure. Mission started 2026-06-05, closed 2026-07-05.
+
+Note: could not independently verify source count inside the notebook (NotebookLM has no API) — took Commander's confirmation at face value. If Dembe/Sterling/Harlan hit missing sources when actually using it (e.g. nested-subfolder picker issue flagged earlier), flag back and I'll re-stage the corpus flattened into one folder.
+
+## 2026-07-05 (evening, cont. 3) — Mission board hygiene pass while surveying tech-integration backlog
+
+**Trigger:** Commander asked "what other tech integration missions do we have to complete" — surveyed all 65 open (non-completed, non-client-inquiry) missions and found 4 hygiene issues, fixed directly (non-gated, execute+report):
+
+- **MISSION-1541** (tailscaled ProtectHome=true) — description documented "FIX APPLIED 2026-07-05 09:37 MT" but status was still `in_progress`. Corrected to `complete`.
+- **MISSION-420** (WhatsApp Twilio production upgrade) — WhatsApp decommissioned 2026-06-28 per standing doctrine; mission was stale backlog. Killed. **Commander confirmed correct** ("MISSION-420 Whatsapp is out of the stack").
+- **MISSION-1547** — duplicate of MISSION-1514 (identical Amadeus-vs-Centrav validation task). Closed as `closed_duplicate`, pointing to 1514.
+- **MISSION-428** — duplicate of MISSION-1534/MISSION-SEC-05 (same GitHub credential Tier-2 rotation runbook, 3 mission entries for 1 piece of work). Closed as `closed_duplicate`, pointing to 1534.
+
+Ties into MISSION-1538 (Sterling's own "mission board hygiene pass — active working set under 50") — this is a down payment on that mission, not a replacement for it.
+
+## 2026-07-05 (evening, cont. 4) — D2M Tasking Watcher retired; ELON proposal visibility gap fixed
+
+**Commander decision (via AskUserQuestion):** Retire the D2M Tasking Watcher daemon per ELON's recommendation (MISSION-1517).
+
+**Retirement executed:**
+- Verified the one open risk (90s unclaimed-task → Telegram nudge) was already non-functional under the currently-running stub — its own code comments confirm the Telegram gateway service owns that notification now. No regression.
+- Stopped + disabled `d2m-tasking-watcher.service`, archived the unit file and both source files (`thunderbird_tasking_watcher_fixed.py` stub, original `thunderbird_tasking_watcher.py`) to `archive/retired_services/`. `daemon-reload` confirmed the unit is gone.
+- MISSION-1517 closed.
+
+**Separately, Commander raised a serious process gap:** "I have never seen these proposals, we need to review them systematically and not just write them and never inform me" — re: the `OpsCenter/elon_proposals/` directory (74 files, May 16–Jul 5).
+
+**Investigation:** `hale_incident_router.py` invokes ELON on qualifying incidents and writes the proposal file, but only ever increments a counter (`elon_proposals_new` in `hale_incidents_today.json`). No brief generator (`hale_morning_brief.py`, `thunderbird_eod_brief.py`, `brief_data_generator.py`) ever read that counter or listed proposal files. Of the 74: 42 self-tagged `APPLY_AUTONOMOUSLY` (executed silently, never reported), 5 explicitly `QUEUE_FOR_COMMANDER` (should have reached the Commander by design, never did), 27 untagged. Worst pattern: `thunderbird-telegram-gw` alone generated 16 separate proposals over 4 weeks — repeated re-diagnosis of what looks like the same underlying crash-loop, never surfaced as a pattern.
+
+**Delivered:**
+1. Systematic review artifact (published to claude.ai) — full 74-proposal table grouped by service, decision tags, synopses, root-cause explanation, and recurrence-pattern flag on telegram-gw/silversea-session.
+2. **Permanent fix in `scripts/morning_brief_engine.py`:** new `_build_elon_proposals_section()`, wired into `main()`. Every brief now lists proposals new since the last brief (decision tag + synopsis) and keeps any un-acknowledged `QUEUE_FOR_COMMANDER` proposal visible regardless of age, via a seen-cursor at `OpsCenter/state/elon_proposals_seen.json`. Nothing lands in that folder again without surfacing within 24h.
+3. Pre-seeded the cursor to now (the 74-item backlog was just delivered via the review artifact, not re-dumped into tomorrow's brief) and acknowledged the tasking-watcher proposal specifically now that it's been decided. The other 4 QUEUE_FOR_COMMANDER items (telegram-gw ×3, tess-token-keepalive ×1, commander-directive-sweep ×1) remain unacknowledged and will keep appearing in the brief until reviewed.
+
+**Not yet done:** the 4 remaining unacknowledged QUEUE_FOR_COMMANDER proposals still need actual review/decision — flagged, not resolved.
