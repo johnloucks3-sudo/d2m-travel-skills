@@ -1,21 +1,10 @@
-# Daily Hale Transformation Audit — 2026-07-03
-Phase 1: ✅ 9.5/10
-Phase 2: ✅ COMPLETE (approved + deployed)
-Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
-Standards: 100% self-enforced, Layer 8 live
-Operations: Lyons PAID (FPD archived). Welcome emails (Kuklinski + Westbrook) in progress, due Apr 15.
-Decisions: 198 logged
-Open Tasks: 6
-System Health: UNKNOWN
-## END AUDIT
-
-# HALE — Compressed Brief [2026-07-03 06:00 MT]
+# HALE — Compressed Brief [2026-07-06 06:00 MT]
 *3-7-30 Format | yesterday's Δ: +0 items*
 
 ---
 
 ## TODAY (Commander Action Required)
-  🔴 **STRATEGIC DECISION:** d2m-tasking-watcher daemon crash loop resolved (service masked). ELON proposes three architecture options: retire (recommended) / resurrect full-featured / resurrect minimal. See `/OpsCenter/elon_proposals/PROPOSAL-20260703-d2m-tasking-watcher.md` + **MISSION-1517** for full analysis.
+  All clear — no Commander action required today.
 
 ## 7-DAY HORIZON (Status Since Last Brief)
   No status changes since last brief.
@@ -25,71 +14,60 @@ System Health: UNKNOWN
 
 ---
 
+## PERSONA HEALTH — Audit #1 baseline (2026-07-06)
+Persona health: 1 RED (ELON — proposal closure-loop gap, fix scoped not built), 2 YELLOW (Hale decision-velocity metric needs re-classification, ELON proposal-quality metric needs redefinition), rest GREEN or not yet instrumented — 13 of 21 metrics have no data pipeline yet (Naia 0/3, Dani SLA, Reyes all 3). Target next month: close the Naia/Dani/Reyes instrumentation gap and build the ELON reconciliation pass. Full scorecard: `docs/PERSONA_HEALTH_SCORECARD_2026-07.md`.
+
+---
+
 | Pipeline | WF-17 Queue | Active Clients |
 |---|---|---|
 | **$18,831** | 0 drafts | 16 |
 
 *Full brief: /home/john/Thunderbird/hale_brief.md*
-*— V. Hale, VCS · Next: 2026-07-04 06:00 MT*
+*— V. Hale, VCS · Next: 2026-07-07 06:00 MT*
 
 ---
 
 ### 0. OVERNIGHT OPS
 *What the Wing did while you slept — no action needed unless flagged 🔴*
 
-| 2026-07-03 04:02 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:07 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:12 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:13 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:17 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:18 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:22 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:27 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:28 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:32 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:37 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:42 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:47 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:52 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 04:57 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:02 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:07 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:12 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:13 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:17 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:22 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:23 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:27 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:32 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:33 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:37 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:42 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:47 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:52 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
-| 2026-07-03 05:57 | 🔴 credentials_health_check | regent_cookies: valid, regent_cookies_oa: valid, gmail_token: valid |
+| 2026-07-06 05:59 | 🔴 credentials_health_check | regent_cookies_oa: expired |
 
 **Credentials Status:**
 
 | Credential | Status | Detail |
 |---|---|---|
-| ✅ centrav_cookies | valid | Expires in 494784846.0h (cookie: laravel_session [auth-gate] |
-| ✅ regent_cookies | valid | Expires in 30.8h (cookie: ASPXAUTH [auth-gate]) |
-| ✅ regent_cookies_oa | valid | Expires in 30.8h (cookie: ASPXAUTH [auth-gate]) |
-| ✅ gmail_token | valid | Expires in 0.9h |
-| ✅ johnloucks3_token | valid | Expires in 0.0h |
-| 🔴 perx_cookies | expired | Expired 27.1h ago (cookie: sailthru_pageviews) |
-| 🟡 room_res_cookies | expired | Expired 27.6h ago (cookie: _gat) |
+| ✅ centrav_cookies | valid | Expires in 494784773.9h (cookie: laravel_session [auth-gate] |
+| ✅ regent_cookies | valid | Expires in 20.0h (cookie: ASPXAUTH [auth-gate]) |
+| 🔴 regent_cookies_oa | expired | Expired 41.3h ago (cookie: ASPXAUTH [auth-gate]) |
+| ✅ gmail_token | valid | Expires in 0.8h — has refresh_token (auto-refreshes) |
+| ✅ johnloucks3_token | valid | Expires in 0.7h — has refresh_token (auto-refreshes) |
+| ✅ perx_cookies | valid | Expires in 236.4h (cookie: sessionid) |
+| ✅ room_res_cookies | valid | Expires in 8660.4h (cookie: ajs_anonymous_id) |
+
+---
+
+### ELON PROPOSALS
+*New technical proposals since last brief — nothing sits unseen*
+
+| 🟢 **APPLY_AUTONOMOUSLY** | PROPOSAL-20260705-d2m-tasking-watcher.md | APPLY_AUTONOMOUSLY — Service was already architecturally obsolete; mask is infrastructure maintenance, not a strategic change. Policy alignment confirmed; prece |
+
+**⚠️ 4 QUEUE_FOR_COMMANDER proposal(s) still awaiting your decision (any age):**
+- `PROPOSAL-20260516-thunderbird-telegram-gw.md` — ELON Weekly Kill Audit — 2026-05-16 | Telegram Gateway Crash Loop
+- `PROPOSAL-20260521-thunderbird-telegram-gw.md` — Summary:
+- `PROPOSAL-20260614-thunderbird-commander-directive-sweep.md` — Proposal updated. ELON analysis complete.
+- `PROPOSAL-20260627-tess-token-keepalive.md` — /home/john/Thunderbird/OpsCenter/elon_proposals/PROPOSAL-20260627-tess-token-keepalive.md
 
 ---
 
 # HALE — Daily Brief
-*Generated: 2026-07-03 06:00 MT*
+*Generated: 2026-07-06 06:00 MT*
 
 ---
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-07-03 · COS MODE**
+**THUNDERBIRD DAILY BRIEF — 2026-07-06 · COS MODE**
 *— V. Hale, VCS*
 
 ---
@@ -99,9 +77,9 @@ System Health: UNKNOWN
 | Client | Ship | Departure | FPD Status | Next TP |
 |---|---|---|---|---|
 | Furlow / Ely-Darrow / Nichols | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 13 overdue |
-| Al Ely & Amy Darrow | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 8 overdue |
-| John & Melissa Furlow | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 8 overdue |
-| Larry & Heidi Nichols | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 8 overdue |
+| Al Ely & Amy Darrow | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
+| John & Melissa Furlow | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
+| Larry & Heidi Nichols | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
 | John A. Loucks III & Susan Loucks |  | 7 Sep 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 5 overdue |
 | Kyle & Rosalie Kuklinski · Roger & Dr Nicholas Kuklinski · Joshua Morton & Erica Dodge | Viking Ocean Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 9 overdue |
 | Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son) | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 3 overdue |
@@ -136,7 +114,7 @@ _Queue empty_
 
 | System | Status |
 |---|---|
-| last_health_check | 💤 2026-06-28T16:14:15.705772+00:00 |
+| last_health_check | 💤 2026-07-06T05:59:00.996368 |
 | chrome_debug_port_9222 | ❌ OFFLINE |
 | mcp_server | ✅ OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient) |
 | opencode_status | ✅ ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z) |
@@ -144,5 +122,58 @@ _Queue empty_
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-07-03 06:00 MT*
-*Next brief: 2026-07-04 06:00 MT*
+### 5. STAFF CONCERNS — MISSION BOARD
+
+| Staff | Concern | Mission |
+|---|---|---|
+| 🔴 Harlan | ARN-to-At Six transfer still unbooked for all 3 couples — 55 days to departure, no vendor selected. Window is narrowing. | MISSION-1545 |
+| 🟡 Hale | Scandinavia portal Wing review (Jul 10) — no reviewer assignments confirmed yet. | MISSION-1533 |
+| ⚪ Harlan | Mission board active working set exceeds hygiene target. Recommend a pass before next weekly review. | MISSION-1538 |
+
+---
+
+### 6. TP DRAFT FOR APPROVAL
+
+**Client:** Furlow / Ely-Darrow / Nichols  
+**TP:** 1.2 — Excursion + Dining Guide — Scandinavia Group  
+**Owner:** Dani  
+
+SUBJECT: Your Scandinavia Voyage — What's Worth Your Attention Now
+TO: All three couples (separate sends, personalized sign-offs)
+
+---
+
+The portals are live — and before the pre-voyage checklist becomes noise, here's what actually matters for your Scandinavia experience.
+
+YOUR EXCURSIONS: LOCKED AND READY
+Your shore excursions are confirmed and included. A few worth knowing:
+
+• Stockholm (Aug 30): Highlights of Stockholm + Vasa Museum — this is the right call. The Vasa is one of the most extraordinary objects in northern Europe — a 17th-century warship retrieved intact from the harbor after 333 years. Worth arriving early.
+
+• Berlin (Sep 1-2): The Berlin Experience is a full-day pull. The transit from Warnemunde takes time; expect to arrive mid-morning. Charlottenburg or Mitte are close to most tour routes if you want a neighborhood rather than monuments.
+
+• Copenhagen overnight (Sep 3-4): Day two is open — the Nyhavn waterfront is the natural choice for dinner. Walk in around 6pm; no reservation needed.
+
+• Oslo (Sep 7): Panoramic Oslo gives you the overview. Aker Brygge waterfront is worth 30 minutes afterward.
+
+YOUR DINING: CONFIRMED
+All three specialty restaurants are locked:
+• Pacific Rim — Aug 30 at 6:30 PM (Asian-Pacific, lighter — ideal first-night dinner)
+• Chartreuse — Sep 2 at 7:30 PM (French; the most formal of the three)
+• Prime 7 — Sep 4 at 6:30 PM (Classic steakhouse at sea — the wagyu is the order)
+
+All other meals open in Compass Rose — no reservations needed.
+
+ONE PRACTICAL NOTE: Your fare covers excursion gratuities, specialty dining, premium beverages, and Wi-Fi. The only realistic onboard spend is Spa or retail.
+
+More before you depart — but this is the layer the portal doesn't carry.
+
+— Dani
+Your Concierge, Dreams2Memories Travel  
+
+_Reply APPROVED or REVISE to this email._
+
+---
+
+*— V. Hale, VCS · Thunderbird Wing · 2026-07-06 06:00 MT*
+*Next brief: 2026-07-07 06:00 MT*

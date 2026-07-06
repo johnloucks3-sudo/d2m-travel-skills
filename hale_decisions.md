@@ -6122,3 +6122,25 @@ Proposal file was 0 bytes — created 2026-05-17, never populated. Checked wheth
 
 ## 2026-07-06 — Cross-channel context-miss rate (weekly)
 **Metric:** 0/0 messages (0.00%) — OK. Source: `OpsCenter/state/channel_context_miss.json`. Doctrine: `docs/TELEGRAM_AGENTMAIL_ROE_20260706.md`.
+
+---
+
+## 2026-07-06 — Persona Health Scorecard (July, Audit #1 — baseline)
+**Type:** monthly_audit | **Authority:** A7 Sterling (framework) / Hale (prepared) | **Window:** 2026-07-01 to 2026-07-06 (6-day partial baseline, mid-month first execution)
+
+**Summary:** First run of `docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md` against the 7 personas named in this audit's tasking (Hale, Dani, Naia, Sterling, Dembe, Reyes, ELON) rather than the template's own 7 (Hale, Naia, Navarro, Dani, Castillo, Sterling, Harlan) — Dembe/Reyes/ELON scored on provisional first-pass metrics, flagged for Sterling calibration.
+
+**Headline finding: instrumentation coverage, not persona performance.** Only 8 of 21 defined metrics have real data behind them this cycle. The other 13 are marked ⬜ NOT INSTRUMENTED (grey), never defaulted to a passing color — per SO-PIPELINE-INTEGRITY-20260528 Rule 1 (Negative-Space: absent data does not become a claim).
+
+**Real findings, not manufactured ones:**
+- 🔴 **RED — ELON execution velocity:** of 4 aging QUEUE_FOR_COMMANDER proposals reviewed 2026-07-06, 3 were already resolved by later work but never closed on the originating ticket. Root cause named (fixes happen, but don't always update the source proposal/mission-board entry); reconciliation-pass fix scoped but not yet built.
+- ⚠️ **Naia — 0/3 metrics instrumented.** No Naia brand-pass sign-off timestamps found in the log for any of this window's client sends (Kim Westbrook, Bryana, Nancy Lyons). Either the step is happening unlogged or has been silently absorbed elsewhere in the chain. Needs Sterling confirmation before Audit #2.
+- ⚠️ **Dani — automated email-responder log (`state/dani_email_log.json`) shows ~1% historical success rate (2/172) and zero July activity** — likely dead/superseded infrastructure, flagged as a Deadwood Review candidate, separate from the manual WF-17 flow that's actually sending mail.
+- ⚠️ **Reyes — zero attributed activity found in the window.** Most recent Reyes references (MISSION-080–085) predate July. Needs a tasking-cadence answer before being scored again.
+- 🟢 Hale staff-capability-lift, Sterling audit-findings + process-improvement, Dembe confidence-tagging discipline, ELON innovation-velocity all CONFIRMED green with named evidence (file paths in the scorecard).
+
+**No trend claimed yet** — this is baseline #1, 6 days, no prior month to compare. Quarterly trend tracker (`output/persona_health_trends_quarterly.json`) seeded with July-only values; October column left null until Audit #4.
+
+**Action items (owner, due):** Naia logging (Sterling, before Aug 1) · ELON reconciliation-pass build (ELON/Hale, before Aug 1) · MISSION-1540 FPD-status close (Harlan, existing) · Reyes tasking-cadence confirmation (Hale, before Aug 1) · Dembe/Reyes/ELON metric calibration (Sterling, before Aug 1).
+
+**Full scorecard:** `docs/PERSONA_HEALTH_SCORECARD_2026-07.md`. **Standing order codified:** CLAUDE.md § Persona Health Audit (monthly, 1st of month, Sterling leads).

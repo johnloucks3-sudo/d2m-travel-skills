@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "purpose": "Quarterly trend tracker for the Persona Health Scorecard (docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md). One column per audit month. Null = not yet measured or metric not instrumented that cycle — never backfilled with a guess.",
+    "audit_cadence": "Monthly, 1st of month. Sterling leads, Hale captures, quarterly review of deltas.",
+    "created": "2026-07-06",
+    "source_scorecards": {
+      "2026-07": "docs/PERSONA_HEALTH_SCORECARD_2026-07.md"
+    },
+    "note": "2026-07 is a 6-day partial-month baseline (Jul 1-6), not a full-month figure. Do not compute a month-over-month delta against it until 2026-08 closes a real 30-day window."
+  },
+  "instrumentation_coverage_pct": {
+    "2026-07": 38.0,
+    "2026-08": null,
+    "2026-09": null,
+    "2026-10": null
+  },
+  "wing_robustness_pct_measured_only": {
+    "2026-07": 88.0,
+    "2026-08": null,
+    "2026-09": null,
+    "2026-10": null
+  },
+  "hale": {
+    "decision_velocity_per_week": {
+      "2026-07": {"value": null, "note": "raw hale_decisions.md entry count (~60/wk annualized from 6-day sample) is not a clean metric-1a proxy; needs hand-classification before trusting a number", "tag": "INFERRED_NOT_RELIABLE"},
+      "2026-08": null
+    },
+    "staff_capability_lift_count": {
+      "2026-07": {"value": 5, "tag": "CONFIRMED", "color": "GREEN"},
+      "2026-08": null
+    },
+    "autonomy_band_pct": {
+      "2026-07": {"value": 96.0, "tag": "INFERRED_SMALL_SAMPLE", "color": "GREEN_PROVISIONAL"},
+      "2026-08": null
+    },
+    "wf17_hold_rate_pct": {
+      "2026-07": null,
+      "2026-08": null,
+      "note": "NOT INSTRUMENTED — no log distinguishes WF-17 submissions from holds"
+    }
+  },
+  "dani": {
+    "response_sla_pct": {
+      "2026-07": null,
+      "2026-08": null,
+      "note": "NOT INSTRUMENTED — dani_email_log.json is a dormant/failing automated pipeline (2/172 all-time success, zero July activity), does not measure the manual WF-17 flow that actually sends"
+    },
+    "proposal_turnaround_pct": {"2026-07": null, "2026-08": null},
+    "voice_complaints_count": {
+      "2026-07": {"value": 0, "tag": "INFERRED_ABSENCE_OF_EVIDENCE", "color": "YELLOW_LEANING_GREEN"},
+      "2026-08": null
+    },
+    "relationship_touchpoints_count": {
+      "2026-07": {"value": 3, "tag": "CONFIRMED_PARTIAL_ROSTER", "note": "only covers named-waiver clients active this window (Kim Westbrook, Bryana); does not cover full Dani client roster"},
+      "2026-08": null
+    }
+  },
+  "naia": {
+    "brand_pass_velocity_per_week": {"2026-07": null, "2026-08": null},
+    "rejection_rate_pct": {"2026-07": null, "2026-08": null},
+    "quality_consistency": {"2026-07": null, "2026-08": null},
+    "note": "0 of 3 Naia metrics instrumented in Audit #1 — highest-priority instrumentation gap, flagged for Sterling before Audit #2"
+  },
+  "sterling": {
+    "audit_findings_count": {
+      "2026-07": {"value": 4, "tag": "CONFIRMED", "color": "GREEN"},
+      "2026-08": null
+    },
+    "so_compliance_pct": {"2026-07": null, "2026-08": null},
+    "process_improvements_deployed": {
+      "2026-07": {"value": 3, "tag": "CONFIRMED", "color": "GREEN"},
+      "2026-08": null
+    }
+  },
+  "dembe": {
+    "confidence_tagging_active": {
+      "2026-07": {"value": true, "evidence_count": 3, "tag": "CONFIRMED", "color": "GREEN", "note": "4 false CONFIRMED tags caught and corrected same session; 1 discrepancy flagged unresolved (Paros/Naousa)"},
+      "2026-08": null
+    },
+    "intel_timeliness_days": {"2026-07": null, "2026-08": null},
+    "accuracy_rate_pct": {"2026-07": null, "2026-08": null}
+  },
+  "reyes": {
+    "recommendations_accepted_pct": {"2026-07": null, "2026-08": null},
+    "satisfaction_feedback": {"2026-07": null, "2026-08": null},
+    "accessibility_flags_pct": {"2026-07": null, "2026-08": null},
+    "attributed_activity_count": {
+      "2026-07": {"value": 0, "tag": "CONFIRMED_ZERO", "color": "FLAG", "note": "zero Reyes-attributed entries in the audit window; most recent references (MISSION-080-085) predate July. Needs tasking-cadence confirmation before scoring again."},
+      "2026-08": null
+    }
+  },
+  "elon": {
+    "proposal_apply_autonomously_rate_pct": {
+      "2026-07": {"value": 57.7, "n": 26, "apply_autonomously": 15, "queue_for_commander": 1, "unparsed_status": 10, "tag": "CONFIRMED_PARTIAL", "color": "YELLOW", "note": "10 of 26 July proposals use a status format this count doesn't parse; needs field standardization"},
+      "2026-08": null
+    },
+    "execution_velocity_7day_pct": {
+      "2026-07": {"value": 25.0, "n": 4, "resolved_live": 1, "resolved_stale_unclosed": 3, "tag": "CONFIRMED", "color": "RED", "note": "closure-loop gap: fixes happen but don't always update the originating proposal/mission-board ticket"},
+      "2026-08": null
+    },
+    "innovation_velocity_proposals_per_month": {
+      "2026-07": {"value": 26, "window_days": 6, "tag": "CONFIRMED", "color": "GREEN"},
+      "2026-08": null
+    }
+  }
+}

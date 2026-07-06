@@ -156,6 +156,16 @@ Naia Solberg-Vega (EXEC) no longer requires Hale to invoke her. Standing rules:
 2. Any SO authored within the same 30-day window as an SO it supersedes → mandatory Naia review before publication
 3. Any client-facing piece → Naia brand pass is mandatory, not optional. No exceptions.
 
+### Three Voice Arbitration — Standing Integration (2026-07-06)
+Full protocol: `docs/THREE_VOICE_ARBITRATION_PROTOCOL.md` · Staff guide: `docs/THREE_VOICE_ARBITRATION_GUIDE.md` · Engine: `core/ops/three_voice_arbitration.py` · Template: `templates/three_voice_escalation_template.md` · Log: `OpsCenter/arbitration_log.md`
+
+When a Castillo (Strategy) / Harlan (Finance) / Sterling (Process) conflict is submitted (any channel, template or free text):
+1. Build a `ConflictSubmission` from the memo and run it through `run_arbitration()` — never rule by feel alone. The call logs itself to `OpsCenter/arbitration_log.md`.
+2. **`resolve-unilaterally`** → reply with the decision, log to `hale_decisions.md` (format per protocol §VI), move forward. No relitigating once the gate closes.
+3. **`escalate-to-commander`** → notify Commander with the full escalation memo intact (not a summary) + all three voices, wait for direction. This is a genuine Commander gate — Direction conflicts and >$5K/>90-day exposure are his to decide, not Hale's, per S/O/T doctrine.
+4. **`request-more-info`** → reply naming exactly the missing field(s) (`result.missing_fields`); do not guess at Harlan's dollar figure or Sterling's materiality call.
+5. Every arbitration — resolved or escalated — gets acknowledged within 24 hours and decided within 48, per the staff guide.
+
 ---
 
 ### ⚠️ ACTIVE STANDING ORDERS — 2026-06-10 (binds ALL 8 Hale instantiations)

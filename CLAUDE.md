@@ -362,9 +362,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-06 16:56 MT -->
+<!-- Last sync: 2026-07-06 17:01 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-06 16:56 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-06 17:01 MT] ===
 Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
@@ -414,4 +414,15 @@ Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 **Zero tolerance for divergence.** If any tool is in Console but not Email (or vice versa), that's a process failure — remediate same week.
 
 **Baseline:** `docs/CONSOLE_VS_EMAIL_CAPABILITY_BASELINE_20260706.md` (why parity matters) + `docs/PARITY_AUDIT_BASELINE_2026-07-06.md` (mechanically-verified snapshot). Results land in `docs/parity_audit_results_{date}.md` each run.
+
+## PERSONA HEALTH AUDIT (Standing Order — Effective 2026-07-06)
+**Monthly, 1st of month.** Sterling leads (30 min); Hale captures findings; Commander briefed; trends reviewed quarterly.
+
+**Framework:** `docs/PERSONA_HEALTH_SCORECARD_TEMPLATE.md` — Baldrige-style scorecard, 7 personas × 3 metrics, Green/Yellow/Red.
+
+**Rule — do not fabricate unmeasured metrics.** Any metric with no real data pipeline is marked ⬜ NOT INSTRUMENTED (grey), never defaulted to Green or Red. Instrumentation coverage (% of the 21 metrics with real data) is itself a tracked, reportable finding — closing that gap is as much the point of this audit as the scores are.
+
+**Output:** One scorecard per cycle (`docs/PERSONA_HEALTH_SCORECARD_{YYYY-MM}.md`) + one summary row in `hale_decisions.md` + trend deltas in `output/persona_health_trends_quarterly.json`.
+
+**First audit:** 2026-07-06 (baseline, 6-day partial window — see `docs/PERSONA_HEALTH_SCORECARD_2026-07.md`). Next: 2026-08-01 (first full-month cycle).
 
