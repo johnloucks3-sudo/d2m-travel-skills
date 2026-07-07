@@ -99,7 +99,7 @@
     "notes": "Kyle/Rosalie + Roger/Nick. Richmond VA to Panama City (Tocumen). Return FLL/PBI → RIC Dec 27. NOT BOOKED. Baseline est. ~$550pp economy. Alert below $425 (buy signal) or above $800 (urgency).",
     "active": true,
     "created": "2026-04-04T19:42:03.888749",
-    "last_checked": "2026-07-03T15:42:40.478391"
+    "last_checked": "2026-07-07T09:27:24.464543"
   },
   "morton-dodge-flights-rsw-pty": {
     "id": "morton-dodge-flights-rsw-pty",
@@ -116,7 +116,7 @@
     "notes": "Josh Morton + Erica Dodge. Naples FL to Panama City (PTY). Return FLL/PBI → RSW Dec 27. NOT BOOKED. Baseline est. ~$420pp economy. Alert below $320 (buy) or above $650 (urgency).",
     "active": true,
     "created": "2026-04-04T19:42:13.250080",
-    "last_checked": "2026-07-03T15:43:12.455539"
+    "last_checked": "2026-07-07T09:27:56.000679"
   },
   "lyons-splendor-athens-ny-cruise": {
     "id": "lyons-splendor-athens-ny-cruise",
@@ -184,7 +184,7 @@
     "notes": "Business class. Arrive Rome Jun 18, 4 days before cruise Jun 23. Price est $3,500pp — exact PNR/amount not in dossier. Refare watch — if drops 10%+ flag for price protection claim. TESS needed for exact fare.",
     "active": true,
     "created": "2026-04-04T19:47:53.968776",
-    "last_checked": "2026-07-03T15:43:43.160980"
+    "last_checked": "2026-07-07T09:28:27.324218"
   },
   "mcleod-flights-vce-den-jul2026": {
     "id": "mcleod-flights-vce-den-jul2026",
@@ -194,14 +194,14 @@
     "route": "VCE→DEN",
     "travel_date": "2026-07-06",
     "passengers": 2,
-    "current_price_pp": 2454.0,
+    "current_price_pp": 2459.0,
     "baseline_price_pp": 3200.0,
     "alert_below": 2880.0,
     "alert_above": null,
     "notes": "Venice→Toronto→Denver business class. Post-cruise return Jul 6 (cruise ends Jul 3, 3 nights Venice). Price est $3,200pp. Non-use credit ~$100pp on file. Refare watch — flag 10% drop for price protection.",
     "active": true,
     "created": "2026-04-04T19:47:57.337171",
-    "last_checked": "2026-07-03T15:44:14.764050"
+    "last_checked": "2026-07-06T05:02:15.276129"
   },
   "westbrook-silver-nova-pacific": {
     "id": "westbrook-silver-nova-pacific",
@@ -279,14 +279,14 @@
     "route": "COS->FLL (via DEN or DFW)",
     "travel_date": "2026-12-15",
     "passengers": 6,
-    "current_price_pp": 204.17,
+    "current_price_pp": 138.17,
     "baseline_price_pp": 450.0,
     "alert_below": 350.0,
     "alert_above": 700.0,
     "notes": "Positioning flight to Fort Lauderdale for Viking Mars Dec 17 embark. Consider UA/AA/DL via DEN or DFW. T-270 research phase active. Viking Air Plus option: evaluate vs independent booking.",
     "active": true,
     "created": "2026-04-24T06:35:13.730934",
-    "last_checked": "2026-07-03T15:44:48.402811"
+    "last_checked": "2026-07-07T09:29:28.811613"
   },
   "grandeur-scandinavia-group-flights": {
     "id": "grandeur-scandinavia-group-flights",
@@ -500,14 +500,14 @@
     "route": "DEN→VCE",
     "travel_date": "2027-04-30",
     "passengers": 2,
-    "current_price_pp": 2516.0,
+    "current_price_pp": 2512.0,
     "baseline_price_pp": 3589.0,
     "alert_below": 3302.0,
     "alert_above": null,
-    "notes": "Centrav B2B Jun 6 pricing: $7,178 total / $3,589 pp business class. Premium economy also available at $1,379 pp ($2,758 total) as cheaper alt. Friday departure — Icelandair viable. 8% alert below $3,302.",
+    "notes": "Centrav B2B Jun 6 pricing: $7,178 total / $3,589 pp business class. Premium economy also available at $1,379 pp ($2,758 total) as cheaper alt. Friday departure — Icelandair viable. 8% alert below $3,302. LIVE-VERIFIED 2026-07-07 10:11 MT via direct search_centrav_flights call: $5,024 total / $2,512 pp business (was $2,516 stored, essentially accurate — off by $4).",
     "active": true,
     "created": "2026-06-06T20:00:00.000000",
-    "last_checked": "2026-06-30T07:48:29.764964"
+    "last_checked": "2026-07-07T10:11:14.354928"
   },
   "loucks-silver-nova-may2027-return": {
     "id": "loucks-silver-nova-may2027-return",
@@ -517,14 +517,14 @@
     "route": "ATH→DEN",
     "travel_date": "2027-06-01",
     "passengers": 2,
-    "current_price_pp": 2375.5,
+    "current_price_pp": 2818.0,
     "baseline_price_pp": 5504.5,
     "alert_below": 5064.0,
     "alert_above": null,
-    "notes": "Centrav B2B Jun 6 pricing: $11,009 total / $5,504.50 pp business class. First class also available at $9,400 pp. 8% alert below $5,064. Tuesday departure — good for all carriers. Post-cruise from Athens Gate Hotel.",
+    "notes": "Centrav B2B Jun 6 pricing: $11,009 total / $5,504.50 pp business class. First class also available at $9,400 pp. 8% alert below $5,064. Tuesday departure — good for all carriers. Post-cruise from Athens Gate Hotel. CORRECTED 2026-07-07 — stored value ($2,375.50) was stale/corrupted by an aggregation bug (Kayak scraper returned implausible sub-$700 'business class' prices that silently won a naive min() comparison over Centrav's real pricing). LIVE-VERIFIED 2026-07-07 10:12 MT via direct search_centrav_flights call: $5,636 total / $2,818 pp business — real ~49% drop from baseline, not the ~57% the stale figure implied.",
     "active": true,
     "created": "2026-06-06T20:00:00.000000",
-    "last_checked": "2026-07-02T08:10:02.513559"
+    "last_checked": "2026-07-07T10:12:03.287820"
   },
   "loucks-den-grb-sep2026": {
     "id": "loucks-den-grb-sep2026",

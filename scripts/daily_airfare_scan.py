@@ -124,6 +124,28 @@ def _infer_cabin(watch: dict) -> str:
     return watch.get("cabin", "economy")
 
 
+# Plausibility floor per cabin (per-passenger, USD) — real bug found 2026-07-07:
+# Kayak returned "business class" DEN->VCE / ATH->DEN at $199-$681/pp (a real
+# international business fare is $2,000+) and the naive min() below let that
+# garbage number silently overwrite Centrav's real $2,719-$2,801/pp price in
+# fare_watches.json's current_price_pp -- Commander caught this from the
+# client-facing data ("BS data in here") before the Wing did. These floors
+# are deliberately conservative (well under the cheapest real fare anyone
+# would see) -- the goal is only to catch obvious scraper garbage, not to
+# second-guess a genuinely cheap real fare.
+CABIN_PRICE_FLOOR_PP = {
+    "economy": 80.0,
+    "premium": 400.0,
+    "business": 900.0,
+    "first": 1800.0,
+}
+
+
+def _is_plausible_price(price_pp: float, cabin: str) -> bool:
+    floor = CABIN_PRICE_FLOOR_PP.get(cabin, CABIN_PRICE_FLOOR_PP["economy"])
+    return price_pp >= floor
+
+
 # ── Source runners ────────────────────────────────────────────────────────────
 
 async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
@@ -417,14 +439,27 @@ async def run_pipeline(source_filter: Optional[str] = None, dry_run: bool = Fals
         best_price_pp = None
         best_source = None
         best_airline = None
+        cabin = _infer_cabin(watch)
+        rejected_implausible = []
 
         for src, data in results.items():
             if data and data.get("best_price_pp") is not None:
                 pp = data["best_price_pp"]
+                if not _is_plausible_price(pp, cabin):
+                    rejected_implausible.append((src, pp))
+                    logger.warning(
+                        "  ⚠ REJECTED implausible %s price from %s for %s: $%s/pp "
+                        "(floor for %s is $%s/pp) — scraper bug, not a real fare",
+                        cabin, src, wid, pp, cabin, CABIN_PRICE_FLOOR_PP.get(cabin),
+                    )
+                    continue
                 if best_price_pp is None or pp < best_price_pp:
                     best_price_pp = pp
                     best_source = src
                     best_airline = data.get("airline")
+
+        if rejected_implausible:
+            watch_result["rejected_implausible_prices"] = rejected_implausible
 
             # Log to history
             try:
