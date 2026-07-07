@@ -5,17 +5,17 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-07-06T16:59:29.647164"
+        "last_check": "2026-07-07T07:32:32.570982"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-07-06T16:59:30.572256"
+        "last_check": "2026-07-07T07:32:33.368660"
       },
-      "last_health_check": "2026-07-06T16:59:30.572290"
+      "last_health_check": "2026-07-07T07:32:33.368689"
     },
-    "last_health_check": "2026-07-06T16:59:30.572573",
+    "last_health_check": "2026-07-07T07:32:33.369044",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-07-06T16:59:30.572578-06:00"
+    "last_updated": "2026-07-07T07:32:33.369050-06:00"
   },
   "open_tasks": [
     {
@@ -196,7 +196,7 @@
     },
     "ELON": {
       "last_seen": true,
-      "active": 3
+      "active": 7
     }
   },
   "brain_routing_log": [
@@ -510,10 +510,10 @@
     }
   },
   "agentmail_quota_status": {
-    "last_checked": "2026-07-06T22:58:38.082732+00:00",
-    "sends_used_today": 61,
-    "sends_available_today": 29,
-    "pct_used": 61.0
+    "last_checked": "2026-07-07T12:27:35.290913+00:00",
+    "sends_used_today": 3,
+    "sends_available_today": 87,
+    "pct_used": 3.0
   },
   "succession_training": [
     {
@@ -537,5 +537,169 @@
       "target_completion_date": "2026-09-30",
       "readiness_checklist_status": "NOT_STARTED"
     }
-  ]
+  ],
+  "elon_proposals": {
+    "last_verified": "2026-07-07T07:31:14.464893-06:00",
+    "verification_method": "git ls-files + git grep external refs + systemctl --user is-enabled/is-active. No self-report trusted.",
+    "2026-07-06_batch_claim": "40 proposals executed, 61 agents, 98% success rate",
+    "2026-07-06_batch_verified": {
+      "claimed_total": 37,
+      "committed_to_git": 21,
+      "passing_both_bars_committed_and_wired": 5,
+      "no_file_evidence_found": 16,
+      "not_found_list": [
+        "commission_reconciliation_automation",
+        "portal_session_manager",
+        "booking_webhook_orchestration",
+        "client_communication_timeline",
+        "birthday_anniversary_voyage_suggestions",
+        "drive_intelligence_indexing",
+        "mcp_tool_discoverability",
+        "client_preference_learning_engine",
+        "voyage_intelligence_digest",
+        "competitive_intelligence_weekly",
+        "ai_model_cost_attribution",
+        "staff_performance_metrics_dashboard",
+        "voyage_comparison_matrix",
+        "operational_intelligence_dashboard",
+        "instructor_structured_output",
+        "one_command_client_proposals"
+      ]
+    },
+    "per_capability": {
+      "wcag_auditor": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "crew_roster": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "demand_predictor": {
+        "committed": true,
+        "external_references": 1,
+        "systemd_wired": true,
+        "integrated": true
+      },
+      "itinerary_optimizer": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "memory_book_builder": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "medical_screening": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "upgrade_detector": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "upsell_recommender": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "insurance_integrator": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "booking_notifications": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": false,
+        "integrated": false
+      },
+      "client_ivr": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "lounge_coordinator": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "port_restaurant_coordinator": {
+        "committed": true,
+        "external_references": 1,
+        "systemd_wired": null,
+        "integrated": true
+      },
+      "cruise_line_policy_checker": {
+        "committed": true,
+        "external_references": 1,
+        "systemd_wired": null,
+        "integrated": true
+      },
+      "pricing_negotiation": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "translation_engine": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "cancellation_scorer": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "sentiment_analyzer": {
+        "committed": true,
+        "external_references": 1,
+        "systemd_wired": null,
+        "integrated": true
+      },
+      "loyalty_tracker": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      },
+      "predictive_intelligence": {
+        "committed": true,
+        "external_references": 2,
+        "systemd_wired": null,
+        "integrated": true
+      },
+      "claude_narrative_generator": {
+        "committed": true,
+        "external_references": 0,
+        "systemd_wired": null,
+        "integrated": false
+      }
+    },
+    "proposal_queue": {
+      "open_proposals_raw_count": 81,
+      "execution_reports_logged": 21,
+      "archived_to_closed_dir": 0,
+      "using_new_protocol_format": 0
+    },
+    "closure_protocol_adoption": "NOT ADOPTED \u2014 0 proposals use CLOSURE_TARGET_DATE field, CLOSED/ dir does not exist, this metrics block did not exist in hale_state.json until this script ran"
+  }
 }

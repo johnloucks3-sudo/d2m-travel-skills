@@ -1,0 +1,14 @@
+{
+  "runs": [
+    {
+      "run_date": "2026-07-07",
+      "integration_rate": 0.135,
+      "throttle_threshold": 0.5,
+      "gate_decision": "THROTTLED \u2014 integration debt ticket issued, no new cadence slots opened",
+      "detail": {
+        "ticket": "OpsCenter/elon_proposals/PROPOSAL-2026-07-07-integration-debt.md",
+        "unwired_count": 16
+      }
+    }
+  ]
+}

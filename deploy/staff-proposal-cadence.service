@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly staff proposal cadence — integration-gated (Sunday, after 18:00 MT closure review)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/elon_proposal_integration_check.py --write
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/OpsCenter/staff_proposal_cadence.py --write
+StandardOutput=append:/home/john/Thunderbird/logs/staff_proposal_cadence.log
+StandardError=append:/home/john/Thunderbird/logs/staff_proposal_cadence.log

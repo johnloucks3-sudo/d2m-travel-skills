@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly staff proposal cadence timer — Sunday 18:30 MT (30min after closure review)
+
+[Timer]
+OnCalendar=Sun *-*-* 18:30:00
+Persistent=true
+Unit=staff-proposal-cadence.service
+
+[Install]
+WantedBy=timers.target
