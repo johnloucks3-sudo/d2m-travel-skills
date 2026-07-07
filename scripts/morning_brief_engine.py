@@ -872,6 +872,38 @@ def _build_quota_review_section() -> str:
     return "\n".join(lines) + "\n"
 
 
+def _build_predicted_next_moves_section() -> str:
+    """Commander Next-Move Predictor (core/prediction/commander_predictor.py).
+    Real consumer for the ledger — this is what keeps it from becoming an
+    unread, unwired module by tomorrow. Runs the generator fresh each brief
+    (cheap, file-based) rather than trusting a stale ledger snapshot."""
+    try:
+        from core.prediction.commander_predictor import run as _predict_run
+        preds = _predict_run(write=True)
+    except Exception:
+        return ""
+    if not preds:
+        return ""
+
+    confirmed = [p for p in preds if p.confidence == "CONFIRMED"]
+    inferred = [p for p in preds if p.confidence == "INFERRED"]
+
+    lines = ["### PREDICTED NEXT MOVES — Hale + Silver + Staff\n"]
+    lines.append("*Grounded predictions only — each cites a real source file. "
+                  "Accuracy is tracked in `OpsCenter/commander_prediction_ledger.json`, "
+                  "not asserted.*\n")
+    if confirmed:
+        lines.append("**Scheduled (CONFIRMED — already on the books):**")
+        for p in confirmed[:8]:
+            lines.append(f"- {p.predicted_action} — _{p.basis}_")
+        lines.append("")
+    if inferred:
+        lines.append("**Pattern-based (INFERRED — worth a glance, not a certainty):**")
+        for p in inferred[:8]:
+            lines.append(f"- [{p.domain}] {p.predicted_action} — _{p.basis}_")
+    return "\n".join(lines) + "\n"
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -908,6 +940,7 @@ def main() -> None:
     overnight_section = _build_overnight_section()
     elon_section = _build_elon_proposals_section()
     quota_section = _build_quota_review_section()
+    predictor_section = _build_predicted_next_moves_section()
 
     concerns = load_staff_concerns()
     tp_draft = load_tp_draft()
@@ -919,6 +952,8 @@ def main() -> None:
         combined_md += "\n---\n\n" + elon_section
     if quota_section:
         combined_md += "\n---\n\n" + quota_section
+    if predictor_section:
+        combined_md += "\n---\n\n" + predictor_section
     combined_md += "\n---\n\n" + md_brief
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")

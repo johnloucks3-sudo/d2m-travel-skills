@@ -1,0 +1,184 @@
+[
+  {
+    "id": "DA-MCLEOD-2984034-FPD-TRIGGER",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment.",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-07 (today), priority=P0",
+    "confidence": "CONFIRMED",
+    "domain": "Harlan",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-MCLEOD-SILVER-MUSE-WELCOME-HOME",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: McLeod/McGlasson Silver Muse voyage returned Jul 6. Send TP 5.1 Welcome Home today. Follow with TP 5.2 Survey Jul 20. Eric McLeod & Melissa McGlasson.",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-13 (in 6d), priority=P1",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-MCLEOD-2984034-TP11-SEND",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: McLeod Regent Grandeur 2984034 \u2014 TP 1.1 Voyage Preview draft was staged 2026-06-24 with contact hold. Send today: review draft in johnloucks3 (search subject \"Lesser Antilles\") and",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-07 (today), priority=P1",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-LOUCKS-3122006-FPD-ALERT",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: Loucks Regent Grandeur 3122006 \u2014 FPD Aug 1 is 21 days out. TP 4.1 Payment Reminder due TODAY. Balance: 4,798. WF-17 waived for Loucks-as-client \u2014 send directly. Both John & Susan g",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-11 (in 4d), priority=P0",
+    "confidence": "CONFIRMED",
+    "domain": "Harlan",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-MISSION-802-FORMAT-REVIEW",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: MISSION-802 PRE-BUILD REVIEW \u2014 1 week before Jul 22 itinerary build.\nSurface to Commander: (1) itinerary layout format for approval, (2) content check vs. portal since Jun 27, (3) ",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-15 (in 8d), priority=P1",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-SCANDI-PORTAL-REVIEW",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: WING REVIEW \u2014 3 Grandeur Scandinavia per-couple portals (Furlow furlow.d2mluxury.quest / Ely-Darrow elydarrow.d2mluxury.quest / Nichols nichols.d2mluxury.quest). Full QC pass befor",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-10 (in 3d), priority=P1",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-SCANDI-PORTAL-SEND",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: TARGET SEND 20 JUL \u2014 3 Grandeur Scandinavia portals to Furlow / Ely-Darrow / Nichols. \u26d4 GATED: send ONLY AFTER Commander books the ARN->At Six arrival transfers (that logistics ite",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-20 (in 13d), priority=P0",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-MISSION-1530-SKYVERN-REVIEW",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: MISSION-1530 (Skyvern credential keep-alive trial) parked 2026-07-04 \u2014 Commander deprioritized after seeing scope of the Anthropic API billing blocker. Review: is the API key funde",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-10 (in 3d), priority=P2",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "DA-MISSION-317-SPENCER-CALL-REMINDER",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll act on: MISSION-317 \u2014 Call United Group Desk TODAY (800-426-1122, opt 3) for Spencer's DEN-FCO 12-pax quote. Scheduled 2026-07-04 via decision matrix (Sat holiday weekend, desk unstaffed -",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-06 (already due), priority=P0",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "P0AGE-MISSION-214",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll ask for status on: Regent Portal On-Demand",
+    "basis": "P0 mission open 25d (created 2026-06-12), status=monitoring",
+    "confidence": "INFERRED",
+    "domain": "Sterling",
+    "source_files": [
+      "OpsCenter/mission_board.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "P0AGE-MISSION-435",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll ask for status on: TP TEMPLATE DOCUMENT",
+    "basis": "P0 mission open 13d (created 2026-06-24), status=commander_review_pending",
+    "confidence": "INFERRED",
+    "domain": "Sterling",
+    "source_files": [
+      "OpsCenter/mission_board.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "P0AGE-MISSION-820",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll ask for status on: Restore Regent portal cookies (direct + OA) for McLeod FPD prep",
+    "basis": "P0 mission open 9d (created 2026-06-28), status=active",
+    "confidence": "INFERRED",
+    "domain": "Sterling",
+    "source_files": [
+      "OpsCenter/mission_board.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "FPD-McLeod_Grandeur_LesserAntilles_2984034",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "You'll want a payment-status check for McLeod Grandeur LesserAntilles 2984034 (FPD 15d out)",
+    "basis": "FPD 2026-07-22 found in McLeod_Grandeur_LesserAntilles_2984034.md, 15d from today, within the 21d pattern window",
+    "confidence": "INFERRED",
+    "domain": "Harlan",
+    "source_files": [
+      "dossiers/McLeod_Grandeur_LesserAntilles_2984034.md"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  }
+]
