@@ -901,6 +901,40 @@ def _build_predicted_next_moves_section() -> str:
         lines.append("**Pattern-based (INFERRED — worth a glance, not a certainty):**")
         for p in inferred[:8]:
             lines.append(f"- [{p.domain}] {p.predicted_action} — _{p.basis}_")
+
+    # Feedback loop — this is what marks the ledger for real instead of
+    # leaving mark_outcomes() ownerless. Ask, don't assume.
+    open_preds = [p for p in preds if p.status == "open"]
+    if open_preds:
+        lines.append("\n**Rate last cycle's predictions** (closes the accuracy loop — "
+                      "reply with any of these, or skip if none apply):")
+        for p in open_preds[:6]:
+            lines.append(f"- `{p.id}` — {p.predicted_action[:100]}")
+        lines.append('\n> Reply e.g. `"DA-MCLEOD... hit"` or `"P0AGE-MISSION-214 miss, still pending"` '
+                      '— or tell me in plain language which ones landed.')
+    return "\n".join(lines) + "\n"
+
+
+def _build_recurring_corrections_section() -> str:
+    """Separate, deliberately UNSCORED lane — a synthesis of recurring
+    corrections OF THE WING (not a claim about the Commander's own problems),
+    weighted by his own stated emphasis + recency, never by raw file count.
+    Never written to commander_prediction_ledger.json."""
+    try:
+        from core.prediction.commander_predictor import analyze_recurring_corrections
+        analysis = analyze_recurring_corrections()
+    except Exception:
+        return ""
+
+    lines = ["### RECURRING CORRECTION PATTERNS — Wing self-critique (not scored)\n"]
+    lines.append(f"*{analysis['framing']}*\n")
+    for p in analysis["top_patterns_by_his_own_stated_emphasis"]:
+        lines.append(f"- **{p['pattern']}** ({p['so_date']}) — {p['note']}")
+    lines.append(f"\n{analysis['this_session_live_instance']}")
+    rec = analysis["secondary_signal_recency_cluster"]
+    lines.append(f"\n_Secondary signal: {rec['feedback_files_mentioning_2026-07']}/"
+                  f"{rec['feedback_files_total']} feedback memories touch this month "
+                  f"— {rec['caveat']}_")
     return "\n".join(lines) + "\n"
 
 
@@ -941,6 +975,7 @@ def main() -> None:
     elon_section = _build_elon_proposals_section()
     quota_section = _build_quota_review_section()
     predictor_section = _build_predicted_next_moves_section()
+    recurring_section = _build_recurring_corrections_section()
 
     concerns = load_staff_concerns()
     tp_draft = load_tp_draft()
@@ -954,6 +989,8 @@ def main() -> None:
         combined_md += "\n---\n\n" + quota_section
     if predictor_section:
         combined_md += "\n---\n\n" + predictor_section
+    if recurring_section:
+        combined_md += "\n---\n\n" + recurring_section
     combined_md += "\n---\n\n" + md_brief
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")

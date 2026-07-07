@@ -255,6 +255,90 @@ def predict_from_cancellation_risk() -> list[Prediction]:
     return out
 
 
+TERMINAL_STATUSES = {"complete", "completed", "closed", "archived", "closed_duplicate",
+                      "resolved_new_finding", "killed", "suspended"}
+
+HEARTBEAT_SCAN = REPO / "OpsCenter" / "state" / "heartbeat_scan_latest.json"
+
+
+# ---------------------------------------------------------------------------
+# Signal 5 — next suspense to tackle. LEDGER-ELIGIBLE (falsifiable: did he
+# act on this specific item or not). Prefers heartbeat_scan_latest.json
+# (freshly computed same-day) over mission_board.suspense_watch, which is a
+# hand-appended list with entries back to 2026-05-25 that are never cleared
+# -- the same level-triggered staleness trap Silver already documented and
+# that the STALE dossier just sprang on this predictor minutes ago. Reuses
+# the same TERMINAL_STATUSES filter already fixed for the P0-age signal.
+# ---------------------------------------------------------------------------
+
+def predict_next_suspense(board: dict, top_n: int = 3) -> list[Prediction]:
+    today = _today()
+
+    # Primary: fresh heartbeat scan (computed same-day, not a stale hand-list)
+    heartbeat = _load_json(HEARTBEAT_SCAN, {})
+    findings = heartbeat.get("findings", [])
+    scanned_at = heartbeat.get("scanned_at", "")
+    fresh = False
+    if scanned_at:
+        try:
+            scanned_date = datetime.fromisoformat(scanned_at.replace("Z", "+00:00")).date()
+            fresh = (today - scanned_date).days <= 1
+        except Exception:
+            fresh = False
+
+    candidates: list[Prediction] = []
+    if fresh and findings:
+        # Rank: repeat_alert (crossed a real threshold) outranks stale_ci_tool
+        # (a currency check, lower urgency) — both are real, dated findings.
+        ranked = sorted(findings, key=lambda f: 0 if f.get("category") == "repeat_alert" else 1)
+        for f in ranked[:top_n]:
+            candidates.append(Prediction(
+                id=f"SUSP-{hash(f.get('what', ''))% 100000}",
+                date_predicted=today.isoformat(),
+                predicted_action=f"Next suspense likely to pull your attention: {f.get('what', '')[:160]}",
+                basis=f"heartbeat_scan_latest.json ({scanned_at[:16]}), category={f.get('category')}, action={f.get('action', '')[:100]}",
+                confidence="INFERRED",
+                domain="Silver",
+                source_files=["OpsCenter/state/heartbeat_scan_latest.json"],
+            ))
+        return candidates
+
+    # Fallback: mission_board suspense_date, filtered through the same
+    # terminal-status set (a mission marked complete/killed is not a live
+    # suspense no matter what its stale suspense_date says).
+    missions = board.get("missions", []) or board.get("active_missions", [])
+    if isinstance(missions, dict):
+        missions = list(missions.values())
+    live_suspenses = []
+    for m in missions:
+        if not isinstance(m, dict):
+            continue
+        if m.get("status", "").lower() in TERMINAL_STATUSES:
+            continue
+        susp_raw = m.get("suspense_date")
+        if not susp_raw:
+            continue
+        try:
+            susp = datetime.fromisoformat(str(susp_raw).replace("Z", "+00:00")).date()
+        except Exception:
+            continue
+        live_suspenses.append((susp, m))
+
+    live_suspenses.sort(key=lambda t: t[0])
+    for susp, m in live_suspenses[:top_n]:
+        delta = (susp - today).days
+        candidates.append(Prediction(
+            id=f"SUSP-{m.get('id', 'unknown')}",
+            date_predicted=today.isoformat(),
+            predicted_action=f"Next suspense likely to pull your attention: {m.get('title', m.get('id'))[:150]}",
+            basis=f"mission_board suspense_date={susp.isoformat()} ({delta:+d}d), status={m.get('status')} (non-terminal, verified)",
+            confidence="INFERRED",
+            domain="Sterling",
+            source_files=["OpsCenter/mission_board.json"],
+        ))
+    return candidates
+
+
 def generate_predictions() -> list[Prediction]:
     state = _load_json(HALE_STATE, {})
     board = _load_json(MISSION_BOARD, {})
@@ -263,7 +347,91 @@ def generate_predictions() -> list[Prediction]:
     preds += predict_from_aging_p0(board)
     preds += predict_from_dossier_fpds()
     preds += predict_from_cancellation_risk()
+    preds += predict_next_suspense(board)
     return preds
+
+
+# ---------------------------------------------------------------------------
+# RECURRING-CORRECTION ANALYSIS — deliberately NOT a Prediction / NOT in the
+# ledger. "What's your biggest problem" is a synthesis, not a yes/no outcome
+# -- filing it as a scored prediction would launder an unfalsifiable claim
+# into the same accuracy metric that gives the real ones their credibility.
+#
+# Also an important framing correction: this surfaces recurring corrections
+# OF THE WING (patterns Hale/staff have been told to fix repeatedly) — not
+# a claim about the Commander's own problems. That's a category error this
+# function must not make.
+#
+# Weighted by the Commander's own stated emphasis + recency, not raw file
+# count (a theme having many memory files means it was easy to log, not
+# that it matters most).
+# ---------------------------------------------------------------------------
+
+MEMORY_DIR = Path.home() / ".claude" / "projects" / "-home-john-Thunderbird" / "memory"
+
+# Patterns in CLAUDE.md the Commander himself flagged as most important —
+# read directly from the document's own emphasis language, not inferred.
+_SELF_STATED_TOP_PATTERNS = [
+    ("DO NOT ASK THE COMMANDER TO CHOOSE", "SO 2026-06-20",
+     "CLAUDE.md's own words: \"The single most-violated rule.\" Wing keeps asking permission instead of deciding+executing."),
+    ("OBSTACLE-ROUTING & INDEPENDENT VERIFICATION", "SO 2026-07-06",
+     "CLAUDE.md tags this \"Commander-commended\" — i.e. he explicitly praised the fix. Wing's habit: trusting a system's own self-report instead of checking ground truth."),
+]
+
+
+def analyze_recurring_corrections() -> dict:
+    """Returns a dated, cited synthesis — never a scored prediction."""
+    today = _today()
+    claude_md = (REPO / "CLAUDE.md").read_text(errors="ignore") if (REPO / "CLAUDE.md").exists() else ""
+
+    top_patterns = []
+    for name, so_date, note in _SELF_STATED_TOP_PATTERNS:
+        present = name in claude_md
+        top_patterns.append({
+            "pattern": name,
+            "so_date": so_date,
+            "note": note,
+            "confirmed_still_in_claude_md": present,
+        })
+
+    # Recency cluster: feedback-type memory files touching 2026-07 (this
+    # month) vs total — recency signal, explicitly caveated as secondary,
+    # not a ranking basis on its own.
+    recent_count, total_count = 0, 0
+    if MEMORY_DIR.exists():
+        for f in MEMORY_DIR.glob("feedback_*.md"):
+            total_count += 1
+            try:
+                if "2026-07" in f.read_text(errors="ignore")[:2000]:
+                    recent_count += 1
+            except OSError:
+                continue
+
+    # This session's own live instance of the exact same top pattern —
+    # dated today, a real data point, not retrospective.
+    this_session_instance = (
+        "This session: Commander demanded proof before accepting the "
+        "'40 proposals executed' claim, rejected 3 Tier-C asks outright "
+        "('no benefit to me'), and asked for a predictor that scores itself "
+        "against outcomes rather than asserting accuracy — three real "
+        "instances of the same two patterns above, same day."
+    )
+
+    return {
+        "analysis_date": today.isoformat(),
+        "framing": "Recurring corrections OF THE WING (patterns Hale/staff have been "
+                   "told to fix repeatedly) — not a claim about the Commander's own problems.",
+        "top_patterns_by_his_own_stated_emphasis": top_patterns,
+        "this_session_live_instance": this_session_instance,
+        "secondary_signal_recency_cluster": {
+            "feedback_files_total": total_count,
+            "feedback_files_mentioning_2026-07": recent_count,
+            "caveat": "Recency cluster only — file count is a weak proxy for importance "
+                      "and is NOT used to rank these patterns.",
+        },
+        "not_scored": "This analysis is not in commander_prediction_ledger.json and carries "
+                      "no hit/miss status — it is a synthesis, not a falsifiable prediction.",
+    }
 
 
 def silver_verify(preds: list[Prediction]) -> list[Prediction]:

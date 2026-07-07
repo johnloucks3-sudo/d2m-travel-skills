@@ -180,5 +180,47 @@
     "status": "open",
     "resolved_date": null,
     "resolution_note": null
+  },
+  {
+    "id": "SUSP-20579",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 4x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-07T15:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-12107",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "Next suspense likely to pull your attention: New-Tech Scout / Watch-list / Integration last re-evaluated 17d ago (cadence: 14d)",
+    "basis": "heartbeat_scan_latest.json (2026-07-07T15:00), category=stale_ci_tool, action=Route to Whetstone for currency check",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-49131",
+    "date_predicted": "2026-07-07",
+    "predicted_action": "Next suspense likely to pull your attention: Armed Overwatch (Self-Observability F2T2EA) last re-evaluated 17d ago (cadence: 14d)",
+    "basis": "heartbeat_scan_latest.json (2026-07-07T15:00), category=stale_ci_tool, action=Route to Whetstone for currency check",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
   }
 ]
