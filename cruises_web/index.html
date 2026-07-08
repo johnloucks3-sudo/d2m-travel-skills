@@ -693,8 +693,8 @@ function doSearch(page) {
   if (multi) p.set('multi', '1');
 
   fetch('/api/cruises/search?' + p).then(function(r) { return r.json(); }).then(function(data) {
-    _allResults = data.results;
-    applySortAndRender(_allResults, data.total, page);
+    _allResults = data.results || [];
+    applySortAndRender(_allResults, data.total || 0, page);
     document.getElementById('result-count').innerHTML =
       '<strong>' + data.total.toLocaleString() + '</strong> sailings found' +
       (multi ? ' &nbsp;<span style="color:#d4a017;font-size:11px">✦ multi-source</span>' : '');

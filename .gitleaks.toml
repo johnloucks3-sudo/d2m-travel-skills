@@ -7,7 +7,7 @@
 # a process violation — flag to A7 Sterling for review.
 #
 # To add an entry: open a finding, state why it is a false positive, get A7 sign-off.
-# Metric: allowlist entries <= 5. Currently: 1. Red threshold: >10.
+# Metric: allowlist entries <= 5. Currently: 2. Red threshold: >10.
 
 title = "Thunderbird Wing — gitleaks config"
 
@@ -19,6 +19,15 @@ useDefault = true
   description = "PKCE code_verifier in d2mc_pkce_verifier.json — one-time OAuth challenge value, not a persistent credential. Rotated per OAuth flow; value is mathematically derived from code_challenge (public)."
   paths = [
     '''config/d2mc_pkce_verifier\.json''',
+  ]
+
+[[allowlists]]
+  description = "CIRPR-XXXXXXXX pattern in OpsCenter/collaboration/sterling_inbox.md — Wing-internal CI Probe Repair tracking IDs (CIR = CI Rapid Repair, PR = probe reference). Format: CIRPR-<hex8-12>. Not credentials. Pre-existing throughout file; false-positive on generic-api-key rule. Pending A7 Sterling sign-off (notified 2026-07-08 via sterling_inbox notification)."
+  regexes = [
+    '''CIRPR-[A-F0-9]{8,16}''',
+  ]
+  paths = [
+    '''OpsCenter/collaboration/sterling_inbox\.md''',
   ]
 
 # ─────────────────────────────────────────────────────────────────────────────

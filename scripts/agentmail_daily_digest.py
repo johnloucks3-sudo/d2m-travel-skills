@@ -10,8 +10,10 @@ in email, per the ROE's own dividing line.
 
 Extends to weekly/monthly via --period.
 """
+import json
 import sys
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 sys.path.insert(0, "/home/john/Thunderbird")
 
@@ -19,6 +21,47 @@ from core.email.agentmail_client import AgentMailClient
 from core.ops.confirmed_auto_execute import send_telegram_notification
 
 PERIOD_HOURS = {"daily": 24, "weekly": 24 * 7, "monthly": 24 * 30}
+
+_BRIDGE_STATE = Path("/home/john/Thunderbird/OpsCenter/state/gmail_agentmail_bridge.json")
+
+
+def _build_gmail_section(period: str = "daily") -> str:
+    """Pull d2mconcierge Gmail threads from the bridge state for the digest.
+
+    Reads the bridge JSONL queue and bridge state to surface:
+    - How many client threads were forwarded to AgentMail in the period
+    - Any quota warnings
+    Uses local state only — no Gmail API call (digest should be fast and zero-quota-cost).
+    """
+    lines = ["\n--- Client Gmail (d2mconcierge) ---"]
+    try:
+        if not _BRIDGE_STATE.exists():
+            lines.append("  (bridge not yet initialized -- run gmail_agentmail_bridge_poller.py)")
+            return "\n".join(lines)
+        state = json.loads(_BRIDGE_STATE.read_text())
+        forwarded = state.get("forwarded_thread_ids", [])
+        synced = state.get("synced_send_ids", [])
+        pushed = state.get("pushed_draft_thread_ids", [])
+        last_poll = state.get("last_processed_ts", "never")
+        last_reply = state.get("last_sent_sync_ts", "never")
+
+        # Count activity in the period window (forwarded IDs don't have timestamps,
+        # so we report totals and last-poll time as the availability signal)
+        lines.append(f"  Last inbound poll: {last_poll[:19] if last_poll and last_poll != 'never' else 'never'}")
+        lines.append(f"  Last reply sync:   {last_reply[:19] if last_reply and last_reply != 'never' else 'never'}")
+        lines.append(f"  Forwarded to AgentMail (total): {len(forwarded)} threads")
+        lines.append(f"  Commander replies synced (total): {len(synced)} messages")
+        lines.append(f"  Drafts pushed to Gmail (total): {len(pushed)} drafts")
+
+        # AgentMail quota status
+        quota_path = Path("/home/john/Thunderbird/OpsCenter/state/agentmail_quota.json")
+        if quota_path.exists():
+            q = json.loads(quota_path.read_text())
+            day_count = q.get("day_count", 0)
+            lines.append(f"  AgentMail quota today: {day_count}/90 buffer (100 hard cap)")
+    except Exception as e:
+        lines.append(f"  (bridge state read error: {e})")
+    return "\n".join(lines)
 
 
 def build_digest(period: str = "daily") -> str:
@@ -48,6 +91,7 @@ def build_digest(period: str = "daily") -> str:
     lines.append(f"\n<b>Total: {total_sent} sent, {total_received} received across {len(inboxes.inboxes)} inboxes</b>")
     if total_sent == 0 and total_received == 0:
         lines.append("(quiet period — nothing to report)")
+    lines.append(_build_gmail_section(period))
     return "\n".join(lines)
 
 

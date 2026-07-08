@@ -178,6 +178,7 @@ async def cruises_search(
     conn = _cruise_db()
     where, params = [], []
 
+    fts = ""
     if q.strip():
         fts = _sanitize_fts(q)
         if fts:
@@ -185,25 +186,25 @@ async def cruises_search(
             params.append(fts)
 
     if line:
-        where.append("c.line = ?" if q.strip() else "line = ?")
+        where.append("c.line = ?" if fts else "line = ?")
         params.append(line)
     if region:
-        where.append("c.region = ?" if q.strip() else "region = ?")
+        where.append("c.region = ?" if fts else "region = ?")
         params.append(region)
     if nights_min > 0:
-        where.append("c.nights >= ?" if q.strip() else "nights >= ?")
+        where.append("c.nights >= ?" if fts else "nights >= ?")
         params.append(nights_min)
     if nights_max < 999:
-        where.append("c.nights <= ?" if q.strip() else "nights <= ?")
+        where.append("c.nights <= ?" if fts else "nights <= ?")
         params.append(nights_max)
     if departure_after:
-        where.append("c.departure >= ?" if q.strip() else "departure >= ?")
+        where.append("c.departure >= ?" if fts else "departure >= ?")
         params.append(departure_after)
     if departure_before:
-        where.append("c.departure <= ?" if q.strip() else "departure <= ?")
+        where.append("c.departure <= ?" if fts else "departure <= ?")
         params.append(departure_before)
     if multi:
-        where.append("c.multi = 1" if q.strip() else "multi = 1")
+        where.append("c.multi = 1" if fts else "multi = 1")
 
     where_sql = ("WHERE " + " AND ".join(where)) if where else ""
 
