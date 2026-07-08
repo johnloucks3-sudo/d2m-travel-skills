@@ -47,6 +47,8 @@ One shared directory, both engines read AND write it — never a separate OC-sid
 
 **⚠️ BEFORE ANY NEW PROJECT/BUILD:** 3-minute Commander interview REQUIRED — confirm product type, lifecycle position, output format. No exceptions. (2026-06-22)
 **Plans require Commander approval before committing** — draft → Commander reviews → approves → THEN commit. Never mark done before Commander reads it.
+**⚠️ OPUS EVAL REQUIRED — EVERY MAJOR PROJECT (Commander directive 2026-07-08, both OC and CC; amended by Sterling A7 audit 2026-07-08):** Before OR during any major build, integration, or new infrastructure — spawn Opus to audit the plan and execution against SO, procedure, and best practices. "Major" = new build, new integration, new infrastructure, new client product. Log Opus findings before proceeding. If Opus flags a violation, surface to Commander before continuing. Method: `/ask-opus` (CC) · `ask-opus` (OC). Both engines bound equally.
+**Exit condition — CORRECTED:** the original text tied expiry to "Opus compliance audit violations V1-V8 are eliminated," but V1-V8 are not enumerated in any durable file — unfalsifiable, cannot be checked off, violates the Anti-Theater Rule (`hale_cos.md` — every closure needs a durable, checkable artifact). Standing until either: (a) the V1-V8 findings are written to a named file with per-item CONFIRMED/OPEN status and all show CONFIRMED-fixed, or (b) 2026-08-08 (30-day review), whichever comes first — at which point Sterling re-evaluates whether this graduates to permanent doctrine or retires. Owner of the V1-V8 enumeration: whoever ran the 2026-07-08 Opus audit (Hale) — due before the review date, not on demand.
 
 ---
 ## ⚡ DOCTRINE UPDATES (CC→OC sync 2026-06-28) — these override any older guidance below

@@ -350,6 +350,28 @@ def _is_spawn(ctx: dict) -> bool:
 
 _SPAWN_SEND_TERMS = ("send to",)  # "email" removed 2026-07-03 — too broad; email-system arch prompts all contain "email" (MISSION-1506)
 
+# Evaluation/reasoning spawns discuss email/send architecture but never exercise it.
+# Commander standing directive 2026-07-08: these intents must never trip the send gate.
+# SECURITY FIX 2026-07-08 (Opus audit V-security): Exemption requires BOTH an
+# intent-phrase match AND absence of client-delivery indicators. A prompt like
+# "opus review this and send the client the quote" previously bypassed WF-17 because
+# the intent-phrase check fired before the delivery-indicator check.
+_SPAWN_EVAL_EXEMPT_TERMS = (
+    "evaluate this plan", "evaluate the plan", "review this plan", "review the plan",
+    "critique this plan", "assess this plan", "analyze this plan", "analyse this plan",
+    "opus review", "sonnet review", "evaluate and modify", "plan evaluation",
+    "modify the plan", "challenge this plan", "cross-examine", "deliberate",
+    "second opinion", "evaluate and/or modify", "ask opus", "ask sonnet",
+)
+
+# If ANY of these appear in the prompt, the eval exemption is VOIDED — gate fires
+# regardless of exempt-term match. These signal active client delivery intent.
+_SPAWN_DELIVERY_OVERRIDE_TERMS = (
+    "send the client", "email the client", "send to client", "quote to client",
+    "send to the client", "email to client", "send client the", "deliver to client",
+    "send the quote", "send the draft", "send this to", "push to client",
+)
+
 
 # ===========================================================================
 # Predicates — each confirms category FIRST, then applies the test.
@@ -515,7 +537,21 @@ def _p_spawn_prompt(ctx: dict) -> bool:
     prompt = payload.lower()
     if not prompt:
         return False
-    has_send_term = any(term in prompt for term in _SPAWN_SEND_TERMS)
+    # Evaluation/reasoning spawns describe email architecture — never exercise it.
+    # Commander standing directive 2026-07-08: exempt from send-gate scan.
+    # BUT: if prompt also contains active client-delivery indicators, exemption is voided.
+    # Opus audit 2026-07-08: "opus review + send the client the quote" was a live egress hole.
+    has_delivery_override = any(term in prompt for term in _SPAWN_DELIVERY_OVERRIDE_TERMS)
+    if any(term in prompt for term in _SPAWN_EVAL_EXEMPT_TERMS) and not has_delivery_override:
+        return False
+    # A delivery-override term IS send intent on its own — it must not depend on
+    # also matching _SPAWN_SEND_TERMS ("send to"). Sterling audit 2026-07-08: 10 of
+    # the 12 override terms (e.g. "send the client", "email the client", "deliver
+    # to client") do not contain the substring "send to", so the prior `any(term in
+    # prompt for term in _SPAWN_SEND_TERMS)` check independently returned False for
+    # them and the gate never fired — the fix's own repro case in the comment above
+    # did not actually trigger a block. Verified empirically before this correction.
+    has_send_term = has_delivery_override or any(term in prompt for term in _SPAWN_SEND_TERMS)
     if not has_send_term:
         return False  # no send intent → no gate
     has_name = bool(_NAME_RE.search(payload))
