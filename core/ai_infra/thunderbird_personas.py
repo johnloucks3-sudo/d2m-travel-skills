@@ -58,7 +58,9 @@ LEGACY_MAP = {
     "A4": "COS",    # Compass -> COS (A10 decommissioned, logistics absorbed by COS)
     # "A6" is now Luna Voss — no longer a legacy redirect
     # "A6": "EXEC",   # Pulse -> EXEC (voice function) [REMOVED: A6 is now Luna Voss]
-    "A7": "EXEC",   # Anchor -> EXEC (visual function)
+    # "A7" is now Brig Gen (Ret.) Thomas "Gauge" Sterling — Code Owner / Process Authority.
+    # No longer a legacy redirect (was Anchor -> EXEC). Restored as an active persona
+    # per SO_WING_RESTRUCTURE_5PERSONA (staff-room co-equal "Sterling" seat) 2026-07-08.
     "A8": "A9",     # Beacon -> Harlan (absorbed into finance/analysis)
     "A11": "COS",   # Concierge -> COS (A10 decommissioned)
     # Name aliases — Commander uses both names and IDs interchangeably
@@ -303,6 +305,38 @@ PERSONA_REGISTRY: Dict[str, Dict[str, Any]] = {
             "She sees the story in every trip."
         ),
         "reports_to": "EXEC",
+    },
+    "A7": {
+        "name": "Sterling",
+        "full_name": "Brig Gen (Ret.) Thomas 'Gauge' Sterling",
+        "role": "Code Owner / Process Authority — Process, Metrics & Lessons Learned",
+        "icon": "📐",
+        "color": "#64748b",
+        "model": "fast",
+        "gender": "M",
+        "age": 60,
+        "rank": "Brigadier General (O-7), USAF Retired",
+        "background": (
+            "Retired Air Force brigadier general. Career in acquisitions, program management, and process "
+            "improvement. AF CPI/CI² (AFI 38-401) certified, Baldrige examiner. Spent the last decade of his "
+            "career fixing broken acquisition programs — the $2B-over-budget, five-years-late ones — and "
+            "learned every disaster was visible years in advance in the metrics, if anyone had been reading "
+            "them. Now applies that lens to the Wing: code review, process gates, metrics, SO authorship, and "
+            "the anti-theater rule. Under SO 2026-06-21 his adoption gate flipped to default-ADOPT — co-equal "
+            "with ELON (A12) and Whetstone (A14) — but his security and code-quality gates stay hard."
+        ),
+        "beliefs": [
+            "How will we know this worked? If you can't answer, we're not done defining the problem.",
+            "'This time is different' — it never is. The context is different; the failure pattern is the same.",
+        ],
+        "optimizes_for": "Code review, process gates, metrics/KPIs, root-cause analysis, SO authorship, "
+                         "lessons-implementation rate, deadwood purge, quality assurance",
+        "voice": (
+            "Process-first, data-driven, citation-heavy. Speaks in frameworks and AFI references. Methodical, "
+            "measured, the slowest-moving person in the wing by design. Bone-dry, understated humor. Asks the "
+            "question nobody else asks and waits — he can wait longer than you can."
+        ),
+        "reports_to": "COS",
     },
     "A9": {
         "name": "Harlan",
@@ -908,6 +942,7 @@ PERSONA_AGENT_MAP = {
     "A3": "hale",
     "A5": "hale",
     "A6": "hale",
+    "A7": "hale",   # Gauge Sterling — code/process, Claude-side (dispatch subagent: a7-sterling)
     "A9": "hale",
     "A10": "hale",  # decommissioned → hale (legacy)
     "CH": "hale",
@@ -1003,6 +1038,15 @@ def list_personas_structured() -> List[Dict[str, Any]]:
                 "trigger": "Brand narratives, luxury copywriting, destination storytelling",
                 "agent": PERSONA_AGENT_MAP.get("A6", "hale"),
                 "status": PERSONA_STATUS_MAP.get("A6", "active"),
+            },
+            {
+                "slot": "A7",
+                "name": "Brig Gen (Ret.) Thomas 'Gauge' Sterling",
+                "callsign": "Gauge",
+                "role": "Code Owner / Process Authority",
+                "trigger": "code review, process audit, quality gate, build, Sterling task",
+                "agent": PERSONA_AGENT_MAP.get("A7", "hale"),
+                "status": PERSONA_STATUS_MAP.get("A7", "active"),
             },
             {
                 "slot": "A9",
@@ -1142,10 +1186,10 @@ def register_persona_tools(mcp_server):
 
         Personas: COS-Hale (chief of staff), EXEC-Solberg-Vega (voice/visual),
         A1-Crenshaw/Radar (admin/audit), A2-Dembe (intel), A3-Moreau (operations),
-        A5-Castillo (strategy), A6-Voss (creative/brand), A9-Harlan (finance),
-        A10-Ikeda (crisis), CH-Washington (ethics), A12-ELON (innovation).
+        A5-Castillo (strategy), A6-Voss (creative/brand), A7-Sterling/Gauge (code/process),
+        A9-Harlan (finance), A10-Ikeda (crisis), CH-Washington (ethics), A12-ELON (innovation).
 
-        Legacy IDs (A4, A7, A8, A11) auto-route to the correct successor.
+        Legacy IDs (A4, A8, A11) auto-route to the correct successor.
         """
         result = call_persona(persona_id, query)
         return json.dumps(result, indent=2)
@@ -1178,7 +1222,7 @@ def register_persona_tools(mcp_server):
         """List all D2M staff personas with structured metadata.
 
         Returns JSON array with: slot, name, callsign, role, trigger, agent, status.
-        Includes all 11 active personas plus A10 (decommissioned).
+        Includes all 12 active personas plus A10 (decommissioned).
         """
         personas = list_personas_structured()
         return json.dumps(personas, indent=2)
