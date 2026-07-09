@@ -150,6 +150,19 @@ def phase2_age_archive(dry_run=True):
     now = datetime.now(timezone.utc)
     threshold_days = 30
 
+    def parse_dt(s):
+        s = s.replace("Z", "+00:00")
+        try:
+            ts = datetime.fromisoformat(s)
+        except (ValueError, AttributeError):
+            try:
+                ts = datetime.strptime(s, "%Y-%m-%dT%H:%M:%S.%f%z")
+            except (ValueError, AttributeError):
+                return None
+        if ts.tzinfo is None:
+            ts = ts.replace(tzinfo=timezone.utc)
+        return ts
+
     candidates = []
     for m in missions:
         if m.get("status") not in terminal_statuses:
@@ -158,9 +171,8 @@ def phase2_age_archive(dry_run=True):
         ts_str = m.get("completed_at") or m.get("updated_at") or m.get("created_at")
         if not ts_str:
             continue  # no timestamp — skip, flag
-        try:
-            ts = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
-        except (ValueError, AttributeError):
+        ts = parse_dt(ts_str)
+        if ts is None:
             continue
         age_days = (now - ts).days
         if age_days >= threshold_days:
