@@ -6373,3 +6373,30 @@ I need your strategic input on Thunderbird OS intelligence ...
 **Notes:** OpenCode inline dispatch completed in 56.5s. Output: 3447 chars. Model: Sonnet
 
 ---
+
+## EVENT 7.5 — Claude-Pulse Phone C2 Bridge: Phase 2 Complete (2026-07-09)
+
+**Status:** OPERATIONAL
+
+**What was built:**
+
+| Capability | File/Config | Status |
+|---|---|---|
+| Authenticated Stop hook | `scripts/pulse-stop-authenticated.js` | ✅ Wired, tested |
+| PII-scrubbing Notification hook | `scripts/pulse-notify-scrubbed.js` | ✅ Wired, tested |
+| ntfy auth token | `~/.claude-pulse.json` → `ntfyAccessToken` | ✅ Active (Commander-registered) |
+| Kill switch | `scripts/pulse-kill.py` | ✅ enable/disable/status/test |
+| Dashboard | Pulse v0.1.0 on 127.0.0.1:4317 | ✅ Running |
+
+**Hook inventory (settings.json):**
+- Stop: 6 handlers (5 Wing + 1 Pulse authenticated)
+- Notification: 1 handler (PII-scrubbed, auth)
+- PostToolUse, UserPromptSubmit, SessionStart: unchanged
+
+**Verified flows:**
+- Auth push test: `echo '{...}' | node scripts/pulse-stop-authenticated.js` → ntfy.sh → phone
+- PII scrub: all 7 patterns stripped before wire
+- Kill switch: `disable` removes both Pulse hooks; `enable` restores from backup
+- PreToolUse (G0 gate) intentionally deferred per Opus B1/B2/B4
+
+**Commander directive:** "build all" — Phase 2 now complete.
