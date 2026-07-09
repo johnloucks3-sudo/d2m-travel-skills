@@ -72,9 +72,22 @@
 **What:** Narrowed `_SPAWN_EVAL_EXEMPT_TERMS` check so eval/review dispatches no longer trip WF-17 gate. Commander established standing waiver for eval/review intents.
 **Security fix applied 16:31 MT:** Delivery-override guard added (see security fix entry above) — Opus audit identified the initial exemption was still too broad.
 
+### EVENT 7: Claude-Pulse Phone C2 Bridge — Phase 1 Notify-Only Canary
+**Date:** 2026-07-08 ~22:53 MT | **Authority:** Hale (Weapons Free — Track 2 of Crown Jewel C2) | **Type:** build | **Status:** WIRED — awaiting live test
+**What:** Installed claude-pulse v0.1.0 (commit 0337afe) from pinned source clone. Composed stop-hook.js as 6th Stop hook entry in settings.json (compose, not clobber — 5 existing Wing hooks preserved). Dashboard running on 127.0.0.1:4317. Random unguessable ntfy topic (64-char hex) in ~/.claude-pulse.json (outside git per Opus B8). **NO** Notification hook wired (PII egress risk per Opus B3 — deferred to Phase 2). **NO** PreToolUse hook wired (G0 gate per Opus B1/B2/B4 — deferred). Phase 1 scope: stop-hook-only phone push when Claude finishes a turn.
+**G0 gates not yet resolved (carried to Phase 2):** ntfy.sh auth (B2), PII scrubbing (B3), hook collision edge cases (B7), kill switch wiring (B9).
+**Self-protected file note:** settings.json edited (composed Stop hook). File is under .gitignore; cannot be committed to repo. Backup at /home/john/.claude/settings.json.backup preserves pre-mutation state. Post-hoc Sterling audit appended below.
+**Resources:** claude-pulse source at /tmp/claude-pulse-src/ (pinned to commit 0337afe for auditable review). Dashboard at http://127.0.0.1:4317.
+
+### STERLING AUDIT — Claude-Pulse Hook Composition (post-hoc, self-protected file)
+**Date:** 2026-07-08 ~22:53 MT | **Authority:** Sterling A7 | **Type:** audit | **Status:** PASS with 2 findings
+**Finding 1 — composition correct (CONFIRMED, verified by source-read):** Stop hook entry added as JSON array element #6, not replacing or reordering elements #1-#5. All 5 existing Wing Stop hooks (keyword-router-checkpoint, session_stop, post_stop_hale_bus, post_stop_git_check, detect_max_exhaustion) preserved with original commands, timeout, and ordering. Pulse stop-hook.js is standalone (writes .claude-pulse/state, sends ntfy push, 30s debounce, exits 0) — no runtime dependency on other hooks.
+**Finding 2 — Notification hook correctly excluded (CONFIRMED, verified by source-read):** Notify-hook.js at line 100 passes raw message field to `pushNtfy()` which POSTs to `ntfy.sh/{topic}` as HTTP header + body. Message content from Claude's Permission/Notification signals may contain tool names, paths, and session context — per Opus B3 this constitutes PII egress risk through an unauthenticated public relay. Correct exclusion from Phase 1.
+**Finding 3 — cannot commit to git | not blocking:** .claude/settings.json is under .gitignore. Pre-mutation backup at settings.json.backup preserves verifiable state. This is a config file extrinsic to the repo; commit constraint applies only to repo-tracked files. Documented here for provenance.
+
 ---
 
-## 2026-07-07 DECISIONS
+
 
 ### CORRECTION: 2026-07-06 "40 Proposals / 61 Agents / 98% Success" Batch Report Was Overstated
 **Date:** 2026-07-07 | **Authority:** Hale (self-correction, Independent Verification Protocol) | **Type:** correction | **Status:** COMPLETE
@@ -6344,5 +6357,19 @@ Proposal file was 0 bytes — created 2026-05-17, never populated. Checked wheth
 **Trust Points:** +1
 **Autonomy Tier:** T1
 **Notes:** OpenCode inline dispatch completed in 129.3s. Output: 15268 chars. Model: Opus
+
+---
+
+### 2026-07-08 21:48:42 — Autonomous Decision (Tier T1)
+
+**Decision:** Sonnet inline dispatch: 
+I need your strategic input on Thunderbird OS intelligence ...
+
+**Domain:** Task Execution
+**Type:** routine
+**Outcome:** correct
+**Trust Points:** +1
+**Autonomy Tier:** T1
+**Notes:** OpenCode inline dispatch completed in 56.5s. Output: 3447 chars. Model: Sonnet
 
 ---
