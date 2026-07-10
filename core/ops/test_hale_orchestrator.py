@@ -150,3 +150,19 @@ def test_assess_all_met_nontrivial_is_green():
     plan = Plan(plan_id="PLN-5", task_summary="t", tier="T3", criteria=["c1"])
     result = assess_plan(plan, {"c1": "met"})
     assert result.quality_tier == "GREEN"
+
+
+def test_assess_trivial_tier_with_missed_still_fails():
+    plan = Plan(plan_id="PLN-trivfail", task_summary="t", tier="trivial", criteria=["c1"])
+    result = assess_plan(plan, {"c1": "missed"})
+    assert result.verdict == "FAIL"
+    assert result.quality_tier is None  # trivial ignores quality tier
+
+
+def test_assess_plan_exception_returns_degraded_fail(monkeypatch):
+    plan = Plan(plan_id="PLN-exc", task_summary="t", criteria=["c1"])
+    monkeypatch.setattr(plan, "criteria", None)  # will raise TypeError on iteration ("for c in plan.criteria")
+    result = assess_plan(plan, {})
+    assert result.verdict == "FAIL"
+    assert result.degraded is True
+    assert "orchestrator error" in result.notes
