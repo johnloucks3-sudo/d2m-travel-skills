@@ -3,7 +3,7 @@ Tests for core/ops/hale_orchestrator.py — Plan and AssessResult dataclasses.
 """
 import re
 import threading
-from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore, open_plan, assess_plan, _DEFAULT_CRITERIA
+from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore, open_plan, assess_plan, close_plan, _DEFAULT_CRITERIA
 import core.ops.hale_orchestrator as ho_module
 
 
@@ -166,3 +166,23 @@ def test_assess_plan_exception_returns_degraded_fail(monkeypatch):
     assert result.verdict == "FAIL"
     assert result.degraded is True
     assert "orchestrator error" in result.notes
+
+
+def test_close_plan_writes_and_returns_true(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    result = AssessResult(plan_id="PLN-close1", verdict="PASS")
+    ok = close_plan(result)
+    assert ok is True
+    assert "PLN-close1" in (tmp_path / "decisions.md").read_text()
+
+
+def test_close_plan_degrades_gracefully_on_write_failure(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+
+    def _boom(*a, **kw):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(ho_module.PlanStore, "write_close", staticmethod(_boom))
+    result = AssessResult(plan_id="PLN-close2", verdict="PASS")
+    ok = close_plan(result)
+    assert ok is False

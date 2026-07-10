@@ -250,3 +250,15 @@ def assess_plan(plan: Plan, criteria_status: dict[str, str], notes: str = "") ->
         logger.error("assess_plan failed: %s\n%s", exc, traceback.format_exc())
         return AssessResult(plan_id=plan.plan_id, verdict="FAIL",
                              notes="orchestrator error during assessment", degraded=True)
+
+
+def close_plan(result: AssessResult) -> bool:
+    """Writes the CLOSED block. Returns False (never raises) if the write
+    itself fails — the caller's actual task is already done by this point,
+    so a ledger-write failure must never look like a task failure."""
+    try:
+        PlanStore.write_close(result)
+        return True
+    except Exception as exc:
+        logger.error("close_plan failed: %s\n%s", exc, traceback.format_exc())
+        return False
