@@ -947,6 +947,200 @@ git commit -m "test: Hale orchestrator — end-to-end integration coverage"
 
 ---
 
+### Task 9: Cross-engine universal backstop (systemd timer, engine-agnostic)
+
+**Added mid-execution per Commander directive:** "Hale orchestrator should apply to all Hale's especially Claude Code && Open Code." Investigation confirmed `opencode.json` has no `hook`/`lifecycle`/`plugin` key — OpenCode has no native equivalent to Claude Code's Stop hook. The Task 6/7 backstop only fires for Claude Code sessions. This task adds an engine-agnostic timer that catches orphaned plans regardless of which engine (or neither, in a hard crash) created them.
+
+**Files:**
+- Create: `scripts/hale_orchestrator_timer_sweep.py`
+- Create: `~/.config/systemd/user/hale-orchestrator-sweep.service`
+- Create: `~/.config/systemd/user/hale-orchestrator-sweep.timer`
+- Test: `core/ops/test_hale_orchestrator_timer_sweep.py`
+
+- [ ] **Step 1: Write the failing test**
+
+```python
+# core/ops/test_hale_orchestrator_timer_sweep.py
+from scripts.hale_orchestrator_timer_sweep import sweep_all_orphans
+from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore
+
+
+def test_sweep_closes_orphans_across_multiple_sessions(tmp_path):
+    p = tmp_path / "decisions.md"
+    PlanStore.write_open(Plan(plan_id="PLN-cc0001", task_summary="claude code task",
+                               session_id="cc-session-1"), path=p)
+    PlanStore.write_open(Plan(plan_id="PLN-oc0001", task_summary="opencode task",
+                               session_id="oc-session-1"), path=p)
+    PlanStore.write_close(AssessResult(plan_id="PLN-cc0001", verdict="PASS"), path=p)
+    # PLN-oc0001 left open — simulates OpenCode (no Stop-hook backstop) or a crash
+
+    closed = sweep_all_orphans(path=p, min_age_seconds=0)
+
+    assert closed == ["PLN-oc0001"]
+    text = p.read_text()
+    assert "<!-- PLAN:CLOSE plan_id=PLN-oc0001 verdict=FAIL" in text
+    assert "never reached assessment (timer sweep)" in text
+
+
+def test_sweep_ignores_recently_opened_plans(tmp_path):
+    p = tmp_path / "decisions.md"
+    PlanStore.write_open(Plan(plan_id="PLN-fresh1", task_summary="still running",
+                               session_id="sess-live"), path=p)
+
+    closed = sweep_all_orphans(path=p, min_age_seconds=3600)
+
+    assert closed == []
+    assert "<!-- PLAN:CLOSE plan_id=PLN-fresh1" not in p.read_text()
+```
+
+- [ ] **Step 2: Run test to verify it fails**
+
+Run: `cd /home/john/Thunderbird/.claude/worktrees/hale-orchestrator && /home/john/Thunderbird/.venv/bin/pytest core/ops/test_hale_orchestrator_timer_sweep.py -v`
+Expected: FAIL — `scripts/hale_orchestrator_timer_sweep.py` doesn't exist yet
+
+- [ ] **Step 3: Write minimal implementation**
+
+```python
+#!/usr/bin/env python3
+"""
+Hale Orchestrator — cross-engine universal backstop.
+
+Runs on a systemd --user timer, independent of any single engine's session
+lifecycle. Catches orphaned Plan blocks in hale_decisions.md regardless of
+which engine created them (Claude Code, OpenCode, or any future engine) —
+including crashes where no Stop hook fires at all. Complements (does not
+replace) the Task 6 per-session Stop-hook backstop, which still closes
+orphans faster for Claude Code specifically.
+"""
+import re
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional
+
+sys.path.insert(0, "/home/john/Thunderbird")
+
+from core.ops.hale_orchestrator import (  # noqa: E402
+    AssessResult,
+    PlanStore,
+    HALE_DECISIONS,
+    logger,
+)
+
+_ALL_OPENS_RE = re.compile(
+    r"<!-- PLAN:OPEN plan_id=(?P<plan_id>\S+) tier=(?P<tier>\S+) "
+    r"session_id=(?P<session_id>\S+) opened_at=(?P<opened_at>\S+) -->"
+)
+
+
+def _age_seconds(opened_at: str) -> float:
+    try:
+        opened = datetime.fromisoformat(opened_at)
+        if opened.tzinfo is None:
+            opened = opened.replace(tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc) - opened).total_seconds()
+    except Exception:
+        return float("inf")  # unparseable timestamp -> treat as old enough to sweep
+
+
+def sweep_all_orphans(path: Optional[Path] = None, min_age_seconds: int = 900) -> list[str]:
+    """Closes every OPEN plan (any session, any engine) older than
+    min_age_seconds with no matching CLOSE, as FAIL. Returns the list of
+    plan_ids closed. Default 900s (15 min) avoids racing a plan that's
+    still legitimately in progress."""
+    target = path or HALE_DECISIONS
+    text = target.read_text(errors="ignore") if target.exists() else ""
+
+    all_opens = {m.group("plan_id"): m.groupdict() for m in _ALL_OPENS_RE.finditer(text)}
+    closed_ids = {m.group("plan_id") for m in PlanStore.CLOSE_RE.finditer(text)}
+
+    closed_now = []
+    for plan_id, fields in all_opens.items():
+        if plan_id in closed_ids:
+            continue
+        if _age_seconds(fields["opened_at"]) < min_age_seconds:
+            continue
+        PlanStore.write_close(AssessResult(
+            plan_id=plan_id,
+            verdict="FAIL",
+            notes="never reached assessment (timer sweep)",
+        ), path=path)
+        closed_now.append(plan_id)
+
+    return closed_now
+
+
+def main() -> int:
+    try:
+        closed = sweep_all_orphans()
+        if closed:
+            logger.info("timer sweep closed %d orphaned plan(s): %s", len(closed), closed)
+    except Exception as exc:
+        logger.error("timer sweep failed: %s", exc)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+- [ ] **Step 4: Run test to verify it passes**
+
+Run: `cd /home/john/Thunderbird/.claude/worktrees/hale-orchestrator && /home/john/Thunderbird/.venv/bin/pytest core/ops/test_hale_orchestrator_timer_sweep.py -v`
+Expected: `2 passed`
+
+- [ ] **Step 5: Create the systemd unit files**
+
+```ini
+# ~/.config/systemd/user/hale-orchestrator-sweep.service
+[Unit]
+Description=Hale Orchestrator — cross-engine orphan sweep
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/hale_orchestrator_timer_sweep.py
+```
+
+```ini
+# ~/.config/systemd/user/hale-orchestrator-sweep.timer
+[Unit]
+Description=Run Hale Orchestrator orphan sweep every 15 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+
+[Install]
+WantedBy=timers.target
+```
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now hale-orchestrator-sweep.timer
+systemctl --user list-timers hale-orchestrator-sweep.timer
+```
+
+- [ ] **Step 6: Live verification**
+
+```bash
+systemctl --user start hale-orchestrator-sweep.service
+journalctl --user -u hale-orchestrator-sweep.service --since "2 min ago" --no-pager
+```
+
+Expected: service ran, exit code 0, log line either silent (nothing to sweep) or reporting closed plan_ids.
+
+- [ ] **Step 7: Commit**
+
+```bash
+cd /home/john/Thunderbird/.claude/worktrees/hale-orchestrator
+git add scripts/hale_orchestrator_timer_sweep.py core/ops/test_hale_orchestrator_timer_sweep.py
+git commit -m "feat: Hale orchestrator — cross-engine universal backstop (systemd timer)"
+```
+
+Note: the two systemd unit files live outside the git repo (`~/.config/systemd/user/`) and are not committed — they're installed directly on the host per Step 5.
+
+---
+
 ## Spec Coverage Check
 
 | Spec section | Covered by |
@@ -961,3 +1155,4 @@ git commit -m "test: Hale orchestrator — end-to-end integration coverage"
 | Hook registration | Task 7 |
 | Concurrency (8-instance Hale Bus) | Task 2 (`test_concurrent_appends_do_not_corrupt`) |
 | Live verification discipline | Task 8, Step 3 |
+| Cross-engine parity (Claude Code + OpenCode) | Task 9 — library is engine-agnostic by construction (Tasks 1-5); Task 9 adds the universal backstop OpenCode's missing hook system can't provide |
