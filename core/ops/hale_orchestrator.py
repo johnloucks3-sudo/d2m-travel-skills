@@ -8,7 +8,10 @@ ledger, not a runtime supervisor. See docs/superpowers/specs/2026-07-09-hale-orc
 """
 from __future__ import annotations
 
+import fcntl
 import logging
+import os
+import re
 import secrets
 import traceback
 from dataclasses import dataclass, field
@@ -69,3 +72,89 @@ class AssessResult:
     notes: str = ""
     closed_at: str = field(default_factory=_now_iso)
     degraded: bool = False
+
+
+class PlanStore:
+    """Reads/writes structured HTML-comment-delimited blocks in hale_decisions.md.
+    Pure append-only — never rewrites the file. fcntl-locked so the 8 concurrent
+    Hale instantiations (Hale Bus doctrine) never interleave writes."""
+
+    OPEN_RE = re.compile(
+        r"<!-- PLAN:OPEN plan_id=(?P<plan_id>\S+) tier=(?P<tier>\S+) "
+        r"session_id=(?P<session_id>\S+) opened_at=(?P<opened_at>\S+) -->"
+    )
+    CLOSE_RE = re.compile(
+        r"<!-- PLAN:CLOSE plan_id=(?P<plan_id>\S+) verdict=(?P<verdict>\S+) "
+        r"quality_tier=(?P<quality_tier>\S+) closed_at=(?P<closed_at>\S+) -->"
+    )
+
+    @staticmethod
+    def _append(text: str, path: Optional[Path] = None) -> None:
+        target = path or HALE_DECISIONS
+        with open(target, "a") as f:
+            fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+            try:
+                f.write(text)
+                f.flush()
+                os.fsync(f.fileno())
+            finally:
+                fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+
+    @staticmethod
+    def write_open(plan: Plan, path: Optional[Path] = None) -> None:
+        sid = plan.session_id or "none"
+        block = (
+            f"\n<!-- PLAN:OPEN plan_id={plan.plan_id} tier={plan.tier} "
+            f"session_id={sid} opened_at={plan.opened_at} -->\n"
+            f"**Plan Opened:** {plan.plan_id}\n"
+            f"**Task:** {plan.task_summary}\n"
+            f"**Tier:** {plan.tier}\n"
+            f"**Compliance checks:** {'; '.join(plan.compliance_checks) or 'none'}\n"
+            f"**Criteria:** {'; '.join(plan.criteria) or 'none'}\n"
+            f"<!-- /PLAN:OPEN -->\n"
+        )
+        PlanStore._append(block, path=path)
+
+    @staticmethod
+    def write_close(result: AssessResult, path: Optional[Path] = None) -> None:
+        qt = result.quality_tier or "none"
+        block = (
+            f"\n<!-- PLAN:CLOSE plan_id={result.plan_id} verdict={result.verdict} "
+            f"quality_tier={qt} closed_at={result.closed_at} -->\n"
+            f"**Plan Closed:** {result.plan_id}\n"
+            f"**Verdict:** {result.verdict}\n"
+            f"**Quality tier:** {qt}\n"
+            f"**Criteria met:** {'; '.join(result.criteria_met) or 'none'}\n"
+            f"**Criteria missed:** {'; '.join(result.criteria_missed) or 'none'}\n"
+            f"**Criteria unverified:** {'; '.join(result.criteria_unverified) or 'none'}\n"
+            f"**Notes:** {result.notes or 'none'}\n"
+            f"<!-- /PLAN:CLOSE -->\n"
+        )
+        PlanStore._append(block, path=path)
+
+    @staticmethod
+    def _read(path: Optional[Path] = None) -> str:
+        target = path or HALE_DECISIONS
+        return target.read_text(errors="ignore") if target.exists() else ""
+
+    @staticmethod
+    def find_orphaned_opens(session_id: str, text: Optional[str] = None,
+                             path: Optional[Path] = None) -> list[dict]:
+        if text is None:
+            text = PlanStore._read(path)
+        opens = {
+            m.group("plan_id"): m.groupdict()
+            for m in PlanStore.OPEN_RE.finditer(text)
+            if m.group("session_id") == session_id
+        }
+        closed_ids = {m.group("plan_id") for m in PlanStore.CLOSE_RE.finditer(text)}
+        return [v for pid, v in opens.items() if pid not in closed_ids]
+
+    @staticmethod
+    def session_has_any_plan(session_id: str, text: Optional[str] = None,
+                              path: Optional[Path] = None) -> bool:
+        if text is None:
+            text = PlanStore._read(path)
+        return any(
+            m.group("session_id") == session_id for m in PlanStore.OPEN_RE.finditer(text)
+        )
