@@ -1,6 +1,6 @@
 use_default_settings: true
 server:
-  secret_key: "3265d76e8092ec3ffc922f52a8c35c555d82b97976e237ddf5b90aec130278fa"
+  secret_key: "1d1ea7ba3b58d4f7664f3129287d02eb18cfd820565b3227aaefce7aeab00448"
   bind_address: "0.0.0.0"
   port: 8080
   limiter: false

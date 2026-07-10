@@ -1,1 +1,19 @@
 intel/daily_search/wave6_2026-06-21_1411.json:generic-api-key:726
+
+# deploy/searxng/settings.yml — SearXNG server HMAC secret_key committed 2026-07-03.
+# Key rotated in-place (new random value committed 2026-07-10). Historical commit
+# f22e8d89 suppressed here; old key was never pushed to GitHub (origin froze 2026-06-12).
+f22e8d892be5421d02f5ceb5084a09251c54a4a4:deploy/searxng/settings.yml:generic-api-key:3
+
+# docs/CEREBRAS_FALLBACK_TOOLS.md — three real API keys committed in a config example
+# block (commit 70e0c13a, 2026-07-03). Keys redacted in-place 2026-07-10 with rotate
+# instructions. ROTATE: Cerebras at cerebras.ai, DeepInfra at deepinfra.com,
+# Groq at console.groq.com. Neither commit was pushed to GitHub (origin froze 2026-06-12).
+70e0c13a22b61aac2f0049c84e4ef7bdf751fb82:docs/CEREBRAS_FALLBACK_TOOLS.md:generic-api-key:129
+70e0c13a22b61aac2f0049c84e4ef7bdf751fb82:docs/CEREBRAS_FALLBACK_TOOLS.md:generic-api-key:130
+70e0c13a22b61aac2f0049c84e4ef7bdf751fb82:docs/CEREBRAS_FALLBACK_TOOLS.md:generic-api-key:131
+
+# intel/email_intel/2026-06-30_Up_to_40_off__extra_25_with_coupon.md — Expedia email
+# tracking token (vawpToken) in a saved marketing email. Not a credential — it's a
+# per-message view/tracking URL parameter from Expedia's CRM system. False positive.
+70e0c13a22b61aac2f0049c84e4ef7bdf751fb82:intel/email_intel/2026-06-30_Up_to_40_off__extra_25_with_coupon.md:generic-api-key:10

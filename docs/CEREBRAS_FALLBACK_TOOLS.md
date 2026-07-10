@@ -126,9 +126,9 @@ llim --provider groq "Your prompt"
 
 ### API Keys (in .env)
 ```bash
-CEREBRAS_API_KEY=csk-cm34cj2th2ykwyej3trwfvhrwjh9w2k95x33kee32mxhpchr
-DEEPINFRA_API_KEY=dUE37MCP2LIpWNhcRXId24EPGXkyHO0x
-GROQ_API_KEY=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
+CEREBRAS_API_KEY=<rotate-at-cerebras-ai-developer-portal>
+DEEPINFRA_API_KEY=<rotate-at-deepinfra-dashboard>
+GROQ_API_KEY=<rotate-at-console-groq-com>
 ```
 
 ### Claude Code Permissions (settings.json)
