@@ -1,0 +1,14 @@
+[Unit]
+Description=Hale Orchestrator — cross-engine orphan sweep
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/hale_orchestrator_timer_sweep.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hale-orchestrator-sweep
+
+[Install]
+WantedBy=multi-user.target
