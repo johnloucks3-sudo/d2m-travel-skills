@@ -86,6 +86,26 @@ def test_remediate_escalates_when_cooldown_blocks(tmp_path, monkeypatch):
     assert "phantom.service" in escalated
 
 
+def test_remediate_defers_to_lane1_owned_unit(tmp_path, monkeypatch):
+    """The exclusion guard closing Whetstone's named cross-check: a unit
+    already owned by Lane 1's CI Repair Warehouse must never be touched by
+    this mechanism (no reset-failed/start attempt), so the two systems
+    can't race the same unit."""
+    monkeypatch.setattr(gr, "STATE_FILE", tmp_path / "state.json")
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    ran_commands = []
+    monkeypatch.setattr(gr, "_run", lambda cmd, timeout=20: ran_commands.append(cmd) or (True, ""))
+
+    owned_unit = next(iter(gr.LANE1_OWNED_UNITS))
+    exit_code = gr.remediate(owned_unit)
+
+    assert exit_code == 0
+    assert ran_commands == []  # no reset-failed / start attempted at all
+    text = (tmp_path / "decisions.md").read_text()
+    assert "deferred to Lane 1" in text
+    assert "**Criteria unverified:**" in text and owned_unit in text
+
+
 def test_remediate_never_raises_on_orchestrator_failure(tmp_path, monkeypatch):
     monkeypatch.setattr(gr, "STATE_FILE", tmp_path / "state.json")
     monkeypatch.setattr(ho_module, "open_plan", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("boom")))

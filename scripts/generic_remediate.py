@@ -55,6 +55,27 @@ STATE_FILE = ROOT / "logs" / "generic_remediate_state.json"
 COOLDOWN_SECONDS = 3600  # at most one attempt per unit per hour
 SETTLE_SECONDS = 5
 
+# Units already owned by Lane 1 (core/ci/repairs/cluster_*.py repair() bodies
+# restart these directly, under their own tiered SAFE/CAUTION/DESTRUCTIVE gate
+# + anti-flap state). This mechanism is for the LONG TAIL outside that set —
+# firing on a Lane-1-owned unit too would let two independent remediation
+# systems race the same unit (the exact conflict Whetstone flagged during the
+# 2026-07-09 adoption review, see docs/superpowers/specs/
+# 2026-07-09-self-healing-architecture-reverse-engineered.md addendum).
+# Regenerate via:
+#   grep -ohE "[a-zA-Z0-9_.-]+\.(service|timer)" config/ci_registry.json \
+#     core/ci/repairs/cluster_*.py core/ci/ci_auto_repair_engine.py | sort -u
+LANE1_OWNED_UNITS = frozenset({
+    "claude-oauth-keepalive.timer", "cloudflared.service", "cruise-db-refresh.service",
+    "d2mconcierge-oauth-keepalive.timer", "d2m-inbox-triage.timer", "d2m-litellm-gateway.service",
+    "d2m-qdrant-reindex.timer", "docker.service", "johnloucks3-oauth-keepalive.timer",
+    "n8n.service", "oauth-keepalive.timer", "opencode-spsa-monitor.service",
+    "reverie-api.service", "reverie-frontend.service", "reverie.service", "tailscaled.service",
+    "thunderbird-supertimer.service", "thunderbird-telegram-gw.service",
+    "thunderbird-tunnel.service", "thunderbird-watchdog.timer", "ttyd.service",
+    "ttyd-terminal.service",
+})
+
 logging.basicConfig(
     filename=ROOT / "logs" / "generic_remediate.log",
     level=logging.INFO,
@@ -109,9 +130,11 @@ def _escalate(unit: str, reason: str) -> None:
         logger.error("escalation notify failed for %s: %s", unit, e)
 
 
-def _log_remediation_plan(unit: str, recovered: bool, note: str) -> None:
+def _log_remediation_plan(unit: str, status: str, note: str) -> None:
     """Ledger-only Hale Orchestrator entry — records the verified outcome,
-    never gates the remediation decision above (already made by this point)."""
+    never gates the remediation decision above (already made by this point).
+    status is 'met' (verified active), 'missed' (attempted, not recovered),
+    or 'unverified' (deferred to Lane 1 — nothing checked here by design)."""
     try:
         from core.ops.hale_orchestrator import open_plan, assess_plan, close_plan
         plan = open_plan(
@@ -119,7 +142,6 @@ def _log_remediation_plan(unit: str, recovered: bool, note: str) -> None:
             tier="trivial",
             criteria=[f"{unit} verified active after remediation attempt"],
         )
-        status = "met" if recovered else "missed"
         result = assess_plan(plan, {plan.criteria[0]: status}, notes=note)
         close_plan(result)
     except Exception as e:
@@ -134,13 +156,19 @@ def remediate(unit: str) -> int:
         logger.error("no unit argument provided")
         return 1
 
+    if unit in LANE1_OWNED_UNITS:
+        note = "deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)"
+        logger.info("%s: %s", unit, note)
+        _log_remediation_plan(unit, "unverified", note)
+        return 0
+
     state = _load_state()
 
     if _cooldown_blocking(state, unit):
         note = f"cooldown active ({COOLDOWN_SECONDS}s) — not re-attempting"
         logger.warning("%s: %s", unit, note)
         _escalate(unit, f"{unit} failed again within cooldown window — needs manual attention")
-        _log_remediation_plan(unit, False, note)
+        _log_remediation_plan(unit, "missed", note)
         return 1
 
     logger.info("%s: attempting generic remediation (reset-failed + start)", unit)
@@ -155,7 +183,7 @@ def remediate(unit: str) -> int:
 
     note = "recovered — verified active" if recovered else f"start attempted (ok={start_ok}) but not verified active"
     logger.info("%s: %s", unit, note)
-    _log_remediation_plan(unit, recovered, note)
+    _log_remediation_plan(unit, "met" if recovered else "missed", note)
 
     if not recovered:
         _escalate(unit, f"{unit} entered failed state; generic remediation attempted but "
