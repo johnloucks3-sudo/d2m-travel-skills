@@ -158,3 +158,44 @@ class PlanStore:
         return any(
             m.group("session_id") == session_id for m in PlanStore.OPEN_RE.finditer(text)
         )
+
+
+def open_plan(
+    task_summary: str,
+    tier: str = "trivial",
+    criteria: Optional[list[str]] = None,
+    compliance_checks: Optional[list[str]] = None,
+    prompt_charter: Optional[dict] = None,
+    session_id: Optional[str] = None,
+) -> Plan:
+    """Open a new Plan. criteria/compliance_checks default to the cheap
+    auto-derived floor for trivial work; pass explicit values for T1+ tasks.
+    prompt_charter (for tier T2/T3) is the caller-supplied Wing Exercise
+    Prompt Charter dict — its fields fold into compliance_checks rather than
+    being scraped automatically, since no single machine-readable charter
+    store exists yet."""
+    plan_id = _new_plan_id()
+    try:
+        resolved_criteria = list(criteria) if criteria else list(_DEFAULT_CRITERIA)
+        resolved_checks = list(compliance_checks) if compliance_checks else []
+
+        if tier in ("T2", "T3") and prompt_charter:
+            for key in ("success_criteria", "scope_in", "scope_out", "named_staff", "exit_condition"):
+                val = prompt_charter.get(key)
+                if val:
+                    resolved_checks.append(f"{key}: {val}")
+
+        plan = Plan(
+            plan_id=plan_id,
+            task_summary=task_summary,
+            tier=tier,
+            session_id=session_id,
+            compliance_checks=resolved_checks,
+            criteria=resolved_criteria,
+        )
+        PlanStore.write_open(plan)
+        return plan
+    except Exception as exc:
+        logger.error("open_plan failed: %s\n%s", exc, traceback.format_exc())
+        return Plan(plan_id=plan_id, task_summary=task_summary, tier=tier,
+                     session_id=session_id, degraded=True)

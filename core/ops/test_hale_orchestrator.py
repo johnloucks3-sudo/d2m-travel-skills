@@ -3,7 +3,8 @@ Tests for core/ops/hale_orchestrator.py — Plan and AssessResult dataclasses.
 """
 import re
 import threading
-from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore
+from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore, open_plan, _DEFAULT_CRITERIA
+import core.ops.hale_orchestrator as ho_module
 
 
 def test_plan_defaults():
@@ -78,3 +79,37 @@ def test_concurrent_appends_do_not_corrupt(tmp_path):
     text = p.read_text()
     opened_ids = set(re.findall(r"plan_id=(PLN-\d{6})", text))
     assert len(opened_ids) == 20  # every write landed, none clobbered another
+
+
+def test_open_plan_auto_derives_criteria(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    plan = open_plan("read a file")
+    assert plan.criteria == _DEFAULT_CRITERIA
+    assert plan.tier == "trivial"
+    assert (tmp_path / "decisions.md").read_text().count("<!-- PLAN:OPEN") == 1
+
+
+def test_open_plan_explicit_criteria_pass_through(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    plan = open_plan("big task", criteria=["custom criterion"])
+    assert plan.criteria == ["custom criterion"]
+
+
+def test_open_plan_t2_folds_in_prompt_charter(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    charter = {"success_criteria": "ship the thing", "scope_in": "backend only"}
+    plan = open_plan("T2 task", tier="T2", prompt_charter=charter)
+    assert any("success_criteria: ship the thing" in c for c in plan.compliance_checks)
+    assert any("scope_in: backend only" in c for c in plan.compliance_checks)
+
+
+def test_open_plan_degrades_gracefully_on_write_failure(tmp_path, monkeypatch):
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+
+    def _boom(*a, **kw):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(ho_module.PlanStore, "write_open", staticmethod(_boom))
+    plan = open_plan("will fail to persist")
+    assert plan.degraded is True
+    assert plan.plan_id.startswith("PLN-")
