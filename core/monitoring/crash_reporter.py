@@ -85,6 +85,27 @@ def _open_crash_log():
     return open(path, "a", buffering=1), path
 
 
+def _log_crash_plan(source: str, log_path: Path) -> None:
+    """Open+close a trivial Hale Orchestrator Plan for this crash event, per
+    docs/superpowers/specs/2026-07-09-self-healing-architecture-reverse-engineered.md.
+    Called AFTER the crash report is already written — this is a ledger entry,
+    never a gate. Lazy import + broad except: crash_reporter loads via
+    sitecustomize.py for every one of 51 fleet processes, so this must never
+    be the reason a crash handler itself fails to run."""
+    try:
+        from core.ops.hale_orchestrator import open_plan, assess_plan, close_plan
+        plan = open_plan(
+            task_summary=f"crash captured: {source}",
+            tier="trivial",
+            criteria=[f"crash report written to {log_path}"],
+        )
+        status = "met" if log_path.exists() else "unverified"
+        result = assess_plan(plan, {plan.criteria[0]: status})
+        close_plan(result)
+    except Exception:
+        pass
+
+
 def install(logger_name: str = "crash_reporter") -> Optional[Path]:
     """
     Install the full crash-capture surface for this process. Idempotent —
@@ -127,6 +148,7 @@ def install(logger_name: str = "crash_reporter") -> Optional[Path]:
             log.critical("UNCAUGHT EXCEPTION (main thread):\n%s", msg)
         except Exception:
             pass
+        _log_crash_plan(f"{_script_stem()} (main thread)", log_path)
         _orig_excepthook(exc_type, exc_value, exc_tb)
 
     sys.excepthook = _excepthook
@@ -147,6 +169,7 @@ def install(logger_name: str = "crash_reporter") -> Optional[Path]:
             log.critical("UNCAUGHT EXCEPTION (thread=%s):\n%s", thread_name, msg)
         except Exception:
             pass
+        _log_crash_plan(f"{_script_stem()} (thread={thread_name})", log_path)
         _orig_thread_hook(args)
 
     threading.excepthook = _thread_excepthook

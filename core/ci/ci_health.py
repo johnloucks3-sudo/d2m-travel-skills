@@ -25,6 +25,27 @@ HISTORY_KEEP = 50  # entries retained per skill
 _ICON = {"RAZOR_SHARP": "🟢", "DULL": "🟡", "RED": "🔴", "REPLACE": "🔁"}
 
 
+def _log_repair_plan(skill_id: str, repaired: bool, detail: str) -> None:
+    """Open+close a trivial Hale Orchestrator Plan recording this repair
+    attempt's verdict, per docs/superpowers/specs/
+    2026-07-09-self-healing-architecture-reverse-engineered.md. Called AFTER
+    run_capability() has already decided — a ledger entry, never a gate.
+    This does NOT alter the SAFE/CAUTION/DESTRUCTIVE auto-apply gates or
+    which outcome _try_repair returns. Lazy import + broad except: a CI
+    sweep must never fail because the ledger write failed."""
+    try:
+        from core.ops.hale_orchestrator import open_plan, assess_plan, close_plan
+        plan = open_plan(
+            task_summary=f"CI repair attempt: {skill_id} -> {detail}",
+            tier="trivial",
+            criteria=[f"{skill_id} repair verdict mechanically recorded"],
+        )
+        result = assess_plan(plan, {plan.criteria[0]: "met"}, notes=f"repaired={repaired}")
+        close_plan(result)
+    except Exception:
+        pass
+
+
 def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -> tuple[bool, str]:
     """
     Attempt autonomous repair of a RED CI skill. Fires immediately on RED — no threshold.
@@ -75,6 +96,7 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
                         repaired=True, client_affecting=False)
         except Exception:
             pass
+        _log_repair_plan(skill_id, True, "auto-repaired")
         return True, "auto-repaired"
 
     if r.decision == Decision.STAGED:
@@ -85,10 +107,12 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
                             f"token={r.staged_token} — confirm to apply")
         except Exception:
             pass
+        _log_repair_plan(skill_id, False, f"staged:{r.staged_token}")
         return False, f"staged:{r.staged_token}"
 
     if r.decision == Decision.SKIPPED_HEALTHY:
         # Runner's independent explore saw GREEN — treat as recovered.
+        _log_repair_plan(skill_id, True, "already-green")
         return True, "already-green"
 
     # Applied-but-not-green, blocked, not-repairable, error -> escalate.
@@ -102,6 +126,7 @@ def _try_repair(skill_id: str, probe_cmd: str, client_affecting: bool = False) -
             notify_sterling(skill_id, f"CI {skill_id} {r.decision.value}: {r.note[:150]}")
     except Exception:
         pass
+    _log_repair_plan(skill_id, False, r.decision.value.lower())
     return False, f"{r.decision.value.lower()}"
 
 
