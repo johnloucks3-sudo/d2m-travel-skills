@@ -3,7 +3,7 @@ Tests for core/ops/hale_orchestrator.py — Plan and AssessResult dataclasses.
 """
 import re
 import threading
-from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore, open_plan, _DEFAULT_CRITERIA
+from core.ops.hale_orchestrator import Plan, AssessResult, PlanStore, open_plan, assess_plan, _DEFAULT_CRITERIA
 import core.ops.hale_orchestrator as ho_module
 
 
@@ -113,3 +113,40 @@ def test_open_plan_degrades_gracefully_on_write_failure(tmp_path, monkeypatch):
     plan = open_plan("will fail to persist")
     assert plan.degraded is True
     assert plan.plan_id.startswith("PLN-")
+
+
+def test_assess_all_met_is_pass_trivial_no_tier():
+    plan = Plan(plan_id="PLN-1", task_summary="t", tier="trivial", criteria=["c1", "c2"])
+    result = assess_plan(plan, {"c1": "met", "c2": "met"})
+    assert result.verdict == "PASS"
+    assert result.quality_tier is None
+    assert result.criteria_met == ["c1", "c2"]
+
+
+def test_assess_any_missed_is_fail():
+    plan = Plan(plan_id="PLN-2", task_summary="t", tier="T1", criteria=["c1", "c2"])
+    result = assess_plan(plan, {"c1": "met", "c2": "missed"})
+    assert result.verdict == "FAIL"
+    assert result.quality_tier == "RED"
+    assert result.criteria_missed == ["c2"]
+
+
+def test_assess_only_unverified_is_pass_yellow_cap():
+    plan = Plan(plan_id="PLN-3", task_summary="t", tier="T1", criteria=["c1", "c2"])
+    result = assess_plan(plan, {"c1": "met", "c2": "unverified"})
+    assert result.verdict == "PASS"
+    assert result.quality_tier == "YELLOW"
+    assert result.criteria_unverified == ["c2"]
+
+
+def test_assess_missing_criterion_key_defaults_unverified():
+    plan = Plan(plan_id="PLN-4", task_summary="t", tier="T2", criteria=["c1"])
+    result = assess_plan(plan, {})
+    assert result.criteria_unverified == ["c1"]
+    assert result.verdict == "PASS"
+
+
+def test_assess_all_met_nontrivial_is_green():
+    plan = Plan(plan_id="PLN-5", task_summary="t", tier="T3", criteria=["c1"])
+    result = assess_plan(plan, {"c1": "met"})
+    assert result.quality_tier == "GREEN"

@@ -200,3 +200,53 @@ def open_plan(
         logger.error("open_plan write failed: %s\n%s", exc, traceback.format_exc())
         plan.degraded = True
     return plan
+
+
+def assess_plan(plan: Plan, criteria_status: dict[str, str], notes: str = "") -> AssessResult:
+    """Assess a Plan's completion across its criteria. criteria_status maps each
+    string in plan.criteria to 'met' | 'missed' | 'unverified'. Any criterion
+    absent from criteria_status defaults to 'unverified' — never a silent 'met'.
+
+    verdict is FAIL only on a real 'missed'; 'unverified' alone caps quality_tier
+    at YELLOW but never forces a hard FAIL (see design doc Error Handling section).
+
+    quality_tier is None for tier='trivial', else:
+    - 'RED' if any criteria missed
+    - 'YELLOW' if only unverified (no missed)
+    - 'GREEN' if all met
+    """
+    try:
+        met, missed, unverified = [], [], []
+        for c in plan.criteria:
+            state = criteria_status.get(c, "unverified")
+            if state == "met":
+                met.append(c)
+            elif state == "missed":
+                missed.append(c)
+            else:
+                unverified.append(c)
+
+        verdict = "FAIL" if missed else "PASS"
+
+        quality_tier = None
+        if plan.tier != "trivial":
+            if missed:
+                quality_tier = "RED"
+            elif unverified:
+                quality_tier = "YELLOW"
+            else:
+                quality_tier = "GREEN"
+
+        return AssessResult(
+            plan_id=plan.plan_id,
+            verdict=verdict,
+            quality_tier=quality_tier,
+            criteria_met=met,
+            criteria_missed=missed,
+            criteria_unverified=unverified,
+            notes=notes,
+        )
+    except Exception as exc:
+        logger.error("assess_plan failed: %s\n%s", exc, traceback.format_exc())
+        return AssessResult(plan_id=plan.plan_id, verdict="FAIL",
+                             notes="orchestrator error during assessment", degraded=True)
