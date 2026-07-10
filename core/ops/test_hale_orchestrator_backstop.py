@@ -53,3 +53,21 @@ def test_backstop_files_default_plan_when_transcript_has_tool_use(tmp_path):
     assert "session_id=sess-hook-2" in text
     assert "<!-- PLAN:CLOSE" in text
     assert "verdict=PASS" in text
+
+
+def test_backstop_exits_zero_on_success(tmp_path):
+    decisions = tmp_path / "decisions.md"
+    decisions.write_text("")
+    transcript = tmp_path / "transcript.jsonl"
+    transcript.write_text('{"type": "tool_use"}\n')
+
+    env = os.environ.copy()
+    env["HALE_ORCHESTRATOR_DECISIONS_PATH"] = str(decisions)
+    proc = subprocess.run(
+        [sys.executable, HOOK],
+        input=json.dumps({"session_id": "sess-exit-check", "transcript_path": str(transcript)}),
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    assert proc.returncode == 0, f"Hook exited with {proc.returncode}: {proc.stderr}"
