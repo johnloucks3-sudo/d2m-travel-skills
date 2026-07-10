@@ -24,7 +24,11 @@ import os
 import sys
 from pathlib import Path
 
-FIREFOX_GLOB  = "/home/john/.cache/ms-playwright/firefox-*/firefox/firefox"
+FIREFOX_GLOBS = [
+    os.path.join(os.environ.get("PLAYWRIGHT_BROWSERS_PATH", ""), "firefox-*/firefox/firefox"),
+    "/home/john/.cache/ms-playwright/firefox-*/firefox/firefox",
+    "/home/john/.playwright-browsers/firefox-*/firefox/firefox",
+]
 POLL_SCRIPT   = Path("/home/john/Thunderbird/scripts/ita_fare_watch_poll.py")
 # ita_fare_watch_poll.py reads from OpsCenter/fare_watches/ config
 WATCH_CONFIG  = Path("/home/john/Thunderbird/OpsCenter/fare_watches")
@@ -38,10 +42,15 @@ def fail(msg: str) -> "NoReturn":
 
 def main() -> None:
     # 1. Firefox binary (the actual dependency — NOT chromium)
-    matches = glob.glob(FIREFOX_GLOB)
+    matches = []
+    for g in FIREFOX_GLOBS:
+        if g:
+            matches = glob.glob(g)
+            if matches:
+                break
     if not matches:
         fail(
-            f"Firefox playwright binary missing at {FIREFOX_GLOB}. "
+            f"Firefox playwright binary missing (checked {[g for g in FIREFOX_GLOBS if g]}). "
             "ita_fare_watch_poll.py crashes without it. "
             "Fix: .venv/bin/playwright install firefox"
         )

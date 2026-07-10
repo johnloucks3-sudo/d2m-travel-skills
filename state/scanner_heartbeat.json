@@ -1,12 +1,12 @@
 {
-  "ts": "2026-07-03T19:00:15.817903+00:00",
-  "finding_count": 4,
-  "content_hash": "d3449584cf302ec7dea3af2a30e88bf52a48b5c7",
+  "ts": "2026-07-10T19:00:16.216712+00:00",
+  "finding_count": 0,
+  "content_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
   "sectors": [
-    "mcp",
-    "ai-writing",
-    "travel-b2b"
+    "travel-b2b",
+    "competitor",
+    "automation"
   ],
-  "zero_streak": 0,
+  "zero_streak": 1,
   "frozen": false
 }

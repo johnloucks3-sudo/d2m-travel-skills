@@ -36,6 +36,14 @@ log = logging.getLogger("state_bridge.hook")
 
 def run() -> str:
     """Open a session, return briefing text."""
+    # Restore full cadence — quiet_mode goes OFF at every session start
+    try:
+        _qm = Path(str(THUNDERBIRD_ROOT) + "/OpsCenter/quiet_mode.active")
+        if _qm.exists():
+            _qm.unlink()
+    except Exception:
+        pass
+
     store = EventStore()
     session_id = store.open_session(model="session-startup")
     try:

@@ -153,6 +153,7 @@ dossiers/personal/
 data/qdrant/
 state/firefox_rssc_prod/
 state/firefox_profile_test/
+state/ip_ancestry_profile/
 core/travel/data/centrav_ff_profile/
 
 # ── SECURITY 2026-06-21 — close path gaps that left plaintext secrets untracked-but-not-ignored ──

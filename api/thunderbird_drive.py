@@ -140,6 +140,63 @@ def _escape_query(value: str) -> str:
     return value.replace("\\", "\\\\").replace("'", "\\'")
 
 
+# ============================================================================
+# CORE IMPLEMENTATIONS (importable directly — reused by tool wrappers below
+# and by other orchestration modules, e.g. thunderbird_client_proposal.py)
+# ============================================================================
+
+@_retry_on_error
+async def drive_create_folder_impl(name: str, parent_id: Optional[str] = None) -> dict:
+    """Create a new folder in Google Drive. Returns dict with status/folder."""
+    try:
+        service = _get_drive_service()
+        metadata = {
+            "name": name,
+            "mimeType": "application/vnd.google-apps.folder",
+        }
+        if parent_id:
+            metadata["parents"] = [parent_id]
+
+        folder = service.files().create(body=metadata, fields="id, name, webViewLink").execute()
+        return {"status": "success", "folder": folder}
+    except Exception as e:
+        logger.error(f"Drive create folder error: {e}")
+        return {"error": str(e), "type": "drive_error"}
+
+
+@_retry_on_error
+async def drive_upload_file_impl(
+    local_path: str,
+    folder_id: Optional[str] = None,
+    name: Optional[str] = None,
+) -> dict:
+    """Upload a local file to Google Drive. Returns dict with status/uploaded."""
+    try:
+        service = _get_drive_service()
+        file_path = Path(local_path)
+
+        if not file_path.exists():
+            return {"error": f"File not found: {local_path}"}
+
+        file_name = name or file_path.name
+        mime_type = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
+
+        metadata = {"name": file_name}
+        if folder_id:
+            metadata["parents"] = [folder_id]
+
+        media = MediaFileUpload(str(file_path), mimetype=mime_type, resumable=True)
+        uploaded = (
+            service.files()
+            .create(body=metadata, media_body=media, fields="id, name, webViewLink, size")
+            .execute()
+        )
+
+        return {"status": "success", "uploaded": uploaded}
+    except Exception as e:
+        logger.error(f"Drive upload error: {e}")
+        return {"error": str(e), "type": "drive_error"}
+
 
 def register_drive_tools(mcp: FastMCP):
     """Register all Google Drive tools with the MCP server."""
@@ -323,7 +380,6 @@ def register_drive_tools(mcp: FastMCP):
         name="drive_create_folder",
         annotations={"title": "Create Drive Folder", "readOnlyHint": False},
     )
-    @_retry_on_error
     async def drive_create_folder(
         name: str = Field(..., description="Folder name"),
         parent_id: Optional[str] = Field(
@@ -331,26 +387,13 @@ def register_drive_tools(mcp: FastMCP):
         ),
     ) -> str:
         """Create a new folder in Google Drive."""
-        try:
-            service = _get_drive_service()
-            metadata = {
-                "name": name,
-                "mimeType": "application/vnd.google-apps.folder",
-            }
-            if parent_id:
-                metadata["parents"] = [parent_id]
-
-            folder = service.files().create(body=metadata, fields="id, name, webViewLink").execute()
-            return json.dumps({"status": "success", "folder": folder}, indent=2)
-        except Exception as e:
-            logger.error(f"Drive create folder error: {e}")
-            return json.dumps({"error": str(e), "type": "drive_error"})
+        result = await drive_create_folder_impl(name, parent_id)
+        return json.dumps(result, indent=2)
 
     @mcp.tool(
         name="drive_upload_file",
         annotations={"title": "Upload File to Drive", "readOnlyHint": False},
     )
-    @_retry_on_error
     async def drive_upload_file(
         local_path: str = Field(..., description="Local file path to upload"),
         folder_id: Optional[str] = Field(
@@ -361,31 +404,8 @@ def register_drive_tools(mcp: FastMCP):
         ),
     ) -> str:
         """Upload a local file to Google Drive."""
-        try:
-            service = _get_drive_service()
-            file_path = Path(local_path)
-
-            if not file_path.exists():
-                return json.dumps({"error": f"File not found: {local_path}"})
-
-            file_name = name or file_path.name
-            mime_type = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
-
-            metadata = {"name": file_name}
-            if folder_id:
-                metadata["parents"] = [folder_id]
-
-            media = MediaFileUpload(str(file_path), mimetype=mime_type, resumable=True)
-            uploaded = (
-                service.files()
-                .create(body=metadata, media_body=media, fields="id, name, webViewLink, size")
-                .execute()
-            )
-
-            return json.dumps({"status": "success", "uploaded": uploaded}, indent=2)
-        except Exception as e:
-            logger.error(f"Drive upload error: {e}")
-            return json.dumps({"error": str(e), "type": "drive_error"})
+        result = await drive_upload_file_impl(local_path, folder_id, name)
+        return json.dumps(result, indent=2)
 
     @mcp.tool(
         name="drive_download_file",

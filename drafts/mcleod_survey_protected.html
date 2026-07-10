@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Muse Post-Voyage Survey - Dreams2Memories Travel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #07076b 0%, #0e1088 20%, #060650 50%, #040450 80%, #02022e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            display: none;
+        }
+
+        .login-container.show {
+            display: block;
+        }
+
+        .survey-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            display: none;
+        }
+
+        .survey-container.show {
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #07076b;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #07076b;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #07076b;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #07076b;
+            box-shadow: 0 0 5px rgba(7, 7, 107, 0.3);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background: linear-gradient(135deg, #07076b 0%, #0e1088 100%);
+            color: #f0f6ff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(7, 7, 107, 0.3);
+        }
+
+        .error {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .question-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .question-section h3 {
+            color: #07076b;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .question-section p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #07076b;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN FORM -->
+<div class="login-container" id="loginContainer">
+    <div class="header">
+        <div class="logo">DREAMS2MEMORIES TRAVEL, LLC</div>
+        <h1>Post-Voyage Survey</h1>
+        <p>Silver Muse Mediterranean - July 2026</p>
+    </div>
+
+    <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="error" id="loginError"></div>
+
+        <button type="submit">Access Survey</button>
+    </form>
+</div>
+
+<!-- SURVEY FORM -->
+<div class="survey-container" id="surveyContainer">
+    <div class="header">
+        <div class="logo">DREAMS2MEMORIES TRAVEL, LLC</div>
+        <h1>Post-Voyage Survey</h1>
+        <p>Your feedback helps us improve</p>
+    </div>
+
+    <form onsubmit="handleSurveySubmit(event)">
+        <p style="margin-bottom: 20px; color: #333; line-height: 1.6;">
+            Erik and Melissa — Welcome home! I hope you're settling back into Longmont after Venice.
+            I've been thinking about your trip and wanted to reach out now that you've had a day or two to decompress.
+            This is a post-cruise survey from me, not Silversea — I want your honest thoughts on how we did on our side.
+        </p>
+
+        <div class="question-section">
+            <h3>The Silversea Door-to-Door Experience</h3>
+            <p>I know you booked Door-to-Door expecting full coverage on transfers, and the gaps that appeared after your air deviation were frustrating. The seat assignments not syncing to Silversea's system didn't help either. I'd love to know how that all felt from your seat, and what we could have done differently on our end to get ahead of it.</p>
+            <div class="form-group">
+                <textarea name="q1" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <h3>The Transfers You Booked Yourselves</h3>
+            <p>The Welcome Pickups at FCO, the hotel→Civitavecchia ride, the Venice Guide & Boat water taxi through the canals to Stucky, and the water taxi to VCE — did those work well? If you'd had the information earlier, would you have preferred we handle the booking, or was doing it yourselves the right call?</p>
+            <div class="form-group">
+                <textarea name="q2" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <h3>The Materials We Sent</h3>
+            <p>You received a Voyage Preview with the full itinerary, transfer guides, restaurant research, hotel options. I'd love to know what you actually referenced, what format worked best, and what felt like noise versus genuinely useful.</p>
+            <div class="form-group">
+                <textarea name="q3" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <h3>Where We Fell Short</h3>
+            <p>The Colline Emiliane reservation was a tricky one — phone-only, Rome business hours. The Blacklane confirmation wait went right up to the wire. The air deviation and transfer gaps shouldn't have been a surprise after booking. I want to know: what was the most stressful part of the planning process, and what could we have taken off your plate entirely?</p>
+            <div class="form-group">
+                <textarea name="q4" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <h3>From the Trip Itself</h3>
+            <p><strong>Onboard Dining:</strong> You had La Dame booked, and I know Kaiseki and the other venues were on your radar. How was the food overall? La Terrazza, Silver Note, The Grill, Indochine, Spaccanapoli — any standouts or misses? And did the crew take good care of you for the birthday celebration onboard?</p>
+            <div class="form-group">
+                <textarea name="q5" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <h3>Overall Highlights & Recommendations</h3>
+            <p>What were the highlights? How was the Silver Muse compared to Regent? The Speedboat to Blue Cave in Kotor? The Beach Club in Dubrovnik? Melissa's Colosseum Arena floor tour and the Art Historian in Florence? I'd love to hear what worked and what you'd tell a friend heading on the same voyage.</p>
+            <div class="form-group">
+                <textarea name="q6" placeholder="Your thoughts..."></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email (for follow-up)</label>
+            <input type="text" id="email" name="email" placeholder="emcleod@gmail.com">
+        </div>
+
+        <div class="submit-section">
+            <button type="submit">Submit Survey</button>
+        </div>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        ✓ Thank you! Your survey has been submitted. We'll review your feedback and follow up soon.
+    </div>
+</div>
+
+<script>
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('loginContainer').classList.add('show');
+    });
+
+    // Login Handler
+    function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('loginError');
+
+        // Check credentials
+        if (username === 'ERIK' && password === '260618-MUSE') {
+            // Hide login, show survey
+            document.getElementById('loginContainer').classList.remove('show');
+            document.getElementById('surveyContainer').classList.add('show');
+            errorDiv.style.display = 'none';
+        } else {
+            // Show error
+            errorDiv.textContent = 'Invalid username or password. Please try again.';
+            errorDiv.style.display = 'block';
+            document.getElementById('password').value = '';
+        }
+    }
+
+    // Survey Submit Handler
+    function handleSurveySubmit(event) {
+        event.preventDefault();
+
+        // Collect responses
+        const responses = {
+            q1: document.querySelector('textarea[name="q1"]').value,
+            q2: document.querySelector('textarea[name="q2"]').value,
+            q3: document.querySelector('textarea[name="q3"]').value,
+            q4: document.querySelector('textarea[name="q4"]').value,
+            q5: document.querySelector('textarea[name="q5"]').value,
+            q6: document.querySelector('textarea[name="q6"]').value,
+            email: document.getElementById('email').value,
+            timestamp: new Date().toISOString(),
+            client: 'Erik & Melissa McGlasson',
+            voyage: 'Silver Muse Mediterranean'
+        };
+
+        // Log to console (in production, this would send to a server)
+        console.log('Survey Submitted:', responses);
+
+        // Show success message
+        document.querySelector('form').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Optional: Send to email or API endpoint
+        // In production, you would do: fetch('/api/survey', { method: 'POST', body: JSON.stringify(responses) })
+    }
+</script>
+
+</body>
+</html>

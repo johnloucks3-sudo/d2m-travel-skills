@@ -193,22 +193,55 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 - **United via MUC $12,886** is the comfort + **United-miles** play (nonstop transatlantic). **Watch ALL United code-shares** (UA760, UA-coded Air Dolomiti/Lufthansa/Air Canada) for drops or better nonstop inventory.
 - Commander: *"open to anything that saves $$."* Route-floor watch catches any carrier that undercuts.
 
-**Fare watches (data/fare_watches.json):**
+**Fare watches (core/travel/data/fare_watches.json):**
 - `loucks-silvernova-air-2027` → Turkish/route-floor, baseline **$3,952pp**, alert <$3,750 + connection-improvement flag. ITA-polled daily.
 - `loucks-silvernova-united-2027` → United/Star Alliance via MUC, baseline **$6,443pp**, alert <$6,100. Checked in warm-Centrav sessions.
+- `loucks-den-vce-ath-den-may2027` → original DEN-VCE/ATH-DEN ground-truth cross-check watch (2026-07-10), baseline $3,956pp.
+- `loucks-mixed-muc-out-turkish-return-2027` → **#1 pick 2026-07-10**, baseline $6,278.00pp ($12,556 total).
+- `loucks-munich-both-ways-2027` → **#2 pick**, baseline $6,362.00pp ($12,724 total).
+- `loucks-icelandair-out-turkish-return-2027` → **#3 pick**, baseline $5,742.80pp ($11,485.60 total).
 
-### FLIGHT REQUIREMENTS (Confirmed 2026-06-29 — Turkish Booked)
+### FLIGHT REQUIREMENTS (Turkish fare QUOTED/CONFIRMED 2026-06-29 — NOT booked/ticketed)
+**⚠️ Correction 2026-07-10:** this was previously mislabeled "Turkish Booked." Centrav returned a confirmed FARE QUOTE on 2026-06-29 (re-verified 6/30) — no ticket has been issued. Treat as a live, bookable price to beat, not an existing reservation.
 
-- **Cabin:** Business class J — Turkish Airlines confirmed
-- **Outbound:** May 1, 2027 (SAT) DEN→IST 8:25p, then IST→VCE May 3 6:50a — overnight in Istanbul
-- **Return:** May 30, 2027 (SUN) ATH→IST 10:25a→12:00p, then IST→DEN 2:45p→6:25p
+- **Cabin:** Business class J — Turkish Airlines quoted
+- **Outbound:** May 1, 2027 (SAT) DEN→IST 8:25p, then IST→VCE May 3 6:50a — **~13h overnight in Istanbul**
+- **Return:** May 30, 2027 (SUN) ATH→IST 10:25a→12:00p, then IST→DEN 2:45p→6:25p (reasonable ~2h45 connection, not a problem)
 - **Passengers:** 2 (John + Susie)
-- **Price:** $7,904 total / $3,952 pp (Centrav B2B net, confirmed 2026-06-29)
+- **Price:** $7,904 total / $3,952 pp (Centrav B2B net, quoted 2026-06-29)
+- **⚠️ 2026-07-10 — Commander directive: the outbound IST overnight layover is NOT acceptable to Susie.** Cheapest option, but ruled out on comfort grounds pending final decision. See "ALTERNATE ROUTING OPTIONS" below.
 
 **Notes:**
 - Apr 30 = Friday — **Icelandair IS available** (KEF→VCE flies Tue/Fri/Sun).
 - Jun 1 = Tuesday — good transatlantic day on all carriers.
 - Centrav airline names render as image logos — price clusters inferred by range.
+
+---
+
+### ALTERNATE ROUTING OPTIONS — full research 2026-07-10 (Commander-directed, layover-driven)
+*Source: live Centrav B2B pull with "Cruise" fare-type box checked (fareTypeCodeSet[]=cruise — a Centrav fare category previously never used in this Wing's automation), cross-checked via Kiwi/Google Flights/ITA Matrix for route existence. All prices Business cabin, 2 pax, quoted/confirmed 2026-07-10 — NOT booked. Ranked by Commander 2026-07-10.*
+
+**🥇 #1 — MIXED: Munich outbound + Turkish return — $12,556.00 total ($6,278.00 pp)**
+- Outbound: DEN→MUC→VCE, Cruise Fare, United/Lufthansa (UA9458/UA9699 or LH447/LH326), Business, ~12h30m, **$6,930.00** (2pax) — real nonstop DEN-MUC, no bad layover
+- Return: ATH→IST→DEN, Turkish (TK1844/TK201), Business, ~17h, **$5,626.00** (2pax) — same reasonable connection as original quote, cheapest fare found for this leg across ALL fare types (Consolidator/Cruise/Published/NDC)
+- Solves the outbound layover complaint at minimum extra cost by keeping the (already-fine) Turkish return.
+
+**🥈 #2 — Munich both ways — $12,724.00 total ($6,362.00 pp)** — only $168 more than #1
+- Outbound: DEN→MUC→VCE, Cruise Fare, United/Lufthansa, Business, ~12h30m, $6,930.00
+- Return: ATH→MUC→DEN, Cruise Fare, United (UA9306/UA9459) or Lufthansa (LH1757/LH480), Business, ~16h45m, $5,794.00
+- Single hub both directions, all Business, no Frankfurt, no bad layover anywhere.
+
+**🥉 #3 — Icelandair outbound + Turkish return — $11,485.60 total ($5,742.80 pp)**
+- Outbound: DEN→KEF→FCO→VCE, Icelandair + ITA Airways (FI672/FI930/FI6722), Saga Premium, ~17h45m, $5,259.60 (2pax) — cheapest premium-cabin outbound found, no bad layover
+- Return: ATH→IST→DEN, Turkish, Business, $5,626.00 — **NOTE: Icelandair does NOT serve Athens at all** (confirmed 2026-07-10, zero Icelandair presence in Centrav ATH-DEN results + no clean ATH-KEF connection exists on any carrier) — a genuine "Icelandair both ways" itinerary is NOT possible for this open-jaw trip. Turkish return substituted as the only sensible pairing.
+
+**Ruled out during this research (documented so they aren't re-checked from scratch):**
+- CDG, ZRH, Vienna, Prague, Valletta — none have a real Denver nonstop; all require 2+ connections just to reach the city.
+- Milan (MXP) — a Google Flights API bug crashes every query to this destination (real tool bug, not a data gap); Kiwi only shows an unrealistic 3-stop budget routing.
+- Self-connecting IST→VCE on a separate ticket (Wizz Air via Budapest, SAS via Copenhagen, ~$107-131pp) — real, cheap, but only saves ~2h and carries misconnect risk since it's not one ticket with the transatlantic segment.
+- EasyJet/Vueling — neither airline serves Istanbul at all.
+
+**Methodology (reusable, see also memory reference):** Kiwi + ITA Matrix for route discovery (does a real nonstop exist at all) → Google Flights with `list_all_top=true` to narrow candidates past the single-cheapest-fare blind spot → Centrav with the Cruise fare-type box checked for final real bookable pricing.
 
 ---
 
@@ -235,10 +268,10 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 
 **Recommendation:** Icelandair Saga Premium is the Commander preference and the cheapest at ~$4,693 pp RT. Note: Saga Premium is a recliner seat, not a lie-flat bed. If lie-flat is desired, Lufthansa at $9,094 pp RT is the best true business product.
 
-### ATH→DEN — Icelandair Seasonal Verification Needed
+### ATH→DEN — Icelandair Athens Question — ✅ RESOLVED 2026-07-10
 - Icelandair KEF→DEN is daily/frequent year-round
-- ATH→KEF leg: **verify Icelandair serves Athens seasonally in June 2027** — if not, Lufthansa ATH→FRA→DEN or United ATH→EWR→DEN are primary fallbacks
-- If Icelandair doesn't serve ATH in June, the $5,505 pp Lufthansa Business price is the best true business option on the return
+- **ANSWERED: Icelandair does NOT serve Athens at all** (confirmed 2026-07-10 — zero Icelandair presence across an expanded Centrav ATH→DEN pull, and no clean ATH→KEF connection exists on any carrier — cheapest is a 1-stop easyJet routing via Milan). Not a seasonal gap — Athens simply isn't in Icelandair's network.
+- Real return options: Turkish (ATH→IST→DEN, $5,626 total, cheapest, reasonable connection) or Munich Cruise Fare (ATH→MUC→DEN, $5,794 total, Business, no Frankfurt). See "ALTERNATE ROUTING OPTIONS" above for the full ranked comparison.
 
 ---
 

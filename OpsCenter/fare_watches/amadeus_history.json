@@ -354,5 +354,1223 @@
         ]
       }
     }
+  },
+  {
+    "ts": "2026-07-04T08:32:30.588020+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-flights-vce-den-jul2026": {
+        "lowest_pp": 681.43,
+        "carriers": [
+          "UX",
+          "TP"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 270.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 229.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2939.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 378.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.3,
+        "carriers": [
+          "AF",
+          "UA"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.3,
+        "carriers": [
+          "VS",
+          "UA"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 368.37,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 354.45,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 378.17,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-05T08:32:45.105236+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-flights-vce-den-jul2026": {
+        "lowest_pp": 681.43,
+        "carriers": [
+          "UX",
+          "FI"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 270.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 229.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2939.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 288.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 540.9,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.3,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 290.75,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 368.82,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 368.37,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 354.45,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 334.24,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-05T20:44:04.685115+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-flights-vce-den-jul2026": {
+        "lowest_pp": 681.43,
+        "carriers": [
+          "UX",
+          "TP"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 270.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 229.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2939.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 334.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.3,
+        "carriers": [
+          "AF",
+          "UA"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.3,
+        "carriers": [
+          "VS",
+          "UA"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 606.82,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 368.37,
+        "carriers": [
+          "AS",
+          "UA"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 354.45,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 334.24,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-06T08:33:01.197358+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-flights-vce-den-jul2026": {
+        "lowest_pp": 681.43,
+        "carriers": [
+          "AZ",
+          "UX"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "UA",
+          "CM"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "AC",
+          "UA"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 270.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 229.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2939.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 334.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.3,
+        "carriers": [
+          "UA",
+          "AF"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.3,
+        "carriers": [
+          "UA",
+          "VS"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 606.82,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 839.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 368.37,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 354.45,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 334.24,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-06T22:26:07.002159+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "CM",
+          "UA"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "CM",
+          "UA"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2945.03,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 288.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.3,
+        "carriers": [
+          "UA",
+          "AF"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.3,
+        "carriers": [
+          "UA",
+          "VS"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 589.8,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 309.39,
+        "carriers": [
+          "AS",
+          "UA"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 273.4,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 288.15,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-07T08:32:02.902462+00:00",
+    "results": {
+      "kuklinski-flights-ric-pty": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-dodge-flights-rsw-pty": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "flight-kuklinski-cos-fll-2026-12-15": {
+        "lowest_pp": 239.17,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "grandeur-scandinavia-group-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "ely-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "furlow-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "kuklinski-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "CM",
+          "UA"
+        ]
+      },
+      "morton-flights": {
+        "lowest_pp": 731.75,
+        "carriers": [
+          "CM",
+          "UA"
+        ]
+      },
+      "nichols-flights": {
+        "lowest_pp": 526.5,
+        "carriers": [
+          "UA",
+          "AC"
+        ]
+      },
+      "john-&-susan-loucks-flights": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 547.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2951.53,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "loucks-den-grb-sep2026": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grb-den-sep2026": {
+        "lowest_pp": 288.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.4,
+        "carriers": [
+          "UA",
+          "AF"
+        ]
+      },
+      "lyons-flights": {
+        "lowest_pp": 477.4,
+        "carriers": [
+          "VS",
+          "UA"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 862.25,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 589.8,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 309.39,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 273.4,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-den-grb-out": {
+        "lowest_pp": 300.21,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-united-grb-den-return": {
+        "lowest_pp": 288.15,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-09T08:31:10.302718+00:00",
+    "results": {
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 574.84,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI",
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2948.23,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.4,
+        "carriers": [
+          "AF",
+          "UA"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 265.36,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA",
+          "AS"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-10T08:31:19.579270+00:00",
+    "results": {
+      "loucks-grandeur-panama-cos-fll-dec2026": {
+        "lowest_pp": 574.84,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2944.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "mcleod-mcglasson-flights": {
+        "lowest_pp": 613.2,
+        "carriers": [
+          "UA",
+          "AF"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 265.36,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
   }
 ]

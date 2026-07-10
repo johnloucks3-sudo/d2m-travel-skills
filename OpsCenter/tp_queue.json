@@ -1,0 +1,18 @@
+{
+  "queue": [
+    {
+      "id": "TP-001",
+      "status": "pending_approval",
+      "client": "Furlow / Ely-Darrow / Nichols",
+      "phase": "TP_7.5 — Excursion & Dining Touchpoint",
+      "voyage": "Seven Seas Grandeur \"Storied Scandinavia\" · Stockholm → Oslo · 29 Aug–8 Sep 2026",
+      "target_send": "21 July 2026 (D+1 after portal release)",
+      "subject_line": "Your Grandeur Portal Is Live — And Here's What We Know",
+      "draft_preview": "TO: John & Missy Furlow · Al & Amy Ely · [Nichols first names]\nSUBJECT: Your Grandeur Portal Is Live — And Here's What We Know\n\nJohn, Missy — Al, Amy — [First names],\n\nYour Regent portal for the Seven Seas Grandeur's Storied Scandinavia voyage is live. A few things deserve your attention right now:\n\nSPECIALTY DINING — ACT NOW\nAll three specialty restaurants require reservations aboard Grandeur: Chartreuse (French fine dining), Prime 7 (steakhouse), and Pacific Rim (Asian fusion). None are walk-in. Log in and book your preferred nights soon — sea-day evenings go first.\n\nYOUR EXCURSIONS ARE CONFIRMED\nYour shore excursion selections from January are locked in. No action needed on your end. I'll send a port-by-port preview as departure approaches.\n\nONLINE CHECK-IN OPENS AUGUST 8\nMark your calendars — Regent's online check-in opens 21 days before departure. I'll send a reminder that week.\n\nAs always, I'm your single point of contact. If anything changes or a question comes up before August 29, just reply here.\n\nLooking forward to your Scandinavian adventure —\n\nDani\nConcierge | Dreams2Memories Travel, LLC\nconcierge@d2mluxury.quest",
+      "hold_notes": "HOLDS BEFORE SEND: (1) Commander approval via AM brief, (2) Nichols first names needed, (3) Confirm dining not already sent via separate channel.",
+      "submitted": "2026-07-05",
+      "approved_date": null,
+      "sent_date": null
+    }
+  ]
+}

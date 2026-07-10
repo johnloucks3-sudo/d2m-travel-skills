@@ -20,7 +20,7 @@ from OpsCenter.opencode_headless_claude_dispatch import spawn_sonnet_inline
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("opencode_sonnet")
 
-DEFAULT_MODEL = "claude-sonnet-4-6"
+DEFAULT_MODEL = "sonnet"  # alias, not pinned — resolves to latest at call time
 
 
 def main():

@@ -1,35 +1,14 @@
 {
-  "run_at": "2026-07-03T16:03:23.046805",
-  "tasks_attempted": 4,
-  "tasks_succeeded": 4,
+  "run_at": "2026-07-10T10:35:20.530879",
+  "tasks_attempted": 1,
+  "tasks_succeeded": 1,
   "results": [
     {
-      "id": "MISSION-860",
-      "title": "Client inquiry: Meat Mode means you don\u2019t order just one",
+      "id": "MISSION-1575",
+      "title": "Client inquiry: White House confirms what Heritage has warned about",
       "success": true,
-      "elapsed": 2.775331497192383,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-860_20260703.md"
-    },
-    {
-      "id": "MISSION-882",
-      "title": "Client inquiry: (no subject)",
-      "success": true,
-      "elapsed": 1.4717435836791992,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-882_20260703.md"
-    },
-    {
-      "id": "MISSION-883",
-      "title": "Client inquiry: Reminder: \u2708\ufe0f Budget-Friendly Europe Flight Deals",
-      "success": true,
-      "elapsed": 3.387835741043091,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-883_20260703.md"
-    },
-    {
-      "id": "MISSION-884",
-      "title": "Client inquiry: (no subject)",
-      "success": true,
-      "elapsed": 2.5116395950317383,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-884_20260703.md"
+      "elapsed": 3.226503372192383,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-1575_20260710.md"
     }
   ]
 }

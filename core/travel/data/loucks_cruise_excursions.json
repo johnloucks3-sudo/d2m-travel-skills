@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-07-02T12:48:40.278139",
+  "scanned_at": "2026-07-06T09:45:00.414969",
   "sources": [
     "Shore Excursions Group",
     "ToursByLocals (gap ports, quote-priced)"
@@ -97,88 +97,9 @@
         "palace",
         "old town"
       ],
-      "status": "ok",
+      "status": "error:Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigatin",
       "url": "https://www.shoreexcursionsgroup.com/port/split-shore-excursions",
-      "tours": [
-        {
-          "name": "Grand Diocletian Tour",
-          "price_pp": 59.0,
-          "list_price_pp": 69.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 60,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/grand-diocletian-tour/euslgranddio"
-        },
-        {
-          "name": "Klis Fortress Views, Trogir Old Town, and Cathedral",
-          "price_pp": 152.0,
-          "list_price_pp": 182.0,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 3,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/klis-fortress-views-trogir-old-town-cathedral/euslklisfort"
-        },
-        {
-          "name": "Small Group Split Food Tasting Walk",
-          "price_pp": 152.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Small",
-          "type": "Culinary / Food",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/small-group-split-food-tasting-walk/euslfoodtoursplit"
-        },
-        {
-          "name": "Hidden Treasures of Coastal Omis, Split Pirates, and Wine Tasting",
-          "price_pp": 272.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/treasures-coastal-omis-split-pirates-wine-tasting/euslwineandpirates"
-        },
-        {
-          "name": "Luxe Wine Tasting and Panoramic Split for Adults Only",
-          "price_pp": 305.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/luxe-wine-tasting-panoramic-split-for-adults-only/euslwinetasting"
-        },
-        {
-          "name": "Imotski Dalmatian Town, Lakes, and Tavern Lunch with Wine",
-          "price_pp": 322.0,
-          "list_price_pp": null,
-          "match": "food/wine",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/imotski-dalmatian-town-lakes-tavern-lunch-wine/euslwineandlakes"
-        }
-      ]
+      "tours": []
     },
     {
       "date": "2027-05-09",
@@ -373,127 +294,9 @@
         "old town",
         "street"
       ],
-      "status": "ok",
+      "status": "error:Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigatin",
       "url": "https://www.shoreexcursionsgroup.com/port/bari-shore-excursions",
-      "tours": [
-        {
-          "name": "Walking Tour of Bari",
-          "price_pp": 46.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Walking Tour",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/walking-tour-of-bari-local-sights-italy-bari/eubawalk"
-        },
-        {
-          "name": "Historical Bari",
-          "price_pp": 97.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/historical-bari-local-sights-italy-bari/eubahist"
-        },
-        {
-          "name": "Biking in Bari",
-          "price_pp": 99.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Bicycling",
-          "reviews": 1,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/biking-in-bari-local-sights-italy-bari/eubabike"
-        },
-        {
-          "name": "Bari in a Rickshaw",
-          "price_pp": 100.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Eco, Nature",
-          "reviews": 2,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/bari-in-a-rickshaw/eubaricksh"
-        },
-        {
-          "name": "A Taste of Bari",
-          "price_pp": 105.0,
-          "list_price_pp": 130.0,
-          "match": "picked",
-          "size": "Standard",
-          "type": "Culinary / Food",
-          "reviews": 3,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/a-taste-of-bari/eubataste"
-        },
-        {
-          "name": "Exploring the Caves of Castellana with Transfer from Bari",
-          "price_pp": 484.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Cave Tour",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/exploring-the-caves-of-castellana-transfer-bari/eubacvscasteltsfr"
-        },
-        {
-          "name": "Legends of Trani with Transfer from Bari",
-          "price_pp": 484.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/legends-of-trani-with-transfer-from-bari/eubatrntourtfnsr"
-        },
-        {
-          "name": "Discover Alberobello with Transfer from Bari",
-          "price_pp": 606.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Scenic, Cultural, Historical",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/discover-alberobello-with-transfer-from-bari/eubaalbbeltortrsf"
-        },
-        {
-          "name": "Polignano a Mare and Bari's Castellana Caves with Transfer",
-          "price_pp": 792.0,
-          "list_price_pp": null,
-          "match": "picked",
-          "size": "Small",
-          "type": "Cave Tour",
-          "reviews": null,
-          "guaranteed_return": true,
-          "meets_at_port": true,
-          "provider": "SEG",
-          "url": "https://www.shoreexcursionsgroup.com/tour/polignano-a-mare-baris-castellana-caves-transfer/eubapolcvesvastr"
-        }
-      ]
+      "tours": []
     },
     {
       "date": "2027-05-11",
@@ -684,7 +487,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 102,
+          "reviews": 103,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -723,7 +526,7 @@
           "match": "picked",
           "size": "Standard",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 62,
+          "reviews": 63,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",
@@ -1006,7 +809,7 @@
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/paros/tour-details/paros-antiparos-private-cruise-69a52e09fc05b2c6d43fa12e"
+          "url": "https://www.toursbylocals.com/tours/greece/paros/tour-details/private-luxury-sunset-cruise-paros-andamp-antiparos-69a7163051cb2734e959826f"
         },
         {
           "name": "Meet Paros - Half Day Shore Excursion",
@@ -1017,7 +820,7 @@
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "ToursByLocals",
-          "url": "https://www.toursbylocals.com/tours/greece/paros/tour-details/private-luxury-sunset-cruise-paros-andamp-antiparos-69a7163051cb2734e959826f"
+          "url": "https://www.toursbylocals.com/tours/greece/paros/tour-details/paros-antiparos-private-cruise-69a52e09fc05b2c6d43fa12e"
         }
       ]
     },
@@ -1409,7 +1212,7 @@
           "match": "picked",
           "size": "Small",
           "type": "Scenic, Cultural, Historical",
-          "reviews": 156,
+          "reviews": 157,
           "guaranteed_return": true,
           "meets_at_port": true,
           "provider": "SEG",

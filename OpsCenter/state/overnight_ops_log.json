@@ -1,12 +1,392 @@
 [
   {
-    "ts": "2026-07-04T14:47:58.342307-06:00",
+    "ts": "2026-07-10T01:36:20.419490-06:00",
     "event": "credentials_health_check",
-    "alert_count": 2,
-    "client_alerts": 2,
+    "alert_count": 5,
+    "client_alerts": 3,
     "details": [
+      "centrav_cookies: valid",
       "regent_cookies: expired",
-      "regent_cookies_oa: expired"
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T01:59:15.248677-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T02:29:19.434726-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T02:34:20.200990-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T03:19:23.536777-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T03:44:26.779278-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T05:04:34.192636-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T05:29:35.583208-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T06:04:41.215452-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T06:14:41.696990-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T06:44:43.484456-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T07:00:35.022437-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T07:34:48.307223-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T07:54:50.574198-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T08:19:52.703724-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T08:34:56.158526-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T09:14:58.025131-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T09:29:59.327954-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T10:00:01.079857-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T10:07:36.035730-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T10:50:05.842670-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T11:12:44.381519-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T12:32:56.825074-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T12:50:24.908351-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T13:37:54.907007-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T13:40:31.682791-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T14:10:34.822229-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T14:30:36.521070-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 3,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-10T15:00:39.981143-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 1,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-10T15:20:41.808629-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 5,
+    "client_alerts": 1,
+    "details": [
+      "centrav_cookies: valid",
+      "regent_cookies: expired",
+      "regent_cookies_oa: expired",
+      "perx_cookies: valid",
+      "room_res_cookies: expired"
     ]
   }
 ]

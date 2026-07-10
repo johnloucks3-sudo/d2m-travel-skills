@@ -1,0 +1,36 @@
+{
+  "alert_id": "MCLEOD-2984034-FPD-TRIGGER",
+  "evaluation_timestamp": "2026-07-08T09:12:00Z",
+  "condition_status": "SATISFIED",
+  "trigger_date": "2026-07-07",
+  "current_date": "2026-07-08",
+  "days_overdue": 1,
+  "client_return_status": "CONFIRMED (Silver Muse disembarked 2026-07-06)",
+  "decision": "PROCEED_WITH_CONTACT",
+  "reasoning": [
+    "Contact hold was lifted on client's return from Silver Muse (Jul 6).",
+    "Trigger date (Jul 7) has passed; condition fully satisfied.",
+    "FPD is Jul 22 — 14 days remain (sufficient runway for payment settlement).",
+    "No blocking conditions: payment is pre-voyage, routine follow-up.",
+    "Harlan previously verified balance ($11,943.15) against Regent invoice (2026-05-23)."
+  ],
+  "recommended_action": {
+    "primary": "Contact Erik McLeod re final payment",
+    "method": "Email (preferred) or phone call",
+    "tone": "Friendly reminder, post-voyage debrief frame",
+    "key_points": [
+      "Welcome home from Silver Muse voyage",
+      "Final payment due Jul 22, 2026",
+      "Amount: $11,943.15",
+      "Reference booking: Regent Grandeur 2984034",
+      "Departure: Dec 19, 2026"
+    ],
+    "suggested_channel": "Email (d2mconcierge) with johnloucks3 CC",
+    "wf17_status": "HOLD — do NOT send without Commander review"
+  },
+  "blockers": [],
+  "dependencies": [
+    "TP 1.1 Voyage Preview draft staged for same client (lift contact hold, send TP 1.1 today per MISSION-1555)"
+  ],
+  "next_step_if_approved": "Draft FPD reminder email. Cross-check against live Regent portal for payment status before send. Stage in johnloucks3 drafts, label THUNDERBIRD-Commander-Review."
+}

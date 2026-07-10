@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-03 16:10:23 MDT
+## Generated: 2026-07-10 15:15:34 MDT
 
 ---
 
 ### Recent Commits
-- 31b08b7a3 feat(ops): self_audit_gate.py — pre-done QC gate (ns-9ebfa45)
-- b95ed8476 regent: agent-side profile/preferences depth tool + verified boundary (agent=booking-deep; prefs/tier/saved=guest-only)
-- 363236094 regent-portfolio: McLeod agent-side capture verified (booking-level visibility); Nancy Platinum practice note (WF-17 held)
-- bbf0fb134 regent-portfolio: Brief No.1 delivered (GO executed) — found Lyons Platinum-imminent; agent-portal full-base sweep queued as Run No.2
-- deab6a48c point-paper: AI-originated project proposal pattern (front-end of loop) + first PP: Regent Portfolio Intelligence
+- abf5591fa fix: correct Spencer Grand Tour departure date + Icelandair constraint
+- 4b3acb669 feat: daily flight-routing recheck + artifact refresh for Loucks Silver Nova
+- a16983e3f feat: wire Hale Orchestrator into Centrav keep-alive + fix missing PYTHONPATH
+- a38fc6a48 fix: _is_active() always reported False for Type=oneshot units
+- 21e6db673 feat: Google Flights MCP tool + fix for cheapest-only blind spot
 
 ### Uncommitted Changes
+ M .ask_usage_log
+ M .claude/settings.local.json
  m Blackboard
  M CLAUDE.md
+ M D2M/clients/kuklinski_touchpoints.json
+ M Dossiers/Ely_Darrow_Regent_3096289.md
+ D MANUALS/PULSE_PHONE_C2.md
  M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.deepseek_rate_log
+ M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
+ M OpsCenter/.regent_cookie_alert_dedup.json
  M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
  M OpsCenter/.supervisor_patterns.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/wing_comms.md
- M OpsCenter/executor_last_run.json
- M OpsCenter/itinerary_watchdog_status.json
- M OpsCenter/keepalive_health.json
- M OpsCenter/mission_board.json
- M OpsCenter/nexus.lock
- M OpsCenter/oc_worker_status.json
- M OpsCenter/qdrant_watchdog_status.json
- M OpsCenter/session_context_latest.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/ask_wrapper.sh
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 32 pending task(s)
+- OpenCode inbox: 232 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

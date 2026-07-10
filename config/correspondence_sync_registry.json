@@ -78,12 +78,14 @@
     "Lyons": {
       "dossier": "dossiers/Lyons_Nancy_Ken.md",
       "emails": [
-        "nancylyons73@outlook.com",
-        "klyons3@bellsouth.net"
+        "klyons3@bellsouth.net",
+        "kenlyons73@bellsouth.net",
+        "nancylyons73@outlook.com"
       ],
       "display_names": {
-        "nancylyons73@outlook.com": "Nancy",
-        "klyons3@bellsouth.net": "Ken"
+        "klyons3@bellsouth.net": "Nancy",
+        "kenlyons73@bellsouth.net": "Ken",
+        "nancylyons73@outlook.com": "Nancy (secondary, unconfirmed)"
       }
     }
   }

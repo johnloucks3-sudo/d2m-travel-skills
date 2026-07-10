@@ -38,11 +38,11 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-03 15:30 UTC)
+## COMMANDER-READY (2026-07-10 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
-### Open P0/P1 nags (7)
+### Open P0/P1 nags (10)
 - [P0] MCLEOD-2984034-FPD-TRIGGER
 - [P0] MISSION-COMMANDER-196-CALL
 - [P1] MCLEOD-SILVER-MUSE-WELCOME-HOME
@@ -50,40 +50,43 @@ Hale
 - [P0] LOUCKS-3122006-FPD-ALERT
 - [P1] MISSION-802-ITINERARY-BUILD
 - [P1] MISSION-802-FORMAT-REVIEW
+- [P1] SCANDI-PORTAL-REVIEW
+- [P0] SCANDI-PORTAL-SEND
+- [P0] MISSION-317-SPENCER-CALL-REMINDER
 - (none)
 
 ### Blockers (0)
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-03 09:30
+## STATE BRIDGE BRIEFING — 2026-07-10 09:30
 
-### Since last session (2026-07-03 15:00:03 → still open)
+### Since last session (2026-07-10 15:00:00 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `92d612da6` SO: TALON/JET division of labor — codified from both wings' independent position papers, Commander approved  _15 minutes ago_
-- `d3956c73c` spencer: client-inbox-watch — d2mconcierge client-sender watcher + registry (Bill Spencer), 10-min timer  _26 minutes ago_
-- `fe655464b` spencer: gdoc→portal sync engine + daily timer; portal nav adds Build Your Journey, PERT timeline, briefing deck  _2 hours ago_
-- `6784c8519` docs(hale-os): HALE Dual Brain instruction manual — 2040 lines, 92KB  _3 hours ago_
-- `29201e6b4` feat(hale-os): oc_worker.py + opencode-worker.service — WIND wing pull loop  _3 hours ago_
+- `18f0765e4` feat: Icelandair authenticated-session persistence (warm-ping keepalive)  _2 hours ago_
+- `654234366` feat: close Lane-1 cross-check, activate long-tail remediation fleet-wide  _11 hours ago_
+- `b00ec7e8a` feat: adopt systemd OnFailure= native pattern for long-tail remediation  _11 hours ago_
+- `63ff15365` feat: reverse-engineer self-healing architecture, wire in Hale Orchestrator  _11 hours ago_
+- `e91dedacc` docs: fold Task 9 (cross-engine backstop) section into the plan doc — was edited directly on master by mistake, now properly part of branch history  _11 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `dossiers/Spencer_GrandTour_2027_TIMELINE.md` (18m ago)
-- `hale_brief.md` (20m ago)
-- `dossiers/Spencer_Prospect.md` (23m ago)
+- `hale_state.json` (35s ago)
 - `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `dossiers/spencer_bill_family_voyage_2027.md` (2.9h ago)
-- `hale_state.json` (8.5h ago)
-- `AGENTS.md` (11.1h ago)
-- `OpsCenter/opencode_memory.md` (15.8h ago)
+- `hale_brief.md` (3.5h ago)
+- `AGENTS.md` (1.7d ago)
+- `dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md` (1.9d ago)
+- `dossiers/Britan_Joe.md` (2.1d ago)
+- `dossiers/Heer_Ann_Shawn_Japan.md` (3.6d ago)
+- `dossiers/Westbrook_Brent_Kim_UPDATED.md` (3.9d ago)
 
-**Mission board:** 374 open (13 P0, 345 P1)
+**Mission board:** 169 open (24 P0, 123 P1)
   - 🔴 MISSION-065: Pacific Voyage Blog
   - 🔴 MISSION-148: Telegram Feature Expansion
   - 🔴 MISSION-152: Phase E: Signal
   - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
-  - 🔴 MISSION
+  - 🔴 MISSION-214: Regent Portal On-Deman
 <!-- COMMANDER-READY:END -->

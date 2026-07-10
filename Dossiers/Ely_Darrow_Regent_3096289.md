@@ -18,6 +18,8 @@ relationship: client
 
 ### STATUS: ACTIVE — ✅ CRUISE PAID | At SIX pre-cruise: PAY-BY | Insurance DEFERRED (follow up May)
 
+> **LIFECYCLE (2026-07-05):** TP 5.1 — Excursion + Dining touchpoint is the active lifecycle priority for this group. Draft queued in AM report approval cycle; Commander approving one per day until send-ready. MISSION-1548 closed.
+
 ### CORRECTIONS LOGGED (May 17, 2026)
 | Field | Old Value | New Value | Source |
 |-------|-----------|-----------|--------|

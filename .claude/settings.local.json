@@ -4,14 +4,14 @@
   },
   "permissions": {
     "allow": [
-      "Bash(*)",
+      "Bash",
       "Read(*)",
       "Edit(*)",
       "Write(*)",
       "Glob(*)",
       "Grep(*)",
-      "WebFetch(*)",
-      "WebSearch(*)",
+      "WebFetch(domain:*)",
+      "WebSearch",
       "mcp__dreams2memories_travel_mcp__*",
       "mcp__claude_ai_Gmail__gmail_get_profile",
       "mcp__claude_ai_Gmail__gmail_search_messages",
@@ -100,7 +100,8 @@
       "mcp__Desktop_Commander__read_file",
       "mcp__Claude_in_Chrome__navigate",
       "mcp__Claude_in_Chrome__read_page",
-      "mcp__Claude_in_Chrome__computer"
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(python3:*)"
     ],
     "deny": [
       "mcp__playwright__browser_evaluate",
@@ -166,6 +167,15 @@
           {
             "type": "command",
             "command": "/home/john/Thunderbird/.claude/hooks/session-end-sync.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/john/Thunderbird/.claude/hooks/hale_orchestrator_backstop.py"
           }
         ]
       }

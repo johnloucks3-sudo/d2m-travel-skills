@@ -1,0 +1,32 @@
+Subject: Tech Scan 2026-07-10 11:00 UTC — 3 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-10T11:01:50.629770+00:00
+
+TECH SCAN — 2026-07-10 11:00 UTC
+airborne scanner pulse · 11 finds · sectors agentic
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 7 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: A prompt bar that lets my website edit itself (self-hosted Claude Code) — https://github.com/vibhasjain/agent-keyboard
+↳ real tool (github.com) — worth a bounded look
+Show HN: Subagentmaxxing – Orchestrate GPT and Cursor Models with Claude Code — https://github.com/Kuberwastaken/subagentmaxxing
+↳ real tool (github.com) — worth a bounded look
+Show HN: Internationalizationstack – Fix AI Localization Bugs in Claude Code — https://github.com/i18n-agent/i18nstack
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Anthropic just benchmarked "Fable 5 orchestrates, cheap models execute": 96% of the performance at 4
+Replit is the best coding agent — https://news.ycombinator.com/item?id=48858177
+Show HN: Outside Agent – Build SMS Agents from Claude Code — https://outsideagent.ai/
+Show HN: Agent Sessions – local history and a live quota meter for Codex/Claude — https://jazzyalex.github.io/
+Prompt Engineering, Context Engineering, Loop Engineering: What Actually Changed — https://dev.to/reporails/pr
+Deterministic Guardrails: Prompts Steer, Hooks Enforce — https://dev.to/reporails/deterministic-guardrails-pro
+AI Coding agent memory — https://dev.to/zallauddin/ai-coding-agent-memory-32ac :: agentic-cortex: Long-Term Me
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: How do you share agent context across a team? — https://news.ycombinator.com/item?
+RAW — all finds this pulse (unfiltered)[agentic] Anthropic just benchmarked "Fable 5 orchestrates, cheap models execute": 96% of the performance at 46% of the  (Reddit r/ClaudeAI)
+[agentic] Replit is the best coding agent — https://news.ycombinator.com/item?id=48858177 (Hacker News — Claude Code)
+[agentic] Show HN: A prompt bar that lets my website edit itself (self-hosted Claude Code) — https://github.com/vibhasjain/agent-k (Hacker News — Claude Code)
+[agentic] Ask HN: How do you share agent context across a team? — https://news.ycombinator.com/item?id=48848840 (Hacker News — Claude Code)
+[agentic] Show HN: Outside Agent – Build SMS Agents from Claude Code — https://outsideagent.ai/ (Hacker News — Claude Code)
+[agentic] Show HN: Subagentmaxxing – Orchestrate GPT and Cursor Models with Claude Code — https://github.com/Kuberwastaken/subagen (Hacker News — Claude Code)
+[agentic] Show HN: Agent Sessions – local history and a live quota meter for Codex/Claude — https://jazzyalex.github.io/agent-sess (Hacker News — Claude Code)
+[agentic] Show HN: Internationalizationstack – Fix AI Localization Bugs in Claude Code — https://github.com/i18n-agent/i18nstack (Hacker News — Claude Code)
+[agentic] Prompt Engineering, Context Engineering, Loop Engineering: What Actually Changed — https://dev.to/reporails/prompt-engin (dev.to Claude)
+[agentic] Determinist

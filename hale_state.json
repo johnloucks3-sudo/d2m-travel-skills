@@ -5,17 +5,17 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-07-07T07:32:32.570982"
+        "last_check": "2026-07-10T15:24:06.413339"
       },
       "Dani": {
         "status": "LIVE",
         "username": "d2m_channels_bot",
         "bot_id": 8726363494,
-        "last_check": "2026-07-07T07:32:33.368660"
+        "last_check": "2026-07-10T15:24:07.540879"
       },
-      "last_health_check": "2026-07-07T07:32:33.368689"
+      "last_health_check": "2026-07-10T15:24:07.540908"
     },
-    "last_health_check": "2026-07-07T07:32:33.369044",
+    "last_health_check": "2026-07-10T15:24:07.541225",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +107,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-07-07T07:32:33.369050-06:00"
+    "last_updated": "2026-07-10T15:24:07.541230-06:00"
   },
   "open_tasks": [
     {
@@ -255,6 +255,20 @@
       "brain": "Brain 2 (Sonnet)",
       "reason": "Commander override: SONNET",
       "elapsed": 0.0
+    },
+    {
+      "ts": "2026-07-08T05:30:04.196382-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Kyle Kuklinski\nTP: ARC1-B \u2014 Airfare + Ho",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 2.3
+    },
+    {
+      "ts": "2026-07-08T05:30:09.744567-06:00",
+      "task": "Write a lifecycle touchpoint email for this client:\nClient: Erik McLeod & Melissa McGlasson\nTP: TP-4",
+      "brain": "Brain 2 (Sonnet)",
+      "reason": "Commander override: SONNET",
+      "elapsed": 2.3
     }
   ],
   "project_tracking": {
@@ -510,10 +524,10 @@
     }
   },
   "agentmail_quota_status": {
-    "last_checked": "2026-07-07T12:27:35.290913+00:00",
-    "sends_used_today": 3,
-    "sends_available_today": 87,
-    "pct_used": 3.0
+    "last_checked": "2026-07-10T21:03:30.864092+00:00",
+    "sends_used_today": 64,
+    "sends_available_today": 26,
+    "pct_used": 64.0
   },
   "succession_training": [
     {

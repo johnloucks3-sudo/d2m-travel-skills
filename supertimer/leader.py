@@ -27,6 +27,8 @@ HEALTH_FILE = ROOT / "OpsCenter/supertimer_health.json"
 STATE_FILE = ROOT / "OpsCenter/supertimer_leader_state.json"
 LOG_FILE = ROOT / "logs/supertimer_leader.log"
 RELAY = str(ROOT / "core/relay/wing_relay.py")
+QUIET_MODE_FILE = ROOT / "OpsCenter/quiet_mode.active"
+QUIET_FLOOR_SEC = 600  # minimum interval when quiet_mode is active
 VENV_PYTHON = str(ROOT / ".venv/bin/python3")
 SYS_PYTHON = "/usr/bin/python3"
 
@@ -188,11 +190,16 @@ def main() -> None:
     max_parallel = leader_cfg.get("max_parallel_bots", 6)
     alert_threshold = leader_cfg.get("alert_on_consecutive_failures", 2)
 
+    # quiet_mode: floor all bot intervals to QUIET_FLOOR_SEC when engine is idle
+    quiet = QUIET_MODE_FILE.exists()
+    if quiet:
+        log.info("quiet_mode ACTIVE — all intervals floored at %ds", QUIET_FLOOR_SEC)
+
     # Determine which bots are due
     due_bots: list[tuple[str, dict]] = []
     for bot_name, cfg in bots_cfg.items():
         last_run = state["bots"].get(bot_name, {}).get("last_run", 0)
-        interval = cfg["interval_sec"]
+        interval = max(cfg["interval_sec"], QUIET_FLOOR_SEC) if quiet else cfg["interval_sec"]
         if now - last_run >= interval:
             due_bots.append((bot_name, cfg))
             log.info("DUE [%s] interval=%ds", bot_name, interval)

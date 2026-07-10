@@ -319,8 +319,12 @@ def _spawn_with_retry(prompt, output_path, log_file, model, task_name, env, time
 
     if result.get("can_retry") and attempt <= retries:
         logger.warning(f"Retry {attempt}/{retries} for {task_name}: {result.get('error', 'unknown error')}")
-        # Escalate model tier on retry (haiku -> sonnet -> opus)
-        model_tiers = ["claude-haiku-4-5-20251001", "claude-sonnet-4-6", "claude-opus-4-7"]
+        # Escalate model tier on retry (haiku -> sonnet -> opus).
+        # Aliases, not pinned snapshot names — CLI resolves each to its current
+        # latest release, so this never goes stale (verified 2026-07-08: pinned
+        # names like "claude-sonnet-4-6" silently keep working but stop being
+        # "latest" once Anthropic ships a new generation).
+        model_tiers = ["haiku", "sonnet", "opus"]
         current = model
         for i, tier in enumerate(model_tiers):
             if tier in model and i + 1 < len(model_tiers):

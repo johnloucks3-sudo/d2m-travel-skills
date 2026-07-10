@@ -1,0 +1,209 @@
+{
+ "scanned_at": "2026-07-10T21:00:00.439906+00:00",
+ "finding_count": 29,
+ "findings": [
+  {
+   "category": "repeat_alert",
+   "what": "\"centrav_cookies: valid\" appeared 30x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "repeat_alert",
+   "what": "\"regent_cookies: expired\" appeared 30x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "repeat_alert",
+   "what": "\"regent_cookies_oa: expired\" appeared 30x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "repeat_alert",
+   "what": "\"perx_cookies: valid\" appeared 30x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "repeat_alert",
+   "what": "\"room_res_cookies: expired\" appeared 15x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "repeat_alert",
+   "what": "\"room_res_cookies: valid\" appeared 15x in the ops log",
+   "why": "crossed repeat threshold (3+)",
+   "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+   "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "New-Tech Scout / Watch-list / Integration last re-evaluated 20d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 6d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/api/thunderbird_power_harvest.py"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Armed Overwatch (Self-Observability F2T2EA) last re-evaluated 20d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 6d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/systemctl --user"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Email Handling (d2m \u2192 Commander delivery) has NEVER been re-evaluated",
+   "why": "no last_reeval timestamp on record",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Client-Path Canary Monitoring (SO_TECH_VANGUARD_ELEVATION_20260621 \u00a72a) has NEVER been re-evaluated",
+   "why": "no last_reeval timestamp on record",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Dani Identity Layer (trainee isolation) last re-evaluated 15d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 1d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Cruise Intelligence Cache last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "PII Governance & Data Hygiene last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Regent Portal Live Session last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "n8n Workflow Automation last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Cloudflare Tunnel \u2014 d2mluxury.quest last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "ttyd Terminal-over-Browser last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Tailscale Mesh VPN last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Google Drive OAuth Integration last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Evernote Code Backup (Weekly) last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Master Cruise Database (d2mluxury.quest/cruises) last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Reverie Itinerary App (frontend) last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Qdrant Vector DB (thunderbird_memories) last re-evaluated 9d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 2d",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "Home Directory Health has NEVER been re-evaluated",
+   "why": "no last_reeval timestamp on record",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/scripts/home_dir_ci_probe.py"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "LiteLLM AI Gateway (port 4000) has NEVER been re-evaluated",
+   "why": "no last_reeval timestamp on record",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/config/ci_registry.json"
+  },
+  {
+   "category": "stale_ci_tool",
+   "what": "D2M Inbox Triage (closed-loop d2mconcierge sweep) has NEVER been re-evaluated",
+   "why": "no last_reeval timestamp on record",
+   "action": "Route to Whetstone for currency check",
+   "file": "/home/john/Thunderbird/scripts/d2m_inbox_triage.py"
+  },
+  {
+   "category": "aging_mission",
+   "what": "MISSION-820 (P0) \u2014 \"Restore Regent portal cookies (direct + OA) for McLeod FPD p\" open 12d",
+   "why": "P0/P1 untouched >= 7d",
+   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
+   "file": "/home/john/Thunderbird/dossiers/McLeod_Princess_MexicoRiviera_8X6PGQ.md"
+  },
+  {
+   "category": "aging_mission",
+   "what": "MISSION-1499 (P1) \u2014 \"nodriver vs CloakBrowser\" open 8d",
+   "why": "P0/P1 untouched >= 7d",
+   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
+   "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
+  },
+  {
+   "category": "aging_mission",
+   "what": "MISSION-1509 (P0) \u2014 \"Send McLeod TP 1.1 Voyage Preview on July 7\" open 7d",
+   "why": "P0/P1 untouched >= 7d",
+   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
+   "file": "/home/john/Thunderbird/dossiers/McLeod_Princess_MexicoRiviera_8X6PGQ.md"
+  }
+ ]
+}

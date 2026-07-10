@@ -1,0 +1,220 @@
+{
+  "mission_id": "SCANDI-PORTAL-REVIEW",
+  "mission_date": "2026-07-10",
+  "priority": "P1",
+  "constraint": "WF-17 held — do not send",
+  "decision": "PROCEED_WITH_STRUCTURED_REVIEW",
+  "reasoning": "Alert triggered today (2026-07-10). Dossier baseline extracted and analyzed. All three couples have excursions booked (Jan 31, 2026) and dining confirmed (May 31, 2026). CRITICAL CONTAMINATION RISK IDENTIFIED: Ely-Darrow dossier contains Amy's Parkinson's diagnosis flagged as 🔒 INTERNAL ONLY — portal MUST be verified for zero medical/insurance exposure in client copy. Three couples + single port group profile enable systematic QC per couple. Portal structure is ready for systematic review.",
+  "timeline": {
+    "trigger_date": "2026-07-10",
+    "hard_deadline_send": "2026-07-20",
+    "review_window_days": 10,
+    "estimated_review_duration_hours": 4,
+    "time_to_send_gate": "10 days"
+  },
+  "scope": {
+    "portals": [
+      {
+        "couple": "Furlow (John & Missy)",
+        "url": "furlow.d2mluxury.quest",
+        "booking_ref": "3071222",
+        "suite": "TBD",
+        "status": "ACTIVE"
+      },
+      {
+        "couple": "Ely-Darrow (Al & Amy)",
+        "url": "elydarrow.d2mluxury.quest",
+        "booking_ref": "3096289",
+        "suite": "961, Deck 9",
+        "status": "ACTIVE",
+        "critical_flag": "MEDICAL_CONTAMINATION_RISK_HIGH — Amy Parkinson's diagnosis marked 🔒 INTERNAL ONLY in dossier — MUST be zero medical/insurance exposure in client portal"
+      },
+      {
+        "couple": "Nichols (Larry & Heidi)",
+        "url": "nichols.d2mluxury.quest",
+        "booking_ref": "3078056",
+        "suite": "TBD",
+        "status": "ACTIVE"
+      }
+    ],
+    "voyage": "SS Grandeur, Storied Scandinavia",
+    "embarkation": "Stockholm, Aug 29, 2026",
+    "disembarkation": "Oslo, Sep 8, 2026",
+    "ports": ["Stockholm (embark/overnight)", "Warnemünde (Berlin day-trip access)", "Copenhagen (overnight)", "Kristiansand", "Oslo (disembark)"]
+  },
+  "qc_checklist": {
+    "1_excursion_count_match": {
+      "baseline": "6 excursions confirmed per couple (booked Jan 31, 2026 per all three dossiers)",
+      "check_per_couple": [
+        "Furlow: count 6/6 excursions visible + verify excursion names unique (not copied from other couple)",
+        "Ely-Darrow: count 6/6 excursions visible + verify different from Furlow",
+        "Nichols: count 6/6 excursions visible + verify different from Furlow & Ely"
+      ],
+      "failure_indicator": "count ≠ 6 OR cross-couple excursion names visible"
+    },
+    "2_image_visual_qc": {
+      "baseline": "All images must load and display correctly per couple (images are placeholders, per MISSION-802 spec)",
+      "check_per_couple": [
+        "Furlow: every excursion image loads + verify couple-correct labels",
+        "Ely-Darrow: every excursion image loads + verify Warnemünde port labeled correctly (NOT as 'Berlin'), couple-correct labels",
+        "Nichols: every excursion image loads + verify couple-correct labels"
+      ],
+      "note": "Dossier specifies per-couple excursions. Verify portal reflects dossier accuracy.",
+      "failure_indicator": "broken image links OR misnamed couple labels on images"
+    },
+    "3_segregation_check": {
+      "baseline": "Zero cross-couple contamination — no other couple names/contact info visible on any portal",
+      "checks": [
+        "Furlow portal contains ONLY: John & Missy Furlow. Search for 'Ely', 'Darrow', 'Amy', 'Al', 'Nichols', 'Larry', 'Heidi' = ZERO matches",
+        "Ely-Darrow portal contains ONLY: Al & Amy Darrow. Search for 'Furlow', 'John', 'Missy', 'Nichols', 'Larry', 'Heidi' = ZERO matches",
+        "Nichols portal contains ONLY: Larry & Heidi Nichols. Search for 'Furlow', 'John', 'Missy', 'Ely', 'Darrow', 'Amy', 'Al' = ZERO matches"
+      ],
+      "failure_indicator": "ANY other couple name OR group-wide email addresses visible"
+    },
+    "4_medical_insurance_scrub_CRITICAL": {
+      "baseline": "Ely-Darrow dossier flags Amy's Parkinson's diagnosis as 🔒 INTERNAL ONLY — CONFIDENTIAL. Zero medical/insurance info must appear in portal.",
+      "checks": [
+        "Ely-Darrow portal: search 'Parkinson' = ZERO matches",
+        "Ely-Darrow portal: search 'insurance' = ZERO matches (insurance details are internal only)",
+        "Ely-Darrow portal: search 'cancellation' = ZERO matches (trip cancellation policy is internal only)",
+        "Ely-Darrow portal: search 'medical' = ZERO matches",
+        "Ely-Darrow portal: search 'pre-existing' = ZERO matches",
+        "Ely-Darrow portal: Amy's birthday (Aug 31) may appear ONLY in celebratory context, not medical context"
+      ],
+      "pass_condition": "Medical/insurance info completely absent from Ely-Darrow portal. Birthday reference OK if celebration-focused.",
+      "failure_indicator": "ANY Parkinson mention OR ANY insurance/cancellation language OR ANY medical reference"
+    },
+    "5_facts_vs_dossier_match": {
+      "baseline": "All factual claims in portal must trace to dossier or TESS booking confirmation",
+      "checks": [
+        "Excursion names match Jan 31, 2026 booking confirmation (per dossier)",
+        "Dining restaurants/times match May 31, 2026 portal openings (Ely: Pacific Rim Aug 30@18:30, Chartreuse Sep 2@19:30, Prime 7 Sep 4@18:30; verify Furlow & Nichols vs their dossiers)",
+        "Suite assignments match dossier/TESS (Ely: 961/Deck 9; Furlow & Nichols: verify)",
+        "Port names/dates match itinerary (Stockholm Aug 29 embark, Warnemünde, Copenhagen, Kristiansand, Oslo Sep 8 disembark)",
+        "Hotel information matches dossier (At Six Stockholm Aug 27-29 for all three couples)"
+      ],
+      "failure_indicator": "date mismatch OR restaurant name variation OR wrong suite number OR wrong port/hotel name"
+    },
+    "6_currency_and_pricing": {
+      "baseline": "Portal should NOT display pricing or financial figures to clients",
+      "check": "Verify no $ amounts, no FPD balances, no commission info, no payment status visible to client",
+      "failure_indicator": "ANY financial figure in client-facing view"
+    }
+  },
+  "recommended_action_sequence": [
+    {
+      "step": 1,
+      "title": "Portal Access & Baseline",
+      "duration_min": 15,
+      "actions": [
+        "Open each portal in incognito/private browser (unauthenticated view first)",
+        "Verify public-facing view renders correctly",
+        "Log in with Commander credentials (or Hale read-access if available)",
+        "Screenshot each portal's excursion section, dining section, hotel section"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Excursion Count Verification",
+      "duration_min": 20,
+      "actions": [
+        "For each portal (Furlow, Ely-Darrow, Nichols), count visible excursions",
+        "Verify count = 6 per couple",
+        "Document excursion titles per couple (screenshot or text capture)",
+        "Flag any count discrepancy immediately"
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Image QC — Load & Accuracy",
+      "duration_min": 40,
+      "actions": [
+        "For each image on each portal, verify load + correctness",
+        "Use Read tool to inspect image URLs and verify no broken links",
+        "Verify couple-specific labels on images match portal couple",
+        "Document any broken images or mismatched labels"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Segregation Audit — Cross-Couple Name Scrub",
+      "duration_min": 15,
+      "actions": [
+        "Furlow portal: browser Find (Ctrl+F) search for 'Ely', 'Darrow', 'Amy', 'Al', 'Nichols', 'Larry', 'Heidi', 'Missy'. Result target: ZERO matches",
+        "Ely-Darrow portal: search for 'Furlow', 'John', 'Missy', 'Nichols', 'Larry', 'Heidi'. Result target: ZERO matches",
+        "Nichols portal: search for 'Furlow', 'John', 'Missy', 'Ely', 'Darrow', 'Amy', 'Al'. Result target: ZERO matches",
+        "Document any unexpected matches as violations"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Medical/Insurance Scrub — CRITICAL (Ely-Darrow Only)",
+      "duration_min": 10,
+      "actions": [
+        "Ely-Darrow portal ONLY: search for 'Parkinson'. Result target: ZERO matches",
+        "Search for 'insurance'. Result target: ZERO matches",
+        "Search for 'cancellation'. Result target: ZERO matches",
+        "Search for 'medical'. Result target: ZERO matches",
+        "Search for 'pre-existing'. Result target: ZERO matches",
+        "Verify Amy's birthday (Aug 31) appears ONLY in celebratory context if at all",
+        "Document any medical/insurance language as CRITICAL violation"
+      ]
+    },
+    {
+      "step": 6,
+      "title": "Facts vs Dossier — Cross-Reference",
+      "duration_min": 20,
+      "actions": [
+        "Pull up all three dossiers + TESS confirmation emails",
+        "For each couple, verify: excursion names match Jan 31 conf, dining names/times match May 31 portal openings, suite assignments match dossier, ports/dates match itinerary",
+        "Document any mismatches (e.g., wrong dining time, different excursion name)"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Compile Findings",
+      "duration_min": 15,
+      "actions": [
+        "Create per-couple pass/fail checklist (6 checks per couple × 3 couples = 18 check rows)",
+        "Flag violations with: check name, portal couple, screenshot reference, corrective action needed",
+        "Stage results in `core/continuity/results/SCANDI-PORTAL-QC-LOG_2026-07-10.md`"
+      ]
+    },
+    {
+      "step": 8,
+      "title": "Escalation Decision",
+      "duration_min": 5,
+      "actions": [
+        "All three portals PASS all checks? → Notify Commander: 'Portal QC PASS. Ready for Jul 20 send — awaiting your approval.'",
+        "ANY failures detected? → Document violation type/severity, hold send, notify Commander: 'Portal QC flagged [# violations]. Corrective actions needed before send gate.'"
+      ]
+    }
+  ],
+  "blocker": {
+    "type": "PORTAL_ACCESS_REQUIRED",
+    "severity": "BLOCKING",
+    "description": "This review requires LIVE access to three d2mluxury.quest portals (furlow, elydarrow, nichols) via web browser. The analysis cannot proceed from dossier snapshots alone — portal rendering, image loads, URL integrity, and cross-portal segregation must be verified interactively. Medical/insurance contamination check on Ely-Darrow portal is CRITICAL and requires real-time portal inspection.",
+    "resolution_options": [
+      "Option A (Automated): Use mcp__playwright__* tools to navigate portals and capture screenshots automatically. Requires playwright MCP access.",
+      "Option B (Manual): Execute portal review manually via browser, following the QC checklist above. Requires 4 hours, human review."
+    ],
+    "recommendation": "Option A (playwright automation) preferred if MCP is available. Fallback to Option B (manual review) — schedule specific session with Commander before Jul 19 evening to meet Jul 20 send deadline."
+  },
+  "success_criteria": {
+    "all_passes": [
+      "✅ Furlow portal: 6/6 excursions visible & accurate, zero cross-couple names, all images load, facts match Jan 31 conf, zero pricing visible",
+      "✅ Ely-Darrow portal: 6/6 excursions visible & accurate, ZERO medical/insurance/Parkinson info, zero cross-couple names, all images load, facts match Jan 31 conf, Amy birthday OK if celebratory only, zero pricing visible",
+      "✅ Nichols portal: 6/6 excursions visible & accurate, zero cross-couple names, all images load, facts match Jan 31 conf, zero pricing visible"
+    ],
+    "any_failure": "Hold WF-17 send, document violations, notify Commander with corrective actions"
+  },
+  "next_action": "Execute STEP 1 (portal access baseline). If playwright MCP available: delegate to automated review. If not: schedule manual review session with Commander before Jul 19 EOD to meet Jul 20 send deadline. Do NOT proceed to send without documented PASS on all three portals.",
+  "metadata": {
+    "created_by": "HALE — Continuity Mission Autonomous Review",
+    "created_at_utc": "2026-07-10T11:45:00Z",
+    "created_at_mt": "2026-07-10T05:45:00-06:00",
+    "execution_mode": "STRUCTURED_CHECKLIST — Ready for manual or automated portal review",
+    "wf17_gate_status": "HELD — No client send until all QC checks pass and Commander approves",
+    "mission_trigger_source": "hale_state.json deferred_alerts"
+  }
+}

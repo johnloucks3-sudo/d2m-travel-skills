@@ -1,5 +1,39 @@
 ---
 
+## ELON INCIDENT DIAGNOSIS — 2026-07-06T04:30:00Z
+status: PROPOSAL_READY — AUTONOMOUS FIX AVAILABLE
+generated: 2026-07-06T04:30:00Z
+incident: d2m-tasking-watcher crash_loop alert
+
+what_diagnosed: |
+  Watchdog (opscenter_watchdog.py) is alerting on d2m-tasking-watcher service crash loop.
+  
+  ROOT CAUSE: Service was deliberately disabled and archived per hale_decisions.md.
+  The watchdog is out of sync — still monitoring a disabled service.
+  
+  DIAGNOSTICS RUN:
+  ✓ All critical dependencies healthy (mission_board.json, MCP, Qdrant, OAuth, binaries)
+  ✓ Service script exists in /OpsCenter/_retired/ (deliberately archived)
+  ✓ Watchdog configured to monitor service at line 61 of opscenter_watchdog.py
+  ✗ No blocking issues found — this is a state mismatch, not a code bug
+
+what_next: |
+  PROPOSAL: `/home/john/Thunderbird/OpsCenter/elon_proposals/PROPOSAL-20260705-d2m-tasking-watcher.md`
+  
+  OPTION A (RECOMMENDED, autonomous):
+  - Delete 1 line from opscenter_watchdog.py (line 61: "d2m-tasking-watcher": "Tasking Watcher",)
+  - Run: sed -i '61d' /home/john/Thunderbird/OpsCenter/opscenter_watchdog.py
+  - Verify: grep "d2m-tasking-watcher" /home/john/Thunderbird/OpsCenter/opscenter_watchdog.py (should be empty)
+  - Done. Watchdog will skip checking this disabled service on next cycle.
+  
+  OPTION B (Commander escalation):
+  - Restore the service from _retired/ with defensive startup guards
+  - Requires Sterling review + Commander judgment on re-enablement
+  
+  Recommendation: OPTION A (immediate, zero risk, aligns with operational reality)
+
+---
+
 ## CC INBOX SWEEP — 2026-06-10T18:30:00Z
 status: COMPLETE
 completed: 2026-06-10T18:30:00Z
@@ -627,4 +661,160 @@ what_next: |
 **2 tasks queued** for next 90 days
 
 ## STAFF-TASKING-TIMERS | 2026-07-03 06:02 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-03 21:12 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-04 00:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-04 00:01 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-04 06:03 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-04 06:04 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-04 21:14 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-05 00:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-05 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-05 06:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-05 06:03 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-05 21:16 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-06 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-06 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-06 06:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-06 06:03 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-06 21:20 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-07 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-07 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-07 06:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-07 06:03 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-07 06:04 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-07 21:22 MT
+
+- **Anthropic models — invitation-only removed**: 'invitation-only' no longer found (was blocking access)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-08 00:03 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-08 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-08 06:00 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-08 06:04 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-08 21:57 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-09 00:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-09 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-09 06:02 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-09 06:03 MT
+**2 tasks queued** for next 90 days
+
+
+## MYTHOS AVAILABILITY ALERT — 2026-07-09 21:59 MT
+
+- **Anthropic models — Mythos in model table**: 'claude-mythos' now appears (new availability)
+
+**ACTION:** Check https://anthropic.com/glasswing and https://openrouter.ai/anthropic/claude-mythos for access.
+
+---
+
+## STAFF-TASKING-TIMERS | 2026-07-10 00:03 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-10 00:04 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-10 06:01 MT
+**2 tasks queued** for next 90 days
+
+## STAFF-TASKING-TIMERS | 2026-07-10 06:01 MT
 **2 tasks queued** for next 90 days

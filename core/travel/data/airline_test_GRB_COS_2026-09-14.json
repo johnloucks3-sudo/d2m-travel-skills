@@ -2,8 +2,90 @@
   "route": "GRB-COS",
   "depart_date": "2026-09-14",
   "adults": 2,
-  "scraped_at": "2026-04-22T05:20:33.038624",
-  "skiplagged": {},
+  "scraped_at": "2026-07-09T12:56:33.634557",
+  "skiplagged": {
+    "economy": {
+      "source": "skiplagged",
+      "cabin": "economy",
+      "url": "https://skiplagged.com/flights/GRB/COS/2026-09-14?adults=2&cabin=economy",
+      "adults": 2,
+      "depart_date": "2026-09-14",
+      "raw_prices": [
+        "$405",
+        "$519",
+        "$542",
+        "$542",
+        "$542",
+        "$542",
+        "$612",
+        "$664",
+        "$675",
+        "$699"
+      ],
+      "lowest_price_pp": 405.0,
+      "total_lowest": 810.0,
+      "airlines_found": [
+        "American",
+        "United"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_economy_2026-09-14.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "skiplagged",
+      "cabin": "premium",
+      "url": "https://skiplagged.com/flights/GRB/COS/2026-09-14?adults=2&cabin=premium",
+      "adults": 2,
+      "depart_date": "2026-09-14",
+      "raw_prices": [
+        "$405",
+        "$519",
+        "$542",
+        "$542",
+        "$542",
+        "$542",
+        "$612",
+        "$664",
+        "$675",
+        "$699"
+      ],
+      "lowest_price_pp": 405.0,
+      "total_lowest": 810.0,
+      "airlines_found": [
+        "American",
+        "United"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_premium_2026-09-14.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "skiplagged",
+      "cabin": "first",
+      "url": "https://skiplagged.com/flights/GRB/COS/2026-09-14?adults=2&cabin=business",
+      "adults": 2,
+      "depart_date": "2026-09-14",
+      "raw_prices": [
+        "$405",
+        "$519",
+        "$542",
+        "$542",
+        "$542",
+        "$542",
+        "$612",
+        "$664",
+        "$675",
+        "$699"
+      ],
+      "lowest_price_pp": 405.0,
+      "total_lowest": 810.0,
+      "airlines_found": [
+        "American",
+        "United"
+      ],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/skiplagged_first_2026-09-14.png",
+      "status": "ok"
+    }
+  },
   "kayak": {
     "economy": {
       "source": "kayak",
@@ -11,23 +93,12 @@
       "url": "https://www.kayak.com/flights/GRB-COS/2026-09-14/2adults?sort=price_a&fs=cabin=e",
       "adults": 2,
       "depart_date": "2026-09-14",
-      "raw_prices": [
-        "$202",
-        "$290",
-        "$314",
-        "$398",
-        "$1,129",
-        "$432",
-        "$895",
-        "$242",
-        "$285",
-        "$292"
-      ],
-      "lowest_price_pp": 101.0,
-      "total_lowest": 202.0,
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
       "airlines_found": [],
       "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-09-14.png",
-      "status": "ok"
+      "status": "no_prices_found"
     },
     "premium": {
       "source": "kayak",
@@ -35,17 +106,12 @@
       "url": "https://www.kayak.com/flights/GRB-COS/2026-09-14/2adults?sort=price_a&fs=cabin=pe",
       "adults": 2,
       "depart_date": "2026-09-14",
-      "raw_prices": [
-        "$202",
-        "$1,129",
-        "$432",
-        "$895"
-      ],
-      "lowest_price_pp": 101.0,
-      "total_lowest": 202.0,
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
       "airlines_found": [],
       "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-09-14.png",
-      "status": "ok"
+      "status": "no_prices_found"
     },
     "first": {
       "source": "kayak",
@@ -53,17 +119,12 @@
       "url": "https://www.kayak.com/flights/GRB-COS/2026-09-14/2adults?sort=price_a&fs=cabin=b",
       "adults": 2,
       "depart_date": "2026-09-14",
-      "raw_prices": [
-        "$202",
-        "$1,129",
-        "$432",
-        "$895"
-      ],
-      "lowest_price_pp": 101.0,
-      "total_lowest": 202.0,
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
       "airlines_found": [],
       "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-09-14.png",
-      "status": "ok"
+      "status": "no_prices_found"
     }
   },
   "expedia": {},

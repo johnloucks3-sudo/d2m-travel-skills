@@ -684,6 +684,49 @@ def send_brief_email(subject: str, html_body: str) -> bool:
 # Overnight ops + credentials section
 # ---------------------------------------------------------------------------
 
+def _build_fare_watch_artifacts_section() -> str:
+    """Fare-watch HTML artifact links + latest results, per Commander
+    directive 2026-07-10: keep all 3 artifacts current and show results +
+    links in the AM report. Reads the state file written by
+    scripts/fare_watch_artifacts_daily_refresh.py (runs as ExecStartPre on
+    this same systemd unit, right before this script)."""
+    state_file = THUNDERBIRD / "OpsCenter" / "state" / "fare_watch_artifacts_latest.json"
+    if not state_file.exists():
+        return ""
+    try:
+        data = json.loads(state_file.read_text())
+    except Exception:
+        return ""
+
+    lines = ["### FARE WATCH ARTIFACTS\n*Kept current daily — links + latest captured prices*\n"]
+    for key in ("loucks_silvernova", "spencer_grandtour", "airfare_dashboard"):
+        entry = data.get(key)
+        if not entry:
+            continue
+        label = entry.get("label", key)
+        upload = entry.get("upload", {})
+        as_of = entry.get("as_of", "")[:16].replace("T", " ")
+        if upload.get("ok"):
+            lines.append(f"**[{label}]({upload.get('link')})** — updated {as_of} UTC")
+        else:
+            lines.append(f"**{label}** — ⚠️ Drive update failed: {upload.get('error', 'unknown')}")
+
+        prices = entry.get("latest_prices", [])
+        if key == "airfare_dashboard":
+            lines.append(f"- {len(prices)} watches tracked, all current as of last recheck.")
+        else:
+            for p in prices[:6]:
+                wid = p.get("watch_id", "?")
+                pp = p.get("price_pp")
+                total = p.get("total")
+                pp_str = f"${pp:,.0f}pp" if pp is not None else "—"
+                total_str = f"${total:,.0f} total" if total is not None else ""
+                lines.append(f"- `{wid}`: {pp_str} / {total_str}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
 def _build_overnight_section() -> str:
     """
     Build OVERNIGHT OPS section for the brief.
@@ -972,6 +1015,7 @@ def main() -> None:
 
     # OVERNIGHT OPS + CREDENTIALS — run health check, inject into brief
     overnight_section = _build_overnight_section()
+    fare_watch_section = _build_fare_watch_artifacts_section()
     elon_section = _build_elon_proposals_section()
     quota_section = _build_quota_review_section()
     predictor_section = _build_predicted_next_moves_section()
@@ -983,6 +1027,8 @@ def main() -> None:
 
     # Write hale_brief.md — compressed header first, overnight ops, ELON proposals, full brief appended
     combined_md = compressed_brief + "\n---\n\n" + overnight_section
+    if fare_watch_section:
+        combined_md += "\n---\n\n" + fare_watch_section
     if elon_section:
         combined_md += "\n---\n\n" + elon_section
     if quota_section:

@@ -22,7 +22,7 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 INTEL_OUTPUT_DIR = Path(__file__).resolve().parent / "output" / "intel_crew"
-BOT_TOKEN = os.environ.get("TELEGRAM_C2_BOT_TOKEN",
+BOT_TOKEN = os.environ.get("TELEGRAM_D2MC2C_TOKEN") or os.environ.get("TELEGRAM_C2_BOT_TOKEN",
                             "***REMOVED-SECRET***")
 COMMANDER_ID = os.environ.get("TELEGRAM_COMMANDER_ID", "7554895206")
 MAX_CHUNK = 3800  # Telegram 4096 limit, with headroom
@@ -30,8 +30,11 @@ DRIVE_FOLDER_ID = os.environ.get("DRIVE_INTEL_FOLDER_ID", "")
 
 
 def send_telegram(msg: str, parse_mode: str = "HTML"):
-    """Send message — tries HTML first, falls back to plain text on 400."""
+    """Send message — tries HTML first, falls back to plain text on 400. Retries 3x."""
     import re
+    import time
+    import logging
+    log = logging.getLogger(__name__)
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     # Convert markdown bold/italic to HTML for legacy callers
     if parse_mode == "Markdown":
@@ -40,20 +43,25 @@ def send_telegram(msg: str, parse_mode: str = "HTML"):
         msg = re.sub(r'\*(.+?)\*', r'<b>\1</b>', msg)
         msg = re.sub(r'_(.+?)_', r'<i>\1</i>', msg)
         msg = re.sub(r'`(.+?)`', r'<code>\1</code>', msg)
-    for mode in [parse_mode, None]:
-        payload = {"chat_id": COMMANDER_ID, "text": msg}
-        if mode:
-            payload["parse_mode"] = mode
-        data = json.dumps(payload).encode()
-        req = urllib.request.Request(
-            url, data=data, headers={"Content-Type": "application/json"}
-        )
-        try:
-            urllib.request.urlopen(req, timeout=15)
-            return
-        except Exception:
-            if mode is None:
-                raise
+    for attempt in range(3):
+        for mode in [parse_mode, None]:
+            payload = {"chat_id": COMMANDER_ID, "text": msg}
+            if mode:
+                payload["parse_mode"] = mode
+            data = json.dumps(payload).encode()
+            req = urllib.request.Request(
+                url, data=data, headers={"Content-Type":"application/json"}
+            )
+            try:
+                urllib.request.urlopen(req, timeout=15)
+                return
+            except Exception:
+                if mode is None:
+                    if attempt < 2:
+                        time.sleep(5)
+                    else:
+                        log.warning("Telegram send failed after 3 attempts")
+                continue
 
 
 def chunk_and_send(text: str, header: str = ""):

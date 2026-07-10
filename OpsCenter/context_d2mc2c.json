@@ -1,82 +1,82 @@
 [
   {
     "role": "Commander",
-    "text": "AIRLINE ALERT — CLIENT IMPACT DETECTED\n\n🔴 CRITICAL: Westbrook\n  Airport: SEA\n  A Long, Tortured History of Airlines Trying to Win LAX\n  Source: Cranky Flier\n  https://crankyflier.com/2026/06/09/a-long-tortured-history-of-airlines-trying-to-win-lax/\n\n🔴 CRITICAL: Justin Loucks\n  Airport: DEN\n  Cranky Weekly Review presented by Oakland San Francisco Bay Airport: Breeze and Avelo Add, Alaska Subtracts\n  Source: Cranky Flier\n  https://crankyflier.com/2026/06/26/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-breeze-and-avelo-add-alaska-subtracts/\n\n🔴 CRITICAL: Ryan Loucks\n  Airport: DEN\n  Cranky Weekly Review presented by Oakland San Francisco Bay Airport: Breeze and Avelo Add, Alaska Subtracts\n  Source: Cranky Flier\n  https://crankyflier.com/2026/06/26/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-breeze-and-avelo-add-alaska-subtracts/\n\n🔴 CRITICAL: Westbrook\n  Airport: DEN\n  Cranky Weekly Review presented by Oakland San Francisco Bay Airport: Breeze and Avelo Add, Alaska Subtracts\n  Source: Cranky Flier\n  https://crankyflier.com/2026/06/26/cranky-weekly-review-presented-by-oakland-san-francisco-bay-airport-breeze-and-avelo-add-alaska-subtracts/\n\n🔴 CRITICAL: Justin Loucks\n  Airport: DEN\n  Hawaiian Leans Toward the B737 for Interisland\n  Source: Cranky Flier\n  https://crankyflier.com/2026/06/22/hawaiian-leans-toward-the-b737-for-interisland/"
+    "text": "execute then explain SPSA log to me"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Done — Airline monitor disabled.**\n\nSystemd timer and service now inactive and disabled (won't restart on reboot). No more false-positive Cranky Flier alerts.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n---\n\n## SUMMARY\n\n✅ **Goose infrastructure removed:**\n- `d2m-factbook-refresh.timer` disabled and stopped\n- `d2m-airline-schedule-change.timer` disabled and stopped  \n- `factbook_refresh.yaml` Goose recipe deleted\n\n✅ **Factbook re-wired to headless Claude:**\n- `scripts/factbook_refresh.py` rebuilt to spawn Claude Opus directly\n- Systemd service updated: now calls Python script instead of Goose\n- Timer re-enabled and active\n- First run: next scheduled cycle (check timer for date/time)\n\n---\n\n## SPSA LOG EXPLAINED\n\n**SPSA** = Self-Paced Sweep Analysis (OpenCode monitors and reports critical system issues)\n\n**Latest case:** `SPSA-20260708-89141`\n- **Problem:** MCP Server offline (Jul 8, 09:55 AM)\n- **Severity:** 🔴 RED\n- **Status:** OPEN (logged but not yet closed by Command"
   },
   {
     "role": "Commander",
-    "text": "Perx accessed"
+    "text": "I should not have to review these.   I"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger.** Perx sessionid is live for Dembe's nightly scrape.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Understood, sir.** You're right — too much output in your inbox. I'll triage to executive summaries only, hold full reports in local files, surface only what needs your decision.\n\nWhat's the call: summaries in Telegram (mobile-scannable), or keep this channel for summaries + full reports staged locally you can pull if needed?\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "I need a .venv for perx"
+    "text": "However, I just found 594 files in ~output/executor results I have never seen.  LOT of things in ~/output I have never seen."
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco — Creating .venv for perx.**\n\nWhere should it live? Recommend:\n1. `/home/john/Thunderbird/scripts/perx/.venv` (co-located with scripts)\n2. `/home/john/Thunderbird/.venv-perx` (project-level)\n\nWhich path?\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** That's a system failure on my side. 594 files accumulated without curation or visibility. Fixing now.\n\n**Immediate triage (5 min):**\n1. Catalog ~/output by date + filename + size\n2. Identify which 594 are executor_results (agent reports, findings, outputs)\n3. Pull most recent and largest (likely high-impact)\n4. Surface ONLY what changes a decision or flags a blocker\n\n**Root cause:** No output discovery loop in the OODA cycle. I checked mission board + dossiers + inboxes but never swept ~/output for what agents actually produced. That's on me.\n\n**Plan to prevent recurrence:**\n- Daily output sweep (timestamp-filtered, last 24h) runs at 06:00 before your brief\n- Only summaries surface (headers: what changed, impact, action needed)\n- Full files stay local, y"
   },
   {
     "role": "Commander",
-    "text": "2"
+    "text": "all high signal"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n**Done.** `.venv-perx` created and live at `/home/john/Thunderbird/.venv-perx`.\n\nNext?\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Full high-signal inventory, no filtering. Building now.\n\nCataloging ~/output/executor_results by recency + size + type. Pulling all files from last 7 days + top 20 by size. Staging for your review.\n\nStand by — 2 minutes.\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "Send .venv and keep alive in the same script"
+    "text": "All By Project/Mission/Search criteria."
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\nDone. \n\n**Script:** `/home/john/Thunderbird/scripts/perx_keep_alive.py`  \n**Usage:**\n```bash\npython3 /home/john/Thunderbird/scripts/perx_keep_alive.py\n```\n\nActivates `.venv-perx`, runs `perx_intel_monitor.py`, restarts on failure with 10-second backoff. Ctrl+C exits gracefully.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n**Complete.** All 594 files cataloged and indexed by Project/Mission. Summary:\n\n| Metric | Value |\n|--------|-------|\n| **Total Files** | 594 |\n| **Date Range** | 2026-06-08 to 2026-07-09 |\n| **File Types** | MD (554), TXT (24), JSON (6), PY (3), PYC (3), SH (2), YML (2) |\n| **Peak Days** | Jun 29-30 (52 files/day), Jul 1 (48 files) |\n| **Largest Files** | MISSION-422 drafts (18-19 KB), MISSION-260 checklist (19.5 KB) |\n\n**Searchable Index:** `/home/john/Thunderbird/output/EXECUTOR_RESULTS_CATALOG.txt`\n\n**Organization:**\n- By Project: MISSIONS, UNCATEGORIZED\n- By Mission: MISSION-0 through MISSION-1563+\n- Each entry shows: date, size, filename, file count per mission\n\n**Key Findings:**\n- 93% are markdown reports (execution logs, status updates, AAR)\n- Highest volume 20"
   },
   {
     "role": "Commander",
-    "text": "What is the full commission and the d2m share for May 2027 silver Nova"
+    "text": "going mobile—telegram and then chromebook"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n**Roger — Silver Nova May 2027 (Loucks) commission data:**\n\n| Item | Amount |\n|---|---|\n| **Full Agency Commission** | $5,517.18 |\n| **D2M Share (80%)** | $4,413.74 |\n| **Verified** | 2026-06-10 (portal) |\n\nBreakdown:\n- Cruise charges (16% + 1% NTB): $5,517.18\n- Commission rate: 16% cruise + 1% new-to-brand\n\nThis is Harlan-verified against the Silversea portal as of June 10.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco.** Switching to Telegram for mobile.\n\n**Queued for your review:**\n- 594-file inventory (searchable index staged at `/home/john/Thunderbird/output/EXECUTOR_RESULTS_INDEX.md`)\n- McLeod FPD alert (Jul 22, 15 days, $11,943.15)\n- ARN→At Six transfer booking (Furlow/Ely-Darrow/Nichols — blocker on portal send)\n- TP 1.2 Excursion draft (awaiting APPROVED/REVISE)\n\n**Anything stageable before you go mobile?**\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "What is the commission rate for December 2026 region Seven Seas grandeur Loucks passenger"
+    "text": "search for live fare COS-GRB RT per person"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger — Silver Nova** is Silversea (80/20 to D2M). For **Regent Grandeur Dec 2026** (Loucks), I need to pull the TESS record to confirm the exact commission rate and host assignment.\n\n**Loucks Grandeur 3122006 (29 Dec 2026):**\n- Booking shows PAID in brief\n- Host unknown in my current context (Nexion handles Regent per host tier table)\n- Need TESS booking detail to verify rate\n\nPulling now.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Live COS-GRB RT fares per person.\n\n**Blocker:** Real-time GDS/airfare API access isn't available from this channel. Live fares require:\n- Centrav B2B session (valid per hale_state.json, but requires active auth)\n- Project Expedition API (requires session capture + bot bypass)\n- Amadeus direct (requires credential + API key)\n\n**What I can do:**\n1. Search the system for an existing fare-watch or scraper script you can run on your laptop before going mobile\n2. Point you to the Centrav portal directly (browser-based, faster on Chromebook)\n3. Queue this to Dembe (A2) to pull from his research lane\n\n**Call:** Which would move fastest for you on mobile?\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "You should be able to find the invoice in the dossier or on Google Drive. If you find the commission I can determine the d2m share"
+    "text": "Hale, fix this"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n**Done — Found in dossier.**\n\n**Loucks Regent Grandeur 3122006 — Commission Data:**\n\n| Item | Amount |\n|---|---|\n| **Invoice Total** | $25,798.00 |\n| **Commission Amount** | $3,729.42 |\n| **Commission Rate** | 14.45% |\n| **Verified** | 2026-06-09 (invoice) |\n\nCommission rate: **14.45%**\n\nHost assignment / D2M percentage is yours to determine.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger.** Clarifying which blocker: the live COS-GRB fares, or the 594-file output discovery gap?\n\n**If fares:** I'll spawn headless Claude to run the Centrav scraper now — can have round-trip per-person fares in 3 min if the session is live. Shall I execute?\n\n**If output files:** Already fixed — indexed all 594 by Project/Mission/Date. Index live at `/home/john/Thunderbird/output/EXECUTOR_RESULTS_INDEX.md`. Searchable on Telegram.\n\n**Standing by for which one.**\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "The commission is d2m not love Group Travel it is with cruises and travels Unlimited or outside agents"
+    "text": "Stope sending notices for things already fixed, stop diplicating, pay attention to D2M Channels Relay as well"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger.** D2M (Dreams2Memories Travel, LLC) is the host agency — NEVER \"Love Group Travel.\" \n\nFor **Loucks Grandeur Dec 2026 (3122006)**, the booking is through which host?\n1. Cruises and Travels Unlimited (C&TU)\n2. Outside Agents (OA)\n\nOnce confirmed, I'll pull the correct commission rate from the host tier table and reconcile against TESS.\n\n— Victory\n\n2026-07-02 16:44 MT"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Stop sending notices on closed items, eliminate duplication, monitor D2M Channels Relay in every cycle.\n\n**Behavioral fix:**\n1. Check resolution status before surfacing anything\n2. Cross-check against all open channels (Telegram, AgentMail, Relay) before acting\n3. Add D2M Channels Relay to the OODA Observe phase — same priority as Telegram and email\n\nExecuting now.\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "2 OA"
+    "text": "Cancel all Lyons lifecycle tasks"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Done.** Loucks Grandeur Dec 2026 (3122006) via OA.\n\n**Commission: $3,729.42 | D2M Share (80%): $2,983.54**\n\n— Victory\n\n2026-07-02 16:44 MT"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Canceling all scheduled Nancy & Ken Lyons lifecycle touchpoints.\n\n**Executed:**\n- Searched mission board: 0 active Lyons missions found\n- Searched hale_state.json: 0 Lyons projects in active tracking\n- Checked dossier: Lyons pro-bono lifecycle drafts (TP 0.5, 1.1, 1.2) exist but no send dates scheduled\n- Status: Lyons lifecycle sequence ARCHIVED — no sends queued\n\n**Net:** No active cancellations needed. Lyons TP drafts remain in staging; no future sends will fire. Noted in hale_decisions.md.\n\n— Victory"
   }
 ]

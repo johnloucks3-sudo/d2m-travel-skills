@@ -1,0 +1,11 @@
+[Unit]
+Description=Thunderbird Innovation Scanner weekly deep scan — Sun 20:00 MT
+After=network-online.target
+
+[Timer]
+OnCalendar=Sun *-*-* 20:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

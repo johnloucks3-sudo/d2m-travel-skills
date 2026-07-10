@@ -4611,3 +4611,4198 @@ Sterling — three governance files modified this session under Hale Override. O
 Please audit and flag any objections to johnloucks3 or via blackboard. No blocking action needed — changes are live.
 
 — V. Hale, VCS
+
+---
+**[12:00 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T12:07:36.653085+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T12:07:57.933669+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:06 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:07 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:07 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T12:07:36.653085+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:07 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T12:07:57.933669+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:07 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[12:08 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:08 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:08 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:09 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T13:12:59.915736+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T13:13:21.223386+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[13:07 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:09 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[13:09 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:09 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:10 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T14:12:53.062318+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T14:18:11.635381+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:10 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T15:03:14.742752+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:03 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[15:03 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:03 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:04 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive STAGED (DESTRUCTIVE) token=CIRPR-0555C9B90447 — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: CAUTION not in armed_tiers ['SAFE'] — already staged (token CIRPR-5C0BE183817B), not re-staging
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T15:15:08.299321+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T15:23:39.710382+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:13 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive STAGED (DESTRUCTIVE) token=CIRPR-5FC835B8E566 — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T16:20:31.246912+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[16:15 UTC] HALE → STERLING: lifecycle-travel-surveys**
+CI lifecycle-travel-surveys STAGED (CAUTION) token=CIRPR-37BE35A1125A — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[16:15 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[16:15 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan NOT_REPAIRABLE: not repairable: hotel-scan is DORMANT — awaiting Booking.com partner API or scrape path. ELON to nominate replacement data source. No automated repair
+_Auto-routed by hale_notify.py_
+
+---
+**[16:15 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan NOT_REPAIRABLE: not repairable: transfer-scan is DORMANT — no data source (GetYourGuide/TourRadar API key or scrape path not configured). ELON to nominate source. No 
+_Auto-routed by hale_notify.py_
+
+---
+**[16:16 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: DESTRUCTIVE already staged (token CIRPR-5FC835B8E566) — awaiting confirm, not re-staging
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T16:20:31.246912+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T16:24:50.915359+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:21 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[16:21 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:21 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:21 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T16:35:32.248306+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:32 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[16:32 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:32 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:32 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:15 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive STAGED (DESTRUCTIVE) token=CIRPR-143E28FD672C — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[17:15 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:15 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T17:20:32.205828+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[17:16 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[17:16 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[17:16 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[17:16 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:16 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:17 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: DESTRUCTIVE already staged (token CIRPR-143E28FD672C) — awaiting confirm, not re-staging
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T17:20:32.205828+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T17:26:31.786689+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:21 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[17:21 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:21 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:22 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:31 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:41 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[17:41 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:41 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:41 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T18:31:14.505476+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:32 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus NOT_REPAIRABLE: not repairable: Amadeus keys present but probe RED — token cache corrupt, rate limit, or env/hostname mismatch; route to Whetstone for manual refresh
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T18:45:27.521657+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:41 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[18:41 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:41 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:41 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:51 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T19:50:53.368795+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:41 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:42 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health NOT_REPAIRABLE: not repairable: DIAGNOSTIC-ONLY — Cache bloat >2GB detected (~/.cache) — manual review required; safe candidates: ~/.cache/pip, ~/.cache/ms-playwright
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus NOT_REPAIRABLE: not repairable: Amadeus keys present but probe RED — token cache corrupt, rate limit, or env/hostname mismatch; route to Whetstone for manual refresh
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T19:50:53.368795+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:51 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[19:51 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:51 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:51 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T20:05:47.427907+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:52 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health NOT_REPAIRABLE: not repairable: DIAGNOSTIC-ONLY — Cache bloat >2GB detected (~/.cache) — manual review required; safe candidates: ~/.cache/pip, ~/.cache/ms-playwright
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T21:01:09.722613+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[21:01 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:01 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav STAGED (CAUTION) token=CIRPR-98126789E6CE — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T21:10:54.616829+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T22:10:55.671238+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:01 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health NOT_REPAIRABLE: not repairable: DIAGNOSTIC-ONLY — Cache bloat >2GB detected (~/.cache) — manual review required; safe candidates: ~/.cache/pip, ~/.cache/ms-playwright
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav STAGED (CAUTION) token=CIRPR-F6451C46C5B3 — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T22:11:10.360254+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:11 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T22:26:07.462182+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:21 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[22:21 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:21 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:21 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T23:11:36.292507+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:09 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:09 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T23:11:36.292507+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[23:09 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:09 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: fare-watch-ita**
+CI fare-watch-ita BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-09T23:11:36.292507+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:11 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[23:11 UTC] HALE → STERLING: hotel-scan**
+CI hotel-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:11 UTC] HALE → STERLING: transfer-scan**
+CI transfer-scan BLOCKED_COOLDOWN: cooldown active (3600s)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:11 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:29 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:29 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:29 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:31 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:31 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:31 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[00:31 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-10T01:03:43.252028+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-10T01:03:49.395907+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary-test.service**
+generic-remediate-canary-test.service entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:05 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:12 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:22 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:23 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:25 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:25 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:35 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:43 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:49 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:50 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:52 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:52 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:59 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:13 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:13 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:13 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:13 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:16 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:23 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:25 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:25 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:25 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:29 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:33 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:33 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:47 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:53 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:59 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:05 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:06 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:06 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:13 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:13 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:23 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:25 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:25 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:26 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:26 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:26 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:26 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:33 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:33 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:39 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:41 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:49 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:50 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:53 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:56 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:59 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:00 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:13 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:13 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:27 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:27 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:27 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:27 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:27 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:28 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:33 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:33 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:33 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:34 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:39 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:43 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:43 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:43 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:49 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:53 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:56 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:00 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:13 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:13 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:17 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:23 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:23 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:23 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:24 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:24 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:26 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:26 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:26 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:31 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:32 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:33 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:33 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:33 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:39 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:42 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:45 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:50 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:54 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:54 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:59 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:00 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:00 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:00 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:02 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:03 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:13 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:17 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:20 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:23 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:24 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:24 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:24 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:24 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:27 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:28 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:28 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:34 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:35 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:43 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:45 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:51 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:02 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:14 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:18 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:24 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:29 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:29 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:29 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:33 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:33 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:37 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:49 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:57 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: credential-keepalive**
+CI credential-keepalive BLOCKED_COOLDOWN: DESTRUCTIVE already staged (token CIRPR-E51BF6DCA4C5) — awaiting confirm, not re-staging
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-10T12:04:48.655090+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-10T12:05:17.024184+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:03 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:03 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:05 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:07 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:09 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:19 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:24 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:24 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:26 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:30 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:30 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:37 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:44 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:47 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:50 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:50 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:59 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:00 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:01 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:02 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:09 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:17 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:31 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:31 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:32 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:32 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:32 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:32 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:35 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:41 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:43 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:51 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:52 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:57 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:02 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:03 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:09 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:18 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:34 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:35 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:46 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:01 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:02 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:02 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:05 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:11 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:21 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:26 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:30 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:31 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:31 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:31 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:33 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:35 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:39 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:47 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:48 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:51 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:01 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:11 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:18 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:21 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:23 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:26 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:27 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:d2m-brief-telegram**
+d2m-brief-telegram failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:generic-remediate-canary**
+generic-remediate-canary failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:loucks-gp-notifier**
+loucks-gp-notifier failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:31 UTC] HALE → STERLING: generic-remediate:thunderbird-supertimer**
+thunderbird-supertimer failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:32 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:34 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:36 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:40 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:41 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:43 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:44 UTC] HALE → STERLING: generic-remediate:d2m-airfare-scan**
+d2m-airfare-scan failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:46 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:51 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:53 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:54 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:56 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:58 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:03 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:05 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:19 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:24 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:35 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:35 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:35 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:35 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:57 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:16 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:28 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:32 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:41 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:42 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:49 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:53 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:54 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:01 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:16 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:31 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:37 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:37 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:37 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:42 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:hale-credential-check**
+hale-credential-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:54 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:09 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:10 UTC] HALE → STERLING: generic-remediate:nexus**
+nexus failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:37 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_

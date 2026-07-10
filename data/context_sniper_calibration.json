@@ -84,6 +84,26 @@
       "ts": "2026-06-20T11:37:41Z",
       "persona": "default",
       "brief_tokens": 488
+    },
+    {
+      "ts": "2026-07-08T18:56:52Z",
+      "persona": "default",
+      "brief_tokens": 919
+    },
+    {
+      "ts": "2026-07-08T19:24:14Z",
+      "persona": "default",
+      "brief_tokens": 956
+    },
+    {
+      "ts": "2026-07-09T15:58:48Z",
+      "persona": "default",
+      "brief_tokens": 960
+    },
+    {
+      "ts": "2026-07-09T16:04:43Z",
+      "persona": "default",
+      "brief_tokens": 950
     }
   ]
 }

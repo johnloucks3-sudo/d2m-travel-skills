@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-07-03T18:53:44.477903+00:00",
+  "checked_at": "2026-07-10T00:05:54.496034+00:00",
   "united_only": true,
   "hard_threshold_2pax": 900.0,
-  "rt_2pax": 1356.76,
+  "rt_2pax": 1176.7199999999998,
   "out": {
     "price": 600.42,
-    "dep": "16:15"
+    "dep": "09:45"
   },
   "rtn": {
-    "price": 756.34,
+    "price": 576.3,
     "dep": "17:31"
   },
   "armed": false,

@@ -115,8 +115,54 @@ INNOVATION_KEYWORDS = [
     "agent", "multi-agent", "agentic", "autonomous", "crew",
     "autogen", "langgraph", "mastra", "swarm",
     # Claude specific
-    "claude code", "claude agent", "anthropic", "claude sdk",
-    "claude hook", "slash command", "claude team",
+        "claude code", "claude agent", "anthropic", "claude sdk",
+        "claude hook", "slash command", "claude team",
+    # Claude Cowork / Google Workspace Connector — full feature coverage
+        "claude cowork", "cowork",
+        # Connector setup
+        "claude google workspace", "google workspace claude",
+        "workspace connector claude", "claude workspace connector",
+        "connect gmail to claude", "connect calendar to claude",
+        "connect drive to claude",
+        # Gmail integration
+        "claude gmail", "claude search email", "claude read email",
+        "claude draft email", "claude email reply", "claude email draft",
+        # Calendar integration
+        "claude calendar", "claude create event", "claude manage calendar",
+        "claude view event", "claude find availability",
+        # Drive integration
+        "claude google drive", "claude drive search",
+        "claude read doc", "claude read sheet", "claude read pdf",
+        "claude drive file", "claude save to drive",
+        # Real-time sync
+        "claude sync doc", "claude google doc sync",
+        "claude project sync",
+        # Remote operation
+        "claude remote", "remote claude", "claude remote operation",
+        "claude headless", "claude api remote",
+        "operate claude remotely", "claude code remote",
+        # Mobile / Phone-native — C2 Crown Jewel
+        "claude mobile", "claude phone", "claude ios", "claude android",
+        "claude app agent", "claude on-device",
+        "mobile mcp client", "phone mcp", "mobile agent runtime",
+        "on-device agent", "phone llm", "mobile llm",
+        "claude touch", "voice controlled claude",
+        "wake word claude", "claude hands free",
+        "smartphone agent", "mobile browser automation",
+        "phone as server", "mobile tool use",
+        # C2 — phone as command surface
+        "phone c2", "mobile command and control",
+        "ai c2 mobile", "agent c2 phone",
+        "push notification ai approval", "ntfy ai agent",
+        "actionable notification agent", "phone agent dispatch",
+        "voice control claude code", "voice dispatch ai",
+        "mobile agent dashboard", "ai agent pwa",
+        "agent mobile dashboard", "claude code phone control",
+        "claude code remote approval", "phone approval ai",
+        "agent orchestration phone", "mobile agent commander",
+        # Privacy
+        "claude no training", "claude data privacy",
+        "claude private data", "claude not trained",
     # Automation
     "n8n", "make.com", "zapier", "automation", "workflow",
     "cron", "scheduler", "pipeline",
@@ -231,6 +277,11 @@ def _scan_github_trending() -> list[Innovation]:
         "mcp server",
         "ai agent framework",
         "claude tool",
+        "claude cowork",
+        "google workspace claude",
+        "claude gmail integration",
+        "claude mobile",
+        "mobile mcp client",
         "browser automation ai",
         "voice agent",
     ]
@@ -348,7 +399,7 @@ BLOG_FEEDS = {
     "MCP Servers": "https://github.com/modelcontextprotocol/servers/releases.atom",
     "Simon Willison": "https://simonwillison.net/atom/everything/",
     "LangChain Blog": "https://blog.langchain.dev/rss/",
-    "Hacker News Best": "https://hnrss.org/best?q=AI+agent+MCP+claude&count=20",
+    "Hacker News Best": "https://hnrss.org/best?q=AI+agent+MCP+claude+cowork+workspace+gmail+calendar&count=20",
 }
 
 

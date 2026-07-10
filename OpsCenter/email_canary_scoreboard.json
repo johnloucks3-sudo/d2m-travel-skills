@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 261,
+  "emails_processed": 296,
   "entries": [
     {
       "category": "spam",
@@ -2587,6 +2587,355 @@
       "reply_status": "success",
       "reply_message_id": "19f29af949274f74",
       "ts": "2026-07-03T20:33:20.600329+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2cddac274f22d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Spencer Grand Tour 2027 \u2014 Per-Family Cost Breakdown",
+      "reply_status": "success",
+      "reply_message_id": "19f2ce2798a3afcd",
+      "ts": "2026-07-04T11:27:47.904475+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f2cfb594156b99",
+      "from": "aidisruption@substack.com",
+      "subject": "\"AI Disruption\" 2-Year Anniversary: 10,200 Subscribers & 20% Off!",
+      "ts": "2026-07-04T11:55:56.140897+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19dbcda437a93b4d",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Contact",
+      "reply_status": "success",
+      "reply_message_id": "19f2d4f6c433160d",
+      "ts": "2026-07-04T13:26:48.172772+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2e64f33de3f04",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: What started as a family remembrance",
+      "reply_status": "success",
+      "reply_message_id": "19f2e6632d602dfa",
+      "ts": "2026-07-04T18:31:17.567434+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f2e64f33de3f04",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Fwd: What started as a family remembrance",
+      "reply_status": "success",
+      "reply_message_id": "19f2f37310c0fe6c",
+      "ts": "2026-07-04T22:19:34.232297+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f32133a3da7b1a",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Fable 5 Official Guide",
+      "ts": "2026-07-05T11:39:38.384752+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f33a7f6e3dd245",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: Excursions \u2014 Bari, Crete, Milos & Naousa",
+      "reply_status": "success",
+      "reply_message_id": "19f33a9a48b83c06",
+      "ts": "2026-07-05T19:03:04.074740+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3408cd73c8ced",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: [D2M Weekly Report] July 05, 2026 \u2014 Thunderbird Wing",
+      "reply_status": "success",
+      "reply_message_id": "19f347cc182cd58f",
+      "ts": "2026-07-05T22:53:39.044196+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f3750508bb5410",
+      "from": "aidisruption@substack.com",
+      "subject": "Superpowers 6.0: AI Optimizes Itself, Tokens Down 60%",
+      "ts": "2026-07-06T12:04:22.131936+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f389627466df0a",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Test task \u2014 Dani responder verification",
+      "reply_status": "success",
+      "reply_message_id": "19f389e895c530dd",
+      "ts": "2026-07-06T18:09:01.727535+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f389f2b241a9d0",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Test task 2 \u2014 Dani responder fix verification",
+      "reply_status": "success",
+      "reply_message_id": "19f38a0cbb256e15",
+      "ts": "2026-07-06T18:11:29.725573+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3a3049db80f59",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Fwd: question",
+      "reply_status": "success",
+      "reply_message_id": "19f3a320b1a6d6f5",
+      "ts": "2026-07-07T01:29:46.050997+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f3c66b01265e72",
+      "from": "aidisruption@substack.com",
+      "subject": "GPT-5.5 Suddenly Got Dumber",
+      "ts": "2026-07-07T11:47:53.410638+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3c91d0c70d8ea",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: THUNDERBIRD INCUBATOR \u2014 Overnight Build Report \u2014 2026-07-07",
+      "reply_status": "success",
+      "reply_message_id": "19f3c9d15fafa90f",
+      "ts": "2026-07-07T12:45:55.232535+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3c993f5d5083b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83d\udd34 THUNDERBIRD BRIEFING // Jul 07 \u2014 45 ACTION ITEMS NEED ATTENTION",
+      "reply_status": "success",
+      "reply_message_id": "19f3c9ea741e6ea0",
+      "ts": "2026-07-07T12:47:38.382391+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3abec4997a0b4",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83e\udd85 THUNDERBIRD // Monday Jul 06 \u00b7 1800 MT \u00b7 EOD",
+      "reply_status": "success",
+      "reply_message_id": "19f3ca155ec1eb62",
+      "ts": "2026-07-07T12:50:34.094624+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3c0423b0ab50c",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: Innovation Scan \u2014 Daily 2026-07-07 (65 findings)",
+      "reply_status": "success",
+      "reply_message_id": "19f3ca1aca82ee88",
+      "ts": "2026-07-07T12:50:56.627904+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3c993f5d5083b",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: \ud83d\udd34 THUNDERBIRD BRIEFING // Jul 07 \u2014 45 ACTION ITEMS NEED ATTENTION",
+      "reply_status": "success",
+      "reply_message_id": "19f3ca22ec0102af",
+      "ts": "2026-07-07T12:51:30.114423+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3c91d0c70d8ea",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Re: THUNDERBIRD INCUBATOR \u2014 Overnight Build Report \u2014 2026-07-07",
+      "reply_status": "success",
+      "reply_message_id": "19f3ca2643e71785",
+      "ts": "2026-07-07T12:51:43.832632+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3cd033c63dd51",
+      "from": "johnloucks3@gmail.com",
+      "subject": "Your Flight & Hotel Candidates \u2014 Panama City Dec 16\u201317, Kyle",
+      "reply_status": "success",
+      "reply_message_id": "19f3cd11e293cb91",
+      "ts": "2026-07-07T13:42:45.746487+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "commander",
+      "action": "replied",
+      "thread_id": "19f3cfe363e38d19",
+      "from": "johnloucks3@gmail.com",
+      "subject": "PRE-LUNCH BRIEF \u2014 Spencer Grand Tour 2027: ALL Unresolved Questions",
+      "reply_status": "success",
+      "reply_message_id": "19f3d01da4d19c80",
+      "ts": "2026-07-07T14:35:59.557412+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f3d4ff0315b097",
+      "from": "adi@welcome.agentmail.cc",
+      "subject": "Here's what people are building with AgentMail",
+      "ts": "2026-07-07T16:02:19.088985+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f3d4f8dfbe2f84",
+      "from": "adi@welcome.agentmail.cc",
+      "subject": "You're live!",
+      "ts": "2026-07-07T16:02:19.464790+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f3ec582f2ba642",
+      "from": "googleplay-noreply@google.com",
+      "subject": "Updates to Google Play Terms of Service",
+      "ts": "2026-07-07T23:17:21.850623+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f41b1d52884b30",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Cowork, Now on Web & Mobile",
+      "ts": "2026-07-08T12:27:49.008103+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f46c2458b07685",
+      "from": "aidisruption@substack.com",
+      "subject": "Grok 4.5 Released",
+      "ts": "2026-07-09T12:04:36.733095+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f479c46c3a8662",
+      "from": "adi@welcome.agentmail.cc",
+      "subject": "multi-tenant email with AgentMail",
+      "ts": "2026-07-09T16:01:50.296443+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f498fd360fc13a",
+      "from": "support@rapidapi.com",
+      "subject": "Verify your email",
+      "ts": "2026-07-10T01:07:09.766130+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f4992dff87efe3",
+      "from": "support@rapidapi.com",
+      "subject": "Subscribe Confirmation: Kiwi.com Flights API API",
+      "ts": "2026-07-10T01:11:09.299471+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f49ee538c4da52",
+      "from": "adi@newsletter.agentmail.to",
+      "subject": "What even is loop engineering (Some thoughts)- AgentNews #19",
+      "ts": "2026-07-10T02:50:46.411987+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f4bfae33e36045",
+      "from": "aidisruption@substack.com",
+      "subject": "GPT-5.6 Released, Codex Merged",
+      "ts": "2026-07-10T12:24:01.778238+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f4c55ad091ffde",
+      "from": "aidisruption@substack.com",
+      "subject": "Meta Releases Muse Spark 1.1",
+      "ts": "2026-07-10T14:04:12.827060+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e997c718f1d626",
+      "from": "bryanajarboe@gmail.com",
+      "subject": "Re: COS-- Re: Good news \u2014 I worked out a path forward",
+      "ts": "2026-07-10T14:52:18.076346+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "direct_command",
+      "action": "skipped_non_actionable",
+      "thread_id": "19e997c718f1d626",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: COS-- Re: Good news \u2014 I worked out a path forward",
+      "ts": "2026-07-10T20:34:59.244220+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f4dd2784c5e733",
+      "from": "jenn@projectexpedition.com",
+      "subject": "Two advisor conversations coming up this summer",
+      "ts": "2026-07-10T20:59:00.650486+00:00",
       "system": "n8n_python"
     }
   ]

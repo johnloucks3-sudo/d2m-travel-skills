@@ -233,18 +233,58 @@ class MaxProxyHandler(BaseHTTPRequestHandler):
             super().log_message(fmt, *args)
 
     def do_GET(self):
-        if self.path == '/health':
+        path = self.path.split('?')[0]  # strip query string before matching
+        if path == '/health':
             body = b'{"status":"ok","proxy":"claude-max","version":"2.0","streaming":true}'
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.send_header('Content-Length', len(body))
             self.end_headers()
             self.wfile.write(body)
+        elif path in ('/v1/models', '/models'):
+            # SDK model-discovery call — return configured models
+            body = json.dumps({"data": [
+                {"id": "claude-sonnet-4-6", "object": "model"},
+                {"id": "claude-haiku-4-5-20251001", "object": "model"},
+                {"id": "claude-opus-4-7", "object": "model"},
+                {"id": "claude-opus-4-8", "object": "model"},
+            ]}).encode()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', len(body))
+            self.end_headers()
+            self.wfile.write(body)
         else:
+            self.log_error("404 unknown GET path: %s", self.path)
+            super().log_message("404 unknown GET path: %s", self.path)
             self.send_error(404)
 
     def do_POST(self):
-        if self.path not in ('/v1/messages', '/messages'):
+        path = self.path.split('?')[0]  # strip query string before matching
+        if path in ('/v1/messages/count_tokens', '/messages/count_tokens'):
+            # SDK token-count preflight — return a plausible count so the SDK continues
+            length = int(self.headers.get('Content-Length', 0))
+            try:
+                data = json.loads(self.rfile.read(length))
+            except Exception:
+                data = {}
+            # Rough estimate: sum char lengths of all message content / 4
+            total = sum(
+                len(m.get('content', '')) if isinstance(m.get('content'), str)
+                else sum(len(c.get('text', '')) for c in m.get('content', []) if isinstance(c, dict))
+                for m in data.get('messages', [])
+            ) // 4
+            body = json.dumps({"input_tokens": max(total, 1)}).encode()
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', len(body))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        if path not in ('/v1/messages', '/messages'):
+            self.log_error("404 unknown POST path: %s", self.path)
+            super().log_message("404 unknown POST path: %s", self.path)
             self.send_error(404)
             return
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jul 01–Jul 07, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jul 01–Jul 07, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-07 18:23 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>248</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$18,831</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>41</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-07-01 → 2026-07-07 · 248 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-07</strong> — fix: fare-watch aggregation plausibility check + telegram-relay CI probe fix <span style="color:#aaa;font-size:0.78rem;">(ccdaa32fa)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-07</strong> — feat: extend Commander Predictor — suspense signal, recurring-corrections, feedback loop <span style="color:#aaa;font-size:0.78rem;">(9b4d604d8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-07</strong> — feat: Commander Next-Move Predictor — Hale+Silver+staff, ledger-verified <span style="color:#aaa;font-size:0.78rem;">(14997799a)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-07</strong> — fix(elon-proposals): ground-truth integration tracker + integration-gated cadence <span style="color:#aaa;font-size:0.78rem;">(7b9c6ad48)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(compliance): WCAG 2.1 AA auditor for client-facing HTML <span style="color:#aaa;font-size:0.78rem;">(f26dd7b11)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(voyage): crew roster fetcher — Regent live scrape, Silversea press-release ingest, TP/portal integration <span style="color:#aaa;font-size:0.78rem;">(72c96d2ab)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(ml): RandomForest cruise demand predictor — Phase 4 ML roadmap <span style="color:#aaa;font-size:0.78rem;">(6c658be3c)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-06</strong> — fix: decouple weekend-crowd shift from peak-only gating <span style="color:#aaa;font-size:0.78rem;">(ac45f1c8a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(post-voyage): memory book builder — photo curation, PDF/HTML render, print-on-demand stub <span style="color:#aaa;font-size:0.78rem;">(58d82f784)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(compliance): pre-voyage medical screening form automation <span style="color:#aaa;font-size:0.78rem;">(9e945d04e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(cabins): cabin upgrade opportunity detector <span style="color:#aaa;font-size:0.78rem;">(2a8cc7d3d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: shore excursion upsell recommendation engine <span style="color:#aaa;font-size:0.78rem;">(a38e77df4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: voyage itinerary optimization suggestion engine <span style="color:#aaa;font-size:0.78rem;">(3a99c4517)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: travel insurance auto-quote integration (TravelGuard/Generali/World Nomads) <span style="color:#aaa;font-size:0.78rem;">(58e26d6cd)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: booking lifecycle notification engine (SMS/push/email-digest) <span style="color:#aaa;font-size:0.78rem;">(c40eea4c5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(voice): client IVR — Twilio voice interface for booking status queries <span style="color:#aaa;font-size:0.78rem;">(b9bee1dbe)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: airport lounge access coordinator (Phase 4 concierge automation) <span style="color:#aaa;font-size:0.78rem;">(33d24b015)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(dining): port-side restaurant coordinator + OpenTable reuse refactor <span style="color:#aaa;font-size:0.78rem;">(9f1937180)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(compliance): cruise line policy checker — age/passport/medical/mobility rules <span style="color:#aaa;font-size:0.78rem;">(8554c7190)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(vendor): pricing negotiation decision engine (Taap/Mozio/Blacklane) <span style="color:#aaa;font-size:0.78rem;">(9e32c4fdc)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(i18n): auto-translate TP emails to guest native language <span style="color:#aaa;font-size:0.78rem;">(c3e885845)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(risk): booking cancellation risk scorer (heuristic v1) <span style="color:#aaa;font-size:0.78rem;">(e4f6f3795)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: client sentiment analysis engine (Phase 4 intelligence) <span style="color:#aaa;font-size:0.78rem;">(97e7f4798)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: loyalty program tier tracking + discount codes <span style="color:#aaa;font-size:0.78rem;">(77069e3e9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: Hale Scan Phase 2 — predictive intelligence layer <span style="color:#aaa;font-size:0.78rem;">(fa42abee5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: Claude API narrative generator for luxury itinerary narratives <span style="color:#aaa;font-size:0.78rem;">(997f71f3f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: OpenCode Lifecycle Architecture — phase engine + touchpoint event wiring <span style="color:#aaa;font-size:0.78rem;">(a371c377d)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-06</strong> — fix(incubator): re-enable orphaned evening-review timer + fix query/timeout bugs <span style="color:#aaa;font-size:0.78rem;">(a4997771e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — Seamless Comms: Signal integration + Commander email auto-reply gap closed <span style="color:#aaa;font-size:0.78rem;">(c43db9a0c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — REVERIE productionization: pillar/traveler profiler, opening template library, chain-handoff engine, how-to guide <span style="color:#aaa;font-size:0.78rem;">(dc88e5876)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: Client Lifecycle Architecture -- config + phase assignment + orchestrator <span style="color:#aaa;font-size:0.78rem;">(d241ee02b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: First Persona Health Scorecard audit (July 2026 baseline) <span style="color:#aaa;font-size:0.78rem;">(26433b874)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: Bryana AgentMail usage monitoring — report script, quota log, brief hook <span style="color:#aaa;font-size:0.78rem;">(f49400bc7)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat(hale-bus): Unified C2 Fabric Phase 1 -- atomic writes + c2_fabric read/write API <span style="color:#aaa;font-size:0.78rem;">(78a34647c)</span></div></div>
+<div class="build-item"><span class="tag tag-ops">OPS</span><div class="item-body"><strong>2026-07-06</strong> — Codify Telegram vs AgentMail Rules of Engagement (SO 2026-07-06) <span style="color:#aaa;font-size:0.78rem;">(bc791d19c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — feat: Bryana AgentMail usage monitoring — report, dashboard, alerting <span style="color:#aaa;font-size:0.78rem;">(46410f804)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — AgentMail austerity measures: hard stop at 95, timer drift fix, status doc <span style="color:#aaa;font-size:0.78rem;">(337d2c9b7)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — Add Console/Email parity audit: script, standing order, baseline snapshot <span style="color:#aaa;font-size:0.78rem;">(9880d3bb7)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — Cruise Discovery: verify live infra, wire Dani inquiry detection (MISSION-804) <span style="color:#aaa;font-size:0.78rem;">(9a0a12f2a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-06</strong> — docs+feat(email): AgentMail Bold Uses infra — HTML alert template, cross-engine compose helper, persona capacity template <span style="color:#aaa;font-size:0.78rem;">(9539bd9a6)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$18,830.93</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">41 of 1174</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

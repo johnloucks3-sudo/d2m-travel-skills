@@ -2,91 +2,37 @@
  "explora": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 22,
+  "consecutive_failures": 25,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-02T01:16:33.265439+00:00",
+  "last_seen": "2026-07-10T20:34:04.415534+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "regent_direct": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 15,
+  "consecutive_failures": 18,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-02T08:23:23.294198+00:00",
+  "last_seen": "2026-07-10T20:34:38.594408+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "regent_oa": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 16,
+  "consecutive_failures": 19,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-02T02:50:30.919786+00:00",
+  "last_seen": "2026-07-10T20:34:47.637697+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "atlas": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 5,
-  "backoff_hours": 24.0,
-  "first_seen": "2026-07-01T01:31:55.612261+00:00",
-  "last_seen": "2026-07-02T01:16:31.103099+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "centrav": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T10:47:01.206215+00:00",
-  "last_seen": "2026-07-02T10:47:01.206234+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "room_res": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T10:47:26.912816+00:00",
-  "last_seen": "2026-07-02T10:47:26.912829+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "silversea": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T10:47:27.151276+00:00",
-  "last_seen": "2026-07-02T10:47:27.151284+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "kensington": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T10:47:27.204795+00:00",
-  "last_seen": "2026-07-02T10:47:27.204802+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "perx": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T10:47:27.655109+00:00",
-  "last_seen": "2026-07-02T10:47:27.655125+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "magtap": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 3,
-  "backoff_hours": 6.0,
-  "first_seen": "2026-07-02T12:19:24.576521+00:00",
-  "last_seen": "2026-07-02T12:19:24.576530+00:00",
+  "consecutive_failures": 4,
+  "backoff_hours": 12.0,
+  "first_seen": "2026-07-10T02:17:27.091912+00:00",
+  "last_seen": "2026-07-10T08:35:37.962448+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  }
 }

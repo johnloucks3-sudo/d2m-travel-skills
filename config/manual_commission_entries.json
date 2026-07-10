@@ -1,0 +1,4 @@
+{
+  "_doc": "Manual commission entries — Harlan (A9) enters a receipt here when a payment is confirmed (paper check, wire, host statement) but hasn't synced into TESS CheckReceived or the OA ledger yet. Read-only input to scripts/commission_reconciliation_monthly.py. Each entries[] item: {date (YYYY-MM-DD), client, booking_ref, supplier, amount_usd, note}. Append manually; do not auto-write.",
+  "entries": []
+}

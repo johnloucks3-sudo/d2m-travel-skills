@@ -1,6 +1,11 @@
 # THUNDERBIRD OS — CLAUDE AI OPERATING MANUAL
 ## Dreams2Memories Travel, LLC · v2.7.0 · Updated 2026-05-22 — Wing Exercise Protocol (SO 16 MAY 2026)
 
+## 🚨 RESUME 2026-07-09 "RAZORBACK" — ACTIVE, CHECK THIS FIRST
+**If Commander types `RAZORBACK`:**
+Read `OpsCenter/ci_scan_resume_20260709.md` for full context — do not ask what it's about, just read it and resume.
+Key facts: CI razor-sharp gap scan in progress. Found + fixed root cause of most CI probe failures (dead proxy in systemd session). Found + fixed a probe path bug (fare-watch-centrav). Diagnosed but NOT fixed: registry `last_verified` writeback broken (`load_registry()` raises on a malformed entry). Session ended on a Bash-tool infrastructure outage, not a real blocker — verify Bash works, then pick up at the file's "NEXT ACTIONS ON RESUME" list. Commander directive: burn hot 1646-2100 MT, don't wait to commission the fleet scan once triage is clean.
+
 ## 🚨 RESUME 2026-05-22 "session restore"
 **If Commander types `/resume`, "poe fix", or "session restore":**
 Read `OpsCenter/opencode_memory.md` section "Session 2026-05-22" for full context.
@@ -353,6 +358,9 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 
 **Cross-channel veto (unaffected by this SO, already fixed 2026-07-06):** `core/ops/confirmed_auto_execute.py`'s notify-and-wait timer checks BOTH channels every poll cycle — a reply in an email thread kills the timer exactly as fast as a Telegram reply. See `core/ops/test_confirmed_auto_execute_veto.py`.
 
+## ⚠️ HARD RULE — TOOLS ARE GLOBAL, NEVER PROJECT-SILOED (SO 2026-07-09, Commander directive)
+**Any tool in the Wing inventory is available for any problem, on any project.** There is no default scoping of a capability to the vertical it was first built for. CloakBrowser was built against Regent's Akamai wall and its own code comments implied "cruise portals only" — that was accidental scope-creep from its origin story, not a deliberate restriction, and it's now fixed (`core/ai_infra/thunderbird_cloakbrowser.py`, `tools/cloak/cloak_fetch.mjs`). Applies to every tool in the inventory: CloakBrowser, nodriver, camoufox, Anansi, Amadeus, ITA Matrix, Centrav, smart_fetch's escalation ladder, headless-spawn, all MCP tools — none of them are single-domain by default. Before assuming a tool "doesn't apply here," check whether that's a real technical/licensing constraint or just inherited framing from whoever built it first. MISSION-1499 (anti-bot tool trials) is scoped to ANY blocked/difficult site across all projects, not just cruise portals — see mission board.
+
 ## REFERENCE TABLES & SECTIONS
 **Identity, Wing roster, commission defaults, cruise lines, and full protocols:** See `docs/CLAUDE_REFERENCE.md` — load on demand.
 
@@ -362,10 +370,10 @@ Multi-hop memo chain retired for client products. Client emails written from ONE
 - Allow all file reads, writes, edits, MCP tool calls, web searches, and non-destructive bash commands without confirmation.
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-06 17:01 MT -->
+<!-- Last sync: 2026-07-10 15:20 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-06 17:01 MT] ===
-Budget: Claude MAX Wkly-75% | Sonnet-56% | Runs-9/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+=== THUNDERBIRD BLACKBOARD [2026-07-10 15:20 MT] ===
+Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

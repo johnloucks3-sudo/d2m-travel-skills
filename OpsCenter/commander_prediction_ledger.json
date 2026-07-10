@@ -222,5 +222,201 @@
     "status": "open",
     "resolved_date": null,
     "resolution_note": null
+  },
+  {
+    "id": "DA-MISSION-802-ITINERARY-BUILD",
+    "date_predicted": "2026-07-08",
+    "predicted_action": "You'll act on: MISSION-802 \u2014 Furlow/Ely-Darrow/Nichols Group HTML Itinerary BUILD DUE TODAY.\n30-day send target: Jul 29 (30 days before Aug 29 sail). 7-day review window starts now.\nBuild: day-by",
+    "basis": "Scheduled deferred_alert, trigger_date=2026-07-22 (in 14d), priority=P1",
+    "confidence": "CONFIRMED",
+    "domain": "Hale",
+    "source_files": [
+      "hale_state.json#deferred_alerts"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-90181",
+    "date_predicted": "2026-07-08",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 4x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-08T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-62913",
+    "date_predicted": "2026-07-08",
+    "predicted_action": "Next suspense likely to pull your attention: New-Tech Scout / Watch-list / Integration last re-evaluated 18d ago (cadence: 14d)",
+    "basis": "heartbeat_scan_latest.json (2026-07-08T09:00), category=stale_ci_tool, action=Route to Whetstone for currency check",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-61689",
+    "date_predicted": "2026-07-08",
+    "predicted_action": "Next suspense likely to pull your attention: Armed Overwatch (Self-Observability F2T2EA) last re-evaluated 18d ago (cadence: 14d)",
+    "basis": "heartbeat_scan_latest.json (2026-07-08T09:00), category=stale_ci_tool, action=Route to Whetstone for currency check",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-21045",
+    "date_predicted": "2026-07-09",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-09T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-27490",
+    "date_predicted": "2026-07-09",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 29x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-09T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-35370",
+    "date_predicted": "2026-07-09",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 28x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-09T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "P0AGE-MISSION-1509",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "You'll ask for status on: Send McLeod TP 1.1 Voyage Preview on July 7",
+    "basis": "P0 mission open 7d (created 2026-07-03), status=active",
+    "confidence": "INFERRED",
+    "domain": "Sterling",
+    "source_files": [
+      "OpsCenter/mission_board.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-80550",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-54592",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-44389",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-81826",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-61453",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-7754",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
   }
 ]

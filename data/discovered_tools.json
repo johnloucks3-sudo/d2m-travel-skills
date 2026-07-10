@@ -208,5 +208,41 @@
     "integration_path": "Use the REST API to call ToneMaster AI from the Python pipeline for tone adjustments.",
     "flag": "MONITOR",
     "discovered": "2026-06-30"
+  },
+  {
+    "name": "AI draft polish voice matching",
+    "url": null,
+    "cost": "free tier",
+    "capability": "Polishes drafts and matches a specific voice for correspondence.",
+    "d2m_score": 0,
+    "integration_path": null,
+    "discovered": "2026-07-09"
+  },
+  {
+    "name": "Open source LLM writing coach",
+    "url": null,
+    "cost": "open source",
+    "capability": "Provides tone correction and AI-powered writing assistance.",
+    "d2m_score": 0,
+    "integration_path": null,
+    "discovered": "2026-07-09"
+  },
+  {
+    "name": "Free tier AI correspondence editing",
+    "url": null,
+    "cost": "free tier",
+    "capability": "Offers AI-powered editing for business emails and correspondence.",
+    "d2m_score": 0,
+    "integration_path": null,
+    "discovered": "2026-07-09"
+  },
+  {
+    "name": "Phone native AI writing assistant voice controlled",
+    "url": null,
+    "cost": "included in existing subscriptions",
+    "capability": "Provides voice-controlled AI writing assistance directly on a phone.",
+    "d2m_score": 0,
+    "integration_path": null,
+    "discovered": "2026-07-09"
   }
 ]

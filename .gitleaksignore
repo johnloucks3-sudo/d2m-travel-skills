@@ -1,5 +1,18 @@
 intel/daily_search/wave6_2026-06-21_1411.json:generic-api-key:726
 
+# OpsCenter/state/twilio_sms_registration.json — Twilio TrustHub resource SIDs
+# (EndUser/TrustProduct/Address identifiers, e.g. IT.../BU.../AD...). These are
+# opaque resource IDs, not secrets -- they require the separately-held Account
+# SID + Auth Token (in .env, gitignored) to be usable for anything. False
+# positive from gitleaks' generic entropy rule. Added 2026-07-10.
+OpsCenter/state/twilio_sms_registration.json:generic-api-key:9
+
+# docs/PROCEDURE_POST_VOYAGE_SURVEY_DEPLOYMENT.md line 199 — "ERIK:wrongpass"
+# is the documented NEGATIVE test case (verify a wrong password returns 401),
+# not a real credential. Real password on the surrounding lines already
+# redacted. Added 2026-07-10.
+docs/PROCEDURE_POST_VOYAGE_SURVEY_DEPLOYMENT.md:curl-auth-user:199
+
 # deploy/searxng/settings.yml — SearXNG server HMAC secret_key committed 2026-07-03.
 # Key rotated in-place (new random value committed 2026-07-10). Historical commit
 # f22e8d89 suppressed here; old key was never pushed to GitHub (origin froze 2026-06-12).

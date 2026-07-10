@@ -1,0 +1,14 @@
+{
+  "trust_product_sid": "BUee925add94a4c67a4fed4bdda26300c2",
+  "policy": "Sole Proprietor TrustProduct (RN670d5d2e282a6130ae063b234b6019c8)",
+  "brand_name": "Dreams2Memories Travel",
+  "submitted_at": "2026-07-10T21:02:30Z",
+  "status_at_submit": "in-review",
+  "next_step": "Commander must respond to Twilio OTP verification sent to +17192910742 within 24h of submission",
+  "sole_prop_end_user_sid": "IT4598b5007169151241227b77a02f4770",
+  "auth_rep_end_user_sid": "IT4e2179cbdcb8db04df5d22d59f130864",
+  "address_sid": "AD20af3b062ec9ee2990460df2cb13ffdc",
+  "linked_starter_profile_sid": "BU1d911ecbf8907f8f9fedc6a535e4ccab",
+  "no_ein_used": true,
+  "notes": "Sole Proprietor path chosen because D2M has no EIN on file anywhere in Thunderbird (GRANT_PHASE0_CHECKLIST.md lists it as an open TODO). Once approved, still need to: create Messaging Service, register A2P Campaign referencing this brand, attach +17195815364 to the campaign, then real SMS should clear the A2P block."
+}

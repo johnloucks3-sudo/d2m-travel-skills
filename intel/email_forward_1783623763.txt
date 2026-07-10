@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-09 19:01 UTC — 4 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-09T19:02:43.459754+00:00
+
+TECH SCAN — 2026-07-09 19:01 UTC
+airborne scanner pulse · 15 finds · sectors claude-code, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 4 TRIAL · 10 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: AI-powered job application framework built on Claude Code — https://github.com/MadsLorentzen/ai-job-search
+↳ real tool (framework, github.com) — worth a bounded look
+Show HN: Subagentmaxxing – Orchestrate GPT and Cursor Models with Claude Code — https://github.com/Kuberwastaken/subagentmaxxing
+↳ real tool (github.com) — worth a bounded look
+Show HN: Internationalizationstack – Fix AI Localization Bugs in Claude Code — https://github.com/i18n-agent/i18nstack
+↳ real tool (github.com) — worth a bounded look
+Opendray – run Claude Code/Codex agents on your own box, drive from anywhere — https://github.com/Opendray/opendray
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Anthropic just benchmarked "Fable 5 orchestrates, cheap models execute": 96% of the performance at 4
+Show HN: Finterm.ai Finance CLI for Claude Code and Codex — https://news.ycombinator.com/item?id=48850527
+Show HN: Outside Agent – Build SMS Agents from Claude Code — https://outsideagent.ai/
+Show HN: Papercrane-CLI – a BI tool built for Claude Code — https://papercrane.ai/blog/today-im-launching-pape
+Show HN: Policy enforcement for Claude Code, Cursor, and Codex — https://kastra.ai/
+Empace – Claude Code for Runners — https://empace.app/
+China issues 'backdoor' security alert over Anthropic's Claude Code — https://www.reuters.com/legal/litigation
+My repository isn't written for humans — I run my whole life with Claude Code — https://dev.to/takotyan00/my-r
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Fable, Opus, Claude Code and Claude Web: How to Use Them All for the Best Result — https:/
+RAW — all finds this pulse (unfiltered)[claude-code] Anthropic just benchmarked "Fable 5 orchestrates, cheap models execute": 96% of the performance at 46% of the  (Reddit r/ClaudeAI)
+[claude-code] Show HN: Finterm.ai Finance CLI for Claude Code and Codex — https://news.ycombinator.com/item?id=48850527 (Hacker News — Claude Code)
+[voice] Show HN: Outside Agent – Build SMS Agents from Claude Code — https://outsideagent.ai/ (Hacker News — Claude Code)
+[claude-code] Show HN: AI-powered job application framework built on Claude Code — https://github.com/MadsLorentzen/ai-job-search (Hacker News — Claude Code)
+[claude-code] Fable, Opus, Claude Code and Claude Web: How to Use Them All for the Best Result — https://theautomatedoperator.substack (Hacker News — Claude Code)
+[claude-code] Show HN: Subagentmaxxing – Orchestrate GPT and Cursor Models with Claude Code — https://github.com/Kuberwastaken/subagen (Hacker News — Claude Code)
+[claude-code] Show HN: Papercrane-CLI – a BI tool built for Claude Code — https://papercrane.ai/blog/today-im-launching-papercrane-cli (Hacker News — Claude Code)
+[claude-code] Show HN: Policy enfo

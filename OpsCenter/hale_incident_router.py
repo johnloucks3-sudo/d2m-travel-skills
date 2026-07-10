@@ -169,7 +169,7 @@ def page_commander(event: dict, reason: str) -> None:
     ONE AND DONE (2026-07-04, Silver/A7): replaces the old time-based 60-min
     cooldown, which was level-triggered and re-paged hourly for as long as an
     incident stayed unresolved (same "cooldown ≠ one-time gate" bug flagged in
-    silver_ground_truth.md #2). Now edge-triggered: page once per signature and
+    rocket_ground_truth.md #2). Now edge-triggered: page once per signature and
     stay silent while the incident persists unchanged. Re-page only if the
     escalation reason changes (incident actually changed/escalated) OR the
     incident cleared and recurred (a gap in its occurrence history)."""

@@ -1,0 +1,33 @@
+{
+  "generated": "2026-07-08T12:22:07.423694",
+  "route": "DEN-GRB",
+  "outbound": "2026-09-06",
+  "return": "2026-09-14",
+  "successful_sites": [
+    {
+      "key": "kayak_rt",
+      "label": "Kayak (RT)",
+      "url": "https://www.kayak.com/flights/DEN-GRB/2026-09-06/2026-09-14?adults=2"
+    },
+    {
+      "key": "united_outbound",
+      "label": "United (OW Outbound)",
+      "url": "https://www.united.com/en/us/fares?origin=DEN&destination=GRB&outbound=2026-09-06&return=2026-09-14&adults=2"
+    },
+    {
+      "key": "google_flights_rt",
+      "label": "Google Flights (RT)",
+      "url": "https://www.google.com/flights?fPrt1=DEN&fPrt2=GRB&d1=2026-09-06&r1=2026-09-14"
+    },
+    {
+      "key": "skyscanner_rt",
+      "label": "Skyscanner (RT)",
+      "url": "https://www.skyscanner.com/transport/flights/DEN/GRB/2026-09-06/?adults=2&childrensAges=&infants=0"
+    },
+    {
+      "key": "united_return",
+      "label": "United (OW Return)",
+      "url": "https://www.united.com/en/us/fares?origin=GRB&destination=DEN&outbound=2026-09-14&adults=2"
+    }
+  ]
+}

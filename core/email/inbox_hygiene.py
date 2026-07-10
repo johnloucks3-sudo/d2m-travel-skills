@@ -8,13 +8,16 @@ Protocol (per Commander directive 2026-05-30):
   2. Find known clutter patterns → label + trash
   3. Auto-delete handled by Gmail 30-day trash policy
 
-Run via timer: d2m-inbox-hygiene.timer (every 10 min)
+Run via timer: inbox-hygiene.timer (every 30 min)
 """
 
 import logging
+import socket
 import sys
 from datetime import datetime
 from pathlib import Path
+
+socket.setdefaulttimeout(30)
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -161,8 +164,12 @@ def run():
         log.warning("d2mconcierge service unavailable — skipping")
 
     log.info(f"=== Done. {total} messages trashed. ===")
-    return total
+    return svc_jl, svc_d2m, total
 
 
 if __name__ == "__main__":
-    run()
+    _jl, _d2m, _total = run()
+    if _jl is None and _d2m is None:
+        log.error("Both accounts unavailable — exiting 1")
+        sys.exit(1)
+    sys.exit(0)

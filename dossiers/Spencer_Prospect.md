@@ -76,8 +76,18 @@ Grand Tour planning in progress. Preliminary interests captured in planning pack
 > **Addl intel 2026-07-03 12:07 (Hale):** (1) "Grandparents will be there on the way to Rome to divide and conquer 😉" — Bill and Kathleen will actively help Tim manage James (5) and Judah (2) during Leg 1 DEN→FCO. Note for seating: keep grandparents proximate to Tim's family despite cabin split (PE vs PE+). (2) Bill intends to review client portal before tomorrow (Jul 4) — portal must be live NOW. (3) Cabin assignment confirmed in writing by client: **Mike Yaggi (4) BC · Tim Spencer (4) PE+ · Bill/Kathleen/Billy/Amanda (4) PE.** This is the source of truth; all docs updated as of 2026-07-03 morning session. (4) Tone signal: Bill is engaged, warm, and comfortable — "Blessings, Bill (decidedly not AI)" and the "granularity" callback indicate a client who is on board and enjoying the process.
 
 
+**Jul 04 — Bill Spencer** (Re: Re: Spencer Grand Tour 2027 — Per-Family Cost Breakdown)
+> Jul 04 — Bill Spencer (Acknowledgment email) Re: Spencer Grand Tour 2027 — Per-Family Cost Breakdown
+> 2026-07-04 08:23 | Bill confirmed receipt of per-family cost breakdown, stated 'This is very helpful.' Warm holiday greeting; indicated 'More to come' (family decisions pending review before lunch). No questions or concerns raised. Client in active review phase. Tone: engaged, collaborative, positive. Lunch meeting Tuesday Jul 7 at noon Coffee Cup Cafe, Monument CO remains confirmed.
+
 ### OPEN ACTION ITEMS
 - [ ] TASK: Re-quote airfare for all three legs with corrected cabin mix (Mike BC 4pax | Tim PE+ 4pax | remainder PE 4pax) (auto-intel Jul 03)
+
+- [ ] PREPARE: Cost-cutting alternatives and itemized breakdown for Tuesday lunch discussion if requested (auto-intel Jul 04)
+
+- [ ] VERIFY: Client portal live and login credentials prepared for Bill before Tuesday lunch (auto-intel Jul 04)
+
+- [ ] MONITOR: Inbox watch for Bill's follow-up email with family selections (ETA before 07-07 lunch) (auto-intel Jul 04)
 
 - [ ] TASK: Activate client portal website before confirmed lunch date; send Bill login credentials (auto-intel Jul 03)
 

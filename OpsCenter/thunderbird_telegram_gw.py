@@ -187,7 +187,8 @@ _load_env_file("/home/john/Thunderbird/.env")
 _load_env_file("/home/john/Thunderbird/config/telegram_gw.env")
 
 TOKEN_D2MC2C = os.environ.get("TELEGRAM_D2MC2C_TOKEN", "")
-TOKEN_HALE   = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")   # HaleD2M — Hale chat
+TOKEN_HALE   = os.environ.get("TELEGRAM_GOOSE_TOKEN", "")   # Goose bot — Wing Bridge
+HALE_CHAT_ID = int(os.environ.get("TELEGRAM_HALE_CHAT_ID", "0"))  # Wing Bridge group
 TOKEN_DANI   = os.environ.get("TELEGRAM_DANI_TOKEN", "")
 TOKEN_RELAY  = os.environ.get("TELEGRAM_RELAY_TOKEN", "")   # D2M Channels — system relay
 RELAY_CHAT_ID = int(os.environ.get("TELEGRAM_RELAY_CHAT_ID", "0"))
@@ -299,6 +300,7 @@ DANI_CLIENT_PROMPT = """You are Dani Moreau — Luxury AI Travel Concierge for D
 
 YOUR ROLE WITH CLIENTS:
 - You are a warm, knowledgeable luxury travel concierge. You help with cruise Q&A, ship comparisons, destination questions, booking processes, and general travel advice.
+- You have WebSearch available for general public cruise-industry knowledge (CLIA terminology, cruise line history, destination info, industry news). Use it when a real lookup would give a better answer than your own memory — don't guess or decline when a quick search would settle it.
 - You call clients by name, remember details, and keep responses mobile-friendly (≤4096 chars, scannable).
 - Sign-off: "Thanks" or "Thank you" — NEVER "Best."
 
@@ -491,7 +493,7 @@ def tg(token: str, method: str, **kwargs) -> dict:
 
 def tg_get_updates(token: str, offset: int) -> list[dict]:
     """Long-poll getUpdates (timeout=25). Holds connection; Telegram pushes on new messages."""
-    data = tg(token, "getUpdates", offset=offset, timeout=25, limit=20)
+    data = tg(token, "getUpdates", offset=offset, timeout=15, limit=20)
     if data.get("ok"):
         return data.get("result", [])
     return []
@@ -1074,7 +1076,11 @@ def _build_dani_claude_prompt(context_text: str, message: str) -> str:
     return "".join(parts)
 
 
-_DANI_SANDBOX_FLAGS = ["--tools", ""]  # disables all tools; no --dangerously-skip-permissions needed
+_DANI_SANDBOX_FLAGS = ["--tools", "WebSearch"]  # FIXED 2026-07-10: was ["--tools", ""] --
+# zero tools at all, including WebSearch. Real root cause of "Dani did not answer" when
+# Bryana (non-Commander) asked a general cruise-industry-knowledge question (CLIA glossary)
+# that benefits from a live lookup. WebSearch only -- still no Bash/Read/Write/Edit, so no
+# path to Wing internals or client dossiers/financial data. Public-web-only capability.
 
 
 def call_claude_engine(
@@ -2447,23 +2453,30 @@ def send_to_relay(message: str, source: str = "SYSTEM") -> bool:
 
 def relay_poll_loop() -> None:
     """
-    D2M Channels relay thread — OC↔CC bidirectional communication.
+    D2M System relay thread (write-only) + Wing Bridge OC↔CC relay.
 
-    Two event sources:
-    1. Telegram D2M Channels: Commander-sent @CC: and @OC: directives
-    2. relay_queue.jsonl: messages from OC→CC (file-based, since bots can't
-       receive their own messages via getUpdates)
+    Event source:
+      relay_queue.jsonl: messages from OC→CC (file-based, since bots can't
+      receive their own messages via getUpdates)
 
-    All responses posted to D2M Channels for Commander visibility.
+    Commander input is NOT polled here — @CC:/@OC: directives are received
+    exclusively via D2MC2C (bot_poll_loop).
+
+    OC↔CC relay responses go to Wing Bridge (Goose bot).
+    System messages go to D2M System (@d2m_channels_bot) via send_to_relay().
     """
-    log.info("[Relay] D2M Channels OC↔CC relay starting (chat_id=%d)", RELAY_CHAT_ID)
+    log.info("[Relay] Wing Bridge OC↔CC relay starting (wing_bridge=%d | system=%d)",
+             HALE_CHAT_ID, RELAY_CHAT_ID)
 
     relay_queue = THUNDERBIRD / "OpsCenter" / "relay_queue.jsonl"
     oc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
     cc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "claude_inbox.md"
 
-    offset   = 0
     _backoff = 5
+
+    if not TOKEN_HALE or not HALE_CHAT_ID:
+        log.warning("[Relay] Wing Bridge not configured (TOKEN_HALE=%s, HALE_CHAT_ID=%s)",
+                    bool(TOKEN_HALE), HALE_CHAT_ID)
 
     def _drain_relay_queue():
         """Process pending OC→CC messages from relay_queue.jsonl."""
@@ -2511,13 +2524,13 @@ def relay_poll_loop() -> None:
                     changed = True
                     continue
 
-            tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+            tg_send(TOKEN_HALE, HALE_CHAT_ID,
                     f"📨 <b>[{from_app}→CC]</b> #{msg_id} received — processing...")
 
             prompt   = _build_hale_claude_prompt("", f"[From {from_app}] {message}")
             response = call_claude_engine(prompt, model=HAIKU_MODEL)
 
-            tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
+            tg_send(TOKEN_HALE, HALE_CHAT_ID,
                     f"✅ <b>[CC→{from_app}]</b> #{msg_id}\n{response[:3600]}")
 
             ts = __import__("datetime").datetime.now(
@@ -2554,63 +2567,12 @@ def relay_poll_loop() -> None:
         except Exception as e:
             log.error("[Relay] Queue drain error: %s", e)
 
-        # ── Source 2: Telegram D2M Channels (Commander @CC:/@OC: directives) ─
-        try:
-            updates = tg_get_updates(TOKEN_RELAY, offset=offset)
-            _backoff = 5
-        except Exception as e:
-            log.error("[Relay] getUpdates exception: %s", e)
-            time.sleep(_backoff)
-            _backoff = min(_backoff * 2, 60)
-            continue
+        # ── Source 2 removed — Commander input comes only via D2MC2C ────────
+        # The old getUpdates polling loop for @CC:/@OC: directives has been
+        # removed. Commander sends directives via D2MC2C (@d2m_hale_bot).
 
-        for update in updates:
-            # M-153 — per-update guard (same rationale as bot_poll_loop): a
-            # malformed update or an inline engine failure must not kill the
-            # relay thread.
-            try:
-                offset = update["update_id"] + 1
-            except Exception as e:
-                log.error("[Relay] Malformed update (no update_id): %s", e)
-                continue
-            try:
-                msg_obj = update.get("message") or update.get("channel_post")
-                if not msg_obj:
-                    continue
-                user_id = msg_obj.get("from", {}).get("id", 0)
-                text = msg_obj.get("text", "").strip()
-                if not text:
-                    continue
-
-                # Only process Commander's @CC:/@OC: directives
-                if user_id != COMMANDER_ID:
-                    continue
-
-                if text.upper().startswith("@CC:"):
-                    task = text[4:].strip()
-                    log.info("[Relay] Commander @CC: %s...", task[:60])
-                    tg_typing(TOKEN_RELAY, RELAY_CHAT_ID)
-                    prompt = _build_hale_claude_prompt("", task)
-                    response = call_claude_engine(prompt, model=HAIKU_MODEL)
-                    tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                            f"<b>[CC]</b> {response[:3800]}")
-                    continue
-
-                if text.upper().startswith("@OC:"):
-                    task = text[4:].strip()
-                    log.info("[Relay] Commander @OC: forwarding to OC inbox")
-                    ts = __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M")
-                    try:
-                        with open(oc_inbox, "a") as f:
-                            f.write(f"\n---\n## COMMANDER→OC — {ts}\n{task}\n")
-                        tg_send(TOKEN_RELAY, RELAY_CHAT_ID,
-                                f"<b>[Relay→OC]</b> Queued in OC inbox: {task[:100]}")
-                    except Exception as e:
-                        log.error("[Relay] OC inbox write failed: %s", e)
-                    continue
-            except Exception as e:
-                log.error("[Relay] Update dispatch failed (continuing): %s", e)
-                continue
+        # Check queue every 15 seconds
+        time.sleep(15)
 
         # Check queue every 15 seconds
         time.sleep(15)
@@ -2826,4 +2788,43 @@ if __name__ == "__main__":
         ok = send_media_group_to_commander(args.media, caption=args.caption, source=args.source)
         sys.exit(0 if ok else 1)
 
-    main()
+    # 2026-07-10 — diagnostic wrapper added after an unexplained restart pattern
+    # (57 restarts/5 days, zero tracebacks, zero OOM evidence, zero "Main process
+    # exited" lines from systemd — the process was dying with NO diagnostic trail
+    # anywhere). This closes that gap: any signal or uncaught exception is now
+    # logged with full detail to a dedicated file BEFORE the process exits, so
+    # the next occurrence is actually diagnosable instead of a silent gap.
+    import signal as _signal
+    import traceback as _traceback
+
+    _DIAG_LOG = Path("/home/john/Thunderbird/logs/telegram_gw_death_diagnostic.log")
+
+    def _log_death(reason: str) -> None:
+        try:
+            _DIAG_LOG.parent.mkdir(parents=True, exist_ok=True)
+            with open(_DIAG_LOG, "a") as f:
+                f.write(f"\n=== {datetime.now().isoformat()} — PROCESS EXITING: {reason} ===\n")
+                f.write(f"PID={os.getpid()}\n")
+                f.write("Stack of all threads at exit:\n")
+                for tid, frame in sys._current_frames().items():
+                    f.write(f"--- thread {tid} ---\n")
+                    f.write("".join(_traceback.format_stack(frame)))
+        except Exception:
+            pass  # diagnostic logging must never itself crash the process
+
+    def _signal_handler(signum, frame):
+        _log_death(f"received signal {signum} ({_signal.Signals(signum).name})")
+        sys.exit(128 + signum)
+
+    _signal.signal(_signal.SIGTERM, _signal_handler)
+    _signal.signal(_signal.SIGINT, _signal_handler)
+
+    try:
+        main()
+    except SystemExit:
+        raise
+    except BaseException as _fatal_exc:
+        _log_death(f"uncaught exception in main(): {_fatal_exc!r}")
+        with open(_DIAG_LOG, "a") as f:
+            f.write(_traceback.format_exc())
+        raise

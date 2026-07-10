@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-05 11:00 UTC — 6 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-05T11:00:50.304628+00:00
+
+TECH SCAN — 2026-07-05 11:00 UTC
+airborne scanner pulse · 10 finds · sectors agentic, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 6 TRIAL · 3 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:_A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.com/docs/),
+↳ real tool (github.com) — worth a bounded look
+- [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current single-pa
+↳ real tool (mcp, github.com) — worth a bounded look
+Show HN: Routing24 – free route optimization agent for Claude Cowork/WebMCP — https://github.com/routing24/skill
+↳ real tool (skill, mcp, github.com) — worth a bounded look
+Show HN: Mycelium – AI agent plugin guiding you from purpose to market — https://github.com/haabe/mycelium
+↳ real tool (plugin, github.com) — worth a bounded look
+Show HN: An MCP server that gives your AI assistant write access to /etc./hosts — https://www.lockinmcp.com
+↳ real tool (server, mcp) — worth a bounded look
+Show HN: Crew – Let Claude Code agents talk to each other — https://github.com/0xmmo/crew
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Show HN: Local MCP – Claude/ChatGPT read your iMessage, Teams, files on-device — https://www.local-mcp.com/en
+A Conflict-Free Multi-Agent Ensemble for Claude and Codex — https://medium.com/@Koukyosyumei/a-conflict-free-m
+What 12 failure classes and 30 Billion tokens spent taught us about trusting AI coding agents — https://dev.to
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: How Do You Connect OpenAI Secure MCP Tunnel with Claude Desktop — https://news.yco
+RAW — all finds this pulse (unfiltered)[agentic] _A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.c (awesome-claude-code)
+[agentic] - [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current (awesome-claude-code)
+[mcp] Ask HN: How Do You Connect OpenAI Secure MCP Tunnel with Claude Desktop — https://news.ycombinator.com/item?id=48791510 (Hacker News — Claude Code)
+[mcp] Show HN: Local MCP – Claude/ChatGPT read your iMessage, Teams, files on-device — https://www.local-mcp.com/en (Hacker News — Claude Code)
+[agentic] Show HN: Routing24 – free route optimization agent for Claude Cowork/WebMCP — https://github.com/routing24/skill (Hacker News — Claude Code)
+[agentic] Show HN: Mycelium – AI agent plugin guiding you from purpose to market — https://github.com/haabe/mycelium (Hacker News — Claude Code)
+[mcp] Show HN: An MCP server that gives your AI assistant write access to /etc./hosts — https://www.lockinmcp.com (Hacker News — Claude Code)
+[agentic] Show HN: Crew – Let Claude Code agents talk to each other — https://github.com/0xmmo/crew (Hacker News — Claude Code)
+[agentic] A Conflict-Free Multi-Agent Ensemble for Clau

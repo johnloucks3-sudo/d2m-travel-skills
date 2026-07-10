@@ -50,7 +50,9 @@ class ModelTier(Enum):
 MODEL_STRATEGY = {
     ModelTier.SONNET_MAX_LARGE.value: {
         "provider": "anthropic",
-        "model_id": "claude-sonnet-4-6",
+        "model_id": "sonnet",  # alias, not a pinned snapshot — CLI resolves to current
+        # latest Sonnet at spawn time (was hardcoded "claude-sonnet-4-6", a stale
+        # pinned name two generations behind; fixed 2026-07-08, see hale_decisions.md)
         "context": "200K tokens",
         "cost_per_M": 0,
         "input_cost": 0,

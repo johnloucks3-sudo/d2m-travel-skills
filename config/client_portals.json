@@ -54,6 +54,15 @@
     "added": "2026-07-03",
     "note": "Grandeur Storied Scandinavia, suite 939, booking 3078056. Heidi birthday Aug 29 embark day. Per-couple portal (segregated). Ground truth: dossiers/Nichols_Regent_3078056.md + group tracker."
   },
+  "mcleod-survey.d2mluxury.quest": {
+    "slug": "mcleod-silvermuse-postsurvey",
+    "name": "Erik McLeod & Melissa McGlasson — Silver Muse Post-Voyage Survey",
+    "dir": "output/McLeod_SilverMuse_PostSurvey",
+    "user": "ERIK",
+    "pw": "260618-MUSE",
+    "added": "2026-07-08",
+    "note": "TP 5.2 post-voyage survey for Silver Muse Mediterranean (Jun 23-Jul 3, 2026). Standalone survey page, not the queued 4-cruise mcleod.d2mluxury.quest hub. Submit action opens mailto: to concierge@d2mluxury.quest with compiled answers (static file server has no form backend)."
+  },
   "_queued": {
     "mcleod.d2mluxury.quest": "ONE page, all 4 cruises — build after Loucks test passes",
     "kuklinski-kyle.d2mluxury.quest": "per-suite page 1 of 3",

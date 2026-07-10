@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jun 28–Jul 04, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jun 28–Jul 04, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-04 17:54 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>178</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$18,831</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>31</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-06-28 → 2026-07-04 · 178 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(ci): real qdrant-memory capability probe + OC/CC memory write-back contract <span style="color:#aaa;font-size:0.78rem;">(c8eeefa72)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(qdrant): MCP qdrant-find/store was completely broken — named vs unnamed vector mismatch <span style="color:#aaa;font-size:0.78rem;">(765336727)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(ops): OpenCode parity — bus was stale + OC never called it, mission cleanup <span style="color:#aaa;font-size:0.78rem;">(36c0a76bd)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(hale): file:// links on every brief line, harden TERMINAL_STATUSES <span style="color:#aaa;font-size:0.78rem;">(0927735bd)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(brief): 78 overdue AM items were mostly false positives, redesign brief around validated heartbeat layer <span style="color:#aaa;font-size:0.78rem;">(e6bda1b39)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(hale): add overdue-suspense scan — the exact login-check Commander asked for <span style="color:#aaa;font-size:0.78rem;">(c6836930f)</span></div></div>
+<div class="build-item"><span class="tag tag-ops">OPS</span><div class="item-body"><strong>2026-07-04</strong> — docs(ops): DNS 525 fix verified, spin off homepage build as MISSION-1539 <span style="color:#aaa;font-size:0.78rem;">(e459dc956)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(ops): execute decision matrix — Regent monitoring, Spencer call, DNS, cred rotation <span style="color:#aaa;font-size:0.78rem;">(eac016e1c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(hale): wire between-sessions heartbeat scan — 4x/day 0300/0900/1500/2100 MT <span style="color:#aaa;font-size:0.78rem;">(5a5fa31e4)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(creds): kill the credential doomsday — 5 of 6 alarms were false or duplicate <span style="color:#aaa;font-size:0.78rem;">(3256459f1)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(email): cap directive sweep at one d2mc dispatch per run <span style="color:#aaa;font-size:0.78rem;">(129c7a94a)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(email): Commander replies to wing reports no longer skip-labeled — 2026-07-04 incident <span style="color:#aaa;font-size:0.78rem;">(cedd5cc5e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(web): d2mluxury.quest/american-spirit — public open hosting of the family American Spirit page <span style="color:#aaa;font-size:0.78rem;">(936fb673f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — archive: family remembrance email + American Spirit interactive page (2026-07-04) <span style="color:#aaa;font-size:0.78rem;">(a7ceda50d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — hale+silver: joint ownership of the seminal docs — humanized, coordinated, not decorative <span style="color:#aaa;font-size:0.78rem;">(d203b71e0)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: D2M vision interpreted, knowing him — grant narrative + CCP + Flight Plan synthesized <span style="color:#aaa;font-size:0.78rem;">(76fa58c8a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: yardsticks layer — trace work to Flight Plan/Campaign Plan/CCP (Commander directive 2026-07-04) <span style="color:#aaa;font-size:0.78rem;">(f402be0ee)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(nomination): 2x/day, 12h apart, half the sector list each — total daily coverage <span style="color:#aaa;font-size:0.78rem;">(205fb5a19)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(follow-up): close 2 gaps flagged by the fixing agents themselves <span style="color:#aaa;font-size:0.78rem;">(1cddf2e0a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: ground truth updated with full 12-fix session tally <span style="color:#aaa;font-size:0.78rem;">(117770db9)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(staff-reports): decision-log parser+lock, 1730 nomination dead-key+lock, Dembe TP dedup <span style="color:#aaa;font-size:0.78rem;">(b7969f18f)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(telegram): ONE AND DONE dedup for 5 direct-to-D2MC2C scripts (bypassed wing_page.py gate) <span style="color:#aaa;font-size:0.78rem;">(828db9beb)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(quotes): ONE AND DONE for flight/Perx/cruise fare alerts + Silver verification stamp <span style="color:#aaa;font-size:0.78rem;">(28e5d4c5d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: real Command Chief Insignia image mark (Commander-supplied), email HTML + persona doc <span style="color:#aaa;font-size:0.78rem;">(48edc95ed)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: mark simplified to plain-text 'CHIEF SILVER' — no emoji, zero rendering ambiguity after 3 failed emoji attempts (star/feather/medal) <span style="color:#aaa;font-size:0.78rem;">(123cbe751)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: mark changed to 🎖️ (Command Chief Insignia) per Commander directive — fits the actual rank <span style="color:#aaa;font-size:0.78rem;">(e3874915c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — silver: symbol change to headdress emoji (🪶) per Commander directive; add audit reports <span style="color:#aaa;font-size:0.78rem;">(92d773a59)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(gmail): draft-ready Telegram notice now default-on, deep-link points at correct mailbox <span style="color:#aaa;font-size:0.78rem;">(c55b1da7c)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-04</strong> — fix(noise): ONE AND DONE — kill duplicate/flood messaging across mission board, inboxes, Gmail, Telegram <span style="color:#aaa;font-size:0.78rem;">(5a6c05fec)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — revert(mail): primary_router non-functional — Gmail blocks category-label removal via messages.modify; only a filter (settings scope) can route to Primary. Removed the broken timer. <span style="color:#aaa;font-size:0.78rem;">(9b7ae490e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-04</strong> — feat(mail): primary_router.py — strip category tabs off d2mconcierge->johnloucks3 mail so D2M internal lands in Primary (5-min timer); works within gmail.modify scope <span style="color:#aaa;font-size:0.78rem;">(c83431de7)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-03</strong> — silver: wire Command Chief check battery (silver_gate.py) + brutal-test refinements — count-match total-claims-only (killed FP), dossier ground-truth count, board hygiene; persona 30yr career + 2-Sterlings + visibility <span style="color:#aaa;font-size:0.78rem;">(2b0fc6266)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — persona: CMSgt Steve 'Silver' Sterling — Command Chief / the Overseer, cloned from Commander leadership DNA (influence-first, reserve authority, front+back verification). Flagged Sterling name collision w/ A7. <span style="color:#aaa;font-size:0.78rem;">(83c2a6b17)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-03</strong> — fix(qdrant-mcp): server crash on startup — remove FastMCP description kwarg + from __future__ import annotations (broke MCP SDK issubclass tool introspection); mounts -> .venv python. Qdrant DB was healthy; MCP wrapper was down on both engines <span style="color:#aaa;font-size:0.78rem;">(3452e01fb)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — doctrine: next-action-in-recap = authorization (Commander silence = cleared); dictated rule + memory <span style="color:#aaa;font-size:0.78rem;">(5bfc5db3e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — feat(ops): self_audit_gate.py — pre-done QC gate (ns-9ebfa45) <span style="color:#aaa;font-size:0.78rem;">(31b08b7a3)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — regent: agent-side profile/preferences depth tool + verified boundary (agent=booking-deep; prefs/tier/saved=guest-only) <span style="color:#aaa;font-size:0.78rem;">(b95ed8476)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-03</strong> — regent-portfolio: McLeod agent-side capture verified (booking-level visibility); Nancy Platinum practice note (WF-17 held) <span style="color:#aaa;font-size:0.78rem;">(363236094)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — regent-portfolio: Brief No.1 delivered (GO executed) — found Lyons Platinum-imminent; agent-portal full-base sweep queued as Run No.2 <span style="color:#aaa;font-size:0.78rem;">(bbf0fb134)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-03</strong> — point-paper: AI-originated project proposal pattern (front-end of loop) + first PP: Regent Portfolio Intelligence <span style="color:#aaa;font-size:0.78rem;">(deab6a48c)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$18,830.93</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">31 of 1152</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

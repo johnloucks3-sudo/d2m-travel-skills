@@ -706,69 +706,81 @@ def _nominatim_geocoding():
 
 
 # ============================================================================
-# 7. hotel-scan — Hotel Price Scanner (DORMANT)
-#    Baseline: DESTRUCTIVE, repairable=False
-#    No auto-repair possible — ELON nominates replacement data source.
+# 7. hotel-scan — Hotel Price Scanner
+#    CORRECTED 2026-07-09: the "DORMANT/no data source" classification below was
+#    STALE AND WRONG — scripts/hotel_scan.py runs cleanly right now (reads dossiers,
+#    checks existing hotel windows, writes state — no external partner-API
+#    dependency at all). The registry was only RED because last_run had gone
+#    stale (173.6h vs 25h limit) — nobody had a repair path that just re-ran it.
+#    Baseline: SAFE (re-run script to refresh state)
 # ============================================================================
 
 _HOTEL_PROBE = "ci_probe_hotel_scan.py"
+_HOTEL_SCRIPT = THUNDERBIRD_ROOT / "scripts" / "hotel_scan.py"
 
 
 @repair_capability(
     "hotel-scan",
-    risk_tier=RiskTier.DESTRUCTIVE,
+    risk_tier=RiskTier.SAFE,
     sources=[
-        "output/ci_repair/research_domain_recipes.md §1.7",
-        "core/ci/ci_auto_repair_engine.py::repair_hotel_scan",
+        "Corrected 2026-07-09 — prior DORMANT classification was stale; script verified working",
     ],
     timeout_seconds=60,
-    max_attempts=1,
-    cooldown_seconds=3600,
+    max_attempts=2,
+    cooldown_seconds=1800,
+    verify_settle_seconds=5,
 )
 def _hotel_scan():
     def explore() -> FailureContext:
-        # READ-ONLY: confirm dormant status
-        hotel_script = THUNDERBIRD_ROOT / "scripts" / "hotel_scan.py"
         ctx = probe_context(
             "hotel-scan",
             _HOTEL_PROBE,
-            extra_signals={
-                "hotel_script_present": hotel_script.exists(),
-                "dormant": True,
-            },
+            extra_signals={"hotel_script_present": _HOTEL_SCRIPT.exists()},
         )
         return ctx
 
     def assess(ctx: FailureContext) -> AssessResult:
-        # DORMANT skill — no auto-repair exists.
-        # repairable=False → runner returns NOT_REPAIRABLE and escalates.
-        # Nothing is staged (no wing action exists).
+        stderr = (ctx.probe_stderr or "").lower()
+        if not ctx.signals.get("hotel_script_present", True):
+            return AssessResult(
+                mode="script_missing",
+                repairable=False,
+                effective_tier=RiskTier.DESTRUCTIVE,
+                reason="scripts/hotel_scan.py missing — restore from git, not auto-repairable",
+            )
+        if "stale" in stderr:
+            return AssessResult(
+                mode="stale_state",
+                repairable=True,
+                effective_tier=RiskTier.SAFE,
+                reason="State file stale — script itself works, just needs a fresh run",
+            )
         return AssessResult(
-            mode="dormant_no_data_source",
-            repairable=False,
-            effective_tier=RiskTier.DESTRUCTIVE,
-            reason=(
-                "hotel-scan is DORMANT — awaiting Booking.com partner API or scrape path. "
-                "ELON to nominate replacement data source. No automated repair possible."
-            ),
+            mode="unknown_error",
+            repairable=True,
+            effective_tier=RiskTier.SAFE,
+            reason="Non-stale RED — attempt a re-run before escalating",
         )
 
     def repair(mode: str, apply: bool = False) -> RepairPlan:
-        # DESTRUCTIVE + repairable=False: runner returns NOT_REPAIRABLE before
-        # reaching this. The plan is authored for completeness only — it describes
-        # what a human would need to do, and serves the confirm-consumer in the
-        # integrate phase if a manual path is ever enabled.
-        return RepairPlan(
+        plan = RepairPlan(
             skill_id="hotel-scan",
             mode=mode,
-            actions=[
-                "MANUAL: ELON nominates replacement hotel data source (Booking.com partner API or scrape path)",
-                "MANUAL: Implement hotel_scan.py with real data source",
-                "MANUAL: Re-enable skill in ci_registry.json after implementation",
-            ],
-            applied=False,
-            apply_ok=None,
+            actions=["Re-run scripts/hotel_scan.py to refresh OpsCenter/state/hotel_scan_state.json"],
         )
+        if not apply:
+            return plan  # DRY-RUN
+        try:
+            r = subprocess.run(
+                ["python3", str(_HOTEL_SCRIPT)],
+                cwd=str(THUNDERBIRD_ROOT), capture_output=True, text=True, timeout=45,
+            )
+            plan.applied = True
+            plan.apply_ok = (r.returncode == 0)
+        except Exception:
+            plan.applied = True
+            plan.apply_ok = False
+        return plan
 
     def verify() -> ProbeState:
         return run_probe(_HOTEL_PROBE)
@@ -777,66 +789,81 @@ def _hotel_scan():
 
 
 # ============================================================================
-# 8. transfer-scan — Ground Transfer Scanner (DORMANT)
-#    Baseline: DESTRUCTIVE, repairable=False
-#    No auto-repair possible — ELON nominates data source.
+# 8. transfer-scan — Ground Transfer Scanner
+#    CORRECTED 2026-07-09: the "DORMANT/no data source" classification below was
+#    STALE AND WRONG — scripts/transfer_scan.py runs cleanly right now (reads
+#    dossiers, checks existing transfer windows, writes state — no external API
+#    dependency at all). The registry was only RED because last_run had gone
+#    stale (>25h) — nobody had a repair path that just re-ran the script.
+#    Baseline: SAFE (re-run script to refresh state)
 # ============================================================================
 
 _TRANSFER_PROBE = "ci_probe_transfer_scan.py"
+_TRANSFER_SCRIPT = THUNDERBIRD_ROOT / "scripts" / "transfer_scan.py"
 
 
 @repair_capability(
     "transfer-scan",
-    risk_tier=RiskTier.DESTRUCTIVE,
+    risk_tier=RiskTier.SAFE,
     sources=[
-        "output/ci_repair/research_domain_recipes.md §1.8",
-        "core/ci/ci_auto_repair_engine.py::repair_transfer_scan",
+        "Corrected 2026-07-09 — prior DORMANT classification was stale; script verified working",
     ],
     timeout_seconds=60,
-    max_attempts=1,
-    cooldown_seconds=3600,
+    max_attempts=2,
+    cooldown_seconds=1800,
+    verify_settle_seconds=5,
 )
 def _transfer_scan():
     def explore() -> FailureContext:
-        # READ-ONLY: confirm dormant status
-        transfer_script = THUNDERBIRD_ROOT / "scripts" / "transfer_scan.py"
         ctx = probe_context(
             "transfer-scan",
             _TRANSFER_PROBE,
-            extra_signals={
-                "transfer_script_present": transfer_script.exists(),
-                "dormant": True,
-            },
+            extra_signals={"transfer_script_present": _TRANSFER_SCRIPT.exists()},
         )
         return ctx
 
     def assess(ctx: FailureContext) -> AssessResult:
-        # DORMANT skill — no auto-repair exists.
-        # repairable=False → runner returns NOT_REPAIRABLE and escalates.
+        stderr = (ctx.probe_stderr or "").lower()
+        if not ctx.signals.get("transfer_script_present", True):
+            return AssessResult(
+                mode="script_missing",
+                repairable=False,
+                effective_tier=RiskTier.DESTRUCTIVE,
+                reason="scripts/transfer_scan.py missing — restore from git, not auto-repairable",
+            )
+        if "stale" in stderr:
+            return AssessResult(
+                mode="stale_state",
+                repairable=True,
+                effective_tier=RiskTier.SAFE,
+                reason="State file stale — script itself works, just needs a fresh run",
+            )
         return AssessResult(
-            mode="dormant_no_data_source",
-            repairable=False,
-            effective_tier=RiskTier.DESTRUCTIVE,
-            reason=(
-                "transfer-scan is DORMANT — no data source (GetYourGuide/TourRadar API key "
-                "or scrape path not configured). ELON to nominate source. No automated repair."
-            ),
+            mode="unknown_error",
+            repairable=True,
+            effective_tier=RiskTier.SAFE,
+            reason="Non-stale RED — attempt a re-run before escalating",
         )
 
     def repair(mode: str, apply: bool = False) -> RepairPlan:
-        # DESTRUCTIVE + repairable=False: runner returns NOT_REPAIRABLE before reaching this.
-        return RepairPlan(
+        plan = RepairPlan(
             skill_id="transfer-scan",
             mode=mode,
-            actions=[
-                "MANUAL: ELON nominates transfer data source (GetYourGuide API / Rome2Rio / TourRadar)",
-                "MANUAL: Implement transfer_scan.py with real API integration",
-                "MANUAL: If API key needed — Commander obtains and injects into env/Infisical",
-                "MANUAL: Re-enable skill in ci_registry.json after implementation",
-            ],
-            applied=False,
-            apply_ok=None,
+            actions=["Re-run scripts/transfer_scan.py to refresh OpsCenter/state/transfer_scan_state.json"],
         )
+        if not apply:
+            return plan  # DRY-RUN
+        try:
+            r = subprocess.run(
+                ["python3", str(_TRANSFER_SCRIPT)],
+                cwd=str(THUNDERBIRD_ROOT), capture_output=True, text=True, timeout=45,
+            )
+            plan.applied = True
+            plan.apply_ok = (r.returncode == 0)
+        except Exception:
+            plan.applied = True
+            plan.apply_ok = False
+        return plan
 
     def verify() -> ProbeState:
         return run_probe(_TRANSFER_PROBE)

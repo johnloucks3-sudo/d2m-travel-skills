@@ -1,0 +1,32 @@
+{
+  "mission_id": "MCLEOD-2984034-TP11-SEND",
+  "date_evaluated": "2026-07-08",
+  "alert_condition": "TP 1.1 draft staged 2026-06-24; contact hold lifted 2026-07-07 (client returned Silver Muse Jul 6)",
+  "decision": "IMMEDIATE_ACTION_REQUIRED",
+  "reasoning": "Contact hold expired yesterday (2026-07-07). Client returned from voyage. Draft is aged but within lifecycle window (TP 1.1 = Voyage Preview, pre-departure touchpoint). No blockers identified.",
+  "recommended_action": [
+    "1. Read johnloucks3 Gmail drafts; search subject 'Lesser Antilles'",
+    "2. Verify draft content: destination preview, excursion summary, dining confirmation, logistics check",
+    "3. Confirm Erik McLeod email address in dossier (McLeod_McGlasson_Multi.md)",
+    "4. Stage draft for Commander review with label THUNDERBIRD-Commander-Review",
+    "5. Notify Commander via email: 'McLeod TP 1.1 ready for send approval — client returned Jul 6, contact hold lifted'",
+    "6. Commander sends or requests revision"
+  ],
+  "blocker": null,
+  "next_step": "READ draft in johnloucks3 drafts; stage for WF-17",
+  "urgency": "P1",
+  "reason_urgent": "Voyage departs 19 Dec 2026 (162 days out). TP 1.1 is first touchpoint post-return; delayed send signals poor responsiveness.",
+  "independent_verification": {
+    "contact_hold_lifted": true,
+    "contact_hold_reason": "Client on Silver Muse Jun 23-Jul 6 (per hale_state.json deferred_alerts)",
+    "client_return_date": "2026-07-06",
+    "today": "2026-07-08",
+    "hold_expired": "2026-07-07",
+    "days_overdue": 1,
+    "draft_location": "johnloucks3@gmail.com drafts, subject ~'Lesser Antilles'",
+    "draft_staged_date": "2026-06-24",
+    "draft_age_days": 14
+  },
+  "wf17_gate_status": "AWAITING_COMMANDER_SEND",
+  "summary": "McLeod TP 1.1 Voyage Preview is ready to stage for Commander review. No technical or operational blocker. Recommend immediate handoff to WF-17 queue."
+}

@@ -27,8 +27,10 @@ PROXY_LOG     = Path("/home/john/Thunderbird/logs/max_proxy_requests.jsonl")
 PLAN_FILE     = Path("/home/john/Thunderbird/OpsCenter/claude_plan_usage.json")
 INGEST_TOKEN  = "yoda-grandeur"   # shared secret for POST /api/plan (costs.d2m is public)
 TOKEN_CAP     = 600_000   # local JSONL estimate cap (MAX 5x ~600K)
-WINDOW_HOURS  = 5
-SCAN_SECS     = 10
+WINDOW_HOURS      = 5
+SCAN_SECS         = 60   # idle baseline (was 10 — reduced 2026-07-03 for CPU)
+SCAN_SECS_QUIET   = 300  # quiet-mode floor (no active session)
+QUIET_MODE_FILE   = Path("/home/john/Thunderbird/OpsCenter/quiet_mode.active")
 
 app = FastAPI(title="Thunderbird Cost Tracker", docs_url=None, redoc_url=None)
 app.add_middleware(CORSMiddleware, allow_origins=["https://claude.ai"],
@@ -71,7 +73,8 @@ def _scan_loop():
             S.last_scan = datetime.datetime.now(datetime.timezone.utc).isoformat()
         except Exception:
             pass
-        time.sleep(SCAN_SECS)
+        secs = SCAN_SECS_QUIET if QUIET_MODE_FILE.exists() else SCAN_SECS
+        time.sleep(secs)
 
 def _scan_jsonl():
     for fpath in glob.glob(str(CLAUDE_DIR / "projects" / "**" / "*.jsonl"), recursive=True):

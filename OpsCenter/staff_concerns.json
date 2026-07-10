@@ -1,0 +1,28 @@
+{
+  "concerns": [
+    {
+      "priority": "P0",
+      "source": "Harlan",
+      "concern": "ARN-to-At Six transfer still unbooked for all 3 couples — 55 days to departure, no vendor selected. Window is narrowing.",
+      "mission_id": "MISSION-1545",
+      "resolved": false,
+      "logged": "2026-07-05"
+    },
+    {
+      "priority": "P1",
+      "source": "Hale",
+      "concern": "Scandinavia portal Wing review (Jul 10) — no reviewer assignments confirmed yet.",
+      "mission_id": "MISSION-1533",
+      "resolved": false,
+      "logged": "2026-07-05"
+    },
+    {
+      "priority": "P2",
+      "source": "Harlan",
+      "concern": "Mission board active working set exceeds hygiene target. Recommend a pass before next weekly review.",
+      "mission_id": "MISSION-1538",
+      "resolved": false,
+      "logged": "2026-07-05"
+    }
+  ]
+}

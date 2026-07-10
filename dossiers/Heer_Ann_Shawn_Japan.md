@@ -186,3 +186,19 @@ All depart NRT evening of **August 16, 2026** (tight window — both ~6:30-6:40p
 ---
 
 *— COS Hale | Updated 2026-05-21 (Rev 4) | Sources: Commander directive 2026-05-21 + Ann email 2026-05-20*
+
+
+### EMAIL LOG
+
+**Jul 07 — ann heer** (Re: question)
+> **2026-07-07 00:52 UTC EMAIL: Portal Login Issue** — Ann unable to access portal (iamheer@outlook.com). Politely asked if she's making an error. Status: troubleshooting account access. Action: verify account registry, reset credentials, send clear login + fallback email-review option. Response due within 24h.
+
+
+### OPEN ACTION ITEMS
+- [ ] MISSION-HEER-PORTAL-001: Check if Ann Heer has an active portal account; verify in registry; reset or create credentials immediately (auto-intel Jul 07)
+
+- [ ] MISSION-HEER-PORTAL-004: If portal is down or broken, notify Commander + escalate to portal team (MISSION-1539 or infrastructure owner) (auto-intel Jul 07)
+
+- [ ] MISSION-HEER-PORTAL-003: Send Ann clear login URL + instructions + fallback options (email review + phone) within 24 hours (auto-intel Jul 07)
+
+- [ ] MISSION-HEER-PORTAL-002: Test portal login with Ann's credentials before sending response (confirm it works) (auto-intel Jul 07)

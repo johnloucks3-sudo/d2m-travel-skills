@@ -181,6 +181,35 @@ def get_dossier_sweep_results():
     except Exception:
         return {'red': [], 'yellow': [], 'green_count': 0, 'total': 0}
 
+def get_staff_concerns() -> list:
+    """Read staff concerns logged for this brief cycle."""
+    concerns_file = Path('/home/john/Thunderbird/OpsCenter/staff_concerns.json')
+    if not concerns_file.exists():
+        return []
+    try:
+        import json
+        with open(concerns_file) as f:
+            data = json.load(f)
+        return data.get('concerns', [])
+    except Exception:
+        return []
+
+
+def get_tp_queue_item() -> dict:
+    """Return the next TP/lifecycle draft pending Commander approval."""
+    queue_file = Path('/home/john/Thunderbird/OpsCenter/tp_queue.json')
+    if not queue_file.exists():
+        return {}
+    try:
+        import json
+        with open(queue_file) as f:
+            data = json.load(f)
+        pending = [item for item in data.get('queue', []) if item.get('status') == 'pending_approval']
+        return pending[0] if pending else {}
+    except Exception:
+        return {}
+
+
 def format_morning_brief(timestamp):
     """Generate formatted brief HTML"""
     mission_status = get_mission_board_status()
@@ -190,6 +219,8 @@ def format_morning_brief(timestamp):
     work_items = get_work_items_status()
     nag_alerts = get_nag_queue_alerts()
     dossier_sweep = get_dossier_sweep_results()
+    staff_concerns = get_staff_concerns()
+    tp_item = get_tp_queue_item()
 
     # Calculate time until end of business
     now = datetime.now()
@@ -225,6 +256,29 @@ def format_morning_brief(timestamp):
         <div class="section-title">OPERATIONAL PRIORITY (Next 8 Hours)</div>
         <div class="metric">{mission_status}</div>
     </div>
+
+    <div class="section">
+        <div class="section-title">STAFF CONCERNS — MISSION BOARD</div>
+        {''.join([f'''<div class="metric" style="font-family:monospace; font-size:0.92em; white-space:pre-wrap; background:#fff8e8; padding:8px; border-radius:4px; margin-bottom:6px;"><strong>SOURCE:</strong> {c.get("source","?")}
+<strong>PRIORITY:</strong> {c.get("priority","?")}
+<strong>MISSION:</strong> {c.get("mission_id","—")}
+<strong>CONCERN:</strong> {c.get("concern","")}
+<strong>RESOLVED:</strong> {"Yes" if c.get("resolved") else "No — awaiting Commander assessment"}</div>''' for c in staff_concerns]) if staff_concerns else '<div class="metric good">No concerns submitted this cycle.</div>'}
+        <div class="metric" style="font-size:0.85em; color:#555; margin-top:6px;">Reply with your assessment for each item. Staff will be notified.</div>
+    </div>
+
+    {f'''<div class="section" style="border-left:3px solid #9900cc;">
+        <div class="section-title" style="color:#9900cc;">TP/LIFECYCLE DRAFT — PENDING YOUR APPROVAL</div>
+        <div class="metric" style="font-family:monospace; font-size:0.95em; white-space:pre-wrap; background:#f0eaff; padding:10px; border-radius:4px;"><strong>TASK:</strong> {tp_item.get("phase","")} — {tp_item.get("voyage","")}
+<strong>OWNER:</strong> Dani
+<strong>PRIORITY:</strong> P1
+<strong>DESCRIPTION:</strong> {tp_item.get("draft_preview","")}
+
+<strong>SUBJECT LINE:</strong> {tp_item.get("subject_line","")}
+<strong>TARGET SEND:</strong> {tp_item.get("target_send","")}
+<strong>HOLDS:</strong> {tp_item.get("hold_notes","")}</div>
+        <div class="metric" style="margin-top:8px; color:#555; font-size:0.88em;">Reply APPROVE or APPROVE WITH NOTES to release. One per day until completion.</div>
+    </div>''' if tp_item else ''}
 
     <div class="section">
         <div class="section-title">ACTIVITY SNAPSHOT — Previous 24 Hours</div>

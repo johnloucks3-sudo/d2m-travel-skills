@@ -1,0 +1,26 @@
+{
+  "destination": "Mediterranean & Adriatic (Silversea)",
+  "start_date": "2027-05-05",
+  "end_date": "2027-05-29",
+  "ship": "Silver Nova",
+  "cruise_line": "Silversea",
+  "booking_number": "506101-26",
+  "travel_style": "luxury",
+  "preferences": ["low-mobility-friendly", "wine and olive oil", "scenic/vehicle tours"],
+  "ports": [
+    {"name": "Koper", "date": "2027-05-06"},
+    {"name": "Split", "date": "2027-05-08"},
+    {"name": "Katakolon", "date": "2027-05-13"},
+    {"name": "Souda Bay (Crete)", "date": "2027-05-17"},
+    {"name": "Milos", "date": "2027-05-19"},
+    {"name": "Nafplion", "date": "2027-05-24"},
+    {"name": "Patmos", "date": "2027-05-28"}
+  ],
+  "confirmed_excursions": [
+    {"port": "koper", "title": "Lipizzaners Horses Farm & Training", "price": "$149 pp"},
+    {"port": "split", "title": "Diocletian's Split & Olive Oil Tasting On Foot", "price": "$79 pp"},
+    {"port": "souda bay (crete)", "title": "Treasures of Cretan Culture", "price": "$89 pp"},
+    {"port": "nafplion", "title": "Ancient Corinth & Canal View", "price": "$99 pp"},
+    {"port": "patmos", "title": "St. John's Patmos & Churches", "price": "$79 pp"}
+  ]
+}

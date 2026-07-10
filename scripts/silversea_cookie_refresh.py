@@ -64,6 +64,29 @@ def save_state(status: str, detail: str) -> None:
     }, indent=2))
 
 
+def navigate_with_retry(page, url, max_retries=3):
+    """Navigate with exponential backoff on transient network errors."""
+    import time
+    backoff_seconds = [2, 4, 8]
+    transient = ("ERR_NAME_NOT_RESOLVED", "ERR_NETWORK_CHANGED", "ERR_CONNECTION_RESET",
+                 "ERR_INVALID_RESPONSE", "ERR_PROXY_CONNECTION_FAILED", "ERR_CONNECTION_TIMED_OUT")
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            return True
+        except Exception as e:
+            last_error = e
+            if any(x in str(e) for x in transient) and attempt < max_retries - 1:
+                wait_time = backoff_seconds[attempt]
+                log.warning(f"[RETRY {attempt+1}/{max_retries}] Navigation error, waiting {wait_time}s: {e}")
+                time.sleep(wait_time)
+                continue
+            raise e
+    log.warning(f"Navigation failed after {max_retries} attempts: {last_error}")
+    return False
+
+
 def check_and_refresh() -> str:
     if not COOKIE_FILE.exists():
         log.error("Cookie file missing")
@@ -109,7 +132,18 @@ def check_and_refresh() -> str:
         page = context.new_page()
 
         import time
-        page.goto("https://my.silversea.com", wait_until="domcontentloaded", timeout=30000)
+        try:
+            if not navigate_with_retry(page, "https://my.silversea.com", max_retries=3):
+                log.warning("Silversea session refresh failed after retries. Existing session preserved.")
+                save_state("DEGRADED", "Navigation failed after 3 retries — existing session preserved, will retry next cycle")
+                browser.close()
+                return "HEALTHY"  # graceful degradation — don't crash the service, don't false-alarm EXPIRED
+        except Exception as e:
+            log.warning(f"Silversea session refresh failed (non-transient): {e}. Existing session preserved.")
+            save_state("DEGRADED", f"Non-transient nav error: {e} — existing session preserved, will retry next cycle")
+            browser.close()
+            return "HEALTHY"
+
         time.sleep(3)
 
         url = page.url

@@ -18,7 +18,7 @@ fpd_amount_source: invoice
 payment_status: paid_in_full
 status: active
 relationship: client
-completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
+completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 ---
 # CLIENT DOSSIER — John & Melissa Furlow
 ## Regent SS Grandeur | Booking 3071222 | Scandinavia Aug 29 – Sep 8, 2026
@@ -26,6 +26,8 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 ---
 
 ### STATUS: ACTIVE — ✅ PAYMENT COMPLETE (Apr 1, 2026) | Suite 827, Deck 8 | **CC: CHASE SAPPHIRE RESERVE on portal ✓ | Final Payment $15,486 processed Mar 25 evening**
+
+> **LIFECYCLE (2026-07-05):** TP 1.2 — Excursion + Dining touchpoint is the active lifecycle priority for this group. Draft queued in AM report approval cycle; Commander approving one per day until send-ready. MISSION-1548 ✅ CLOSED.
 
 ### ✅ AI DISCLOSURE EMAIL — v9 COMMANDER-APPROVED (2026-03-22)
 - **Status:** Approved as D2M standard — "this will be what we send every client"

@@ -76,9 +76,12 @@ CREDENTIALS = {
     "regent_cookies": {
         "file": CREDS_DIR / "regent_cookies.json",
         "type": "cookies",
-        "client_affecting": True,
-        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
-        "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings.",
+        "client_affecting": False,  # POLICY 2026-07-10 (Commander): cruise portal cookies do NOT
+        # need to be kept refreshed -- activate on-demand when actually needed, not proactively
+        # monitored. Use consumer-facing cruise sites for general work. Was the single biggest
+        # driver of a Telegram notification flood (~20x/day, same known condition re-alerted).
+        "alert_hours_ahead": 2,
+        "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings. Activate on-demand only, per Commander policy 2026-07-10.",
         "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_direct",
         "timer": "portal-keepalive.timer",
         # A7 2026-06-11: ASPXAUTH is the auth gate (httpOnly, www.rssc.com, ~24h TTL).
@@ -90,9 +93,9 @@ CREDENTIALS = {
     "regent_cookies_oa": {
         "file": CREDS_DIR / "regent_cookies_oa.json",
         "type": "cookies",
-        "client_affecting": True,
-        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
-        "notes": "Regent portal (OA account). Loucks + McLeod OA bookings.",
+        "client_affecting": False,  # POLICY 2026-07-10 (Commander): see regent_cookies note above.
+        "alert_hours_ahead": 2,
+        "notes": "Regent portal (OA account). Loucks + McLeod OA bookings. Activate on-demand only, per Commander policy 2026-07-10.",
         "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_oa",
         "timer": "portal-keepalive.timer",
         "auth_cookie_names": ["ASPXAUTH"],   # A7 2026-06-11: same gate as regent_direct

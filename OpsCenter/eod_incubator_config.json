@@ -40,19 +40,16 @@
   "nomination_time": "17:30",
   "execute_window_minutes": 5,
   "last_updated": "2026-06-19",
-  "last_nomination_sent": "2026-07-04T14:19:22.195112",
+  "last_nomination_sent": "2026-07-10T11:30:01.475631",
   "sectors_tonight": [
     "Claude Code",
     "OpenCode & Local AI",
     "GitHub New Releases",
-    "Travel Tech B2B",
-    "Voice & Multimodal",
-    "Competitor Intel",
-    "CRM & Automation"
+    "Travel Tech B2B"
   ],
   "_gate_fingerprint": "claude agents --json session monitor|Sterling|approved",
   "_gate_first_seen": "2026-06-19",
-  "sectors_tonight_date": "2026-07-04",
-  "sectors_half1_sent_date": "2026-07-04",
-  "sectors_half2_sent_date": "2026-07-04"
+  "sectors_tonight_date": "2026-07-10",
+  "sectors_half1_sent_date": "2026-07-10",
+  "sectors_half2_sent_date": "2026-07-09"
 }

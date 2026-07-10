@@ -949,3 +949,48 @@ Until these three are queryable from a log and capable of *refusing* the bad act
 - **[Fri Jul 03 01:50:09 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-03 01:49 MT ───────────────────
 - **[Fri Jul 03 07:53:41 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-03 07:52 MT ───────────────────
 - **[Fri Jul 03 01:56:27 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-03 13:55 MT ───────────────────
+- **[Fri Jul 03 07:59:55 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-03 19:58 MT ───────────────────
+- **[Sat Jul 04 01:48:35 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-04 01:47 MT ───────────────────
+- **[Sat Jul 04 02:05:45 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-04 02:04 MT ───────────────────
+- **[Sat Jul 04 08:17:25 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-04 08:16 MT ───────────────────
+- **[Sat Jul 04 02:19:17 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-04 14:17 MT ───────────────────
+- **[Sat Jul 04 08:33:46 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-04 20:32 MT ───────────────────
+- **[Sun Jul 05 01:48:17 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-05 01:47 MT ───────────────────
+- **[Sun Jul 05 02:42:14 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-05 02:41 MT ───────────────────
+- **[Sun Jul 05 08:52:21 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-05 08:51 MT ───────────────────
+- **[Sun Jul 05 02:59:21 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-05 14:58 MT ───────────────────
+- **[Sun Jul 05 04:09:56 PM MT 2026]** HALE routed `generic` (UNKNOWN) → **COS** — Unknown task type: `generic` Raw: {"mission_id": "MISSION-1550", "title": "Find Spencer Grand Tour P
+- **[Sun Jul 05 04:10:08 PM MT 2026]** HALE routed `generic` (UNKNOWN) → **COS** — Unknown task type: `generic` Raw: {"mission_id": "MISSION-1551", "title": "Hale \u2014 Alternative T
+- **[Sun Jul 05 04:10:21 PM MT 2026]** HALE routed `generic` (UNKNOWN) → **COS** — Unknown task type: `generic` Raw: {"mission_id": "MISSION-1552", "title": "United Air Partnership Ca
+- **[Sun Jul 05 09:08:10 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-05 21:06 MT ───────────────────
+- **[Mon Jul 06 01:48:01 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-06 01:47 MT ───────────────────
+- **[Mon Jul 06 03:14:47 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-06 03:13 MT ───────────────────
+- **[Mon Jul 06 09:33:18 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-06 09:27 MT ───────────────────
+- **[Mon Jul 06 03:40:48 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-06 15:39 MT ───────────────────
+- **[Tue Jul 07 01:53:20 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-07 01:47 MT ───────────────────
+- **[Tue Jul 07 03:59:51 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-07 03:58 MT ───────────────────
+- **[Tue Jul 07 10:20:04 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-07 10:14 MT ───────────────────
+- **[Tue Jul 07 04:20:22 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-07 16:20 MT ───────────────────
+- **[Tue Jul 07 10:27:50 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-07 22:27 MT ───────────────────
+- **[Wed Jul 08 01:45:51 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-08 01:45 MT ───────────────────
+- **[Wed Jul 08 04:36:45 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-08 04:36 MT ───────────────────
+- **[Wed Jul 08 10:44:21 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-08 10:43 MT ───────────────────
+- **[Wed Jul 08 04:58:08 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-08 16:57 MT ───────────────────
+- **[Wed Jul 08 11:03:14 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-08 23:02 MT ───────────────────
+- **[Thu Jul 09 01:47:38 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-09 01:46 MT ───────────────────
+- **[Thu Jul 09 05:13:08 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-09 05:12 MT ───────────────────
+- **[Thu Jul 09 11:21:46 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-09 11:20 MT ───────────────────
+- **[Thu Jul 09 05:30:54 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-09 17:29 MT ───────────────────
+
+## 2026-07-09 20:27 MT — cloudflared tunnel update (thunderbird-tunnel.service flapper fix)
+Root cause found by restart_flap_detector.py: thunderbird-tunnel.service had 95 restarts/5d, 90 of them
+"ERR icmp router terminated" — cloudflared's ICMP proxy (unused feature, config.yml has zero WARP/network
+routes, pure HTTP ingress) crashing the whole process on transient network-interface changes on this laptop.
+No CLI flag exists to disable ICMP proxying. Commander ran `sudo /usr/local/bin/cloudflared update` —
+upgraded 2026.3.0 -> 2026.7.1 (built 2026-07-09, i.e. literally the day before). Service auto-reloaded clean,
+4 tunnel connections registered, no errors. Monitoring restart count over next 24-48h via restart_flap_detector
+to confirm the fix holds; will close finding in observability survey memory once confirmed.
+- **[Thu Jul 09 11:42:23 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-09 23:41 MT ───────────────────
+- **[Fri Jul 10 01:47:43 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-10 01:47 MT ───────────────────
+- **[Fri Jul 10 05:54:15 AM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-10 05:54 MT ───────────────────
+- **[Fri Jul 10 12:06:54 PM MT 2026]** HALE routed `innovation_scan` (TKT-AUTO) → **COS** — ────────────────────────────────────── *HALE* | INNOVATION | 2026-07-10 12:05 MT ───────────────────

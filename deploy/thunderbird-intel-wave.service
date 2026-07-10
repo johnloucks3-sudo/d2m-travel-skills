@@ -1,0 +1,18 @@
+[Unit]
+Description=Thunderbird Intel Wave — Innovation Scanner + Tech Harvest (22:00 MT)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/thunderbird_intel_wave_runner.py
+WorkingDirectory=/home/john/Thunderbird
+User=john
+Environment=HOME=/home/john
+Environment=PYTHONPATH=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

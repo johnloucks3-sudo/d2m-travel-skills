@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "purpose": "Reference data for competitive_intel_weekly_scan.py flag logic — undercut comparison and portfolio-match comparison",
+    "owner": "Harlan (A9) — verify/refresh each quarter against live TESS/portal figures",
+    "seeded": "2026-07-06",
+    "seed_sources": "reference_vacationstogo_pricing_intel memory (2026-06-26 baseline) + Harlan MISSION-426 verified D2M commission data",
+    "caveat": "rack_usd figures are benchmark/indicative, not live portal pulls. Undercut flags derived from these are directional signals for Dembe/Commander review, not a verified financial fact per Rule 4 (Financial Hard-Source Rule) — do not use these figures in client-facing copy."
+  },
+  "reference_floor_pricing": {
+    "Regent Seven Seas": {
+      "itinerary": "Mediterranean 11nt suite ex-Barcelona",
+      "rack_usd": 24700,
+      "last_seen_deal_usd": 6175,
+      "as_of": "2026-06-26"
+    },
+    "Silversea": {
+      "itinerary": "Alaska 7nt suite ex-Seward",
+      "rack_usd": 18460,
+      "last_seen_deal_usd": 4800,
+      "as_of": "2026-06-26"
+    }
+  },
+  "d2m_active_portfolio": {
+    "cruise_lines": ["Regent Seven Seas", "Silversea", "Viking"],
+    "ships": ["Seven Seas Grandeur", "Seven Seas Prestige", "Silver Nova", "Silver Muse", "Viking Mars"],
+    "regions_booked": ["Scandinavia", "Baltic", "Mediterranean", "Caribbean", "Lesser Antilles"]
+  },
+  "undercut_threshold_pct": 10
+}

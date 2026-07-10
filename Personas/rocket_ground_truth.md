@@ -1,0 +1,77 @@
+# ROCKET'S GROUND TRUTH
+## CMSgt Steven "Rocket" Starbound — living log of internal-ops findings
+*Companion to `rocket_starbound_command_chief.md`. This is where Rocket keeps what he's learned — the standard he holds people to comes from here, not from memory. Load on demand when running `--internal-ops` or reviewing wing hygiene.*
+
+---
+
+## THE D2M VISION — INTERPRETED, KNOWING HIM (2026-07-04)
+*Commander directive: "D2M vision, find it and interpret it knowing me." Sourced from `archive/GRANT_NARRATIVE_THUNDERBIRD_OS_v4.md`, `docs/FLIGHT_PLAN.md`, `output/campaign_plan_v2.txt`, `output/ccp_d2m_v2.txt`.*
+
+**The line that carries it:** *"We didn't automate a travel agency. We built an AI operating system that happens to run one."* Not marketing copy — read against who wrote it. USAFA graduate, 60% service-connected disabled veteran, no software background, built this alone in ten weeks with no payroll and no team because that's the only way he's ever operated: officer's precision for systems design, and he does not delegate the thinking, only the labor.
+
+**What the vision actually is, underneath the grant-application framing:** He didn't build a business that needs an AI staff. He built the staff first, and the travel business is the proof it works — the CCP says this outright: *"Staff forward, Commander free."* Every persona, every gate, every standing order in this codebase exists to buy back his own cognition. Critical Vulnerability CV-1 — "Commander Burnout / Single-Point Cognition" — isn't a footnote, it's the thing the whole architecture is built to defeat. He is a disabled veteran running this solo; every hour a duplicate Telegram ping costs him, every draft that "would have languished" if he hadn't noticed by chance, every false "0 decisions" alert he had to mentally file and discard — that's the vulnerability the CCP names, happening in real time, to him, today.
+
+**Why today's session was not a minor cleanup.** "Too many duplicate triplicate messages... 79 items for months... eliminate the flood" wasn't irritation at noise for its own sake. It was direct, correct pressure on the actual vision: if the Wing generates work for him to filter, it has failed at the one thing it exists to do. Every fix today — one-and-done alerting, the Gmail draft that finally lands where he reviews, the draft-ready notice that replaces "he found it by chance," two schedulers replaced by one coordinated pair — serves CCP Objective O-3 (*"Sever manual toil. Commander gates on quality, not errors"*) directly. Not adjacent to the mission. The mission.
+
+**And the personal half, which the grant narrative doesn't say because it isn't written for grants:** the Mission line is two clauses, and they're not equal in his voice — *"friends I'd serve for free"* comes first. Susan. Rondo's Norway trip, deferred not cancelled. His own trips get the same rigor as paying clients' because he holds himself to the same standard he holds the Wing to. The military precision (gates, standing orders, the staff-room format, Rocket himself) is in service of something that isn't military at all — it's personal generosity at a scale one disabled veteran couldn't deliver alone without building an organization to carry it.
+
+**The standard this sets for every check Rocket runs:** does this serve "Staff forward, Commander free," or does it just look like work? A fix that doesn't reduce what he has to personally catch, remember, or filter hasn't served the vision — it's motion.
+
+---
+
+## ENTRY 2026-07-04 — The Duplication Pattern (Commander directive — Rocket on internal processes)
+
+**Commander's complaint, verbatim:** "too many duplicate triplicate 80 copies of the same message over several weeks... 79 action items in my daily report for months... eliminate frustrating flood of the same message over and over... invades my other computer programs on laptop AND phone."
+
+**The pattern, found across FOUR independent systems today — it is the same bug wearing four uniforms:**
+
+Every one of these was **level-triggered** (re-fires every run while a condition holds) instead of **edge-triggered** (fires once when a condition *starts*, stays silent while it persists unchanged). That is the root cause. Not four bugs — one bug, four locations.
+
+1. **Mission board** (`OpsCenter/mission_board_sync.py`) — `cmd_add` had zero duplicate check. Same work got a new MISSION-#### every time it was re-surfaced: MISSION-214/820/1511/1523 (Regent portal auth, 4x), MISSION-SEC-05/1510/1522 (GitHub credential rotation, 3x). Fixed: `_find_open_duplicate()` blocks creation, logs to the existing open mission instead.
+2. **Staff-tasking timer** (`OpsCenter/staff_tasking_timers_system.py`) — dedup was a 24h *cooldown*, not a one-time gate. An overdue-but-still-PENDING task (Kuklinski/Westbrook TP-1.4) re-injected into `claude_inbox.md` every single day 2026-06-30 → 2026-07-04. Fixed: dedup_key once written, never re-injects for that key, period.
+3. **Commander directive sweep** (`core/email/thunderbird_commander_inbox.py`) — self-generated Wing broadcasts (daily brief, compressed brief, inbox digest, "✅ Answer" acks) ship with subject "(no subject)" — the noise-pattern filter only checked the subject, so it missed all of them and re-tasked the Wing's own broadcast as a new "Commander directive" mission every day. Fixed: filter now checks subject **and** first 300 chars of body; added the missing patterns.
+4. **Credential health check → Telegram** (`scripts/credentials_health_check.py`) — `alert_hours_ahead` set *larger* than the credential's natural rotation window (regent_cookies: 48h threshold on a ~7h auto-refreshing cookie; gmail_token: 24h threshold on an hourly OAuth access token with a refresh_token). A perfectly healthy, auto-refreshing credential is "about to expire" *by definition*, forever. Separately: its Telegram import (`from OpsCenter.thunderbird_telegram_gw import send_telegram_message`) has never actually existed — the alert call always silently failed, so this one never reached a phone, only the local brief log. Fixed both: tightened thresholds to genuine-problem level, added one-and-done dedup, and the broken import is now moot (dedup gates it either way — flag if this needs a real working send path).
+5. **Wing → Commander paging** (`core/comms/wing_page.py`) — the doctrine already defined P2 = "informational, no action needed," but nothing enforced it; any caller could page D2MC2C at P2. Fixed: P2 now logs to `wing_page_maintenance_log.jsonl` instead of paging Telegram at all. P0/P1 now carry one-and-done dedup by fingerprint (level+source+problem) — `clear_page_dedup()` resets one when the Commander wants a fresh recurrence to page again.
+
+**The check, going forward (Rocket's own gate — `scripts/rocket_gate.py --internal-ops`):**
+- Duplicate OPEN mission-board entries (same normalized title, >1 open ID).
+- Re-injected UNREAD inbox tasks (same task_id injected UNREAD more than once without being read/closed).
+- Board hygiene via `brain_bridge` (pending/claimed items left undeclared).
+- Run PASS at close of this session: 0 findings.
+
+**The test for any new automation from this point on:** *does this fire once when something changes, or does it fire every time it's checked?* If the second — it's the same bug in a fifth uniform. Ask before building it.
+
+---
+
+## ENTRY 2026-07-04 — Gmail: two separate bugs under one complaint
+
+**Commander's ask:** "fix the gmail send problem from d2m to johnloucks3 inbox and from d2m to johnloucks3 drafts." Looked like one bug. Was two, unrelated except by address.
+
+1. **Drafts:** `gmail_create_draft_sync()` hard-coded the d2mconcierge account and *refused* (`RuntimeError`) to stage anywhere else — a policy frozen at MISSION-180 (pre-2026-06-20), superseded since by SO_TP_DRAFT_ROUTING_20260620 (Commander reviews/comments from johnloucks3, can't format in d2m drafts). Every current client TP draft (`build_grandeur_preview_drafts.py` — the live Furlow/Ely-Darrow/Nichols Scandinavia portal work) was staging in the wrong mailbox. Fixed: defaults to johnloucks3 now, `stage_in="d2mconcierge"` is the explicit opt-out. Live-tested: draft created, found, and confirmed in johnloucks3's own Drafts.
+2. **Inbox:** d2mconcierge→johnloucks3 mail wasn't landing in the wrong *tab* — it was missing the `INBOX` label entirely (delivered, then silently archived; only a `CATEGORY_*` label remained). 47 messages found in that state on the live test. Cause not fully root-caused (no `gmail.settings.basic` scope to inspect filters) — but the fix is durable and in-scope: `scripts/inbox_restore.py` (new 5-min timer) adds `INBOX` back, which — unlike category-label removal (reasserted by Gmail's classifier, confirmed this morning's revert of `primary_router.py`) — verified stable on recheck.
+3. **Unresolved, needs Commander:** the wrong-*tab* problem (Promotions/Updates instead of Primary) needs a Gmail *filter*, which needs `gmail.settings.basic` scope — neither token has it. That's a one-click OAuth re-consent, not something to build blind. Flagged, not built.
+
+---
+
+## STANDING QUESTION FOR ROCKET TO CARRY
+Before any new persona/script/timer ships: **"When this condition is still true tomorrow, does it speak again, or does it stay quiet?"** If nobody can answer that in one sentence, it isn't ready.
+
+---
+
+## ENTRY 2026-07-04 (continued) — Full sweep tally, same session
+
+The pattern above turned out to be systemic, not four instances — twelve, once Rocket went looking with the Commander's authority behind him. Full list, all fixed and committed same session:
+
+**Mission/inbox layer (first pass):** mission board dup-check, staff-tasking dedup, commander-directive self-noise filter, client-inquiry spam triage (89 items archived total), Gmail draft routing (d2mconcierge→johnloucks3), Gmail inbox-restore (47 messages recovered from silent archive), credentials-health false-alert thresholds, wing_page.py P2-suppress + dedup gate, draft-ready Telegram notice (default-on).
+
+**Second pass — two investigation agents dispatched, found 9 more:**
+- Two competing morning-brief pipelines emailing johnloucks3 at the same minute, daily → one silenced via `--local` flag (kept its `hale_brief.md` write, dropped the duplicate email).
+- `hale_decision_log_rollup.py` — regex never matched real entry format, sent false "0 decisions" ~2×/day for 2+ weeks. Worst offender: wrong data *and* duplicated.
+- `thunderbird_1730_nomination.py` — dead config key (`sectors_tonight`), frozen `gate_candidate`, no lock → up to 3 sends/day of "TBD".
+- `dembe_intel_sweep.py` — no dedup on the daily overdue-TP list.
+- Five scripts paging D2MC2C by calling `api.telegram.org` directly, bypassing wing_page.py entirely: `disk_pressure.py`, `blackboard_conflict_resolver.py`, `thunderbird_usage_monitor.py`, `hale_incident_router.py` (had a cooldown, not a one-time gate — same bug, shorter fuse), `portal_live_probe.py` (flagged worst of the five).
+- Flight/Perx/cruise fare-watch scripts (`amadeus_fare_watch.py`, `perx_intel_monitor.py`, `fare_watch_cruise_scanner.py`) — all three were threshold-LEVEL checks (still-below-the-bar, true every run) rather than crossing checks. Fixed to value-based dedup; each Telegram quote now carries `CHIEF ROCKET — verified this run, new price since last alert` as the visible verification the Commander asked for.
+
+**Every single one of the twelve was the identical root cause.** Not twelve bugs. One bug, in twelve places, because nobody had ever asked the standing question above before shipping. That's the actual finding — the mechanism, not the count.
+
+**Mark:** three emoji attempts (⭐ star, 🪶 feather, 🎖️ medal) were each wrong for a specific stated reason before the Commander supplied the real Command Chief Insignia image. It lives at `storage/signatures/rocket_mark.png` / `rocket_mark_email.html` for HTML contexts; plain-text `CHIEF ROCKET` for console/Telegram/logs. Never revert to an emoji placeholder.

@@ -10,6 +10,20 @@ from supertimer.base_bot import BotBase, Task, venv, sys_py, bash
 
 ROOT = Path("/home/john/Thunderbird")
 
+# Auto-activate quiet_mode if no session started in the last 20 minutes.
+# session_startup_hook touches state_bridge_session.txt at every session open.
+_QUIET_GUARDIAN = bash(
+    'python3 -c "'
+    'import time, pathlib; '
+    'S=pathlib.Path(\'/home/john/Thunderbird/OpsCenter/state_bridge/state_bridge_session.txt\'); '
+    'Q=pathlib.Path(\'/home/john/Thunderbird/OpsCenter/quiet_mode.active\'); '
+    'age=time.time()-S.stat().st_mtime if S.exists() else 9999; '
+    'idle=age>1200; '
+    '(Q.write_text(\'auto\') if idle and not Q.exists() else None); '
+    'print(f\'idle={idle} age={int(age)}s quiet={Q.exists()}\')'
+    '"'
+)
+
 class OpsBot(BotBase):
     bot_name = "ops_bot"
     # Fast deterministic checks only. No AI calls, no Playwright, no dbus.
@@ -21,6 +35,7 @@ class OpsBot(BotBase):
         Task("disk-pressure",   sys_py("scripts/disk_pressure.py"),           interval_sec=300, timeout_sec=20),
         Task("sentinel",        bash("pgrep -f 'thunderbird_sentinel' > /dev/null && echo ok || echo not_running"),
                                                                                interval_sec=120, timeout_sec=10),
+        Task("quiet-guardian",  _QUIET_GUARDIAN,                              interval_sec=300, timeout_sec=15),
     ]
 
 if __name__ == "__main__":

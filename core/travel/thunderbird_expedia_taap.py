@@ -169,6 +169,162 @@ def _extract_room_rates(rooms: list, currency: str) -> list:
 
 
 # ============================================================================
+# CORE IMPLEMENTATION (importable directly — used by search_taap_hotels tool
+# and by other orchestration modules, e.g. thunderbird_client_proposal.py)
+# ============================================================================
+
+async def search_taap_hotels_impl(
+    destination: str,
+    checkin: str,
+    checkout: str,
+    rooms: int = 1,
+    guests: int = 2,
+) -> dict:
+    """Search Expedia TAAP (EPS Rapid API) for hotel availability.
+
+    Returns agent-net pricing with D2M markup applied (25% standard).
+    Each result includes name, address, star rating, double/suite room prices,
+    images, amenities, booking URL, rating, reviews, and sample review snippets.
+    """
+    try:
+        api_key, api_secret, taap_account_id = _load_expedia_credentials()
+    except ValueError as e:
+        return json.loads(_stub_credentials_error(str(e)))
+
+    if not api_key:
+        return json.loads(_stub_credentials_error(
+            "API key is empty. Register at https://www.expedia.com/taap and "
+            "get API credentials at https://developers.expediagroup.com/"
+        ))
+
+    try:
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        }
+        if taap_account_id:
+            headers["Customer"] = taap_account_id
+
+        params = {
+            "destination": destination,
+            "checkin": checkin,
+            "checkout": checkout,
+            "occupancy": f"{guests}",
+            "rooms": rooms,
+            "currency": "USD",
+            "language": "en-US",
+            "country_code": "US",
+            "include": ["unavailable_reason", "sale_scenario", "promotions"],
+            "filter": "expedia_collect",
+            "rate_option": "net_rates",
+            "sort_type": "preferred",
+            "limit": 25,
+        }
+
+        resp = requests.get(
+            f"{ExpediaTAAPConfig.BASE_URL}/properties/availability",
+            headers=headers,
+            auth=(api_key, api_secret),
+            params=params,
+            timeout=20,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        # EPS Rapid may return list or dict with "data" key
+        properties = data if isinstance(data, list) else data.get("data", data.get("properties", []))
+        results = []
+
+        for prop in properties[:20]:
+            property_id = prop.get("property_id", prop.get("id", ""))
+            currency = prop.get("currency", "USD")
+
+            # Extract pricing tiers
+            rooms_data = prop.get("rooms", [])
+            room_rates = _extract_room_rates(rooms_data, currency)
+
+            # Find double and suite prices
+            double_price = None
+            suite_price = None
+            for rr in room_rates:
+                name_lower = rr.get("room_name", "").lower()
+                if not double_price and any(k in name_lower for k in ["double", "queen", "standard", "deluxe", "classic"]):
+                    double_price = rr.get("client_price")
+                if not suite_price and "suite" in name_lower:
+                    suite_price = rr.get("client_price")
+
+            # Fallback: use first room rate
+            if not double_price and room_rates:
+                double_price = room_rates[0].get("client_price")
+
+            # Images
+            images = prop.get("images", [])
+            image_url = images[0].get("url", "") if images else ""
+
+            # Amenities
+            amenities = [
+                a.get("name", a) if isinstance(a, dict) else str(a)
+                for a in prop.get("amenities", [])[:10]
+            ]
+
+            # Reviews
+            reviews = prop.get("reviews", {})
+            review_count = reviews.get("total", reviews.get("count", 0))
+            rating = reviews.get("rating", reviews.get("score", prop.get("rating", prop.get("star_rating"))))
+
+            sample_reviews = [
+                r.get("text", r.get("summary", ""))[:150]
+                for r in reviews.get("reviews", [])[:3]
+                if r.get("text") or r.get("summary")
+            ]
+
+            # Booking URL
+            booking_url = prop.get("booking_url", f"https://www.expedia.com/hotel-search?destination={destination}")
+
+            results.append({
+                "name": prop.get("name", ""),
+                "address": prop.get("address", {}).get("line_1", prop.get("street_address", "")),
+                "city": prop.get("address", {}).get("city", prop.get("city", destination)),
+                "star_rating": prop.get("star_rating", prop.get("category", "")),
+                "price_double_room": double_price or "See rates",
+                "price_suite": suite_price or "See rates",
+                "image_url": image_url,
+                "amenities": amenities,
+                "booking_url": booking_url,
+                "rating": rating,
+                "review_count": review_count,
+                "sample_reviews": sample_reviews,
+                "property_id": property_id,
+                "room_rates": room_rates[:6],
+                "source": "expedia_taap",
+            })
+
+        return {
+            "status": "success",
+            "destination": destination,
+            "checkin": checkin,
+            "checkout": checkout,
+            "rooms": rooms,
+            "guests": guests,
+            "total_results": len(results),
+            "results": results,
+            "pricing_note": "Prices shown are D2M client prices (net + 25% markup)",
+        }
+
+    except requests.HTTPError as e:
+        logger.error("Expedia TAAP API HTTP error: %s", e)
+        return {
+            "status": "error",
+            "provider": "Expedia TAAP",
+            "http_status": e.response.status_code if e.response else None,
+            "message": str(e),
+        }
+    except Exception as e:
+        logger.error("Expedia TAAP search error: %s", e)
+        return {"status": "error", "provider": "Expedia TAAP", "message": str(e)}
+
+
+# ============================================================================
 # TOOL REGISTRATION
 # ============================================================================
 
@@ -192,142 +348,8 @@ def register_taap_tools(mcp: FastMCP):
         Each result includes name, address, star rating, double/suite room prices,
         images, amenities, booking URL, rating, reviews, and sample review snippets.
         """
-        try:
-            api_key, api_secret, taap_account_id = _load_expedia_credentials()
-        except ValueError as e:
-            return _stub_credentials_error(str(e))
-
-        if not api_key:
-            return _stub_credentials_error(
-                "API key is empty. Register at https://www.expedia.com/taap and "
-                "get API credentials at https://developers.expediagroup.com/"
-            )
-
-        try:
-            headers = {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            }
-            if taap_account_id:
-                headers["Customer"] = taap_account_id
-
-            params = {
-                "destination": destination,
-                "checkin": checkin,
-                "checkout": checkout,
-                "occupancy": f"{guests}",
-                "rooms": rooms,
-                "currency": "USD",
-                "language": "en-US",
-                "country_code": "US",
-                "include": ["unavailable_reason", "sale_scenario", "promotions"],
-                "filter": "expedia_collect",
-                "rate_option": "net_rates",
-                "sort_type": "preferred",
-                "limit": 25,
-            }
-
-            resp = requests.get(
-                f"{ExpediaTAAPConfig.BASE_URL}/properties/availability",
-                headers=headers,
-                auth=(api_key, api_secret),
-                params=params,
-                timeout=20,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-
-            # EPS Rapid may return list or dict with "data" key
-            properties = data if isinstance(data, list) else data.get("data", data.get("properties", []))
-            results = []
-
-            for prop in properties[:20]:
-                property_id = prop.get("property_id", prop.get("id", ""))
-                currency = prop.get("currency", "USD")
-
-                # Extract pricing tiers
-                rooms_data = prop.get("rooms", [])
-                room_rates = _extract_room_rates(rooms_data, currency)
-
-                # Find double and suite prices
-                double_price = None
-                suite_price = None
-                for rr in room_rates:
-                    name_lower = rr.get("room_name", "").lower()
-                    if not double_price and any(k in name_lower for k in ["double", "queen", "standard", "deluxe", "classic"]):
-                        double_price = rr.get("client_price")
-                    if not suite_price and "suite" in name_lower:
-                        suite_price = rr.get("client_price")
-
-                # Fallback: use first room rate
-                if not double_price and room_rates:
-                    double_price = room_rates[0].get("client_price")
-
-                # Images
-                images = prop.get("images", [])
-                image_url = images[0].get("url", "") if images else ""
-
-                # Amenities
-                amenities = [
-                    a.get("name", a) if isinstance(a, dict) else str(a)
-                    for a in prop.get("amenities", [])[:10]
-                ]
-
-                # Reviews
-                reviews = prop.get("reviews", {})
-                review_count = reviews.get("total", reviews.get("count", 0))
-                rating = reviews.get("rating", reviews.get("score", prop.get("rating", prop.get("star_rating"))))
-
-                sample_reviews = [
-                    r.get("text", r.get("summary", ""))[:150]
-                    for r in reviews.get("reviews", [])[:3]
-                    if r.get("text") or r.get("summary")
-                ]
-
-                # Booking URL
-                booking_url = prop.get("booking_url", f"https://www.expedia.com/hotel-search?destination={destination}")
-
-                results.append({
-                    "name": prop.get("name", ""),
-                    "address": prop.get("address", {}).get("line_1", prop.get("street_address", "")),
-                    "city": prop.get("address", {}).get("city", prop.get("city", destination)),
-                    "star_rating": prop.get("star_rating", prop.get("category", "")),
-                    "price_double_room": double_price or "See rates",
-                    "price_suite": suite_price or "See rates",
-                    "image_url": image_url,
-                    "amenities": amenities,
-                    "booking_url": booking_url,
-                    "rating": rating,
-                    "review_count": review_count,
-                    "sample_reviews": sample_reviews,
-                    "property_id": property_id,
-                    "room_rates": room_rates[:6],
-                    "source": "expedia_taap",
-                })
-
-            return json.dumps({
-                "status": "success",
-                "destination": destination,
-                "checkin": checkin,
-                "checkout": checkout,
-                "rooms": rooms,
-                "guests": guests,
-                "total_results": len(results),
-                "results": results,
-                "pricing_note": "Prices shown are D2M client prices (net + 25% markup)",
-            }, indent=2)
-
-        except requests.HTTPError as e:
-            logger.error("Expedia TAAP API HTTP error: %s", e)
-            return json.dumps({
-                "status": "error",
-                "provider": "Expedia TAAP",
-                "http_status": e.response.status_code if e.response else None,
-                "message": str(e),
-            })
-        except Exception as e:
-            logger.error("Expedia TAAP search error: %s", e)
-            return json.dumps({"status": "error", "provider": "Expedia TAAP", "message": str(e)})
+        result = await search_taap_hotels_impl(destination, checkin, checkout, rooms, guests)
+        return json.dumps(result, indent=2)
 
     @mcp.tool(
         name="get_taap_hotel_rates",

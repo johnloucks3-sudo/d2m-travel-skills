@@ -18,7 +18,7 @@ fpd_amount_source: invoice
 payment_status: paid_in_full
 status: active
 relationship: client
-completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
+completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 ---
 
 # CLIENT DOSSIER — Al Ely & Amy Darrow
@@ -27,6 +27,8 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
 ---
 
 ### STATUS: ACTIVE — ✅ PAYMENT COMPLETE | Suite 961, Deck 9 | **CC on portal ✓ | $16,640 processed Mar 26 | Insurance ✅ PURCHASED 2026-06-23**
+
+> **LIFECYCLE (2026-07-05):** TP 1.2 — Excursion + Dining touchpoint is the active lifecycle priority for this group. Draft queued in AM report approval cycle; Commander approving one per day until send-ready. MISSION-1548 ✅ CLOSED.
 
 > 🎂 **SPECIAL OCCASION — Amy Darrow's birthday: August 31** (source: TESS ID 3787974, DOB 1959-08-31; verified 2026-07-03). Falls **during the voyage** (embark Aug 29) — celebrate onboard, parallel to Heidi Nichols' Aug 29 embark-day birthday. Weave warmly into the Ely-Darrow portal.
 > 🔒 **INTERNAL ONLY — NEVER in client copy:** Amy's Parkinson's diagnosis and all insurance/medical detail are confidential. Client-facing portal copy carries the birthday celebration ONLY; no medical, no insurance mention.

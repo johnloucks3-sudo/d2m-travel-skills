@@ -1,0 +1,22 @@
+{
+  "destination": "Panama Canal & Central America (Panama City -> Fort Lauderdale)",
+  "start_date": "2026-12-17",
+  "end_date": "2026-12-27",
+  "ship": "Viking Mars",
+  "cruise_line": "Viking Ocean Cruises",
+  "booking_number": "9595029",
+  "travel_style": "luxury",
+  "preferences": ["scenic sailing", "easy mobility options", "group-friendly"],
+  "ports": [
+    {"name": "Panama City", "date": "2026-12-17"},
+    {"name": "Panama Canal Transit", "date": "2026-12-18"},
+    {"name": "Colon", "date": "2026-12-19"},
+    {"name": "Puerto Limon", "date": "2026-12-20"},
+    {"name": "Roatan", "date": "2026-12-22"},
+    {"name": "Belize City", "date": "2026-12-23"},
+    {"name": "Cozumel", "date": "2026-12-24"}
+  ],
+  "confirmed_excursions": [
+    {"port": "colon", "title": "Gatun Locks & Lake by Boat", "price": "$89 pp"}
+  ]
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=Thunderbird Nginx + ttyd Health Check (separate runner)
+After=nginx.service ttyd-terminal.service
+
+[Service]
+Type=oneshot
+User=john
+EnvironmentFile=/home/john/Thunderbird/.env
+ExecStart=/bin/bash /home/john/Thunderbird/OpsCenter/sentinel/nginx_health_check.sh
+StandardOutput=append:/home/john/Thunderbird/logs/nginx_health.log
+StandardError=append:/home/john/Thunderbird/logs/nginx_health.log
+TimeoutStartSec=30
+
+[Install]
+WantedBy=default.target

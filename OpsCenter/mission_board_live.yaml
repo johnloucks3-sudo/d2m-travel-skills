@@ -104,6 +104,33 @@ active_missions:
     completed_at: "2026-06-03"
     summary: "12 dossiers affected by write-loop corruption (Kuklinski CVC 510x, Morton guest profile 255x). All repaired via scripts/dossier_repair.py. Corruption detection tool created: scripts/dossier_corruption_check.py."
 
+  - id: MISSION-802
+    title: Furlow/Ely-Darrow/Nichols — Grandeur Storied Scandinavia Itinerary Build
+    priority: P1
+    status: in_progress
+    assigned_to: Dani
+    suspense_date: 2026-07-22
+    next_action: "Build complete port-by-port itinerary package. TP_7.5 Excursion+Dining draft in AM brief queue (TP-001, pending Commander approval, target send 21 July)."
+    notes: "Voyage departs Aug 29 Stockholm → Oslo. PAID. Three couples, Suite 827. Sub-task 'Draft and send Grandeur Scandinavia excursion+dining TP' CLOSED 2026-07-05 per Commander directive — absorbed into AM brief daily TP approval process. TP_7.5 draft complete, in queue. HOLDS: Nichols first names, Commander approval. Full itinerary build continues, suspense 2026-07-22."
+
+  - id: MISSION-901
+    title: Spencer Tour Planner Search — FIT Operator (Kensington/Insight Caliber)
+    priority: P1
+    status: active
+    assigned_to: Hale
+    suspense_date: 2026-07-31
+    next_action: "Hale delivers candidate Tour Provider Candidates NLT 8 July (air, rail, hotel, transport, tours, with links)"
+    notes: "Commander directive 2026-07-05. Spencer Grand Tour 2027 land program. United Air call gated on this mission."
+
+  - id: MISSION-902
+    title: United Airlines Partnership Call — DEFERRED
+    priority: P2
+    status: on_hold
+    assigned_to: Commander
+    suspense_date: 2026-08-30
+    next_action: "Do not re-engage until MISSION-901 Spencer Tour Planner confirmed and engaged"
+    notes: "Commander directive 2026-07-05. Hold minimum 30 Aug 2026."
+
 completed_today:
   - id: MISSION-054
     title: McLeod Silver Muse — Final T-27 Detailed Validation
@@ -130,7 +157,7 @@ on_watch:
     notes: "Investigate 31 Anthropic small-biz skills ecosystem (382K day-one downloads). Assess relevance to Thunderbird skill infrastructure."
 
 metadata:
-  last_sync: 2026-06-06T18:45:00Z
+  last_sync: 2026-07-05T16:55:00Z
   authority: "Commander John Loucks directive"
   maintained_by: "HALE-OC"
   mode: "live state only — stale entries purged, P0/P1 reflects action required TODAY"

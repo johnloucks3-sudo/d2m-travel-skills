@@ -959,7 +959,6 @@ def daemon_loop(poll_seconds: int = 60):
                     existing_ids = [m["id"] for state in ["active_missions", "suspended_missions", "completed_missions"]
                                     for m in board.get(state, [])]
                     mid = f"MISSION-{len(existing_ids) + 1:03d}"
-                    from datetime import timezone, datetime
                     board["active_missions"].append({
                         "id": mid,
                         "title": txt[:80],

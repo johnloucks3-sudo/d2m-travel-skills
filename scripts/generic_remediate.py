@@ -76,6 +76,20 @@ LANE1_OWNED_UNITS = frozenset({
     "ttyd-terminal.service",
 })
 
+# Units that intentionally exit 1 as their OWN alert signal (not a crash) and
+# already do their own Telegram alerting with dedup (e.g. credentials_health_
+# check.py's ALERT_DEDUP). Escalating these to Sterling on top of that is
+# redundant noise, not a new finding -- found 2026-07-10 investigating a
+# Telegram flood: hale-credential-check fired "failed again within cooldown
+# window" ~20x/day for a genuine-but-already-tracked Regent cookie expiry
+# (MISSION-820/1563, needs Commander manual portal re-auth) that a restart
+# can never fix. Restarting these units is also pointless -- the "failure"
+# is a data condition, not a process crash -- so they skip remediation
+# entirely, same as Lane-1-owned units, but for a different reason.
+SELF_ALERTING_UNITS = frozenset({
+    "hale-credential-check.service",
+})
+
 logging.basicConfig(
     filename=ROOT / "logs" / "generic_remediate.log",
     level=logging.INFO,
@@ -159,6 +173,17 @@ def _log_remediation_plan(unit: str, status: str, note: str) -> None:
         logger.error("orchestrator logging failed for %s: %s", unit, e)
 
 
+def _is_self_alerting(unit: str) -> bool:
+    """Same suffix-agnostic match as _is_lane1_owned -- systemd's %i strips
+    .service/.timer, SELF_ALERTING_UNITS stores full names."""
+    if unit in SELF_ALERTING_UNITS:
+        return True
+    for owned in SELF_ALERTING_UNITS:
+        if owned.rsplit(".", 1)[0] == unit:
+            return True
+    return False
+
+
 def _is_lane1_owned(unit: str) -> bool:
     """FIXED 2026-07-10: systemd's %i template specifier strips the type
     suffix (.service/.timer) from the instance name, but LANE1_OWNED_UNITS
@@ -186,6 +211,12 @@ def remediate(unit: str) -> int:
 
     if _is_lane1_owned(unit):
         note = "deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)"
+        logger.info("%s: %s", unit, note)
+        _log_remediation_plan(unit, "unverified", note)
+        return 0
+
+    if _is_self_alerting(unit):
+        note = "self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation"
         logger.info("%s: %s", unit, note)
         _log_remediation_plan(unit, "unverified", note)
         return 0

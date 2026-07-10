@@ -1,0 +1,120 @@
+{
+  "route": "COS-GRB",
+  "depart_date": "2026-09-06",
+  "adults": 2,
+  "scraped_at": "2026-07-09T13:07:51.183637",
+  "skiplagged": {},
+  "kayak": {
+    "economy": {
+      "source": "kayak",
+      "cabin": "economy",
+      "url": "https://www.kayak.com/flights/COS-GRB/2026-09-06/2adults?sort=price_a&fs=cabin=e",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [
+        "$203",
+        "$208",
+        "$265",
+        "$433",
+        "$248",
+        "$251",
+        "$289",
+        "$292",
+        "$304",
+        "$305"
+      ],
+      "lowest_price_pp": 101.5,
+      "total_lowest": 203.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_economy_2026-09-06.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "kayak",
+      "cabin": "premium",
+      "url": "https://www.kayak.com/flights/COS-GRB/2026-09-06/2adults?sort=price_a&fs=cabin=pe",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [
+        "$203",
+        "$433"
+      ],
+      "lowest_price_pp": 101.5,
+      "total_lowest": 203.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_premium_2026-09-06.png",
+      "status": "ok"
+    },
+    "first": {
+      "source": "kayak",
+      "cabin": "first",
+      "url": "https://www.kayak.com/flights/COS-GRB/2026-09-06/2adults?sort=price_a&fs=cabin=b",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [
+        "$203",
+        "$433"
+      ],
+      "lowest_price_pp": 101.5,
+      "total_lowest": 203.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/kayak_first_2026-09-06.png",
+      "status": "ok"
+    }
+  },
+  "expedia": {},
+  "cheaptickets": {},
+  "centrav": {
+    "economy": {
+      "source": "centrav",
+      "cabin": "economy",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [
+        "$434",
+        "$514",
+        "$617",
+        "$559",
+        "$890",
+        "$525",
+        "$647",
+        "$1,054",
+        "$1,019"
+      ],
+      "lowest_price_pp": 217.0,
+      "total_lowest": 434.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-09-06.png",
+      "status": "ok"
+    },
+    "premium": {
+      "source": "centrav",
+      "cabin": "premium",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_premium_2026-09-06.png",
+      "status": "no_prices_found"
+    },
+    "first": {
+      "source": "centrav",
+      "cabin": "first",
+      "url": "https://www.centrav.com/fares",
+      "adults": 2,
+      "depart_date": "2026-09-06",
+      "raw_prices": [
+        "$1,087"
+      ],
+      "lowest_price_pp": 543.5,
+      "total_lowest": 1087.0,
+      "airlines_found": [],
+      "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-09-06.png",
+      "status": "ok"
+    }
+  }
+}

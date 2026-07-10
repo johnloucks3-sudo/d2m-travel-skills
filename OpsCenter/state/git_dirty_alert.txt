@@ -1,10 +1,13 @@
-2026-07-03T08:43:53.745816: 428 uncommitted files
+2026-07-09T21:47:00.338738: 493 uncommitted files
  M .ask_usage_log
+ M .claude/settings.local.json
  M Blackboard
  M CLAUDE.md
  M D2M/clients/kuklinski_touchpoints.json
- M D2M/lifecycle/Loucks_SilverNova_Mediterranean_May2027_Lifecycle.md
- M OpsCenter/.lifecycle_alerted.json
+ M Dossiers/Ely_Darrow_Regent_3096289.md
+ D MANUALS/PULSE_PHONE_C2.md
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.deepseek_rate_log
  M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
  M OpsCenter/.regent_cookie_alert_dedup.json
@@ -15,7 +18,4 @@
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/brief_feedback_config.json
- M OpsCenter/claude_inbox.md
- M OpsCenter/collaboration/blackboard.md
- M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/ask_wrapper.sh

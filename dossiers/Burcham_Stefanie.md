@@ -108,3 +108,18 @@ completed_tps: []
 
 ### NEXT STEP (NON-CLIENT-FACING)
 Research brief comparing Avalon / Uniworld / Emerald / Scenic for a Rhine ~May 2027 sailing against the independence + mobility profile: `intel/Burcham_Rhine_2027_research.md`. No outreach until Commander directs first contact (new-client gate).
+
+
+### EMAIL LOG
+
+**Jul 05 — Stefanie Burcham** (Re: Re: What started as a family remembrance)
+> 2026-07-05 — Stefanie confirmed receipt of Commander's family remembrance project (American Spirit interactive page). Brief thank-you email, positive sentiment. Relationship status: warm. Prospect status unchanged (Rhine 2027 ~May, planning timeline TBD).
+
+
+**Jul 05 — Stefanie Burcham** (Re: Re: What started as a family remembrance)
+> 2026-07-05 12:31 UTC: Stefanie responded to personal/family email (American Spirit project link confirmation). Email outside D2M business scope. Rhine 2027 intake remains scheduled; recommend business contact week of 2026-07-08. No change to prospect status or travel criteria.
+
+### OPEN ACTION ITEMS
+- [ ] EMAIL LOG entry: 2026-07-05 Stefanie confirmed receipt of American Spirit project link; positive tone. (auto-intel Jul 05)
+
+- [ ] Schedule soft prospect re-engagement for early August (post-summer travel) to resume Rhine 2027 planning discussion — no pressure, just check-in. (auto-intel Jul 05)

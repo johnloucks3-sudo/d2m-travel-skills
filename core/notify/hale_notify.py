@@ -86,6 +86,23 @@ def notify_hale(bot: str, task: str, error: str, repaired: bool = False,
         _relay(msg)
 
 
+def _emergency_voice_backup(bot: str, task: str, error: str):
+    """Backup channel for client-affecting P0s, alongside Telegram (not a
+    replacement) -- proven live 2026-07-10, test call confirmed clear audio.
+    Never raises: a failed backup call must not break the primary escalation."""
+    try:
+        from core.voice.emergency_voice_notify import emergency_call
+        message = (
+            f"Thunderbird Wing emergency. {bot} failed on {task}. "
+            f"This is client affecting and needs your attention. "
+            f"Check Telegram for details."
+        )
+        result = emergency_call(message)
+        _log(f"EMERGENCY-VOICE: {bot}/{task} — call status {result.get('status')}")
+    except Exception as e:
+        _log(f"EMERGENCY-VOICE FAILED (non-fatal, Telegram already sent): {e}")
+
+
 def notify_sterling(issue: str, detail: str):
     """Notify Sterling of process/code failures via his inbox."""
     ts = datetime.now(timezone.utc).strftime("%H:%M UTC")

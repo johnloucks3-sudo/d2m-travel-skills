@@ -6,7 +6,42 @@
       "category": "plan",
       "created": "2026-06-09T04:00:44Z",
       "active": true
+    },
+    {
+      "id": 2,
+      "item": "HALE_OC has FULL weapons-free access: Playwright chromium verified, AgentMail HALE inbox (hale-thunderbird@agentmail.to) active with real threads, Google OAuth (Gmail/Drive auto-refresh), Infisical vault running on Docker with Redis+PostgreSQL, Cloudflared tunnel (20+ ingress routes at d2mluxury.quest), Tailscale mesh (6 devices: yoga, desktop, HP laptop, phone), ttyd on :3100, SSH to YOGA via tailscale",
+      "category": "infrastructure",
+      "created": "2026-07-08T12:45:00Z",
+      "active": true
+    },
+    {
+      "id": 3,
+      "item": "Reference corpus ingested into Qdrant: brand_guidelines.json, d2m_reference_pricing.json, reference_itinerary_image_rules.md, thunderbird_ship_reference.json, session manifest. Brand: cream bg #f7f3ea, blue ink #0000ff, navy accent #003087, Georgia/serif font. DBA: D2M Luxury Travel. Never: 'Love Group Travel' or 'D2M Travel Agency'. Never send from johnloucks3 to clients.",
+      "category": "reference",
+      "created": "2026-07-08T12:45:00Z",
+      "active": true
+    },
+    {
+      "id": 4,
+      "item": "OC-CC deepening strategy from AAR: (1) Relay-gated offload at 75% limit, (2) Shared OAuth daemon, (3) Session handoff protocol at 2100 wall, (4) Model alias gate in CI, (5) Bidirectional heartbeat. Two Sterlings: A7 Thomas 'Gauge' Sterling (code audit) and CMSgt Steve 'Silver' Sterling (Command Chief/Overseer). A7 is NOT registered in persona directory \u2014 readiness gap flagged.",
+      "category": "architecture",
+      "created": "2026-07-08T12:46:00Z",
+      "active": true
+    },
+    {
+      "id": 5,
+      "item": "All-time usage: 1,684 sessions, $160.39, 511M input / 7.4M output across 34 model variants. Top models by session: big-pickle (opencode, 358), claude-sonnet-4-6 (anthropic, 336), deepseek-v4-flash-free (opencode, 308), empty-model (527). ZEN cache: API calls by provider, rolling window checks.",
+      "category": "metrics",
+      "created": "2026-07-08T12:46:00Z",
+      "active": true
+    },
+    {
+      "id": 6,
+      "item": "Context Sniper restored (both CLI + MCP) \u2014 scripts/context_sniper.py recovered from git worktree. /compress and /pin commands operational.",
+      "category": "fix",
+      "created": "2026-07-08T18:57:09Z",
+      "active": true
     }
   ],
-  "next_id": 2
+  "next_id": 7
 }

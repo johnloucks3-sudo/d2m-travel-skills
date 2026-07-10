@@ -120,7 +120,7 @@ echo "$TIMESTAMP|$TIMESTAMP|$MODEL|inline|0" >> "$TRACK_FILE"
 # Dispatch and record elapsed time
 if [[ "$MODEL" == "opus" ]]; then
     START_EPOCH=$(date +%s)
-    python3 /home/john/Thunderbird/OpsCenter/opencode_sonnet_inline.py "$TASK_DESC" --model claude-opus-4-6
+    python3 /home/john/Thunderbird/OpsCenter/opencode_sonnet_inline.py "$TASK_DESC" --model opus  # alias
     END_EPOCH=$(date +%s)
 else
     START_EPOCH=$(date +%s)

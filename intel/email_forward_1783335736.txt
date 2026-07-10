@@ -1,0 +1,39 @@
+Subject: Tech Scan 2026-07-06 11:00 UTC — 9 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-06T11:02:16.268287+00:00
+
+TECH SCAN — 2026-07-06 11:00 UTC
+airborne scanner pulse · 22 finds · sectors browser, llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 9 TRIAL · 12 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: An always-fresh memory that learns your repo, so agents stop re-reading — https://github.com/shofer-dev/claude-code-live-
+↳ real tool (github.com) — worth a bounded look
+Show HN: DonnyClaude – a verified workflow engine for Claude Code — https://github.com/d0nmega/donnyclaude
+↳ real tool (github.com) — worth a bounded look
+Show HN: Open Science, open-source alternative to Claude Science — https://github.com/ai4s-research/open-science
+↳ real tool (github.com) — worth a bounded look
+Show HN: Peek-CLI: Let Claude Code See the Browser — https://github.com/puffinsoft/peek-cli
+↳ real tool (github.com) — worth a bounded look
+Claude Code cache guard because Fable 5 tokens are way too precious to waste — https://github.com/yuliang615/claude-cache-guard
+↳ real tool (github.com) — worth a bounded look
+Show HN: Aletheia – The Uncertainty Loop Agent for Claude Code and Codex — https://github.com/nsankar/Aletheia
+↳ real tool (github.com) — worth a bounded look
+Show HN: Handoff – a verified context bridge between Claude Code sessions — https://github.com/ostikwhy-blip/claude-code-handoff-s
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Contextrot– Analyze where Claude Code degrades from its own session log — https://github.com/Priyanshu-byte-coder/context
+↳ real tool (github.com) — worth a bounded look
+Show HN: Codex-review – a read-only cross-model review skill for Claude Code — https://github.com/shimo4228/codex-review
+↳ real tool (skill, github.com) — worth a bounded look
+👁 WATCH:Humanity's biggest universal lie according to Claude
+Day 37 of building GTA 6 using claude
+Tell HN: Error: Claude-fable-5 is temporarily unavailable — https://news.ycombinator.com/item?id=48802612
+Claude Code deletes conversations after 30 days — https://news.ycombinator.com/item?id=48802300
+Show HN: An unmetered LLM API–$6/month, no token tracking, no limits — https://yolo-auto.com/
+Show HN: Nomlings – a virtual pet that eats your Claude Code session's tokens — https://www.nomlings.cc/
+Show HN: KiCad in the Browser — https://demo.pcbjam.com/
+Show HN: Self-healing review gate and knowledge base for Claude Code (Beta) — https://verity.md
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: How Do You Connect OpenAI Secure MCP Tunnel with Claude Desktop — https://news.yco
+RAW — all finds this pulse (unfiltered)[llm] Humanity's biggest universal lie according to Claude (Reddit r/ClaudeAI)
+[llm] Day 37 of building GTA 6 using claude (Reddit r/ClaudeAI)
+[llm] Tell HN: Error: Claude-fable-5 is temporarily unavailable — https://news.ycombinator.com/item?id=48802612 (Hacker News — Claude Code)
+[llm] Show HN: An always-fresh memory that learns your repo, so agents stop re-reading — https://github.com/sho

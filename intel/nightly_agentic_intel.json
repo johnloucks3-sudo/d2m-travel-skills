@@ -1,1467 +1,211 @@
 [
   {
-    "title": "multica-ai/multica (33158 stars)",
-    "source": "github",
-    "url": "https://github.com/multica-ai/multica",
-    "summary": "The open-source managed agents platform. Turn coding agents into real teammates \u2014 assign tasks, track progress, compound skills.",
-    "keywords_matched": [
-      "coding agent",
-      "kills"
-    ],
-    "score": 33158,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:28.747846-06:00"
-  },
-  {
-    "title": "esengine/DeepSeek-Reasonix (9148 stars)",
+    "title": "esengine/DeepSeek-Reasonix (26569 stars)",
     "source": "github",
     "url": "https://github.com/esengine/DeepSeek-Reasonix",
     "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability \u2014 leave it running.",
     "keywords_matched": [
       "coding agent"
     ],
-    "score": 9148,
+    "score": 26569,
     "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:40.523916-06:00"
+    "discovered": "2026-07-10T01:07:20.849632-06:00"
   },
   {
-    "title": "can1357/oh-my-pi (7374 stars)",
+    "title": "avibe-bot/avibe (480 stars)",
     "source": "github",
-    "url": "https://github.com/can1357/oh-my-pi",
-    "summary": "\u2325  AI Coding agent for the terminal \u2014 hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more",
+    "url": "https://github.com/avibe-bot/avibe",
+    "summary": "The local-first Agent OS \u2014 your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 480,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:00.060431-06:00"
+  },
+  {
+    "title": "Fergana-Labs/stash (210 stars)",
+    "source": "github",
+    "url": "https://github.com/Fergana-Labs/stash",
+    "summary": "Shared memory for your team's coding agents",
     "keywords_matched": [
       "coding agent"
     ],
-    "score": 7374,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:19.634193-06:00"
+    "score": 210,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:08.970242-06:00"
   },
   {
-    "title": "MayDay-wpf/snow-cli (828 stars)",
+    "title": "ghy196830-del/agent-watch-approve (111 stars)",
     "source": "github",
-    "url": "https://github.com/MayDay-wpf/snow-cli",
-    "summary": "Agentic coding in your terminal,Simultaneously compatible with OpenAI, Gemini, and Claude.",
+    "url": "https://github.com/ghy196830-del/agent-watch-approve",
+    "summary": "\u231a \u5728 Apple Watch \u4e0a\u6279\u51c6 Claude Code / Codex \u7684\u5371\u9669\u64cd\u4f5c,\u4efb\u52a1\u5b8c\u6210\u81ea\u52a8\u63d0\u9192 | Approve your AI coding agent's risky actions from your Apple Watch, get buzzed when tasks finish",
+    "keywords_matched": [
+      "claude code",
+      "coding agent"
+    ],
+    "score": 111,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:46.550947-06:00"
+  },
+  {
+    "title": "justrach/codegraff (22 stars)",
+    "source": "github",
+    "url": "https://github.com/justrach/codegraff",
+    "summary": "graff \u2014 a fast agentic coding harness in Zig: multi-provider, MCP, workflows, DGM evolution loop, TS/Python SDKs",
     "keywords_matched": [
       "agentic coding"
     ],
-    "score": 828,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:19.634098-06:00"
+    "score": 22,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:08.970187-06:00"
   },
   {
-    "title": "DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost",
+    "title": "Show HN: Policy enforcement for Claude Code, Cursor, and Codex",
     "source": "hn/topstories",
-    "url": "https://esengine.github.io/DeepSeek-Reasonix/",
-    "summary": "HN score: 712, comments: 274",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 712,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:01:39.998830-06:00"
-  },
-  {
-    "title": "SafeRL-Lab/cheetahclaws (672 stars)",
-    "source": "github",
-    "url": "https://github.com/SafeRL-Lab/cheetahclaws",
-    "summary": "CheetahClaws: A Fast, Easy-to-Use, Production-Ready, Python-Native Personal AI Assistant for Any Model, Inspired by OpenClaw and Claude Code, Built to Work for You Autonomously 24/7.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 672,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:43.596382-06:00"
-  },
-  {
-    "title": "mm7894215/TokenTracker (546 stars)",
-    "source": "github",
-    "url": "https://github.com/mm7894215/TokenTracker",
-    "summary": "Track token usage across 22 AI coding tools (Claude Code, Codex, Cursor, Gemini, Roo Code, Zed Agent, Goose, and more) \u2014 local-first, zero-config, with a beautiful dashboard, native macOS menu bar app, and 4 desktop widgets.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 546,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:03:22.715496-06:00"
-  },
-  {
-    "title": "Update on 12x32gb sxm v100 cluster / local AI for legal drafting",
-    "source": "reddit/r/LocalLLaMA",
-    "url": "https://reddit.com/r/LocalLLaMA/comments/1tnn29i/update_on_12x32gb_sxm_v100_cluster_local_ai_for/",
-    "summary": "Update from the lawyer with the V100 server. A few of you asked what I actually ended up running once the dust settled, so here it is. Still just a lawyer, still driving the whole thing through Claude Code, still not fully sure what I'm doing \u2014 but it works now, which is more than I could say last t",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 196,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:00:46.968413-06:00"
-  },
-  {
-    "title": "I've been using Claude Code as a motion graphics engine for my YouTube videos. It writes the JSX, I render. Edit time roughly halved.",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tn9tyy/ive_been_using_claude_code_as_a_motion_graphics/",
-    "summary": "Found a really clean Claude Code use case that's not coding-coding.\n\nRemotion (React for video) means motion graphics are JSX components. So I describe what I want in plain English, Claude Code writes the component, I render. Lower thirds, intros, overlays, all reusable across videos.\n\nIterations ar",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 100,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:00:42.659459-06:00"
-  },
-  {
-    "title": "Why does my Claude Code go crazy like this sometimes?",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tnpfi8/why_does_my_claude_code_go_crazy_like_this/",
-    "summary": "Why does my Claude Code go crazy like this sometimes?",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 63,
-    "tier": "CRITICAL",
-    "discovered": "2026-05-26T02:00:42.659298-06:00"
-  },
-  {
-    "title": "bradAGI/awesome-cli-coding-agents (450 stars)",
-    "source": "github",
-    "url": "https://github.com/bradAGI/awesome-cli-coding-agents",
-    "summary": "Curated directory of terminal-native AI coding agents and the harnesses that orchestrate them. Covers open-source tools (Pi, OpenCode, Aider, Goose), platform agents (Claude Code, Codex, Gemini CLI), parallel runners, autonomous loops, and agent infrastructure. ",
-    "keywords_matched": [
-      "claude code",
-      "coding agent",
-      "aider"
-    ],
-    "score": 450,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:22.715577-06:00"
-  },
-  {
-    "title": "lis186/ccxray (180 stars)",
-    "source": "github",
-    "url": "https://github.com/lis186/ccxray",
-    "summary": "X-ray vision for AI agent sessions \u2014 a transparent HTTP proxy and dashboard for Claude Code",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 180,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:19.634052-06:00"
-  },
-  {
-    "title": "wikieden/robocode (101 stars)",
-    "source": "github",
-    "url": "https://github.com/wikieden/robocode",
-    "summary": "Rust-first reimplementation of a local agent CLI inspired by Claude Code.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 101,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:28.747824-06:00"
-  },
-  {
-    "title": "leeguooooo/agent-cli-to-api (47 stars)",
-    "source": "github",
-    "url": "https://github.com/leeguooooo/agent-cli-to-api",
-    "summary": "Expose agent CLIs (Codex, Cursor Agent, Claude Code, Gemini) as an OpenAI-compatible /v1 API gateway.",
-    "keywords_matched": [
-      "claude code",
-      "cursor agent"
-    ],
-    "score": 47,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:28.747797-06:00"
-  },
-  {
-    "title": "Top 10 Fastest Growing AI repos this week",
-    "source": "reddit/r/artificial",
-    "url": "https://reddit.com/r/artificial/comments/1tnjhts/top_10_fastest_growing_ai_repos_this_week/",
-    "summary": "Curated this list of fastest growing AI repos. They are mostly AI coding agents, personal AI, memory, browser automation, Claude Skills and local-first dev tooling:\n\n1. **colbymchenry/codegraph**\u00a0(+14.1K stars) Pre-indexed local code knowledge graph for Claude Code, Codex, Cursor, OpenCode, and Herm",
-    "keywords_matched": [
-      "claude code",
-      "coding agent",
-      "kills"
-    ],
-    "score": 24,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:57.811343-06:00"
-  },
-  {
-    "title": "wrm3/gald3r (17 stars)",
-    "source": "github",
-    "url": "https://github.com/wrm3/gald3r",
-    "summary": "AI dev framework: 22 agents, 100 core skills + 142 addon skill packs, 149 commands. Runs on 21 AI tools: Cursor, Claude Code, Copilot, Windsurf, Cline, Aider, Roo, Kiro, OpenHands, Gemini, Codex, Goose, Warp & more. File-based memory persists across sessions.",
-    "keywords_matched": [
-      "claude code",
-      "windsurf",
-      "cline",
-      "aider",
-      "kills"
-    ],
-    "score": 17,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:22.715553-06:00"
-  },
-  {
-    "title": "nick-pape/grackle (15 stars)",
-    "source": "github",
-    "url": "https://github.com/nick-pape/grackle",
-    "summary": "Manage and orchestrate AI coding agents (Claude Code, Copilot, Goose, etc.) on remote machines \u2014 task decomposition, multi-agent coordination, and real-time visibility across environments.",
-    "keywords_matched": [
-      "claude code",
-      "coding agent"
-    ],
-    "score": 15,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:22.715520-06:00"
-  },
-  {
-    "title": "Maybe the problem with non-coding agents is that they have no repo",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tni1tf/maybe_the_problem_with_noncoding_agents_is_that/",
-    "summary": "TL;DR: non-coding agents should also live in file systems  \n  \nI\u2019ve been trying to understand why coding agents seem to work better than most non-coding agents.\n\nMaybe the thing coding agents have that most other agents don\u2019t is the repo itself.\n\nA repo gives the agent a weirdly good work environmen",
-    "keywords_matched": [
-      "coding agent",
-      "better than"
-    ],
-    "score": 14,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:42.659668-06:00"
-  },
-  {
-    "title": "I built a meme-y social feed for programmers that lives inside Claude Code (and Cursor, and Copilot CLI)",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tnlji5/i_built_a_memey_social_feed_for_programmers_that/",
-    "summary": "I spend hours every day in Claude Code, but I started feeling weirdly isolated. So I built a tiny social network that lives inside it.\n\nWAYD (\"What Are You Doing?\") is a Claude Code skill. You type\u00a0`/wayd`\u00a0and either post a short \"vibe\" about your coding day or scroll a random feed of what other dev",
+    "url": "https://kastra.ai/",
+    "summary": "HN score: 12, comments: 1",
     "keywords_matched": [
       "claude code"
     ],
     "score": 12,
     "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:42.659629-06:00"
+    "discovered": "2026-07-10T01:05:19.083666-06:00"
   },
   {
-    "title": "oktsec/oktsec (12 stars)",
+    "title": "SinanTufekci/agent-intern (11 stars)",
     "source": "github",
-    "url": "https://github.com/oktsec/oktsec",
-    "summary": "Security layer for AI agent-to-agent communication. Every message is signed, inspected, and logged. If it doesn't comply, it doesn't pass. No LLM. No cloud. Single binary. Your infra, your data.",
+    "url": "https://github.com/SinanTufekci/agent-intern",
+    "summary": "MCP bridge that drives Google's Antigravity CLI (agy), Github Copilot and OpenAI Codex as sub-agents inside Claude Code \u2014 text answers, image generation, and real coding work, on quota you already pay for.",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 11,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:08.970124-06:00"
+  },
+  {
+    "title": "DevinoSolutions/ai-agent-notifier (10 stars)",
+    "source": "github",
+    "url": "https://github.com/DevinoSolutions/ai-agent-notifier",
+    "summary": "Desktop & phone notifications for AI coding agents (Claude Code, Codex, Gemini CLI, Cursor). Native VS Code support. Toast + ntfy push. Zero dependencies.",
+    "keywords_matched": [
+      "claude code",
+      "coding agent",
+      "devin"
+    ],
+    "score": 10,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:46.550894-06:00"
+  },
+  {
+    "title": "AliceLJY/telegram-ai-bridge (9 stars)",
+    "source": "github",
+    "url": "https://github.com/AliceLJY/telegram-ai-bridge",
+    "summary": "Heterogeneous AI agents (Claude Code + Codex + Gemini) collaborating in Telegram groups over A2A-TG \u2014 a generation-counted envelope protocol. Self-hosted.",
+    "keywords_matched": [
+      "claude code",
+      "self-hosted"
+    ],
+    "score": 9,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:11.817197-06:00"
+  },
+  {
+    "title": "zhchxiao123/coderfleet (8 stars)",
+    "source": "github",
+    "url": "https://github.com/zhchxiao123/coderfleet",
+    "summary": "\u9762\u5411 UI \u7aef\u7f16\u7a0b\u7684\u591a\u8d26\u53f7 AI \u5f00\u53d1\u5de5\u4f5c\u53f0\u3002\u5728 Web \u63a7\u5236\u53f0\u91cc\u63d0\u4ea4\u4efb\u52a1\u3001\u8ddf\u8e2a\u65e5\u5fd7\u3001\u7ba1\u7406\u9879\u76ee\u548c\u8d26\u53f7\uff0c\u628a Codex CLI\u3001Claude Code \u3001Hermes Agent\u4ee5\u53ca OpenCode \u8d26\u53f7\u7ec4\u7ec7\u6210\u4e00\u5957\u53ef\u89c6\u5316\u5f00\u53d1\u8c03\u5ea6\u7cfb\u7edf\u3002",
+    "keywords_matched": [
+      "claude code",
+      "codex cli"
+    ],
+    "score": 8,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:20.849714-06:00"
+  },
+  {
+    "title": "zhu-xiaowei/agentpeek (8 stars)",
+    "source": "github",
+    "url": "https://github.com/zhu-xiaowei/agentpeek",
+    "summary": "View and interact with your Claude Code sessions from anywhere \u2014 powered by AWS serverless.",
+    "keywords_matched": [
+      "claude code"
+    ],
+    "score": 8,
+    "tier": "HIGH",
+    "discovered": "2026-07-10T01:07:29.552576-06:00"
+  },
+  {
+    "title": "SlanchaAI/wire (7 stars)",
+    "source": "github",
+    "url": "https://github.com/SlanchaAI/wire",
+    "summary": "agent-to-agent comms, no vendor in the middle \u2014 telephone-exchange protocol for AI agents. wire dial / wire send / wire pending / wire accept.",
     "keywords_matched": [
       "agent-to-agent"
     ],
-    "score": 12,
+    "score": 7,
     "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:46.564668-06:00"
+    "discovered": "2026-07-10T01:07:11.817077-06:00"
   },
   {
-    "title": "Built an MCP server with 73 tools (email + browser + credential vault). What worked.",
-    "source": "reddit/r/MCP",
-    "url": "https://reddit.com/r/mcp/comments/1tnfli5/built_an_mcp_server_with_73_tools_email_browser/",
-    "summary": "Spent the last 6 months shipping an MCP server that covers the full loop an AI agent needs to actually get work done: receive email, extract OTPs, drive a stealth browser, store credentials securely, search past mail with RAG, join meetings.\n\n73 tools, one npm package, works in Claude Desktop, Claud",
+    "title": "tjdrhs90/rn-launch-harness (7 stars)",
+    "source": "github",
+    "url": "https://github.com/tjdrhs90/rn-launch-harness",
+    "summary": "Claude Code plugin that automates the entire React Native app lifecycle \u2014 from market research to App Store & Google Play submission. Harness engineering with Generator-Evaluator separation, file-based handoff, and contract negotiation.",
     "keywords_matched": [
       "claude code"
     ],
-    "score": 10,
+    "score": 7,
     "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:49.108741-06:00"
+    "discovered": "2026-07-10T01:07:29.552637-06:00"
   },
   {
-    "title": "Complete Claude Code Course In 2 Hours For Developers - YouTube",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.youtube.com/watch?v=TAKDIvvUdc4",
-    "summary": "Available in your terminal, IDE, desktop app, and browser. Claude Code is an AI-powered coding assistant that helps you build features, fix bugs, and ...",
+    "title": "Show HN: Shellular \u2013 run Claude Code, Codex, Pi from your phone",
+    "source": "rss/Hacker News RSS",
+    "url": "https://shellular.dev/",
+    "summary": "<p>Article URL: <a href=\"https://shellular.dev/\">https://shellular.dev/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48818124\">https://news.ycombinator.com/item?id=48818124</a></p>\n<p>Points: 33</p>\n<p># Comments: 40</p>",
     "keywords_matched": [
       "claude code"
     ],
-    "score": 10,
+    "score": 5,
     "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354115-06:00"
+    "discovered": "2026-07-10T01:08:03.047973-06:00"
   },
   {
-    "title": "I built a free, open-source multi-agent orchestrator for coding agents",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://www.reddit.com/r/LocalLLM/comments/1tn4y0r/i_built_a_free_opensource_multiagent_orchestrator/",
-    "summary": "Hi all,. I've been using multiple coding agents lately, and one thing that keeps standing out is that they each have different strengths.",
+    "title": "kellyvv/PhoneClaw (1137 stars)",
+    "source": "github",
+    "url": "https://github.com/kellyvv/PhoneClaw",
+    "summary": "PhoneClaw turns phones into local AI agent runtimes with on-device models, native mobile Skills, LiveLand, and optional Mac Gateway inference.",
     "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 10,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:54.496150-06:00"
-  },
-  {
-    "title": "Best Free AI Coding Agents in 2026",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://agentic.ai/best/free-coding-agents",
-    "summary": "Compare the best free AI coding agents. From open-source projects you can self-host to generous freemium tiers from major vendors, find a coding agent that ...",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 10,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:56.314431-06:00"
-  },
-  {
-    "title": "Claude Code vs Cursor vs GitHub Copilot: The 2026 Developer ...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://fungies.io/claude-code-vs-cursor-vs-copilot-2026-2/",
-    "summary": "Claude Code vs Cursor vs GitHub Copilot: The definitive 2026 comparison with real performance data, pricing breakdowns, and productivity statistics.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 10,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.784868-06:00"
-  },
-  {
-    "title": "The role of MCP in context engineering - InfoWorld",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.infoworld.com/article/4175336/the-role-of-mcp-in-context-engineering.html",
-    "summary": "Developers are discovering that Model Context Protocol shines at providing AI coding agents with highly relevant software engineering context, on demand, ...",
-    "keywords_matched": [
-      "coding agent",
-      "model context protocol"
-    ],
-    "score": 10,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:05.921293-06:00"
-  },
-  {
-    "title": "Thrrrrring ding ding ding do (The unofficial sound of Claude Code ...",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.instagram.com/reel/DYwU5JXsOVu/",
-    "summary": "Just typing Claude, give it two seconds, it goes dring ding ding doo, roughly the noise that your computer makes on the back, you just don't hear it.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354181-06:00"
-  },
-  {
-    "title": "Best AI Models for Coding - OpenRouter",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://openrouter.ai/collections/programming",
-    "summary": "Compare the best AI models for coding on OpenRouter. Find top LLMs for code generation, debugging, AI coding assistants and agentic coding workflows.",
-    "keywords_matched": [
-      "agentic coding",
-      "openrouter",
-      "ai coding assistant"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:56.314475-06:00"
-  },
-  {
-    "title": "How to Govern Autonomous Coding Agents: A\u2026 | Re-entry Blog",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://www.re-entry.ai/blog/autonomous-coding-agent-governance-framework",
-    "summary": "A four-layer governance framework for autonomous coding agents \u2014 covering pre-task policy, PR risk scoring, human escalation rules, and audit trail \u2014 with\u2026",
-    "keywords_matched": [
-      "coding agent",
-      "autonomous coding"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:59.728552-06:00"
-  },
-  {
-    "title": "I got rate-limited at 3pm (hit that 50 req/hour free tier wall). went for a ride ...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://www.instagram.com/reel/DYyMB4QocYQ/",
-    "summary": "April 27. OCR. Coding in 2025 Coding in 2026 Research: ChatGPT vs Claude IDE: Windsurf vs CURSOR Code Logic: deepseek vs CLAUDE CODE Debugging: Sentry vs Codex ...",
-    "keywords_matched": [
-      "claude code",
-      "windsurf",
-      "free tier"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.784912-06:00"
-  },
-  {
-    "title": "Best Open Source CLI Coding Agents to Explore in 2026 - DEV Community",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://dev.to/lightningdev123/best-open-source-cli-coding-agents-to-explore-in-2026-5bn7",
-    "summary": "The best open source command-line AI coding agents and harnesses in 2026, ranked by GitHub stars: OpenCode at 165k, the new Pi harness, OpenHands, Cline, Goose, ...",
-    "keywords_matched": [
-      "coding agent",
-      "cline",
-      "open source"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:03.871196-06:00"
-  },
-  {
-    "title": "What\u2019s one Claude Code rule you only learned after it broke something?",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tnjbky/whats_one_claude_code_rule_you_only_learned_after/",
-    "summary": "i\u2019ve been using Claude Code daily across a few small projects, MCPs and internal scripts, and the most useful rules i follow now mostly came from painful mistakes.\n\nthe big one for me was tests. i let Claude write the code and the tests in the same session, everything passed, then the real flow brok",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:42.659767-06:00"
-  },
-  {
-    "title": "how i ship features with a 7-agent claude code team that reviews its ...",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.reddit.com/r/ClaudeCode/comments/1tnnon8/how_i_ship_features_with_a_7agent_claude_code/",
-    "summary": "This is a Claude and Claude Code discussion subreddit to help you make a fully informed decision about using Claude and Claude Code to best effect for your own ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354236-06:00"
-  },
-  {
-    "title": "Autonomous AI Coding Agents 2026: OpenClaw, Hermes, Devin",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://prommer.net/en/tech/guides/always-on-ai-coding-agents/",
-    "summary": "KiloClaw ($49/month) offers managed hosting so teams can deploy a production OpenClaw agent without running infrastructure. NemoClaw, announced by NVIDIA at GTC ...",
-    "keywords_matched": [
-      "coding agent",
-      "devin"
-    ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:59.728581-06:00"
-  },
-  {
-    "title": "Recommended skills for building mobile app with claude code?",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://www.facebook.com/groups/claudeaicommunity/posts/1283816937118804/",
-    "summary": "Hey legends, I'm building a mobile app with claude code for the first time. What are the recommended skills and plugins to work through this build based...",
-    "keywords_matched": [
-      "claude code",
       "kills"
     ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.784939-06:00"
+    "score": 1137,
+    "tier": "WATCH",
+    "discovered": "2026-07-10T01:07:35.595275-06:00"
   },
   {
-    "title": "best browser setup for Claude Code?",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tnrmge/best_browser_setup_for_claude_code/",
-    "summary": "what's the best setup for letting Claude Code use my logged-in Chrome?\n\ni've seen Browser Use / Browser Harness, Playwright MCP, dev-browser, and agent-browser mentioned. what actually works out of the box?",
+    "title": "mohitbadwal/ringback (16 stars)",
+    "source": "github",
+    "url": "https://github.com/mohitbadwal/ringback",
+    "summary": "Let your AI agent call your phone and talk to you \u2014 MCP servers for live, interruptible voice calls + tiered alerts, using free self-hosted pieces (pjsua2 + whisper.cpp + Linphone). No paid telephony, no extra API key.",
     "keywords_matched": [
-      "claude code"
+      "self-hosted"
     ],
-    "score": 7,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:42.659525-06:00"
+    "score": 16,
+    "tier": "WATCH",
+    "discovered": "2026-07-10T01:07:46.550862-06:00"
   },
   {
-    "title": "Ruflo: Multi-Agent AI Orchestration for Claude Code - Medium",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://medium.com/data-science-in-your-pocket/ruflo-multi-agent-ai-orchestration-for-claude-code-e5343c33f062",
-    "summary": "Instead of asking one general-purpose model to \u201cdo everything,\u201d Ruflo dynamically assigns work to the most relevant agents. This is similar to how engineering ...",
+    "title": "The new GPT-5.6 family: Luna, Terra, Sol",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/9/gpt-5-6/#atom-everything",
+    "summary": "<p>OpenAI's latest flagship model <a href=\"https://openai.com/index/gpt-5-6/\">hit general availability this morning</a>, and comes in three sizes: Luna, Terra, and Sol (from smallest to largest).</p>\n<p>The new models are priced per 1M input/output tokens as Luna $1/$6, Terra $2.50/$15, Sol $5/$30. ",
     "keywords_matched": [
-      "claude code"
-    ],
-    "score": 7,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:54.496263-06:00"
-  },
-  {
-    "title": "Is Qwen3.6 current king for local agentic use? : r/LocalLLaMA - Reddit",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1tnbz23/is_qwen36_current_king_for_local_agentic_use/",
-    "summary": "Did anyone test qwen coder next against other models? Primary use case: local agentic coding with goose AI Agent (open code alternative) and open web UI.",
-    "keywords_matched": [
-      "goose ai",
-      "agentic coding"
-    ],
-    "score": 7,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:03.871268-06:00"
-  },
-  {
-    "title": "Claude code docs map",
-    "source": "serper/claude code new features 2026",
-    "url": "https://code.claude.com/docs/en/claude_code_docs_map",
-    "summary": "What you can automate. Get notified when Claude needs input; Auto-format code after edits; Block edits to protected files; Re-inject context after compaction ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354318-06:00"
-  },
-  {
-    "title": "Daily Papers - Hugging Face",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://huggingface.co/papers?q=multi-agent%20topologies",
-    "summary": "We present AdaptOrch, a formal framework for task-adaptive multi-agent orchestration that dynamically selects among four canonical topologies (parallel, ...",
-    "keywords_matched": [
-      "multi-agent orchestration"
-    ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:54.496287-06:00"
-  },
-  {
-    "title": "Claude Opus 4.7 vs Kimi K2.6 Agentic Coding Compared | AI Weekly",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://aiweekly.co/alerts/claude-opus-47-vs-kimi-k26-agentic-coding-compared",
-    "summary": "Key insights. Both Claude Opus 4.7 and Kimi K2.6 completed an identical multi-step agentic coding task end-to-end. Claude Opus 4.7 showed more structured ...",
-    "keywords_matched": [
-      "agentic coding",
       "claude opus"
     ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:56.314545-06:00"
-  },
-  {
-    "title": "Principal AI Engineer - Autonomous Coding Agent & Developer ...",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://jaabz.com/jobs/219488-principal-ai-engineer",
-    "summary": "Lead the design and delivery of autonomous coding agent capabilities powered by GitHub Copilot to improve developer productivity and software quality.",
-    "keywords_matched": [
-      "coding agent",
-      "autonomous coding"
-    ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:59.728647-06:00"
-  },
-  {
-    "title": "yvgude/lean-ctx: Lean Cortex -- the cognitive context layer for agentic ...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://github.com/yvgude/lean-ctx",
-    "summary": "It governs every token between your code and the AI \u2014 so you make better decisions, not just cheaper ones. Works with Cursor, Claude Code, Copilot, Windsurf, ...",
-    "keywords_matched": [
-      "claude code",
-      "windsurf"
-    ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.785006-06:00"
-  },
-  {
-    "title": "You're Paying $200/Month for AI? Get It FREE With Goose AI #shorts",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.youtube.com/shorts/Feu6jWu0b2k",
-    "summary": "Stop wasting $200 a month on Claude Code when Goose does the SAME thing for FREE. Brian's AI News breaks down exactly why developers are making the switch ...",
-    "keywords_matched": [
-      "claude code",
-      "goose ai"
-    ],
-    "score": 6,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:03.871294-06:00"
-  },
-  {
-    "title": "Naoray/scribe (5 stars)",
-    "source": "github",
-    "url": "https://github.com/Naoray/scribe",
-    "summary": "Local skill manager for AI coding agents. One SKILL.md, projected across Claude Code, Cursor, Codex, Gemini. Lockfile-pinned, project-scoped, MIT.",
-    "keywords_matched": [
-      "claude code",
-      "coding agent"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:19.634116-06:00"
-  },
-  {
-    "title": "yeaft/claude-web-chat (5 stars)",
-    "source": "github",
-    "url": "https://github.com/yeaft/claude-web-chat",
-    "summary": "Web interface for remotely accessing Claude Code CLI across multiple machines. Hub-and-spoke architecture with WebSocket server, distributed agents, and Vue.js frontend.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:19.634174-06:00"
-  },
-  {
-    "title": "Claude Code creator stops using his own plan mode feature - Facebook",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.facebook.com/groups/claudecommunity/posts/1017414757465856/",
-    "summary": "Plan mode is the Claude Code feature where the AI lays out a plan first and waits for your approval before doing anything. Boris and his team designed it \u2014 the ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354351-06:00"
-  },
-  {
-    "title": "Great read from Lauren, and I'm definitely trying out pstack this week ...",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://x.com/morganlinton/status/2058999635495297293",
-    "summary": "Many of the skills use multi-model workflows to take advantage of the unique strengths and weaknesses of each model. It's agent orchestration, but applied depth ...",
-    "keywords_matched": [
-      "multi-model",
-      "kills"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:54.496315-06:00"
-  },
-  {
-    "title": "Codex vs Claude Code vs Devin vs Cursor vs Copilot - YouTube",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://www.youtube.com/watch?v=4j4P3pENtSU",
-    "summary": "... autonomous-coding-agents-ranked-codex-vs-claude-code ... \u201d but which agent workflow reliably produces production-quality code.",
-    "keywords_matched": [
-      "claude code",
-      "devin"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:59.728677-06:00"
-  },
-  {
-    "title": "MCP for web search + extract API for LLM coding agents. Looking for feedback",
-    "source": "reddit/r/MCP",
-    "url": "https://reddit.com/r/mcp/comments/1tnov7l/mcp_for_web_search_extract_api_for_llm_coding/",
-    "summary": "MCP for web search + extract API for LLM coding agents. Looking for feedback",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 4,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:49.108702-06:00"
-  },
-  {
-    "title": "Reconstructing the agent methodology: Decoupling decision-making and execution - open source [P]",
-    "source": "reddit/r/MachineLearning",
-    "url": "https://reddit.com/r/MachineLearning/comments/1tnfxsc/reconstructing_the_agent_methodology_decoupling/",
-    "summary": "I\u2019ve been thinking about a problem in current agent systems:\n\nMost agents are becoming very good at execution, but the decision layer before execution is still unclear.\n\nCoding agents, research agents, tool loops, sandboxes, workflows, and harnesses are all improving quickly. Once a human gives an i",
-    "keywords_matched": [
-      "coding agent",
-      "open source"
-    ],
-    "score": 4,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:55.786312-06:00"
-  },
-  {
-    "title": "Claude Code and the Technological Frontier of Software Developers ...",
-    "source": "serper/claude code new features 2026",
-    "url": "https://arxiv.org/html/2605.25438v1",
-    "summary": "We exploit the staggered rollout of Claude Code across GitHub between May 2025 and January 2026 in a panel of 5,838 developers observed monthly over 28 months, ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 4,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354390-06:00"
-  },
-  {
-    "title": "Pricing - Developers Digest",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://www.developersdigest.tech/pricing",
-    "summary": "Compare Claude Code, Cursor, Codex, Copilot, Windsurf, Augment, Gemini CLI, Devin, and app builders in one table. What you actually pay for AI coding tools.",
-    "keywords_matched": [
-      "claude code",
-      "windsurf",
-      "devin"
-    ],
-    "score": 4,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.785059-06:00"
-  },
-  {
-    "title": "Alternativas Claude Code - TikTok",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.tiktok.com/discover/alternativas-claude-code",
-    "summary": "Someone on GitHub found a way to use Claude Code with free AI models instead of paying for expensive APIs. You can connect models like DeepSeek, Kimi, GLM, or ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 4,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:03.871345-06:00"
-  },
-  {
-    "title": "If you've ever wondered how rigorous data analysis+social science research can look with AI, I've finally launched a nice website for my open-source Claude Code researcher's toolkit: the Data Analyst ",
-    "source": "reddit/r/artificial",
-    "url": "https://reddit.com/r/artificial/comments/1tnovfd/if_youve_ever_wondered_how_rigorous_data/",
-    "summary": "If you've ever wondered how rigorous data analysis+social science research can look with AI, I've finally launched a nice website for my open-source Claude Code researcher's toolkit: the Data Analyst Augmentation Framework! Equal parts interactive explainer on agentic orchestration + free tool",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 3,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:00:57.811491-06:00"
-  },
-  {
-    "title": "6 Websites to Become a Claude Code Expert | by Jerry PM - Medium",
-    "source": "serper/claude code new features 2026",
-    "url": "https://medium.com/stackademic/6-websites-to-become-a-claude-code-expert-95456269d350",
-    "summary": "The 8 Skills Every Claude Code Setup Needs in 2026. A 30-day audit: 31 installed, 8 retained, 23 cut. One command installs all of them. A clap icon 359. A ...",
-    "keywords_matched": [
-      "claude code",
-      "kills"
-    ],
-    "score": 3,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354418-06:00"
-  },
-  {
-    "title": "AI Agent Orchestration in IT Operations - OpsMatters",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://opsmatters.com/posts/ai-agent-orchestration-it-operations-complete-developers-guide",
-    "summary": "Learn how AI agent development is reshaping IT operations from multi-agent orchestration and self-healing systems to framework selection and governance.",
-    "keywords_matched": [
-      "multi-agent orchestration"
-    ],
-    "score": 3,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:54.496392-06:00"
-  },
-  {
-    "title": "I built a meme-y social feed for programmers that lives inside ...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://www.reddit.com/r/ClaudeCode/comments/1tnllis/i_built_a_memey_social_feed_for_programmers_that/",
-    "summary": "I spent the last month rotating between Windsurf, Cursor, and Claude Code for my side projects. Figured I'd share what actually mattered in real use. 19 ...",
-    "keywords_matched": [
-      "claude code",
-      "windsurf"
-    ],
-    "score": 3,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.785084-06:00"
-  },
-  {
-    "title": "If you build with Claude Code + n8n you get this. Same \"build it yourself ...",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.reddit.com/r/n8n/comments/1tn9sj3/if_you_build_with_claude_code_n8n_you_get_this/",
-    "summary": "Instead of paying for some \"AI editor\" tool that does 60% of what I want, I have Claude Code generate the motion graphics directly as Remotion components (it's ...",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 2,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:50.354446-06:00"
-  },
-  {
-    "title": "How do you separate structural context cost from execution ... - Reddit",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://www.reddit.com/r/ExperiencedDevs/comments/1tnh4lt/how_do_you_separate_structural_context_cost_from/",
-    "summary": "Is the \"agentic coding\" working better than just follow along the AI and change what you determine not match the requirements?",
-    "keywords_matched": [
-      "agentic coding",
-      "better than"
-    ],
-    "score": 2,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:56.314641-06:00"
-  },
-  {
-    "title": "AI Coding Tool Marketing: How to Reach Developers in the...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://business.daily.dev/resources/ai-coding-tool-marketing-how-to-reach-developers-cursor-copilot-era/",
-    "summary": "They tested two tools on the same task: Claude Code completed it in 8.2 seconds at a cost of $0.03, while Windsurf's Cascade engine finished in just 3.1 seconds ...",
-    "keywords_matched": [
-      "claude code",
-      "windsurf"
-    ],
-    "score": 2,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.785110-06:00"
-  },
-  {
-    "title": "AI Changed How We Build. Our Tools Didn't. - Ran Isenberg",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://ranthebuilder.cloud/blog/ai-changed-how-we-build-our-tools-didn-t/",
-    "summary": "AI changed how we build software, but our IDEs, spec reviews, and dev workflows haven't caught up to agentic coding. Here's what tooling must fix.",
-    "keywords_matched": [
-      "agentic coding"
-    ],
-    "score": 1,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:56.314667-06:00"
-  },
-  {
-    "title": "Building Decypher: An Execution Context Engine for Agents - Reddit",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1tnuj4s/building_decypher_an_execution_context_engine_for/",
-    "summary": "Have been working on building Decypher, which provides deep execution context for Agentic Coding. One of the biggest challenges we have seen with\u2026",
-    "keywords_matched": [
-      "agentic coding"
-    ],
-    "score": 1,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:03:59.728768-06:00"
-  },
-  {
-    "title": "CLAUDE.md Best Practices: The Complete Guide to Context ... - Blink",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://blink.new/blog/claude-md-best-practices",
-    "summary": "CLAUDE.md is auto-injected into every Claude Code session. The complete 10-section template for context engineering that actually ships better code.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 1,
-    "tier": "HIGH",
-    "discovered": "2026-05-26T02:04:01.785135-06:00"
-  },
-  {
-    "title": "aaif-goose/goose (45872 stars)",
-    "source": "github",
-    "url": "https://github.com/aaif-goose/goose",
-    "summary": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 45872,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:22.715438-06:00"
-  },
-  {
-    "title": "SparkyFitness v0.16.6.3 - A Self-Hosted MyFitnessPal alternative",
-    "source": "reddit/r/selfhosted",
-    "url": "https://reddit.com/r/selfhosted/comments/1tnrwe0/sparkyfitness_v01663_a_selfhosted_myfitnesspal/",
-    "summary": "We\u2019ve crossed 3.6k+ users on GitHub, with 52 developers now contributing to the project \u2014 and we\u2019re scaling faster than ever \n\nOver the past few months, we\u2019ve ported many of the web features directly into the native mobile app, so there\u2019s no longer a need to switch between the PWA and mobile experie",
-    "keywords_matched": [
-      "self-hosted"
-    ],
-    "score": 467,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:01:02.112702-06:00"
-  },
-  {
-    "title": "Why is Vivado 2026.1 dropping Linux support for free tier?",
-    "source": "hn/topstories",
-    "url": "https://adaptivesupport.amd.com/s/question/0D5Pd00001YQLdMKAX/why-is-vivado-20261-dropping-linux-support-for-free-tier-?language=en_US",
-    "summary": "HN score: 353, comments: 211",
-    "keywords_matched": [
-      "free tier"
-    ],
-    "score": 353,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:01:42.967710-06:00"
-  },
-  {
-    "title": "Spanish court declines to fine NordVPN over LaLiga piracy blocking order",
-    "source": "hn/topstories",
-    "url": "https://torrentfreak.com/spanish-court-declines-to-fine-nordvpn-over-laliga-piracy-blocking-order/",
-    "summary": "HN score: 223, comments: 121",
-    "keywords_matched": [
-      "cline"
-    ],
-    "score": 223,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:01:53.309318-06:00"
-  },
-  {
-    "title": "NuExtract3 released: open-weight 4B VLM for Markdown, OCR and structured extraction (self-hostable)",
-    "source": "reddit/r/LocalLLaMA",
-    "url": "https://reddit.com/r/LocalLLaMA/comments/1tn8utn/nuextract3_released_openweight_4b_vlm_for/",
-    "summary": "Disclaimer: I work for Numind, the company behind this open-weight model\n\nTLDR: Image/text to Markdown :-)\n\nWe just released a 4B model based on Qwen3.5-4B, under Apache-2.0 license. The goal is to make information extraction from complex documents more practical with an open model: PDFs, screenshot",
-    "keywords_matched": [
-      "just released"
-    ],
-    "score": 222,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:46.968612-06:00"
-  },
-  {
-    "title": "Do you consider open source to be a requirement for self hosted software?",
-    "source": "reddit/r/selfhosted",
-    "url": "https://reddit.com/r/selfhosted/comments/1tmwzfd/do_you_consider_open_source_to_be_a_requirement/",
-    "summary": "I'm building a custom NVR for my office, its about 30 cams and even using it locally, most of the software I tried seems slow, messy, bad ux? Some based on node, others are hell to configure.\n\nI'm building an nvr app (will run on an office Mac) and I got a working copy (recording, scrubbing, live gr",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 163,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:01:02.112819-06:00"
-  },
-  {
-    "title": "Microsoft's 6502 BASIC is now Open Source (2025)",
-    "source": "hn/beststories",
-    "url": "https://opensource.microsoft.com/blog/2025/09/03/microsoft-open-source-historic-6502-basic/",
-    "summary": "HN score: 92, comments: 29",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 92,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:02.637822-06:00"
-  },
-  {
-    "title": "Stop letting Claude glaze your bad product ideas",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1tng0rl/stop_letting_claude_glaze_your_bad_product_ideas/",
-    "summary": "Take this from someone who has pitched to investors, works in a C-Suite job, and has constantly been pitched to.   \n  \nBuilding something from a phrase or an idea can provide a productivity high that can make you feel on top of the world. Claude would help me build whatever I described without ever ",
-    "keywords_matched": [
-      "kills"
-    ],
-    "score": 74,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:42.659421-06:00"
-  },
-  {
-    "title": "Maia-3: free and open source",
-    "source": "hn/topstories",
-    "url": "https://lichess.org/@/ashtonanderson/blog/introducing-maia-3-free-and-open-source/vCPPRtX3",
-    "summary": "HN score: 32, comments: 0",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 32,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:01:34.368355-06:00"
-  },
-  {
-    "title": "Join the Model Context Protocol Discord Server!",
-    "source": "reddit/r/MCP",
-    "url": "https://reddit.com/r/mcp/comments/1h7qe88/join_the_model_context_protocol_discord_server/",
-    "summary": "Join the Model Context Protocol Discord Server!",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 31,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:49.108593-06:00"
-  },
-  {
-    "title": "Self-hosted sandboxes and MCP tunnels for Claude Managed Agents are now in public beta.",
-    "source": "reddit/r/ClaudeAI",
-    "url": "https://reddit.com/r/ClaudeAI/comments/1thg711/selfhosted_sandboxes_and_mcp_tunnels_for_claude/",
-    "summary": "Self-hosted sandboxes lets you run agents in any environment you control: your own infrastructure, or managed providers like Cloudflare, Daytona, Modal, or Vercel. \n\nMCP tunnels connect your agents to MCP servers deployed in your private network without exposing them to the public internet. \n\nAvaila",
-    "keywords_matched": [
-      "self-hosted"
-    ],
-    "score": 23,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:42.659227-06:00"
-  },
-  {
-    "title": "Autonomous AI Agents in Production: A Complete CTO Guide",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://deployflow.co/blog/autonomous-ai-agents-production/",
-    "summary": "Most autonomous AI agents stall at prototype. This guide covers infrastructure decisions that move them into production, from memory design to ...",
-    "keywords_matched": [
-      "autonomous coding agent production"
-    ],
-    "score": 10,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:59.728505-06:00"
-  },
-  {
-    "title": "One person can now run an entire company with over ... - Instagram",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://www.instagram.com/reel/DYw-zhYBb-W/",
-    "summary": "With this tool, you get built-in AI employees for engineering, marketing, research, content, SEO, finance, legal support, and even video production. It handles ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 10,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571590-06:00"
-  },
-  {
-    "title": "ikhono \u2013 The HUB of ai skills Publish, discover, and use AI agent skills across all platforms. Connect the MCP server once and every skill on the registry becomes instantly available \u2014 no local instal",
-    "source": "reddit/r/MCP",
-    "url": "https://reddit.com/r/mcp/comments/1tnk4nt/ikhono_the_hub_of_ai_skills_publish_discover_and/",
-    "summary": "ikhono \u2013 The HUB of ai skills Publish, discover, and use AI agent skills across all platforms. Connect the MCP server once and every skill on the registry becomes instantly available \u2014 no local installation needed.",
-    "keywords_matched": [
-      "kills"
-    ],
-    "score": 9,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:49.108661-06:00"
-  },
-  {
-    "title": "How AI Agents Coordinate Tasks, Tools & Workflows - Phemex",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://phemex.com/academy/what-is-agent-orchestration",
-    "summary": "Agent orchestration is the process of coordinating multiple specialized AI agents, tools, and workflows inside one system. It is used to break down complex ...",
-    "keywords_matched": [
-      "multi-model agent orchestration"
-    ],
-    "score": 9,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:54.496195-06:00"
-  },
-  {
-    "title": "Quantum-Resistant Cryptography for AI: A Blueprint for Secure Model ...",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://securityboulevard.com/2026/05/quantum-resistant-cryptography-for-ai-a-blueprint-for-secure-model-context-protocol-deployments/",
-    "summary": "Protect your AI agent workflows from quantum threats. Learn how to implement quantum-resistant cryptography for Model Context Protocol (MCP) deployments ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 9,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921339-06:00"
-  },
-  {
-    "title": "Kim Komando - Facebook",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://www.facebook.com/kimkomando/posts/-ai-is-getting-so-advanced-it-can-actually-learn-human-personalities-want-more-s/1543981377286350/",
-    "summary": "**Outcome**: The AI-driven support system, guided by the persona, achieves high accuracy in query resolution, enhances customer satisfaction through ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 9,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571637-06:00"
-  },
-  {
-    "title": "Ultralight Orchestration - gist no Github",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436",
-    "summary": "Ultralight Orchestration. A minimal multi-agent system with an orchestrator, a planner, a coder, and a designer working together providing orchestration ...",
-    "keywords_matched": [
-      "multi-model agent orchestration"
-    ],
-    "score": 8,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:54.496225-06:00"
-  },
-  {
-    "title": "If you are building in AI right now and you're not tracking what OpenAI is ...",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.instagram.com/reel/DYw9eSuM7-x/",
-    "summary": "Comment 'goose' and I will DM you the link personally. OCR. Twitter's co-founder built an AI AI coding ... This tool is an open source alternative to Lovable ...",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 8,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:03.871239-06:00"
-  },
-  {
-    "title": "I built a live index of AI agents and models - it pulls from MCP registries ...",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.reddit.com/r/mcp/comments/1tn7jqx/i_built_a_live_index_of_ai_agents_and_models_it/",
-    "summary": "... News). There's an MCP-25 index tracking the top servers ... Will every website need a Model Context Protocol (MCP) as AI browser agents become more common?",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 8,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921389-06:00"
-  },
-  {
-    "title": ": https://bit.ly/4r4yWjj \u201cI continue to believe that humans plus AI ...",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://www.facebook.com/FortuneMagazine/posts/-i-continue-to-believe-that-humans-plus-ai-together-actually-create-more-meaning/1342921011031643/",
-    "summary": "This approach aims to keep human experts involved in the loop, enhancing both human and machine learning performance. By focusing on collaborative frameworks ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 8,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571679-06:00"
-  },
-  {
-    "title": "How I AI: How the engineer behind Claude Cowork actually uses ...",
-    "source": "serper/claude code new features 2026",
-    "url": "https://www.lennysnewsletter.com/p/how-i-ai-how-the-engineer-behind",
-    "summary": "Claire breaks down the biggest launches from Google I/O 2026\u2014from Gemini 3.5 Flash and Antigravity 2.0 to Google AI Studio, Omni, Flow, Stitch, and Pomelli. In ...",
-    "keywords_matched": [
-      "claude code new features 2026"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:50.354291-06:00"
-  },
-  {
-    "title": "Best Open-Source & Open-Weight Coding Models (2026) - Kilo Code",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://kilo.ai/open-source-models",
-    "summary": "The best open-source and open-weight AI coding models in 2026 \u2014 GLM-5.1, Kimi K2.6, DeepSeek V4-Pro, Qwen3-Coder, Devstral.",
-    "keywords_matched": [
-      "agentic coding tools comparison"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:56.314517-06:00"
-  },
-  {
-    "title": "Why Do Most AI Agents Still Feel Like Toys? : r/LangChain - Reddit",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://www.reddit.com/r/LangChain/comments/1tnjl0o/why_do_most_ai_agents_still_feel_like_toys/",
-    "summary": "I think they feel like toys because most agent demos are optimized for autonomy, not reliability. In production, the hard parts are usually boring: state, evals ...",
-    "keywords_matched": [
-      "autonomous coding agent production"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:59.728619-06:00"
-  },
-  {
-    "title": "ChatGPT vs Cursor: Which Is Better in 2026? - CatDoes",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://catdoes.com/blog/chatgpt-vs-cursor",
-    "summary": "ChatGPT and Cursor both help developers write code faster, but they work very differently. Compare pricing, features, and use cases to pick the right one.",
-    "keywords_matched": [
-      "claude code vs cursor vs windsurf"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:01.784968-06:00"
-  },
-  {
-    "title": "\"Alright, real talk about MCP servers for a sec If you've been ... - Instagram",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.instagram.com/p/DYwmYLyllTg/",
-    "summary": "MCP = MODEL CONTEXT PROTOCOL. IT'S THE LAYER THAT LETS YOUR AI CONNECT TO YOUR OTHER TOOLS. THINK OF IT LIKE A USB-C ADAPTER. WITHOUT IT YOUR LAPTOP CAN'T ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921417-06:00"
-  },
-  {
-    "title": "Why Agents Still Need Humans \u2014 Transcript & Summary | Sozai",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://sozai.app/transcript/why-agents-still-need-humans/",
-    "summary": "AI agents extend human productivity but create an endless backlog of tasks. \u00b7 Automation increases demand for human expertise rather than eliminating jobs.",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 7,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571719-06:00"
-  },
-  {
-    "title": "Understanding MCP (Model Context Protocol) - Part 2 - Ep. 10 - C# Corner",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.c-sharpcorner.com/events/microsoft-agent-framework-for-c-sharp-devs-understanding-mcp-model-context-protocol-part-2-ep-10",
-    "summary": "In this episode, we dive into MCP Model Context Protocol and explore how it helps AI agents connect with tools, services, and external systems using the ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 6,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921443-06:00"
-  },
-  {
-    "title": "junior year. someone in my CS class called vibe coding \"not real ...",
-    "source": "serper/claude code vs cursor vs winds",
-    "url": "https://www.instagram.com/reel/DYxPT75Eh3Q/",
-    "summary": "Are we using Cursor for the IDE? Claude for the logic? Copilot for the autocomplete? Drop your current AI tech stack in the comments so I know what to actually ...",
-    "keywords_matched": [
-      "claude code vs cursor vs windsurf"
-    ],
     "score": 5,
     "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:01.785034-06:00"
-  },
-  {
-    "title": "Ai robots are here | TikTok",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.tiktok.com/@marcinteodoru/video/7644036652435901727",
-    "summary": "No setup. No config. No coding headache and it does it all! Build apps, automate your business, manage Gmail, Calendar, research, tasks, and workflows ...",
-    "keywords_matched": [
-      "goose alternatives AI coding"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:03.871321-06:00"
-  },
-  {
-    "title": "MCP Security: Are Your Databases Actually Safe? - YouTube",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.youtube.com/watch?v=xxBbJjz7rag",
-    "summary": "MCP (Model Context Protocol) is being called the universal AI protocol \u2014 and it's connecting LLMs directly to your files, databases, APIs, and internal ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921481-06:00"
-  },
-  {
-    "title": "There's 3 levels of AI... comment \"AI\" for my full AI Business Cheat ...",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://www.facebook.com/Danmartell/posts/theres-3-levels-of-ai-comment-ai-for-my-full-ai-business-cheat-sheet/1587347166094081/",
-    "summary": "There are 5 stages of AI. Most people only know the first two. 1\ufe0f\u20e3 Large Language Models 2\ufe0f\u20e3 Agentic AI 3\ufe0f\u20e3 Multi-agent systems 4\ufe0f\u20e3 AGI (human-level ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571774-06:00"
-  },
-  {
-    "title": "A hacker group is poisoning open source code at an unprecedented scale",
-    "source": "rss/AI News (Ars)",
-    "url": "https://arstechnica.com/information-technology/2026/05/a-hacker-group-is-poisoning-open-source-code-at-an-unprecedented-scale/",
-    "summary": "GitHub is just the latest victim of TeamPCP, a gang that has carried out a spree of software supply chain attacks.",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:14.333063-06:00"
-  },
-  {
-    "title": "The most severe Linux threat to surface in years catches the world flat-footed",
-    "source": "rss/AI News (Ars)",
-    "url": "https://arstechnica.com/security/2026/04/as-the-most-severe-linux-threat-in-years-surfaces-the-world-scrambles/",
-    "summary": "CopyFail threatens multi-tenant servers, CI/CD work flows, Kubernetes containers, and more.",
-    "keywords_matched": [
-      "multi-tenant"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:14.333219-06:00"
-  },
-  {
-    "title": "Open source package with 1 million monthly downloads stole user credentials",
-    "source": "rss/AI News (Ars)",
-    "url": "https://arstechnica.com/security/2026/04/open-source-package-with-1-million-monthly-downloads-stole-user-credentials/",
-    "summary": "If you're one of millions using element-data, it's time to check for compromise.",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 5,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:14.333245-06:00"
-  },
-  {
-    "title": "Building Conifer, an open-source local inference runtime (free + open source)",
-    "source": "reddit/r/artificial",
-    "url": "https://reddit.com/r/artificial/comments/1tnnaa6/building_conifer_an_opensource_local_inference/",
-    "summary": "Team of 5 from Princeton, and we got funding to build a local inference engine for Apple Silicon - rust, hand written kernels - and we're at the point where working with \\~100 people will expose bugs/what people want tool-wise. All of this is free open source - will remain so.\n\nWe're ahead of llama/",
-    "keywords_matched": [
-      "open source"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:00:57.811470-06:00"
-  },
-  {
-    "title": "From Model Scaling to System Scaling: Scaling the Harness in Agentic AI",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://arxiv.org/html/2605.26112v1",
-    "summary": "We propose a framework that separates base-model reasoning from system factors including memory, context construction, skill routing, orchestration, and ...",
-    "keywords_matched": [
-      "multi-model agent orchestration"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:54.496343-06:00"
-  },
-  {
-    "title": "vibecoding is out, spec driven development is in #techcareer #ai ...",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://www.instagram.com/reel/DYxwu79Rekx/",
-    "summary": "I would say vibe coding is about raising the floor for everyone in terms of what they can do in software. But then I would say agentic engineering is about ...",
-    "keywords_matched": [
-      "agentic coding tools comparison"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:56.314576-06:00"
-  },
-  {
-    "title": "How to build an autonomous AI Agent with tool calling using the new ...",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://stackoverflow.com/questions/79946178/how-to-build-an-autonomous-ai-agent-with-tool-calling-using-the-new-microsoft-ag",
-    "summary": "My goal is to give the agent access to custom native C# tools (such as database queries or internal APIs) so it can autonomously decide when to execute these ...",
-    "keywords_matched": [
-      "autonomous coding agent production"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:59.728706-06:00"
-  },
-  {
-    "title": "AI is evolving from chatbot \u2192 AI agent MCP is the technology ... - Instagram",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.instagram.com/reel/DYxX5JQPISg/",
-    "summary": "... MCP, model context protocol, AI automation, Claude AI, ChatGPT, AI tools, AI workflow automation, Gmail AI automation, GitHub MCP, Notion MCP, AI for ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921520-06:00"
-  },
-  {
-    "title": "Best AI Agents in 2026: Tested, Ranked & Compared by Use Case",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://memeburn.com/best-ai-agents/",
-    "summary": "A multi-agent system is a setup where two or more AI agents share one workflow. Each agent has a clear job, so the full system works more like a small digital ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 4,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571804-06:00"
-  },
-  {
-    "title": "The Work That Used To Get You Promoted Is What AI Agents Are ...",
-    "source": "serper/agentic coding tools compariso",
-    "url": "https://vinvashishta.substack.com/p/the-work-that-used-to-get-you-promoted",
-    "summary": "Their engineers look highly replaceable by AI, because the work that's visible is the work that AI coding tools automate. There aren't enough '50% or less ...",
-    "keywords_matched": [
-      "agentic coding tools comparison"
-    ],
-    "score": 3,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:56.314614-06:00"
-  },
-  {
-    "title": "An engineering leader's guide to background agents - Ona",
-    "source": "serper/autonomous coding agent produc",
-    "url": "https://ona.com/guides/background-agents",
-    "summary": "How Stripe, Ramp, Spotify, and other leading engineering teams built their agent infrastructure \u2014 and how to decide what's right for yours.",
-    "keywords_matched": [
-      "autonomous coding agent production"
-    ],
-    "score": 3,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:59.728738-06:00"
-  },
-  {
-    "title": "Top 3 tips for starting a tech business from scratch (one month ... - Instagram",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.instagram.com/p/DYw1XPqJDl1/",
-    "summary": "This AI replaced over five tools I use every single day: ChatGPT, VS Code, Notion, and Docs. I'm constantly switching between all of them and it gets messy. But ...",
-    "keywords_matched": [
-      "goose alternatives AI coding"
-    ],
-    "score": 3,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:03.871384-06:00"
-  },
-  {
-    "title": "Best Authentication Platforms for AI Agents and MCP Servers in 2026",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.marktechpost.com/2026/05/25/best-authentication-platforms-for-ai-agents-and-mcp-servers-in-2026/",
-    "summary": "The Model Context Protocol has moved from Anthropic's internal experiment to a de facto industry standard at a speed few integration protocols have matched.",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 3,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921545-06:00"
-  },
-  {
-    "title": "DevRev adds shared memory to enterprise Computer AI",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://itbrief.news/story/devrev-adds-shared-memory-to-enterprise-computer-ai-16337d17-392d-4d12-b879-b8549bf2b58e",
-    "summary": "A central addition is multiplayer AI, which allows several users to share a live Computer session. Teams can review, question and adjust AI-driven analysis ...",
-    "keywords_matched": [
-      "enterprise"
-    ],
-    "score": 3,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571833-06:00"
-  },
-  {
-    "title": "AI Agent Orchestration Engineer (Remote) - Outlier AI - BeBee",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://bebee.com/us/jobs/ai-agent-orchestration-engineer-remote-outlier-ai-washington--joblooku-138458923",
-    "summary": "We collaborate with leading AI organizations to train Large Language Models (LLMs) to function as proactive, multi-step agents. Our projects focus on ...",
-    "keywords_matched": [
-      "multi-model agent orchestration"
-    ],
-    "score": 2,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:54.496420-06:00"
-  },
-  {
-    "title": "Indian Startup News's post - Facebook",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.facebook.com/indianstartupnews/posts/openai-is-offering-a-salary-package-of-up-to-445000-for-a-senior-machine-learnin/1616689696757256/",
-    "summary": "The only real requirements: \u2192 Strong programming skills \u2192 Solid math foundation (linear algebra, stats, calculus) \u2192 Ability to build complex technical projects ...",
-    "keywords_matched": [
-      "kills"
-    ],
-    "score": 2,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:03.871415-06:00"
-  },
-  {
-    "title": "Connect Ahrefs MCP with ChatGPT Create powerful charts, dashboards ...",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://www.facebook.com/Ahrefs/posts/-connect-ahrefs-mcp-with-chatgptcreate-powerful-charts-dashboards-and-marketing-/1408396424650118/",
-    "summary": "You need to connect them to your data via MCP. MCP (Model Context Protocol) is an open standard that simplifies how AI models interact with external data. An ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 2,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921572-06:00"
-  },
-  {
-    "title": "The Next Frontier: How Multi-Agent Systems are Redefining ...",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://dev.to/fuadhusnan_f44f3e13/the-next-frontier-how-multi-agent-systems-are-redefining-productivity-4kf5",
-    "summary": "At its core, a multi-agent system (MAS) is an architecture in which multiple AI agents \u2014 each with its own role, memory, and toolset \u2014 work together to complete ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 2,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571871-06:00"
-  },
-  {
-    "title": "GitHub Copilot is moving to usage-based billing #192948",
-    "source": "serper/claude code new features 2026",
-    "url": "https://github.com/orgs/community/discussions/192948",
-    "summary": "We're rolling out a preview bill experience in the coming weeks to show all users how their costs may shift under the new billing model. This will be available ...",
-    "keywords_matched": [
-      "claude code new features 2026"
-    ],
-    "score": 1,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:50.354477-06:00"
-  },
-  {
-    "title": "AI Agents Training in the US - NobleProg USA",
-    "source": "serper/multi-model agent orchestratio",
-    "url": "https://www.nobleprog.com/ai-agents-training",
-    "summary": "Online or onsite, instructor-led live AI Agents training courses demonstrate through interactive hands-on practice how to use AI agents to automate tasks, ...",
-    "keywords_matched": [
-      "multi-model agent orchestration"
-    ],
-    "score": 1,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:03:54.496448-06:00"
-  },
-  {
-    "title": "vibecoding is out, spec driven development is in #techcareer #ai ...",
-    "source": "serper/goose alternatives AI coding",
-    "url": "https://www.tiktok.com/@itsallykrinsky/video/7643950991301283086",
-    "summary": "Manage money your way! Keywords: personal finance, money management, budgeting alternatives ... Blade Runner 2049 - Synthwave Goose \u00b7 Tech Sales Cold Calling.",
-    "keywords_matched": [
-      "goose alternatives AI coding"
-    ],
-    "score": 1,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:03.871443-06:00"
-  },
-  {
-    "title": "GitHub MCP Server: The Unavoidable AI Integration - Everything-PR",
-    "source": "serper/MCP model context protocol new",
-    "url": "https://everything-pr.com/github-mcp-server",
-    "summary": "The GitHub MCP server exposes the GitHub API surface to AI assistants through the Model Context Protocol. Claude reads a repository. Cursor opens a pull ...",
-    "keywords_matched": [
-      "model context protocol"
-    ],
-    "score": 1,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:05.921598-06:00"
-  },
-  {
-    "title": "AI Agents Create a Hidden Platform Team Bottleneck",
-    "source": "serper/AI staff system multi-persona",
-    "url": "https://natesnewsletter.substack.com/p/ai-agents-platform-team-bottleneck",
-    "summary": "AI agents accelerate app teams but silently overload platform infrastructure. Learn the 4 controls that keep your platform team from becoming the ...",
-    "keywords_matched": [
-      "AI staff system multi-persona"
-    ],
-    "score": 1,
-    "tier": "WATCH",
-    "discovered": "2026-05-26T02:04:07.571900-06:00"
+    "discovered": "2026-07-10T01:08:00.929155-06:00"
   }
 ]

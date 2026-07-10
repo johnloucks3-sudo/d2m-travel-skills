@@ -210,9 +210,15 @@ If status is NOT "SPAWNED", check the `error` field and the `log_file`.
 
 ## MODELS TO USE
 
-- `claude-haiku-4-5-20251001` — Fast, cheap (default, use this)
-- `claude-sonnet-4-6-20250514` — Smarter, slower
-- `claude-opus-4-7-20250121` — Smartest, slowest
+**Full detail (aliases, availability handling, verified IDs): `docs/OPENCODE_CLAUDE_HEADLESS_MODEL_GUIDE.md`**
+
+- `haiku` — Fast, cheap (default, use this). Resolves to `claude-haiku-4-5-20251001`.
+- `sonnet` — Smarter, slower. Resolves to `claude-sonnet-5`.
+- `opus` — Smartest, slowest. Resolves to `claude-opus-4-8`.
+
+Use the **alias** (`haiku`/`sonnet`/`opus`), not a pinned snapshot name like `claude-sonnet-4-6-20250514` —
+aliases always resolve to Anthropic's current latest release for that tier; pinned names silently
+go stale (this bit two live dispatch paths before the 2026-07-08 fix — see the model guide above).
 
 Haiku is fine for most tasks. Sonnet if you need better reasoning.
 

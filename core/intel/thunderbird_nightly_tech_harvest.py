@@ -28,6 +28,7 @@ SEARCH_QUERIES = [
     "AI draft polish voice matching no subscription 2026",
     "open source LLM writing coach tone correction free",
     "free tier AI correspondence editing business email 2026",
+    "phone native AI writing assistant voice controlled 2026",
 ]
 
 EVAL_CRITERIA = """

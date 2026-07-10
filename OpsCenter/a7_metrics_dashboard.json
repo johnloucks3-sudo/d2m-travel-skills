@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-03T14:43:44.031024+00:00",
+  "generated_at": "2026-07-10T12:00:01.278523+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
-    "open_tasks_count": 6,
+    "open_tasks_count": 5,
     "system_mode": "UNKNOWN"
   },
   "quality": {
@@ -20,27 +20,36 @@
   "cost_control": {},
   "exercise": {},
   "red_items": [
-    "Quality score (42%) below red threshold (60%). Review latest 1 exercises.",
-    "Open tasks (6) exceeds 5."
+    "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
   ],
   "continuity_recert": {
-    "timestamp": "2026-07-03T21:11:03.102627+00:00",
+    "timestamp": "2026-07-10T12:00:01.287660+00:00",
     "overall": "RED",
     "metrics": {
       "failed_unit_count": {
-        "value": 1,
-        "status": "YELLOW",
+        "value": 11,
+        "status": "RED",
         "threshold_red": ">2",
         "failed_units": [
-          "portal-keepalive.service"
+          "d2m-airfare-scan.service",
+          "d2m-github-sync.service",
+          "d2m-gmail-agentmail-bridge.service",
+          "hale-credential-check.service",
+          "thunderbird-generic-remediate@ai-auth-probe.service",
+          "thunderbird-generic-remediate@d2m-airfare-scan.service",
+          "thunderbird-generic-remediate@d2m-github-sync.service",
+          "thunderbird-generic-remediate@d2m-gmail-agentmail-bridge.service",
+          "thunderbird-generic-remediate@generic-remediate-canary.service",
+          "thunderbird-generic-remediate@hale-credential-check.service",
+          "thunderbird-generic-remediate@thunderbird-supertimer.service"
         ],
         "commander_gated": []
       },
       "heartbeat_ping_miss_24h": {
-        "value": 195,
+        "value": 1203,
         "status": "RED",
         "threshold_red": ">1",
-        "last_scan_ts": "2026-07-03 15:10:32",
+        "last_scan_ts": "2026-07-10 05:55:23",
         "note": "current consecutive DEGRADED scans (0 = last scan healthy)"
       },
       "scrape_checkpoint_completion_pct": {
@@ -58,9 +67,10 @@
       }
     },
     "red_items": [
-      "heartbeat_miss_24h=195 (threshold >1)"
+      "failed_unit_count=11 (threshold >2)",
+      "heartbeat_miss_24h=1203 (threshold >1)"
     ],
     "commander_gated": []
   },
-  "_last_updated": "2026-07-03T21:11:03.102627+00:00"
+  "_last_updated": "2026-07-10T12:00:01.287660+00:00"
 }

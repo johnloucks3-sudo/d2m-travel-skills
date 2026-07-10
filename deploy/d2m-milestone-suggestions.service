@@ -1,0 +1,7 @@
+[Unit]
+Description=D2M Birthday/Anniversary Trip Suggestion Engine (monthly)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/scripts/run_milestone_suggestions.py

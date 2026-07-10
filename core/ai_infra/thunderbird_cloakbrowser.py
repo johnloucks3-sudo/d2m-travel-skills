@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
 thunderbird_cloakbrowser.py — CloakBrowser stealth Chromium adapter.
-Wraps cloakbrowser for Akamai/anti-bot bypass on cruise portals.
+Wraps cloakbrowser for Akamai/Imperva/Cloudflare/bot-check bypass on ANY
+site, ANY project — first built against Regent's Akamai wall, but not
+scoped to cruise portals. MIT-licensed, no usage cap. Use it wherever a
+plain fetch or Tier-1/2 escalation comes back walled or JS-empty.
 Falls back to regular Playwright if CloakBrowser unavailable.
 
 Usage:

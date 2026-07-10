@@ -34,9 +34,10 @@ Usage:
 import argparse
 import json
 import os
+import subprocess
 import sys
-import urllib.request
 import urllib.error
+import urllib.request
 from pathlib import Path
 
 
@@ -204,6 +205,14 @@ def call_poe(model_key: str, prompt: str, system: str = "") -> str:
     try:
         with urllib.request.urlopen(req, timeout=120) as resp:
             data = json.loads(resp.read().decode("utf-8"))
+            # Record DeepSeek calls to metronome rate log
+            if "deepseek" in model_id.lower():
+                try:
+                    metronome = Path(__file__).resolve().parent.parent / "OpsCenter" / "metronome.py"
+                    subprocess.run([sys.executable, str(metronome), "--record-deepseek-call"],
+                                   capture_output=True, timeout=5)
+                except Exception:
+                    pass
             return data["choices"][0]["message"]["content"]
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")

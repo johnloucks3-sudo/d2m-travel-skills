@@ -228,7 +228,7 @@
       "last_updated": "2026-03-21T01:33:47.798651+00:00"
     },
     "nancylyons73@outlook.com": {
-      "name": "Nancy Lyons",
+      "name": "Nancy Lyons (secondary address, unconfirmed currency — corrected 2026-07-05)",
       "email": "nancylyons73@outlook.com",
       "relationship_tier": "friend",
       "greeting_patterns": [],
@@ -253,8 +253,29 @@
       "last_updated": "2026-03-21T01:33:47.798860+00:00"
     },
     "klyons3@bellsouth.net": {
-      "name": "Ken Lyons",
+      "name": "Nancy Lyons (primary — corrected 2026-07-05, confirmed via Regent guest-account scrape)",
       "email": "klyons3@bellsouth.net",
+      "relationship_tier": "friend",
+      "greeting_patterns": [],
+      "signoff_patterns": [],
+      "tone": "semi-formal",
+      "personal_references": [
+        "Ken"
+      ],
+      "topics": [
+        "cruise"
+      ],
+      "communication_notes": [
+        "Friend of Commander",
+        "Non-revenue friend service",
+        "This is Nancy's actual active email — was misattributed to Ken until 2026-07-05"
+      ],
+      "sample_count": 0,
+      "last_updated": "2026-07-05T00:00:00.000000+00:00"
+    },
+    "kenlyons73@bellsouth.net": {
+      "name": "Ken Lyons",
+      "email": "kenlyons73@bellsouth.net",
       "relationship_tier": "friend",
       "greeting_patterns": [],
       "signoff_patterns": [],
@@ -267,10 +288,11 @@
       ],
       "communication_notes": [
         "Married to Nancy Lyons",
-        "Friend of Commander"
+        "Friend of Commander",
+        "Added 2026-07-05 — correct address, previously misrecorded as klyons3@bellsouth.net"
       ],
       "sample_count": 0,
-      "last_updated": "2026-03-21T01:33:47.799051+00:00"
+      "last_updated": "2026-07-05T00:00:00.000000+00:00"
     },
     "rwestbrook3@gmail.com": {
       "name": "Ron Westbrook",

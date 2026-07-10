@@ -1,0 +1,12 @@
+[Unit]
+Description=D2M Commission Reconciliation Timer — 1st of month, 06:00 MT
+Documentation=file:///home/john/Thunderbird/scripts/commission_reconciliation_monthly.py
+
+[Timer]
+# System timezone is America/Denver — 06:00 local handles MST/MDT automatically.
+OnCalendar=*-*-01 06:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

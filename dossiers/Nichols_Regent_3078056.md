@@ -16,7 +16,7 @@ fpd_amount_source: invoice
 payment_status: paid_in_full
 status: active
 relationship: client
-completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5"]
+completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verified invoice). Payment sequence verifiably closed — same basis as Ely/Furlow Scandinavia-group peers. No payment conflict on record."
 ---
 
@@ -26,6 +26,8 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 ---
 
 ### STATUS: ACTIVE — **✅ PAID IN FULL** | Suite 939, Deck 9 | Portal activation resent 2026-03-26.
+
+> **LIFECYCLE (2026-07-05):** TP 1.2 — Excursion + Dining touchpoint is the active lifecycle priority for this group. Draft queued in AM report approval cycle; Commander approving one per day until send-ready. MISSION-1548 ✅ CLOSED.
 
 ### RSSC PORTAL DATA (Scraped Mar 26, 2026)
 - **Total Booking Amount:** $18,896.00

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-07-09-001",
+    "title": "Luxury Definition",
+    "source_signal": "LUXURY Definition & Meaning - Merriam-Webster",
+    "classification": "INTEGRATE",
+    "gap_closed": "Understanding of luxury market segments",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Provides foundational definitions for luxury market analysis."
+  },
+  {
+    "id": "A2-2026-07-09-002",
+    "title": "Luxury Definition - Cambridge",
+    "source_signal": "LUXURY | English meaning - Cambridge Dictionary",
+    "classification": "INTEGRATE",
+    "gap_closed": "Understanding of luxury market segments",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Offers an alternative definition of luxury, broadening market understanding."
+  },
+  {
+    "id": "A2-2026-07-09-003",
+    "title": "Luxury Goods Economics",
+    "source_signal": "Luxury goods - Wikipedia",
+    "classification": "INTEGRATE",
+    "gap_closed": "Economic principles of luxury market demand",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "Explains the economic drivers of luxury goods demand, relevant for strategic planning."
+  },
+  {
+    "id": "A2-2026-07-09-004",
+    "title": "Luxury Disambiguation",
+    "source_signal": "Luxury - Wikipedia",
+    "classification": "REJECT",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": null,
+    "sss_required": false,
+    "rationale": "This is a disambiguation page and provides no actionable intelligence."
+  },
+  {
+    "id": "A2-2026-07-09-005",
+    "title": "Luxury Hotel Example",
+    "source_signal": "Salish, Lodge & Spa - Seattle's Luxury Hotel Resort & Spa",
+    "classification": "INTEGRATE",
+    "gap_closed": "Examples of luxury service offerings",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Provides a concrete example of luxury services and their features."
+  },
+  {
+    "id": "A2-2026-07-09-006",
+    "title": "Luxury Resort Examples",
+    "source_signal": "The 8 Best Luxury Resorts in Washington State - 2026 Update",
+    "classification": "INTEGRATE",
+    "gap_closed": "Examples of luxury market positioning",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Identifies specific luxury market offerings and their elevated positioning."
+  }
+]

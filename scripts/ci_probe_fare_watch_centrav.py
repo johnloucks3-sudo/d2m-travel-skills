@@ -11,6 +11,11 @@ No alarm fired for 27 days. (Wing Exercise BURNING HOT CI, 2026-06-27)
 Incident 2026-06-28: chromium_headless_shell binary was also missing — fare_watch_centrav.py
 crashed on every attempt. This probe catches both failure modes.
 
+Incident 2026-07-09: probe hardcoded the DEFAULT playwright cache path
+(~/.cache/ms-playwright) and went RED even though the binary was correctly
+installed — this system redirects installs via PLAYWRIGHT_BROWSERS_PATH.
+Probe now checks both locations.
+
 Checks:
   1. chromium_headless_shell binary exists (fare_watch_centrav.py dependency)
   2. OpsCenter/fare_watches/last_check.json — watches_checked >= 1 AND last run <25h
@@ -20,13 +25,18 @@ Exit 0 = RAZOR_SHARP. Exit 1 = RED.
 """
 import glob
 import json
+import os
 import subprocess
 import sys
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-CHROMIUM_GLOB  = "/home/john/.cache/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"
+_PW_BROWSERS_PATH = os.environ.get("PLAYWRIGHT_BROWSERS_PATH", "").strip()
+CHROMIUM_GLOBS = [
+    "/home/john/.cache/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell",
+] + ([f"{_PW_BROWSERS_PATH}/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"] if _PW_BROWSERS_PATH else [])
+CHROMIUM_GLOB = CHROMIUM_GLOBS[0]  # kept for the error-message string below
 LAST_CHECK     = Path("/home/john/Thunderbird/OpsCenter/fare_watches/last_check.json")
 # centrav_session_warm.py writes to core/travel/data/centrav_session.json (not creds/)
 COOKIE_FILE    = Path("/home/john/Thunderbird/core/travel/data/centrav_session.json")
@@ -43,11 +53,15 @@ def fail(msg: str) -> "NoReturn":
 
 
 def main() -> None:
-    # 1. chromium_headless_shell binary
-    matches = glob.glob(CHROMIUM_GLOB)
+    # 1. chromium_headless_shell binary (default cache OR PLAYWRIGHT_BROWSERS_PATH redirect)
+    matches = []
+    for g in CHROMIUM_GLOBS:
+        matches = glob.glob(g)
+        if matches:
+            break
     if not matches:
         fail(
-            f"chromium_headless_shell binary missing at {CHROMIUM_GLOB}. "
+            f"chromium_headless_shell binary missing (checked {CHROMIUM_GLOBS}). "
             "fare_watch_centrav.py crashes without it. "
             "Fix: .venv/bin/playwright install chromium"
         )

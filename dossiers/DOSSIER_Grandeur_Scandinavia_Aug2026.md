@@ -14,6 +14,7 @@ payment_status: paid_in_full
 status: active
 relationship: client
 completed_tps: []
+active_tps: ["TP 1.2 — Excursion + Dining Guide (draft #1 in AM approval queue, 2026-07-05)"]
 ---
 ════════════════════════════════════════════════════════════
 DREAMS2MEMORIES TRAVEL, LLC
@@ -414,7 +415,15 @@ Content drip tracker — what has been sent to clients pre-trip.
 
 Date Sent    T-minus  Content                                  Channel
 ----------------------------------------------------------------------
-  [No content sent yet]
+  [TP 1.1 Voyage Preview — staged in drafts, pending portal release + Commander WF-17 send]
+
+ACTIVE TP PIPELINE (as of 2026-07-05):
+  TP 1.2 — Excursion + Dining Guide
+    Status: DRAFT #1 QUEUED — in AM brief approval queue as of 2026-07-05; prior task card (Dani P1) superseded and closed
+    Owner: Dani (drafts) / Commander (WF-17 approval)
+    Target: Send within 48h of portal release (~Jul 20-22)
+    Content: Port-by-port excursion recommendations + confirmed dining reservation summary
+    Gate: Commander approves one draft per AM report until complete
 
 ════════════════════════════════════════════════════════════
 8. COMMUNICATION LOG

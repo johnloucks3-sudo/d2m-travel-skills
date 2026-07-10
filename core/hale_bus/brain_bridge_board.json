@@ -254,11 +254,25 @@
       "completed_at": "2026-07-03T22:01:51.205787+00:00",
       "result": "Done. Handoff acknowledged and documented. CC's agent profile pull is verified; boundary between agent-side (booking-deep) and guest-side (personal preferences/tier) is clear. Portfolio Run No.2 (full 6-client ledger sweep) is staged and ready to execute on Commander signal. No redo of CC's work; OC",
       "created_at": "2026-07-03T22:00:33.279617+00:00"
+    },
+    "bb-5650ba61": {
+      "id": "bb-5650ba61",
+      "title": "CI Currency Audit \u2014 7 Stale Tools",
+      "description": "Whetstone (A14) currency check on 7 CI tools flagged by heartbeat scan.\n\nTOOLS:\n1. New-Tech Scout (17d past 14d cadence) - api/thunderbird_power_harvest.py\n2. Armed Overwatch (17d past 14d cadence) - systemctl --user\n3. Email Handling (never reeval) - config/ci_registry.json\n4. Client-Path Canary (never reeval) - config/ci_registry.json\n5. Home Dir Health (never reeval) - scripts/home_dir_ci_probe.py\n6. LiteLLM Gateway (never reeval) - config/ci_registry.json\n7. D2M Inbox Triage (never reeval) - scripts/d2m_inbox_triage.py\n\nTASK per SO_CI_RAZOR_SHARP:\n- Verify each tool function vs registry definition\n- Update last_reeval timestamp in config/ci_registry.json\n- Flag any DULL/RED/REPLACE status\n\nWRITE: OpsCenter/whetstone_ci_currency_audit_20260707.md\nCommander approved 2026-07-07.",
+      "lane": "oc",
+      "priority": "P1",
+      "depends_on": [],
+      "status": "failed",
+      "claimed_by": null,
+      "claimed_at": null,
+      "completed_at": null,
+      "result": "Prompt is too long",
+      "created_at": "2026-07-07T22:29:52.826370+00:00"
     }
   },
   "meta": {
     "created": "2026-07-03T12:40:55.959860+00:00",
     "version": "1.0",
-    "last_updated": "2026-07-03T22:07:12.436682+00:00"
+    "last_updated": "2026-07-07T22:30:07.118924+00:00"
   }
 }

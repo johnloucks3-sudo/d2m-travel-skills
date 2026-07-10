@@ -1,0 +1,11 @@
+[Unit]
+Description=D2M Birthday/Anniversary Trip Suggestions — monthly, 1st at 09:00 MT
+
+[Timer]
+OnCalendar=*-*-01 09:00:00
+TimeZone=America/Denver
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

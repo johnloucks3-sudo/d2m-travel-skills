@@ -1,0 +1,11 @@
+[Unit]
+Description=Thunderbird Intel Wave daily — 22:00 MT
+After=network-online.target
+
+[Timer]
+OnCalendar=*-*-* 22:00:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

@@ -76,6 +76,18 @@ except ImportError:
     def register_hotel_search_tools(mcp): pass  # retired — use hotelbeds_hotel_search.py
 from thunderbird_flight_search import register_flight_search_tools
 from thunderbird_centrav_search import register_centrav_search_tools
+try:
+    from thunderbird_kiwi_search import register_kiwi_search_tools
+except ImportError:
+    def register_kiwi_search_tools(mcp): pass  # RAPIDAPI_KEY not configured yet
+try:
+    from thunderbird_google_flights_search import register_google_flights_tools
+except ImportError:
+    def register_google_flights_tools(mcp): pass  # RAPIDAPI_KEY not configured yet
+try:
+    from thunderbird_united_search import register_united_search_tools
+except ImportError:
+    def register_united_search_tools(mcp): pass  # tools/cloak/cloak_fetch.mjs unavailable
 from thunderbird_tour_search import register_tour_search_tools
 from thunderbird_fare_watch import register_fare_watch_tools
 from thunderbird_personas import register_persona_tools
@@ -603,6 +615,7 @@ _INTEL_LOADERS = [
 # ── TRAVEL additions ──────────────────────────────────────────────────────────
 _TRAVEL_LOADERS = [
     register_hotel_search_tools, register_flight_search_tools, register_centrav_search_tools,
+    register_kiwi_search_tools, register_google_flights_tools, register_united_search_tools,
     register_tour_search_tools,
     register_fare_watch_tools, register_excursion_tools, register_transfer_tools,
     register_opentable_tools, register_dining_tools, register_taap_tools,

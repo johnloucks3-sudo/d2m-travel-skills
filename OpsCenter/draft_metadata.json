@@ -12,5 +12,33 @@
     "persona_id": "CONCIERGE",
     "template_type": "client",
     "created_at": "2026-07-01T16:32:33.707507"
+  },
+  "r6436799919000889493": {
+    "to": "j@yodainva.com",
+    "subject": "Welcome \u2014 Chat with Dani at Dreams2Memories Travel",
+    "persona_id": "A3",
+    "template_type": "client",
+    "created_at": "2026-07-05T17:31:22.459271"
+  },
+  "r-4927008650337495927": {
+    "to": "nancylyons73@outlook.com",
+    "subject": "Welcome \u2014 Let's Chat About Silver Nova May 2027 Excursions",
+    "persona_id": "A3",
+    "template_type": "client",
+    "created_at": "2026-07-05T17:37:25.697222"
+  },
+  "r4684059206876903200": {
+    "to": "nancylyons73@outlook.com",
+    "subject": "Re: Excursions \u2014 Bari, Crete, Milos & Naousa",
+    "persona_id": "A3",
+    "template_type": "client",
+    "created_at": "2026-07-05T18:08:53.188333"
+  },
+  "r-9121386647369693962": {
+    "to": "nancylyons73@outlook.com",
+    "subject": "Re: Excursions \u2014 Bari, Crete, Milos & Naousa",
+    "persona_id": "A3",
+    "template_type": "client",
+    "created_at": "2026-07-05T18:09:48.959749"
   }
 }

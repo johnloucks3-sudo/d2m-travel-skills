@@ -1,0 +1,42 @@
+Subject: Tech Scan 2026-07-04 11:00 UTC — 12 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-04T11:01:39.833904+00:00
+
+TECH SCAN — 2026-07-04 11:00 UTC
+airborne scanner pulse · 34 finds · sectors automation, llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 12 TRIAL · 21 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:_A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.com/docs/),
+↳ real tool (github.com) — worth a bounded look
+- [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) by [multica-ai](https://github.com/multica-ai) - 
+↳ real tool (skill, github.com) — worth a bounded look
+- [Claude Code Guide](https://github.com/zebbern/claude-code-guide) by [zebbern](https://github.com/zebbern) - A current single-pa
+↳ real tool (mcp, github.com) — worth a bounded look
+- [Claude Code: Everything You Need to Know](https://github.com/wesammustafa/Claude-Code-Everything-You-Need-to-Know) by [wesammus
+↳ real tool (github.com) — worth a bounded look
+- [claude-howto](https://github.com/luongnv89/claude-howto) by [luongnv89](https://github.com/luongnv89) - A structured, chapter-b
+↳ real tool (github.com) — worth a bounded look
+- [explore-claude-code](https://github.com/LukeRenton/explore-claude-code) by [Luke Renton](https://github.com/LukeRenton) - An in
+↳ real tool (github.com) — worth a bounded look
+Show HN: Crew – Let Claude Code agents talk to each other — https://github.com/0xmmo/crew
+↳ real tool (github.com) — worth a bounded look
+Save Claude Code Tokens with Smart Routing — https://github.com/regolo-ai/brick-SR1
+↳ real tool (github.com) — worth a bounded look
+Show HN: Sharing LLM Artifacts with your team — https://github.com/danielpang/dropway
+↳ real tool (github.com) — worth a bounded look
+My Side-Project, a Multitool Harness for Unreal Engine and Claude Code — https://github.com/oliver-io/unreal-harness
+↳ real tool (tool, github.com) — worth a bounded look
+Show HN: Make your terminal pulse orange when Claude Code needs input — https://github.com/rickardstureborg/claude-needs-input
+↳ real tool (github.com) — worth a bounded look
+Make Claude Fix the Claude VS Code Extension — https://github.com/Pomax/Claude-VS-Code-Extension-patches
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:![Awesome Claude Code](assets/awesome-claude-code-banner.png)
+
+## The Claude Code Ticker - A Sample of Claude Code Projects Around GitHub
+
+- [Claude Code Hooks: Complete Guide](https://hidekazu-konishi.com/entry/claude_code_hooks_complete_guide.html
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: Which AI model do you use for what? — https://news.ycombinator.com/item?id=4878355
+RAW — all finds this pulse (unfiltered)[llm] ![Awesome Claude Code](assets/awesome-claude-code-banner.png) (awesome-claude-code)
+[llm]  (awesome-claude-code)
+[llm] _A hand-picked collection of the finest of resources for the most awesome of agents, [Claude Code](https://code.claude.c (awesome-claude-code)
+[llm] ## The Claude Code Ticker - A Sam

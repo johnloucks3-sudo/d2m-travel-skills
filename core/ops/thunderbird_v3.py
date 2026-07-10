@@ -56,15 +56,17 @@ def extract_master_data(text):
     TEXT: {text[:20000]}
     """
     try:
-        import anthropic
-        client = anthropic.Anthropic()
-        resp = client.messages.create(
+        from core.ai.instructor_schema_validator import MasterBookingData, extract_structured
+
+        result = extract_structured(
+            system_prompt="You are a data extraction assistant. Extract the fields exactly as given.",
+            user_prompt=prompt,
+            response_model=MasterBookingData,
+            backend="anthropic",
             model="claude-haiku-4-5-20251001",  # Haiku — JSON data extraction (SO-2026-03-25)
             max_tokens=600,
-            system="You are a data extraction assistant. Return ONLY valid JSON, no explanation.",
-            messages=[{"role": "user", "content": prompt}],
         )
-        ai_data = json.loads(resp.content[0].text)
+        ai_data = result.model_dump()
 
         ai_data["Supplier"] = baseline["Supplier"]
         ai_data["Confirmation_Number"] = baseline["Confirmation_Number"] if baseline["Confirmation_Number"] != "Unknown" else ai_data.get("Booking_ID", "Unknown")
@@ -96,15 +98,17 @@ def extract_daily_itinerary(text, ship_name):
     TEXT: {text[:25000]}
     """
     try:
-        import anthropic
-        client = anthropic.Anthropic()
-        resp = client.messages.create(
+        from core.ai.instructor_schema_validator import DailyItinerarySchedule, extract_structured
+
+        result = extract_structured(
+            system_prompt="You are a data extraction assistant. Extract the fields exactly as given.",
+            user_prompt=prompt,
+            response_model=DailyItinerarySchedule,
+            backend="anthropic",
             model="claude-sonnet-4-6",
             max_tokens=2000,
-            system="You are a data extraction assistant. Return ONLY valid JSON, no explanation.",
-            messages=[{"role": "user", "content": prompt}],
         )
-        return json.loads(resp.content[0].text).get("schedule", [])
+        return [day.model_dump() for day in result.schedule]
     except Exception as e:
         logging.error(f"Itinerary Extraction failed: {e}")
         return []

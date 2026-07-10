@@ -1,0 +1,68 @@
+{
+  "mission_id": "MISSION-COMMANDER-196-CALL",
+  "evaluation_timestamp": "2026-07-08T15:04:00Z",
+  "decision": "RECOMMEND_EXECUTE_URGENCY",
+  "urgency_level": "HIGH",
+  "reasoning": {
+    "timeline_constraint": "Spencer Grand Tour lunch meeting scheduled July 10, 2026 (2 days). Bill Spencer explicitly requested detailed cost breakdown with airfare quoted and itemized. This call is the prerequisite for that deliverable.",
+    "booking_window": "United booking window closes July 17, 2026. Early quotation required to preserve group booking rates for 12 pax, three cabin classes.",
+    "overdue_status": "Mission triggered 2026-06-24, now overdue by 14 days. However, the logical execution date was always dependent on finalizing trip details with Bill (which happened Jul 3 cabin correction). Mission is now ready to execute.",
+    "information_completeness": "All required details available in dossier: 12 pax, 3 cabin classes (Yaggi family 4x Business Class, Tim's family 4x Premium Economy Plus, Bill/Kathleen/Billy/Mandy 4x Premium Economy), departure date (June 12, 2027), route (DEN→FCO nonstop)."
+  },
+  "recommended_action": {
+    "action": "COMMANDER_PHONE_CALL",
+    "phone_number": "800-426-1122",
+    "extension": "3",
+    "desk": "United Group Desk",
+    "call_objective": "Request written quote for Spencer Grand Tour airfare",
+    "briefing_points": [
+      {
+        "detail": "Passenger count and cabin breakdown",
+        "value": "12 passengers total: 4 Business Class, 4 Premium Economy Plus, 4 Premium Economy"
+      },
+      {
+        "detail": "Departure date",
+        "value": "June 12, 2027"
+      },
+      {
+        "detail": "Route",
+        "value": "Denver (DEN) to Rome (FCO) — nonstop preferred"
+      },
+      {
+        "detail": "Special requirement",
+        "value": "Group booking for multi-generational family celebration; includes children ages 2 and 5"
+      },
+      {
+        "detail": "Return flight",
+        "value": "Note: return is separate (Zurich to Denver on July 2, 2027 for remaining 8 pax; small group exit FCO to DEN June 23). Focus initial call on DEN-FCO outbound; return quote secondary."
+      },
+      {
+        "detail": "Quote requested format",
+        "value": "Written quote (email) showing all-in per-pax fares by cabin class, taxes, fees. Group booking discount if available."
+      }
+    ],
+    "follow_up": "Document quote received, compare against internal pricing ranges, surface recommendation to Bill/Kathleen at July 10 lunch with itemized cost model"
+  },
+  "blockers": [],
+  "assumptions": {
+    "assumption_1": "United Group Desk has availability to quote for June 2027 peak-season travel",
+    "assumption_2": "Direct DEN-FCO service exists on United for proposed departure date (likely: United operates this route regularly)",
+    "assumption_3": "Group booking (12 pax) qualifies for United group rates/discounts"
+  },
+  "success_criteria": [
+    "Written quote received from United via email",
+    "Quote covers all 12 passengers across three specified cabin classes",
+    "Quote includes per-pax fares, applicable taxes, and any group discounts",
+    "Quote dated and valid for defined period (typically 7–14 days for group quotes)"
+  ],
+  "next_steps_if_executed": [
+    "Dembe (A2) receives quote copy, validates against market intel, compares cabin-class ratios",
+    "Harlan (A9) validates group pricing, verifies no hidden fees, extracts commission-eligible amount",
+    "Hale stages quote + pricing recommendation in cost-breakdown document for July 10 lunch",
+    "Commander brings itemized model + quote to Bill & Kathleen for review/approval"
+  ],
+  "gate_status": "READY_TO_EXECUTE",
+  "gate_detail": "No Commander gate applies. This is a vendor inquiry (not client send, not financial commitment). Commander autonomy permits direct execution.",
+  "decision_confidence": "HIGH",
+  "decision_rationale": "Mission has clear success criteria, no blockers, and urgent timeline. All information required for the call is present in the dossier. Execution would unblock the July 10 lunch deliverable and preserve the July 17 booking window advantage. Recommend Commander make this call today (July 8) or first thing tomorrow (July 9) to allow time for written quote to arrive before lunch."
+}

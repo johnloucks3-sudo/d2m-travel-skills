@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-07-08T09:12:15.390081",
+  "status": "SPAWN",
+  "last_log": "2026-07-08T09:12:15.232039",
+  "queued_missions": 4,
+  "executing_missions": 3,
+  "queued": [
+    {
+      "id": "MCLEOD-2984034-FPD-TRIGGER",
+      "priority": "P0",
+      "message": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. ",
+      "trigger_date": "2026-07-07"
+    },
+    {
+      "id": "MISSION-COMMANDER-196-CALL",
+      "priority": "P0",
+      "message": "Call United Group Desk (800-426-1122 opt 3) with Spencer DEN",
+      "trigger_date": "2026-06-24"
+    },
+    {
+      "id": "MCLEOD-2984034-TP11-SEND",
+      "priority": "P1",
+      "message": "McLeod Regent Grandeur 2984034 \u2014 TP 1.1 Voyage Preview draft",
+      "trigger_date": "2026-07-07"
+    },
+    {
+      "id": "MISSION-317-SPENCER-CALL-REMINDER",
+      "priority": "P0",
+      "message": "MISSION-317 \u2014 Call United Group Desk TODAY (800-426-1122, op",
+      "trigger_date": "2026-07-06"
+    }
+  ],
+  "executing": [
+    "MCLEOD-2984034-FPD-TRIGGER",
+    "MISSION-COMMANDER-196-CALL",
+    "MCLEOD-2984034-TP11-SEND"
+  ],
+  "network_status": "UNKNOWN"
+}

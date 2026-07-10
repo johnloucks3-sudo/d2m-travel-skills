@@ -1,0 +1,133 @@
+{
+  "booking_url": "https://www.rssc.com/agent/myaccount/bookedcruise.aspx?21uwzkkXT97f7JcY1xK9hyCQmJ8KAZNizQbA8RnZf9%2b2GB6xoVkHtRcCZey5%2bUtfz14I9iYKQKotURuEHXNX822RP7fimObr",
+  "pages": {
+    "00_booking": {
+      "beverage": [
+        2,
+        "BEVERAGES, DINING, AND GRATUITIES Your trip includes:  "
+      ],
+      "society": [
+        1,
+        "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS R"
+      ]
+    },
+    "01_seven-seas-society": {
+      "url": "https://www.rssc.com/seven-seas-society",
+      "label": "SEVEN SEAS SOCIETY",
+      "signals": {
+        "phone": [
+          3,
+          "phone time per suite\t\t\t\t\t\t\t Commemorative pin*\t\t\t\t\t\t\t S"
+        ],
+        "society": [
+          10,
+          "SOCIETY \u00a0 VIEW MEMBER BENEFITS OVERVIEW BENEFITS NCLH L"
+        ],
+        "loyalty": [
+          2,
+          "LOYALTY HONORING PROGRAM EXCLUSIVE OFFERS TESTIMONIALS "
+        ],
+        "tier": [
+          2,
+          "tier. As you continue to journey with us, you'll enjoy "
+        ]
+      }
+    },
+    "02_update-profile": {
+      "url": "https://www.rssc.com/agent/update-profile",
+      "label": "Update Profile",
+      "signals": {
+        "email": [
+          2,
+          "EMAIL ADDRESS CONFIRM EMAIL ADDRESS OLD PASSWORD PASSWO"
+        ],
+        "address": [
+          2,
+          "ADDRESS CONFIRM EMAIL ADDRESS OLD PASSWORD PASSWORD CON"
+        ],
+        "society": [
+          1,
+          "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS R"
+        ]
+      }
+    },
+    "03_view-my-saved-cruises": {
+      "url": "https://www.rssc.com/myaccount/savedcruises.aspx",
+      "label": "View my Saved Cruises",
+      "signals": {
+        "saved": [
+          1,
+          "SAVED CRUISES PAST CRUISES MATCHING CRUISES: 2 RESULTS "
+        ],
+        "society": [
+          1,
+          "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS G"
+        ]
+      }
+    },
+    "04_guest-registration-ticke": {
+      "url": "https://www.rssc.com/agent/myaccount/online-checkin/2984034/45613433/1?returnUrl=21uwzkkXT97f7JcY1xK9hyCQmJ8KAZNizQbA8RnZf9%2b2GB6xoVkHtRcCZey5%2bUtfz14I9iYKQKotURuEHXNX86yEPC%2faS9nY",
+      "label": "GUEST REGISTRATION & TICKET CONTRACT COM",
+      "signals": {
+        "saved": [
+          1,
+          "SAVED CRUISES PAST CRUISES ADD AN ALREADY BOOKED CRUISE"
+        ],
+        "society": [
+          1,
+          "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS G"
+        ]
+      }
+    },
+    "05_guest-registration-ticke": {
+      "url": "https://www.rssc.com/agent/myaccount/online-checkin/2984034/45613433/2?returnUrl=21uwzkkXT97f7JcY1xK9hyCQmJ8KAZNizQbA8RnZf9%2b2GB6xoVkHtRcCZey5%2bUtfz14I9iYKQKotURuEHXNX8xvWzerjYB2R",
+      "label": "GUEST REGISTRATION & TICKET CONTRACT COM",
+      "signals": {
+        "saved": [
+          1,
+          "SAVED CRUISES PAST CRUISES ADD AN ALREADY BOOKED CRUISE"
+        ],
+        "society": [
+          1,
+          "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS G"
+        ]
+      }
+    },
+    "06_guest-registration-ticke": {
+      "url": "https://www.rssc.com/agent/myaccount/online-checkin/2984034/45613433/1?returnUrl=21uwzkkXT97f7JcY1xK9hyCQmJ8KAZNizQbA8RnZf9%2b2GB6xoVkHtRcCZey5%2bUtfz14I9iYKQKotURuEHXNX822RP7fimObr",
+      "label": "Guest Registration & Ticket Contract Com",
+      "signals": {
+        "saved": [
+          1,
+          "SAVED CRUISES PAST CRUISES ADD AN ALREADY BOOKED CRUISE"
+        ],
+        "society": [
+          1,
+          "SOCIETY REQUEST A BROCHURE SIGN-UP FOR SPECIAL OFFERS G"
+        ]
+      }
+    },
+    "07_regentcare-travel-protec": {
+      "url": "https://www.rssc.com/frequently-asked-questions/regent-care-guest-protection-program",
+      "label": "REGENTCARE TRAVEL PROTECTION",
+      "signals": {
+        "email": [
+          3,
+          "EMAIL CAN'T FIND WHAT YOU'RE LOOKING FOR?  If you didn'"
+        ],
+        "phone": [
+          3,
+          "PHONE NUMBER United States - (+1) EMAIL *  By submittin"
+        ],
+        "society": [
+          2,
+          "SOCIETY PROGRAM  Loyalty benefits, discounts and additi"
+        ],
+        "loyalty": [
+          1,
+          "Loyalty benefits, discounts and additional complimentar"
+        ]
+      }
+    }
+  }
+}

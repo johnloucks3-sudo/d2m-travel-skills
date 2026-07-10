@@ -50,6 +50,10 @@ class MaterialType(str, Enum):
     PRE_DEPARTURE = "pre_departure"
     DINING_GUIDE = "dining_guide"
     WELCOME_PACKET = "welcome_packet"
+    PORT_DINING_GUIDE = "port_dining_guide"
+    EXCURSION_GRID = "excursion_grid"
+    EMERGENCY_CARD = "emergency_card"
+    POST_BOOKING_PACKET = "post_booking_packet"
 
 
 # ============================================================================
@@ -693,6 +697,307 @@ def generate_dining_guide(destination: str,
         meta=f"{destination} &middot; {travel_style.title()} &middot; Dreams2Memories Travel, LLC",
         body_html=body,
     )
+
+
+def generate_port_dining_guide(client_name: str, booking_data: dict) -> str:
+    """Generate a port-by-port dining guide for a multi-stop cruise itinerary.
+
+    Requires booking_data['ports'] = [{'name': str, 'date': str}, ...].
+    Each port gets 3 curated dining recommendations (A2 Dembe).
+    """
+    ports = booking_data.get("ports") or []
+    ship = booking_data.get("ship", "")
+    travel_style = booking_data.get("travel_style", "luxury")
+
+    logger.info(f"Generating port dining guide: {client_name} — {len(ports)} port(s)")
+
+    body = ""
+    intro = _get_exec_narrative(
+        f"Port dining guide intro for {client_name}",
+        f"Ship: {ship}. {len(ports)} ports of call. "
+        f"Set the tone: a curated food companion for every stop."
+    )
+    body += _section("Dining Ashore — Port by Port", _prose_to_html(intro))
+
+    if not ports:
+        body += _section("No Ports on File",
+            "<p>Port itinerary not yet available in the booking record. "
+            "This guide will populate once the ship's port schedule is confirmed.</p>")
+
+    for port in ports:
+        port_name = port.get("name", "Unknown Port")
+        port_date = port.get("date", "")
+        recs = _consult_persona("A2",
+            f"Recommend exactly 3 restaurants near the cruise port in {port_name}, "
+            f"suitable for a {travel_style} traveler with limited time ashore. "
+            f"For each: name, cuisine, price range ($$-$$$$), one-line why-it's-worth-it, "
+            f"and walking distance from the pier if known. Numbered list, 3 items only.",
+            max_tokens=400
+        )
+        heading = f"{port_name}" + (f" — {port_date}" if port_date else "")
+        body += _section(heading, _prose_to_html(recs))
+
+    return _wrap_html(
+        title="Dining Ashore",
+        material_type="Port Dining Guide",
+        subtitle=f"Prepared exclusively for {client_name}",
+        meta=f"{ship} &middot; {len(ports)} port(s) &middot; Dreams2Memories Travel, LLC",
+        body_html=body,
+    )
+
+
+def generate_excursion_comparison_grid(client_name: str, booking_data: dict) -> str:
+    """Generate a shore excursion comparison grid: GYG vs PE vs SS vs SEG, with D2M pick.
+
+    Pulls only from confirmed sources — cached scrape data (core/travel/data/tour_test_*.json)
+    and dossier-confirmed bookings passed via booking_data['confirmed_excursions'].
+    Never fabricates pricing (Rule 1 — Negative-Space Rule). Missing sources are labeled,
+    not invented.
+    """
+    ports = booking_data.get("ports") or []
+    confirmed = {c.get("port", "").lower(): c for c in booking_data.get("confirmed_excursions", [])}
+    data_dir = Path(__file__).parent.parent / "core" / "travel" / "data"
+
+    logger.info(f"Generating excursion comparison grid: {client_name} — {len(ports)} port(s)")
+
+    rows = []
+    for port in ports:
+        port_name = port.get("name", "Unknown Port")
+        port_date = port.get("date", "")
+        gyg_cell = "Not sourced this cycle"
+        pe_cell = "Not sourced this cycle"
+        ss_cell = "Not sourced this cycle"
+        seg_cell = "Not sourced this cycle"
+
+        cached = _find_cached_tour_scrape(data_dir, port_name, port_date)
+        if cached:
+            gyg = cached.get("getyourguide", {})
+            if gyg.get("status") == "ok" and gyg.get("tours"):
+                top = gyg["tours"][0]
+                gyg_cell = f"{top.get('title', 'Tour')} — {top.get('price_pp', top.get('price', '?'))}"
+            elif gyg.get("status"):
+                gyg_cell = f"No results ({gyg.get('scraped_at', 'cache')[:10]})"
+
+        pick = confirmed.get(port_name.lower())
+        if pick:
+            d2m_cell = f"✓ CONFIRMED — {pick.get('title', 'Booked excursion')} ({pick.get('price', 'see dossier')})"
+        else:
+            d2m_cell = "Not yet selected — run /excursion-analysis for full research"
+
+        rows.append({
+            "port": f"{port_name}" + (f" ({port_date})" if port_date else ""),
+            "gyg": gyg_cell, "pe": pe_cell, "ss": ss_cell, "seg": seg_cell,
+            "d2m_pick": d2m_cell,
+        })
+
+    if not rows:
+        table_html = "<p>No ports on file yet — grid will populate once the itinerary is confirmed.</p>"
+    else:
+        table_html = """<table style="width:100%;border-collapse:collapse;font-size:0.9em;">
+<tr style="background:var(--navy);color:white;">
+<th style="padding:10px;text-align:left;">Port</th>
+<th style="padding:10px;text-align:left;">GYG</th>
+<th style="padding:10px;text-align:left;">PE</th>
+<th style="padding:10px;text-align:left;">SS</th>
+<th style="padding:10px;text-align:left;">SEG</th>
+<th style="padding:10px;text-align:left;">D2M Pick</th>
+</tr>"""
+        for i, r in enumerate(rows):
+            bg = "#faf8f2" if i % 2 == 0 else "#ffffff"
+            table_html += f"""<tr style="background:{bg};">
+<td style="padding:10px;font-weight:600;">{_esc(r['port'])}</td>
+<td style="padding:10px;">{_esc(r['gyg'])}</td>
+<td style="padding:10px;">{_esc(r['pe'])}</td>
+<td style="padding:10px;">{_esc(r['ss'])}</td>
+<td style="padding:10px;">{_esc(r['seg'])}</td>
+<td style="padding:10px;">{_esc(r['d2m_pick'])}</td>
+</tr>"""
+        table_html += "</table>"
+
+    body = _section("Shore Excursion Comparison", table_html +
+        _info_card("Sourcing note",
+            "Cells marked \"Not sourced this cycle\" reflect no cached research for that "
+            "source/port combination — never a fabricated figure. Run <code>/excursion-analysis</code> "
+            "for a full multi-source deep dive on any port.", "tip")
+    )
+
+    return _wrap_html(
+        title="Shore Excursion Comparison",
+        material_type="Excursion Grid",
+        subtitle=f"GYG vs PE vs SS vs SEG — prepared for {client_name}",
+        meta=f"{booking_data.get('ship', '')} &middot; Dreams2Memories Travel, LLC",
+        body_html=body,
+    )
+
+
+def _find_cached_tour_scrape(data_dir: Path, port_name: str, port_date: str) -> Optional[dict]:
+    """Look for a cached tour_test_<port>_<date>.json scrape file, fuzzy on port name."""
+    if not data_dir.exists():
+        return None
+    normalized = port_name.lower().replace(" ", "").replace(",", "")
+    for f in data_dir.glob("tour_test_*.json"):
+        stem = f.stem.replace("tour_test_", "").lower()
+        stem_name = stem.rsplit("_", 1)[0].replace(" ", "").replace(",", "")
+        if normalized.startswith(stem_name) or stem_name.startswith(normalized[:6]):
+            try:
+                return json.loads(f.read_text())
+            except Exception:
+                continue
+    return None
+
+
+_EMERGENCY_CARD_CSS = """
+:root { --navy: #0d1b2e; --gold: #c9a84c; --cream: #faf8f2; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #eee; }
+.card-page { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+.card {
+    width: 4in; height: 6in; background: var(--navy); color: white;
+    border-radius: 14px; padding: 24px; position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.card.back { background: var(--cream); color: #2c2c2c; }
+.card h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.3em; color: var(--gold); margin-bottom: 4px; }
+.card.back h1 { color: var(--navy); }
+.card .sub { font-size: 0.8em; opacity: 0.8; margin-bottom: 16px; }
+.card .row { margin-bottom: 12px; font-size: 0.92em; line-height: 1.5; }
+.card .row .label { font-size: 0.7em; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); display: block; }
+.card.back .row .label { color: var(--navy); }
+.card .row .value { font-weight: 600; }
+.card .footer-note { position: absolute; bottom: 18px; left: 24px; right: 24px; font-size: 0.7em; opacity: 0.6; text-align: center; }
+@media print {
+    body { background: white; }
+    .card { box-shadow: none; page-break-inside: avoid; border: 1px solid #ccc; }
+}
+"""
+
+
+def generate_emergency_contact_card(client_name: str, booking_data: dict) -> str:
+    """Generate a compact, printable, laminate-ready emergency contact card.
+
+    Two-sided card (front: D2M + trip identifiers, back: general emergency numbers).
+    Distinct from the emergency section embedded in the pre-departure packet — this
+    is meant to be printed, laminated, and carried.
+    """
+    ship = booking_data.get("ship", "—")
+    booking_number = booking_data.get("booking_number", "—")
+    dest = booking_data.get("destination", "—")
+    dates = f"{booking_data.get('start_date', 'TBD')} – {booking_data.get('end_date', 'TBD')}"
+    insurance = booking_data.get("insurance_provider", "")
+    insurance_phone = booking_data.get("insurance_phone", "")
+
+    logger.info(f"Generating emergency contact card: {client_name}")
+
+    front = f"""
+    <div class="card front">
+        <h1>Dreams2Memories Travel</h1>
+        <div class="sub">Emergency Contact Card — {_esc(client_name)}</div>
+        <div class="row"><span class="label">24/7 Agent Line</span><span class="value">John Loucks · (719) 291-0742</span></div>
+        <div class="row"><span class="label">Email</span><span class="value">johnloucks3@gmail.com</span></div>
+        <div class="row"><span class="label">Ship / Trip</span><span class="value">{_esc(ship)}</span></div>
+        <div class="row"><span class="label">Booking Number</span><span class="value">{_esc(booking_number)}</span></div>
+        <div class="row"><span class="label">Destination</span><span class="value">{_esc(dest)}</span></div>
+        <div class="row"><span class="label">Dates</span><span class="value">{_esc(dates)}</span></div>
+        {"<div class='row'><span class='label'>Travel Insurance</span><span class='value'>" + _esc(insurance) + (' · ' + _esc(insurance_phone) if insurance_phone else '') + "</span></div>" if insurance else ""}
+        <div class="footer-note">Call or text anytime — first call if something goes sideways.</div>
+    </div>"""
+
+    back = """
+    <div class="card back">
+        <h1>General Emergency Reference</h1>
+        <div class="sub">Keep with your passport</div>
+        <div class="row"><span class="label">Local Emergency (most countries)</span><span class="value">112</span></div>
+        <div class="row"><span class="label">US Embassy Emergency (Duty Officer)</span><span class="value">+1-202-501-4444</span></div>
+        <div class="row"><span class="label">Nearest Embassy/Consulate</span><span class="value">usembassy.gov</span></div>
+        <div class="row"><span class="label">Lost/Stolen Passport</span><span class="value">Contact nearest US Embassy immediately</span></div>
+        <div class="row"><span class="label">Cruise/Tour Line Emergency Desk</span><span class="value">See boarding documents</span></div>
+        <div class="footer-note">Dreams2Memories Travel, LLC</div>
+    </div>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Contact Card — {_esc(client_name)}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>{_EMERGENCY_CARD_CSS}</style>
+</head>
+<body>
+<div class="card-page">
+{front}
+{back}
+</div>
+</body>
+</html>"""
+
+
+def generate_post_booking_packet(client_name: str, booking_data: dict) -> dict:
+    """Orchestrate the 4-document post-booking packet for a confirmed booking.
+
+    Docs: pre-departure guide, port-by-port dining, excursion comparison grid,
+    emergency contact card. Returns dict keyed by MaterialType value.
+    """
+    logger.info(f"Generating post-booking packet: {client_name}")
+    materials = {}
+
+    for mat_type, fn, args in [
+        (MaterialType.PRE_DEPARTURE, generate_pre_departure, (client_name, booking_data)),
+        (MaterialType.PORT_DINING_GUIDE, generate_port_dining_guide, (client_name, booking_data)),
+        (MaterialType.EXCURSION_GRID, generate_excursion_comparison_grid, (client_name, booking_data)),
+        (MaterialType.EMERGENCY_CARD, generate_emergency_contact_card, (client_name, booking_data)),
+    ]:
+        try:
+            materials[mat_type.value] = fn(*args)
+            logger.info(f"  {mat_type.value}: OK")
+        except Exception as e:
+            logger.error(f"  {mat_type.value} failed: {e}")
+            materials[mat_type.value] = None
+
+    generated = sum(1 for k, v in materials.items() if v is not None)
+    materials["_meta"] = {
+        "client_name": client_name,
+        "destination": booking_data.get("destination", ""),
+        "ship": booking_data.get("ship", ""),
+        "booking_number": booking_data.get("booking_number", ""),
+        "generated_at": datetime.now().isoformat(),
+        "materials_count": generated,
+        "materials_total": 4,
+    }
+    logger.info(f"Post-booking packet complete: {generated}/4 materials generated")
+    return materials
+
+
+def save_post_booking_packet(client_name: str, materials: dict, output_dir: str = None) -> dict:
+    """Save all 4 post-booking materials as HTML and optionally PDF."""
+    if output_dir is None:
+        output_dir = os.path.expanduser("~/Thunderbird/output/client_materials/post_booking")
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+
+    safe_name = client_name.replace(" ", "_").replace("/", "_")
+    timestamp = datetime.now().strftime("%Y%m%d")
+    saved = {}
+
+    for mat_type in [MaterialType.PRE_DEPARTURE, MaterialType.PORT_DINING_GUIDE,
+                      MaterialType.EXCURSION_GRID, MaterialType.EMERGENCY_CARD]:
+        html = materials.get(mat_type.value)
+        if not html:
+            continue
+
+        base = f"{safe_name}_{mat_type.value}_{timestamp}"
+        html_path = os.path.join(output_dir, f"{base}.html")
+        pdf_path = os.path.join(output_dir, f"{base}.pdf")
+
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html)
+
+        pdf_ok = render_material_to_pdf(html, pdf_path)
+
+        saved[mat_type.value] = {
+            "html": html_path,
+            "pdf": pdf_path if pdf_ok else None,
+        }
+
+    return saved
 
 
 def generate_welcome_packet(client_name: str, booking_data: dict) -> dict:

@@ -15,9 +15,9 @@ notes: Pro bono advisory/concierge only — PAVLUS Travel handles all bookings. 
 | Field | Details |
 |-------|---------|
 | **Primary Contact** | Nancy Lyons |
-| **Nancy Email** | nancylyons73@outlook.com |
+| **Nancy Email** | **klyons3@bellsouth.net** (corrected 2026-07-05 — Commander directive; confirmed via Regent guest-account scrape `{"email":"klyons3@bellsouth.net","firstName":"Nancy","lastName":"Lyons"}` and a real message "Nancy Lyons <klyons3@bellsouth.net> wrote"). nancylyons73@outlook.com is a secondary/alt address, currency unconfirmed. |
 | **Travel Companion** | Ken Lyons |
-| **Ken Email** | klyons3@bellsouth.net |
+| **Ken Email** | **kenlyons73@bellsouth.net** (corrected 2026-07-05 — was previously misrecorded as klyons3@bellsouth.net, which is actually Nancy's. Confirmed via sent thread "Ken Lyons <kenlyons73@bellsouth.net>", 2026-06-26.) |
 | **Address** | 303 Becket Rd, Saint Marys, Georgia 31558 |
 | **Phone** | 770-826-3849 |
 | **Relationship** | Friend of Commander (John Loucks) |

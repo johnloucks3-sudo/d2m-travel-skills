@@ -7,9 +7,9 @@
 | Field | Details |
 |-------|---------|
 | **Primary Contact** | Nancy Lyons |
-| **Nancy Email** | nancylyons73@outlook.com |
+| **Nancy Email** | **klyons3@bellsouth.net** (corrected 2026-07-05 — Commander directive, confirmed via Regent guest-account scrape). nancylyons73@outlook.com secondary/unconfirmed. |
 | **Travel Companion** | Ken Lyons |
-| **Ken Email** | klyons3@bellsouth.net |
+| **Ken Email** | **kenlyons73@bellsouth.net** (corrected 2026-07-05 — was misrecorded as klyons3@bellsouth.net, which is Nancy's) |
 | **Relationship** | Friend of Commander (John Loucks) |
 | **Service Tier** | Friend Service — free itinerary/concierge, no commission |
 | **Dossier Created** | March 15, 2026 |

@@ -1,0 +1,54 @@
+{
+  "mission_id": "MISSION-317",
+  "mission_title": "Call United Group Desk — Spencer DEN-FCO 12-pax air quote",
+  "priority": "P0",
+  "status": "ACTIVE",
+  "evaluation_timestamp": "2026-07-08T15:10:00-06:00",
+  "overdue_days": 2,
+  "scheduled_date": "2026-07-06T08:00:00-06:00",
+  "current_date": "2026-07-08",
+  "booking_window_opens": "2026-07-17",
+  "days_until_booking_window": 9,
+
+  "decision": "EXECUTE_IMMEDIATELY",
+  "execution_authority": "HALE (operational autonomy — vendor contact, quote request only)",
+  "escalation_pathway": "CONDITIONAL_TO_COMMANDER — if desk negotiates terms or Commander prefers to handle directly",
+
+  "reasoning": {
+    "authority_check": "Vendor contact for transactional quote falls within Hale's operational autonomy per SO-2026-05-04. Not a client send (no WF-17 gate), not a financial commitment (quote only, no spend approval needed), not strategic. Falls in tactical/operational band.",
+    "timeliness": "OVERDUE 2+ business days. Scheduled Monday Jul 6 08:00 MT; now Wednesday Jul 8. Status: ACTIVE, 48+ hours past trigger.",
+    "urgency": "P0 CRITICAL. Booking window opens Jul 17 (9 days). Quote turnaround from vendor = 1–2 business days. Delay directly threatens booking window closure.",
+    "contact_details": "United Group Desk 800-426-1122, option 3. Spencer Grand Tour, 12-pax DEN-FCO.",
+    "business_rationale": "Commander may choose to call directly for relationship/negotiation reasons — valid. But quote request itself is operational work within Hale's lane."
+  },
+
+  "recommended_action": {
+    "step_1_prep": "Retrieve Dembe brief (MISSION-128) — planning ranges, cabin class, pax composition, preferred dates for DEN-FCO routing.",
+    "step_2_call": "Call United Group Desk 800-426-1122 option 3 TODAY. Identify as D2M concierge. Request: 12-pax Denver-Florence, economy cabin preferred, group block rates, written quote with 48–72h hold.",
+    "step_3_capture": "Document: per-pax rate, total price, fuel surcharge, baggage allowance, group terms (name list deadline, deposit terms), quote validity window.",
+    "step_4_return": "Email quote to Dembe (MISSION-128 dossier) + copy Commander. Include: Centrav comparison (MISSION-073 rates), recommended next step (decision and booking date).",
+    "step_5_close": "Mark MISSION-317 complete in mission_board.json. Note: quote received [date], waiting Commander booking decision.",
+    "escalation_if_needed": "If desk requires Commander approval for group terms or pricing, seamlessly hand to Commander with full context captured. No re-dialing."
+  },
+
+  "blocker": null,
+
+  "operational_notes": "Quote request is information-gathering, not commitment. Hale can close this. If Commander prefers to handle the call for relationship/negotiation reasons, he should notify Hale before EOD and take the call directly.",
+
+  "next_checkpoint": "Quote received and documented. Commander decides: accept quote and book, or request alternate terms. Decision by end of business Jul 9 needed to preserve booking window.",
+
+  "artifacts_needed": [
+    "Dembe MISSION-128 brief (planning ranges, pax, dates)",
+    "MISSION-073 Centrav fare comparison",
+    "Spencer dossier (client-specific requirements, med/special needs)",
+    "United Group Desk written quote with validity period"
+  ],
+
+  "success_criteria": {
+    "completion": "Written quote from United Group Desk returned to Dembe and Commander by end of business 2026-07-08 or 2026-07-09 latest",
+    "documentation": "Quote captures: per-pax rate, total, surcharges, baggage, group terms, quote hold period, contact for booking",
+    "next_decision_point": "Commander reviews quote vs Centrav pricing, approves booking, and authorizes Dembe to proceed with client comms"
+  },
+
+  "reassessment_flag": "If call is not answered or desk is unexpectedly closed, escalate to Commander immediately for alternative contact/routing."
+}

@@ -87,7 +87,18 @@ PRIMARY_KEYWORDS = [
     "ai staff", "ai team", "ai personas", "ai org chart",
     "agentic coding", "agentic workflow", "agentic ide",
     "coding agent", "code agent", "autonomous coding",
-    "osint", "open source intelligence", "ai osint", "agentic osint"
+    "osint", "open source intelligence", "ai osint", "agentic osint",
+    # Crown Jewel — mobile/phone-native operation
+    "claude mobile", "claude phone", "claude ios", "claude android",
+    "mobile agent", "phone agent", "on-device agent",
+    "mobile mcp", "phone mcp",
+    "claude app agent", "voice controlled claude",
+    # C2 — phone as command surface
+    "phone c2", "mobile command and control",
+    "phone approval ai", "remote approval agent",
+    "push notification agent", "ntfy agent",
+    "mobile agent dashboard", "agent pwa",
+    "phone dispatch ai", "agent orchestration mobile",
 ]
 
 # Secondary — competitors and adjacent tech
@@ -103,6 +114,13 @@ SECONDARY_KEYWORDS = [
     "swarm intelligence", "agent framework",
     "claude max", "claude opus", "claude sonnet",
     "goose desktop", "goose recipe", "goose extension",
+    # Crown Jewel — secondary
+    "mobile llm runtime", "on-device llm agent",
+    "phone based agent", "smartphone automation",
+    "wake word agent", "hands free coding",
+    "mobile tool use", "phone browser automation",
+    "ios agent app", "android agent app",
+    "claude touch interface",
 ]
 
 # Breakthrough signals — eclipses our setup
@@ -295,6 +313,15 @@ GITHUB_QUERIES = [
     "coding+agent+cli",
     "autonomous+coding+assistant",
     "inter-agent+communication",
+    # Crown Jewel
+    "claude+mobile",
+    "mobile+mcp+client",
+    "phone+agent+runtime",
+    "on-device+llm+agent",
+    # C2
+    "phone+c2+ai",
+    "claude+code+phone+approval",
+    "ntfy+ai+agent",
 ]
 
 
@@ -370,6 +397,17 @@ SERPER_QUERIES = [
     "goose alternatives AI coding",
     "MCP model context protocol news",
     "AI staff system multi-persona",
+    # Crown Jewel
+    "claude mobile app agent 2026",
+    "on-device AI agent smartphone",
+    "mobile MCP client phone",
+    "phone based coding agent",
+    "voice controlled AI agent phone",
+    # C2
+    "phone as command center AI agent",
+    "approve AI tools from phone",
+    "ntfy agent approval workflow",
+    "remote AI agent C2 phone",
 ]
 
 

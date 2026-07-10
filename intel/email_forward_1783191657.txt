@@ -1,0 +1,30 @@
+Subject: Tech Scan 2026-07-04 19:00 UTC — 5 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-04T19:00:57.542336+00:00
+
+TECH SCAN — 2026-07-04 19:00 UTC
+airborne scanner pulse · 8 finds · sectors claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 3 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Mycelium – AI agent plugin guiding you from purpose to market — https://github.com/haabe/mycelium
+↳ real tool (plugin, github.com) — worth a bounded look
+Free SaaS Landing Page Template – React, Vue, HTML for Claude Code and Cursor — https://github.com/hannah-wright/saas-landing-page
+↳ real tool (github.com) — worth a bounded look
+Show HN: Crew – Let Claude Code agents talk to each other — https://github.com/0xmmo/crew
+↳ real tool (github.com) — worth a bounded look
+Save Claude Code Tokens with Smart Routing — https://github.com/regolo-ai/brick-SR1
+↳ real tool (github.com) — worth a bounded look
+My Side-Project, a Multitool Harness for Unreal Engine and Claude Code — https://github.com/oliver-io/unreal-harness
+↳ real tool (tool, github.com) — worth a bounded look
+👁 WATCH:Six Months with Claude Code — https://sajith.me/blog/2026/six_months_with_claude_code.html
+Alibaba bans Claude Code as a security risk — https://www.scmp.com/tech/big-tech/article/3359375/alibaba-bans-
+Using Claude Code in a Django Workflow: What Actually Works — https://dev.to/fhva29/using-claude-code-in-a-dja
+RAW — all finds this pulse (unfiltered)[claude-code] Show HN: Mycelium – AI agent plugin guiding you from purpose to market — https://github.com/haabe/mycelium (Hacker News — Claude Code)
+[claude-code] Six Months with Claude Code — https://sajith.me/blog/2026/six_months_with_claude_code.html (Hacker News — Claude Code)
+[claude-code] Free SaaS Landing Page Template – React, Vue, HTML for Claude Code and Cursor — https://github.com/hannah-wright/saas-la (Hacker News — Claude Code)
+[claude-code] Alibaba bans Claude Code as a security risk — https://www.scmp.com/tech/big-tech/article/3359375/alibaba-bans-staff-usin (Hacker News — Claude Code)
+[claude-code] Show HN: Crew – Let Claude Code agents talk to each other — https://github.com/0xmmo/crew (Hacker News — Claude Code)
+[claude-code] Save Claude Code Tokens with Smart Routing — https://github.com/regolo-ai/brick-SR1 (Hacker News — Claude Code)
+[claude-code] My Side-Project, a Multitool Harness for Unreal Engine and Claude Code — https://github.com/oliver-io/unreal-harness (Hacker News — Claude Code)
+[claude-code] Using Claude Code in a Django Workflow: What Actually Works — https://dev.to/fhva29/using-claude-code-in-a-django-workfl (dev.to Claude)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

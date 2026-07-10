@@ -14,12 +14,14 @@
 # ============================================================
 """
 Wing Relay — CC↔OC Telegram bridge
-Channel: "Yoda and D2M Channels Relay" | chat_id: -5248121475
-Bot: @d2m_channels_bot
+Channels:
+  D2M System  (chat_id: -5248121475 | bot: @d2m_channels_bot) — system alerts, write-only
+  Wing Bridge (chat_id: -5159954387 | bot: @GooseD2M_bot)     — OC↔CC relay
 
 Usage:
-    from core.relay.wing_relay import relay_send, relay_read
-    relay_send("CC", "mission_board updated — 7 missions added (079-085)")
+    from core.relay.wing_relay import relay_send, relay_send_wb, relay_read
+    relay_send("CC", "mission_board updated — 7 missions added")
+    relay_send_wb("CC", "Hale, what's the FPD status on Kuklinski?")
     messages = relay_read(since_id=0)
 """
 
@@ -35,13 +37,29 @@ _CHAT_ID = -5248121475
 _LAST_ID_FILE = Path(__file__).parent.parent.parent / "OpsCenter" / "relay_last_update_id.json"
 _BASE = f"https://api.telegram.org/bot{_TOKEN}"
 
+# Wing Bridge (OC↔CC relay via Goose bot)
+_WB_TOKEN = os.environ.get("TELEGRAM_GOOSE_TOKEN") or "***REMOVED-SECRET***"
+_WB_CHAT_ID = int(os.environ.get("TELEGRAM_HALE_CHAT_ID", "-5159954387"))
+_WB_BASE = f"https://api.telegram.org/bot{_WB_TOKEN}"
+
 
 def relay_send(platform: str, message: str, tag: str = "INFO") -> int:
-    """Post a relay message. Returns Telegram message_id."""
+    """Post a system message to D2M System channel. Returns Telegram message_id."""
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     text = f"[{platform}→RELAY] {tag} | {ts}\n{message}"
     data = urllib.parse.urlencode({"chat_id": _CHAT_ID, "text": text}).encode()
     req = urllib.request.Request(f"{_BASE}/sendMessage", data=data)
+    with urllib.request.urlopen(req, timeout=10) as r:
+        result = json.loads(r.read())
+    return result["result"]["message_id"]
+
+
+def relay_send_wb(platform: str, message: str, tag: str = "INFO") -> int:
+    """Post an OC↔CC relay message to Wing Bridge. Returns Telegram message_id."""
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    text = f"[{platform}→WB] {tag} | {ts}\n{message}"
+    data = urllib.parse.urlencode({"chat_id": _WB_CHAT_ID, "text": text}).encode()
+    req = urllib.request.Request(f"{_WB_BASE}/sendMessage", data=data)
     with urllib.request.urlopen(req, timeout=10) as r:
         result = json.loads(r.read())
     return result["result"]["message_id"]

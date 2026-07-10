@@ -2,7 +2,7 @@
 """
 Commander Next-Move Predictor — Hale + Silver + staff, grounded.
 
-The core discipline (Silver's own standard, per Personas/silver_ground_truth.md:
+The core discipline (Rocket's own standard, per Personas/rocket_ground_truth.md:
 "deterministic gates, Silver never guesses a pass"): every prediction here must
 cite a real, checkable basis — a dated file, a counted pattern, an actual open
 item. No prediction may be pure vibes. Confidence follows the Pipeline Integrity

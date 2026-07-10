@@ -215,8 +215,8 @@
       "template": "Run this bash command to dispatch to Claude Haiku and watch live token output:\nTS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ask_haiku_${TS}.md\"; DJSON=$(python3 /home/john/Thunderbird/OpsCenter/dispatch_claude.py --task \"oc-ask-haiku-${TS}\" --output \"${OUTF}\" --prompt \"{0}\" --model haiku); PID=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('pid',0))\" 2>/dev/null || echo 0); LOGF=$(echo \"${DJSON}\" | python3 -c \"import json,sys; print(json.load(sys.stdin).get('log_file',''))\" 2>/dev/null || echo ''); if [ \"${PID:-0}\" -gt 0 ] 2>/dev/null; then python3 /home/john/Thunderbird/OpsCenter/watch_task.py \"${OUTF}\" \"${PID}\" --log-file \"${LOGF}\" --timeout 600; else echo \"Dispatch failed: ${DJSON}\"; fi"
     },
     "zen-status": {
-      "description": "Check ZEN usage + cache stats.",
-      "template": "echo '=== ZEN STATUS ==='; python3 /home/john/Thunderbird/core/ops/zen_check.py 2>/dev/null || echo 'zen_check.py not found'; echo ''; echo '=== ZEN CACHE ==='; python3 /home/john/Thunderbird/core/ops/zen_cache.py --stats 2>/dev/null || echo 'zen_cache.py not found'"
+      "description": "Check ZEN usage + cache stats. Reads real data from opencode SQLite DB.",
+      "template": "python3 /home/john/Thunderbird/core/ops/zen_check.py 2>/dev/null || echo 'zen_check.py not found or errored'"
     },
     "two-brain": {
       "description": "Two-Brain session \u2014 OpenCode + Claude Sonnet partner. Usage: /two-brain status | /two-brain dispatch <task> | /two-brain tick",

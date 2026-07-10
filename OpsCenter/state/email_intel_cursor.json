@@ -1,6 +1,17 @@
 {
-  "attempt_counts": {},
-  "last_checkpoint": "2026-07-03T15:53:19.563936",
+  "attempt_counts": {
+    "19f3371e72b3f6e0": 1,
+    "19f33aeab5c95117": 1,
+    "19f339d5462c7f48": 1,
+    "19f381fc852602c4": 1,
+    "19f385dade3c16fb": 1,
+    "19f3894ee71a1534": 1,
+    "19f389038a2254f8": 1,
+    "19f425981ca9a720": 1,
+    "19f424b051b5ff37": 1,
+    "19f43464f0593380": 1
+  },
+  "last_checkpoint": "2026-07-10T15:07:05.281139",
   "last_checkpoint_reason": "sweep_complete",
-  "elapsed_sec": 125.6
+  "elapsed_sec": 140.9
 }

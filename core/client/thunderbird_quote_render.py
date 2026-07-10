@@ -24,9 +24,11 @@ from weasyprint import HTML as WeasyHTML
 logger = logging.getLogger(__name__)
 
 THUNDERBIRD_DIR = Path(__file__).parent
+REPO_ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = THUNDERBIRD_DIR / "output"
-LOGO_FILE = THUNDERBIRD_DIR / "Agency_Logo.png"
-HEADSHOT_FILE = THUNDERBIRD_DIR / "John_Headshot.jpg"
+TEMPLATES_DIR = REPO_ROOT / "templates"
+LOGO_FILE = REPO_ROOT / "media" / "Agency_Logo.png"
+HEADSHOT_FILE = REPO_ROOT / "media" / "John_Headshot.jpg"
 SLOGAN = "D2M Travel, Curating the experience of a lifetime"
 
 
@@ -52,7 +54,7 @@ def _headshot_base64() -> str:
 
 def render_quote_html(quote_type: str, context: dict) -> str:
     """Render unified quote HTML from d2m_quote.html.j2 template."""
-    env = Environment(loader=FileSystemLoader(str(THUNDERBIRD_DIR / "templates")))
+    env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)))
     template = env.get_template("d2m_quote.html.j2")
 
     context["quote_type"] = quote_type

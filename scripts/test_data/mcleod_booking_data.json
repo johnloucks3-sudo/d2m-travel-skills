@@ -1,0 +1,19 @@
+{
+  "destination": "Lesser Antilles Journey (Miami round-trip)",
+  "start_date": "2026-12-19",
+  "end_date": "2026-12-29",
+  "ship": "Seven Seas Grandeur",
+  "cruise_line": "Regent Seven Seas Cruises",
+  "booking_number": "2984034",
+  "travel_style": "luxury",
+  "preferences": ["fine dining", "relaxed pace"],
+  "insurance_provider": "",
+  "ports": [
+    {"name": "St Thomas", "date": "2026-12-22"},
+    {"name": "Dominica", "date": "2026-12-23"},
+    {"name": "Antigua", "date": "2026-12-24"},
+    {"name": "St Kitts", "date": "2026-12-25"},
+    {"name": "Tortola", "date": "2026-12-26"}
+  ],
+  "confirmed_excursions": []
+}

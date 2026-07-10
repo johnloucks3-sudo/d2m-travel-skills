@@ -1,8 +1,8 @@
 # Google AI Pro / Gemini Integration — Status
 
 **Mission:** MISSION-127 (P1) · **Owner:** HALE/Sterling (A7)
-**Last verified:** 2026-06-11 · **Subscription:** Google AI Pro (~$20.60/mo)
-**Verdict:** Direct-API path GREEN and verified. File API (PDF) GREEN and verified. One bug found and fixed. Only remaining work is NotebookLM, which requires Commander action (cannot be automated).
+**Last verified:** 2026-07-05 · **Subscription:** Google AI Pro (~$20.60/mo)
+**Verdict:** MISSION-127 CLOSED — all five subtasks complete. Direct-API path, File API, Sheets MCP, and NotebookLM workspace all GREEN and verified.
 
 ---
 
@@ -76,7 +76,7 @@ data   = extract_from_pdf("/path/brochure.pdf", extract_type="cruise_brochure",
 ## STILL NEEDS COMMANDER ACTION (cannot be automated)
 
 - [x] **Drive source corpus staged 2026-07-05** — folder `Thunderbird NotebookLM Source Corpus` created in Drive (id `1pU1Ru7dnBj_AN9OvKWPz_EK39ZBoenVd`), two subfolders populated: `Standing Orders` (all 37 current SOs, for Sterling/Harlan primary-source grounding per Rule 1/Rule 3) and `Destination Research (Brochures, Port Guides)` (3 Silversea tour programme PDFs + the Regent Insider Tips Guide). Ready for one-click "Add sources → Google Drive → this folder" once the notebook exists.
-- [ ] **NotebookLM D2M workspace** — set up at <https://notebooklm.google.com>. NotebookLM has no public API; creating the notebook and linking the Drive folder above are the only remaining manual Commander steps (~2 min): (1) New Notebook → (2) Add source → Google Drive → select `Thunderbird NotebookLM Source Corpus` (pulls in both subfolders) → (3) name it "Thunderbird Wing". Intended users: Dembe (A2) for destination/brochure research, Sterling/Harlan for primary-source fact verification. *This is the only open item on MISSION-127 that the Wing cannot finish autonomously — no login delegation possible.*
+- [x] **NotebookLM D2M workspace — Commander confirmed complete 2026-07-05.** Notebook created at notebooklm.google.com, Drive source corpus (`Thunderbird NotebookLM Source Corpus` — 37 standing orders + 4 destination/brochure docs) linked. Intended users: Dembe (A2) for destination/brochure research, Sterling/Harlan for primary-source fact verification.
 - [x] **Google Sheets MCP wire — verified 2026-07-05.** `api/thunderbird_sheets_mcp.py` (`thunderbird_google_auth.get_sheets()`) was already built; confirmed live end-to-end against the Booking Master spreadsheet: `sheets_list_sheets` (25 tabs), `sheets_read_data` (Booking Master + Wing_Dashboard), `sheets_append_row` (proof row in `Action_Tracker!A811`). No code changes needed — prior "IN PROGRESS" status was stale. MISSION-127 closed.
   - **Open finding (not fixed here, routed to Harlan):** `Wing_Dashboard` tab reports D2M Share **$30,117.57**, which does not match the Harlan-verified pipeline figure of **$18,830.93** in `hale_state.json` (same naive flat-rate bug identified in MISSION-426). This is a third stale commission-total source — same family as the open `MISSION-1540` (Harlan: correct stale `fpd_status` in KNOWN_BOOKINGS).
 

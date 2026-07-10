@@ -1,0 +1,26 @@
+{
+  "kuklinski-flights-ric-pty": {
+    "last_price": 862.25,
+    "ts": "2026-07-06T15:38:30.416041"
+  },
+  "loucks-den-vce-apr2027": {
+    "last_price": 4226.9,
+    "ts": "2026-07-04T08:53:23.952320"
+  },
+  "loucks-ath-den-may2027": {
+    "last_price": 5606.43,
+    "ts": "2026-07-09T22:36:54.968385"
+  },
+  "loucks-cos-grb-sep2026": {
+    "last_price": 477.66,
+    "ts": "2026-07-06T21:41:00.387670"
+  },
+  "morton-dodge-flights-rsw-pty": {
+    "last_price": 1372.75,
+    "ts": "2026-07-06T03:27:18.108270"
+  },
+  "loucks-den-grb-sep2026": {
+    "last_price": 424.41,
+    "ts": "2026-07-10T04:42:10.475077"
+  }
+}

@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-06 19:00 UTC — 5 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-06T19:02:06.287209+00:00
+
+TECH SCAN — 2026-07-06 19:00 UTC
+airborne scanner pulse · 18 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 13 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Orchestrate parallel Claude Code and Codex agents on a live map — https://github.com/Latand/live-log-viewer-next
+↳ real tool (github.com) — worth a bounded look
+Show HN: An always-fresh memory that learns your repo, so agents stop re-reading — https://github.com/shofer-dev/claude-code-live-
+↳ real tool (github.com) — worth a bounded look
+Show HN: DonnyClaude – a verified workflow engine for Claude Code — https://github.com/d0nmega/donnyclaude
+↳ real tool (github.com) — worth a bounded look
+Show HN: Peek-CLI: Let Claude Code See the Browser — https://github.com/puffinsoft/peek-cli
+↳ real tool (github.com) — worth a bounded look
+Claude Code cache guard because Fable 5 tokens are way too precious to waste — https://github.com/yuliang615/claude-cache-guard
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Anthropic hid a tracker in Claude Code to flag Chinese users — https://arstechnica.com/tech-policy/2026/07/ant
+What Claude Code Orchestrator Loops Look Like in Practice — https://old.reddit.com/r/ClaudeAI/comments/1up0614
+Show HN: Keyhole – Share secrets with your AI agents — https://keyhole.maferland.com
+Alibaba bans Claude Code over alleged tracking code — https://theguptalog.blogspot.com/2026/07/alibaba-bans-cl
+Show HN: AI harness for C/C++ with GDB, sanitizers, perf and compile tools — https://byteask.ai/
+Show HN: Open-source Claude Code skills that mine Reddit/X for content topics — https://news.ycombinator.com/i
+Claude Code deletes conversations after 30 days — https://news.ycombinator.com/item?id=48802300
+Tell HN: don't trust Bigco AI agents with AI research IP — https://news.ycombinator.com/item?id=48798385
+RAW — all finds this pulse (unfiltered)[claude-code] Anthropic hid a tracker in Claude Code to flag Chinese users — https://arstechnica.com/tech-policy/2026/07/anthropic-out (Hacker News — Claude Code)
+[claude-code] What Claude Code Orchestrator Loops Look Like in Practice — https://old.reddit.com/r/ClaudeAI/comments/1up0614/how_to_bu (Hacker News — Claude Code)
+[agentic] Show HN: Keyhole – Share secrets with your AI agents — https://keyhole.maferland.com (Hacker News — Claude Code)
+[claude-code] Alibaba bans Claude Code over alleged tracking code — https://theguptalog.blogspot.com/2026/07/alibaba-bans-claude-code- (Hacker News — Claude Code)
+[agentic] Show HN: AI harness for C/C++ with GDB, sanitizers, perf and compile tools — https://byteask.ai/ (Hacker News — Claude Code)
+[claude-code] Show HN: Orchestrate parallel Claude Code and Codex agents on a live map — https://github.com/Latand/live-log-viewer-nex (Hacker News — Claude Code)
+[claude-code] Show HN: Open-source Claude Code skills that mine Reddit/X for content topics — https://news.ycombinator.com/item?id=488 (Hacker Ne

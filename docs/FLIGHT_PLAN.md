@@ -1,6 +1,6 @@
 # FLIGHT PLAN
 ## Dreams2Memories Travel, LLC — Thunderbird Wing
-**Commander:** John "Yoda" Loucks | **COS:** Hale | **Command Chief:** Silver
+**Commander:** John "Yoda" Loucks | **COS:** Hale | **Command Chief:** Rocket
 **Issued:** 2026-06-01 | **Status:** LIVING DOCUMENT
 
 ---
@@ -53,7 +53,7 @@ This board is the Commander's — every number, every status, his call. What I a
 
 Hale and I don't split this board — she routes what the staff produces onto it; I hold what's already on it to the standard the status word claims. Same page, different job. If a status here ever looks better than what I can verify, that's the finding, and it goes to the Commander plainly, not smoothed over.
 
-*— Silver, Command Chief*
+*— Rocket, Command Chief*
 
 ---
 
