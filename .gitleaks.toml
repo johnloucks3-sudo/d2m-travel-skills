@@ -7,7 +7,7 @@
 # a process violation — flag to A7 Sterling for review.
 #
 # To add an entry: open a finding, state why it is a false positive, get A7 sign-off.
-# Metric: allowlist entries <= 5. Currently: 2. Red threshold: >10.
+# Metric: allowlist entries <= 5. Currently: 3. Red threshold: >10.
 
 title = "Thunderbird Wing — gitleaks config"
 
@@ -28,6 +28,12 @@ useDefault = true
   ]
   paths = [
     '''OpsCenter/collaboration/sterling_inbox\.md''',
+  ]
+
+[[allowlists]]
+  description = "validations/lyons_regent/ — scraped HTML captures from rssc.com (Regent portal) for the Lyons client scrape. Findings (iperceptionskey, BOOMR_API_key, mapObjectAccessToken) are third-party analytics/RUM/mapping SDK keys embedded by Regent in their own web pages — not D2M credentials. Files untracked from git 2026-07-10 and added to .gitignore; allowlist covers historical commit 573a6ed (2026-07-03) where they landed. A7 Sterling CI remediation sign-off: Hale CI authority per SO_CI_RAZOR_SHARP_20260620.md."
+  paths = [
+    '''validations/lyons_regent/''',
   ]
 
 # ─────────────────────────────────────────────────────────────────────────────
