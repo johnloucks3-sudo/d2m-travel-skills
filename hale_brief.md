@@ -1,4 +1,4 @@
-# HALE — Compressed Brief [2026-07-10 14:24 MT]
+# HALE — Compressed Brief [2026-07-10 16:14 MT]
 *3-7-30 Format | yesterday's Δ: +0 items*
 
 ---
@@ -26,10 +26,6 @@
 ### 0. OVERNIGHT OPS
 *What the Wing did while you slept — no action needed unless flagged 🔴*
 
-| 2026-07-10 02:29 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
-| 2026-07-10 02:34 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
-| 2026-07-10 03:19 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
-| 2026-07-10 03:44 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 05:04 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 05:29 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 06:04 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
@@ -51,19 +47,23 @@
 | 2026-07-10 13:37 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 13:40 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 14:10 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
-| 2026-07-10 14:20 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 14:30 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 15:00 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 15:35 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 16:04 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 16:10 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 
 **Credentials Status:**
 
 | Credential | Status | Detail |
 |---|---|---|
-| ✅ centrav_cookies | valid | Expires in 1.3h (cookie: laravel_session [auth-gate]) |
-| 🟡 regent_cookies | expired | Expired 84.4h ago (cookie: ASPXAUTH [auth-gate]) |
-| 🟡 regent_cookies_oa | expired | Expired 145.6h ago (cookie: ASPXAUTH [auth-gate]) |
-| ✅ gmail_token | valid | Expires in 0.6h — has refresh_token (auto-refreshes) |
-| ✅ johnloucks3_token | valid | Expires in 0.5h — has refresh_token (auto-refreshes) |
-| ✅ perx_cookies | valid | Expires in 23.4h (cookie: _uetsid) |
-| 🟡 room_res_cookies | expired | Expired 0.2h ago (cookie: __stripe_sid) |
+| ✅ centrav_cookies | valid | Expires in 1.4h (cookie: laravel_session [auth-gate]) |
+| 🟡 regent_cookies | expired | Expired 86.2h ago (cookie: ASPXAUTH [auth-gate]) |
+| 🟡 regent_cookies_oa | expired | Expired 147.4h ago (cookie: ASPXAUTH [auth-gate]) |
+| ✅ gmail_token | valid | Expires in 0.7h — has refresh_token (auto-refreshes) |
+| ✅ johnloucks3_token | valid | Expires in 0.7h — has refresh_token (auto-refreshes) |
+| ✅ perx_cookies | valid | Expires in 23.5h (cookie: _uetsid) |
+| 🟡 room_res_cookies | expired | Expired 0.1h ago (cookie: __stripe_sid) |
 
 ---
 
@@ -126,9 +126,9 @@ Surface to Commander: (1) itinerary layout format for approval, (2) content chec
 - [Sterling] You'll ask for status on: Restore Regent portal cookies (direct + OA) for McLeod FPD prep — _P0 mission open 12d (created 2026-06-28), status=active_
 - [Sterling] You'll ask for status on: Send McLeod TP 1.1 Voyage Preview on July 7 — _P0 mission open 7d (created 2026-07-03), status=active_
 - [Harlan] You'll want a payment-status check for McLeod Grandeur LesserAntilles 2984034 (FPD 12d out) — _FPD 2026-07-22 found in McLeod_Grandeur_LesserAntilles_2984034.md, 12d from today, within the 21d pattern window_
-- [Silver] Next suspense likely to pull your attention: "centrav_cookies: valid" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
-- [Silver] Next suspense likely to pull your attention: "regent_cookies: expired" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
-- [Silver] Next suspense likely to pull your attention: "regent_cookies_oa: expired" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T15:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
+- [Silver] Next suspense likely to pull your attention: "centrav_cookies: valid" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
+- [Silver] Next suspense likely to pull your attention: "regent_cookies: expired" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
+- [Silver] Next suspense likely to pull your attention: "regent_cookies_oa: expired" appeared 30x in the ops log — _heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass — same shape as the 2026-07-04 credential doomsday_
 
 **Rate last cycle's predictions** (closes the accuracy loop — reply with any of these, or skip if none apply):
 - `DA-MCLEOD-2984034-FPD-TRIGGER` — You'll act on: McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Contact E
@@ -158,7 +158,7 @@ _Secondary signal: 15/133 feedback memories touch this month — Recency cluster
 ---
 
 # HALE — Daily Brief
-*Generated: 2026-07-10 14:24 MT*
+*Generated: 2026-07-10 16:14 MT*
 
 ---
 
@@ -211,7 +211,7 @@ _Queue empty_
 
 | System | Status |
 |---|---|
-| last_health_check | 💤 2026-07-10T14:24:00.141990 |
+| last_health_check | 💤 2026-07-10T16:14:11.756585 |
 | chrome_debug_port_9222 | ❌ OFFLINE |
 | mcp_server | ✅ OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient) |
 | opencode_status | ✅ ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z) |
@@ -272,5 +272,5 @@ _Reply APPROVED or REVISE to this email._
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-07-10 14:24 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-07-10 16:14 MT*
 *Next brief: 2026-07-11 06:00 MT*

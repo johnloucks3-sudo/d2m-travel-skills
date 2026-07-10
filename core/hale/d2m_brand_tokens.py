@@ -75,8 +75,8 @@ def status_color(value: str) -> str:
     v = str(value).upper()
     if "ONLINE" in v or "LIVE" in v or "OK" in v or "RUNNING" in v or "PAID" in v:
         return STATUS_GREEN
-    if "OFFLINE" in v or "🔴" in v or "EXPIRED" in v:
+    if v == "P0" or "OFFLINE" in v or "🔴" in v or "EXPIRED" in v:
         return STATUS_RED
-    if "🟡" in v or "PENDING" in v or "DUE" in v:
+    if v == "P1" or "🟡" in v or "PENDING" in v or "DUE" in v:
         return STATUS_YELLOW
     return STATUS_GREY

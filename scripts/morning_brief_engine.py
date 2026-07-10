@@ -1043,7 +1043,7 @@ def main() -> None:
 
     try:
         from core.hale.brief_dashboard_render import write_dashboard
-        dash_path = write_dashboard(state, clients, queue)
+        dash_path = write_dashboard(state, clients, queue, concerns, tp_draft)
         logger.info(f"hale-brief-dashboard written: {dash_path}")
     except Exception as e:
         logger.error(f"brief_dashboard_render failed (non-fatal, hale_brief.md still written): {e}")

@@ -1,10 +1,17 @@
 """
-Track C — dossier visual cards. v1 scope: payment-roadmap section only, one couple
-(Furlow, proof-of-structure). Reuses Track A's brand tokens — no re-derived palette.
+Track C — dossier visual cards. Payment-roadmap + key-dates card, one file per couple
+(3 separate cards + a gallery index — matches the per-couple send pattern already used
+for this group's TP emails). Reuses Track A's brand tokens — no re-derived palette.
 
 WF-17: output lands in output/dossier-cards/ and STOPS there. No send path here.
 Read-only against the dossier file — never writes back (dossier field write authority
 is Harlan/Reyes/Luna per dossiers/CLAUDE.md PRODUCTION-LOCK table).
+
+PII gate: parse_dossier() only extracts YAML front matter + the KEY DATES table —
+it never touches free-form body sections (e.g. Ely_Darrow's "HEALTH / MEDICAL"
+section, which is marked INTERNAL ONLY / NEVER in client copy in the source
+dossier). No medical/insurance content is reachable by this renderer by
+construction, not by a filter that could be bypassed.
 """
 
 from __future__ import annotations
@@ -103,5 +110,33 @@ def write_card(dossier_filename: str) -> Path:
     return out_path
 
 
+def write_index(card_paths: list[Path]) -> Path:
+    """Gallery index linking the per-couple cards — review-only, no send affordance."""
+    links = "".join(
+        f'<li><a style="color:{SHIMMER};" href="{p.name}">{p.stem.replace("_", " ").title()}</a></li>'
+        for p in card_paths
+    )
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Dossier Cards — Review Index</title>
+<style>{PAGE_SHELL_CSS}</style></head>
+<body>
+  <h1 style="color:{SHIMMER};font-weight:400;">Dossier Cards — Commander Review</h1>
+  <div class="d2m-card"><ul>{links}</ul></div>
+</body>
+</html>"""
+    out_path = CARDS_OUT_DIR / "index.html"
+    out_path.write_text(html, encoding="utf-8")
+    return out_path
+
+
 if __name__ == "__main__":
-    print(write_card("Furlow_Regent_3071222.md"))
+    couples = [
+        "Furlow_Regent_3071222.md",
+        "Ely_Darrow_Regent_3096289.md",
+        "Nichols_Regent_3078056.md",
+    ]
+    written = [write_card(f) for f in couples]
+    for p in written:
+        print(p)
+    print(write_index(written))
