@@ -20,7 +20,8 @@ from pathlib import Path
 from typing import Optional
 
 ROOT = Path("/home/john/Thunderbird")
-HALE_DECISIONS = ROOT / "hale_decisions.md"
+import os as _os
+HALE_DECISIONS = Path(_os.environ.get("HALE_ORCHESTRATOR_DECISIONS_PATH", str(ROOT / "hale_decisions.md")))
 ERROR_LOG = ROOT / "logs" / "hale_orchestrator_errors.log"
 
 ERROR_LOG.parent.mkdir(parents=True, exist_ok=True)
