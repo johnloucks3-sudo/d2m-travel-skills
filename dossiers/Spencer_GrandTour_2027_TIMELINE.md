@@ -22,7 +22,7 @@ note: HARD CASE — 12 pax, 3 family groups, 3 countries, mid-trip split. MUST H
 ## THE TRIP SPINE (fixed)
 | Dates | Segment | Who | Booked by |
 |---|---|---|---|
-| Jun 12 | DEN → FCO (United) | all 12 | **D2M — air** |
+| **Depart Jun 11 (DEN, evening) → Arrive Jun 12 (Rome)** ⚠️ *corrected 2026-07-10, Commander-confirmed — was previously mislabeled as a single "Jun 12"* | DEN → FCO | all 12 | **D2M — air** |
 | Jun 12–15 | Rome, 3 nts | all 12 | **D2M** |
 | Jun 15–23 | Disney Wish Mediterranean (8 nts) | all 12 | VTG ✅ |
 | Jun 23 | Tim's family (4) FCO → DEN | Tim's 4 | **D2M — air** |
