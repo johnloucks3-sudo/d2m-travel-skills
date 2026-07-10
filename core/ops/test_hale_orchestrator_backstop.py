@@ -3,7 +3,15 @@ import os
 import subprocess
 import sys
 
-HOOK = "/home/john/Thunderbird/.claude/hooks/hale_orchestrator_backstop.py"
+# Resolve hook path dynamically via git root to work from both main repo and worktree
+_REPO_ROOT = subprocess.run(
+    ["git", "rev-parse", "--show-toplevel"],
+    capture_output=True,
+    text=True,
+    check=True,
+    cwd=os.path.dirname(__file__),
+).stdout.strip()
+HOOK = f"{_REPO_ROOT}/.claude/hooks/hale_orchestrator_backstop.py"
 
 
 def _run_hook(stdin_payload: dict, decisions_path) -> str:
