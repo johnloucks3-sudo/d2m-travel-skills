@@ -173,29 +173,30 @@ def open_plan(
     prompt_charter (for tier T2/T3) is the caller-supplied Wing Exercise
     Prompt Charter dict — its fields fold into compliance_checks rather than
     being scraped automatically, since no single machine-readable charter
-    store exists yet."""
+    store exists yet. Only the persistence step is protected against
+    failure — bad caller input (wrong types) raises immediately rather than
+    silently degrading, per code review finding."""
     plan_id = _new_plan_id()
+    resolved_criteria = list(criteria) if criteria else list(_DEFAULT_CRITERIA)
+    resolved_checks = list(compliance_checks) if compliance_checks else []
+
+    if tier in ("T2", "T3") and prompt_charter:
+        for key in ("success_criteria", "scope_in", "scope_out", "named_staff", "exit_condition"):
+            val = prompt_charter.get(key)
+            if val:
+                resolved_checks.append(f"{key}: {val}")
+
+    plan = Plan(
+        plan_id=plan_id,
+        task_summary=task_summary,
+        tier=tier,
+        session_id=session_id,
+        compliance_checks=resolved_checks,
+        criteria=resolved_criteria,
+    )
     try:
-        resolved_criteria = list(criteria) if criteria else list(_DEFAULT_CRITERIA)
-        resolved_checks = list(compliance_checks) if compliance_checks else []
-
-        if tier in ("T2", "T3") and prompt_charter:
-            for key in ("success_criteria", "scope_in", "scope_out", "named_staff", "exit_condition"):
-                val = prompt_charter.get(key)
-                if val:
-                    resolved_checks.append(f"{key}: {val}")
-
-        plan = Plan(
-            plan_id=plan_id,
-            task_summary=task_summary,
-            tier=tier,
-            session_id=session_id,
-            compliance_checks=resolved_checks,
-            criteria=resolved_criteria,
-        )
         PlanStore.write_open(plan)
-        return plan
     except Exception as exc:
-        logger.error("open_plan failed: %s\n%s", exc, traceback.format_exc())
-        return Plan(plan_id=plan_id, task_summary=task_summary, tier=tier,
-                     session_id=session_id, degraded=True)
+        logger.error("open_plan write failed: %s\n%s", exc, traceback.format_exc())
+        plan.degraded = True
+    return plan
