@@ -6459,3 +6459,9477 @@ I need your strategic input on Thunderbird OS intelligence ...
 **Criteria unverified:** Existing test suites (ci repairs, crash reporter, flap detector) still pass unmodified
 **Notes:** Found+fixed a real bug during verification: crash_reporter test wrote 2 stray Plan blocks into the PRODUCTION hale_decisions.md (missing HALE_DECISIONS monkeypatch). Caught via diff against a pre-test snapshot, cleaned via flock-protected truncation, test fixed. Re-ran clean.
 <!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e1658e tier=trivial session_id=none opened_at=2026-07-10T04:24:47.550189+00:00 -->
+**Plan Opened:** PLN-e1658e
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3737794.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e1658e verdict=PASS quality_tier=none closed_at=2026-07-10T04:24:47.554605+00:00 -->
+**Plan Closed:** PLN-e1658e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3737794.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5dae9b tier=T2 session_id=none opened_at=2026-07-10T04:29:05.089786+00:00 -->
+**Plan Opened:** PLN-5dae9b
+**Task:** Cast a wider, gap-anchored external search for self-healing patterns beyond the 2-lane system; adopt at $0 where genuinely superior; verify wiring independently
+**Tier:** T2
+**Compliance checks:** No client-send gate crossed; No financial commitment made without Commander named-ask; No expansion of destructive auto-apply scope
+**Criteria:** Search scoped by the actual gap: detect->remediate for arbitrary non-CI-registered services at $0, not a generic self-healing survey; ELON (adoption-first) and Whetstone (razor-sharp/currency) both consulted in parallel, each candidate scored source/gap-filled/cost/adopt-skip+why; No paid tool silently adopted -- any paid candidate surfaced to Commander as one named ask, not integrated; Any adopted capability is independently verified as actually wired (real invocation / external references / systemd-wired), not just a committed file; Outcome is honest even if negative: searched-wide-nothing-beats-current is a valid, reportable result
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-3c0619 tier=trivial session_id=none opened_at=2026-07-10T04:36:46.328582+00:00 -->
+**Plan Opened:** PLN-3c0619
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3c0619 verdict=FAIL quality_tier=none closed_at=2026-07-10T04:36:46.337741+00:00 -->
+**Plan Closed:** PLN-3c0619
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7fcc16 tier=trivial session_id=58a13b02-7dc5-4275-a32b-86cb4a75db5f opened_at=2026-07-10T04:38:43.171194+00:00 -->
+**Plan Opened:** PLN-7fcc16
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7fcc16 verdict=PASS quality_tier=none closed_at=2026-07-10T04:38:43.175788+00:00 -->
+**Plan Closed:** PLN-7fcc16
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5dae9b verdict=PASS quality_tier=GREEN closed_at=2026-07-10T04:39:56.753702+00:00 -->
+**Plan Closed:** PLN-5dae9b
+**Verdict:** PASS
+**Quality tier:** GREEN
+**Criteria met:** Search scoped by the actual gap: detect->remediate for arbitrary non-CI-registered services at $0, not a generic self-healing survey; ELON (adoption-first) and Whetstone (razor-sharp/currency) both consulted in parallel, each candidate scored source/gap-filled/cost/adopt-skip+why; No paid tool silently adopted -- any paid candidate surfaced to Commander as one named ask, not integrated; Any adopted capability is independently verified as actually wired (real invocation / external references / systemd-wired), not just a committed file; Outcome is honest even if negative: searched-wide-nothing-beats-current is a valid, reportable result
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** ELON+Whetstone converged independently on the same adoption (systemd OnFailure=, $0, zero new deps) and the same rejection list (StackStorm/Sensu/EDA/Prometheus+Alertmanager/Robusta as complexity-for-its-own-sake). Built scripts/generic_remediate.py + thunderbird-generic-remediate@.service, verified against a REAL disposable canary unit (not mocked) -- caught and fixed 2 live bugs (%n/%N escaping, missing EnvironmentFile= for core.* imports) that a code-only review would have missed. Deliberately did NOT flip the fleet-wide global drop-in -- staged at config/staged/onfailure-remediate.conf pending Whetstones named Lane-1-interaction cross-check, matching the codebases own DESTRUCTIVE-staged convention rather than a silent full activation.
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-10da47 tier=trivial session_id=none opened_at=2026-07-10T04:43:28.520964+00:00 -->
+**Plan Opened:** PLN-10da47
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-10da47 verdict=FAIL quality_tier=none closed_at=2026-07-10T04:43:28.529311+00:00 -->
+**Plan Closed:** PLN-10da47
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f9db29 tier=trivial session_id=none opened_at=2026-07-10T04:53:24.965979+00:00 -->
+**Plan Opened:** PLN-f9db29
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f9db29 verdict=FAIL quality_tier=none closed_at=2026-07-10T04:53:24.972205+00:00 -->
+**Plan Closed:** PLN-f9db29
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d6b2e8 tier=trivial session_id=none opened_at=2026-07-10T04:55:34.066083+00:00 -->
+**Plan Opened:** PLN-d6b2e8
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d6b2e8 verdict=FAIL quality_tier=none closed_at=2026-07-10T04:55:34.078075+00:00 -->
+**Plan Closed:** PLN-d6b2e8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bc8db7 tier=trivial session_id=none opened_at=2026-07-10T04:56:44.641597+00:00 -->
+**Plan Opened:** PLN-bc8db7
+**Task:** generic long-tail remediation: nexus -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bc8db7 verdict=PASS quality_tier=none closed_at=2026-07-10T04:56:44.645973+00:00 -->
+**Plan Closed:** PLN-bc8db7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** nexus verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+## 2026-07-09 — gmail_send_from_wing uses retired 🦅 mark, not current ⚡
+**Found during:** post-flight-debrief email send/verify (self-healing + orchestrator report to johnloucks3)
+**Detail:** The tool auto-wraps every send with its own hardcoded header/footer template still using the retired eagle emblem (retired 2026-06-19 per Visual Identity Mark SO) instead of ⚡. My own HTML mark rendered correctly inside the body, but the wrapper's boilerplate is stale.
+**Impact:** Cosmetic only — verified via independent inbox read (gmail_search_messages + gmail_read_message) that the actual report content delivered intact and complete.
+**Fix status:** NOT fixed — flagged only, same session, so it isn't rediscovered from scratch. Low priority.
+**Owner:** Sterling/Whetstone lane (template file, likely in core/email/thunderbird_gmail.py or an MCP-side wrapper).
+
+<!-- PLAN:OPEN plan_id=PLN-2473bb tier=trivial session_id=none opened_at=2026-07-10T05:03:29.343552+00:00 -->
+**Plan Opened:** PLN-2473bb
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2473bb verdict=FAIL quality_tier=none closed_at=2026-07-10T05:03:29.348622+00:00 -->
+**Plan Closed:** PLN-2473bb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c3a723 tier=trivial session_id=none opened_at=2026-07-10T05:03:34.521249+00:00 -->
+**Plan Opened:** PLN-c3a723
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3796123.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c3a723 verdict=PASS quality_tier=none closed_at=2026-07-10T05:03:34.529163+00:00 -->
+**Plan Closed:** PLN-c3a723
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3796123.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d13f34 tier=trivial session_id=none opened_at=2026-07-10T05:03:34.557783+00:00 -->
+**Plan Opened:** PLN-d13f34
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d13f34 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:03:34.562147+00:00 -->
+**Plan Closed:** PLN-d13f34
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-29d9b3 tier=trivial session_id=none opened_at=2026-07-10T05:03:39.687311+00:00 -->
+**Plan Opened:** PLN-29d9b3
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-29d9b3 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:03:39.694134+00:00 -->
+**Plan Closed:** PLN-29d9b3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-64e5c0 tier=trivial session_id=none opened_at=2026-07-10T05:05:03.253306+00:00 -->
+**Plan Opened:** PLN-64e5c0
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-64e5c0 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:05:03.263209+00:00 -->
+**Plan Closed:** PLN-64e5c0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fe5db4 tier=trivial session_id=none opened_at=2026-07-10T05:06:16.653059+00:00 -->
+**Plan Opened:** PLN-fe5db4
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fe5db4 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:06:16.657288+00:00 -->
+**Plan Closed:** PLN-fe5db4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f38f57 tier=trivial session_id=none opened_at=2026-07-10T05:07:32.836210+00:00 -->
+**Plan Opened:** PLN-f38f57
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f38f57 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:07:32.842944+00:00 -->
+**Plan Closed:** PLN-f38f57
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41ee00 tier=trivial session_id=none opened_at=2026-07-10T05:10:24.566715+00:00 -->
+**Plan Opened:** PLN-41ee00
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41ee00 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:10:24.571033+00:00 -->
+**Plan Closed:** PLN-41ee00
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-81b964 tier=trivial session_id=none opened_at=2026-07-10T05:12:57.557634+00:00 -->
+**Plan Opened:** PLN-81b964
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-81b964 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:12:57.562228+00:00 -->
+**Plan Closed:** PLN-81b964
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c1f2d3 tier=trivial session_id=none opened_at=2026-07-10T05:12:57.655342+00:00 -->
+**Plan Opened:** PLN-c1f2d3
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c1f2d3 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:12:57.659659+00:00 -->
+**Plan Closed:** PLN-c1f2d3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17a7de tier=trivial session_id=none opened_at=2026-07-10T05:12:58.881202+00:00 -->
+**Plan Opened:** PLN-17a7de
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17a7de verdict=FAIL quality_tier=none closed_at=2026-07-10T05:12:58.885644+00:00 -->
+**Plan Closed:** PLN-17a7de
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e6bb93 tier=trivial session_id=none opened_at=2026-07-10T05:13:00.419465+00:00 -->
+**Plan Opened:** PLN-e6bb93
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e6bb93 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:13:00.424031+00:00 -->
+**Plan Closed:** PLN-e6bb93
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eee20e tier=trivial session_id=none opened_at=2026-07-10T05:15:38.011857+00:00 -->
+**Plan Opened:** PLN-eee20e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eee20e verdict=FAIL quality_tier=none closed_at=2026-07-10T05:15:38.016395+00:00 -->
+**Plan Closed:** PLN-eee20e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-52d456 tier=trivial session_id=none opened_at=2026-07-10T05:22:21.166154+00:00 -->
+**Plan Opened:** PLN-52d456
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-52d456 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:22:21.170573+00:00 -->
+**Plan Closed:** PLN-52d456
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f92777 tier=trivial session_id=none opened_at=2026-07-10T05:22:57.739508+00:00 -->
+**Plan Opened:** PLN-f92777
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f92777 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:22:57.743846+00:00 -->
+**Plan Closed:** PLN-f92777
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-089b3b tier=trivial session_id=none opened_at=2026-07-10T05:23:06.618144+00:00 -->
+**Plan Opened:** PLN-089b3b
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3819024.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-089b3b verdict=PASS quality_tier=none closed_at=2026-07-10T05:23:06.626693+00:00 -->
+**Plan Closed:** PLN-089b3b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3819024.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e31d7d tier=trivial session_id=none opened_at=2026-07-10T05:23:06.655753+00:00 -->
+**Plan Opened:** PLN-e31d7d
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e31d7d verdict=FAIL quality_tier=none closed_at=2026-07-10T05:23:06.660184+00:00 -->
+**Plan Closed:** PLN-e31d7d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c86bd2 tier=trivial session_id=none opened_at=2026-07-10T05:23:08.065313+00:00 -->
+**Plan Opened:** PLN-c86bd2
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c86bd2 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:23:08.075772+00:00 -->
+**Plan Closed:** PLN-c86bd2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8bae7f tier=trivial session_id=none opened_at=2026-07-10T05:23:09.497802+00:00 -->
+**Plan Opened:** PLN-8bae7f
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8bae7f verdict=FAIL quality_tier=none closed_at=2026-07-10T05:23:09.512494+00:00 -->
+**Plan Closed:** PLN-8bae7f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9a2756 tier=trivial session_id=none opened_at=2026-07-10T05:25:07.119902+00:00 -->
+**Plan Opened:** PLN-9a2756
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3821133.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9a2756 verdict=PASS quality_tier=none closed_at=2026-07-10T05:25:07.124354+00:00 -->
+**Plan Closed:** PLN-9a2756
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3821133.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3ed20f tier=trivial session_id=none opened_at=2026-07-10T05:25:17.322911+00:00 -->
+**Plan Opened:** PLN-3ed20f
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3821175.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ed20f verdict=PASS quality_tier=none closed_at=2026-07-10T05:25:17.332051+00:00 -->
+**Plan Closed:** PLN-3ed20f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3821175.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ea1f36 tier=trivial session_id=none opened_at=2026-07-10T05:25:17.360995+00:00 -->
+**Plan Opened:** PLN-ea1f36
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ea1f36 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:25:17.365317+00:00 -->
+**Plan Closed:** PLN-ea1f36
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0af7ab tier=trivial session_id=none opened_at=2026-07-10T05:25:18.587957+00:00 -->
+**Plan Opened:** PLN-0af7ab
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0af7ab verdict=FAIL quality_tier=none closed_at=2026-07-10T05:25:18.592217+00:00 -->
+**Plan Closed:** PLN-0af7ab
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f13b7b tier=trivial session_id=none opened_at=2026-07-10T05:28:48.547767+00:00 -->
+**Plan Opened:** PLN-f13b7b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f13b7b verdict=FAIL quality_tier=none closed_at=2026-07-10T05:28:48.552181+00:00 -->
+**Plan Closed:** PLN-f13b7b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3cdc5f tier=trivial session_id=none opened_at=2026-07-10T05:31:34.644979+00:00 -->
+**Plan Opened:** PLN-3cdc5f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3cdc5f verdict=FAIL quality_tier=none closed_at=2026-07-10T05:31:34.649373+00:00 -->
+**Plan Closed:** PLN-3cdc5f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8af675 tier=trivial session_id=none opened_at=2026-07-10T05:32:59.535248+00:00 -->
+**Plan Opened:** PLN-8af675
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8af675 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:32:59.539652+00:00 -->
+**Plan Closed:** PLN-8af675
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-37eff0 tier=trivial session_id=none opened_at=2026-07-10T05:35:27.912183+00:00 -->
+**Plan Opened:** PLN-37eff0
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-37eff0 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:35:27.916519+00:00 -->
+**Plan Closed:** PLN-37eff0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a70108 tier=trivial session_id=none opened_at=2026-07-10T05:38:13.800702+00:00 -->
+**Plan Opened:** PLN-a70108
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a70108 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:38:13.805037+00:00 -->
+**Plan Closed:** PLN-a70108
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27d3a7 tier=trivial session_id=none opened_at=2026-07-10T05:43:39.026432+00:00 -->
+**Plan Opened:** PLN-27d3a7
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27d3a7 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:43:39.030886+00:00 -->
+**Plan Closed:** PLN-27d3a7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e2bd03 tier=trivial session_id=none opened_at=2026-07-10T05:49:01.693213+00:00 -->
+**Plan Opened:** PLN-e2bd03
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e2bd03 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:49:01.697644+00:00 -->
+**Plan Closed:** PLN-e2bd03
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bc22d6 tier=trivial session_id=none opened_at=2026-07-10T05:51:09.526216+00:00 -->
+**Plan Opened:** PLN-bc22d6
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3844672.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bc22d6 verdict=PASS quality_tier=none closed_at=2026-07-10T05:51:09.536299+00:00 -->
+**Plan Closed:** PLN-bc22d6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3844672.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9686c5 tier=trivial session_id=none opened_at=2026-07-10T05:51:09.567455+00:00 -->
+**Plan Opened:** PLN-9686c5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9686c5 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:51:09.574274+00:00 -->
+**Plan Closed:** PLN-9686c5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b738f5 tier=trivial session_id=none opened_at=2026-07-10T05:53:01.108799+00:00 -->
+**Plan Opened:** PLN-b738f5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b738f5 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:53:01.113210+00:00 -->
+**Plan Closed:** PLN-b738f5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-31a551 tier=trivial session_id=none opened_at=2026-07-10T05:53:01.206540+00:00 -->
+**Plan Opened:** PLN-31a551
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-31a551 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:53:01.210770+00:00 -->
+**Plan Closed:** PLN-31a551
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9a1a49 tier=trivial session_id=none opened_at=2026-07-10T05:59:11.041270+00:00 -->
+**Plan Opened:** PLN-9a1a49
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9a1a49 verdict=FAIL quality_tier=none closed_at=2026-07-10T05:59:11.050138+00:00 -->
+**Plan Closed:** PLN-9a1a49
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4c01fb tier=trivial session_id=none opened_at=2026-07-10T06:00:16.177957+00:00 -->
+**Plan Opened:** PLN-4c01fb
+**Task:** generic long-tail remediation: nexus -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4c01fb verdict=PASS quality_tier=none closed_at=2026-07-10T06:00:16.182414+00:00 -->
+**Plan Closed:** PLN-4c01fb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** nexus verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-753d17 tier=trivial session_id=4bd7df4b-046e-4a1e-b620-c77b4ca185b2 opened_at=2026-07-10T06:01:10.062464+00:00 -->
+**Plan Opened:** PLN-753d17
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-753d17 verdict=PASS quality_tier=none closed_at=2026-07-10T06:01:10.067154+00:00 -->
+**Plan Closed:** PLN-753d17
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e4cee0 tier=trivial session_id=none opened_at=2026-07-10T06:01:10.710729+00:00 -->
+**Plan Opened:** PLN-e4cee0
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e4cee0 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:01:10.715033+00:00 -->
+**Plan Closed:** PLN-e4cee0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dbf2f5 tier=trivial session_id=643db278-d625-4142-ad2d-ba62b72e50ac opened_at=2026-07-10T06:01:16.456509+00:00 -->
+**Plan Opened:** PLN-dbf2f5
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dbf2f5 verdict=PASS quality_tier=none closed_at=2026-07-10T06:01:16.462597+00:00 -->
+**Plan Closed:** PLN-dbf2f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-791f92 tier=trivial session_id=f010808d-c602-43c8-94fb-99cb80aa45bb opened_at=2026-07-10T06:01:52.342235+00:00 -->
+**Plan Opened:** PLN-791f92
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-791f92 verdict=PASS quality_tier=none closed_at=2026-07-10T06:01:52.348978+00:00 -->
+**Plan Closed:** PLN-791f92
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c57e61 tier=trivial session_id=06bd494b-ebd4-4e60-93f3-dd8e86eeaca0 opened_at=2026-07-10T06:02:28.961426+00:00 -->
+**Plan Opened:** PLN-c57e61
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c57e61 verdict=PASS quality_tier=none closed_at=2026-07-10T06:02:28.968224+00:00 -->
+**Plan Closed:** PLN-c57e61
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-419fa9 tier=trivial session_id=none opened_at=2026-07-10T06:03:02.058335+00:00 -->
+**Plan Opened:** PLN-419fa9
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-78ee25 tier=trivial session_id=none opened_at=2026-07-10T06:03:02.060728+00:00 -->
+**Plan Opened:** PLN-78ee25
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-419fa9 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:03:02.063093+00:00 -->
+**Plan Closed:** PLN-419fa9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-78ee25 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:03:02.071283+00:00 -->
+**Plan Closed:** PLN-78ee25
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-12926d tier=trivial session_id=none opened_at=2026-07-10T06:08:10.068678+00:00 -->
+**Plan Opened:** PLN-12926d
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3867239.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-12926d verdict=PASS quality_tier=none closed_at=2026-07-10T06:08:10.076233+00:00 -->
+**Plan Closed:** PLN-12926d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3867239.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cd3650 tier=trivial session_id=none opened_at=2026-07-10T06:08:10.109512+00:00 -->
+**Plan Opened:** PLN-cd3650
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cd3650 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:08:10.113840+00:00 -->
+**Plan Closed:** PLN-cd3650
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c486f5 tier=trivial session_id=none opened_at=2026-07-10T06:13:06.963494+00:00 -->
+**Plan Opened:** PLN-c486f5
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c486f5 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:13:06.968579+00:00 -->
+**Plan Closed:** PLN-c486f5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-53291a tier=trivial session_id=none opened_at=2026-07-10T06:13:26.941115+00:00 -->
+**Plan Opened:** PLN-53291a
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-53291a verdict=FAIL quality_tier=none closed_at=2026-07-10T06:13:26.947596+00:00 -->
+**Plan Closed:** PLN-53291a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e8d91a tier=trivial session_id=none opened_at=2026-07-10T06:13:29.214802+00:00 -->
+**Plan Opened:** PLN-e8d91a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e8d91a verdict=FAIL quality_tier=none closed_at=2026-07-10T06:13:29.219124+00:00 -->
+**Plan Closed:** PLN-e8d91a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4df407 tier=trivial session_id=none opened_at=2026-07-10T06:13:34.328838+00:00 -->
+**Plan Opened:** PLN-4df407
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4df407 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:13:34.333310+00:00 -->
+**Plan Closed:** PLN-4df407
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-29d34a tier=trivial session_id=none opened_at=2026-07-10T06:13:40.694273+00:00 -->
+**Plan Opened:** PLN-29d34a
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-29d34a verdict=FAIL quality_tier=none closed_at=2026-07-10T06:13:40.699517+00:00 -->
+**Plan Closed:** PLN-29d34a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3a7b4e tier=trivial session_id=none opened_at=2026-07-10T06:14:19.684836+00:00 -->
+**Plan Opened:** PLN-3a7b4e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3a7b4e verdict=FAIL quality_tier=none closed_at=2026-07-10T06:14:19.689104+00:00 -->
+**Plan Closed:** PLN-3a7b4e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d35b2e tier=trivial session_id=none opened_at=2026-07-10T06:16:17.546682+00:00 -->
+**Plan Opened:** PLN-d35b2e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d35b2e verdict=FAIL quality_tier=none closed_at=2026-07-10T06:16:17.551138+00:00 -->
+**Plan Closed:** PLN-d35b2e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7d4a3d tier=trivial session_id=none opened_at=2026-07-10T06:21:28.639640+00:00 -->
+**Plan Opened:** PLN-7d4a3d
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7d4a3d verdict=FAIL quality_tier=none closed_at=2026-07-10T06:21:28.644027+00:00 -->
+**Plan Closed:** PLN-7d4a3d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7fffdb tier=trivial session_id=none opened_at=2026-07-10T06:23:03.566688+00:00 -->
+**Plan Opened:** PLN-7fffdb
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-043052 tier=trivial session_id=none opened_at=2026-07-10T06:23:03.566688+00:00 -->
+**Plan Opened:** PLN-043052
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7fffdb verdict=FAIL quality_tier=none closed_at=2026-07-10T06:23:03.571420+00:00 -->
+**Plan Closed:** PLN-7fffdb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-043052 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:23:03.579574+00:00 -->
+**Plan Closed:** PLN-043052
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-edcb3f tier=trivial session_id=none opened_at=2026-07-10T06:25:08.082280+00:00 -->
+**Plan Opened:** PLN-edcb3f
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3882192.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-edcb3f verdict=PASS quality_tier=none closed_at=2026-07-10T06:25:08.086890+00:00 -->
+**Plan Closed:** PLN-edcb3f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3882192.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4fc57e tier=trivial session_id=none opened_at=2026-07-10T06:25:09.367965+00:00 -->
+**Plan Opened:** PLN-4fc57e
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4fc57e verdict=FAIL quality_tier=none closed_at=2026-07-10T06:25:09.372316+00:00 -->
+**Plan Closed:** PLN-4fc57e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ed2120 tier=trivial session_id=none opened_at=2026-07-10T06:25:09.517773+00:00 -->
+**Plan Opened:** PLN-ed2120
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ed2120 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:25:09.524256+00:00 -->
+**Plan Closed:** PLN-ed2120
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4d6cfa tier=trivial session_id=none opened_at=2026-07-10T06:25:10.843973+00:00 -->
+**Plan Opened:** PLN-4d6cfa
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4d6cfa verdict=FAIL quality_tier=none closed_at=2026-07-10T06:25:10.848324+00:00 -->
+**Plan Closed:** PLN-4d6cfa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2cd03 tier=trivial session_id=none opened_at=2026-07-10T06:25:12.059144+00:00 -->
+**Plan Opened:** PLN-c2cd03
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2cd03 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:25:12.063438+00:00 -->
+**Plan Closed:** PLN-c2cd03
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-391d54 tier=trivial session_id=none opened_at=2026-07-10T06:29:31.051638+00:00 -->
+**Plan Opened:** PLN-391d54
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-391d54 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:29:31.056053+00:00 -->
+**Plan Closed:** PLN-391d54
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c4369c tier=trivial session_id=none opened_at=2026-07-10T06:31:54.719065+00:00 -->
+**Plan Opened:** PLN-c4369c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c4369c verdict=FAIL quality_tier=none closed_at=2026-07-10T06:31:54.723472+00:00 -->
+**Plan Closed:** PLN-c4369c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e548c8 tier=trivial session_id=none opened_at=2026-07-10T06:32:48.747652+00:00 -->
+**Plan Opened:** PLN-e548c8
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e548c8 verdict=PASS quality_tier=none closed_at=2026-07-10T06:32:48.752659+00:00 -->
+**Plan Closed:** PLN-e548c8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-788b41 tier=trivial session_id=none opened_at=2026-07-10T06:33:04.966263+00:00 -->
+**Plan Opened:** PLN-788b41
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-788b41 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:33:04.970615+00:00 -->
+**Plan Closed:** PLN-788b41
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ee9b8c tier=trivial session_id=none opened_at=2026-07-10T06:33:05.072746+00:00 -->
+**Plan Opened:** PLN-ee9b8c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ee9b8c verdict=FAIL quality_tier=none closed_at=2026-07-10T06:33:05.077915+00:00 -->
+**Plan Closed:** PLN-ee9b8c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-14643c tier=trivial session_id=none opened_at=2026-07-10T06:33:06.197983+00:00 -->
+**Plan Opened:** PLN-14643c
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-14643c verdict=FAIL quality_tier=none closed_at=2026-07-10T06:33:06.202486+00:00 -->
+**Plan Closed:** PLN-14643c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bec296 tier=trivial session_id=none opened_at=2026-07-10T06:38:31.727125+00:00 -->
+**Plan Opened:** PLN-bec296
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bec296 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:38:31.731483+00:00 -->
+**Plan Closed:** PLN-bec296
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ae8a5 tier=trivial session_id=none opened_at=2026-07-10T06:40:25.495073+00:00 -->
+**Plan Opened:** PLN-4ae8a5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ae8a5 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:40:25.499458+00:00 -->
+**Plan Closed:** PLN-4ae8a5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1267b3 tier=trivial session_id=none opened_at=2026-07-10T06:47:53.299770+00:00 -->
+**Plan Opened:** PLN-1267b3
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1267b3 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:47:53.304221+00:00 -->
+**Plan Closed:** PLN-1267b3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-93ca84 tier=trivial session_id=none opened_at=2026-07-10T06:53:07.050937+00:00 -->
+**Plan Opened:** PLN-93ca84
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-4bfe90 tier=trivial session_id=none opened_at=2026-07-10T06:53:07.051025+00:00 -->
+**Plan Opened:** PLN-4bfe90
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-93ca84 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:53:07.055691+00:00 -->
+**Plan Closed:** PLN-93ca84
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4bfe90 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:53:07.063944+00:00 -->
+**Plan Closed:** PLN-4bfe90
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2bd94 tier=trivial session_id=none opened_at=2026-07-10T06:59:07.399565+00:00 -->
+**Plan Opened:** PLN-c2bd94
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2bd94 verdict=FAIL quality_tier=none closed_at=2026-07-10T06:59:07.403893+00:00 -->
+**Plan Closed:** PLN-c2bd94
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fd0cac tier=trivial session_id=8883426b-ea5d-4d7d-ac84-b3e207f27240 opened_at=2026-07-10T07:00:31.175709+00:00 -->
+**Plan Opened:** PLN-fd0cac
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fd0cac verdict=PASS quality_tier=none closed_at=2026-07-10T07:00:31.183599+00:00 -->
+**Plan Closed:** PLN-fd0cac
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-702489 tier=trivial session_id=none opened_at=2026-07-10T07:01:01.360124+00:00 -->
+**Plan Opened:** PLN-702489
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-702489 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:01:01.364351+00:00 -->
+**Plan Closed:** PLN-702489
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6ddbf7 tier=trivial session_id=none opened_at=2026-07-10T07:03:08.146490+00:00 -->
+**Plan Opened:** PLN-6ddbf7
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-a9bae8 tier=trivial session_id=none opened_at=2026-07-10T07:03:08.146521+00:00 -->
+**Plan Opened:** PLN-a9bae8
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6ddbf7 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:03:08.150785+00:00 -->
+**Plan Closed:** PLN-6ddbf7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a9bae8 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:03:08.154503+00:00 -->
+**Plan Closed:** PLN-a9bae8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-76b7a3 tier=trivial session_id=none opened_at=2026-07-10T07:05:37.139293+00:00 -->
+**Plan Opened:** PLN-76b7a3
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-76b7a3 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:05:37.143711+00:00 -->
+**Plan Closed:** PLN-76b7a3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e796fe tier=trivial session_id=none opened_at=2026-07-10T07:06:42.042594+00:00 -->
+**Plan Opened:** PLN-e796fe
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e796fe verdict=FAIL quality_tier=none closed_at=2026-07-10T07:06:42.047566+00:00 -->
+**Plan Closed:** PLN-e796fe
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4c38db tier=trivial session_id=none opened_at=2026-07-10T07:06:57.130230+00:00 -->
+**Plan Opened:** PLN-4c38db
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4c38db verdict=FAIL quality_tier=none closed_at=2026-07-10T07:06:57.134830+00:00 -->
+**Plan Closed:** PLN-4c38db
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-62962e tier=trivial session_id=none opened_at=2026-07-10T07:13:09.041629+00:00 -->
+**Plan Opened:** PLN-62962e
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-62962e verdict=FAIL quality_tier=none closed_at=2026-07-10T07:13:09.048060+00:00 -->
+**Plan Closed:** PLN-62962e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ff9f97 tier=trivial session_id=none opened_at=2026-07-10T07:13:18.128563+00:00 -->
+**Plan Opened:** PLN-ff9f97
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3927959.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ff9f97 verdict=PASS quality_tier=none closed_at=2026-07-10T07:13:18.136141+00:00 -->
+**Plan Closed:** PLN-ff9f97
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3927959.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ba770d tier=trivial session_id=none opened_at=2026-07-10T07:13:18.169162+00:00 -->
+**Plan Opened:** PLN-ba770d
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ba770d verdict=FAIL quality_tier=none closed_at=2026-07-10T07:13:18.173587+00:00 -->
+**Plan Closed:** PLN-ba770d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2067f8 tier=trivial session_id=none opened_at=2026-07-10T07:14:26.519077+00:00 -->
+**Plan Opened:** PLN-2067f8
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2067f8 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:14:26.523503+00:00 -->
+**Plan Closed:** PLN-2067f8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f03f5c tier=trivial session_id=none opened_at=2026-07-10T07:15:20.719466+00:00 -->
+**Plan Opened:** PLN-f03f5c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f03f5c verdict=FAIL quality_tier=none closed_at=2026-07-10T07:15:20.723704+00:00 -->
+**Plan Closed:** PLN-f03f5c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-134694 tier=trivial session_id=none opened_at=2026-07-10T07:22:49.746726+00:00 -->
+**Plan Opened:** PLN-134694
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-134694 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:22:49.750901+00:00 -->
+**Plan Closed:** PLN-134694
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1d3fe6 tier=trivial session_id=none opened_at=2026-07-10T07:23:13.357274+00:00 -->
+**Plan Opened:** PLN-1d3fe6
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1d3fe6 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:23:13.361113+00:00 -->
+**Plan Closed:** PLN-1d3fe6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-03c64f tier=trivial session_id=none opened_at=2026-07-10T07:23:33.311994+00:00 -->
+**Plan Opened:** PLN-03c64f
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-03c64f verdict=FAIL quality_tier=none closed_at=2026-07-10T07:23:33.316528+00:00 -->
+**Plan Closed:** PLN-03c64f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e0c485 tier=trivial session_id=none opened_at=2026-07-10T07:23:39.622487+00:00 -->
+**Plan Opened:** PLN-e0c485
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e0c485 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:23:39.626742+00:00 -->
+**Plan Closed:** PLN-e0c485
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-72faab tier=trivial session_id=none opened_at=2026-07-10T07:23:43.430379+00:00 -->
+**Plan Opened:** PLN-72faab
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3937613.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-72faab verdict=PASS quality_tier=none closed_at=2026-07-10T07:23:43.444594+00:00 -->
+**Plan Closed:** PLN-72faab
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3937613.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7b13a1 tier=trivial session_id=none opened_at=2026-07-10T07:23:44.732853+00:00 -->
+**Plan Opened:** PLN-7b13a1
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7b13a1 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:23:44.743078+00:00 -->
+**Plan Closed:** PLN-7b13a1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d676ce tier=trivial session_id=none opened_at=2026-07-10T07:23:51.119875+00:00 -->
+**Plan Opened:** PLN-d676ce
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d676ce verdict=FAIL quality_tier=none closed_at=2026-07-10T07:23:51.125088+00:00 -->
+**Plan Closed:** PLN-d676ce
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-096175 tier=trivial session_id=none opened_at=2026-07-10T07:24:02.589156+00:00 -->
+**Plan Opened:** PLN-096175
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3937823.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-096175 verdict=PASS quality_tier=none closed_at=2026-07-10T07:24:02.599419+00:00 -->
+**Plan Closed:** PLN-096175
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3937823.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d8b56b tier=trivial session_id=none opened_at=2026-07-10T07:24:02.630837+00:00 -->
+**Plan Opened:** PLN-d8b56b
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d8b56b verdict=FAIL quality_tier=none closed_at=2026-07-10T07:24:02.635191+00:00 -->
+**Plan Closed:** PLN-d8b56b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2d96eb tier=trivial session_id=none opened_at=2026-07-10T07:25:59.115708+00:00 -->
+**Plan Opened:** PLN-2d96eb
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3939358.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2d96eb verdict=PASS quality_tier=none closed_at=2026-07-10T07:25:59.120061+00:00 -->
+**Plan Closed:** PLN-2d96eb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3939358.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34d4c8 tier=trivial session_id=none opened_at=2026-07-10T07:26:00.620738+00:00 -->
+**Plan Opened:** PLN-34d4c8
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34d4c8 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:26:00.628372+00:00 -->
+**Plan Closed:** PLN-34d4c8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-14786f tier=trivial session_id=none opened_at=2026-07-10T07:26:09.375200+00:00 -->
+**Plan Opened:** PLN-14786f
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3939410.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-14786f verdict=PASS quality_tier=none closed_at=2026-07-10T07:26:09.386053+00:00 -->
+**Plan Closed:** PLN-14786f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3939410.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c5dbc6 tier=trivial session_id=none opened_at=2026-07-10T07:26:09.415619+00:00 -->
+**Plan Opened:** PLN-c5dbc6
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c5dbc6 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:26:09.419900+00:00 -->
+**Plan Closed:** PLN-c5dbc6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bdc31a tier=trivial session_id=none opened_at=2026-07-10T07:26:10.861452+00:00 -->
+**Plan Opened:** PLN-bdc31a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bdc31a verdict=FAIL quality_tier=none closed_at=2026-07-10T07:26:10.865605+00:00 -->
+**Plan Closed:** PLN-bdc31a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5d78d4 tier=trivial session_id=none opened_at=2026-07-10T07:26:12.192944+00:00 -->
+**Plan Opened:** PLN-5d78d4
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5d78d4 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:26:12.198422+00:00 -->
+**Plan Closed:** PLN-5d78d4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7435b3 tier=trivial session_id=none opened_at=2026-07-10T07:26:13.525935+00:00 -->
+**Plan Opened:** PLN-7435b3
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7435b3 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:26:13.531235+00:00 -->
+**Plan Closed:** PLN-7435b3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a6bffc tier=trivial session_id=none opened_at=2026-07-10T07:27:00.121077+00:00 -->
+**Plan Opened:** PLN-a6bffc
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a6bffc verdict=FAIL quality_tier=none closed_at=2026-07-10T07:27:00.125553+00:00 -->
+**Plan Closed:** PLN-a6bffc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-03595e tier=trivial session_id=none opened_at=2026-07-10T07:30:15.497987+00:00 -->
+**Plan Opened:** PLN-03595e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-03595e verdict=FAIL quality_tier=none closed_at=2026-07-10T07:30:15.502406+00:00 -->
+**Plan Closed:** PLN-03595e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e64311 tier=trivial session_id=none opened_at=2026-07-10T07:33:11.016268+00:00 -->
+**Plan Opened:** PLN-e64311
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-b5cb7b tier=trivial session_id=none opened_at=2026-07-10T07:33:11.016607+00:00 -->
+**Plan Opened:** PLN-b5cb7b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e64311 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:33:11.023087+00:00 -->
+**Plan Closed:** PLN-e64311
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b5cb7b verdict=FAIL quality_tier=none closed_at=2026-07-10T07:33:11.030998+00:00 -->
+**Plan Closed:** PLN-b5cb7b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1002b5 tier=trivial session_id=none opened_at=2026-07-10T07:33:12.350049+00:00 -->
+**Plan Opened:** PLN-1002b5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1002b5 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:33:12.354545+00:00 -->
+**Plan Closed:** PLN-1002b5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5a376b tier=trivial session_id=none opened_at=2026-07-10T07:33:13.660193+00:00 -->
+**Plan Opened:** PLN-5a376b
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5a376b verdict=FAIL quality_tier=none closed_at=2026-07-10T07:33:13.664723+00:00 -->
+**Plan Closed:** PLN-5a376b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-11872c tier=trivial session_id=none opened_at=2026-07-10T07:39:23.139767+00:00 -->
+**Plan Opened:** PLN-11872c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-11872c verdict=FAIL quality_tier=none closed_at=2026-07-10T07:39:23.144237+00:00 -->
+**Plan Closed:** PLN-11872c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a9474 tier=trivial session_id=none opened_at=2026-07-10T07:41:41.685972+00:00 -->
+**Plan Opened:** PLN-0a9474
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a9474 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:41:41.690345+00:00 -->
+**Plan Closed:** PLN-0a9474
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2e96e7 tier=trivial session_id=none opened_at=2026-07-10T07:49:48.706491+00:00 -->
+**Plan Opened:** PLN-2e96e7
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2e96e7 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:49:48.721504+00:00 -->
+**Plan Closed:** PLN-2e96e7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4cac73 tier=trivial session_id=none opened_at=2026-07-10T07:50:29.154643+00:00 -->
+**Plan Opened:** PLN-4cac73
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4cac73 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:50:29.158985+00:00 -->
+**Plan Closed:** PLN-4cac73
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1a9524 tier=trivial session_id=none opened_at=2026-07-10T07:53:13.381126+00:00 -->
+**Plan Opened:** PLN-1a9524
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1a9524 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:53:13.386266+00:00 -->
+**Plan Closed:** PLN-1a9524
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-261477 tier=trivial session_id=none opened_at=2026-07-10T07:53:13.507603+00:00 -->
+**Plan Opened:** PLN-261477
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-261477 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:53:13.512028+00:00 -->
+**Plan Closed:** PLN-261477
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-36e38b tier=trivial session_id=none opened_at=2026-07-10T07:56:50.494928+00:00 -->
+**Plan Opened:** PLN-36e38b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-36e38b verdict=FAIL quality_tier=none closed_at=2026-07-10T07:56:50.499353+00:00 -->
+**Plan Closed:** PLN-36e38b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5f9ef4 tier=trivial session_id=none opened_at=2026-07-10T07:59:52.300715+00:00 -->
+**Plan Opened:** PLN-5f9ef4
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f9ef4 verdict=FAIL quality_tier=none closed_at=2026-07-10T07:59:52.305320+00:00 -->
+**Plan Closed:** PLN-5f9ef4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17ab3c tier=trivial session_id=none opened_at=2026-07-10T08:00:19.238535+00:00 -->
+**Plan Opened:** PLN-17ab3c
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3971352.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17ab3c verdict=PASS quality_tier=none closed_at=2026-07-10T08:00:19.247039+00:00 -->
+**Plan Closed:** PLN-17ab3c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3971352.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c152a4 tier=trivial session_id=none opened_at=2026-07-10T08:00:19.276433+00:00 -->
+**Plan Opened:** PLN-c152a4
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c152a4 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:00:19.280873+00:00 -->
+**Plan Closed:** PLN-c152a4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-37fb37 tier=trivial session_id=none opened_at=2026-07-10T08:03:14.088261+00:00 -->
+**Plan Opened:** PLN-37fb37
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-37fb37 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:03:14.093044+00:00 -->
+**Plan Closed:** PLN-37fb37
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e650c tier=trivial session_id=none opened_at=2026-07-10T08:03:17.784597+00:00 -->
+**Plan Opened:** PLN-5e650c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e650c verdict=FAIL quality_tier=none closed_at=2026-07-10T08:03:17.789293+00:00 -->
+**Plan Closed:** PLN-5e650c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3e4277 tier=trivial session_id=none opened_at=2026-07-10T08:06:46.468327+00:00 -->
+**Plan Opened:** PLN-3e4277
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3e4277 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:06:46.472912+00:00 -->
+**Plan Closed:** PLN-3e4277
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a03961 tier=trivial session_id=none opened_at=2026-07-10T08:08:54.468821+00:00 -->
+**Plan Opened:** PLN-a03961
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a03961 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:08:54.473473+00:00 -->
+**Plan Closed:** PLN-a03961
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d576d0 tier=trivial session_id=none opened_at=2026-07-10T08:11:39.543113+00:00 -->
+**Plan Opened:** PLN-d576d0
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d576d0 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:11:39.547850+00:00 -->
+**Plan Closed:** PLN-d576d0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8401e3 tier=trivial session_id=none opened_at=2026-07-10T08:13:46.813860+00:00 -->
+**Plan Opened:** PLN-8401e3
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8401e3 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:13:46.818230+00:00 -->
+**Plan Closed:** PLN-8401e3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f3564c tier=trivial session_id=none opened_at=2026-07-10T08:13:51.926929+00:00 -->
+**Plan Opened:** PLN-f3564c
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f3564c verdict=FAIL quality_tier=none closed_at=2026-07-10T08:13:51.935569+00:00 -->
+**Plan Closed:** PLN-f3564c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6e9206 tier=trivial session_id=none opened_at=2026-07-10T08:15:26.033471+00:00 -->
+**Plan Opened:** PLN-6e9206
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3987364.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6e9206 verdict=PASS quality_tier=none closed_at=2026-07-10T08:15:26.041828+00:00 -->
+**Plan Closed:** PLN-6e9206
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3987364.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8f1281 tier=trivial session_id=none opened_at=2026-07-10T08:15:26.069879+00:00 -->
+**Plan Opened:** PLN-8f1281
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8f1281 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:15:26.074183+00:00 -->
+**Plan Closed:** PLN-8f1281
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2bac21 tier=trivial session_id=none opened_at=2026-07-10T08:21:57.838260+00:00 -->
+**Plan Opened:** PLN-2bac21
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2bac21 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:21:57.842583+00:00 -->
+**Plan Closed:** PLN-2bac21
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-62d013 tier=trivial session_id=none opened_at=2026-07-10T08:23:18.323504+00:00 -->
+**Plan Opened:** PLN-62d013
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-62d013 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:23:18.329750+00:00 -->
+**Plan Closed:** PLN-62d013
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-29b4a1 tier=trivial session_id=none opened_at=2026-07-10T08:25:41.583484+00:00 -->
+**Plan Opened:** PLN-29b4a1
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-29b4a1 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:25:41.588186+00:00 -->
+**Plan Closed:** PLN-29b4a1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-476fc9 tier=trivial session_id=none opened_at=2026-07-10T08:26:47.404964+00:00 -->
+**Plan Opened:** PLN-476fc9
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3996062.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-476fc9 verdict=PASS quality_tier=none closed_at=2026-07-10T08:26:47.409385+00:00 -->
+**Plan Closed:** PLN-476fc9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3996062.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-df5ae4 tier=trivial session_id=none opened_at=2026-07-10T08:26:52.680477+00:00 -->
+**Plan Opened:** PLN-df5ae4
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-df5ae4 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:26:52.685474+00:00 -->
+**Plan Closed:** PLN-df5ae4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3cf7e6 tier=trivial session_id=none opened_at=2026-07-10T08:27:12.648082+00:00 -->
+**Plan Opened:** PLN-3cf7e6
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3cf7e6 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:27:12.655944+00:00 -->
+**Plan Closed:** PLN-3cf7e6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8e822f tier=trivial session_id=none opened_at=2026-07-10T08:27:15.073336+00:00 -->
+**Plan Opened:** PLN-8e822f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e822f verdict=FAIL quality_tier=none closed_at=2026-07-10T08:27:15.077672+00:00 -->
+**Plan Closed:** PLN-8e822f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-950a40 tier=trivial session_id=none opened_at=2026-07-10T08:27:20.188576+00:00 -->
+**Plan Opened:** PLN-950a40
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-950a40 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:27:20.196613+00:00 -->
+**Plan Closed:** PLN-950a40
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e52d45 tier=trivial session_id=none opened_at=2026-07-10T08:27:30.312102+00:00 -->
+**Plan Opened:** PLN-e52d45
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3997317.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e52d45 verdict=PASS quality_tier=none closed_at=2026-07-10T08:27:30.316556+00:00 -->
+**Plan Closed:** PLN-e52d45
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_3997317.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cc5ccd tier=trivial session_id=none opened_at=2026-07-10T08:27:35.564101+00:00 -->
+**Plan Opened:** PLN-cc5ccd
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc5ccd verdict=FAIL quality_tier=none closed_at=2026-07-10T08:27:35.568474+00:00 -->
+**Plan Closed:** PLN-cc5ccd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d74c26 tier=trivial session_id=none opened_at=2026-07-10T08:27:38.114310+00:00 -->
+**Plan Opened:** PLN-d74c26
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d74c26 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:27:38.118494+00:00 -->
+**Plan Closed:** PLN-d74c26
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8aaae2 tier=trivial session_id=none opened_at=2026-07-10T08:28:02.690478+00:00 -->
+**Plan Opened:** PLN-8aaae2
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8aaae2 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:28:02.705113+00:00 -->
+**Plan Closed:** PLN-8aaae2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c07008 tier=trivial session_id=none opened_at=2026-07-10T08:33:00.984699+00:00 -->
+**Plan Opened:** PLN-c07008
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c07008 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:00.989412+00:00 -->
+**Plan Closed:** PLN-c07008
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4a609f tier=trivial session_id=none opened_at=2026-07-10T08:33:49.522394+00:00 -->
+**Plan Opened:** PLN-4a609f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-9dfc67 tier=trivial session_id=none opened_at=2026-07-10T08:33:49.522419+00:00 -->
+**Plan Opened:** PLN-9dfc67
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4a609f verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:49.526884+00:00 -->
+**Plan Closed:** PLN-4a609f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9dfc67 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:49.535056+00:00 -->
+**Plan Closed:** PLN-9dfc67
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5797cb tier=trivial session_id=none opened_at=2026-07-10T08:33:50.843200+00:00 -->
+**Plan Opened:** PLN-5797cb
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5797cb verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:50.850939+00:00 -->
+**Plan Closed:** PLN-5797cb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d58226 tier=trivial session_id=none opened_at=2026-07-10T08:33:52.289292+00:00 -->
+**Plan Opened:** PLN-d58226
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d58226 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:52.293561+00:00 -->
+**Plan Closed:** PLN-d58226
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-548824 tier=trivial session_id=none opened_at=2026-07-10T08:33:53.823208+00:00 -->
+**Plan Opened:** PLN-548824
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-548824 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:33:53.827367+00:00 -->
+**Plan Closed:** PLN-548824
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d913d5 tier=trivial session_id=none opened_at=2026-07-10T08:34:23.310573+00:00 -->
+**Plan Opened:** PLN-d913d5
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d913d5 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:34:23.315111+00:00 -->
+**Plan Closed:** PLN-d913d5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e32e57 tier=trivial session_id=none opened_at=2026-07-10T08:40:08.081366+00:00 -->
+**Plan Opened:** PLN-e32e57
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4012980.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e32e57 verdict=PASS quality_tier=none closed_at=2026-07-10T08:40:08.089646+00:00 -->
+**Plan Closed:** PLN-e32e57
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4012980.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d458e5 tier=trivial session_id=none opened_at=2026-07-10T08:40:08.119155+00:00 -->
+**Plan Opened:** PLN-d458e5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d458e5 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:40:08.126583+00:00 -->
+**Plan Closed:** PLN-d458e5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0bcf93 tier=trivial session_id=none opened_at=2026-07-10T08:43:49.442530+00:00 -->
+**Plan Opened:** PLN-0bcf93
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0bcf93 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:43:49.446951+00:00 -->
+**Plan Closed:** PLN-0bcf93
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ad5da9 tier=trivial session_id=none opened_at=2026-07-10T08:43:50.717769+00:00 -->
+**Plan Opened:** PLN-ad5da9
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ad5da9 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:43:50.722172+00:00 -->
+**Plan Closed:** PLN-ad5da9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f27abd tier=trivial session_id=none opened_at=2026-07-10T08:43:52.051994+00:00 -->
+**Plan Opened:** PLN-f27abd
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f27abd verdict=FAIL quality_tier=none closed_at=2026-07-10T08:43:52.057820+00:00 -->
+**Plan Closed:** PLN-f27abd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3ce1d3 tier=trivial session_id=none opened_at=2026-07-10T08:44:17.548110+00:00 -->
+**Plan Opened:** PLN-3ce1d3
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ce1d3 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:44:17.552854+00:00 -->
+**Plan Closed:** PLN-3ce1d3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7660fe tier=trivial session_id=none opened_at=2026-07-10T08:49:46.763993+00:00 -->
+**Plan Opened:** PLN-7660fe
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7660fe verdict=FAIL quality_tier=none closed_at=2026-07-10T08:49:46.768284+00:00 -->
+**Plan Closed:** PLN-7660fe
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-85a47e tier=trivial session_id=none opened_at=2026-07-10T08:53:19.665885+00:00 -->
+**Plan Opened:** PLN-85a47e
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-85a47e verdict=FAIL quality_tier=none closed_at=2026-07-10T08:53:19.670559+00:00 -->
+**Plan Closed:** PLN-85a47e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-057227 tier=trivial session_id=none opened_at=2026-07-10T08:53:19.761923+00:00 -->
+**Plan Opened:** PLN-057227
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-057227 verdict=FAIL quality_tier=none closed_at=2026-07-10T08:53:19.766147+00:00 -->
+**Plan Closed:** PLN-057227
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2c241a tier=trivial session_id=none opened_at=2026-07-10T08:56:16.096270+00:00 -->
+**Plan Opened:** PLN-2c241a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2c241a verdict=FAIL quality_tier=none closed_at=2026-07-10T08:56:16.100711+00:00 -->
+**Plan Closed:** PLN-2c241a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fd8161 tier=trivial session_id=none opened_at=2026-07-10T09:00:11.615261+00:00 -->
+**Plan Opened:** PLN-fd8161
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fd8161 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:00:11.619945+00:00 -->
+**Plan Closed:** PLN-fd8161
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7f9d19 tier=trivial session_id=none opened_at=2026-07-10T09:03:20.250168+00:00 -->
+**Plan Opened:** PLN-7f9d19
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f9d19 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:03:20.256884+00:00 -->
+**Plan Closed:** PLN-7f9d19
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-577e8a tier=trivial session_id=none opened_at=2026-07-10T09:03:24.161109+00:00 -->
+**Plan Opened:** PLN-577e8a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-577e8a verdict=FAIL quality_tier=none closed_at=2026-07-10T09:03:24.169603+00:00 -->
+**Plan Closed:** PLN-577e8a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d84b46 tier=trivial session_id=none opened_at=2026-07-10T09:07:41.956770+00:00 -->
+**Plan Opened:** PLN-d84b46
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d84b46 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:07:41.961118+00:00 -->
+**Plan Closed:** PLN-d84b46
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-25410a tier=trivial session_id=none opened_at=2026-07-10T09:11:48.456853+00:00 -->
+**Plan Opened:** PLN-25410a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-25410a verdict=FAIL quality_tier=none closed_at=2026-07-10T09:11:48.461311+00:00 -->
+**Plan Closed:** PLN-25410a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ae425 tier=trivial session_id=none opened_at=2026-07-10T09:13:03.078769+00:00 -->
+**Plan Opened:** PLN-1ae425
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ae425 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:13:03.083798+00:00 -->
+**Plan Closed:** PLN-1ae425
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c59f34 tier=trivial session_id=none opened_at=2026-07-10T09:13:20.678008+00:00 -->
+**Plan Opened:** PLN-c59f34
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c59f34 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:13:20.682694+00:00 -->
+**Plan Closed:** PLN-c59f34
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1a45f1 tier=trivial session_id=none opened_at=2026-07-10T09:17:45.015137+00:00 -->
+**Plan Opened:** PLN-1a45f1
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1a45f1 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:17:45.019654+00:00 -->
+**Plan Closed:** PLN-1a45f1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-293ccd tier=trivial session_id=none opened_at=2026-07-10T09:23:08.908678+00:00 -->
+**Plan Opened:** PLN-293ccd
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-293ccd verdict=FAIL quality_tier=none closed_at=2026-07-10T09:23:08.913080+00:00 -->
+**Plan Closed:** PLN-293ccd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-75baa1 tier=trivial session_id=none opened_at=2026-07-10T09:23:53.663862+00:00 -->
+**Plan Opened:** PLN-75baa1
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-b0a21c tier=trivial session_id=none opened_at=2026-07-10T09:23:53.664058+00:00 -->
+**Plan Opened:** PLN-b0a21c
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-75baa1 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:23:53.672184+00:00 -->
+**Plan Closed:** PLN-75baa1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b0a21c verdict=FAIL quality_tier=none closed_at=2026-07-10T09:23:53.681568+00:00 -->
+**Plan Closed:** PLN-b0a21c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a7e72 tier=trivial session_id=none opened_at=2026-07-10T09:24:00.151353+00:00 -->
+**Plan Opened:** PLN-0a7e72
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a7e72 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:24:00.156412+00:00 -->
+**Plan Closed:** PLN-0a7e72
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ece532 tier=trivial session_id=none opened_at=2026-07-10T09:24:30.910232+00:00 -->
+**Plan Opened:** PLN-ece532
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ece532 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:24:30.914617+00:00 -->
+**Plan Closed:** PLN-ece532
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-70b46b tier=trivial session_id=none opened_at=2026-07-10T09:26:51.426067+00:00 -->
+**Plan Opened:** PLN-70b46b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-70b46b verdict=FAIL quality_tier=none closed_at=2026-07-10T09:26:51.430457+00:00 -->
+**Plan Closed:** PLN-70b46b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e2b9b2 tier=trivial session_id=none opened_at=2026-07-10T09:26:54.833787+00:00 -->
+**Plan Opened:** PLN-e2b9b2
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_4086937.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e2b9b2 verdict=PASS quality_tier=none closed_at=2026-07-10T09:26:54.846557+00:00 -->
+**Plan Closed:** PLN-e2b9b2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_4086937.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-37952a tier=trivial session_id=none opened_at=2026-07-10T09:26:56.192268+00:00 -->
+**Plan Opened:** PLN-37952a
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-37952a verdict=FAIL quality_tier=none closed_at=2026-07-10T09:26:56.197092+00:00 -->
+**Plan Closed:** PLN-37952a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0c73ac tier=trivial session_id=none opened_at=2026-07-10T09:26:56.203571+00:00 -->
+**Plan Opened:** PLN-0c73ac
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0c73ac verdict=FAIL quality_tier=none closed_at=2026-07-10T09:26:56.213367+00:00 -->
+**Plan Closed:** PLN-0c73ac
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6eeb88 tier=trivial session_id=none opened_at=2026-07-10T09:31:33.504356+00:00 -->
+**Plan Opened:** PLN-6eeb88
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6eeb88 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:31:33.508935+00:00 -->
+**Plan Closed:** PLN-6eeb88
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-191e5c tier=trivial session_id=none opened_at=2026-07-10T09:31:43.635203+00:00 -->
+**Plan Opened:** PLN-191e5c
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4098070.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-191e5c verdict=PASS quality_tier=none closed_at=2026-07-10T09:31:43.645750+00:00 -->
+**Plan Closed:** PLN-191e5c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4098070.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-097636 tier=trivial session_id=none opened_at=2026-07-10T09:32:19.112340+00:00 -->
+**Plan Opened:** PLN-097636
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-097636 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:32:19.119607+00:00 -->
+**Plan Closed:** PLN-097636
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4df195 tier=trivial session_id=none opened_at=2026-07-10T09:33:40.357058+00:00 -->
+**Plan Opened:** PLN-4df195
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4df195 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:33:40.362097+00:00 -->
+**Plan Closed:** PLN-4df195
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ba45e tier=trivial session_id=none opened_at=2026-07-10T09:33:54.312472+00:00 -->
+**Plan Opened:** PLN-4ba45e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ba45e verdict=FAIL quality_tier=none closed_at=2026-07-10T09:33:54.316981+00:00 -->
+**Plan Closed:** PLN-4ba45e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-da62d0 tier=trivial session_id=none opened_at=2026-07-10T09:33:58.323659+00:00 -->
+**Plan Opened:** PLN-da62d0
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-da62d0 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:33:58.331297+00:00 -->
+**Plan Closed:** PLN-da62d0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cf6e23 tier=trivial session_id=none opened_at=2026-07-10T09:34:18.276364+00:00 -->
+**Plan Opened:** PLN-cf6e23
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cf6e23 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:18.281277+00:00 -->
+**Plan Closed:** PLN-cf6e23
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bbbc29 tier=trivial session_id=none opened_at=2026-07-10T09:34:21.173008+00:00 -->
+**Plan Opened:** PLN-bbbc29
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bbbc29 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:21.177390+00:00 -->
+**Plan Closed:** PLN-bbbc29
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a2dc53 tier=trivial session_id=none opened_at=2026-07-10T09:34:22.609173+00:00 -->
+**Plan Opened:** PLN-a2dc53
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a2dc53 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:22.613411+00:00 -->
+**Plan Closed:** PLN-a2dc53
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-39dd2f tier=trivial session_id=none opened_at=2026-07-10T09:34:27.732001+00:00 -->
+**Plan Opened:** PLN-39dd2f
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-39dd2f verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:27.736277+00:00 -->
+**Plan Closed:** PLN-39dd2f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-471e77 tier=trivial session_id=none opened_at=2026-07-10T09:34:34.025846+00:00 -->
+**Plan Opened:** PLN-471e77
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-471e77 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:34.030363+00:00 -->
+**Plan Closed:** PLN-471e77
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a5a265 tier=trivial session_id=none opened_at=2026-07-10T09:34:35.816480+00:00 -->
+**Plan Opened:** PLN-a5a265
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a5a265 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:35.820798+00:00 -->
+**Plan Closed:** PLN-a5a265
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3c423d tier=trivial session_id=none opened_at=2026-07-10T09:34:36.735684+00:00 -->
+**Plan Opened:** PLN-3c423d
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3c423d verdict=FAIL quality_tier=none closed_at=2026-07-10T09:34:36.740088+00:00 -->
+**Plan Closed:** PLN-3c423d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-50ada4 tier=trivial session_id=none opened_at=2026-07-10T09:39:07.994957+00:00 -->
+**Plan Opened:** PLN-50ada4
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-50ada4 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:39:07.999468+00:00 -->
+**Plan Closed:** PLN-50ada4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cc79eb tier=trivial session_id=none opened_at=2026-07-10T09:42:10.678471+00:00 -->
+**Plan Opened:** PLN-cc79eb
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc79eb verdict=FAIL quality_tier=none closed_at=2026-07-10T09:42:10.682849+00:00 -->
+**Plan Closed:** PLN-cc79eb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-593b02 tier=trivial session_id=none opened_at=2026-07-10T09:44:25.650380+00:00 -->
+**Plan Opened:** PLN-593b02
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-593b02 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:44:25.654835+00:00 -->
+**Plan Closed:** PLN-593b02
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6b5a21 tier=trivial session_id=none opened_at=2026-07-10T09:44:26.875871+00:00 -->
+**Plan Opened:** PLN-6b5a21
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6b5a21 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:44:26.880183+00:00 -->
+**Plan Closed:** PLN-6b5a21
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-023962 tier=trivial session_id=none opened_at=2026-07-10T09:44:28.411595+00:00 -->
+**Plan Opened:** PLN-023962
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-023962 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:44:28.416098+00:00 -->
+**Plan Closed:** PLN-023962
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eed223 tier=trivial session_id=none opened_at=2026-07-10T09:44:38.626657+00:00 -->
+**Plan Opened:** PLN-eed223
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4113290.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eed223 verdict=PASS quality_tier=none closed_at=2026-07-10T09:44:38.642374+00:00 -->
+**Plan Closed:** PLN-eed223
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4113290.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-457a95 tier=trivial session_id=none opened_at=2026-07-10T09:44:38.676731+00:00 -->
+**Plan Opened:** PLN-457a95
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-457a95 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:44:38.681067+00:00 -->
+**Plan Closed:** PLN-457a95
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4e474a tier=trivial session_id=none opened_at=2026-07-10T09:44:39.878426+00:00 -->
+**Plan Opened:** PLN-4e474a
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4e474a verdict=FAIL quality_tier=none closed_at=2026-07-10T09:44:39.882762+00:00 -->
+**Plan Closed:** PLN-4e474a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-44f7b7 tier=trivial session_id=none opened_at=2026-07-10T09:45:01.274982+00:00 -->
+**Plan Opened:** PLN-44f7b7
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-44f7b7 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:45:01.281413+00:00 -->
+**Plan Closed:** PLN-44f7b7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3b6ae5 tier=trivial session_id=none opened_at=2026-07-10T09:45:58.420879+00:00 -->
+**Plan Opened:** PLN-3b6ae5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3b6ae5 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:45:58.425478+00:00 -->
+**Plan Closed:** PLN-3b6ae5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-73daf2 tier=trivial session_id=none opened_at=2026-07-10T09:50:52.005097+00:00 -->
+**Plan Opened:** PLN-73daf2
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-73daf2 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:50:52.009932+00:00 -->
+**Plan Closed:** PLN-73daf2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3bcd8e tier=trivial session_id=none opened_at=2026-07-10T09:53:53.459371+00:00 -->
+**Plan Opened:** PLN-3bcd8e
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3bcd8e verdict=FAIL quality_tier=none closed_at=2026-07-10T09:53:53.464005+00:00 -->
+**Plan Closed:** PLN-3bcd8e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7745bf tier=trivial session_id=none opened_at=2026-07-10T09:53:56.638206+00:00 -->
+**Plan Opened:** PLN-7745bf
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-d1292e tier=trivial session_id=none opened_at=2026-07-10T09:53:56.640386+00:00 -->
+**Plan Opened:** PLN-d1292e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7745bf verdict=FAIL quality_tier=none closed_at=2026-07-10T09:53:56.646549+00:00 -->
+**Plan Closed:** PLN-7745bf
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d1292e verdict=FAIL quality_tier=none closed_at=2026-07-10T09:53:56.654724+00:00 -->
+**Plan Closed:** PLN-d1292e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aa347c tier=trivial session_id=none opened_at=2026-07-10T09:53:58.272505+00:00 -->
+**Plan Opened:** PLN-aa347c
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aa347c verdict=FAIL quality_tier=none closed_at=2026-07-10T09:53:58.276839+00:00 -->
+**Plan Closed:** PLN-aa347c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b7f2ab tier=trivial session_id=none opened_at=2026-07-10T09:53:59.814927+00:00 -->
+**Plan Opened:** PLN-b7f2ab
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b7f2ab verdict=FAIL quality_tier=none closed_at=2026-07-10T09:53:59.819358+00:00 -->
+**Plan Closed:** PLN-b7f2ab
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-16d83d tier=trivial session_id=none opened_at=2026-07-10T09:54:01.242133+00:00 -->
+**Plan Opened:** PLN-16d83d
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-16d83d verdict=FAIL quality_tier=none closed_at=2026-07-10T09:54:01.246469+00:00 -->
+**Plan Closed:** PLN-16d83d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-255f77 tier=trivial session_id=none opened_at=2026-07-10T09:54:02.674081+00:00 -->
+**Plan Opened:** PLN-255f77
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-255f77 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:54:02.678413+00:00 -->
+**Plan Closed:** PLN-255f77
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b3baff tier=trivial session_id=none opened_at=2026-07-10T09:54:35.548537+00:00 -->
+**Plan Opened:** PLN-b3baff
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b3baff verdict=FAIL quality_tier=none closed_at=2026-07-10T09:54:35.552870+00:00 -->
+**Plan Closed:** PLN-b3baff
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-626634 tier=trivial session_id=none opened_at=2026-07-10T09:59:06.703568+00:00 -->
+**Plan Opened:** PLN-626634
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-626634 verdict=FAIL quality_tier=none closed_at=2026-07-10T09:59:06.707974+00:00 -->
+**Plan Closed:** PLN-626634
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c95b01 tier=trivial session_id=none opened_at=2026-07-10T10:00:01.587789+00:00 -->
+**Plan Opened:** PLN-c95b01
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c95b01 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:00:01.592089+00:00 -->
+**Plan Closed:** PLN-c95b01
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3f8c83 tier=trivial session_id=none opened_at=2026-07-10T10:00:37.940171+00:00 -->
+**Plan Opened:** PLN-3f8c83
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3f8c83 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:00:37.944508+00:00 -->
+**Plan Closed:** PLN-3f8c83
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-765f34 tier=trivial session_id=none opened_at=2026-07-10T10:00:55.839111+00:00 -->
+**Plan Opened:** PLN-765f34
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-765f34 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:00:55.843408+00:00 -->
+**Plan Closed:** PLN-765f34
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5f880c tier=trivial session_id=none opened_at=2026-07-10T10:02:52.482049+00:00 -->
+**Plan Opened:** PLN-5f880c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f880c verdict=FAIL quality_tier=none closed_at=2026-07-10T10:02:52.486439+00:00 -->
+**Plan Closed:** PLN-5f880c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d4700c tier=trivial session_id=none opened_at=2026-07-10T10:03:58.658510+00:00 -->
+**Plan Opened:** PLN-d4700c
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d4700c verdict=FAIL quality_tier=none closed_at=2026-07-10T10:03:58.663051+00:00 -->
+**Plan Closed:** PLN-d4700c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8a5b11 tier=trivial session_id=none opened_at=2026-07-10T10:04:02.267890+00:00 -->
+**Plan Opened:** PLN-8a5b11
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8a5b11 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:04:02.272286+00:00 -->
+**Plan Closed:** PLN-8a5b11
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ed6cc0 tier=trivial session_id=none opened_at=2026-07-10T10:07:47.595367+00:00 -->
+**Plan Opened:** PLN-ed6cc0
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4152950.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ed6cc0 verdict=PASS quality_tier=none closed_at=2026-07-10T10:07:47.600090+00:00 -->
+**Plan Closed:** PLN-ed6cc0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4152950.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e43cf3 tier=trivial session_id=none opened_at=2026-07-10T10:07:47.633216+00:00 -->
+**Plan Opened:** PLN-e43cf3
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e43cf3 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:07:47.638518+00:00 -->
+**Plan Closed:** PLN-e43cf3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59feac tier=trivial session_id=none opened_at=2026-07-10T10:12:13.550942+00:00 -->
+**Plan Opened:** PLN-59feac
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59feac verdict=FAIL quality_tier=none closed_at=2026-07-10T10:12:13.555340+00:00 -->
+**Plan Closed:** PLN-59feac
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8290df tier=trivial session_id=none opened_at=2026-07-10T10:13:38.435391+00:00 -->
+**Plan Opened:** PLN-8290df
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8290df verdict=FAIL quality_tier=none closed_at=2026-07-10T10:13:38.440540+00:00 -->
+**Plan Closed:** PLN-8290df
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d06677 tier=trivial session_id=none opened_at=2026-07-10T10:17:39.286575+00:00 -->
+**Plan Opened:** PLN-d06677
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d06677 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:17:39.290917+00:00 -->
+**Plan Closed:** PLN-d06677
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b0fce1 tier=trivial session_id=none opened_at=2026-07-10T10:20:12.376425+00:00 -->
+**Plan Opened:** PLN-b0fce1
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b0fce1 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:20:12.380849+00:00 -->
+**Plan Closed:** PLN-b0fce1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b0e29 tier=trivial session_id=none opened_at=2026-07-10T10:23:24.769397+00:00 -->
+**Plan Opened:** PLN-0b0e29
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b0e29 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:23:24.773752+00:00 -->
+**Plan Closed:** PLN-0b0e29
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0140de tier=trivial session_id=none opened_at=2026-07-10T10:24:29.915481+00:00 -->
+**Plan Opened:** PLN-0140de
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-e539af tier=trivial session_id=none opened_at=2026-07-10T10:24:29.915481+00:00 -->
+**Plan Opened:** PLN-e539af
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0140de verdict=FAIL quality_tier=none closed_at=2026-07-10T10:24:29.919625+00:00 -->
+**Plan Closed:** PLN-0140de
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e539af verdict=FAIL quality_tier=none closed_at=2026-07-10T10:24:29.927686+00:00 -->
+**Plan Closed:** PLN-e539af
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-06d3a2 tier=trivial session_id=none opened_at=2026-07-10T10:24:36.456750+00:00 -->
+**Plan Opened:** PLN-06d3a2
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-06d3a2 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:24:36.463385+00:00 -->
+**Plan Closed:** PLN-06d3a2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fc7b63 tier=trivial session_id=none opened_at=2026-07-10T10:24:39.504712+00:00 -->
+**Plan Opened:** PLN-fc7b63
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fc7b63 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:24:39.509578+00:00 -->
+**Plan Closed:** PLN-fc7b63
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-156780 tier=trivial session_id=none opened_at=2026-07-10T10:27:31.058290+00:00 -->
+**Plan Opened:** PLN-156780
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_4185302.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-156780 verdict=PASS quality_tier=none closed_at=2026-07-10T10:27:31.062580+00:00 -->
+**Plan Closed:** PLN-156780
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_4185302.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-16b365 tier=trivial session_id=none opened_at=2026-07-10T10:27:43.126221+00:00 -->
+**Plan Opened:** PLN-16b365
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-16b365 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:27:43.131048+00:00 -->
+**Plan Closed:** PLN-16b365
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67af34 tier=trivial session_id=none opened_at=2026-07-10T10:28:02.490360+00:00 -->
+**Plan Opened:** PLN-67af34
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67af34 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:28:02.494691+00:00 -->
+**Plan Closed:** PLN-67af34
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9ffe70 tier=trivial session_id=none opened_at=2026-07-10T10:28:11.435681+00:00 -->
+**Plan Opened:** PLN-9ffe70
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4187606.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9ffe70 verdict=PASS quality_tier=none closed_at=2026-07-10T10:28:11.443770+00:00 -->
+**Plan Closed:** PLN-9ffe70
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_4187606.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-268aa0 tier=trivial session_id=none opened_at=2026-07-10T10:28:11.473759+00:00 -->
+**Plan Opened:** PLN-268aa0
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-268aa0 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:28:11.478094+00:00 -->
+**Plan Closed:** PLN-268aa0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-467fc6 tier=trivial session_id=none opened_at=2026-07-10T10:32:49.827489+00:00 -->
+**Plan Opened:** PLN-467fc6
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-467fc6 verdict=PASS quality_tier=none closed_at=2026-07-10T10:32:49.835226+00:00 -->
+**Plan Closed:** PLN-467fc6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c0fb53 tier=trivial session_id=none opened_at=2026-07-10T10:34:07.660867+00:00 -->
+**Plan Opened:** PLN-c0fb53
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c0fb53 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:34:07.665395+00:00 -->
+**Plan Closed:** PLN-c0fb53
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4f3a38 tier=trivial session_id=none opened_at=2026-07-10T10:34:19.317640+00:00 -->
+**Plan Opened:** PLN-4f3a38
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_7930.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4f3a38 verdict=PASS quality_tier=none closed_at=2026-07-10T10:34:19.323033+00:00 -->
+**Plan Closed:** PLN-4f3a38
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_7930.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8372f0 tier=trivial session_id=none opened_at=2026-07-10T10:34:19.351872+00:00 -->
+**Plan Opened:** PLN-8372f0
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8372f0 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:34:19.356224+00:00 -->
+**Plan Closed:** PLN-8372f0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e617bb tier=trivial session_id=none opened_at=2026-07-10T10:35:27.534156+00:00 -->
+**Plan Opened:** PLN-e617bb
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e617bb verdict=FAIL quality_tier=none closed_at=2026-07-10T10:35:27.538703+00:00 -->
+**Plan Closed:** PLN-e617bb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2bee55 tier=trivial session_id=none opened_at=2026-07-10T10:43:57.287932+00:00 -->
+**Plan Opened:** PLN-2bee55
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2bee55 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:43:57.292290+00:00 -->
+**Plan Closed:** PLN-2bee55
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3423fc tier=trivial session_id=none opened_at=2026-07-10T10:44:01.914231+00:00 -->
+**Plan Opened:** PLN-3423fc
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3423fc verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:01.919455+00:00 -->
+**Plan Closed:** PLN-3423fc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7d0cbd tier=trivial session_id=none opened_at=2026-07-10T10:44:05.710093+00:00 -->
+**Plan Opened:** PLN-7d0cbd
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7d0cbd verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:05.716566+00:00 -->
+**Plan Closed:** PLN-7d0cbd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59151d tier=trivial session_id=none opened_at=2026-07-10T10:44:25.674520+00:00 -->
+**Plan Opened:** PLN-59151d
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59151d verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:25.679354+00:00 -->
+**Plan Closed:** PLN-59151d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-faaa64 tier=trivial session_id=none opened_at=2026-07-10T10:44:35.807184+00:00 -->
+**Plan Opened:** PLN-faaa64
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_21909.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-faaa64 verdict=PASS quality_tier=none closed_at=2026-07-10T10:44:35.818233+00:00 -->
+**Plan Closed:** PLN-faaa64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_21909.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e2cd2a tier=trivial session_id=none opened_at=2026-07-10T10:44:41.192982+00:00 -->
+**Plan Opened:** PLN-e2cd2a
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e2cd2a verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:41.197747+00:00 -->
+**Plan Closed:** PLN-e2cd2a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-68b096 tier=trivial session_id=none opened_at=2026-07-10T10:44:43.979882+00:00 -->
+**Plan Opened:** PLN-68b096
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-68b096 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:43.984196+00:00 -->
+**Plan Closed:** PLN-68b096
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59762a tier=trivial session_id=none opened_at=2026-07-10T10:44:49.081178+00:00 -->
+**Plan Opened:** PLN-59762a
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59762a verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:49.089416+00:00 -->
+**Plan Closed:** PLN-59762a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-145a07 tier=trivial session_id=none opened_at=2026-07-10T10:44:55.577308+00:00 -->
+**Plan Opened:** PLN-145a07
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-145a07 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:55.583912+00:00 -->
+**Plan Closed:** PLN-145a07
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c09d5 tier=trivial session_id=none opened_at=2026-07-10T10:44:58.215316+00:00 -->
+**Plan Opened:** PLN-6c09d5
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c09d5 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:44:58.221833+00:00 -->
+**Plan Closed:** PLN-6c09d5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fe8c37 tier=trivial session_id=none opened_at=2026-07-10T10:45:08.557856+00:00 -->
+**Plan Opened:** PLN-fe8c37
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fe8c37 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:45:08.562245+00:00 -->
+**Plan Closed:** PLN-fe8c37
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7735bd tier=trivial session_id=none opened_at=2026-07-10T10:45:26.884455+00:00 -->
+**Plan Opened:** PLN-7735bd
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7735bd verdict=FAIL quality_tier=none closed_at=2026-07-10T10:45:26.891088+00:00 -->
+**Plan Closed:** PLN-7735bd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-683a79 tier=trivial session_id=none opened_at=2026-07-10T10:51:21.703981+00:00 -->
+**Plan Opened:** PLN-683a79
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-683a79 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:51:21.708269+00:00 -->
+**Plan Closed:** PLN-683a79
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9df083 tier=trivial session_id=none opened_at=2026-07-10T10:55:02.845811+00:00 -->
+**Plan Opened:** PLN-9df083
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9df083 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:02.850097+00:00 -->
+**Plan Closed:** PLN-9df083
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cce20c tier=trivial session_id=none opened_at=2026-07-10T10:55:02.894240+00:00 -->
+**Plan Opened:** PLN-cce20c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cce20c verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:02.900489+00:00 -->
+**Plan Closed:** PLN-cce20c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9e6ca3 tier=trivial session_id=none opened_at=2026-07-10T10:55:04.325128+00:00 -->
+**Plan Opened:** PLN-9e6ca3
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9e6ca3 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:04.329604+00:00 -->
+**Plan Closed:** PLN-9e6ca3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9c6a0c tier=trivial session_id=none opened_at=2026-07-10T10:55:14.535864+00:00 -->
+**Plan Opened:** PLN-9c6a0c
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_32723.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9c6a0c verdict=PASS quality_tier=none closed_at=2026-07-10T10:55:14.547822+00:00 -->
+**Plan Closed:** PLN-9c6a0c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_32723.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ccc18 tier=trivial session_id=none opened_at=2026-07-10T10:55:14.578513+00:00 -->
+**Plan Opened:** PLN-4ccc18
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ccc18 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:14.583000+00:00 -->
+**Plan Closed:** PLN-4ccc18
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ef2a3 tier=trivial session_id=none opened_at=2026-07-10T10:55:16.000315+00:00 -->
+**Plan Opened:** PLN-1ef2a3
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ef2a3 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:16.004618+00:00 -->
+**Plan Closed:** PLN-1ef2a3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-95e597 tier=trivial session_id=none opened_at=2026-07-10T10:55:17.335579+00:00 -->
+**Plan Opened:** PLN-95e597
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-95e597 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:17.340112+00:00 -->
+**Plan Closed:** PLN-95e597
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2b0391 tier=trivial session_id=none opened_at=2026-07-10T10:55:18.765031+00:00 -->
+**Plan Opened:** PLN-2b0391
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2b0391 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:18.769454+00:00 -->
+**Plan Closed:** PLN-2b0391
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-071254 tier=trivial session_id=none opened_at=2026-07-10T10:55:40.100179+00:00 -->
+**Plan Opened:** PLN-071254
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-071254 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:40.108922+00:00 -->
+**Plan Closed:** PLN-071254
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a60998 tier=trivial session_id=none opened_at=2026-07-10T10:55:41.496701+00:00 -->
+**Plan Opened:** PLN-a60998
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a60998 verdict=FAIL quality_tier=none closed_at=2026-07-10T10:55:41.501113+00:00 -->
+**Plan Closed:** PLN-a60998
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-060343 tier=trivial session_id=none opened_at=2026-07-10T11:02:14.162990+00:00 -->
+**Plan Opened:** PLN-060343
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-060343 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:02:14.167721+00:00 -->
+**Plan Closed:** PLN-060343
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b9c4c3 tier=trivial session_id=none opened_at=2026-07-10T11:04:01.727162+00:00 -->
+**Plan Opened:** PLN-b9c4c3
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b9c4c3 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:01.731691+00:00 -->
+**Plan Closed:** PLN-b9c4c3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-176a09 tier=trivial session_id=none opened_at=2026-07-10T11:04:02.956044+00:00 -->
+**Plan Opened:** PLN-176a09
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-0e8838 tier=trivial session_id=none opened_at=2026-07-10T11:04:02.956112+00:00 -->
+**Plan Opened:** PLN-0e8838
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-176a09 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:02.960905+00:00 -->
+**Plan Closed:** PLN-176a09
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0e8838 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:02.969104+00:00 -->
+**Plan Closed:** PLN-0e8838
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-98872f tier=trivial session_id=none opened_at=2026-07-10T11:04:04.389580+00:00 -->
+**Plan Opened:** PLN-98872f
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-98872f verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:04.393913+00:00 -->
+**Plan Closed:** PLN-98872f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-573415 tier=trivial session_id=none opened_at=2026-07-10T11:04:09.570048+00:00 -->
+**Plan Opened:** PLN-573415
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-573415 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:09.577624+00:00 -->
+**Plan Closed:** PLN-573415
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c3bbe0 tier=trivial session_id=none opened_at=2026-07-10T11:04:12.171630+00:00 -->
+**Plan Opened:** PLN-c3bbe0
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c3bbe0 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:12.176025+00:00 -->
+**Plan Closed:** PLN-c3bbe0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7a869d tier=trivial session_id=none opened_at=2026-07-10T11:04:13.612453+00:00 -->
+**Plan Opened:** PLN-7a869d
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7a869d verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:13.616834+00:00 -->
+**Plan Closed:** PLN-7a869d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-30a171 tier=trivial session_id=none opened_at=2026-07-10T11:04:40.432333+00:00 -->
+**Plan Opened:** PLN-30a171
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-30a171 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:04:40.436550+00:00 -->
+**Plan Closed:** PLN-30a171
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-da6197 tier=trivial session_id=none opened_at=2026-07-10T11:06:23.958696+00:00 -->
+**Plan Opened:** PLN-da6197
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-da6197 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:06:23.965061+00:00 -->
+**Plan Closed:** PLN-da6197
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d337fc tier=trivial session_id=none opened_at=2026-07-10T11:13:04.648596+00:00 -->
+**Plan Opened:** PLN-d337fc
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d337fc verdict=FAIL quality_tier=none closed_at=2026-07-10T11:13:04.654079+00:00 -->
+**Plan Closed:** PLN-d337fc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-54eb78 tier=trivial session_id=none opened_at=2026-07-10T11:14:27.497076+00:00 -->
+**Plan Opened:** PLN-54eb78
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-54eb78 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:14:27.506634+00:00 -->
+**Plan Closed:** PLN-54eb78
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-caeded tier=trivial session_id=none opened_at=2026-07-10T11:18:13.801870+00:00 -->
+**Plan Opened:** PLN-caeded
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-caeded verdict=FAIL quality_tier=none closed_at=2026-07-10T11:18:13.806361+00:00 -->
+**Plan Closed:** PLN-caeded
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41267f tier=trivial session_id=none opened_at=2026-07-10T11:22:53.151947+00:00 -->
+**Plan Opened:** PLN-41267f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41267f verdict=FAIL quality_tier=none closed_at=2026-07-10T11:22:53.156391+00:00 -->
+**Plan Closed:** PLN-41267f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0fe7bd tier=trivial session_id=none opened_at=2026-07-10T11:24:16.710557+00:00 -->
+**Plan Opened:** PLN-0fe7bd
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0fe7bd verdict=FAIL quality_tier=none closed_at=2026-07-10T11:24:16.714881+00:00 -->
+**Plan Closed:** PLN-0fe7bd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d3031b tier=trivial session_id=none opened_at=2026-07-10T11:28:30.127739+00:00 -->
+**Plan Opened:** PLN-d3031b
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_86427.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d3031b verdict=PASS quality_tier=none closed_at=2026-07-10T11:28:30.132129+00:00 -->
+**Plan Closed:** PLN-d3031b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_86427.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9fbc8e tier=trivial session_id=none opened_at=2026-07-10T11:28:44.745344+00:00 -->
+**Plan Opened:** PLN-9fbc8e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9fbc8e verdict=FAIL quality_tier=none closed_at=2026-07-10T11:28:44.749874+00:00 -->
+**Plan Closed:** PLN-9fbc8e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-223716 tier=trivial session_id=none opened_at=2026-07-10T11:29:01.642510+00:00 -->
+**Plan Opened:** PLN-223716
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-223716 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:29:01.646945+00:00 -->
+**Plan Closed:** PLN-223716
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-87237f tier=trivial session_id=none opened_at=2026-07-10T11:29:01.901616+00:00 -->
+**Plan Opened:** PLN-87237f
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-87237f verdict=FAIL quality_tier=none closed_at=2026-07-10T11:29:01.906037+00:00 -->
+**Plan Closed:** PLN-87237f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-72cae1 tier=trivial session_id=none opened_at=2026-07-10T11:29:26.788511+00:00 -->
+**Plan Opened:** PLN-72cae1
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-72cae1 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:29:26.793850+00:00 -->
+**Plan Closed:** PLN-72cae1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-07b795 tier=trivial session_id=none opened_at=2026-07-10T11:33:34.998377+00:00 -->
+**Plan Opened:** PLN-07b795
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-07b795 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:33:35.002787+00:00 -->
+**Plan Closed:** PLN-07b795
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1050e1 tier=trivial session_id=none opened_at=2026-07-10T11:33:36.024656+00:00 -->
+**Plan Opened:** PLN-1050e1
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1050e1 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:33:36.029081+00:00 -->
+**Plan Closed:** PLN-1050e1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-826479 tier=trivial session_id=none opened_at=2026-07-10T11:34:48.458781+00:00 -->
+**Plan Opened:** PLN-826479
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-826479 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:34:48.463521+00:00 -->
+**Plan Closed:** PLN-826479
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3f905c tier=trivial session_id=none opened_at=2026-07-10T11:37:53.870179+00:00 -->
+**Plan Opened:** PLN-3f905c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3f905c verdict=FAIL quality_tier=none closed_at=2026-07-10T11:37:53.874690+00:00 -->
+**Plan Closed:** PLN-3f905c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7ccf6e tier=trivial session_id=none opened_at=2026-07-10T11:39:24.188834+00:00 -->
+**Plan Opened:** PLN-7ccf6e
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7ccf6e verdict=FAIL quality_tier=none closed_at=2026-07-10T11:39:24.193282+00:00 -->
+**Plan Closed:** PLN-7ccf6e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3af8d4 tier=trivial session_id=none opened_at=2026-07-10T11:40:26.555315+00:00 -->
+**Plan Opened:** PLN-3af8d4
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3af8d4 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:40:26.560421+00:00 -->
+**Plan Closed:** PLN-3af8d4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-91c4f0 tier=trivial session_id=none opened_at=2026-07-10T11:49:54.557497+00:00 -->
+**Plan Opened:** PLN-91c4f0
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-91c4f0 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:49:54.563031+00:00 -->
+**Plan Closed:** PLN-91c4f0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5f001c tier=trivial session_id=none opened_at=2026-07-10T11:54:08.609291+00:00 -->
+**Plan Opened:** PLN-5f001c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f001c verdict=FAIL quality_tier=none closed_at=2026-07-10T11:54:08.615783+00:00 -->
+**Plan Closed:** PLN-5f001c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cf66fe tier=trivial session_id=none opened_at=2026-07-10T11:54:12.657388+00:00 -->
+**Plan Opened:** PLN-cf66fe
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cf66fe verdict=FAIL quality_tier=none closed_at=2026-07-10T11:54:12.726539+00:00 -->
+**Plan Closed:** PLN-cf66fe
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3d4715 tier=trivial session_id=none opened_at=2026-07-10T11:54:27.868005+00:00 -->
+**Plan Opened:** PLN-3d4715
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3d4715 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:54:27.875992+00:00 -->
+**Plan Closed:** PLN-3d4715
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d4afc6 tier=trivial session_id=none opened_at=2026-07-10T11:54:48.739459+00:00 -->
+**Plan Opened:** PLN-d4afc6
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d4afc6 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:54:48.744154+00:00 -->
+**Plan Closed:** PLN-d4afc6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5a7716 tier=trivial session_id=none opened_at=2026-07-10T11:55:00.282359+00:00 -->
+**Plan Opened:** PLN-5a7716
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_130493.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5a7716 verdict=PASS quality_tier=none closed_at=2026-07-10T11:55:00.290320+00:00 -->
+**Plan Closed:** PLN-5a7716
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_130493.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f90227 tier=trivial session_id=none opened_at=2026-07-10T11:55:00.319783+00:00 -->
+**Plan Opened:** PLN-f90227
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f90227 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:55:00.324105+00:00 -->
+**Plan Closed:** PLN-f90227
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4dbcc3 tier=trivial session_id=none opened_at=2026-07-10T11:55:05.422328+00:00 -->
+**Plan Opened:** PLN-4dbcc3
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4dbcc3 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:55:05.426771+00:00 -->
+**Plan Closed:** PLN-4dbcc3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7090d4 tier=trivial session_id=none opened_at=2026-07-10T11:55:12.022436+00:00 -->
+**Plan Opened:** PLN-7090d4
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7090d4 verdict=FAIL quality_tier=none closed_at=2026-07-10T11:55:12.030591+00:00 -->
+**Plan Closed:** PLN-7090d4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6eb8ec tier=trivial session_id=none opened_at=2026-07-10T11:55:22.138494+00:00 -->
+**Plan Opened:** PLN-6eb8ec
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_130759.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6eb8ec verdict=PASS quality_tier=none closed_at=2026-07-10T11:55:22.143008+00:00 -->
+**Plan Closed:** PLN-6eb8ec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_130759.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34aa0c tier=trivial session_id=none opened_at=2026-07-10T11:55:23.684123+00:00 -->
+**Plan Opened:** PLN-34aa0c
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34aa0c verdict=FAIL quality_tier=none closed_at=2026-07-10T11:55:23.688714+00:00 -->
+**Plan Closed:** PLN-34aa0c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-80e01e tier=trivial session_id=none opened_at=2026-07-10T11:57:22.672747+00:00 -->
+**Plan Opened:** PLN-80e01e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-80e01e verdict=FAIL quality_tier=none closed_at=2026-07-10T11:57:22.677199+00:00 -->
+**Plan Closed:** PLN-80e01e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9cc513 tier=trivial session_id=none opened_at=2026-07-10T12:01:21.566546+00:00 -->
+**Plan Opened:** PLN-9cc513
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9cc513 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:01:21.571266+00:00 -->
+**Plan Closed:** PLN-9cc513
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cba0b9 tier=trivial session_id=none opened_at=2026-07-10T12:02:43.993141+00:00 -->
+**Plan Opened:** PLN-cba0b9
+**Task:** CI repair attempt: cloak-browser-regent -> auto_applied
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** cloak-browser-regent repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cba0b9 verdict=PASS quality_tier=none closed_at=2026-07-10T12:02:44.002861+00:00 -->
+**Plan Closed:** PLN-cba0b9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** cloak-browser-regent repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e80aa5 tier=trivial session_id=none opened_at=2026-07-10T12:02:45.424458+00:00 -->
+**Plan Opened:** PLN-e80aa5
+**Task:** CI repair attempt: credential-keepalive -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** credential-keepalive repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e80aa5 verdict=PASS quality_tier=none closed_at=2026-07-10T12:02:45.429335+00:00 -->
+**Plan Closed:** PLN-e80aa5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** credential-keepalive repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-72d692 tier=trivial session_id=none opened_at=2026-07-10T12:02:46.653229+00:00 -->
+**Plan Opened:** PLN-72d692
+**Task:** CI repair attempt: self-observability -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** self-observability repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-72d692 verdict=PASS quality_tier=none closed_at=2026-07-10T12:02:46.661515+00:00 -->
+**Plan Closed:** PLN-72d692
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** self-observability repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2b74a2 tier=trivial session_id=none opened_at=2026-07-10T12:02:48.156041+00:00 -->
+**Plan Opened:** PLN-2b74a2
+**Task:** CI repair attempt: email-handling -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** email-handling repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2b74a2 verdict=PASS quality_tier=none closed_at=2026-07-10T12:02:48.166163+00:00 -->
+**Plan Closed:** PLN-2b74a2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** email-handling repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f8b201 tier=trivial session_id=none opened_at=2026-07-10T12:02:51.433297+00:00 -->
+**Plan Opened:** PLN-f8b201
+**Task:** CI repair attempt: supertimer-bot-health -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** supertimer-bot-health repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f8b201 verdict=PASS quality_tier=none closed_at=2026-07-10T12:02:51.441452+00:00 -->
+**Plan Closed:** PLN-f8b201
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** supertimer-bot-health repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-56bddc tier=trivial session_id=none opened_at=2026-07-10T12:03:04.029179+00:00 -->
+**Plan Opened:** PLN-56bddc
+**Task:** CI repair attempt: cruise-intelligence -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** cruise-intelligence repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-56bddc verdict=PASS quality_tier=none closed_at=2026-07-10T12:03:04.039572+00:00 -->
+**Plan Closed:** PLN-56bddc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** cruise-intelligence repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-04bc28 tier=trivial session_id=none opened_at=2026-07-10T12:03:06.418155+00:00 -->
+**Plan Opened:** PLN-04bc28
+**Task:** CI repair attempt: github-actions -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** github-actions repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-04bc28 verdict=PASS quality_tier=none closed_at=2026-07-10T12:03:06.427715+00:00 -->
+**Plan Closed:** PLN-04bc28
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** github-actions repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7cb37c tier=trivial session_id=none opened_at=2026-07-10T12:03:43.344533+00:00 -->
+**Plan Opened:** PLN-7cb37c
+**Task:** CI repair attempt: home-dir-health -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** home-dir-health repair verdict mechanically recorded
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7cb37c verdict=PASS quality_tier=none closed_at=2026-07-10T12:03:43.350668+00:00 -->
+**Plan Closed:** PLN-7cb37c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** home-dir-health repair verdict mechanically recorded
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d2c0b7 tier=trivial session_id=none opened_at=2026-07-10T12:05:38.264007+00:00 -->
+**Plan Opened:** PLN-d2c0b7
+**Task:** crash captured: thunderbird_brief_telegram (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/thunderbird_brief_telegram_141719.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d2c0b7 verdict=PASS quality_tier=none closed_at=2026-07-10T12:05:38.273609+00:00 -->
+**Plan Closed:** PLN-d2c0b7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/thunderbird_brief_telegram_141719.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8ccec8 tier=trivial session_id=none opened_at=2026-07-10T12:05:44.840286+00:00 -->
+**Plan Opened:** PLN-8ccec8
+**Task:** generic long-tail remediation: d2m-brief-telegram -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8ccec8 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:05:44.848757+00:00 -->
+**Plan Closed:** PLN-8ccec8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-55010c tier=trivial session_id=none opened_at=2026-07-10T12:05:54.963823+00:00 -->
+**Plan Opened:** PLN-55010c
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_141931.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-55010c verdict=PASS quality_tier=none closed_at=2026-07-10T12:05:54.971854+00:00 -->
+**Plan Closed:** PLN-55010c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_141931.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-88f25c tier=trivial session_id=none opened_at=2026-07-10T12:06:52.393212+00:00 -->
+**Plan Opened:** PLN-88f25c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-88f25c verdict=FAIL quality_tier=none closed_at=2026-07-10T12:06:52.397628+00:00 -->
+**Plan Closed:** PLN-88f25c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7317f8 tier=trivial session_id=none opened_at=2026-07-10T12:07:28.885726+00:00 -->
+**Plan Opened:** PLN-7317f8
+**Task:** generic long-tail remediation: loucks-gp-notifier -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7317f8 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:07:28.893826+00:00 -->
+**Plan Closed:** PLN-7317f8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-32eae1 tier=trivial session_id=none opened_at=2026-07-10T12:09:43.325098+00:00 -->
+**Plan Opened:** PLN-32eae1
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-32eae1 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:09:43.329845+00:00 -->
+**Plan Closed:** PLN-32eae1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ebd794 tier=trivial session_id=none opened_at=2026-07-10T12:13:19.121781+00:00 -->
+**Plan Opened:** PLN-ebd794
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_149722.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ebd794 verdict=PASS quality_tier=none closed_at=2026-07-10T12:13:19.130197+00:00 -->
+**Plan Closed:** PLN-ebd794
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_149722.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-952d76 tier=trivial session_id=none opened_at=2026-07-10T12:13:19.159145+00:00 -->
+**Plan Opened:** PLN-952d76
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-952d76 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:13:19.167000+00:00 -->
+**Plan Closed:** PLN-952d76
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-93c606 tier=trivial session_id=none opened_at=2026-07-10T12:19:49.144177+00:00 -->
+**Plan Opened:** PLN-93c606
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-93c606 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:19:49.149989+00:00 -->
+**Plan Closed:** PLN-93c606
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8e6b46 tier=trivial session_id=none opened_at=2026-07-10T12:24:47.091603+00:00 -->
+**Plan Opened:** PLN-8e6b46
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e6b46 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:24:47.096041+00:00 -->
+**Plan Closed:** PLN-8e6b46
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6b50b4 tier=trivial session_id=none opened_at=2026-07-10T12:24:48.748741+00:00 -->
+**Plan Opened:** PLN-6b50b4
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6b50b4 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:24:48.753069+00:00 -->
+**Plan Closed:** PLN-6b50b4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-576d55 tier=trivial session_id=none opened_at=2026-07-10T12:26:30.557656+00:00 -->
+**Plan Opened:** PLN-576d55
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-576d55 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:26:30.562238+00:00 -->
+**Plan Closed:** PLN-576d55
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-236d19 tier=trivial session_id=none opened_at=2026-07-10T12:28:39.937740+00:00 -->
+**Plan Opened:** PLN-236d19
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_168879.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-236d19 verdict=PASS quality_tier=none closed_at=2026-07-10T12:28:39.942431+00:00 -->
+**Plan Closed:** PLN-236d19
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_168879.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-39cdf9 tier=trivial session_id=none opened_at=2026-07-10T12:30:34.300920+00:00 -->
+**Plan Opened:** PLN-39cdf9
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_174804.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-39cdf9 verdict=PASS quality_tier=none closed_at=2026-07-10T12:30:34.305462+00:00 -->
+**Plan Closed:** PLN-39cdf9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_174804.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-952ec6 tier=trivial session_id=none opened_at=2026-07-10T12:30:34.340074+00:00 -->
+**Plan Opened:** PLN-952ec6
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-952ec6 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:30:34.344346+00:00 -->
+**Plan Closed:** PLN-952ec6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59ccf3 tier=trivial session_id=none opened_at=2026-07-10T12:30:52.590874+00:00 -->
+**Plan Opened:** PLN-59ccf3
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59ccf3 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:30:52.596754+00:00 -->
+**Plan Closed:** PLN-59ccf3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ade55b tier=trivial session_id=none opened_at=2026-07-10T12:34:14.239120+00:00 -->
+**Plan Opened:** PLN-ade55b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ade55b verdict=FAIL quality_tier=none closed_at=2026-07-10T12:34:14.243996+00:00 -->
+**Plan Closed:** PLN-ade55b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-018567 tier=trivial session_id=none opened_at=2026-07-10T12:37:38.813757+00:00 -->
+**Plan Opened:** PLN-018567
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-018567 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:37:38.819426+00:00 -->
+**Plan Closed:** PLN-018567
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-39d1d8 tier=trivial session_id=none opened_at=2026-07-10T12:40:21.143392+00:00 -->
+**Plan Opened:** PLN-39d1d8
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-39d1d8 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:40:21.147937+00:00 -->
+**Plan Closed:** PLN-39d1d8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a5903 tier=trivial session_id=none opened_at=2026-07-10T12:40:46.052072+00:00 -->
+**Plan Opened:** PLN-0a5903
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a5903 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:40:46.060384+00:00 -->
+**Plan Closed:** PLN-0a5903
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+## 2026-07-10 — Post-Flight Debrief email skipped Inbox (missing INBOX label)
+**Found during:** Commander reported the report "never reached me" after send confirmed by gmail_send_from_wing.
+**Detail:** Message (id 19f4a64b1bfd95d4, from d2mconcierge@gmail.com to johnloucks3@gmail.com) exists in the account (`in:anywhere` finds it) but `in:inbox` returns zero results — labels were `["CATEGORY_PERSONAL"]` only, no `INBOX`. Same-day sibling d2mconcierge->johnloucks3 sends (Morning Brief replies, Agentic Intel Sweep reply, WAR digest, Innovation Scan) all correctly carry `INBOX` in their label set. This one message is the outlier.
+**Root-cause lesson:** My earlier "independent verification" (search + read) was insufficient — I confirmed the message EXISTS in the account but never checked for the INBOX label specifically, so I reported false confidence. Reinforces the Obstacle-Routing & Independent Verification Protocol at a sharper granularity than previously codified: verifying delivery means checking the INBOX label, not just message existence.
+**Fix status:** NOT root-caused yet (Commander found the message himself, did not require further digging this session). Worth a look if it recurs: possibly a race between gmail_send_from_wing's HTML-body multipart construction and Gmail's inbox-categorization pass.
+**Owner:** Sterling/Whetstone lane if it recurs.
+
+<!-- PLAN:OPEN plan_id=PLN-c6a3ad tier=trivial session_id=none opened_at=2026-07-10T12:44:46.924870+00:00 -->
+**Plan Opened:** PLN-c6a3ad
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c6a3ad verdict=FAIL quality_tier=none closed_at=2026-07-10T12:44:46.929866+00:00 -->
+**Plan Closed:** PLN-c6a3ad
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c45ac1 tier=trivial session_id=none opened_at=2026-07-10T12:47:21.126536+00:00 -->
+**Plan Opened:** PLN-c45ac1
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c45ac1 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:47:21.131120+00:00 -->
+**Plan Closed:** PLN-c45ac1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fcfde8 tier=trivial session_id=none opened_at=2026-07-10T12:50:19.049865+00:00 -->
+**Plan Opened:** PLN-fcfde8
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fcfde8 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:50:19.054359+00:00 -->
+**Plan Closed:** PLN-fcfde8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4a1437 tier=trivial session_id=none opened_at=2026-07-10T12:50:40.723463+00:00 -->
+**Plan Opened:** PLN-4a1437
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4a1437 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:50:40.728555+00:00 -->
+**Plan Closed:** PLN-4a1437
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+## 2026-07-10 — CONFIRMED REPRODUCIBLE: gmail_send_from_wing sends skip Inbox (2/2)
+**Escalates the 2026-07-10 same-day entry above** ("Post-Flight Debrief email skipped Inbox") — this is now a confirmed pattern, not a one-off. Second independent send (Airfare CI Audit report, msg id 19f4c19db9ce4fe6) shows the IDENTICAL signature: exists via `in:anywhere`, zero results via `in:inbox`, labels = `["CATEGORY_PERSONAL"]` only, no `INBOX` label. Both sends went through the same path: `mcp__travel__gmail_send_from_wing`, persona_id=COS, from d2mconcierge@gmail.com to johnloucks3@gmail.com.
+**Root cause NOT yet found** — no Gmail filter-list API tool available in this MCP surface to inspect johnloucks3's filters directly (checked: no `gmail_list_filters`-equivalent tool exists). Leading hypothesis: a Gmail filter on johnloucks3@gmail.com matching sender d2mconcierge@gmail.com that archives-on-arrival (skip inbox) while still letting category auto-tagging run — this is the only mechanism that explains CATEGORY_PERSONAL present + INBOX absent.
+**Workaround (told Commander directly):** message content IS retrievable via Gmail search / All Mail even though it doesn't show in the default Inbox view.
+**Fix status:** NOT fixed. Needs either (a) Commander to check his own Gmail filter settings for a d2mconcierge rule, since I have no API visibility into filters, or (b) Sterling/Whetstone to find an alternate verification path (Gmail API `users.settings.filters.list` via the MCP server's underlying credentials, if the MCP wrapper can be extended to expose it).
+**Owner:** Sterling (A7) — real recurring capability gap in the primary wing-to-Commander report channel; second occurrence same week qualifies for the CI razor-sharp doctrine's replacement-trigger review, not just a flagged note.
+
+<!-- PLAN:OPEN plan_id=PLN-630256 tier=trivial session_id=none opened_at=2026-07-10T12:59:22.078515+00:00 -->
+**Plan Opened:** PLN-630256
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-630256 verdict=FAIL quality_tier=none closed_at=2026-07-10T12:59:22.083587+00:00 -->
+**Plan Closed:** PLN-630256
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-60f066 tier=trivial session_id=none opened_at=2026-07-10T13:00:21.317276+00:00 -->
+**Plan Opened:** PLN-60f066
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-60f066 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:00:21.325198+00:00 -->
+**Plan Closed:** PLN-60f066
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c26e9 tier=trivial session_id=none opened_at=2026-07-10T13:01:37.452510+00:00 -->
+**Plan Opened:** PLN-6c26e9
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c26e9 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:01:37.457060+00:00 -->
+**Plan Closed:** PLN-6c26e9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2fe77c tier=trivial session_id=none opened_at=2026-07-10T13:02:52.241993+00:00 -->
+**Plan Opened:** PLN-2fe77c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2fe77c verdict=FAIL quality_tier=none closed_at=2026-07-10T13:02:52.246574+00:00 -->
+**Plan Closed:** PLN-2fe77c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-922fe7 tier=trivial session_id=none opened_at=2026-07-10T13:09:42.059134+00:00 -->
+**Plan Opened:** PLN-922fe7
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-922fe7 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:09:42.063570+00:00 -->
+**Plan Closed:** PLN-922fe7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4e793c tier=trivial session_id=none opened_at=2026-07-10T13:14:22.144938+00:00 -->
+**Plan Opened:** PLN-4e793c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4e793c verdict=FAIL quality_tier=none closed_at=2026-07-10T13:14:22.151050+00:00 -->
+**Plan Closed:** PLN-4e793c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-909a1d tier=trivial session_id=none opened_at=2026-07-10T13:17:25.684323+00:00 -->
+**Plan Opened:** PLN-909a1d
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-909a1d verdict=FAIL quality_tier=none closed_at=2026-07-10T13:17:25.689091+00:00 -->
+**Plan Closed:** PLN-909a1d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a8d690 tier=trivial session_id=none opened_at=2026-07-10T13:20:45.746121+00:00 -->
+**Plan Opened:** PLN-a8d690
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_286961.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a8d690 verdict=PASS quality_tier=none closed_at=2026-07-10T13:20:45.750671+00:00 -->
+**Plan Closed:** PLN-a8d690
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_286961.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4aabb5 tier=trivial session_id=none opened_at=2026-07-10T13:20:45.780004+00:00 -->
+**Plan Opened:** PLN-4aabb5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4aabb5 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:20:45.784950+00:00 -->
+**Plan Closed:** PLN-4aabb5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-32f48a tier=trivial session_id=none opened_at=2026-07-10T13:28:11.218873+00:00 -->
+**Plan Opened:** PLN-32f48a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-32f48a verdict=FAIL quality_tier=none closed_at=2026-07-10T13:28:11.223417+00:00 -->
+**Plan Closed:** PLN-32f48a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-83a022 tier=trivial session_id=none opened_at=2026-07-10T13:30:56.027394+00:00 -->
+**Plan Opened:** PLN-83a022
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_299308.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-83a022 verdict=PASS quality_tier=none closed_at=2026-07-10T13:30:56.035575+00:00 -->
+**Plan Closed:** PLN-83a022
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_299308.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5c0726 tier=trivial session_id=none opened_at=2026-07-10T13:31:57.557046+00:00 -->
+**Plan Opened:** PLN-5c0726
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5c0726 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:31:57.563626+00:00 -->
+**Plan Closed:** PLN-5c0726
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-352428 tier=trivial session_id=none opened_at=2026-07-10T13:31:57.633366+00:00 -->
+**Plan Opened:** PLN-352428
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-352428 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:31:57.637693+00:00 -->
+**Plan Closed:** PLN-352428
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f46baa tier=trivial session_id=none opened_at=2026-07-10T13:31:59.062207+00:00 -->
+**Plan Opened:** PLN-f46baa
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f46baa verdict=FAIL quality_tier=none closed_at=2026-07-10T13:31:59.066710+00:00 -->
+**Plan Closed:** PLN-f46baa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c9d417 tier=trivial session_id=none opened_at=2026-07-10T13:32:01.575807+00:00 -->
+**Plan Opened:** PLN-c9d417
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c9d417 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:32:01.580756+00:00 -->
+**Plan Closed:** PLN-c9d417
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a984c8 tier=trivial session_id=none opened_at=2026-07-10T13:32:05.686089+00:00 -->
+**Plan Opened:** PLN-a984c8
+**Task:** generic long-tail remediation: d2m-brief-telegram -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a984c8 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:32:05.690736+00:00 -->
+**Plan Closed:** PLN-a984c8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2c1cc4 tier=trivial session_id=none opened_at=2026-07-10T13:32:32.180726+00:00 -->
+**Plan Opened:** PLN-2c1cc4
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2c1cc4 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:32:32.185559+00:00 -->
+**Plan Closed:** PLN-2c1cc4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-de83a1 tier=trivial session_id=none opened_at=2026-07-10T13:32:35.189908+00:00 -->
+**Plan Opened:** PLN-de83a1
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-de83a1 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:32:35.194511+00:00 -->
+**Plan Closed:** PLN-de83a1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9ddd44 tier=trivial session_id=none opened_at=2026-07-10T13:34:14.308981+00:00 -->
+**Plan Opened:** PLN-9ddd44
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9ddd44 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:34:14.315152+00:00 -->
+**Plan Closed:** PLN-9ddd44
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fa2e58 tier=trivial session_id=none opened_at=2026-07-10T13:35:19.877026+00:00 -->
+**Plan Opened:** PLN-fa2e58
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fa2e58 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:35:19.881878+00:00 -->
+**Plan Closed:** PLN-fa2e58
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e3339b tier=trivial session_id=none opened_at=2026-07-10T13:41:58.947693+00:00 -->
+**Plan Opened:** PLN-e3339b
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e3339b verdict=FAIL quality_tier=none closed_at=2026-07-10T13:41:58.954072+00:00 -->
+**Plan Closed:** PLN-e3339b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2a6f31 tier=trivial session_id=none opened_at=2026-07-10T13:43:15.323336+00:00 -->
+**Plan Opened:** PLN-2a6f31
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2a6f31 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:43:15.328184+00:00 -->
+**Plan Closed:** PLN-2a6f31
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1b2227 tier=trivial session_id=none opened_at=2026-07-10T13:48:57.649721+00:00 -->
+**Plan Opened:** PLN-1b2227
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1b2227 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:48:57.654655+00:00 -->
+**Plan Closed:** PLN-1b2227
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-500d3a tier=trivial session_id=none opened_at=2026-07-10T13:51:36.573317+00:00 -->
+**Plan Opened:** PLN-500d3a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-500d3a verdict=FAIL quality_tier=none closed_at=2026-07-10T13:51:36.578249+00:00 -->
+**Plan Closed:** PLN-500d3a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6cdb95 tier=trivial session_id=none opened_at=2026-07-10T13:52:13.643310+00:00 -->
+**Plan Opened:** PLN-6cdb95
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6cdb95 verdict=FAIL quality_tier=none closed_at=2026-07-10T13:52:13.647898+00:00 -->
+**Plan Closed:** PLN-6cdb95
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c41fb9 tier=T2 session_id=none opened_at=2026-07-10T13:54:52.575329+00:00 -->
+**Plan Opened:** PLN-c41fb9
+**Task:** Build Icelandair authenticated-session persistence/keep-alive layer, matching Centrav warm-ping pattern
+**Tier:** T2
+**Compliance checks:** No client-send gate crossed; No financial commitment made; No auto-solve of Cloudflare/CAPTCHA attempted -- matches Centrav doctrine of never defeating a human-only gate
+**Criteria:** Warm-ping script verifies authenticated marker BEFORE overwriting saved cookies (Centrav safety contract mirrored); Dead/challenged session leaves cookie file untouched and escalates to Sterling, never attempts to auto-solve Cloudflare/login; Cadence matches the real constraint: __cf_bm cookie has ~23min rolling TTL, timer must run well inside that window; Systemd --user timer installed and verified live; Real live test: one actual warm-ping run against tonight captured session, verified re-authenticated + cookies refreshed
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-2781ae tier=trivial session_id=none opened_at=2026-07-10T13:57:54.533865+00:00 -->
+**Plan Opened:** PLN-2781ae
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2781ae verdict=FAIL quality_tier=none closed_at=2026-07-10T13:57:54.539242+00:00 -->
+**Plan Closed:** PLN-2781ae
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-025f3a tier=trivial session_id=none opened_at=2026-07-10T13:58:15.162363+00:00 -->
+**Plan Opened:** PLN-025f3a
+**Task:** Icelandair session warm-ping -> warmed + re-saved 29 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-025f3a verdict=PASS quality_tier=none closed_at=2026-07-10T13:58:15.167092+00:00 -->
+**Plan Closed:** PLN-025f3a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 29 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27cee8 tier=trivial session_id=none opened_at=2026-07-10T13:58:55.719106+00:00 -->
+**Plan Opened:** PLN-27cee8
+**Task:** generic long-tail remediation: nexus -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27cee8 verdict=PASS quality_tier=none closed_at=2026-07-10T13:58:55.724395+00:00 -->
+**Plan Closed:** PLN-27cee8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** nexus verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c41fb9 verdict=PASS quality_tier=GREEN closed_at=2026-07-10T13:58:55.810522+00:00 -->
+**Plan Closed:** PLN-c41fb9
+**Verdict:** PASS
+**Quality tier:** GREEN
+**Criteria met:** Warm-ping script verifies authenticated marker BEFORE overwriting saved cookies (Centrav safety contract mirrored); Dead/challenged session leaves cookie file untouched and escalates to Sterling, never attempts to auto-solve Cloudflare/login; Cadence matches the real constraint: __cf_bm cookie has ~23min rolling TTL, timer must run well inside that window; Systemd --user timer installed and verified live; Real live test: one actual warm-ping run against tonight captured session, verified re-authenticated + cookies refreshed
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** All 5 criteria mechanically verified: safety contract mirrors Centrav exactly (verify-before-write); 15min timer confirmed well inside the ~23min cf_bm window; systemd timer live (Result=success); live re-run showed __cf_bm value+expiry both changed, not just ran-without-error. 5 tests passing, 2 real bugs found+fixed during build.
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0e0a79 tier=trivial session_id=none opened_at=2026-07-10T14:02:07.443217+00:00 -->
+**Plan Opened:** PLN-0e0a79
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0e0a79 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:02:07.449596+00:00 -->
+**Plan Closed:** PLN-0e0a79
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17c992 tier=trivial session_id=none opened_at=2026-07-10T14:02:17.587758+00:00 -->
+**Plan Opened:** PLN-17c992
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_374847.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17c992 verdict=PASS quality_tier=none closed_at=2026-07-10T14:02:17.593221+00:00 -->
+**Plan Closed:** PLN-17c992
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_374847.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8b0663 tier=trivial session_id=none opened_at=2026-07-10T14:03:09.213209+00:00 -->
+**Plan Opened:** PLN-8b0663
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8b0663 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:03:09.218011+00:00 -->
+**Plan Closed:** PLN-8b0663
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-92365e tier=trivial session_id=none opened_at=2026-07-10T14:09:37.827216+00:00 -->
+**Plan Opened:** PLN-92365e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-92365e verdict=FAIL quality_tier=none closed_at=2026-07-10T14:09:37.831996+00:00 -->
+**Plan Closed:** PLN-92365e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8e4b48 tier=trivial session_id=none opened_at=2026-07-10T14:13:59.213216+00:00 -->
+**Plan Opened:** PLN-8e4b48
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e4b48 verdict=PASS quality_tier=none closed_at=2026-07-10T14:13:59.218355+00:00 -->
+**Plan Closed:** PLN-8e4b48
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-490e31 tier=trivial session_id=none opened_at=2026-07-10T14:14:36.832435+00:00 -->
+**Plan Opened:** PLN-490e31
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-490e31 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:14:36.839717+00:00 -->
+**Plan Closed:** PLN-490e31
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cbe2ff tier=trivial session_id=none opened_at=2026-07-10T14:18:07.286539+00:00 -->
+**Plan Opened:** PLN-cbe2ff
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cbe2ff verdict=FAIL quality_tier=none closed_at=2026-07-10T14:18:07.291395+00:00 -->
+**Plan Closed:** PLN-cbe2ff
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5eeff1 tier=trivial session_id=none opened_at=2026-07-10T14:20:25.104196+00:00 -->
+**Plan Opened:** PLN-5eeff1
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5eeff1 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:20:25.109292+00:00 -->
+**Plan Closed:** PLN-5eeff1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e117aa tier=trivial session_id=none opened_at=2026-07-10T14:28:11.131509+00:00 -->
+**Plan Opened:** PLN-e117aa
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e117aa verdict=FAIL quality_tier=none closed_at=2026-07-10T14:28:11.136725+00:00 -->
+**Plan Closed:** PLN-e117aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-74b552 tier=trivial session_id=none opened_at=2026-07-10T14:29:22.449978+00:00 -->
+**Plan Opened:** PLN-74b552
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-74b552 verdict=PASS quality_tier=none closed_at=2026-07-10T14:29:22.454866+00:00 -->
+**Plan Closed:** PLN-74b552
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-959423 tier=trivial session_id=none opened_at=2026-07-10T14:32:22.419941+00:00 -->
+**Plan Opened:** PLN-959423
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-959423 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:32:22.424524+00:00 -->
+**Plan Closed:** PLN-959423
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-83e7d6 tier=trivial session_id=none opened_at=2026-07-10T14:32:55.283510+00:00 -->
+**Plan Opened:** PLN-83e7d6
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-83e7d6 verdict=PASS quality_tier=none closed_at=2026-07-10T14:32:55.291318+00:00 -->
+**Plan Closed:** PLN-83e7d6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-715753 tier=trivial session_id=none opened_at=2026-07-10T14:33:12.808081+00:00 -->
+**Plan Opened:** PLN-715753
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_405983.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-715753 verdict=PASS quality_tier=none closed_at=2026-07-10T14:33:12.812625+00:00 -->
+**Plan Closed:** PLN-715753
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_405983.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e92dcd tier=trivial session_id=none opened_at=2026-07-10T14:34:14.735583+00:00 -->
+**Plan Opened:** PLN-e92dcd
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e92dcd verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:14.740743+00:00 -->
+**Plan Closed:** PLN-e92dcd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e626b0 tier=trivial session_id=none opened_at=2026-07-10T14:34:18.682155+00:00 -->
+**Plan Opened:** PLN-e626b0
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e626b0 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:18.686702+00:00 -->
+**Plan Closed:** PLN-e626b0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-181d40 tier=trivial session_id=none opened_at=2026-07-10T14:34:23.697746+00:00 -->
+**Plan Opened:** PLN-181d40
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_408132.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-181d40 verdict=PASS quality_tier=none closed_at=2026-07-10T14:34:23.702466+00:00 -->
+**Plan Closed:** PLN-181d40
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_408132.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7f39c5 tier=trivial session_id=none opened_at=2026-07-10T14:34:23.758130+00:00 -->
+**Plan Opened:** PLN-7f39c5
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f39c5 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:23.762714+00:00 -->
+**Plan Closed:** PLN-7f39c5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-889e5c tier=trivial session_id=none opened_at=2026-07-10T14:34:25.094242+00:00 -->
+**Plan Opened:** PLN-889e5c
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-889e5c verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:25.099205+00:00 -->
+**Plan Closed:** PLN-889e5c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-89ff71 tier=trivial session_id=none opened_at=2026-07-10T14:34:31.954259+00:00 -->
+**Plan Opened:** PLN-89ff71
+**Task:** generic long-tail remediation: d2m-brief-telegram -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-89ff71 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:31.963080+00:00 -->
+**Plan Closed:** PLN-89ff71
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-83599f tier=trivial session_id=none opened_at=2026-07-10T14:34:58.437534+00:00 -->
+**Plan Opened:** PLN-83599f
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-83599f verdict=FAIL quality_tier=none closed_at=2026-07-10T14:34:58.442547+00:00 -->
+**Plan Closed:** PLN-83599f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-175712 tier=trivial session_id=none opened_at=2026-07-10T14:35:05.970717+00:00 -->
+**Plan Opened:** PLN-175712
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-175712 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:35:05.975449+00:00 -->
+**Plan Closed:** PLN-175712
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c3117f tier=trivial session_id=none opened_at=2026-07-10T14:38:07.925401+00:00 -->
+**Plan Opened:** PLN-c3117f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c3117f verdict=FAIL quality_tier=none closed_at=2026-07-10T14:38:07.930181+00:00 -->
+**Plan Closed:** PLN-c3117f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17b7fb tier=trivial session_id=none opened_at=2026-07-10T14:44:08.586740+00:00 -->
+**Plan Opened:** PLN-17b7fb
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17b7fb verdict=FAIL quality_tier=none closed_at=2026-07-10T14:44:08.591880+00:00 -->
+**Plan Closed:** PLN-17b7fb
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f61c68 tier=trivial session_id=none opened_at=2026-07-10T14:45:12.156217+00:00 -->
+**Plan Opened:** PLN-f61c68
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f61c68 verdict=PASS quality_tier=none closed_at=2026-07-10T14:45:12.161158+00:00 -->
+**Plan Closed:** PLN-f61c68
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-031a41 tier=trivial session_id=none opened_at=2026-07-10T14:45:51.016111+00:00 -->
+**Plan Opened:** PLN-031a41
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-031a41 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:45:51.022547+00:00 -->
+**Plan Closed:** PLN-031a41
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-488110 tier=trivial session_id=none opened_at=2026-07-10T14:46:44.762695+00:00 -->
+**Plan Opened:** PLN-488110
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-488110 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:46:44.768934+00:00 -->
+**Plan Closed:** PLN-488110
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-64e376 tier=trivial session_id=none opened_at=2026-07-10T14:48:03.495451+00:00 -->
+**Plan Opened:** PLN-64e376
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-64e376 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:48:03.500267+00:00 -->
+**Plan Closed:** PLN-64e376
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c5869c tier=trivial session_id=none opened_at=2026-07-10T14:53:53.905780+00:00 -->
+**Plan Opened:** PLN-c5869c
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c5869c verdict=FAIL quality_tier=none closed_at=2026-07-10T14:53:53.910555+00:00 -->
+**Plan Closed:** PLN-c5869c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-00eef6 tier=trivial session_id=none opened_at=2026-07-10T14:55:46.434476+00:00 -->
+**Plan Opened:** PLN-00eef6
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-00eef6 verdict=FAIL quality_tier=none closed_at=2026-07-10T14:55:46.441168+00:00 -->
+**Plan Closed:** PLN-00eef6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-72ba3e tier=trivial session_id=none opened_at=2026-07-10T14:59:15.338347+00:00 -->
+**Plan Opened:** PLN-72ba3e
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-72ba3e verdict=FAIL quality_tier=none closed_at=2026-07-10T14:59:15.343222+00:00 -->
+**Plan Closed:** PLN-72ba3e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-767787 tier=trivial session_id=none opened_at=2026-07-10T15:00:37.921894+00:00 -->
+**Plan Opened:** PLN-767787
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-767787 verdict=PASS quality_tier=none closed_at=2026-07-10T15:00:37.926675+00:00 -->
+**Plan Closed:** PLN-767787
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-91f10e tier=trivial session_id=none opened_at=2026-07-10T15:01:23.410390+00:00 -->
+**Plan Opened:** PLN-91f10e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-91f10e verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:23.416083+00:00 -->
+**Plan Closed:** PLN-91f10e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-af1bdd tier=trivial session_id=none opened_at=2026-07-10T15:01:32.796331+00:00 -->
+**Plan Opened:** PLN-af1bdd
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-af1bdd verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:32.802204+00:00 -->
+**Plan Closed:** PLN-af1bdd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3c3f7b tier=trivial session_id=none opened_at=2026-07-10T15:01:33.232532+00:00 -->
+**Plan Opened:** PLN-3c3f7b
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3c3f7b verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:33.237249+00:00 -->
+**Plan Closed:** PLN-3c3f7b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b3c7c1 tier=trivial session_id=none opened_at=2026-07-10T15:01:34.860464+00:00 -->
+**Plan Opened:** PLN-b3c7c1
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b3c7c1 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:34.869144+00:00 -->
+**Plan Closed:** PLN-b3c7c1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3e3674 tier=trivial session_id=none opened_at=2026-07-10T15:01:37.024806+00:00 -->
+**Plan Opened:** PLN-3e3674
+**Task:** generic long-tail remediation: d2m-brief-telegram -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3e3674 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:37.029964+00:00 -->
+**Plan Closed:** PLN-3e3674
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8836ae tier=trivial session_id=none opened_at=2026-07-10T15:01:38.576221+00:00 -->
+**Plan Opened:** PLN-8836ae
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8836ae verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:38.581142+00:00 -->
+**Plan Closed:** PLN-8836ae
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0d6603 tier=trivial session_id=none opened_at=2026-07-10T15:01:40.326336+00:00 -->
+**Plan Opened:** PLN-0d6603
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0d6603 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:40.331424+00:00 -->
+**Plan Closed:** PLN-0d6603
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-743fe4 tier=trivial session_id=none opened_at=2026-07-10T15:01:42.060192+00:00 -->
+**Plan Opened:** PLN-743fe4
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_471744.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-743fe4 verdict=PASS quality_tier=none closed_at=2026-07-10T15:01:42.068532+00:00 -->
+**Plan Closed:** PLN-743fe4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_471744.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e25cf8 tier=trivial session_id=none opened_at=2026-07-10T15:01:42.192989+00:00 -->
+**Plan Opened:** PLN-e25cf8
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e25cf8 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:42.197948+00:00 -->
+**Plan Closed:** PLN-e25cf8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-01bb09 tier=trivial session_id=none opened_at=2026-07-10T15:01:45.625025+00:00 -->
+**Plan Opened:** PLN-01bb09
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-01bb09 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:45.629775+00:00 -->
+**Plan Closed:** PLN-01bb09
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e37f24 tier=trivial session_id=none opened_at=2026-07-10T15:01:48.014142+00:00 -->
+**Plan Opened:** PLN-e37f24
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e37f24 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:48.019850+00:00 -->
+**Plan Closed:** PLN-e37f24
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cfe0b2 tier=trivial session_id=none opened_at=2026-07-10T15:01:54.750626+00:00 -->
+**Plan Opened:** PLN-cfe0b2
+**Task:** generic long-tail remediation: loucks-gp-notifier -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cfe0b2 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:01:54.759390+00:00 -->
+**Plan Closed:** PLN-cfe0b2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-52e906 tier=trivial session_id=94250782-22df-4132-b8dd-c4577b0e5523 opened_at=2026-07-10T15:01:58.995232+00:00 -->
+**Plan Opened:** PLN-52e906
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-52e906 verdict=PASS quality_tier=none closed_at=2026-07-10T15:01:59.000626+00:00 -->
+**Plan Closed:** PLN-52e906
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b93133 tier=trivial session_id=none opened_at=2026-07-10T15:02:02.397090+00:00 -->
+**Plan Opened:** PLN-b93133
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b93133 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:02:02.401555+00:00 -->
+**Plan Closed:** PLN-b93133
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-034b02 tier=trivial session_id=none opened_at=2026-07-10T15:02:29.911064+00:00 -->
+**Plan Opened:** PLN-034b02
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-034b02 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:02:29.917922+00:00 -->
+**Plan Closed:** PLN-034b02
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6213e5 tier=trivial session_id=none opened_at=2026-07-10T15:05:53.284899+00:00 -->
+**Plan Opened:** PLN-6213e5
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6213e5 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:05:53.289960+00:00 -->
+**Plan Closed:** PLN-6213e5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4e2e8b tier=trivial session_id=none opened_at=2026-07-10T15:10:32.569456+00:00 -->
+**Plan Opened:** PLN-4e2e8b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4e2e8b verdict=FAIL quality_tier=none closed_at=2026-07-10T15:10:32.574583+00:00 -->
+**Plan Closed:** PLN-4e2e8b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eab732 tier=trivial session_id=none opened_at=2026-07-10T15:10:32.680382+00:00 -->
+**Plan Opened:** PLN-eab732
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eab732 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:10:32.688483+00:00 -->
+**Plan Closed:** PLN-eab732
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-99cb12 tier=trivial session_id=none opened_at=2026-07-10T15:10:56.409320+00:00 -->
+**Plan Opened:** PLN-99cb12
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-99cb12 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:10:56.414246+00:00 -->
+**Plan Closed:** PLN-99cb12
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9612ba tier=trivial session_id=none opened_at=2026-07-10T15:10:58.887990+00:00 -->
+**Plan Opened:** PLN-9612ba
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9612ba verdict=FAIL quality_tier=none closed_at=2026-07-10T15:10:58.892514+00:00 -->
+**Plan Closed:** PLN-9612ba
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-326131 tier=trivial session_id=none opened_at=2026-07-10T15:11:09.167755+00:00 -->
+**Plan Opened:** PLN-326131
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_493146.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-326131 verdict=PASS quality_tier=none closed_at=2026-07-10T15:11:09.172777+00:00 -->
+**Plan Closed:** PLN-326131
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_493146.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-934be5 tier=trivial session_id=none opened_at=2026-07-10T15:11:09.213323+00:00 -->
+**Plan Opened:** PLN-934be5
+**Task:** generic long-tail remediation: d2m-brief-telegram -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-934be5 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:09.217725+00:00 -->
+**Plan Closed:** PLN-934be5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-07c020 tier=trivial session_id=none opened_at=2026-07-10T15:11:10.526298+00:00 -->
+**Plan Opened:** PLN-07c020
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-07c020 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:10.531247+00:00 -->
+**Plan Closed:** PLN-07c020
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d9b52b tier=trivial session_id=none opened_at=2026-07-10T15:11:11.957706+00:00 -->
+**Plan Opened:** PLN-d9b52b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d9b52b verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:11.964442+00:00 -->
+**Plan Closed:** PLN-d9b52b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27ffda tier=trivial session_id=none opened_at=2026-07-10T15:11:13.585470+00:00 -->
+**Plan Opened:** PLN-27ffda
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27ffda verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:13.589985+00:00 -->
+**Plan Closed:** PLN-27ffda
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c6df7a tier=trivial session_id=none opened_at=2026-07-10T15:11:15.040917+00:00 -->
+**Plan Opened:** PLN-c6df7a
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c6df7a verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:15.047630+00:00 -->
+**Plan Closed:** PLN-c6df7a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-277e2f tier=trivial session_id=none opened_at=2026-07-10T15:11:16.461676+00:00 -->
+**Plan Opened:** PLN-277e2f
+**Task:** generic long-tail remediation: loucks-gp-notifier -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-277e2f verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:16.468108+00:00 -->
+**Plan Closed:** PLN-277e2f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41fd54 tier=trivial session_id=none opened_at=2026-07-10T15:11:17.899528+00:00 -->
+**Plan Opened:** PLN-41fd54
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41fd54 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:17.904767+00:00 -->
+**Plan Closed:** PLN-41fd54
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7a9163 tier=trivial session_id=none opened_at=2026-07-10T15:11:35.290943+00:00 -->
+**Plan Opened:** PLN-7a9163
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7a9163 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:11:35.295687+00:00 -->
+**Plan Closed:** PLN-7a9163
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dce633 tier=trivial session_id=none opened_at=2026-07-10T15:13:44.935824+00:00 -->
+**Plan Opened:** PLN-dce633
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dce633 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:13:44.940401+00:00 -->
+**Plan Closed:** PLN-dce633
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0ef4a4 tier=trivial session_id=none opened_at=2026-07-10T15:14:36.333938+00:00 -->
+**Plan Opened:** PLN-0ef4a4
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0ef4a4 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:14:36.338483+00:00 -->
+**Plan Closed:** PLN-0ef4a4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-db2e08 tier=trivial session_id=none opened_at=2026-07-10T15:15:19.073897+00:00 -->
+**Plan Opened:** PLN-db2e08
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-db2e08 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:15:19.078790+00:00 -->
+**Plan Closed:** PLN-db2e08
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a23183 tier=trivial session_id=none opened_at=2026-07-10T15:16:38.033188+00:00 -->
+**Plan Opened:** PLN-a23183
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a23183 verdict=PASS quality_tier=none closed_at=2026-07-10T15:16:38.037936+00:00 -->
+**Plan Closed:** PLN-a23183
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-611e20 tier=trivial session_id=none opened_at=2026-07-10T15:21:02.715347+00:00 -->
+**Plan Opened:** PLN-611e20
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-472058 tier=trivial session_id=none opened_at=2026-07-10T15:21:02.715503+00:00 -->
+**Plan Opened:** PLN-472058
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-c5fb1d tier=trivial session_id=none opened_at=2026-07-10T15:21:02.716538+00:00 -->
+**Plan Opened:** PLN-c5fb1d
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-611e20 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:02.725006+00:00 -->
+**Plan Closed:** PLN-611e20
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-472058 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:02.730750+00:00 -->
+**Plan Closed:** PLN-472058
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c5fb1d verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:02.740993+00:00 -->
+**Plan Closed:** PLN-c5fb1d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-512fba tier=trivial session_id=none opened_at=2026-07-10T15:21:04.359062+00:00 -->
+**Plan Opened:** PLN-512fba
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-512fba verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:04.366457+00:00 -->
+**Plan Closed:** PLN-512fba
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2cf7d9 tier=trivial session_id=none opened_at=2026-07-10T15:21:05.882353+00:00 -->
+**Plan Opened:** PLN-2cf7d9
+**Task:** generic long-tail remediation: d2m-brief-telegram -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2cf7d9 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:05.887033+00:00 -->
+**Plan Closed:** PLN-2cf7d9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3c5be8 tier=trivial session_id=none opened_at=2026-07-10T15:21:10.485693+00:00 -->
+**Plan Opened:** PLN-3c5be8
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3c5be8 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:10.490523+00:00 -->
+**Plan Closed:** PLN-3c5be8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-38f634 tier=trivial session_id=none opened_at=2026-07-10T15:21:11.659516+00:00 -->
+**Plan Opened:** PLN-38f634
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-38f634 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:11.664178+00:00 -->
+**Plan Closed:** PLN-38f634
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7b6328 tier=trivial session_id=none opened_at=2026-07-10T15:21:13.052198+00:00 -->
+**Plan Opened:** PLN-7b6328
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7b6328 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:13.057083+00:00 -->
+**Plan Closed:** PLN-7b6328
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1e60ac tier=trivial session_id=none opened_at=2026-07-10T15:21:14.390098+00:00 -->
+**Plan Opened:** PLN-1e60ac
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e60ac verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:14.394755+00:00 -->
+**Plan Closed:** PLN-1e60ac
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dd15aa tier=trivial session_id=none opened_at=2026-07-10T15:21:15.904768+00:00 -->
+**Plan Opened:** PLN-dd15aa
+**Task:** generic long-tail remediation: loucks-gp-notifier -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dd15aa verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:15.912814+00:00 -->
+**Plan Closed:** PLN-dd15aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-524038 tier=trivial session_id=none opened_at=2026-07-10T15:21:17.325377+00:00 -->
+**Plan Opened:** PLN-524038
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-524038 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:17.330281+00:00 -->
+**Plan Closed:** PLN-524038
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-612bd6 tier=trivial session_id=none opened_at=2026-07-10T15:21:53.080819+00:00 -->
+**Plan Opened:** PLN-612bd6
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-612bd6 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:21:53.085593+00:00 -->
+**Plan Closed:** PLN-612bd6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0be6da tier=trivial session_id=none opened_at=2026-07-10T15:26:46.242730+00:00 -->
+**Plan Opened:** PLN-0be6da
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0be6da verdict=FAIL quality_tier=none closed_at=2026-07-10T15:26:46.247328+00:00 -->
+**Plan Closed:** PLN-0be6da
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9b5560 tier=trivial session_id=none opened_at=2026-07-10T15:30:18.017471+00:00 -->
+**Plan Opened:** PLN-9b5560
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9b5560 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:30:18.022343+00:00 -->
+**Plan Closed:** PLN-9b5560
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-756469 tier=trivial session_id=none opened_at=2026-07-10T15:31:05.347903+00:00 -->
+**Plan Opened:** PLN-756469
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-756469 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:31:05.352467+00:00 -->
+**Plan Closed:** PLN-756469
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f1b079 tier=trivial session_id=none opened_at=2026-07-10T15:31:31.446867+00:00 -->
+**Plan Opened:** PLN-f1b079
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f1b079 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:31:31.451673+00:00 -->
+**Plan Closed:** PLN-f1b079
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ea2d23 tier=trivial session_id=none opened_at=2026-07-10T15:31:44.459147+00:00 -->
+**Plan Opened:** PLN-ea2d23
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ea2d23 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:31:44.464008+00:00 -->
+**Plan Closed:** PLN-ea2d23
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-631afa tier=trivial session_id=none opened_at=2026-07-10T15:32:04.979035+00:00 -->
+**Plan Opened:** PLN-631afa
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-631afa verdict=PASS quality_tier=none closed_at=2026-07-10T15:32:04.987094+00:00 -->
+**Plan Closed:** PLN-631afa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f40d80 tier=trivial session_id=none opened_at=2026-07-10T15:32:32.374065+00:00 -->
+**Plan Opened:** PLN-f40d80
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f40d80 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:32:32.380928+00:00 -->
+**Plan Closed:** PLN-f40d80
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2bc6a3 tier=trivial session_id=none opened_at=2026-07-10T15:33:21.005337+00:00 -->
+**Plan Opened:** PLN-2bc6a3
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2bc6a3 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:33:21.011474+00:00 -->
+**Plan Closed:** PLN-2bc6a3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c65e29 tier=trivial session_id=none opened_at=2026-07-10T15:35:19.709762+00:00 -->
+**Plan Opened:** PLN-c65e29
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_534590.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c65e29 verdict=PASS quality_tier=none closed_at=2026-07-10T15:35:19.718721+00:00 -->
+**Plan Closed:** PLN-c65e29
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_534590.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b6b727 tier=trivial session_id=none opened_at=2026-07-10T15:35:51.723468+00:00 -->
+**Plan Opened:** PLN-b6b727
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b6b727 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:35:51.730476+00:00 -->
+**Plan Closed:** PLN-b6b727
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eadf39 tier=trivial session_id=none opened_at=2026-07-10T15:39:30.776237+00:00 -->
+**Plan Opened:** PLN-eadf39
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eadf39 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:39:30.780733+00:00 -->
+**Plan Closed:** PLN-eadf39
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5306ad tier=trivial session_id=none opened_at=2026-07-10T15:40:02.315953+00:00 -->
+**Plan Opened:** PLN-5306ad
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5306ad verdict=FAIL quality_tier=none closed_at=2026-07-10T15:40:02.320535+00:00 -->
+**Plan Closed:** PLN-5306ad
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4e399e tier=trivial session_id=none opened_at=2026-07-10T15:44:35.011701+00:00 -->
+**Plan Opened:** PLN-4e399e
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4e399e verdict=FAIL quality_tier=none closed_at=2026-07-10T15:44:35.016695+00:00 -->
+**Plan Closed:** PLN-4e399e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e482ec tier=trivial session_id=none opened_at=2026-07-10T15:47:02.795726+00:00 -->
+**Plan Opened:** PLN-e482ec
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e482ec verdict=FAIL quality_tier=none closed_at=2026-07-10T15:47:02.800545+00:00 -->
+**Plan Closed:** PLN-e482ec
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67b1e8 tier=trivial session_id=none opened_at=2026-07-10T15:47:13.240563+00:00 -->
+**Plan Opened:** PLN-67b1e8
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67b1e8 verdict=PASS quality_tier=none closed_at=2026-07-10T15:47:13.245265+00:00 -->
+**Plan Closed:** PLN-67b1e8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d53c91 tier=trivial session_id=none opened_at=2026-07-10T15:48:59.409439+00:00 -->
+**Plan Opened:** PLN-d53c91
+**Task:** generic long-tail remediation: d2m-airfare-scan -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d53c91 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:48:59.417887+00:00 -->
+**Plan Closed:** PLN-d53c91
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c8d663 tier=trivial session_id=none opened_at=2026-07-10T15:49:09.561357+00:00 -->
+**Plan Opened:** PLN-c8d663
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_562841.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c8d663 verdict=PASS quality_tier=none closed_at=2026-07-10T15:49:09.566144+00:00 -->
+**Plan Closed:** PLN-c8d663
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_562841.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ac8779 tier=trivial session_id=none opened_at=2026-07-10T15:50:02.284129+00:00 -->
+**Plan Opened:** PLN-ac8779
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ac8779 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:50:02.288877+00:00 -->
+**Plan Closed:** PLN-ac8779
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c9b739 tier=trivial session_id=none opened_at=2026-07-10T15:51:16.457135+00:00 -->
+**Plan Opened:** PLN-c9b739
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c9b739 verdict=FAIL quality_tier=none closed_at=2026-07-10T15:51:16.463124+00:00 -->
+**Plan Closed:** PLN-c9b739
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f3899d tier=trivial session_id=none opened_at=2026-07-10T15:55:26.487477+00:00 -->
+**Plan Opened:** PLN-f3899d
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f3899d verdict=FAIL quality_tier=none closed_at=2026-07-10T15:55:26.492448+00:00 -->
+**Plan Closed:** PLN-f3899d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c0b341 tier=trivial session_id=none opened_at=2026-07-10T16:00:05.708880+00:00 -->
+**Plan Opened:** PLN-c0b341
+**Task:** generic long-tail remediation: hale-credential-check -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c0b341 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:00:05.714154+00:00 -->
+**Plan Closed:** PLN-c0b341
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-38cd5a tier=trivial session_id=none opened_at=2026-07-10T16:00:15.870635+00:00 -->
+**Plan Opened:** PLN-38cd5a
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_590252.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-38cd5a verdict=PASS quality_tier=none closed_at=2026-07-10T16:00:15.884384+00:00 -->
+**Plan Closed:** PLN-38cd5a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_590252.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-736cba tier=trivial session_id=none opened_at=2026-07-10T16:01:13.423772+00:00 -->
+**Plan Opened:** PLN-736cba
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-736cba verdict=FAIL quality_tier=none closed_at=2026-07-10T16:01:13.428420+00:00 -->
+**Plan Closed:** PLN-736cba
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c4f90a tier=trivial session_id=none opened_at=2026-07-10T16:02:24.219259+00:00 -->
+**Plan Opened:** PLN-c4f90a
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c4f90a verdict=PASS quality_tier=none closed_at=2026-07-10T16:02:24.223737+00:00 -->
+**Plan Closed:** PLN-c4f90a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ee93ad tier=trivial session_id=none opened_at=2026-07-10T16:04:46.312068+00:00 -->
+**Plan Opened:** PLN-ee93ad
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ee93ad verdict=FAIL quality_tier=none closed_at=2026-07-10T16:04:46.316594+00:00 -->
+**Plan Closed:** PLN-ee93ad
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c26b35 tier=trivial session_id=none opened_at=2026-07-10T16:07:45.127402+00:00 -->
+**Plan Opened:** PLN-c26b35
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_598833.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c26b35 verdict=PASS quality_tier=none closed_at=2026-07-10T16:07:45.132881+00:00 -->
+**Plan Closed:** PLN-c26b35
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_598833.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8e6380 tier=trivial session_id=none opened_at=2026-07-10T16:07:45.171868+00:00 -->
+**Plan Opened:** PLN-8e6380
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e6380 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:07:45.176260+00:00 -->
+**Plan Closed:** PLN-8e6380
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ebe92b tier=trivial session_id=none opened_at=2026-07-10T16:11:02.724899+00:00 -->
+**Plan Opened:** PLN-ebe92b
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ebe92b verdict=FAIL quality_tier=none closed_at=2026-07-10T16:11:02.731293+00:00 -->
+**Plan Closed:** PLN-ebe92b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-077bbc tier=trivial session_id=none opened_at=2026-07-10T16:11:02.965781+00:00 -->
+**Plan Opened:** PLN-077bbc
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-077bbc verdict=FAIL quality_tier=none closed_at=2026-07-10T16:11:02.971051+00:00 -->
+**Plan Closed:** PLN-077bbc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f0b682 tier=trivial session_id=none opened_at=2026-07-10T16:11:23.918809+00:00 -->
+**Plan Opened:** PLN-f0b682
+**Task:** generic long-tail remediation: ai-auth-probe -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f0b682 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:11:23.935059+00:00 -->
+**Plan Closed:** PLN-f0b682
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b2d922 tier=trivial session_id=none opened_at=2026-07-10T16:11:33.049020+00:00 -->
+**Plan Opened:** PLN-b2d922
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b2d922 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:11:33.053541+00:00 -->
+**Plan Closed:** PLN-b2d922
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c2034 tier=trivial session_id=none opened_at=2026-07-10T16:11:34.090161+00:00 -->
+**Plan Opened:** PLN-6c2034
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_604522.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c2034 verdict=PASS quality_tier=none closed_at=2026-07-10T16:11:34.098483+00:00 -->
+**Plan Closed:** PLN-6c2034
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_604522.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2041a6 tier=trivial session_id=none opened_at=2026-07-10T16:11:39.498883+00:00 -->
+**Plan Opened:** PLN-2041a6
+**Task:** generic long-tail remediation: d2m-brief-telegram -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2041a6 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:11:39.503730+00:00 -->
+**Plan Closed:** PLN-2041a6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5fd702 tier=trivial session_id=none opened_at=2026-07-10T16:12:02.687618+00:00 -->
+**Plan Opened:** PLN-5fd702
+**Task:** generic long-tail remediation: d2m-github-sync -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5fd702 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:02.692775+00:00 -->
+**Plan Closed:** PLN-5fd702
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-903b8f tier=trivial session_id=none opened_at=2026-07-10T16:12:05.198177+00:00 -->
+**Plan Opened:** PLN-903b8f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-903b8f verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:05.202512+00:00 -->
+**Plan Closed:** PLN-903b8f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e94e46 tier=trivial session_id=none opened_at=2026-07-10T16:12:10.335538+00:00 -->
+**Plan Opened:** PLN-e94e46
+**Task:** generic long-tail remediation: generic-remediate-canary -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e94e46 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:10.340401+00:00 -->
+**Plan Closed:** PLN-e94e46
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7f81de tier=trivial session_id=none opened_at=2026-07-10T16:12:13.089903+00:00 -->
+**Plan Opened:** PLN-7f81de
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f81de verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:13.097601+00:00 -->
+**Plan Closed:** PLN-7f81de
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9914f8 tier=trivial session_id=none opened_at=2026-07-10T16:12:19.665327+00:00 -->
+**Plan Opened:** PLN-9914f8
+**Task:** generic long-tail remediation: loucks-gp-notifier -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9914f8 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:19.683827+00:00 -->
+**Plan Closed:** PLN-9914f8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-836d47 tier=trivial session_id=none opened_at=2026-07-10T16:12:27.518460+00:00 -->
+**Plan Opened:** PLN-836d47
+**Task:** generic long-tail remediation: thunderbird-supertimer -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-836d47 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:12:27.523511+00:00 -->
+**Plan Closed:** PLN-836d47
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eb5a30 tier=trivial session_id=none opened_at=2026-07-10T16:17:48.086701+00:00 -->
+**Plan Opened:** PLN-eb5a30
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eb5a30 verdict=PASS quality_tier=none closed_at=2026-07-10T16:17:48.103319+00:00 -->
+**Plan Closed:** PLN-eb5a30
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4a9582 tier=trivial session_id=none opened_at=2026-07-10T16:18:52.344297+00:00 -->
+**Plan Opened:** PLN-4a9582
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4a9582 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:18:52.352103+00:00 -->
+**Plan Closed:** PLN-4a9582
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-96cbb1 tier=trivial session_id=none opened_at=2026-07-10T16:20:32.046309+00:00 -->
+**Plan Opened:** PLN-96cbb1
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96cbb1 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:32.051177+00:00 -->
+**Plan Closed:** PLN-96cbb1
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d2cd92 tier=trivial session_id=none opened_at=2026-07-10T16:20:32.919111+00:00 -->
+**Plan Opened:** PLN-d2cd92
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d2cd92 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:32.923789+00:00 -->
+**Plan Closed:** PLN-d2cd92
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-75df7f tier=trivial session_id=none opened_at=2026-07-10T16:20:33.051135+00:00 -->
+**Plan Opened:** PLN-75df7f
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-75df7f verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:33.055952+00:00 -->
+**Plan Closed:** PLN-75df7f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-677834 tier=trivial session_id=none opened_at=2026-07-10T16:20:34.285494+00:00 -->
+**Plan Opened:** PLN-677834
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-677834 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:34.293198+00:00 -->
+**Plan Closed:** PLN-677834
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c0d823 tier=trivial session_id=none opened_at=2026-07-10T16:20:35.598479+00:00 -->
+**Plan Opened:** PLN-c0d823
+**Task:** generic long-tail remediation: d2m-brief-telegram -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c0d823 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:35.603909+00:00 -->
+**Plan Closed:** PLN-c0d823
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-51f224 tier=trivial session_id=none opened_at=2026-07-10T16:20:37.000549+00:00 -->
+**Plan Opened:** PLN-51f224
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-51f224 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:37.006792+00:00 -->
+**Plan Closed:** PLN-51f224
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d7400a tier=trivial session_id=none opened_at=2026-07-10T16:20:38.453854+00:00 -->
+**Plan Opened:** PLN-d7400a
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d7400a verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:38.458643+00:00 -->
+**Plan Closed:** PLN-d7400a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a4f8ec tier=trivial session_id=none opened_at=2026-07-10T16:20:39.892162+00:00 -->
+**Plan Opened:** PLN-a4f8ec
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a4f8ec verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:39.897093+00:00 -->
+**Plan Closed:** PLN-a4f8ec
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-49876a tier=trivial session_id=none opened_at=2026-07-10T16:20:41.419955+00:00 -->
+**Plan Opened:** PLN-49876a
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-49876a verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:41.424571+00:00 -->
+**Plan Closed:** PLN-49876a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1594e5 tier=trivial session_id=none opened_at=2026-07-10T16:20:42.762543+00:00 -->
+**Plan Opened:** PLN-1594e5
+**Task:** generic long-tail remediation: loucks-gp-notifier -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1594e5 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:42.768235+00:00 -->
+**Plan Closed:** PLN-1594e5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2a4e06 tier=trivial session_id=none opened_at=2026-07-10T16:20:43.950891+00:00 -->
+**Plan Opened:** PLN-2a4e06
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2a4e06 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:20:43.957167+00:00 -->
+**Plan Closed:** PLN-2a4e06
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f37b3d tier=trivial session_id=none opened_at=2026-07-10T16:21:32.649274+00:00 -->
+**Plan Opened:** PLN-f37b3d
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f37b3d verdict=FAIL quality_tier=none closed_at=2026-07-10T16:21:32.654043+00:00 -->
+**Plan Closed:** PLN-f37b3d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c823aa tier=trivial session_id=none opened_at=2026-07-10T16:23:19.112479+00:00 -->
+**Plan Opened:** PLN-c823aa
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c823aa verdict=FAIL quality_tier=none closed_at=2026-07-10T16:23:19.117321+00:00 -->
+**Plan Closed:** PLN-c823aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-375d7c tier=trivial session_id=none opened_at=2026-07-10T16:26:17.382068+00:00 -->
+**Plan Opened:** PLN-375d7c
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-375d7c verdict=FAIL quality_tier=none closed_at=2026-07-10T16:26:17.386689+00:00 -->
+**Plan Closed:** PLN-375d7c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-becf98 tier=trivial session_id=none opened_at=2026-07-10T16:27:15.550249+00:00 -->
+**Plan Opened:** PLN-becf98
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-becf98 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:27:15.554720+00:00 -->
+**Plan Closed:** PLN-becf98
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ccbaf5 tier=trivial session_id=none opened_at=2026-07-10T16:31:26.351101+00:00 -->
+**Plan Opened:** PLN-ccbaf5
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ccbaf5 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:26.358163+00:00 -->
+**Plan Closed:** PLN-ccbaf5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d2dd8f tier=trivial session_id=none opened_at=2026-07-10T16:31:33.061741+00:00 -->
+**Plan Opened:** PLN-d2dd8f
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d2dd8f verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:33.066411+00:00 -->
+**Plan Closed:** PLN-d2dd8f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0c3b35 tier=trivial session_id=none opened_at=2026-07-10T16:31:33.199376+00:00 -->
+**Plan Opened:** PLN-0c3b35
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0c3b35 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:33.207402+00:00 -->
+**Plan Closed:** PLN-0c3b35
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ae3595 tier=trivial session_id=none opened_at=2026-07-10T16:31:33.300512+00:00 -->
+**Plan Opened:** PLN-ae3595
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ae3595 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:33.305140+00:00 -->
+**Plan Closed:** PLN-ae3595
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-444f37 tier=trivial session_id=none opened_at=2026-07-10T16:31:34.727720+00:00 -->
+**Plan Opened:** PLN-444f37
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-444f37 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:34.732156+00:00 -->
+**Plan Closed:** PLN-444f37
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d5518a tier=trivial session_id=none opened_at=2026-07-10T16:31:35.901890+00:00 -->
+**Plan Opened:** PLN-d5518a
+**Task:** generic long-tail remediation: d2m-brief-telegram -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-brief-telegram verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d5518a verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:35.906334+00:00 -->
+**Plan Closed:** PLN-d5518a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-brief-telegram verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c6c85e tier=trivial session_id=none opened_at=2026-07-10T16:31:46.166583+00:00 -->
+**Plan Opened:** PLN-c6c85e
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_642182.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c6c85e verdict=PASS quality_tier=none closed_at=2026-07-10T16:31:46.174394+00:00 -->
+**Plan Closed:** PLN-c6c85e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_642182.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c78a32 tier=trivial session_id=none opened_at=2026-07-10T16:31:46.215464+00:00 -->
+**Plan Opened:** PLN-c78a32
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c78a32 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:46.220069+00:00 -->
+**Plan Closed:** PLN-c78a32
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-128eb9 tier=trivial session_id=none opened_at=2026-07-10T16:31:47.635546+00:00 -->
+**Plan Opened:** PLN-128eb9
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-128eb9 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:47.640149+00:00 -->
+**Plan Closed:** PLN-128eb9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2247b4 tier=trivial session_id=none opened_at=2026-07-10T16:31:48.858742+00:00 -->
+**Plan Opened:** PLN-2247b4
+**Task:** generic long-tail remediation: generic-remediate-canary -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** generic-remediate-canary verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2247b4 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:48.863124+00:00 -->
+**Plan Closed:** PLN-2247b4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** generic-remediate-canary verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7db6ad tier=trivial session_id=none opened_at=2026-07-10T16:31:50.187152+00:00 -->
+**Plan Opened:** PLN-7db6ad
+**Task:** generic long-tail remediation: hale-credential-check -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7db6ad verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:50.192414+00:00 -->
+**Plan Closed:** PLN-7db6ad
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** hale-credential-check verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2bb3a tier=trivial session_id=none opened_at=2026-07-10T16:31:51.518526+00:00 -->
+**Plan Opened:** PLN-c2bb3a
+**Task:** generic long-tail remediation: loucks-gp-notifier -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-gp-notifier verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2bb3a verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:51.523090+00:00 -->
+**Plan Closed:** PLN-c2bb3a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** loucks-gp-notifier verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bdfcf0 tier=trivial session_id=none opened_at=2026-07-10T16:31:52.965206+00:00 -->
+**Plan Opened:** PLN-bdfcf0
+**Task:** generic long-tail remediation: thunderbird-supertimer -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bdfcf0 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:31:52.969798+00:00 -->
+**Plan Closed:** PLN-bdfcf0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-supertimer verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-64e2be tier=trivial session_id=none opened_at=2026-07-10T16:32:21.418522+00:00 -->
+**Plan Opened:** PLN-64e2be
+**Task:** generic long-tail remediation: d2m-github-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-github-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-64e2be verdict=FAIL quality_tier=none closed_at=2026-07-10T16:32:21.423394+00:00 -->
+**Plan Closed:** PLN-64e2be
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-github-sync verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67745a tier=trivial session_id=none opened_at=2026-07-10T16:33:40.579233+00:00 -->
+**Plan Opened:** PLN-67745a
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67745a verdict=PASS quality_tier=none closed_at=2026-07-10T16:33:40.583851+00:00 -->
+**Plan Closed:** PLN-67745a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-98f4c2 tier=trivial session_id=none opened_at=2026-07-10T16:34:09.498038+00:00 -->
+**Plan Opened:** PLN-98f4c2
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-98f4c2 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:34:09.502747+00:00 -->
+**Plan Closed:** PLN-98f4c2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5dd475 tier=trivial session_id=none opened_at=2026-07-10T16:35:21.005913+00:00 -->
+**Plan Opened:** PLN-5dd475
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_649985.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5dd475 verdict=PASS quality_tier=none closed_at=2026-07-10T16:35:21.010661+00:00 -->
+**Plan Closed:** PLN-5dd475
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_649985.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-32c6a0 tier=trivial session_id=none opened_at=2026-07-10T16:36:05.991185+00:00 -->
+**Plan Opened:** PLN-32c6a0
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-32c6a0 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:36:05.997076+00:00 -->
+**Plan Closed:** PLN-32c6a0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-385c58 tier=trivial session_id=none opened_at=2026-07-10T16:38:56.590595+00:00 -->
+**Plan Opened:** PLN-385c58
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-385c58 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:38:56.595386+00:00 -->
+**Plan Closed:** PLN-385c58
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c4454f tier=trivial session_id=none opened_at=2026-07-10T16:40:37.615588+00:00 -->
+**Plan Opened:** PLN-c4454f
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c4454f verdict=FAIL quality_tier=none closed_at=2026-07-10T16:40:37.621216+00:00 -->
+**Plan Closed:** PLN-c4454f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-904752 tier=trivial session_id=none opened_at=2026-07-10T16:41:45.859251+00:00 -->
+**Plan Opened:** PLN-904752
+**Task:** generic long-tail remediation: ai-auth-probe -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** ai-auth-probe verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-904752 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:41:45.863893+00:00 -->
+**Plan Closed:** PLN-904752
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** ai-auth-probe verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd6c50 tier=trivial session_id=none opened_at=2026-07-10T16:43:08.281345+00:00 -->
+**Plan Opened:** PLN-bd6c50
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd6c50 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:43:08.288324+00:00 -->
+**Plan Closed:** PLN-bd6c50
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2564ab tier=trivial session_id=none opened_at=2026-07-10T16:44:37.576951+00:00 -->
+**Plan Opened:** PLN-2564ab
+**Task:** generic long-tail remediation: d2m-airfare-scan -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-airfare-scan verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2564ab verdict=FAIL quality_tier=none closed_at=2026-07-10T16:44:37.581432+00:00 -->
+**Plan Closed:** PLN-2564ab
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-airfare-scan verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-865997 tier=trivial session_id=none opened_at=2026-07-10T16:46:52.646635+00:00 -->
+**Plan Opened:** PLN-865997
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-865997 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:46:52.651421+00:00 -->
+**Plan Closed:** PLN-865997
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-160b6e tier=trivial session_id=none opened_at=2026-07-10T16:48:42.838037+00:00 -->
+**Plan Opened:** PLN-160b6e
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-160b6e verdict=PASS quality_tier=none closed_at=2026-07-10T16:48:42.843689+00:00 -->
+**Plan Closed:** PLN-160b6e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cdc863 tier=trivial session_id=none opened_at=2026-07-10T16:50:38.253547+00:00 -->
+**Plan Opened:** PLN-cdc863
+**Task:** generic long-tail remediation: d2m-fare-watch-alert -> start attempted (ok=True) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-fare-watch-alert verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cdc863 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:50:38.262953+00:00 -->
+**Plan Closed:** PLN-cdc863
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-fare-watch-alert verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=True) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-40ddec tier=trivial session_id=none opened_at=2026-07-10T16:51:22.289578+00:00 -->
+**Plan Opened:** PLN-40ddec
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-40ddec verdict=FAIL quality_tier=none closed_at=2026-07-10T16:51:22.296176+00:00 -->
+**Plan Closed:** PLN-40ddec
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1c8da3 tier=trivial session_id=none opened_at=2026-07-10T16:52:01.719478+00:00 -->
+**Plan Opened:** PLN-1c8da3
+**Task:** generic long-tail remediation: nexus -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1c8da3 verdict=PASS quality_tier=none closed_at=2026-07-10T16:52:01.725089+00:00 -->
+**Plan Closed:** PLN-1c8da3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** nexus verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+
+---
+
+## 2026-07-10 — CI Remediation: d2m-airfare-scan.service restart loop
+
+**Decision:** Added `SuccessExitStatus=1` to `d2m-airfare-scan.service`.
+
+**Root cause:** Script exits 1 on partial scan (operationally normal — 13/15 routes OK). Systemd treated exit 1 as failure, fired OnFailure=, generic_remediate restarted once/hr, loop ran from ~05:24–10:44 MT (11 cycles, ~1.5G RAM each).
+
+**Fix:** `SuccessExitStatus=1` in [Service] block. Exit 2 (total failure) still triggers OnFailure=. daemon-reload + reset-failed applied. Loop stopped.
+
+**Secondary findings logged** in `output/ci_remediation/fix_d2m-airfare-scan_service.md`: (1) spencer-den-fco-jun12-2027 Centrav scraper fragility; (2) generic_remediate `_is_active()` check is wrong for Type=oneshot — log to Sterling for code review.
+
+— V. Hale, VCS · CI authority per SO_CI_RAZOR_SHARP_20260620.md
+
+<!-- PLAN:OPEN plan_id=PLN-a3dd55 tier=trivial session_id=e8876376-c971-4730-bcba-bd6f1c1f4378 opened_at=2026-07-10T16:52:30.553547+00:00 -->
+**Plan Opened:** PLN-a3dd55
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a3dd55 verdict=PASS quality_tier=none closed_at=2026-07-10T16:52:30.561138+00:00 -->
+**Plan Closed:** PLN-a3dd55
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d666e0 tier=trivial session_id=none opened_at=2026-07-10T16:53:29.352695+00:00 -->
+**Plan Opened:** PLN-d666e0
+**Task:** generic long-tail remediation: nexus -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d666e0 verdict=FAIL quality_tier=none closed_at=2026-07-10T16:53:29.363975+00:00 -->
+**Plan Closed:** PLN-d666e0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** nexus verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+## 2026-07-10 10:53 MT — AI Auth Probe Auto-Repair (CI Remediation)
+- **Unit:** `ai-auth-probe.service` — crash-looping, exit-code 1
+- **Root cause:** `probe_claude_oauth()` used `classify_probe_result()` to double-check a successful returncode-0 CLI response; that classifier defaults to `AUTH_FAILED` for any content not matching known error markers, so HEALTHY was unreachable. Strike counter accumulated to 100.
+- **Fix:** Removed classifier double-check at line 191 — `returncode == 0` is sufficient proof. Reset strike counter to 0. `reset-failed` issued.
+- **Verified:** Service exits `0/SUCCESS`. Crash-loop stopped. Full report: `output/ci_remediation/fix_ai-auth-probe_service.md`

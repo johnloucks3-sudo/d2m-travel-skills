@@ -188,7 +188,14 @@ def probe_claude_oauth() -> tuple[str, str]:
         )
         combined = (result.stdout + result.stderr).lower()
 
-        if result.returncode == 0 and classify_probe_result(message=combined) != AUTH_FAILED:
+        # returncode 0 from the Claude CLI is the definitive auth proof — the
+        # CLI authenticated with Anthropic's API and got a response. Checking
+        # classify_probe_result(message=combined) here is wrong: that classifier
+        # defaults to AUTH_FAILED for any content that doesn't match known
+        # transient/auth-error string markers, so ALL valid Claude responses
+        # (including "ok", persona greetings, etc.) were misclassified as
+        # AUTH_FAILED, making HEALTHY permanently unreachable.
+        if result.returncode == 0:
             return HEALTHY, "ok"
 
         # Model unavailable / overloaded — treat as transient, not auth
