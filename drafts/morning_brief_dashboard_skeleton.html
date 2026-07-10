@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunderbird Daily Brief — Morning Dashboard</title>
+    <style>
+        :root {
+            --navy: #003087;
+            --cream: #f7f3ea;
+            --gold: #d4af37;
+            --good: #2ecc71;
+            --warning: #f39c12;
+            --critical: #e74c3c;
+            --muted: #95a5a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #f0ebe4 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .timestamp {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--navy);
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            font-size: 1.3rem;
+        }
+
+        /* ============= PIPELINE GAUGE ============= */
+        .gauge-container {
+            text-align: center;
+        }
+
+        .gauge {
+            width: 100%;
+            height: 160px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .gauge svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .gauge-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        .gauge-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7bb3d6 0%, var(--navy) 100%);
+            width: 68%;
+            border-radius: 4px;
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ============= FPD ALERTS ============= */
+        .fpd-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 3px solid;
+        }
+
+        .fpd-item.critical {
+            border-color: var(--critical);
+            background: rgba(231, 76, 60, 0.05);
+        }
+
+        .fpd-item.warning {
+            border-color: var(--warning);
+            background: rgba(243, 156, 18, 0.05);
+        }
+
+        .fpd-item.good {
+            border-color: var(--good);
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .fpd-left {
+            flex: 1;
+        }
+
+        .fpd-client {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .fpd-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.25rem;
+        }
+
+        .fpd-amount {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--navy);
+            text-align: right;
+        }
+
+        .fpd-countdown {
+            font-size: 0.8rem;
+            color: var(--critical);
+            font-weight: 600;
+        }
+
+        /* ============= SYSTEM HEALTH ============= */
+        .health-metric {
+            margin-bottom: 1.5rem;
+        }
+
+        .health-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .health-label-left {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .health-label-right {
+            color: var(--muted);
+        }
+
+        .health-bar {
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .health-bar.memory {
+            background: linear-gradient(90deg, #e8f4f8 0%, var(--navy) 100%);
+        }
+
+        .health-bar.swap {
+            background: linear-gradient(90deg, #e8f4f8 0%, var(--gold) 100%);
+        }
+
+        .health-fill {
+            height: 100%;
+            border-radius: 6px;
+        }
+
+        .health-status {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-dot.ok {
+            background: var(--good);
+        }
+
+        .status-dot.warn {
+            background: var(--warning);
+        }
+
+        .status-dot.critical {
+            background: var(--critical);
+        }
+
+        /* ============= MISSION KANBAN (SIMPLIFIED) ============= */
+        .kanban {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .kanban-column h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .kanban-count {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .kanban-card {
+            background: #f0f0f0;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #333;
+            border-left: 3px solid var(--navy);
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kanban {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>⚡ Thunderbird Daily Brief</h1>
+            <p class="timestamp">2026-07-11 06:00 MT • Live Data</p>
+        </div>
+
+        <!-- MAIN GRID -->
+        <div class="grid">
+            <!-- CARD 1: PIPELINE GAUGE -->
+            <div class="card">
+                <h2><span class="card-icon">💰</span> Pipeline</h2>
+                <div class="gauge-container">
+                    <div class="gauge-value">$18,830</div>
+                    <div class="gauge-label">across 16 clients</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 68%;"></div>
+                    </div>
+                    <div class="progress-label">68% of YTD target</div>
+                </div>
+            </div>
+
+            <!-- CARD 2: FPD ALERTS (Critical) -->
+            <div class="card">
+                <h2><span class="card-icon">⏰</span> FPD Alerts (7 days)</h2>
+                <div class="fpd-item critical">
+                    <div class="fpd-left">
+                        <div class="fpd-client">🔴 Loucks Grandeur</div>
+                        <div class="fpd-date">Jul 11 • $4,798</div>
+                    </div>
+                    <div class="fpd-countdown">T-21d</div>
+                </div>
+                <div class="fpd-item critical">
+                    <div class="fpd-left">
+                        <div class="fpd-client">🔴 McLeod Grandeur</div>
+                        <div class="fpd-date">Jul 22 • $11,943</div>
+                    </div>
+                    <div class="fpd-countdown">T-12d</div>
+                </div>
+            </div>
+
+            <!-- CARD 3: SYSTEM HEALTH -->
+            <div class="card">
+                <h2><span class="card-icon">🖥️</span> System Health</h2>
+
+                <div class="health-metric">
+                    <div class="health-label">
+                        <span class="health-label-left">Memory</span>
+                        <span class="health-label-right">1.6 GB free (12%)</span>
+                    </div>
+                    <div class="health-bar memory">
+                        <div class="health-fill" style="width: 88%; background: linear-gradient(90deg, #7bb3d6 0%, var(--navy) 100%);"></div>
+                    </div>
+                    <div class="health-status">
+                        <div class="status-dot ok"></div>
+                        <span>Healthy</span>
+                    </div>
+                </div>
+
+                <div class="health-metric">
+                    <div class="health-label">
+                        <span class="health-label-left">Swap</span>
+                        <span class="health-label-right">8.0 GB used (40%)</span>
+                    </div>
+                    <div class="health-bar swap">
+                        <div class="health-fill" style="width: 40%; background: var(--gold);"></div>
+                    </div>
+                    <div class="health-status">
+                        <div class="status-dot ok"></div>
+                        <span>Trending ↓</span>
+                    </div>
+                </div>
+
+                <div class="health-metric">
+                    <div class="health-label">
+                        <span class="health-label-left">Services</span>
+                        <span class="health-label-right">12/12 active</span>
+                    </div>
+                    <div class="health-status">
+                        <div class="status-dot ok"></div>
+                        <span>All green</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4: MISSIONS (KANBAN SUMMARY) -->
+            <div class="card">
+                <h2><span class="card-icon">📋</span> Missions (by status)</h2>
+                <div class="kanban">
+                    <div class="kanban-column">
+                        <h3>Active <span class="kanban-count">7</span></h3>
+                    </div>
+                    <div class="kanban-column">
+                        <h3>Review <span class="kanban-count">2</span></h3>
+                    </div>
+                    <div class="kanban-column">
+                        <h3>Backlog <span class="kanban-count">3</span></h3>
+                    </div>
+                    <div class="kanban-column">
+                        <h3>Done <span class="kanban-count">14</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 2rem;">
+            <p>Data updates every 30s • Next briefing: 2026-07-12 06:00 MT</p>
+        </div>
+    </div>
+
+    <script>
+        // PLACEHOLDER: Live data binding will integrate with:
+        // - /home/john/Thunderbird/hale_state.json (pipeline, missions)
+        // - /home/john/Thunderbird/hale_brief.md (FPD alerts)
+        // - systemd journal + free command (system health)
+
+        console.log("✅ Dashboard skeleton loaded. Awaiting data integration...");
+
+        // Example: fetch and update every 30s
+        // setInterval(() => { updateDashboard(); }, 30000);
+    </script>
+</body>
+</html>

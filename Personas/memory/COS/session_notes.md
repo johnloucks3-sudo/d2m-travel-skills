@@ -10776,3 +10776,18 @@ Wave 16 inter-wave report confirmed working:
 
 ### 2026-07-10 15:20 MT [auto-monitor]
 [heartbeat] SESSION=ACTIVE (3 procs) | TOKEN=STALE (5945s old) | INBOX_PENDING=232 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### 2026-07-10 15:35 MT [auto-monitor]
+[heartbeat] SESSION=ACTIVE (1 procs) | TOKEN=STALE (6889s old) | INBOX_PENDING=236 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### 2026-07-10 15:45 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (7488s old) | INBOX_PENDING=236 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### 2026-07-10 15:55 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8088s old) | INBOX_PENDING=236 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### 2026-07-10 16:05 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (8689s old) | INBOX_PENDING=236 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### 2026-07-10 16:15 MT [auto-monitor]
+[heartbeat] SESSION=IDLE | TOKEN=STALE (9289s old) | INBOX_PENDING=240 | ACTIVE_TASKS=36 | QDRANT=UP

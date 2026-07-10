@@ -5,17 +5,16 @@
         "status": "LIVE",
         "username": "D2MC2C_bot",
         "bot_id": 8754681793,
-        "last_check": "2026-07-10T15:24:06.413339"
+        "last_check": "2026-07-10T16:23:11.736103"
       },
       "Dani": {
-        "status": "LIVE",
-        "username": "d2m_channels_bot",
-        "bot_id": 8726363494,
-        "last_check": "2026-07-10T15:24:07.540879"
+        "status": "DEAD",
+        "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+        "last_check": "2026-07-10T16:23:16.742152"
       },
-      "last_health_check": "2026-07-10T15:24:07.540908"
+      "last_health_check": "2026-07-10T16:23:16.742185"
     },
-    "last_health_check": "2026-07-10T15:24:07.541225",
+    "last_health_check": "2026-07-10T16:23:16.742464",
     "chrome_debug_port_9222": "OFFLINE",
     "mcp_server": "OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient)",
     "opencode_status": "ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z)",
@@ -107,7 +106,7 @@
     }
   },
   "_meta": {
-    "last_updated": "2026-07-10T15:24:07.541230-06:00"
+    "last_updated": "2026-07-10T16:23:16.742469-06:00"
   },
   "open_tasks": [
     {

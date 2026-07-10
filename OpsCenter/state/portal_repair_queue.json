@@ -25,14 +25,5 @@
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
   "last_seen": "2026-07-10T20:34:47.637697+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
- },
- "atlas": {
-  "status": "needs_repair",
-  "owner": "HALE",
-  "consecutive_failures": 4,
-  "backoff_hours": 12.0,
-  "first_seen": "2026-07-10T02:17:27.091912+00:00",
-  "last_seen": "2026-07-10T08:35:37.962448+00:00",
-  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  }
 }

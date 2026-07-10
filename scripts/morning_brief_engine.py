@@ -115,6 +115,34 @@ def load_tp_draft() -> dict | None:
     return None
 
 
+def _load_tp_draft_overrides() -> list[dict]:
+    """Pending tp_draft_queue.json entries, for CLIENT WIRE label override lookup.
+
+    A staged draft's label is the ground truth for what will actually be sent —
+    the canonical TPDef.label is a generic default. When a queued draft repurposes
+    a TP slot (e.g. group TP 1.2 content is "Excursion + Dining Guide" rather than
+    the canonical "Airfare Watch", because Airfare Watch ran via a separate
+    fare-watch campaign), CLIENT WIRE must show the draft's real label, not the
+    generic one, or Commander sees a stale/misleading next-TP description.
+    """
+    path = THUNDERBIRD / "OpsCenter" / "tp_draft_queue.json"
+    try:
+        items = json.loads(path.read_text())
+        return [i for i in items if i.get("status") == "pending_approval"]
+    except Exception:
+        return []
+
+
+def _tp_label_override(client_short: str, tp_id: str, overrides: list[dict]) -> str | None:
+    """Return a queued draft's label if it targets this client + TP slot, else None."""
+    for item in overrides:
+        if item.get("tp_id") != tp_id:
+            continue
+        if client_short and client_short in (item.get("client") or ""):
+            return item.get("label")
+    return None
+
+
 def get_client_statuses() -> list[dict]:
     """Read all active dossiers and compute phase + open items."""
     records = scan_dossiers()
@@ -128,6 +156,10 @@ def get_client_statuses() -> list[dict]:
             fpd_state = fpd_sync_state()
         except Exception as _e:
             logger.warning(f"FPD sentinel sync failed: {_e}")
+
+    # Staged draft labels override generic canonical TPDef labels when a
+    # pending draft repurposes the same TP slot for this client.
+    tp_overrides = _load_tp_draft_overrides()
 
     for rec in records:
         if not rec.is_schedulable:
@@ -155,6 +187,11 @@ def get_client_statuses() -> list[dict]:
 
         next_tp = actionable[0] if actionable else None
         overdue = [tp for tp in actionable if tp.status == TPStatus.OVERDUE]
+
+        next_tp_label = None
+        if next_tp:
+            override_label = _tp_label_override(rec.client, next_tp.tp_id, tp_overrides)
+            next_tp_label = override_label if override_label else next_tp.label
 
         days_to_dep = (rec.departure - today).days if rec.departure else None
         fpd_str = rec.fpd.strftime("%-d %b %Y") if rec.fpd else "TBD"
@@ -197,7 +234,7 @@ def get_client_statuses() -> list[dict]:
             "departure": rec.departure.strftime("%-d %b %Y") if rec.departure else "TBD",
             "days_to_dep": days_to_dep,
             "fpd_label": fpd_label,
-            "next_tp": f"TP {next_tp.tp_id} — {next_tp.label}" if next_tp else "All clear",
+            "next_tp": f"TP {next_tp.tp_id} — {next_tp_label}" if next_tp else "All clear",
             "overdue_count": len(overdue),
         })
 

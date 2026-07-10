@@ -9206,5 +9206,21 @@
     "label": "Perx discount signal(s): 75% OFF",
     "excerpt": "There are **no latest news developments in 2026** specifically announcing a new \"Perx interline rate discount >30%\" for airlines, as PERX (PERX Vacations) has **already consistently offered interline discounts of 30\u201375%** for airline employees for years.\n\nThe search results confirm that PERX\u2019s core business model is providing **substantial discounts of up to 75% OFF retail rates** to active and re",
     "trigger_count": 1
+  },
+  {
+    "ts": "2026-07-10T21:38:53.763113+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 77% off, 30% discount",
+    "excerpt": "There are **no latest news developments in 2026** regarding a specific \"PERX interline rate discount >30%\" announcement, as PERX (an interline travel agency for airline employees) has **continuously offered discounts well exceeding 30%** (typically up to **75\u201377%**) on vacations for years, with no new 2026 policy change reported in available sources.\n\n### Key Facts About PERX Discounts:\n- **Discou",
+    "trigger_count": 2
+  },
+  {
+    "ts": "2026-07-10T22:09:56.530669+00:00",
+    "source": "perx_trigger_detector",
+    "level": "SIGNAL",
+    "label": "Perx discount signal(s): 75% off, 60% off",
+    "excerpt": "There are **no latest news developments in 2026** regarding PERX offering airline interline rate discounts greater than 30%, as PERX is a vacation discount platform (hotels, cruises, resorts) rather than an airline ticketing service, and its standard discounts have consistently been **up to 75% off retail rates** for years, not a new 2026 announcement.\n\nKey clarifications based on available inform",
+    "trigger_count": 2
   }
 ]

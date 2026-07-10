@@ -23,33 +23,23 @@
     "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
   ],
   "continuity_recert": {
-    "timestamp": "2026-07-10T12:00:01.287660+00:00",
+    "timestamp": "2026-07-10T22:02:16.388128+00:00",
     "overall": "RED",
     "metrics": {
       "failed_unit_count": {
-        "value": 11,
-        "status": "RED",
+        "value": 1,
+        "status": "YELLOW",
         "threshold_red": ">2",
         "failed_units": [
-          "d2m-airfare-scan.service",
-          "d2m-github-sync.service",
-          "d2m-gmail-agentmail-bridge.service",
-          "hale-credential-check.service",
-          "thunderbird-generic-remediate@ai-auth-probe.service",
-          "thunderbird-generic-remediate@d2m-airfare-scan.service",
-          "thunderbird-generic-remediate@d2m-github-sync.service",
-          "thunderbird-generic-remediate@d2m-gmail-agentmail-bridge.service",
-          "thunderbird-generic-remediate@generic-remediate-canary.service",
-          "thunderbird-generic-remediate@hale-credential-check.service",
-          "thunderbird-generic-remediate@thunderbird-supertimer.service"
+          "hale-credential-check.service"
         ],
         "commander_gated": []
       },
       "heartbeat_ping_miss_24h": {
-        "value": 1203,
+        "value": 1253,
         "status": "RED",
         "threshold_red": ">1",
-        "last_scan_ts": "2026-07-10 05:55:23",
+        "last_scan_ts": "2026-07-10 15:55:58",
         "note": "current consecutive DEGRADED scans (0 = last scan healthy)"
       },
       "scrape_checkpoint_completion_pct": {
@@ -67,10 +57,9 @@
       }
     },
     "red_items": [
-      "failed_unit_count=11 (threshold >2)",
-      "heartbeat_miss_24h=1203 (threshold >1)"
+      "heartbeat_miss_24h=1253 (threshold >1)"
     ],
     "commander_gated": []
   },
-  "_last_updated": "2026-07-10T12:00:01.287660+00:00"
+  "_last_updated": "2026-07-10T22:02:16.388128+00:00"
 }

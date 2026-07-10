@@ -1757,3 +1757,83 @@ status: UNREAD
 
 ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
 ---
+
+---
+## RELAY-ea58dd4e from CC — 2026-07-10 21:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b9d24b931: feat: fare-watch pipelines, Telegram flood fixes, voice/SMS capability, Dani fix |  550 files changed, 121353 insertions(+), 14948 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 21:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4084d758 from CC — 2026-07-10 22:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 83ec1411f: feat: Track A morning brief dashboard — brand tokens + stat tiles + renderer wired into morning_brief_engine.py |  5 files changed, 323 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 22:08
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6ef511ba from CC — 2026-07-10 22:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bc648035a: feat: Track C dossier visual card renderer — Furlow payment-roadmap proof-of-structure |  1 file changed, 107 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 22:09
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-015b5869 from CC — 2026-07-10 22:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8551c9d3e: feat: Track A v1.1 (FPD alerts, wing health, mission kanban, staff concerns, TP draft) + Track C full 3-couple render |  6 files changed, 230 insertions(+), 39 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 22:16
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f8ab5177 from CC — 2026-07-10 22:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cf800e7e9: docs: log Track A/C parallel-build reconciliation in standup |  1 file changed, 242 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 22:17
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---

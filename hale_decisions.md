@@ -18419,3 +18419,327 @@ Full report: `output/ci_remediation/fix_d2m-github-sync_service.md`
 **Criteria unverified:** hale-credential-check verified active after remediation attempt
 **Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
 <!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c7ecdc tier=trivial session_id=none opened_at=2026-07-10T21:36:00.264115+00:00 -->
+**Plan Opened:** PLN-c7ecdc
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c7ecdc verdict=PASS quality_tier=none closed_at=2026-07-10T21:36:00.279137+00:00 -->
+**Plan Closed:** PLN-c7ecdc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f86387 tier=trivial session_id=none opened_at=2026-07-10T21:36:06.068447+00:00 -->
+**Plan Opened:** PLN-f86387
+**Task:** generic long-tail remediation: thunderbird-overwatch -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-overwatch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f86387 verdict=PASS quality_tier=none closed_at=2026-07-10T21:36:06.075471+00:00 -->
+**Plan Closed:** PLN-f86387
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** thunderbird-overwatch verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e010b tier=trivial session_id=none opened_at=2026-07-10T21:36:12.809824+00:00 -->
+**Plan Opened:** PLN-5e010b
+**Task:** generic long-tail remediation: app-waveterm@63bc3b5b3756488b9b3dd01e700daa33 -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** app-waveterm@63bc3b5b3756488b9b3dd01e700daa33 verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e010b verdict=PASS quality_tier=none closed_at=2026-07-10T21:36:12.817270+00:00 -->
+**Plan Closed:** PLN-5e010b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** app-waveterm@63bc3b5b3756488b9b3dd01e700daa33 verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5dda82 tier=trivial session_id=none opened_at=2026-07-10T21:36:13.121194+00:00 -->
+**Plan Opened:** PLN-5dda82
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5dda82 verdict=PASS quality_tier=none closed_at=2026-07-10T21:36:13.128589+00:00 -->
+**Plan Closed:** PLN-5dda82
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e4e0cf tier=trivial session_id=none opened_at=2026-07-10T21:36:16.290167+00:00 -->
+**Plan Opened:** PLN-e4e0cf
+**Task:** generic long-tail remediation: d2m-gmail-agentmail-bridge -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e4e0cf verdict=PASS quality_tier=none closed_at=2026-07-10T21:36:16.294796+00:00 -->
+**Plan Closed:** PLN-e4e0cf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** d2m-gmail-agentmail-bridge verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b0e7c0 tier=trivial session_id=none opened_at=2026-07-10T21:38:47.919617+00:00 -->
+**Plan Opened:** PLN-b0e7c0
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1135978.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b0e7c0 verdict=PASS quality_tier=none closed_at=2026-07-10T21:38:47.924431+00:00 -->
+**Plan Closed:** PLN-b0e7c0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1135978.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-966b4b tier=trivial session_id=none opened_at=2026-07-10T21:38:48.004672+00:00 -->
+**Plan Opened:** PLN-966b4b
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-966b4b verdict=PASS quality_tier=none closed_at=2026-07-10T21:38:48.011444+00:00 -->
+**Plan Closed:** PLN-966b4b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2cfd0d tier=trivial session_id=none opened_at=2026-07-10T21:38:48.032764+00:00 -->
+**Plan Opened:** PLN-2cfd0d
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2cfd0d verdict=PASS quality_tier=none closed_at=2026-07-10T21:38:48.037557+00:00 -->
+**Plan Closed:** PLN-2cfd0d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bc64db tier=trivial session_id=none opened_at=2026-07-10T21:38:48.445417+00:00 -->
+**Plan Opened:** PLN-bc64db
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1136064.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bc64db verdict=PASS quality_tier=none closed_at=2026-07-10T21:38:48.452577+00:00 -->
+**Plan Closed:** PLN-bc64db
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1136064.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-88693c tier=trivial session_id=514b8419-1c73-4b6c-99e1-0c5b7a98cc3e opened_at=2026-07-10T21:47:02.862511+00:00 -->
+**Plan Opened:** PLN-88693c
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-88693c verdict=PASS quality_tier=none closed_at=2026-07-10T21:47:02.867339+00:00 -->
+**Plan Closed:** PLN-88693c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4d62fc tier=trivial session_id=none opened_at=2026-07-10T21:48:06.257680+00:00 -->
+**Plan Opened:** PLN-4d62fc
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4d62fc verdict=PASS quality_tier=none closed_at=2026-07-10T21:48:06.265939+00:00 -->
+**Plan Closed:** PLN-4d62fc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9b6c3f tier=trivial session_id=none opened_at=2026-07-10T21:51:53.782968+00:00 -->
+**Plan Opened:** PLN-9b6c3f
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9b6c3f verdict=PASS quality_tier=none closed_at=2026-07-10T21:51:53.788094+00:00 -->
+**Plan Closed:** PLN-9b6c3f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-deb960 tier=trivial session_id=none opened_at=2026-07-10T21:57:20.779759+00:00 -->
+**Plan Opened:** PLN-deb960
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-deb960 verdict=PASS quality_tier=none closed_at=2026-07-10T21:57:20.784628+00:00 -->
+**Plan Closed:** PLN-deb960
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-98a2ea tier=trivial session_id=none opened_at=2026-07-10T22:00:00.301099+00:00 -->
+**Plan Opened:** PLN-98a2ea
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-98a2ea verdict=PASS quality_tier=none closed_at=2026-07-10T22:00:00.305772+00:00 -->
+**Plan Closed:** PLN-98a2ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-efa0ab tier=trivial session_id=none opened_at=2026-07-10T22:07:20.210270+00:00 -->
+**Plan Opened:** PLN-efa0ab
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-efa0ab verdict=PASS quality_tier=none closed_at=2026-07-10T22:07:20.215163+00:00 -->
+**Plan Closed:** PLN-efa0ab
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-400ced tier=trivial session_id=none opened_at=2026-07-10T22:11:46.669436+00:00 -->
+**Plan Opened:** PLN-400ced
+**Task:** generic long-tail remediation: thunderbird-telegram-gw -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-telegram-gw verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-400ced verdict=PASS quality_tier=none closed_at=2026-07-10T22:11:46.674373+00:00 -->
+**Plan Closed:** PLN-400ced
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-telegram-gw verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4695f1 tier=trivial session_id=none opened_at=2026-07-10T22:16:07.954127+00:00 -->
+**Plan Opened:** PLN-4695f1
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4695f1 verdict=PASS quality_tier=none closed_at=2026-07-10T22:16:07.958781+00:00 -->
+**Plan Closed:** PLN-4695f1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-02f511 tier=trivial session_id=none opened_at=2026-07-10T22:22:57.576003+00:00 -->
+**Plan Opened:** PLN-02f511
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-02f511 verdict=PASS quality_tier=none closed_at=2026-07-10T22:22:57.583426+00:00 -->
+**Plan Closed:** PLN-02f511
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->

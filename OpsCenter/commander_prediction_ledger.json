@@ -418,5 +418,131 @@
     "status": "open",
     "resolved_date": null,
     "resolution_note": null
+  },
+  {
+    "id": "SUSP-45729",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-96036",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-54534",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-71766",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-36046",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-49810",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-17068",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"centrav_cookies: valid\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-34264",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-85256",
+    "date_predicted": "2026-07-10",
+    "predicted_action": "Next suspense likely to pull your attention: \"regent_cookies_oa: expired\" appeared 30x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-10T21:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
   }
 ]

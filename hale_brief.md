@@ -1,4 +1,4 @@
-# HALE — Compressed Brief [2026-07-10 16:14 MT]
+# HALE — Compressed Brief [2026-07-10 16:22 MT]
 *3-7-30 Format | yesterday's Δ: +0 items*
 
 ---
@@ -51,19 +51,19 @@
 | 2026-07-10 15:00 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 15:35 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 | 2026-07-10 16:04 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
-| 2026-07-10 16:10 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
+| 2026-07-10 16:20 | 🔴 credentials_health_check | centrav_cookies: valid, regent_cookies: expired, regent_cookies_oa: expired |
 
 **Credentials Status:**
 
 | Credential | Status | Detail |
 |---|---|---|
-| ✅ centrav_cookies | valid | Expires in 1.4h (cookie: laravel_session [auth-gate]) |
-| 🟡 regent_cookies | expired | Expired 86.2h ago (cookie: ASPXAUTH [auth-gate]) |
-| 🟡 regent_cookies_oa | expired | Expired 147.4h ago (cookie: ASPXAUTH [auth-gate]) |
-| ✅ gmail_token | valid | Expires in 0.7h — has refresh_token (auto-refreshes) |
-| ✅ johnloucks3_token | valid | Expires in 0.7h — has refresh_token (auto-refreshes) |
-| ✅ perx_cookies | valid | Expires in 23.5h (cookie: _uetsid) |
-| 🟡 room_res_cookies | expired | Expired 0.1h ago (cookie: __stripe_sid) |
+| ✅ centrav_cookies | valid | Expires in 1.9h (cookie: laravel_session [auth-gate]) |
+| 🟡 regent_cookies | expired | Expired 86.4h ago (cookie: ASPXAUTH [auth-gate]) |
+| 🟡 regent_cookies_oa | expired | Expired 147.6h ago (cookie: ASPXAUTH [auth-gate]) |
+| ✅ gmail_token | valid | Expires in 0.6h — has refresh_token (auto-refreshes) |
+| ✅ johnloucks3_token | valid | Expires in 0.5h — has refresh_token (auto-refreshes) |
+| ✅ perx_cookies | valid | Expires in 23.3h (cookie: _uetsid) |
+| 🟡 room_res_cookies | expired | Expired 0.2h ago (cookie: __stripe_sid) |
 
 ---
 
@@ -158,7 +158,7 @@ _Secondary signal: 15/133 feedback memories touch this month — Recency cluster
 ---
 
 # HALE — Daily Brief
-*Generated: 2026-07-10 16:14 MT*
+*Generated: 2026-07-10 16:22 MT*
 
 ---
 
@@ -174,9 +174,9 @@ _Secondary signal: 15/133 feedback memories touch this month — Recency cluster
 | Client | Ship | Departure | FPD Status | Next TP |
 |---|---|---|---|---|
 | Furlow / Ely-Darrow / Nichols | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 13 overdue |
-| Al Ely & Amy Darrow | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
-| John & Melissa Furlow | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
-| Larry & Heidi Nichols | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 7 overdue |
+| Al Ely & Amy Darrow | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Excursion + Dining Guide — Scandinavia Group ⚠️ 7 overdue |
+| John & Melissa Furlow | Regent Seven Seas SS Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Excursion + Dining Guide — Scandinavia Group ⚠️ 7 overdue |
+| Larry & Heidi Nichols | Regent Grandeur | 29 Aug 2026 | ✅ PAID | TP 1.2 — Excursion + Dining Guide — Scandinavia Group ⚠️ 7 overdue |
 | John A. Loucks III & Susan Loucks |  | 7 Sep 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 6 overdue |
 | Kyle & Rosalie Kuklinski · Roger & Dr Nicholas Kuklinski · Joshua Morton & Erica Dodge | Viking Ocean Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 9 overdue |
 | Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son) | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 3 overdue |
@@ -211,7 +211,7 @@ _Queue empty_
 
 | System | Status |
 |---|---|
-| last_health_check | 💤 2026-07-10T16:14:11.756585 |
+| last_health_check | 💤 2026-07-10T16:22:16.326601 |
 | chrome_debug_port_9222 | ❌ OFFLINE |
 | mcp_server | ✅ OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient) |
 | opencode_status | ✅ ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z) |
@@ -272,5 +272,5 @@ _Reply APPROVED or REVISE to this email._
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-07-10 16:14 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-07-10 16:22 MT*
 *Next brief: 2026-07-11 06:00 MT*

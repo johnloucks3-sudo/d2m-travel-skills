@@ -10,7 +10,7 @@
 | Track | Agent | Status | % Complete | ETA | Blocker |
 |-------|-------|--------|--------------|-----|---------|
 | **A** | hale-coo (reconciled) | ✅ COMMITTED | 100% | ✅ COMPLETE (2026-07-10 22:16 MT, commit 8551c9d3) | None |
-| **B** | track-b-dataviz | 🟢 ACTIVE | ~30% (form/design) | 2026-07-17 | None (on track) |
+| **B** | track-b-dataviz | ✅ COMPLETE | 100% | ✅ COMPLETE (2026-07-10 16:17 MT) | None |
 | **C** | hale-coo (reconciled) | ✅ COMMITTED | 100% (3/3 couples) | ✅ COMPLETE (2026-07-10 22:16 MT, commit 8551c9d3) | None |
 
 ### ⚠️ RECONCILIATION NOTE (2026-07-10 22:16 MT)
@@ -65,21 +65,39 @@ Two parallel, uncommitted builds existed for Track A (`output/morning_brief_dash
 ## TRACK B: Flight Research & Route Maps
 
 **Owner:** track-b-dataviz  
-**Deadline:** ≤2026-07-17 (next flight research)  
+**Status:** ✅ **COMPLETE** (2026-07-10 16:17 MT)  
+**Deadline:** MET (well ahead of 2026-07-17)
+
 **Checklist:**
 
-- [ ] Form locked (chart types per data job)
-- [ ] Palette validation passed (route map, heatmap, trend line)
-- [ ] Route map SVG builder complete
-- [ ] Fare heatmap renderer complete
-- [ ] Price trend line builder complete
-- [ ] Data pipeline (Kiwi/Google → charts) integrated
-- [ ] Workflow integration tested (no regression on existing research)
-- [ ] Ready for Spencer call or next Centrav search
+- [x] Form locked (chart types per data job — great-circle map / sequential heatmap / diverging trend)
+- [x] Palette validation passed (route map navy/gold pair, heatmap light+dark sequential ramps, trend line manual OKLCH arm check)
+- [x] Route map SVG builder complete
+- [x] Fare heatmap renderer complete
+- [x] Price trend line builder complete
+- [x] Data pipeline (fare_watches.json / fare_history.json → charts) integrated
+- [x] Workflow integration tested (idempotent injection, no regression — pick-table row counts identical before/after)
+- [x] Ready for Spencer call or next Centrav search
 
-**Blockers:** (none yet)
+**Deliverables:**
 
-**Latest Update:** Agent spawned, awaiting design phase completion.
+| File | Purpose |
+|------|---------|
+| `core/dataviz/airports.py` | IATA → lat/lon lookup (130+ airports) |
+| `core/dataviz/great_circle_map.py` | SVG great-circle route map generator |
+| `app/static/js/dataviz/fare_heatmap.js` | Sequential navy fare heatmap (light+dark modes) |
+| `app/static/js/dataviz/price_trend_chart.js` | Chart.js diverging gold/gray/navy 30-day trend line |
+| `scripts/flight_route_visuals_refresh.py` | Idempotent injector — wires all 3 into flight-option artifacts |
+| `docs/DATAVIZ_FLIGHT_CHARTS_SPEC_20260710.md` | Design spec: form/color/validation per component |
+| `output/dataviz_demo_flight_charts.html` | Combined demo, real Wing data, Playwright-verified |
+
+**Targets updated:** `output/loucks_silvernova_2027_flight_options.html`, `output/spencer_grandtour_2027_flight_options.html` (marker-delimited injection, safe to re-run).
+
+**Notable divergence documented (not a defect):** the diverging trend palette fails the categorical validator by design — manually verified OKLCH lightness-monotonicity per arm instead, per dataviz skill guidance for diverging scales. Full reasoning in the spec doc.
+
+**Blockers:** None.
+
+**Latest Update:** COMPLETE. All 3 chart types built, palette-validated, integrated into both flight-option artifacts, rendered and visually verified in Playwright with zero console errors.
 
 ---
 
