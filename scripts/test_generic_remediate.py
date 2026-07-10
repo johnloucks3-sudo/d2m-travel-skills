@@ -86,6 +86,28 @@ def test_remediate_escalates_when_cooldown_blocks(tmp_path, monkeypatch):
     assert "phantom.service" in escalated
 
 
+def test_remediate_defers_when_unit_arg_missing_suffix(tmp_path, monkeypatch):
+    """Regression test for the real production bug found 2026-07-10: systemd's
+    %i template specifier strips the .service/.timer suffix, but
+    LANE1_OWNED_UNITS stores full suffixed names. A bare 'in' check never
+    matched the real dispatch path (only manual tests calling remediate()
+    with a hand-typed full name), so the exclusion guard was silently
+    non-functional end-to-end -- a live cascade of failed
+    thunderbird-generic-remediate@ units caught it, not this test suite."""
+    monkeypatch.setattr(gr, "STATE_FILE", tmp_path / "state.json")
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+    ran_commands = []
+    monkeypatch.setattr(gr, "_run", lambda cmd, timeout=20: ran_commands.append(cmd) or (True, ""))
+
+    owned_unit_with_suffix = next(iter(gr.LANE1_OWNED_UNITS))
+    owned_unit_no_suffix = owned_unit_with_suffix.rsplit(".", 1)[0]
+
+    exit_code = gr.remediate(owned_unit_no_suffix)
+
+    assert exit_code == 0
+    assert ran_commands == []
+
+
 def test_remediate_defers_to_lane1_owned_unit(tmp_path, monkeypatch):
     """The exclusion guard closing Whetstone's named cross-check: a unit
     already owned by Lane 1's CI Repair Warehouse must never be touched by

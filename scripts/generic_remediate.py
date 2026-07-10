@@ -148,6 +148,23 @@ def _log_remediation_plan(unit: str, status: str, note: str) -> None:
         logger.error("orchestrator logging failed for %s: %s", unit, e)
 
 
+def _is_lane1_owned(unit: str) -> bool:
+    """FIXED 2026-07-10: systemd's %i template specifier strips the type
+    suffix (.service/.timer) from the instance name, but LANE1_OWNED_UNITS
+    stores full names WITH suffixes. A bare 'in' check against argv silently
+    never matched in real production dispatch (only in manual testing where
+    the full name was typed by hand) — the exclusion guard was non-functional
+    end-to-end despite passing its own unit tests (which called remediate()
+    directly with a full suffixed name, never through the real %i path).
+    Found via a live cascade of failed thunderbird-generic-remediate@ units."""
+    if unit in LANE1_OWNED_UNITS:
+        return True
+    for owned in LANE1_OWNED_UNITS:
+        if owned.rsplit(".", 1)[0] == unit:
+            return True
+    return False
+
+
 def remediate(unit: str) -> int:
     """Returns 0 on verified recovery, 1 otherwise (mirrors a systemd
     oneshot exit-code convention; nothing currently consumes this exit code,
@@ -156,7 +173,7 @@ def remediate(unit: str) -> int:
         logger.error("no unit argument provided")
         return 1
 
-    if unit in LANE1_OWNED_UNITS:
+    if _is_lane1_owned(unit):
         note = "deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)"
         logger.info("%s: %s", unit, note)
         _log_remediation_plan(unit, "unverified", note)

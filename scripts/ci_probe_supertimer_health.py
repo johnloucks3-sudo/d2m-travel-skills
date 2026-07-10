@@ -22,7 +22,15 @@ import sys
 from pathlib import Path
 
 HEALTH_FILE = Path("/home/john/Thunderbird/OpsCenter/supertimer_health.json")
-FIREFOX_GLOB = "/home/john/.cache/ms-playwright/firefox-*/firefox/firefox"
+# FIXED 2026-07-10: this env override has been set since before Jul 1, and the
+# repair warehouse's own SAFE-tier "reinstall firefox" fix was a silent no-op
+# against it — Firefox was actually present at the redirected path the whole
+# time, but the probe kept reporting RED because it only checked the default
+# ms-playwright path. Confirmed a real firefox-1509 (Jul 1) + firefox-1522
+# (Jul 4) binary already present at the override path before this fix.
+import os
+_BROWSERS_ROOT = os.environ.get("PLAYWRIGHT_BROWSERS_PATH", str(Path.home() / ".cache" / "ms-playwright"))
+FIREFOX_GLOB = str(Path(_BROWSERS_ROOT) / "firefox-*" / "firefox" / "firefox")
 CF_THRESHOLD = 10   # consecutive failures before RED — allows a transient cycle
 BOT_SERVICE   = "thunderbird-supertimer.service"
 
