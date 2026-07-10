@@ -227,12 +227,38 @@ async def warm(check_only: bool) -> int:
                 pass
 
 
+def _log_warm_plan(rc: int) -> None:
+    """Ledger-only Hale Orchestrator entry, same pattern as
+    icelandair_session_warm.py -- called AFTER warm()'s own decision,
+    never gating it. rc: 0=warmed/authenticated, 2=dead session
+    (escalated to Commander by the relogin script itself), 3=skipped
+    (profile locked/navigation error/etc, session.json untouched)."""
+    try:
+        from core.ops.hale_orchestrator import open_plan, assess_plan, close_plan
+        status = {0: "met", 2: "missed", 3: "unverified"}.get(rc, "unverified")
+        note = {
+            0: "session warmed + authenticated",
+            2: "session dead -- relogin failed, escalated to Commander",
+            3: "skipped (profile locked/navigation error) -- session.json untouched",
+        }.get(rc, f"unexpected exit code {rc}")
+        plan = open_plan(
+            task_summary=f"Centrav session warm-ping -> {note}",
+            tier="trivial",
+            criteria=["Centrav session verified authenticated after warm-ping"],
+        )
+        result = assess_plan(plan, {plan.criteria[0]: status}, notes=note)
+        close_plan(result)
+    except Exception:
+        pass
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Centrav warm-ping keepalive (non-destructive)")
     ap.add_argument("--check", action="store_true",
                     help="Report auth status only; never write session.json")
     args = ap.parse_args()
     rc = asyncio.run(warm(check_only=args.check))
+    _log_warm_plan(rc)
     sys.exit(rc)
 
 
