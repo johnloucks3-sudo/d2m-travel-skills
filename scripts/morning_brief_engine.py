@@ -1041,6 +1041,13 @@ def main() -> None:
     BRIEF_OUT.write_text(combined_md, encoding="utf-8")
     logger.info(f"hale_brief.md written ({len(combined_md)} chars, compressed+full)")
 
+    try:
+        from core.hale.brief_dashboard_render import write_dashboard
+        dash_path = write_dashboard(state, clients, queue)
+        logger.info(f"hale-brief-dashboard written: {dash_path}")
+    except Exception as e:
+        logger.error(f"brief_dashboard_render failed (non-fatal, hale_brief.md still written): {e}")
+
     if not args.local:
         # Email sends the compressed brief + full HTML — compressed as plain text header
         compressed_html = f"<pre style='font-family:monospace;font-size:12px;background:#f7f3ea;padding:12px'>{compressed_brief}</pre><hr>"
