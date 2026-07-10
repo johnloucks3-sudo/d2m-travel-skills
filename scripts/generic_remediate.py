@@ -118,8 +118,19 @@ def _run(cmd: list[str], timeout: int = 20) -> tuple[bool, str]:
 
 
 def _is_active(unit: str) -> bool:
-    ok, out = _run(["systemctl", "--user", "is-active", unit])
-    return out.strip() == "active"
+    """FIXED 2026-07-10: a Type=oneshot unit (most of this fleet's timer-
+    triggered services) goes to 'inactive' immediately after a SUCCESSFUL
+    run unless RemainAfterExit=yes is set -- so 'is-active' always reported
+    False for oneshot units regardless of real outcome, causing permanent
+    false escalation to Sterling and 'recovered' never once being True for
+    this unit type. Found via a real production incident (d2m-airfare-scan
+    restart storm, see output/ci_remediation/fix_d2m-airfare-scan_service.md)
+    while investigating why this fleet-wide mechanism kept escalating.
+    'is-failed' negated is the correct check: a long-running unit that
+    should be 'active' AND a oneshot unit that completed cleanly both
+    report is-failed=False; only a genuine failure reports True."""
+    ok, out = _run(["systemctl", "--user", "is-failed", unit])
+    return out.strip() != "failed"
 
 
 def _escalate(unit: str, reason: str) -> None:
