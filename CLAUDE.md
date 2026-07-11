@@ -63,6 +63,17 @@ Every proposal and task flows through five stages with **full visibility until c
 
 **Real-Time Monitoring:** Backend logs all Commander interactions (comments, moves, voice notes). Hale sees transcript on demand for validation. Audit trail persisted to hale_decisions.md + Google Sheets.
 
+**Replaces:**
+- AM briefing artifact
+- Decision inbox artifacts
+- Manual task tracking
+- EVERY intel report (cruise intel, pricing, market research, competitor analysis, route data)
+
+**Does NOT Replace:**
+- Tech scans (CI/CD, infrastructure, security)
+- Incubators (experimental capabilities, proof-of-concepts)
+- Waves (batch operations, large-scale initiatives)
+
 **Status:** Architecture locked. Backend build in progress. ETA: 8-12 hours.
 
 ---
