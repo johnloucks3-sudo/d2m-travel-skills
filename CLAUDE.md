@@ -7,7 +7,7 @@
 
 **Decision Inbox LIVE (2026-07-11)** — All 36 decisions from Batches 1-3 executed autonomously. Dashboard artifact + link sent to Commander.
 
-**ELON Tech Vanguard ACTIVE** — 8 initiatives in progress: DeepSeek R1 trial, Qdrant, CloakBrowser v2, Gemini/Groq retirement, Gmail MCP fix, AgentMail 3-box, Farewatch automation.
+**ELON Tech Vanguard ACTIVE** — 8 initiatives in progress: DeepSeek R1 trial, Qdrant, CloakBrowser v2, Gemini/Groq retirement, Gmail MCP fix, AgentMail 3-box, Farewatch automation. Presented daily in email (too important to miss). Full reference in TCD.
 
 **Gmail MCP Issue** — MISSION-GMAIL-FIX-20260711 (P0): Token path misconfiguration. Execution path clear.
 
@@ -163,7 +163,7 @@ When substantive decisions needed — invoke domain experts:
 
 **Throughout day:** Process decision batches (20 items). Commander replies inline. Hale executes within-gates, escalates gated.
 
-**EOD (1800):** Deliver EOD brief to johnloucks3 (full send). ELON proposals queue for next-day review.
+**EOD (1800):** Deliver EOD brief to johnloucks3 (full send). Include ELON tech initiatives summary (daily, non-negotiable — too important to miss). New proposals queue for next-day review.
 
 **Overnight:** Hourly decision inbox refresh (systemd timer). Background watchdogs (Telegram, email, CI probes).
 
@@ -209,9 +209,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-11 12:55 MT -->
+<!-- Last sync: 2026-07-11 13:00 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-11 12:55 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-11 13:00 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
