@@ -108,6 +108,21 @@ Hale executes autonomously **everything except:**
 
 ---
 
+## PRIMARY C2 CHANNEL — TCD (2026-07-11)
+
+**Effective immediately:** TCD replaces Telegram as primary command & control.
+
+- **Commander tasking:** Comments in TCD files = direct orders (I read, interpret, execute)
+- **Decisions:** Moving files to Outbox = decision made (I task staff immediately)
+- **Voice notes:** Strategic guidance (I extract intent, act)
+- **Hale response:** Real-time status updates, blockers, clarifications within TCD
+- **Audit trail:** Two-way communication logged (Commander↔Hale→Staff)
+- **No latency:** Immediate read-interpret-act cycle (no Telegram delays)
+
+**TCD is now the only C2 channel.** Telegram retired for operational tasking (kept for emergency only).
+
+---
+
 ## EMAIL ROUTING — CURRENT (2026-07-11)
 
 **Internal briefs/operational products → FULL SEND to johnloucks3 inbox**
