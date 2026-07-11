@@ -25,6 +25,7 @@ HALE_STATE = ROOT / "hale_state.json"
 HALE_DECISIONS = ROOT / "hale_decisions.md"
 STANDING_ORDERS = ROOT / "standing_orders"
 DOSSIERS = ROOT / "dossiers"
+TCD_TRASH = ROOT / "OpsCenter/tcd_trash"
 
 sys.path.insert(0, str(ROOT / "api"))
 
@@ -258,6 +259,23 @@ def build_reference():
     return files
 
 
+# Outbox noise filter — hale_decisions.md PLAN:CLOSE entries are written by every
+# background watchdog/CI-repair lane on every cooldown/retry cycle, not just real
+# Commander decisions. These patterns match routine automated pings (session
+# warming, crash-report filing, cooldown backoffs, Lane-1 deferrals) so the
+# Outbox only surfaces closures a human would recognize as a decision.
+_OUTBOX_NOISE_NOTES = re.compile(
+    r"cooldown active|deferred to Lane 1|warmed \+ re-saved \d+ cookies|"
+    r"start attempted \(ok=|self-alerting unit|session warmed \+ authenticated|"
+    r"recovered.{0,3}verified active|auto-filed by backstop hook|^repaired=|"
+    r"skipped \(profile locked|never reached assessment|^error: Connection timed out",
+    re.I,
+)
+_OUTBOX_NOISE_CRITERIA = re.compile(
+    r"crash report written to|flagged units recorded to", re.I,
+)
+
+
 def build_outbox():
     text = HALE_DECISIONS.read_text(errors="ignore") if HALE_DECISIONS.exists() else ""
     entries = re.findall(
@@ -267,7 +285,9 @@ def build_outbox():
         text, re.S,
     )
     outbox = []
-    for plan_id, verdict, closed_at, criteria_met, notes in entries[-40:]:
+    for plan_id, verdict, closed_at, criteria_met, notes in entries:
+        if _OUTBOX_NOISE_NOTES.search(notes) or _OUTBOX_NOISE_CRITERIA.search(criteria_met):
+            continue
         outbox.append({
             "id": f"ob-{plan_id}", "fileId": None,
             "title": (criteria_met if criteria_met and criteria_met != "none" else notes)[:110],
@@ -275,7 +295,7 @@ def build_outbox():
             "from": "hale_decisions.md audit trail",
             "stage": "C" if verdict == "PASS" else "A",
         })
-    return outbox
+    return outbox[-40:]
 
 
 def build_briefing(state):
@@ -312,6 +332,100 @@ def build_briefing(state):
         },
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
+
+
+# ---------------------------------------------------------------------------
+# DELETE — cascading source cleanup
+#
+# tcd_server.py owns the HTTP layer and audit-trail append; this module owns
+# knowing where each file id's foundation record actually lives and how to
+# remove it. Every deletion path is recoverable: JSON-backed records are
+# backed up to TCD_TRASH/deleted_json_records.jsonl before removal, and
+# file-backed records (standing orders, dossiers) are moved into TCD_TRASH
+# rather than unlinked. Gmail messages are trashed via the API (30-day Gmail
+# trash), never permanently deleted.
+# ---------------------------------------------------------------------------
+
+def _atomic_write_json(path, obj):
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(obj, indent=2))
+    tmp.replace(path)
+
+
+def _backup_record(kind, entry_id, record):
+    TCD_TRASH.mkdir(parents=True, exist_ok=True)
+    log = TCD_TRASH / "deleted_json_records.jsonl"
+    entry = {"ts": datetime.now(timezone.utc).isoformat(), "kind": kind,
+              "entry_id": entry_id, "record": record}
+    with log.open("a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
+def _delete_state_list_entry(list_path, entry_id):
+    """list_path: tuple of keys locating a list in hale_state.json, e.g.
+    ('open_tasks',) or ('project_tracking', 'active_projects')."""
+    state = _load_json(HALE_STATE, {})
+    container = state
+    for key in list_path[:-1]:
+        container = container.setdefault(key, {})
+    lst = container.setdefault(list_path[-1], [])
+    idx = next((i for i, e in enumerate(lst) if e.get("id") == entry_id), None)
+    if idx is None:
+        return {"ok": False, "reason": f"'{entry_id}' not found in hale_state.json:{'.'.join(list_path)}"}
+    removed = lst.pop(idx)
+    _backup_record(".".join(list_path), entry_id, removed)
+    _atomic_write_json(HALE_STATE, state)
+    return {"ok": True, "source": f"hale_state.json:{'.'.join(list_path)}", "removed": removed}
+
+
+def _delete_source_file(dir_path, filename):
+    src = dir_path / filename
+    if not src.is_file():
+        return {"ok": False, "reason": f"source file not found: {src}"}
+    TCD_TRASH.mkdir(parents=True, exist_ok=True)
+    dest = TCD_TRASH / f"{datetime.now():%Y%m%d-%H%M%S}_{filename}"
+    src.rename(dest)
+    return {"ok": True, "source": str(src), "trashed_to": str(dest)}
+
+
+def _delete_gmail_message(file_id):
+    rest = file_id[len("gmail-"):]
+    account, msg_id = None, None
+    for acct, _getter in GMAIL_ACCOUNTS:
+        if rest.startswith(acct + "-"):
+            account, msg_id = acct, rest[len(acct) + 1:]
+            break
+    if not account:
+        return {"ok": False, "reason": f"could not parse gmail account from '{file_id}'"}
+    try:
+        import thunderbird_google_auth as gauth
+        getter_name = dict(GMAIL_ACCOUNTS)[account]
+        svc = getattr(gauth, getter_name)()
+        svc.users().messages().trash(userId="me", id=msg_id).execute()
+        _gmail_cache["ts"] = 0  # force refresh so it drops out of Operational immediately
+        return {"ok": True, "source": f"gmail:{account}:{msg_id}",
+                "action": "trashed via Gmail API (recoverable from Gmail Trash for 30d)"}
+    except Exception as e:
+        return {"ok": False, "reason": f"gmail trash failed: {e}"}
+
+
+def delete_item(file_id):
+    """Remove the foundation source record backing a TCD file id.
+    Never raises — always returns {"ok": bool, ...} so the caller can still
+    hide the item from the TCD view even when no foundation record exists."""
+    if file_id.startswith("alert-"):
+        return _delete_state_list_entry(("deferred_alerts",), file_id[len("alert-"):])
+    if file_id.startswith("task-"):
+        return _delete_state_list_entry(("open_tasks",), file_id[len("task-"):])
+    if file_id.startswith("proj-"):
+        return _delete_state_list_entry(("project_tracking", "active_projects"), file_id[len("proj-"):])
+    if file_id.startswith("so-"):
+        return _delete_source_file(STANDING_ORDERS, file_id[len("so-"):] + ".md")
+    if file_id.startswith("dossier-"):
+        return _delete_source_file(DOSSIERS, file_id[len("dossier-"):] + ".md")
+    if file_id.startswith("gmail-"):
+        return _delete_gmail_message(file_id)
+    return {"ok": False, "reason": f"no foundation source mapped for id '{file_id}' — hidden in TCD only"}
 
 
 def build_data(include_gmail=True):

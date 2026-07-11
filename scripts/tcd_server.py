@@ -28,9 +28,11 @@ from email.parser import BytesParser
 from email.policy import default as email_default
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tcd_data  # noqa: E402
+import tcd_google  # noqa: E402  — owns /api/google/* (Calendar/Drive/Tasks/Sheets/Keep panels)
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = ROOT / "OpsCenter/tcd_state.json"
@@ -55,9 +57,15 @@ def _now():
 
 def load_state():
     try:
-        return json.loads(STATE_FILE.read_text())
+        state = json.loads(STATE_FILE.read_text())
     except (FileNotFoundError, json.JSONDecodeError):
-        return {"comments": {}, "folder_overrides": {}, "outbox_pushes": [], "read_overrides": {}}
+        state = {}
+    state.setdefault("comments", {})
+    state.setdefault("folder_overrides", {})
+    state.setdefault("outbox_pushes", [])
+    state.setdefault("read_overrides", {})
+    state.setdefault("deleted_ids", [])
+    return state
 
 
 def save_state(state):
@@ -86,6 +94,8 @@ def merged_data():
     comments = state.get("comments", {})
     overrides = state.get("folder_overrides", {})
     reads = state.get("read_overrides", {})
+    deleted = set(state.get("deleted_ids", []))
+    data["files"] = [f for f in data["files"] if f["id"] not in deleted]
     for f in data["files"]:
         if f["id"] in comments:
             f["comments"] = f["comments"] + comments[f["id"]]
@@ -143,6 +153,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(200, merged_data())
         if path == "/api/briefing":
             return self._json(200, tcd_data.build_briefing(tcd_data._load_json(tcd_data.HALE_STATE, {})))
+        if path.startswith("/api/google/"):
+            return tcd_google.handle_get(self, path)
         if path == "/" or path == "/index.html":
             if not FRONTEND.is_file():
                 return self._send(500, b'{"error":"frontend not built yet"}')
@@ -157,6 +169,8 @@ class Handler(BaseHTTPRequestHandler):
         if not self.authed():
             return self.deny()
         path = self.path.split("?")[0]
+        if path.startswith("/api/google/"):
+            return tcd_google.handle_post(self, path)
         with _lock:
             if path == "/api/comment":
                 return self._handle_comment()
@@ -170,7 +184,44 @@ class Handler(BaseHTTPRequestHandler):
                 return self._handle_read()
             if path == "/api/voicenote":
                 return self._handle_voicenote()
+            if path == "/api/delete":
+                return self._handle_delete()
         return self._send(404, b'{"error":"not found"}')
+
+    def do_DELETE(self):
+        if not self.authed():
+            return self.deny()
+        path = self.path.split("?")[0]
+        if path.startswith("/api/google/"):
+            return tcd_google.handle_delete(self, path)
+        m = re.match(r"^/api/files/(.+)$", path)
+        if not m:
+            return self._send(404, b'{"error":"not found"}')
+        with _lock:
+            return self._handle_delete(file_id=unquote(m.group(1)))
+
+    def _handle_delete(self, file_id=None):
+        if file_id is None:
+            file_id = self._body_json().get("fileId")
+        if not file_id:
+            return self._json(400, {"error": "fileId required"})
+        result = tcd_data.delete_item(file_id)
+        # Always hide from TCD, even if the foundation delete failed (e.g. no
+        # mapped source, or a manual-cleanup case) — the Commander's delete
+        # click must not leave the item sitting in the inbox regardless.
+        state = load_state()
+        if file_id not in state["deleted_ids"]:
+            state["deleted_ids"].append(file_id)
+        state["comments"].pop(file_id, None)
+        state["folder_overrides"].pop(file_id, None)
+        state["read_overrides"].pop(file_id, None)
+        save_state(state)
+        log_interaction("delete", {"fileId": file_id, "result": result})
+        status = "source record removed" if result.get("ok") else f"source NOT removed ({result.get('reason')})"
+        detail = f" | trashed to: {result['trashed_to']}" if result.get("trashed_to") else ""
+        append_decision_log(
+            f"**TCD DELETE** `{file_id}` — {status}. Source: {result.get('source', 'n/a')}{detail}")
+        return self._json(200, {"ok": True, "sourceDeleted": result.get("ok", False), "detail": result})
 
     def _handle_comment(self):
         body = self._body_json()
