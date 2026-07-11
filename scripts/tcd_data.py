@@ -12,9 +12,12 @@ separately in OpsCenter/tcd_state.json (see tcd_server.py) and is merged on
 top of what this module produces — this module only reads source-of-truth
 Wing files, it never writes.
 """
+import base64
 import json
 import re
+import sys
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +25,13 @@ HALE_STATE = ROOT / "hale_state.json"
 HALE_DECISIONS = ROOT / "hale_decisions.md"
 STANDING_ORDERS = ROOT / "standing_orders"
 DOSSIERS = ROOT / "dossiers"
+
+sys.path.insert(0, str(ROOT / "api"))
+
+GMAIL_ACCOUNTS = [
+    ("johnloucks3", "get_commander_gmail"),
+    ("d2mconcierge", "get_persona_gmail"),
+]
 
 FOLDERS = {
     "strategic": [
@@ -142,6 +152,87 @@ def build_operational(state):
     return files
 
 
+def _gmail_header(headers, name):
+    for h in headers:
+        if h.get("name", "").lower() == name.lower():
+            return h.get("value", "")
+    return ""
+
+
+def _gmail_body(payload):
+    def _decode(data):
+        try:
+            return base64.urlsafe_b64decode(data + "==").decode("utf-8", errors="replace")
+        except Exception:
+            return ""
+    body_data = payload.get("body", {}).get("data", "")
+    if body_data:
+        return _decode(body_data)
+    for part in payload.get("parts", []) or []:
+        if part.get("mimeType") == "text/plain":
+            return _decode(part.get("body", {}).get("data", ""))
+    for part in payload.get("parts", []) or []:
+        d = part.get("body", {}).get("data", "")
+        if d:
+            return _decode(d)
+    return ""
+
+
+_gmail_cache = {"ts": 0, "files": []}
+_GMAIL_TTL_SECONDS = 300
+
+
+def build_gmail(max_per_account=12):
+    """Recent inbox messages from both Gmail accounts, feeding Operational.
+    Cached for _GMAIL_TTL_SECONDS since each refresh does full-message fetches
+    against the live Gmail API and the frontend polls every 60s."""
+    import time
+    now = time.time()
+    if now - _gmail_cache["ts"] < _GMAIL_TTL_SECONDS:
+        return _gmail_cache["files"]
+    files = []
+    try:
+        import thunderbird_google_auth as gauth
+    except Exception as e:
+        print(f"tcd_data: gmail auth module unavailable: {e}", file=sys.stderr)
+        return files
+    for account, getter_name in GMAIL_ACCOUNTS:
+        try:
+            svc = getattr(gauth, getter_name)()
+            listing = svc.users().messages().list(
+                userId="me", labelIds=["INBOX"], maxResults=max_per_account,
+                q="newer_than:14d",
+            ).execute()
+            for meta in listing.get("messages", []):
+                msg = svc.users().messages().get(
+                    userId="me", id=meta["id"], format="full").execute()
+                headers = msg.get("payload", {}).get("headers", [])
+                subject = _gmail_header(headers, "Subject") or "(no subject)"
+                sender = _gmail_header(headers, "From")
+                date_hdr = _gmail_header(headers, "Date")
+                try:
+                    date_iso = parsedate_to_datetime(date_hdr).date().isoformat()
+                except Exception:
+                    date_iso = ""
+                body = _gmail_body(msg.get("payload", {})) or msg.get("snippet", "")
+                unread = "UNREAD" in (msg.get("labelIds") or [])
+                files.append({
+                    "id": f"gmail-{account}-{meta['id']}", "inbox": "operational",
+                    "folder": "o-inbox", "type": "email",
+                    "priority": "p2" if unread else "routine", "unread": unread,
+                    "title": subject, "from": f"{sender} → {account}",
+                    "date": date_iso,
+                    "snippet": _snip(msg.get("snippet", "") or body),
+                    "body": body[:4000],
+                    "tags": ["gmail", account], "comments": [],
+                })
+        except Exception as e:
+            print(f"tcd_data: gmail fetch failed for {account}: {e}", file=sys.stderr)
+    _gmail_cache["ts"] = now
+    _gmail_cache["files"] = files
+    return files
+
+
 def build_reference():
     files = []
     for f in sorted(STANDING_ORDERS.glob("SO_*.md"))[:20]:
@@ -222,9 +313,11 @@ def build_briefing(state):
     }
 
 
-def build_data():
+def build_data(include_gmail=True):
     state = _load_json(HALE_STATE, {})
     files = build_strategic(state) + build_operational(state) + build_reference()
+    if include_gmail:
+        files = build_gmail() + files
     return {"folders": FOLDERS, "files": files, "outbox": build_outbox(),
             "generated_at": datetime.now(timezone.utc).isoformat()}
 
