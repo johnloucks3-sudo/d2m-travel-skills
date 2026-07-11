@@ -164,6 +164,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._handle_move()
             if path == "/api/outbox":
                 return self._handle_outbox()
+            if path == "/api/outbox/stage":
+                return self._handle_outbox_stage()
             if path == "/api/read":
                 return self._handle_read()
             if path == "/api/voicenote":
@@ -227,6 +229,28 @@ class Handler(BaseHTTPRequestHandler):
         append_decision_log(
             f"**TCD P-D-T-A-C task opened** `{entry['id']}` from `{file_id}`: {title}\n"
             f"Conditions: {conditions or 'n/a'} | Assigned: {assigned or 'unassigned'} | Deadline: {deadline or 'n/a'}")
+        return self._json(200, {"ok": True, "entry": entry})
+
+    def _handle_outbox_stage(self):
+        body = self._body_json()
+        entry_id, stage = body.get("id"), body.get("stage")
+        if not entry_id or stage not in ("T", "A", "C"):
+            return self._json(400, {"error": "id and stage (T|A|C) required"})
+        state = load_state()
+        entry = next((e for e in state["outbox_pushes"] if e["id"] == entry_id), None)
+        if not entry:
+            return self._json(404, {"error": "outbox entry not found (historical entries are read-only)"})
+        prev_stage = entry.get("stage", "T")
+        entry["stage"] = stage
+        if stage == "C":
+            entry["executed"] = True
+            entry["execDate"] = datetime.now().strftime("%b %d, %H:%M")
+        save_state(state)
+        log_interaction("outbox_stage", {"id": entry_id, "from": prev_stage, "to": stage})
+        stage_names = {"T": "Tasked", "A": "Accomplishing", "C": "Certified"}
+        append_decision_log(
+            f"**TCD P-D-T-A-C stage change** `{entry_id}`: {stage_names.get(prev_stage, prev_stage)} -> "
+            f"{stage_names.get(stage, stage)} — {entry.get('title', '')}")
         return self._json(200, {"ok": True, "entry": entry})
 
     def _handle_voicenote(self):

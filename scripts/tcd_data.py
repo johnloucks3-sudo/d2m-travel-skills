@@ -273,6 +273,7 @@ def build_outbox():
             "title": (criteria_met if criteria_met and criteria_met != "none" else notes)[:110],
             "executed": verdict == "PASS", "execDate": closed_at[:16].replace("T", " "),
             "from": "hale_decisions.md audit trail",
+            "stage": "C" if verdict == "PASS" else "A",
         })
     return outbox
 
