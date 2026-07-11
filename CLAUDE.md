@@ -24,9 +24,20 @@
 
 ---
 
-## THUNDERBIRD COMMANDER DESKTOP (TCD) v4 — File System Interface (New 2026-07-11)
+## THUNDERBIRD COMMANDER DESKTOP (TCD) v4 — Operational Hub (New 2026-07-11)
 
-**Core Concept:** Three inboxes (Strategic | Operational | Reference) as clickable file folders. Click to open files, read, comment (text + voice notes), move to Outbox. Everything focused on what the Commander needs to DECIDE or COMMENT on. Connected to live Gmail/AgentMail.
+**Architecture:** Hosted application on d2mluxury.quest (Node.js/Express backend + React frontend). Basic-Auth protected (same credentials as rest of site). Replaces AM briefing, decision artifacts, and manual tasking.
+
+**Core Concept:** Three inboxes (Strategic | Operational | Reference) as clickable file folders. Click to open files, read, comment (text + voice notes), move to Outbox. Everything focused on what the Commander needs to DECIDE or COMMENT on. Real-time backend integration with full audit trail.
+
+**Google Suite Integration:**
+- **Gmail:** Read/send from d2mconcierge, johnloucks3; compose, reply, archive
+- **Drive:** Browse, upload, download client dossiers and research
+- **Calendar:** View upcoming events, FPD dates, critical timelines
+- **Keep:** Create/read notes, link to tasks
+- **Tasks:** Create/assign tasks, track completion
+- **Sheets:** View/edit decision log, pricing intel, financial tracking
+- **Slides:** Preview client proposals, present findings
 
 **P-D-T-A-C Workflow — "NO MORE BLACK HOLES" (Standing Order SO-PDTAC-20260711):**
 Every proposal and task flows through five stages with **full visibility until certified complete:**
@@ -43,11 +54,16 @@ Every proposal and task flows through five stages with **full visibility until c
 - **Outbox:** Execution queue (moved items = decisions made)
 - **Watch:** All tasks in A-C stages, blocked items escalate red
 
-**Dashboard URL:** [Live wired to Gmail d2mconcierge + AgentMail]
+**Morning Briefing (Default View):**
+- 🔴 P0/P1 alerts (overdue missions, critical dates)
+- 📅 Calendar events (next 7 days, time-sensitive bookings)
+- 📊 Daily stats (open decisions, executing tasks, blocked items)
+- ✉️ Inbox summary (new proposals, awaiting decisions)
+- 💰 Financial pulse (FPD overdue, balance due, commissions)
 
-**Real-Time Monitoring:** I see Commander's comments, voice notes, file moves; play back on demand for validation.
+**Real-Time Monitoring:** Backend logs all Commander interactions (comments, moves, voice notes). Hale sees transcript on demand for validation. Audit trail persisted to hale_decisions.md + Google Sheets.
 
-**Status:** TCD v4 artifact deployed. Live data wiring in progress.
+**Status:** Architecture locked. Backend build in progress. ETA: 8-12 hours.
 
 ---
 
@@ -182,9 +198,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-11 12:50 MT -->
+<!-- Last sync: 2026-07-11 12:55 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-11 12:50 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-11 12:55 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
