@@ -24,24 +24,30 @@
 
 ---
 
-## DECISION INBOX SYSTEM (New 2026-07-11)
+## THUNDERBIRD COMMANDER DESKTOP (TCD) v4 — File System Interface (New 2026-07-11)
 
-**Problem it solves:** 1,788-file backlog with no routing mechanism. Replaced manual document filing chaos.
+**Core Concept:** Three inboxes (Strategic | Operational | Reference) as clickable file folders. Click to open files, read, comment (text + voice notes), move to Outbox. Everything focused on what the Commander needs to DECIDE or COMMENT on. Connected to live Gmail/AgentMail.
 
-**How it works:**
-1. Batch 20 decisions onscreen (verbose format)
-2. Commander replies inline: APPROVED / MODIFY / SEE ME
-3. Hale parses → applies three-gate logic → executes within-gates items
-4. Logs durably to Google Sheets + hale_decisions.md
-5. Hourly systemd timer refreshes queue
+**P-D-T-A-C Workflow — "NO MORE BLACK HOLES" (Standing Order SO-PDTAC-20260711):**
+Every proposal and task flows through five stages with **full visibility until certified complete:**
+- 🔵 **P (Propose):** Staff submits to Strategic Inbox
+- 🟢 **D (Decide):** Commander approves/modifies/rejects, logs decision
+- 🟡 **T (Task):** Hale defines success criteria, deadline, assigns staff
+- 🟠 **A (Accomplish):** Staff executes, reports status, escalates blockers
+- ✅ **C (Certify):** Silver assesses back-end + Commander signs off
 
-**Dashboard:** 
-- **URL:** https://claude.ai/code/artifact/1f414483-7cb2-41a9-a6d1-bf594bd23f62
-- **Left panel:** Commander Inbox (36 decisions, all batches, status-coded)
-- **Right panel:** ELON Initiatives (8 tech trials, separate, not deleted)
-- **Live stats:** summaries, scrollable, real-time
+**Inbox Structure:**
+- **Strategic:** Proposals, position papers, >$5K commitments, >90d decisions, board-level items
+- **Operational:** Client emails, daily ops, bookings, vendor issues, staff comms
+- **Reference:** Standing orders, dossiers, research archive, pricing intel
+- **Outbox:** Execution queue (moved items = decisions made)
+- **Watch:** All tasks in A-C stages, blocked items escalate red
 
-**Status:** Batches 1-3 complete (36 executed). Batch 4+ ready on demand.
+**Dashboard URL:** [Live wired to Gmail d2mconcierge + AgentMail]
+
+**Real-Time Monitoring:** I see Commander's comments, voice notes, file moves; play back on demand for validation.
+
+**Status:** TCD v4 artifact deployed. Live data wiring in progress.
 
 ---
 
@@ -174,3 +180,19 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Next Review:** 2026-07-15 (weekly checkpoint)
 
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
+
+# BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
+<!-- Last sync: 2026-07-11 12:50 MT -->
+```
+=== THUNDERBIRD BLACKBOARD [2026-07-11 12:50 MT] ===
+Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Active tasks: 0
+Last Deepseek ruling: NONE
+Open items: none logged
+Next priority: check session_autosave_latest.md
+Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
+Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
+================================================
+```
+# BLACKBOARD_END
