@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hale Dashboard — Commander Inbox + Watch + ELON Initiatives</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f3ea;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .panel {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+        }
+        .panel-header {
+            background: #003087;
+            color: white;
+            padding: 16px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            font-size: 16px;
+            border-bottom: 3px solid #0000ff;
+        }
+        .panel-header.watch {
+            background: #ffc107;
+            color: #1a1a1a;
+            border-bottom-color: #ff9800;
+        }
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .decision-item {
+            border-left: 4px solid #0000ff;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #fafafa;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .decision-item:hover {
+            background: #f0f0f0;
+            transform: translateX(4px);
+        }
+        .decision-item.approved {
+            border-left-color: #28a745;
+            background: #f0f8f4;
+        }
+        .decision-item.pending {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+        .decision-item.watch {
+            border-left-color: #ff9800;
+            background: #fff8f0;
+        }
+        .decision-num {
+            font-weight: bold;
+            color: #003087;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .decision-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .decision-status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        .status-approved { background: #28a745; color: white; }
+        .status-pending { background: #ffc107; color: black; }
+        .status-executing { background: #0000ff; color: white; }
+        .status-watch { background: #ff9800; color: white; }
+
+        .initiative-item {
+            border-left: 4px solid #0000ff;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: #f5f5ff;
+            border-radius: 4px;
+            border-left-color: #6f00ff;
+        }
+        .initiative-title {
+            font-weight: 600;
+            color: #6f00ff;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        .initiative-status {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .batch-label {
+            background: #003087;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 6px;
+            margin-bottom: 8px;
+        }
+
+        .summary-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            padding: 12px;
+            background: #e8e8e8;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+        .summary-item {
+            text-align: center;
+        }
+        .summary-num {
+            font-weight: bold;
+            font-size: 18px;
+            color: #003087;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COMMANDER DECISION INBOX -->
+        <div class="panel">
+            <div class="panel-header">⚡ COMMANDER DECISION INBOX</div>
+            <div class="panel-content">
+                <div class="summary-bar">
+                    <div class="summary-item">
+                        <div class="summary-num">55+</div>
+                        <div>Total Decisions</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">36</div>
+                        <div>Approved</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">19+</div>
+                        <div>Pending Review</div>
+                    </div>
+                </div>
+
+                <!-- BATCH 1-3 SUMMARY -->
+                <div class="batch-label">BATCHES 1-3 COMPLETE</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 12px;">36 decisions executed autonomously</div>
+
+                <!-- BATCH 4 - NEW FOR APPROVAL -->
+                <div class="batch-label">BATCH 4 — NEW FOR APPROVAL</div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[46] Kuklinski TP 1.2 Specialty Dining Send</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[47] Furlow/Ely-Darrow/Nichols Group Email</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[48] McLeod Regent 2984034 FPD Confirmation</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[49] Morning Brief Mobile CSS Fix</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[50] Qdrant Re-index Systemd Timer (0300 MT)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[51] Security Audit Runbook Completion</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[52] AgentMail BOX 2 & 3 Build + Wiring</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[53] Farewatch Nightly Automation (0400 MT Launch)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[54] Mission Board Hygiene Review</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[55] Gmail MCP Token Path Fix (MISSION-GMAIL-FIX)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[56] Position Paper Q3 Tech Adoption — SENT TO INBOX</div>
+                    <div class="decision-status status-pending">REVIEW READY</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[57] DeepSeek R1 Trial Approval (Jul 18 start)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[58] Qdrant Semantic Search Go-Live (Aug 1)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[59] CloakBrowser v2 Trial Kickoff (Aug 15)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[60] Gemini File Reader Retirement (Aug 1)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[61] Groq v1 API Retirement (Aug 15)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[62] Leslie Loucks Flight Coordination (DEN Jul 18/25)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[63] Loucks Guest Registration Completion</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[64] Bryana Workstation Final Setup</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+
+                <div class="decision-item pending">
+                    <div class="decision-num">[65] CLAUDE.md Update Verification (v3.0.0)</div>
+                    <div class="decision-status status-pending">AWAITING APPROVAL</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WATCH SECTION - Approved but Not Yet Completed -->
+        <div class="panel">
+            <div class="panel-header watch">⏱️ WATCH — IN PROGRESS</div>
+            <div class="panel-content">
+                <div class="summary-bar">
+                    <div class="summary-item">
+                        <div class="summary-num">12</div>
+                        <div>Executing</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">7</div>
+                        <div>Scheduled</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">4</div>
+                        <div>Blocked</div>
+                    </div>
+                </div>
+
+                <div style="font-size: 13px; color: #666; margin-bottom: 12px; font-style: italic;">Approved decisions in progress. Track completion status here.</div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Kuklinski TP 1.2 Send</div>
+                    <div class="decision-status status-watch">Route to Dani</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Furlow MISSION-802 Build Start</div>
+                    <div class="decision-status status-watch">Build day-by-day itinerary</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Spencer DEN-FCO Quote Follow-up</div>
+                    <div class="decision-status status-watch">Dembe calls United</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Dani Telegram Bot Restart</div>
+                    <div class="decision-status status-watch">SSL cert fixed</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Qdrant Re-index Systemd Timer</div>
+                    <div class="decision-status status-watch">Schedule 0300 MT</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Security Audit Runbook (MISSION-SEC-05)</div>
+                    <div class="decision-status status-watch">Hale + Sterling</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">AgentMail 3-Box Wiring</div>
+                    <div class="decision-status status-watch">Build BOX 2 & 3</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Farewatch 0400 MT Launch</div>
+                    <div class="decision-status status-watch">Auto-refresh start</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Loucks Guest Registration Reminder</div>
+                    <div class="decision-status status-watch">Dani send TP</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Bryana Access Policy (Drive-only)</div>
+                    <div class="decision-status status-watch">Implement + document</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Perx Commission Scraper (Login mode)</div>
+                    <div class="decision-status status-watch">Keep working</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-num">EXECUTING</div>
+                    <div class="decision-title">Nicholson Invoice (Accept TESS)</div>
+                    <div class="decision-status status-watch">Verified $17,653</div>
+                </div>
+
+                <hr style="border: none; border-top: 2px solid #ff9800; margin: 16px 0;">
+
+                <div style="font-size: 12px; color: #666; margin: 12px 0;"><strong>SCHEDULED (Awaiting Gate Conditions):</strong></div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">Grandeur Scandinavia Portal Send (Jul 20)</div>
+                    <div class="decision-status status-watch">Gate: ARN→At Six transfers</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">McLeod TP 1.1 Voyage Preview (Jul 7 overdue)</div>
+                    <div class="decision-status status-watch">Contact hold lifted Jul 6</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">Kuklinski Pre-Voyage Packet (T-20 days)</div>
+                    <div class="decision-status status-watch">Submit draft</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">NotebookLM Setup (Remind Mon 0700)</div>
+                    <div class="decision-status status-watch">Commander action</div>
+                </div>
+
+                <hr style="border: none; border-top: 2px solid #ff9800; margin: 16px 0;">
+
+                <div style="font-size: 12px; color: #666; margin: 12px 0;"><strong>BLOCKED (Awaiting Clarification/Gate):</strong></div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">Westbrook Dossier Merge (Ron/Brent)</div>
+                    <div class="decision-status status-watch">Need: Ron status</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">Gmail MCP Fix (MISSION-GMAIL-FIX)</div>
+                    <div class="decision-status status-watch">P0: 30-min ETA</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">D2M Homepage (Mission-1539)</div>
+                    <div class="decision-status status-watch">Awaiting: Naia design</div>
+                </div>
+
+                <div class="decision-item watch">
+                    <div class="decision-title">Spencer Air Quote (United desk call)</div>
+                    <div class="decision-status status-watch">Awaiting: Round-trip FCO</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ELON INITIATIVES -->
+        <div class="panel">
+            <div class="panel-header">🚀 ELON INITIATIVES — TECH VANGUARD</div>
+            <div class="panel-content">
+                <div class="summary-bar">
+                    <div class="summary-item">
+                        <div class="summary-num">8</div>
+                        <div>Active Trials</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">3</div>
+                        <div>Ready to Launch</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-num">2</div>
+                        <div>Pending Review</div>
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">DeepSeek R1 Reasoning Model Trial</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Position Paper Complete | <strong>Start:</strong> Jul 18 | <strong>Cost:</strong> $0 incremental
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">Qdrant Semantic Search Automation</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Ready to Build | <strong>Duration:</strong> Aug 1-31 | <strong>Owner:</strong> Sterling (A7)
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">CloakBrowser v2 Portal Resilience</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Research Phase | <strong>Trial:</strong> Aug 15-31 | <strong>Target:</strong> ≥98% auth
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">Gemini File Reader Retirement</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Approved | <strong>Timeline:</strong> Aug 1 | <strong>Impact:</strong> Zero revenue loss
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">Groq v1 API Retirement & R1 Migration</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Approved | <strong>Timeline:</strong> Aug 15 | <strong>Replacement:</strong> R1
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">Gmail MCP Authentication Fix</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> MISSION-GMAIL-FIX-20260711 P0 | <strong>ETA:</strong> 30 min | <strong>Issue:</strong> Token path
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">AgentMail 3-Box Infrastructure</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> Build Scheduled | <strong>Boxes:</strong> BOX 1 Ready, BOX 2 & 3 Pending | <strong>Owner:</strong> Hale
+                    </div>
+                </div>
+
+                <div class="initiative-item">
+                    <div class="initiative-title">Farewatch Nightly Automation (0400 MT)</div>
+                    <div class="initiative-status">
+                        <strong>Status:</strong> GO LIVE APPROVED | <strong>Cadence:</strong> Daily 0400 MT | <strong>Alert:</strong> >$50pp
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
