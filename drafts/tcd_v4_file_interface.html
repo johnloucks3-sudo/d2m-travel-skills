@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird Commander Desktop — v4</title>
+<style>
+:root{
+  --navy:#003087;
+  --navy-ink:#001c52;
+  --navy-deep:#000f30;
+  --gold:#d4af37;
+  --gold-soft:#e8cd6f;
+  --cream:#f7f3ea;
+  --cream-dim:#efe9db;
+  --paper:#fffdf7;
+  --ink:#1a1a1a;
+  --ink-muted:#666;
+  --line:#ddd4bd;
+  --critical:#e74c3c;
+  --warning:#f39c12;
+  --good:#2ecc71;
+  --muted:#95a5a6;
+  --strategic:#7b3fa0;
+  --operational:#0e7c86;
+  --reference:#b5891f;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+body{
+  font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+  background:var(--navy-deep);
+  color:var(--ink);
+  overflow:hidden;
+}
+h1,h2,h3,.serif{font-family:Georgia,'Times New Roman',serif;}
+
+/* ===== SHELL ===== */
+#app{
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  width:100vw;
+}
+
+/* ---- top bar ---- */
+#topbar{
+  background:linear-gradient(180deg,var(--navy-ink),var(--navy));
+  color:var(--cream);
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-shrink:0;
+  border-bottom:2px solid var(--gold);
+  box-shadow:0 2px 10px rgba(0,0,0,.4);
+  z-index:30;
+}
+#brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  white-space:nowrap;
+}
+#brand .crest{
+  width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--gold-soft),var(--gold) 60%,#a5811f);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:700;color:var(--navy-ink);
+  box-shadow:0 0 0 2px rgba(255,255,255,.15);
+}
+#brand .title{font-size:15px;font-weight:700;letter-spacing:.4px;}
+#brand .subtitle{font-size:10.5px;color:var(--gold-soft);letter-spacing:1.5px;text-transform:uppercase;}
+
+#searchwrap{
+  flex:1;
+  max-width:520px;
+  position:relative;
+}
+#searchwrap input{
+  width:100%;
+  padding:9px 14px 9px 34px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:var(--cream);
+  font-size:13.5px;
+  outline:none;
+  transition:.15s;
+}
+#searchwrap input::placeholder{color:rgba(247,243,234,.5);}
+#searchwrap input:focus{background:rgba(255,255,255,.16);border-color:var(--gold);}
+#searchwrap .icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6;font-size:13px;}
+
+#statchips{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+.chip{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:14px;
+  padding:5px 11px;
+  font-size:11.5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+}
+.chip b{color:var(--gold-soft);font-size:12.5px;}
+.chip.outbox-chip{border-color:var(--gold);background:rgba(212,175,55,.15);}
+
+/* ---- filter bar ---- */
+#filterbar{
+  background:var(--cream-dim);
+  border-bottom:1px solid var(--line);
+  padding:8px 18px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+  flex-shrink:0;
+}
+.filter-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-muted);font-weight:700;margin-right:2px;}
+.filter-btn{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:12px;
+  padding:4px 11px;
+  font-size:11.5px;
+  cursor:pointer;
+  color:var(--ink);
+  transition:.12s;
+}
+.filter-btn:hover{border-color:var(--navy);}
+.filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.filter-btn.p0.active{background:var(--critical);border-color:var(--critical);}
+.filter-btn.p1.active{background:var(--warning);border-color:var(--warning);}
+
+/* ---- main layout ---- */
+#main{
+  flex:1;
+  display:grid;
+  grid-template-columns:250px 1fr 380px;
+  overflow:hidden;
+  background:var(--cream);
+}
+
+/* ---- left rail (inboxes) ---- */
+#rail{
+  background:var(--paper);
+  border-right:1px solid var(--line);
+  overflow-y:auto;
+  padding:12px 0 40px;
+}
+.inbox-group{margin-bottom:4px;}
+.inbox-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:9px 14px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:13px;
+  user-select:none;
+}
+.inbox-head:hover{background:var(--cream-dim);}
+.inbox-head.selected{background:var(--navy);color:#fff;}
+.inbox-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:8px;flex-shrink:0;}
+.dot-strategic{background:var(--strategic);}
+.dot-operational{background:var(--operational);}
+.dot-reference{background:var(--reference);}
+.dot-outbox{background:var(--gold);}
+.inbox-head-label{display:flex;align-items:center;overflow:hidden;text-overflow:ellipsis;}
+.inbox-count{
+  background:var(--cream-dim);
+  color:var(--ink-muted);
+  border-radius:9px;
+  padding:1px 7px;
+  font-size:10.5px;
+  font-weight:700;
+}
+.inbox-head.selected .inbox-count{background:rgba(255,255,255,.25);color:#fff;}
+.caret{font-size:9px;transition:.15s;opacity:.6;margin-left:6px;}
+.caret.open{transform:rotate(90deg);}
+
+.folder-list{padding-left:14px;overflow:hidden;max-height:0;transition:max-height .2s ease;}
+.folder-list.open{max-height:600px;}
+.folder-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:6px 14px 6px 20px;
+  font-size:12.5px;
+  border-radius:6px;
+  margin:1px 6px;
+  cursor:pointer;
+  color:var(--ink);
+}
+.folder-row:hover{background:var(--cream-dim);}
+.folder-row.active{background:var(--gold-soft);font-weight:700;}
+.folder-row .fcount{color:var(--ink-muted);font-size:10.5px;}
+.folder-row.dragover{outline:2px dashed var(--navy);outline-offset:-2px;background:#eef2fb;}
+.newfolder-btn{
+  margin:4px 12px 8px 20px;
+  font-size:11px;
+  color:var(--navy);
+  background:none;border:1px dashed var(--line);
+  border-radius:6px;
+  padding:5px 8px;
+  cursor:pointer;
+  width:calc(100% - 32px);
+  text-align:left;
+}
+.newfolder-btn:hover{border-color:var(--navy);background:var(--cream-dim);}
+.newfolder-input{
+  margin:4px 12px 8px 20px;
+  width:calc(100% - 32px);
+  font-size:11.5px;
+  padding:5px 7px;
+  border:1px solid var(--navy);
+  border-radius:6px;
+}
+
+/* ---- outbox rail block ---- */
+#outbox-rail{border-top:2px solid var(--gold);margin-top:8px;padding-top:6px;}
+
+/* ---- center: file list ---- */
+#filelist-pane{
+  overflow-y:auto;
+  border-right:1px solid var(--line);
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+}
+#filelist-header{
+  padding:14px 18px 8px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+}
+#filelist-header h2{font-size:17px;margin:0;color:var(--navy-ink);}
+#filelist-header .sub{font-size:11.5px;color:var(--ink-muted);}
+#filelist{padding:4px 10px 30px;flex:1;}
+.file-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:4px solid var(--muted);
+  border-radius:8px;
+  padding:11px 13px;
+  margin-bottom:8px;
+  cursor:grab;
+  transition:.12s;
+  position:relative;
+}
+.file-card:hover{box-shadow:0 3px 10px rgba(0,0,0,.08);transform:translateY(-1px);}
+.file-card.selected{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy) inset;}
+.file-card.p0{border-left-color:var(--critical);}
+.file-card.p1{border-left-color:var(--warning);}
+.file-card.p2{border-left-color:var(--navy);}
+.file-card.routine{border-left-color:var(--muted);}
+.file-card.dragging{opacity:.4;}
+.file-card.unread .fc-title{font-weight:700;}
+.file-card.unread::before{
+  content:'';position:absolute;top:12px;left:-2px;width:7px;height:7px;border-radius:50%;background:var(--navy);
+}
+.fc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;}
+.fc-type{
+  font-size:9.5px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--ink-muted);
+  display:flex;align-items:center;gap:4px;
+}
+.fc-date{font-size:10.5px;color:var(--ink-muted);}
+.fc-title{font-size:13.5px;margin:2px 0 3px;color:var(--ink);}
+.fc-from{font-size:11px;color:var(--navy);font-weight:600;margin-bottom:3px;}
+.fc-snippet{font-size:11.5px;color:var(--ink-muted);line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.fc-tags{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;}
+.tag{background:var(--cream-dim);border:1px solid var(--line);border-radius:9px;padding:1px 8px;font-size:9.5px;color:var(--ink-muted);}
+.fc-quickmove{
+  position:absolute;top:10px;right:10px;
+  font-size:10px;background:var(--navy);color:#fff;border:none;border-radius:5px;
+  padding:3px 7px;cursor:pointer;opacity:0;transition:.12s;
+}
+.file-card:hover .fc-quickmove{opacity:1;}
+.fc-quickmove:hover{background:var(--gold);color:var(--navy-ink);}
+
+#empty-list{padding:40px 20px;text-align:center;color:var(--ink-muted);font-size:13px;}
+
+/* ---- right: detail / outbox pane ---- */
+#detail-pane{
+  background:var(--paper);
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+}
+#detail-empty{
+  flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  color:var(--ink-muted);gap:10px;padding:30px;text-align:center;
+}
+#detail-empty .big{font-size:34px;opacity:.4;}
+.detail-header{padding:18px 20px 12px;border-bottom:1px solid var(--line);}
+.detail-header .dtype{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-muted);font-weight:700;}
+.detail-header h2{font-size:18px;margin:6px 0 8px;color:var(--navy-ink);line-height:1.3;}
+.detail-meta{font-size:11.5px;color:var(--ink-muted);display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;}
+.detail-meta b{color:var(--ink);}
+.priority-pill{border-radius:10px;padding:2px 9px;font-size:10px;font-weight:700;color:#fff;}
+.priority-pill.p0{background:var(--critical);}
+.priority-pill.p1{background:var(--warning);}
+.priority-pill.p2{background:var(--navy);}
+.priority-pill.routine{background:var(--muted);}
+
+.detail-actions{display:flex;gap:8px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--cream-dim);}
+.btn{
+  border:1px solid var(--line);background:var(--paper);border-radius:7px;
+  padding:7px 12px;font-size:12px;cursor:pointer;font-weight:600;color:var(--ink);
+  display:flex;align-items:center;gap:6px;transition:.12s;
+}
+.btn:hover{border-color:var(--navy);}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+.btn.primary:hover{background:var(--navy-ink);}
+.btn.gold{background:var(--gold);color:var(--navy-ink);border-color:var(--gold);}
+.btn.gold:hover{background:var(--gold-soft);}
+.btn.done{background:var(--good);color:#fff;border-color:var(--good);cursor:default;}
+.btn:disabled{opacity:.55;cursor:default;}
+
+.detail-body{padding:16px 20px;font-size:13.5px;line-height:1.65;color:var(--ink);white-space:pre-wrap;border-bottom:1px solid var(--line);}
+
+.detail-comments{padding:14px 20px 20px;}
+.detail-comments h3{font-size:13px;margin:0 0 10px;color:var(--navy-ink);}
+.comment-item{
+  background:var(--cream-dim);border-radius:8px;padding:9px 11px;margin-bottom:8px;font-size:12.5px;
+}
+.comment-item .c-head{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-muted);margin-bottom:4px;}
+.comment-item .c-head b{color:var(--navy);}
+.voice-note{
+  display:flex;align-items:center;gap:8px;background:var(--navy-ink);color:#fff;border-radius:8px;padding:8px 11px;margin-bottom:8px;
+}
+.voice-note .waveform{display:flex;gap:2px;align-items:center;height:16px;flex:1;}
+.voice-note .waveform span{width:2.5px;background:var(--gold-soft);border-radius:2px;}
+.voice-note .vn-play{background:var(--gold);border:none;border-radius:50%;width:24px;height:24px;color:var(--navy-ink);cursor:pointer;font-size:10px;flex-shrink:0;}
+.voice-note .vn-dur{font-size:10.5px;color:var(--gold-soft);flex-shrink:0;}
+
+#comment-input-wrap{margin-top:10px;}
+#comment-input{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:12.5px;
+  font-family:inherit;resize:vertical;min-height:56px;
+}
+.comment-controls{display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px;}
+.record-btn{
+  border:1px solid var(--critical);color:var(--critical);background:#fff;border-radius:16px;
+  padding:6px 13px;font-size:11.5px;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:600;
+}
+.record-btn.recording{background:var(--critical);color:#fff;}
+.record-dot{width:8px;height:8px;border-radius:50%;background:var(--critical);}
+.record-btn.recording .record-dot{animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+/* ---- outbox view ---- */
+.outbox-item{
+  background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:8px;padding:11px 13px;margin-bottom:8px;
+}
+.outbox-item.executed{border-left-color:var(--good);opacity:.75;}
+.ob-top{display:flex;justify-content:space-between;align-items:center;}
+.ob-status{font-size:9.5px;text-transform:uppercase;font-weight:700;letter-spacing:.6px;padding:2px 8px;border-radius:8px;background:var(--gold);color:var(--navy-ink);}
+.outbox-item.executed .ob-status{background:var(--good);color:#fff;}
+.ob-title{font-size:13px;margin:6px 0 3px;font-weight:700;color:var(--ink);}
+.ob-meta{font-size:10.5px;color:var(--ink-muted);}
+.ob-execbtn{margin-top:8px;}
+
+/* ---- drop target hint ---- */
+.dropzone-active .folder-row{outline:1px dashed transparent;}
+
+/* ---- toast ---- */
+#toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--navy-ink);color:var(--cream);padding:11px 20px;border-radius:22px;
+  font-size:12.5px;box-shadow:0 6px 20px rgba(0,0,0,.35);border:1px solid var(--gold);
+  opacity:0;pointer-events:none;transition:.25s;z-index:100;display:flex;align-items:center;gap:8px;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ---- mobile ---- */
+#mobilenav{display:none;}
+@media (max-width:980px){
+  #main{grid-template-columns:1fr;}
+  #rail,#detail-pane{
+    position:fixed;top:96px;bottom:52px;left:0;width:82%;max-width:320px;z-index:20;
+    transform:translateX(-110%);transition:.2s;box-shadow:4px 0 20px rgba(0,0,0,.3);
+  }
+  #detail-pane{left:auto;right:0;width:92%;max-width:420px;transform:translateX(110%);}
+  #rail.show{transform:translateX(0);}
+  #detail-pane.show{transform:translateX(0);}
+  #filelist-pane{border-right:none;}
+  #mobilenav{
+    display:flex;position:fixed;bottom:0;left:0;right:0;height:52px;background:var(--navy-ink);
+    z-index:25;border-top:2px solid var(--gold);
+  }
+  #mobilenav button{
+    flex:1;background:none;border:none;color:var(--cream);font-size:11px;cursor:pointer;
+  }
+  #searchwrap{display:none;}
+  #brand .subtitle{display:none;}
+}
+@media (min-width:981px){
+  #mobilenav{display:none !important;}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div id="topbar">
+    <div id="brand">
+      <div class="crest">TB</div>
+      <div>
+        <div class="title serif">Thunderbird Commander Desktop</div>
+        <div class="subtitle">v4 · File System Interface</div>
+      </div>
+    </div>
+    <div id="searchwrap">
+      <span class="icon">🔍</span>
+      <input id="searchbox" type="text" placeholder="Search files, senders, tags across all inboxes…">
+    </div>
+    <div id="statchips"></div>
+  </div>
+
+  <div id="filterbar">
+    <span class="filter-label">Priority</span>
+    <button class="filter-btn p0" data-priority="p0">P0</button>
+    <button class="filter-btn p1" data-priority="p1">P1</button>
+    <button class="filter-btn" data-priority="p2">P2</button>
+    <button class="filter-btn" data-priority="routine">Routine</button>
+    <span class="filter-label" style="margin-left:10px;">Type</span>
+    <button class="filter-btn" data-type="email">✉ Email</button>
+    <button class="filter-btn" data-type="paper">📄 Position Paper</button>
+    <button class="filter-btn" data-type="decision">⚖ Decision Item</button>
+    <button class="filter-btn" data-type="brief">🗞 Brief</button>
+    <button class="filter-btn" id="clearfilters" style="margin-left:auto;">Clear filters</button>
+  </div>
+
+  <div id="main">
+    <div id="rail"></div>
+    <div id="filelist-pane">
+      <div id="filelist-header">
+        <div>
+          <h2 id="fl-title">Strategic Inbox</h2>
+          <div class="sub" id="fl-sub"></div>
+        </div>
+      </div>
+      <div id="filelist"></div>
+    </div>
+    <div id="detail-pane">
+      <div id="detail-empty">
+        <div class="big">🗂️</div>
+        <div><b>Select a file</b> to read, comment, or move it to the Outbox.</div>
+      </div>
+      <div id="detail-content" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div id="mobilenav">
+    <button data-mnav="rail">☰ Inboxes</button>
+    <button data-mnav="list">📋 Files</button>
+    <button data-mnav="detail">📖 Detail</button>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script>
+/* ============ DATA MODEL ============ */
+const INBOX_META = {
+  strategic:{label:'Strategic', dot:'dot-strategic', desc:'What the Commander must decide — direction, positioning, >90d or >$5K calls.'},
+  operational:{label:'Operational', dot:'dot-operational', desc:'Running the wing day to day — bookings, ops alerts, staff work.'},
+  reference:{label:'Reference', dot:'dot-reference', desc:'Read-only context — standing orders, dossiers, research archive.'},
+  outbox:{label:'Outbox', dot:'dot-outbox', desc:'Decisions made. Items here are queued or executed.'}
+};
+
+let folders = {
+  strategic:[
+    {id:'s-inbox', name:'Inbox', builtin:true},
+    {id:'s-clientstrat', name:'Client Strategy', builtin:true},
+    {id:'s-elon', name:'ELON Tech Vanguard', builtin:true},
+    {id:'s-financial', name:'Financial Commitments', builtin:true}
+  ],
+  operational:[
+    {id:'o-inbox', name:'Inbox', builtin:true},
+    {id:'o-dailyops', name:'Daily Ops', builtin:true},
+    {id:'o-bookings', name:'Bookings & Payments', builtin:true},
+    {id:'o-vendor', name:'Vendor / Portal Issues', builtin:true}
+  ],
+  reference:[
+    {id:'r-inbox', name:'Inbox', builtin:true},
+    {id:'r-so', name:'Standing Orders', builtin:true},
+    {id:'r-dossier', name:'Client Dossiers', builtin:true},
+    {id:'r-research', name:'Research Archive', builtin:true}
+  ]
+};
+
+let files = [
+  // ===== STRATEGIC =====
+  {id:'f1',inbox:'strategic',folder:'s-clientstrat',type:'decision',priority:'p0',unread:true,
+   title:'Kuklinski — accept insurance upgrade before FPD lock?',from:'Dani Moreau · Client Voice',date:'Jul 09',
+   snippet:'Panama Canal Dec sailing FPD hits in 6 days. CFAR upsell adds $410pp — recommend accepting given itinerary volatility this cycle.',
+   body:'Commander —\n\nKuklinski\'s Panama Canal itinerary (Dec 2026) has a final payment deadline in 6 days. Underwriter is offering a Cancel-For-Any-Reason upgrade at $410pp above the standard policy already quoted.\n\nGiven two schedule shifts already on this itinerary and the family\'s stated anxiety about the December window, I recommend accepting the upgrade and rolling it into the FPD invoice rather than a separate charge.\n\nThis is a financial commitment above routine servicing — flagging for your call per the three-gate rule.\n\n— Dani',
+   tags:['financial-gate','FPD','insurance'], comments:[
+     {author:'Sterling',ts:'Jul 09, 14:12',text:'Concur. CFAR is cheap insurance against a rebook cascade — we ate two reissue fees on this file already.'}
+   ]},
+  {id:'f2',inbox:'strategic',folder:'s-elon',type:'paper',priority:'p1',unread:true,
+   title:'ELON Position Paper — DeepSeek R1 trial results & retirement recommendation',from:'A14 Whetstone',date:'Jul 08',
+   snippet:'30-day trial complete. R1 reasoning wins arbitration tasks 4:1 vs Gemini on cost-normalized basis. Recommend Gemini retirement proceeds as scheduled.',
+   body:'PRINCIPAL — WHETSTONE (A14)\n\nSUBJECT: DeepSeek R1 30-day trial closeout\n\nFINDING: R1 reasoning chain outperforms Gemini 2.x on arbitration and tie-break tasks by a 4:1 margin when normalized for token cost. Latency is 1.8x higher but acceptable for non-realtime lanes.\n\nRECOMMENDATION: Proceed with Gemini/Groq retirement per the ELON Tech Vanguard roadmap. Route arbitration lane to R1 permanently, keep Groq only as a speed fallback for sub-second lanes.\n\nThis is adoption-track, non-financial, within Hale\'s gate authority. No Commander action required unless you want to override the retirement timeline.',
+   tags:['ELON','model-routing','trial-complete'], comments:[]},
+  {id:'f3',inbox:'strategic',folder:'s-financial',type:'decision',priority:'p0',unread:false,
+   title:'AgentMail 3-box build — annual commit vs monthly ($1,140 vs $95/mo)',from:'Hale · COS',date:'Jul 07',
+   snippet:'BOX 2/3 build requires plan upgrade. Annual saves 23% but locks a 12-month spend above routine threshold — surfacing per gate 2.',
+   body:'Commander —\n\nCompleting the AgentMail 3-box architecture (BOX 2 for TALON/EAGLE, BOX 3 for WIND/JET) requires upgrading past the free tier. Two options:\n\n• Monthly: $95/mo, cancel anytime\n• Annual: $1,140 up front, 23% effective discount\n\nEither path clears the financial gate since it\'s a recurring commitment. I recommend monthly for the first quarter to validate the 3-box workflow actually gets used before locking in annual.\n\n— Hale',
+   tags:['financial-gate','agentmail','infrastructure'], comments:[]},
+  {id:'f4',inbox:'strategic',folder:'s-clientstrat',type:'paper',priority:'p1',unread:false,
+   title:'Spencer — Grand Tour renewal: propose 2028 European river add-on now or wait for satisfaction survey?',from:'Naia · EXEC',date:'Jul 06',
+   snippet:'Grand Tour trip is the gold-standard proof of concept. Suggest we let the survey land before pitching a follow-on — protects the relationship from feeling transactional.',
+   body:'Commander —\n\nThe Spencers\' Grand Tour package closes out mid-August. Dembe has already scoped a strong 2028 Rhine/Danube river cruise add-on that fits their stated interests.\n\nMy read: pitching the renewal before the post-voyage survey lands risks looking like we\'re selling, not serving — especially with a client this relationship-sensitive. I recommend we wait for survey results, then open the 2028 conversation from a place of "here\'s what you told us you loved."\n\nThis is a sequencing call, not urgent, but wanted your read before Dembe builds the full package.\n\n— Naia',
+   tags:['spencer','client-strategy','sequencing'], comments:[]},
+  {id:'f5',inbox:'strategic',folder:'s-elon',type:'decision',priority:'p1',unread:false,
+   title:'Qdrant semantic memory — expand to full dossier corpus or keep scoped to Wing memory?',from:'A12 Elon',date:'Jul 05',
+   snippet:'Current collection (thunderbird_memories) covers Wing ops only. Expanding to 1,788-file dossier backlog would 10x the index but unlock cross-client pattern search.',
+   body:'Commander —\n\nQdrant is running clean on Wing memory. The open question is whether to expand the collection to cover the full dossier/client-file backlog (roughly 1,788 files per the earlier audit).\n\nUpside: cross-client pattern search ("show me every client who hit an FPD anxiety spike") becomes possible.\nCost: 10x index size, plus a one-time embedding pass that will burn a meaningful token budget.\n\nThis sits above my adoption authority because of the budget spend — recommend Sterling scope the token cost before you decide.\n\n— ELON',
+   tags:['ELON','qdrant','strategic-90d'], comments:[]},
+  {id:'f6',inbox:'strategic',folder:'s-inbox',type:'brief',priority:'p2',unread:false,
+   title:'Decision Inbox Batch 4 — ready on demand (20 items staged)',from:'Hale · COS',date:'Jul 11',
+   snippet:'Batches 1-3 complete, 36 decisions executed autonomously. Batch 4 staged and ready whenever you want it on-screen.',
+   body:'Commander —\n\nBatches 1-3 of the Decision Inbox system are complete — 36 decisions parsed, three-gate logic applied, executed within-gates, logged to the audit trail.\n\nBatch 4 (20 items) is staged and ready. It skews slightly more operational than Batches 1-3 — mostly vendor renewals and routine client-file housekeeping, one financial-gate item (Furlow excursion deposit).\n\nNo action needed from you to keep the system running — just flagging it\'s in the queue whenever you want to work it.\n\n— Hale',
+   tags:['decision-inbox','batch-4'], comments:[]},
+
+  // ===== OPERATIONAL =====
+  {id:'f7',inbox:'operational',folder:'o-bookings',type:'email',priority:'p0',unread:true,
+   title:'Furlow — final excursion deposit due Friday, portal payment link expired',from:'Vendor Portal Watchdog',date:'Jul 11',
+   snippet:'Shore excursion group deposit link (Furlow, Silver Muse Jan 2027) expired overnight. Auto-retry failed twice. Needs manual portal re-issue.',
+   body:'ALERT — Vendor Portal Watchdog\n\nFurlow (Silver Muse, Jan 2027) shore excursion deposit payment link expired at 02:14 MT. Two automated retry attempts against the vendor API both returned HTTP 410 Gone.\n\nDeposit is due Friday EOD. Recommend manual re-issue through the vendor portal today to avoid a late-payment cancellation risk on the excursion block.\n\nRouted to Operational per standard vendor-issue triage.',
+   tags:['furlow','excursion','vendor-issue'], comments:[]},
+  {id:'f8',inbox:'operational',folder:'o-dailyops',type:'brief',priority:'p2',unread:true,
+   title:'EOD Brief — Jul 10',from:'Hale · COS',date:'Jul 10, 18:04',
+   snippet:'12 tasks closed, 2 carried. Gmail MCP token path issue still open (P0). Overnight watchdogs green except itinerary_watchdog flapping.',
+   body:'END OF DAY — Jul 10\n\nCLOSED (12): Decision batch 3 execution, Spencer lunch email staged, Westbrook family disambiguation confirmed, 3 vendor renewals processed, py-spy diagnostic run on hung nexus worker, CI registry cleanup, 4 routine client-file filings.\n\nCARRIED (2): Gmail MCP token path fix (P0, execution path clear, blocked on a manual OAuth consent screen), AgentMail BOX 2/3 build (staged, awaiting your financial-gate call).\n\nWATCHDOGS: itinerary_watchdog_status flapping on restart count — added to restart_flap_detector scope, not yet root-caused. Everything else green.\n\n— Hale',
+   tags:['eod-brief','ops-status'], comments:[]},
+  {id:'f9',inbox:'operational',folder:'o-vendor',type:'email',priority:'p1',unread:false,
+   title:'Regent guest portal — session cookie expiring in 18h, re-scrape scheduled',from:'Regent Keepalive Watchdog',date:'Jul 11',
+   snippet:'ASPXAUTH cookie on Lyons rssc.com session hits 48h expiry tomorrow morning. Re-scrape via CloakBrowser queued for 0500 MT.',
+   body:'Regent Keepalive Watchdog\n\nThe captured guest-portal session (Lyons, rssc.com) is approaching its 48-hour ASPXAUTH expiry window. A scheduled CloakBrowser re-scrape is queued for 0500 MT tomorrow to refresh booking data before the session goes stale.\n\nNo action needed unless the re-scrape fails twice in a row, in which case this escalates to a manual re-login.',
+   tags:['regent','lyons','session-refresh'], comments:[]},
+  {id:'f10',inbox:'operational',folder:'o-bookings',type:'email',priority:'p2',unread:false,
+   title:'Westbrook (Brent/Kim) — payment schedule confirmed, next TP in 22 days',from:'TESS CRM Sync',date:'Jul 10',
+   snippet:'Payment 3 of 4 posted. Next lifecycle touchpoint (60-day preview email) is due 2026-08-02.',
+   body:'TESS CRM Sync — automated\n\nWestbrook (Brent/Kim, active pro-bono file) payment 3 of 4 posted successfully. Booking now 75% funded.\n\nNext lifecycle touchpoint per the canonical 23-TP schedule: 60-day voyage preview email, due 2026-08-02. Will auto-stage into the TP draft queue 5 days prior.\n\nNote: Ron/Lindy Westbrook file remains CANCELLED and archived — do not conflate with this active file.',
+   tags:['westbrook','tp-schedule','tess'], comments:[]},
+  {id:'f11',inbox:'operational',folder:'o-dailyops',type:'brief',priority:'routine',unread:false,
+   title:'Overnight Ops Log — Jul 10/11',from:'Overnight Watchdog Suite',date:'Jul 11, 06:00',
+   snippet:'6 background jobs ran clean. Blackboard sync healthy. No P0/P1 pages fired. Telegram bridge idle (no urgent traffic).',
+   body:'OVERNIGHT OPS — Jul 10 23:00 → Jul 11 06:00\n\n6 scheduled jobs completed without error: blackboard_sync, hourly decision inbox refresh, fare_watch check (amadeus), credential keepalive sweep, home_dir_health scan, session_context_latest regeneration.\n\nNo P0/P1 escalations fired. Telegram bridge stayed idle — no urgent traffic overnight, consistent with channel-discipline policy.\n\nOne minor note: git_dirty_alert flagged an uncommitted state in main repo, non-blocking, filed to Operational for routine cleanup.',
+   tags:['overnight','watchdog','routine'], comments:[]},
+  {id:'f12',inbox:'operational',folder:'o-vendor',type:'decision',priority:'p1',unread:false,
+   title:'Centrav B2B session — re-auth needed, credentials 3 days from expiry',from:'Credential Doomsday Monitor',date:'Jul 09',
+   snippet:'Centrav is the one vendor whose session genuinely expires (per prior false-alarm audit). Live probe confirms — real action needed, not noise.',
+   body:'Credential Doomsday Monitor\n\nCentrav B2B flight-pricing session credentials are 3 days from expiry. Unlike most 🔴 flags on this board (which are usually false alarms from OAuth tokens that auto-renew), Centrav genuinely does expire and needs manual re-authentication.\n\nLive probe confirms this is real, not a stale label. Recommend scheduling the re-auth today rather than waiting for the hard expiry.',
+   tags:['centrav','credentials','verified'], comments:[
+     {author:'Commander',ts:'Jul 09, 09:40',text:'Go ahead and knock this out, don\'t wait on me for routine cred renewals.'}
+   ]},
+  {id:'f13',inbox:'operational',folder:'o-inbox',type:'email',priority:'routine',unread:false,
+   title:'Nancy Lyons — thank-you note re: Regent booking capture',from:'d2mconcierge (Dani)',date:'Jul 08',
+   snippet:'Client reply, warm tone, no action required. Filed for the record — pro bono file, WF-17 waived per standing authorization.',
+   body:'FYI FILE — client reply\n\nNancy wrote back thanking us for pulling her full Regent booking history into one view ("I had no idea I could see all three cruises together like that"). No questions, no action items.\n\nFiled per the closed-loop doctrine: CC/FYI → acknowledged, no further action.',
+   tags:['lyons','client-reply','fyi'], comments:[]},
+
+  // ===== REFERENCE =====
+  {id:'f14',inbox:'reference',folder:'r-so',type:'paper',priority:'routine',unread:true,
+   title:'Standing Order 2026-07-06 — Obstacle-Routing & Independent Verification',from:'Commander',date:'Jul 06',
+   snippet:'Route around obstacles, never stop and ask. Human-only walls: CAPTCHA, new OAuth consent, physical signature. Verify success independently.',
+   body:'STANDING ORDER — 2026-07-06\n\n1. Route around obstacles first. Exhaust every programmatic path before surfacing a blocker to the Commander.\n\n2. Human-only walls are the sole exception: CAPTCHA, a brand-new OAuth scope consent screen, or a physical signature. Everything else gets routed around.\n\n3. Verify success against ground truth. Do not trust a system\'s self-report of success — independently confirm the outcome actually occurred.\n\n4. Document bugs and platform limits durably, same session. Check CC/OC parity whenever a new capability is added.\n\nFull protocol lives in Personas/hale_cos.md.',
+   tags:['standing-order','doctrine'], comments:[]},
+  {id:'f15',inbox:'reference',folder:'r-dossier',type:'paper',priority:'routine',unread:false,
+   title:'Dossier — Kuklinski, J. (Panama Canal, Dec 2026)',from:'Dossier System',date:'Jun 20',
+   snippet:'Voice: Luxury AI Travel Concierge tone, AI-disclosure preface required. Gold-standard sent-diff reference for this client\'s email style.',
+   body:'CLIENT DOSSIER — Kuklinski\n\nItinerary: Panama Canal transit, December 2026 sailing.\n\nVoice notes: Dani\'s "Luxury AI Travel Concierge" register, AI-disclosure preface required on every send per the sent-diff standard captured 2026-06-20. Client responds well to direct, warm, non-melodramatic prose — see voice-learning file for specifics.\n\nStatus: active, FPD approaching (see linked Strategic decision item), insurance upgrade question open.',
+   tags:['kuklinski','dossier','voice-profile'], comments:[]},
+  {id:'f16',inbox:'reference',folder:'r-research',type:'brief',priority:'routine',unread:false,
+   title:'Port Intel — Civitavecchia (FCO) excursion landscape refresh',from:'A2 Dembe',date:'Jun 28',
+   snippet:'GetYourGuide, Silversea-direct, and Shore Excursions Group cross-checked. Food & Wine tier remains the highest-margin upsell category.',
+   body:'RESEARCH BRIEF — Civitavecchia / Rome day-port\n\nMulti-source scrape complete (GYG via Playwright, Silversea-direct, Shore Excursions Group). Cross-referenced against last cycle\'s pricing — modest 4-6% inflation across small-group tours, ship-direct tours flat.\n\nFood & Wine tier remains the standout upsell category by margin — private Trastevere food walks are outperforming the standard Vatican skip-line tours on both booking rate and client satisfaction in post-voyage surveys.\n\nFull excursion-analysis doc available on request via the gold-standard skill pipeline.',
+   tags:['port-intel','excursions','civitavecchia'], comments:[]},
+  {id:'f17',inbox:'reference',folder:'r-so',type:'paper',priority:'routine',unread:false,
+   title:'Three Gates — Hale\'s Authority Ceiling (reference copy)',from:'CLAUDE.md — canonical',date:'evergreen',
+   snippet:'Hale executes autonomously everything except: client send (WF-17), financial commitment, strategic >90d or >$5K. Everything else: rank, execute, report.',
+   body:'THREE GATES — reference copy\n\nHale executes autonomously everything except:\n\n1. Client send (WF-17) — Commander only.\n2. Financial commitment — Commander only.\n3. Strategic decisions >90 days out or >$5,000 — Commander only.\n\nEverything else: rank it, execute it, report it. No permission-seeking questions on items Hale is authorized to decide.',
+   tags:['three-gates','doctrine','evergreen'], comments:[]},
+  {id:'f18',inbox:'reference',folder:'r-dossier',type:'paper',priority:'routine',unread:false,
+   title:'Dossier — Furlow, Missy & John (Silver Muse, Jan 2027) — PAID',from:'Dossier System',date:'Jun 15',
+   snippet:'Payment roadmap fully proof-of-structured. Track C visual card renderer built against this file as the reference case.',
+   body:'CLIENT DOSSIER — Furlow\n\nStatus: PAID in full. Silver Muse, January 2027 sailing.\n\nThis file served as the proof-of-structure reference case for the Track C dossier visual card renderer — payment roadmap, milestone tracking, and card layout were all validated against Furlow\'s actual payment history before rolling the renderer out wing-wide.\n\nNo outstanding financial items. One open operational thread: excursion deposit link issue (see linked Operational alert).',
+   tags:['furlow','dossier','paid'], comments:[]},
+  {id:'f19',inbox:'reference',folder:'r-research',type:'brief',priority:'routine',unread:false,
+   title:'Cruise Line Intel Digest — Jul 10',from:'A2 Dembe',date:'Jul 10',
+   snippet:'Silversea Q3 pricing holding flat. Regent suite rack rates trending up ~3%. No new competitive threats flagged.',
+   body:'CRUISE LINE INTEL — Jul 10 digest\n\nSilversea Q3 pricing holding flat against last digest. Regent suite-category rack rates trending up roughly 3% wing-wide, consistent with the VacationsToGo benchmark (Regent suite ~$24,700 rack, Silversea ~$18,460 comparable).\n\nNo new competitive threats flagged this cycle. Filed to Reference — no action required unless a client\'s active quote is within the window this affects.',
+   tags:['cruise-intel','pricing','digest'], comments:[]},
+  {id:'f20',inbox:'reference',folder:'r-inbox',type:'paper',priority:'routine',unread:false,
+   title:'Canonical Lifecycle — 23 Touchpoints (quick reference)',from:'CLAUDE.md — canonical',date:'evergreen',
+   snippet:'The full client lifecycle map from first contact through post-voyage survey. Used to auto-stage TP drafts on schedule.',
+   body:'CANONICAL LIFECYCLE — 23 TOUCHPOINTS (excerpt)\n\nThe full 23-touchpoint map governs every active client file, from first-contact intake through the post-voyage survey portal. Auto-staging pulls from this schedule to queue TP drafts (e.g. the 60-day voyage preview, the pre-departure checklist, the day-of embarkation note).\n\nFull map lives in reference_canonical_lifecycle_touchpoints — this is the quick-reference excerpt for onboarding new staff personas to the system.',
+   tags:['lifecycle','reference','onboarding'], comments:[]},
+
+  // extra volume to round out 20-30 range
+  {id:'f21',inbox:'strategic',folder:'s-inbox',type:'decision',priority:'p2',unread:false,
+   title:'Staff Room format — add a 6th seat for Legal/Compliance?',from:'Sterling · A7',date:'Jul 04',
+   snippet:'As TESS integration deepens and client PII handling grows, proposing a standing Legal/Compliance seat alongside the existing five.',
+   body:'Commander —\n\nThe Staff Room currently runs five named seats (Hale, Dani, Sterling, Dembe, Harlan). As TESS integration deepens and we\'re handling more client PII across more systems, I want to float adding a sixth seat focused purely on compliance/data-handling review — not to slow anything down, but to have one voice whose whole job is "does this violate anything."\n\nNot urgent. Flagging as a structural question for when you have bandwidth.\n\n— Sterling',
+   tags:['staff-room','structure','proposal'], comments:[]},
+  {id:'f22',inbox:'operational',folder:'o-dailyops',type:'email',priority:'p1',unread:false,
+   title:'Telegram bridge — WhatsApp substitute holding steady, no A2P brand registration progress',from:'Comms Watchdog',date:'Jul 09',
+   snippet:'Real carrier SMS remains blocked pending A2P 10DLC brand registration. WhatsApp continues as the live substitute channel, no incidents.',
+   body:'Comms Watchdog — status\n\nReal carrier SMS to the Commander\'s phone remains blocked — no A2P 10DLC brand registration exists yet for the business line. WhatsApp continues to serve as the live substitute and has had zero delivery incidents this week.\n\nNo action required; filing for the record per cross-channel comms doctrine.',
+   tags:['comms','whatsapp','sms-blocked'], comments:[]},
+  {id:'f23',inbox:'reference',folder:'r-research',type:'brief',priority:'routine',unread:false,
+   title:'Flight Routing Methodology — quick reference card',from:'A2 Dembe',date:'Jun 30',
+   snippet:'Kiwi/ITA for route existence, Google Flights list_all_top for carrier discovery, Centrav (cruise box checked) for final pricing.',
+   body:'FLIGHT ROUTING METHODOLOGY — quick reference\n\nStep 1: Kiwi or ITA Matrix to confirm a route exists at all.\nStep 2: Google Flights list_all_top to discover which carriers actually fly it.\nStep 3: Centrav, with the cruise box checked, for final bookable pricing.\n\nSkipping straight to Centrav without the discovery steps tends to miss carriers and undercount routing options — always walk the full sequence.',
+   tags:['flights','methodology','reference'], comments:[]},
+  {id:'f24',inbox:'strategic',folder:'s-financial',type:'email',priority:'p1',unread:false,
+   title:'Cost Optimization review — Sonnet weekly budget at 64%, no action needed yet',from:'Whetstone · A14',date:'Jul 11',
+   snippet:'Budget chips holding green across Claude MAX weekly, Sonnet weekly, and run count. Flagging only because you asked for visibility, not because anything needs a decision.',
+   body:'Commander —\n\nRoutine budget visibility per your standing request: Claude MAX weekly at 64%, Sonnet weekly at 64%, 3 of 15 runs used today. OpenCode green. Groq/DeepSeek usage unknown this cycle (not yet reconciled from Poe points ledger).\n\nNothing here needs a decision — filed to Strategic/Financial purely for visibility since spend trends live in your lane.\n\n— Whetstone',
+   tags:['budget','visibility','routine'], comments:[]},
+  {id:'f25',inbox:'operational',folder:'o-bookings',type:'decision',priority:'p2',unread:false,
+   title:'Britan, Joe — dossier freshness check due, no active itinerary changes',from:'Dossier Freshness Scanner',date:'Jul 08',
+   snippet:'Routine freshness sweep flagged Britan file as 45 days since last touch. No changes detected upstream — closing as no-action.',
+   body:'Dossier Freshness Scanner\n\nBritan, Joe — file flagged at 45 days since last touch by the freshness proposal scanner. Cross-checked against TESS and Gmail for any upstream itinerary changes: none found.\n\nClosing as no-action. Will re-flag at the next freshness interval if the file continues to age without a natural touchpoint.',
+   tags:['britan','dossier-freshness','no-action'], comments:[]},
+];
+
+let outbox = [
+  {id:'ob1', fileId:'f12', title:'Centrav B2B re-auth', executed:true, execDate:'Jul 09, 09:52', from:'moved from Operational'},
+];
+
+/* ============ STATE ============ */
+let state = {
+  currentInbox:'strategic',
+  currentFolder:'s-inbox',
+  currentFile:null,
+  expanded:{strategic:true, operational:false, reference:false, outbox:false},
+  query:'',
+  activePriority:null,
+  activeType:null,
+  recording:false,
+  recordTimer:null,
+  recordSeconds:0,
+  draggedFileId:null
+};
+
+/* ============ HELPERS ============ */
+function esc(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function typeIcon(t){return {email:'✉',paper:'📄',decision:'⚖',brief:'🗞'}[t]||'📁';}
+function priorityLabel(p){return {p0:'P0 CRITICAL',p1:'P1 HIGH',p2:'P2 STANDARD',routine:'ROUTINE'}[p]||p;}
+function foldersFor(inbox){return folders[inbox]||[];}
+function filesInFolder(inbox,folderId){return files.filter(f=>f.inbox===inbox && f.folder===folderId);}
+function folderCount(inbox,folderId){return filesInFolder(inbox,folderId).length;}
+function inboxCount(inbox){return files.filter(f=>f.inbox===inbox).length;}
+function unreadCount(inbox){return files.filter(f=>f.inbox===inbox && f.unread).length;}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+/* ============ RENDER: STAT CHIPS ============ */
+function renderStats(){
+  const el=document.getElementById('statchips');
+  const queued=outbox.filter(o=>!o.executed).length;
+  const executed=outbox.filter(o=>o.executed).length;
+  el.innerHTML=`
+    <div class="chip"><span class="inbox-dot dot-strategic"></span>Strategic <b>${inboxCount('strategic')}</b></div>
+    <div class="chip"><span class="inbox-dot dot-operational"></span>Ops <b>${inboxCount('operational')}</b></div>
+    <div class="chip"><span class="inbox-dot dot-reference"></span>Ref <b>${inboxCount('reference')}</b></div>
+    <div class="chip outbox-chip"><span class="inbox-dot dot-outbox"></span>Outbox <b>${queued}</b> queued · ${executed} done</div>
+  `;
+}
+
+/* ============ RENDER: LEFT RAIL ============ */
+function renderRail(){
+  const rail=document.getElementById('rail');
+  let html='';
+  ['strategic','operational','reference'].forEach(inboxKey=>{
+    const meta=INBOX_META[inboxKey];
+    const open=state.expanded[inboxKey];
+    const selected=state.currentInbox===inboxKey;
+    html+=`<div class="inbox-group">
+      <div class="inbox-head ${selected?'selected':''}" data-inbox="${inboxKey}">
+        <span class="inbox-head-label"><span class="inbox-dot ${meta.dot}"></span>${meta.label}${unreadCount(inboxKey)?` <span style="opacity:.7;font-weight:400;">(${unreadCount(inboxKey)} new)</span>`:''}</span>
+        <span style="display:flex;align-items:center;">
+          <span class="inbox-count">${inboxCount(inboxKey)}</span>
+          <span class="caret ${open?'open':''}">▶</span>
+        </span>
+      </div>
+      <div class="folder-list ${open?'open':''}" data-folderlist="${inboxKey}">`;
+    foldersFor(inboxKey).forEach(f=>{
+      const active=selected && state.currentFolder===f.id;
+      html+=`<div class="folder-row ${active?'active':''}" data-inbox="${inboxKey}" data-folder="${f.id}">
+        <span>📁 ${esc(f.name)}</span><span class="fcount">${folderCount(inboxKey,f.id)}</span>
+      </div>`;
+    });
+    html+=`<button class="newfolder-btn" data-newfolder="${inboxKey}">+ New Folder</button>
+      </div>
+    </div>`;
+  });
+
+  // outbox block
+  const obOpen=state.expanded.outbox;
+  const queued=outbox.filter(o=>!o.executed).length;
+  html+=`<div class="inbox-group" id="outbox-rail">
+    <div class="inbox-head ${state.currentInbox==='outbox'?'selected':''}" data-inbox="outbox">
+      <span class="inbox-head-label"><span class="inbox-dot dot-outbox"></span>Outbox</span>
+      <span style="display:flex;align-items:center;">
+        <span class="inbox-count">${queued}</span>
+        <span class="caret ${obOpen?'open':''}">▶</span>
+      </span>
+    </div>
+  </div>`;
+
+  rail.innerHTML=html;
+  attachRailEvents();
+}
+
+function attachRailEvents(){
+  document.querySelectorAll('.inbox-head[data-inbox]').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const inbox=h.dataset.inbox;
+      if(inbox==='outbox'){
+        state.currentInbox='outbox';
+        state.currentFile=null;
+        renderAll();
+        showMobile('list');
+        return;
+      }
+      state.expanded[inbox]=!state.expanded[inbox];
+      if(state.currentInbox!==inbox){
+        state.currentInbox=inbox;
+        state.currentFolder=foldersFor(inbox)[0].id;
+        state.expanded[inbox]=true;
+      }
+      renderAll();
+    });
+  });
+  document.querySelectorAll('.folder-row').forEach(r=>{
+    r.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      state.currentInbox=r.dataset.inbox;
+      state.currentFolder=r.dataset.folder;
+      renderAll();
+      showMobile('list');
+    });
+    r.addEventListener('dragover',e=>{e.preventDefault();r.classList.add('dragover');});
+    r.addEventListener('dragleave',()=>r.classList.remove('dragover'));
+    r.addEventListener('drop',e=>{
+      e.preventDefault();r.classList.remove('dragover');
+      const fid=state.draggedFileId;
+      if(!fid)return;
+      const f=files.find(x=>x.id===fid);
+      if(f){ f.inbox=r.dataset.inbox; f.folder=r.dataset.folder; toast(`Moved "${f.title.slice(0,40)}…" to ${INBOX_META[f.inbox].label} / ${folders[f.inbox].find(fo=>fo.id===f.folder).name}`); renderAll(); }
+    });
+  });
+  document.querySelectorAll('[data-newfolder]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const inboxKey=btn.dataset.newfolder;
+      const input=document.createElement('input');
+      input.className='newfolder-input';
+      input.placeholder='Folder name… Enter to save';
+      btn.replaceWith(input);
+      input.focus();
+      function commit(){
+        const val=input.value.trim();
+        if(val){
+          const id=inboxKey[0]+'-custom-'+Date.now();
+          folders[inboxKey].push({id,name:val,builtin:false});
+          toast(`Created folder "${val}" in ${INBOX_META[inboxKey].label}`);
+        }
+        renderAll();
+      }
+      input.addEventListener('keydown',e=>{
+        if(e.key==='Enter')commit();
+        if(e.key==='Escape')renderAll();
+      });
+      input.addEventListener('blur',commit);
+    });
+  });
+}
+
+/* ============ RENDER: FILE LIST ============ */
+function matchesFilters(f){
+  if(state.activePriority && f.priority!==state.activePriority)return false;
+  if(state.activeType && f.type!==state.activeType)return false;
+  if(state.query){
+    const q=state.query.toLowerCase();
+    const hay=(f.title+' '+f.from+' '+f.snippet+' '+(f.tags||[]).join(' ')).toLowerCase();
+    if(!hay.includes(q))return false;
+  }
+  return true;
+}
+
+function renderFileList(){
+  const header=document.getElementById('fl-title');
+  const sub=document.getElementById('fl-sub');
+  const list=document.getElementById('filelist');
+
+  let pool;
+  if(state.currentInbox==='outbox'){
+    header.textContent='Outbox — Execution Queue';
+    sub.textContent=`${outbox.filter(o=>!o.executed).length} queued · ${outbox.filter(o=>o.executed).length} executed`;
+    renderOutboxList();
+    return;
+  }
+
+  const searching = !!state.query;
+  if(searching){
+    pool = files.filter(matchesFilters);
+    header.textContent = 'All Inboxes — search results for "' + state.query + '"';
+  } else {
+    pool = filesInFolder(state.currentInbox,state.currentFolder).filter(matchesFilters);
+    const folderName = (folders[state.currentInbox].find(f=>f.id===state.currentFolder)||{}).name||'';
+    header.textContent = INBOX_META[state.currentInbox].label + ' / ' + folderName;
+  }
+  sub.textContent = searching ? (pool.length+' match'+(pool.length===1?'':'es')+' across Strategic, Operational & Reference') : INBOX_META[state.currentInbox].desc;
+
+  if(pool.length===0){
+    list.innerHTML=`<div id="empty-list">No files match here.<br>Try clearing filters or check another folder.</div>`;
+    return;
+  }
+
+  pool.sort((a,b)=>{
+    const order={p0:0,p1:1,p2:2,routine:3};
+    return order[a.priority]-order[b.priority];
+  });
+
+  list.innerHTML = pool.map(f=>`
+    <div class="file-card ${f.priority} ${f.unread?'unread':''} ${state.currentFile===f.id?'selected':''}" draggable="true" data-fileid="${f.id}">
+      <button class="fc-quickmove" data-quickmove="${f.id}">Move to Outbox ▸</button>
+      <div class="fc-top">
+        <span class="fc-type">${typeIcon(f.type)} ${f.type}${searching?` · <span style="color:var(--${f.inbox==='strategic'?'strategic':f.inbox==='operational'?'operational':'reference'});">${INBOX_META[f.inbox].label}</span>`:''}</span>
+        <span class="fc-date">${f.date}</span>
+      </div>
+      <div class="fc-title">${esc(f.title)}</div>
+      <div class="fc-from">${esc(f.from)}</div>
+      <div class="fc-snippet">${esc(f.snippet)}</div>
+      <div class="fc-tags">
+        <span class="tag" style="background:${f.priority==='p0'?'#fde8e6':f.priority==='p1'?'#fdf1de':'var(--cream-dim)'};font-weight:700;">${priorityLabel(f.priority)}</span>
+        ${(f.tags||[]).slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
+        ${f.comments && f.comments.length ? `<span class="tag">💬 ${f.comments.length}</span>`:''}
+      </div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('.file-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const fid=card.dataset.fileid;
+      openFile(fid);
+    });
+    card.addEventListener('dragstart',()=>{
+      state.draggedFileId=card.dataset.fileid;
+      card.classList.add('dragging');
+    });
+    card.addEventListener('dragend',()=>{
+      card.classList.remove('dragging');
+      state.draggedFileId=null;
+    });
+  });
+  document.querySelectorAll('[data-quickmove]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      moveToOutbox(btn.dataset.quickmove);
+    });
+  });
+}
+
+function renderOutboxList(){
+  const list=document.getElementById('filelist');
+  if(outbox.length===0){
+    list.innerHTML=`<div id="empty-list">Outbox is empty. Move a file here to mark a decision as made.</div>`;
+    return;
+  }
+  const sorted=[...outbox].sort((a,b)=> (a.executed===b.executed)?0:(a.executed?1:-1));
+  list.innerHTML = sorted.map(o=>`
+    <div class="outbox-item ${o.executed?'executed':''}">
+      <div class="ob-top">
+        <span class="ob-status">${o.executed?'✓ Executed':'Queued'}</span>
+        <span class="ob-meta">${o.execDate||'just now'}</span>
+      </div>
+      <div class="ob-title">${esc(o.title)}</div>
+      <div class="ob-meta">${esc(o.from)}</div>
+      ${!o.executed?`<button class="btn primary ob-execbtn" data-execute="${o.id}">Mark Executed</button>`:''}
+    </div>
+  `).join('');
+  document.querySelectorAll('[data-execute]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const o=outbox.find(x=>x.id===btn.dataset.execute);
+      o.executed=true;
+      o.execDate='just now';
+      toast('Marked executed — decision closed out.');
+      renderAll();
+    });
+  });
+}
+
+/* ============ RENDER: DETAIL PANE ============ */
+function openFile(fid){
+  state.currentFile=fid;
+  const f=files.find(x=>x.id===fid);
+  if(f)f.unread=false;
+  renderAll();
+  showMobile('detail');
+}
+
+function renderDetail(){
+  const empty=document.getElementById('detail-empty');
+  const content=document.getElementById('detail-content');
+  if(!state.currentFile){
+    empty.style.display='flex';
+    content.style.display='none';
+    return;
+  }
+  const f=files.find(x=>x.id===state.currentFile);
+  if(!f){empty.style.display='flex';content.style.display='none';return;}
+
+  empty.style.display='none';
+  content.style.display='flex';
+  content.style.flexDirection='column';
+
+  const isInOutbox = outbox.some(o=>o.fileId===f.id);
+
+  content.innerHTML = `
+    <div class="detail-header">
+      <div class="dtype">${typeIcon(f.type)} ${f.type} · ${INBOX_META[f.inbox].label}</div>
+      <h2 class="serif">${esc(f.title)}</h2>
+      <div class="detail-meta">
+        <span><b>${esc(f.from)}</b></span>
+        <span>${f.date}</span>
+        <span class="priority-pill ${f.priority}">${priorityLabel(f.priority)}</span>
+      </div>
+      <div class="fc-tags">${(f.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+    </div>
+    <div class="detail-actions">
+      <button class="btn ${isInOutbox?'done':'gold'}" id="btn-move" ${isInOutbox?'disabled':''}>${isInOutbox?'✓ In Outbox':'📤 Move to Outbox'}</button>
+      <button class="btn" id="btn-newsub">📁 File in New Subfolder</button>
+      <button class="btn" id="btn-archive">🗄 Archive to Reference</button>
+    </div>
+    <div class="detail-body">${esc(f.body)}</div>
+    <div class="detail-comments">
+      <h3>Comments & Voice Notes (${f.comments.length})</h3>
+      <div id="comment-list">
+        ${f.comments.map(c=> c.voice ? `
+          <div class="voice-note">
+            <button class="vn-play">▶</button>
+            <div class="waveform">${buildWaveform()}</div>
+            <span class="vn-dur">${c.dur}</span>
+          </div>
+          <div class="comment-item" style="margin-top:-4px;"><div class="c-head"><b>${esc(c.author)}</b><span>${c.ts}</span></div></div>
+        ` : `
+          <div class="comment-item">
+            <div class="c-head"><b>${esc(c.author)}</b><span>${c.ts}</span></div>
+            <div>${esc(c.text)}</div>
+          </div>
+        `).join('') || '<div style="font-size:12px;color:var(--ink-muted);">No comments yet — be the first to weigh in.</div>'}
+      </div>
+      <div id="comment-input-wrap">
+        <textarea id="comment-input" placeholder="Add a comment for the Wing…"></textarea>
+        <div class="comment-controls">
+          <button class="record-btn" id="record-btn"><span class="record-dot"></span>Record Voice Note</button>
+          <button class="btn primary" id="btn-addcomment">Add Comment</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('btn-move').addEventListener('click',()=>moveToOutbox(f.id));
+  document.getElementById('btn-archive').addEventListener('click',()=>{
+    f.inbox='reference';
+    f.folder='r-research';
+    toast('Archived to Reference / Research Archive.');
+    renderAll();
+  });
+  document.getElementById('btn-newsub').addEventListener('click',()=>{
+    const name=prompt('New subfolder name for '+INBOX_META[f.inbox].label+':');
+    if(name && name.trim()){
+      const id=f.inbox[0]+'-custom-'+Date.now();
+      folders[f.inbox].push({id,name:name.trim(),builtin:false});
+      f.folder=id;
+      toast(`Created "${name.trim()}" and filed this item there.`);
+      renderAll();
+    }
+  });
+  document.getElementById('btn-addcomment').addEventListener('click',()=>{
+    const ta=document.getElementById('comment-input');
+    const val=ta.value.trim();
+    if(!val)return;
+    f.comments.push({author:'Commander',ts:'just now',text:val});
+    toast('Comment added.');
+    renderAll();
+  });
+  document.getElementById('record-btn').addEventListener('click',()=>toggleRecording(f));
+}
+
+function buildWaveform(){
+  let bars='';
+  for(let i=0;i<28;i++){
+    const h=6+Math.round(Math.random()*14);
+    bars+=`<span style="height:${h}px;"></span>`;
+  }
+  return bars;
+}
+
+function toggleRecording(f){
+  const btn=document.getElementById('record-btn');
+  if(!state.recording){
+    state.recording=true;
+    state.recordSeconds=0;
+    btn.classList.add('recording');
+    btn.innerHTML=`<span class="record-dot"></span>Recording… 0:00 (click to stop)`;
+    state.recordTimer=setInterval(()=>{
+      state.recordSeconds++;
+      const m=Math.floor(state.recordSeconds/60), s=(state.recordSeconds%60).toString().padStart(2,'0');
+      if(document.getElementById('record-btn'))
+        document.getElementById('record-btn').innerHTML=`<span class="record-dot"></span>Recording… ${m}:${s} (click to stop)`;
+    },1000);
+  } else {
+    state.recording=false;
+    clearInterval(state.recordTimer);
+    const m=Math.floor(state.recordSeconds/60), s=(state.recordSeconds%60).toString().padStart(2,'0');
+    const dur = state.recordSeconds<1 ? '0:01' : `${m}:${s}`;
+    f.comments.push({author:'Commander',ts:'just now',voice:true,dur});
+    toast('Voice note attached ('+dur+').');
+    renderAll();
+  }
+}
+
+/* ============ ACTIONS ============ */
+function moveToOutbox(fileId){
+  const f=files.find(x=>x.id===fileId);
+  if(!f)return;
+  if(outbox.some(o=>o.fileId===fileId)){toast('Already in Outbox.');return;}
+  outbox.push({
+    id:'ob-'+Date.now(),
+    fileId:f.id,
+    title:f.title,
+    executed:false,
+    execDate:null,
+    from:`decided — moved from ${INBOX_META[f.inbox].label}`
+  });
+  toast('Moved to Outbox — decision queued for execution.');
+  renderAll();
+}
+
+/* ============ SEARCH / FILTERS ============ */
+document.getElementById('searchbox').addEventListener('input',(e)=>{
+  state.query=e.target.value;
+  renderFileList();
+});
+
+document.querySelectorAll('.filter-btn[data-priority]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const p=btn.dataset.priority;
+    state.activePriority = state.activePriority===p ? null : p;
+    document.querySelectorAll('.filter-btn[data-priority]').forEach(b=>b.classList.toggle('active', b.dataset.priority===state.activePriority));
+    renderFileList();
+  });
+});
+document.querySelectorAll('.filter-btn[data-type]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const t=btn.dataset.type;
+    state.activeType = state.activeType===t ? null : t;
+    document.querySelectorAll('.filter-btn[data-type]').forEach(b=>b.classList.toggle('active', b.dataset.type===state.activeType));
+    renderFileList();
+  });
+});
+document.getElementById('clearfilters').addEventListener('click',()=>{
+  state.activePriority=null; state.activeType=null; state.query='';
+  document.getElementById('searchbox').value='';
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  renderFileList();
+});
+
+/* ============ MOBILE NAV ============ */
+function showMobile(which){
+  if(window.innerWidth>980)return;
+  document.getElementById('rail').classList.remove('show');
+  document.getElementById('detail-pane').classList.remove('show');
+  if(which==='rail')document.getElementById('rail').classList.add('show');
+  if(which==='detail')document.getElementById('detail-pane').classList.add('show');
+}
+document.querySelectorAll('[data-mnav]').forEach(btn=>{
+  btn.addEventListener('click',()=>showMobile(btn.dataset.mnav));
+});
+
+/* ============ MAIN RENDER ============ */
+function renderAll(){
+  renderStats();
+  renderRail();
+  renderFileList();
+  renderDetail();
+}
+renderAll();
+</script>
+</body>
+</html>
