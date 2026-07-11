@@ -141,6 +141,8 @@ class Handler(BaseHTTPRequestHandler):
         path = self.path.split("?")[0]
         if path == "/api/data":
             return self._json(200, merged_data())
+        if path == "/api/briefing":
+            return self._json(200, tcd_data.build_briefing(tcd_data._load_json(tcd_data.HALE_STATE, {})))
         if path == "/" or path == "/index.html":
             if not FRONTEND.is_file():
                 return self._send(500, b'{"error":"frontend not built yet"}')

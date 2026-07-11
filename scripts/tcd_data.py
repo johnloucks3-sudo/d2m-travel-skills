@@ -186,6 +186,42 @@ def build_outbox():
     return outbox
 
 
+def build_briefing(state):
+    alerts = sorted(
+        [a for a in state.get("deferred_alerts", []) if a.get("priority") in ("P0", "P1")],
+        key=lambda a: (a.get("priority"), a.get("trigger_date", "")),
+    )
+    fp = state.get("financial_pulse", {})
+    wh = state.get("wing_health", {})
+    open_tasks = state.get("open_tasks", [])
+    return {
+        "alerts": [{
+            "id": a["id"], "priority": a.get("priority"), "message": a.get("message", ""),
+            "client": a.get("client", ""), "trigger_date": a.get("trigger_date", ""),
+            "amount": a.get("amount"),
+        } for a in alerts],
+        "financial_pulse": {
+            "pipeline_total": fp.get("total_d2m_pipeline"),
+            "sheet_bookings": fp.get("sheet_bookings"),
+            "last_checked": fp.get("last_checked", ""),
+            "note": fp.get("harlan_note", "") or fp.get("pipeline_note", ""),
+        },
+        "wing_health": {
+            "mcp_server": wh.get("mcp_server", ""),
+            "opencode_status": wh.get("opencode_status", ""),
+            "telegram_bot": wh.get("telegram_bot", ""),
+            "last_health_check": wh.get("last_health_check", ""),
+        },
+        "stats": {
+            "open_tasks_p0": len([t for t in open_tasks if t.get("priority") == "P0"]),
+            "open_tasks_total": len(open_tasks),
+            "p0_alerts": len([a for a in alerts if a.get("priority") == "P0"]),
+            "p1_alerts": len([a for a in alerts if a.get("priority") == "P1"]),
+        },
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+
 def build_data():
     state = _load_json(HALE_STATE, {})
     files = build_strategic(state) + build_operational(state) + build_reference()
