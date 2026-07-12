@@ -60,6 +60,14 @@ def gmail_search_link(query: str) -> str:
     return f"{GMAIL_BASE}{quote(q, safe='')}"
 
 
+def sms_permalink(phone_number: str) -> str:
+    """No web resource exists for a single SMS record — an ``sms:`` URI
+    (opens the device's own messaging app to that number) is the genuinely
+    useful action-link here: reply directly, not just "view" a dead end."""
+    phone = (phone_number or "").strip()
+    return f"sms:{phone}" if phone else ""
+
+
 def keep_permalink(note_id: str) -> str:
     """Web permalink to a specific Keep note. gkeepapi's note.id round-trips
     directly into keep.google.com's URL fragment — no header/re-derivation
@@ -100,6 +108,8 @@ def derive_link(item: dict) -> str:
         return first_nonempty(permalink, gmail_search_link(item.get("title", "")))
     if fid.startswith("keep-"):
         return keep_permalink(fid[len("keep-"):])
+    if fid.startswith("sms-"):
+        return sms_permalink(item.get("from", ""))
     if item.get("htmlLink"):
         return item["htmlLink"]                 # Calendar
     if item.get("webViewLink"):
@@ -134,6 +144,8 @@ def derive_source_path(item: dict) -> str:
         return f"gmail:{fid[len('gmail-'):]}"
     if fid.startswith("keep-"):
         return f"keep:{fid[len('keep-'):]}"
+    if fid.startswith("sms-"):
+        return f"sms-gateway:{fid[len('sms-'):]}"
     if fid.startswith("so-"):
         return f"standing_orders/{fid[len('so-'):]}.md"
     if fid.startswith("dossier-"):

@@ -41,6 +41,25 @@ class TestGmailPermalink:
         assert "rfc822msgid:" in link
 
 
+class TestSmsPermalink:
+    def test_builds_sms_uri(self):
+        assert permalink.sms_permalink("+17195551234") == "sms:+17195551234"
+
+    def test_strips_whitespace(self):
+        assert permalink.sms_permalink("  +17195551234  ") == "sms:+17195551234"
+
+    def test_empty_number_returns_blank(self):
+        assert permalink.sms_permalink("") == ""
+        assert permalink.sms_permalink("   ") == ""
+
+    def test_derive_link_routes_sms_items(self):
+        item = {"id": "sms-m1", "title": "SMS from +17195551234", "from": "+17195551234"}
+        assert permalink.derive_link(item) == "sms:+17195551234"
+
+    def test_derive_source_path_routes_sms_items(self):
+        assert permalink.derive_source_path({"id": "sms-m1"}) == "sms-gateway:m1"
+
+
 class TestDriveAndGmailSearch:
     def test_drive_search_link_encodes_query(self):
         link = permalink.drive_search_link("Nancy Lyons")

@@ -147,11 +147,44 @@ def collect_keep(max_results: int = 30) -> list:
     return items
 
 
-def collect_all(include_gmail: bool = True, include_keep: bool = True) -> list:
+def collect_sms(limit: int = 30) -> list:
+    """Recent inbound SMS (Android gateway) as legacy item dicts, feeding
+    Operational. Soft-fails to [] if the gateway isn't configured yet
+    (docs/TCD_ANDROID_SMS_SETUP.md) or unreachable — same fail-soft contract
+    as Gmail/Keep so a missing/offline phone never breaks the sync."""
+    try:
+        sms_mod = _imports.load_sms_gateway()
+        messages = sms_mod.poll_inbox(limit=limit)
+    except Exception as e:
+        print(f"tcd.collectors: sms gateway unavailable: {e}", file=sys.stderr)
+        return []
+
+    items = []
+    for m in messages:
+        msg_id = m.get("id", "")
+        if not msg_id:
+            continue
+        text = m.get("text", "")
+        sender = m.get("sender", "unknown")
+        items.append({
+            "id": f"sms-{msg_id}", "inbox": "operational", "folder": "o-inbox",
+            "type": "email", "priority": "p2", "unread": True,
+            "title": f"SMS from {sender}", "from": sender,
+            "date": (m.get("receivedAt", "") or "")[:10],
+            "snippet": text[:220], "body": text,
+            "tags": ["sms", sender], "comments": [],
+        })
+    return items
+
+
+def collect_all(include_gmail: bool = True, include_keep: bool = True,
+                include_sms: bool = True) -> list:
     """All sources → list[Item], each with a non-empty source deep-link."""
     raw = list(collect_local())
     if include_gmail:
         raw = collect_gmail() + raw
     if include_keep:
         raw = raw + collect_keep()
+    if include_sms:
+        raw = raw + collect_sms()
     return [_enrich(item) for item in raw]

@@ -27,15 +27,23 @@ CONFIG_PATH = ROOT / "config" / "tcd_sheet_config.json"
 SHEET_TITLE = "Thunderbird Commander Desktop — Items"
 TAB_NAME = "Items"
 
+# Phase 3 — Intel / Tech Scans / Next 7 Days read-only dashboard tabs, same
+# spreadsheet, same SHEET_COLUMNS shape (so Looker Studio reads them exactly
+# like the Items tab). Each entry: (tab name, section.collect_* function).
+SECTION_TABS = ("Intel", "TechScans", "Next7")
 
-def collect_rows(include_gmail: bool = True, include_keep: bool = True) -> list:
+
+def collect_rows(include_gmail: bool = True, include_keep: bool = True,
+                 include_sms: bool = True) -> list:
     """List of SHEET_COLUMNS-keyed dicts, one per item."""
     return [item.to_dict() for item in
-            collect_all(include_gmail=include_gmail, include_keep=include_keep)]
+            collect_all(include_gmail=include_gmail, include_keep=include_keep,
+                       include_sms=include_sms)]
 
 
-def _dry_run(out_path: str, include_gmail: bool, include_keep: bool) -> int:
-    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep)
+def _dry_run(out_path: str, include_gmail: bool, include_keep: bool, include_sms: bool) -> int:
+    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep,
+                        include_sms=include_sms)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "columns": SHEET_COLUMNS,
@@ -77,7 +85,7 @@ def _create_sheet(sheets):
     return ss["spreadsheetId"], ss["spreadsheetUrl"]
 
 
-def _live_sync(include_gmail: bool, include_keep: bool = True,
+def _live_sync(include_gmail: bool, include_keep: bool = True, include_sms: bool = True,
                skip_writeback: bool = False) -> int:
     gauth = _imports.load_google_auth()
     sheets = gauth.get_sheets()
@@ -107,7 +115,8 @@ def _live_sync(include_gmail: bool, include_keep: bool = True,
             print(f"[writeback] WARNING {len(wb['errors'])} action(s) failed: "
                   f"{wb['errors'][:3]}", file=sys.stderr)
 
-    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep)
+    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep,
+                        include_sms=include_sms)
     values = [SHEET_COLUMNS] + [[r.get(c, "") for c in SHEET_COLUMNS] for r in rows]
 
     # Idempotent full rewrite: clear the tab, then write header + rows.
@@ -138,15 +147,18 @@ def main(argv=None) -> int:
                     help="Skip the Gmail collectors (local sources only).")
     ap.add_argument("--no-keep", action="store_true",
                     help="Skip the Keep collector.")
+    ap.add_argument("--no-sms", action="store_true",
+                    help="Skip the SMS gateway collector.")
     ap.add_argument("--no-writeback", action="store_true",
                     help="Skip the write-back pass (collect+push only).")
     args = ap.parse_args(argv)
 
     include_gmail = not args.no_gmail
     include_keep = not args.no_keep
+    include_sms = not args.no_sms
     if args.dry_run:
-        return _dry_run(args.out, include_gmail, include_keep)
-    return _live_sync(include_gmail, include_keep=include_keep,
+        return _dry_run(args.out, include_gmail, include_keep, include_sms)
+    return _live_sync(include_gmail, include_keep=include_keep, include_sms=include_sms,
                       skip_writeback=args.no_writeback)
 
 

@@ -50,3 +50,8 @@ def load_keep():
     """Existing gkeepapi/master-token Keep integration (repo or box layout).
     Consumer-account path — no Workspace/service-account needed."""
     return _first_import(["api.thunderbird_keep", "thunderbird_keep"])
+
+
+def load_sms_gateway():
+    """Android SMS gateway client (see docs/TCD_ANDROID_SMS_SETUP.md)."""
+    return _first_import(["tcd.sms_gateway", "sms_gateway"])

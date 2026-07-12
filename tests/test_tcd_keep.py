@@ -120,3 +120,48 @@ class TestKeepCollector:
         # search fallback.
         enriched = [collectors._enrich(i) for i in collectors.collect_keep()]
         assert enriched[0].link == "https://keep.google.com/#NOTE/n1"
+
+
+class TestSmsCollector:
+    def _install_fake_sms_module(self, monkeypatch, messages):
+        fake = types.ModuleType("sms_gateway")
+        fake.poll_inbox = lambda limit=30: messages
+        monkeypatch.setitem(sys.modules, "sms_gateway", fake)
+        monkeypatch.setitem(sys.modules, "tcd.sms_gateway", fake)
+
+    def test_collect_sms_maps_messages_to_items(self, monkeypatch):
+        from tcd import collectors
+        messages = [
+            {"id": "m1", "sender": "+17195551234", "text": "Client question",
+             "receivedAt": "2026-07-12T10:00:00Z"},
+        ]
+        self._install_fake_sms_module(monkeypatch, messages)
+        items = collectors.collect_sms()
+        assert len(items) == 1
+        assert items[0]["id"] == "sms-m1"
+        assert items[0]["inbox"] == "operational"
+        assert items[0]["from"] == "+17195551234"
+
+    def test_collect_sms_skips_messages_without_id(self, monkeypatch):
+        from tcd import collectors
+        messages = [{"id": "", "sender": "+1", "text": "x", "receivedAt": ""}]
+        self._install_fake_sms_module(monkeypatch, messages)
+        assert collectors.collect_sms() == []
+
+    def test_collect_sms_failure_returns_empty_not_raises(self, monkeypatch):
+        from tcd import collectors
+        fake = types.ModuleType("sms_gateway")
+        def boom(limit=30):
+            raise RuntimeError("gateway not configured")
+        fake.poll_inbox = boom
+        monkeypatch.setitem(sys.modules, "sms_gateway", fake)
+        monkeypatch.setitem(sys.modules, "tcd.sms_gateway", fake)
+        assert collectors.collect_sms() == []
+
+    def test_collected_sms_items_get_sms_uri_links(self, monkeypatch):
+        from tcd import collectors
+        messages = [{"id": "m1", "sender": "+17195551234", "text": "Hi",
+                    "receivedAt": "2026-07-12T10:00:00Z"}]
+        self._install_fake_sms_module(monkeypatch, messages)
+        enriched = [collectors._enrich(i) for i in collectors.collect_sms()]
+        assert enriched[0].link == "sms:+17195551234"
