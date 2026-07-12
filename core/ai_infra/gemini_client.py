@@ -88,6 +88,92 @@ _TIER_LABELS: dict[str, str] = {
 _BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 _DEFAULT_TIMEOUT = 60
 
+# ---------------------------------------------------------------------------
+# Backend switch — AI Studio (default, free tier, GEMINI_API_KEY) or Vertex
+# AI (billing-backed, ADC). Vertex has NO free tier — every call costs real
+# money — so switching backends is itself gated separately from the
+# AI-Studio paid-tier-model flag: GEMINI_VERTEX_APPROVED=true is required or
+# every Vertex call is refused outright, before the cost gate even runs.
+# ---------------------------------------------------------------------------
+_VERTEX_PROJECT_ID = os.environ.get("VERTEX_PROJECT_ID", "d2m-python-pipeline")
+_VERTEX_LOCATION = os.environ.get("VERTEX_LOCATION", "us-central1")
+_VERTEX_URL = (
+    "https://{location}-aiplatform.googleapis.com/v1/projects/{project}/"
+    "locations/{location}/publishers/google/models/{model}:generateContent"
+)
+
+
+def _backend() -> str:
+    b = os.environ.get("GEMINI_BACKEND", "ai_studio").lower()
+    return b if b in ("ai_studio", "vertex") else "ai_studio"
+
+
+_GCLOUD_ADC_PATH = Path.home() / ".config" / "gcloud" / "application_default_credentials.json"
+
+
+def _vertex_access_token() -> str:
+    """ADC-based OAuth token for Vertex. Requires
+    `gcloud auth application-default login` to have been run — a human-only
+    fresh-consent step (cloud-platform scope), never automated.
+
+    Loads the gcloud ADC file directly rather than calling
+    google.auth.default() blind: this codebase already sets
+    GOOGLE_APPLICATION_CREDENTIALS to an OAuth *client-secrets* file (used
+    for the Gmail/Drive flows elsewhere) — google.auth.default() checks that
+    env var FIRST and would try to use the wrong file type, failing with a
+    confusing error even after a real ADC login succeeds. Deliberately not
+    unsetting GOOGLE_APPLICATION_CREDENTIALS globally — other modules depend
+    on it for their own flows."""
+    import google.auth.transport.requests
+    from google.oauth2.credentials import Credentials
+
+    if not _GCLOUD_ADC_PATH.exists():
+        raise RuntimeError(
+            f"{_GCLOUD_ADC_PATH} not found — run "
+            "`gcloud auth application-default login` first."
+        )
+    creds = Credentials.from_authorized_user_file(
+        str(_GCLOUD_ADC_PATH), scopes=["https://www.googleapis.com/auth/cloud-platform"]
+    )
+    creds.refresh(google.auth.transport.requests.Request())
+    return creds.token
+
+
+def _backend_api_name() -> str:
+    return "aiplatform.googleapis.com" if _backend() == "vertex" else "generativelanguage.googleapis.com"
+
+
+def _backend_project_id() -> str:
+    return _VERTEX_PROJECT_ID if _backend() == "vertex" else _GEMINI_PROJECT_ID
+
+
+def _build_request(model: str) -> tuple[str, dict]:
+    """Returns (url, headers) for the active backend. Raises RuntimeError
+    with an actionable message if Vertex is selected but not approved or
+    not authenticated — never silently falls back to AI Studio, since that
+    would surprise the caller about which billing path just ran."""
+    if _backend() == "vertex":
+        if os.environ.get("GEMINI_VERTEX_APPROVED", "").lower() != "true":
+            raise RuntimeError(
+                "GEMINI_BACKEND=vertex but GEMINI_VERTEX_APPROVED is not 'true'. "
+                "Vertex has no free tier — every call bills the project. "
+                "Set GEMINI_VERTEX_APPROVED=true only after deliberately choosing this."
+            )
+        try:
+            token = _vertex_access_token()
+        except Exception as e:
+            raise RuntimeError(
+                f"Vertex ADC not available ({e}). Run "
+                "`gcloud auth application-default login` once (human OAuth "
+                "consent step, cloud-platform scope) before using GEMINI_BACKEND=vertex."
+            ) from e
+        url = _VERTEX_URL.format(location=_VERTEX_LOCATION, project=_VERTEX_PROJECT_ID, model=model)
+        return url, {"Content-Type": "application/json", "Authorization": f"Bearer {token}"}
+
+    api_key = _get_api_key()
+    url = _BASE_URL.format(model=model) + f"?key={api_key}"
+    return url, {"Content-Type": "application/json"}
+
 # Rate limiting — shared across all calls to stay inside free-tier 15 RPM limit
 _LAST_CALL_TS: float = 0.0
 _MIN_CALL_GAP: float = float(os.environ.get("GEMINI_INTER_CALL_DELAY", "0"))
@@ -212,8 +298,9 @@ def _call(
     # 1. Guard: allowlist check
     _enforce_allowlist(model)
 
-    # 2. Guard: key presence
-    api_key = _get_api_key()
+    # 2. Guard: key presence (AI Studio only — Vertex uses ADC, checked in _build_request)
+    if _backend() == "ai_studio":
+        _get_api_key()
 
     # 3. Rate limiter
     _rate_limit()
@@ -225,10 +312,10 @@ def _call(
     preflight_cost = estimate_cost_usd(model, input_est_preflight, max_tokens)
     cost_gates.check_and_consume(
         _GEMINI_POOL, preflight_cost,
-        on_hard_limit=lambda: disable_api(_GEMINI_PROJECT_ID, "generativelanguage.googleapis.com"),
+        on_hard_limit=lambda: disable_api(_backend_project_id(), _backend_api_name()),
     )
 
-    url = _BASE_URL.format(model=model) + f"?key={api_key}"
+    url, headers = _build_request(model)
     payload = {
         "systemInstruction": {"parts": [{"text": system_prompt}]},
         "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
@@ -237,7 +324,6 @@ def _call(
             "temperature": temperature,
         },
     }
-    headers = {"Content-Type": "application/json"}
 
     input_est = (len(system_prompt) + len(user_prompt)) // 4
     text = ""
@@ -406,6 +492,81 @@ def call_gemini_pro(
         )
 
 
+def call_gemini_grounded(
+    system_prompt: str,
+    user_prompt: str,
+    model: str = "gemini-2.5-flash",
+    max_tokens: int = 1024,
+    temperature: float = 0.3,
+    caller: str = "unknown",
+    task_hint: str = "",
+) -> dict:
+    """
+    Gemini with Google Search grounding — a real capability Claude doesn't
+    have natively: live web-grounded answers with citations, not a training
+    cutoff. Same chokepoint (allowlist, rate limit, cost gate, usage log) as
+    every other call here. Kept separate from call_gemini_with_tools because
+    the API restricts combining google_search with custom function
+    declarations in one request.
+
+    Returns: {"text": str, "sources": [{"title": str, "uri": str}, ...]}
+    """
+    global _LAST_CALL_TS
+
+    _enforce_allowlist(model)
+    if _backend() == "ai_studio":
+        _get_api_key()
+    _rate_limit()
+
+    input_est = (len(system_prompt) + len(user_prompt)) // 4
+    preflight_cost = estimate_cost_usd(model, input_est, max_tokens)
+    cost_gates.check_and_consume(
+        _GEMINI_POOL, preflight_cost,
+        on_hard_limit=lambda: disable_api(_backend_project_id(), _backend_api_name()),
+    )
+
+    url, headers = _build_request(model)
+    payload = {
+        "systemInstruction": {"parts": [{"text": system_prompt}]},
+        "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
+        "tools": [{"google_search": {}}],
+        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature},
+    }
+
+    try:
+        _LAST_CALL_TS = time.time()
+        logger.info("gemini_client: calling %s WITH SEARCH GROUNDING [caller=%s]", model, caller)
+        resp = requests.post(url, json=payload, headers=headers, timeout=_DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+        data = resp.json()
+        candidate = data.get("candidates", [{}])[0]
+        parts = candidate.get("content", {}).get("parts", [])
+        text = parts[0].get("text", "") if parts else ""
+
+        sources = []
+        grounding = candidate.get("groundingMetadata", {})
+        for chunk in grounding.get("groundingChunks", []):
+            web = chunk.get("web", {})
+            if web.get("uri"):
+                sources.append({"title": web.get("title", ""), "uri": web["uri"]})
+
+        output_est = len(text) // 4
+        _log_usage(
+            model=model, caller=caller, task_hint=task_hint or user_prompt[:80],
+            input_tokens_est=input_est, output_tokens_est=output_est, success=True,
+        )
+        return {"text": text, "sources": sources}
+
+    except (requests.exceptions.RequestException, RuntimeError) as exc:
+        error_msg = str(exc)
+        _log_usage(
+            model=model, caller=caller, task_hint=task_hint or user_prompt[:80],
+            input_tokens_est=input_est, output_tokens_est=0, success=False, error=error_msg,
+        )
+        logger.error("gemini_client: grounded call %s failed: %s", model, error_msg)
+        raise RuntimeError(f"Gemini {model} (grounded) error: {exc}") from exc
+
+
 def call_gemini_with_tools(
     system_prompt: str,
     contents: list,
@@ -430,7 +591,8 @@ def call_gemini_with_tools(
     global _LAST_CALL_TS
 
     _enforce_allowlist(model)
-    api_key = _get_api_key()
+    if _backend() == "ai_studio":
+        _get_api_key()  # presence check only — _build_request re-reads it
     _rate_limit()
 
     contents_chars = sum(
@@ -441,17 +603,16 @@ def call_gemini_with_tools(
     preflight_cost = estimate_cost_usd(model, input_est, max_tokens)
     cost_gates.check_and_consume(
         _GEMINI_POOL, preflight_cost,
-        on_hard_limit=lambda: disable_api(_GEMINI_PROJECT_ID, "generativelanguage.googleapis.com"),
+        on_hard_limit=lambda: disable_api(_backend_project_id(), _backend_api_name()),
     )
 
-    url = _BASE_URL.format(model=model) + f"?key={api_key}"
+    url, headers = _build_request(model)
     payload = {
         "systemInstruction": {"parts": [{"text": system_prompt}]},
         "contents": contents,
         "tools": [{"functionDeclarations": function_declarations}],
         "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature},
     }
-    headers = {"Content-Type": "application/json"}
 
     try:
         _LAST_CALL_TS = time.time()
