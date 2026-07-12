@@ -118,14 +118,19 @@ is untouched throughout the pilot and remains the live fallback.
 
 ---
 
+## Phase 3 status: DONE (2026-07-12)
+
+Looker Studio report built by the Commander directly in the editor (report ID
+in `config/tcd_sheet_config.json`), three pages — Intel / Tech Scans / Next 7
+Days — each a table over the matching Sheet tab with `title`/`date`/`priority`/
+`link` columns, `link` set to URL type. Verified: 0 of 51 rows across the
+three tabs are missing a `link` value (checked via `sheets_read_data`), so
+every row in the rendered report resolves to a real source — same
+"no dead ends" bar as Phase 0/1. Read-only, doesn't touch the Items tab or
+AppSheet.
+
 ## Not in this phase (decision-gated)
 
-- **Phase 2 — write-back:** AppSheet actions set `status`/`comments`; Python
-  polls the Sheet (or AppSheet REST API) and acts, including real
-  dispose-at-source (Gmail-trash / Drive-delete) so disposed items don't
-  resurrect.
-- **Phase 3 — Looker Studio** dashboards over the same Sheet (Intel / Tech
-  Scans / Next 7 days), each row `HYPERLINK()`-ed to source.
 - **Phase 4 — decommission** the custom HTML dashboard, tunnel, Basic-Auth,
   `tcd-server.service`.
 - **Phase 5 — Keep** (service account + domain-wide delegation) and an Android
