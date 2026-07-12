@@ -13,12 +13,16 @@ chokepoint every other Gemini call in this codebase goes through). A Vertex
 AI mode is a later, separate switch (needs `gcloud auth application-default
 login` — a human step, deferred until the Commander wants that path).
 
-SAFETY: only a narrow, explicit allowlist of read-only/research tools is
-exposed to Gemini's function-calling. Anything that sends, books, pays,
-deletes, or writes client-facing content stays OFF by default — those match
-the same Three Gates that already bind Claude Code (client send, financial
-commitment, strategic >90d/>$5K are Commander-only). Expand the allowlist
-deliberately, tool by tool, not by relaxing the filter.
+SAFETY: an explicit allowlist governs everything Gemini can call — research
+tools plus Google Workspace write tools (Drive/Sheets/Docs/Calendar/Contacts/
+Forms/Keep create-update-delete, Gmail drafts/labels/trash). What is NEVER on
+it, gate holds regardless of how far the allowlist grows: anything that
+SENDS (gmail_send_email, gmail_send_draft, gmail_send_from_wing,
+gmail_reply_in_thread, send_client_email, send_whatsapp, send_morning_briefing
+— WF-17 client-send is Commander-only), anything that books or commits money
+(tess_create_booking/update_booking, financial commitment is Commander-only).
+Expand the allowlist deliberately, tool by tool, not by relaxing the
+mechanism — and never add a "send" tool to it.
 """
 import asyncio
 import json
@@ -62,9 +66,41 @@ SAFE_ALLOWLIST = {
     "calendar_list_events", "calendar_sync_status",
     "drive_search", "drive_list_files", "drive_get_file_info", "drive_read_document",
     "sheets_read_data", "sheets_list_sheets", "sheets_get_spreadsheet_info",
-    # Gmail (read only — no send/trash/modify/create_draft)
+    # Gmail (read)
     "gmail_search_messages", "gmail_read_message", "gmail_read_thread",
     "gmail_list_labels", "gmail_list_drafts", "gmail_get_profile", "gmail_dual_search",
+
+    # --- Google write tools (2026-07-12 expansion) ---
+    # Gmail write, non-send: drafts stay drafts (a human still sends them —
+    # WF-17), label/trash ops are reversible (drive_delete_file trashes, not
+    # hard-deletes; gmail_trash_message recoverable 30d; gmail_delete_draft
+    # only ever removes something that was never sent).
+    # DELIBERATELY EXCLUDED, gate holds regardless: gmail_send_email,
+    # gmail_send_draft, gmail_send_from_wing, gmail_reply_in_thread,
+    # send_client_email, send_morning_briefing, send_whatsapp — these are
+    # the WF-17 client-send gate (Commander-only per CLAUDE.md Three Gates,
+    # not something this allowlist can waive).
+    "gmail_create_draft", "gmail_update_draft", "gmail_delete_draft",
+    "gmail_create_label", "gmail_delete_label", "gmail_modify_message",
+    "gmail_modify_thread", "gmail_trash_message", "gmail_auto_reply_draft",
+    # Drive write
+    "drive_create_folder", "drive_upload_file", "drive_delete_file", "drive_move_file",
+    # Sheets write
+    "sheets_write_data", "sheets_append_row", "sheets_create_spreadsheet",
+    # Docs write
+    "docs_create_document", "docs_update_content", "docs_insert_image",
+    "insert_images_to_google_docs",
+    # Calendar write
+    "calendar_sync_bookings", "sync_anchors_to_calendar",
+    # Contacts write
+    "contacts_create", "contacts_update",
+    # Forms write
+    "forms_create_form", "forms_add_question",
+    # Keep write (create/update only — collect_keep's read path stays
+    # title-only per the 2026-07-12 security fix; writing a new note carries
+    # none of that leak risk)
+    "keep_create_note", "keep_create_checklist", "keep_update_note",
+
     # System / ops visibility
     "system_health_check", "mcp_connector_status", "mcp_connector_tools_list",
     "check_oauth_health",
@@ -73,6 +109,28 @@ SAFE_ALLOWLIST = {
     "maps_distance_matrix", "maps_static_map_url",
     # Personas / skills metadata
     "list_personas", "get_persona", "list_available_skills_tool", "get_skill_metadata_tool",
+
+    # --- D2M internal send, hard-pinned to johnloucks3 (2026-07-12) ---
+    # Commander explicitly authorized ONE send exception: d2mconcierge ->
+    # johnloucks3's own inbox. This is Hale's existing internal-briefing
+    # channel (CLAUDE.md: "Internal briefs/operational products -> FULL
+    # SEND to johnloucks3 inbox"), not a client-facing send — WF-17 governs
+    # communication TO CLIENTS, which this is not. The recipient is
+    # hardcoded in dispatch_tool_call and NOT exposed as a Gemini-settable
+    # parameter (see _tool_to_function_declaration's HARDCODED_PARAMS) —
+    # Gemini cannot redirect this send anywhere else.
+    "gmail_send_from_wing",
+}
+
+# johnloucks3's own inbox — the only allowed destination for the one send
+# tool on this allowlist. Never read this from a model-supplied argument.
+D2M_COMMANDER_EMAIL = "johnloucks3@gmail.com"
+
+# Params forced server-side per tool name — stripped from what Gemini sees
+# in the function declaration AND overwritten unconditionally at dispatch,
+# so a model can't argue its way around the restriction.
+HARDCODED_PARAMS = {
+    "gmail_send_from_wing": {"to": D2M_COMMANDER_EMAIL},
 }
 
 _TYPE_MAP = {
@@ -97,13 +155,19 @@ def load_catalog() -> dict:
 
 
 def _tool_to_function_declaration(name: str, spec: dict) -> dict:
+    hardcoded = HARDCODED_PARAMS.get(name, {})
     properties = {}
     required = []
     for p in spec.get("parameters", []):
-        properties[p["name"]] = {
-            "type": _normalize_type(p["type"]),
-            "description": p.get("description") or "",
-        }
+        if p["name"] in hardcoded:
+            continue  # forced server-side — not a Gemini-settable param
+        gtype = _normalize_type(p["type"])
+        prop = {"type": gtype, "description": p.get("description") or ""}
+        if gtype == "ARRAY":
+            # Gemini's API rejects ARRAY schemas with no `items` — every
+            # List[...] param in this catalog is a list of strings.
+            prop["items"] = {"type": "STRING"}
+        properties[p["name"]] = prop
         if p.get("required"):
             required.append(p["name"])
     decl = {
@@ -153,6 +217,12 @@ def dispatch_tool_call(name: str, args: dict) -> dict:
     the allowlist is enforced here too, not just at declaration-build time."""
     if name not in SAFE_ALLOWLIST:
         return {"error": f"'{name}' is not on the Gemini bridge safe allowlist — refused."}
+
+    if name in HARDCODED_PARAMS:
+        # Overwrite unconditionally — even if a model-supplied arg tried to
+        # set this param, it loses. This is the actual enforcement point for
+        # e.g. gmail_send_from_wing always landing on johnloucks3.
+        args = {**args, **HARDCODED_PARAMS[name]}
 
     try:
         server = _get_server()
