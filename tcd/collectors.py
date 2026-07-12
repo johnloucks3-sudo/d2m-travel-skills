@@ -113,9 +113,45 @@ def collect_gmail(max_per_account: int = 12) -> list:
     return items
 
 
-def collect_all(include_gmail: bool = True) -> list:
+def collect_keep(max_results: int = 30) -> list:
+    """Recent Google Keep notes as legacy item dicts, feeding Reference.
+
+    Reuses the existing gkeepapi/master-token integration in
+    api/thunderbird_keep.py (Commander decision: no Workspace/service-account
+    needed — the consumer-account path already wired is sufficient). Returns
+    [] on any auth/connectivity failure so the sync still succeeds with the
+    other sources.
+    """
+    try:
+        keep_mod = _imports.load_keep()
+        result = keep_mod.list_notes(max_results=max_results)
+    except Exception as e:
+        print(f"tcd.collectors: keep unavailable: {e}", file=sys.stderr)
+        return []
+
+    items = []
+    for note in result.get("notes", []):
+        note_id = note.get("id", "")
+        if not note_id:
+            continue
+        title = note.get("title") or "(untitled note)"
+        text = note.get("text", "")
+        items.append({
+            "id": f"keep-{note_id}", "inbox": "reference", "folder": "r-inbox",
+            "type": "note", "priority": "p2" if note.get("pinned") else "routine",
+            "unread": False, "title": title, "from": "Google Keep", "date": "",
+            "snippet": text[:220], "body": text[:4000],
+            "tags": ["keep"] + (["pinned"] if note.get("pinned") else []),
+            "comments": [],
+        })
+    return items
+
+
+def collect_all(include_gmail: bool = True, include_keep: bool = True) -> list:
     """All sources → list[Item], each with a non-empty source deep-link."""
     raw = list(collect_local())
     if include_gmail:
         raw = collect_gmail() + raw
+    if include_keep:
+        raw = raw + collect_keep()
     return [_enrich(item) for item in raw]

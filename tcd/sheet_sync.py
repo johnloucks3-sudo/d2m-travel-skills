@@ -28,13 +28,14 @@ SHEET_TITLE = "Thunderbird Commander Desktop — Items"
 TAB_NAME = "Items"
 
 
-def collect_rows(include_gmail: bool = True) -> list:
+def collect_rows(include_gmail: bool = True, include_keep: bool = True) -> list:
     """List of SHEET_COLUMNS-keyed dicts, one per item."""
-    return [item.to_dict() for item in collect_all(include_gmail=include_gmail)]
+    return [item.to_dict() for item in
+            collect_all(include_gmail=include_gmail, include_keep=include_keep)]
 
 
-def _dry_run(out_path: str, include_gmail: bool) -> int:
-    rows = collect_rows(include_gmail=include_gmail)
+def _dry_run(out_path: str, include_gmail: bool, include_keep: bool) -> int:
+    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "columns": SHEET_COLUMNS,
@@ -76,7 +77,8 @@ def _create_sheet(sheets):
     return ss["spreadsheetId"], ss["spreadsheetUrl"]
 
 
-def _live_sync(include_gmail: bool, skip_writeback: bool = False) -> int:
+def _live_sync(include_gmail: bool, include_keep: bool = True,
+               skip_writeback: bool = False) -> int:
     gauth = _imports.load_google_auth()
     sheets = gauth.get_sheets()
 
@@ -105,7 +107,7 @@ def _live_sync(include_gmail: bool, skip_writeback: bool = False) -> int:
             print(f"[writeback] WARNING {len(wb['errors'])} action(s) failed: "
                   f"{wb['errors'][:3]}", file=sys.stderr)
 
-    rows = collect_rows(include_gmail=include_gmail)
+    rows = collect_rows(include_gmail=include_gmail, include_keep=include_keep)
     values = [SHEET_COLUMNS] + [[r.get(c, "") for c in SHEET_COLUMNS] for r in rows]
 
     # Idempotent full rewrite: clear the tab, then write header + rows.
@@ -134,14 +136,18 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default="", help="Dry-run output file (default: stdout).")
     ap.add_argument("--no-gmail", action="store_true",
                     help="Skip the Gmail collectors (local sources only).")
+    ap.add_argument("--no-keep", action="store_true",
+                    help="Skip the Keep collector.")
     ap.add_argument("--no-writeback", action="store_true",
                     help="Skip the write-back pass (collect+push only).")
     args = ap.parse_args(argv)
 
     include_gmail = not args.no_gmail
+    include_keep = not args.no_keep
     if args.dry_run:
-        return _dry_run(args.out, include_gmail)
-    return _live_sync(include_gmail, skip_writeback=args.no_writeback)
+        return _dry_run(args.out, include_gmail, include_keep)
+    return _live_sync(include_gmail, include_keep=include_keep,
+                      skip_writeback=args.no_writeback)
 
 
 if __name__ == "__main__":

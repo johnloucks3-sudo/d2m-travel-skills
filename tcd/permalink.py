@@ -21,6 +21,7 @@ from urllib.parse import quote
 
 GMAIL_BASE = "https://mail.google.com/mail/u/0/#search/"
 DRIVE_SEARCH_BASE = "https://drive.google.com/drive/search?q="
+KEEP_BASE = "https://keep.google.com/#NOTE/"
 
 
 def _is_degenerate(text: str) -> bool:
@@ -59,6 +60,14 @@ def gmail_search_link(query: str) -> str:
     return f"{GMAIL_BASE}{quote(q, safe='')}"
 
 
+def keep_permalink(note_id: str) -> str:
+    """Web permalink to a specific Keep note. gkeepapi's note.id round-trips
+    directly into keep.google.com's URL fragment — no header/re-derivation
+    needed (unlike Gmail's API id vs. web id mismatch)."""
+    nid = (note_id or "").strip()
+    return f"{KEEP_BASE}{nid}" if nid else ""
+
+
 def drive_search_link(query: str) -> str:
     """Deep-link into the owner's Drive, filtered to ``query`` (name/client)."""
     q = (query or "").strip()
@@ -89,6 +98,8 @@ def derive_link(item: dict) -> str:
     if fid.startswith("gmail-"):
         permalink = gmail_permalink(item.get("message_id_header", ""))
         return first_nonempty(permalink, gmail_search_link(item.get("title", "")))
+    if fid.startswith("keep-"):
+        return keep_permalink(fid[len("keep-"):])
     if item.get("htmlLink"):
         return item["htmlLink"]                 # Calendar
     if item.get("webViewLink"):
@@ -121,6 +132,8 @@ def derive_source_path(item: dict) -> str:
     fid = item.get("id", "") or ""
     if fid.startswith("gmail-"):
         return f"gmail:{fid[len('gmail-'):]}"
+    if fid.startswith("keep-"):
+        return f"keep:{fid[len('keep-'):]}"
     if fid.startswith("so-"):
         return f"standing_orders/{fid[len('so-'):]}.md"
     if fid.startswith("dossier-"):

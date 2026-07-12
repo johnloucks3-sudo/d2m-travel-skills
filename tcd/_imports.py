@@ -44,3 +44,9 @@ def load_google_auth():
 def load_tcd_data():
     """The existing local item builders we repurpose (repo or box layout)."""
     return _first_import(["scripts.tcd_data", "tcd_data"])
+
+
+def load_keep():
+    """Existing gkeepapi/master-token Keep integration (repo or box layout).
+    Consumer-account path — no Workspace/service-account needed."""
+    return _first_import(["api.thunderbird_keep", "thunderbird_keep"])

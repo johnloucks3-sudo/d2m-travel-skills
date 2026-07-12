@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""
+Offline tests for Keep integration (Phase 5a): permalink builder + collector.
+
+No credentials, no network: the keep module is monkeypatched via
+sys.modules before import, and permalink tests are pure functions.
+    python -m pytest tests/test_tcd_keep.py -v
+"""
+import sys
+import types
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from tcd import permalink  # noqa: E402
+
+
+class TestKeepPermalink:
+    def test_builds_note_url(self):
+        link = permalink.keep_permalink("abc123XYZ")
+        assert link == "https://keep.google.com/#NOTE/abc123XYZ"
+
+    def test_strips_whitespace(self):
+        assert permalink.keep_permalink("  note-1  ") == "https://keep.google.com/#NOTE/note-1"
+
+    def test_empty_id_returns_blank(self):
+        assert permalink.keep_permalink("") == ""
+        assert permalink.keep_permalink("   ") == ""
+
+    def test_derive_link_routes_keep_items(self):
+        item = {"id": "keep-abc123", "title": "Flight confirmation"}
+        assert permalink.derive_link(item) == "https://keep.google.com/#NOTE/abc123"
+
+    def test_derive_source_path_routes_keep_items(self):
+        assert permalink.derive_source_path({"id": "keep-abc123"}) == "keep:abc123"
+
+
+class TestKeepCollector:
+    def _install_fake_keep_module(self, monkeypatch, notes):
+        fake = types.ModuleType("thunderbird_keep")
+        fake.list_notes = lambda max_results=30: {
+            "status": "success", "count": len(notes), "notes": notes,
+        }
+        monkeypatch.setitem(sys.modules, "thunderbird_keep", fake)
+        monkeypatch.setitem(sys.modules, "api.thunderbird_keep", fake)
+
+    def test_collect_keep_maps_notes_to_items(self, monkeypatch):
+        from tcd import collectors
+        notes = [
+            {"id": "n1", "title": "Leslie Loucks flights", "text": "DEN Jul 18-25",
+             "pinned": True, "color": "WHITE", "type": "note"},
+            {"id": "n2", "title": "Grocery list", "text": "milk, eggs",
+             "pinned": False, "color": "WHITE", "type": "list"},
+        ]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        assert len(items) == 2
+        ids = [i["id"] for i in items]
+        assert "keep-n1" in ids and "keep-n2" in ids
+
+    def test_collect_keep_sets_reference_inbox(self, monkeypatch):
+        from tcd import collectors
+        notes = [{"id": "n1", "title": "Note", "text": "", "pinned": False,
+                  "color": "WHITE", "type": "note"}]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        assert items[0]["inbox"] == "reference"
+        assert items[0]["type"] == "note"
+
+    def test_collect_keep_pinned_gets_higher_priority(self, monkeypatch):
+        from tcd import collectors
+        notes = [
+            {"id": "n1", "title": "Pinned", "text": "", "pinned": True,
+             "color": "WHITE", "type": "note"},
+            {"id": "n2", "title": "Not pinned", "text": "", "pinned": False,
+             "color": "WHITE", "type": "note"},
+        ]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        pinned = next(i for i in items if i["id"] == "keep-n1")
+        unpinned = next(i for i in items if i["id"] == "keep-n2")
+        assert pinned["priority"] == "p2"
+        assert unpinned["priority"] == "routine"
+        assert "pinned" in pinned["tags"]
+
+    def test_collect_keep_skips_notes_without_id(self, monkeypatch):
+        from tcd import collectors
+        notes = [{"id": "", "title": "Broken", "text": "", "pinned": False,
+                  "color": "WHITE", "type": "note"}]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        assert items == []
+
+    def test_collect_keep_untitled_fallback(self, monkeypatch):
+        from tcd import collectors
+        notes = [{"id": "n1", "title": "", "text": "some content", "pinned": False,
+                  "color": "WHITE", "type": "note"}]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        assert items[0]["title"] == "(untitled note)"
+
+    def test_collect_keep_failure_returns_empty_not_raises(self, monkeypatch):
+        from tcd import collectors
+        fake = types.ModuleType("thunderbird_keep")
+        def boom(max_results=30):
+            raise RuntimeError("no credentials")
+        fake.list_notes = boom
+        monkeypatch.setitem(sys.modules, "thunderbird_keep", fake)
+        monkeypatch.setitem(sys.modules, "api.thunderbird_keep", fake)
+        items = collectors.collect_keep()
+        assert items == []
+
+    def test_collected_keep_items_all_get_links(self, monkeypatch):
+        from tcd import collectors
+        notes = [{"id": "n1", "title": "Note", "text": "", "pinned": False,
+                  "color": "WHITE", "type": "note"}]
+        self._install_fake_keep_module(monkeypatch, notes)
+        # collect_all enriches with derive_link — confirm the keep- prefix
+        # routes through to a real keep.google.com permalink, not a Drive
+        # search fallback.
+        enriched = [collectors._enrich(i) for i in collectors.collect_keep()]
+        assert enriched[0].link == "https://keep.google.com/#NOTE/n1"
