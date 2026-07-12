@@ -16,10 +16,26 @@ Link precedence by source (see ``derive_link``):
    dossier, Drive. Always constructible without creds and never 404s to a blank
    alert…)  page the way a guessed file id would.
 """
+import re
 from urllib.parse import quote
 
 GMAIL_BASE = "https://mail.google.com/mail/u/0/#search/"
 DRIVE_SEARCH_BASE = "https://drive.google.com/drive/search?q="
+
+
+def _is_degenerate(text: str) -> bool:
+    """True if ``text`` has no alphanumerics to search on (e.g. a '---' title)."""
+    return not re.search(r"[A-Za-z0-9]", text or "")
+
+
+def _humanize_stem(stem: str) -> str:
+    """Turn a filename stem into a readable Drive query.
+
+    'DOSSIER_DoorCounty_SisterBay_Sep2026' → 'DoorCounty SisterBay Sep2026'.
+    """
+    s = re.sub(r"^(DOSSIER_|SO_)", "", stem or "")
+    s = re.sub(r"[_-]+", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def gmail_permalink(message_id_header: str) -> str:
@@ -85,7 +101,14 @@ def derive_link(item: dict) -> str:
                                "gmail", "ELON", "verification"):
             client = tag
             break
-    query = first_nonempty(client, item.get("title", ""), fid)
+    # Titles can be degenerate (e.g. a dossier whose first line is the YAML
+    # '---' delimiter), so drop those and fall back to the humanized filename
+    # stem — which is always meaningful — before the raw id.
+    title = item.get("title", "")
+    if _is_degenerate(title):
+        title = ""
+    stem = fid.split("-", 1)[1] if "-" in fid else fid
+    query = first_nonempty(client, title, _humanize_stem(stem), fid)
     return drive_search_link(query)
 
 

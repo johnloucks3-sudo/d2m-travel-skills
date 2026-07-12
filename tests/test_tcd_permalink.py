@@ -96,6 +96,26 @@ class TestDeriveLink:
         item = {"id": "task-MISSION-814", "title": "Do the thing", "tags": []}
         assert permalink.derive_link(item)  # non-empty
 
+    def test_degenerate_title_falls_back_to_filename(self):
+        # Dossiers start with a YAML '---' line → title "---" is useless as a
+        # search; the link must instead resolve to the humanized filename.
+        item = {"id": "dossier-DOSSIER_DoorCounty_SisterBay_Sep2026",
+                "title": "---", "tags": ["dossier"]}
+        link = permalink.derive_link(item)
+        assert "---" not in link
+        assert "DoorCounty" in link and "SisterBay" in link
+
+    def test_humanize_stem_strips_prefix_and_separators(self):
+        assert permalink._humanize_stem("DOSSIER_DoorCounty_SisterBay_Sep2026") == \
+            "DoorCounty SisterBay Sep2026"
+        assert permalink._humanize_stem("SO_PDTAC_WORKFLOW_20260711") == \
+            "PDTAC WORKFLOW 20260711"
+
+    def test_is_degenerate(self):
+        assert permalink._is_degenerate("---")
+        assert permalink._is_degenerate("   ")
+        assert not permalink._is_degenerate("Lyons")
+
 
 class TestDeriveSourcePath:
     def test_maps_each_prefix(self):
