@@ -91,6 +91,35 @@ class TestKeepCollector:
         items = collectors.collect_keep()
         assert items == []
 
+    def test_collect_keep_never_leaks_note_body_content(self, monkeypatch):
+        # SECURITY REGRESSION TEST — 2026-07-12 live incident: an RSA private
+        # key, a Cloudflare access token, and multiple raw API keys were
+        # copied verbatim into the production Sheet because collect_keep
+        # mirrored note.text into body/snippet. The Commander uses Keep as a
+        # credentials store; body/snippet must NEVER contain the source
+        # text, under ANY note content — not just obviously-named secrets.
+        from tcd import collectors
+        notes = [
+            {"id": "n1", "title": "Grocery list", "text": "milk, eggs, bread",
+             "pinned": False, "color": "WHITE", "type": "note"},
+            {"id": "n2", "title": "Random Note", "text": "sk-ant-api03-FAKE_SECRET_VALUE_xyz",
+             "pinned": False, "color": "WHITE", "type": "note"},
+            {"id": "n3", "title": "🔑 API Keys", "text": "-----BEGIN RSA PRIVATE KEY-----\nMIIJ...",
+             "pinned": False, "color": "WHITE", "type": "note"},
+        ]
+        self._install_fake_keep_module(monkeypatch, notes)
+        items = collectors.collect_keep()
+        for item in items:
+            assert "milk" not in item["body"]
+            assert "sk-ant-api03" not in item["body"]
+            assert "BEGIN RSA PRIVATE KEY" not in item["body"]
+            assert "milk" not in item["snippet"]
+            assert "sk-ant-api03" not in item["snippet"]
+            assert "BEGIN RSA PRIVATE KEY" not in item["snippet"]
+        # Titles ARE allowed through — that's the point of the dashboard.
+        titles = [i["title"] for i in items]
+        assert "🔑 API Keys" in titles
+
     def test_collect_keep_untitled_fallback(self, monkeypatch):
         from tcd import collectors
         notes = [{"id": "n1", "title": "", "text": "some content", "pinned": False,

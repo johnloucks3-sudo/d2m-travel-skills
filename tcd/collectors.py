@@ -121,6 +121,15 @@ def collect_keep(max_results: int = 30) -> list:
     needed — the consumer-account path already wired is sufficient). Returns
     [] on any auth/connectivity failure so the sync still succeeds with the
     other sources.
+
+    SECURITY: title-only, NEVER the note body/text. The Commander uses Keep
+    to store credentials (API keys, SSH private keys, access tokens) — a
+    live incident on 2026-07-12 confirmed raw secrets were being copied into
+    the Sheet via this collector before this fix. A per-title keyword filter
+    is NOT sufficient (a secret can sit in a note with an innocuous title);
+    the only safe rule is "never duplicate Keep's freeform content into a
+    less-protected store, period." The link (keep_permalink) already gets
+    you to the real note in Keep itself, where it belongs.
     """
     try:
         keep_mod = _imports.load_keep()
@@ -135,12 +144,12 @@ def collect_keep(max_results: int = 30) -> list:
         if not note_id:
             continue
         title = note.get("title") or "(untitled note)"
-        text = note.get("text", "")
+        placeholder = "(Keep note — open via link to view content; not mirrored here for security)"
         items.append({
             "id": f"keep-{note_id}", "inbox": "reference", "folder": "r-inbox",
             "type": "note", "priority": "p2" if note.get("pinned") else "routine",
             "unread": False, "title": title, "from": "Google Keep", "date": "",
-            "snippet": text[:220], "body": text[:4000],
+            "snippet": placeholder, "body": placeholder,
             "tags": ["keep"] + (["pinned"] if note.get("pinned") else []),
             "comments": [],
         })
