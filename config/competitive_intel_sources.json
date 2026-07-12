@@ -80,6 +80,17 @@
       "status": "BLOCKED_akamai_2026-07-06",
       "notes": "Live-tested 2026-07-06: connection reset at both Anansi tier-1 and CloakBrowser tier-3. Consistent with scraping_intel/silversea.json precedent on rssc.com Akamai edge. Do not mass-retry — see mission board MISSION-4037 'NO mass scraping' finding.",
       "fallback": "Monitored indirectly via vacationstogo_deals (Regent FastDeal listings). Direct-site pricing verification stays a manual/portal-login task (regent-scrape skill), not this weekly scan."
+    },
+    {
+      "id": "travelbulletin_industry_news",
+      "name": "Travel Bulletin",
+      "url": "https://travelbulletin.com/",
+      "category": "industry_news",
+      "cruise_lines": [],
+      "method": "smart_fetch",
+      "status": "verified_2026-07-12",
+      "notes": "Consumer/trade travel publication — destinations, accommodations, transportation, trip-prep advice. Not a cruise-line competitor; monitor for consumer-facing trends (trusted traveler programs, air/cruise/hotel advice) relevant to D2M client comms, not pricing intel.",
+      "subscribed": "2026-07-12"
     }
   ]
 }
