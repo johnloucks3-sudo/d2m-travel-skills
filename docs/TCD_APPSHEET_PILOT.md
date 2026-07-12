@@ -129,9 +129,21 @@ every row in the rendered report resolves to a real source — same
 "no dead ends" bar as Phase 0/1. Read-only, doesn't touch the Items tab or
 AppSheet.
 
-## Not in this phase (decision-gated)
+## Phase 4 status: DONE (2026-07-12)
 
-- **Phase 4 — decommission** the custom HTML dashboard, tunnel, Basic-Auth,
-  `tcd-server.service`.
-- **Phase 5 — Keep** (service account + domain-wide delegation) and an Android
-  SMS-gateway for Google-Messages-style texting.
+Commander-authorized ("go Phase 4"). `tcd-server.service` stopped and disabled
+(`systemctl --user disable`). `tcd.d2mluxury.quest` ingress line removed from
+`~/.cloudflared/config.yml`, cloudflared restarted. Verified: port 8930
+(TCD backend) unreachable; other client-portal ports (8901, 8925, 8900, 8920)
+still responding normally — no collateral impact. Old dashboard HTML archived
+to `output/retired/` rather than deleted (rollback path: `scripts/tcd_server.py`
+is untouched on disk, re-enable the service + re-add the ingress line to restore).
+Basic-Auth itself was NOT touched — it's shared credential infra with other
+subdomains (visuals/files/portal), only TCD's route was removed.
+
+## Phase 5 status: PARTIAL (2026-07-12)
+
+Google Keep sync landed (Phase 5a, service-account + domain-wide delegation,
+`tcd/collectors.py`) and an Android SMS-gateway (`tcd/sms_gateway.py`,
+`docs/TCD_ANDROID_SMS_SETUP.md`) for Google-Messages-style texting — both
+already committed. Not yet verified live end-to-end with the Commander's phone.
