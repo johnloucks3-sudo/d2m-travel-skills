@@ -76,7 +76,7 @@ def _create_sheet(sheets):
     return ss["spreadsheetId"], ss["spreadsheetUrl"]
 
 
-def _live_sync(include_gmail: bool) -> int:
+def _live_sync(include_gmail: bool, skip_writeback: bool = False) -> int:
     gauth = _imports.load_google_auth()
     sheets = gauth.get_sheets()
 
@@ -90,6 +90,20 @@ def _live_sync(include_gmail: bool) -> int:
                     "tab": TAB_NAME, "created_at": datetime.now(timezone.utc).isoformat()})
         _save_config(cfg)
         created = True
+    elif not skip_writeback:
+        # Close the loop BEFORE overwriting: act on whatever the Commander/
+        # staff changed in AppSheet since the last sync (dispose-at-source,
+        # stage moves, comments) so the fresh collect below reflects it —
+        # e.g. a disposed item's source is already gone, so it won't be
+        # re-emitted by collect_rows.
+        from . import writeback
+        wb = writeback.process_once()
+        if wb["disposed"] or wb["staged"] or wb["commented"]:
+            print(f"[writeback] disposed={len(wb['disposed'])} "
+                  f"staged={len(wb['staged'])} commented={len(wb['commented'])}")
+        if wb["errors"]:
+            print(f"[writeback] WARNING {len(wb['errors'])} action(s) failed: "
+                  f"{wb['errors'][:3]}", file=sys.stderr)
 
     rows = collect_rows(include_gmail=include_gmail)
     values = [SHEET_COLUMNS] + [[r.get(c, "") for c in SHEET_COLUMNS] for r in rows]
@@ -120,12 +134,14 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default="", help="Dry-run output file (default: stdout).")
     ap.add_argument("--no-gmail", action="store_true",
                     help="Skip the Gmail collectors (local sources only).")
+    ap.add_argument("--no-writeback", action="store_true",
+                    help="Skip the write-back pass (collect+push only).")
     args = ap.parse_args(argv)
 
     include_gmail = not args.no_gmail
     if args.dry_run:
         return _dry_run(args.out, include_gmail)
-    return _live_sync(include_gmail)
+    return _live_sync(include_gmail, skip_writeback=args.no_writeback)
 
 
 if __name__ == "__main__":
