@@ -1,5 +1,6 @@
 import logging
 import sqlite3
+import subprocess
 import threading
 import time
 from pathlib import Path
@@ -8,6 +9,51 @@ log = logging.getLogger("router_cost_gates")
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 COST_DB = DATA_DIR / "router_cost.db"
+
+# Approximate USD per 1M tokens, paid-tier list pricing (2026-07). Deliberately
+# rounded UP for safety margin — this gates a hard stop, not an invoice.
+GEMINI_PRICING_PER_1M = {
+    "gemini-2.5-flash":      {"input": 0.35, "output": 3.00},
+    "gemini-2.5-flash-lite": {"input": 0.15, "output": 0.60},
+    "gemini-2.5-pro":        {"input": 2.00, "output": 15.00},
+}
+_DEFAULT_PRICING = {"input": 2.00, "output": 15.00}  # unknown model → worst case
+
+
+def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> float:
+    """Conservative USD estimate for a single Gemini call — used to gate BEFORE
+    the call happens, not to reconcile an invoice."""
+    rates = GEMINI_PRICING_PER_1M.get(model, _DEFAULT_PRICING)
+    return (input_tokens / 1_000_000) * rates["input"] + (output_tokens / 1_000_000) * rates["output"]
+
+
+class HardLimitExceeded(RuntimeError):
+    pass
+
+
+def disable_api(project_id: str, api_name: str) -> bool:
+    """Real cutoff: disable a single API on a single GCP project via the
+    already-enabled Service Usage surface (same one `gcloud` itself uses —
+    not a new/unusual API). This is the actual enforcement action, not just
+    an alert. Never raises — logs and returns False on failure so a gate
+    check that triggers this can't itself crash the caller."""
+    try:
+        log.critical(
+            "COST GATE HARD LIMIT — disabling %s on project %s", api_name, project_id
+        )
+        result = subprocess.run(
+            ["gcloud", "services", "disable", api_name,
+             f"--project={project_id}", "--force", "--quiet"],
+            capture_output=True, text=True, timeout=60,
+        )
+        if result.returncode != 0:
+            log.error("disable_api failed: %s", result.stderr.strip())
+            return False
+        log.critical("disable_api SUCCESS: %s disabled on %s", api_name, project_id)
+        return True
+    except Exception as e:
+        log.error("disable_api exception: %s", e)
+        return False
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS pools (
@@ -97,6 +143,41 @@ class CostGateTracker:
             elif pct >= 80:
                 log.warning("Cost pool %s at %.1f%% — soft limit exceeded", pool_name, pct)
             self._upsert(pool_name, pool["consumed"], pool["soft_limit"], hard)
+
+    def check_and_consume(self, pool_name: str, amount: float, *,
+                           on_hard_limit=None) -> None:
+        """Pre-flight gate: raises HardLimitExceeded BEFORE the spend happens
+        if this amount would cross the pool's hard_limit — stopping the call,
+        not reacting to it after Google's own billing pipeline catches up.
+
+        on_hard_limit: optional zero-arg callback fired exactly once when the
+        limit is first crossed (e.g. disable_api(...)). Exceptions from the
+        callback are logged, never propagated — the raise itself is the gate.
+        """
+        with self._lock:
+            pool = self._cache.get(pool_name)
+            if pool is None:
+                return
+            hard = pool["hard_limit"]
+            if hard in (0, float("inf")):
+                return
+            would_be = pool["consumed"] + amount
+            if would_be >= hard:
+                log.critical(
+                    "Cost pool %s HARD LIMIT: consumed=%.4f + amount=%.4f >= hard=%.4f — BLOCKING call",
+                    pool_name, pool["consumed"], amount, hard,
+                )
+                if on_hard_limit is not None:
+                    try:
+                        on_hard_limit()
+                    except Exception as e:
+                        log.error("on_hard_limit callback failed: %s", e)
+                raise HardLimitExceeded(
+                    f"Cost pool '{pool_name}' hard limit ${hard:.2f} would be exceeded "
+                    f"(consumed ${pool['consumed']:.4f} + this call ~${amount:.4f})"
+                )
+            pool["consumed"] = would_be
+            self._upsert(pool_name, would_be, pool["soft_limit"], hard)
 
     def usage_pct(self, pool_name: str) -> float:
         with self._lock:

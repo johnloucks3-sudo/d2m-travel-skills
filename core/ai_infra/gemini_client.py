@@ -49,6 +49,25 @@ from typing import Optional
 logger = logging.getLogger("thunderbird.gemini_client")
 
 # ---------------------------------------------------------------------------
+# Self-built cost gate — real-time, pre-flight, stops the call before spend
+# happens (Pub/Sub budget alerts react after Google's billing pipeline
+# catches up, which can lag hours; this doesn't). No new GCP APIs required —
+# disable_api() uses the same Service Usage surface `gcloud` already uses.
+# ---------------------------------------------------------------------------
+from core.ai_infra.router_cost_gates import (  # noqa: E402
+    cost_gates, estimate_cost_usd, disable_api, HardLimitExceeded,
+)
+
+_GEMINI_PROJECT_ID = "d2m-python-pipeline"
+_GEMINI_POOL = "gemini_generativelanguage_api"
+_GEMINI_HARD_LIMIT_USD = float(os.environ.get("GEMINI_HARD_LIMIT_USD", "10"))
+if _GEMINI_POOL not in cost_gates.get_all():
+    # First-ever init only — configure_pool resets `consumed` to 0, so this
+    # must NOT re-run on every process start or the ledger never persists.
+    cost_gates.configure_pool(_GEMINI_POOL, soft_limit=_GEMINI_HARD_LIMIT_USD * 0.75,
+                               hard_limit=_GEMINI_HARD_LIMIT_USD)
+
+# ---------------------------------------------------------------------------
 # FREE-TIER ALLOWLIST — Commander-authorized models (2026-06-01)
 # Any model outside this set requires GEMINI_PAID_TIER_APPROVED=true
 # ---------------------------------------------------------------------------
@@ -198,6 +217,16 @@ def _call(
 
     # 3. Rate limiter
     _rate_limit()
+
+    # 4. Cost gate — pre-flight, worst-case estimate using max_tokens as the
+    # output ceiling. Blocks BEFORE the HTTP call if this would cross the
+    # hard $ limit; on trip, also disables the API on the billing project.
+    input_est_preflight = (len(system_prompt) + len(user_prompt)) // 4
+    preflight_cost = estimate_cost_usd(model, input_est_preflight, max_tokens)
+    cost_gates.check_and_consume(
+        _GEMINI_POOL, preflight_cost,
+        on_hard_limit=lambda: disable_api(_GEMINI_PROJECT_ID, "generativelanguage.googleapis.com"),
+    )
 
     url = _BASE_URL.format(model=model) + f"?key={api_key}"
     payload = {
@@ -375,6 +404,92 @@ def call_gemini_pro(
             caller=caller,
             task_hint=f"[pro-fallback] {task_hint}",
         )
+
+
+def call_gemini_with_tools(
+    system_prompt: str,
+    contents: list,
+    function_declarations: list,
+    model: str = "gemini-2.5-flash",
+    max_tokens: int = 1024,
+    temperature: float = 0.2,
+    caller: str = "unknown",
+    task_hint: str = "",
+) -> dict:
+    """
+    Gemini call with function-calling tools attached — same chokepoint, same
+    allowlist / rate-limit / cost-gate / usage-log guards as _call(), extended
+    to return either a function call or plain text.
+
+    contents: full Gemini-format turn list (the bridge owns conversation state
+    so it can append a functionResponse turn after executing a tool call —
+    this function stays a single stateless request/response, matching _call()).
+
+    Returns: {"function_call": {"name": str, "args": dict}} or {"text": str}
+    """
+    global _LAST_CALL_TS
+
+    _enforce_allowlist(model)
+    api_key = _get_api_key()
+    _rate_limit()
+
+    contents_chars = sum(
+        len(p.get("text", "") or json.dumps(p.get("functionResponse", {})) or json.dumps(p.get("functionCall", {})))
+        for c in contents for p in c.get("parts", [])
+    )
+    input_est = (len(system_prompt) + contents_chars) // 4
+    preflight_cost = estimate_cost_usd(model, input_est, max_tokens)
+    cost_gates.check_and_consume(
+        _GEMINI_POOL, preflight_cost,
+        on_hard_limit=lambda: disable_api(_GEMINI_PROJECT_ID, "generativelanguage.googleapis.com"),
+    )
+
+    url = _BASE_URL.format(model=model) + f"?key={api_key}"
+    payload = {
+        "systemInstruction": {"parts": [{"text": system_prompt}]},
+        "contents": contents,
+        "tools": [{"functionDeclarations": function_declarations}],
+        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature},
+    }
+    headers = {"Content-Type": "application/json"}
+
+    try:
+        _LAST_CALL_TS = time.time()
+        logger.info(
+            "gemini_client: calling %s WITH TOOLS [caller=%s, n_tools=%d]",
+            model, caller, len(function_declarations),
+        )
+        resp = requests.post(url, json=payload, headers=headers, timeout=_DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+        data = resp.json()
+        candidate = data.get("candidates", [{}])[0]
+        parts = candidate.get("content", {}).get("parts", [])
+
+        for part in parts:
+            if "functionCall" in part:
+                fc = part["functionCall"]
+                _log_usage(
+                    model=model, caller=caller, task_hint=task_hint or "(function call)",
+                    input_tokens_est=input_est, output_tokens_est=0, success=True,
+                )
+                return {"function_call": {"name": fc.get("name"), "args": fc.get("args") or {}}}
+
+        text = parts[0].get("text", "") if parts else ""
+        output_est = len(text) // 4
+        _log_usage(
+            model=model, caller=caller, task_hint=task_hint or "(final text)",
+            input_tokens_est=input_est, output_tokens_est=output_est, success=True,
+        )
+        return {"text": text}
+
+    except (requests.exceptions.RequestException, RuntimeError) as exc:
+        error_msg = str(exc)
+        _log_usage(
+            model=model, caller=caller, task_hint=task_hint or "(tools call)",
+            input_tokens_est=input_est, output_tokens_est=0, success=False, error=error_msg,
+        )
+        logger.error("gemini_client: tools call %s failed: %s", model, error_msg)
+        raise RuntimeError(f"Gemini {model} (tools) error: {exc}") from exc
 
 
 def smoke_test() -> dict:
