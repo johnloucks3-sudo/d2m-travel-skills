@@ -168,6 +168,7 @@ from thunderbird_learning import register_learning_tools
 from thunderbird_conversation_learner import register_conversation_learner_tools
 from thunderbird_sss import register_sss_tools
 from thunderbird_dossier_scanner import register_dossier_scanner_tools
+from tcd.mcp_tools import register_tcd_tools
 from thunderbird_email_classifier import register_email_classifier_tools
 from thunderbird_academic_scanner import register_academic_scanner_tools
 from thunderbird_voice_ledger import register_voice_ledger_tools
@@ -596,6 +597,7 @@ _CORE_LOADERS = [
     register_temporal_tools, register_conversation_learner_tools,
     register_recipient_profile_tools, register_email_classifier_tools,
     register_dossier_scanner_tools, register_bulletin_tools, register_anchor_date_tools,
+    register_tcd_tools,
     register_briefing_tools, register_gmail_tools,
     register_drive_tools, register_keep_tools, register_calendar_tools,
     register_sheets_mcp_tools, register_docs_mcp_tools, register_contacts_mcp_tools,
