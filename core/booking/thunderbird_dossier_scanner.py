@@ -30,6 +30,11 @@ DOSSIER_DIR = Path(os.path.expanduser("~/Thunderbird/dossiers"))
 # Files to skip (not client dossiers)
 SKIP_FILES = {"CLAUDE.md", "DANI_TESTER_BRIEFINGS.md", "DOSSIER_Regent_Tips_Guide.md"}
 
+# Legitimate markdown structural markers — excluded from the repeated-line
+# corruption check (see _check_corruption). These recur many times in any
+# normal well-sectioned dossier and are not a corruption signal.
+_STRUCTURAL_MARKERS = {"---", "***", "___"}
+
 
 # ---------------------------------------------------------------------------
 # Alert dataclass
@@ -104,14 +109,26 @@ def _check_corruption(filepath: Path, text: str, lines: list) -> Optional[Alert]
 
     if lines:
         from collections import Counter
-        line_counts = Counter(l.strip() for l in lines if l.strip())
-        most_common_line, most_common_count = line_counts.most_common(1)[0]
-        repeat_ratio = most_common_count / len(lines)
-        if most_common_count > 10 and repeat_ratio > 0.05:
-            return Alert(name, "corruption", Alert.SEVERITY_CRITICAL,
-                f"Repeated-line corruption detected: '{most_common_line[:60]}' "
-                f"appears {most_common_count}x ({repeat_ratio:.0%} of file). "
-                f"DO NOT USE for client work. Restore from Drive or git.")
+        # 2026-07-13 BUG FIX: legitimate markdown structural markers (YAML
+        # frontmatter delimiters, horizontal-rule section dividers) recur
+        # many times in any normal well-sectioned dossier and were false-
+        # positiving as "write-loop corruption" — e.g. a clean 212-line
+        # dossier with 13 '---' section dividers got flagged "DO NOT USE,
+        # restore from git" though nothing was wrong with it. Genuine
+        # write-loop corruption duplicates substantive content, not a bare
+        # 3-char divider, so structural markers are excluded from the count.
+        line_counts = Counter(
+            l.strip() for l in lines
+            if l.strip() and l.strip() not in _STRUCTURAL_MARKERS
+        )
+        if line_counts:
+            most_common_line, most_common_count = line_counts.most_common(1)[0]
+            repeat_ratio = most_common_count / len(lines)
+            if most_common_count > 10 and repeat_ratio > 0.05:
+                return Alert(name, "corruption", Alert.SEVERITY_CRITICAL,
+                    f"Repeated-line corruption detected: '{most_common_line[:60]}' "
+                    f"appears {most_common_count}x ({repeat_ratio:.0%} of file). "
+                    f"DO NOT USE for client work. Restore from Drive or git.")
 
     return None
 
