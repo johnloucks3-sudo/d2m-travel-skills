@@ -16,7 +16,15 @@ STAGES = ("P", "D", "T", "A", "C", "REF")
 
 
 def derive_stage(item: dict) -> str:
-    """Initial P-D-T-A-C stage for a legacy tcd_data item dict."""
+    """Initial P-D-T-A-C stage for a legacy tcd_data item dict.
+
+    P is the ONE and ONLY entry point for anything that needs the Commander's
+    decision — staff proposals, alerts, decisions, incoming email, missions
+    awaiting review. Nothing here ever pre-assigns D: the Commander is the
+    only one who moves an item P -> D (Approve/Modify in AppSheet). Only
+    already-decided, already-in-motion work (an active task, a running
+    project) starts past P, because Hale already has the authority to run it.
+    """
     fid = item.get("id", "") or ""
     itype = item.get("type", "")
 
@@ -24,17 +32,29 @@ def derive_stage(item: dict) -> str:
     if item.get("inbox") == "reference" or fid.startswith(("so-", "dossier-")):
         return "REF"
 
-    # Strategic decisions & proposals awaiting the Commander.
+    # Staff proposals, decisions, and alerts — all need a Commander call.
     if fid.startswith("elon-") or itype == "paper":
-        return "P"                      # Proposed, awaiting Decide
+        return "P"
     if itype == "decision" or fid.startswith("alert-"):
-        return "D"                      # In the Decide queue
+        return "P"
 
     # Incoming email — needs triage before it becomes a task.
     if fid.startswith("gmail-"):
         return "P"
 
-    # Active operational work.
+    # Wing Tasking missions (OpsCenter/mission_board.json), folded into the
+    # same PDTAC pipeline instead of a separate untracked taxonomy.
+    if fid.startswith("mission-"):
+        status = item.get("status", "")
+        if status in ("done", "complete", "completed"):
+            return "C"
+        if status in ("blocked", "blocked_awaiting_human"):
+            return "T"
+        if status == "active":
+            return "A"                  # already decided, Hale has it running
+        return "P"                      # pending_review and anything else
+
+    # Active operational work — already decided, Hale is running it.
     if fid.startswith("task-"):
         status = ""
         for tag in item.get("tags", []) or []:
@@ -48,7 +68,7 @@ def derive_stage(item: dict) -> str:
     if fid.startswith("proj-"):
         return "A"
 
-    return "D"                          # default: surface for a decision
+    return "P"                          # default: surface for a decision
 
 
 STATUSES = ("Open", "Reference", "Closed", "Delete")

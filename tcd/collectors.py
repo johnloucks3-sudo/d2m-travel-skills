@@ -51,6 +51,7 @@ def collect_local() -> list:
     return (
         td.build_strategic(state)
         + td.build_operational(state)
+        + td.build_missions(state)
         + td.build_reference()
     )
 

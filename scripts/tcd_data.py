@@ -26,6 +26,7 @@ HALE_DECISIONS = ROOT / "hale_decisions.md"
 STANDING_ORDERS = ROOT / "standing_orders"
 DOSSIERS = ROOT / "dossiers"
 TCD_TRASH = ROOT / "OpsCenter/tcd_trash"
+MISSION_BOARD = ROOT / "OpsCenter" / "mission_board.json"
 
 sys.path.insert(0, str(ROOT / "api"))
 
@@ -149,6 +150,34 @@ def build_operational(state):
             "title": a.get("message", "")[:90], "from": "Deferred Alert Monitor",
             "date": a.get("trigger_date", ""), "snippet": _snip(body), "body": body,
             "tags": ["deferred-alert", a.get("client", "")], "comments": [],
+        })
+    return files
+
+
+def build_missions(state, mission_board=None):
+    """Wing Tasking missions (OpsCenter/mission_board.json) as Items, folded
+    into the SAME PDTAC pipeline as everything else — one review surface,
+    no separate untracked taxonomy. Skips any mission whose id already
+    appears as a hale_state.json open_task (task-<id>) so nothing double-
+    counts if the two ever overlap.
+    """
+    mission_board = mission_board if mission_board is not None else _load_json(MISSION_BOARD, {})
+    open_task_ids = {t.get("id", "") for t in state.get("open_tasks", [])}
+    files = []
+    for m in mission_board.get("missions", []):
+        mid = m.get("id", "")
+        if not mid or mid in open_task_ids:
+            continue
+        body = m.get("description", "") or m.get("title", "")
+        files.append({
+            "id": f"mission-{mid}", "inbox": "operational", "folder": "o-dailyops",
+            "type": "brief", "priority": _pri(m.get("priority")),
+            "unread": m.get("status") == "pending_review",
+            "title": m.get("title", ""), "from": f"{m.get('assigned_to', 'Wing')} · Wing Tasking",
+            "date": (m.get("updated_at", "") or m.get("created_at", ""))[:10],
+            "snippet": _snip(body), "body": body,
+            "tags": ["mission", m.get("status", "")], "comments": [],
+            "status": m.get("status", ""),
         })
     return files
 
@@ -378,6 +407,18 @@ def _delete_state_list_entry(list_path, entry_id):
     return {"ok": True, "source": f"hale_state.json:{'.'.join(list_path)}", "removed": removed}
 
 
+def _delete_mission_board_entry(entry_id):
+    board = _load_json(MISSION_BOARD, {})
+    lst = board.setdefault("missions", [])
+    idx = next((i for i, e in enumerate(lst) if e.get("id") == entry_id), None)
+    if idx is None:
+        return {"ok": False, "reason": f"'{entry_id}' not found in mission_board.json:missions"}
+    removed = lst.pop(idx)
+    _backup_record("mission_board.missions", entry_id, removed)
+    _atomic_write_json(MISSION_BOARD, board)
+    return {"ok": True, "source": "mission_board.json:missions", "removed": removed}
+
+
 def _delete_source_file(dir_path, filename):
     src = dir_path / filename
     if not src.is_file():
@@ -425,6 +466,8 @@ def delete_item(file_id):
         return _delete_source_file(DOSSIERS, file_id[len("dossier-"):] + ".md")
     if file_id.startswith("gmail-"):
         return _delete_gmail_message(file_id)
+    if file_id.startswith("mission-"):
+        return _delete_mission_board_entry(file_id[len("mission-"):])
     return {"ok": False, "reason": f"no foundation source mapped for id '{file_id}' — hidden in TCD only"}
 
 

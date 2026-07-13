@@ -119,7 +119,9 @@ def derive_link(item: dict) -> str:
     client = ""
     for tag in item.get("tags", []) or []:
         if tag and tag not in ("standing-order", "dossier", "deferred-alert",
-                               "gmail", "ELON", "verification"):
+                               "gmail", "ELON", "verification", "mission",
+                               "pending_review", "active", "blocked_awaiting_human",
+                               "done", "complete"):
             client = tag
             break
     # Titles can be degenerate (e.g. a dossier whose first line is the YAML
@@ -158,4 +160,6 @@ def derive_source_path(item: dict) -> str:
         return "hale_state.json:project_tracking.active_projects"
     if fid.startswith("elon-"):
         return "hale_state.json:elon_proposals"
+    if fid.startswith("mission-"):
+        return "OpsCenter/mission_board.json:missions"
     return ""
