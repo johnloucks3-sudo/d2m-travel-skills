@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # Make both the repo-style and box-style locations importable.
-for sub in ("", "api", "scripts"):
+for sub in ("", "api", "scripts", "OpsCenter"):
     p = ROOT / sub if sub else ROOT
     sp = str(p)
     if p.is_dir() and sp not in sys.path:
@@ -55,3 +55,8 @@ def load_keep():
 def load_sms_gateway():
     """Android SMS gateway client (see docs/TCD_ANDROID_SMS_SETUP.md)."""
     return _first_import(["tcd.sms_gateway", "sms_gateway"])
+
+
+def load_mission_board_sync():
+    """The real Wing Tasking board primitives (fcntl-locked read/write)."""
+    return _first_import(["OpsCenter.mission_board_sync", "mission_board_sync"])

@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tcd.staging import derive_stage, derive_status, STAGES, STATUSES  # noqa: E402
+from tcd.staging import derive_stage, derive_status, derive_kind, STAGES, STATUSES, KINDS  # noqa: E402
 
 
 class TestDeriveStage:
@@ -87,3 +87,51 @@ class TestDeriveStatus:
 
     def test_statuses_are_all_plain_english(self):
         assert STATUSES == ("Open", "Reference", "Closed", "Delete")
+
+
+class TestDeriveKind:
+    def test_financial_decisions_are_proposals(self):
+        assert derive_kind({"id": "alert-1", "type": "decision"}) == "proposal"
+
+    def test_elon_papers_are_proposals(self):
+        assert derive_kind({"id": "elon-verify-latest", "type": "paper"}) == "proposal"
+
+    def test_missions_pending_review_are_proposals(self):
+        assert derive_kind({"id": "mission-MISSION-002", "status": "pending_review"}) == "proposal"
+
+    def test_incoming_gmail_is_fyi(self):
+        assert derive_kind({"id": "gmail-johnloucks3-1", "type": "email"}) == "fyi"
+
+    def test_non_financial_alert_is_fyi(self):
+        assert derive_kind({"id": "alert-2", "type": "email"}) == "fyi"
+
+    def test_non_p_stage_items_have_no_kind(self):
+        assert derive_kind({"id": "task-1", "tags": ["active"]}) == ""       # A
+        assert derive_kind({"id": "proj-1"}) == ""                           # A
+        assert derive_kind({"id": "task-2", "tags": ["blocked"]}) == ""      # T
+        assert derive_kind({"id": "task-3", "tags": ["done"]}) == ""         # C
+
+    def test_reference_items_have_no_kind(self):
+        assert derive_kind({"id": "so-A", "inbox": "reference"}) == ""
+
+    def test_explicit_stage_overrides_recomputation(self):
+        # Mirrors tcd/collectors.py passing the override-adjusted stage —
+        # an item that WOULD derive to P but has been overridden to T no
+        # longer carries a kind.
+        item = {"id": "alert-1", "type": "decision"}
+        assert derive_kind(item, stage="T") == ""
+        assert derive_kind(item, stage="P") == "proposal"
+
+    def test_kind_is_always_a_known_value(self):
+        samples = [
+            {"id": "so-A", "inbox": "reference"},
+            {"id": "elon-x", "type": "paper"},
+            {"id": "alert-1", "type": "decision"},
+            {"id": "gmail-a-1", "type": "email"},
+            {"id": "task-1", "tags": ["active"]},
+            {"id": "proj-1"},
+            {"id": "mission-1", "status": "pending_review"},
+            {"id": "weird-1"},
+        ]
+        for s in samples:
+            assert derive_kind(s) in KINDS

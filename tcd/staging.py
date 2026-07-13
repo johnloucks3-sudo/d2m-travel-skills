@@ -71,6 +71,35 @@ def derive_stage(item: dict) -> str:
     return "P"                          # default: surface for a decision
 
 
+KINDS = ("proposal", "fyi", "")
+
+
+def derive_kind(item: dict, stage: str = None) -> str:
+    """P=Provide split: "proposal" (needs Approve/Disapprove/Modify) vs "fyi"
+    (needs Acknowledge/Create Task). Only meaningful at stage P — blank for
+    every other stage, including REF.
+
+    ``stage`` defaults to a fresh ``derive_stage(item)`` call but should be
+    passed explicitly by callers that already have the override-adjusted
+    stage (e.g. ``tcd/collectors.py``) — this mirrors the AppSheet virtual
+    column, which reads the actual ``stage`` cell on the Sheet (post-
+    override), not a recomputation from scratch.
+
+    Commander's own model: "P=Provide, either Provide Info (FYI) or Provide
+    a Proposal for Consideration." Proposals are the items with a real $/
+    strategic call attached (financial deferred alerts, ELON tech papers,
+    Wing Tasking missions awaiting Approve->D->T); everything else that
+    reaches P is informational triage, not a decision seeking approval.
+    """
+    if (stage if stage is not None else derive_stage(item)) != "P":
+        return ""
+    fid = item.get("id", "") or ""
+    itype = item.get("type", "")
+    if itype in ("decision", "paper") or fid.startswith("mission-"):
+        return "proposal"
+    return "fyi"
+
+
 STATUSES = ("Open", "Reference", "Closed", "Delete")
 
 

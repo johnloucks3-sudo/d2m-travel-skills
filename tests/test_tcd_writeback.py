@@ -252,6 +252,105 @@ class TestCommentDetection:
         assert not decisions_path.exists()
 
 
+class TestCreateTaskDetection:
+    def _fake_create_task(self, calls):
+        def fn(row):
+            calls.append(row["id"])
+            return "MISSION-999"
+        return fn
+
+    def test_marker_in_new_comment_files_a_task(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "P",
+                                                       "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        calls = []
+        rows = [_row(stage="P", comments="Commander: [CREATE_TASK_REQUESTED]")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok,
+                                        create_task_fn=self._fake_create_task(calls))
+        assert calls == ["task-1"]
+        assert result["created_tasks"] == [{"id": "task-1", "mission_id": "MISSION-999"}]
+        text = decisions_path.read_text()
+        assert "TCD-CREATETASK-task-1" in text
+        assert "MISSION-999" in text
+
+    def test_comment_without_marker_does_not_file_a_task(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "P",
+                                                       "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        calls = []
+        rows = [_row(stage="P", comments="Commander: just a note")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok,
+                                        create_task_fn=self._fake_create_task(calls))
+        assert calls == []
+        assert result["created_tasks"] == []
+
+    def test_marker_already_present_in_prior_comments_not_refiled(self, tmp_path):
+        # The marker text itself sat in the PRIOR comments (already handled
+        # on an earlier pass) -- only NEWLY-ADDED text containing the marker
+        # should trigger filing, not any row whose comments happen to contain it.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "P",
+                                                       "comments": "[CREATE_TASK_REQUESTED]"}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        calls = []
+        rows = [_row(stage="P", comments="[CREATE_TASK_REQUESTED]\nDani: on it")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok,
+                                        create_task_fn=self._fake_create_task(calls))
+        assert calls == []
+        assert result["created_tasks"] == []
+
+    def test_second_click_appends_second_marker_files_second_task(self, tmp_path):
+        # Each distinct new marker append is a genuine new Commander request.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "P",
+                                                       "comments": "[CREATE_TASK_REQUESTED]"}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        calls = []
+        rows = [_row(stage="P", comments="[CREATE_TASK_REQUESTED]\n[CREATE_TASK_REQUESTED]")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok,
+                                        create_task_fn=self._fake_create_task(calls))
+        assert calls == ["task-1"]
+        assert len(result["created_tasks"]) == 1
+
+    def test_default_create_task_fn_files_real_mission(self, tmp_path, monkeypatch):
+        # Exercises the real (non-injected) path against a temp mission board.
+        board_path = tmp_path / "mission_board.json"
+        board_path.write_text(json.dumps({"missions": [{"id": "MISSION-001"}],
+                                          "last_updated": ""}))
+        lock_path = tmp_path / "mission_board.lock"
+        from OpsCenter import mission_board_sync as mbs
+        monkeypatch.setattr(mbs, "BOARD_PATH", board_path)
+        monkeypatch.setattr(mbs, "LOCK_PATH", lock_path)
+        row = _row(id="alert-1", title="Follow up on vendor issue", comments="")
+        row["priority"] = "p1"
+        mission_id = writeback._default_create_task_fn(row)
+        assert mission_id == "MISSION-002"
+        board = json.loads(board_path.read_text())
+        filed = [m for m in board["missions"] if m["id"] == "MISSION-002"][0]
+        assert filed["title"] == "Follow up on vendor issue"
+        assert filed["status"] == "pending_review"
+        assert filed["source"] == "tcd_create_task_action"
+        assert filed["priority"] == "P1"
+
+
 class TestStatePersistence:
     def test_state_file_written(self, tmp_path):
         state_path = tmp_path / "state.json"

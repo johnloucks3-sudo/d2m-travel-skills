@@ -27,6 +27,9 @@ STANDING_ORDERS = ROOT / "standing_orders"
 DOSSIERS = ROOT / "dossiers"
 TCD_TRASH = ROOT / "OpsCenter/tcd_trash"
 MISSION_BOARD = ROOT / "OpsCenter" / "mission_board.json"
+ELON_PROPOSALS_DIR = ROOT / "OpsCenter" / "elon_proposals"
+A7_METRICS_PATH = ROOT / "OpsCenter" / "a7_metrics_dashboard.json"
+STAFF_CADENCE_PATH = ROOT / "OpsCenter" / "staff_cadence_log.json"
 
 sys.path.insert(0, str(ROOT / "api"))
 
@@ -79,6 +82,91 @@ def _financial_folder(msg):
     return "s-financial" if "$" in (msg or "") or "FPD" in (msg or "").upper() else "s-clientstrat"
 
 
+def count_untouched_elon_proposals(proposals_dir=None):
+    """MISSION-001A correction: hale_state.json's
+    ``elon_proposals.proposal_queue.open_proposals_raw_count`` (94) is NOT
+    "94 proposals awaiting Commander review" -- it's a raw never-archived
+    file count (the CLOSED/ archive protocol was never adopted). Most of
+    those files are already-executed work with a matching ``*_EXECUTION.md``
+    companion in the same directory.
+
+    Best available proxy for "genuinely untouched": a PROPOSAL-*.md file
+    whose exact filename is never referenced inside ANY *_EXECUTION.md's
+    text. Not perfectly precise (a proposal could be done via a path that
+    never narrates the filename back), but it's a real signal instead of a
+    raw file count -- and it's what a Commander-facing rollup should say,
+    labeled as a proxy, not asserted as exact.
+    """
+    d = proposals_dir or ELON_PROPOSALS_DIR
+    if not d.is_dir():
+        return None
+    exec_text = ""
+    for f in d.glob("*_EXECUTION.md"):
+        try:
+            exec_text += f.read_text(errors="replace") + "\n"
+        except OSError:
+            continue
+    referenced = set(re.findall(r"PROPOSAL-[A-Za-z0-9_-]+", exec_text))
+    total = 0
+    untouched = 0
+    for p in d.glob("PROPOSAL-*.md"):
+        total += 1
+        stem = p.stem
+        if not any(stem == r or stem.startswith(r) or r.startswith(stem) for r in referenced):
+            untouched += 1
+    return {"total": total, "untouched": untouched, "touched": total - untouched}
+
+
+def build_a7_metrics_alert(path=None):
+    """MISSION-001A A-tier gap: a7_metrics_dashboard.json's continuity_recert
+    was never wired into TCD -- Sterling's own health dashboard could sit RED
+    indefinitely with nobody's review surface showing it. Only emits an item
+    when genuinely abnormal (overall != GREEN); silent otherwise -- same
+    fail-quiet contract as the rest of TCD's alert-style collectors."""
+    d = _load_json(path or A7_METRICS_PATH, {})
+    recert = d.get("continuity_recert", {})
+    overall = recert.get("overall")
+    if not overall or overall == "GREEN":
+        return None
+    red_items = recert.get("red_items") or d.get("red_items") or []
+    body = f"A7 continuity recertification: {overall}\n\n" + "\n".join(f"- {r}" for r in red_items)
+    return {
+        "id": "a7metrics-continuity", "inbox": "strategic", "folder": "s-inbox",
+        "type": "decision", "priority": "p1", "unread": True,
+        "title": f"A7 continuity recert {overall} — {len(red_items)} flagged item(s)",
+        "from": "A7 Sterling · Metrics Dashboard",
+        "date": (recert.get("timestamp") or d.get("generated_at") or "")[:10],
+        "snippet": _snip(body), "body": body,
+        "tags": ["a7-metrics", "continuity", overall.lower()], "comments": [],
+    }
+
+
+def build_staff_cadence_alert(path=None):
+    """MISSION-001A A-tier gap: staff_cadence_log.json's gate_decision was
+    never wired -- a THROTTLED cadence gate could sit unreviewed. Only emits
+    when the LATEST run (by run_date) is throttled; silent otherwise
+    (verified quiet as of 2026-07-13 -- latest run reads OPEN, a prior run
+    from 2026-07-07 was THROTTLED but is no longer current)."""
+    d = _load_json(path or STAFF_CADENCE_PATH, {})
+    runs = d.get("runs", [])
+    if not runs:
+        return None
+    latest = max(runs, key=lambda r: r.get("run_date", ""))
+    decision = latest.get("gate_decision", "")
+    if not decision.startswith("THROTTLED"):
+        return None
+    body = (f"Staff cadence gate ({latest.get('run_date', '')}): {decision}\n\n"
+            f"{json.dumps(latest.get('detail', {}), indent=2)}")
+    return {
+        "id": f"cadence-{latest.get('run_date', 'unknown')}", "inbox": "strategic",
+        "folder": "s-inbox", "type": "decision", "priority": "p2", "unread": True,
+        "title": f"Staff cadence THROTTLED — {latest.get('run_date', '')}",
+        "from": "Staff Cadence Gate", "date": latest.get("run_date", ""),
+        "snippet": _snip(body), "body": body,
+        "tags": ["staff-cadence", "throttled"], "comments": [],
+    }
+
+
 def build_strategic(state):
     files = []
     for a in state.get("deferred_alerts", []):
@@ -100,11 +188,27 @@ def build_strategic(state):
     if elon:
         claim = elon.get("2026-07-06_batch_claim", "")
         verified = elon.get("2026-07-06_batch_verified", {})
+        counts = count_untouched_elon_proposals()
+        if counts:
+            proposal_line = (
+                f"Proposal backlog: {counts['untouched']} of {counts['total']} "
+                f"OpsCenter/elon_proposals/*.md files have no matching "
+                f"*_EXECUTION.md (proxy for 'genuinely untouched' — not exact).\n"
+                f"CORRECTION (2026-07-13, MISSION-001A): hale_state.json's "
+                f"open_proposals_raw_count ({elon.get('proposal_queue', {}).get('open_proposals_raw_count', '?')}) "
+                f"is a raw never-archived file count, NOT an undecided-proposal "
+                f"count — the CLOSED/ archive protocol was never adopted, so "
+                f"most of those files are already-executed work that was never "
+                f"moved out. The figure above replaces it."
+            )
+        else:
+            proposal_line = "Proposal backlog: unable to scan OpsCenter/elon_proposals/."
         body = (f"ELON verification pass — {elon.get('verification_method', '')}\n\n"
                 f"Claimed: {claim}\n"
                 f"Committed to git: {verified.get('committed_to_git', '?')}\n"
                 f"Passing both bars (committed + wired): {verified.get('passing_both_bars_committed_and_wired', '?')}\n"
-                f"No file evidence found: {verified.get('no_file_evidence_found', '?')}")
+                f"No file evidence found: {verified.get('no_file_evidence_found', '?')}\n\n"
+                f"{proposal_line}")
         files.append({
             "id": "elon-verify-latest", "inbox": "strategic", "folder": "s-elon",
             "type": "paper", "priority": "p1", "unread": True,
@@ -113,6 +217,12 @@ def build_strategic(state):
             "snippet": _snip(body), "body": body,
             "tags": ["ELON", "verification"], "comments": [],
         })
+    a7_alert = build_a7_metrics_alert()
+    if a7_alert:
+        files.append(a7_alert)
+    cadence_alert = build_staff_cadence_alert()
+    if cadence_alert:
+        files.append(cadence_alert)
     return files
 
 

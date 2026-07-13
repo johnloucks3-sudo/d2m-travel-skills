@@ -23,7 +23,10 @@ AppSheet and acts on it BEFORE the next sync overwrites those cells. The
     audit entry. Not enforced/reverted — the Commander's move IS the record.
   * ``comments`` grew (new text appended in AppSheet)                → logged
     as a comment audit entry, per SO_PDTAC_WORKFLOW_20260711 ("staff can
-    submit comments at any phase").
+    submit comments at any phase"). If the newly-added text contains the
+    ``[CREATE_TASK_REQUESTED]`` marker (the FYI-kind "Create Task" action)
+    a real mission is filed via ``OpsCenter/mission_board_sync.py``'s
+    locking primitives — see ``CREATE_TASK_MARKER``/``_handle_create_task``.
 
 All actions append to hale_decisions.md, the canonical audit trail, using the
 same PLAN:CLOSE format the rest of the Wing already parses (tcd_data.
@@ -179,6 +182,66 @@ def _handle_comment(row: dict, prior_comments: str, decisions_path) -> None:
     )
 
 
+CREATE_TASK_MARKER = "[CREATE_TASK_REQUESTED]"
+
+
+def _default_create_task_fn(row: dict) -> str:
+    """File a real Wing Tasking mission from an FYI-kind row's "Create Task"
+    action, via the same locking primitives used to file MISSION-001A itself
+    (OpsCenter/mission_board_sync.py) — not a cosmetic status flip. Returns
+    the new mission id."""
+    mbs = _imports.load_mission_board_sync()
+    fd = mbs.acquire_lock()
+    board = mbs.load_board()
+    all_missions = board.get("missions", [])
+    nums = []
+    for m in all_missions:
+        try:
+            nums.append(int(m["id"].split("-")[-1]))
+        except (ValueError, IndexError, KeyError):
+            pass
+    mission_id = f"MISSION-{(max(nums) + 1) if nums else 1:03d}"
+    new_mission = {
+        "id": mission_id,
+        "title": row.get("title", row.get("id", ""))[:120],
+        "status": "pending_review",
+        "priority": row.get("priority", "p2").upper() if row.get("priority", "").upper() in
+                    ("P0", "P1", "P2", "P3") else "P2",
+        "assigned_to": row.get("owner") or "Hale",
+        "description": row.get("body") or row.get("snippet") or row.get("title", ""),
+        "deliverables": [],
+        "dependencies": [],
+        "suspense_date": None,
+        "escalation_rule": None,
+        "logs": [
+            f"[{mbs.now_iso()}] Filed via TCD 'Create Task' action on "
+            f"{row.get('id', '')} ({row.get('title', '')[:80]})."
+        ],
+        "created_at": mbs.now_iso(),
+        "updated_at": mbs.now_iso(),
+        "source": "tcd_create_task_action",
+    }
+    board.setdefault("missions", []).append(new_mission)
+    board["last_updated"] = mbs.now_iso()
+    mbs.save_board(board, fd)
+    return mission_id
+
+
+def _handle_create_task(row: dict, decisions_path, create_task_fn=None) -> str:
+    """"Create Task" (FYI-kind action) — files a real mission, not just an
+    audit log entry, since the whole point of the action is to turn an FYI
+    into tracked work."""
+    create_task_fn = create_task_fn or _default_create_task_fn
+    mission_id = create_task_fn(row)
+    _append_decision(
+        _plan_id(row["id"], "CREATETASK"), "PASS",
+        criteria_met=f"TCD create-task: {row.get('title', row['id'])[:80]}",
+        notes=f"Filed {mission_id} from FYI row {row['id']}.",
+        decisions_path=decisions_path,
+    )
+    return mission_id
+
+
 def _default_delete_fn(item_id: str) -> dict:
     return _imports.load_tcd_data().delete_item(item_id)
 
@@ -224,7 +287,8 @@ def _default_write_fn(item_id: str, updates: dict) -> None:
 
 
 def process_once(rows: list = None, *, state_path=None, decisions_path=None,
-                 delete_fn=None, overrides_path=None, write_fn=None) -> dict:
+                 delete_fn=None, overrides_path=None, write_fn=None,
+                 create_task_fn=None) -> dict:
     """One write-back pass: diff current Sheet vs. last-known state, act, save.
 
     All parameters default to production paths/behavior (live Sheet read,
@@ -246,7 +310,7 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
     if rows is None:
         rows = read_sheet_rows()
     summary = {"disposed": [], "closed": [], "staged": [], "tasked": [],
-               "commented": [], "unchanged": 0, "errors": []}
+               "commented": [], "created_tasks": [], "unchanged": 0, "errors": []}
     new_state = {}
 
     for row in rows:
@@ -309,11 +373,18 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
         # row never seen before (no cache entry at all) is suppressed, same
         # pattern as the stage check above.
         if row.get("comments", "") != prev.get("comments", "") and "comments" in prev:
+            added = row.get("comments", "")[len(prev.get("comments", "")):]
             try:
                 _handle_comment(row, prev.get("comments", ""), decisions_path)
                 summary["commented"].append({"id": rid})
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "comment", "error": str(e)})
+            if CREATE_TASK_MARKER in added:
+                try:
+                    mission_id = _handle_create_task(row, decisions_path, create_task_fn=create_task_fn)
+                    summary["created_tasks"].append({"id": rid, "mission_id": mission_id})
+                except Exception as e:
+                    summary["errors"].append({"id": rid, "action": "create_task", "error": str(e)})
             changed = True
 
         if not changed:

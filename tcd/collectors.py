@@ -19,6 +19,7 @@ from email.utils import parsedate_to_datetime
 
 from . import _imports
 from . import overrides as _overrides
+from . import watchdog
 from .item_model import Item
 from .permalink import derive_link, derive_source_path
 from .staging import derive_stage, derive_status
@@ -63,6 +64,7 @@ def collect_local() -> list:
         + td.build_operational(state)
         + td.build_missions(state)
         + td.build_reference()
+        + watchdog.collect_watchdog()
     )
 
 
