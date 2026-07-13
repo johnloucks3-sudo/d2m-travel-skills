@@ -37,6 +37,8 @@ import json
 from datetime import datetime, timezone
 
 from . import _imports
+from . import assignment
+from . import overrides as _overrides
 from .item_model import SHEET_COLUMNS
 from .sheet_sync import CONFIG_PATH as SHEET_CONFIG_PATH, TAB_NAME
 
@@ -112,7 +114,7 @@ def _append_decision(plan_id: str, verdict: str, criteria_met: str, notes: str,
         f.write(block)
 
 
-def _handle_dispose(row: dict, delete_fn, decisions_path) -> dict:
+def _handle_dispose(row: dict, delete_fn, decisions_path, overrides_path=None) -> dict:
     """Execute the real cascade delete for a row flipped to status=Delete."""
     result = delete_fn(row["id"])
     verdict = "PASS" if result.get("ok") else "FAIL"
@@ -123,6 +125,7 @@ def _handle_dispose(row: dict, delete_fn, decisions_path) -> dict:
         criteria_met=f"TCD delete: {row.get('title', row['id'])[:80]}",
         notes=notes, decisions_path=decisions_path,
     )
+    _overrides.clear_override(row["id"], path=overrides_path)
     return result
 
 
@@ -136,13 +139,34 @@ def _handle_close(row: dict, decisions_path) -> None:
     )
 
 
-def _handle_stage_move(row: dict, prior_stage: str, decisions_path) -> None:
+def _handle_stage_move(row: dict, prior_stage: str, decisions_path,
+                       to_stage: str = None) -> None:
     _append_decision(
         _plan_id(row["id"], "STAGE"), "PASS",
         criteria_met=f"TCD stage move: {row.get('title', row['id'])[:80]}",
-        notes=f"{prior_stage or '(new)'} -> {row.get('stage', '')}",
+        notes=f"{prior_stage or '(new)'} -> {to_stage if to_stage is not None else row.get('stage', '')}",
         decisions_path=decisions_path,
     )
+
+
+def _handle_auto_task(row: dict, decisions_path, overrides_path=None) -> str:
+    """D -> T: the instant an item is Approved, Hale tasks it to a staff seat.
+
+    Persists the T stage + owner as an override (see tcd/overrides.py) so
+    this survives the next sheet_sync, and audit-logs it distinctly from the
+    Commander's own P->D decision (both fire from a single Approve click,
+    but they're two different actors' actions and should read that way in
+    hale_decisions.md).
+    """
+    owner = assignment.assign_owner(row)
+    _overrides.set_override(row["id"], stage="T", owner=owner, path=overrides_path)
+    _append_decision(
+        _plan_id(row["id"], "TASK"), "PASS",
+        criteria_met=f"TCD auto-task: {row.get('title', row['id'])[:80]}",
+        notes=f"D -> T, assigned to {owner}",
+        decisions_path=decisions_path,
+    )
+    return owner
 
 
 def _handle_comment(row: dict, prior_comments: str, decisions_path) -> None:
@@ -159,29 +183,70 @@ def _default_delete_fn(item_id: str) -> dict:
     return _imports.load_tcd_data().delete_item(item_id)
 
 
+def _default_write_fn(item_id: str, updates: dict) -> None:
+    """Push corrected cell values for one row straight back into the live Sheet.
+
+    Needed because ``tcd_process_writeback`` is a real standalone entry point
+    (see tcd/mcp_tools.py), not just a step inside sheet_sync — if Hale calls
+    it on its own, the auto-tasked "T" only exists in local state/overrides
+    until the *next* full sheet_sync, and that next sync's own write-back
+    pass would then see the Sheet still literally says "D" and misread it as
+    a fresh regression (a real bug caught live: an auto-tasked row's
+    override got silently reset D because nothing had told the Sheet cell
+    itself). Writing the cell immediately keeps the Sheet, the override, and
+    the Commander's own eyes all showing the same value at all times.
+    """
+    cfg = _load_json(SHEET_CONFIG_PATH, {})
+    sheet_id = cfg.get("spreadsheet_id")
+    if not sheet_id:
+        return
+    gauth = _imports.load_google_auth()
+    sheets = gauth.get_sheets()
+    res = sheets.spreadsheets().values().get(
+        spreadsheetId=sheet_id, range=TAB_NAME).execute()
+    values = res.get("values", [])
+    if not values:
+        return
+    header = values[0]
+    if "id" not in header:
+        return
+    id_col = header.index("id")
+    for i, raw in enumerate(values[1:], start=2):  # 1-indexed + header row
+        if len(raw) > id_col and raw[id_col] == item_id:
+            row_vals = raw + [""] * (len(header) - len(raw))
+            for k, v in updates.items():
+                if k in header:
+                    row_vals[header.index(k)] = v
+            sheets.spreadsheets().values().update(
+                spreadsheetId=sheet_id, range=f"{TAB_NAME}!A{i}",
+                valueInputOption="RAW", body={"values": [row_vals]}).execute()
+            return
+
+
 def process_once(rows: list = None, *, state_path=None, decisions_path=None,
-                 delete_fn=None) -> dict:
+                 delete_fn=None, overrides_path=None, write_fn=None) -> dict:
     """One write-back pass: diff current Sheet vs. last-known state, act, save.
 
     All parameters default to production paths/behavior (live Sheet read,
-    real cascade delete, real hale_decisions.md). Pass them explicitly for
-    offline/unit testing — no credentials, no network, no writes outside a
-    tmp dir.
+    real cascade delete, real hale_decisions.md, real
+    config/tcd_stage_overrides.json). Pass them explicitly for offline/unit
+    testing — no credentials, no network, no writes outside a tmp dir.
 
-    Returns a summary dict: {"disposed": [...], "staged": [...], "commented":
-    [...], "unchanged": N, "errors": [...]}. Never raises for a single row's
-    action failure — collects it in "errors" so one bad row doesn't block the
-    rest of the batch.
+    Returns a summary dict: {"disposed": [...], "staged": [...], "tasked":
+    [...], "commented": [...], "unchanged": N, "errors": [...]}. Never raises
+    for a single row's action failure — collects it in "errors" so one bad
+    row doesn't block the rest of the batch.
     """
     state_path = state_path or STATE_PATH
     decisions_path = decisions_path or HALE_DECISIONS
     delete_fn = delete_fn or _default_delete_fn
+    write_fn = write_fn or _default_write_fn
 
     prior_state = _load_json(state_path, {})
     if rows is None:
         rows = read_sheet_rows()
-    summary = {"disposed": [], "closed": [], "staged": [], "commented": [],
-               "unchanged": 0, "errors": []}
+    summary = {"disposed": [], "closed": [], "staged": [], "tasked": [],
+               "commented": [], "unchanged": 0, "errors": []}
     new_state = {}
 
     for row in rows:
@@ -190,10 +255,12 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
             continue
         prev = prior_state.get(rid, {})
         changed = False
+        row = dict(row)  # local copy — the auto-task branch may rewrite ["stage"]
 
         if row.get("status") == "Delete" and prev.get("status") != "Delete":
             try:
-                result = _handle_dispose(row, delete_fn, decisions_path)
+                result = _handle_dispose(row, delete_fn, decisions_path,
+                                         overrides_path=overrides_path)
                 summary["disposed"].append({"id": rid, "ok": result.get("ok", False)})
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "dispose", "error": str(e)})
@@ -209,11 +276,30 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
                 summary["errors"].append({"id": rid, "action": "close", "error": str(e)})
             changed = True
 
-        if row.get("stage") != prev.get("stage") and "stage" in prev:
+        # Approve/Modify (P -> D) gets auto-tasked to a staff seat immediately
+        # — "Then HALE takes over" — logged as two events (the Commander's
+        # decision, then Hale's tasking) and materialized as T, not D, so the
+        # next sync doesn't re-diff D -> T as a second, unattributed move.
+        if row.get("stage") == "D" and prev.get("stage") == "P" and "stage" in prev:
+            try:
+                _handle_stage_move(row, "P", decisions_path, to_stage="D")
+                summary["staged"].append({"id": rid, "from": "P", "to": "D"})
+                owner = _handle_auto_task(row, decisions_path, overrides_path=overrides_path)
+                summary["tasked"].append({"id": rid, "owner": owner})
+                row["stage"] = "T"
+                try:
+                    write_fn(rid, {"stage": "T", "owner": owner})
+                except Exception as e:
+                    summary["errors"].append({"id": rid, "action": "write_sheet", "error": str(e)})
+            except Exception as e:
+                summary["errors"].append({"id": rid, "action": "task", "error": str(e)})
+            changed = True
+        elif row.get("stage") != prev.get("stage") and "stage" in prev:
             try:
                 _handle_stage_move(row, prev.get("stage", ""), decisions_path)
                 summary["staged"].append({"id": rid, "from": prev.get("stage", ""),
                                           "to": row.get("stage", "")})
+                _overrides.set_override(rid, stage=row.get("stage", ""), path=overrides_path)
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "stage", "error": str(e)})
             changed = True

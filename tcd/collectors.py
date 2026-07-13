@@ -18,6 +18,7 @@ import sys
 from email.utils import parsedate_to_datetime
 
 from . import _imports
+from . import overrides as _overrides
 from .item_model import Item
 from .permalink import derive_link, derive_source_path
 from .staging import derive_stage, derive_status
@@ -29,15 +30,24 @@ GMAIL_ACCOUNTS = [
 ]
 
 
-def _enrich(item: dict) -> Item:
-    """Legacy tcd_data dict → fully-populated Item (link + stage + status)."""
-    stage = derive_stage(item)
+def _enrich(item: dict, overrides: dict = None) -> Item:
+    """Legacy tcd_data dict → fully-populated Item (link + stage + status).
+
+    ``overrides`` (id -> {"stage", "owner"}) is applied on top of the freshly
+    derived stage so a Commander's Approve or a manual stage move survives
+    the next full sync instead of being silently recomputed back to "P" —
+    see tcd/overrides.py for why this exists.
+    """
+    overrides = overrides if overrides is not None else {}
+    item_id = item.get("id", "")
+    stage = _overrides.apply_override(item_id, derive_stage(item), overrides)
     return Item.from_legacy(
         item,
         link=derive_link(item),
         source_path=derive_source_path(item),
         stage=stage,
         status=derive_status(item, stage),
+        owner=_overrides.apply_owner(item_id, overrides),
     )
 
 
@@ -197,4 +207,5 @@ def collect_all(include_gmail: bool = True, include_keep: bool = True,
         raw = raw + collect_keep()
     if include_sms:
         raw = raw + collect_sms()
-    return [_enrich(item) for item in raw]
+    overrides = _overrides.load_overrides()
+    return [_enrich(item, overrides) for item in raw]

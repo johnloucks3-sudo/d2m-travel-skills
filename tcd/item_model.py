@@ -26,6 +26,7 @@ SHEET_COLUMNS = [
     "sourcePath", # human-readable foundation pointer
     "comments",   # serialized; write-back appends here (Phase 2)
     "status",     # Open | Reference | Closed | Delete (Commander-facing plain English)
+    "owner",      # staff seat (Hale/Dani/Sterling/Dembe/Harlan) — set on D -> T auto-task
 ]
 
 
@@ -57,10 +58,11 @@ class Item:
     sourcePath: str
     comments: str = ""
     status: str = "Open"
+    owner: str = ""
 
     @classmethod
     def from_legacy(cls, item: dict, *, link: str, source_path: str,
-                    stage: str, status: str) -> "Item":
+                    stage: str, status: str, owner: str = "") -> "Item":
         """Build from a scripts/tcd_data.py item dict plus the enrichment fields."""
         return cls(
             id=item.get("id", ""),
@@ -77,6 +79,7 @@ class Item:
             sourcePath=source_path,
             comments=_flatten_comments(item.get("comments")),
             status=status,
+            owner=owner,
         )
 
     def to_row(self) -> list:
@@ -84,7 +87,7 @@ class Item:
         return [
             self.id, self.inbox, self.type, self.priority, self.stage,
             self.title, self.source, self.date, self.snippet, self.body,
-            self.link, self.sourcePath, self.comments, self.status,
+            self.link, self.sourcePath, self.comments, self.status, self.owner,
         ]
 
     def to_dict(self) -> dict:

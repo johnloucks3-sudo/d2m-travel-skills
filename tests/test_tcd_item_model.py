@@ -42,6 +42,17 @@ class TestSchema:
         assert set(d.keys()) == set(SHEET_COLUMNS)
         assert d["link"] == "L"
 
+    def test_owner_column_present_and_defaults_empty(self):
+        assert "owner" in SHEET_COLUMNS
+        it = Item.from_legacy({"id": "x"}, link="L", source_path="",
+                              stage="P", status="Open")
+        assert it.owner == ""
+
+    def test_owner_passed_through(self):
+        it = Item.from_legacy({"id": "x"}, link="L", source_path="",
+                              stage="T", status="Open", owner="Sterling")
+        assert dict(zip(SHEET_COLUMNS, it.to_row()))["owner"] == "Sterling"
+
 
 class TestCommentFlattening:
     def test_list_becomes_json_string(self):
