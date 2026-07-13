@@ -25,7 +25,7 @@ SHEET_COLUMNS = [
     "link",       # URL column — deep-link to source (requirement #1)
     "sourcePath", # human-readable foundation pointer
     "comments",   # serialized; write-back appends here (Phase 2)
-    "status",     # OPEN | REF | DISPOSE (Phase 2 dispose signal)
+    "status",     # Open | Reference | Closed | Delete (Commander-facing plain English)
 ]
 
 
@@ -56,7 +56,7 @@ class Item:
     link: str
     sourcePath: str
     comments: str = ""
-    status: str = "OPEN"
+    status: str = "Open"
 
     @classmethod
     def from_legacy(cls, item: dict, *, link: str, source_path: str,

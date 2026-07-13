@@ -28,7 +28,7 @@ def register_tcd_tools(mcp_server):
         """Read the current TCD board state from the live Google Sheet.
 
         Optional filters: inbox (strategic|operational|reference),
-        stage (P|D|T|A|C|REF), status (OPEN|REF|DISPOSE). Empty = no filter.
+        stage (P|D|T|A|C|REF), status (Open|Reference|Closed|Delete). Empty = no filter.
         Read-only — does not trigger a sync or write-back pass.
         """
         from . import writeback
@@ -70,12 +70,13 @@ def register_tcd_tools(mcp_server):
     )
     async def tcd_process_writeback_tool() -> str:
         """Act on Commander/staff edits made in AppSheet since the last pass:
-        status=DISPOSE triggers a REAL cascade delete at the source
-        (Gmail-trash, standing-orders/dossiers, hale_state entries), stage
-        moves and new comments are logged to hale_decisions.md. This is the
-        real, tested dispose-at-source engine — the same one the (currently
-        disabled) 10-minute timer calls. Never raises for a single row's
-        failure; failures are collected in the returned "errors" list.
+        status=Delete triggers a REAL cascade delete at the source
+        (Gmail-trash, standing-orders/dossiers, hale_state entries);
+        status=Closed marks the item done (audit-logged, source untouched);
+        stage moves and new comments are logged to hale_decisions.md. This is
+        the real, tested delete/close-at-source engine — the same one the
+        (currently disabled) 10-minute timer calls. Never raises for a single
+        row's failure; failures are collected in the returned "errors" list.
         """
         from . import writeback
         result = writeback.process_once()

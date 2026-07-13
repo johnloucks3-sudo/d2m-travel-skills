@@ -3,15 +3,21 @@ writeback — close the loop: AppSheet edits → real Python actions.
 
 The Sheet is a two-way contract. ``sheet_sync`` pushes Python's view of the
 world OUT to the Sheet; this module reads what the Commander/staff changed IN
-AppSheet and acts on it BEFORE the next sync overwrites those cells:
+AppSheet and acts on it BEFORE the next sync overwrites those cells. The
+``status`` column is the Commander's plain-English action menu:
 
-  * ``status`` flipped to ``DISPOSE``  → real cascade delete at the source
+  * ``status`` flipped to ``Delete``   → real cascade delete at the source
     (``tcd_data.delete_item``), same mechanism as the live custom TCD's
     delete-with-cascade (Gmail→trash, standing-orders/dossiers→OpsCenter/
-    tcd_trash, hale_state entries removed + JSONL-backed). "Dispose so it
-    never comes back": the source record is gone, so the next sync's
-    collectors simply won't re-emit that item — no separate suppression list
-    needed.
+    tcd_trash, hale_state entries removed + JSONL-backed). The source record
+    is gone, so the next sync's collectors simply won't re-emit that item —
+    no separate suppression list needed.
+  * ``status`` flipped to ``Closed``   → marks the item done. Audit-logged
+    same as Delete, but nothing at the source is touched — the item just
+    stops being live work. (Distinct from Delete: Closed keeps the record;
+    Delete removes it permanently.)
+  * ``Modify`` is not a status value — it's AppSheet's native row-edit
+    (every column is directly editable in the app; no special action needed).
   * ``stage`` changed from what Python last wrote (a manual P-D-T-A-C move,
     e.g. Commander drags an item from D to T) → logged as a stage-transition
     audit entry. Not enforced/reverted — the Commander's move IS the record.
@@ -107,17 +113,27 @@ def _append_decision(plan_id: str, verdict: str, criteria_met: str, notes: str,
 
 
 def _handle_dispose(row: dict, delete_fn, decisions_path) -> dict:
-    """Execute the real cascade delete for a row flipped to status=DISPOSE."""
+    """Execute the real cascade delete for a row flipped to status=Delete."""
     result = delete_fn(row["id"])
     verdict = "PASS" if result.get("ok") else "FAIL"
     notes = (f"source={result.get('source', '?')}"
              if result.get("ok") else f"reason={result.get('reason', '?')}")
     _append_decision(
-        _plan_id(row["id"], "DISPOSE"), verdict,
-        criteria_met=f"TCD dispose: {row.get('title', row['id'])[:80]}",
+        _plan_id(row["id"], "DELETE"), verdict,
+        criteria_met=f"TCD delete: {row.get('title', row['id'])[:80]}",
         notes=notes, decisions_path=decisions_path,
     )
     return result
+
+
+def _handle_close(row: dict, decisions_path) -> None:
+    """Mark a row Closed — audit-logged, source untouched (not a delete)."""
+    _append_decision(
+        _plan_id(row["id"], "CLOSE"), "PASS",
+        criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",
+        notes="Marked Closed by Commander in AppSheet; source record untouched.",
+        decisions_path=decisions_path,
+    )
 
 
 def _handle_stage_move(row: dict, prior_stage: str, decisions_path) -> None:
@@ -164,7 +180,8 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
     prior_state = _load_json(state_path, {})
     if rows is None:
         rows = read_sheet_rows()
-    summary = {"disposed": [], "staged": [], "commented": [], "unchanged": 0, "errors": []}
+    summary = {"disposed": [], "closed": [], "staged": [], "commented": [],
+               "unchanged": 0, "errors": []}
     new_state = {}
 
     for row in rows:
@@ -174,7 +191,7 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
         prev = prior_state.get(rid, {})
         changed = False
 
-        if row.get("status") == "DISPOSE" and prev.get("status") != "DISPOSE":
+        if row.get("status") == "Delete" and prev.get("status") != "Delete":
             try:
                 result = _handle_dispose(row, delete_fn, decisions_path)
                 summary["disposed"].append({"id": rid, "ok": result.get("ok", False)})
@@ -183,6 +200,14 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
             # Row's source is gone; drop from state so a future re-add (new
             # item that happens to reuse an id) isn't mistaken for this one.
             continue
+
+        if row.get("status") == "Closed" and prev.get("status") != "Closed":
+            try:
+                _handle_close(row, decisions_path)
+                summary["closed"].append({"id": rid})
+            except Exception as e:
+                summary["errors"].append({"id": rid, "action": "close", "error": str(e)})
+            changed = True
 
         if row.get("stage") != prev.get("stage") and "stage" in prev:
             try:

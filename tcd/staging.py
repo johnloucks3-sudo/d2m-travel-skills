@@ -51,12 +51,18 @@ def derive_stage(item: dict) -> str:
     return "D"                          # default: surface for a decision
 
 
-def derive_status(item: dict, stage: str) -> str:
-    """Workflow status column. REF items are reference; everything else OPEN.
+STATUSES = ("Open", "Reference", "Closed", "Delete")
 
-    Phase 2 write-back sets DISPOSE when the Commander disposes an item; Phase 0
-    never emits DISPOSE.
+
+def derive_status(item: dict, stage: str) -> str:
+    """Workflow status column — plain English, this is the Commander's dropdown.
+
+    REF items start ``Reference``; everything else starts ``Open``. The
+    Commander sets ``Closed`` (done, no side effect, just audit-logged) or
+    ``Delete`` (real cascade removal at the source) directly in AppSheet;
+    Phase 0 (this function) never emits either — that's write-back's job
+    (tcd/writeback.py) once the Commander acts.
     """
     if stage == "REF":
-        return "REF"
-    return "OPEN"
+        return "Reference"
+    return "Open"

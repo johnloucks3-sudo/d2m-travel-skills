@@ -120,7 +120,7 @@ def collect_intel(days: int = 14, max_items: int = 40, *, mirror_fn=mirror_file,
             stage="REF", title=title, source="Intel Archive",
             date=_mtime_iso(p)[:10], snippet=snippet, body=snippet,
             link=link, sourcePath=str(p.relative_to(ROOT)),
-            comments="", status="REF",
+            comments="", status="Reference",
         ))
     return items
 
@@ -165,7 +165,7 @@ def collect_techscans(*, mirror_fn=mirror_file) -> list:
             title=f"{'⚠ STALE — ' if stale else ''}{label}",
             source="Tech Scans", date=_mtime_iso(path)[:10],
             snippet=snippet, body=snippet, link=link,
-            sourcePath=str(path.relative_to(ROOT)), comments="", status="REF",
+            sourcePath=str(path.relative_to(ROOT)), comments="", status="Reference",
         ))
     return items
 
@@ -200,7 +200,7 @@ def collect_next7(*, calendar_events_fn=None, now: datetime = None) -> list:
             source="Calendar", date=(s.get("dateTime", s.get("date", "")) or "")[:10],
             snippet=e.get("location", ""), body=e.get("location", ""),
             link=e.get("htmlLink", ""), sourcePath="Google Calendar",
-            comments="", status="REF",
+            comments="", status="Reference",
         ))
 
     # 2. FPD dates within the window, linked to the dossier (reuses the
@@ -228,7 +228,7 @@ def collect_next7(*, calendar_events_fn=None, now: datetime = None) -> list:
             source="FPD Tracker", date=fpd_date,
             snippet=f"{entry.get('payment_status', '')} — {entry.get('fpd_amount', '')}",
             body="", link=link, sourcePath="OpsCenter/state/fpd_state.json",
-            comments="", status="REF",
+            comments="", status="Reference",
         ))
 
     # 3. Mission suspense dates (forward-compatible — currently all null
@@ -249,7 +249,7 @@ def collect_next7(*, calendar_events_fn=None, now: datetime = None) -> list:
             priority="p1", stage="REF", title=f"Mission suspense: {m.get('id', '')}",
             source="Mission Board", date=susp, snippet=m.get("title", ""),
             body="", link=drive_search_link(m.get("id", "")),
-            sourcePath="OpsCenter/mission_board.json", comments="", status="REF",
+            sourcePath="OpsCenter/mission_board.json", comments="", status="Reference",
         ))
 
     return items

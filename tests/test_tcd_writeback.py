@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from tcd import writeback  # noqa: E402
 
 
-def _row(id="task-1", stage="A", status="OPEN", comments="", title="Test item"):
+def _row(id="task-1", stage="A", status="Open", comments="", title="Test item"):
     return {"id": id, "inbox": "operational", "type": "brief", "priority": "p1",
             "stage": stage, "title": title, "from": "x", "date": "", "snippet": "",
             "body": "", "link": "https://x", "sourcePath": "hale_state.json:open_tasks",
@@ -34,7 +34,7 @@ class TestDisposeDetection:
     def test_new_dispose_triggers_delete(self, tmp_path):
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(status="DISPOSE")]
+        rows = [_row(status="Delete")]
         result = writeback.process_once(rows, state_path=state_path,
                                         decisions_path=decisions_path,
                                         delete_fn=_fake_delete_ok)
@@ -45,20 +45,20 @@ class TestDisposeDetection:
     def test_dispose_logged_to_decisions(self, tmp_path):
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(id="task-99", status="DISPOSE", title="Kill this")]
+        rows = [_row(id="task-99", status="Delete", title="Kill this")]
         writeback.process_once(rows, state_path=state_path,
                                decisions_path=decisions_path,
                                delete_fn=_fake_delete_ok)
         text = decisions_path.read_text()
         assert "PLAN:CLOSE" in text
-        assert "TCD-DISPOSE-task-99" in text
+        assert "TCD-DELETE-task-99" in text
         assert "verdict=PASS" in text
         assert "Kill this" in text
 
     def test_dispose_failure_logged_as_fail_verdict(self, tmp_path):
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(status="DISPOSE")]
+        rows = [_row(status="Delete")]
         result = writeback.process_once(rows, state_path=state_path,
                                         decisions_path=decisions_path,
                                         delete_fn=_fake_delete_fail)
@@ -66,12 +66,12 @@ class TestDisposeDetection:
         assert "verdict=FAIL" in decisions_path.read_text()
 
     def test_dispose_only_fires_once(self, tmp_path):
-        # Row already DISPOSE last run (in state) -> don't re-delete on rerun.
+        # Row already Delete last run (in state) -> don't re-delete on rerun.
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "DISPOSE",
+        state_path.write_text(json.dumps({"task-1": {"status": "Delete",
                                                        "stage": "A", "comments": ""}}))
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(status="DISPOSE")]
+        rows = [_row(status="Delete")]
         calls = []
         def counting_delete(item_id):
             calls.append(item_id)
@@ -85,7 +85,7 @@ class TestDisposeDetection:
     def test_open_status_never_disposes(self, tmp_path):
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(status="OPEN")]
+        rows = [_row(status="Open")]
         result = writeback.process_once(rows, state_path=state_path,
                                         decisions_path=decisions_path,
                                         delete_fn=_fake_delete_ok)
@@ -93,10 +93,53 @@ class TestDisposeDetection:
         assert not decisions_path.exists()
 
 
+class TestCloseDetection:
+    def test_new_close_logged_source_untouched(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        decisions_path = tmp_path / "hale_decisions.md"
+        calls = []
+        def counting_delete(item_id):
+            calls.append(item_id)
+            return {"ok": True}
+        rows = [_row(id="task-77", status="Closed", title="Done with this")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        delete_fn=counting_delete)
+        assert len(result["closed"]) == 1
+        assert calls == []  # Closed never calls delete_fn — source is untouched
+        text = decisions_path.read_text()
+        assert "TCD-CLOSE-task-77" in text
+        assert "verdict=PASS" in text
+        assert "Done with this" in text
+
+    def test_close_only_fires_once(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Closed",
+                                                       "stage": "A", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        rows = [_row(status="Closed")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        delete_fn=_fake_delete_ok)
+        assert result["closed"] == []
+
+    def test_closed_row_stays_in_state(self, tmp_path):
+        # Unlike Delete, a Closed row's source record is kept — state still tracks it.
+        state_path = tmp_path / "state.json"
+        decisions_path = tmp_path / "hale_decisions.md"
+        rows = [_row(id="task-1", status="Closed")]
+        writeback.process_once(rows, state_path=state_path,
+                               decisions_path=decisions_path,
+                               delete_fn=_fake_delete_ok)
+        saved = json.loads(state_path.read_text())
+        assert "task-1" in saved
+        assert saved["task-1"]["status"] == "Closed"
+
+
 class TestStageMoveDetection:
     def test_manual_stage_move_logged(self, tmp_path):
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "OPEN",
+        state_path.write_text(json.dumps({"task-1": {"status": "Open",
                                                        "stage": "D", "comments": ""}}))
         decisions_path = tmp_path / "hale_decisions.md"
         rows = [_row(stage="T")]  # Commander moved D -> T in AppSheet
@@ -120,7 +163,7 @@ class TestStageMoveDetection:
 
     def test_unchanged_stage_not_logged(self, tmp_path):
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "OPEN",
+        state_path.write_text(json.dumps({"task-1": {"status": "Open",
                                                        "stage": "A", "comments": ""}}))
         decisions_path = tmp_path / "hale_decisions.md"
         rows = [_row(stage="A")]
@@ -133,7 +176,7 @@ class TestStageMoveDetection:
 class TestCommentDetection:
     def test_new_comment_logged(self, tmp_path):
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "OPEN", "stage": "A",
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "A",
                                                        "comments": "Sterling: looking into it"}}))
         decisions_path = tmp_path / "hale_decisions.md"
         rows = [_row(comments="Sterling: looking into it\nDani: any update?")]
@@ -151,7 +194,7 @@ class TestCommentDetection:
         # be logged, not swallowed. This was a real bug caught by a live
         # round-trip test against the production Sheet before this fix.
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "OPEN", "stage": "A",
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "A",
                                                        "comments": ""}}))
         decisions_path = tmp_path / "hale_decisions.md"
         rows = [_row(comments="Sterling: first note")]
@@ -190,10 +233,10 @@ class TestStatePersistence:
 
     def test_disposed_row_removed_from_state(self, tmp_path):
         state_path = tmp_path / "state.json"
-        state_path.write_text(json.dumps({"task-1": {"status": "OPEN", "stage": "A",
+        state_path.write_text(json.dumps({"task-1": {"status": "Open", "stage": "A",
                                                        "comments": ""}}))
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [_row(status="DISPOSE")]
+        rows = [_row(status="Delete")]
         writeback.process_once(rows, state_path=state_path,
                                decisions_path=decisions_path,
                                delete_fn=_fake_delete_ok)
@@ -218,15 +261,15 @@ class TestMixedBatch:
     def test_multiple_rows_independent_actions(self, tmp_path):
         state_path = tmp_path / "state.json"
         state_path.write_text(json.dumps({
-            "task-1": {"status": "OPEN", "stage": "D", "comments": ""},
-            "task-2": {"status": "OPEN", "stage": "A", "comments": "note"},
-            "task-3": {"status": "OPEN", "stage": "A", "comments": ""},
+            "task-1": {"status": "Open", "stage": "D", "comments": ""},
+            "task-2": {"status": "Open", "stage": "A", "comments": "note"},
+            "task-3": {"status": "Open", "stage": "A", "comments": ""},
         }))
         decisions_path = tmp_path / "hale_decisions.md"
         rows = [
             _row(id="task-1", stage="T"),                       # stage move
             _row(id="task-2", comments="note\nmore"),            # comment
-            _row(id="task-3", status="DISPOSE"),                 # dispose
+            _row(id="task-3", status="Delete"),                 # dispose
             _row(id="task-4"),                                   # brand new, untouched
         ]
         result = writeback.process_once(rows, state_path=state_path,
@@ -241,7 +284,7 @@ class TestMixedBatch:
     def test_row_missing_id_skipped(self, tmp_path):
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
-        rows = [{"id": "", "status": "DISPOSE"}]
+        rows = [{"id": "", "status": "Delete"}]
         result = writeback.process_once(rows, state_path=state_path,
                                         decisions_path=decisions_path,
                                         delete_fn=_fake_delete_ok)

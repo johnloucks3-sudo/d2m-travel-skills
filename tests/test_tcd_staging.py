@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tcd.staging import derive_stage, derive_status, STAGES  # noqa: E402
+from tcd.staging import derive_stage, derive_status, STAGES, STATUSES  # noqa: E402
 
 
 class TestDeriveStage:
@@ -55,13 +55,17 @@ class TestDeriveStage:
 
 
 class TestDeriveStatus:
-    def test_ref_stage_is_ref_status(self):
-        assert derive_status({"id": "so-x"}, "REF") == "REF"
+    def test_ref_stage_is_reference_status(self):
+        assert derive_status({"id": "so-x"}, "REF") == "Reference"
 
     def test_workflow_items_open(self):
-        assert derive_status({"id": "task-1"}, "A") == "OPEN"
-        assert derive_status({"id": "alert-1"}, "D") == "OPEN"
+        assert derive_status({"id": "task-1"}, "A") == "Open"
+        assert derive_status({"id": "alert-1"}, "D") == "Open"
 
-    def test_phase0_never_disposes(self):
+    def test_phase0_never_closes_or_deletes(self):
         for stage in STAGES:
-            assert derive_status({"id": "x"}, stage) in ("OPEN", "REF")
+            assert derive_status({"id": "x"}, stage) in ("Open", "Reference")
+            assert derive_status({"id": "x"}, stage) not in ("Closed", "Delete")
+
+    def test_statuses_are_all_plain_english(self):
+        assert STATUSES == ("Open", "Reference", "Closed", "Delete")
