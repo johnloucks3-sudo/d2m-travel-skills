@@ -486,6 +486,9 @@ def tg(token: str, method: str, **kwargs) -> dict:
         if not data.get("ok"):
             log.warning("TG API %s error: %s", method, data.get("description", "?"))
         return data
+    except requests.exceptions.RequestException as e:
+        log.warning("TG API %s network error/timeout: %s", method, e)
+        return {"ok": False, "description": str(e)}
     except Exception as e:
         log.error("TG API %s exception: %s", method, e)
         return {"ok": False, "description": str(e)}
@@ -2471,6 +2474,12 @@ def relay_poll_loop() -> None:
     relay_queue = THUNDERBIRD / "OpsCenter" / "relay_queue.jsonl"
     oc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
     cc_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "claude_inbox.md"
+    ag_inbox    = THUNDERBIRD / "OpsCenter" / "collaboration" / "antigravity_inbox.md"
+    # Reply lands in the sender's own inbox — keyed by "from", not "to"
+    # (every entry processed here has to="CC", so the reply always goes
+    # back to whichever engine asked). Unrecognized senders fall back to
+    # oc_inbox — matches pre-AG behavior, never a hard failure.
+    _reply_inbox_by_sender = {"OC": oc_inbox, "AG": ag_inbox}
 
     _backoff = 5
 
@@ -2479,7 +2488,9 @@ def relay_poll_loop() -> None:
                     bool(TOKEN_HALE), HALE_CHAT_ID)
 
     def _drain_relay_queue():
-        """Process pending OC→CC messages from relay_queue.jsonl."""
+        """Process pending {OC,AG}→CC messages from relay_queue.jsonl.
+        Reply is auto-generated via a live Claude (Haiku) call and written
+        back to the sender's own inbox — see _reply_inbox_by_sender above."""
         if not relay_queue.exists():
             return
         try:
@@ -2535,15 +2546,16 @@ def relay_poll_loop() -> None:
 
             ts = __import__("datetime").datetime.now(
                 __import__("datetime").timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+            target_inbox = _reply_inbox_by_sender.get(from_app, oc_inbox)
             try:
-                with open(oc_inbox, "a") as f:
+                with open(target_inbox, "a") as f:
                     f.write(
                         f"\n---\n## CC-REPLY-{msg_id} — {ts}\n"
                         f"priority: {priority}\nstatus: UNREAD\ntask: |\n"
                         + "\n".join("  " + l for l in response.splitlines()) + "\n"
                     )
             except Exception as e:
-                log.error("[Relay] OC inbox write failed: %s", e)
+                log.error("[Relay] %s inbox write failed: %s", from_app, e)
 
             # Update status in-place on the dict (entries list holds the same objects)
             entry["status"] = "processed"
@@ -2628,7 +2640,7 @@ def main() -> None:
                 ["/home/john/.local/bin/claude", "--model", SONNET_MODEL,
                  "-p", "Reply with the single word: OK",
                  "--dangerously-skip-permissions"],
-                capture_output=True, text=True, timeout=30, env=env_test,
+                capture_output=True, text=True, timeout=60, env=env_test,
             )
             if result.returncode == 0:
                 log.info("Engine self-test OK (auth confirmed)")

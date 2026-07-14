@@ -79,7 +79,21 @@ result = spawn_headless_claude(
 ```
 Full reference: `docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md`.
 
-## ASKING CLAUDE CODE HALE A QUESTION DIRECTLY
+## TELEGRAM RELAY — YOU'RE IN IT NOW (wired 2026-07-14, live-verified)
+You have the same automated CC-answers-a-question pipeline OC uses.
+Append a line to `OpsCenter/relay_queue.jsonl`:
+```json
+{"id": "AG-<unique>", "from": "AG", "to": "CC", "message": "<question>", "priority": "normal", "status": "pending"}
+```
+The live `thunderbird-telegram-gw.service` daemon polls this queue, calls
+Claude (Haiku) for a real answer within ~15-30s, posts it to the Wing
+Bridge Telegram channel, AND writes it into your own
+`OpsCenter/collaboration/antigravity_inbox.md` as a `CC-REPLY-<id>` block
+— same mechanism OC's `opencode_inbox.md` replies use, routed by `from`.
+No live CC session required on either end. Verified live 2026-07-14 —
+see the CC-REPLY block at the bottom of antigravity_inbox.md.
+
+## ASKING CLAUDE CODE HALE A QUESTION DIRECTLY (for a full written answer, not a headless Haiku reply)
 For a substantive technical question that needs a full written answer
 (not a quick ping), append to `/home/john/Thunderbird/claude_inbox.md`:
 ```
