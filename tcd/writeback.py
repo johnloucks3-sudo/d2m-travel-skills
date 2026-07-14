@@ -185,6 +185,15 @@ def _handle_comment(row: dict, prior_comments: str, decisions_path) -> None:
 CREATE_TASK_MARKER = "[CREATE_TASK_REQUESTED]"
 
 
+def _commander_note(comments: str) -> str:
+    """Strip every CREATE_TASK_MARKER occurrence out of the row's comments
+    and return whatever free text is left — the Commander's own instruction,
+    typed directly into the comments box before/after clicking "Create
+    Task". Empty string if the Commander left no note (marker-only)."""
+    text = (comments or "").replace(CREATE_TASK_MARKER, " ")
+    return " ".join(text.split())
+
+
 def _default_create_task_fn(row: dict) -> str:
     """File a real Wing Tasking mission from an FYI-kind row's "Create Task"
     action, via the same locking primitives used to file MISSION-001A itself
@@ -201,6 +210,9 @@ def _default_create_task_fn(row: dict) -> str:
         except (ValueError, IndexError, KeyError):
             pass
     mission_id = f"MISSION-{(max(nums) + 1) if nums else 1:03d}"
+    source_desc = row.get("body") or row.get("snippet") or row.get("title", "")
+    note = _commander_note(row.get("comments", ""))
+    description = f"Commander instruction: {note}\n\n{source_desc}" if note else source_desc
     new_mission = {
         "id": mission_id,
         "title": row.get("title", row.get("id", ""))[:120],
@@ -208,7 +220,7 @@ def _default_create_task_fn(row: dict) -> str:
         "priority": row.get("priority", "p2").upper() if row.get("priority", "").upper() in
                     ("P0", "P1", "P2", "P3") else "P2",
         "assigned_to": row.get("owner") or "Hale",
-        "description": row.get("body") or row.get("snippet") or row.get("title", ""),
+        "description": description,
         "deliverables": [],
         "dependencies": [],
         "suspense_date": None,

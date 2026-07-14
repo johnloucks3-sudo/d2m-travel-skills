@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from tcd import overrides as tcd_overrides  # noqa: E402
 from tcd import writeback  # noqa: E402
+from tcd.writeback import CREATE_TASK_MARKER  # noqa: E402
 
 
 def _row(id="task-1", stage="A", status="Open", comments="", title="Test item"):
@@ -349,6 +350,44 @@ class TestCreateTaskDetection:
         assert filed["status"] == "pending_review"
         assert filed["source"] == "tcd_create_task_action"
         assert filed["priority"] == "P1"
+
+    def test_commander_free_text_in_comments_lands_in_description(self, tmp_path, monkeypatch):
+        # The bug: a Commander note typed into the comments box before/after
+        # clicking Create Task was silently dropped -- only the email's own
+        # body/snippet made it into the filed mission. Ground-truth incident:
+        # MISSION-023 (2026-07-14) filed with "Search for larger vehicles and
+        # send me estimates" typed in comments, but the mission description
+        # was just the raw email quote -- his instruction never landed.
+        board_path = tmp_path / "mission_board.json"
+        board_path.write_text(json.dumps({"missions": [], "last_updated": ""}))
+        lock_path = tmp_path / "mission_board.lock"
+        from OpsCenter import mission_board_sync as mbs
+        monkeypatch.setattr(mbs, "BOARD_PATH", board_path)
+        monkeypatch.setattr(mbs, "LOCK_PATH", lock_path)
+        row = _row(id="gmail-1", title="Re: Booking Confirmation",
+                   comments="[CREATE_TASK_REQUESTED] [CREATE_TASK_REQUESTED] "
+                            "Search for larger vehicles and send me estimates")
+        row["body"] = "Original email text."
+        mission_id = writeback._default_create_task_fn(row)
+        board = json.loads(board_path.read_text())
+        filed = [m for m in board["missions"] if m["id"] == mission_id][0]
+        assert "Search for larger vehicles and send me estimates" in filed["description"]
+        assert "Original email text." in filed["description"]
+        assert CREATE_TASK_MARKER not in filed["description"]
+
+    def test_marker_only_comments_no_spurious_commander_note(self, tmp_path, monkeypatch):
+        board_path = tmp_path / "mission_board.json"
+        board_path.write_text(json.dumps({"missions": [], "last_updated": ""}))
+        lock_path = tmp_path / "mission_board.lock"
+        from OpsCenter import mission_board_sync as mbs
+        monkeypatch.setattr(mbs, "BOARD_PATH", board_path)
+        monkeypatch.setattr(mbs, "LOCK_PATH", lock_path)
+        row = _row(id="gmail-2", title="No note", comments="[CREATE_TASK_REQUESTED]")
+        row["body"] = "Original body."
+        mission_id = writeback._default_create_task_fn(row)
+        board = json.loads(board_path.read_text())
+        filed = [m for m in board["missions"] if m["id"] == mission_id][0]
+        assert filed["description"] == "Original body."
 
 
 class TestStatePersistence:

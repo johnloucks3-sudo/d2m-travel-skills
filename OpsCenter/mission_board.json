@@ -420,7 +420,75 @@
       "created_at": "2026-07-14T00:18:44.524288+00:00",
       "updated_at": "2026-07-14T00:19:05.126254+00:00",
       "source": "tcd_create_task_action"
+    },
+    {
+      "id": "MISSION-021",
+      "title": "Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt | Systima Blog",
+      "status": "pending_review",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "**Roger \u2014** Article summary + implications: **Key Findings:** 1. **4.7x overhead on first message** \u2014 Claude Code sends ~33K tokens of harness overhead vs OpenCode&#39;s ~6.9K before the user&#39;s",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-14T03:55:35.938274+00:00] Filed via TCD 'Create Task' action on gmail-johnloucks3-19f5e7f40edeb3f4 (Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt )."
+      ],
+      "created_at": "2026-07-14T03:55:35.938280+00:00",
+      "updated_at": "2026-07-14T03:55:35.938284+00:00",
+      "source": "tcd_create_task_action"
+    },
+    {
+      "id": "MISSION-022",
+      "title": "Innovation Scan \u2014 Daily 2026-07-13 (74 findings)",
+      "status": "pending_review",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "EL THUNDERBIRD WING DREAMS2MEMORIES TRAVEL, LLC \u00b7 COMMAND CHANNEL # Innovation Scan \u2014 Daily **Generated:** 2026-07-13T19:36:15.007423 **Sources:** 24 scanned, 0 failed **Findings:** 74 total --- ## Top",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-14T03:55:35.939554+00:00] Filed via TCD 'Create Task' action on gmail-johnloucks3-19f5e45f311fe1f4 (Innovation Scan \u2014 Daily 2026-07-13 (74 findings))."
+      ],
+      "created_at": "2026-07-14T03:55:35.939560+00:00",
+      "updated_at": "2026-07-14T03:55:35.939562+00:00",
+      "source": "tcd_create_task_action"
+    },
+    {
+      "id": "MISSION-023",
+      "title": "Re: Booking Confirmation - PE184712212",
+      "status": "pending_review",
+      "priority": "P2",
+      "assigned_to": "A2",
+      "description": "Commander instruction: Search for larger vehicles and send me estimates\n\nJohn The email you sent showed max luggage 3. I am sure we will have more than 3 bags total. On Mon, Jul 13, 2026 at 3:58 PM Dreams2Memories &lt;d2mconcierge@gmail.com&gt; wrote: Dear Larry and Heidi,",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-14T03:55:35.940270+00:00] Filed via TCD 'Create Task' action on gmail-d2mconcierge-19f5e859180b41fe (Re: Booking Confirmation - PE184712212).",
+        "[2026-07-14T04:02:21] Repaired: original Create Task filing dropped the Commander's free-text note (\"Search for larger vehicles and send me estimates\") typed in the comments box -- a bug in tcd/writeback.py::_default_create_task_fn (fixed same session, now captures comments text via _commander_note()). Description backfilled from ground-truth Sheet comments field."
+      ],
+      "created_at": "2026-07-14T03:55:35.940275+00:00",
+      "updated_at": "2026-07-14T04:02:21.226097+00:00",
+      "source": "tcd_create_task_action"
+    },
+    {
+      "id": "MISSION-24",
+      "title": "Client inquiry: A package is arriving tomorrow!",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Fanatics <shop@s.fanatics.com> \u2014 subject: A package is arriving tomorrow!",
+      "created_at": "2026-07-14T04:00:11.671869+00:00",
+      "updated_at": "2026-07-14T04:00:11.671869+00:00",
+      "logs": [
+        "[2026-07-14T04:00:11.671869+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f5df8b16082381"
+      ]
     }
   ],
-  "last_updated": "2026-07-14T00:18:44.524297+00:00"
+  "last_updated": "2026-07-14T04:00:11.673606+00:00"
 }
