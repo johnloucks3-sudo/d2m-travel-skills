@@ -60241,3 +60241,3636 @@ Surface to
 **Criteria unverified:** none
 **Notes:** Caught a real bug mid-verification — Disapprove and Create Task inherited Position=Primary from their duplication source (Disapprove/Certify), which silently hid them from the app UI entirely despite correct Show-if logic. Fixed both to Prominent, re-verified Create Task renders and fires. MISSION-001A marked completed in mission_board.json.
 <!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-16758a tier=trivial session_id=none opened_at=2026-07-14T00:20:37.108616+00:00 -->
+**Plan Opened:** PLN-16758a
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-16758a verdict=FAIL quality_tier=none closed_at=2026-07-14T00:20:37.122189+00:00 -->
+**Plan Closed:** PLN-16758a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c8881a tier=trivial session_id=none opened_at=2026-07-14T00:20:47.307610+00:00 -->
+**Plan Opened:** PLN-c8881a
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c8881a verdict=PASS quality_tier=none closed_at=2026-07-14T00:20:47.351422+00:00 -->
+**Plan Closed:** PLN-c8881a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1869d2 tier=trivial session_id=none opened_at=2026-07-14T00:25:46.232871+00:00 -->
+**Plan Opened:** PLN-1869d2
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1869d2 verdict=PASS quality_tier=none closed_at=2026-07-14T00:25:46.318790+00:00 -->
+**Plan Closed:** PLN-1869d2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a40ca6 tier=trivial session_id=none opened_at=2026-07-14T00:29:02.569939+00:00 -->
+**Plan Opened:** PLN-a40ca6
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a40ca6 verdict=PASS quality_tier=none closed_at=2026-07-14T00:29:02.578817+00:00 -->
+**Plan Closed:** PLN-a40ca6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-be0d04 tier=trivial session_id=none opened_at=2026-07-14T00:30:36.366520+00:00 -->
+**Plan Opened:** PLN-be0d04
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-be0d04 verdict=PASS quality_tier=none closed_at=2026-07-14T00:30:36.378158+00:00 -->
+**Plan Closed:** PLN-be0d04
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6bbf45 tier=trivial session_id=none opened_at=2026-07-14T00:30:37.526614+00:00 -->
+**Plan Opened:** PLN-6bbf45
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6bbf45 verdict=FAIL quality_tier=none closed_at=2026-07-14T00:30:37.537563+00:00 -->
+**Plan Closed:** PLN-6bbf45
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e7ebf7 tier=trivial session_id=none opened_at=2026-07-14T00:30:41.567272+00:00 -->
+**Plan Opened:** PLN-e7ebf7
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e7ebf7 verdict=FAIL quality_tier=none closed_at=2026-07-14T00:30:41.578500+00:00 -->
+**Plan Closed:** PLN-e7ebf7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e74082 tier=trivial session_id=none opened_at=2026-07-14T00:30:44.523363+00:00 -->
+**Plan Opened:** PLN-e74082
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e74082 verdict=PASS quality_tier=none closed_at=2026-07-14T00:30:44.535465+00:00 -->
+**Plan Closed:** PLN-e74082
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1a4c70 tier=trivial session_id=none opened_at=2026-07-14T00:30:48.061983+00:00 -->
+**Plan Opened:** PLN-1a4c70
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1a4c70 verdict=FAIL quality_tier=none closed_at=2026-07-14T00:30:48.070437+00:00 -->
+**Plan Closed:** PLN-1a4c70
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9dd559 tier=trivial session_id=none opened_at=2026-07-14T00:31:40.094270+00:00 -->
+**Plan Opened:** PLN-9dd559
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2444344.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9dd559 verdict=PASS quality_tier=none closed_at=2026-07-14T00:31:40.106996+00:00 -->
+**Plan Closed:** PLN-9dd559
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2444344.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3e8750 tier=trivial session_id=none opened_at=2026-07-14T00:31:47.207749+00:00 -->
+**Plan Opened:** PLN-3e8750
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3e8750 verdict=PASS quality_tier=none closed_at=2026-07-14T00:31:47.214611+00:00 -->
+**Plan Closed:** PLN-3e8750
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5dd5ce21dac81-20260714T003524Z verdict=PASS closed_at=2026-07-14T00:35:24.531528+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5dd5ce21dac81-20260714T003524Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: New features and 21 new voices in Voice Agent Builder
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-mission-MISSION-001A-20260714T003524Z verdict=PASS closed_at=2026-07-14T00:35:24.532032+00:00 -->
+**Plan Closed:** TCD-STAGE-mission-MISSION-001A-20260714T003524Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: PDTAC Redefinition (P=Provide FYI/Proposal) + Complete Buried-Category Inventory
+**Notes:** P -> C
+
+<!-- PLAN:OPEN plan_id=PLN-61f7ae tier=trivial session_id=none opened_at=2026-07-14T00:36:47.136283+00:00 -->
+**Plan Opened:** PLN-61f7ae
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-61f7ae verdict=PASS quality_tier=none closed_at=2026-07-14T00:36:47.144307+00:00 -->
+**Plan Closed:** PLN-61f7ae
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-51f354 tier=trivial session_id=none opened_at=2026-07-14T00:41:47.260102+00:00 -->
+**Plan Opened:** PLN-51f354
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-51f354 verdict=PASS quality_tier=none closed_at=2026-07-14T00:41:47.273876+00:00 -->
+**Plan Closed:** PLN-51f354
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d6763f tier=trivial session_id=none opened_at=2026-07-14T00:44:44.143189+00:00 -->
+**Plan Opened:** PLN-d6763f
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d6763f verdict=PASS quality_tier=none closed_at=2026-07-14T00:44:44.187342+00:00 -->
+**Plan Closed:** PLN-d6763f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1f54fc tier=trivial session_id=none opened_at=2026-07-14T00:47:02.287822+00:00 -->
+**Plan Opened:** PLN-1f54fc
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1f54fc verdict=PASS quality_tier=none closed_at=2026-07-14T00:47:02.314388+00:00 -->
+**Plan Closed:** PLN-1f54fc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-649422 tier=trivial session_id=none opened_at=2026-07-14T00:50:43.886817+00:00 -->
+**Plan Opened:** PLN-649422
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-649422 verdict=PASS quality_tier=none closed_at=2026-07-14T00:50:43.895526+00:00 -->
+**Plan Closed:** PLN-649422
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-086111 tier=trivial session_id=none opened_at=2026-07-14T00:50:44.314604+00:00 -->
+**Plan Opened:** PLN-086111
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-086111 verdict=PASS quality_tier=none closed_at=2026-07-14T00:50:44.326514+00:00 -->
+**Plan Closed:** PLN-086111
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-657f54 tier=trivial session_id=none opened_at=2026-07-14T00:50:45.469896+00:00 -->
+**Plan Opened:** PLN-657f54
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-657f54 verdict=FAIL quality_tier=none closed_at=2026-07-14T00:50:45.481165+00:00 -->
+**Plan Closed:** PLN-657f54
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e7989 tier=trivial session_id=none opened_at=2026-07-14T00:50:45.673478+00:00 -->
+**Plan Opened:** PLN-5e7989
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e7989 verdict=FAIL quality_tier=none closed_at=2026-07-14T00:50:45.685343+00:00 -->
+**Plan Closed:** PLN-5e7989
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3223ab tier=trivial session_id=none opened_at=2026-07-14T00:51:04.932290+00:00 -->
+**Plan Opened:** PLN-3223ab
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3223ab verdict=PASS quality_tier=none closed_at=2026-07-14T00:51:04.970403+00:00 -->
+**Plan Closed:** PLN-3223ab
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d5dc61 tier=trivial session_id=none opened_at=2026-07-14T00:55:43.073293+00:00 -->
+**Plan Opened:** PLN-d5dc61
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d5dc61 verdict=PASS quality_tier=none closed_at=2026-07-14T00:55:43.082477+00:00 -->
+**Plan Closed:** PLN-d5dc61
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f54569 tier=trivial session_id=none opened_at=2026-07-14T01:00:25.665557+00:00 -->
+**Plan Opened:** PLN-f54569
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f54569 verdict=PASS quality_tier=none closed_at=2026-07-14T01:00:25.679257+00:00 -->
+**Plan Closed:** PLN-f54569
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2108dc tier=trivial session_id=none opened_at=2026-07-14T01:00:37.016512+00:00 -->
+**Plan Opened:** PLN-2108dc
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2108dc verdict=PASS quality_tier=none closed_at=2026-07-14T01:00:37.028917+00:00 -->
+**Plan Closed:** PLN-2108dc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-62d36f tier=trivial session_id=none opened_at=2026-07-14T01:00:37.975049+00:00 -->
+**Plan Opened:** PLN-62d36f
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-62d36f verdict=FAIL quality_tier=none closed_at=2026-07-14T01:00:37.983931+00:00 -->
+**Plan Closed:** PLN-62d36f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27250e tier=trivial session_id=none opened_at=2026-07-14T01:00:38.120933+00:00 -->
+**Plan Opened:** PLN-27250e
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27250e verdict=FAIL quality_tier=none closed_at=2026-07-14T01:00:38.133720+00:00 -->
+**Plan Closed:** PLN-27250e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-81eca9 tier=trivial session_id=none opened_at=2026-07-14T01:00:43.220903+00:00 -->
+**Plan Opened:** PLN-81eca9
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-81eca9 verdict=PASS quality_tier=none closed_at=2026-07-14T01:00:43.233466+00:00 -->
+**Plan Closed:** PLN-81eca9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f2b4a1 tier=trivial session_id=none opened_at=2026-07-14T01:05:43.174994+00:00 -->
+**Plan Opened:** PLN-f2b4a1
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f2b4a1 verdict=PASS quality_tier=none closed_at=2026-07-14T01:05:43.211532+00:00 -->
+**Plan Closed:** PLN-f2b4a1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ac224e tier=trivial session_id=none opened_at=2026-07-14T01:06:09.680589+00:00 -->
+**Plan Opened:** PLN-ac224e
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ac224e verdict=PASS quality_tier=none closed_at=2026-07-14T01:06:09.689851+00:00 -->
+**Plan Closed:** PLN-ac224e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-656c62 tier=trivial session_id=none opened_at=2026-07-14T01:10:38.946842+00:00 -->
+**Plan Opened:** PLN-656c62
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-656c62 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:10:38.959166+00:00 -->
+**Plan Closed:** PLN-656c62
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3b925f tier=trivial session_id=none opened_at=2026-07-14T01:10:40.483962+00:00 -->
+**Plan Opened:** PLN-3b925f
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3b925f verdict=FAIL quality_tier=none closed_at=2026-07-14T01:10:40.495047+00:00 -->
+**Plan Closed:** PLN-3b925f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-81af4d tier=trivial session_id=none opened_at=2026-07-14T01:10:43.973273+00:00 -->
+**Plan Opened:** PLN-81af4d
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-81af4d verdict=PASS quality_tier=none closed_at=2026-07-14T01:10:43.987076+00:00 -->
+**Plan Closed:** PLN-81af4d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-466b29 tier=trivial session_id=none opened_at=2026-07-14T01:15:43.841958+00:00 -->
+**Plan Opened:** PLN-466b29
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-466b29 verdict=PASS quality_tier=none closed_at=2026-07-14T01:15:43.852975+00:00 -->
+**Plan Closed:** PLN-466b29
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c4ee55 tier=trivial session_id=none opened_at=2026-07-14T01:15:55.108563+00:00 -->
+**Plan Opened:** PLN-c4ee55
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c4ee55 verdict=PASS quality_tier=none closed_at=2026-07-14T01:15:55.121710+00:00 -->
+**Plan Closed:** PLN-c4ee55
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-01f061 tier=trivial session_id=none opened_at=2026-07-14T01:18:03.491717+00:00 -->
+**Plan Opened:** PLN-01f061
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-01f061 verdict=PASS quality_tier=none closed_at=2026-07-14T01:18:03.548825+00:00 -->
+**Plan Closed:** PLN-01f061
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c186a0 tier=trivial session_id=none opened_at=2026-07-14T01:20:39.736593+00:00 -->
+**Plan Opened:** PLN-c186a0
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-3aef69 tier=trivial session_id=none opened_at=2026-07-14T01:20:39.737219+00:00 -->
+**Plan Opened:** PLN-3aef69
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c186a0 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:20:39.749294+00:00 -->
+**Plan Closed:** PLN-c186a0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3aef69 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:20:39.756274+00:00 -->
+**Plan Closed:** PLN-3aef69
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-582f66 tier=trivial session_id=none opened_at=2026-07-14T01:20:45.194401+00:00 -->
+**Plan Opened:** PLN-582f66
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-582f66 verdict=PASS quality_tier=none closed_at=2026-07-14T01:20:45.207538+00:00 -->
+**Plan Closed:** PLN-582f66
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-098a87 tier=trivial session_id=none opened_at=2026-07-14T01:21:35.410438+00:00 -->
+**Plan Opened:** PLN-098a87
+**Task:** crash captured: tess_token_keepalive (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/tess_token_keepalive_2501958.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-098a87 verdict=PASS quality_tier=none closed_at=2026-07-14T01:21:35.417278+00:00 -->
+**Plan Closed:** PLN-098a87
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/tess_token_keepalive_2501958.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b902ea tier=trivial session_id=none opened_at=2026-07-14T01:25:44.934417+00:00 -->
+**Plan Opened:** PLN-b902ea
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b902ea verdict=PASS quality_tier=none closed_at=2026-07-14T01:25:44.943537+00:00 -->
+**Plan Closed:** PLN-b902ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a57b47 tier=trivial session_id=none opened_at=2026-07-14T01:27:11.584020+00:00 -->
+**Plan Opened:** PLN-a57b47
+**Task:** crash captured: security_reminder_hook (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/security_reminder_hook_2507867.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a57b47 verdict=PASS quality_tier=none closed_at=2026-07-14T01:27:11.591997+00:00 -->
+**Plan Closed:** PLN-a57b47
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/security_reminder_hook_2507867.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59b323 tier=trivial session_id=none opened_at=2026-07-14T01:28:56.765199+00:00 -->
+**Plan Opened:** PLN-59b323
+**Task:** generic long-tail remediation: thunderbird-telegram-gw -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-telegram-gw verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59b323 verdict=PASS quality_tier=none closed_at=2026-07-14T01:28:56.774155+00:00 -->
+**Plan Closed:** PLN-59b323
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-telegram-gw verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d17cbc tier=trivial session_id=none opened_at=2026-07-14T01:30:05.247472+00:00 -->
+**Plan Opened:** PLN-d17cbc
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2512626.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d17cbc verdict=PASS quality_tier=none closed_at=2026-07-14T01:30:05.254681+00:00 -->
+**Plan Closed:** PLN-d17cbc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2512626.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8cc3d2 tier=trivial session_id=none opened_at=2026-07-14T01:30:38.854323+00:00 -->
+**Plan Opened:** PLN-8cc3d2
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8cc3d2 verdict=PASS quality_tier=none closed_at=2026-07-14T01:30:38.868381+00:00 -->
+**Plan Closed:** PLN-8cc3d2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8825f2 tier=trivial session_id=none opened_at=2026-07-14T01:30:39.995354+00:00 -->
+**Plan Opened:** PLN-8825f2
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8825f2 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:30:40.009566+00:00 -->
+**Plan Closed:** PLN-8825f2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-abdde3 tier=trivial session_id=none opened_at=2026-07-14T01:30:44.418166+00:00 -->
+**Plan Opened:** PLN-abdde3
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-abdde3 verdict=PASS quality_tier=none closed_at=2026-07-14T01:30:44.427240+00:00 -->
+**Plan Closed:** PLN-abdde3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0176cf tier=trivial session_id=none opened_at=2026-07-14T01:31:25.037766+00:00 -->
+**Plan Opened:** PLN-0176cf
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0176cf verdict=PASS quality_tier=none closed_at=2026-07-14T01:31:25.048552+00:00 -->
+**Plan Closed:** PLN-0176cf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2dbeb tier=trivial session_id=none opened_at=2026-07-14T01:32:36.084023+00:00 -->
+**Plan Opened:** PLN-c2dbeb
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2514973.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2dbeb verdict=PASS quality_tier=none closed_at=2026-07-14T01:32:36.102138+00:00 -->
+**Plan Closed:** PLN-c2dbeb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2514973.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9131da tier=trivial session_id=none opened_at=2026-07-14T01:32:38.313562+00:00 -->
+**Plan Opened:** PLN-9131da
+**Task:** crash captured: security_reminder_hook (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/security_reminder_hook_2517180.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9131da verdict=PASS quality_tier=none closed_at=2026-07-14T01:32:38.328246+00:00 -->
+**Plan Closed:** PLN-9131da
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/security_reminder_hook_2517180.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0f9d02 tier=trivial session_id=none opened_at=2026-07-14T01:33:07.447985+00:00 -->
+**Plan Opened:** PLN-0f9d02
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2518654.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0f9d02 verdict=PASS quality_tier=none closed_at=2026-07-14T01:33:07.460205+00:00 -->
+**Plan Closed:** PLN-0f9d02
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2518654.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-745801 tier=trivial session_id=none opened_at=2026-07-14T01:33:10.909547+00:00 -->
+**Plan Opened:** PLN-745801
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2519162.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-745801 verdict=PASS quality_tier=none closed_at=2026-07-14T01:33:10.920165+00:00 -->
+**Plan Closed:** PLN-745801
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2519162.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ed39c7 tier=trivial session_id=none opened_at=2026-07-14T01:33:36.539610+00:00 -->
+**Plan Opened:** PLN-ed39c7
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ed39c7 verdict=PASS quality_tier=none closed_at=2026-07-14T01:33:36.560791+00:00 -->
+**Plan Closed:** PLN-ed39c7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dc97ae tier=trivial session_id=none opened_at=2026-07-14T01:33:48.385390+00:00 -->
+**Plan Opened:** PLN-dc97ae
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dc97ae verdict=FAIL quality_tier=none closed_at=2026-07-14T01:33:48.396035+00:00 -->
+**Plan Closed:** PLN-dc97ae
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-df2df7 tier=trivial session_id=none opened_at=2026-07-14T01:33:55.321499+00:00 -->
+**Plan Opened:** PLN-df2df7
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-df2df7 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:33:55.334592+00:00 -->
+**Plan Closed:** PLN-df2df7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5ca6d5 tier=trivial session_id=none opened_at=2026-07-14T01:38:27.573738+00:00 -->
+**Plan Opened:** PLN-5ca6d5
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5ca6d5 verdict=PASS quality_tier=none closed_at=2026-07-14T01:38:27.586844+00:00 -->
+**Plan Closed:** PLN-5ca6d5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b59b64 tier=trivial session_id=none opened_at=2026-07-14T01:40:46.418211+00:00 -->
+**Plan Opened:** PLN-b59b64
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b59b64 verdict=PASS quality_tier=none closed_at=2026-07-14T01:40:46.439291+00:00 -->
+**Plan Closed:** PLN-b59b64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-84093a tier=trivial session_id=none opened_at=2026-07-14T01:45:45.141459+00:00 -->
+**Plan Opened:** PLN-84093a
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-84093a verdict=PASS quality_tier=none closed_at=2026-07-14T01:45:45.151821+00:00 -->
+**Plan Closed:** PLN-84093a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b140e tier=trivial session_id=none opened_at=2026-07-14T01:47:00.015490+00:00 -->
+**Plan Opened:** PLN-0b140e
+**Task:** generic long-tail remediation: thunderbird-overwatch -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-overwatch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b140e verdict=PASS quality_tier=none closed_at=2026-07-14T01:47:00.027200+00:00 -->
+**Plan Closed:** PLN-0b140e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** thunderbird-overwatch verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-406bf2 tier=trivial session_id=none opened_at=2026-07-14T01:47:23.044562+00:00 -->
+**Plan Opened:** PLN-406bf2
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-406bf2 verdict=PASS quality_tier=none closed_at=2026-07-14T01:47:23.051401+00:00 -->
+**Plan Closed:** PLN-406bf2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eb917c tier=trivial session_id=none opened_at=2026-07-14T01:50:47.535950+00:00 -->
+**Plan Opened:** PLN-eb917c
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eb917c verdict=PASS quality_tier=none closed_at=2026-07-14T01:50:47.542197+00:00 -->
+**Plan Closed:** PLN-eb917c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0ee1b0 tier=trivial session_id=none opened_at=2026-07-14T01:50:50.279494+00:00 -->
+**Plan Opened:** PLN-0ee1b0
+**Task:** generic long-tail remediation: tess-token-keepalive -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0ee1b0 verdict=PASS quality_tier=none closed_at=2026-07-14T01:50:50.289640+00:00 -->
+**Plan Closed:** PLN-0ee1b0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** tess-token-keepalive verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-986306 tier=trivial session_id=none opened_at=2026-07-14T01:50:57.921994+00:00 -->
+**Plan Opened:** PLN-986306
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-986306 verdict=FAIL quality_tier=none closed_at=2026-07-14T01:50:57.935310+00:00 -->
+**Plan Closed:** PLN-986306
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c325f8 tier=trivial session_id=none opened_at=2026-07-14T01:55:50.728858+00:00 -->
+**Plan Opened:** PLN-c325f8
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c325f8 verdict=PASS quality_tier=none closed_at=2026-07-14T01:55:50.742297+00:00 -->
+**Plan Closed:** PLN-c325f8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aa6b1a tier=trivial session_id=none opened_at=2026-07-14T02:00:41.235587+00:00 -->
+**Plan Opened:** PLN-aa6b1a
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aa6b1a verdict=FAIL quality_tier=none closed_at=2026-07-14T02:00:41.244062+00:00 -->
+**Plan Closed:** PLN-aa6b1a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-59f1f5 tier=trivial session_id=none opened_at=2026-07-14T02:00:47.416172+00:00 -->
+**Plan Opened:** PLN-59f1f5
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-59f1f5 verdict=PASS quality_tier=none closed_at=2026-07-14T02:00:47.472846+00:00 -->
+**Plan Closed:** PLN-59f1f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-04243d tier=trivial session_id=none opened_at=2026-07-14T02:00:48.023961+00:00 -->
+**Plan Opened:** PLN-04243d
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-04243d verdict=PASS quality_tier=none closed_at=2026-07-14T02:00:48.034642+00:00 -->
+**Plan Closed:** PLN-04243d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a8eec3 tier=trivial session_id=none opened_at=2026-07-14T02:00:49.112424+00:00 -->
+**Plan Opened:** PLN-a8eec3
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a8eec3 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:00:49.125138+00:00 -->
+**Plan Closed:** PLN-a8eec3
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d3cb96 tier=trivial session_id=none opened_at=2026-07-14T02:01:02.966829+00:00 -->
+**Plan Opened:** PLN-d3cb96
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d3cb96 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:01:03.027085+00:00 -->
+**Plan Closed:** PLN-d3cb96
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e7503f tier=trivial session_id=none opened_at=2026-07-14T02:01:04.482207+00:00 -->
+**Plan Opened:** PLN-e7503f
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e7503f verdict=FAIL quality_tier=none closed_at=2026-07-14T02:01:04.535461+00:00 -->
+**Plan Closed:** PLN-e7503f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-add8c0 tier=trivial session_id=none opened_at=2026-07-14T02:02:39.335296+00:00 -->
+**Plan Opened:** PLN-add8c0
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-add8c0 verdict=PASS quality_tier=none closed_at=2026-07-14T02:02:39.379403+00:00 -->
+**Plan Closed:** PLN-add8c0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8b4be6 tier=trivial session_id=none opened_at=2026-07-14T02:05:47.900903+00:00 -->
+**Plan Opened:** PLN-8b4be6
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8b4be6 verdict=PASS quality_tier=none closed_at=2026-07-14T02:05:47.912026+00:00 -->
+**Plan Closed:** PLN-8b4be6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cf6cc3 tier=trivial session_id=none opened_at=2026-07-14T02:06:04.216227+00:00 -->
+**Plan Opened:** PLN-cf6cc3
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cf6cc3 verdict=PASS quality_tier=none closed_at=2026-07-14T02:06:04.222710+00:00 -->
+**Plan Closed:** PLN-cf6cc3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67de3a tier=trivial session_id=none opened_at=2026-07-14T02:06:31.168179+00:00 -->
+**Plan Opened:** PLN-67de3a
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67de3a verdict=PASS quality_tier=none closed_at=2026-07-14T02:06:31.176573+00:00 -->
+**Plan Closed:** PLN-67de3a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5ea79a tier=trivial session_id=none opened_at=2026-07-14T02:10:40.488983+00:00 -->
+**Plan Opened:** PLN-5ea79a
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5ea79a verdict=PASS quality_tier=none closed_at=2026-07-14T02:10:40.501654+00:00 -->
+**Plan Closed:** PLN-5ea79a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-40b718 tier=trivial session_id=none opened_at=2026-07-14T02:10:41.617505+00:00 -->
+**Plan Opened:** PLN-40b718
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-ef6ca5 tier=trivial session_id=none opened_at=2026-07-14T02:10:41.618032+00:00 -->
+**Plan Opened:** PLN-ef6ca5
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-40b718 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:10:41.625823+00:00 -->
+**Plan Closed:** PLN-40b718
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ef6ca5 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:10:41.692162+00:00 -->
+**Plan Closed:** PLN-ef6ca5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a86d9e tier=trivial session_id=none opened_at=2026-07-14T02:10:43.108082+00:00 -->
+**Plan Opened:** PLN-a86d9e
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a86d9e verdict=FAIL quality_tier=none closed_at=2026-07-14T02:10:43.117885+00:00 -->
+**Plan Closed:** PLN-a86d9e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d72067 tier=trivial session_id=none opened_at=2026-07-14T02:10:44.274828+00:00 -->
+**Plan Opened:** PLN-d72067
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d72067 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:10:44.284464+00:00 -->
+**Plan Closed:** PLN-d72067
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d95e0e tier=trivial session_id=none opened_at=2026-07-14T02:10:48.680026+00:00 -->
+**Plan Opened:** PLN-d95e0e
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d95e0e verdict=PASS quality_tier=none closed_at=2026-07-14T02:10:48.686175+00:00 -->
+**Plan Closed:** PLN-d95e0e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6845e3 tier=trivial session_id=none opened_at=2026-07-14T02:15:48.021744+00:00 -->
+**Plan Opened:** PLN-6845e3
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6845e3 verdict=PASS quality_tier=none closed_at=2026-07-14T02:15:48.030219+00:00 -->
+**Plan Closed:** PLN-6845e3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-999ea7 tier=trivial session_id=none opened_at=2026-07-14T02:18:34.647560+00:00 -->
+**Plan Opened:** PLN-999ea7
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-999ea7 verdict=PASS quality_tier=none closed_at=2026-07-14T02:18:34.652559+00:00 -->
+**Plan Closed:** PLN-999ea7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b63d02 tier=trivial session_id=none opened_at=2026-07-14T02:20:41.178483+00:00 -->
+**Plan Opened:** PLN-b63d02
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b63d02 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:20:41.183370+00:00 -->
+**Plan Closed:** PLN-b63d02
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9b875a tier=trivial session_id=none opened_at=2026-07-14T02:20:48.365722+00:00 -->
+**Plan Opened:** PLN-9b875a
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9b875a verdict=PASS quality_tier=none closed_at=2026-07-14T02:20:48.371145+00:00 -->
+**Plan Closed:** PLN-9b875a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c9c7f5 tier=trivial session_id=none opened_at=2026-07-14T02:20:49.988558+00:00 -->
+**Plan Opened:** PLN-c9c7f5
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_2573498.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c9c7f5 verdict=PASS quality_tier=none closed_at=2026-07-14T02:20:49.992865+00:00 -->
+**Plan Closed:** PLN-c9c7f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_2573498.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4a904d tier=trivial session_id=none opened_at=2026-07-14T02:20:50.024882+00:00 -->
+**Plan Opened:** PLN-4a904d
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4a904d verdict=FAIL quality_tier=none closed_at=2026-07-14T02:20:50.029280+00:00 -->
+**Plan Closed:** PLN-4a904d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-acced4 tier=trivial session_id=none opened_at=2026-07-14T02:20:51.387615+00:00 -->
+**Plan Opened:** PLN-acced4
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_2573529.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-acced4 verdict=PASS quality_tier=none closed_at=2026-07-14T02:20:51.391859+00:00 -->
+**Plan Closed:** PLN-acced4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_2573529.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b2f56d tier=trivial session_id=none opened_at=2026-07-14T02:20:51.422225+00:00 -->
+**Plan Opened:** PLN-b2f56d
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b2f56d verdict=FAIL quality_tier=none closed_at=2026-07-14T02:20:51.426472+00:00 -->
+**Plan Closed:** PLN-b2f56d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2d7a64 tier=trivial session_id=none opened_at=2026-07-14T02:25:48.377753+00:00 -->
+**Plan Opened:** PLN-2d7a64
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2d7a64 verdict=PASS quality_tier=none closed_at=2026-07-14T02:25:48.382636+00:00 -->
+**Plan Closed:** PLN-2d7a64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9002c3 tier=trivial session_id=none opened_at=2026-07-14T02:30:40.592010+00:00 -->
+**Plan Opened:** PLN-9002c3
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9002c3 verdict=PASS quality_tier=none closed_at=2026-07-14T02:30:40.600171+00:00 -->
+**Plan Closed:** PLN-9002c3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0740d7 tier=trivial session_id=none opened_at=2026-07-14T02:30:41.761770+00:00 -->
+**Plan Opened:** PLN-0740d7
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0740d7 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:30:41.766967+00:00 -->
+**Plan Closed:** PLN-0740d7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8364b1 tier=trivial session_id=none opened_at=2026-07-14T02:30:43.649076+00:00 -->
+**Plan Opened:** PLN-8364b1
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2585406.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8364b1 verdict=PASS quality_tier=none closed_at=2026-07-14T02:30:43.666888+00:00 -->
+**Plan Closed:** PLN-8364b1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2585406.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-acc197 tier=trivial session_id=none opened_at=2026-07-14T02:30:49.091007+00:00 -->
+**Plan Opened:** PLN-acc197
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-acc197 verdict=PASS quality_tier=none closed_at=2026-07-14T02:30:49.097995+00:00 -->
+**Plan Closed:** PLN-acc197
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eb90c2 tier=trivial session_id=none opened_at=2026-07-14T02:32:54.462440+00:00 -->
+**Plan Opened:** PLN-eb90c2
+**Task:** crash captured: ensure_agent_sdk (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/ensure_agent_sdk_2585307.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eb90c2 verdict=PASS quality_tier=none closed_at=2026-07-14T02:32:54.470005+00:00 -->
+**Plan Closed:** PLN-eb90c2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/ensure_agent_sdk_2585307.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7088c9 tier=trivial session_id=none opened_at=2026-07-14T02:33:50.609905+00:00 -->
+**Plan Opened:** PLN-7088c9
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7088c9 verdict=PASS quality_tier=none closed_at=2026-07-14T02:33:50.614417+00:00 -->
+**Plan Closed:** PLN-7088c9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-874cef tier=trivial session_id=none opened_at=2026-07-14T02:34:26.806691+00:00 -->
+**Plan Opened:** PLN-874cef
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-874cef verdict=PASS quality_tier=none closed_at=2026-07-14T02:34:26.811432+00:00 -->
+**Plan Closed:** PLN-874cef
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ce6409 tier=trivial session_id=none opened_at=2026-07-14T02:34:27.294546+00:00 -->
+**Plan Opened:** PLN-ce6409
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2589757.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ce6409 verdict=PASS quality_tier=none closed_at=2026-07-14T02:34:27.301481+00:00 -->
+**Plan Closed:** PLN-ce6409
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2589757.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-412f96 tier=trivial session_id=none opened_at=2026-07-14T02:34:34.420906+00:00 -->
+**Plan Opened:** PLN-412f96
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-412f96 verdict=PASS quality_tier=none closed_at=2026-07-14T02:34:34.425545+00:00 -->
+**Plan Closed:** PLN-412f96
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-060d51 tier=trivial session_id=none opened_at=2026-07-14T02:34:39.585063+00:00 -->
+**Plan Opened:** PLN-060d51
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-060d51 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:34:39.592453+00:00 -->
+**Plan Closed:** PLN-060d51
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e6dfe0 tier=trivial session_id=none opened_at=2026-07-14T02:34:46.508921+00:00 -->
+**Plan Opened:** PLN-e6dfe0
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e6dfe0 verdict=FAIL quality_tier=none closed_at=2026-07-14T02:34:46.513539+00:00 -->
+**Plan Closed:** PLN-e6dfe0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d8370f tier=trivial session_id=none opened_at=2026-07-14T02:39:20.482360+00:00 -->
+**Plan Opened:** PLN-d8370f
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2595790.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d8370f verdict=PASS quality_tier=none closed_at=2026-07-14T02:39:20.487862+00:00 -->
+**Plan Closed:** PLN-d8370f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2595790.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3cc3c5 tier=trivial session_id=none opened_at=2026-07-14T02:39:35.370519+00:00 -->
+**Plan Opened:** PLN-3cc3c5
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3cc3c5 verdict=PASS quality_tier=none closed_at=2026-07-14T02:39:35.375899+00:00 -->
+**Plan Closed:** PLN-3cc3c5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f24086 tier=trivial session_id=0c331b33-febf-4647-ba9b-ff128c23440a opened_at=2026-07-14T02:40:11.997340+00:00 -->
+**Plan Opened:** PLN-f24086
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f24086 verdict=PASS quality_tier=none closed_at=2026-07-14T02:40:12.001916+00:00 -->
+**Plan Closed:** PLN-f24086
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8c07aa tier=trivial session_id=none opened_at=2026-07-14T02:44:36.323445+00:00 -->
+**Plan Opened:** PLN-8c07aa
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8c07aa verdict=PASS quality_tier=none closed_at=2026-07-14T02:44:36.328739+00:00 -->
+**Plan Closed:** PLN-8c07aa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b3c02c tier=trivial session_id=none opened_at=2026-07-14T02:49:37.311339+00:00 -->
+**Plan Opened:** PLN-b3c02c
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b3c02c verdict=PASS quality_tier=none closed_at=2026-07-14T02:49:37.319943+00:00 -->
+**Plan Closed:** PLN-b3c02c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7020cc tier=trivial session_id=none opened_at=2026-07-14T02:49:38.220067+00:00 -->
+**Plan Opened:** PLN-7020cc
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7020cc verdict=PASS quality_tier=none closed_at=2026-07-14T02:49:38.224877+00:00 -->
+**Plan Closed:** PLN-7020cc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4b054d tier=trivial session_id=e5ac2356-a9f2-407d-8d9b-45e48fa9638e opened_at=2026-07-14T02:49:53.132684+00:00 -->
+**Plan Opened:** PLN-4b054d
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4b054d verdict=PASS quality_tier=none closed_at=2026-07-14T02:49:53.140978+00:00 -->
+**Plan Closed:** PLN-4b054d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-43d418 tier=trivial session_id=none opened_at=2026-07-14T02:50:50.810789+00:00 -->
+**Plan Opened:** PLN-43d418
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-43d418 verdict=PASS quality_tier=none closed_at=2026-07-14T02:50:50.816475+00:00 -->
+**Plan Closed:** PLN-43d418
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e670d9 tier=trivial session_id=none opened_at=2026-07-14T02:55:50.112907+00:00 -->
+**Plan Opened:** PLN-e670d9
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e670d9 verdict=PASS quality_tier=none closed_at=2026-07-14T02:55:50.117827+00:00 -->
+**Plan Closed:** PLN-e670d9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fe7b9c tier=trivial session_id=none opened_at=2026-07-14T03:00:43.095801+00:00 -->
+**Plan Opened:** PLN-fe7b9c
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fe7b9c verdict=FAIL quality_tier=none closed_at=2026-07-14T03:00:43.100198+00:00 -->
+**Plan Closed:** PLN-fe7b9c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-200d64 tier=trivial session_id=none opened_at=2026-07-14T03:00:51.310282+00:00 -->
+**Plan Opened:** PLN-200d64
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-200d64 verdict=PASS quality_tier=none closed_at=2026-07-14T03:00:51.321783+00:00 -->
+**Plan Closed:** PLN-200d64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5cf5b1 tier=trivial session_id=none opened_at=2026-07-14T03:04:43.845399+00:00 -->
+**Plan Opened:** PLN-5cf5b1
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5cf5b1 verdict=PASS quality_tier=none closed_at=2026-07-14T03:04:43.850209+00:00 -->
+**Plan Closed:** PLN-5cf5b1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cfd7bf tier=trivial session_id=none opened_at=2026-07-14T03:05:11.892237+00:00 -->
+**Plan Opened:** PLN-cfd7bf
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cfd7bf verdict=PASS quality_tier=none closed_at=2026-07-14T03:05:11.896626+00:00 -->
+**Plan Closed:** PLN-cfd7bf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9c5d1a tier=trivial session_id=none opened_at=2026-07-14T03:05:50.410795+00:00 -->
+**Plan Opened:** PLN-9c5d1a
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9c5d1a verdict=PASS quality_tier=none closed_at=2026-07-14T03:05:50.415241+00:00 -->
+**Plan Closed:** PLN-9c5d1a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d4af89 tier=trivial session_id=none opened_at=2026-07-14T03:10:44.124940+00:00 -->
+**Plan Opened:** PLN-d4af89
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d4af89 verdict=PASS quality_tier=none closed_at=2026-07-14T03:10:44.129374+00:00 -->
+**Plan Closed:** PLN-d4af89
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d7268d tier=trivial session_id=none opened_at=2026-07-14T03:10:45.306788+00:00 -->
+**Plan Opened:** PLN-d7268d
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d7268d verdict=FAIL quality_tier=none closed_at=2026-07-14T03:10:45.311279+00:00 -->
+**Plan Closed:** PLN-d7268d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-461c3f tier=trivial session_id=none opened_at=2026-07-14T03:10:46.636714+00:00 -->
+**Plan Opened:** PLN-461c3f
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-461c3f verdict=FAIL quality_tier=none closed_at=2026-07-14T03:10:46.641102+00:00 -->
+**Plan Closed:** PLN-461c3f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3ebbaf tier=trivial session_id=none opened_at=2026-07-14T03:10:51.867025+00:00 -->
+**Plan Opened:** PLN-3ebbaf
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ebbaf verdict=PASS quality_tier=none closed_at=2026-07-14T03:10:51.872071+00:00 -->
+**Plan Closed:** PLN-3ebbaf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2e068 tier=trivial session_id=none opened_at=2026-07-14T03:11:11.772492+00:00 -->
+**Plan Opened:** PLN-c2e068
+**Task:** generic long-tail remediation: tess-token-keepalive -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2e068 verdict=PASS quality_tier=none closed_at=2026-07-14T03:11:11.780805+00:00 -->
+**Plan Closed:** PLN-c2e068
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** tess-token-keepalive verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9c8784 tier=trivial session_id=none opened_at=2026-07-14T03:11:19.915446+00:00 -->
+**Plan Opened:** PLN-9c8784
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9c8784 verdict=FAIL quality_tier=none closed_at=2026-07-14T03:11:19.919922+00:00 -->
+**Plan Closed:** PLN-9c8784
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d83f05 tier=trivial session_id=none opened_at=2026-07-14T03:15:53.519515+00:00 -->
+**Plan Opened:** PLN-d83f05
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d83f05 verdict=PASS quality_tier=none closed_at=2026-07-14T03:15:53.527868+00:00 -->
+**Plan Closed:** PLN-d83f05
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2dd7a9 tier=trivial session_id=none opened_at=2026-07-14T03:20:45.164550+00:00 -->
+**Plan Opened:** PLN-2dd7a9
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2dd7a9 verdict=PASS quality_tier=none closed_at=2026-07-14T03:20:45.171702+00:00 -->
+**Plan Closed:** PLN-2dd7a9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e1041c tier=trivial session_id=none opened_at=2026-07-14T03:20:45.988528+00:00 -->
+**Plan Opened:** PLN-e1041c
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e1041c verdict=FAIL quality_tier=none closed_at=2026-07-14T03:20:45.992882+00:00 -->
+**Plan Closed:** PLN-e1041c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-78640b tier=trivial session_id=none opened_at=2026-07-14T03:20:46.605718+00:00 -->
+**Plan Opened:** PLN-78640b
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-78640b verdict=FAIL quality_tier=none closed_at=2026-07-14T03:20:46.611514+00:00 -->
+**Plan Closed:** PLN-78640b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a955e3 tier=trivial session_id=none opened_at=2026-07-14T03:20:52.651429+00:00 -->
+**Plan Opened:** PLN-a955e3
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a955e3 verdict=PASS quality_tier=none closed_at=2026-07-14T03:20:52.658507+00:00 -->
+**Plan Closed:** PLN-a955e3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-774dfd tier=trivial session_id=none opened_at=2026-07-14T03:20:58.579715+00:00 -->
+**Plan Opened:** PLN-774dfd
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-774dfd verdict=FAIL quality_tier=none closed_at=2026-07-14T03:20:58.586287+00:00 -->
+**Plan Closed:** PLN-774dfd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6f53fa tier=trivial session_id=none opened_at=2026-07-14T03:20:59.987343+00:00 -->
+**Plan Opened:** PLN-6f53fa
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6f53fa verdict=FAIL quality_tier=none closed_at=2026-07-14T03:20:59.992185+00:00 -->
+**Plan Closed:** PLN-6f53fa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b51946 tier=trivial session_id=none opened_at=2026-07-14T03:21:01.123194+00:00 -->
+**Plan Opened:** PLN-b51946
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b51946 verdict=FAIL quality_tier=none closed_at=2026-07-14T03:21:01.127629+00:00 -->
+**Plan Closed:** PLN-b51946
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1c50e0 tier=trivial session_id=none opened_at=2026-07-14T03:21:03.054489+00:00 -->
+**Plan Opened:** PLN-1c50e0
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1c50e0 verdict=PASS quality_tier=none closed_at=2026-07-14T03:21:03.059095+00:00 -->
+**Plan Closed:** PLN-1c50e0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ad5795 tier=trivial session_id=none opened_at=2026-07-14T03:21:10.848511+00:00 -->
+**Plan Opened:** PLN-ad5795
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ad5795 verdict=PASS quality_tier=none closed_at=2026-07-14T03:21:10.853215+00:00 -->
+**Plan Closed:** PLN-ad5795
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-134546 tier=trivial session_id=none opened_at=2026-07-14T03:25:53.834196+00:00 -->
+**Plan Opened:** PLN-134546
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-134546 verdict=PASS quality_tier=none closed_at=2026-07-14T03:25:53.841090+00:00 -->
+**Plan Closed:** PLN-134546
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e1cbf4 tier=trivial session_id=none opened_at=2026-07-14T03:29:50.270390+00:00 -->
+**Plan Opened:** PLN-e1cbf4
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2658015.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e1cbf4 verdict=PASS quality_tier=none closed_at=2026-07-14T03:29:50.275571+00:00 -->
+**Plan Closed:** PLN-e1cbf4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2658015.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e33a7a tier=trivial session_id=none opened_at=2026-07-14T03:30:45.079878+00:00 -->
+**Plan Opened:** PLN-e33a7a
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e33a7a verdict=PASS quality_tier=none closed_at=2026-07-14T03:30:45.084330+00:00 -->
+**Plan Closed:** PLN-e33a7a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-932fe8 tier=trivial session_id=none opened_at=2026-07-14T03:30:46.266362+00:00 -->
+**Plan Opened:** PLN-932fe8
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-932fe8 verdict=FAIL quality_tier=none closed_at=2026-07-14T03:30:46.276522+00:00 -->
+**Plan Closed:** PLN-932fe8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-550a4d tier=trivial session_id=none opened_at=2026-07-14T03:30:46.568409+00:00 -->
+**Plan Opened:** PLN-550a4d
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-550a4d verdict=FAIL quality_tier=none closed_at=2026-07-14T03:30:46.574235+00:00 -->
+**Plan Closed:** PLN-550a4d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-04e838 tier=trivial session_id=none opened_at=2026-07-14T03:30:53.858217+00:00 -->
+**Plan Opened:** PLN-04e838
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-04e838 verdict=PASS quality_tier=none closed_at=2026-07-14T03:30:53.862734+00:00 -->
+**Plan Closed:** PLN-04e838
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-675e0c tier=trivial session_id=none opened_at=2026-07-14T03:31:49.405732+00:00 -->
+**Plan Opened:** PLN-675e0c
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2658798.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-675e0c verdict=PASS quality_tier=none closed_at=2026-07-14T03:31:49.410570+00:00 -->
+**Plan Closed:** PLN-675e0c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2658798.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b247cf tier=trivial session_id=none opened_at=2026-07-14T03:35:44.338849+00:00 -->
+**Plan Opened:** PLN-b247cf
+**Task:** crash captured: mcp-server-qdrant (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2663698.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b247cf verdict=PASS quality_tier=none closed_at=2026-07-14T03:35:44.343608+00:00 -->
+**Plan Closed:** PLN-b247cf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/mcp-server-qdrant_2663698.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd1f07 tier=trivial session_id=none opened_at=2026-07-14T03:35:46.743372+00:00 -->
+**Plan Opened:** PLN-bd1f07
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2665171.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd1f07 verdict=PASS quality_tier=none closed_at=2026-07-14T03:35:46.750246+00:00 -->
+**Plan Closed:** PLN-bd1f07
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2665171.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9f3e3c tier=trivial session_id=none opened_at=2026-07-14T03:35:51.994761+00:00 -->
+**Plan Opened:** PLN-9f3e3c
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9f3e3c verdict=FAIL quality_tier=none closed_at=2026-07-14T03:35:52.003208+00:00 -->
+**Plan Closed:** PLN-9f3e3c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ae1612 tier=trivial session_id=none opened_at=2026-07-14T03:35:54.304734+00:00 -->
+**Plan Opened:** PLN-ae1612
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ae1612 verdict=PASS quality_tier=none closed_at=2026-07-14T03:35:54.309961+00:00 -->
+**Plan Closed:** PLN-ae1612
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f88529 tier=trivial session_id=none opened_at=2026-07-14T03:35:58.584788+00:00 -->
+**Plan Opened:** PLN-f88529
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f88529 verdict=FAIL quality_tier=none closed_at=2026-07-14T03:35:58.589396+00:00 -->
+**Plan Closed:** PLN-f88529
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6a8d59 tier=trivial session_id=none opened_at=2026-07-14T03:36:50.082413+00:00 -->
+**Plan Opened:** PLN-6a8d59
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6a8d59 verdict=PASS quality_tier=none closed_at=2026-07-14T03:36:50.088224+00:00 -->
+**Plan Closed:** PLN-6a8d59
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0f8cf7 tier=trivial session_id=none opened_at=2026-07-14T03:40:54.292622+00:00 -->
+**Plan Opened:** PLN-0f8cf7
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0f8cf7 verdict=PASS quality_tier=none closed_at=2026-07-14T03:40:54.299370+00:00 -->
+**Plan Closed:** PLN-0f8cf7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e880691b8cbf-20260714T034535Z verdict=PASS closed_at=2026-07-14T03:45:35.174384+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e880691b8cbf-20260714T034535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Zig Creator Calls Spade a Spade, Anthropic Blows Smoke
+**Notes:** Address charges Anthropic consumes excessive tokens when opening a prompt vs OpenCode
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-gmail-johnloucks3-19f5e854778d62bf-20260714T034535Z verdict=PASS closed_at=2026-07-14T03:45:35.174593+00:00 -->
+**Plan Closed:** TCD-CLOSE-gmail-johnloucks3-19f5e854778d62bf-20260714T034535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Re: Fwd: A few things I'd love your feedback on, Erik and Melissa
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z verdict=PASS closed_at=2026-07-14T03:45:35.174673+00:00 -->
+**Plan Closed:** TCD-CLOSE-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Cont
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z verdict=PASS closed_at=2026-07-14T03:45:35.174725+00:00 -->
+**Plan Closed:** TCD-STAGE-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Cont
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z verdict=PASS closed_at=2026-07-14T03:45:35.175581+00:00 -->
+**Plan Closed:** TCD-TASK-alert-MCLEOD-2984034-FPD-TRIGGER-20260714T034535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Cont
+**Notes:** D -> T, assigned to Harlan
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260714T034536Z verdict=PASS closed_at=2026-07-14T03:45:36.407281+00:00 -->
+**Plan Closed:** TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260714T034536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Loucks Regent Grandeur 3122006 — FPD Aug 1 is 21 days out. TP 4.1 Payment Remind
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-alert-LOUCKS-3122006-FPD-ALERT-20260714T034536Z verdict=PASS closed_at=2026-07-14T03:45:36.408187+00:00 -->
+**Plan Closed:** TCD-TASK-alert-LOUCKS-3122006-FPD-ALERT-20260714T034536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: Loucks Regent Grandeur 3122006 — FPD Aug 1 is 21 days out. TP 4.1 Payment Remind
+**Notes:** D -> T, assigned to Harlan
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-alert-SCANDI-PORTAL-REVIEW-20260714T034537Z verdict=PASS closed_at=2026-07-14T03:45:37.328592+00:00 -->
+**Plan Closed:** TCD-CLOSE-alert-SCANDI-PORTAL-REVIEW-20260714T034537Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: WING REVIEW — 3 Grandeur Scandinavia per-couple portals (Furlow furlow.d2mluxury
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-alert-MISSION-1530-SKYVERN-REVIEW-20260714T034537Z verdict=PASS closed_at=2026-07-14T03:45:37.328784+00:00 -->
+**Plan Closed:** TCD-CLOSE-alert-MISSION-1530-SKYVERN-REVIEW-20260714T034537Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: MISSION-1530 (Skyvern credential keep-alive trial) parked 2026-07-04 — Commander
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-mission-MISSION-002-20260714T034537Z verdict=PASS closed_at=2026-07-14T03:45:37.328857+00:00 -->
+**Plan Closed:** TCD-STAGE-mission-MISSION-002-20260714T034537Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Audit Phase 4 features for live integration vs dead code
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-mission-MISSION-002-20260714T034537Z verdict=PASS closed_at=2026-07-14T03:45:37.329280+00:00 -->
+**Plan Closed:** TCD-TASK-mission-MISSION-002-20260714T034537Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: Audit Phase 4 features for live integration vs dead code
+**Notes:** D -> T, assigned to Sterling
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-mission-MISSION-003-20260714T034538Z verdict=PASS closed_at=2026-07-14T03:45:38.558534+00:00 -->
+**Plan Closed:** TCD-STAGE-mission-MISSION-003-20260714T034538Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Redirect Telegram-output automations to TCD or mark emergency-only
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-mission-MISSION-003-20260714T034538Z verdict=PASS closed_at=2026-07-14T03:45:38.559376+00:00 -->
+**Plan Closed:** TCD-TASK-mission-MISSION-003-20260714T034538Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: Redirect Telegram-output automations to TCD or mark emergency-only
+**Notes:** D -> T, assigned to Sterling
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-mission-MISSION-004-20260714T034540Z verdict=PASS closed_at=2026-07-14T03:45:40.048045+00:00 -->
+**Plan Closed:** TCD-STAGE-mission-MISSION-004-20260714T034540Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Run FPD deadline audit for Furlow and Kuklinski
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-mission-MISSION-004-20260714T034540Z verdict=PASS closed_at=2026-07-14T03:45:40.048657+00:00 -->
+**Plan Closed:** TCD-TASK-mission-MISSION-004-20260714T034540Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: Run FPD deadline audit for Furlow and Kuklinski
+**Notes:** D -> T, assigned to Sterling
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-mission-MISSION-005-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.219741+00:00 -->
+**Plan Closed:** TCD-CLOSE-mission-MISSION-005-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Produce Regent pricing refresh for Lyons renewal window
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-mission-MISSION-9-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.219923+00:00 -->
+**Plan Closed:** TCD-CLOSE-mission-MISSION-9-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Client inquiry: Introducing Our Destination Experiences
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-mission-MISSION-9-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.219997+00:00 -->
+**Plan Closed:** TCD-COMMENT-mission-MISSION-9-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Client inquiry: Introducing Our Destination Experiences
+**Notes:** Delete Explora Journeys from Client List, They are a Supplier
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-mission-MISSION-10-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.220054+00:00 -->
+**Plan Closed:** TCD-CLOSE-mission-MISSION-10-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Client inquiry: Introducing Our Destination Experiences
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-mission-MISSION-10-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.220109+00:00 -->
+**Plan Closed:** TCD-COMMENT-mission-MISSION-10-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Client inquiry: Introducing Our Destination Experiences
+**Notes:** Explora Journeys is a Supplier
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-watch-incubator-gate-claude agents --json session monitor-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.220256+00:00 -->
+**Plan Closed:** TCD-STAGE-watch-incubator-gate-claude agents --json session monitor-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Incubator gate candidate approved, unactioned: claude agents --json session moni
+**Notes:** P -> D
+
+<!-- PLAN:CLOSE plan_id=TCD-TASK-watch-incubator-gate-claude agents --json session monitor-20260714T034541Z verdict=PASS closed_at=2026-07-14T03:45:41.221167+00:00 -->
+**Plan Closed:** TCD-TASK-watch-incubator-gate-claude agents --json session monitor-20260714T034541Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD auto-task: Incubator gate candidate approved, unactioned: claude agents --json session moni
+**Notes:** D -> T, assigned to Hale
+
+<!-- PLAN:OPEN plan_id=PLN-70dc40 tier=trivial session_id=none opened_at=2026-07-14T03:45:53.988854+00:00 -->
+**Plan Opened:** PLN-70dc40
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-70dc40 verdict=PASS quality_tier=none closed_at=2026-07-14T03:45:54.000645+00:00 -->
+**Plan Closed:** PLN-70dc40
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ceb33 tier=trivial session_id=none opened_at=2026-07-14T03:50:54.062459+00:00 -->
+**Plan Opened:** PLN-1ceb33
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ceb33 verdict=PASS quality_tier=none closed_at=2026-07-14T03:50:54.069225+00:00 -->
+**Plan Closed:** PLN-1ceb33
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-94728a tier=trivial session_id=none opened_at=2026-07-14T03:51:53.346947+00:00 -->
+**Plan Opened:** PLN-94728a
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-94728a verdict=PASS quality_tier=none closed_at=2026-07-14T03:51:53.351828+00:00 -->
+**Plan Closed:** PLN-94728a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e880691b8cbf-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.936414+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e880691b8cbf-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Zig Creator Calls Spade a Spade, Anthropic Blows Smoke
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.936864+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt 
+**Notes:** [CREATE_TASK_REQUESTED]
+
+<!-- PLAN:CLOSE plan_id=TCD-CREATETASK-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.939270+00:00 -->
+**Plan Closed:** TCD-CREATETASK-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD create-task: Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt 
+**Notes:** Filed MISSION-021 from FYI row gmail-johnloucks3-19f5e7f40edeb3f4.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e45f311fe1f4-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.939345+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e45f311fe1f4-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Innovation Scan — Daily 2026-07-13 (74 findings)
+**Notes:** [CREATE_TASK_REQUESTED]
+
+<!-- PLAN:CLOSE plan_id=TCD-CREATETASK-gmail-johnloucks3-19f5e45f311fe1f4-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.939999+00:00 -->
+**Plan Closed:** TCD-CREATETASK-gmail-johnloucks3-19f5e45f311fe1f4-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD create-task: Innovation Scan — Daily 2026-07-13 (74 findings)
+**Notes:** Filed MISSION-022 from FYI row gmail-johnloucks3-19f5e45f311fe1f4.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-d2mconcierge-19f5e859180b41fe-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.940065+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-d2mconcierge-19f5e859180b41fe-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Booking Confirmation - PE184712212
+**Notes:** [CREATE_TASK_REQUESTED] [CREATE_TASK_REQUESTED] Search for larger vehicles and send me estimates
+
+<!-- PLAN:CLOSE plan_id=TCD-CREATETASK-gmail-d2mconcierge-19f5e859180b41fe-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.940693+00:00 -->
+**Plan Closed:** TCD-CREATETASK-gmail-d2mconcierge-19f5e859180b41fe-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD create-task: Re: Booking Confirmation - PE184712212
+**Notes:** Filed MISSION-023 from FYI row gmail-d2mconcierge-19f5e859180b41fe.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-mission-MISSION-9-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.940778+00:00 -->
+**Plan Closed:** TCD-COMMENT-mission-MISSION-9-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Client inquiry: Introducing Our Destination Experiences
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-mission-MISSION-10-20260714T035535Z verdict=PASS closed_at=2026-07-14T03:55:35.940822+00:00 -->
+**Plan Closed:** TCD-COMMENT-mission-MISSION-10-20260714T035535Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Client inquiry: Introducing Our Destination Experiences
+**Notes:** (comment field changed)
+
+<!-- PLAN:OPEN plan_id=PLN-09ec60 tier=trivial session_id=none opened_at=2026-07-14T03:55:54.676369+00:00 -->
+**Plan Opened:** PLN-09ec60
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-09ec60 verdict=PASS quality_tier=none closed_at=2026-07-14T03:55:54.681359+00:00 -->
+**Plan Closed:** PLN-09ec60
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-732ace tier=trivial session_id=none opened_at=2026-07-14T03:58:02.664373+00:00 -->
+**Plan Opened:** PLN-732ace
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-732ace verdict=PASS quality_tier=none closed_at=2026-07-14T03:58:02.669011+00:00 -->
+**Plan Closed:** PLN-732ace
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-354e2f tier=trivial session_id=none opened_at=2026-07-14T04:00:03.721984+00:00 -->
+**Plan Opened:** PLN-354e2f
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-354e2f verdict=PASS quality_tier=none closed_at=2026-07-14T04:00:03.727503+00:00 -->
+**Plan Closed:** PLN-354e2f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e1f4c tier=trivial session_id=none opened_at=2026-07-14T04:00:47.902491+00:00 -->
+**Plan Opened:** PLN-5e1f4c
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e1f4c verdict=FAIL quality_tier=none closed_at=2026-07-14T04:00:47.906950+00:00 -->
+**Plan Closed:** PLN-5e1f4c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a00d1c tier=trivial session_id=none opened_at=2026-07-14T04:00:54.811394+00:00 -->
+**Plan Opened:** PLN-a00d1c
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a00d1c verdict=PASS quality_tier=none closed_at=2026-07-14T04:00:54.816643+00:00 -->
+**Plan Closed:** PLN-a00d1c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.034952+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e7f40edeb3f4-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt 
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-johnloucks3-19f5e45f311fe1f4-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035294+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-johnloucks3-19f5e45f311fe1f4-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Innovation Scan — Daily 2026-07-13 (74 findings)
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-d2mconcierge-19f5e859180b41fe-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035360+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-d2mconcierge-19f5e859180b41fe-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Re: Booking Confirmation - PE184712212
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-gmail-d2mconcierge-19f5e84569d87e0c-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035406+00:00 -->
+**Plan Closed:** TCD-CLOSE-gmail-d2mconcierge-19f5e84569d87e0c-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Fwd: A few things I'd love your feedback on, Erik and Melissa
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-gmail-d2mconcierge-19f5e7e5e117991a-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035451+00:00 -->
+**Plan Closed:** TCD-CLOSE-gmail-d2mconcierge-19f5e7e5e117991a-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: GitHub - Tencent/BrowserSkill: Let AI agents use your real, logged-in browser wi
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-gmail-d2mconcierge-19f5e7d8187b1552-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035502+00:00 -->
+**Plan Closed:** TCD-CLOSE-gmail-d2mconcierge-19f5e7d8187b1552-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt | Sy
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-CLOSE-gmail-d2mconcierge-19f5e7c513e6377e-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035546+00:00 -->
+**Plan Closed:** TCD-CLOSE-gmail-d2mconcierge-19f5e7c513e6377e-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD closed: Zig Creator Calls Spade a Spade, Anthropic Blows Smoke
+**Notes:** Marked Closed by Commander in AppSheet; source record untouched.
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-d2mconcierge-19f5d7b144d2509e-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.035589+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-d2mconcierge-19f5d7b144d2509e-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Fwd: travel update
+**Notes:** [CREATE_TASK_REQUESTED]
+
+<!-- PLAN:CLOSE plan_id=TCD-CREATETASK-gmail-d2mconcierge-19f5d7b144d2509e-20260714T040536Z verdict=PASS closed_at=2026-07-14T04:05:36.038326+00:00 -->
+**Plan Closed:** TCD-CREATETASK-gmail-d2mconcierge-19f5d7b144d2509e-20260714T040536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD create-task: Fwd: travel update
+**Notes:** Filed MISSION-025 from FYI row gmail-d2mconcierge-19f5d7b144d2509e.
+
+<!-- PLAN:OPEN plan_id=PLN-c94502 tier=trivial session_id=none opened_at=2026-07-14T04:05:54.461625+00:00 -->
+**Plan Opened:** PLN-c94502
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c94502 verdict=PASS quality_tier=none closed_at=2026-07-14T04:05:54.467722+00:00 -->
+**Plan Closed:** PLN-c94502
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e798b9 tier=trivial session_id=none opened_at=2026-07-14T04:07:10.404970+00:00 -->
+**Plan Opened:** PLN-e798b9
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e798b9 verdict=PASS quality_tier=none closed_at=2026-07-14T04:07:10.410414+00:00 -->
+**Plan Closed:** PLN-e798b9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2da5d2 tier=trivial session_id=none opened_at=2026-07-14T04:10:48.550650+00:00 -->
+**Plan Opened:** PLN-2da5d2
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2da5d2 verdict=PASS quality_tier=none closed_at=2026-07-14T04:10:48.556204+00:00 -->
+**Plan Closed:** PLN-2da5d2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1a620f tier=trivial session_id=none opened_at=2026-07-14T04:10:49.614690+00:00 -->
+**Plan Opened:** PLN-1a620f
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-504a31 tier=trivial session_id=none opened_at=2026-07-14T04:10:49.615068+00:00 -->
+**Plan Opened:** PLN-504a31
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1a620f verdict=FAIL quality_tier=none closed_at=2026-07-14T04:10:49.622563+00:00 -->
+**Plan Closed:** PLN-1a620f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-504a31 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:10:49.630851+00:00 -->
+**Plan Closed:** PLN-504a31
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aa97f8 tier=trivial session_id=none opened_at=2026-07-14T04:10:50.951774+00:00 -->
+**Plan Opened:** PLN-aa97f8
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aa97f8 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:10:50.956553+00:00 -->
+**Plan Closed:** PLN-aa97f8
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4f20e5 tier=trivial session_id=none opened_at=2026-07-14T04:10:55.873100+00:00 -->
+**Plan Opened:** PLN-4f20e5
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4f20e5 verdict=PASS quality_tier=none closed_at=2026-07-14T04:10:55.877959+00:00 -->
+**Plan Closed:** PLN-4f20e5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d98ec6 tier=trivial session_id=none opened_at=2026-07-14T04:13:48.102608+00:00 -->
+**Plan Opened:** PLN-d98ec6
+**Task:** generic long-tail remediation: thunderbird-telegram-gw -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-telegram-gw verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d98ec6 verdict=PASS quality_tier=none closed_at=2026-07-14T04:13:48.107902+00:00 -->
+**Plan Closed:** PLN-d98ec6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-telegram-gw verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-gmail-d2mconcierge-19f5d7b144d2509e-20260714T041536Z verdict=PASS closed_at=2026-07-14T04:15:36.312428+00:00 -->
+**Plan Closed:** TCD-COMMENT-gmail-d2mconcierge-19f5d7b144d2509e-20260714T041536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: Fwd: travel update
+**Notes:** (comment field changed)
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-task-MISSION-814-20260714T041536Z verdict=PASS closed_at=2026-07-14T04:15:36.312794+00:00 -->
+**Plan Closed:** TCD-COMMENT-task-MISSION-814-20260714T041536Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: CC-Fleet Subagent Validation
+**Notes:** Groq has API keys in .env
+
+<!-- PLAN:OPEN plan_id=PLN-b631fb tier=trivial session_id=none opened_at=2026-07-14T04:15:58.200539+00:00 -->
+**Plan Opened:** PLN-b631fb
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b631fb verdict=PASS quality_tier=none closed_at=2026-07-14T04:15:58.206290+00:00 -->
+**Plan Closed:** PLN-b631fb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-707407 tier=trivial session_id=none opened_at=2026-07-14T04:20:49.374734+00:00 -->
+**Plan Opened:** PLN-707407
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-707407 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:20:49.383011+00:00 -->
+**Plan Closed:** PLN-707407
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-86cb94 tier=trivial session_id=none opened_at=2026-07-14T04:20:56.696238+00:00 -->
+**Plan Opened:** PLN-86cb94
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-86cb94 verdict=PASS quality_tier=none closed_at=2026-07-14T04:20:56.701491+00:00 -->
+**Plan Closed:** PLN-86cb94
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ef4263 tier=trivial session_id=none opened_at=2026-07-14T04:20:56.945658+00:00 -->
+**Plan Opened:** PLN-ef4263
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ef4263 verdict=PASS quality_tier=none closed_at=2026-07-14T04:20:56.950303+00:00 -->
+**Plan Closed:** PLN-ef4263
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17adba tier=trivial session_id=none opened_at=2026-07-14T04:20:57.882982+00:00 -->
+**Plan Opened:** PLN-17adba
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17adba verdict=FAIL quality_tier=none closed_at=2026-07-14T04:20:57.888060+00:00 -->
+**Plan Closed:** PLN-17adba
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-833f63 tier=trivial session_id=none opened_at=2026-07-14T04:21:18.618396+00:00 -->
+**Plan Opened:** PLN-833f63
+**Task:** generic long-tail remediation: tess-token-keepalive -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-833f63 verdict=PASS quality_tier=none closed_at=2026-07-14T04:21:18.624466+00:00 -->
+**Plan Closed:** PLN-833f63
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** tess-token-keepalive verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-08ff62 tier=trivial session_id=none opened_at=2026-07-14T04:22:22.609688+00:00 -->
+**Plan Opened:** PLN-08ff62
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-08ff62 verdict=PASS quality_tier=none closed_at=2026-07-14T04:22:22.618503+00:00 -->
+**Plan Closed:** PLN-08ff62
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=TCD-COMMENT-task-MISSION-814-20260714T042538Z verdict=PASS closed_at=2026-07-14T04:25:38.844379+00:00 -->
+**Plan Closed:** TCD-COMMENT-task-MISSION-814-20260714T042538Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD comment: CC-Fleet Subagent Validation
+**Notes:** (comment field changed)
+
+<!-- PLAN:OPEN plan_id=PLN-979eb4 tier=trivial session_id=none opened_at=2026-07-14T04:25:56.960308+00:00 -->
+**Plan Opened:** PLN-979eb4
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-979eb4 verdict=PASS quality_tier=none closed_at=2026-07-14T04:25:56.965840+00:00 -->
+**Plan Closed:** PLN-979eb4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eb5835 tier=trivial session_id=none opened_at=2026-07-14T04:30:52.538779+00:00 -->
+**Plan Opened:** PLN-eb5835
+**Task:** generic long-tail remediation: hale-credential-check -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** hale-credential-check verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eb5835 verdict=PASS quality_tier=none closed_at=2026-07-14T04:30:52.544828+00:00 -->
+**Plan Closed:** PLN-eb5835
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** hale-credential-check verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-47cdd0 tier=trivial session_id=none opened_at=2026-07-14T04:30:53.510399+00:00 -->
+**Plan Opened:** PLN-47cdd0
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-47cdd0 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:30:53.515064+00:00 -->
+**Plan Closed:** PLN-47cdd0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e9b350 tier=trivial session_id=none opened_at=2026-07-14T04:30:53.705860+00:00 -->
+**Plan Opened:** PLN-e9b350
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e9b350 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:30:53.712758+00:00 -->
+**Plan Closed:** PLN-e9b350
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8f1543 tier=trivial session_id=none opened_at=2026-07-14T04:30:55.184354+00:00 -->
+**Plan Opened:** PLN-8f1543
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8f1543 verdict=FAIL quality_tier=none closed_at=2026-07-14T04:30:55.188867+00:00 -->
+**Plan Closed:** PLN-8f1543
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-246b00 tier=trivial session_id=none opened_at=2026-07-14T04:31:00.650450+00:00 -->
+**Plan Opened:** PLN-246b00
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-246b00 verdict=PASS quality_tier=none closed_at=2026-07-14T04:31:00.655537+00:00 -->
+**Plan Closed:** PLN-246b00
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c1d7c8 tier=trivial session_id=none opened_at=2026-07-14T04:35:57.839494+00:00 -->
+**Plan Opened:** PLN-c1d7c8
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2751218.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c1d7c8 verdict=PASS quality_tier=none closed_at=2026-07-14T04:35:57.846662+00:00 -->
+**Plan Closed:** PLN-c1d7c8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2751218.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fac677 tier=trivial session_id=none opened_at=2026-07-14T04:36:00.927306+00:00 -->
+**Plan Opened:** PLN-fac677
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fac677 verdict=PASS quality_tier=none closed_at=2026-07-14T04:36:00.933262+00:00 -->
+**Plan Closed:** PLN-fac677
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9eb85e tier=trivial session_id=none opened_at=2026-07-14T04:36:03.189954+00:00 -->
+**Plan Opened:** PLN-9eb85e
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9eb85e verdict=FAIL quality_tier=none closed_at=2026-07-14T04:36:03.194748+00:00 -->
+**Plan Closed:** PLN-9eb85e
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-622679 tier=trivial session_id=none opened_at=2026-07-14T04:36:03.575962+00:00 -->
+**Plan Opened:** PLN-622679
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-622679 verdict=PASS quality_tier=none closed_at=2026-07-14T04:36:03.580318+00:00 -->
+**Plan Closed:** PLN-622679
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8bf33f tier=trivial session_id=none opened_at=2026-07-14T04:36:09.951557+00:00 -->
+**Plan Opened:** PLN-8bf33f
+**Task:** generic long-tail remediation: elon-proposal-weekly-review -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** elon-proposal-weekly-review verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8bf33f verdict=FAIL quality_tier=none closed_at=2026-07-14T04:36:09.955909+00:00 -->
+**Plan Closed:** PLN-8bf33f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** elon-proposal-weekly-review verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8eb66e tier=trivial session_id=none opened_at=2026-07-14T04:37:54.312893+00:00 -->
+**Plan Opened:** PLN-8eb66e
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8eb66e verdict=PASS quality_tier=none closed_at=2026-07-14T04:37:54.320003+00:00 -->
+**Plan Closed:** PLN-8eb66e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-879107 tier=trivial session_id=none opened_at=2026-07-14T04:41:01.758315+00:00 -->
+**Plan Opened:** PLN-879107
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-879107 verdict=PASS quality_tier=none closed_at=2026-07-14T04:41:01.764359+00:00 -->
+**Plan Closed:** PLN-879107
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-53bad3 tier=trivial session_id=none opened_at=2026-07-14T04:46:02.670311+00:00 -->
+**Plan Opened:** PLN-53bad3
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-53bad3 verdict=PASS quality_tier=none closed_at=2026-07-14T04:46:02.676601+00:00 -->
+**Plan Closed:** PLN-53bad3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a1d38c tier=trivial session_id=none opened_at=2026-07-14T04:50:05.382557+00:00 -->
+**Plan Opened:** PLN-a1d38c
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a1d38c verdict=PASS quality_tier=none closed_at=2026-07-14T04:50:05.387652+00:00 -->
+**Plan Closed:** PLN-a1d38c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a57de tier=trivial session_id=none opened_at=2026-07-14T04:51:02.972252+00:00 -->
+**Plan Opened:** PLN-0a57de
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a57de verdict=PASS quality_tier=none closed_at=2026-07-14T04:51:02.977216+00:00 -->
+**Plan Closed:** PLN-0a57de
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d1a6af tier=trivial session_id=none opened_at=2026-07-14T04:53:02.450234+00:00 -->
+**Plan Opened:** PLN-d1a6af
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d1a6af verdict=PASS quality_tier=none closed_at=2026-07-14T04:53:02.454856+00:00 -->
+**Plan Closed:** PLN-d1a6af
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eb4501 tier=trivial session_id=none opened_at=2026-07-14T04:56:02.533768+00:00 -->
+**Plan Opened:** PLN-eb4501
+**Task:** generic long-tail remediation: d2m-inbox-triage -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-inbox-triage verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eb4501 verdict=PASS quality_tier=none closed_at=2026-07-14T04:56:02.538922+00:00 -->
+**Plan Closed:** PLN-eb4501
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-inbox-triage verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-tcd-uiux tier=standard session_id=claude-code opened_at=2026-07-14T05:30:00+00:00 -->
+**Plan Opened:** PLN-tcd-uiux
+**Task:** TCD Items view UX fixes — Commander requested (1) P-stage items sort to top, (2) no stray numbers/letters in headers, (3) highlight selected row, (4) grey out touched (non-P) rows, (5) closed items disappear from view, (6) verify Create Task free-text capture bug fix
+**Tier:** standard
+**Compliance checks:** Errors & Warnings panel checked before every Save; live verification in fresh non-Commander tab (2046838654) after each change; hard refresh to rule out caching
+**Criteria:** P-stage rows lead the Items list with no group-header artifact; Approve/Modify/Close/Ask a Question actions intact on a live P-stage row; grey-out format rule visibly distinguishes non-P rows from P rows in the detail pane
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-tcd-uiux verdict=PASS quality_tier=standard closed_at=2026-07-14T05:45:00+00:00 -->
+**Plan Closed:** PLN-tcd-uiux
+**Verdict:** PASS
+**Quality tier:** standard
+**Criteria met:**
+- P-on-top: added hidden virtual column `stage_rank` (SWITCH on `stage`, P=0..C=4), set as primary Sort-by on the Items view (secondary sort: `date`), Group-by removed entirely. Confirmed live: alert-*/mission-* (P-stage) rows lead the list, no group header of any kind renders (first attempt used Group-by on a Number column and showed literal "0"/"3" headers — numbers, exactly what the Commander flagged; second attempt grouped by the `stage` Enum but AppSheet ignored the Enum's custom P-D-T-A-C value order and grouped alphabetically instead, surfacing "A" first — also wrong. Final fix: flat sort, zero group headers, satisfies both "P on top" and "no stray letters/numbers.")
+- stage_rank hidden: Show?=false on the virtual column so it never renders as a stray "0"–"4" in the detail pane.
+- Selected-row highlight: confirmed native — AppSheet's desktop-width master-detail deck view highlights the selected row automatically; no custom mechanism exists or is needed.
+- Grey-out touched rows: new Format Rule "Touched — Grey Out" on Items, condition `[stage]<>"P"`, grey text color applied across all data columns. Verified live: stage-A row task-MISSION-814 renders every field in muted grey; stage-P row mission-MISSION-005 renders bright/white — visually distinct as intended.
+- Closed items disappear: pre-existing `ItemsOpen` slice (`AND([status]<>"Closed",[status]<>"Delete")`) already filters the Items view — confirmed still wired to "For this data" throughout.
+- Create Task free-text bug: `tcd/writeback.py::_default_create_task_fn` was silently dropping the Commander's typed note (only used row body/snippet, ignored `comments`). Fixed with `_commander_note()` helper, 2 new regression tests, backfilled MISSION-023 with the real instruction ("Search for larger vehicles and send me estimates"). Committed f8fe7343.
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** Caught-not-shipped near-miss during this session, documented for the record — while adding the (later-abandoned) `stage_rank` Group-by, an accidental AppSheet editor interaction caused the auto-generated `_ComputedKey` virtual column (which referenced `stage_rank`) to silently become the sole table key, unchecking `id`'s Key flag in the process. This broke the Approve and Send Back data actions with hard "cannot be modified" schema errors — a regression that would have taken the Commander's core decision workflow down had it been saved live. Caught via the Errors & Warnings panel (red-X icon) before the Save that would have shipped it. Fixed by deleting `stage_rank` and the orphaned `_ComputedKey`, manually re-checking `id` as sole Key, confirming the hard errors cleared in the same dialog before proceeding. Re-verified `id` remained sole key and Approve/Modify/Close/Ask a Question all rendered correctly on a live P-stage row after the final (successful) stage_rank re-add. Never reached the Commander's live board.
+<!-- /PLAN:CLOSE -->
