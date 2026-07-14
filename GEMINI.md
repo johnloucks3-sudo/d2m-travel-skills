@@ -62,6 +62,45 @@ in the SAME format, so any engine can read it back:
 Read access alone rots the day this becomes anyone's primary engine —
 write back, don't just read.
 
+## HEADLESS CLAUDE — TASKING A BACKGROUND CLAUDE INSTANCE
+To hand off a task to a headless Claude Code process (research, analysis,
+file generation), call the function directly — do NOT use raw
+`subprocess.Popen`:
+```python
+from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
+result = spawn_headless_claude(
+    prompt="<full task description>",
+    output_file="/absolute/path/to/output.txt",
+    task_name="short_task_name",
+    model="claude-sonnet-4-6",   # or "haiku" for cheap/simple work
+    background=False,             # False = blocks until done (Q&A tasks); True = detach for >5min work, poll output_file yourself
+    timeout=300,
+)
+```
+Full reference: `docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md`.
+
+## ASKING CLAUDE CODE HALE A QUESTION DIRECTLY
+For a substantive technical question that needs a full written answer
+(not a quick ping), append to `/home/john/Thunderbird/claude_inbox.md`:
+```
+---
+## ASK_CLAUDE_REQUEST — <YYYYMMDD-NNN>
+status: PENDING
+from: HALE-AG (Antigravity)
+priority: P1
+stakes: low|medium|high
+task: |
+  <question, with enough context to answer without a follow-up>
+```
+Claude Code reads this inbox each session and writes back `status:
+COMPLETE`, `completed:`, and `result:` in place. See the existing
+HALE-OC exchanges in that file for a live example of the round-trip.
+For urgent items that can't wait for the next session read, also note it
+in `OpsCenter/collaboration/blackboard.md` under "Open items."
+For short pings/status only (not multi-paragraph answers), the Wing
+Bridge relay you already read at session startup works too:
+`python3 core/relay/wing_relay.py send AG "<message>"`.
+
 ## MCP tools
 Connected via `~/.gemini/config/mcp_config.json` → `thunderbird-travel`
 (`http://127.0.0.1:8765/mcp`) — the same tool server Claude Code and
