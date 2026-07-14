@@ -1,0 +1,159 @@
+[
+  {
+    "ts": "2026-07-11T19:33:35.475956+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-test-stage-file-1783798415",
+    "fileId": "test-stage-file",
+    "title": "Test PDTAC stage flow",
+    "executed": false,
+    "execDate": "Jul 11, 13:33",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T19:33:35.477229+00:00",
+    "user": "john",
+    "action": "outbox_stage",
+    "id": "px-test-stage-file-1783798415",
+    "from": "T",
+    "to": "A"
+  },
+  {
+    "ts": "2026-07-11T19:33:35.478256+00:00",
+    "user": "john",
+    "action": "outbox_stage",
+    "id": "px-test-stage-file-1783798415",
+    "from": "A",
+    "to": "C"
+  },
+  {
+    "ts": "2026-07-11T20:25:21.216432+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-elon-verify-latest-1783801521",
+    "fileId": "elon-verify-latest",
+    "title": "ELON proposal verification \u2014 claimed vs. git-verified counts diverge",
+    "executed": false,
+    "execDate": "Jul 11, 14:25",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T20:25:57.974637+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-alert-MCLEOD-2984034-FPD-TRIGGER-1783801557",
+    "fileId": "alert-MCLEOD-2984034-FPD-TRIGGER",
+    "title": "McLeod Regent Grandeur 2984034 \u2014 FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik M",
+    "executed": false,
+    "execDate": "Jul 11, 14:25",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T20:26:25.934758+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-alert-LOUCKS-3122006-FPD-ALERT-1783801585",
+    "fileId": "alert-LOUCKS-3122006-FPD-ALERT",
+    "title": "Loucks Regent Grandeur 3122006 \u2014 FPD Aug 1 is 21 days out. TP 4.1 Payment Reminder due TOD",
+    "executed": false,
+    "execDate": "Jul 11, 14:26",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T20:28:11.406523+00:00",
+    "user": "john",
+    "action": "comment",
+    "fileId": "gmail-johnloucks3-19f52abfd2735cbe",
+    "text": "Delete"
+  },
+  {
+    "ts": "2026-07-11T20:28:17.650493+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-gmail-johnloucks3-19f52abfd2735cbe-1783801697",
+    "fileId": "gmail-johnloucks3-19f52abfd2735cbe",
+    "title": "Right down to the wire\u2026",
+    "executed": false,
+    "execDate": "Jul 11, 14:28",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T20:28:36.851103+00:00",
+    "user": "john",
+    "action": "comment",
+    "fileId": "gmail-johnloucks3-19f528d3d721ce76",
+    "text": "Delete"
+  },
+  {
+    "ts": "2026-07-11T20:28:40.078766+00:00",
+    "user": "john",
+    "action": "outbox_push",
+    "id": "px-gmail-johnloucks3-19f528d3d721ce76-1783801720",
+    "fileId": "gmail-johnloucks3-19f528d3d721ce76",
+    "title": "Tech Scan 2026-07-11 19:00 UTC \u2014 8 trial / 0 killed (Hale adjudicated)",
+    "executed": false,
+    "execDate": "Jul 11, 14:28",
+    "from": "Commander outbox push",
+    "stage": "T",
+    "conditions": "",
+    "assignedTo": "",
+    "deadline": ""
+  },
+  {
+    "ts": "2026-07-11T22:05:26.218702+00:00",
+    "user": "john",
+    "action": "delete",
+    "fileId": "task-TCD-TEST-DELETE-001",
+    "result": {
+      "ok": true,
+      "source": "hale_state.json:open_tasks",
+      "removed": {
+        "id": "TCD-TEST-DELETE-001",
+        "title": "TCD delete test entry (safe to remove)",
+        "priority": "P3",
+        "status": "test"
+      }
+    }
+  },
+  {
+    "ts": "2026-07-11T22:05:39.149841+00:00",
+    "user": "john",
+    "action": "delete",
+    "fileId": "so-SO_TCD_TEST_DELETE",
+    "result": {
+      "ok": true,
+      "source": "/home/john/Thunderbird/standing_orders/SO_TCD_TEST_DELETE.md",
+      "trashed_to": "/home/john/Thunderbird/OpsCenter/tcd_trash/20260711-160539_SO_TCD_TEST_DELETE.md"
+    }
+  },
+  {
+    "ts": "2026-07-11T22:05:39.233567+00:00",
+    "user": "john",
+    "action": "delete",
+    "fileId": "task-DOES-NOT-EXIST",
+    "result": {
+      "ok": false,
+      "reason": "'DOES-NOT-EXIST' not found in hale_state.json:open_tasks"
+    }
+  }
+]

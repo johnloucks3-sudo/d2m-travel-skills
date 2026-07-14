@@ -479,16 +479,51 @@
     {
       "id": "MISSION-24",
       "title": "Client inquiry: A package is arriving tomorrow!",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from Fanatics <shop@s.fanatics.com> \u2014 subject: A package is arriving tomorrow!",
       "created_at": "2026-07-14T04:00:11.671869+00:00",
-      "updated_at": "2026-07-14T04:00:11.671869+00:00",
+      "updated_at": "2026-07-14T05:36:10",
       "logs": [
-        "[2026-07-14T04:00:11.671869+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f5df8b16082381"
+        "[2026-07-14T04:00:11.671869+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f5df8b16082381",
+        "[2026-07-14T05:36:10] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-24: Client inquiry: A package is arriving tomorrow!\n\n**Analysis:**\n\nThe client email from Fanatics <shop@s.fanatics.com> with the subject \"A package is arriving tomorrow!\" is an automated noti",
+        "[2026-07-14T05:36:10] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-025",
+      "title": "Fwd: travel update",
+      "status": "pending_review",
+      "priority": "P2",
+      "assigned_to": "COS/A2",
+      "description": "Add these to the newly developed ~/cruises_web/itinerary_splendor_lyons html and pdf And send me some sightseeing/eating/drinking ideas within walking distance of the Lisbon pier and also a city guide",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-14T04:05:36.037170+00:00] Filed via TCD 'Create Task' action on gmail-d2mconcierge-19f5d7b144d2509e (Fwd: travel update)."
+      ],
+      "created_at": "2026-07-14T04:05:36.037177+00:00",
+      "updated_at": "2026-07-14T04:05:36.037181+00:00",
+      "source": "tcd_create_task_action"
+    },
+    {
+      "id": "MISSION-26",
+      "title": "Client inquiry: John \u2013 your account #RT29XL4M is in a priority queue",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Wellamoon Support <hello@wellamoon.com> \u2014 subject: John \u2013 your account #RT29XL4M is in a priority queue",
+      "created_at": "2026-07-14T16:00:12.018495+00:00",
+      "updated_at": "2026-07-14T17:44:01",
+      "logs": [
+        "[2026-07-14T16:00:12.018495+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f611c314fd3fe5",
+        "[2026-07-14T17:44:01] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-26: Client inquiry: John \u2013 your account #RT29XL4M is in a priority queue\n\n**Analysis:**\n\nThis task involves responding to a client email regarding an account priority queue. The email originat",
+        "[2026-07-14T17:44:01] \u23f8 pending_review: STATUS: COMPLETE not found"
       ]
     }
   ],
-  "last_updated": "2026-07-14T04:00:11.673606+00:00"
+  "last_updated": "2026-07-14T17:44:04.376786+00:00"
 }

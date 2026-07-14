@@ -3,12 +3,16 @@
   "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1L7WWppZ7LB9Is5EUBp9zu6FThPghcyuGuB4IEQtYsUQ/edit",
   "tab": "Items",
   "created_at": "2026-07-12T14:02:27.705263+00:00",
-  "last_sync_at": "2026-07-12T15:52:34.655421+00:00",
-  "last_row_count": 113,
-  "last_sections_sync_at": "2026-07-12T15:27:59.260548+00:00",
+  "last_sync_at": "2026-07-14T18:50:29.479299+00:00",
+  "last_row_count": 143,
+  "last_sections_sync_at": "2026-07-13T03:36:00.229142+00:00",
   "looker_studio_report_id": "8a4737e8-2759-4684-8dff-fb519be8f371",
   "looker_studio_report_url": "https://datastudio.google.com/u/0/reporting/8a4737e8-2759-4684-8dff-fb519be8f371",
-  "looker_studio_pages": ["Intel", "Tech Scans", "Next 7 Days"],
+  "looker_studio_pages": [
+    "Intel",
+    "Tech Scans",
+    "Next 7 Days"
+  ],
   "looker_studio_verified_at": "2026-07-12T18:58:00Z",
   "looker_studio_verification_method": "zero rows missing link column across Intel/TechScans/Next7 tabs (51 rows checked); report was built by Commander in Looker Studio editor, one table per tab, link column set to URL type"
 }
