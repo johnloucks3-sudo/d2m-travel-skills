@@ -136,12 +136,6 @@ REGISTRY: list[Item] = [
         note="TESS CRM token — auto-refresh; human re-auth if refresh token dead.",
     ),
     Item(
-        name="portal-keepalive", kind="timer",
-        unit="portal-keepalive.timer", service="portal-keepalive.service",
-        expected_state="active", interval_min=90,
-        auto_renewable=True, note="Regent/Centrav portal session warm.",
-    ),
-    Item(
         name="johnloucks3-oauth-keepalive", kind="timer",
         unit="johnloucks3-oauth-keepalive.timer", service="johnloucks3-oauth-keepalive.service",
         expected_state="active", interval_min=90,
@@ -161,23 +155,9 @@ REGISTRY: list[Item] = [
         auto_renewable=True, note="ITA login-free daily fare poll (MISSION-206).",
     ),
     # --- Credential/cookie items NOT backed by a self-healable auto-renew ---
-    Item(
-        name="centrav-session", kind="credential-cookie",
-        unit=None, service=None,
-        expected_state="active",  # the SESSION is expected live; the warm timer is staged
-        cred_file=CENTRAV_SESSION, cred_max_age_min=120,  # ~2hr idle TTL
-        auto_renewable=False,  # reCAPTCHA + email-OTP = human gate, never auto-heal
-        reauth_cmd="python3 scripts/centrav_flights.py --centrav-login --headless false",
-        note="Centrav B2B flight session. Human re-auth only (CAPTCHA/OTP).",
-    ),
-    Item(
-        name="d2m-centrav-warm", kind="timer",
-        unit="d2m-centrav-warm.timer", service="d2m-centrav-warm.service",
-        expected_state="active",  # ENABLED 2026-06-11 (Commander re-auth via centrav_serve.py); maintains session
-        interval_min=75, auto_renewable=True,
-        reauth_cmd="python3 scripts/centrav_serve.py",  # persistent-profile login (NOT --centrav-login throwaway)
-        note="Centrav warm-ping (M-200) LIVE — every 75min keeps laravel_session warm. Re-auth via centrav_serve.py.",
-    ),
+    # RETIRED 2026-07-16 (Commander order): all site-session keepalives shut
+    # down — Centrav warm, portal-keepalive, perx, silversea, live-probe.
+    # Air-fare data continues via login-free polls (d2m-ita-fare-watch).
 ]
 
 

@@ -60,19 +60,9 @@ log = logging.getLogger("creds_health")
 # Format: name → {file, type, client_affecting, alert_hours_ahead, notes}
 
 CREDENTIALS = {
-    "centrav_cookies": {
-        "file": CREDS_DIR / "centrav_cookies.json",
-        "type": "cookies",
-        "client_affecting": True,
-        "alert_hours_ahead": 2,  # tightened 2026-07-04 — was 48h vs ~7h natural rotation window, alerted every run
-        "notes": "B2B flight pricing. Expired = no wholesale quotes. Needs OTP reauth.",
-        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal centrav",
-        # A7 2026-06-11: laravel_session is the auth gate. Prior shortest-expiry logic
-        # picked _gat_gtag analytics cookie (21h) — same session, same expiry group.
-        # Real fix: check laravel_session directly.
-        "auth_cookie_names": ["laravel_session"],
-        "auth_domain": "centrav.com",
-    },
+    # RETIRED 2026-07-16 (Commander): centrav/perx/silversea site-session
+    # monitoring removed with the keepalive shutdown — alerting on sessions
+    # nothing maintains is futility.
     # regent_cookies / regent_cookies_oa REMOVED from this check entirely 2026-07-16
     # (Commander directive): on-demand-only via browser capability, no daily
     # fare-check login need, so no monitoring cadence at all — not even a
@@ -94,18 +84,6 @@ CREDENTIALS = {
         "alert_hours_ahead": 24,
         "notes": "Commander Gmail (johnloucks3). Internal send path.",
         "reauth_cmd": "python3 api/thunderbird_google_auth.py --authorize-headless",
-    },
-    "perx_cookies": {
-        "file": CREDS_DIR / "perx_cookies.json",
-        "type": "cookies",
-        # 2026-07-04: NOT client-affecting. Perx is a pricing-intel scraper session
-        # (Silversea rate recon), not a login the Commander performs and not on any
-        # client-send path. Flagging it CLIENT drove the "3 client alerts" doomsday.
-        "client_affecting": False,
-        "alert_hours_ahead": 24,
-        "notes": "Perx.com — Silversea agent rate INTEL scraping (Westbrook recon). Non-client, auto-keepalive.",
-        "reauth_cmd": "python3 scripts/perx_session_keepalive.py",
-        "timer": "d2m-perx-session-keepalive.timer",
     },
     "room_res_cookies": {
         "file": CREDS_DIR / "room_res_cookies.json",
