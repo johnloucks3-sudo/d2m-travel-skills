@@ -387,3 +387,54 @@ Eight genuinely-open tickets worked. Five closed with code/doc + tests, one desi
 **Commits:** fix in `core/booking/thunderbird_tess.py` (`get_booking()` rewrite) + doc correction in `docs/MAGOA_Portal_Operations_Guide.md`.
 
 **Bottom line for Commander:** TESS is genuinely live and the booking-lookup tool now actually works — but the TESS refresh token needs Commander attention before ~13:44 MT today or it goes dark again. Odysseus still needs the Commander to explicitly log in on that specific tab; nothing else in the stack is blocking it.
+
+---
+
+## TALON Review (2026-07-16)
+
+Reader-impact / voice / substance gate on today's client-facing output. Verdicts are real — three CLEARED, two PASS-WITH-NOTES carrying a defect that must be fixed before send, nothing sent (WF-17 held). The 5-second test: does a human feel something real, or is it AI filler.
+
+**1. Group shared-van proposal** (`drafts/body_grandeur_group_shared_van.html`) — **PASS WITH NOTES (substance hole — fix before send).**
+Voice is excellent: warm, specific (AY 811 into Arlanda 1:15 PM, At Six Stockholm, no payment until Aug 16), low-friction close ("just reply 'sounds great'"), and honest about zero cost/cancellation risk. That part is CLEARED-grade.
+BUT the logic has a hole on the exact dimension that triggered the whole exercise. The email sells the minibus as "room for **seven bags** — noticeably more breathing room than the individual sedans allowed." Three sedans at 3 bags each = **9 bags of total capacity**. One minibus at 7 bags is *less* total luggage room, not more. Larry Nichols raised this because he was counting bags (he flagged the sedan as short 2026-07-13) — he will count again. "Noticeably more breathing room" on luggage is the one claim a bag-counting client can falsify in his head. Reframe around what's actually true (six people together in one comfortable vehicle, no splitting up at baggage claim) and drop or correct the bag-capacity claim before this sends. The feeling is right; the math undercuts it.
+
+**2. Kuklinski — Kyle & Rosalie, Excursion-Lock** (`output/TP_Kuklinski_KyleRosalie_Excursion-Lock_20260716.html`) — **CLEARED.**
+Best of the four. Two-voice done right: John's short personal opener ("This one has a real clock on it, so I wanted to reach out personally before it slips") lands the urgency human-to-human, then Dani's body carries the mechanics. Real clock (Viking opens Aug 2, confirm by Jul 30), the marquee Panama Canal transit named as the thing to lock first, "you pay nothing now." Earns its send.
+
+**3. Kuklinski — Roger & Nick, Excursion-Lock** (`output/TP_Kuklinski_RogerNicholas_Excursion-Lock_20260716.html`) — **CLEARED.**
+Same spine, no personal John opener (fine — different relationship). "the kind of day — active or unhurried, out exploring or close to the ship — that suits you" is a genuine personalization touch, not filler. Clean.
+
+**4. Kuklinski — Morton/Dodge (Josh & Erica), Airfare-Watch** (`output/TP_Kuklinski_MortonDodge_Airfare-Watch_20260716.html`) — **CLEARED.**
+Specific and honest: one-way RSW→Panama City, drive home from Port Everglades, "no return airfare needed," and it says plainly it's watching the fare rather than overpromising. Correctly separates the airfare ask from the not-yet excursion window. No $ figures (right call for this cadence).
+
+**5. Lyons — Pre-Voyage Brief** (`output/TP_Lyons_PreVoyage-Brief_20260716.html`) — **PASS WITH NOTES (attribution defect — fix before send).**
+Content is the strongest substance in the batch: online check-in closes Jul 21 flagged as the single near-term deadline, the $850 shipboard credit called out as non-refundable with a spend-down nudge ("a spa afternoon, a boutique, a specialty dinner"), 18 tours already confirmed, and the tight pier→LGA timing named honestly ("this one is tight — I'll build in the earliest sensible pickup"). That's decision-grade and warm.
+Defect: the body is written entirely in John's first person ("I wanted to get you a clear countdown," "the pieces I'm handling," "I'll confirm the reservation") and closes "Thank you, **John**" — but the signature card underneath reads "**Danielle 'Dani' Moreau**, Luxury Travel Concierge." A client reading top-to-bottom sees "Thank you, John" followed by Dani's business card. Pick one voice. Since Nancy is Dani-authorized direct send (SO-LYONS-WF17) but the prose is unmistakably John's, either re-sign as Dani throughout or lead the footer with John's block. As-is the attribution reads broken.
+
+**6. Scandinavia itinerary rebuild** (`cruises_web/itinerary_grandeur_{furlow,elydarrow,nichols}.html`) — **CLEARED.** (Reviewed Furlow in full; sibling files are the same build.)
+This is real travel writing, not templated fill. "The 'Venice of the North,' Stockholm spreads across fourteen islands where Lake Mälar meets the Baltic." "Kristiansand is southern Norway's sun-favored coastal town, laid out on a Renaissance grid by King Christian IV in 1641. Its treasure is Posebyen…" The day micro-copy is personal and mobility-aware where it should be ("a gentle, walkable call — the white timber lanes of Posebyen are steps from the quay"; "Step aboard your suite home and settle in; the ship stays overnight, so the city is yours this evening"). Personalization is concrete — names, Suite 827, PNRs, seat numbers, honest "arrival/departure times to be confirmed." Only faintly boilerplate line is the closer "Your voyage is planned, verified, and cared for end to end," and it earns its place as reassurance. Genuinely good; ready when sign-off clears.
+
+**7. Door County Dining & Excursion Plan** (`dossiers/DoorCounty_Dining_Excursion_Plan_Sep2026.md`) — **CLEARED (internal — Commander's own trip).**
+Not generic travel-blog filler — it's specific and decision-grade. It catches a real error (the old dossier put the White Gull fish boil on a Tuesday; White Gull doesn't boil Tuesdays — corrected to Wed Sep 9), ranks wineries against John's dry-red palate vs Susie's whites rather than listing them flat ("Door County's wine identity leans fruit/cherry-forward — most houses are sweeter than John's Cab/Malbec preference"), flags the raw-sushi risk at LURE against Susie's no-raw-fish, and is rigorously honest on mobility (Eagle Tower's ADA ramp / 5% grade / 16 rest points as the "best mobility-certain item," Washington Island Ferry accessibility explicitly *unconfirmed* with a call-to-verify rather than a guess). Reads like someone who knows the clients, not a content mill.
+
+**Nichols Gmail follow-up draft** (`r-3125559690830503669`, staged in johnloucks3) — **reviewed via blackboard description only**, not readable on disk; couldn't gate the actual body. The substantive Nichols-related client product is the group-van proposal above (item 1), which I did read.
+
+**TALON bottom line:** Voice quality across the batch is high — nobody phoned in filler. Two items carry a defect that would embarrass on contact and must be fixed before WF-17 send: the group-van bag-capacity claim (item 1) and the Lyons John/Dani signature mismatch (item 5). The four fully-cleared pieces (Kyle&Rosalie, Roger&Nick, Morton/Dodge, the Scandinavia itineraries) are send-ready on content the moment the Commander opens the gate. — TALON
+
+## Port Images/Detail/Romance — Both Voyages (2026-07-16)
+
+**PART 1 — Scandinavia (Furlow / Ely-Darrow / Nichols): CONFIRMED COMPLETE — not rebuilt.**
+Spot-checked the live HTML (`cruises_web/itinerary_grandeur_furlow.html`): real longform port narrative present for all five calls (Stockholm "Venice of the North," Warnemünde/Berlin, Copenhagen/Nyhavn, Kristiansand/Posebyen, Oslo), each with a viewed Wikimedia port image, dock tags, honest "times to be confirmed." Matches TALON's earlier full clearance. Nothing missing. Left untouched.
+
+**PART 2 — McLeod Lesser Antilles: BUILT.** → `cruises_web/itinerary_grandeur_mcleod.html` (1.51 MB, WF-17 HELD — nothing sent to McLeod).
+Built to the Zero-Latitude pipeline gates and the same quality bar as the Scandinavia build (Furlow used as structural template; brand spec navy #07076b / gold #c8a400 reused verbatim from the cleared file).
+
+- **Ports covered (5):** Charlotte Amalie·St. Thomas, Roseau·Dominica, St. John's·Antigua (Christmas Eve), Basseterre·St. Kitts (Christmas Day), Road Town·Tortola — plus Miami embark/disembark and 4 sea days. Full 11-day frame.
+- **Romance copy:** original longform per port, grounded in fetched Wikivoyage + established landmarks (Fort Christian & the 99 Steps' Danish-ballast brick; Dominica's Morne Trois Pitons / Trafalgar Falls; Nelson's Dockyard & the 365 beaches; the Berkeley Memorial / Brimstone Hill; Jost Van Dyke's White Bay & Soggy Dollar). Christmas Eve/Day woven in warmly per port. Jost Van Dyke correctly framed as a separate boat-access island, not the Tortola pier.
+- **Images (6): every one VIEWED with Read before embedding, all base64-embedded, all fully unique (md5-verified), subject-matched to port.** Ship image = the exact TALON-cleared Grandeur blob lifted from Furlow (zero wrong-ship risk). 5 port photos from Wikimedia Commons: Fort Christian (Charlotte Amalie), Roseau waterfront, St. John's harbor, Basseterre marina/volcano, Road Town overlook.
+- **Live-source verification (SO rule #5):** booking, suite, guest names, and all six excursions cross-checked against the actual Regent invoice PDFs in `dossiers/regentsevenseascruisesinvoice2984034guestmcglasson/`. Suite 863 · Concierge Suite E (category upgraded) · Deck 8. Guests **Erik McLeod & Melissa McGlasson** (distinct surnames preserved throughout — the exact AI-tell to avoid given their AI-skepticism).
+- **Confidential/PII check:** CLEAN. No home address, emails, middle names (Etola/Wiedenbach), insurance/medical, competitor (Pavlus), or dollar figures in the client-facing file. No "Paid in Full" (FPD still pending Jul 22) — status line kept light (suite + upgrade only).
+- **DISCREPANCY FLAGGED:** the Antigua Dec-24 beach tour is labeled **"Dickenson Bay Beach Break"** in the coded Pre-Purchased Shore-Excursions PDF (SJH-003) but **"Runaway Bay Beach Break"** in the Pre-Selected Tours PDF — same slot/time. Used Dickenson Bay (matches the coded doc + tracker). Worth a 30-sec confirm before send.
+- Brand/structure QC passed: hex-exact to spec, no rgba text colors, route map + expanded ship info + expanded port info all present; rendered to PNG and visually inspected (hero, ship, route, all port cards, footer).
+
+**Status:** McLeod itinerary is content-complete and send-ready pending Commander WF-17 gate + the one Dickenson/Runaway confirm. — CC/Hale
