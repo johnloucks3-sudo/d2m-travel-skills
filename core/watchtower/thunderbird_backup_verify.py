@@ -44,9 +44,16 @@ TELEGRAM_CHAT = os.getenv("TELEGRAM_COMMANDER_ID", "")
 _EVERNOTE_STATE_CANON = THUNDERBIRD_DIR / "evernote_backup_state.json"
 _EVERNOTE_STATE_LEGACY = STATE_DIR / "evernote_backup_state.json"
 
+# NOTE (M-642, 2026-07-16): identical path-mismatch to the Evernote case above.
+# core/ops/thunderbird_monthly_archive.py writes its state to the REPO ROOT, but
+# the verifier read the stale state/ copy (frozen at March 2026) and falsely
+# reported "not run since March" while the monthly timer ran fine every month.
+_MONTHLY_STATE_CANON = THUNDERBIRD_DIR / "monthly_archive_state.json"
+_MONTHLY_STATE_LEGACY = STATE_DIR / "monthly_archive_state.json"
+
 DRIVE_SYNC_STATE = STATE_DIR / "thunderbird_sync_state.json"
 EVERNOTE_STATE = _EVERNOTE_STATE_CANON if _EVERNOTE_STATE_CANON.exists() else _EVERNOTE_STATE_LEGACY
-MONTHLY_STATE = STATE_DIR / "monthly_archive_state.json"
+MONTHLY_STATE = _MONTHLY_STATE_CANON if _MONTHLY_STATE_CANON.exists() else _MONTHLY_STATE_LEGACY
 RCLONE_LOG = THUNDERBIRD_DIR / ".rclone_sync.log"
 
 DRIVE_STALE_HOURS = 36
