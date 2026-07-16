@@ -286,8 +286,18 @@ def _search_searxng(query: str, limit: int, timeout: int):
 
 
 def _search_camofox(query: str, limit: int, timeout: int):
-    """Free-text search via Camofox @google_search macro + link extraction. (results, error)."""
-    tab_id, err = _camofox_open_tab("about:blank", timeout)
+    """Free-text search via Camofox @google_search macro + link extraction. (results, error).
+
+    UNVERIFIED / KNOWN-FRAGILE (2026-07-16): the macro navigate returns 200 but
+    /links extraction has come back empty in testing, and the stateful browser
+    session churns (google.com tab-open intermittently session_expires). SearXNG
+    is the reliable primary; this stays only as a best-effort last resort behind
+    it in engine='auto'. Do not rely on it standalone until link extraction is
+    proven to return real results.
+    """
+    # Camofox rejects the about: scheme ("only http/https allowed") — open on a
+    # real https URL, then drive the search macro from there.
+    tab_id, err = _camofox_open_tab("https://www.google.com", timeout)
     if err:
         return [], err
     _s, _p, err = _camofox_request(
