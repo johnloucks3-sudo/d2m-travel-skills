@@ -73,34 +73,12 @@ CREDENTIALS = {
         "auth_cookie_names": ["laravel_session"],
         "auth_domain": "centrav.com",
     },
-    "regent_cookies": {
-        "file": CREDS_DIR / "regent_cookies.json",
-        "type": "cookies",
-        "client_affecting": False,  # POLICY 2026-07-10 (Commander): cruise portal cookies do NOT
-        # need to be kept refreshed -- activate on-demand when actually needed, not proactively
-        # monitored. Use consumer-facing cruise sites for general work. Was the single biggest
-        # driver of a Telegram notification flood (~20x/day, same known condition re-alerted).
-        "alert_hours_ahead": 2,
-        "notes": "Regent portal (direct D2M account). Ely/Nichols/Furlow/McLeod bookings. Activate on-demand only, per Commander policy 2026-07-10.",
-        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_direct",
-        "timer": "portal-keepalive.timer",
-        # A7 2026-06-11: ASPXAUTH is the auth gate (httpOnly, www.rssc.com, ~24h TTL).
-        # Prior shortest-expiry logic picked _hjSession_1263849 (HotJar analytics, expired)
-        # or ASP.NET_SessionId with a pre-epoch corrupt timestamp (-494774h) — both wrong.
-        "auth_cookie_names": ["ASPXAUTH"],
-        "auth_domain": "rssc.com",
-    },
-    "regent_cookies_oa": {
-        "file": CREDS_DIR / "regent_cookies_oa.json",
-        "type": "cookies",
-        "client_affecting": False,  # POLICY 2026-07-10 (Commander): see regent_cookies note above.
-        "alert_hours_ahead": 2,
-        "notes": "Regent portal (OA account). Loucks + McLeod OA bookings. Activate on-demand only, per Commander policy 2026-07-10.",
-        "reauth_cmd": "python3 scripts/portal_keepalive.py --portal regent_oa",
-        "timer": "portal-keepalive.timer",
-        "auth_cookie_names": ["ASPXAUTH"],   # A7 2026-06-11: same gate as regent_direct
-        "auth_domain": "rssc.com",
-    },
+    # regent_cookies / regent_cookies_oa REMOVED from this check entirely 2026-07-16
+    # (Commander directive): on-demand-only via browser capability, no daily
+    # fare-check login need, so no monitoring cadence at all — not even a
+    # non-alerting check. Was already client_affecting=False per the 2026-07-10
+    # policy; this fully removes the last automated touch point rather than just
+    # muting its alert. Manual check: scripts/rssc_session_keepalive.py directly.
     "gmail_token": {
         "file": CREDS_DIR / "gmail_token.json",
         "type": "oauth_token",
@@ -454,11 +432,25 @@ def send_telegram_alerts(results: dict):
         # send, so a crash lets the next run retry instead of swallowing it.
         from OpsCenter.hale_telegram_reporter import send_to_commander
 
+        # REGRESSION FIX (2026-07-16): send_to_commander sends with
+        # parse_mode="Markdown". Cookie/reason text routinely contains raw
+        # "_" (laravel_session, __stripe_sid) and "[...]" (auth-gate) with no
+        # matching Markdown pair -- Telegram's legacy parser 400s on
+        # unbalanced entities, the send fails, and (separately, see below)
+        # the whole systemd unit was exiting 1 on every genuine alert either
+        # way, so this crashed the check for hours without ever landing on
+        # the Commander's phone. Escape Markdown special chars in the
+        # dynamic fields only -- the static emoji/labels are left alone.
+        def _md_escape(s: str) -> str:
+            for ch in ("_", "*", "`", "[", "]"):
+                s = s.replace(ch, f"\\{ch}")
+            return s
+
         lines = ["🔴 CREDENTIAL ALERT — Client-affecting credentials expired/expiring\n"]
         for a in new_alerts:
-            lines.append(f"⛔ {a['name']}: {a['status']}")
-            lines.append(f"   {a['reason']}")
-            lines.append(f"   Fix: {a['reauth_cmd']}\n")
+            lines.append(f"⛔ {_md_escape(a['name'])}: {_md_escape(a['status'])}")
+            lines.append(f"   {_md_escape(a['reason'])}")
+            lines.append(f"   Fix: {_md_escape(a['reauth_cmd'])}\n")
 
         sent = send_to_commander("\n".join(lines), message_type="alert", urgent=True)
         if not sent:
@@ -532,7 +524,21 @@ def main():
     if not args.quiet and results["client_affecting_alerts"]:
         send_telegram_alerts(results)
 
-    return 1 if results["client_affecting_alerts"] else 0
+    # FIXED 2026-07-16 (Sterling/Silver, hot-window triage): this used to
+    # `return 1` whenever a genuine client-affecting alert existed (e.g.
+    # Regent needing a human re-auth, which stays true for days). Nothing
+    # downstream consumes this exit code for real logic --
+    # scripts/ci_probe_credential_keepalive.py parses stdout JSON, not the
+    # returncode -- but systemd DOES: hale-credential-check.service showed
+    # "failed" in `systemctl --state=failed` and fired OnFailure= every
+    # 10-40 min for a condition that was never a crash, just a real,
+    # already-Telegram-alerted-and-deduped finding. generic_remediate.py
+    # already no-ops on this unit (SELF_ALERTING_UNITS), so no cycles were
+    # actually burned -- but it cluttered the failed-units view, making a
+    # real crash harder to spot among the noise. The alert channel is
+    # Telegram + ALERT_DEDUP + the JSON state file; the process exit code
+    # now only reflects whether the check itself ran to completion.
+    return 0
 
 
 if __name__ == "__main__":

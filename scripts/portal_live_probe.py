@@ -64,26 +64,12 @@ PORTALS = {
         "client_affecting": True,
         "note": "B2B flight pricing. Dead = no wholesale quotes.",
     },
-    "regent_d2m": {
-        "url": "https://www.rssc.com/agent/default.aspx",
-        "cookie_file": CREDS_DIR / "regent_cookies.json",
-        "login_indicators": ["login", "signin", "agent/login"],
-        "heal_cmd": [sys.executable, str(THUNDERBIRD / "scripts" / "rssc_session_keepalive.py"), "--d2m-only"],
-        "heal_timeout": 120,
-        "manual_cmd": "python3 scripts/rssc_session_keepalive.py --d2m-only",
-        "client_affecting": True,
-        "note": "Regent portal (D2M account). Ely/Nichols/Furlow/McLeod bookings.",
-    },
-    "regent_oa": {
-        "url": "https://www.rssc.com/agent/default.aspx",
-        "cookie_file": CREDS_DIR / "regent_cookies_oa.json",
-        "login_indicators": ["login", "signin", "agent/login"],
-        "heal_cmd": [sys.executable, str(THUNDERBIRD / "scripts" / "rssc_session_keepalive.py"), "--oa-only"],
-        "heal_timeout": 120,
-        "manual_cmd": "python3 scripts/rssc_session_keepalive.py --oa-only",
-        "client_affecting": True,
-        "note": "Regent portal (OA account). Loucks + McLeod OA bookings.",
-    },
+    # regent_d2m / regent_oa REMOVED from automated probe scope 2026-07-16 (Commander
+    # directive): Regent cookies are on-demand only (browser-based capability covers
+    # it when needed) — no daily fare-check login requirement, so no automated
+    # probe/heal/page cycle. Consistent with the client_affecting=False policy already
+    # set in credentials_health_check.py on 2026-07-10. Manual probe still possible via
+    # scripts/rssc_session_keepalive.py directly if ever needed.
     "perx": {
         "url": "https://www.perx.com/account/",
         "cookie_file": CREDS_DIR / "perx_cookies.json",
