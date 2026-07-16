@@ -578,25 +578,6 @@ class TESSClient:
             clean_params = {"action": action, **clean_params}
         return self._api_request(method, path, params=clean_params, json_body=body)
 
-    def add_note(self, target: str, target_id: str | int, note: str) -> dict:
-        """Add a note to a Trip, Booking, or Client.
-
-        target: 'Trip' | 'Booking' | 'Client' (the resource name).
-        Body MUST be null per the JS pattern; content goes in query params.
-        """
-        target = target.capitalize()
-        action_map = {
-            "Trip": ("PostTripNote", "tripID", "noteContent"),
-            "Booking": ("PostBookingNote", "bookingID", "noteContent"),
-            "Client": ("PostClientNote", "clientID", "noteContent"),
-        }
-        if target not in action_map:
-            return {"error": f"Unsupported note target '{target}'", "type": "validation_error"}
-        action, id_param, content_param = action_map[target]
-        return self.call_action(
-            target, action, body=None, **{id_param: target_id, content_param: note}
-        )
-
     # ------------------------------------------------------------------
     # Agent / Profile (myAgentGenie)
     # ------------------------------------------------------------------
@@ -948,23 +929,42 @@ class TESSClient:
     # ------------------------------------------------------------------
 
     def add_note(self, entity_type: str, entity_id: str, note_text: str) -> dict:
-        """Add a note to an entity (trip, booking, or client).
+        """Add a note. TESS notes exist ONLY at the Trip level.
 
         Args:
-            entity_type: One of 'trips', 'bookings', or 'clients'.
-            entity_id: The entity's TESS ID.
+            entity_type: 'trips' (only supported target -- see below).
+            entity_id: the Trip's TESS TripID.
             note_text: The note content.
+
+        BUG FIX (2026-07-16), two layers deep:
+        1. This method previously POSTed to a generic REST path
+           (/{entity_type}/{entity_id}/notes) -> 404. myAgentGenie is an
+           action-based API, not resource/id REST.
+        2. A second add_note() (earlier in file, same class, same name --
+           silently shadowed by this one, Python keeps only the later
+           definition) had the right action-based CALL SHAPE but assumed
+           'PostBookingNote'/'PostClientNote' actions exist for parity with
+           PostTripNote -> HTTP 500. Checked the real action catalog
+           (output/tess_map/08_action_catalog.md:422-425): "/api/Note --
+           no Note-resource actions found... Note operations actually go
+           via Trip". PostBookingNote/PostClientNote do not exist in this
+           API at all -- there is only PostTripNote(tripID, noteContent).
+        For a booking-level note, resolve the booking's TripID first (see
+        list_bookings()/get_booking() -> 'TripID' field) and call this with
+        entity_type='trips' and that TripID.
         """
-        valid_types = ("trips", "bookings", "clients")
-        if entity_type not in valid_types:
+        if entity_type != "trips":
             return {
-                "error": f"Invalid entity_type '{entity_type}'. Must be one of: {', '.join(valid_types)}",
+                "error": (
+                    f"entity_type '{entity_type}' not supported -- TESS's real API has no "
+                    "Booking or Client note action, only PostTripNote. Resolve the booking's "
+                    "TripID (list_bookings()/get_booking() -> 'TripID') and call with "
+                    "entity_type='trips', entity_id=<that TripID>."
+                ),
                 "type": "validation_error",
             }
-        return self._api_request(
-            "POST",
-            f"/{entity_type}/{entity_id}/notes",
-            json_body={"text": note_text},
+        return self.call_action(
+            "Trip", "PostTripNote", body=None, tripID=entity_id, noteContent=note_text
         )
 
     # ------------------------------------------------------------------
