@@ -937,10 +937,11 @@
       "logs": [
         "[2026-07-15T14:32:12] Created by Weekly Report Generator",
         "2026-07-16T05:03:35.773810+00:00: RESOLVED contact-hold question \u2014 hold was travel-based (client aboard Silver Muse Jun23-Jul6), lifted Jul 7 as scheduled, cleanly cleared (not an open unresolved condition). Two client drafts already staged in johnloucks3 since Jul 13: (1) FCC confirmation response to Erik (r6302915235413543112) -- gated on Harlan TESS verification, still open, ESCALATED given FPD is 6 days out (Jul 22); (2) unrelated post-cruise feedback survey (r7751380314964613848), ready, no urgency tie. Real remaining blocker is Harlan verifying the $200 FCC in TESS -- not a Hale/Dani gap. Not closing this mission; downgrading scope to \"escalate Harlan verification\" since contact-hold and draft-readiness are both confirmed resolved.",
-        "[2026-07-16T17:33:55] TESS VERIFICATION (real, not self-reported): checked booking 2984034 (TESS internal BookingID 2256103) via tess_get_booking + tess_get_trip. PaymentsAndItemizations.Itemizations = [] (empty), ReceiptCount=0, PaymentCount=0, PackagePrice==ActualPackagePrice ($13,398.00, no discount/credit applied). NO $200 Regent FCC is recorded in TESS against this booking. Finding: NOT VERIFIED/NOT APPLIED. The FCC (Gale Hotel complaint, Dec 2025, processed via Pavlus per McLeod_McGlasson_Multi.md) exists on the Regent/Pavlus side per client Erik's Jul 13 email but has not been entered into TESS or applied to booking 2984034. Staged FCC confirmation draft (r6302915235413543112) REMAINS BLOCKED -- do not represent the credit as applied/confirmed until Harlan actually books the $200 credit in TESS or gets written confirmation from Regent/Pavlus that it is linked to 2984034. FPD is Jul 22 (6 days out) -- this needs Harlan or Regent/Pavlus contact today, not TESS re-checking."
+        "[2026-07-16T17:33:55] TESS VERIFICATION (real, not self-reported): checked booking 2984034 (TESS internal BookingID 2256103) via tess_get_booking + tess_get_trip. PaymentsAndItemizations.Itemizations = [] (empty), ReceiptCount=0, PaymentCount=0, PackagePrice==ActualPackagePrice ($13,398.00, no discount/credit applied). NO $200 Regent FCC is recorded in TESS against this booking. Finding: NOT VERIFIED/NOT APPLIED. The FCC (Gale Hotel complaint, Dec 2025, processed via Pavlus per McLeod_McGlasson_Multi.md) exists on the Regent/Pavlus side per client Erik's Jul 13 email but has not been entered into TESS or applied to booking 2984034. Staged FCC confirmation draft (r6302915235413543112) REMAINS BLOCKED -- do not represent the credit as applied/confirmed until Harlan actually books the $200 credit in TESS or gets written confirmation from Regent/Pavlus that it is linked to 2984034. FPD is Jul 22 (6 days out) -- this needs Harlan or Regent/Pavlus contact today, not TESS re-checking.",
+        "2026-07-16T19:05:10.466921+00:00: LIVE REGENT PORTAL READ (booking 2984034 detail page, via CDP, Commander-directed). Real balance $11,743.15 (Total $12,748.00, Paid $1,004.85) -- a THIRD distinct figure from prior sources. FCC section reads 'TOTAL $200 / REMAINING $0' -- appears ALREADY APPLIED, contradicting the earlier TESS-based 'not recorded' finding. Regent is the supplier of record; TESS and Regent disagree. 5 excursions confirmed booked across the itinerary. Staged in dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md for Harlan (financial) / Reyes (excursions) sign-off per PRODUCTION-LOCK write-authority rules -- not committed as authoritative by Hale directly. McLeod FCC draft remains BLOCKED pending this reconciliation."
       ],
       "created_at": "2026-07-15T14:32:12.702764+00:00",
-      "updated_at": "2026-07-16T17:33:55.746569+00:00",
+      "updated_at": "2026-07-16T19:05:10.466938+00:00",
       "source": "weekly_report"
     },
     {
@@ -1115,7 +1116,7 @@
     {
       "id": "MISSION-616",
       "title": "browser-skill OC integration",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "Wire bsk CLI into OpenCode: append SKILL.md command reference to /home/john/Thunderbird/AGENTS.md so OC's shell-capable agent knows bsk syntax exists (bsk not in native harness list).",
@@ -1123,9 +1124,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] DONE (Block 6, 2026-07-16). Appended bsk CLI command reference + lifecycle rules to AGENTS.md under CORE OPERATIONS (bsk verified at ~/.local/bin/bsk; SKILL.md at ~/.claude/skills/browser-skill/). OC shell agent now has bsk syntax. Commit references AGENTS.md edit."
+      ],
       "created_at": "2026-07-16T03:54:21.477196+00:00",
-      "updated_at": "2026-07-16T03:54:21.477205+00:00"
+      "updated_at": "2026-07-16T17:44:22.238496+00:00",
+      "completed_at": "2026-07-16T17:44:39.562198+00:00"
     },
     {
       "id": "MISSION-617",
@@ -1138,9 +1142,11 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] VERIFIED + FLAGGED (Block 6, 2026-07-16). Ticket description is ACCURATE: ~/.gemini/settings.json excludeTools = [google_web_search, web_fetch, run_shell_command, read_file, write_file, edit] \u2014 run_shell_command IS excluded, so AG genuinely cannot exec bsk. This is a narrow security-relevant permission surface; NOT self-authorized under the general 'gates approved' umbrella (team-lead + plan Block 6 explicit). AWAITING COMMANDER DECISION: (a) lift run_shell_command exclusion for AG, or (b) confirm AG native browser tooling covers browser-skill and skip. No change made to AG permissions."
+      ],
       "created_at": "2026-07-16T03:54:21.504561+00:00",
-      "updated_at": "2026-07-16T03:54:21.504569+00:00"
+      "updated_at": "2026-07-16T17:44:22.386006+00:00"
     },
     {
       "id": "MISSION-618",
@@ -1163,7 +1169,7 @@
     {
       "id": "MISSION-619",
       "title": "Design itinerary build",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "unassigned",
       "description": "conveyor (staff-pipeline daemon) Per SO_ITINERARY_ZERO_LATITUDE_PIPELINE_20260715: build a daemon/timer-sequenced queue that calls each persona stage (A9 data -> A2 port intel -> Luna images -> Sterling/Whetstone brand+tech QC -> Dani voice -> EXEC polish -> Hale certify) as separate scoped headless-Claude invocations, so no single model builds a client itinerary end-to-end unsupervised.",
@@ -1171,9 +1177,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] DESIGN DELIVERED (Block 6, 2026-07-16). docs/ITINERARY_PIPELINE_DAEMON_DESIGN_20260716.md \u2014 implementation-ready conveyor design per SO_ITINERARY_ZERO_LATITUDE_PIPELINE: timer-ticked queue, one SO stage per scoped headless-Claude spawn, fcntl-locked job ledger (hale_bus pattern), evidence-gated advance, Certify=separate spawn (certifier != builder), phased build plan + acceptance criteria. No daemon code shipped \u2014 design deliverable, build deferred (client-facing, high-risk, out of one-session scope). Commit adds the doc."
+      ],
       "created_at": "2026-07-16T04:14:38.715691+00:00",
-      "updated_at": "2026-07-16T04:14:38.715701+00:00"
+      "updated_at": "2026-07-16T17:44:22.357593+00:00",
+      "completed_at": "2026-07-16T17:44:39.630854+00:00"
     },
     {
       "id": "MISSION-620",
@@ -1258,7 +1267,7 @@
     {
       "id": "MISSION-624",
       "title": "Restore TESS pipeline and run commission cross-check",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Execute MISSION-006 to bring the TESS data pipeline live and verify the $21,849 commission expectation against independently sourced booking records.",
@@ -1270,16 +1279,18 @@
         "[2026-07-16T12:26:40] Created by Weekly Report Generator",
         "2026-07-16T12:52:22.477433+00:00: Consolidated 6 duplicate tickets (004/006/012/031/041/050) into this one -- restore TESS pipeline, run commission cross-check.",
         "[2026-07-16T14:29:28] \u274c Auto-executed by daily_mission_executor \u2014 3s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
-        "2026-07-16T17:28:23.946027+00:00: SCOPE CORRECTED. TESS itself is live (token valid, Playwright-fallback keepalive working every ~90min). Real remaining work is narrower than title: (a) root-cause OAuth invalid_client instead of relying on fallback, (b) fix broken monthly commission-recon pipeline (0 matches in production), (c) real per-host commission formula (Nexion 70%, C&TU/Viking 80%, Silversea 70% per OpsCenter/state/commission_reconciliation_20260702.md, not flat 15%/80%), (d) resolve $0.10 discrepancy in verified total, (e) chase missing McLeod (2984034) invoice PDF. The stale \"$21,849 commission expectation\" premise in the original title was already disproven by Harlan/Sterling 2026-06-24 (real figure $18,830.93) -- do not re-verify against that stale baseline."
+        "2026-07-16T17:28:23.946027+00:00: SCOPE CORRECTED. TESS itself is live (token valid, Playwright-fallback keepalive working every ~90min). Real remaining work is narrower than title: (a) root-cause OAuth invalid_client instead of relying on fallback, (b) fix broken monthly commission-recon pipeline (0 matches in production), (c) real per-host commission formula (Nexion 70%, C&TU/Viking 80%, Silversea 70% per OpsCenter/state/commission_reconciliation_20260702.md, not flat 15%/80%), (d) resolve $0.10 discrepancy in verified total, (e) chase missing McLeod (2984034) invoice PDF. The stale \"$21,849 commission expectation\" premise in the original title was already disproven by Harlan/Sterling 2026-06-24 (real figure $18,830.93) -- do not re-verify against that stale baseline.",
+        "[2026-07-16T18:30:44] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-624: Restore TESS pipeline and run commission cross-check\n\n**Analysis Report:**\n\nThe TESS data pipeline is partially operational, with the core TESS service confirmed live and its keepalive me",
+        "[2026-07-16T18:30:44] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-16T12:26:40.450239+00:00",
-      "updated_at": "2026-07-16T17:28:23.946030+00:00",
+      "updated_at": "2026-07-16T18:30:44",
       "source": "weekly_report"
     },
     {
       "id": "MISSION-625",
       "title": "Produce Regent pricing refresh for Lyons renewal window",
-      "status": "active",
+      "status": "pending_review",
       "priority": "P1",
       "assigned_to": "Intel",
       "description": "Once Regent credentials are restored, execute MISSION-005/017 \u2014 pull current suite pricing, compare to last quoted rate, and surface a renewal recommendation to Commander before the window closes.",
@@ -1291,16 +1302,18 @@
         "[2026-07-16T12:26:40] Created by Weekly Report Generator",
         "2026-07-16T12:52:22.477407+00:00: Consolidated 4 duplicate tickets (005/017/034/042) into this one -- Regent pricing refresh for Lyons renewal, blocked on Regent P0 (MISSION-621).",
         "[2026-07-16T14:29:31] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
-        "2026-07-16T17:28:23.946033+00:00: PREMISE CORRECTED. Was blocked on MISSION-621 (Regent P0 restore) -- that ticket is now cancelled per Commander directive 2026-07-16: Regent is on-demand-only (Chrome browser capability), not a standing automated requirement. This ticket can proceed via an on-demand Regent session when Lyons pricing is actually needed, not blocked on any automated credential-restore process."
+        "2026-07-16T17:28:23.946033+00:00: PREMISE CORRECTED. Was blocked on MISSION-621 (Regent P0 restore) -- that ticket is now cancelled per Commander directive 2026-07-16: Regent is on-demand-only (Chrome browser capability), not a standing automated requirement. This ticket can proceed via an on-demand Regent session when Lyons pricing is actually needed, not blocked on any automated credential-restore process.",
+        "[2026-07-16T18:30:49] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-625: Produce Regent pricing refresh for Lyons renewal window\n\n**Analysis:**\n\nThe task to produce a Regent pricing refresh for the Lyons renewal window was initially blocked by a dependency on ",
+        "[2026-07-16T18:30:49] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-16T12:26:40.450331+00:00",
-      "updated_at": "2026-07-16T17:28:23.946037+00:00",
+      "updated_at": "2026-07-16T18:30:49",
       "source": "weekly_report"
     },
     {
       "id": "MISSION-626",
       "title": "Lifecycle TP product for Kuklinski and Lyons",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Dani",
       "description": "Run lifecycle temperature check on both Kuklinski (3 couples) and Lyons, then produce the next-stage TP draft for each and queue for WF-17 Commander review.",
@@ -1309,16 +1322,18 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-07-16T12:26:40] Created by Weekly Report Generator"
+        "[2026-07-16T12:26:40] Created by Weekly Report Generator",
+        "[2026-07-16T18:04:37] DRAFTS DELIVERED \u2014 WF-17 held, nothing sent (Block 6, 2026-07-16, files verified on disk). 4 next-stage TP drafts in canonical dark-navy template (#07076b confirmed present, cream #f7f3ea confirmed absent): (1) Kyle&Rosalie Kuklinski TP2.1 Excursion-Lock (Viking Mars Panama Dec 17-27, PAID; Aug 2 booking-window cutoff drives it; +personal John preface per Commander relationship note) -> output/TP_Kuklinski_KyleRosalie_Excursion-Lock_20260716.html; (2) Roger&Nick Kuklinski same TP -> output/TP_Kuklinski_RogerNicholas_Excursion-Lock_20260716.html; (3) Morton&Dodge (booking 9595029, separate cadence, Phase 1) TP1.2 Airfare-Watch, no $ figures (memo-grade only) -> output/TP_Kuklinski_MortonDodge_Airfare-Watch_20260716.html; (4) Nancy&Ken Lyons (Regent Splendor, embark Aug 11, E-26, PRO BONO) TP3.1 Pre-Voyage brief, online check-in closes Jul 21, ZERO payment/FPD mention -> output/TP_Lyons_PreVoyage-Brief_20260716.html. WF-17 JUDGMENT CALLS for Commander: (a) route Roger/Nick + Morton/Dodge via Kyle (group organizer) vs direct? (b) picked excursion-lock over Jul 28 insurance re-offer (recommend NOT re-pitching declined item); (c) Lyons may prefer Commander's personal cream/blue pen over corporate template. Awaiting Commander review before any send."
       ],
       "created_at": "2026-07-16T12:26:40.450422+00:00",
-      "updated_at": "2026-07-16T12:26:40.450425+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-16T18:04:37.403941+00:00",
+      "source": "weekly_report",
+      "completed_at": "2026-07-16T18:04:37.469985+00:00"
     },
     {
       "id": "MISSION-627",
       "title": "Audit Phase 4 TCD features \u2014 live vs dead code",
-      "status": "active",
+      "status": "completed",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Execute MISSION-002/013 \u2014 produce a line-item inventory of Phase 4 features, mark each live-verified or dead, and file a removal PR for any dead code before it accumulates further.",
@@ -1328,11 +1343,13 @@
       "escalation_rule": null,
       "logs": [
         "[2026-07-16T12:26:40] Created by Weekly Report Generator",
-        "2026-07-16T12:53:04.371132+00:00: Consolidated 3 duplicate tickets (002/013/051) -- Phase 4 TCD feature audit, live vs dead code."
+        "2026-07-16T12:53:04.371132+00:00: Consolidated 3 duplicate tickets (002/013/051) -- Phase 4 TCD feature audit, live vs dead code.",
+        "[2026-07-16T17:57:03] AUDIT COMPLETE (Block 6, 2026-07-16, verified against ground truth). KEY FINDING: 'Phase 4' is NOT a feature set \u2014 it is the TCD decommission milestone (retire old custom backend+tunnel+Basic-Auth), DONE 2026-07-12 per docs/TCD_APPSHEET_PILOT.md:132. NO Node/Express/React TCD codebase exists \u2014 CLAUDE.md's description is stale/aspirational; the retired backend was Python (scripts/tcd_server.py, port 8930) + static HTML. LIVE TCD = tcd/ Python package + Google Sheet -> AppSheet board, exposed via 3 MCP tools (tcd_get_items/tcd_sync_now/tcd_process_writeback) registered at core/mcp/travel_mcp_server.py:171,600 (VERIFIED). DEAD/retired-by-design (DO NOT remove \u2014 documented rollback path): scripts/tcd_server.py, scripts/tcd_google.py, tcd-server.service (disabled, VERIFIED), tcd-sync.timer (disabled, VERIFIED), output/retired/*.html. scripts/tcd_data.py is LIVE (repurposed via tcd/_imports.py dynamic import). NO removal PR filed \u2014 dead code is intentional retention, not accumulation. ONE ACTIONABLE GAP: tcd-sync.timer disabled -> board only fresh on manual tcd_sync_now; recommend Commander decide whether to re-enable auto-refresh (left off by design during pilot)."
       ],
       "created_at": "2026-07-16T12:26:40.450515+00:00",
-      "updated_at": "2026-07-16T12:53:04.371145+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-16T17:57:03.113664+00:00",
+      "source": "weekly_report",
+      "completed_at": "2026-07-16T17:57:03.160486+00:00"
     },
     {
       "id": "MISSION-628",
@@ -1482,9 +1499,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] PARTIAL \u2014 CORE ENGINE REPAIRED (Block 6, 2026-07-16). Found the fleet-wide CI razor-sharp sweep (scripts/ci_sweep.py -> core/ci/ci_health.py::sweep -> core/ci/registry.py::razor_sharp_status) had been DEAD since regent-portal-live was retired on-demand (~2026-07-01): a raw '>= currency_window_hours' comparison hit None on the retired entry, raising TypeError and aborting the entire sweep. 46/53 designations were frozen at status 'unknown'; the razor-sharp policy engine was silently non-functional. FIXED + verified: sweep now completes (exit 0), 0 failed systemd units, healers/watchdogs present. Commit for razor_sharp_status None/RETIRED handling +6 tests. FOLLOW-UP: live sweep now surfaces 40 pre-existing degraded designations (many REPLACE from accumulated probe-failure history while sweep was blind) \u2014 each needs its own triage pass, NOT closable in one ticket. Recommend Sterling owns the 40-item burn-down.",
+        "[2026-07-16T18:10:55] CORRECTION + TIMER HEADS-UP (Block 6, 2026-07-16). (1) Causal correction: sweep() persists only last_verified, NOT status \u2014 the registry 'unknown' values are the persisted default the sweep never writes back, and last_verified was stamped independently by hale_enforcer.py (silent-sensor divergence masking the outage). Accurate harm statement: the crash meant NO degradation detection / NO auto-repair / NO paging fleet-wide for ~2 weeks, not 'status frozen'. Fix + value unchanged. (2) OPERATIONAL: ci-sweep.timer is ACTIVE, next fire Fri 2026-07-17 06:00 MDT \u2014 first SUCCESSFUL run in ~2wks. It runs _try_repair on ~12 live probe-FAIL designations (immediate, no threshold) + pages on client-affecting degradation. Expect a repair-burst + degradation page tomorrow AM; paging should be absorbed by today's fleet-wide Telegram mute/dedup gate. Did NOT disable timer (would re-blind CI). Commander: optionally pre-empt with a manual review before 06:00."
+      ],
       "created_at": "2026-07-16T13:00:07.469372+00:00",
-      "updated_at": "2026-07-16T13:00:07.469384+00:00"
+      "updated_at": "2026-07-16T18:10:55.352038+00:00"
     },
     {
       "id": "MISSION-637",
@@ -1572,7 +1592,7 @@
     {
       "id": "MISSION-642",
       "title": "Monthly Archive check",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "unassigned",
       "description": "has not run since March 2026 Found during YOGA backup-chain validation (2026-07-16): a 'Monthly Archive' check reports WARN, not run since March 2026. Not investigated -- needs its own pass.",
@@ -1580,9 +1600,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] FIXED (Block 6, 2026-07-16). Root cause: path mismatch \u2014 core/watchtower/thunderbird_backup_verify.py read state/monthly_archive_state.json (frozen March 2026) while core/ops/thunderbird_monthly_archive.py writes canonical file at repo root (July 2026, timer ran Jul 1, next Aug 1). Same class as Evernote M-257 fix. Fix: MONTHLY_STATE prefers canonical root file, legacy fallback. Verified: check now OK 'July 2026, 2492 files'. Commit 7dc38ea08. +3 regression tests."
+      ],
       "created_at": "2026-07-16T13:13:00.513525+00:00",
-      "updated_at": "2026-07-16T13:13:00.513534+00:00"
+      "updated_at": "2026-07-16T17:44:22.118666+00:00",
+      "completed_at": "2026-07-16T17:44:39.451425+00:00"
     },
     {
       "id": "MISSION-643",
@@ -1621,7 +1644,7 @@
     {
       "id": "MISSION-645",
       "title": "Email ingestion over-routes marketing/spam to Client-inquiry P1 tickets",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P2",
       "assigned_to": "Sterling",
       "description": "ROOT CAUSE (closing sweep 2026-07-16). scripts/email_ingestion_pipeline.py::_handle_client_inquiry files a P1 'Client inquiry' mission for ANY sender classified client_inquiry \u2014 Fanatics, Wellamoon, Explora marketing all became P1 tickets (MISSION-24/26 cancelled; MISSION-10 left as arguable travel supplier). Matches Jul-1 observation 'classification gate defaulted to client_inquiry too aggressively' and the still-red test tests/test_email_ingestion_classify.py::test_known_client_is_client_inquiry. Fix: gate _create_mission_board_ticket behind a sender allowlist / noise filter before filing. NOTE: message_id dedup was added to _create_mission_board_ticket this sweep (closes the append-without-dedup gap), but does NOT address the wrong-classification root cause.",
@@ -1629,9 +1652,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-16T17:44:22] FIXED (Block 6, 2026-07-16). Red test test_known_client_is_client_inquiry now green. Root cause: _classify_email delegated entirely to registry-based rules_classifier and never consulted _determine_email_tier, so a dossier-tracked CLIENT with neutral body fell through to 'other'. Fix: promote CLIENT-tier senders to client_inquiry ONLY when the message otherwise mapped to non-actionable 'other' \u2014 never overriding spam/booking/invoice, so cannot reopen M-431/645 over-routing. Full suite 14/14 pass. Commit 36ea40366. +4 narrowness tests."
+      ],
       "created_at": "2026-07-16T13:29:45.575114+00:00",
-      "updated_at": "2026-07-16T13:29:45.575120+00:00"
+      "updated_at": "2026-07-16T17:44:22.178208+00:00",
+      "completed_at": "2026-07-16T17:44:39.503677+00:00"
     },
     {
       "id": "MISSION-646",
@@ -1694,5 +1720,6 @@
       "updated_at": "2026-07-16T17:41:29.464409+00:00"
     }
   ],
-  "last_updated": "2026-07-16T14:29:33.698812+00:00"
+  "last_updated": "2026-07-16T18:30:52.480097+00:00",
+  "suspense_watch": []
 }
