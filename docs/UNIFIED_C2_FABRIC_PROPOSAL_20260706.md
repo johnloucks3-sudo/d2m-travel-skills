@@ -1,6 +1,6 @@
 # UNIFIED C2 FABRIC — T3 Wing Exercise Proposal
 **Date:** 2026-07-06 · **Classification:** T3 (Strategy/doctrine, new pattern, hard to reverse) · **Gate:** Commander Decision (Gate 4)
-**Charter owner:** Commander (delegated draft to Hale, per session directive) · **Status:** AWAITING APPROVAL — not implemented
+**Charter owner:** Commander (delegated draft to Hale, per session directive) · **Status:** ✅ APPROVED 2026-07-06 (Gate 4, Phase 1+2+3 in full, overriding staff's 30-day burn-in recommendation — see `hale_decisions.md:6098-6146`) — BUILT and verified live same session (`core/hale_bus/hale_bus_write.py`, `core/ops/confirmed_auto_execute.py`, `scripts/ci_probe_c2_fabric_roundtrip.py`). **DOC CORRECTION 2026-07-16:** this header incorrectly read "AWAITING APPROVAL" for 10 days after approval and was cited as still-pending by three later documents (`docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md`, `OpsCenter/STAFF_PACKAGE_HOT_WINDOW_20260716.md`, `logs/hale_hot_window_20260716.md`) — those references are stale; the underlying bus is live, only the cross-Hale delegation ticket schema (a separate, later ask) still needs wiring onto it.
 
 ---
 
