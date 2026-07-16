@@ -254,3 +254,89 @@ Checked cached MAG/RSSC captures against the 8 existing `dossiers/port_data/*.md
 No code fix (Odysseus is an environment/human issue, not a bug). Added one offline regression test — `tests/test_phase4_smoke.py::test_module_b_health_check_returns_bool` — asserting `OdysseusCDPClient.is_chrome_reachable()` returns a `bool` (Sterling doctrine: assert the health contract by type, never by live connectivity). **`pytest tests/test_phase4_smoke.py` → 14 passed.**
 
 **Net:** 1 real price mismatch (Furlow $258, needs Harlan), 1 stale dossier block (Ely, recommend refresh), 2 clean. Odysseus + TESS both need a human login to restore. No port data to add.
+
+---
+
+## Block 3 — Door County Air (continued, 2026-07-16)
+
+Picked up remaining scope after `062cb83d` (Centrav scraper fix — cents-precision price selector + real round-trip param, 8/8 tests passing). Found items 2 and 3 already complete from the prior attempt's earlier (committed) work; only item 1 required new action.
+
+**1. Live re-verification — attempted, still blocked by CAPTCHA (human-only wall).** Called `run_centrav_search()` directly (bypassing any stale MCP tool cache — the currently-loaded `mcp__travel__search_centrav_flights` schema doesn't even expose `trip_type`/`return_date` yet, so the MCP process needs a restart to pick up `062cb83d`) with the fixed code: `origin=COS, dest=GRB, depart_date=2026-09-06, return_date=2026-09-14, trip_type=roundtrip, adults=2, cabin=economy`. Result: `auth_status: session_expired`, log line `"centrav: CAPTCHA required — run python3 scripts/centrav_flights.py --centrav-login to authenticate"`. The `creds/centrav_cookies.json` laravel_session cookie looked fresh (saved 11:12 MT, nominal expiry ~13:12 MT) but Centrav had already invalidated it server-side; auto-login hit a CAPTCHA. Per obstacle-routing doctrine this is a genuine human-only wall, not something to route around — **not bypassed**. Code-level correctness (8/8 unit tests) stands regardless; no live $933.40 match obtained this session. Commander (or a session with hands-on CAPTCHA solve) needs to re-run `python3 scripts/centrav_flights.py --centrav-login --headless false` to refresh the session before another live attempt.
+
+**2. DEN vs COS dossier reconciliation — already done, no action needed.** `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` was already fully corrected to COS origin (commit chain ending `8c4fb5924`, committed before this dispatch started): banner explaining the DEN→COS correction, ground-truth $933.40/2pax preserved as the number to book against, fare-watch IDs (`loucks-doorcounty-cos-grb-out`/`-return`) referenced correctly, all pre-fix DEN figures explicitly labeled "wrong origin — re-quote from COS." Verified via `git diff` (clean, no uncommitted changes) — nothing left to fix.
+
+**3. GRB rental car — already done, no action needed.** `MISSION-649` (P1, `in_progress`) already exists on the live mission board: confirms no automated rental-car booking tool exists anywhere in the repo (checked `scripts/`, `core/travel/`, full `mcp__travel__*` list), recommends Enterprise/National midsize SUV, cites the stale `MISSION-203` in `cache/sheets_mirror/action_tracker.json` (last updated 2026-06-19, not on live board) as superseded, and correctly flags that booking requires Commander's agency/loyalty/payment choice — not something to book blind.
+
+**Net:** No new commits needed — items 2/3 were already correct in the working tree; item 1 has an honest non-result (CAPTCHA wall confirmed with the fixed code, not just re-asserted from the old note).
+
+## D2MLuxury Subdomain Audit (2026-07-16)
+
+Read-only audit of all `d2mluxury.quest` subdomains, per team-lead task. Full report: `docs/D2MLUXURY_SUBDOMAIN_AUDIT_20260716.md`.
+
+**Method:** Enumerated from `~/.cloudflared/config.yml` (ground truth ingress), tested each `https://<host>/` with curl, cross-checked every result against the local origin (`localhost:PORT`) to separate CF-edge faults from real backend outages. Access recency checked via `journalctl --user` per owning service.
+
+**Result: 21 live subdomains tested, 19 LIVE, 2 DOWN.**
+
+- **DOWN:** `reverie.d2mluxury.quest` and `visuals.d2mluxury.quest` — both return CF 525 (SSL handshake failed at Cloudflare edge). Confirmed **not** a backend problem: both origins (`reverie-frontend.service` :8888, `itinerary-server.service` :8900) are up and answering correctly, and their sibling hostnames on the identical port (`app.d2mluxury.quest`, `files.d2mluxury.quest`) work fine publicly. Points to a Cloudflare-side config issue scoped to just these two hostnames. Not fixed — out of scope for this audit, flagging for separate ticket. Neither is client-facing (internal PWA frontend / internal dashboard tooling), so no client-facing subdomain is currently down.
+- **LIVE (19):** apex, www, app, code, itinerary, files, portal, api, mcp, wa, grace, spencer, ssh, and all 6 client portals (loucks/lyons/furlow/elydarrow/nichols/mcleod-survey) — all answering as expected (200 public, or 401/404 app-gated = alive and correctly protected).
+
+**Staleness — important caveat, don't over-claim:** journald retention only covers ~36-48h (starts 2026-07-14/15), so I could **not** confirm or deny "2+ weeks no access" from logs for most hosts — said so explicitly rather than guessing. Within that short window, no real (non-audit) traffic was seen on portal/client-portal/mcp/whatsapp/itinerary-server; `d2mluxury.quest` apex had a real bot hit (robots.txt/sitemap) today; spencer had a real browser visit 2 days ago. Fallback content-`mtime` check (last-updated, explicitly labeled as NOT last-visited): the 5 Scandinavia/Loucks/Lyons client-portal directories sit at 13 days since last file touch — approaching but not past the 2-week line. No subdomain crosses 2 weeks stale on either measure.
+
+Zero services touched, zero CF config changes made.
+
+## Block 2 — TESS/CRM Fixes (2026-07-16)
+Agent: Block-2 worker (Opus). All 5 files committed (swept into e6ee0384b et al by a concurrent sibling `git add -A`; verified present in HEAD, working tree clean). +9 regression tests, 29 pass, no regressions.
+
+**1. TESS OAuth `invalid_client` — FIXED, live-verified.** Root cause: `tess_config.json` carried `client_id="johnloucks3@gmail.com"` (the Commander's email — not a real OAuth client) plus a bogus 16-char secret. The live TESS token is minted by the public Angular SPA client `ngAuthApp` (PKCE, no secret), so that email client_id + secret made `crm.myagentgenie.com/api/token` reject the `refresh_token` grant with `invalid_client` every ~90min — silently absorbed by the Playwright fallback. Proved empirically (probe): config creds→`invalid_client`; `ngAuthApp` no-secret→HTTP 200 real token; `ngAuthApp`+secret→`invalid_grant`. Fix = corrected `tess_config.json` (ngAuthApp, no secret) + hardened `refresh_token()` in `core/booking/thunderbird_tess.py` (email/empty client_id → falls back to ngAuthApp; secret never sent to the public client). Ground truth after fix: `TESSAuth().refresh_token()` returns **True** — the refresh path works; Playwright is now a true fallback, not the primary. No secret rotation was needed (the bogus secret never worked).
+
+**2. Commission recon all-zero output — FIXED (real bug) + June zero is honest.** The zero JSON came from `scripts/commission_reconciliation_monthly.py` (TESS API + 2 empty ledgers), NOT the Gmail module the task named — flagging that premise mismatch. `pull_tess_received` read the wrong CheckReceived paths and dropped every check with no top-level `BookingNumber`. Verified against the sole live check (CheckID 605635 = **$244.80** from "Outside Agents", 2026-03-03): amount is `Commission.TotalReceived`, supplier is `CheckFrom.TourOperatorName`, and there is NO booking number on the check (CheckNumber is its only id). Fixed the mapping; kept ref-less receipts instead of dropping them. Re-run (`--local`): **March now surfaces the $244.80 receipt** (previously silently dropped); **June is an honest zero** (the only TESS check is March). NOTE: TESS receipts key on CheckNumber, which cannot equal a Booking Master booking_id, and the CheckReceived list/detail API exposes no booking linkage (detail call → empty list / 404) — so these land in `unmatched`, not `matched`. The fix stops silent money-loss; it does not (cannot, via this API) auto-match.
+
+**3. Booking Master commission split — no live flat formula; already per-host; 2 items flagged, NOT edited.** There is no "flat 15%/80% formula" to replace — `Commission`/`D2M Share` are static values, already corrected to per-host splits by `fix_booking_master.py` on 2026-05-06 (there is no Host_Agency column; host lives in free-text Notes). Verified all 26 commissioned rows: **20 conform exactly**; 4 flags are non-canonical hosts (Expedia/SkyLux at 80%, C&TU correctly at 80%). Two genuine review items, left for Harlan/Commander (NOT auto-edited — because sibling agents are writing this sheet concurrently this session; 2984034 has 4 duplicate rows so "edit the row" is ambiguous; a post-FCC revised Regent invoice is inbound; and Loucks 506101-26 has no recorded host):
+  - **McLeod 2984034**: real TA-invoice commission **$1,620.40** → D2M @70% Nexion = **$1,134.28**; sheet shows $1,607.76 (80% of a 15%-of-gross estimate) — **overstated by $473.48**.
+  - **Loucks 506101-26** (Silversea, Commander's own): D2M at 80% ($4,413.74); canonical Silversea-direct is 70% → would be ~$3,862 (**~$551 over**) — but only IF Silversea-direct; host not recorded, and Silversea via C&TU is legitimately 80%. Needs host confirmation.
+  - Data-quality: duplicate rows for 2984034 (×4), 9595029 (×3), 9593880 (×2) warrant a dedup pass.
+
+**4. $0.10 discrepancy — already settled to $18,830.93; no code bug.** `harlan_verified_total` is a hand-maintained field in `hale_state.json` (no computing script — only read by `scripts/sheets_wing_sync.py`). It reads **$18,830.93** consistently across all live sources (`hale_state.json`, `bryana/data.json`); the $18,830.83 survives only in the 2026-07-02 report snapshot describing the prior state. So the .83↔.93 was a manual-transcription artifact, since superseded; there is no rounding/summation bug in code to fix. (Did not re-derive the full component sum — the value spans line items beyond the 9-row PDF table.)
+
+**5. McLeod 2984034 invoice — FOUND, not a blocker.** The "missing PDF" note is from the May-6 audit and is stale. The TA invoice is in Drive: `Travel_Agent_MC GLASSON2984034.pdf` (id 1o9ev4V2YLbmmuU6sT3Rz_nboP1KCInFL, uploaded 2026-07-13), plus Regent invoice emails in Gmail (23-May + 13-Jul). Extracted the real figures: Gross $12,948.00, Commission **$1,620.40**, Balance Due $11,943.15, FPD 22-Jul-26, Host NEXION LLC. Remaining: update the sheet row from the invoice (financial, flagged above) and watch for the post-FCC revised invoice Regent said it would send (13-Jul).
+
+**6. thunderbird_tess.py vs thunderbird_tess_crm.py — NOT duplicative, keep both.** Zero method overlap (tess.py=45 methods read-client `TESSClient`/`TESSAuth`; tess_crm.py=5 methods write-client `TESSWriteClient(TESSClient)`). Clean read/write inheritance split per the file headers — no dead/overlapping code to consolidate.
+
+## YOGA-dv7 Sync + files.d2mluxury.quest (2026-07-16)
+
+**Reality check that changed the task:**
+- dv7 is OFFLINE — Tailscale: `john-hp-pavilion-dv7-notebook-pc` offline, last seen 7d ago. No dv7-side step could be executed/verified. dv7 steps are a runbook.
+- `files.d2mluxury.quest` ALREADY EXISTS in the live tunnel → YOGA `:8900` `thunderbird_dir_server.py`, which serves the WHOLE repo with 4-digit tokens and NO Cloudflare Access. Security flag raised.
+- The tunnel runs on YOGA, so today `files.d2mluxury.quest` is DOWN whenever YOGA is off — it does not yet meet the Commander's need.
+- A healthy Google Drive mirror already runs (`thunderbird-drive-sync.timer`, last OK 2026-07-15 23:07 → `d2mconcierge:Thunderbird_Mirror/`) — always-on access to session output via drive.google.com without YOGA is ALREADY available today.
+
+**LIVE on YOGA (built + verified):**
+- `scripts/yoga_dv7_files_sync.sh` — curated, secret-safe rsync YOGA→dv7 (dossiers, output, intel, collaboration, blackboard, brief/state). Skips cleanly when dv7 offline (verified).
+- `deploy/yoga-dv7-files-sync.{service,timer}` — installed + enabled, every 20 min. Verified firing + graceful offline skip.
+- `scripts/dv7_files_server.py` — curated file server for dv7. Verified locally: 401 no-auth, 200 auth, dir browse, file fetch, path-traversal blocked.
+
+**READY runbook awaiting dv7 online:** `deploy/FILES_DV7_RUNBOOK.md` — exact dv7 commands, CF Access app steps, tunnel-origin decision (Option A: serve from dv7's own tunnel), and pre-existing security remediation.
+
+**Recommendation:** Google Drive already solves "reach it without YOGA" today. The dv7 file server is the nicer branded path for when dv7 is stable. — Hale (CC)
+
+---
+
+## Block 6 — Remaining Open Tickets (2026-07-16) — Hale (CC)
+
+Eight genuinely-open tickets worked. Five closed with code/doc + tests, one design delivered, one audit closed, one repaired-but-follow-up, one verified-and-flagged for Commander.
+
+**MISSION-642 — Monthly Archive check** ✅ CLOSED. Root cause = path mismatch (same class as Evernote M-257): `thunderbird_backup_verify.py` read `state/monthly_archive_state.json` (frozen March 2026) while the archiver writes the canonical repo-root file (July 2026; timer ran Jul 1, next Aug 1). The archive never stopped — the WARN was a false alarm. Fix: `MONTHLY_STATE` prefers canonical root, legacy fallback. Verified check now OK. Commit `7dc38ea08`, +3 regression tests.
+
+**MISSION-645 — Email over-routes to Client-inquiry** ✅ CLOSED. Red test `test_known_client_is_client_inquiry` now green (suite 14/14). Root cause: `_classify_email` delegated wholly to the registry rules-classifier and never consulted `_determine_email_tier`, so a dossier-tracked CLIENT with neutral body fell to "other". Fix: promote CLIENT-tier senders to client_inquiry **only** when the message otherwise mapped to the non-actionable "other" default — never overriding spam/booking/invoice, so it cannot reopen the M-431/645 over-routing vector. Commit `36ea40366`, +4 narrowness tests.
+
+**MISSION-616 — bsk into OpenCode** ✅ CLOSED. Appended bsk CLI command reference + lifecycle rules to `AGENTS.md` under CORE OPERATIONS (bsk verified at `~/.local/bin/bsk`). Notes the AG block (M-617) inline. Committed.
+
+**MISSION-636 — Full CI infra audit** 🟡 CORE ENGINE REPAIRED, follow-up open. Found the fleet-wide razor-sharp sweep (`ci_sweep.py`→`ci_health.py::sweep`→`registry.py::razor_sharp_status`) had been **DEAD since regent-portal-live was retired (~Jul 1)**: a raw `>= currency_window_hours` comparison hit `None` on the retired entry → TypeError → whole sweep aborted → 46/53 designations frozen at status "unknown", policy engine silently inert. Fixed (handle retired/None + guard replacement for RETIRED); sweep now completes (exit 0), 0 failed systemd units, healers/watchdogs present. Commit +6 tests. **Follow-up:** the now-working sweep surfaces **40 pre-existing degraded designations** (many REPLACE from probe-failure history accumulated while the sweep was blind) — each needs its own triage; recommend Sterling owns that burn-down. Ticket left in_progress.
+
+**MISSION-619 — Itinerary pipeline daemon** ✅ DESIGN DELIVERED. `docs/ITINERARY_PIPELINE_DAEMON_DESIGN_20260716.md` — implementation-ready conveyor: timer-ticked queue, one SO stage per scoped headless-Claude spawn, fcntl-locked job ledger (hale_bus pattern), evidence-gated advance, Certify = separate spawn (certifier ≠ builder), phased build plan + acceptance criteria. No daemon code shipped (client-facing, high-risk — build deferred). Committed.
+
+**MISSION-627 — TCD Phase-4 live/dead audit** ✅ CLOSED (verified vs ground truth). KEY FINDING: "Phase 4" is **not a feature set — it's the TCD decommission milestone**, DONE 2026-07-12 (`docs/TCD_APPSHEET_PILOT.md:132`). No Node/Express/React codebase exists — CLAUDE.md's description is stale; the retired backend was Python (`scripts/tcd_server.py`) + static HTML. LIVE TCD = `tcd/` package + Google Sheet→AppSheet, via 3 MCP tools registered at `travel_mcp_server.py:171,600` (verified). "Dead" code (`tcd_server.py`, `tcd_google.py`, disabled `tcd-server`/`tcd-sync` units, `output/retired/*.html`) is **by-design retention with a documented rollback path — NO removal PR filed.** One actionable gap: `tcd-sync.timer` disabled → board only fresh on manual `tcd_sync_now`; Commander to decide on re-enabling auto-refresh.
+
+**MISSION-626 — Kuklinski/Lyons lifecycle TPs** ✅ DRAFTS DELIVERED, WF-17 held, nothing sent. 4 dark-navy (#07076b) drafts under `output/` (verified on disk, cream absent): Kyle&Rosalie + Roger&Nick Kuklinski = TP2.1 Excursion-Lock (Aug 2 Viking cutoff); Morton&Dodge = TP1.2 Airfare-Watch (separate cadence, no $ figures); Lyons = TP3.1 Pre-Voyage brief (E-26, pro-bono, zero payment mention, check-in closes Jul 21). WF-17 judgment calls surfaced for Commander (routing via Kyle; excursion-lock chosen over re-pitching declined insurance; Lyons tone). Awaiting Commander review.
+
+**MISSION-617 — bsk into Antigravity (AG)** 🚩 VERIFIED + FLAGGED, NOT self-authorized. Ticket is accurate: `~/.gemini/settings.json` excludeTools includes `run_shell_command` → AG genuinely cannot exec bsk. Narrow security-relevant permission surface — **NOT** actioned under the general "gates approved" umbrella. **Commander decision needed:** (a) lift the exclusion for AG, or (b) confirm AG native browser tooling covers it and skip. No AG permission change made. Ticket left open.
