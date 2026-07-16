@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-10 15:30 UTC)
+## COMMANDER-READY (2026-07-16 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,34 +59,49 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-10 09:30
+## STATE BRIDGE BRIEFING — 2026-07-16 09:30
 
-### Since last session (2026-07-10 15:00:00 → still open)
+### Since last session (2026-07-16 15:00:01 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `18f0765e4` feat: Icelandair authenticated-session persistence (warm-ping keepalive)  _2 hours ago_
-- `654234366` feat: close Lane-1 cross-check, activate long-tail remediation fleet-wide  _11 hours ago_
-- `b00ec7e8a` feat: adopt systemd OnFailure= native pattern for long-tail remediation  _11 hours ago_
-- `63ff15365` feat: reverse-engineer self-healing architecture, wire in Hale Orchestrator  _11 hours ago_
-- `e91dedacc` docs: fold Task 9 (cross-engine backstop) section into the plan doc — was edited directly on master by mistake, now properly part of branch history  _11 hours ago_
+- `bd41dbacd` docs(kuklinski): log passive-disengagement relationship note  _67 minutes ago_
+- `b6d4ad39d` feat(email-intel): client self-sufficiency signal detector  _67 minutes ago_
+- `838f079bb` fix(telegram): fleet-wide flood suppression — mute list + cooldown dedup  _70 minutes ago_
+- `02738c8df` fix(oom): rewrite fix_memory_ceilings.sh generator to per-unit layout  _2 hours ago_
+- `00f45f122` feat(delegation): cross-Hale task-delegation design + Phase-0 routing library  _2 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (35s ago)
-- `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `hale_brief.md` (3.5h ago)
-- `AGENTS.md` (1.7d ago)
-- `dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md` (1.9d ago)
-- `dossiers/Britan_Joe.md` (2.1d ago)
-- `dossiers/Heer_Ann_Shawn_Japan.md` (3.6d ago)
-- `dossiers/Westbrook_Brent_Kim_UPDATED.md` (3.9d ago)
+- `hale_state.json` (53s ago)
+- `OpsCenter/collaboration/blackboard.md` (30m ago)
+- `dossiers/GROUP_Kuklinski_VikingMars_Panama_Dec2026_TRACKER.md` (1.1h ago)
+- `hale_brief.md` (1.1h ago)
+- `dossiers/Nichols_Regent_3078056.md` (1.1h ago)
+- `dossiers/Westbrook_SilverNova_Personal.md` (1.1h ago)
+- `dossiers/grandeur_group_logistics_matrix_20260702.md` (1.1h ago)
+- `dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md` (1.1h ago)
 
-**Mission board:** 169 open (24 P0, 123 P1)
-  - 🔴 MISSION-065: Pacific Voyage Blog
-  - 🔴 MISSION-148: Telegram Feature Expansion
-  - 🔴 MISSION-152: Phase E: Signal
-  - 🔴 MISSION-196: Spencer United Group Desk call — DEN-FCO 12-pax air quote
-  - 🔴 MISSION-214: Regent Portal On-Deman
+**Mission board:** 83 open (7 P0, 53 P1)
+  - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
+  - 🔴 MISSION-011: Close Regent cookie expiration P0 — restore session access
+  - 🔴 MISSION-033: Close Regent cookie P0 — restore authenticated agent-portal session
+  - 🔴 MISS
 <!-- COMMANDER-READY:END -->
+
+## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)
+
+**TASK 1 — Nichols follow-up draft (DRAFT ONLY, not sent):**
+Created Gmail draft ID `r-3125559690830503669` (johnloucks3 account, Dani/A3 persona) to Larry Nichols (larry.nichols4811@gmail.com, CC heidi.nichols1@yahoo.com). Subject: "Quick check-in — Stockholm transfer ahead of your Aug 16 payment." Warm, low-pressure check on the ARN→At Six Stockholm sedan 3-bag capacity concern raised 2026-07-13, ahead of the Aug 16 final transfer payment. No send — staged for Commander review/approval.
+
+**TASK 2 — McLeod TESS verification (REAL FINDING, not assumed):**
+Verified booking 2984034 (TESS internal BookingID 2256103, TripID 1631588) via `tess_get_booking`/`tess_get_trip`/`tess_search_bookings`. Result: `PaymentsAndItemizations.Itemizations = []`, `ReceiptCount=0`, `PaymentCount=0`, `ActualPackagePrice == PackagePrice` ($13,398.00 — no discount/credit line anywhere on the booking).
+
+**Finding: the $200 Regent FCC is NOT recorded or applied against booking 2984034 in TESS.** It exists on the Regent/Pavlus side (Gale Hotel complaint, Dec 2025, per Erik McLeod's Jul 13 forwarded documentation) but has never been entered into TESS or confirmed linked to this booking.
+
+Updated `dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md` (FCC row status, open-items table, action-item checklist) and logged the finding to MISSION-044 on the mission board. **The staged FCC confirmation draft (r6302915235413543112) remains BLOCKED — do not send it as-is**, since it promises confirmation that isn't real yet. Next step (not done here, not a send): Harlan or whoever holds the Pavlus/Regent contact needs to either book the $200 credit into TESS against 2984034 or get written Regent/Pavlus confirmation, before FPD Jul 22 (6 days out).
+
+Side note flagged for Harlan/Block 2 (commission recon): TESS `PackagePrice` ($13,398.00) doesn't match the Jul 13 invoice Grand Total ($12,948.00) — a $450 gap, consistent with the already-logged balance-delta pattern on this booking. Not resolved here — flagged for the commission-reconciliation pass.
+
+Files: `dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md`, `OpsCenter/mission_board.json` (MISSION-044 log entry). Committed `3056d154`.
