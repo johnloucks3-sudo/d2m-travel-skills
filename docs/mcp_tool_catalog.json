@@ -1,6 +1,6 @@
 {
   "_generated_by": "core/mcp/mcp_catalog_generator.py",
-  "_tool_count": 379,
+  "_tool_count": 389,
   "_conflicts": [
     {
       "name": "store_persona_memory",
@@ -11,126 +11,6 @@
       "name": "recall_persona_memory",
       "kept": "core/ai_infra/thunderbird_persona_memory.py",
       "shadowed": "core/ai_infra/thunderbird_personas.py"
-    },
-    {
-      "name": "extract_pdf_booking_details",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "extract_pdf_itinerary",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "sync_booking_to_excel",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "read_excel_booking_data",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "generate_itinerary_images",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "insert_images_to_pdf",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "insert_images_to_google_docs",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "generate_itinerary_from_template",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "consolidate_booking_sources",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "search_live_cruise_voyages",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "check_cabin_availability",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "presend_evaluate",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "conversation_detect_phase",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "response_library_list",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "response_library_select",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "data_confidence_report",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "load_context_pack",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "capture_edit_diff",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "render_hotel_guide_pdf",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "innovation_daily_scan",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "innovation_weekly_scan",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "innovation_briefing_digest",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "build_mcp_tool",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
-    },
-    {
-      "name": "list_phantom_builds",
-      "kept": "core/mcp/travel_mcp_server.py",
-      "shadowed": "core/mcp/travel_mcp_server_updated.py"
     },
     {
       "name": "memory_stats",
@@ -1058,6 +938,13 @@
           "required": false,
           "default": null,
           "description": "Persona ID (e.g. 'A3', 'CONCIERGE') \u2014 sets From to persona display name via concierge@d2mluxury.quest"
+        },
+        {
+          "name": "account",
+          "type": "Optional[str]",
+          "required": false,
+          "default": "wing",
+          "description": "Account to draft in: 'wing' (d2mconcierge) or 'commander' (johnloucks3)"
         }
       ]
     },
@@ -3492,6 +3379,177 @@
       },
       "parameters": []
     },
+    "search_google_flights": {
+      "name": "search_google_flights",
+      "module": "core/travel/thunderbird_google_flights_search.py",
+      "function": "search_google_flights_tool",
+      "description": "Search flights via the Google Flights API (RapidAPI-hosted, free tier).",
+      "full_description": "Search flights via the Google Flights API (RapidAPI-hosted, free tier).\n\nFourth flight-data source alongside Amadeus (search_flights), Centrav\nB2B (search_centrav_flights), and Kiwi.com (search_kiwi_flights) \u2014 no\nscraping, no bot-wall, no browser automation. Takes plain IATA codes\ndirectly (no slug-resolution step). Free tier: 150 requests/month,\n1000/hour (hard cap).\n\nUSAGE DISCIPLINE (same as Kiwi, Commander directive 2026-07-09): call\nthis synchronously/on-demand only. Never wire it into a background\nsweep, headless probe, or automated loop \u2014 Amadeus/Centrav are the\ndefault sources when they're already working; this is a\nfallback/cross-check, and the 150/month cap is a hard limit.\n\nReturns itinerary counts and the cheapest option with full routing.",
+      "annotations": {
+        "title": "Search Flights (Google Flights)",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "departure_id",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Origin IATA code, e.g. 'DEN'. Use google_flights_search_airport if unsure of the code."
+        },
+        {
+          "name": "arrival_id",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Destination IATA code, e.g. 'ORD'."
+        },
+        {
+          "name": "outbound_date",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Departure date YYYY-MM-DD."
+        },
+        {
+          "name": "return_date",
+          "type": "Optional[str]",
+          "required": false,
+          "default": null,
+          "description": "Return date YYYY-MM-DD for round-trip. Omit for one-way."
+        },
+        {
+          "name": "travel_class",
+          "type": "str",
+          "required": false,
+          "default": "ECONOMY",
+          "description": "ECONOMY | PREMIUM_ECONOMY | BUSINESS | FIRST"
+        },
+        {
+          "name": "adults",
+          "type": "int",
+          "required": false,
+          "default": 1,
+          "description": "Number of adult passengers"
+        },
+        {
+          "name": "currency",
+          "type": "str",
+          "required": false,
+          "default": "USD",
+          "description": "Price currency code (default USD)"
+        },
+        {
+          "name": "search_type",
+          "type": "str",
+          "required": false,
+          "default": "best",
+          "description": "'best' (balanced) or 'cheap' (lowest cost, may have longer layovers)"
+        },
+        {
+          "name": "list_all_top",
+          "type": "bool",
+          "required": false,
+          "default": false,
+          "description": "If true, also return every itinerary in Google's 'top' (recommended) set, not just the single cheapest \u2014 use this to find a specific carrier/nonstop that isn't the lowest-price option."
+        }
+      ]
+    },
+    "google_flights_search_airport": {
+      "name": "google_flights_search_airport",
+      "module": "core/travel/thunderbird_google_flights_search.py",
+      "function": "google_flights_search_airport_tool",
+      "description": "Resolve a free-text city/airport name to the IATA code(s)",
+      "full_description": "Resolve a free-text city/airport name to the IATA code(s)\nsearch_google_flights expects. Only needed when the code isn't\nalready known.",
+      "annotations": {
+        "title": "Google Flights Airport Search",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "query",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Free-text city/airport name to resolve to an IATA code, e.g. 'Denver'"
+        }
+      ]
+    },
+    "search_kiwi_flights": {
+      "name": "search_kiwi_flights",
+      "module": "core/travel/thunderbird_kiwi_search.py",
+      "function": "search_kiwi_flights",
+      "description": "Search flights via the Kiwi.com Flights API (RapidAPI-hosted, free tier).",
+      "full_description": "Search flights via the Kiwi.com Flights API (RapidAPI-hosted, free tier).\n\nThird flight-data source alongside Amadeus (search_flights) and Centrav\nB2B (search_centrav_flights) \u2014 no scraping, no bot-wall, no browser\nautomation. Best for catching LCC/connecting-flight routes the other\ntwo sources miss. Free tier: 300 requests/month, 1000/hour (hard cap).\n\nUSAGE DISCIPLINE (Commander directive 2026-07-09): call this\nsynchronously/on-demand only. Never wire it into a background sweep,\nheadless probe, or automated loop \u2014 Amadeus/Centrav are the default\nsources when they're already working; this is the fallback/cross-check.\n\nReturns itinerary count and the cheapest option with full routing.",
+      "annotations": {
+        "title": "Search Flights (Kiwi.com)",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "source",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Origin place slug, e.g. 'denver-colorado-united-states'. Use kiwi_place_autocomplete if unsure of the exact slug."
+        },
+        {
+          "name": "destination",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Destination place slug, e.g. 'chicago-illinois-united-states'."
+        },
+        {
+          "name": "departure_date",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Departure date YYYY-MM-DD, or a range 'YYYY-MM-DD..YYYY-MM-DD'."
+        },
+        {
+          "name": "return_date",
+          "type": "Optional[str]",
+          "required": false,
+          "default": null,
+          "description": "Return date YYYY-MM-DD for round-trip. Omit for one-way."
+        },
+        {
+          "name": "adults",
+          "type": "int",
+          "required": false,
+          "default": 1,
+          "description": "Number of adult passengers"
+        },
+        {
+          "name": "currency",
+          "type": "str",
+          "required": false,
+          "default": "USD",
+          "description": "Price currency code (default USD)"
+        }
+      ]
+    },
+    "kiwi_place_autocomplete": {
+      "name": "kiwi_place_autocomplete",
+      "module": "core/travel/thunderbird_kiwi_search.py",
+      "function": "kiwi_place_autocomplete",
+      "description": "Resolve a free-text place name to the exact slug search_kiwi_flights expects.",
+      "full_description": "Resolve a free-text place name to the exact slug search_kiwi_flights expects.",
+      "annotations": {
+        "title": "Kiwi.com Place Autocomplete",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "query",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Free-text place name to resolve to a Kiwi.com place slug, e.g. 'Denver'"
+        }
+      ]
+    },
     "search_opentable_restaurants": {
       "name": "search_opentable_restaurants",
       "module": "core/travel/thunderbird_opentable.py",
@@ -4057,6 +4115,47 @@
           "required": false,
           "default": 2,
           "description": "Number of passengers"
+        }
+      ]
+    },
+    "search_united_flights": {
+      "name": "search_united_flights",
+      "module": "core/travel/thunderbird_united_search.py",
+      "function": "search_united_flights",
+      "description": "Direct united.com flight search via CloakBrowser stealth scrape \u2014",
+      "full_description": "Direct united.com flight search via CloakBrowser stealth scrape \u2014\nNOT an API. ONE-WAY ONLY (round-trip deep links silently stall on\nunited.com, unresolved \u2014 see module docstring). Cross-check/fallback\ntool only: Amadeus (search_flights) already returns full United GDS\ninventory with booking classes and should stay the default United\nsource. Use this only to spot-check a published consumer fare or a\nroute Amadeus returns thin.\n\nUSAGE DISCIPLINE: synchronous/on-demand only. Never call from a\nbackground sweep, headless probe, or automated loop \u2014 this is a\nbrowser-automation scrape of a live airline website, more brittle\nthan an API and slower (~15-60s per call).\n\nReturns nonstop flight offers with flight numbers, times, and fares.\nConnecting itineraries are present in raw text but not structured.",
+      "annotations": {
+        "title": "Search Flights (United.com direct, one-way only)",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "origin",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Origin airport IATA code, e.g. 'DEN'"
+        },
+        {
+          "name": "destination",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Destination airport IATA code, e.g. 'ORD'"
+        },
+        {
+          "name": "departure_date",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": "Departure date YYYY-MM-DD"
+        },
+        {
+          "name": "adults",
+          "type": "int",
+          "required": false,
+          "default": 1,
+          "description": "Number of adult passengers"
         }
       ]
     },
@@ -4701,7 +4800,7 @@
       "module": "core/ai_infra/thunderbird_personas.py",
       "function": "consult_persona_tool",
       "description": "Consult a specific D2M staff persona for their expert perspective.",
-      "full_description": "Consult a specific D2M staff persona for their expert perspective.\n\nPersonas: COS-Hale (chief of staff), EXEC-Solberg-Vega (voice/visual),\nA1-Crenshaw/Radar (admin/audit), A2-Dembe (intel), A3-Moreau (operations),\nA5-Castillo (strategy), A6-Voss (creative/brand), A9-Harlan (finance),\nA10-Ikeda (crisis), CH-Washington (ethics), A12-ELON (innovation).\n\nLegacy IDs (A4, A7, A8, A11) auto-route to the correct successor.",
+      "full_description": "Consult a specific D2M staff persona for their expert perspective.\n\nPersonas: COS-Hale (chief of staff), EXEC-Solberg-Vega (voice/visual),\nA1-Crenshaw/Radar (admin/audit), A2-Dembe (intel), A3-Moreau (operations),\nA5-Castillo (strategy), A6-Voss (creative/brand), A7-Sterling/Gauge (code/process),\nA9-Harlan (finance), A10-Ikeda (crisis), CH-Washington (ethics), A12-ELON (innovation).\n\nLegacy IDs (A4, A8, A11) auto-route to the correct successor.",
       "annotations": {
         "title": "Consult a D2M Staff Persona",
         "readOnlyHint": true
@@ -4755,7 +4854,7 @@
       "module": "core/ai_infra/thunderbird_personas.py",
       "function": "list_personas_tool",
       "description": "List all D2M staff personas with structured metadata.",
-      "full_description": "List all D2M staff personas with structured metadata.\n\nReturns JSON array with: slot, name, callsign, role, trigger, agent, status.\nIncludes all 11 active personas plus A10 (decommissioned).",
+      "full_description": "List all D2M staff personas with structured metadata.\n\nReturns JSON array with: slot, name, callsign, role, trigger, agent, status.\nIncludes all 12 active personas plus A10 (decommissioned).",
       "annotations": {
         "title": "List D2M Staff Personas",
         "readOnlyHint": true
@@ -6705,6 +6804,125 @@
       "parameters": [
         {
           "name": "profile",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": null
+        }
+      ]
+    },
+    "mission_board_list": {
+      "name": "mission_board_list",
+      "module": "core/mcp/thunderbird_mission_board_tools.py",
+      "function": "mission_board_list",
+      "description": "List missions on the Wing Tasking board.",
+      "full_description": "List missions on the Wing Tasking board.\n\nArgs:\n    filter: \"board\" (active missions, default), \"suspended\", or\n        \"complete\".",
+      "annotations": {
+        "title": "List Wing Mission Board",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "filter",
+          "type": "str",
+          "required": false,
+          "default": "board",
+          "description": null
+        }
+      ]
+    },
+    "mission_board_status": {
+      "name": "mission_board_status",
+      "module": "core/mcp/thunderbird_mission_board_tools.py",
+      "function": "mission_board_status",
+      "description": "Show full detail (status, priority, assignment, logs, suspense",
+      "full_description": "Show full detail (status, priority, assignment, logs, suspense\ndate) for one mission by ID, e.g. \"MISSION-042\".",
+      "annotations": {
+        "title": "Mission Board \u2014 Mission Detail",
+        "readOnlyHint": true
+      },
+      "parameters": [
+        {
+          "name": "mission_id",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": null
+        }
+      ]
+    },
+    "mission_board_add": {
+      "name": "mission_board_add",
+      "module": "core/mcp/thunderbird_mission_board_tools.py",
+      "function": "mission_board_add",
+      "description": "File a new mission on the Wing Tasking board.",
+      "full_description": "File a new mission on the Wing Tasking board.\n\nRuns the SAME open-duplicate check (_find_open_duplicate) the CLI\nand TCD's \"Create Task\" action both run before creating anything \u2014\nif the title matches an already-open mission (active, in_progress,\npending, open, or pending_review), no new mission is created; the\nexisting mission's id and status are returned instead.\n\nArgs:\n    title: Mission title. Unlike the raw `EXEC: add` CLI parser\n        (which is limited to 3 words because it splits on\n        whitespace), this takes the full string \u2014 pass a real\n        title, not a truncated one.\n    description: Longer description / context / source snippet.\n    priority: One of P0, P1, P2, P3 (default P2 \u2014 P0 is reserved\n        for the Commander/Hale escalation path, not a bare\n        default for new AGY-filed missions).\n    assigned_to: Staff assignment (default \"unassigned\").",
+      "annotations": {},
+      "parameters": [
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": null
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": false,
+          "default": "",
+          "description": null
+        },
+        {
+          "name": "priority",
+          "type": "str",
+          "required": false,
+          "default": "P2",
+          "description": null
+        },
+        {
+          "name": "assigned_to",
+          "type": "str",
+          "required": false,
+          "default": "unassigned",
+          "description": null
+        }
+      ]
+    },
+    "mission_board_complete": {
+      "name": "mission_board_complete",
+      "module": "core/mcp/thunderbird_mission_board_tools.py",
+      "function": "mission_board_complete",
+      "description": "Mark a mission complete by ID, e.g. \"MISSION-042\".",
+      "full_description": "Mark a mission complete by ID, e.g. \"MISSION-042\".",
+      "annotations": {},
+      "parameters": [
+        {
+          "name": "mission_id",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": null
+        }
+      ]
+    },
+    "mission_board_log": {
+      "name": "mission_board_log",
+      "module": "core/mcp/thunderbird_mission_board_tools.py",
+      "function": "mission_board_log",
+      "description": "Append a log entry / status update to an existing mission by ID.",
+      "full_description": "Append a log entry / status update to an existing mission by ID.",
+      "annotations": {},
+      "parameters": [
+        {
+          "name": "mission_id",
+          "type": "str",
+          "required": true,
+          "default": null,
+          "description": null
+        },
+        {
+          "name": "message",
           "type": "str",
           "required": true,
           "default": null,
