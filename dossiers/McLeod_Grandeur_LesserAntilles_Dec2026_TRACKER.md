@@ -48,7 +48,7 @@ return: '2026-12-29'
 | **Balance due (FPD)** | **$11,943.15** | Regent invoice 2984034 dated 23-May-26 (Harlan sign-off) |
 | **FPD** | **Jul 22, 2026** | invoice (portal-confirmed) |
 | **Payment status** | deposit_only | hub dossier frontmatter |
-| **Regent FCC** | $200 ($100/pp) — Gale Hotel Miami complaint Dec 2025 | apply to this booking (verify TESS) |
+| **Regent FCC** | $200 ($100/pp) — Gale Hotel Miami complaint Dec 2025 | **NOT in TESS** (verified 2026-07-16 — see below) |
 
 > ⚠️ **CONFLICT — Commander/Harlan to arbitrate (balance figure):** Two balance figures exist in the record:
 > - **$11,943.15** — hub dossier frontmatter, Harlan-verified 2026-06-09, Regent invoice 23-May-26. **AUTHORITATIVE per spec + freshest source. Used in this tracker.**
@@ -72,7 +72,7 @@ return: '2026-12-29'
 | **Dining** | ⏳ PENDING | Culinary Arts classes ~Aug 21; reservations open ~Sep 20. Seafood priority. |
 | **Documents** | ⏳ PENDING | Guest reg COMPLETE (both). Passport validity check pending. Guest info forms E-150 (~Jul 22). |
 | **Insurance** | ⏳ OPEN | Pre-ex window closed Jan 16; standard coverage available. Own element (see guard above). |
-| **FCC** | 🟡 TRACK | $200 Regent FCC — verify in TESS, apply to 2984034 |
+| **FCC** | 🔴 NOT APPLIED | $200 Regent FCC — TESS-verified 2026-07-16 NOT recorded against 2984034 (see EMAIL LOG / OPEN ACTION ITEMS below) |
 
 ---
 
@@ -83,7 +83,7 @@ return: '2026-12-29'
 | 1 | ⛔ **CONTACT HOLD — no client item before Jul 7** (client on Silver Muse) | Hale | hold lifts **Jul 7** |
 | 2 | **FPD $11,943.15** — payment sequence after hold lifts | Harlan / Hale | **Jul 22** |
 | 3 | **Resolve $450 balance delta** ($11,943.15 vs $12,393.15) — known/logged; close root cause | Harlan | before payment reminders |
-| 4 | **Verify + apply $200 Regent FCC** to booking 2984034 | Harlan | before FPD |
+| 4 | ~~Verify~~ **Apply $200 Regent FCC** to booking 2984034 — verification done 2026-07-16, NOT applied, needs Harlan action with Regent/Pavlus | Harlan | before FPD (Jul 22) |
 | 5 | **Refresh lifecycle-doc payment amounts** to $11,943.15 (route, do not edit here) | Harlan / Sterling | next lifecycle revision |
 | 6 | **Excursion research** — 5 ports, Regent portal | A2 Dembe | per lifecycle window |
 | 7 | ⚠️ **STRUCTURAL — Commander/scheduler-owner to decide.** The TP scheduler (`core/booking/thunderbird_tp_scheduler.py`) reads ONE record per dossier file via TOP-LEVEL `departure`/`fpd`/`completed_tps`. `McLeod_McGlasson_Multi.md` is a 4-booking hub with only `booking_N_*` keys → engine sees no top-level dates → all 23 TPs resolve **BLOCKED** (not OVERDUE), so McLeod currently fires zero false-overdues but is also **unscheduled**. The `booking_N_completed_tps` keys I added are INERT (engine doesn't read them). Flattening to one top-level `completed_tps` is unsafe (would false-complete the 3 deposit-only bookings). **Fix requires either split per-booking dossiers OR an engine change to handle multi-booking hubs** — out of my data-artifact scope. | Commander / scheduler owner | structural |
@@ -117,3 +117,18 @@ return: '2026-12-29'
 ---
 
 *Wired 2026-06-09 by Sonnet. Financials = Harlan-verified frontmatter ($11,943.15; do not recompute). Jul-7 hold encoded. Clock = existing lifecycle doc. Register with scheduler once timing-engine fix lands.*
+
+
+### EMAIL LOG
+
+**Jul 13 — Erik McLeod** (Re: Fwd: Regent Hotel - 2853147)
+> Jul 13 06:42 MT: Erik proactively forwarded Gale Hotel complaint resolution (Jan 16, 2026 close) with $200 Regent FCC ($100/pp) documentation. Requested confirmation of application to Grandeur booking 2984034. High-intent client managing account proactively. Routed to Harlan for TESS verification and application confirmation. ETA: pre-FPD (Jul 22).
+
+
+### OPEN ACTION ITEMS
+- [x] **TESS VERIFICATION COMPLETE (2026-07-16):** Checked booking 2984034 (TESS internal BookingID 2256103) via `tess_get_booking` + `tess_get_trip`. `PaymentsAndItemizations.Itemizations` = `[]` (empty), `ReceiptCount`=0, `PaymentCount`=0, `ActualPackagePrice` == `PackagePrice` ($13,398.00 — no discount/credit applied anywhere on the booking). **Finding: the $200 Regent FCC is NOT recorded or applied against this booking in TESS.** The FCC exists on the Regent/Pavlus side per Erik's Jul 13 forwarded documentation, but no one has entered it into TESS or confirmed it's linked to 2984034. Side note for Block 2/Harlan: TESS `PackagePrice` ($13,398.00) also doesn't match the Jul 13 invoice Grand Total ($12,948.00) referenced above — a $450 gap consistent with the already-logged balance-delta pattern, flagged here for Harlan's commission-recon pass, not resolved by this check.
+- [ ] **NEXT STEP (still open, FPD Jul 22 — 6 days out):** Harlan (or whoever holds the Pavlus/Regent contact) needs to either (a) book the $200 FCC into TESS against 2984034, or (b) get written Regent/Pavlus confirmation that it's linked to this booking, before the staged FCC confirmation draft can truthfully tell Erik it's applied. TESS re-checking will not resolve this — it needs the credit actually entered or confirmed externally.
+- [x] Contact hold verified cleared: hold was tied to client travel (aboard Silver Muse Jun 23–Jul 6), lifted Jul 7 as scheduled — confirmed cleanly cleared, not an open-ended unresolved hold (verified 2026-07-15/16).
+- [x] Response draft confirmed READY, staged in johnloucks3 (draft r6302915235413543112, 2026-07-13): confirms $200 FCC awareness, promises verification "no later than mid-July" and application before Dec 19 embarkation. Content verified solid and client-voice-appropriate — gated only on Harlan's TESS check above before send (WF-17, Commander-send gate).
+- [ ] Response team: Send confirmation email to emcleod@gmail.com (CC memcglas@gmail.com) with FCC application confirmation once Harlan verifies (auto-intel Jul 13)
+- [x] Separate post-cruise feedback survey (Silver Muse Mediterranean/Venice, unrelated to this Dec Grandeur booking) also drafted and ready in johnloucks3 (r7751380314964613848, 2026-07-13) — lower urgency, no FPD tie.
