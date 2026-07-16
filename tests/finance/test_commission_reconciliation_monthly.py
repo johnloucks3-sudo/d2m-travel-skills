@@ -223,3 +223,81 @@ def test_reconcile_month_empty_inputs_returns_zero_counts():
     assert results["counts"] == {
         "received_items": 0, "matched": 0, "flagged": 0, "unmatched": 0,
     }
+
+
+# ---------------------------------------------------------------------------
+# pull_tess_received — field mapping against the REAL CheckReceived schema
+#
+# Regression for the silent-drop bug (2026-07-16): the live TESS list response
+# carries NO top-level BookingNumber; amount lives in Commission.TotalReceived,
+# supplier under CheckFrom.TourOperatorName, payee under CheckTo.Name. The old
+# mapping read the wrong paths and dropped every record whose (absent) booking
+# ref was empty — discarding real commission checks (verified against the sole
+# live record, CheckID 605635 = $244.80 from "Outside Agents", 2026-03-03).
+# ---------------------------------------------------------------------------
+
+import commission_reconciliation_monthly as recon_mod
+
+
+def _real_schema_check(check_number="20260303-772", total_received=244.8, booking_count=1):
+    """A CheckReceived item shaped like the real TESS list response."""
+    return {
+        "CheckDate": "2026-03-03T00:00:00Z",
+        "CheckNumber": check_number,
+        "CheckFrom": {"TourOperatorName": "Outside Agents", "TourOperatorID": 14108},
+        "CheckTo": {"ID": 72914, "Name": "John Loucks"},
+        "Commission": {
+            "BookingCount": booking_count,
+            "Received": total_received,
+            "TotalReceived": total_received,
+            "Paid": total_received,
+        },
+        # deliberately no BookingNumber / BookingID / TourOperator / ClientName
+    }
+
+
+def _patch_tess(monkeypatch, items):
+    class _FakeTESS:
+        def __init__(self, *a, **k):
+            pass
+
+        def list_checks_received(self, **k):
+            return {"Items": items, "CountUnfiltered": len(items)}
+
+    # pull_tess_received does `from core.booking.thunderbird_tess import TESSClient`
+    # inside the function, so patch the symbol at its source module.
+    import core.booking.thunderbird_tess as tess_mod
+    monkeypatch.setattr(tess_mod, "TESSClient", _FakeTESS)
+    # TESS_TOKEN must exist for the pull to proceed; point at a present file.
+    monkeypatch.setattr(recon_mod, "TESS_TOKEN", __import__("pathlib").Path(__file__))
+
+
+def test_pull_tess_received_maps_real_schema_and_does_not_drop(monkeypatch):
+    _patch_tess(monkeypatch, [_real_schema_check()])
+    out = recon_mod.pull_tess_received(date(2026, 3, 1), date(2026, 3, 31))
+    assert len(out) == 1, "real check with no top-level BookingNumber must NOT be dropped"
+    rec = out[0]
+    assert rec["supplier"] == "Outside Agents"        # from CheckFrom.TourOperatorName
+    assert rec["amount"] == 244.8                       # from Commission.TotalReceived
+    assert rec["booking_ref"] == "20260303-772"         # CheckNumber fallback id
+    assert rec["client_name"] == "John Loucks"          # from CheckTo.Name
+    assert rec["date"] == "2026-03-03"
+
+
+def test_pull_tess_received_skips_zero_amount_checks(monkeypatch):
+    _patch_tess(monkeypatch, [_real_schema_check(total_received=0.0)])
+    out = recon_mod.pull_tess_received(date(2026, 3, 1), date(2026, 3, 31))
+    assert out == [], "a $0 receipt carries no money and should be skipped"
+
+
+def test_pull_tess_received_out_of_range_excluded(monkeypatch):
+    _patch_tess(monkeypatch, [_real_schema_check()])  # dated 2026-03-03
+    out = recon_mod.pull_tess_received(date(2026, 6, 1), date(2026, 6, 30))
+    assert out == [], "March check must not appear in a June reconciliation"
+
+
+def test_pull_tess_received_notes_aggregate_bookings(monkeypatch):
+    _patch_tess(monkeypatch, [_real_schema_check(booking_count=3)])
+    out = recon_mod.pull_tess_received(date(2026, 3, 1), date(2026, 3, 31))
+    assert len(out) == 1
+    assert "aggregates 3 bookings" in out[0]["notes"]

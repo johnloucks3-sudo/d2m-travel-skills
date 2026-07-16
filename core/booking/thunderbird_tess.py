@@ -344,13 +344,28 @@ class TESSAuth:
             return False
 
         try:
+            # The live token is minted by the public Angular SPA client
+            # (ngAuthApp): a PKCE client that takes NO client_secret. Its
+            # refresh_token must be redeemed against that same client. A
+            # client_id that is not a real OAuth client (e.g. an email address
+            # left in tess_config.json) or an accompanying secret makes the
+            # token endpoint reject the grant with invalid_client — which the
+            # Playwright credential fallback then silently absorbs every ~90min.
+            # Guard against both so a misconfigured tess_config.json can't
+            # re-poison the refresh path. (Root-caused 2026-07-16, Block 2.)
+            effective_client_id = self.client_id or self._tokens.get("client_id") or DEFAULT_CLIENT_ID
+            if not effective_client_id or "@" in effective_client_id:
+                effective_client_id = DEFAULT_CLIENT_ID
+
             refresh_data = {
                 "grant_type": "refresh_token",
                 "refresh_token": self._tokens["refresh_token"],
-                "client_id": self.client_id or self._tokens.get("client_id") or DEFAULT_CLIENT_ID,
+                "client_id": effective_client_id,
             }
-            # client_secret only sent when we actually have one (OAuth PKCE path)
-            if self.client_secret:
+            # A secret is valid ONLY for a genuine confidential OAuth client —
+            # never for the public ngAuthApp SPA client. Sending one to the
+            # public client is itself rejected (invalid_grant), so omit it.
+            if self.client_secret and effective_client_id != DEFAULT_CLIENT_ID:
                 refresh_data["client_secret"] = self.client_secret
 
             resp = requests.post(
@@ -1310,7 +1325,7 @@ def register_tess_tools(mcp):
             return json.dumps({"error": "No update fields provided", "type": "validation_error"}, indent=2)
 
         client = _get_client()
-        result = client.update_booking(booking_id, updates)
+        result = client.update_booking(booking_id, **updates)
         return json.dumps(result, indent=2, default=str)
 
     @mcp.tool(

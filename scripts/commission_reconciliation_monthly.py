@@ -138,6 +138,16 @@ def pull_tess_received(start: date, end: date) -> list[dict]:
         logger.warning(f"TESS pull returned error: {result['error']}")
         return []
 
+    # Verified against a live CheckReceived record (CheckID 605635, 2026-07-16):
+    # the TESS list response does NOT expose a top-level BookingNumber — the
+    # amount lives in Commission.TotalReceived/Received, the supplier is under
+    # CheckFrom.TourOperatorName, and the payee under CheckTo.Name. A check can
+    # aggregate several bookings (Commission.BookingCount), so the check itself
+    # carries no single booking id; CheckNumber is its stable receipt id. The
+    # previous mapping read the wrong paths and then dropped every record whose
+    # (absent) top-level booking_ref was empty — silently discarding real
+    # commission checks. Now: map from the real schema, and keep receipts that
+    # lack a Booking Master ref so they surface as `unmatched` rather than vanish.
     normalized = []
     for item in result.get("Items", []):
         check_date = _parse_date(
@@ -147,19 +157,43 @@ def pull_tess_received(start: date, end: date) -> list[dict]:
             continue
 
         commission = item.get("Commission") or {}
-        amount = commission.get("Received", 0) or 0
+        amount = (
+            commission.get("TotalReceived")
+            or commission.get("Received")
+            or 0
+        ) or 0
+
+        check_from = item.get("CheckFrom") or {}
+        check_to = item.get("CheckTo") or {}
         booking_ref = str(
-            item.get("BookingNumber") or item.get("BookingID") or item.get("BookingReference") or ""
+            item.get("BookingNumber")
+            or item.get("BookingID")
+            or item.get("BookingReference")
+            or item.get("CheckNumber")   # stable receipt id when no booking is exposed
+            or ""
         ).strip()
         supplier = (
-            (item.get("TourOperator") or {}).get("TourOperatorName")
+            check_from.get("TourOperatorName")
+            or (item.get("TourOperator") or {}).get("TourOperatorName")
             or item.get("TourOperatorName")
             or ""
         )
-        client_name = item.get("ClientName") or (item.get("Client") or {}).get("Name") or ""
+        client_name = (
+            check_to.get("Name")
+            or item.get("ClientName")
+            or (item.get("Client") or {}).get("Name")
+            or ""
+        )
 
-        if not booking_ref or not amount:
+        # Only skip zero-value receipts. A missing Booking Master ref is NOT a
+        # reason to drop money that actually arrived — it becomes `unmatched`.
+        if not amount:
             continue
+
+        booking_count = commission.get("BookingCount")
+        notes = f"CheckNumber {item.get('CheckNumber')}" if item.get("CheckNumber") else ""
+        if booking_count and booking_count != 1:
+            notes = (notes + f"; aggregates {booking_count} bookings").strip("; ")
 
         normalized.append({
             "source": "TESS",
@@ -168,7 +202,7 @@ def pull_tess_received(start: date, end: date) -> list[dict]:
             "supplier": supplier,
             "amount": round(float(amount), 2),
             "date": check_date.isoformat(),
-            "notes": "",
+            "notes": notes,
         })
 
     logger.info(f"TESS: {len(normalized)} received commissions in {start}..{end}")
