@@ -170,3 +170,51 @@ Files: `core/relay/delegation_wiring.py` (new), `OpsCenter/mission_board_sync.py
 ### Net: now actually wired vs. still an idea
 - **Wired + tested:** Camofox Tier 4; `search()` free-text (SearXNG); Gemini allowlist +4; managed-agents failure guard.
 - **Good idea, deferred (honest):** rewire 3 scan scripts onto `search()` + close MISSION-629; managed-agents cloud pilot (needs isolated SDK bump first); persistent CDP-Chrome session-reuse service (needs infra + human login).
+
+---
+
+## Block 3A — Door County Dining + Excursion Plan (2026-07-16)
+
+**Author:** Block-3A agent. Sibling to Block 3 (air/logistics) — did not touch flight/scraper files.
+
+**Deliverable:** `dossiers/DoorCounty_Dining_Excursion_Plan_Sep2026.md` — real dining + excursion plan for John & Susan Loucks's Country House Resort trip, Sep 7–14, 2026. Live-verified (WebSearch, 2026) rather than assumed:
+
+- **Fish boil:** White Gull Inn confirmed Wed/Fri/Sat/Sun only, $28.75/adult, (920) 868-3517 — still unbooked. Pelletier's (nightly, (920) 868-3313) noted as backup for other nights.
+- **Wine trail, ranked by fit** (not an equal list): Stone's Throw (all-grape, closest to John's dry Cab/Malbec palate) > Simon Creek (broadest range, best shared-afternoon pick) > Orchard Country/Lautenbach's (cherry identity + Susie's whites) > Door Peninsula (free tours) > von Stiehl (Algoma, ~60-70 min south — flagged as a long-haul day trip, not a default stop, given the low-distance preference).
+- **Fine dining:** CHOP live-confirmed open + reservable 2026 (closed Sundays — flagged so it isn't booked against Sep 13). Added Pearl Wine Cottage and La Sirena (both Ephraim) as additional culinary-fit options beyond what the dossier already had.
+- **Excursions, mobility-flagged honestly:** Eagle Tower is the standout — verified fully ADA-accessible (850-ft ramp, ≤5% grade, 16 rest points), no-stairs alternative to the 100-step climb. Eagle Bluff Lighthouse grounds flat, but tower interior = stairs (optional). Cana Island flagged **partial/conditional** (causeway can flood, unpaved island paths, steep tower stairs) — not oversold as clean-flat. Washington Island Ferry accessibility **not confirmed** in research — flagged for Commander to verify directly with the operator, not asserted.
+
+**Caught and fixed a real day-of-week bug:** verified via calendar calc that Sep 7, 2026 is a Monday (not the day the existing dossier's EXCURSIONS table assumed). White Gull's Wed/Fri/Sat/Sun boil nights are actually **Sep 9/11/12/13**, not the Sep 10/12/13 figure a same-day sibling edit had just introduced — corrected in `DOSSIER_DoorCounty_SisterBay_Sep2026.md` along with a pointer to the new plan doc. Also flagged the old sample flow's Cave Point kayak + 150-ft bluff hike as off-profile for the confirmed no-adventure/low-mobility preference (kept for history, struck through, not deleted).
+
+**No purchases or reservations made.** All booking-required items (fish boil call, CHOP OpenTable link, wine tour add-ons, ferry accessibility check) flagged as Commander actions — this is the Commander's own trip, no WF-17 gate, but no financial commitment authority was exercised.
+
+**Commit:** `8c4fb592` — scoped to the 2 dossier files only (other agents' concurrent dossier edits left untouched).
+
+**File conflict note:** `DOSSIER_DoorCounty_SisterBay_Sep2026.md` was mid-edit by the Block 3 (air) sibling when this agent first read it — re-read before editing, no clobber.
+
+---
+
+## Nichols/Group Larger Vehicle Research (2026-07-16)
+
+**Author:** Dani (A3), assigned by team-lead. Task: proactive alternative to the 3-separate-sedan ARN→At Six Stockholm transfer for the Grandeur group (Furlow 3071222, Ely-Darrow 3096289, Nichols 3078056), triggered by Larry Nichols' 2026-07-13 luggage-capacity flag.
+
+**Real pricing found (Kiwitaxi, live scrape, ARN→Stockholm City, Aug 27 2026, 6 pax):**
+| Vehicle | Cap (pax/bags) | Price/vehicle (net) |
+|---|---|---|
+| **Minibus 7PAX ("Best Choice")** | 7 / 7 | **$130** |
+| Minibus 10PAX | 10 / 10 | $244 |
+| Comfort (current sedan class) | 4 / 3 | $99 |
+
+**Current sedan cost (real, from Project Expedition Hold-w/o-Payment reminder emails — not estimated):** PE184710612 (Furlow), PE184711812 (Ely-Darrow), PE184712212 (Nichols) — all three **$132.13 each = $396.39 total**, client-facing price, due Aug 16. Each sedan capped at 3 bags — the exact number Larry Nichols flagged as short 2026-07-13.
+
+**Comparison:** 1 shared Minibus 7PAX ($130 net, ~$162.50 at D2M's standard 25% transfer markup) vs. 3 sedans ($396.39 total, already client-facing) — **~59-67% cheaper** depending on markup applied, AND solves the luggage complaint outright (7-bag capacity vs. 3 per sedan).
+
+**Logistics feasibility — clean yes:** All 3 couples arrive ARN on the **identical flight** (AY 811, lands 1:15 PM Aug 27) and go to the **same hotel** (At Six Stockholm) per `grandeur_group_logistics_matrix_20260702.md`. No arrival-time misalignment — textbook case for a shared vehicle.
+
+**Action taken:** Drafted (NOT sent — WF-17 gate) a warm, non-alarming group email to all 6 guests proposing the switch, framed as "you're all arriving together anyway" rather than a fix to a problem. Staged to johnloucks3 Gmail Drafts via `d2m_email_builder.py` (canonical dark-navy template). Draft ID `r2420492713513336051` / message `19f6c0c356bd55ca`. Verified via Gmail search that it carries only the `DRAFT` label (not sent).
+
+**Open items for Commander/Harlan:** (1) confirm D2M's markup policy on this specific quote before it's presented as a final price — team draft shows the option without a locked client price; (2) if approved, cancel the 3 PE Hold-w/o-Payment sedans before Aug 16 to avoid the $396.39 charge; (3) book the Kiwitaxi Minibus 7PAX (or source via same vendor as prior At Six group bookings) once Commander/couples confirm.
+
+**Files:** `drafts/body_grandeur_group_shared_van.html`, `core/travel/data/transfer_test_Stockholm_Arlanda_Airport_Stockholm_City_2026-08-27.json` (Kiwitaxi live pricing evidence). Commit `94d3bf30`.
+
+**Tool gap noted:** `search_mozio_transfers`, `search_welcome_pickups`, `search_blacklane_transfers` MCP tools all returned `credentials_required` (empty API keys at `~/Thunderbird/mozio_credentials.json`, `welcome_pickups_credentials.json`, `blacklane_credentials.json`). Routed around via the existing Kiwitaxi Playwright scraper (`scripts/test_transfer_scrapers.py`, custom form-fill mode) instead of stopping — got real live data. Flagging for Sterling/A7: these 3 MCP tools are effectively dead weight until credentialed.
