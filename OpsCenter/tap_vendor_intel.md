@@ -1,7 +1,8 @@
 # TAP (MAGtap) Vendor Intelligence
 ## Dreams2Memories Travel, LLC — Outside Agents Portal
-**Scraped:** 2026-05-28 | **Source:** tap.myagentgenie.com/blog/view/vendor-page/
+**Scraped:** 2026-05-28, re-verified live 2026-07-16 | **Source:** tap.myagentgenie.com/blog/view/vendor-page/
 **Classification:** Internal — Do Not Share
+**2026-07-16 re-verification note:** Live CDP re-scrape of the Supplier List and Featured Destinations sections confirms this file is still current — same ~150 suppliers, same commission rates (Regent 17%, Silversea 16%, Viking 18%, Ponant 19% all match), same 23-destination Featured Destinations list. Also confirmed: the top-nav "Destination Training" link and the "Featured Destinations & Specialty Training" tab both point to the identical `#featured_destinations` content — not two separate sources. No changes needed.
 
 ---
 
