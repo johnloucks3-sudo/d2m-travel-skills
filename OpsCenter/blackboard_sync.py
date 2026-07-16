@@ -124,12 +124,25 @@ def _parse_session() -> dict:
     return {"open_items": open_items, "next_priorities": next_priorities}
 
 
+def _seat_budget_line() -> str:
+    """Per-seat budget with explicit STALE flags (2026-07-16) — an old number
+    is shown as stale, never silently trusted."""
+    try:
+        import sys
+        sys.path.insert(0, "/home/john/Thunderbird")
+        from core.ai_infra.seat_budget import blackboard_line
+        return blackboard_line()
+    except Exception:
+        return "unavailable"
+
+
 def _build_summary(bb: dict, rl: dict, session: dict) -> str:
     """Build the 10-line blackboard_summary.txt content."""
     ts = datetime.now(MT).strftime("%Y-%m-%d %H:%M MT")
     lines = [
         f"=== THUNDERBIRD BLACKBOARD [{ts}] ===",
         f"Budget: Claude {rl['claude']} | OpenCode {rl['opencode']} | Groq {rl['groq']} | Deepseek {rl['deepseek']}",
+        f"Seat budgets: {_seat_budget_line()}",
         f"Active tasks: {bb['active_tasks']}",
         f"Last Deepseek ruling: {bb['last_ruling']}",
         f"Open items: {session['open_items']}",

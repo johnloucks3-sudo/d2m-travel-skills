@@ -241,7 +241,25 @@ def run_gate(
 
     v = Verdict("back", mission_id, wp, HOLD if holds else PASS, checks, holds)
     _log(v)
+    if not v.ok:
+        _page_hold(v)
     return v
+
+
+def _page_hold(v: Verdict) -> None:
+    """A back-gate HOLD is a stopped work product — page the Commander via the
+    disciplined wing_page lane (P1, one-and-done dedup). Best-effort."""
+    try:
+        import html
+        from core.comms.wing_page import send_page, P1
+        send_page(
+            problem=html.escape(f"CHIEF SILVER HOLD — {v.mission_id}: {v.work_product[:80]}"),
+            discussion="\n".join(html.escape(f"• {h}") for h in v.holds[:6]),
+            action="Fix the holds; the ticket cannot certify until the gate passes.",
+            level=P1, source="CHIEF SILVER",
+        )
+    except Exception:
+        pass
 
 
 # ── Internal-ops battery (board hygiene, inbox dupes, memory parity) ───────

@@ -124,6 +124,13 @@ def score_card(card_id: str, status: str, note: str = "") -> dict:
                 c["score_note"] = note
             with EXCHANGE.open("a") as f:
                 f.write(json.dumps(c) + "\n")
+            if status in ("hit", "miss"):
+                try:
+                    from core.silver.scorecard import record
+                    record(c["seat"], category="prediction", outcome=status,
+                           task_type=c["kind"], ref=card_id)
+                except Exception:
+                    pass
             return c
     raise KeyError(f"no card {card_id}")
 
@@ -215,6 +222,32 @@ def ingest_silver_output(path: str) -> tuple[list[dict], list[str]]:
         except (ValueError, KeyError) as e:
             rejects.append(f"{it.get('insight', '?')[:60]} — {e}")
     return posted, rejects
+
+
+def page_urgent_insights() -> bool:
+    """Telegram lane (Commander 2026-07-16: 'fold Telegram into this focus'):
+    CONFIRMED anticipated_ask / wing_priority cards page the Commander via the
+    disciplined wing_page channel — P1, one-and-done dedup (the identical card
+    set never repeats). Routine cards stay in the brief; this is urgent-only,
+    per the Telegram channel doctrine."""
+    urgent = [c for c in open_cards()
+              if c["confidence"] == "CONFIRMED"
+              and c["kind"] in ("anticipated_ask", "wing_priority")]
+    if not urgent:
+        return False
+    try:
+        from core.comms.wing_page import send_page, P1
+    except Exception:
+        return False
+    import html
+    ids = ",".join(sorted(c["id"] for c in urgent))
+    lines = [html.escape(f"• [{c['seat']}] {c['insight'][:110]}") for c in urgent[:6]]
+    return send_page(
+        problem=html.escape(f"Insight Exchange: {len(urgent)} CONFIRMED anticipation(s) open [{ids}]"),
+        discussion="\n".join(lines),
+        action="Score with: score_insights.py hit|miss IX-xxxx — or act; details in morning brief",
+        level=P1, source="CHIEF SILVER",
+    )
 
 
 def brief_lines(top_n: int = 5) -> list[str]:

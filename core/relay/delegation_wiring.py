@@ -201,6 +201,7 @@ def certify_mission(
     certified_by: str,
     verification_artifact: str,
     acceptance_criteria: str,
+    task_type: str = "",
 ) -> dict:
     """Certifier closes a delegated ticket (§3.4 PDTAC C, §3.5 anti-theater).
 
@@ -226,6 +227,14 @@ def certify_mission(
     v = run_gate(verification_artifact, acceptance_criteria, mission_id=mission_id)
     if not v.ok:
         raise DelegationError("CHIEF SILVER back-gate HOLD — " + "; ".join(v.holds))
+
+    # Evidence row for the seat effectiveness scorecard (best-effort).
+    try:
+        from core.silver.scorecard import record
+        record(assigned_to, category=task_type or "ops", outcome="pass",
+               task_type=task_type, ref=mission_id)
+    except Exception:
+        pass
 
     return mirror_stage_to_bus(
         mission_id, "done",
