@@ -691,8 +691,25 @@ class TESSClient:
         return self._api_request("GET", "Booking", params=params)
 
     def get_booking(self, booking_id: str | int) -> dict:
-        """Get a specific booking by ID."""
-        return self._api_request("GET", f"Booking/{booking_id}")
+        """Get a specific booking by BookingNumber or internal BookingID.
+
+        `GET Booking/{id}` 500s regardless of ID type (verified 2026-07-16 —
+        neither BookingNumber nor the real internal BookingID work against it).
+        Only the documented bare-list pattern (`GET Booking?bookingNumber=...`)
+        is supported, so filter client-side to find an ID match too.
+        """
+        result = self.list_bookings(bookingNumber=str(booking_id), pageSize=5)
+        items = result.get("Items") if isinstance(result, dict) else None
+        if items:
+            return items[0]
+        if isinstance(result, dict) and "error" in result:
+            return result
+        # Fall back to internal BookingID match if bookingNumber filter found nothing.
+        all_bookings = self.list_bookings(pageSize=100)
+        for item in all_bookings.get("Items", []):
+            if str(item.get("BookingID")) == str(booking_id):
+                return item
+        return {"error": f"Booking '{booking_id}' not found", "type": "not_found"}
 
     def search_bookings(self, filters: dict | None = None, **kwargs) -> dict:
         """Compatibility shim — delegates to list_bookings with filters."""

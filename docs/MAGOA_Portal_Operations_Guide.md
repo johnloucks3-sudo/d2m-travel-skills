@@ -245,3 +245,5 @@ All three portals are accessible via Chrome DevTools Protocol (CDP):
 | Module | `~/Thunderbird/thunderbird_outside_agents.py` |
 | Chrome profile | `~/.config/google-chrome-debug/` |
 | CDP port | 9222 |
+
+**Correction (2026-07-16):** Section 1's "all three share the same login" does not mean single-sign-on across tabs — each portal requires its own explicit login in the CDP Chrome profile even when the Commander is logged into another. Verified live: TESS tab authenticated (`crm.myagentgenie.com/app/views/trips`) while an Odysseus tab opened in the same profile still showed `login.aspx` ("PLEASE LOGIN"). Confirm `oa_status`/`oa_connect` per-portal `authenticated` flag before assuming a Commander login covers all three.
