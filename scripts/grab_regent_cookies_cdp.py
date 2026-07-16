@@ -7,10 +7,18 @@ ROOT = Path("/home/john/Thunderbird")
 TARGETS = [ROOT/"creds"/"regent_cookies_oa.json", ROOT/"creds"/"regent_cookies.json"]
 
 tabs = requests.get("http://localhost:9222/json", timeout=5).json()
-# Prefer rssc tab; fall back to first debuggable tab
-tab = next((t for t in tabs if "rssc.com" in t.get("url","") and t.get("webSocketDebuggerUrl")), None)
+# Prefer the real rssc.com PAGE tab; fall back to first debuggable page.
+# BUG FIX 2026-07-16: a substring check on the raw URL false-matches ad-tracker
+# iframes whose URL embeds "ref=https%3A%2F%2Fwww.rssc.com..." as a referrer
+# query param (rssc.com's own ad pixels do this constantly) -- must also
+# require type=="page" so we don't hand a websocket to a tracking iframe.
+def _is_rssc_page(t):
+    url = t.get("url", "")
+    return t.get("type") == "page" and ("://www.rssc.com" in url or "://rssc.com" in url)
+
+tab = next((t for t in tabs if _is_rssc_page(t) and t.get("webSocketDebuggerUrl")), None)
 if not tab:
-    tab = next((t for t in tabs if t.get("webSocketDebuggerUrl")), None)
+    tab = next((t for t in tabs if t.get("type") == "page" and t.get("webSocketDebuggerUrl")), None)
 if not tab:
     print("No debuggable Chrome tab found"); exit(1)
 

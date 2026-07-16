@@ -26,6 +26,7 @@ fi
 echo "Launching Chrome with CDP on port $CDP_PORT..."
 google-chrome-stable \
     --remote-debugging-port=$CDP_PORT \
+    --remote-allow-origins=* \
     --user-data-dir="$CHROME_DEBUG_DIR" \
     2>/dev/null &
 
