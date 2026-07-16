@@ -107061,3 +107061,141 @@ Surface to
 **Criteria unverified:** none
 **Notes:** session warmed + authenticated
 <!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a3d10d tier=trivial session_id=45745422-b244-4be3-b72d-f83e1ff7a39d opened_at=2026-07-16T12:43:06.419036+00:00 -->
+**Plan Opened:** PLN-a3d10d
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a3d10d verdict=PASS quality_tier=none closed_at=2026-07-16T12:43:06.428563+00:00 -->
+**Plan Closed:** PLN-a3d10d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b237aa tier=trivial session_id=none opened_at=2026-07-16T12:44:09.268789+00:00 -->
+**Plan Opened:** PLN-b237aa
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b237aa verdict=FAIL quality_tier=none closed_at=2026-07-16T12:44:09.281096+00:00 -->
+**Plan Closed:** PLN-b237aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4dc6d3 tier=trivial session_id=none opened_at=2026-07-16T12:44:14.469168+00:00 -->
+**Plan Opened:** PLN-4dc6d3
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4dc6d3 verdict=PASS quality_tier=none closed_at=2026-07-16T12:44:14.477004+00:00 -->
+**Plan Closed:** PLN-4dc6d3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ac70ff tier=trivial session_id=none opened_at=2026-07-16T12:45:13.399506+00:00 -->
+**Plan Opened:** PLN-ac70ff
+**Task:** generic long-tail remediation: thunderbird-telegram-gw -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-telegram-gw verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ac70ff verdict=PASS quality_tier=none closed_at=2026-07-16T12:45:13.406632+00:00 -->
+**Plan Closed:** PLN-ac70ff
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-telegram-gw verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f3775c tier=trivial session_id=a9e841f0-3514-4ac3-9ec5-05b04a50a175 opened_at=2026-07-16T12:47:24.185525+00:00 -->
+**Plan Opened:** PLN-f3775c
+**Task:** auto-filed: turn had tool activity with no explicit Plan
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f3775c verdict=PASS quality_tier=none closed_at=2026-07-16T12:47:24.202551+00:00 -->
+**Plan Closed:** PLN-f3775c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** no Commander gate crossed without authorization; every file/action claimed as done is independently verifiable; no unhandled exception
+**Notes:** auto-filed by backstop hook — criteria not mechanically checked
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5d4a9f tier=trivial session_id=none opened_at=2026-07-16T12:48:14.874813+00:00 -->
+**Plan Opened:** PLN-5d4a9f
+**Task:** crash captured: wing_relay (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_107410.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5d4a9f verdict=PASS quality_tier=none closed_at=2026-07-16T12:48:14.943764+00:00 -->
+**Plan Closed:** PLN-5d4a9f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/wing_relay_107410.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-893379 tier=trivial session_id=none opened_at=2026-07-16T12:48:15.014803+00:00 -->
+**Plan Opened:** PLN-893379
+**Task:** generic long-tail remediation: d2m-factbook-refresh -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-factbook-refresh verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-893379 verdict=FAIL quality_tier=none closed_at=2026-07-16T12:48:15.063620+00:00 -->
+**Plan Closed:** PLN-893379
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-factbook-refresh verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+---
+
+## 2026-07-16 06:50 MDT — CI Remediation: d2m-factbook-refresh timeout loop
+
+**Unit:** thunderbird-generic-remediate@d2m-factbook-refresh.service  
+**Authority:** Hale, CI lane (SO_CI_RAZOR_SHARP_20260620)  
+**Root cause:** factbook_refresh.py started at `model=opus` (broke haiku→sonnet→opus retry chain; opus has no escalation tier), `timeout=280s × 3 retries = 840s` vs `TimeoutStartSec=300` — service always killed before completion.  
+**Fix:** (1) model reverted to `claude-haiku-4-5-20251001`, timeout to 120s; (2) new drop-in raises `TimeoutStartSec=900`; (3) daemon-reload + reset-failed on both units.  
+**Loop stopped:** both units inactive, no new failures since 06:48 MDT.  
+**Next verification:** timer fires Mon 2026-07-20 01:30 MDT (Persistent=true, weekly).  
+**Full report:** output/ci_remediation/fix_thunderbird-generic-remediate@d2m-factbook-refresh_service.md

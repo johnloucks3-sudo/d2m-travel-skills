@@ -62,9 +62,17 @@ Output ONLY valid JSON. No preamble, no explanation."""
     result = spawn_headless_claude(
         prompt=prompt,
         output_file=working_file,
-        model="claude-opus-4-8",
+        model="claude-haiku-4-5-20251001",
         task_name="factbook-refresh",
         background=False,
+        # FIXED 2026-07-16 (CI remediation): starting at opus broke the
+        # haiku->sonnet->opus escalation chain — opus has no tier above it,
+        # so all 3 retries ran at opus × 280s = 840s total, always exceeding
+        # TimeoutStartSec=300. Restored to haiku (chain origin) with 120s
+        # per-attempt timeout. TimeoutStartSec raised to 900s via drop-in
+        # (/home/john/.config/systemd/user/d2m-factbook-refresh.service.d/
+        # timeout-override.conf) to accommodate 3×120s + startup overhead.
+        # Haiku is sufficient for local dossier synthesis (no live API calls).
         timeout=120,
     )
 
@@ -80,7 +88,7 @@ Output ONLY valid JSON. No preamble, no explanation."""
 
 
 def main() -> int:
-    print("factbook_refresh: Spawning Claude Opus for continuity analysis...", file=sys.stderr)
+    print("factbook_refresh: Spawning Claude Haiku for continuity analysis...", file=sys.stderr)
     factbook = spawn_claude_factbook()
 
     if "error" in factbook:
