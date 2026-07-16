@@ -111,14 +111,15 @@ Owns: **mechanical ops, scheduled sweeps, data pulls, scrapes, batch file ops, C
 
 **AG — Antigravity/Gemini (separate Google meter, $0 Claude). The budget-relief valve.**
 Owns: **large-context research (Gemini 1M ctx — market/destination intel), vision/image tasks, and bulk parallel Claude-optional work.**
-*Route to AG when:* the task needs a big context window or vision, **or** is Sonnet-tier work that does **not** need Claude judgment/voice — **especially when the weekly cap is high.** AG is the only seat that adds throughput without drawing the MAX bucket.
+*Route to AG when:* the task needs a big context window or vision, **or** is Sonnet-tier work that does **not** need Claude judgment/voice. AG runs on a free Google meter, so **Claude-optional work should default to AG at any weekly %** — there is no reason to spend the MAX bucket on it. AG is the only seat that adds throughput without drawing the MAX bucket.
 
 **Decision order (first match wins):**
 1. Needs Claude judgment / client voice / architecture / arbitration? → **CC**
 2. Deterministic ops / scheduled sweep / data pull, no judgment? → **OC**
 3. Large-context research **or** vision **or** Claude-optional bulk? → **AG**
 4. Otherwise → **CC** (safe default; CC can re-delegate).
-*Overlay:* when overall-weekly % is high, **bias step-2/3 Sonnet-tier work toward AG** to protect the MAX bucket.
+
+*Edge case — judgment **and** huge context:* step 1 wins (judgment routes to CC) even when context is large. If the context exceeds CC's window, **CC chunks it, or sub-delegates the research leg to AG** (Gemini 1M ctx) and keeps the judgment/synthesis on CC.
 
 ### 3.2 The unit of delegated work — a mission-board ticket
 `OpsCenter/mission_board.json` is the durable truth. Existing fields: `id, title, status, priority, assigned_to, description, logs`. **Extend the schema** for delegation:

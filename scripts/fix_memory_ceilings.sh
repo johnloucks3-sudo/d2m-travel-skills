@@ -1,100 +1,97 @@
 #!/bin/bash
 # Fix Thunderbird daemon memory limits on YOGA
 # Run on YOGA: ssh yoga bash /home/john/Thunderbird/scripts/fix_memory_ceilings.sh
+#
+# ⚠️ LAYOUT IS LOAD-BEARING (A7 Sterling, 2026-07-16). Per-service limits MUST go in
+# per-unit dirs ~/.config/systemd/user/<unit>.service.d/override.conf, NOT in the shared
+# top-level service.d/. A bare service.d/ is systemd's "drop-in for a unit TYPE" that
+# applies to EVERY .service; systemd merges all drop-ins by basename across dirs and the
+# lexically-last one wins for MemoryMax (per-unit dirs get NO precedence — verified live).
+# The prior version of this script wrote everything into service.d/, so
+# thunderbird-default-memory.conf (sorts last) silently capped qdrant/opencode/etc. to 1G
+# — the fleet-wide OOM root cause. The ONLY thing that belongs in service.d/ is the
+# 00-prefixed default (sorts FIRST = base layer that per-unit overrides beat).
 
 set -e
 
-echo "🔧 Applying memory ceilings to Thunderbird daemons..."
+echo "🔧 Applying memory ceilings to Thunderbird daemons (per-unit layout)..."
 
-# Directories for systemd user service overrides
 USER_UNIT_DIR="$HOME/.config/systemd/user"
-OVERRIDE_DIR="$USER_UNIT_DIR/service.d"
+SHARED_DIR="$USER_UNIT_DIR/service.d"
+mkdir -p "$SHARED_DIR"
 
-mkdir -p "$OVERRIDE_DIR"
+# ----------------------------------------------------------------------------
+# 0. Remove legacy shared-dir confs from the old (broken) layout, if present.
+#    These applied to every unit and clobbered per-service limits.
+# ----------------------------------------------------------------------------
+for legacy in opencode-spsa-monitor-memory qdrant-memory \
+              d2m-gmail-agentmail-bridge-memory hale-credential-check-memory \
+              thunderbird-default-memory; do
+    rm -f "$SHARED_DIR/${legacy}.conf"
+done
 
-# ============================================================================
-# 1. OpenCode SPSA Monitor — Set to 2GB max (was infinity)
-# ============================================================================
-echo "Setting OpenCode → 2GB MemoryMax..."
-cat > "$OVERRIDE_DIR/opencode-spsa-monitor-memory.conf" << 'EOF'
+# write_override <unit> <MemoryMax> <MemoryHigh>
+write_override() {
+    local unit="$1" max="$2" high="$3"
+    local dir="$USER_UNIT_DIR/${unit}.service.d"
+    mkdir -p "$dir"
+    cat > "$dir/override.conf" << EOF
+# Per-unit memory limit (fix_memory_ceilings.sh). MUST live here, not in service.d/.
+# override.conf sorts after 00-thunderbird-default-memory.conf so it wins for THIS unit.
 [Service]
-MemoryMax=2147483648
-MemoryHigh=1610612736
+MemoryMax=${max}
+MemoryHigh=${high}
 EOF
+    echo "  ${unit} → MemoryMax=${max}"
+}
 
-# ============================================================================
-# 2. Qdrant (if it starts later) — Set to 4GB max (was infinity)
-# ============================================================================
-echo "Setting Qdrant → 4GB MemoryMax..."
-cat > "$OVERRIDE_DIR/qdrant-memory.conf" << 'EOF'
-[Service]
-MemoryMax=4294967296
-MemoryHigh=3221225472
-EOF
+# ----------------------------------------------------------------------------
+# Per-service ceilings (each in its OWN unit dir)
+# ----------------------------------------------------------------------------
+write_override opencode-spsa-monitor      2147483648 1610612736   # 2.0 GB
+write_override qdrant                      4294967296 3221225472   # 4.0 GB
+write_override d2m-gmail-agentmail-bridge  1610612736 1342177280   # 1.5 GB
+write_override hale-credential-check        536870912  469762048   # 512 MB
+write_override thunderbird-continuity      1610612736 1342177280   # 1.5 GB
+write_override staff_tasking_timers_system  536870912  469762048   # 512 MB
+write_override inbox-hygiene                134217728  117440512   # 128 MB
 
-# ============================================================================
-# 3. D2M Gmail AgentMail Bridge — Set to 1.5GB (new ceiling)
-# ============================================================================
-echo "Setting AgentMail bridge → 1.5GB MemoryMax..."
-cat > "$OVERRIDE_DIR/d2m-gmail-agentmail-bridge-memory.conf" << 'EOF'
-[Service]
-MemoryMax=1610612736
-MemoryHigh=1342177280
-EOF
-
-# ============================================================================
-# 4. Credential Health Check — Set to 512MB (new ceiling)
-# ============================================================================
-echo "Setting Credential check → 512MB MemoryMax..."
-cat > "$OVERRIDE_DIR/hale-credential-check-memory.conf" << 'EOF'
-[Service]
-MemoryMax=536870912
-MemoryHigh=469762048
-EOF
-
-# ============================================================================
-# 5. Any other Thunderbird service — Add generic backstop
-# ============================================================================
-echo "Setting fallback ceiling for all services..."
-cat > "$OVERRIDE_DIR/thunderbird-default-memory.conf" << 'EOF'
-# Default memory limit for any Thunderbird service without explicit override
+# ----------------------------------------------------------------------------
+# Fleet default — 00- prefix so it sorts FIRST (base layer, overridden per-unit).
+# ----------------------------------------------------------------------------
+echo "  00-default (fleet fallback) → MemoryMax=1073741824 (1 GB)"
+cat > "$SHARED_DIR/00-thunderbird-default-memory.conf" << 'EOF'
+# FLEET-WIDE DEFAULT — applies to every user .service unit WITHOUT its own override.
+# 00- prefix is load-bearing: it must sort FIRST so per-unit override.conf files win.
+# Do NOT add other MemoryMax confs to this service.d/ dir — they apply to every unit
+# and the lexically-last basename silently clobbers all per-service limits.
 [Service]
 MemoryMax=1073741824
 MemoryHigh=805306368
 EOF
 
-# ============================================================================
-# Reload and restart
-# ============================================================================
+# ----------------------------------------------------------------------------
+# Reload + verify
+# ----------------------------------------------------------------------------
 echo ""
 echo "Reloading systemd user services..."
 systemctl --user daemon-reload
 
 echo "Restarting services with new memory limits..."
-systemctl --user restart opencode-spsa-monitor.service 2>/dev/null || echo "  (opencode-spsa-monitor not running, will start with limit when needed)"
-systemctl --user restart d2m-gmail-agentmail-bridge.service 2>/dev/null || echo "  (agentmail bridge not running)"
-systemctl --user restart hale-credential-check.service 2>/dev/null || echo "  (credential check not running)"
+for svc in opencode-spsa-monitor d2m-gmail-agentmail-bridge hale-credential-check; do
+    systemctl --user restart "${svc}.service" 2>/dev/null || echo "  (${svc} not running)"
+done
 
 echo ""
-echo "✅ Memory ceilings applied. Checking config..."
-echo ""
-echo "OpenCode SPSA Monitor:"
-systemctl --user show opencode-spsa-monitor.service -p MemoryMax -p MemoryHigh 2>/dev/null || echo "  (not found)"
-
-echo ""
-echo "Qdrant:"
-systemctl --user show qdrant.service -p MemoryMax -p MemoryHigh 2>/dev/null || echo "  (not found)"
-
-echo ""
-echo "AgentMail bridge:"
-systemctl --user show d2m-gmail-agentmail-bridge.service -p MemoryMax -p MemoryHigh 2>/dev/null || echo "  (not found)"
+echo "✅ Memory ceilings applied. Enforced values (kernel truth):"
+for svc in qdrant opencode-spsa-monitor d2m-gmail-agentmail-bridge \
+           hale-credential-check thunderbird-continuity ci-sentinel; do
+    printf "  %-32s " "$svc"
+    systemctl --user show "${svc}.service" -p MemoryMax --value 2>/dev/null || echo "(not found)"
+done
 
 echo ""
 echo "📊 System memory status:"
 free -h
-
 echo ""
-echo "✅ DONE. Swap thrashing should be prevented now."
-echo ""
-echo "Next: Monitor swap usage over the next hour:"
-echo "  watch -n 5 'free -h && echo && vmstat 1 3'"
+echo "✅ DONE. Per-unit overrides win; ci-sentinel should show the 1G fallback."

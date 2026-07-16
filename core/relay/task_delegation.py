@@ -28,11 +28,6 @@ OC = "OC"  # OpenCode   — Sonnet via MAX OAuth (+ Poe persona lane). Mechanica
 AG = "AG"  # Antigravity/Gemini — separate Google meter ($0 Claude). Budget valve.
 SEATS = (CC, OC, AG)
 
-# When overall-weekly MAX % is at/above this, bias Claude-optional Sonnet-tier
-# work off the MAX meter onto AG. Grounded in the Jun-28 ~75% peak.
-HIGH_WEEKLY_PCT = 70
-
-
 @dataclass
 class RouteDecision:
     seat: str
@@ -46,7 +41,6 @@ def route_task(
     needs_large_context: bool = False, # >~200k tokens; Gemini 1M ctx territory
     is_vision: bool = False,           # image QC / visual
     claude_optional: bool = False,     # Sonnet-tier work that does NOT need Claude judgment
-    weekly_pct: Optional[int] = None,  # current overall-weekly MAX % (budget overlay)
 ) -> RouteDecision:
     """Return (seat, rationale). First match wins — see design §3.1."""
     # 1. Judgment / architecture / client voice / cross-seat arbitration → CC
@@ -68,13 +62,11 @@ def route_task(
     if task_type in mechanical:
         return RouteDecision(OC, "deterministic ops/mechanical — OC JET default")
 
-    # Budget overlay: Claude-optional Sonnet-tier work → AG when the cap is high.
-    if claude_optional and weekly_pct is not None and weekly_pct >= HIGH_WEEKLY_PCT:
-        return RouteDecision(
-            AG, f"Claude-optional & weekly {weekly_pct}%>= {HIGH_WEEKLY_PCT}% — offload to AG"
-        )
+    # Claude-optional Sonnet-tier work → AG unconditionally. AG is the free
+    # Google meter; there is no reason to spend the MAX bucket on work that does
+    # not need Claude judgment/voice, at any weekly %.
     if claude_optional:
-        return RouteDecision(AG, "Claude-optional bulk — AG relieves the MAX bucket")
+        return RouteDecision(AG, "Claude-optional — AG (free meter) instead of the MAX bucket")
 
     # 4. Safe default — CC can re-delegate.
     return RouteDecision(CC, "default — CC (can re-delegate)")
@@ -171,8 +163,7 @@ if __name__ == "__main__":
         (dict(task_type="image_qc", is_vision=True), AG),
         (dict(task_type="factbook_refresh"), OC),
         (dict(task_type="inbox_triage"), OC),
-        (dict(task_type="summarize_batch", claude_optional=True, weekly_pct=75), AG),
-        (dict(task_type="summarize_batch", claude_optional=True, weekly_pct=30), AG),
+        (dict(task_type="summarize_batch", claude_optional=True), AG),
         (dict(task_type="draft_something"), CC),
     ]
     ok = 0
