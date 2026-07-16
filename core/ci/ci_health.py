@@ -207,7 +207,7 @@ def sweep(registry_path: Path = DEFAULT_REGISTRY, update_verified: bool = True) 
 
         status = razor_sharp_status(s, probe_ok, now)
         replace_reason = None
-        if policy:
+        if policy and status != "RETIRED":
             repl, reason = needs_replacement(history, s.get("latency_sla_ms", 10**9), policy, now)
             if repl:
                 status = "REPLACE"

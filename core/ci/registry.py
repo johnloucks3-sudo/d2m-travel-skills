@@ -37,12 +37,24 @@ def _age_days(d: str | None, now: datetime) -> float:
 
 
 def razor_sharp_status(entry: dict, probe_ok: bool, now: datetime | None = None) -> str:
-    """RED (probe failed) | DULL (currency/re-eval overdue) | RAZOR_SHARP."""
+    """RETIRED (on-demand, not currency-tracked) | RED (probe failed) |
+    DULL (currency/re-eval overdue) | RAZOR_SHARP.
+
+    Retired/on-demand designations null their currency_window_hours/reeval_cadence_days
+    (they aren't subject to the razor-sharp clock). Guard against None so one such
+    entry can't crash the whole fleet sweep (M-636: regent-portal-live nulled its
+    windows on retirement and a raw `>=` comparison against None aborted the sweep,
+    leaving 46/53 designations stuck at status 'unknown').
+    """
     now = now or datetime.now(timezone.utc)
+    if entry.get("status") == "retired_on_demand":
+        return "RETIRED"
     if not probe_ok:
         return "RED"
-    if _age_hours(entry.get("last_verified"), now) >= entry["currency_window_hours"]:
+    cwh = entry.get("currency_window_hours")
+    if cwh is not None and _age_hours(entry.get("last_verified"), now) >= cwh:
         return "DULL"
-    if _age_days(entry.get("last_reeval"), now) >= entry["reeval_cadence_days"]:
+    rcd = entry.get("reeval_cadence_days")
+    if rcd is not None and _age_days(entry.get("last_reeval"), now) >= rcd:
         return "DULL"
     return "RAZOR_SHARP"
