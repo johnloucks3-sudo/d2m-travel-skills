@@ -19,9 +19,15 @@ class BackupBot(BotBase):
         Task("backup-verify",
              venv("core/watchtower/thunderbird_backup_verify.py"),
              interval_sec=86400, timeout_sec=120),
-        Task("drive-sync",
-             bash(f"{ROOT}/scripts/thunderbird-rclone-sync.sh"),
-             interval_sec=86400, timeout_sec=600),
+        # "drive-sync" task intentionally removed 2026-07-16 (backup-chain audit):
+        # thunderbird-drive-sync.timer (systemd, nightly 23:00, TimeoutStartSec=1800,
+        # Persistent=true) already runs this exact script authoritatively and has
+        # succeeded every night (rclone exit 0, full transfer). This supertimer copy
+        # was redundant, shared the bot's 900s leader-level timeout (registry.json
+        # backup_bot.timeout_sec=900) with 9 other daily/weekly tasks, and its 600s
+        # inner timeout was shorter than real transfer time (700-770s observed),
+        # so it was being killed mid-sync and logging false "fail"/"timeout" entries
+        # in supertimer_backup_bot_state.json while the real nightly backup was fine.
         Task("logrotate",
              bash(f"/usr/sbin/logrotate -s {ROOT}/logs/logrotate.state {ROOT}/config/logrotate.conf"),
              interval_sec=86400, timeout_sec=60),
