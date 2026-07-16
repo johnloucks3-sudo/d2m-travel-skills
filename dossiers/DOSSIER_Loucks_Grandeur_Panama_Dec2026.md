@@ -40,6 +40,8 @@ Seven excursions are ALREADY BOOKED on this reservation. Assessed against John's
 
 **Bottom line for the Commander:** One genuine mismatch — **Puntarenas "A Walk in the Clouds" is an adventure hike, not a leisurely tour**, and should be reconsidered. Two more (Cartagena, Antigua) are fine in *style* but involve cobblestone walking / long drives worth pacing. Cabo, San Diego, and Acapulco fit well. The dolphin/stingray encounter is enjoyable but is an in-water active outing, not the scenic/culinary style on file — worth a conscious "yes, we want this" from John.
 
+> **✅ COMMANDER CONFIRMED (2026-07-16):** "All these excursions are acceptable for Loucks'" — reviewed the fit assessment above and explicitly approved all 7 booked excursions as-is, including Puntarenas. No changes needed. This confirmation supersedes the flags above for planning purposes; the activity-level notes stay in the itinerary copy itself as honest "good to know" context, not as an open decision.
+
 ---
 
 ## PANAMA CANAL TRANSIT
