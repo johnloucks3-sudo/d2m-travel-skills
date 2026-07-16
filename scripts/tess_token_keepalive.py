@@ -104,24 +104,57 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
         try:
             context = await browser.new_context()
             page = await context.new_page()
-            await page.goto(TESS_LOGIN_URL, wait_until="networkidle", timeout=30000)
-            await page.wait_for_timeout(1500)
+            # Fixed 2026-07-16: "networkidle" and "load" both time out on the
+            # TESS SPA — "networkidle" because background polling prevents the
+            # 500ms idle window (intermittently), "load" because third-party
+            # CDN/analytics assets hang in headless mode. "domcontentloaded"
+            # fires as soon as the HTML is parsed. We then wait for the input
+            # to be visible AND add a 3-second delay so React/Angular event
+            # handlers finish attaching before we interact.
+            await page.goto(TESS_LOGIN_URL, wait_until="domcontentloaded", timeout=30000)
+            await page.wait_for_selector('input[name="username"]', state="visible", timeout=15000)
+            await page.wait_for_timeout(3000)  # JS framework init
 
             # Selector fix 2026-06-11: maglogin uses a "User Name" field
             # (input[name="username"], type=text), NOT email. Verified live.
             await page.fill('input[name="username"]', username, timeout=10000)
             await page.fill('input[name="password"]', password, timeout=10000)
             await page.click('button[type="submit"]', timeout=5000)
-            await page.wait_for_load_state("networkidle", timeout=30000)
-            await page.wait_for_timeout(2000)
+            # Wait for navigation AWAY from the login page — a URL change is
+            # the ground-truth indicator of a successful login submission.
+            # wait_for_load_state on the same page fires immediately (no-op
+            # when the submit was a JS-only handler that already navigated).
+            try:
+                await page.wait_for_url(
+                    lambda url: "/maglogin" not in url, timeout=25000
+                )
+            except Exception:
+                pass  # URL check below handles both timeout and no-nav cases
 
-            if TESS_DASHBOARD_HOST not in page.url:
-                logger.error("Credential login failed — still at: %s", page.url)
+            # Fixed 2026-07-16: URL check was non-functional — TESS_DASHBOARD_HOST
+            # appears in BOTH the login URL and dashboard URL, so the guard never
+            # caught a failed login. Check that we've navigated AWAY from the
+            # login page specifically.
+            if "/maglogin" in page.url:
+                logger.error("Credential login failed — still at login page: %s", page.url)
                 return False
 
-            auth_data_raw = await page.evaluate(
-                "() => localStorage.getItem('ls.authenticationData')"
-            )
+            # Fixed 2026-07-16: static 2s wait was insufficient for TESS SPA
+            # to flush auth data to localStorage after redirect. The SPA writes
+            # ls.authenticationData asynchronously post-navigation. Poll up to
+            # 20 s (checking every 1 s) so intermittent timing doesn't cause a
+            # false "no auth token" failure.
+            auth_data_raw = None
+            for _poll in range(20):
+                auth_data_raw = await page.evaluate(
+                    "() => localStorage.getItem('ls.authenticationData')"
+                )
+                if auth_data_raw:
+                    break
+                if _poll == 0:
+                    logger.info("Polling localStorage for auth token (up to 20s)...")
+                await page.wait_for_timeout(1000)
+
             if not auth_data_raw:
                 for key in ["authenticationData", "tess_auth", "auth"]:
                     auth_data_raw = await page.evaluate(
@@ -205,6 +238,9 @@ async def _credential_login_playwright(username: str, password: str) -> bool:
             await browser.close()
 
 
+_BAD_CREDS_MARKER = THUNDERBIRD / "OpsCenter/state/.tess_vault_creds_bad"
+
+
 def _try_credential_login() -> int:
     vault = _load_vault()
     username = vault.get("D2M_TESS_AGENT_USERNAME", "")
@@ -213,7 +249,35 @@ def _try_credential_login() -> int:
         logger.error("No vault credentials — cannot auto-login")
         return 1
     ok = asyncio.run(_credential_login_playwright(username, password))
-    return 0 if ok else 1
+    if ok:
+        _BAD_CREDS_MARKER.unlink(missing_ok=True)
+        return 0
+    # Diagnosed 2026-07-16: TESS answers invalid_grant ("user name or password
+    # is incorrect") — the vault password is stale. That is a HUMAN-GATED fix
+    # (Commander must update .env.vault or inject a browser token via
+    # rotate_tess_credentials.sh). Re-alerting every 90 min via OnFailure adds
+    # nothing — page ONCE (wing_page one-and-done dedup), then exit 0 with the
+    # marker set so the storm stops until the vault changes.
+    if _BAD_CREDS_MARKER.exists():
+        logger.warning("Credential login still failing (stale vault password) — "
+                       "already paged, suppressing repeat alert")
+        return 0
+    try:
+        sys.path.insert(0, str(THUNDERBIRD))
+        from core.comms.wing_page import send_page, P1
+        send_page(
+            problem="TESS keepalive: vault password rejected (invalid_grant)",
+            discussion="TESS says the stored user name or password is incorrect. "
+                       "Token cannot be minted until the vault is corrected.",
+            action="Update D2M_TESS_AGENT_PASSWORD in Thunderbird/.env.vault, "
+                   "OR log into crm.myagentgenie.com and run: "
+                   "bash scripts/rotate_tess_credentials.sh 'authenticationData blob'",
+            level=P1, source="CHIEF SILVER",
+        )
+    except Exception:
+        pass
+    _BAD_CREDS_MARKER.write_text("paged")
+    return 0
 
 
 def main() -> int:
