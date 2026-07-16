@@ -135,3 +135,38 @@ Took the Phase-0 cross-Hale delegation library (`core/relay/task_delegation.py`)
 **Anti-theater note:** seat delegation now REQUIRES `acceptance_criteria` (PDTAC "T") — `delegate_mission` raises without it. `certified_by` defaults to CC and must differ from the assigned seat.
 
 Files: `core/relay/delegation_wiring.py` (new), `OpsCenter/mission_board_sync.py`, `tests/test_delegation_wiring.py` (new). Did NOT touch the protected `wing_relay.py` or other blocks' tickets.
+
+---
+
+## Block 7 — Web-Intel + AI SDK Integration (2026-07-16)
+
+**Author:** Block-7 agent (Opus). Discipline: verify vs ground truth, honest real-vs-idea split. Commit `011144be2` (scoped to 6 files, gitleaks clean, 37 tests pass).
+
+### 1. Camofox wired into escalation chain — REAL, TESTED ✅
+- `core/web/smart_fetch.py`: added **Tier 4 = Camofox** (`http://127.0.0.1:9377`, REST stealth camoufox browser), opt-in via `allow_camofox_tier=True`, tried only after CloakBrowser (Tier 3) fails. `_run_camofox()` = start→open-tab→GET snapshot, with one auto-restart on `session_expired` (Camofox sessions are stateful and expire between calls — verified behavior).
+- **Live-verified:** forced tiers 1–3 to fail, fetched `https://example.com` → `tier_used=4, status=200`, real snapshot content returned. Default path (no flag) confirmed to NOT invoke Camofox → offline tests stay hermetic.
+- Opt-in (not always-on) on purpose: heavier + session-stateful; CloakBrowser remains the default escalation tier.
+
+### 2. MISSION-629 free-text search gap — REAL FIX SHIPPED (different tool choice) ✅
+- Root: anansi only does `fetch <URL>`; `fare_watch_centrav.py`/`hotel_scan.py`/`transfer_scan.py` passed raw NL queries → empty output. Correctly diagnosed last night as a dead end *in anansi's current form*. The plan's "different tool choice" is now built.
+- Added `smart_fetch.search(query, engine="auto")`: **SearXNG** (`127.0.0.1:8890`, JSON metasearch) primary, **Camofox `@google_search` macro** fallback. **Live-verified:** "cheapest flight COS to GRB September 2026" → 18 real results via SearXNG (Expedia/Kayak/Google links). CLI: `python3 -m core.web.smart_fetch --search "<query>"`.
+- **NOT yet done (honest):** the 3 scan scripts are not yet rewired to call `search()` — that's a follow-up (touches Block 3/6 scan code). The tested primitive exists; wiring the callers + closing MISSION-629 is the remaining step.
+
+### 3. Claude Agent SDK (Managed Agents) pilot — BLOCKED, root-caused ⛔ (honest)
+- Attempted a real end-to-end run → `AttributeError: 'Beta' object has no attribute 'sessions'`.
+- **Ground truth:** installed `anthropic==0.86.0` (requirements.txt pins `0.84.0`). `client.beta` exposes only `files/messages/models/skills` — **no `sessions`/`agents`/`environments`**. The module targets `0.111.0` (a real PyPI version, up to 0.116.0 exists) that is NOT installed. Cache files (`.managed_env.json`, `.managed_agent_haiku.json`) + the 3 ledger entries date to Jun 19–20 → a newer SDK was briefly installed then downgraded. **The managed-agent path has been silently broken since ~Jun 20 — it is *broken*, not merely "unused" as the plan assumed.** This includes the `core/ci/self_observability.py` ci-fix-agent path the plan hoped would dodge the cgroup-kill race — it cannot, because it throws on this SDK.
+- **Did NOT upgrade** the SDK (0.86→0.111 is 25 releases across **67 anthropic importers** incl. Telegram C2/email voice/memory embeddings — a high-risk shared-dep change; belongs in a deliberate isolated session, not a burn window).
+- **Shipped instead:** preflight guard (`_require_managed_agents`) at `run_task`/`_get_or_create_environment`/`_get_or_create_agent` → raises a clear, actionable `RuntimeError` naming the installed version and pointing callers at the working `claude -p` fallback, instead of a cryptic AttributeError. 4 regression tests. **Recommendation:** cloud managed-agents as a cgroup-race sidestep is a genuinely good idea BUT requires the isolated SDK-bump session first.
+
+### 4. Gemini SDK health check — HEALTHY ✅ + safe allowlist expansion
+- `core/gemini_bridge/mcp_function_bridge.py` bridge live: 14/14 `tests/test_gemini_bridge_safety.py` pass; `build_function_declarations()` builds 107 tool declarations; send/financial tools still blocked even when forced into the caller set (mechanism intact).
+- **Added 4 read-only flight-search siblings** to `SAFE_ALLOWLIST` (`search_google_flights`, `search_kiwi_flights`, `kiwi_place_autocomplete`, `search_flights_flightaware`) — airport-code/date/pax params only, no PII/send/financial, direct peers of already-listed flight tools. Deliberately excluded `get_client_airports` (reads client dossiers/PII). Dated comment follows the file's own deliberate-expansion discipline.
+
+### CDP (port 9222) evaluation — CAPABILITY CONFIRMED, honestly bounded
+- Ground truth: 9222 not running; **no pre-existing CDP pattern in the codebase** (docs grep hits were false positives). Python `playwright` not installed; existing browser automation is Node (`tools/cloak/*.mjs`). Chrome 150 IS installed.
+- **Capability test (real):** launched `google-chrome-stable --headless=new --remote-debugging-port=9222` on a throwaway profile → `/json/version` returned `Chrome/150` + live `webSocketDebuggerUrl` (the exact surface `connect_over_cdp` attaches to); page targets enumerable. Cleaned up (killed chrome, removed profile, 9222 closed). **The CDP plumbing works on this box.**
+- **Honest bound (no overclaim):** the best human-gated candidate is Centrav (MISSION-001/011/033/037/046), but its blocker is **OTP/CAPTCHA = a genuine human-decision wall CDP does NOT defeat**. CDP's real value is driving a *real, already-authenticated* Chrome (human logs in once → attach headlessly, reuse the OTP-authenticated session, avoid "looks-automated" detection). That needs a persistent CDP-Chrome service + the human's real profile — infra + auth work, NOT stood up in this window. **Verified-viable capability, deferred as a scoped next step; does not "unlock every human-gated portal."**
+
+### Net: now actually wired vs. still an idea
+- **Wired + tested:** Camofox Tier 4; `search()` free-text (SearXNG); Gemini allowlist +4; managed-agents failure guard.
+- **Good idea, deferred (honest):** rewire 3 scan scripts onto `search()` + close MISSION-629; managed-agents cloud pilot (needs isolated SDK bump first); persistent CDP-Chrome session-reuse service (needs infra + human login).
