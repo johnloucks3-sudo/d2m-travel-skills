@@ -249,19 +249,34 @@ _UA = (
 )
 
 
+_PRICE_DECIMAL_RE = re.compile(r"^\$?[\d,]+\.\d{2}$")
+
+
 def _price_parse(raw: list[str], adults: int = 1) -> tuple[Optional[float], Optional[float]]:
-    """Return (lowest_total, lowest_pp). Filters implausible values."""
-    lowest = None
-    for p in raw:
+    """Return (lowest_total, lowest_pp). Filters implausible values.
+
+    Prefers cents-precision strings (e.g. "$514.40") over whole-dollar
+    strings (e.g. "$434") when both are present: Centrav's per-fare-card
+    totals ("Published Fare $X.XX", "NDC Fare $X.XX") always carry cents;
+    whole-dollar values come from the coarser Fare Matrix summary grid,
+    which is not itself a confirmed bookable total (see hale_decisions.md
+    2026-07-09 Centrav scraper bug entry — real fares $933.40/$1,026.00
+    never matched the scraper's whole-dollar-only extraction).
+    """
+
+    def _to_val(p: str) -> Optional[float]:
         try:
             val = float(re.sub(r"[^\d.]", "", str(p).replace(",", "")))
-            if 40 < val < 25_000:
-                if lowest is None or val < lowest:
-                    lowest = val
+            return val if 40 < val < 25_000 else None
         except (ValueError, TypeError):
-            continue
-    if lowest is None:
+            return None
+
+    precise = [v for p in raw if _PRICE_DECIMAL_RE.match(str(p).strip()) and (v := _to_val(p)) is not None]
+    candidates = precise if precise else [v for p in raw if (v := _to_val(p)) is not None]
+
+    if not candidates:
         return None, None
+    lowest = min(candidates)
     pp = round(lowest / adults, 2) if adults > 0 else lowest
     return round(lowest, 2), pp
 
@@ -282,6 +297,22 @@ _CABIN_TAB = {
 }
 
 
+def _trip_type_value(trip_type: str) -> str:
+    """Hidden-input value for #FareTripTypeInput. Was hardcoded to 'OneWay'
+    (hale_decisions.md 2026-07-09) — always searched one-way even for
+    round-trip comparisons."""
+    return "RoundTrip" if trip_type == "roundtrip" else "OneWay"
+
+
+def _trip_type_tab_label(trip_type: str) -> str:
+    """Visible tab text clicked alongside the hidden input. 'Round Trip'
+    mirrors Centrav's own 'One Way' tab-label convention — unverified
+    against a live DOM (session expired, re-login requires solving a
+    CAPTCHA, a human-only wall per obstacle-routing doctrine); click is
+    best-effort and already wrapped in try/except below."""
+    return "Round Trip" if trip_type == "roundtrip" else "One Way"
+
+
 async def _search_one_cabin(
     context,
     origin: str,
@@ -289,11 +320,13 @@ async def _search_one_cabin(
     date_str: str,  # MM/DD/YYYY
     adults: int,
     cabin: str,
+    trip_type: str = "oneway",
+    return_date_str: Optional[str] = None,  # MM/DD/YYYY, required when trip_type == "roundtrip"
 ) -> dict:
     cabin_input = _CABIN_INPUT.get(cabin, "ECONOMY")
     cabin_tab = _CABIN_TAB.get(cabin, "Economy")
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    screenshot = DATA_DIR / f"centrav_{cabin}_{origin}_{dest}_{ts}.png"
+    screenshot = DATA_DIR / f"centrav_{cabin}_{trip_type}_{origin}_{dest}_{ts}.png"
 
     page = await context.new_page()
     result: dict = {
@@ -302,6 +335,8 @@ async def _search_one_cabin(
         "origin": origin,
         "dest": dest,
         "date": date_str,
+        "trip_type": trip_type,
+        "return_date": return_date_str,
         "adults": adults,
         "raw_prices": [],
         "airlines": [],
@@ -322,13 +357,13 @@ async def _search_one_cabin(
         # Set hidden inputs
         await page.evaluate(f"""() => {{
             const t = document.getElementById('FareTripTypeInput');
-            if (t) t.value = 'OneWay';
+            if (t) t.value = '{_trip_type_value(trip_type)}';
             const c = document.getElementById('CabinClassInput');
             if (c) c.value = '{cabin_input}';
         }}""")
 
-        # Click One Way + cabin tab
-        for label in ("One Way", cabin_tab):
+        # Click trip-type + cabin tab
+        for label in (_trip_type_tab_label(trip_type), cabin_tab):
             try:
                 await page.click(f"text='{label}'", timeout=3_000)
             except Exception:
@@ -372,6 +407,23 @@ async def _search_one_cabin(
         await page.keyboard.press("Tab")
         await page.wait_for_timeout(400)
 
+        # Return date (round trip only) — selector guessed by mirroring
+        # #FareDepartureDate's naming; unverified live (CAPTCHA-gated
+        # re-login blocks DOM inspection this session). Fails soft so a
+        # missing/wrong selector degrades to a one-way search instead of
+        # crashing the run.
+        if trip_type == "roundtrip" and return_date_str:
+            try:
+                await page.click("#FareReturnDate")
+                await page.fill("#FareReturnDate", return_date_str)
+                await page.keyboard.press("Tab")
+                await page.wait_for_timeout(400)
+            except Exception as exc:
+                logger.warning(
+                    "centrav: return-date fill failed (selector unverified live, "
+                    "needs re-check once session is re-authenticated): %s", exc,
+                )
+
         # Adults
         await page.select_option("#Adults", str(adults))
         await page.wait_for_timeout(300)
@@ -391,14 +443,20 @@ async def _search_one_cabin(
         await page.close()
         return result
 
-    # Extract prices
+    # Extract prices.
+    # Regex was whole-dollar-only (`^\$[\d,]+$`) — structurally incapable of
+    # matching Centrav's actual per-fare-card totals ("Published Fare
+    # $514.40", "NDC Fare $636.40"), which always carry cents. That regex
+    # could only ever match the coarser whole-dollar Fare Matrix summary
+    # cells, explaining why extracted values never matched the Commander's
+    # live-portal cents-precision figures (hale_decisions.md 2026-07-09).
     raw = await page.evaluate("""() => {
         const out = [];
         const sels = ['[class*="price"]','[class*="fare"]','[class*="amount"]','td','span'];
         for (const sel of sels) {
             document.querySelectorAll(sel).forEach(el => {
                 const t = (el.innerText || el.textContent || '').trim();
-                if (/^\$[\d,]+$/.test(t)) out.push(t);
+                if (/^\$[\d,]+(?:\.\d{2})?$/.test(t)) out.push(t);
             });
             if (out.length > 3) break;
         }
@@ -408,8 +466,8 @@ async def _search_one_cabin(
     if not raw:
         body = await page.inner_text("body")
         raw = list(dict.fromkeys(
-            m for m in re.findall(r'\$[\d,]+', body)
-            if 40 < int(m.replace("$", "").replace(",", "")) < 25_000
+            m for m in re.findall(r'\$[\d,]+(?:\.\d{2})?', body)
+            if 40 < float(m.replace("$", "").replace(",", "")) < 25_000
         ))[:15]
 
     airlines = await page.evaluate("""() => {
@@ -447,10 +505,16 @@ async def run_centrav_search(
     depart_date: str,
     adults: int = 2,
     cabins: Optional[list[str]] = None,
+    trip_type: str = "oneway",
+    return_date: Optional[str] = None,  # YYYY-MM-DD, required when trip_type == "roundtrip"
 ) -> dict:
     """
     Full session-aware Centrav B2B search.
     Returns {auth_status, results: {cabin: {...}}, scraped_at}.
+
+    trip_type="roundtrip" + return_date fixes the scope-mismatch bug logged
+    2026-07-09: the scraper previously always searched one-way, which is not
+    comparable to a round-trip figure seen on the live portal.
     """
     if cabins is None:
         cabins = ["economy", "premium", "business"]
@@ -467,11 +531,17 @@ async def run_centrav_search(
     dt = datetime.strptime(depart_date, "%Y-%m-%d")
     date_mdy = dt.strftime("%m/%d/%Y")
 
+    return_date_mdy = None
+    if return_date:
+        return_date_mdy = datetime.strptime(return_date, "%Y-%m-%d").strftime("%m/%d/%Y")
+
     output: dict = {
         "auth_status": "unknown",
         "origin": origin.upper(),
         "dest": dest.upper(),
         "depart_date": depart_date,
+        "trip_type": trip_type,
+        "return_date": return_date,
         "adults": adults,
         "scraped_at": datetime.now().isoformat(),
         "results": {},
@@ -513,7 +583,8 @@ async def run_centrav_search(
         for cabin in cabins:
             try:
                 cabin_result = await _search_one_cabin(
-                    context, origin.upper(), dest.upper(), date_mdy, adults, cabin
+                    context, origin.upper(), dest.upper(), date_mdy, adults, cabin,
+                    trip_type=trip_type, return_date_str=return_date_mdy,
                 )
                 output["results"][cabin] = cabin_result
             except Exception as exc:
@@ -768,9 +839,13 @@ def register_centrav_search_tools(mcp: FastMCP) -> None:
             "all",
             description="Cabin class: economy | premium | business | all (default: all)",
         ),
+        trip_type: str = Field("oneway", description="oneway | roundtrip"),
+        return_date: str = Field(
+            "", description="Return date YYYY-MM-DD, required when trip_type=roundtrip",
+        ),
     ) -> str:
         """
-        Search Centrav B2B portal for one-way fares.
+        Search Centrav B2B portal for one-way or round-trip fares.
         Returns B2B net pricing with airline options.
         Requires active Centrav session (check with check_centrav_session first).
         """
@@ -782,6 +857,10 @@ def register_centrav_search_tools(mcp: FastMCP) -> None:
         else:
             return json.dumps({"error": f"Unknown cabin: {cabin}. Use economy|premium|business|all"})
 
+        trip_type_lower = trip_type.lower().strip()
+        if trip_type_lower == "roundtrip" and not return_date:
+            return json.dumps({"error": "return_date is required when trip_type=roundtrip"})
+
         try:
             result = await run_centrav_search(
                 origin=origin,
@@ -789,6 +868,8 @@ def register_centrav_search_tools(mcp: FastMCP) -> None:
                 depart_date=depart_date,
                 adults=adults,
                 cabins=cabins,
+                trip_type=trip_type_lower,
+                return_date=return_date or None,
             )
         except Exception as exc:
             return json.dumps({"error": str(exc), "type": "centrav_search_error"})

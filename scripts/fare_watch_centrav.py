@@ -23,6 +23,13 @@ import requests
 # Ensure core/travel modules are importable
 _TB = Path(__file__).resolve().parent.parent
 _CORE_TRAVEL = _TB / "core" / "travel"
+# FIXED 2026-07-16 (hot-window triage): every other anansi caller in this repo
+# (ci_probe_hotel_scan.py, hotel_scan.py, transfer_scan.py, etc.) invokes the
+# absolute .venv path -- this was the one bare "anansi" relying on PATH, which
+# fails under systemd/cron with [Errno 2] No such file or directory: 'anansi'
+# even though the binary is present at .venv/bin/anansi. Blocked the entire
+# 3-couple Kuklinski fare-watch chain (28 days overdue) on a one-line fix.
+_ANANSI = str(_TB / ".venv" / "bin" / "anansi")
 if str(_CORE_TRAVEL) not in sys.path:
     sys.path.insert(0, str(_CORE_TRAVEL))
 
@@ -178,7 +185,7 @@ def _run_anansi_fallback(centrav_result: dict) -> None:
         logger.info("  Anansi fallback: %s (%s)", watch_id, route)
         try:
             proc = subprocess.run(
-                ["anansi", query],
+                [_ANANSI, query],
                 capture_output=True, text=True, timeout=30,
                 cwd=str(_TB)
             )
