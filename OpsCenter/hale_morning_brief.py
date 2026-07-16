@@ -210,6 +210,18 @@ def get_tp_queue_item() -> dict:
         return {}
 
 
+def get_orchestrator_compliance() -> str:
+    """Honest-cut ledger stats — the reader the write-only orchestrator never
+    had (audit 2026-07-16: 98.8% daemon self-log, nobody consuming)."""
+    try:
+        import sys
+        sys.path.insert(0, '/home/john/Thunderbird')
+        from core.ops.hale_orchestrator import ledger_stats_line
+        return ledger_stats_line(7)
+    except Exception as e:
+        return f"unavailable: {e}"
+
+
 def get_silver_activity() -> str:
     """CHIEF SILVER standing section — Overseer involvement, daily,
     non-negotiable (Commander 2026-07-16: 'I need more visibility')."""
@@ -232,6 +244,7 @@ def format_morning_brief(timestamp):
     staff_concerns = get_staff_concerns()
     tp_item = get_tp_queue_item()
     silver_activity = get_silver_activity()
+    orchestrator_compliance = get_orchestrator_compliance()
 
     # Calculate time until end of business
     now = datetime.now()
@@ -271,6 +284,7 @@ def format_morning_brief(timestamp):
     <div class="section" style="border-left:3px solid #708090;">
         <div class="section-title" style="color:#556;">🛡️ CHIEF SILVER — OVERSEER ACTIVITY</div>
         <pre style="font-family:Georgia,serif; white-space:pre-wrap;">{silver_activity}</pre>
+        <div class="metric" style="font-size:0.9em; color:#555;">Orchestrator ledger (7d): {orchestrator_compliance}</div>
     </div>
 
     <div class="section">

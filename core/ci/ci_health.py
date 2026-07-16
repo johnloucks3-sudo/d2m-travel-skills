@@ -38,9 +38,12 @@ def _log_repair_plan(skill_id: str, repaired: bool, detail: str) -> None:
         plan = open_plan(
             task_summary=f"CI repair attempt: {skill_id} -> {detail}",
             tier="trivial",
-            criteria=[f"{skill_id} repair verdict mechanically recorded"],
+            criteria=[f"{skill_id} repaired and probe passing"],
         )
-        result = assess_plan(plan, {plan.criteria[0]: "met"}, notes=f"repaired={repaired}")
+        # Grade the real outcome — a criterion that is always "met" is a
+        # tautology, not a compliance record (audit 2026-07-16).
+        result = assess_plan(plan, {plan.criteria[0]: "met" if repaired else "missed"},
+                             notes=f"repaired={repaired}")
         close_plan(result)
     except Exception:
         pass

@@ -263,3 +263,72 @@ def close_plan(result: AssessResult) -> bool:
     except Exception as exc:
         logger.error("close_plan failed: %s\n%s", exc, traceback.format_exc())
         return False
+
+
+# ── Stats reader (2026-07-16 audit: a ledger nobody reads is theater) ────────
+
+_CLOSE_BLOCK_RE = re.compile(
+    r"<!-- PLAN:CLOSE plan_id=(?P<plan_id>\S+) verdict=(?P<verdict>\S+) "
+    r"quality_tier=\S+ closed_at=(?P<closed_at>\S+) -->"
+    r"(?P<body>.*?)<!-- /PLAN:CLOSE -->",
+    re.S,
+)
+
+
+def ledger_stats(since_days: int = 7, path: Optional[Path] = None) -> dict:
+    """The honest cut of the compliance ledger, for the morning brief:
+    who wrote the plans (agent / backstop auto-file / daemon self-log),
+    real verdicts vs placeholder-PASS vs deliberate skips."""
+    from datetime import datetime, timedelta, timezone
+
+    text = PlanStore._read(path)
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=since_days)).isoformat()
+
+    session_by_id = {
+        m.group("plan_id"): m.group("session_id")
+        for m in PlanStore.OPEN_RE.finditer(text)
+    }
+    stats = {
+        "since_days": since_days, "total": 0,
+        "agent_authored": 0, "backstop_autofiled": 0, "daemon_selflog": 0,
+        "pass_real": 0, "pass_placeholder": 0,
+        "fail_real": 0, "fail_abandoned": 0, "skips": 0,
+    }
+    for m in _CLOSE_BLOCK_RE.finditer(text):
+        if m.group("closed_at") < cutoff:
+            continue
+        stats["total"] += 1
+        body = m.group("body")
+        verdict = m.group("verdict")
+        sid = session_by_id.get(m.group("plan_id"), "none")
+        autofiled = "auto-filed by backstop hook" in body or "never reached assessment" in body
+        if sid == "none":
+            stats["daemon_selflog"] += 1
+        elif autofiled:
+            stats["backstop_autofiled"] += 1
+        else:
+            stats["agent_authored"] += 1
+        if "cooldown active" in body or "circuit breaker open" in body:
+            stats["skips"] += 1
+        elif verdict == "PASS":
+            # all criteria unverified = placeholder, not a verified pass
+            if "**Criteria met:** none" in body and "**Criteria unverified:**" in body \
+                    and "**Criteria unverified:** none" not in body:
+                stats["pass_placeholder"] += 1
+            else:
+                stats["pass_real"] += 1
+        else:
+            if "never reached assessment" in body:
+                stats["fail_abandoned"] += 1
+            else:
+                stats["fail_real"] += 1
+    return stats
+
+
+def ledger_stats_line(since_days: int = 7) -> str:
+    s = ledger_stats(since_days)
+    return (f"{s['total']} plans/{since_days}d — "
+            f"agent:{s['agent_authored']} · auto-filed:{s['backstop_autofiled']} · "
+            f"daemon:{s['daemon_selflog']} | verified-PASS:{s['pass_real']} · "
+            f"placeholder-PASS:{s['pass_placeholder']} · real-FAIL:{s['fail_real']} · "
+            f"abandoned:{s['fail_abandoned']} · skips:{s['skips']}")

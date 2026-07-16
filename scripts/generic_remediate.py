@@ -54,6 +54,15 @@ ROOT = Path("/home/john/Thunderbird")
 STATE_FILE = ROOT / "logs" / "generic_remediate_state.json"
 COOLDOWN_SECONDS = 3600  # at most one attempt per unit per hour
 SETTLE_SECONDS = 5
+# ADDED 2026-07-16 (hot-window triage): the cooldown throttles FREQUENCY but
+# never capped TOTAL attempts -- a unit with a genuinely unfixable target
+# (e.g. d2m-factbook-refresh.service, whose recipes/factbook_refresh.yaml
+# simply didn't exist) retried once an hour for 7 straight days (~135
+# attempts) with no escalation past the routine per-attempt Sterling notify.
+# Once a unit crosses this many CONSECUTIVE failed remediation attempts,
+# stop trying entirely and escalate once, distinctly, instead of retrying
+# forever into the same wall.
+MAX_CONSECUTIVE_FAILURES = 5
 
 # Units already owned by Lane 1 (core/ci/repairs/cluster_*.py repair() bodies
 # restart these directly, under their own tiered SAFE/CAUTION/DESTRUCTIVE gate
@@ -209,6 +218,18 @@ def remediate(unit: str) -> int:
         logger.error("no unit argument provided")
         return 1
 
+    # Self-exclusion guard (added 2026-07-16): the fleet-wide onfailure-
+    # remediate.conf drop-in applies to THIS template unit too. When we exit 1
+    # on a non-recoverable target, systemd fires another instance of us whose
+    # %i is "thunderbird-generic-remediate@<original-unit>". That second
+    # instance restarts the first (which is now in cooldown, exits 1), and the
+    # cycle repeats — the "10 errors/10min" cascade observed with tess-token-
+    # keepalive. Returning 0 here breaks the loop without touching the
+    # onfailure-remediate.conf drop-in itself.
+    if unit.startswith("thunderbird-generic-remediate"):
+        logger.info("%s: self-referential remediation guard — skipping", unit)
+        return 0
+
     if _is_lane1_owned(unit):
         note = "deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)"
         logger.info("%s: %s", unit, note)
@@ -222,12 +243,34 @@ def remediate(unit: str) -> int:
         return 0
 
     state = _load_state()
+    unit_state = state.get(unit, {})
+    consecutive_failures = unit_state.get("consecutive_failures", 0)
+
+    if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+        if not unit_state.get("circuit_broken_escalated"):
+            _escalate(
+                unit,
+                f"{unit}: CIRCUIT BREAKER TRIPPED after {consecutive_failures} consecutive failed "
+                f"remediation attempts — this is very likely an unfixable target (missing file, dead "
+                f"config, etc.), not a transient fault. No further automatic attempts will be made. "
+                f"Fix the underlying cause or retire the unit, then reset the counter."
+            )
+            unit_state["circuit_broken_escalated"] = True
+            state[unit] = unit_state
+            _save_state(state)
+        note = f"circuit breaker open ({consecutive_failures} consecutive failures) — not re-attempting"
+        logger.warning("%s: %s", unit, note)
+        # Deliberate non-attempt, not a failed attempt — 'unverified' keeps the
+        # ledger's FAIL count meaning "attempted and did not recover" (the real
+        # FAIL was already logged when the actual attempt failed).
+        _log_remediation_plan(unit, "unverified", note)
+        return 1
 
     if _cooldown_blocking(state, unit):
         note = f"cooldown active ({COOLDOWN_SECONDS}s) — not re-attempting"
         logger.warning("%s: %s", unit, note)
         _escalate(unit, f"{unit} failed again within cooldown window — needs manual attention")
-        _log_remediation_plan(unit, "missed", note)
+        _log_remediation_plan(unit, "unverified", note)  # skip, not a failed attempt
         return 1
 
     logger.info("%s: attempting generic remediation (reset-failed + start)", unit)
@@ -237,7 +280,13 @@ def remediate(unit: str) -> int:
     time.sleep(SETTLE_SECONDS)
     recovered = _is_active(unit)  # independent re-check — never trust start_ok alone
 
-    state[unit] = {"last_attempt": datetime.now(timezone.utc).isoformat(), "recovered": recovered}
+    consecutive_failures = 0 if recovered else consecutive_failures + 1
+    state[unit] = {
+        "last_attempt": datetime.now(timezone.utc).isoformat(),
+        "recovered": recovered,
+        "consecutive_failures": consecutive_failures,
+        "circuit_broken_escalated": False if recovered else unit_state.get("circuit_broken_escalated", False),
+    }
     _save_state(state)
 
     note = "recovered — verified active" if recovered else f"start attempted (ok={start_ok}) but not verified active"
@@ -246,7 +295,8 @@ def remediate(unit: str) -> int:
 
     if not recovered:
         _escalate(unit, f"{unit} entered failed state; generic remediation attempted but "
-                        f"unit is NOT verified active afterward — needs manual attention")
+                        f"unit is NOT verified active afterward — needs manual attention "
+                        f"({consecutive_failures}/{MAX_CONSECUTIVE_FAILURES} consecutive failures)")
         return 1
     return 0
 
