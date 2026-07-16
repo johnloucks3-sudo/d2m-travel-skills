@@ -12,7 +12,8 @@ Dispositions by category:
   commander_directive / direct_command / internal_wing
       → delegated (owned by directive-sweep / email-task-ingest / d2m-email-c2)
   spam
-      → Label_102 (ForDeletion) + archive — inbox-hygiene trashes Label_102
+      → "ForDeletion" label (resolved by name, not a hardcoded ID — see
+        _resolve_label_id, fixed 2026-07-16) + archive — inbox-hygiene sweeps it
   supplier_intel / intel / other
       → D2M-TRIAGED label (audit trail, no page)
 
@@ -49,7 +50,13 @@ CURSOR = ROOT / "OpsCenter/state/d2m_inbox_triage_cursor.json"
 LOG = ROOT / "OpsCenter/state/d2m_inbox_triage_log.jsonl"
 QUEUE = ROOT / "OpsCenter/client_inbox_queue.jsonl"
 
-LABEL_FOR_DELETION = "Label_102"   # same id inbox_hygiene sweeps to trash
+# FIXED 2026-07-16 (hot-window triage): "Label_102" was a hardcoded, rotted
+# Gmail label ID -- confirmed gone via a live labels().list() call (ids jump
+# straight from Label_97 to Label_112, no "ForDeletion" label exists at all
+# anymore). Every apply-mode run hit `HttpError 400: labelId not found` on
+# any for_deletion+archive disposition. Resolved by name at runtime instead,
+# same pattern already used for TRIAGED_LABEL_NAME below.
+FOR_DELETION_LABEL_NAME = "ForDeletion"
 TRIAGED_LABEL_NAME = "D2M-TRIAGED"
 
 DELEGATED = {"commander_directive", "direct_command", "internal_wing"}
@@ -99,22 +106,39 @@ def queued_msg_ids():
     return ids
 
 
-def get_triaged_label_id(svc, cur, apply):
-    if cur.get("triaged_label_id"):
-        return cur["triaged_label_id"]
+def _resolve_label_id(svc, cur, cache_key, label_name, apply, create_if_missing=True):
+    """Resolve a label ID by name, verifying any cached ID against the LIVE
+    label list every call rather than trusting the cache blind -- a label
+    can be deleted out-of-band (manually in Gmail, or by another script) and
+    a stale cached ID silently 400s on every subsequent modify() call. Only
+    one labels().list() call regardless of hit/miss, so this costs nothing
+    extra on the common path."""
     labels = svc.users().labels().list(userId="me").execute().get("labels", [])
+    by_id = {lb["id"]: lb["name"] for lb in labels}
+    cached = cur.get(cache_key)
+    if cached and by_id.get(cached) == label_name:
+        return cached
     for lb in labels:
-        if lb["name"] == TRIAGED_LABEL_NAME:
-            cur["triaged_label_id"] = lb["id"]
+        if lb["name"] == label_name:
+            cur[cache_key] = lb["id"]
             return lb["id"]
-    if not apply:
-        return None  # dry-run: don't create
+    cur.pop(cache_key, None)
+    if not apply or not create_if_missing:
+        return None  # dry-run, or caller doesn't want auto-create
     created = svc.users().labels().create(
         userId="me",
-        body={"name": TRIAGED_LABEL_NAME, "labelListVisibility": "labelShow",
+        body={"name": label_name, "labelListVisibility": "labelShow",
               "messageListVisibility": "show"}).execute()
-    cur["triaged_label_id"] = created["id"]
+    cur[cache_key] = created["id"]
     return created["id"]
+
+
+def get_triaged_label_id(svc, cur, apply):
+    return _resolve_label_id(svc, cur, "triaged_label_id", TRIAGED_LABEL_NAME, apply)
+
+
+def get_for_deletion_label_id(svc, cur, apply):
+    return _resolve_label_id(svc, cur, "for_deletion_label_id", FOR_DELETION_LABEL_NAME, apply)
 
 
 def disposition_for(category):
@@ -157,6 +181,7 @@ def main():
     dispositions = []
     max_epoch = cur["after_epoch"]
     triaged_label = get_triaged_label_id(svc, cur, apply) if msgs else cur.get("triaged_label_id")
+    for_deletion_label = get_for_deletion_label_id(svc, cur, apply) if msgs else cur.get("for_deletion_label_id")
 
     for m in msgs:
         full = svc.users().messages().get(
@@ -192,15 +217,21 @@ def main():
                     page_commander(hit)
                 except Exception as e:
                     print(f"telegram page failed (queued anyway): {e}")
-            elif dispo == "for_deletion+archive":
-                svc.users().messages().modify(
-                    userId="me", id=m["id"],
-                    body={"addLabelIds": [LABEL_FOR_DELETION],
-                          "removeLabelIds": ["INBOX", "UNREAD"]}).execute()
+            elif dispo == "for_deletion+archive" and for_deletion_label:
+                try:
+                    svc.users().messages().modify(
+                        userId="me", id=m["id"],
+                        body={"addLabelIds": [for_deletion_label],
+                              "removeLabelIds": ["INBOX", "UNREAD"]}).execute()
+                except Exception as e:
+                    print(f"modify failed for {m['id']} (for_deletion): {e} — skipping, marked seen")
             elif dispo == "triaged" and triaged_label:
-                svc.users().messages().modify(
-                    userId="me", id=m["id"],
-                    body={"addLabelIds": [triaged_label]}).execute()
+                try:
+                    svc.users().messages().modify(
+                        userId="me", id=m["id"],
+                        body={"addLabelIds": [triaged_label]}).execute()
+                except Exception as e:
+                    print(f"modify failed for {m['id']} (triaged): {e} — skipping, marked seen")
 
         dispositions.append(hit)
         seen.add(m["id"])
