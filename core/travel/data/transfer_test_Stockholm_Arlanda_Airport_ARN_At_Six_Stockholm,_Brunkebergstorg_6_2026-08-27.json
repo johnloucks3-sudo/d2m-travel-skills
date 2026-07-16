@@ -1,0 +1,23 @@
+{
+  "route": "Stockholm_Arlanda_Airport_ARN_At_Six_Stockholm,_Brunkebergstorg_6",
+  "from": "Stockholm Arlanda Airport ARN",
+  "to": "At Six Stockholm, Brunkebergstorg 6",
+  "date": "2026-08-27",
+  "pax": 6,
+  "scraped_at": "2026-07-16T11:44:02.770699",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "Stockholm Arlanda Airport ARN\u2192At Six Stockholm, Brunkebergstorg 6",
+    "description": "Stockholm Arlanda Airport ARN \u2192 At Six Stockholm, Brunkebergstorg 6",
+    "url": "https://kiwitaxi.com/",
+    "pax": 6,
+    "date": "2026-08-27",
+    "scraped_at": "2026-07-16T11:44:04.797435",
+    "duration_min": null,
+    "transfers": [],
+    "screenshot": null,
+    "status": "error",
+    "notes": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"At Six Sto\").first\n"
+  },
+  "welcomepickups": {}
+}

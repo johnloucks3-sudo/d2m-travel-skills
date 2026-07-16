@@ -1,0 +1,80 @@
+{
+  "route": "Stockholm_Arlanda_Airport_Stockholm_City",
+  "from": "Stockholm Arlanda Airport",
+  "to": "Stockholm City",
+  "date": "2026-08-27",
+  "pax": 6,
+  "scraped_at": "2026-07-16T11:46:31.736662",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "Stockholm Arlanda Airport\u2192Stockholm City",
+    "description": "Stockholm Arlanda Airport \u2192 Stockholm City",
+    "url": "https://kiwitaxi.com/en/sweden/taxi-from-stockholm-arlanda-airport-to-stockholm?ref=sf#transfers",
+    "pax": 6,
+    "date": "2026-08-27",
+    "scraped_at": "2026-07-16T11:46:34.616472",
+    "duration_min": 35,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 99,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 116,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 130,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Business",
+        "price_usd": 144,
+        "pax_capacity": 3,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 10PAX",
+        "price_usd": 244,
+        "pax_capacity": 10,
+        "bags_capacity": 10,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 13PAX",
+        "price_usd": 266,
+        "pax_capacity": 13,
+        "bags_capacity": 13,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 16PAX",
+        "price_usd": 285,
+        "pax_capacity": 16,
+        "bags_capacity": 16,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 19PAX",
+        "price_usd": 488,
+        "pax_capacity": 19,
+        "bags_capacity": 19,
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_custom_2026-08-27.png",
+    "status": "ok",
+    "notes": "Form-fill mode (route not in pre-map)"
+  },
+  "welcomepickups": {}
+}
