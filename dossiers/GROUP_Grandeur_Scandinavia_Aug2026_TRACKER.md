@@ -44,11 +44,11 @@ All paid in full (Harlan-verified 2026-06-09 vs invoice). All same DFW flights, 
 |---|---|---|
 | **Pre-cruise hotel Night 1** (Aug 27–28) | **At Six Stockholm** — Ely: D2M-purchased ✓ · Nichols: Amex FHR ✓ (Trip #ZO-AX1049-13385) · Furlow: Amex FHR — ⚠️ **need conf #** | per-couple |
 | **Pre-cruise hotel Night 2** (Aug 28–29) | **At Six Stockholm** — Regent included, Conf #9092637820900 | ✅ confirmed |
-| **ARN → At Six transfer** (Aug 27) | new transfer, ×3 couples | ⚠️ **NOT YET BOOKED — D2M to arrange** |
+| **ARN → At Six transfer** (Aug 27) | 3 separate private sedans approved by Commander Jul 12 | ⏳ **Awaiting Booking — D2M to arrange** |
 | **At Six → pier** (Aug 29 embark) | Regent included | ✅ confirmed |
 | ~~Haymarket By Scandic~~ (Bedsonline 131-2656351) | superseded by At Six | ✅ **CANCELLED** |
 | ~~ARN→Haymarket transfers~~ | superseded | ✅ **CANCELLED ×3:** Ely #1095091/AE693884 · Nichols #1095089/LN693883 · Furlow #1095074/DVF6U6 |
-| **Travel insurance (incl. CFAR)** | **MOOT — all 3 couples** (declined/closed) | ✅ resolved — do not raise in client comms |
+| **Travel insurance (incl. CFAR)** | **MOOT for Ely-Darrow (Seven Corners purchased) and Nichols (CFAR dropped).** ⚠️ **NOT moot for Furlow** — corrected 2026-07-16, see Insurance section + reconciliation note below | Ely-Darrow/Nichols: resolved, do not raise. Furlow: internal-only gap (Chase Sapphire Reserve partial coverage) — do not raise unprompted per dossier, but flagged for Commander awareness |
 
 ## DINING — confirmed, identical for all 3 couples
 | Restaurant | Date | Time |
@@ -69,11 +69,11 @@ Excursions: all confirmed per couple (Regent Choice, $0) — Furlow 7 · Ely 5 �
 |---|---|---|---|---|
 | 1 | ~~Cancel Haymarket hotel (Bedsonline 131-2656351)~~ | D2M | ✅ **DONE** |
 | 2 | ~~Cancel 3 ARN→Haymarket transfers (1095091 · 1095089 · 1095074)~~ | D2M | ✅ **DONE** |
-| 3 | **Book ARN → At Six transfer ×3** | D2M | ⏳ open |
+| 3 | **Book ARN → At Six transfer ×3 (Sedans)** | D2M | ⏳ open (3 sedans approved by Commander Jul 12) |
 | 4 | **Confirm HEL→ARN seats** — Furlow (pending) | D2M | track AY 811 / Finnair |
 | 5 | **Capture Furlow DOB / anniversary / loyalty #s** | D2M (ask Missy) | when appropriate |
 | 6 | **Confirm Furlow At Six Night 1 conf #** — Amex FHR | D2M | ⏳ open |
-| 7 | ⛔ Reconcile dossiers — **HOLD until final COS version confirmed** | Hale | after version verified |
+| 7 | ⛔ Reconcile dossiers — **HOLD until final COS version confirmed** | Hale | 🟡 **Documentation-mode pass done 2026-07-16** — see reconciliation note below. No "final COS version" confirmation found anywhere in repo (checked hale_decisions.md and dossier history); individual dossiers NOT overwritten from this tracker per the standing HOLD. One live conflict found and flagged (Furlow insurance) — see below. |
 
 ## 💰 REFUND RECEIVABLES (Harlan — track on Haymarket cancellation)
 Money owed back when the Haymarket bookings cancel (client-directed move to At Six):
@@ -91,9 +91,18 @@ Money owed back when the Haymarket bookings cancel (client-directed move to At S
 ## 🛡️ INSURANCE
 | Couple | Status |
 |---|---|
-| Furlow | Declined — moot |
-| **Ely-Darrow** | **Seven Corners — purchased 2026-06-23** ✅ |
-| Nichols | Declined — moot |
+| Furlow | ⚠️ **CORRECTED 2026-07-16 — see reconciliation note below.** Was listed "Declined — moot"; dossier shows this is inaccurate. |
+| **Ely-Darrow** | **Seven Corners — purchased 2026-06-23** ✅ (dossier-confirmed match, MISSION-318 CLOSED — no conflict) |
+| Nichols | Declined — moot (dossier-confirmed match: "MOOT — Commander-arbitrated 2026-06-09, all 3 couples. CFAR dropped" — no conflict) |
+
+### 🔎 RECONCILIATION NOTE (2026-07-16, documentation-mode pass — dossiers NOT overwritten)
+Read-only comparison of this tracker against the 3 individual dossiers (`dossiers/Furlow_Regent_3071222.md`, `dossiers/Ely_Darrow_Regent_3096289.md`, `dossiers/Nichols_Regent_3078056.md`), scoped to item #7's HOLD. No evidence found anywhere in the repo (checked `hale_decisions.md`, dossier changelogs) that a "final COS version" was ever confirmed since this tracker was wired 2026-06-09 — the HOLD condition in item #7 is therefore still technically open. Findings:
+- **Suites:** match exactly across all 3 (Furlow 827, Ely-Darrow 961, Nichols 939). No conflict.
+- **Ely-Darrow insurance:** tracker and dossier agree exactly (Seven Corners, purchased 2026-06-23, MISSION-318 CLOSED). No conflict.
+- **Nichols insurance:** tracker and dossier agree (MOOT, CFAR dropped, Commander-arbitrated 2026-06-09). No conflict.
+- **Furlow insurance — CONFLICT FOUND.** This tracker's blanket line "Travel insurance (incl. CFAR): MOOT — all 3 couples (declined/closed)" does not hold for Furlow. The Furlow dossier (`dossiers/Furlow_Regent_3071222.md:53,194,205,219,255,261-262,286,292`) documents an active, still-open insurance picture: Missy switched the Apr 1 final payment to a **Chase Sapphire Reserve** card specifically to activate its trip cancellation/interruption ($10K/person) and emergency evacuation ($100K) benefits; a standalone policy was never purchased; and the dossier explicitly flags this as a **PARTIAL / internal-only coverage gap** ("COS tracking — do not raise unprompted, but Commander should know the gap") — not a closed/declined/moot item. The likely root cause: this tracker's insurance line was written 2026-06-09, the same date as the Nichols Commander-arbitration ("CFAR dropped, all 3 couples"), and appears to have over-generalized that Nichols-specific resolution to Furlow, whose insurance question was a separate, still-open card-benefit gap that was never part of that arbitration.
+- **Resolution:** Per item #7's HOLD, the Furlow *dossier* is not being overwritten from this tracker (correct direction is reversed here — the tracker's summary is the one that's wrong, sourced from a real conflation, not the dossier). This tracker's insurance table above has been corrected to point back to the dossier as ground truth for Furlow. **Recommend:** Harlan/Hale confirm with Commander whether Furlow's Chase Sapphire Reserve partial-coverage gap should be raised before final Aug-16 balance actions, since dossier explicitly marks it "Commander should know" but "do not raise unprompted" with the client.
+- Item #7's underlying HOLD (dossier-from-tracker reconciliation) remains OPEN — no COS-version confirmation exists to act on. This pass only corrected the tracker's own error using the dossier as source; it did not touch any of the 3 individual dossiers.
 
 ## 📅 SUSPENSE CALENDAR (T-81 → departure)
 
