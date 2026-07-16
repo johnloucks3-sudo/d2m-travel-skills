@@ -39,6 +39,14 @@ def test_module_b_context_manager():
     assert hasattr(OdysseusCDPClient, "__exit__")
 
 
+def test_module_b_health_check_returns_bool():
+    # Assert the connection-path health contract by TYPE, never by live
+    # connectivity state (Sterling doctrine — CDP tests must not assert
+    # environment state). Passes whether or not Chrome debug is running.
+    from api.thunderbird_odysseus_cdp import OdysseusCDPClient
+    assert isinstance(OdysseusCDPClient().is_chrome_reachable(), bool)
+
+
 # ── Module C: MAGSuiteClient ──────────────────────────────────────────────────
 
 def test_module_c_import():

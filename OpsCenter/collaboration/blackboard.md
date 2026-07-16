@@ -149,7 +149,8 @@ Files: `core/relay/delegation_wiring.py` (new), `OpsCenter/mission_board_sync.py
 
 ### 2. MISSION-629 free-text search gap — REAL FIX SHIPPED (different tool choice) ✅
 - Root: anansi only does `fetch <URL>`; `fare_watch_centrav.py`/`hotel_scan.py`/`transfer_scan.py` passed raw NL queries → empty output. Correctly diagnosed last night as a dead end *in anansi's current form*. The plan's "different tool choice" is now built.
-- Added `smart_fetch.search(query, engine="auto")`: **SearXNG** (`127.0.0.1:8890`, JSON metasearch) primary, **Camofox `@google_search` macro** fallback. **Live-verified:** "cheapest flight COS to GRB September 2026" → 18 real results via SearXNG (Expedia/Kayak/Google links). CLI: `python3 -m core.web.smart_fetch --search "<query>"`.
+- Added `smart_fetch.search(query, engine="auto")`: **SearXNG** (`127.0.0.1:8890`, JSON metasearch) primary — **live-verified**, 18 real results for "cheapest flight COS to GRB September 2026" (Expedia/Kayak/Google links). CLI: `python3 -m core.web.smart_fetch --search "<query>"`.
+- **Camofox `@google_search` macro fallback = UNVERIFIED / KNOWN-FRAGILE (honest correction).** On live test it was actually broken (opened `about:blank`, which Camofox rejects — "only http/https allowed"); fixed to open on an https URL, after which macro navigate 200s but `/links` extraction still returns empty and the stateful session churns (google.com tab-open intermittently `session_expired`). Labeled as such in code; it only ever fires behind SearXNG in `engine="auto"`. **SearXNG is the real fix; do not rely on the macro fallback standalone.**
 - **NOT yet done (honest):** the 3 scan scripts are not yet rewired to call `search()` — that's a follow-up (touches Block 3/6 scan code). The tested primitive exists; wiring the callers + closing MISSION-629 is the remaining step.
 
 ### 3. Claude Agent SDK (Managed Agents) pilot — BLOCKED, root-caused ⛔ (honest)
@@ -218,3 +219,35 @@ Files: `core/relay/delegation_wiring.py` (new), `OpsCenter/mission_board_sync.py
 **Files:** `drafts/body_grandeur_group_shared_van.html`, `core/travel/data/transfer_test_Stockholm_Arlanda_Airport_Stockholm_City_2026-08-27.json` (Kiwitaxi live pricing evidence). Commit `94d3bf30`.
 
 **Tool gap noted:** `search_mozio_transfers`, `search_welcome_pickups`, `search_blacklane_transfers` MCP tools all returned `credentials_required` (empty API keys at `~/Thunderbird/mozio_credentials.json`, `welcome_pickups_credentials.json`, `blacklane_credentials.json`). Routed around via the existing Kiwitaxi Playwright scraper (`scripts/test_transfer_scrapers.py`, custom form-fill mode) instead of stopping — got real live data. Flagging for Sterling/A7: these 3 MCP tools are effectively dead weight until credentialed.
+
+---
+
+## Block 2A — MAG/CRM Validation + Odysseus + Port Scrape (2026-07-16)
+
+**Discipline note:** Both live sources are DOWN, so all validation is dossier-vs-**cached** ground truth (rssc.com agent-portal captures dated 2026-06-23, in `validations/rssc_scrape/`). These are the authoritative supplier booking records, but they are ~3 weeks stale — figures below are cache-vs-dossier, not live-now. Cross-checks use the **agent-portal booking record** (suite/financials/guests), which is independent of the port-itinerary text the dossiers were built from (avoids the circular "validate the scrape against itself" trap).
+
+### Task 1 — Trip validation vs dossiers (5 bookings checked)
+| Client | Booking | Suite | Total / Paid / Balance (cached) | Dossier | Verdict |
+|---|---|---|---|---|---|
+| **Furlow** | 3071222 | Concierge D #827 Deck 8 ✅ | **$19,494** / paid / $0 | total **$19,236** | ⚠️ **PRICE MISMATCH — $258 delta** |
+| **Nichols** | 3078056 | Concierge D #939 Deck 9 ✅ | $18,896 / paid / $0 ✅ | $18,896 paid-in-full ✅ | ✅ CLEAN |
+| **Ely-Darrow** | 3096289 | Concierge D #961 Deck 9 ✅ | $20,640 / paid / **$0** | Summary block still shows $4,000 paid / **$16,640 balance due** | ⚠️ **STALE internal block** |
+| **McLeod (McGlasson)** | 2984034 | Concierge E #863 Deck 8 ✅ | $12,948 / $1,004.85 / **$11,943.15** | matches; FPD Jul 22 2026 | ✅ CLEAN (see note) |
+
+- **Furlow ⚠️ ($258):** Cached Regent portal shows total **$19,494.00**; dossier records **$19,236.00**. Both show paid-in-full / $0 balance, so no client-facing exposure, but the totals disagree. Fresher source = cached portal capture. **Needs Harlan/Commander to reconcile which figure is authoritative** (did not autonomously edit a financial total — those carry Harlan sign-off governance).
+- **Ely ⚠️ (internal staleness, not a source conflict):** Dossier's *header* + frontmatter (`payment_status: paid_in_full`, "$16,640 processed Mar 26") and the cached portal ($0 balance) agree the trip is PAID. But the dossier's "Financial Summary" body block (L40-42) still shows the pre-payment state ($4,000 deposit / $16,640 balance due / "DUE APR 1 2026"). Authoritative fields are right; the summary block was never refreshed. **Recommend updating that block to paid-in-full.**
+- **McLeod ✅ + bonus:** Cached portal **confirms** the "authoritative" $11,943.15 balance and refutes the flagged-stale $12,393.15 in the lifecycle doc (dossier already marks it stale). Operational flag: **FPD $11,943.15 is due Jul 22 2026 — 6 days out** — already tracked in `McLeod_Grandeur_LesserAntilles_2984034.md`.
+- Guest names matched on all four (McLeod portal shows lead guest McGlasson only; not a mismatch).
+
+### Task 2 — Odysseus access: **BROKEN — NEEDS HUMAN**
+Ran the actual client path (not just read code): `oa_status` MCP → `ECONNREFUSED 127.0.0.1:9222`; `OdysseusCDPClient().is_chrome_reachable()` → **False**; `get_odysseus_tab()` raises `OdysseusCDPError`. No `--remote-debugging-port` Chrome process is running. Refreshed `oa_state/odysseus_session.json` → `chrome_reachable: false`.
+- **Root cause:** Chrome debug instance is not launched. `DISPLAY=:0` and `google-chrome-stable` are present, so the fix is available but is a **human step**: run `deploy/chrome-debug.sh`, then log into the portals (Cloudflare Bot Management + login/2FA can't be automated). Did **not** auto-launch Chrome on the live desktop (the script `cp -r`'s the whole main profile and login still needs a human — launching would not restore access).
+- **Also down (report-only, Block 2's OAuth scope — did not touch):** TESS API `tess_test_connection` → `"No userID in token; re-extract from localStorage"` (`auth_required`). TESS token needs re-extraction from a logged-in session (human).
+
+### Task 3 — Port/country scrape: **nothing to add**
+Checked cached MAG/RSSC captures against the 8 existing `dossiers/port_data/*.md` files. The existing files are already **as granular or more granular** than any reachable/cached source: e.g. `Loucks_Grandeur_2026-12-29_ports.md` already has every port's country **and arrive/depart clock times**, matching (and for Panama Canal exceeding) the cached `3122006_itinerary_and_ports_FINAL.json`. Odysseus is the only source exposing coarse Depart/Arrive City/Country fields (§6 mapping) and it's unreachable; even if up, those fields add nothing beyond what's captured. McLeod's cached booking record carried no itinerary/port data. **No files manufactured** to look productive — there is genuinely no uncaptured port/country data available right now.
+
+### Code / tests
+No code fix (Odysseus is an environment/human issue, not a bug). Added one offline regression test — `tests/test_phase4_smoke.py::test_module_b_health_check_returns_bool` — asserting `OdysseusCDPClient.is_chrome_reachable()` returns a `bool` (Sterling doctrine: assert the health contract by type, never by live connectivity). **`pytest tests/test_phase4_smoke.py` → 14 passed.**
+
+**Net:** 1 real price mismatch (Furlow $258, needs Harlan), 1 stale dossier block (Ely, recommend refresh), 2 clean. Odysseus + TESS both need a human login to restore. No port data to add.
