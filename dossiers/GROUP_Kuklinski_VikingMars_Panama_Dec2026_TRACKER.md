@@ -95,3 +95,30 @@ note: "Renders CURRENT state + forward suspense calendar. The instantiated 35-TP
 ---
 
 *Wired 2026-06-09 by Sonnet. Financials = Harlan-verified frontmatter (do not recompute). Clock = existing lifecycle docs. Register with scheduler once timing-engine fix lands.*
+
+---
+
+### AIR PRICING — Live Snapshot 2026-07-16 (hot-window triage, manual Google Flights pull)
+
+**Automation status:** Centrav down (human CAPTCHA/OTP re-auth required); anansi text-search fallback non-functional (CLI only supports URL fetch, not free-text queries — MISSION-629). This data was pulled manually as a stopgap.
+
+| Party | Route | Cheapest found | Carrier/routing | Notes |
+|---|---|---|---|---|
+| Kuklinski ×4 (Kyle+Rosalie, Roger+Nicholas) | RIC↔PTY round-trip | **$3,044 total (~$761/pp)** | AA 6463, RIC-ORD-MIA-PTY, 19h38m, dep Dec 17 8:16pm, arr Dec 18 3:54pm | Roughly matches dossier estimate ($600-900/pp). **⚠️ CAVEAT: priced as round-trip RIC↔PTY — but the ship disembarks FLL, not PTY. Kuklinski party likely needs the same open-jaw pattern as Morton/Dodge (return leg FLL→RIC, not PTY→RIC). Return leg NOT yet priced separately — needed before this is booking-ready.** |
+| Morton/Dodge ×2 | RSW→PTY one-way (outbound only — disembark FLL, drive home) | **$1,423 total (~$712/pp)** | AA 1176, RSW-CLT-MIA-PTY, 18h12m, dep Dec 17 7:41pm, arr Dec 18 1:53pm | Above dossier estimate ($300-600/pp) — flag as higher than expected, worth a second search closer to booking. |
+
+**Open action items:**
+- [ ] Price the actual open-jaw return leg (FLL→RIC) for the Kuklinski party — the round-trip figure above assumes a return through PTY, which doesn't match the real itinerary.
+- [ ] Re-check RSW→PTY pricing given it ran above estimate.
+- [ ] Hotel 3+3 search (pre/post-cruise options) — not yet done, separate from air.
+- [ ] Fix MISSION-629 (anansi fallback CLI mismatch) so this stops requiring manual pulls.
+
+---
+
+### ⚠️ RELATIONSHIP NOTE — Kyle Kuklinski (Commander, 2026-07-16)
+
+Commander's read, distinct from the McLeod self-sufficiency pattern: *"I think Kyle Kuklinski is also like Melissa, but since I am his uncle he won't actively rebel, just passively ignore. He needs personal contact, personal tone."*
+
+This is a **passive disengagement** risk, not an active-assertion one — Kyle won't say "we can book this ourselves" the way McLeod did; he'll just go quiet. That means the self-sufficiency text-classifier built the same day (`core/email/thunderbird_email_intel.py::_track_self_sufficiency_signal`) will **not** catch this pattern — it needs response-cadence/engagement-frequency tracking over time, not keyword/intent classification on individual emails. That tracking mechanism does not exist yet; this note exists so it isn't silently forgotten.
+
+**Until that's built:** Dani/Hale should default to personal-tone, personal-contact touchpoints for Kyle specifically (not template/form language) on the upcoming TP sends in the table above — Jul 28 insurance re-offer, Aug 1 excursion recs, Sep 18 dining/doc audit, etc.
