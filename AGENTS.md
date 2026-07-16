@@ -297,6 +297,21 @@ from core.intel.thunderbird_twitter_osint import run_twitter_osint_sweep
 # Viator/GYG/SignWell/Apify — STUBS, need API keys (see creds/ for setup notes)
 ```
 
+### Browser Automation — bsk CLI (browser-skill) (M-616)
+`bsk` on PATH (`~/.local/bin/bsk`) drives the real Chromium browser (logins/cookies) via an isolated Agent Window. Full skill: `~/.claude/skills/browser-skill/SKILL.md`. Not in the native harness tool list — invoke as shell commands.
+```bash
+bsk session start                    # → 4-letter <id>; pass --session <id> to EVERY command
+bsk navigate <url> --session <id>
+bsk snapshot --session <id>          # aria tree with @e1,@e2 refs — DEFAULT for page understanding
+bsk click @e3 --session <id>         # or: fill / select / press ; re-snapshot after navigation (refs invalidate)
+bsk get-html --session <id>          # only when snapshot insufficient (hidden DOM/markup)
+bsk screenshot --ref @eN --session <id>   # only when visual layout needed
+bsk tab list --session <id> --scope user  # user tabs are read-only until: bsk tab borrow <tab-id> --session <id>
+bsk session stop <id>                # REQUIRED when done (even on error paths); bsk session stop --all = emergency
+bsk doctor                           # if anything fails
+```
+**Rules:** every task = start → …--session… → stop lifecycle (idle timeout is 5 min, do not rely on it). Never `bsk evaluate` on banking/SSO/password pages (credential harvesting). Return borrowed user tabs. AG (Antigravity) currently CANNOT run bsk — `run_shell_command` is excluded in `~/.gemini/settings.json` (M-617, Commander call pending).
+
 ### MCP — Lean Context (SO 2026-06-14)
 Always-on (3 servers): `dreams2memories` · `gmail-d2mconcierge` · `google-workspace-d2mconcierge`
 On-demand (5 servers — in `~/.claude/mcp_on_demand.json`, copy into mcp.json to activate):
