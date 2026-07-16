@@ -55,18 +55,17 @@ REGION_MAP = [
                          "italy","greece","portugal","france","sicily","turkey","croatia"]),
     ("Caribbean",       ["caribbean","miami","san juan","barbados","st thomas","st maarten","aruba",
                          "curacao","grenada","antigua","martinique","nassau","havana","montego bay"]),
-    ("Northern Europe", ["norway","bergen","fjord","helsinki","stockholm","copenhagen","amsterdam",
+    ("Baltic / Northern Europe", ["norway","bergen","fjord","helsinki","stockholm","copenhagen","amsterdam",
                          "hamburg","tallinn","riga","gdansk","southampton","dover","edinburgh",
                          "europe","baltic","scandinavia","british isles","ireland","scotland"]),
     ("Alaska",          ["alaska","juneau","ketchikan","sitka","glacier bay","skagway","seward"]),
     ("South America",   ["buenos aires","rio","montevideo","valparaiso","ushuaia","cartagena",
                          "callao","amazon","brazil","argentina","chile","peru","south america"]),
-    ("Asia Pacific",    ["tokyo","osaka","hong kong","singapore","sydney","auckland","bali","phuket",
+    ("Asia & Pacific",  ["tokyo","osaka","hong kong","singapore","sydney","auckland","bali","phuket",
                          "vietnam","japan","south korea","shanghai","china","asia","pacific"]),
-    ("Middle East",     ["dubai","abu dhabi","muscat","doha","oman","uae","egypt","jordan","israel"]),
-    ("Indian Ocean",    ["maldives","mauritius","seychelles","zanzibar","sri lanka","india","colombo"]),
+    ("Indian Ocean / Africa", ["dubai","abu dhabi","muscat","doha","oman","uae","egypt","jordan","israel",
+                         "maldives","mauritius","seychelles","zanzibar","sri lanka","india","colombo"]),
     ("Transatlantic",   ["transatlantic","trans-atlantic","crossing"]),
-    ("World",           []),
 ]
 
 def infer_region(text: str) -> str:
@@ -74,7 +73,7 @@ def infer_region(text: str) -> str:
     for region, kws in REGION_MAP:
         if kws and any(k in t for k in kws):
             return region
-    return "World"
+    return "Other / World"
 
 
 def load_cookies() -> str:
