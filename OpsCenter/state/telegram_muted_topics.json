@@ -1,0 +1,6 @@
+{
+  "muted_substrings": [
+    "Lyons"
+  ],
+  "_note": "Substring match (case-insensitive) against outgoing Telegram text. Matches are dropped silently and logged to telegram_suppressed.log. Seeded 2026-07-16 per Commander direct order re: repeated Lyons notices."
+}

@@ -23,3 +23,10 @@ except Exception:
     # context), the script just runs without it — same as before this
     # existed.
     pass
+
+try:
+    from core.monitoring.telegram_dedup_gate import install as install_telegram_gate
+
+    install_telegram_gate()
+except Exception:
+    pass
