@@ -17,7 +17,7 @@ StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=inbox-hygiene
 
-MemoryLimit=128M
+MemoryMax=128M
 TimeoutStartSec=120
 TimeoutStopSec=30
 

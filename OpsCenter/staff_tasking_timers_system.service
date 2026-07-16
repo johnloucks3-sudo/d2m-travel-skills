@@ -19,7 +19,7 @@ StandardError=journal
 SyslogIdentifier=staff-tasking-timers
 
 # Resource limits
-MemoryLimit=512M
+MemoryMax=512M
 TimeoutStartSec=300
 TimeoutStopSec=30
 
