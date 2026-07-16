@@ -179,3 +179,36 @@ def test_client_signal_from_bulk_sender_does_not_become_client_inquiry():
         "we are interested in a quote — please send me options",
     )
     assert result != "client_inquiry"
+
+
+# ── MISSION-645: known-client tier promotion is NARROW ───────────────────────
+# The CLIENT-tier seam only promotes the non-actionable "other" default. It must
+# never override a stronger classification, or it would resurrect the over-routing
+# defect it was added to close.
+
+def test_client_tier_does_not_override_booking_confirmation(monkeypatch):
+    # Even a known CLIENT sending a booking confirmation stays booking_confirmation
+    # — the promotion only touches "other", never a positive category.
+    monkeypatch.setattr(pipe, "_determine_email_tier", lambda s: "CLIENT")
+    result = classify(
+        "noreply@rssc.com",
+        "Your booking confirmation and itinerary details",
+    )
+    assert result == "booking_confirmation"
+
+
+def test_client_tier_does_not_override_spam(monkeypatch):
+    # A bulk/noise sender classifies as spam. Even if the tiering somehow reported
+    # CLIENT, the promotion must not fire (mapped != "other").
+    monkeypatch.setattr(pipe, "_determine_email_tier", lambda s: "CLIENT")
+    result = classify("newsletter@substack.com", "Weekly digest")
+    assert result == "spam"
+
+
+def test_non_client_tier_ambiguous_email_stays_other(monkeypatch):
+    # The complement of test_known_client_is_client_inquiry: a NON-client tier on
+    # an ambiguous email must remain "other" — the tier seam is an allowlist, not
+    # a default.
+    monkeypatch.setattr(pipe, "_determine_email_tier", lambda s: "INTAKE")
+    result = classify("stranger@example.com", "Hello", "Just reaching out.")
+    assert result == "other"

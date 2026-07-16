@@ -201,7 +201,24 @@ def _classify_email(from_addr: str, subject: str, snippet: str,
     cat = classify(from_addr, subject, snippet, registry=registry)
     if use_ai and cat == "other":
         cat = deep_classify(from_addr, subject, snippet)  # ON-DEMAND ONLY
-    return _map_category(cat)
+
+    mapped = _map_category(cat)
+
+    # MISSION-645: known-client positive signal. The rules classifier only knows
+    # clients present in its registry cache; _determine_email_tier is the broader
+    # dossier-backed allowlist. A sender the wing already tracks as a CLIENT is a
+    # legitimate client_inquiry even without strong body signals — but only when
+    # the message otherwise fell through to the non-actionable "other" default.
+    # This promotes NOTHING that was already spam/booking/invoice/supplier, so it
+    # cannot re-open the MISSION-431/645 over-routing vector (that was about the
+    # DEFAULT being client_inquiry; here the default stays "other" for unknowns).
+    if mapped == "other":
+        try:
+            if _determine_email_tier(from_addr) == "CLIENT":
+                return "client_inquiry"
+        except Exception:  # pragma: no cover — defensive; tiering must never crash ingest
+            pass
+    return mapped
 
 
 # rules_classifier categories → this pipeline's handler categories.
@@ -395,6 +412,31 @@ def _create_mission_board_ticket(ticket: dict):
                 "Remaining emails deferred to next scheduled run."
             )
             return
+
+        # ── DEDUP (2026-07-16 hot-window closing sweep) ─────────────────────
+        # This path appended to the board with NO duplicate check — the same
+        # class of gap fixed tonight in tcd/writeback.py and
+        # generate_weekly_report.py. For INBOUND EMAIL the correct dedup key is
+        # the exact Gmail message_id, NOT the title: mission_board_sync's
+        # title-based _find_open_duplicate() does a >=3-word subset match, which
+        # would silently collapse two genuinely-different client inquiries whose
+        # subjects share 3+ leading words (e.g. "Client inquiry: Re: your trip")
+        # — a dropped client email is unacceptable for a travel business. We key
+        # on message_id, which is unique per email and already stamped into each
+        # ticket's log line, so re-ingestion of the same email can never spawn a
+        # second ticket even if inbox-label marking fails upstream.
+        msg_id = ticket.get("message_id", "")
+        if msg_id:
+            for m in missions:
+                if m.get("status") not in ("active", "in_progress", "pending", "open", "pending_review"):
+                    continue
+                blob = " ".join(m.get("logs", [])) + " " + (m.get("description") or "")
+                if f"message_id={msg_id}" in blob or msg_id in blob:
+                    log.info(
+                        "  → Duplicate inbound email (message_id=%s) already tracked as %s — not filing a second ticket",
+                        msg_id, m.get("id"),
+                    )
+                    return
 
         # Generate next mission ID
         numeric_ids = [
