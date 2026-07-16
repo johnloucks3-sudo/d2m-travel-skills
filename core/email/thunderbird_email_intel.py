@@ -36,7 +36,7 @@ import re
 import subprocess
 import time
 import traceback
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -61,6 +61,8 @@ DOSSIERS_DIR_LOWER = THUNDERBIRD_DIR / "dossiers"
 COMMANDER_REVIEW_DIR = THUNDERBIRD_DIR / "Commander_Review"
 STATE_FILE = THUNDERBIRD_DIR / "email_intel_state.json"
 VOICE_PROFILE_FILE = THUNDERBIRD_DIR / "my_voice_profile.md"
+# Client self-sufficiency signal tracker (2026-07-16) -- see _track_self_sufficiency_signal.
+RELATIONSHIP_SIGNALS_FILE = THUNDERBIRD_DIR / "OpsCenter" / "state" / "client_relationship_signals.json"
 
 # Google Sheets
 SHEETS_ID = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
@@ -402,6 +404,27 @@ def _match_client(from_addr: str, client_registry: Dict) -> Optional[Dict]:
     return client_registry.get(sender_email)
 
 
+def _match_clients_by_lastname(affected_clients: List[str], client_registry: Dict) -> List[Dict]:
+    """Match LLM-extracted last names (supplier-email analysis) to registry entries with a dossier.
+
+    Dedupes by dossier_path -- a couple sharing one dossier (e.g. Ely_Darrow) must only be written once.
+    """
+    matched: Dict[str, Dict] = {}
+    for raw_name in affected_clients or []:
+        name = (raw_name or "").strip().lower()
+        if not name:
+            continue
+        for entry in client_registry.values():
+            if not entry.get("dossier_path"):
+                continue
+            entry_name = (entry.get("name") or "").lower()
+            dossier_stem = Path(entry["dossier_path"]).stem.lower()
+            if name in entry_name or entry_name in name or name in dossier_stem:
+                matched[entry["dossier_path"]] = entry
+                break
+    return list(matched.values())
+
+
 # ============================================================================
 # PHASE 1.4 — EARA FORMAT STAFF PAPER SENDER
 # ============================================================================
@@ -634,6 +657,8 @@ Return a JSON object:
   "needs_research": true/false,
   "urgency": "urgent|normal|low",
   "sentiment": "positive|neutral|concerned|frustrated",
+  "self_sufficiency_signal": true/false,
+  "self_sufficiency_quote": "the exact client phrase that triggered this, or null",
   "issue": "one-sentence ISSUE statement for staff paper",
   "discussion": "2-4 sentence DISCUSSION with relevant dossier context",
   "recommended_actions": ["action 1", "action 2"],
@@ -648,6 +673,17 @@ RULES:
 - complexity=high triggers escalation to a more powerful model for the draft response
 - needs_research=true means the response requires looking up external information
 - Always provide concrete draft_response_points, not generic placeholders
+- self_sufficiency_signal is DIFFERENT from sentiment=frustrated. It is NOT about anger or
+  complaints -- it is about a client quietly signaling they don't need you for something,
+  which is a leading indicator of disengagement that shows no negative emotion at all.
+  Set true ONLY for language like: "we can book this ourselves", "we have no issue doing
+  so", "we found/booked X on our own / through a different provider", "we did some
+  research and...", a client independently comparing vendors/prices you were expected to
+  source, or declining an offered service specifically because they don't need the help
+  (not because of price or timing). Do NOT set true for: simple preference statements,
+  questions asking for your recommendation, or a client doing homework you asked them to
+  do. When in doubt, false -- this flag exists to catch a specific quiet pattern, not to
+  broadly tag independence.
 - Return ONLY valid JSON."""
 
 GENERAL_SYSTEM_PROMPT = """You are the Email Intelligence Officer for Dreams2Memories Travel, LLC, a luxury travel agency.
@@ -1046,6 +1082,48 @@ def _process_supplier_email(
     if analysis.get("error"):
         return result
 
+    # --- Dossier Write-Back (root-cause fix 2026-07-16) ---
+    # Booking-confirmation/modification/hold-reminder emails from suppliers (e.g. Project
+    # Expedition) were generating a correct Staff Paper recommendation to "log this in the
+    # dossier" via `recommended_actions`, and analysis["affected_clients"] was already being
+    # extracted -- but nothing downstream ever called _append_to_dossier() for the supplier
+    # path (only _process_client_email() did). The recommendation was generated and discarded
+    # every time. This closes that loop: match affected_clients to a dossier and write the
+    # EMAIL LOG entry + an explicit reconciliation action item, same as the client-email path.
+    result["dossier_updates"] = []
+    booking_email_types = {"confirmation", "itinerary_change"}
+    affected_clients = analysis.get("affected_clients") or []
+    if affected_clients and (
+        analysis.get("email_type") in booking_email_types or analysis.get("action_needed")
+    ):
+        matched_clients = _match_clients_by_lastname(affected_clients, client_registry)
+        booking_ref_match = re.search(
+            r"\bPE\d{6,}\b", f"{headers.get('Subject', '')} {email_data.get('body', '')}"
+        )
+        booking_ref = booking_ref_match.group(0) if booking_ref_match else None
+
+        for client in matched_clients:
+            summary = analysis.get("summary", "")
+            if booking_ref:
+                summary = f"[{booking_ref}] {summary}"
+            action_item = (
+                f"Auto-logged supplier update ({supplier_info['domain']}) — reconcile booking/status "
+                f"table row for {booking_ref or 'this item'}: {analysis.get('issue', summary)}"
+            )
+            try:
+                _append_to_dossier(
+                    client["dossier_path"], email_data, summary,
+                    action_items=[action_item],
+                )
+                result["dossier_updates"].append({
+                    "client": client.get("name"),
+                    "dossier_path": client["dossier_path"],
+                    "booking_ref": booking_ref,
+                })
+                logger.info(f"  -> Auto-updated dossier for {client.get('name')} ({booking_ref})")
+            except Exception as e:
+                logger.error(f"Failed to auto-update dossier for {client.get('name')}: {e}")
+
     # --- A2 (Dembe) Market Intelligence Consultation ---
     # A2 gets early visibility on ALL supplier emails that have actionable content:
     # pricing changes, availability updates, itinerary mods, fare alerts, competitor intel
@@ -1122,6 +1200,91 @@ def _process_supplier_email(
     return result
 
 
+def _load_relationship_signals() -> Dict[str, Any]:
+    try:
+        return json.loads(RELATIONSHIP_SIGNALS_FILE.read_text())
+    except Exception:
+        return {}
+
+
+def _save_relationship_signals(state: Dict[str, Any]) -> None:
+    RELATIONSHIP_SIGNALS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    RELATIONSHIP_SIGNALS_FILE.write_text(json.dumps(state, indent=2))
+
+
+def _track_self_sufficiency_signal(
+    client_name: str, client_email: str, quote: str, email_data: Dict,
+) -> Optional[str]:
+    """ADDED 2026-07-16 (client self-sufficiency signal detector).
+
+    Root cause this exists for: McLeod's post-voyage survey verdict ("We are
+    not big fans of the AI portions. We picked a travel agent for a
+    personalized experience") had a leading indicator 5+ months earlier --
+    "All of these are things we can book for ourselves and we have no issue
+    doing so" -- that sat unflagged because it isn't negative-sentiment
+    language a complaint/anger detector would catch. This is a DIFFERENT
+    signal category: a client quietly asserting they don't need the help.
+
+    One occurrence is logged, not escalated -- a single instance is
+    ambiguous. Two or more occurrences for the same client is the pattern
+    that mattered in the real incident, and gets escalated to a mission-
+    board ticket (reusing the now-shared add_mission()/dedup path, so a
+    third occurrence doesn't file a third ticket).
+
+    This function intentionally does NOT try to catch passive disengagement
+    (silence, declining response frequency) -- that's a different
+    mechanism (needs response-cadence tracking over time, not text
+    classification) and conflating the two would make both worse. See
+    hale_decisions.md / dossier notes for that pattern (flagged separately,
+    e.g. for Kyle Kuklinski, per Commander directive 2026-07-16).
+    """
+    headers = email_data.get("headers", {})
+    state = _load_relationship_signals()
+    key = client_email.lower() or client_name
+    entry = state.setdefault(key, {"client_name": client_name, "client_email": client_email, "events": []})
+    entry["events"].append({
+        "date": headers.get("Date", ""),
+        "logged_at": datetime.now(timezone.utc).isoformat(),
+        "quote": quote,
+        "subject": headers.get("Subject", ""),
+        "message_id": email_data.get("id", ""),
+    })
+    _save_relationship_signals(state)
+
+    count = len(entry["events"])
+    logger.info(f"  Self-sufficiency signal logged for {client_name} ({count} total): \"{quote[:80]}\"")
+
+    if count < 2:
+        return None  # single occurrence -- logged, not yet escalated
+
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(THUNDERBIRD_DIR / "OpsCenter"))
+        import mission_board_sync as mbs
+        title = f"Relationship risk: {client_name} — repeated self-sufficiency signals"
+        quotes_list = "\n".join(f'- "{e["quote"]}" ({e["date"]})' for e in entry["events"])
+        fd = mbs.acquire_lock()
+        board = mbs.load_board()
+        msg, mission_id = mbs.add_mission(
+            board, title,
+            description=(
+                f"{client_name} has quietly signaled self-sufficiency {count} times -- "
+                f"a leading indicator of disengagement, not a complaint. Quotes on file:\n{quotes_list}\n\n"
+                f"This is the same pattern that preceded McLeod's post-voyage verdict "
+                f"('we are not big fans of the AI portions... picked a travel agent for "
+                f"a personalized experience') by 5+ months. Worth a genuine personal check-in, "
+                f"not a form response."
+            ),
+            priority="P1", assigned_to="Dani", source="self_sufficiency_detector",
+        )
+        mbs.save_board(board, fd)
+        logger.info(f"  Relationship-risk ticket: {msg}")
+        return mission_id
+    except Exception as e:
+        logger.error(f"  Failed to file relationship-risk ticket for {client_name}: {e}")
+        return None
+
+
 def _process_client_email(
     service, email_data: Dict, client_info: Dict,
     _deadline: Optional[float] = None,
@@ -1166,6 +1329,17 @@ def _process_client_email(
 
     if analysis.get("error"):
         return result
+
+    if analysis.get("self_sufficiency_signal"):
+        mission_id = _track_self_sufficiency_signal(
+            client_info.get("name", "Unknown"),
+            client_info.get("email", ""),
+            analysis.get("self_sufficiency_quote") or "",
+            email_data,
+        )
+        result["self_sufficiency_signal"] = True
+        if mission_id:
+            result["relationship_risk_mission"] = mission_id
 
     # Determine if escalation needed
     use_claude = (
