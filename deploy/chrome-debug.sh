@@ -24,9 +24,15 @@ if [ ! -d "$CHROME_DEBUG_DIR" ]; then
 fi
 
 echo "Launching Chrome with CDP on port $CDP_PORT..."
+# SECURITY: --remote-allow-origins must name the specific origin, never "*".
+# CDP's websocket endpoint has full browser control (read all cookies, inject
+# JS, navigate, exfiltrate data) -- "*" lets ANY origin connect, including a
+# malicious page open in another tab of this same browser (DNS-rebinding-style
+# CDP hijack). Naming localhost:$CDP_PORT keeps the fix scoped to this
+# script's own automation, not a blanket bypass.
 google-chrome-stable \
     --remote-debugging-port=$CDP_PORT \
-    --remote-allow-origins=* \
+    --remote-allow-origins=http://localhost:$CDP_PORT \
     --user-data-dir="$CHROME_DEBUG_DIR" \
     2>/dev/null &
 
