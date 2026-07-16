@@ -20,6 +20,7 @@
 @hale_brief.md
 @hale_state.json
 @OpsCenter/session_context_latest.md
+@THUNDERBIRD_MASTER_PLAN.md
 ```
 
 ---
@@ -224,9 +225,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-11 13:00 MT -->
+<!-- Last sync: 2026-07-16 06:59 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-11 13:00 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-16 06:59 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Active tasks: 0
 Last Deepseek ruling: NONE
