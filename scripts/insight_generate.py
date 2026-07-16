@@ -34,9 +34,12 @@ Output STRICT JSON: a list of 1-5 card objects, each:
  "insight": "...", "reasoning": "intent-level why — what the Commander is driving at",
  "signal": "existing file path or MISSION-id supporting it",
  "confidence": "CONFIRMED|INFERRED|UNKNOWN", "suggested_owner": "CC|OC|AG"}
-Only cite signals that actually exist in the context. Include at least one
-assist_offer or finding_share if you genuinely see one — the seats work
-together like colleagues: share, encourage, assist. No prose outside JSON.
+Only cite signals that actually exist in the context — a signal must be a
+repo-relative file path that exists or a MISSION-id from the board, verbatim.
+Include at least one assist_offer or finding_share if you genuinely see one —
+the seats work together like colleagues: share, encourage, assist.
+THE OUTPUT FILE MUST CONTAIN ONLY THE JSON ARRAY — first byte '[', last byte
+']'. No markdown, no summary, no prose. Prose = the entire run is discarded.
 """
 
 VANTAGE = {
@@ -52,14 +55,18 @@ VANTAGE = {
 
 
 def generate_cc(out_path: str) -> int:
-    """Headless CC pass via the ONLY approved spawn path (A7 gate)."""
+    """Headless CC pass via the ONLY approved spawn path (A7 gate).
+    Synchronous mode captures the model's STDOUT into out_path — so the model
+    must RESPOND with the JSON, never write files (a tool-written file would
+    be clobbered by the stdout capture)."""
     from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
     prompt = (f"You are Hale-CC of the Thunderbird Wing — {VANTAGE['CC']}\n\n"
               + build_context_pack() + "\n\n" + CARD_FORMAT
-              + f"\nWRITE the JSON to {out_path}")
+              + "\nRespond with ONLY the JSON array — your entire response is "
+              "captured verbatim as the output file. Do not use any tools.")
     result = spawn_headless_claude(prompt, out_path, model=DEFAULT_MODEL,
                                    task_name="insight_cc", timeout=600)
-    return 0 if result.get("status") in ("SUCCESS", "COMPLETE", "OK") or Path(out_path).exists() else 1
+    return 0 if result.get("status") == "COMPLETED" and Path(out_path).exists() else 1
 
 
 def generate_oc(out_path: str) -> int:
@@ -74,12 +81,28 @@ def generate_oc(out_path: str) -> int:
     ).returncode
 
 
+def _normalize(items) -> list[dict]:
+    """Models vary the envelope/field names — accept the common shapes rather
+    than lose real insight to schema pedantry. The citation gate still applies."""
+    if isinstance(items, dict):
+        lists = [v for v in items.values() if isinstance(v, list)]
+        items = lists[0] if lists else []
+    out = []
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        insight = it.get("insight") or " — ".join(
+            filter(None, [it.get("title", ""), it.get("tl;dr", it.get("tldr", ""))]))
+        out.append({**it, "insight": insight})
+    return out
+
+
 def ingest_as(seat: str, path: str) -> None:
     """Post a generator's output under its own seat via the citation gate."""
     import re
     raw = Path(path).read_text()
-    m = re.search(r"\[.*\]", raw, re.S)
-    items = json.loads(m.group(0) if m else raw)
+    m = re.search(r"[\[{].*[\]}]", raw, re.S)
+    items = _normalize(json.loads(m.group(0) if m else raw))
     posted = rejected = 0
     for it in items:
         try:

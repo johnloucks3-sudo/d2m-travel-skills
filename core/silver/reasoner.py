@@ -79,11 +79,16 @@ def dispatch(task: str, out_path: str, *, model: str = DEFAULT_MODEL,
     (core/ai_infra/thunderbird_headless_spawn.py — A7 gate, SO 24 APR 2026)."""
     from core.ai_infra.thunderbird_headless_spawn import spawn_headless_claude
 
+    # Sync mode captures STDOUT into out_path (a tool-written file would be
+    # clobbered); background mode needs the explicit WRITE instruction.
+    tail = (f"Respond with ONLY the output content — your entire response is "
+            f"captured verbatim to {out_path}. Do not use any tools."
+            if wait else f"WRITE your complete output to {out_path}")
     prompt = (
         "You are CMSgt Steve 'Silver' Sterling. Reason from the context pack below — "
         "as the Commander's DNA clone, not as a keyword matcher.\n\n"
         + build_context_pack(days)
-        + f"\n\n═══ TASK ═══\n{task}\n\nWRITE your complete output to {out_path}"
+        + f"\n\n═══ TASK ═══\n{task}\n\n{tail}"
     )
     return spawn_headless_claude(
         prompt, out_path, model=model, task_name="silver_reasoner",
