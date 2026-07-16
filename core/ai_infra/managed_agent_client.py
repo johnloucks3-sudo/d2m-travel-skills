@@ -56,6 +56,33 @@ WING_SYSTEM = (
 )
 
 
+def _managed_agents_supported(client) -> bool:
+    """True iff the installed anthropic SDK exposes the Managed Agents API surface.
+
+    The API landed after 0.86.0 (this module targets anthropic>=0.111.0 /
+    managed-agents-2026-04-01). On the SDK actually installed here (0.86.0),
+    client.beta has only files/messages/models/skills — sessions/agents/
+    environments are absent, so every run_task() would die with a cryptic
+    AttributeError. Preflight it instead.
+    """
+    beta = getattr(client, "beta", None)
+    return bool(beta) and all(
+        hasattr(beta, attr) for attr in ("environments", "agents", "sessions")
+    )
+
+
+def _require_managed_agents(client) -> None:
+    if not _managed_agents_supported(client):
+        raise RuntimeError(
+            f"Managed Agents API unavailable: installed anthropic=={anthropic.__version__} "
+            f"lacks client.beta.sessions/agents/environments. This module targets "
+            f"anthropic>=0.111.0 ({BETA}). The managed-agent path is NOT functional on this "
+            f"SDK — callers must fall back to local `claude -p` spawns. Enabling it is a "
+            f"deliberate, isolated dependency-bump session (67 modules import anthropic; "
+            f"do not upgrade casually mid-window)."
+        )
+
+
 def _load_api_key() -> str:
     key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not key:
@@ -88,6 +115,7 @@ class WingAgentClient:
     # ── Environment ────────────────────────────────────────────────────────────
 
     def _get_or_create_environment(self) -> str:
+        _require_managed_agents(self._client)
         cache = _CACHE_DIR / ".managed_env.json"
         if self._env_id:
             return self._env_id
@@ -111,6 +139,7 @@ class WingAgentClient:
     # ── Agent ──────────────────────────────────────────────────────────────────
 
     def _get_or_create_agent(self, tier: str = "haiku") -> str:
+        _require_managed_agents(self._client)
         cache = _CACHE_DIR / f".managed_agent_{tier}.json"
         if tier in self._agent_ids:
             return self._agent_ids[tier]

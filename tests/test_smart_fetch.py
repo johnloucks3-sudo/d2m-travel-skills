@@ -122,6 +122,84 @@ def test_tier2_browser_serves_when_enabled(monkeypatch):
     assert "browser-rendered" in r["content"]
 
 
+# --- Tier 4 (Camofox) + search ----------------------------------------------
+
+def test_camofox_tier4_serves_when_enabled(monkeypatch):
+    """allow_camofox_tier=True: tiers 1-3 fail, tier-4 Camofox clean -> tier_used=4."""
+    monkeypatch.setattr(sf, "_run_anansi", lambda *a, **k: (None, "", "forced"))
+    monkeypatch.setattr(sf, "_run_cloak", lambda *a, **k: (None, "", "cloak fail"))
+    monkeypatch.setattr(sf, "_run_camofox", lambda *a, **k: (200, "camofox snapshot text", None))
+
+    r = sf.fetch("https://spa.example/", allow_camofox_tier=True)
+    assert r["tier_used"] == 4
+    assert r["walled"] is False
+    assert r["content"] == "camofox snapshot text"
+
+
+def test_camofox_tier4_not_invoked_by_default(monkeypatch):
+    """Without the flag, tier-4 is never called (keeps default path hermetic/offline)."""
+    calls = {"camofox": 0}
+
+    def spy_camofox(*a, **k):
+        calls["camofox"] += 1
+        return 200, "SHOULD NOT REACH", None
+
+    monkeypatch.setattr(sf, "_run_anansi", lambda *a, **k: (403, "Access Denied", None))
+    monkeypatch.setattr(sf, "_run_cloak", lambda *a, **k: (None, "", "cloak fail"))
+    monkeypatch.setattr(sf, "_run_camofox", spy_camofox)
+
+    r = sf.fetch("https://hardwall.example/")  # no allow_camofox_tier
+    assert calls["camofox"] == 0
+    assert r["tier_used"] is None
+    assert r["walled"] is True
+
+
+def test_camofox_tier4_failure_falls_through(monkeypatch):
+    """Tier-4 enabled but Camofox also fails -> tier_used=None, walled=True."""
+    monkeypatch.setattr(sf, "_run_anansi", lambda *a, **k: (403, "Access Denied", None))
+    monkeypatch.setattr(sf, "_run_cloak", lambda *a, **k: (None, "", "cloak fail"))
+    monkeypatch.setattr(sf, "_run_camofox", lambda *a, **k: (None, "", "camofox empty snapshot"))
+
+    r = sf.fetch("https://hardwall.example/", allow_camofox_tier=True)
+    assert r["tier_used"] is None
+    assert r["walled"] is True
+    assert r["error"]
+
+
+def test_search_searxng_primary(monkeypatch):
+    """search() uses SearXNG first and returns parsed results."""
+    def fake_searxng(query, limit, timeout):
+        return [{"title": "COS-GRB fares", "url": "https://x/1", "content": "cheap"}], None
+
+    monkeypatch.setattr(sf, "_search_searxng", fake_searxng)
+    monkeypatch.setattr(sf, "_search_camofox", lambda *a, **k: (_ for _ in ()).throw(AssertionError("must not fall back")))
+
+    r = sf.search("cheapest flight COS to GRB")
+    assert r["engine_used"] == "searxng"
+    assert r["results"][0]["url"] == "https://x/1"
+    assert r["error"] is None
+
+
+def test_search_auto_falls_back_to_camofox(monkeypatch):
+    """When SearXNG returns nothing, auto mode falls back to Camofox macro search."""
+    monkeypatch.setattr(sf, "_search_searxng", lambda *a, **k: ([], "searxng down"))
+    monkeypatch.setattr(sf, "_search_camofox",
+                        lambda *a, **k: ([{"title": "t", "url": "https://y/2", "content": ""}], None))
+
+    r = sf.search("regent grandeur", engine="auto")
+    assert r["engine_used"] == "camofox"
+    assert r["results"][0]["url"] == "https://y/2"
+
+
+def test_search_searxng_only_reports_error(monkeypatch):
+    """engine='searxng' with no results reports the error, does not fall back."""
+    monkeypatch.setattr(sf, "_search_searxng", lambda *a, **k: ([], "searxng error: refused"))
+    r = sf.search("q", engine="searxng")
+    assert r["engine_used"] is None
+    assert r["results"] == []
+    assert "searxng" in r["error"]
+
+
 # --- anansi header parsing helpers ------------------------------------------
 
 def test_parse_anansi_status():

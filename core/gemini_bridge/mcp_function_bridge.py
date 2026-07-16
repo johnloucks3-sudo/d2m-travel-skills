@@ -46,6 +46,11 @@ SAFE_ALLOWLIST = {
     "search_centrav_flights", "compare_flights", "track_flight_flightaware",
     "track_flight_fr24", "get_airport_flights_fr24", "get_airport_info_flightaware",
     "search_airports", "verify_flight_price", "get_most_tracked_fr24",
+    # --- 2026-07-16 expansion: read-only flight-search siblings of the above.
+    # Airport-code/date/pax params only — no client PII, no send, no financial
+    # commit. Deliberately NOT get_client_airports (reads client dossiers/PII).
+    "search_google_flights", "search_kiwi_flights", "kiwi_place_autocomplete",
+    "search_flights_flightaware",
     # Tours / excursions / hotels / dining / transfers (search only)
     "search_tours", "compare_tours", "search_tours_musement",
     "search_viator_excursions", "search_getyourguide_excursions",

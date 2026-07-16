@@ -30,5 +30,6 @@ sg docker -c "docker logs --tail 20 camofox-browser"
 ## Notes / ROI
 - **CloakBrowser is the proven high-value piece** (defeats Akamai — Regent 403→200, verified). Wired as Anansi's escalation tier.
 - **SearXNG** — useful self-hosted search (no API key, unlimited).
-- **Camofox** — a second stealth browser; overlaps CloakBrowser + Anansi's browser fetcher. Running/available on REST :9377; its session/tab API is richer but not yet wired into the escalation chain (CloakBrowser is the escalation tier). Integrate on demand.
+- **Camofox** — a second stealth browser; overlaps CloakBrowser + Anansi's browser fetcher. Running on REST :9377. **Wired 2026-07-16** into `core/web/smart_fetch.py` as opt-in **Tier 4** (`allow_camofox_tier=True`) — tried only when CloakBrowser (Tier 3) also fails; `_run_camofox()` does start→open-tab→snapshot with one session-expiry retry. Also backs the new `smart_fetch.search()` free-text primitive via the `@google_search` macro (Camofox fallback behind SearXNG). Opt-in because it is heavier and session-stateful (sessions expire between calls → auto-restart-once).
+- **SearXNG free-text search** — now the primary engine for `smart_fetch.search(query)` (JSON metasearch, 127.0.0.1:8890). Closes the anansi free-text-search gap (MISSION-629): anansi only does `fetch <URL>`, so scans that passed raw NL queries got empty output. `search()` gives a real, tested free-text primitive (18 live results for a COS→GRB fare query, verified 2026-07-16).
 - 8080/8888 were already occupied → SearXNG moved to 8890.
