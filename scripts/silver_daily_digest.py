@@ -37,9 +37,9 @@ def _dedupe(cards: list[dict]) -> list[dict]:
 
 
 def _line(c: dict) -> str:
-    return (f'<div style="margin:5px 0; color:#0000ff;">{KIND_EMOJI.get(c["kind"], "•")} '
+    return (f'<div style="margin:8px 0; color:#0000ff; font-size:17px; font-weight:bold;">{KIND_EMOJI.get(c["kind"], "•")} '
             f'<b>[{c["seat"]}]</b> {html.escape(c["insight"][:160])} '
-            f'<span style="color:#888888; font-size:13px;">({c["id"]}, {c["confidence"]})</span></div>')
+            f'<span style="color:#888888; font-size:14px; font-weight:normal;">({c["id"]}, {c["confidence"]})</span></div>')
 
 
 def build_digest() -> str:
@@ -63,7 +63,7 @@ def build_digest() -> str:
                 f'(score_insights.py list)</div>' if len(items) > cap else "")
         return (f'<div style="margin-bottom:20px; padding:10px 10px 10px 15px; '
                 f'border-left:3px solid {color}; background:#f7f3ea;">'
-                f'<div style="font-weight:bold; font-size:17px; margin-bottom:8px; '
+                f'<div style="font-weight:bold; font-size:20px; margin-bottom:8px; '
                 f'color:{color};">{title}</div>{body}{more}</div>')
 
     # Gmail strips <style> blocks — every style is inline, background carried
@@ -72,11 +72,11 @@ def build_digest() -> str:
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f7f3ea"
        style="background-color:#f7f3ea;">
 <tr><td style="padding:20px; font-family:Georgia,serif; color:#0000ff;
-               font-size:15px; line-height:1.6; background-color:#f7f3ea;">
+               font-size:17px; font-weight:bold; line-height:1.6; background-color:#f7f3ea;">
     <div style="border-bottom:2px solid #0000ff; padding-bottom:10px; margin-bottom:20px;">
-        <h1 style="color:#0000ff; font-family:Georgia,serif; font-size:24px; margin:0 0 6px 0;">
+        <h1 style="color:#0000ff; font-family:Georgia,serif; font-size:28px; font-weight:bold; margin:0 0 6px 0;">
             🛡️ CHIEF SILVER — Daily Synthesis — {now.strftime('%A, %B %d, %Y')}</h1>
-        <p style="color:#0000ff; margin:0;">Time: {now.strftime('%H:%M MT')} |
+        <p style="color:#0000ff; margin:0; font-size:16px;">Time: {now.strftime('%H:%M MT')} |
             {len(cards)} distinct open insights | Scoreboard: {rate_line}</p>
     </div>
     {section("🔴 TOP 3 — CONFIRMED, ACTION OR DECISION NEEDED", top3, "#ff0000", 3)}
@@ -84,7 +84,7 @@ def build_digest() -> str:
     {section("🎯 WING PRIORITIES — work before anyone asks", priorities)}
     {section("🤝 SEAT-TO-SEAT — assists, findings, offers", collegial)}
     <div style="margin-top:30px; border-top:1px solid #0000ff; padding-top:10px;
-                font-size:13px; color:#0000ff;">
+                font-size:15px; color:#0000ff; font-weight:normal;">
         Grade my predictions: <code>score_insights.py hit|miss IX-xxxx</code> —
         hit-rates only mean something if you score.<br>
         Full list: <code>score_insights.py list</code> ·
