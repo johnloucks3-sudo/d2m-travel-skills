@@ -144,13 +144,21 @@ def _find_open_duplicate(all_missions, title):
     different ID (e.g. MISSION-SEC-05/1510/1522 were the same GitHub
     credential rotation created 3 times; MISSION-820/1511/1523 were the same
     Regent portal auth created 3 times). Exact/substring match only — no
-    fuzzy matching, which would silently merge genuinely distinct tasks."""
+    fuzzy matching, which would silently merge genuinely distinct tasks.
+
+    REGRESSION FIX (2026-07-16): TCD's Create Task action
+    (tcd/writeback.py::_default_create_task_fn) files missions with
+    status="pending_review", which this function didn't recognize as
+    "open" — so every TCD-routed duplicate sailed straight past this check
+    (Regent pricing x4, TESS restore x3+, WF-17 drafts x4, etc). Added
+    "pending_review" to the open-status list and wired this function into
+    the TCD path directly (see _default_create_task_fn)."""
     new_norm = _normalize_title(title)
     new_set = set(new_norm)
     if not new_set:
         return None
     for m in all_missions:
-        if m.get("status") not in ("active", "in_progress", "pending", "open"):
+        if m.get("status") not in ("active", "in_progress", "pending", "open", "pending_review"):
             continue
         existing_norm = _normalize_title(m.get("title", ""))
         existing_set = set(existing_norm)
@@ -165,18 +173,22 @@ def _find_open_duplicate(all_missions, title):
     return None
 
 
-def cmd_add(board, args):
-    """EXEC: add <title> <description> [P0|P1|P2|P3]"""
-    args = list(args)
-    # Honor a trailing priority token if present (default P0 for back-compat)
-    priority = "P0"
-    if args and args[-1].upper() in ("P0", "P1", "P2", "P3"):
-        priority = args.pop().upper()
-    # Parse simple format: EXEC: add MISSION-XXX title here
-    title = " ".join(args[:3])
-    desc = " ".join(args[3:]) if len(args) > 3 else "No description"
+def add_mission(board, title, description="No description", priority="P0", assigned_to="unassigned", source=None):
+    """Create a new mission on ``board`` (mutates in place) — the ONE place
+    mission-creation + open-duplicate logic lives. ``cmd_add`` (the CLI's
+    space-separated argv parser, below) and any structured/programmatic
+    caller (MCP tools, TCD writeback, etc.) both delegate here so there is
+    exactly one dedup code path, not one per caller — see
+    _find_open_duplicate's REGRESSION FIX note (2026-07-16) for why three
+    independent creation paths already burned this system once.
 
-    # Generate ID
+    Does NOT acquire/release the board lock itself — callers that aren't
+    already inside process_exec_command's lock (i.e. MCP tools) must wrap
+    this in acquire_lock()/save_board() themselves.
+
+    Returns (message, mission_id_or_None) — mission_id is None when the
+    call was blocked as a duplicate (the existing mission's id is embedded
+    in the message instead)."""
     all_missions = board.get("missions", board.get("active_missions", []))
 
     dup = _find_open_duplicate(all_missions, title)
@@ -187,27 +199,27 @@ def cmd_add(board, args):
         dup["updated_at"] = now_iso()
         return (
             f"⚠️ Duplicate blocked — already tracked as {dup['id']} ({dup.get('status')}): "
-            f"{dup['title']}\nNo new mission created. Use log/status/complete on {dup['id']} instead."
+            f"{dup['title']}\nNo new mission created. Use log/status/complete on {dup['id']} instead.",
+            None,
         )
 
-    existing_ids = [m["id"] for m in all_missions]
     # Find next available MISSION-NNN
     nums = []
-    for mid in existing_ids:
+    for m in all_missions:
         try:
-            nums.append(int(mid.split("-")[-1]))
-        except (ValueError, IndexError):
+            nums.append(int(m["id"].split("-")[-1]))
+        except (ValueError, IndexError, KeyError):
             pass
     next_num = (max(nums) + 1) if nums else 1
     mission_id = f"MISSION-{next_num:03d}"
-    
+
     new_mission = {
         "id": mission_id,
         "title": title,
         "status": "in_progress",
         "priority": priority,
-        "assigned_to": "unassigned",
-        "description": desc,
+        "assigned_to": assigned_to,
+        "description": description,
         "deliverables": [],
         "dependencies": [],
         "suspense_date": None,
@@ -216,12 +228,29 @@ def cmd_add(board, args):
         "created_at": now_iso(),
         "updated_at": now_iso()
     }
-    
-    if "missions" in board:
-        board["missions"].append(new_mission)
-    else:
-        board.setdefault("missions", []).append(new_mission)
-    return f"✅ Created: {mission_id} — {title}\nPriority: {priority} | Assigned: unassigned"
+    if source:
+        new_mission["source"] = source
+
+    board.setdefault("missions", []).append(new_mission)
+    return f"✅ Created: {mission_id} — {title}\nPriority: {priority} | Assigned: {assigned_to}", mission_id
+
+
+def cmd_add(board, args):
+    """EXEC: add <title> <description> [P0|P1|P2|P3] — CLI space-separated
+    argv parser only. Kept byte-for-byte (including the title=first-3-words
+    quirk existing Telegram/manual callers already depend on); creation +
+    dedup now live in add_mission() above, the single source of truth."""
+    args = list(args)
+    # Honor a trailing priority token if present (default P0 for back-compat)
+    priority = "P0"
+    if args and args[-1].upper() in ("P0", "P1", "P2", "P3"):
+        priority = args.pop().upper()
+    # Parse simple format: EXEC: add MISSION-XXX title here
+    title = " ".join(args[:3])
+    desc = " ".join(args[3:]) if len(args) > 3 else "No description"
+
+    message, _mission_id = add_mission(board, title, desc, priority, assigned_to="unassigned")
+    return message
 
 
 def cmd_suspense(board, mission_id, date_str):

@@ -677,6 +677,19 @@ try:
 except Exception as e:
     logger.warning(f"Headless Claude tools not available: {e}")
 
+# Mission Board (Wing Tasking) — always loaded, all profiles (AGY capability
+# fix, Commander directive 2026-07-16). Import + registration wrapped in one
+# try/except (not split top/bottom like most tools above) so a bad import
+# here logs a warning and leaves the other ~379 tools on this server
+# unaffected, rather than crash-looping thunderbird-mcp.service for
+# everyone (CC + AGY both depend on this same process).
+try:
+    from thunderbird_mission_board_tools import register_mission_board_tools
+    register_mission_board_tools(mcp)
+    logger.info("Mission board tools registered: mission_board_list, mission_board_add, mission_board_status, mission_board_complete, mission_board_log")
+except Exception as e:
+    logger.warning(f"Mission board tools not available: {e}")
+
 # OpenClaw P1: Memory Embeddings — semantic recall layer
 try:
     from ai_infra.thunderbird_memory_embeddings import register_memory_embedding_tools
