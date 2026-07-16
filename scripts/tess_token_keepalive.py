@@ -248,7 +248,13 @@ def _try_credential_login() -> int:
     if not username or not password:
         logger.error("No vault credentials — cannot auto-login")
         return 1
-    ok = asyncio.run(_credential_login_playwright(username, password))
+    try:
+        ok = asyncio.run(_credential_login_playwright(username, password))
+    except Exception as e:
+        # Transient (page-load timeout, network) — NOT the stale-password case.
+        # Keep rc=1 so the OnFailure/remediation retry path still fires.
+        logger.error("Credential login transient failure: %s", str(e)[:120])
+        return 1
     if ok:
         _BAD_CREDS_MARKER.unlink(missing_ok=True)
         return 0
