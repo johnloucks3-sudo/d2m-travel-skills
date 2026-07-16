@@ -326,6 +326,14 @@ def brief_section(for_date: date | None = None) -> str:
     for e in entries:
         if e["verdict"] == PASS:
             lines.append(f"  - ✅ {e['stage'].upper()} {e['mission_id']} — {e['work_product'][:70]}")
+    try:
+        from core.silver.insight_exchange import brief_lines
+        ix = brief_lines()
+        if ix:
+            lines.append("- Insight Exchange (open cards + seat hit-rates):")
+            lines.extend(ix)
+    except Exception:
+        pass
     return "\n".join(lines)
 
 
