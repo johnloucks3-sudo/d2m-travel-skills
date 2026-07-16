@@ -23,7 +23,12 @@ sys.path.insert(0, str(THUNDERBIRD_DIR))
 import core.hale_bus.hale_bus_write as bus_write  # noqa: E402
 import core.hale_bus.c2_fabric_read as fabric_read  # noqa: E402
 import core.relay.delegation_wiring as wiring  # noqa: E402
+import core.silver.gate as silver_gate  # noqa: E402
 from core.relay.task_delegation import route_task, CC, OC, AG  # noqa: E402
+
+# Every delegation now runs Silver's mandatory front frame, which requires a
+# named ground-truth source (2026-07-16 directive). Tests use a real repo file.
+GTS = ["OpsCenter/mission_board.json"]
 
 
 def _isolate_bus(tmp_path, monkeypatch):
@@ -41,6 +46,10 @@ def _isolate_bus(tmp_path, monkeypatch):
     monkeypatch.setattr(fabric_write, "HALE_BUS_PATH", bus_file)
     monkeypatch.setattr(fabric_write, "LOCK_PATH", lock_file)
     monkeypatch.setattr(fabric_read, "HALE_BUS_PATH", bus_file)
+    # Silver's ledger/decision writes also go to tmp — tests never touch the
+    # real silver_ledger.jsonl / hale_decisions.md.
+    monkeypatch.setattr(silver_gate, "LEDGER", tmp_path / "silver_ledger.jsonl")
+    monkeypatch.setattr(silver_gate, "DECISIONS", tmp_path / "hale_decisions.md")
     return bus_file
 
 
@@ -74,6 +83,7 @@ def test_assigned_stage_written_and_readable(tmp_path, monkeypatch):
         "assigned_to": OC,
         "acceptance_criteria": "factbook.json regenerated with 12 rows",
         "certified_by": CC,
+        "ground_truth_sources": GTS,
     }
     wiring.delegate_mission(mission, from_seat=CC, task_type="factbook_refresh")
 
@@ -93,7 +103,8 @@ def test_full_lifecycle_events_land_on_bus(tmp_path, monkeypatch):
 
     mid = "MISSION-TEST-2"
     mission = {"id": mid, "title": "pull data", "assigned_to": OC,
-               "acceptance_criteria": "rows present", "certified_by": CC}
+               "acceptance_criteria": "rows present", "certified_by": CC,
+               "ground_truth_sources": GTS}
     wiring.delegate_mission(mission, task_type="data_pull")
     wiring.ack_receipt(OC, mid)
     wiring.submit_for_review(mid, OC, "output/data.json@commit abc123")
@@ -112,7 +123,8 @@ def test_self_certification_rejected_at_assignment(tmp_path, monkeypatch):
     _isolate_bus(tmp_path, monkeypatch)
     _stub_relay(monkeypatch)
     mission = {"id": "M", "title": "t", "assigned_to": OC,
-               "acceptance_criteria": "crit", "certified_by": OC}
+               "acceptance_criteria": "crit", "certified_by": OC,
+               "ground_truth_sources": GTS}
     try:
         wiring.delegate_mission(mission, task_type="data_pull")
         assert False, "expected DelegationError on certifier == assignee"
@@ -162,7 +174,7 @@ def test_add_mission_seat_assignment_fires_delegation(tmp_path, monkeypatch):
         board, "scrape and store the port pages",
         priority="P2", assigned_to=OC,
         acceptance_criteria="4 port pages saved under intel/",
-        certified_by=CC, task_type="scrape_store",
+        certified_by=CC, task_type="scrape_store", ground_truth_sources=GTS,
     )
     assert mid is not None
     created = board["missions"][0]
@@ -209,7 +221,7 @@ def test_cmd_delegate_fires_delegation_and_mirrors_bus(tmp_path, monkeypatch):
     import OpsCenter.mission_board_sync as mbs
     board = {"missions": []}
     msg = mbs.cmd_delegate(
-        board, "OC :: scrape the four Regent port pages :: 4 pages saved under intel/ :: P2 :: scrape_store")
+        board, "OC :: scrape the four Regent port pages :: 4 pages saved under intel/ :: P2 :: scrape_store :: CC :: OpsCenter/mission_board.json")
     assert "Delegated" in msg
     created = board["missions"][0]
     assert created["assigned_to"] == OC and created["status"] == "assigned"
@@ -225,7 +237,7 @@ def test_cmd_delegate_rejects_self_certifier(tmp_path, monkeypatch):
     import OpsCenter.mission_board_sync as mbs
     board = {"missions": []}
     # certifier == seat → §3.5 self-certification rejection surfaced as a clean message
-    msg = mbs.cmd_delegate(board, "OC :: t :: crit :: P2 :: scrape_store :: OC")
+    msg = mbs.cmd_delegate(board, "OC :: t :: crit :: P2 :: scrape_store :: OC :: OpsCenter/mission_board.json")
     assert "rejected" in msg.lower() and "self-certification" in msg
     assert board["missions"] == []
 
@@ -235,3 +247,54 @@ def test_cmd_delegate_bad_seat(tmp_path, monkeypatch):
     _stub_relay(monkeypatch)
     import OpsCenter.mission_board_sync as mbs
     assert "Unknown seat" in mbs.cmd_delegate({"missions": []}, "ZZ :: t :: crit")
+
+
+# ── Silver mandatory gates (Commander directive 2026-07-16) ──────────────────
+def test_delegate_without_ground_truth_refused(tmp_path, monkeypatch):
+    _isolate_bus(tmp_path, monkeypatch)
+    _stub_relay(monkeypatch)
+    mission = {"id": "M-SILVER-1", "title": "t", "assigned_to": OC,
+               "acceptance_criteria": "12 rows in factbook.json", "certified_by": CC}
+    try:
+        wiring.delegate_mission(mission, task_type="data_pull")
+        assert False, "expected CHIEF SILVER front-frame HOLD (no ground truth)"
+    except wiring.DelegationError as e:
+        assert "CHIEF SILVER front-frame HOLD" in str(e)
+        assert "ground-truth" in str(e)
+
+
+def test_delegate_with_vague_criteria_refused(tmp_path, monkeypatch):
+    _isolate_bus(tmp_path, monkeypatch)
+    _stub_relay(monkeypatch)
+    mission = {"id": "M-SILVER-2", "title": "t", "assigned_to": OC,
+               "acceptance_criteria": "make it good", "certified_by": CC,
+               "ground_truth_sources": GTS}
+    try:
+        wiring.delegate_mission(mission, task_type="data_pull")
+        assert False, "expected CHIEF SILVER front-frame HOLD (uncheckable criteria)"
+    except wiring.DelegationError as e:
+        assert "checkable" in str(e)
+
+
+def test_certify_bare_claim_artifact_refused(tmp_path, monkeypatch):
+    _isolate_bus(tmp_path, monkeypatch)
+    _stub_relay(monkeypatch)
+    try:
+        wiring.certify_mission("M-SILVER-3", OC, CC, "done, trust me", "rows present")
+        assert False, "expected CHIEF SILVER back-gate HOLD (bare claim artifact)"
+    except wiring.DelegationError as e:
+        assert "CHIEF SILVER back-gate HOLD" in str(e)
+
+
+def test_silver_verdicts_land_in_ledger(tmp_path, monkeypatch):
+    _isolate_bus(tmp_path, monkeypatch)
+    _stub_relay(monkeypatch)
+    import json
+    mission = {"id": "M-SILVER-4", "title": "pull data", "assigned_to": OC,
+               "acceptance_criteria": "rows present", "certified_by": CC,
+               "ground_truth_sources": GTS}
+    wiring.delegate_mission(mission, task_type="data_pull")
+    wiring.certify_mission("M-SILVER-4", OC, CC, "output/data.json@commit abc123", "rows present")
+    entries = [json.loads(l) for l in (tmp_path / "silver_ledger.jsonl").read_text().splitlines()]
+    stages = [(e["stage"], e["verdict"]) for e in entries if e["mission_id"] == "M-SILVER-4"]
+    assert ("front", "PASS") in stages and ("back", "PASS") in stages, stages

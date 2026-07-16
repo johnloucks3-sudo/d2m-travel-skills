@@ -27,6 +27,7 @@ from typing import Optional
 
 from core.relay.task_delegation import CC, OC, AG, SEATS, route_task
 from core.hale_bus.c2_fabric_write import record_channel_event
+from core.silver.gate import silver_front_frame, run_gate
 
 # wing_relay is a PROTECTED file — imported read-only, never modified.
 from core.relay.wing_relay import relay_handoff, relay_ack
@@ -144,6 +145,20 @@ def delegate_mission(
     mission["certified_by"] = certified_by
     mission.setdefault("verification_artifact", "")
 
+    # Silver FRONT frame — MANDATORY (Commander directive 2026-07-16): no
+    # concrete, second-seat-verifiable "done" frame, no ticket.
+    frame = silver_front_frame(
+        mission.get("id", "MISSION-?"),
+        mission.get("title", ""),
+        acceptance_criteria,
+        mission.get("ground_truth_sources") or [],
+    )
+    if not frame.ok:
+        raise DelegationError(
+            "CHIEF SILVER front-frame HOLD — " + "; ".join(frame.holds)
+        )
+    mission["silver_front_frame"] = frame.ts
+
     rationale = _resolve_rationale(seat, task_type, route_kwargs)
     mission["delegation_rationale"] = rationale
 
@@ -193,9 +208,8 @@ def certify_mission(
       - certified_by == assigned_to        → self-certification forbidden (§3.5.3)
       - verification_artifact is empty      → no machine-checkable artifact (§3.5.2)
       - acceptance_criteria is empty        → nothing to validate against (§3.5.1)
+      - Silver BACK gate returns HOLD       → content check failed (mandatory 2026-07-16)
 
-    NOTE: presence is necessary, not sufficient — the caller must ALSO validate
-    the artifact CONTENT against acceptance_criteria before calling this (§3.5.1).
     On success, mirrors the `done` stage onto the bus and returns the bus entry."""
     if certified_by == assigned_to:
         raise DelegationError(
@@ -206,6 +220,13 @@ def certify_mission(
         raise DelegationError("no verification_artifact — cannot certify done (§3.5.2)")
     if not acceptance_criteria.strip():
         raise DelegationError("no acceptance_criteria — nothing to validate against (§3.5.1)")
+
+    # Silver BACK gate — MANDATORY (Commander directive 2026-07-16): the
+    # deterministic battery runs against the actual artifact; HOLD blocks close.
+    v = run_gate(verification_artifact, acceptance_criteria, mission_id=mission_id)
+    if not v.ok:
+        raise DelegationError("CHIEF SILVER back-gate HOLD — " + "; ".join(v.holds))
+
     return mirror_stage_to_bus(
         mission_id, "done",
         f"{assigned_to} work certified by {certified_by} | artifact: {verification_artifact[:120]}",

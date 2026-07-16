@@ -23,10 +23,20 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 # ── Seats ──────────────────────────────────────────────────────────────────
-CC = "CC"  # Claude Code — Opus/Sonnet on MAX. Hub. Judgment/architecture/voice.
-OC = "OC"  # OpenCode   — Sonnet via MAX OAuth (+ Poe persona lane). Mechanical ops.
-AG = "AG"  # Antigravity/Gemini — separate Google meter ($0 Claude). Budget valve.
+# Capability model ground-truthed 2026-07-16 against live configs
+# (~/.config/opencode/opencode.json, config/wing_org.yaml, ~/.gemini/*) and
+# Commander corrections. Supersedes the stale model in the 20260716 design doc.
+CC = "CC"  # Claude Code — Opus/Sonnet, Claude MAX OAuth. Hub. Judgment/architecture/voice.
+OC = "OC"  # OpenCode — DeepSeek v4 (Zen free default; Poe deepseek-v4-flash-e; staff on
+           # v3.2; Poe claude-sonnet-4.6 voice lane only). Mechanical ops + PII fence.
+AG = "AG"  # Antigravity — Gemini 3.5 Flash (active) / 3.1 Pro. No Claude access.
+           # Native file-management + image-generation tools CC's CLI lacks.
 SEATS = (CC, OC, AG)
+
+# Reserve Claude lane: separate non-MAX Anthropic API key (Sonnet/Opus) exists in
+# .env/auth.json but is UNFUNDED per Commander 2026-07-16 — modeled UNAVAILABLE.
+# Flip to True only on a confirmed Commander funding decision (financial gate).
+RESERVE_CLAUDE_API_FUNDED = False
 
 @dataclass
 class RouteDecision:
@@ -47,26 +57,26 @@ def route_task(
     if needs_judgment:
         return RouteDecision(CC, "needs Claude-grade judgment / voice / arbitration")
 
-    # 3-early. Large context or vision must go to Gemini regardless of budget.
+    # 3-early. Large context, vision, or graphics must go to Gemini regardless of budget.
     if needs_large_context:
-        return RouteDecision(AG, "large-context (Gemini 1M ctx) — off the MAX meter")
+        return RouteDecision(AG, "large-context (Gemini 1M ctx) — off the Claude MAX meter")
     if is_vision:
-        return RouteDecision(AG, "vision/image task — Gemini native")
+        return RouteDecision(AG, "vision/image/graphics — Gemini + native image tools")
 
     mechanical = {
         "factbook_refresh", "inbox_triage", "dossier_sync", "mission_status_write",
         "label_fix", "timestamp_fix", "file_move", "scrape_store", "json_validate",
         "ci_probe", "scheduled_sweep", "data_pull",
     }
-    # 2. Deterministic ops/mechanical, no judgment → OC (JET default)
+    # 2. Deterministic ops/mechanical, no judgment → OC (DeepSeek v4, JET default)
     if task_type in mechanical:
-        return RouteDecision(OC, "deterministic ops/mechanical — OC JET default")
+        return RouteDecision(OC, "deterministic ops/mechanical — OC (DeepSeek v4) JET default")
 
-    # Claude-optional Sonnet-tier work → AG unconditionally. AG is the free
-    # Google meter; there is no reason to spend the MAX bucket on work that does
-    # not need Claude judgment/voice, at any weekly %.
+    # Claude-optional work → AG. AG runs on the Google meter (Gemini 3.5 Flash /
+    # 3.1 Pro); no reason to spend the Claude MAX bucket on work that does not
+    # need Claude judgment/voice, at any weekly %.
     if claude_optional:
-        return RouteDecision(AG, "Claude-optional — AG (free meter) instead of the MAX bucket")
+        return RouteDecision(AG, "Claude-optional — AG (Gemini meter) instead of the MAX bucket")
 
     # 4. Safe default — CC can re-delegate.
     return RouteDecision(CC, "default — CC (can re-delegate)")

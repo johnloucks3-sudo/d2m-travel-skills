@@ -40,7 +40,7 @@ def get_mission_board_status():
 
 def get_hale_state():
     """Read latest Hale operational state"""
-    state_file = Path('/home/john/Thunderbird/OpsCenter/hale_state.json')
+    state_file = Path('/home/john/Thunderbird/hale_state.json')
     if state_file.exists():
         try:
             with open(state_file) as f:
@@ -210,6 +210,16 @@ def get_tp_queue_item() -> dict:
         return {}
 
 
+def get_silver_activity() -> str:
+    """CHIEF SILVER standing section — Overseer involvement, daily,
+    non-negotiable (Commander 2026-07-16: 'I need more visibility')."""
+    try:
+        from core.silver.gate import brief_section
+        return brief_section()
+    except Exception as e:
+        return f"## 🛡️ CHIEF SILVER — section unavailable: {e}"
+
+
 def format_morning_brief(timestamp):
     """Generate formatted brief HTML"""
     mission_status = get_mission_board_status()
@@ -221,6 +231,7 @@ def format_morning_brief(timestamp):
     dossier_sweep = get_dossier_sweep_results()
     staff_concerns = get_staff_concerns()
     tp_item = get_tp_queue_item()
+    silver_activity = get_silver_activity()
 
     # Calculate time until end of business
     now = datetime.now()
@@ -255,6 +266,11 @@ def format_morning_brief(timestamp):
     <div class="section">
         <div class="section-title">OPERATIONAL PRIORITY (Next 8 Hours)</div>
         <div class="metric">{mission_status}</div>
+    </div>
+
+    <div class="section" style="border-left:3px solid #708090;">
+        <div class="section-title" style="color:#556;">🛡️ CHIEF SILVER — OVERSEER ACTIVITY</div>
+        <pre style="font-family:Georgia,serif; white-space:pre-wrap;">{silver_activity}</pre>
     </div>
 
     <div class="section">

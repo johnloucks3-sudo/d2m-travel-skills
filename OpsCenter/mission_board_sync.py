@@ -191,7 +191,8 @@ def _find_open_duplicate(all_missions, title):
 
 
 def add_mission(board, title, description="No description", priority="P0", assigned_to="unassigned", source=None,
-                acceptance_criteria=None, certified_by=None, deadline_hours=None, task_type=None, from_seat="CC"):
+                acceptance_criteria=None, certified_by=None, deadline_hours=None, task_type=None, from_seat="CC",
+                ground_truth_sources=None):
     """Create a new mission on ``board`` (mutates in place) — the ONE place
     mission-creation + open-duplicate logic lives. ``cmd_add`` (the CLI's
     space-separated argv parser, below) and any structured/programmatic
@@ -271,6 +272,7 @@ def add_mission(board, title, description="No description", priority="P0", assig
         new_mission["acceptance_criteria"] = (acceptance_criteria or "").strip()
         new_mission["verification_artifact"] = ""
         new_mission["certified_by"] = certified_by or "CC"
+        new_mission["ground_truth_sources"] = ground_truth_sources or []
         if deadline_hours:
             new_mission["deadline"] = (
                 datetime.now(timezone.utc) + timedelta(hours=deadline_hours)
@@ -308,18 +310,20 @@ def cmd_add(board, args):
 
 
 def cmd_delegate(board, arg_string):
-    """EXEC: delegate SEAT :: title :: acceptance_criteria [:: PRIORITY :: task_type :: certifier]
+    """EXEC: delegate SEAT :: title :: acceptance_criteria [:: PRIORITY :: task_type :: certifier :: ground_truth]
 
     The real cross-Hale delegation entry point (CC/OC/AG). Fields are `::`-
     delimited because titles/criteria contain spaces the whitespace argv parser
     would shred. Delegates to add_mission(assigned_to=SEAT, ...), which fires
-    delegate_mission() — routing validation + relay handoff + `assigned` bus
-    mirror. certifier defaults to CC and MUST differ from SEAT (§3.5)."""
+    delegate_mission() — routing validation + Silver front-frame + relay handoff
+    + `assigned` bus mirror. certifier defaults to CC and MUST differ from SEAT
+    (§3.5). ground_truth = comma-separated source(s) Silver's front frame
+    requires (mandatory 2026-07-16): no named ground truth, no ticket."""
     seats = _delegation_seats()
     fields = [f.strip() for f in arg_string.split("::")]
     if len(fields) < 3 or not fields[0]:
         return ("❌ Usage: EXEC: delegate SEAT :: title :: acceptance_criteria "
-                "[:: PRIORITY :: task_type :: certifier]\n"
+                "[:: PRIORITY :: task_type :: certifier :: ground_truth]\n"
                 f"   SEAT ∈ {seats}")
     seat = fields[0].upper()
     if seat not in seats:
@@ -331,6 +335,7 @@ def cmd_delegate(board, arg_string):
     priority = fields[3].upper() if len(fields) > 3 and fields[3].upper() in ("P0", "P1", "P2", "P3") else "P2"
     task_type = fields[4] if len(fields) > 4 and fields[4] else None
     certifier = fields[5].upper() if len(fields) > 5 and fields[5] else "CC"
+    ground_truth = [s.strip() for s in fields[6].split(",") if s.strip()] if len(fields) > 6 and fields[6] else []
 
     try:
         from core.relay.delegation_wiring import DelegationError
@@ -341,6 +346,7 @@ def cmd_delegate(board, arg_string):
             board, title, description=acceptance_criteria, priority=priority,
             assigned_to=seat, acceptance_criteria=acceptance_criteria,
             certified_by=certifier, task_type=task_type,
+            ground_truth_sources=ground_truth,
         )
         return message
     except DelegationError as e:
