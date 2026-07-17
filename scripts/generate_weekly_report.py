@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 
 THUNDERBIRD = Path("/home/john/Thunderbird")
 sys.path.insert(0, str(THUNDERBIRD))
+sys.path.insert(0, str(THUNDERBIRD / "OpsCenter"))
 
 OPSCENTER = THUNDERBIRD / "OpsCenter"
 OUTPUT = THUNDERBIRD / "output" / "weekly_reports"
@@ -92,8 +93,33 @@ def get_active_missions(board: dict) -> list:
 # ─── MISSION BOARD INJECTION ──────────────────────────────────────────────────
 
 def inject_task(board: dict, title: str, description: str, owner: str, priority: str) -> str:
-    """Add a weekly-report task directly to board JSON. Returns new mission ID."""
+    """Add a weekly-report task directly to board JSON. Returns new mission ID.
+
+    REGRESSION FIX (2026-07-16): this appended directly to board["missions"]
+    with zero duplicate check, completely bypassing mission_board_sync.py's
+    _find_open_duplicate() (the same class of bug just fixed in
+    tcd/writeback.py::_default_create_task_fn -- this is the THIRD
+    mission-creation code path found doing this independently). Since this
+    generator re-runs periodically, it kept re-creating the identical
+    Regent/TESS/dedup tickets every cycle (MISSION-621-629 all "Weekly
+    Report Generator", same titles as 001/005/011/017/029/033/034/037/042/
+    046/047 before that). Now checks for an existing open duplicate first.
+    """
     all_missions = board.get("missions", [])
+
+    try:
+        import mission_board_sync as mbs
+        dup = mbs._find_open_duplicate(all_missions, title)
+    except Exception:
+        dup = None
+    if dup is not None:
+        dup.setdefault("logs", []).append(
+            f"[{datetime.now(timezone.utc).isoformat()[:19]}] "
+            f"Weekly Report Generator duplicate blocked — \"{title}\" already tracked here"
+        )
+        dup["updated_at"] = datetime.now(timezone.utc).isoformat()
+        return dup["id"]
+
     nums = []
     for m in all_missions:
         try:

@@ -265,11 +265,31 @@ def _default_create_task_fn(row: dict) -> str:
     """File a real Wing Tasking mission from an FYI-kind row's "Create Task"
     action, via the same locking primitives used to file MISSION-001A itself
     (OpsCenter/mission_board_sync.py) — not a cosmetic status flip. Returns
-    the new mission id."""
+    the new mission id.
+
+    REGRESSION FIX (2026-07-16): this hand-rolled the mission dict and
+    appended directly to the board, bypassing mission_board_sync's
+    _find_open_duplicate() (Silver/Sterling's 2026-07-04 one-and-done fix)
+    entirely. Since TCD became the only C2 channel (2026-07-11), every
+    recurring Commander decision routed through here flooded the board with
+    duplicates (Regent pricing x4, TESS restore x3+, WF-17 drafts x4, ...).
+    Now runs the same dedup check cmd_add uses before filing a new mission."""
     mbs = _imports.load_mission_board_sync()
     fd = mbs.acquire_lock()
     board = mbs.load_board()
     all_missions = board.get("missions", [])
+    title = row.get("title", row.get("id", ""))[:120]
+
+    dup = mbs._find_open_duplicate(all_missions, title)
+    if dup is not None:
+        dup.setdefault("logs", []).append(
+            f"{mbs.now_iso()}: duplicate TCD Create Task blocked — \"{title}\" already tracked here "
+            f"(source row {row.get('id', '')})"
+        )
+        dup["updated_at"] = mbs.now_iso()
+        mbs.save_board(board, fd)
+        return dup["id"]
+
     nums = []
     for m in all_missions:
         try:
@@ -282,7 +302,7 @@ def _default_create_task_fn(row: dict) -> str:
     description = f"Commander instruction: {note}\n\n{source_desc}" if note else source_desc
     new_mission = {
         "id": mission_id,
-        "title": row.get("title", row.get("id", ""))[:120],
+        "title": title,
         "status": "pending_review",
         "priority": row.get("priority", "p2").upper() if row.get("priority", "").upper() in
                     ("P0", "P1", "P2", "P3") else "P2",

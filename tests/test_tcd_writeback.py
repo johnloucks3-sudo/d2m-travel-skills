@@ -409,6 +409,37 @@ class TestCreateTaskDetection:
         filed = [m for m in board["missions"] if m["id"] == mission_id][0]
         assert filed["description"] == "Original body."
 
+    def test_duplicate_create_task_blocked_not_filed_twice(self, tmp_path, monkeypatch):
+        # REGRESSION (2026-07-16): _default_create_task_fn hand-rolled the
+        # mission dict and appended directly to the board, never calling
+        # mission_board_sync._find_open_duplicate() (Silver/Sterling's
+        # 2026-07-04 one-and-done fix). Since TCD became the only C2 channel
+        # (2026-07-11), every recurring Commander decision routed through
+        # here flooded the board with duplicates: Regent pricing refresh x4
+        # (MISSION-005/017/034/042), TESS restore x3+, WF-17 drafts x4 with
+        # CONFLICTING deadlines on the duplicate tickets. Ground truth: the
+        # dedup filter also didn't recognize status="pending_review" (what
+        # this function files under) as "open" -- fixed alongside this.
+        board_path = tmp_path / "mission_board.json"
+        board_path.write_text(json.dumps({"missions": [], "last_updated": ""}))
+        lock_path = tmp_path / "mission_board.lock"
+        from OpsCenter import mission_board_sync as mbs
+        monkeypatch.setattr(mbs, "BOARD_PATH", board_path)
+        monkeypatch.setattr(mbs, "LOCK_PATH", lock_path)
+
+        row1 = _row(id="alert-1", title="Produce Regent pricing refresh for Lyons renewal window")
+        first_id = writeback._default_create_task_fn(row1)
+
+        row2 = _row(id="alert-2", title="Produce Regent pricing refresh for Lyons renewal window")
+        second_id = writeback._default_create_task_fn(row2)
+
+        assert second_id == first_id, "duplicate Create Task action must resolve to the existing mission, not file a new one"
+        board = json.loads(board_path.read_text())
+        assert len(board["missions"]) == 1, "exactly one mission must exist for this title, not two"
+        filed = board["missions"][0]
+        assert filed["status"] == "pending_review"
+        assert any("duplicate TCD Create Task blocked" in log for log in filed["logs"])
+
 
 class TestStatePersistence:
     def test_state_file_written(self, tmp_path):
