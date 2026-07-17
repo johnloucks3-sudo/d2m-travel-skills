@@ -286,4 +286,11 @@ if __name__ == "__main__":
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--watch-id", help="Run a single watch by ID")
     args = parser.parse_args()
-    run(dry_run=args.dry_run, filter_id=args.watch_id)
+    try:
+        run(dry_run=args.dry_run, filter_id=args.watch_id)
+    except requests.exceptions.ConnectionError as e:
+        # Amadeus test API is intermittently unreliable (connection reset).
+        # Exit 0 so systemd does not fire OnFailure and cascade into an alert storm.
+        # The timer will retry on the next scheduled run.
+        log.warning("Amadeus API unreachable — soft-skipping this run: %s", e)
+        sys.exit(0)
