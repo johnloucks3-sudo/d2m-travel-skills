@@ -812,6 +812,39 @@ class TestSilverGateFrontFrame:
         # No front-frame ledger entry for an ungated row.
         assert not (tmp_path / "silver_ledger.jsonl").exists()
 
+    def test_empty_comments_checkable_description_auto_tasks(self, tmp_path):
+        # Mission-board rows carry comments=[] but a real description on `body`.
+        # A checkable description satisfies the front frame — no false HOLD.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-d": {"status": "Open",
+                                                        "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        row = _row(id="mission-d", stage="D", title="Wire deploy watchdog", comments="")
+        row["body"] = "Fix intel/daily_search/foo.py — add 3 checks, verified via systemctl."
+        result = writeback.process_once([row], state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=_fake_write_ok)
+        assert result["held"] == []
+        assert len(result["tasked"]) == 1
+
+    def test_empty_comments_vague_description_still_holds(self, tmp_path):
+        # No checkable criteria in comments OR description -> correctly HOLDs.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-v": {"status": "Open",
+                                                        "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        row = _row(id="mission-v", stage="D", title="Follow up", comments="")
+        row["body"] = "Follow up on the thing"
+        result = writeback.process_once([row], state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=_fake_write_ok)
+        assert result["held"] == [{"id": "mission-v"}]
+        assert result["tasked"] == []
+
 
 class TestSilverGateBackGate:
     """MISSION-658: Close and stage->C write the REAL Silver verdict, not the

@@ -212,9 +212,16 @@ def _handle_auto_task(row: dict, decisions_path, overrides_path=None):
     read that way in hale_decisions.md). Returns the assigned owner.
     """
     if _is_delegated_work(row):
+        # Mission-board rows arrive with comments=[] (scripts/tcd_data.py) — the
+        # framed "done" lives in the mission description, carried on the row as
+        # ``body``. Fall back to it so a well-specified mission passes the front
+        # frame on real data (baseline: 27/32 open missions carry a checkable
+        # description, 0/32 carry comments), while a genuinely vague mission
+        # (no checkable criteria in either) still correctly HOLDs.
+        criteria = row.get("comments", "") or row.get("body", "")
         frame = silver_front_frame(
             row["id"], row.get("title", ""),
-            acceptance_criteria=row.get("comments", ""),
+            acceptance_criteria=criteria,
             ground_truth_sources=[row.get("sourcePath", "")],
         )
         if not frame.ok:
