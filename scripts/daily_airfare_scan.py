@@ -148,13 +148,26 @@ def _is_plausible_price(price_pp: float, cabin: str) -> bool:
 
 # ── Source runners ────────────────────────────────────────────────────────────
 
+_AMADEUS_DEAD_LOGGED = False  # module-level: log the fast-fail notice once per run, not once per route
+
+
 async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
-    """Run a real Amadeus flight-offers search (2026-07-16 fix — the prior
-    version imported a module, core.travel.amadeus_search, that has never
-    existed in this repo; every nightly run silently skipped Amadeus and the
-    pipeline fell back to session-gated Centrav + browser scrapers instead.
-    Calls the same REST logic thunderbird_flight_search.py's MCP tool uses,
-    directly (sync helpers, no event-loop-inside-event-loop issue)."""
+    """Amadeus Self-Service API PERMANENTLY RETIRED 2026-07-17 (confirmed:
+    test.api.amadeus.com / api.amadeus.com no longer resolve in public DNS,
+    traced to Amadeus's own authoritative nameservers; independently verified
+    against tripgic.com's migration-guide page, real schema.org metadata,
+    published 2026-06-04 — "the Amadeus self-service API portal shuts down on
+    July 17, 2026"). This is external and permanent, not a local bug — do not
+    remove this function (Enterprise API access may restore it later), but
+    fast-fail with a short timeout instead of waiting out a full connect
+    timeout on every one of 19 routes, every night, forever.
+
+    2026-07-16 fix (superseded by the above, kept for when Amadeus access
+    returns): the prior version imported core.travel.amadeus_search, a module
+    that never existed — every run silently skipped Amadeus and fell back to
+    session-gated Centrav + browser scrapers. Fixed to call the real REST
+    logic thunderbird_flight_search.py's MCP tool uses directly."""
+    global _AMADEUS_DEAD_LOGGED
     if not watch.get("travel_date"):
         logger.debug("amadeus: no travel_date for %s — skipping", watch.get("id"))
         return None
@@ -164,6 +177,14 @@ async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
     except ImportError as exc:
         logger.warning("thunderbird_flight_search not available — skipping Amadeus: %s", exc)
         return None
+
+    if not _AMADEUS_DEAD_LOGGED:
+        logger.warning(
+            "amadeus: Self-Service API retired by Amadeus 2026-07-17 (confirmed "
+            "DNS + vendor docs) — attempting anyway with a short timeout in "
+            "case Enterprise access has since been provisioned; expect failures"
+        )
+        _AMADEUS_DEAD_LOGGED = True
 
     origin, dest = _parse_route(watch.get("route", ""))
     if not origin or not dest:
@@ -182,7 +203,7 @@ async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
         }
         resp = _requests.get(
             f"{AmadeusConfig.BASE_URL}/v2/shopping/flight-offers",
-            headers=_auth_headers(), params=params, timeout=30,
+            headers=_auth_headers(), params=params, timeout=8,  # fast-fail: host is retired
         )
         if resp.status_code != 200:
             logger.warning("amadeus: %s for %s — %s", resp.status_code, watch.get("id"), resp.text[:200])
