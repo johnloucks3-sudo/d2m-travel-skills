@@ -149,18 +149,20 @@ def _is_plausible_price(price_pp: float, cabin: str) -> bool:
 # ── Source runners ────────────────────────────────────────────────────────────
 
 async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
-    """Run Amadeus flight search via MCP tool call.
-
-    Note: This calls the thunderbird_flight_search module's search_flights MCP tool.
-    For CLI pipeline, we call the function directly.
-    """
+    """Run a real Amadeus flight-offers search (2026-07-16 fix — the prior
+    version imported a module, core.travel.amadeus_search, that has never
+    existed in this repo; every nightly run silently skipped Amadeus and the
+    pipeline fell back to session-gated Centrav + browser scrapers instead.
+    Calls the same REST logic thunderbird_flight_search.py's MCP tool uses,
+    directly (sync helpers, no event-loop-inside-event-loop issue)."""
     if not watch.get("travel_date"):
         logger.debug("amadeus: no travel_date for %s — skipping", watch.get("id"))
         return None
     try:
-        from core.travel.amadeus_search import search_flights as amadeus_search
-    except ImportError:
-        logger.warning("amadeus_search module not available — skipping Amadeus")
+        from thunderbird_flight_search import AmadeusConfig, _auth_headers, _format_flight_offers
+        import requests as _requests
+    except ImportError as exc:
+        logger.warning("thunderbird_flight_search not available — skipping Amadeus: %s", exc)
         return None
 
     origin, dest = _parse_route(watch.get("route", ""))
@@ -169,34 +171,34 @@ async def _scan_amadeus(watch: dict, adults: int) -> Optional[dict]:
         return None
 
     try:
-        result = amadeus_search(
-            origin=origin,
-            destination=dest,
-            departure_date=watch.get("travel_date", ""),
-            adults=adults,
-            cabin_class=_infer_cabin(watch).upper(),
+        params = {
+            "originLocationCode": origin,
+            "destinationLocationCode": dest,
+            "departureDate": watch.get("travel_date", ""),
+            "adults": min(adults, 9),
+            "max": 10,
+            "currencyCode": "USD",
+            "travelClass": _infer_cabin(watch).upper(),
+        }
+        resp = _requests.get(
+            f"{AmadeusConfig.BASE_URL}/v2/shopping/flight-offers",
+            headers=_auth_headers(), params=params, timeout=30,
         )
-        # amadeus_search returns a JSON string
-        if isinstance(result, str):
-            result = json.loads(result)
+        if resp.status_code != 200:
+            logger.warning("amadeus: %s for %s — %s", resp.status_code, watch.get("id"), resp.text[:200])
+            return {"best_price_pp": None, "airline": None, "raw": {"status": resp.status_code}}
 
-        if isinstance(result, dict):
-            # Extract best price
-            offers = result.get("data", [])
-            if offers:
-                best = None
-                airline = None
-                for offer in offers:
-                    price = offer.get("price", {}).get("total", 0)
-                    if best is None or float(price) < best:
-                        best = float(price)
-                        airline = offer.get("airline", "")
-                return {
-                    "best_price_pp": round(best / adults, 2) if best else None,
-                    "airline": airline,
-                    "raw": result,
-                }
-        return {"best_price_pp": None, "airline": None, "raw": result}
+        formatted = _format_flight_offers(resp.json())
+        offers = formatted.get("offers", [])
+        if not offers:
+            return {"best_price_pp": None, "airline": None, "raw": formatted}
+        best = min(offers, key=lambda o: o.get("price", {}).get("total_raw", float("inf")))
+        first_seg = (best.get("itineraries", [{}])[0].get("segments", [{}])[0])
+        return {
+            "best_price_pp": round(best["price"]["total_raw"] / max(adults, 1), 2),
+            "airline": first_seg.get("carrier") or best.get("validating_carrier"),
+            "raw": formatted,
+        }
     except Exception as exc:
         logger.warning("amadeus: error for %s: %s", watch.get("id"), exc)
         return None
@@ -379,8 +381,12 @@ async def run_pipeline(source_filter: Optional[str] = None, dry_run: bool = Fals
         logger.warning("No active flight watches found")
         return 0
 
-    # Filter by source if specified
-    sources = ["amadeus", "centrav", "kayak", "google"]
+    # Filter by source if specified. Centrav REMOVED from the default rotation
+    # 2026-07-16 (Commander order): browser-session-gated, CAPTCHA-blocked on
+    # every run, wasting ~10s/route nightly for zero data. Amadeus (real GDS,
+    # stateless API key, just fixed above) is the reliable primary now.
+    # Centrav remains available via --source centrav for deliberate manual use.
+    sources = ["amadeus", "kayak", "google"]
     if source_filter:
         if source_filter not in sources:
             logger.error("Unknown source: %s (choose: %s)", source_filter, ", ".join(sources))
