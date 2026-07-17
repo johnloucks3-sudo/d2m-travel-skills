@@ -39,6 +39,8 @@ last wrote" without re-processing the same edit twice. Reruns are safe.
 import json
 from datetime import datetime, timezone
 
+from core.silver.gate import silver_front_frame, run_gate
+
 from . import _imports
 from . import assignment
 from . import overrides as _overrides
@@ -50,6 +52,20 @@ STATE_PATH = ROOT / "config" / "tcd_writeback_state.json"
 HALE_DECISIONS = ROOT / "hale_decisions.md"
 
 WATCHED_FIELDS = ("status", "stage", "comments")
+
+# Row ids that represent genuinely delegated Wing work — the same class
+# core/relay/delegation_wiring.py already front-frames. These carry a real
+# deliverable and a seat commitment, so "done" must be framed before the
+# D->T auto-task hands them off. Every OTHER row type (gmail-/dossier-/so-/
+# alert-/elon-/task-/proj-) is surfaced context or already-in-motion ops:
+# auto-tasking it is routing, not a work-product commitment, so it stays
+# ungated (still audit-logged — never a silent skip). Sterling (A7)
+# scoping decision, MISSION-658.
+DELEGATED_WORK_PREFIXES = ("mission-", "watch-")
+
+
+def _is_delegated_work(row: dict) -> bool:
+    return (row.get("id", "") or "").startswith(DELEGATED_WORK_PREFIXES)
 
 
 def _load_json(path, default):
@@ -132,35 +148,86 @@ def _handle_dispose(row: dict, delete_fn, decisions_path, overrides_path=None) -
     return result
 
 
+def _gate_note(verdict) -> str:
+    """One-line human summary of a Silver back-gate verdict for the audit trail."""
+    if verdict.ok:
+        return "Silver back-gate PASS."
+    return "Silver back-gate HOLD: " + "; ".join(verdict.holds)[:200]
+
+
 def _handle_close(row: dict, decisions_path) -> None:
-    """Mark a row Closed — audit-logged, source untouched (not a delete)."""
+    """Mark a row Closed — the row's ``comments`` are the staff verification
+    artifact (SO_PDTAC_WORKFLOW_20260711), so Silver's back-gate decides the
+    verdict instead of the old unconditional PASS. On HOLD the close is still
+    recorded (AppSheet's own state isn't blocked) but ``run_gate`` pages it the
+    same way it pages a held delegated mission — never a silent PASS."""
+    artifact = row.get("comments", "")
+    verdict = run_gate(artifact, artifact, mission_id=row["id"])
     _append_decision(
-        _plan_id(row["id"], "CLOSE"), "PASS",
+        _plan_id(row["id"], "CLOSE"), verdict.verdict,
         criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",
-        notes="Marked Closed by Commander in AppSheet; source record untouched.",
+        notes=("Marked Closed by Commander in AppSheet; source record untouched. "
+               + _gate_note(verdict)),
         decisions_path=decisions_path,
     )
 
 
 def _handle_stage_move(row: dict, prior_stage: str, decisions_path,
                        to_stage: str = None) -> None:
+    dest = to_stage if to_stage is not None else row.get("stage", "")
+    # A move INTO Certify (C) is a certification claim — gate it for real.
+    # Every other stage move is just an audited record of the move itself.
+    if dest == "C":
+        artifact = row.get("comments", "")
+        verdict = run_gate(artifact, artifact, mission_id=row["id"])
+        result, notes = verdict.verdict, f"{prior_stage or '(new)'} -> {dest}. " + _gate_note(verdict)
+    else:
+        result, notes = "PASS", f"{prior_stage or '(new)'} -> {dest}"
     _append_decision(
-        _plan_id(row["id"], "STAGE"), "PASS",
+        _plan_id(row["id"], "STAGE"), result,
         criteria_met=f"TCD stage move: {row.get('title', row['id'])[:80]}",
-        notes=f"{prior_stage or '(new)'} -> {to_stage if to_stage is not None else row.get('stage', '')}",
-        decisions_path=decisions_path,
+        notes=notes, decisions_path=decisions_path,
     )
 
 
-def _handle_auto_task(row: dict, decisions_path, overrides_path=None) -> str:
+def _handle_auto_task(row: dict, decisions_path, overrides_path=None):
     """D -> T: the instant an item is Approved, Hale tasks it to a staff seat.
 
-    Persists the T stage + owner as an override (see tcd/overrides.py) so
-    this survives the next sheet_sync, and audit-logs it distinctly from the
-    Commander's own P->D decision (both fire from a single Approve click,
-    but they're two different actors' actions and should read that way in
-    hale_decisions.md).
+    For delegated-work rows (see ``_is_delegated_work``) Silver's FRONT frame
+    must pass first — "done" has to be concretely defined before a seat is
+    committed. On HOLD the row is NOT tasked: it stays at D (no owner, no T
+    override), the HOLD is audit-logged AND surfaced into the row's own
+    ``comments`` so AppSheet shows exactly why nothing happened, and ``None``
+    is returned. This is the actual bug MISSION-658 fixes — a silent auto-task
+    with no framing — so the HOLD is always visible, never a quiet skip.
+    Because no override is set, the next full sheet_sync re-derives the row
+    back to P (needs-a-decision) — its natural resting state — so once the
+    Commander adds the missing criteria a re-approve re-frames it cleanly,
+    rather than the row being pinned dead at D.
+
+    On PASS (or an ungated row) it persists the T stage + owner as an override
+    (see tcd/overrides.py) so this survives the next sheet_sync, and audit-logs
+    it distinctly from the Commander's own P->D decision (both fire from a
+    single Approve click, but they're two different actors' actions and should
+    read that way in hale_decisions.md). Returns the assigned owner.
     """
+    if _is_delegated_work(row):
+        frame = silver_front_frame(
+            row["id"], row.get("title", ""),
+            acceptance_criteria=row.get("comments", ""),
+            ground_truth_sources=[row.get("sourcePath", "")],
+        )
+        if not frame.ok:
+            reason = "; ".join(frame.holds)[:300]
+            note = f"[SILVER HOLD — not tasked] {reason}"
+            row["comments"] = (row.get("comments", "")
+                               + ("\n" if row.get("comments") else "") + note)
+            _append_decision(
+                _plan_id(row["id"], "TASK"), "HOLD",
+                criteria_met=f"TCD auto-task HELD: {row.get('title', row['id'])[:80]}",
+                notes=note, decisions_path=decisions_path,
+            )
+            return None
     owner = assignment.assign_owner(row)
     _overrides.set_override(row["id"], stage="T", owner=owner, path=overrides_path)
     _append_decision(
@@ -322,7 +389,8 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
     if rows is None:
         rows = read_sheet_rows()
     summary = {"disposed": [], "closed": [], "staged": [], "tasked": [],
-               "commented": [], "created_tasks": [], "unchanged": 0, "errors": []}
+               "held": [], "commented": [], "created_tasks": [], "unchanged": 0,
+               "errors": []}
     new_state = {}
 
     for row in rows:
@@ -331,7 +399,10 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
             continue
         prev = prior_state.get(rid, {})
         changed = False
-        row = dict(row)  # local copy — the auto-task branch may rewrite ["stage"]
+        held = False  # Silver front-frame HOLD this pass — suppresses the
+                      # comment-diff branch below from re-logging our own
+                      # auto-appended HOLD note as a Commander comment event.
+        row = dict(row)  # local copy — the auto-task branch may rewrite ["stage"]/["comments"]
 
         if row.get("status") == "Delete" and prev.get("status") != "Delete":
             try:
@@ -361,12 +432,23 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
                 _handle_stage_move(row, "P", decisions_path, to_stage="D")
                 summary["staged"].append({"id": rid, "from": "P", "to": "D"})
                 owner = _handle_auto_task(row, decisions_path, overrides_path=overrides_path)
-                summary["tasked"].append({"id": rid, "owner": owner})
-                row["stage"] = "T"
-                try:
-                    write_fn(rid, {"stage": "T", "owner": owner})
-                except Exception as e:
-                    summary["errors"].append({"id": rid, "action": "write_sheet", "error": str(e)})
+                if owner is None:
+                    # Silver front-frame HOLD — stays at D, not tasked. Push the
+                    # HOLD note back to the Sheet so AppSheet shows why nothing
+                    # advanced; suppress the comment-diff branch for this row.
+                    held = True
+                    summary["held"].append({"id": rid})
+                    try:
+                        write_fn(rid, {"stage": "D", "comments": row.get("comments", "")})
+                    except Exception as e:
+                        summary["errors"].append({"id": rid, "action": "write_sheet", "error": str(e)})
+                else:
+                    summary["tasked"].append({"id": rid, "owner": owner})
+                    row["stage"] = "T"
+                    try:
+                        write_fn(rid, {"stage": "T", "owner": owner})
+                    except Exception as e:
+                        summary["errors"].append({"id": rid, "action": "write_sheet", "error": str(e)})
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "task", "error": str(e)})
             changed = True
@@ -384,7 +466,8 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
         # comment (empty -> text) is a real event and must be logged; only a
         # row never seen before (no cache entry at all) is suppressed, same
         # pattern as the stage check above.
-        if row.get("comments", "") != prev.get("comments", "") and "comments" in prev:
+        if (not held and row.get("comments", "") != prev.get("comments", "")
+                and "comments" in prev):
             added = row.get("comments", "")[len(prev.get("comments", "")):]
             try:
                 _handle_comment(row, prev.get("comments", ""), decisions_path)

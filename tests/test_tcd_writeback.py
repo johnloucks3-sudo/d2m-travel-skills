@@ -10,11 +10,27 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from core.silver import gate  # noqa: E402
 from tcd import overrides as tcd_overrides  # noqa: E402
 from tcd import writeback  # noqa: E402
 from tcd.writeback import CREATE_TASK_MARKER  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def _isolate_silver_gate(tmp_path, monkeypatch):
+    """core/silver/gate.py hardcodes LEDGER/DECISIONS as module constants and
+    pages the Commander (send_page) on a back-gate HOLD — none of which honor
+    writeback's injected decisions_path. Redirect them to this test's tmp dir
+    and neutralize the page so the suite never touches the real ledger/audit
+    trail or fires a real P1 alert. Autouse: protects every test, including the
+    pre-existing close tests that now route through run_gate."""
+    monkeypatch.setattr(gate, "LEDGER", tmp_path / "silver_ledger.jsonl")
+    monkeypatch.setattr(gate, "DECISIONS", tmp_path / "gate_decisions.md")
+    monkeypatch.setattr(gate, "_page_hold", lambda v: None)
 
 
 def _row(id="task-1", stage="A", status="Open", comments="", title="Test item"):
@@ -114,11 +130,15 @@ class TestCloseDetection:
         state_path = tmp_path / "state.json"
         decisions_path = tmp_path / "hale_decisions.md"
         overrides_path = tmp_path / "overrides.json"
+        # Comments carry a concrete verification reference so Silver's back-gate
+        # PASSes — this test's intent is "source untouched + audit-logged", not
+        # the verdict value (covered separately below).
         calls = []
         def counting_delete(item_id):
             calls.append(item_id)
             return {"ok": True}
-        rows = [_row(id="task-77", status="Closed", title="Done with this")]
+        rows = [_row(id="task-77", status="Closed", title="Done with this",
+                     comments="Verified and delivered; see /home/john/Thunderbird/hale_state.json")]
         result = writeback.process_once(rows, state_path=state_path,
                                         decisions_path=decisions_path,
                                         overrides_path=overrides_path,
@@ -666,3 +686,173 @@ class TestAutoTaskWritesSheetCell:
         # The tasking itself still happened (owner assigned, override set)
         # even though the live cell write failed -- self-heals on next sync.
         assert len(result["tasked"]) == 1
+
+
+class TestSilverGateFrontFrame:
+    """MISSION-658: D->T auto-task is Silver-front-framed for delegated-work
+    rows (mission-/watch-). No criteria -> visible HOLD, not a silent task."""
+
+    def test_delegated_row_no_criteria_holds_visibly(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-x": {"status": "Open",
+                                                         "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="mission-x", stage="D", title="Do the thing", comments="")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=_fake_write_ok)
+        # Held, not tasked.
+        assert result["held"] == [{"id": "mission-x"}]
+        assert result["tasked"] == []
+        # HOLD is visible in the audit trail...
+        text = decisions_path.read_text()
+        assert "TCD-TASK-mission-x" in text
+        assert "verdict=HOLD" in text
+        # ...in the Silver ledger (real front-frame entry)...
+        ledger = (tmp_path / "silver_ledger.jsonl").read_text()
+        assert '"stage": "front"' in ledger
+        assert '"verdict": "HOLD"' in ledger
+        # ...and NOT advanced to T: no owner, no override. Leaving no override
+        # means the next full sheet_sync surfaces the row back at P (its
+        # needs-a-decision resting state), so once criteria are added a
+        # re-approve re-frames cleanly — the row is never pinned dead at D.
+        ov = tcd_overrides.load_overrides(overrides_path)
+        assert "mission-x" not in ov
+
+    def test_hold_note_surfaced_to_sheet_not_double_logged_as_comment(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-x": {"status": "Open",
+                                                         "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        calls = []
+        def recording_write(item_id, updates):
+            calls.append((item_id, updates))
+        rows = [_row(id="mission-x", stage="D", comments="")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=recording_write)
+        # The HOLD reason is pushed to the Sheet's comments so AppSheet shows it.
+        assert len(calls) == 1
+        item_id, updates = calls[0]
+        assert item_id == "mission-x"
+        assert updates["stage"] == "D"
+        assert "[SILVER HOLD" in updates["comments"]
+        # But it must NOT re-log as a Commander comment event this same pass.
+        assert result["commented"] == []
+
+    def test_delegated_row_valid_criteria_still_auto_tasks(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-y": {"status": "Open",
+                                                         "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="mission-y", stage="D", title="CI regression on deploy watchdog",
+                     comments="Deliver 3 fixed timers, verified via systemctl")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=_fake_write_ok)
+        assert result["held"] == []
+        assert len(result["tasked"]) == 1
+        assert result["tasked"][0]["id"] == "mission-y"
+        assert result["tasked"][0]["owner"] == "Sterling"
+        ov = tcd_overrides.load_overrides(overrides_path)
+        assert ov["mission-y"]["stage"] == "T"
+
+    def test_non_delegated_row_auto_tasks_ungated(self, tmp_path):
+        # A task-/gmail-/alert- row with no criteria still auto-tasks as before
+        # (routing, not a work-product commitment) — the scoping decision.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open",
+                                                      "stage": "P", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="task-1", stage="D", comments="")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok, write_fn=_fake_write_ok)
+        assert result["held"] == []
+        assert len(result["tasked"]) == 1
+        # No front-frame ledger entry for an ungated row.
+        assert not (tmp_path / "silver_ledger.jsonl").exists()
+
+
+class TestSilverGateBackGate:
+    """MISSION-658: Close and stage->C write the REAL Silver verdict, not the
+    old hardcoded PASS — to both hale_decisions.md and the Silver ledger."""
+
+    def test_close_empty_comments_writes_real_hold(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="task-9", status="Closed", title="Close me", comments="")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok)
+        assert len(result["closed"]) == 1  # transition still recorded
+        text = decisions_path.read_text()
+        assert "TCD-CLOSE-task-9" in text
+        assert "verdict=HOLD" in text
+        assert "Silver back-gate HOLD" in text
+        ledger = (tmp_path / "silver_ledger.jsonl").read_text()
+        assert '"stage": "back"' in ledger
+        assert '"verdict": "HOLD"' in ledger
+
+    def test_close_with_valid_artifact_writes_real_pass(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="task-10", status="Closed",
+                     comments="Delivered — proof at OpsCenter/silver_ledger.jsonl")]
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok)
+        assert len(result["closed"]) == 1
+        text = decisions_path.read_text()
+        assert "TCD-CLOSE-task-10" in text
+        assert "verdict=PASS" in text
+        ledger = (tmp_path / "silver_ledger.jsonl").read_text()
+        assert '"stage": "back"' in ledger
+        assert '"verdict": "PASS"' in ledger
+
+    def test_stage_move_into_c_writes_real_verdict(self, tmp_path):
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"mission-z": {"status": "Open",
+                                                        "stage": "A", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="mission-z", stage="C", comments="")]  # A -> C, no proof
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok)
+        assert len(result["staged"]) == 1
+        text = decisions_path.read_text()
+        assert "TCD-STAGE-mission-z" in text
+        assert "verdict=HOLD" in text
+        assert "A -> C" in text
+        ledger = (tmp_path / "silver_ledger.jsonl").read_text()
+        assert '"stage": "back"' in ledger
+
+    def test_non_c_stage_move_stays_pass_ungated(self, tmp_path):
+        # A move that isn't into Certify is a bare audit record — no gate.
+        state_path = tmp_path / "state.json"
+        state_path.write_text(json.dumps({"task-1": {"status": "Open",
+                                                      "stage": "T", "comments": ""}}))
+        decisions_path = tmp_path / "hale_decisions.md"
+        overrides_path = tmp_path / "overrides.json"
+        rows = [_row(id="task-1", stage="A", comments="")]  # T -> A
+        result = writeback.process_once(rows, state_path=state_path,
+                                        decisions_path=decisions_path,
+                                        overrides_path=overrides_path,
+                                        delete_fn=_fake_delete_ok)
+        assert len(result["staged"]) == 1
+        assert "verdict=PASS" in decisions_path.read_text()
+        assert not (tmp_path / "silver_ledger.jsonl").exists()
