@@ -1,0 +1,286 @@
+{
+  "started_at": "2026-07-17T01:18:26.479833+00:00",
+  "routes": [
+    {
+      "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+      "departure_id": "COS",
+      "arrival_id": "MIA",
+      "status": "ok",
+      "cheapest": {
+        "departure_time": "27-12-2026 05:00 AM",
+        "arrival_time": "27-12-2026 07:35 PM",
+        "duration": {
+          "raw": 755,
+          "text": "12 hr 35 min"
+        },
+        "flights": [
+          {
+            "departure_airport": {
+              "airport_name": "Colorado Springs Airport",
+              "airport_code": "COS",
+              "time": "2026-12-27 05:00"
+            },
+            "arrival_airport": {
+              "airport_name": "Phoenix Sky Harbor International Airport",
+              "airport_code": "PHX",
+              "time": "2026-12-27 07:00"
+            },
+            "duration": {
+              "raw": 120,
+              "text": "2 hr 0 min"
+            },
+            "airline": "Southwest",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "flight_number": "WN 1296",
+            "aircraft": "Boeing 737",
+            "seat": "Average legroom",
+            "legroom": "79 cm",
+            "extensions": [
+              "Average legroom (79 cm)",
+              "In-seat USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 214 kg CO2e"
+            ]
+          },
+          {
+            "departure_airport": {
+              "airport_name": "Phoenix Sky Harbor International Airport",
+              "airport_code": "PHX",
+              "time": "2026-12-27 07:50"
+            },
+            "arrival_airport": {
+              "airport_name": "Austin-Bergstrom International Airport",
+              "airport_code": "AUS",
+              "time": "2026-12-27 11:00"
+            },
+            "duration": {
+              "raw": 130,
+              "text": "2 hr 10 min"
+            },
+            "airline": "Southwest",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "flight_number": "WN 1971",
+            "aircraft": "Boeing 737MAX 8 Passenger",
+            "seat": "Average legroom",
+            "legroom": "79 cm",
+            "extensions": [
+              "Average legroom (79 cm)",
+              "In-seat USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 275 kg CO2e"
+            ]
+          },
+          {
+            "departure_airport": {
+              "airport_name": "Austin-Bergstrom International Airport",
+              "airport_code": "AUS",
+              "time": "2026-12-27 16:00"
+            },
+            "arrival_airport": {
+              "airport_name": "Miami International Airport",
+              "airport_code": "MIA",
+              "time": "2026-12-27 19:35"
+            },
+            "duration": {
+              "raw": 155,
+              "text": "2 hr 35 min"
+            },
+            "airline": "Southwest",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "flight_number": "WN 597",
+            "aircraft": "Boeing 737MAX 8 Passenger",
+            "seat": "Average legroom",
+            "legroom": "79 cm",
+            "extensions": [
+              "Average legroom (79 cm)",
+              "In-seat USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 269 kg CO2e"
+            ]
+          }
+        ],
+        "delay": {
+          "values": false,
+          "text": 0
+        },
+        "self_transfer": false,
+        "layovers": [
+          {
+            "airport_code": "PHX",
+            "airport_name": "Phoenix Sky Harbor International Airport",
+            "duration_label": "0 hr 50 min",
+            "duration": 50,
+            "city": "Phoenix"
+          },
+          {
+            "airport_code": "AUS",
+            "airport_name": "Austin-Bergstrom International Airport",
+            "duration_label": "5 hr 0 min",
+            "duration": 300,
+            "city": "Austin"
+          }
+        ],
+        "bags": {
+          "carry_on": 2,
+          "checked": 0
+        },
+        "carbon_emissions": {
+          "difference_percent": 29,
+          "CO2e": 758000,
+          "typical_for_this_route": 589000,
+          "higher": 169000
+        },
+        "price": 495,
+        "stops": 0,
+        "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png"
+      }
+    },
+    {
+      "watch_id": "kuklinski-flights-ric-pty",
+      "departure_id": "RIC",
+      "arrival_id": "PTY",
+      "status": "ok",
+      "cheapest": {
+        "departure_time": "17-12-2026 08:16 PM",
+        "arrival_time": "18-12-2026 03:54 PM",
+        "duration": {
+          "raw": 1178,
+          "text": "19 hr 38 min"
+        },
+        "flights": [
+          {
+            "departure_airport": {
+              "airport_name": "Richmond International Airport",
+              "airport_code": "RIC",
+              "time": "2026-12-17 20:16"
+            },
+            "arrival_airport": {
+              "airport_name": "Chicago O'Hare International Airport",
+              "airport_code": "ORD",
+              "time": "2026-12-17 21:50"
+            },
+            "duration": {
+              "raw": 154,
+              "text": "2 hr 34 min"
+            },
+            "airline": "American",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "flight_number": "AA 6463",
+            "aircraft": "Canadair RJ 700",
+            "seat": "Average legroom",
+            "legroom": "79 cm",
+            "extensions": [
+              "Average legroom (79 cm)",
+              "In-seat power & USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 728 kg CO2e"
+            ]
+          },
+          {
+            "departure_airport": {
+              "airport_name": "Chicago O'Hare International Airport",
+              "airport_code": "ORD",
+              "time": "2026-12-18 06:00"
+            },
+            "arrival_airport": {
+              "airport_name": "Miami International Airport",
+              "airport_code": "MIA",
+              "time": "2026-12-18 10:12"
+            },
+            "duration": {
+              "raw": 192,
+              "text": "3 hr 12 min"
+            },
+            "airline": "American",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "flight_number": "AA 884",
+            "aircraft": "Boeing 737MAX 8 Passenger",
+            "seat": "Average legroom",
+            "legroom": "76 cm",
+            "extensions": [
+              "Average legroom (76 cm)",
+              "In-seat power & USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 566 kg CO2e"
+            ]
+          },
+          {
+            "departure_airport": {
+              "airport_name": "Miami International Airport",
+              "airport_code": "MIA",
+              "time": "2026-12-18 12:22"
+            },
+            "arrival_airport": {
+              "airport_name": "Tocumen International Airport Panama",
+              "airport_code": "PTY",
+              "time": "2026-12-18 15:54"
+            },
+            "duration": {
+              "raw": 212,
+              "text": "3 hr 32 min"
+            },
+            "airline": "American",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "flight_number": "AA 2177",
+            "aircraft": "Boeing 737",
+            "seat": "Average legroom",
+            "legroom": "76 cm",
+            "extensions": [
+              "Average legroom (76 cm)",
+              "In-seat power & USB outlets",
+              "Stream media to your device",
+              "Free Wi-Fi",
+              "Wi-Fi for a fee",
+              "Emissions estimate: 639 kg CO2e"
+            ]
+          }
+        ],
+        "delay": {
+          "values": false,
+          "text": 0
+        },
+        "self_transfer": false,
+        "layovers": [
+          {
+            "airport_code": "ORD",
+            "airport_name": "Chicago O'Hare International Airport",
+            "duration_label": "8 hr 10 min",
+            "duration": 490,
+            "city": "Chicago"
+          },
+          {
+            "airport_code": "MIA",
+            "airport_name": "Miami International Airport",
+            "duration_label": "2 hr 10 min",
+            "duration": 130,
+            "city": "Miami"
+          }
+        ],
+        "bags": {
+          "carry_on": 0,
+          "checked": 0
+        },
+        "carbon_emissions": {
+          "difference_percent": 46,
+          "CO2e": 1933000,
+          "typical_for_this_route": 1325000,
+          "higher": 608000
+        },
+        "price": 3044,
+        "stops": 0,
+        "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png"
+      }
+    }
+  ],
+  "completed_at": "2026-07-17T01:18:54.946504+00:00"
+}
