@@ -142,6 +142,22 @@ def _save_mission_board(mb: dict) -> None:
     MISSION_BOARD.write_text(json.dumps(mb, indent=2))
 
 
+def _find_board_duplicate(missions: list, title: str):
+    """Board-level one-and-done guard (MISSION-647): before appending a new
+    mission, check the live board for an already-open mission with this title —
+    the same guard mission_board_sync.cmd_add, the TCD Create Task path, and
+    the weekly-report generator now use. This path already dedups by name via
+    its own ``best_by_name`` / ``already_promoted`` logs; this is the missing
+    board-level backstop for when those and the board diverge. Best-effort —
+    an import/lookup failure never blocks promotion."""
+    try:
+        sys.path.insert(0, str(THUNDERBIRD / "OpsCenter"))
+        import mission_board_sync as mbs
+        return mbs._find_open_duplicate(missions, title)
+    except Exception:
+        return None
+
+
 def _extract_wave_number(wave_path: Path) -> int:
     """Extract wave number from filename like wave10_2026-06-21_2307.json"""
     m = re.match(r"wave(\d+)", wave_path.name)
@@ -238,37 +254,50 @@ def run_adopt_pipeline(wave_paths: list, dry_run: bool = False) -> dict:
             continue
 
         # ── INTEGRATE_NOW ────────────────────────────────────────────────────
-        mission_id    = f"MISSION-{next_id}"
+        title         = f"INTEGRATE_NOW: {name}"
         preview_text  = (item.get("result_preview") or item.get("result") or "")[:400]
-        description   = (
-            f"INTEGRATE_NOW — wave{wave} signal (score={score:.0f}). "
-            f"{preview_text}\n\n"
-            f"Action: ELON 10-agent fleet evaluates, trials, and implements. Report to Hale."
-        )
 
-        mission_entry = {
-            "id":           mission_id,
-            "title":        f"INTEGRATE_NOW: {name}",
-            "status":       "active",
-            "priority":     "P1",
-            "assigned_to":  "ELON",
-            "description":  description,
-            "deliverables": [
-                "Evaluate the tool/API/pattern",
-                "Trial it against a real Thunderbird task",
-                "Implement or escalate with concrete reason (not 'unverified')",
-                "Report outcome to Hale → Commander brief",
-            ],
-            "dependencies":    [],
-            "suspense_date":   None,
-            "escalation_rule": "Risk>benefit → Hale. Financial commitment → Commander.",
-            "logs":            [],
-            "created_at":      now_iso,
-            "updated_at":      now_iso,
-        }
-
-        if not dry_run:
-            missions.append(mission_entry)
+        # Board-level dedup backstop (MISSION-647): skip the real append on a
+        # live run if this title is already tracked open; dry-run keeps its
+        # fresh-id preview semantics.
+        dup = _find_board_duplicate(missions, title) if not dry_run else None
+        if dup is not None:
+            dup.setdefault("logs", []).append(
+                f"[{now_iso[:19]}] ELON adopt duplicate blocked — "
+                f"\"{title}\" already tracked here"
+            )
+            dup["updated_at"] = now_iso
+            mission_id = dup["id"]
+        else:
+            mission_id  = f"MISSION-{next_id}"
+            description  = (
+                f"INTEGRATE_NOW — wave{wave} signal (score={score:.0f}). "
+                f"{preview_text}\n\n"
+                f"Action: ELON 10-agent fleet evaluates, trials, and implements. Report to Hale."
+            )
+            mission_entry = {
+                "id":           mission_id,
+                "title":        title,
+                "status":       "active",
+                "priority":     "P1",
+                "assigned_to":  "ELON",
+                "description":  description,
+                "deliverables": [
+                    "Evaluate the tool/API/pattern",
+                    "Trial it against a real Thunderbird task",
+                    "Implement or escalate with concrete reason (not 'unverified')",
+                    "Report outcome to Hale → Commander brief",
+                ],
+                "dependencies":    [],
+                "suspense_date":   None,
+                "escalation_rule": "Risk>benefit → Hale. Financial commitment → Commander.",
+                "logs":            [],
+                "created_at":      now_iso,
+                "updated_at":      now_iso,
+            }
+            if not dry_run:
+                missions.append(mission_entry)
+            next_id += 1
 
         adopted.append({
             "name":       name,
@@ -286,8 +315,6 @@ def run_adopt_pipeline(wave_paths: list, dry_run: bool = False) -> dict:
             "promoted_at": now_iso,
             "tier":        "ADOPT",
         }
-
-        next_id += 1
 
     # ── Step 3: Persist ──────────────────────────────────────────────────────
     if not dry_run:

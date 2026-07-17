@@ -77,6 +77,22 @@ def _save_mission_board(mb: dict) -> None:
     MISSION_BOARD.write_text(json.dumps(mb, indent=2))
 
 
+def _find_board_duplicate(missions: list, title: str):
+    """Board-level one-and-done guard (MISSION-647): before appending a new
+    mission, check the live board for an already-open mission with this title —
+    the same guard mission_board_sync.cmd_add, the TCD Create Task path, and
+    the weekly-report generator now use. This path already dedups by name via
+    its own ``already_promoted`` log; this is the missing board-level backstop
+    for when that log and the board diverge. Best-effort — an import/lookup
+    failure never blocks promotion."""
+    try:
+        sys.path.insert(0, str(THUNDERBIRD / "OpsCenter"))
+        import mission_board_sync as mbs
+        return mbs._find_open_duplicate(missions, title)
+    except Exception:
+        return None
+
+
 def _get_max_mission_id() -> int:
     if not MISSION_BOARD.exists():
         return 331
@@ -326,36 +342,46 @@ def _apply_decisions(synthesis: dict) -> dict:
 
         if decision == "IMPLEMENT_NOW":
             counts["implement_now"] += 1
-            mission_id = f"MISSION-{next_id}"
-            impl_notes = dec.get("implementation_notes") or ""
-            description = (
-                f"ELON SYNTHESIS: IMPLEMENT_NOW (wave{wave}).\n"
-                f"Rationale: {rationale}\n\n"
-                f"Implementation: {impl_notes}\n\n"
-                f"Action: ELON 10-agent fleet trials and implements. Report to Hale."
-            )
-            mission_entry = {
-                "id":           mission_id,
-                "title":        f"IMPLEMENT_NOW: {name}",
-                "status":       "active",
-                "priority":     "P1",
-                "assigned_to":  "ELON",
-                "description":  description,
-                "deliverables": [
-                    "Trial against a real Thunderbird task",
-                    "Implement or escalate with concrete reason",
-                    "Report outcome to Hale → Commander brief",
-                ],
-                "dependencies":    [],
-                "suspense_date":   None,
-                "escalation_rule": "Risk>benefit → Hale. Financial commitment → Commander.",
-                "logs":            [],
-                "created_at":      now_iso,
-                "updated_at":      now_iso,
-            }
-            missions.append(mission_entry)
+            title = f"IMPLEMENT_NOW: {name}"
+            dup = _find_board_duplicate(missions, title)
+            if dup is not None:
+                dup.setdefault("logs", []).append(
+                    f"[{now_iso[:19]}] ELON synthesis duplicate blocked — "
+                    f"\"{title}\" already tracked here"
+                )
+                dup["updated_at"] = now_iso
+                mission_id = dup["id"]
+            else:
+                mission_id = f"MISSION-{next_id}"
+                impl_notes = dec.get("implementation_notes") or ""
+                description = (
+                    f"ELON SYNTHESIS: IMPLEMENT_NOW (wave{wave}).\n"
+                    f"Rationale: {rationale}\n\n"
+                    f"Implementation: {impl_notes}\n\n"
+                    f"Action: ELON 10-agent fleet trials and implements. Report to Hale."
+                )
+                mission_entry = {
+                    "id":           mission_id,
+                    "title":        title,
+                    "status":       "active",
+                    "priority":     "P1",
+                    "assigned_to":  "ELON",
+                    "description":  description,
+                    "deliverables": [
+                        "Trial against a real Thunderbird task",
+                        "Implement or escalate with concrete reason",
+                        "Report outcome to Hale → Commander brief",
+                    ],
+                    "dependencies":    [],
+                    "suspense_date":   None,
+                    "escalation_rule": "Risk>benefit → Hale. Financial commitment → Commander.",
+                    "logs":            [],
+                    "created_at":      now_iso,
+                    "updated_at":      now_iso,
+                }
+                missions.append(mission_entry)
+                next_id += 1
             counts["mission_ids"].append(mission_id)
-            next_id += 1
 
             already_promoted[name] = {
                 "mission_id":  mission_id,
@@ -378,34 +404,44 @@ def _apply_decisions(synthesis: dict) -> dict:
         elif decision == "ESCALATE":
             counts["escalated"] += 1
             escalation_reason = dec.get("escalation_reason") or rationale
-            mission_id = f"MISSION-{next_id}"
-            description = (
-                f"ELON SYNTHESIS ESCALATION — wave{wave}.\n"
-                f"Reason: {escalation_reason}\n\n"
-                f"Action: Hale reviews. Client-path 7-day canary applies if touching send path."
-            )
-            mission_entry = {
-                "id":           mission_id,
-                "title":        f"ELON ESCALATE: {name}",
-                "status":       "active",
-                "priority":     "P1",
-                "assigned_to":  "HALE",
-                "description":  description,
-                "deliverables": [
-                    "Hale reviews escalation reason",
-                    "7-day canary if client-path tool",
-                    "Commander notified if financial commitment required",
-                ],
-                "dependencies":    [],
-                "suspense_date":   None,
-                "escalation_rule": "Financial commitment → Commander.",
-                "logs":            [],
-                "created_at":      now_iso,
-                "updated_at":      now_iso,
-            }
-            missions.append(mission_entry)
+            title = f"ELON ESCALATE: {name}"
+            dup = _find_board_duplicate(missions, title)
+            if dup is not None:
+                dup.setdefault("logs", []).append(
+                    f"[{now_iso[:19]}] ELON synthesis duplicate blocked — "
+                    f"\"{title}\" already tracked here"
+                )
+                dup["updated_at"] = now_iso
+                mission_id = dup["id"]
+            else:
+                mission_id = f"MISSION-{next_id}"
+                description = (
+                    f"ELON SYNTHESIS ESCALATION — wave{wave}.\n"
+                    f"Reason: {escalation_reason}\n\n"
+                    f"Action: Hale reviews. Client-path 7-day canary applies if touching send path."
+                )
+                mission_entry = {
+                    "id":           mission_id,
+                    "title":        title,
+                    "status":       "active",
+                    "priority":     "P1",
+                    "assigned_to":  "HALE",
+                    "description":  description,
+                    "deliverables": [
+                        "Hale reviews escalation reason",
+                        "7-day canary if client-path tool",
+                        "Commander notified if financial commitment required",
+                    ],
+                    "dependencies":    [],
+                    "suspense_date":   None,
+                    "escalation_rule": "Financial commitment → Commander.",
+                    "logs":            [],
+                    "created_at":      now_iso,
+                    "updated_at":      now_iso,
+                }
+                missions.append(mission_entry)
+                next_id += 1
             counts["escalate_items"].append({"name": name, "reason": escalation_reason, "mission_id": mission_id})
-            next_id += 1
 
             already_promoted[name] = {
                 "mission_id":  mission_id,
