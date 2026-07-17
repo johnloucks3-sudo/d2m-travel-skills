@@ -1,162 +1,80 @@
 {
   "status": "complete",
-  "started_at": "2026-07-09T14:32:24.220826",
-  "completed_at": "2026-07-09T14:34:45.093512",
-  "watches_total": 13,
-  "watches_checked": 3,
-  "watches_with_errors": 10,
+  "started_at": "2026-07-16T18:20:44.171528",
+  "completed_at": "2026-07-16T18:20:59.567923",
+  "watches_total": 19,
+  "watches_checked": 6,
+  "watches_with_errors": 1,
   "alerts": [],
-  "warnings": [],
+  "warnings": [
+    "Auth failed on loucks-grandeur-panama-cos-fll-dec2026: Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
+  ],
   "errors": [
     {
       "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693619\n[pid=2693619][err] *** You are running in headless mode.\n[pid=2693619][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693619] <process did exit: exitCode=0, signal=null>\n[pid=2693619] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693619\n  - [pid=2693619][err] *** You are running in headless mode.\n  - [pid=2693619][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693619] <process did exit: exitCode=0, signal=null>\n  - [pid=2693619] starting temporary directories cleanup\n  - [pid=2693619] <gracefully close start>\n  - [pid=2693619] <kill>\n  - [pid=2693619] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693619] finished temporary directories cleanup\n  - [pid=2693619] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693787\n[pid=2693787][err] *** You are running in headless mode.\n[pid=2693787][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693787] <process did exit: exitCode=0, signal=null>\n[pid=2693787] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693787\n  - [pid=2693787][err] *** You are running in headless mode.\n  - [pid=2693787][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693787] <process did exit: exitCode=0, signal=null>\n  - [pid=2693787] starting temporary directories cleanup\n  - [pid=2693787] <gracefully close start>\n  - [pid=2693787] <kill>\n  - [pid=2693787] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693787] finished temporary directories cleanup\n  - [pid=2693787] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693891\n[pid=2693891][err] *** You are running in headless mode.\n[pid=2693891][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693891] <process did exit: exitCode=0, signal=null>\n[pid=2693891] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693891\n  - [pid=2693891][err] *** You are running in headless mode.\n  - [pid=2693891][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693891] <process did exit: exitCode=0, signal=null>\n  - [pid=2693891] starting temporary directories cleanup\n  - [pid=2693891] <gracefully close start>\n  - [pid=2693891] <kill>\n  - [pid=2693891] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693891] finished temporary directories cleanup\n  - [pid=2693891] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "loucks-silver-nova-may2027-outbound",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693998\n[pid=2693998][err] *** You are running in headless mode.\n[pid=2693998][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693998] <process did exit: exitCode=0, signal=null>\n[pid=2693998] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693998\n  - [pid=2693998][err] *** You are running in headless mode.\n  - [pid=2693998][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693998] <process did exit: exitCode=0, signal=null>\n  - [pid=2693998] starting temporary directories cleanup\n  - [pid=2693998] <gracefully close start>\n  - [pid=2693998] <kill>\n  - [pid=2693998] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693998] finished temporary directories cleanup\n  - [pid=2693998] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "loucks-silver-nova-may2027-return",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694112\n[pid=2694112][err] *** You are running in headless mode.\n[pid=2694112][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694112] <process did exit: exitCode=0, signal=null>\n[pid=2694112] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694112\n  - [pid=2694112][err] *** You are running in headless mode.\n  - [pid=2694112][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694112] <process did exit: exitCode=0, signal=null>\n  - [pid=2694112] starting temporary directories cleanup\n  - [pid=2694112] <gracefully close start>\n  - [pid=2694112] <kill>\n  - [pid=2694112] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694112] finished temporary directories cleanup\n  - [pid=2694112] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "mcleod-mcglasson-flights",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694280\n[pid=2694280][err] *** You are running in headless mode.\n[pid=2694280][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694280] <process did exit: exitCode=0, signal=null>\n[pid=2694280] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694280\n  - [pid=2694280][err] *** You are running in headless mode.\n  - [pid=2694280][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694280] <process did exit: exitCode=0, signal=null>\n  - [pid=2694280] starting temporary directories cleanup\n  - [pid=2694280] <gracefully close start>\n  - [pid=2694280] <kill>\n  - [pid=2694280] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694280] finished temporary directories cleanup\n  - [pid=2694280] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "kuklinski-ric-pty-dec16",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694685\n[pid=2694685][err] *** You are running in headless mode.\n[pid=2694685][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694685] <process did exit: exitCode=0, signal=null>\n[pid=2694685] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694685\n  - [pid=2694685][err] *** You are running in headless mode.\n  - [pid=2694685][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694685] <process did exit: exitCode=0, signal=null>\n  - [pid=2694685] starting temporary directories cleanup\n  - [pid=2694685] <gracefully close start>\n  - [pid=2694685] <kill>\n  - [pid=2694685] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694685] finished temporary directories cleanup\n  - [pid=2694685] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "kuklinski-fll-ric-dec27",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694793\n[pid=2694793][err] *** You are running in headless mode.\n[pid=2694793][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694793] <process did exit: exitCode=0, signal=null>\n[pid=2694793] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694793\n  - [pid=2694793][err] *** You are running in headless mode.\n  - [pid=2694793][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694793] <process did exit: exitCode=0, signal=null>\n  - [pid=2694793] starting temporary directories cleanup\n  - [pid=2694793] <gracefully close start>\n  - [pid=2694793] <kill>\n  - [pid=2694793] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694793] finished temporary directories cleanup\n  - [pid=2694793] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "morton-rsw-pty-dec16",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694918\n[pid=2694918][err] *** You are running in headless mode.\n[pid=2694918][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694918] <process did exit: exitCode=0, signal=null>\n[pid=2694918] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694918\n  - [pid=2694918][err] *** You are running in headless mode.\n  - [pid=2694918][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694918] <process did exit: exitCode=0, signal=null>\n  - [pid=2694918] starting temporary directories cleanup\n  - [pid=2694918] <gracefully close start>\n  - [pid=2694918] <kill>\n  - [pid=2694918] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694918] finished temporary directories cleanup\n  - [pid=2694918] <gracefully close end>\n"
-    },
-    {
-      "watch_id": "mcleod-den-mia-dec18",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2695023\n[pid=2695023][err] *** You are running in headless mode.\n[pid=2695023][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2695023] <process did exit: exitCode=0, signal=null>\n[pid=2695023] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2695023\n  - [pid=2695023][err] *** You are running in headless mode.\n  - [pid=2695023][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2695023] <process did exit: exitCode=0, signal=null>\n  - [pid=2695023] starting temporary directories cleanup\n  - [pid=2695023] <gracefully close start>\n  - [pid=2695023] <kill>\n  - [pid=2695023] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2695023] finished temporary directories cleanup\n  - [pid=2695023] <gracefully close end>\n"
+      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
     }
   ],
   "results": {
     "loucks-grandeur-panama-cos-fll-dec2026": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693619\n[pid=2693619][err] *** You are running in headless mode.\n[pid=2693619][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693619] <process did exit: exitCode=0, signal=null>\n[pid=2693619] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693619\n  - [pid=2693619][err] *** You are running in headless mode.\n  - [pid=2693619][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693619] <process did exit: exitCode=0, signal=null>\n  - [pid=2693619] starting temporary directories cleanup\n  - [pid=2693619] <gracefully close start>\n  - [pid=2693619] <kill>\n  - [pid=2693619] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693619] finished temporary directories cleanup\n  - [pid=2693619] <gracefully close end>\n"
+      "status": "auth_error",
+      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
     },
-    "loucks-grandeur-panama-lax-cos-jan2027": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693787\n[pid=2693787][err] *** You are running in headless mode.\n[pid=2693787][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693787] <process did exit: exitCode=0, signal=null>\n[pid=2693787] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693787\n  - [pid=2693787][err] *** You are running in headless mode.\n  - [pid=2693787][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693787] <process did exit: exitCode=0, signal=null>\n  - [pid=2693787] starting temporary directories cleanup\n  - [pid=2693787] <gracefully close start>\n  - [pid=2693787] <kill>\n  - [pid=2693787] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693787] finished temporary directories cleanup\n  - [pid=2693787] <gracefully close end>\n"
+    "kuklinski-flights-ric-pty": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights RIC \u2192 PTY on 2026-12-17 for 4 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
+      "checked_at": "2026-07-16T18:20:59.688980",
+      "kiwi_price_usd": 6053,
+      "kiwi_carrier": null,
+      "kiwi_checked_at": "2026-07-17T01:13:31.663819+00:00"
     },
-    "loucks-grandeur-panama-sna-cos-jan2027": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693891\n[pid=2693891][err] *** You are running in headless mode.\n[pid=2693891][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693891] <process did exit: exitCode=0, signal=null>\n[pid=2693891] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693891\n  - [pid=2693891][err] *** You are running in headless mode.\n  - [pid=2693891][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693891] <process did exit: exitCode=0, signal=null>\n  - [pid=2693891] starting temporary directories cleanup\n  - [pid=2693891] <gracefully close start>\n  - [pid=2693891] <kill>\n  - [pid=2693891] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693891] finished temporary directories cleanup\n  - [pid=2693891] <gracefully close end>\n"
+    "morton-dodge-flights-rsw-pty": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights RSW \u2192 PTY on 2026-12-17 for 2 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
+      "checked_at": "2026-07-16T18:20:59.688980",
+      "kiwi_price_usd": 3199,
+      "kiwi_carrier": null,
+      "kiwi_checked_at": "2026-07-17T01:13:33.514228+00:00"
     },
-    "loucks-silver-nova-may2027-outbound": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2693998\n[pid=2693998][err] *** You are running in headless mode.\n[pid=2693998][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2693998] <process did exit: exitCode=0, signal=null>\n[pid=2693998] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2693998\n  - [pid=2693998][err] *** You are running in headless mode.\n  - [pid=2693998][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2693998] <process did exit: exitCode=0, signal=null>\n  - [pid=2693998] starting temporary directories cleanup\n  - [pid=2693998] <gracefully close start>\n  - [pid=2693998] <kill>\n  - [pid=2693998] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2693998] finished temporary directories cleanup\n  - [pid=2693998] <gracefully close end>\n"
+    "loucks-den-vce-apr2027": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights DEN \u2192 VCE on 2027-04-30 for 2 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-16T18:20:59.688980"
     },
-    "loucks-silver-nova-may2027-return": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694112\n[pid=2694112][err] *** You are running in headless mode.\n[pid=2694112][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694112] <process did exit: exitCode=0, signal=null>\n[pid=2694112] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694112\n  - [pid=2694112][err] *** You are running in headless mode.\n  - [pid=2694112][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694112] <process did exit: exitCode=0, signal=null>\n  - [pid=2694112] starting temporary directories cleanup\n  - [pid=2694112] <gracefully close start>\n  - [pid=2694112] <kill>\n  - [pid=2694112] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694112] finished temporary directories cleanup\n  - [pid=2694112] <gracefully close end>\n"
+    "loucks-ath-den-may2027": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights ATH \u2192 DEN on 2027-05-30 for 2 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-16T18:20:59.688980"
     },
-    "mcleod-mcglasson-flights": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694280\n[pid=2694280][err] *** You are running in headless mode.\n[pid=2694280][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694280] <process did exit: exitCode=0, signal=null>\n[pid=2694280] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694280\n  - [pid=2694280][err] *** You are running in headless mode.\n  - [pid=2694280][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694280] <process did exit: exitCode=0, signal=null>\n  - [pid=2694280] starting temporary directories cleanup\n  - [pid=2694280] <gracefully close start>\n  - [pid=2694280] <kill>\n  - [pid=2694280] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694280] finished temporary directories cleanup\n  - [pid=2694280] <gracefully close end>\n"
+    "loucks-den-grb-sep2026": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights DEN \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-16T18:20:59.688980"
     },
-    "kuklinski-ric-pty-dec16": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694685\n[pid=2694685][err] *** You are running in headless mode.\n[pid=2694685][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694685] <process did exit: exitCode=0, signal=null>\n[pid=2694685] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694685\n  - [pid=2694685][err] *** You are running in headless mode.\n  - [pid=2694685][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694685] <process did exit: exitCode=0, signal=null>\n  - [pid=2694685] starting temporary directories cleanup\n  - [pid=2694685] <gracefully close start>\n  - [pid=2694685] <kill>\n  - [pid=2694685] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694685] finished temporary directories cleanup\n  - [pid=2694685] <gracefully close end>\n"
-    },
-    "kuklinski-fll-ric-dec27": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694793\n[pid=2694793][err] *** You are running in headless mode.\n[pid=2694793][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694793] <process did exit: exitCode=0, signal=null>\n[pid=2694793] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694793\n  - [pid=2694793][err] *** You are running in headless mode.\n  - [pid=2694793][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694793] <process did exit: exitCode=0, signal=null>\n  - [pid=2694793] starting temporary directories cleanup\n  - [pid=2694793] <gracefully close start>\n  - [pid=2694793] <kill>\n  - [pid=2694793] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694793] finished temporary directories cleanup\n  - [pid=2694793] <gracefully close end>\n"
-    },
-    "morton-rsw-pty-dec16": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2694918\n[pid=2694918][err] *** You are running in headless mode.\n[pid=2694918][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2694918] <process did exit: exitCode=0, signal=null>\n[pid=2694918] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2694918\n  - [pid=2694918][err] *** You are running in headless mode.\n  - [pid=2694918][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2694918] <process did exit: exitCode=0, signal=null>\n  - [pid=2694918] starting temporary directories cleanup\n  - [pid=2694918] <gracefully close start>\n  - [pid=2694918] <kill>\n  - [pid=2694918] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2694918] finished temporary directories cleanup\n  - [pid=2694918] <gracefully close end>\n"
-    },
-    "mcleod-den-mia-dec18": {
-      "status": "error",
-      "error": "BrowserType.launch_persistent_context: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n<launched> pid=2695023\n[pid=2695023][err] *** You are running in headless mode.\n[pid=2695023][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n[pid=2695023] <process did exit: exitCode=0, signal=null>\n[pid=2695023] starting temporary directories cleanup\nCall log:\n  - <launching> /home/john/.playwright-browsers/firefox-1509/firefox/firefox -no-remote -headless -profile /home/john/Thunderbird/core/travel/data/centrav_ff_profile -juggler-pipe --no-sandbox about:blank\n  - <launched> pid=2695023\n  - [pid=2695023][err] *** You are running in headless mode.\n  - [pid=2695023][err] Firefox is already running, but is not responding. To use Firefox, you must first close the existing Firefox process, restart your device, or use a different profile.\n  - [pid=2695023] <process did exit: exitCode=0, signal=null>\n  - [pid=2695023] starting temporary directories cleanup\n  - [pid=2695023] <gracefully close start>\n  - [pid=2695023] <kill>\n  - [pid=2695023] <skipped force kill spawnedProcess.killed=false processClosed=true>\n  - [pid=2695023] finished temporary directories cleanup\n  - [pid=2695023] <gracefully close end>\n"
-    },
-    "mcleod-mia-den-dec29": {
-      "status": "ok",
-      "origin": "MIA",
-      "dest": "DEN",
-      "date": "2026-12-29",
-      "cabin": "business",
-      "passengers": 2,
-      "lowest_pp": 909.5,
-      "fare_check": {
-        "status": "checked",
-        "watch_id": "mcleod-mia-den-dec29",
-        "label": "McLeod MIA\u2192DEN Dec 29 (2 pax business)",
-        "price_pp": "$910",
-        "total": "$1,819 (2 pax)",
-        "baseline_pp": "$910",
-        "change_from_baseline": "-0.1%",
-        "change_from_last": "$+0/pp (unchanged)",
-        "direction": "unchanged",
-        "checked_at": "2026-07-09T14:33:46.435224",
-        "recent_prices": [
-          "2026-07-02: $910",
-          "2026-07-02: $910",
-          "2026-07-09: $910"
-        ]
-      }
-    },
-    "loucks-doorcounty-cos-grb-out": {
-      "status": "ok",
-      "origin": "COS",
-      "dest": "GRB",
-      "date": "2026-09-06",
-      "cabin": "economy",
-      "passengers": 2,
-      "lowest_pp": 217.0,
-      "fare_check": {
-        "status": "checked",
-        "watch_id": "loucks-doorcounty-cos-grb-out",
-        "label": "Loucks Door County \u2014 United COS \u2192 GRB Sep 6 (2 pax, ANY time)",
-        "price_pp": "$217",
-        "total": "$434 (2 pax)",
-        "baseline_pp": "$311",
-        "change_from_baseline": "-30.2%",
-        "change_from_last": "$-94/pp (down)",
-        "direction": "down",
-        "checked_at": "2026-07-09T14:34:16.234583"
-      }
-    },
-    "loucks-doorcounty-grb-cos-return": {
-      "status": "ok",
-      "origin": "GRB",
-      "dest": "COS",
-      "date": "2026-09-14",
-      "cabin": "economy",
-      "passengers": 2,
-      "lowest_pp": 274.0,
-      "fare_check": {
-        "status": "checked",
-        "watch_id": "loucks-doorcounty-grb-cos-return",
-        "label": "Loucks Door County \u2014 United GRB \u2192 COS Sep 14 (2 pax, ANY time)",
-        "price_pp": "$274",
-        "total": "$548 (2 pax)",
-        "baseline_pp": "$239",
-        "change_from_baseline": "+14.6%",
-        "change_from_last": "$+35/pp (up)",
-        "direction": "up",
-        "checked_at": "2026-07-09T14:34:45.084294"
-      }
+    "loucks-cos-grb-sep2026": {
+      "status": "fallback",
+      "source": "anansi",
+      "query": "cheapest economy flights COS \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
+      "snippet": "",
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-16T18:20:59.688980"
     }
-  }
+  },
+  "fallback_anansi": true,
+  "fallback_at": "2026-07-16T18:20:59.688980"
 }
