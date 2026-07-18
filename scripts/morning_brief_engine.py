@@ -827,6 +827,38 @@ def _build_overnight_section() -> str:
     else:
         lines.append("_Run `python3 scripts/credentials_health_check.py` to populate_")
 
+    # --- Self-healing digest (MISSION-669) ---
+    # Auto-repaired + non-client MONITOR + routine Sterling routing no longer
+    # page the Commander in real time; they batch here so nothing goes silent.
+    lines.append("")
+    lines.append("**Self-Healing / Auto-Repairs (last 24h — batched, not paged):**\n")
+    digest = state_dir / "notify_digest.jsonl"
+    dig = []
+    if digest.exists():
+        cutoff = datetime.now().timestamp() - (24 * 3600)
+        for ln in digest.read_text().splitlines():
+            try:
+                r = json.loads(ln)
+                if r.get("kind") == "escalate_client":
+                    continue  # those already went to Telegram real-time
+                if datetime.fromisoformat(r["ts"]).timestamp() > cutoff:
+                    dig.append(r)
+            except Exception:
+                pass
+    if dig:
+        from collections import Counter
+        by_kind = Counter(r.get("kind", "?") for r in dig)
+        summary = ", ".join(f"{k}: {c}" for k, c in by_kind.most_common())
+        lines.append(f"_{len(dig)} non-actionable event(s) routed off Telegram → {summary}_\n")
+        lines.append("| Time | Kind | Source | Detail |")
+        lines.append("|---|---|---|---|")
+        for r in dig[-8:]:
+            tss = r.get("ts", "")[:16].replace("T", " ")
+            src = f"{r.get('bot', '')}/{r.get('task', '')}".strip("/")
+            lines.append(f"| {tss} | {r.get('kind', '')} | `{src}` | {r.get('error', '')[:60]} |")
+    else:
+        lines.append("_No self-healing events in the last 24h_")
+
     return "\n".join(lines) + "\n"
 
 

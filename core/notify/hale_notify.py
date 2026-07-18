@@ -19,6 +19,7 @@ ROOT = Path("/home/john/Thunderbird")
 
 RELAY = ROOT / "core/relay/wing_relay.py"
 NOTIFY_LOG = ROOT / "logs/hale_notify.log"
+NOTIFY_DIGEST = ROOT / "OpsCenter/state/notify_digest.jsonl"
 SYS_PYTHON = "/usr/bin/python3"
 VENV_PYTHON = str(ROOT / ".venv/bin/python3")
 
@@ -34,8 +35,25 @@ def _log(msg: str):
     print(line)
 
 
+def _digest(kind: str, bot: str, task: str, error: str):
+    """Roll a NON-actionable event into the digest the EOD/morning brief reads
+    (MISSION-669: auto-repaired + non-client MONITOR + routine Sterling routing
+    stop hitting real-time Telegram — the Commander sees them batched in the
+    brief instead). Structured JSONL so brief_data_generator can window it to
+    the last 24h. Best-effort — a digest write must never break the caller."""
+    try:
+        NOTIFY_DIGEST.parent.mkdir(parents=True, exist_ok=True)
+        rec = {"ts": datetime.now(timezone.utc).isoformat(),
+               "kind": kind, "bot": bot, "task": task, "error": (error or "")[:300]}
+        with open(NOTIFY_DIGEST, "a") as f:
+            f.write(json.dumps(rec) + "\n")
+    except Exception as e:
+        _log(f"Digest write failed: {e}")
+
+
 def _relay(msg: str):
-    """Send via wing_relay.py → Telegram."""
+    """Send via wing_relay.py → Telegram. RESERVED for actionable escalations
+    only (client-affecting / financial / Three-Gates) — see MISSION-669."""
     try:
         subprocess.run(
             [SYS_PYTHON, str(RELAY), "send", "CC", msg],
@@ -57,16 +75,13 @@ def notify_hale(bot: str, task: str, error: str, repaired: bool = False,
     ts = datetime.now(timezone.utc).strftime("%H:%M UTC")
 
     if repaired:
-        msg = (
-            f"⚡ *HALE AUTONOMY* [{ts}]\n"
-            f"Bot `{bot}` / `{task}` failed → auto-repaired.\n"
-            f"Error: `{error[:120]}`\n"
-            f"_No Commander action needed._"
-        )
+        # Auto-repaired = "No Commander action needed" → digest only, not
+        # real-time Telegram (MISSION-669, Commander directive 2026-07-17).
         _log(f"AUTONOMY-REPAIR: {bot}/{task} repaired.")
-        _relay(msg)
+        _digest("autonomy_repair", bot, task, error)
 
     elif client_affecting:
+        # Actionable — keep real-time Telegram escalation.
         msg = (
             f"🔴 *COMMANDER ACTION REQUIRED* [{ts}]\n"
             f"`{bot}/{task}` failed. Auto-repair unsuccessful.\n"
@@ -74,16 +89,13 @@ def notify_hale(bot: str, task: str, error: str, repaired: bool = False,
             f"Error: `{error[:200]}`"
         )
         _log(f"ESCALATE-CLIENT: {bot}/{task} — {error[:100]}")
+        _digest("escalate_client", bot, task, error)
         _relay(msg)
 
     else:
-        msg = (
-            f"🟡 *HALE MONITOR* [{ts}]\n"
-            f"`{bot}/{task}` failed (non-client). Repair queued.\n"
-            f"`{error[:120]}`"
-        )
+        # Non-client MONITOR ("repair queued", no action needed) → digest only.
         _log(f"MONITOR: {bot}/{task} — {error[:100]}")
-        _relay(msg)
+        _digest("monitor", bot, task, error)
 
 
 def _emergency_voice_backup(bot: str, task: str, error: str):
@@ -116,8 +128,10 @@ def notify_sterling(issue: str, detail: str):
     )
     with open(sterling_inbox, "a") as f:
         f.write(entry)
-    msg = f"⚙️ *STERLING QUEUE* [{ts}]\n{issue}\n`{detail[:150]}`"
-    _relay(msg)
+    # Routine process/code routing — lands in Sterling's inbox + the digest,
+    # not real-time Telegram (MISSION-669). Sterling reads the inbox; the
+    # Commander sees it batched in the brief.
+    _digest("sterling_queue", issue, "", detail)
 
 
 def ci_auto_repair(skill_id: str) -> bool:
