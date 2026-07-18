@@ -47,6 +47,12 @@ def _digest(kind: str, bot: str, task: str, error: str):
                "kind": kind, "bot": bot, "task": task, "error": (error or "")[:300]}
         with open(NOTIFY_DIGEST, "a") as f:
             f.write(json.dumps(rec) + "\n")
+        # Bound the file — the brief only ever windows the last 24h, and these
+        # events are high-frequency. Trim by size (cheap stat) to the most
+        # recent ~1000 records so it can't grow without limit.
+        if NOTIFY_DIGEST.stat().st_size > 500_000:
+            tail = NOTIFY_DIGEST.read_text().splitlines()[-1000:]
+            NOTIFY_DIGEST.write_text("\n".join(tail) + "\n")
     except Exception as e:
         _log(f"Digest write failed: {e}")
 
