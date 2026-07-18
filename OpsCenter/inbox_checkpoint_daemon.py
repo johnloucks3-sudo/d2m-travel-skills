@@ -17,10 +17,7 @@ import os
 import re
 import sys
 import json
-import time
 import logging
-import subprocess
-import psutil
 from pathlib import Path
 from datetime import datetime, timedelta
 
@@ -42,10 +39,6 @@ WING_COMMS = BASE / "OpsCenter" / "collaboration" / "wing_comms.md"
 CHECKPOINT_STATE = BASE / "OpsCenter" / ".checkpoint_state.json"
 PATTERNS_DB = BASE / "OpsCenter" / ".supervisor_patterns.json"
 WATCHER_LOG = BASE / "logs" / "inbox_watcher.log"
-
-# Watcher config
-WATCHER_SCRIPT = BASE / "OpsCenter" / "thunderbird_tasking_watcher.py"
-WATCHER_PROCESS_NAME = "thunderbird_tasking_watcher.py"
 
 # Thresholds
 TASK_STALE_MINUTES = 10  # Task older than this gets force-wake consideration
@@ -161,51 +154,6 @@ def calculate_task_age_minutes(timestamp_str):
         return None
 
 
-def check_watcher_health():
-    """Check if watcher process is running."""
-    try:
-        for proc in psutil.process_iter(["pid", "name", "cmdline"]):
-            try:
-                cmdline = proc.info.get("cmdline")
-                if cmdline and WATCHER_PROCESS_NAME in " ".join(cmdline):
-                    return True, proc.info["pid"]
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
-                pass
-    except Exception as e:
-        logging.error(f"Error checking watcher health: {e}")
-
-    return False, None
-
-
-def restart_watcher():
-    """Attempt to restart the watcher process."""
-    try:
-        logging.warning("Watcher dead — attempting restart")
-
-        # Use nohup to start in background
-        proc = subprocess.Popen(
-            ["nohup", "python3", str(WATCHER_SCRIPT)],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            start_new_session=True,
-        )
-
-        time.sleep(2)  # Give process time to start
-
-        # Verify it started
-        running, pid = check_watcher_health()
-        if running:
-            logging.info(f"✅ Watcher restarted successfully (PID {pid})")
-            return True, pid
-        else:
-            logging.error("❌ Watcher restart failed — process did not start")
-            return False, None
-
-    except Exception as e:
-        logging.error(f"Error restarting watcher: {e}")
-        return False, None
-
-
 def alert_wing_comms(severity, message, context=None):
     """Post alert to wing_comms."""
     try:
@@ -252,48 +200,14 @@ def run_checkpoint_pass():
             stale_tasks.append((task, age))
             logging.warning(f"  ⚠️  Stale task ({age:.1f} min old): {task['description']}")
 
-    # 3. Check watcher health
-    watcher_running, watcher_pid = check_watcher_health()
-
-    if watcher_running:
-        logging.info(f"Watcher OK (PID {watcher_pid})")
-    else:
-        logging.error("❌ WATCHER DEAD — attempting restart")
-        success, new_pid = restart_watcher()
-
-        if success:
-            state["watcher_restarts"] += 1
-            state["watcher_last_restart"] = datetime.now().isoformat()
-            state["recent_restarts"].append(
-                {"timestamp": datetime.now().isoformat(), "new_pid": new_pid}
-            )
-            # Keep last 10
-            state["recent_restarts"] = state["recent_restarts"][-10:]
-
-            alert_wing_comms(
-                "WARNING",
-                f"Inbox Checkpoint detected watcher dead and restarted it (PID {new_pid})",
-                {"restart_count": state["watcher_restarts"]},
-            )
-        else:
-            alert_wing_comms("CRITICAL", "Inbox Checkpoint: Watcher died and restart FAILED")
-
-    # 4. Force-wake logic: if tasks are stale and watcher just restarted, trigger wake
-    if stale_tasks and not watcher_running:
-        logging.info(f"Triggering force-wake for {len(stale_tasks)} stale tasks")
-        state["force_wakes_triggered"] += 1
-        state["recent_force_wakes"].append(
-            {
-                "timestamp": datetime.now().isoformat(),
-                "task_count": len(stale_tasks),
-                "reason": "watcher_restart",
-            }
-        )
-        state["recent_force_wakes"] = state["recent_force_wakes"][-10:]
-
-        # In a real scenario, we could trigger a wake here (e.g., touch inbox file to fire event)
-        # For now, just log it
-        logging.info("✅ Force-wake triggered via watcher restart")
+    # 3. Watcher health/restart + force-wake RETIRED (MISSION-667). The monitored
+    # process thunderbird_tasking_watcher.py was retired 2026-07-03 (commit
+    # f22e8d892 → OpsCenter/_retired/) and superseded by
+    # scripts/cc_overflow_watcher.py. The old restart_watcher() re-launched a path
+    # that no longer exists, failed every 5-min cycle, and fired a CRITICAL
+    # wing_comms alert each time (4,162 entries in wing_comms.md). Force-wake was
+    # a never-wired no-op stub ("For now, just log it"). Both removed; the inbox
+    # scan above stays as read-only stale-task visibility.
 
     # 5. Update state and patterns
     state["last_checkpoint"] = datetime.now().isoformat()
@@ -314,9 +228,6 @@ def run_checkpoint_pass():
     # 6. Log summary
     logging.info(f"Tasks found: {len(all_tasks)} (Claude: {len(claude_tasks)}, OC: {len(oc_tasks)})")
     logging.info(f"Stale tasks: {len(stale_tasks)}")
-    logging.info(f"Watcher: {'RUNNING' if watcher_running else 'DEAD (RESTARTED)'}")
-    logging.info(f"Force-wakes triggered (total): {state['force_wakes_triggered']}")
-    logging.info(f"Watcher restarts (total): {state['watcher_restarts']}")
     logging.info("CHECKPOINT PASS COMPLETE")
     logging.info("=" * 60)
 
