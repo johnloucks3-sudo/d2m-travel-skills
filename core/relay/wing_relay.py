@@ -29,6 +29,7 @@ import urllib.request
 import urllib.parse
 import json
 import os
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -43,26 +44,61 @@ _WB_CHAT_ID = int(os.environ.get("TELEGRAM_HALE_CHAT_ID", "-5159954387"))
 _WB_BASE = f"https://api.telegram.org/bot{_WB_TOKEN}"
 
 
+# Durable queue for sends that exhaust all retries — a lost Telegram message is
+# logged here instead of crashing the caller (MISSION-670). NEVER relay/notify
+# about a queue write (that's the alert-on-alert infinite regress this avoids).
+_FAILURE_QUEUE = Path(__file__).parent.parent.parent / "logs" / "wing_relay_failures.jsonl"
+_MAX_RETRIES = 3
+# Per-attempt socket timeout. The WHOLE retry budget (3*3s attempts + 1s+2s
+# backoff = ~12s) MUST stay under the tightest caller's subprocess timeout —
+# hale_notify invokes this via subprocess.run(timeout=15). A retry loop that
+# ran long (the naive 3*10s) would itself be SIGKILLed mid-flight, which is
+# exactly what produced the 213 empty crash reports. Keep this sized to fit.
+_ATTEMPT_TIMEOUT = 3
+
+
+def _post_send(base: str, chat_id: int, text: str, label: str) -> int:
+    """POST sendMessage with bounded retries + exponential backoff (1s, 2s).
+    Returns the Telegram message_id on success, or 0 on final failure — it
+    NEVER raises (a crashed relay subprocess, with a mostly-empty crash report,
+    was the entire 670 bug: 224 crashes/7d, 213 empty). On exhaustion the
+    message is durably queued to _FAILURE_QUEUE for later inspection/replay."""
+    data = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
+    last_err = None
+    for attempt in range(_MAX_RETRIES):
+        try:
+            req = urllib.request.Request(f"{base}/sendMessage", data=data)
+            with urllib.request.urlopen(req, timeout=_ATTEMPT_TIMEOUT) as r:
+                return json.loads(r.read())["result"]["message_id"]
+        except Exception as e:  # SSL, connection reset, HTTP 4xx/5xx, JSON, ...
+            last_err = e
+            if attempt < _MAX_RETRIES - 1:
+                time.sleep(2 ** attempt)
+    try:
+        _FAILURE_QUEUE.parent.mkdir(parents=True, exist_ok=True)
+        rec = {"ts": datetime.now(timezone.utc).isoformat(), "label": label,
+               "chat_id": chat_id, "text": text[:500], "error": str(last_err)[:300]}
+        with open(_FAILURE_QUEUE, "a") as f:
+            f.write(json.dumps(rec) + "\n")
+    except Exception:
+        pass  # even the durable-log write must never crash the caller
+    return 0
+
+
 def relay_send(platform: str, message: str, tag: str = "INFO") -> int:
-    """Post a system message to D2M System channel. Returns Telegram message_id."""
+    """Post a system message to D2M System channel. Returns Telegram message_id
+    (0 if all retries failed — the message is durably queued, not lost)."""
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     text = f"[{platform}→RELAY] {tag} | {ts}\n{message}"
-    data = urllib.parse.urlencode({"chat_id": _CHAT_ID, "text": text}).encode()
-    req = urllib.request.Request(f"{_BASE}/sendMessage", data=data)
-    with urllib.request.urlopen(req, timeout=10) as r:
-        result = json.loads(r.read())
-    return result["result"]["message_id"]
+    return _post_send(_BASE, _CHAT_ID, text, "relay_send")
 
 
 def relay_send_wb(platform: str, message: str, tag: str = "INFO") -> int:
-    """Post an OC↔CC relay message to Wing Bridge. Returns Telegram message_id."""
+    """Post an OC↔CC relay message to Wing Bridge. Returns Telegram message_id
+    (0 if all retries failed — the message is durably queued, not lost)."""
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     text = f"[{platform}→WB] {tag} | {ts}\n{message}"
-    data = urllib.parse.urlencode({"chat_id": _WB_CHAT_ID, "text": text}).encode()
-    req = urllib.request.Request(f"{_WB_BASE}/sendMessage", data=data)
-    with urllib.request.urlopen(req, timeout=10) as r:
-        result = json.loads(r.read())
-    return result["result"]["message_id"]
+    return _post_send(_WB_BASE, _WB_CHAT_ID, text, "relay_send_wb")
 
 
 def relay_read(since_id: int = None) -> list[dict]:
