@@ -97,8 +97,11 @@ def cc_integrity_double_check(
         )
 
     if engine.upper() == "OC":
-        import os
+        import os, re
         model = model or "opencode/deepseek-v4-flash-free"
+        # argv hardening: reject flag-shaped model values (security review 2026-07-19)
+        if model.startswith("-") or not re.match(r"^[A-Za-z0-9 .()/\-]+$", model):
+            raise ValueError(f"invalid model {model!r}")
         prompt = (
             "HALE-OC — this is HALE-CC asking for an integrity double-check, peer to "
             "peer. I don't want you to trust my summary; I want you to check it.\n\n"

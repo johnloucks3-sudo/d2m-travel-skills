@@ -35,11 +35,48 @@ CLI:
 """
 from __future__ import annotations
 
+import os
+import re
 import subprocess
 from typing import Optional
 
 REPO = "/home/john/Thunderbird"
 DEFAULT_MODEL = "Gemini 3.1 Pro (High)"
+
+# ── Input hardening (security review 2026-07-19) ────────────────────────────
+# `model` and `add_dir` become argv to `agy`; a flag-shaped value ("-x", "--foo")
+# could smuggle CLI flags into the agent invocation. Validate both.
+#
+# TRUST BOUNDARY: this helper runs the AG agent with --dangerously-skip-permissions
+# (required — headless dispatch cannot do interactive approval) on the live repo,
+# which is the Commander's weapons-free "OC/AG run without CC" posture. That is only
+# safe because `task` must originate from a TRUSTED Hale seat (CC/OC), never raw
+# external/client content — untrusted text in `task` is a prompt-injection →
+# autonomous-file-edit risk. PII fence still applies. add_dir is pinned to the repo
+# so the agent can't be redirected at another tree, and every deliverable is meant to
+# be cross-checked against ground truth (core/staffing/integrity_check.py) before it
+# is trusted or acted on — that is the "trusted process reviews the output" control.
+_MODEL_RE = re.compile(r"^[A-Za-z0-9 .()/\-]+$")
+
+
+def _validate_model(model: str) -> str:
+    m = (model or "").strip()
+    if not m or m.startswith("-") or not _MODEL_RE.match(m):
+        raise ValueError(
+            f"invalid model {model!r} — must match {_MODEL_RE.pattern} and not start with '-'")
+    return m
+
+
+def _validate_dir(add_dir: str) -> str:
+    if not add_dir or add_dir.startswith("-"):
+        raise ValueError(f"invalid add_dir {add_dir!r} — must not be a flag")
+    p = os.path.realpath(add_dir)
+    if not os.path.isdir(p):
+        raise ValueError(f"invalid add_dir {add_dir!r} — not an existing directory")
+    repo = os.path.realpath(REPO)
+    if p != repo and os.path.commonpath([p, repo]) != repo:
+        raise ValueError(f"add_dir {add_dir!r} must be {REPO} or a subdirectory")
+    return p
 FALLBACK_MODELS = (
     "Claude Opus 4.6 (Thinking)",
     "Claude Sonnet 4.6 (Thinking)",
@@ -99,7 +136,8 @@ def contact_ag(
     deliverable_written}. Synchronous — AG's --print stdout IS the reply, plus
     any file it wrote to deliverable_path. Never raises on AG failure; inspect
     `ok`. On a model outage, retry with a FALLBACK_MODELS entry."""
-    import os
+    model = _validate_model(model)
+    add_dir = _validate_dir(add_dir)
     prompt = peer_prompt(task, deliverable_path=deliverable_path,
                          from_seat=from_seat, verdict_tag=verdict_tag, strengths=strengths)
     cmd = [
