@@ -2,7 +2,7 @@
 
 **SUBJECT:** Adoption of the USAF Staff Summary Sheet (AF Form 1768) as the Thunderbird Wing's standing staffing-and-tasking model, replacing "PDTAC" and the decommissioned TCD web application.
 
-**STATUS:** PENDING COMMANDER SIGNATURE (staff package SSS-004, Tab 1). Filed here as the machine-readable policy the models train on; takes force on the Commander's signature of the Tab-1 approval document.
+**STATUS:** ✅ SIGNED & IN FORCE — 2026-07-19. Commander John A. Loucks III reviewed the package (HTML), then signed the approval document in Google Docs and the Google Sheet. This policy is now standing Wing law. Machine-readable record the models train on.
 
 **OPR:** CC (Hale) · **Coordinated:** OC, AG, Sterling, Naia · **Certifier:** AG · **Action:** SIG
 
@@ -28,6 +28,6 @@ The Commander determined that "PDTAC" (Propose-Decide-Task-Accomplish-Certify) w
 
 ## AUTHORITY
 
-Takes force on the Commander's signature of the Tab-1 approval document in staff package SSS-004. On signature, PDTAC references are retired across standing documentation.
+**In force 2026-07-19** by signature of the Commander on the Tab-1 approval document (staff package SSS-004), reviewed in HTML, signed in Google Docs and Google Sheets. PDTAC is retired as of this date; references are being retired across standing documentation.
 
-*Prepared cross-Hale, 2026-07-19 MT. Certified by AG.*
+*Prepared cross-Hale, 2026-07-19 MT. Certified by AG. Signed by John A. Loucks III.*

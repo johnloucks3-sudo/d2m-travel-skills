@@ -50,13 +50,9 @@
 - **Sheets:** View/edit decision log, pricing intel, financial tracking
 - **Slides:** Preview client proposals, present findings
 
-**P-D-T-A-C Workflow — "NO MORE BLACK HOLES" (Standing Order SO-PDTAC-20260711):**
-Every proposal and task flows through five stages with **full visibility until certified complete:**
-- 🔵 **P (Propose):** Staff submits to Strategic Inbox
-- 🟢 **D (Decide):** Commander approves/modifies/rejects, logs decision
-- 🟡 **T (Task):** Hale defines success criteria, deadline, assigns staff
-- 🟠 **A (Accomplish):** Staff executes, reports status, escalates blockers
-- ✅ **C (Certify):** Silver assesses back-end + Commander signs off
+**⚠️ PDTAC RETIRED 2026-07-19 — superseded by the USAF Staff Summary Sheet (SO-2026-07-19-SSS_ADOPTION, signed by the Commander).** The staffing/tasking model is now the AF Form 1768 Staff Summary Sheet: **OPR** owns the action · **OCR chop chain** coordinates (nonconcur recorded & adjudicated, never a silent veto) · decision authority signs the **action block** (COORD/APPR/SIG/INFO) · OPR executes · close-out under CHIEF SILVER's mandatory front+back gate + anti-theater cross-seat certification. **Cross-Hale coordination is mandatory** (a different engine CC/OC/AG must certify; a failed OPR seat BLOCKS). Directives are captured (`directive_ledger`), CC's claims cross-checked before "done" (`integrity_check`), must-haves surfaced in plan mode. Model: `core/staffing/staff_summary_sheet.py` · verbs `EXEC: sss|chop|decide|accomplish|closeout|sheet|block|reopen|ack`.
+
+*Historical (retired PDTAC 5-stage): P Propose → D Decide → T Task → A Accomplish → C Certify.*
 
 **Inbox Structure:**
 - **Strategic:** Proposals, position papers, >$5K commitments, >90d decisions, board-level items
@@ -283,9 +279,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-19 07:12 MT -->
+<!-- Last sync: 2026-07-19 10:15 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-19 07:12 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-19 10:15 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
