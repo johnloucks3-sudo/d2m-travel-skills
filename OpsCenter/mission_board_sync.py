@@ -540,6 +540,27 @@ def cmd_sss_reopen(board, raw):
     return f"↩️ {sid} reopened → {m['status']}" + (f" (OPR now {m.get('opr')})" if new_opr else "")
 
 
+def cmd_sss_ack(board, raw):
+    """EXEC: ack SSS-001 :: gate_substring :: evidence — account for a captured
+    unmapped mandate with concrete evidence so the close gate can clear it."""
+    try:
+        from core.staffing.staff_summary_sheet import ack_mandate, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 3 or not all(f[:3]):
+        return "❌ Usage: EXEC: ack SSS-ID :: gate_substring :: evidence"
+    sid, sub, evidence = f[0], f[1], f[2]
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        matched = ack_mandate(m, sub, evidence)
+    except SSSError as e:
+        return f"❌ Ack rejected: {e}"
+    return f"✓ {sid}: acknowledged {len(matched)} mandate(s) matching {sub!r}"
+
+
 def cmd_sss_render(board, sid):
     """EXEC: sheet SSS-001 — render the AF Form 1768-style coversheet."""
     try:
@@ -740,6 +761,8 @@ def process_exec_command(command_text):
             result = cmd_sss_block(board, text[len("block"):].strip())
         elif action == "reopen":
             result = cmd_sss_reopen(board, text[len("reopen"):].strip())
+        elif action == "ack":
+            result = cmd_sss_ack(board, text[len("ack"):].strip())
         elif action == "sheet":
             if args:
                 result = cmd_sss_render(board, args[0])

@@ -427,6 +427,25 @@ def block_sss(sss: dict, reason: str) -> dict:
     return sss
 
 
+def ack_mandate(sss: dict, gate_substring: str, evidence: str) -> list[str]:
+    """Acknowledge a bound mandate that has no structural gate (an `unmapped:`
+    one-time directive) as satisfied, with concrete evidence. Matches every bound
+    mandate whose key contains `gate_substring`. This is not a bypass — it forces
+    each captured directive to be individually accounted for with a reference
+    before the sheet can close; `_unmet_mandates` then treats it as met."""
+    if not (evidence or "").strip():
+        raise SSSError("acknowledging a mandate requires concrete evidence")
+    ack = sss.setdefault("mandate_ack", {})
+    matched = [g for g in sss.get("mandates", []) if gate_substring.lower() in g.lower()]
+    if not matched:
+        raise SSSError(f"no bound mandate matches {gate_substring!r}")
+    ts = _now()
+    for g in matched:
+        ack[g] = {"evidence": evidence.strip(), "ts": ts}
+    sss["logs"].append(f"{ts}: mandate(s) acknowledged ({len(matched)}) — {evidence[:80]}")
+    return matched
+
+
 def reopen_sss(sss: dict, to_status: str, reason: str, *,
                new_opr: Optional[str] = None, new_opr_seat: Optional[str] = None) -> dict:
     """Correct the record: move a closed/blocked sheet back to an earlier live
