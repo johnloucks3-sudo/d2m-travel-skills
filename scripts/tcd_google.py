@@ -2,8 +2,8 @@
 """
 tcd_google.py — Google Suite panels for Thunderbird Commander Desktop (TCD) v4.
 
-Mounted into scripts/tcd_server.py via a minimal hook (2 dispatch lines —
-see GOOGLE ROUTES comment there). Owns everything under /api/google/*.
+Formerly mounted into the retired TCD web app via a minimal hook; retained as
+the standalone Google Suite panel module. Owns everything under /api/google/*.
 
 Auth: unified OAuth token via api/thunderbird_google_auth.py (gmail_token.json)
 — same credential the rest of Thunderbird uses for Calendar / Drive / Tasks /

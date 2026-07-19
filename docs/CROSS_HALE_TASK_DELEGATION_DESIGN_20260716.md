@@ -182,3 +182,34 @@ These are hard requirements, each traceable to a failure pattern already found:
 ---
 
 *Grounded in: `OpsCenter/usage_ledger.json`, `.ask_usage_log`, `CLAUDE.md` blackboard git history, `core/ai_infra/thunderbird_model_router.py`, `core/relay/wing_relay.py`, `core/policy/rules_registry.py`, `OpsCenter/mission_board.json`, `docs/UNIFIED_C2_FABRIC_PROPOSAL_20260706.md`, `GEMINI.md`, `hale_decisions.md`. — Hale, 2026-07-16 MT*
+
+---
+
+## Addendum 2026-07-18 — USAF Staff Summary Sheet retrofit
+
+Commander directive 2026-07-18: the **PDTAC** sequence (Propose→Decide→Task→
+Accomplish→Certify) named in this design was an AI invention, not his mental model. His
+model is the real Air Force **Staff Summary Sheet (AF Form 1768)** and the tasker
+process it rides on (digitized DoD-wide as the **Task Management Tool (TMT)** / **CATMS**
+/ ETMS2). Research confirmed PDTAC dropped the two load-bearing stages of real staff
+process: the **OCR coordination (chop) chain** and the **suspense date**.
+
+The restored model lives in `core/staffing/staff_summary_sheet.py` and adds five fields
+to the mission-board ticket, additively (legacy `assigned_to` kept as a deprecated alias):
+
+- **`opr`** — Office of Primary Responsibility; owns the action end to end.
+- **`ocr_chain`** — ordered Office(s) of Coordinating Responsibility; the chop chain,
+  each recording concur / concur-with-comment / nonconcur. A nonconcur is *recorded and
+  routed to the decision authority to adjudicate*, never a veto.
+- **`action_type`** — the AF Form 1768 action block: `COORD` / `APPR` / `SIG` / `INFO`.
+- **`coordination_log`** — append-only chop trail (who, verdict, comment, when).
+- **`suspense_date`** — the deadline-with-teeth (already a board field; now first-class).
+
+Lifecycle: `drafted → in_coordination → coordinated → decided → tasked → accomplished →
+closed`. The two mandatory overlays from this design are preserved unchanged: the
+**CHIEF SILVER front + back gate** (no checkable "done" → no sheet; back-gate battery on
+the artifact before close) and **anti-theater cross-seat/office certification** (the
+certifier must differ from the OPR). The `delegate_mission()` wire is now OPR-aware
+(reads `opr`, falls back to `assigned_to`), so this model and the older CC/OC/AG
+delegation path share one bus. Verbs: `EXEC: sss | chop | decide | accomplish | closeout
+| sheet` in `OpsCenter/mission_board_sync.py`. — Hale, 2026-07-18 MT*

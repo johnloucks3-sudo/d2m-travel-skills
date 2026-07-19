@@ -8,7 +8,7 @@ rewrite" part of the plan.
 
 Gmail is collected here (not via tcd_data.build_gmail) because the board needs
 the RFC822 **Message-ID header** to build a working web permalink, which the
-existing builder doesn't capture. This keeps the live tcd_server untouched.
+existing builder doesn't capture. This keeps the data-plane builders untouched.
 
 Everything degrades gracefully with no credentials: the local builders read
 on-disk Wing files, and the Gmail collector returns [] if auth/creds are

@@ -8,7 +8,7 @@ and produces the {folders, files, outbox} shape the TCD v4 frontend
 render real data instead of its hardcoded mockup array.
 
 Overlay state (comments added via the UI, folder moves, outbox pushes) lives
-separately in OpsCenter/tcd_state.json (see tcd_server.py) and is merged on
+separately in OpsCenter/tcd_state.json and is merged on
 top of what this module produces — this module only reads source-of-truth
 Wing files, it never writes.
 """
@@ -476,7 +476,7 @@ def build_briefing(state):
 # ---------------------------------------------------------------------------
 # DELETE — cascading source cleanup
 #
-# tcd_server.py owns the HTTP layer and audit-trail append; this module owns
+# the retired TCD web app owned the HTTP layer and audit-trail append; this module owns
 # knowing where each file id's foundation record actually lives and how to
 # remove it. Every deletion path is recoverable: JSON-backed records are
 # backed up to TCD_TRASH/deleted_json_records.jsonl before removal, and
