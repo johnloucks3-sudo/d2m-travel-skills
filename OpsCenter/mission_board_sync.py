@@ -353,6 +353,160 @@ def cmd_delegate(board, arg_string):
         return f"❌ Delegation rejected: {e}"
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# STAFF SUMMARY SHEET (AF Form 1768) verbs — the USAF staffing model, restored.
+# Commander directive 2026-07-18: PDTAC was an AI invention; his model is the
+# real Air Force Staff Summary Sheet — OPR owns the action, an OCR chop chain
+# coordinates it, a decision authority signs the action block, the OPR executes,
+# and it closes out through CHIEF SILVER's mandatory back gate. Model lives in
+# core/staffing/staff_summary_sheet.py; these verbs persist it onto the board.
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _next_sss_id(board):
+    """Allocate the next SSS-NNN id from its own counter (kept distinct from the
+    MISSION-NNN namespace so staff sheets read as staff sheets on the board)."""
+    nums = []
+    for m in board.get("missions", []):
+        mid = m.get("id", "")
+        if mid.startswith("SSS-"):
+            try:
+                nums.append(int(mid.split("-")[-1]))
+            except (ValueError, IndexError):
+                pass
+    return f"SSS-{((max(nums) + 1) if nums else 1):03d}"
+
+
+def cmd_sss_open(board, raw):
+    """EXEC: sss OPR :: ACTION :: title :: acceptance_criteria
+            [:: OCR1,OCR2 :: PRIORITY :: suspense :: certifier :: gt1,gt2 :: opr_seat]
+
+    Open a Staff Summary Sheet. OPR is the owning office/seat; ACTION is the
+    requested action of the decision authority (COORD/APPR/SIG/INFO); the OCR
+    list is the chop chain. CHIEF SILVER front-frames it — vague criteria or a
+    missing/nonexistent ground-truth source is a HOLD, no sheet."""
+    try:
+        from core.staffing.staff_summary_sheet import open_sss, render_sss, SSSError, ACTION_TYPES
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 4 or not all(f[:4]):
+        return ("❌ Usage: EXEC: sss OPR :: ACTION :: title :: acceptance_criteria "
+                "[:: OCR1,OCR2 :: PRIORITY :: suspense :: certifier :: gt1,gt2 :: opr_seat]\n"
+                f"   ACTION ∈ {ACTION_TYPES}")
+    opr, action, title, criteria = f[0], f[1].upper(), f[2], f[3]
+    ocrs = [x.strip() for x in f[4].split(",") if x.strip()] if len(f) > 4 and f[4] else []
+    priority = f[5].upper() if len(f) > 5 and f[5].upper() in ("P0", "P1", "P2", "P3") else "P2"
+    suspense = f[6] if len(f) > 6 and f[6] else None
+    certifier = f[7].upper() if len(f) > 7 and f[7] else "CC"
+    gt = [x.strip() for x in f[8].split(",") if x.strip()] if len(f) > 8 and f[8] else []
+    opr_seat = f[9].upper() if len(f) > 9 and f[9] else None
+    sid = _next_sss_id(board)
+    try:
+        sss = open_sss(sid, title, title, opr, action, criteria,
+                       ocr_chain=ocrs, suspense_date=suspense,
+                       ground_truth_sources=gt, certified_by=certifier,
+                       opr_seat=opr_seat, priority=priority)
+    except SSSError as e:
+        return f"❌ SSS rejected (CHIEF SILVER front gate): {e}"
+    board.setdefault("missions", []).append(sss)
+    return f"✅ Staff Summary Sheet opened: {sid}\n" + render_sss(sss)
+
+
+def cmd_sss_chop(board, raw):
+    """EXEC: chop SSS-001 :: office :: concur|concur_with_comment|nonconcur [:: comment]"""
+    try:
+        from core.staffing.staff_summary_sheet import coordinate, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 3 or not all(f[:3]):
+        return "❌ Usage: EXEC: chop SSS-ID :: office :: concur|concur_with_comment|nonconcur [:: comment]"
+    sid, office, verdict = f[0], f[1], f[2].lower()
+    comment = f[3] if len(f) > 3 else ""
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        coordinate(m, office, verdict, comment)
+    except SSSError as e:
+        return f"❌ Chop rejected: {e}"
+    return f"✓ {office} recorded {verdict} on {sid} → status {m['status']}"
+
+
+def cmd_sss_decide(board, raw):
+    """EXEC: decide SSS-001 :: authority :: APPROVED|DISAPPROVED|SIGNED|NOTED [:: comment]"""
+    try:
+        from core.staffing.staff_summary_sheet import decide, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 3 or not all(f[:3]):
+        return "❌ Usage: EXEC: decide SSS-ID :: authority :: APPROVED|DISAPPROVED|SIGNED|NOTED [:: comment]"
+    sid, authority, disposition = f[0], f[1], f[2].upper()
+    comment = f[3] if len(f) > 3 else ""
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        decide(m, authority, disposition, comment)
+    except SSSError as e:
+        return f"❌ Decision rejected: {e}"
+    return f"🖊️ {authority} {disposition} on {sid} → status {m['status']}"
+
+
+def cmd_sss_accomplish(board, raw):
+    """EXEC: accomplish SSS-001 :: verification_artifact (path|commit|url|sheet row)"""
+    try:
+        from core.staffing.staff_summary_sheet import accomplish, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 2 or not all(f[:2]):
+        return "❌ Usage: EXEC: accomplish SSS-ID :: verification_artifact"
+    sid, artifact = f[0], f[1]
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        accomplish(m, artifact)
+    except SSSError as e:
+        return f"❌ Cannot mark accomplished: {e}"
+    return f"📦 {sid} accomplished — artifact submitted, ready for close-out"
+
+
+def cmd_sss_close(board, raw):
+    """EXEC: closeout SSS-001 [:: certifier] — CHIEF SILVER back gate + cross-seat certify."""
+    try:
+        from core.staffing.staff_summary_sheet import close_sss, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if not f or not f[0]:
+        return "❌ Usage: EXEC: closeout SSS-ID [:: certifier]"
+    sid = f[0]
+    certifier = f[1].upper() if len(f) > 1 and f[1] else None
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        close_sss(m, certified_by=certifier)
+    except SSSError as e:
+        return f"⛔ Close-out held: {e}"
+    return f"✅ {sid} CLOSED — certified by {m.get('certified_by')}, CHIEF SILVER back-gate PASS"
+
+
+def cmd_sss_render(board, sid):
+    """EXEC: sheet SSS-001 — render the AF Form 1768-style coversheet."""
+    try:
+        from core.staffing.staff_summary_sheet import render_sss
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    return render_sss(m)
+
+
 def cmd_suspense(board, mission_id, date_str):
     """EXEC: add suspense MISSION-001 2026-04-05T05:00:00Z"""
     mission, state = find_mission(board, mission_id)
@@ -462,6 +616,13 @@ def cmd_help():
   EXEC: list complete       → Show completed
   EXEC: add <title> <desc>  → Create mission
   EXEC: delegate SEAT :: title :: criteria [:: PRIO :: task_type :: certifier] → Cross-Hale delegate (CC/OC/AG)
+  ── Staff Summary Sheet (USAF staffing model) ──
+  EXEC: sss OPR :: ACTION :: title :: criteria [:: OCRs :: PRIO :: suspense :: certifier :: gt :: seat] → Open sheet
+  EXEC: chop SSS-ID :: office :: concur|concur_with_comment|nonconcur [:: comment] → Coordinate (chop chain)
+  EXEC: decide SSS-ID :: authority :: APPROVED|DISAPPROVED|SIGNED|NOTED [:: comment] → Decision authority acts
+  EXEC: accomplish SSS-ID :: artifact → OPR submits work product
+  EXEC: closeout SSS-ID [:: certifier] → CHIEF SILVER back-gate + cross-seat certify
+  EXEC: sheet SSS-ID        → Render the coversheet
   EXEC: add suspense <id> <date> → Set suspense
   EXEC: complete <id>       → Mark done
   EXEC: status <id>         → Show details
@@ -518,6 +679,23 @@ def process_exec_command(command_text):
             # whitespace split above would otherwise destroy titles/criteria.
             raw = text[len("delegate"):].strip()
             result = cmd_delegate(board, raw)
+
+        # ── Staff Summary Sheet verbs (USAF staffing model) ──────────────
+        elif action == "sss":
+            result = cmd_sss_open(board, text[len("sss"):].strip())
+        elif action == "chop":
+            result = cmd_sss_chop(board, text[len("chop"):].strip())
+        elif action == "decide":
+            result = cmd_sss_decide(board, text[len("decide"):].strip())
+        elif action == "accomplish":
+            result = cmd_sss_accomplish(board, text[len("accomplish"):].strip())
+        elif action in ("closeout", "close"):
+            result = cmd_sss_close(board, text[len(action):].strip())
+        elif action == "sheet":
+            if args:
+                result = cmd_sss_render(board, args[0])
+            else:
+                result = "❌ Usage: EXEC: sheet SSS-ID"
 
         elif action == "complete":
             if args:

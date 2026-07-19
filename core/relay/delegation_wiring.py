@@ -123,12 +123,19 @@ def delegate_mission(
     acceptance_criteria, and a certified_by that DIFFERS from assigned_to.
     Side effects, in order: stamp delegation_rationale, notify the target seat
     (best-effort), mirror the `assigned` stage onto the bus. Mutates and returns
-    the mission dict."""
-    seat = mission.get("assigned_to")
+    the mission dict.
+
+    OPR-aware (2026-07-18): the executing seat is read from `opr` first, falling
+    back to the legacy `assigned_to` alias, so the USAF Staff Summary Sheet model
+    (core/staffing/staff_summary_sheet.py) and older delegation callers share one
+    wire. Whichever field is present, both are kept in sync on the mission."""
+    seat = mission.get("opr") or mission.get("assigned_to")
     if seat not in SEATS:
         raise DelegationError(
-            f"delegate_mission requires assigned_to in {SEATS}, got {seat!r}"
+            f"delegate_mission requires opr/assigned_to in {SEATS}, got {seat!r}"
         )
+    mission["opr"] = seat
+    mission["assigned_to"] = seat
 
     acceptance_criteria = (mission.get("acceptance_criteria") or "").strip()
     if not acceptance_criteria:
