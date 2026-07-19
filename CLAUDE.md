@@ -27,7 +27,17 @@
 
 ## THUNDERBIRD COMMANDER DESKTOP (TCD) v4 — Operational Hub (New 2026-07-11)
 
-**Architecture:** Hosted application on d2mluxury.quest (Node.js/Express backend + React frontend). Basic-Auth protected (same credentials as rest of site). Replaces AM briefing, decision artifacts, and manual tasking.
+> **⚠️ 2026-07-18 — TCD WEB APP DECOMMISSIONED.** Commander scrapped the custom
+> web app in favor of a Google-native foundation. `scripts/tcd_server.py` +
+> `tcd-server.service` removed; the `tcd/` data plane (Sheets/Keep/Drive/Calendar
+> sync via `tcd-sync.timer`) is retained and feeds the Google-native surface.
+> Tasking now runs on the restored **USAF Staff Summary Sheet** model
+> (`core/staffing/staff_summary_sheet.py`; `EXEC: sss|chop|decide|accomplish|closeout|sheet`)
+> — OPR / OCR chop chain / action block / suspense, with mandatory CHIEF SILVER
+> front+back gates and anti-theater cross-seat certification. The description below
+> is retained as historical record of the retired web-app design.
+
+**Architecture (RETIRED web app):** Was a hosted application on d2mluxury.quest (Python stdlib `http.server` backend + a single wired HTML frontend, not Node.js/Express/React as originally scoped). Basic-Auth protected. Replaced AM briefing, decision artifacts, and manual tasking.
 
 **Core Concept:** Three inboxes (Strategic | Operational | Reference) as clickable file folders. Click to open files, read, comment (text + voice notes), move to Outbox. Everything focused on what the Commander needs to DECIDE or COMMENT on. Real-time backend integration with full audit trail.
 
@@ -75,7 +85,7 @@ Every proposal and task flows through five stages with **full visibility until c
 - Incubators (experimental capabilities, proof-of-concepts)
 - Waves (batch operations, large-scale initiatives)
 
-**Status:** Architecture locked. Backend build in progress. ETA: 8-12 hours.
+**Status:** Web app DECOMMISSIONED 2026-07-18 (SSS-001). Superseded by the Google-native foundation + USAF Staff Summary Sheet tasking model. Data plane (`tcd-sync`) retained.
 
 ---
 
@@ -225,10 +235,11 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-16 06:59 MT -->
+<!-- Last sync: 2026-07-18 23:25 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-16 06:59 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-18 23:25 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged
