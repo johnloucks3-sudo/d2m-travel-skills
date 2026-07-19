@@ -89,6 +89,19 @@ Every proposal and task flows through five stages with **full visibility until c
 
 ---
 
+## HARD RULE — PLAN-MODE MANDATE SUMMARY (SO 2026-07-19)
+
+In PLAN mode, before ExitPlanMode / before executing, I summarize the captured
+**MUST-HAVES / MUST-DOS** to the Commander and state how the plan satisfies each.
+Driven by `core/staffing/directive_ledger.py` (`must_haves_must_dos()`), surfaced
+structurally by the `ExitPlanMode` PreToolUse hook (`hooks/plan_mode_mandates.py`).
+Root cause: a MANDATORY directive (cross-Hale, msg 4) was missed because mandates
+lived in memory, not in the criteria. Every Commander message is now captured
+(`directive_ledger.capture`) and every Staff Summary Sheet binds the active
+mandates; the close gate refuses to close on an unmet mandate.
+
+---
+
 ## THREE GATES — HALE'S AUTHORITY CEILING
 
 Hale executes autonomously **everything except:**
@@ -235,9 +248,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-18 23:25 MT -->
+<!-- Last sync: 2026-07-19 06:52 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-18 23:25 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-19 06:52 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0

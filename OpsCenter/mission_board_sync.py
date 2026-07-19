@@ -475,24 +475,69 @@ def cmd_sss_accomplish(board, raw):
 
 
 def cmd_sss_close(board, raw):
-    """EXEC: closeout SSS-001 [:: certifier] — CHIEF SILVER back gate + cross-seat certify."""
+    """EXEC: closeout SSS-001 [:: certifier :: cross_hale_evidence]
+    CHIEF SILVER back gate + cross-seat certify + MANDATORY cross-Hale gate.
+    For a seat-executed sheet, cross_hale_evidence (the certifying seat's
+    verdict/log reference) is required — no evidence, no close."""
     try:
         from core.staffing.staff_summary_sheet import close_sss, SSSError
     except Exception as e:
         return f"❌ SSS model unavailable: {e}"
     f = [x.strip() for x in raw.split("::")]
     if not f or not f[0]:
-        return "❌ Usage: EXEC: closeout SSS-ID [:: certifier]"
+        return "❌ Usage: EXEC: closeout SSS-ID [:: certifier :: cross_hale_evidence]"
     sid = f[0]
     certifier = f[1].upper() if len(f) > 1 and f[1] else None
+    evidence = f[2] if len(f) > 2 and f[2] else None
     m, _ = find_mission(board, sid)
     if not m:
         return f"❌ {sid} not found"
     try:
-        close_sss(m, certified_by=certifier)
+        close_sss(m, certified_by=certifier, cross_hale_evidence=evidence)
     except SSSError as e:
         return f"⛔ Close-out held: {e}"
     return f"✅ {sid} CLOSED — certified by {m.get('certified_by')}, CHIEF SILVER back-gate PASS"
+
+
+def cmd_sss_block(board, raw):
+    """EXEC: block SSS-001 :: reason — honest terminal state when a mandate is unmet."""
+    try:
+        from core.staffing.staff_summary_sheet import block_sss
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 2 or not all(f[:2]):
+        return "❌ Usage: EXEC: block SSS-ID :: reason"
+    sid, reason = f[0], f[1]
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    block_sss(m, reason)
+    return f"⛔ {sid} BLOCKED — {reason[:80]}"
+
+
+def cmd_sss_reopen(board, raw):
+    """EXEC: reopen SSS-001 :: to_status :: reason [:: new_opr :: new_opr_seat]
+    Correct/reassign a closed or blocked sheet; clears any prior cross_hale_cert
+    so it must re-earn its close with a fresh genuine cross-seat certification."""
+    try:
+        from core.staffing.staff_summary_sheet import reopen_sss, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 3 or not all(f[:3]):
+        return "❌ Usage: EXEC: reopen SSS-ID :: to_status :: reason [:: new_opr :: new_opr_seat]"
+    sid, to_status, reason = f[0], f[1], f[2]
+    new_opr = f[3] if len(f) > 3 and f[3] else None
+    new_opr_seat = f[4].upper() if len(f) > 4 and f[4] else None
+    m, _ = find_mission(board, sid)
+    if not m:
+        return f"❌ {sid} not found"
+    try:
+        reopen_sss(m, to_status, reason, new_opr=new_opr, new_opr_seat=new_opr_seat)
+    except SSSError as e:
+        return f"❌ Reopen rejected: {e}"
+    return f"↩️ {sid} reopened → {m['status']}" + (f" (OPR now {m.get('opr')})" if new_opr else "")
 
 
 def cmd_sss_render(board, sid):
@@ -691,6 +736,10 @@ def process_exec_command(command_text):
             result = cmd_sss_accomplish(board, text[len("accomplish"):].strip())
         elif action in ("closeout", "close"):
             result = cmd_sss_close(board, text[len(action):].strip())
+        elif action == "block":
+            result = cmd_sss_block(board, text[len("block"):].strip())
+        elif action == "reopen":
+            result = cmd_sss_reopen(board, text[len("reopen"):].strip())
         elif action == "sheet":
             if args:
                 result = cmd_sss_render(board, args[0])

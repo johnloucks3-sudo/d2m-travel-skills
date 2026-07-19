@@ -42,8 +42,19 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Optional
 
+import re
+
 from core.silver.gate import silver_front_frame, run_gate
 from core.relay.task_delegation import SEATS
+
+# Commander directive 2026-07-18: **CROSS-HALE COORDINATION IS MANDATORY.** For a
+# seat-executed sheet this is a hard close gate, not a goal: the sheet cannot
+# close unless a *different engine* (CC/OC/AG) genuinely certified THIS artifact
+# with concrete evidence, AND the assigned OPR seat did not fail. A same-engine
+# CC backstop of a failed seat is NOT cross-Hale coordination and must not close
+# as if the delegation succeeded — it BLOCKS. (This gate was missing on
+# 2026-07-18 and a failed AG sheet was wrongly closed; that is what it prevents.)
+_CROSS_HALE_EVIDENCE = re.compile(r"/|@|\bhttps?://|\.[a-z]{2,4}\b|#\d|\brow\b", re.I)
 
 # Requested action of the decision authority (AF Form 1768 action block).
 ACTION_TYPES = ("COORD", "APPR", "SIG", "INFO")
@@ -78,6 +89,46 @@ def _opr_seat(sss: dict) -> Optional[str]:
         return seat
     opr = (sss.get("opr") or "").strip()
     return opr if opr in SEATS else None
+
+
+def _is_cross_hale(sss: dict) -> bool:
+    """True when this sheet is executed by an AI seat — the case where the
+    Commander's MANDATORY cross-Hale coordination applies. Pure human-office
+    staffing (OPR = a persona, no seat) is out of scope for the seat gate."""
+    return _opr_seat(sss) is not None or (sss.get("opr") or "").strip() in SEATS
+
+
+def _opr_failed(sss: dict) -> Optional[str]:
+    """Did the assigned OPR itself signal it could not deliver? Returns the
+    failure reason if the coordination log carries a `nonconcur` from the OPR's
+    own office/seat, else None. A failed OPR means the cross-Hale delegation did
+    not happen — the sheet must block, not close on a backstop."""
+    opr = (sss.get("opr") or "").strip().lower()
+    seat = (_opr_seat(sss) or "").lower()
+    for e in sss.get("coordination_log", []):
+        if e.get("verdict") == "nonconcur" and e.get("office", "").strip().lower() in (opr, seat):
+            return e.get("comment", "") or "OPR nonconcur"
+    return None
+
+
+def _unmet_mandates(sss: dict) -> list[str]:
+    """Every mandate bound to this sheet (from the directive ledger) that is not
+    satisfied at close. `cross_hale` needs a recorded cross-Hale cert; `silver`
+    is met by this module's unconditional front+back gates; an `unmapped:` gate
+    (a mandatory directive with no structural enforcement yet) always blocks
+    unless explicitly acknowledged in sss['mandate_ack'] — so a NEW mandatory
+    clue can never be silently skipped."""
+    ack = sss.get("mandate_ack") or {}
+    unmet: list[str] = []
+    for gate in sss.get("mandates", []):
+        if gate == "cross_hale":
+            if _is_cross_hale(sss) and not sss.get("cross_hale_cert"):
+                unmet.append("cross_hale: no cross-Hale certification recorded")
+        elif gate == "silver":
+            continue  # front+back gates run unconditionally in this module
+        elif gate not in ack:
+            unmet.append(f"{gate}: mandatory directive with no structural gate and no ack")
+    return unmet
 
 
 def _mirror_bus(sss: dict, stage: str, detail: str, *, confirmed: bool = False) -> None:
@@ -163,6 +214,13 @@ def open_sss(
     }
     if opr_seat and opr_seat in SEATS:
         sss["opr_seat"] = opr_seat
+    # Bind every MANDATORY directive captured this discussion onto the sheet, so
+    # the close gate enforces all of them — not just the ones I remembered.
+    try:
+        from core.staffing.directive_ledger import active_gate_keys
+        sss["mandates"] = active_gate_keys()
+    except Exception:
+        sss["mandates"] = []
     seat = _opr_seat(sss)
     if seat and certified_by == seat:
         raise SSSError(
@@ -275,11 +333,15 @@ def accomplish(sss: dict, verification_artifact: str) -> dict:
 
 # ── CLOSE-OUT — Silver back-gate + anti-theater cross-seat certify ──────────
 
-def close_sss(sss: dict, certified_by: Optional[str] = None) -> dict:
+def close_sss(sss: dict, certified_by: Optional[str] = None,
+              cross_hale_evidence: Optional[str] = None) -> dict:
     """Close the sheet out. Enforces, in order:
       1. anti-theater — certifier must differ from the executing OPR (§ cross-seat)
-      2. a non-empty verification_artifact and acceptance_criteria
-      3. CHIEF SILVER back gate on the actual artifact (deterministic battery)
+      2. MANDATORY cross-Hale gate (seat-executed sheets) — a different engine
+         genuinely certified THIS artifact (concrete `cross_hale_evidence`), and
+         the OPR seat did not fail; a failed OPR BLOCKS, it does not close.
+      3. a non-empty verification_artifact and acceptance_criteria
+      4. CHIEF SILVER back gate on the actual artifact (deterministic battery)
     Raises SSSError on any failure. On success moves the sheet to `closed`."""
     if sss.get("status") != "accomplished":
         raise SSSError(f"cannot close an SSS in status {sss.get('status')!r} (must be accomplished)")
@@ -290,6 +352,35 @@ def close_sss(sss: dict, certified_by: Optional[str] = None) -> dict:
             f"anti-theater: certifier ({certifier}) must differ from the OPR ({owner}) "
             "— no self-certification"
         )
+
+    # MANDATORY CROSS-HALE GATE (Commander directive 2026-07-18). Seat-executed
+    # sheets only — human-office staffing is out of scope.
+    if _is_cross_hale(sss):
+        if certifier not in SEATS:
+            raise SSSError(
+                f"mandatory cross-Hale: a seat-executed sheet must be certified by a real "
+                f"cross-Hale seat (CC/OC/AG), got {certifier!r}")
+        failed = _opr_failed(sss)
+        if failed:
+            raise SSSError(
+                f"mandatory cross-Hale: OPR {owner} failed to deliver ({failed[:80]}). A "
+                "same-engine backstop is not cross-Hale coordination — BLOCK the sheet, or "
+                "reopen and reassign it explicitly (fresh OPR + genuine cross-seat cert). "
+                "Do not close it as a completed delegation.")
+        ev = (cross_hale_evidence or "").strip()
+        if not ev or not _CROSS_HALE_EVIDENCE.search(ev):
+            raise SSSError(
+                f"mandatory cross-Hale: no concrete evidence that {certifier} independently "
+                "verified THIS artifact — pass cross_hale_evidence (the certifying seat's "
+                "verdict/log reference for this sheet).")
+        sss["cross_hale_cert"] = {"seat": certifier, "evidence": ev, "ts": _now()}
+
+    # Every MANDATORY directive bound at open must be satisfied — the structural
+    # backstop against a missed clue (this is the fix for the 2026-07-18 miss).
+    unmet = _unmet_mandates(sss)
+    if unmet:
+        raise SSSError("unmet mandatory directive(s): " + "; ".join(unmet))
+
     artifact = (sss.get("verification_artifact") or "").strip()
     criteria = (sss.get("acceptance_criteria") or "").strip()
     if not artifact:
@@ -318,6 +409,49 @@ def close_sss(sss: dict, certified_by: Optional[str] = None) -> dict:
         except Exception:
             pass
     _mirror_bus(sss, "closed", f"SSS {sss['id']} closed — certified by {certifier}", confirmed=True)
+    return sss
+
+
+# ── BLOCK / REASSIGN — honest handling of a failed OPR ──────────────────────
+
+def block_sss(sss: dict, reason: str) -> dict:
+    """Move a sheet to `blocked` — the honest terminal state when the mandatory
+    cross-Hale coordination did not happen (e.g. the OPR seat failed and no
+    genuine cross-seat delivery is available). A blocked sheet is NOT done."""
+    ts = _now()
+    sss["status"] = "blocked"
+    sss["blocked_reason"] = reason
+    sss["updated_at"] = ts
+    sss["logs"].append(f"{ts}: BLOCKED — {reason}")
+    _mirror_bus(sss, "blocked", f"SSS {sss['id']} blocked: {reason[:80]}")
+    return sss
+
+
+def reopen_sss(sss: dict, to_status: str, reason: str, *,
+               new_opr: Optional[str] = None, new_opr_seat: Optional[str] = None) -> dict:
+    """Correct the record: move a closed/blocked sheet back to an earlier live
+    stage, optionally reassigning the OPR. This is the explicit OPR-reassignment
+    path — a reassigned sheet must re-earn its close through a fresh genuine
+    cross-seat certification; any prior cross_hale_cert is cleared."""
+    if to_status not in ("in_coordination", "coordinated", "tasked", "accomplished"):
+        raise SSSError(f"reopen target must be a live stage, got {to_status!r}")
+    ts = _now()
+    prev = sss.get("status")
+    if new_opr:
+        sss["opr"] = new_opr.strip()
+        sss["assigned_to"] = new_opr.strip()
+    if new_opr_seat is not None:
+        if new_opr_seat and new_opr_seat in SEATS:
+            sss["opr_seat"] = new_opr_seat
+        else:
+            sss.pop("opr_seat", None)
+    sss.pop("completed_at", None)
+    sss.pop("cross_hale_cert", None)
+    sss.pop("blocked_reason", None)
+    sss["status"] = to_status
+    sss["updated_at"] = ts
+    reassigned = f" — OPR now {sss.get('opr')}" if new_opr else ""
+    sss["logs"].append(f"{ts}: REOPENED {prev}→{to_status}{reassigned} — {reason}")
     return sss
 
 
@@ -373,6 +507,8 @@ if __name__ == "__main__":
     _sandbox = _P(tempfile.mkdtemp())
     _gate.LEDGER = _sandbox / "silver_ledger.jsonl"
     _gate.DECISIONS = _sandbox / "hale_decisions.md"
+    from core.staffing import directive_ledger as _dl
+    _dl.LEDGER = _sandbox / "mandatory_directives.jsonl"
 
     # A real artifact for Silver's back gate to pass (exists, non-empty, and
     # contains the number the criteria promise).
@@ -437,12 +573,28 @@ if __name__ == "__main__":
     decide(sss2, "Hale", "NOTED")
     accomplish(sss2, "done, trust me")           # bare claim, no concrete ref
     try:
-        close_sss(sss2, certified_by="CC")
+        close_sss(sss2, certified_by="CC", cross_hale_evidence="logs/oc_verify.log@ok")
         print("[FAIL] back-gate passed a bare claim")
     except SSSError as e:
         assert "back-gate HOLD" in str(e)
         print("[PASS] Silver back-gate HOLD on bare-claim artifact"); passed += 1
 
+    # 4. MANDATORY cross-Hale gate: a failed OPR seat cannot close on a backstop.
+    sss3 = open_sss("SSS-T3", "failed-seat sheet", "prove the mandatory gate",
+                    opr="AG", action_type="COORD",
+                    acceptance_criteria=f"file {path} has 3 stages",
+                    ocr_chain=["AG"], ground_truth_sources=[path],
+                    opr_seat="AG", certified_by="CC")
+    coordinate(sss3, "AG", "nonconcur", "AG could not deliver")   # OPR itself failed
+    decide(sss3, "Hale", "NOTED")
+    accomplish(sss3, path)                                        # CC backstop artifact
+    try:
+        close_sss(sss3, certified_by="CC", cross_hale_evidence="logs/x@ok")
+        print("[FAIL] closed a sheet whose OPR seat failed")
+    except SSSError as e:
+        assert "OPR" in str(e) and "cross-Hale" in str(e)
+        print("[PASS] mandatory cross-Hale: failed OPR seat blocks close"); passed += 1
+
     os.unlink(path)
-    print(f"\n{passed}/7 SSS checks passed")
+    print(f"\n{passed}/8 SSS checks passed")
     print("\n" + render_sss(sss))

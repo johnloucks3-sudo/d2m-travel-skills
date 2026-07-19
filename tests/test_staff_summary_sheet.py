@@ -28,6 +28,8 @@ def _isolate_silver_ledger(tmp_path, monkeypatch):
     from core.silver import gate
     monkeypatch.setattr(gate, "LEDGER", tmp_path / "silver_ledger.jsonl")
     monkeypatch.setattr(gate, "DECISIONS", tmp_path / "hale_decisions.md")
+    from core.staffing import directive_ledger
+    monkeypatch.setattr(directive_ledger, "LEDGER", tmp_path / "mandatory_directives.jsonl")
 
 
 @pytest.fixture
@@ -168,7 +170,7 @@ def test_back_gate_holds_on_bare_claim(artifact):
     decide(s, "Hale", "NOTED")
     accomplish(s, "done, trust me")                  # bare claim, not a concrete ref
     with pytest.raises(SSSError, match="back-gate HOLD"):
-        close_sss(s, certified_by="CC")
+        close_sss(s, certified_by="CC", cross_hale_evidence="logs/oc_verify.log@ok")
 
 
 # ── Stage guards ────────────────────────────────────────────────────────────
@@ -197,6 +199,71 @@ def test_cannot_decide_a_drafted_sheet_twice(artifact):
     decide(s, "Hale", "APPROVED")
     with pytest.raises(SSSError, match="cannot decide"):
         decide(s, "Hale", "APPROVED")
+
+
+# ── MANDATORY cross-Hale gate ───────────────────────────────────────────────
+
+def _run_to_accomplished(opr_seat, artifact, *, ocr=None, opr_failed=False):
+    s = open_sss("SSS-CH", "seat sheet", "p", opr=opr_seat, action_type="COORD",
+                 acceptance_criteria="work product records 3 stages and 5 rows",
+                 ocr_chain=ocr or ([opr_seat] if opr_failed else []),
+                 ground_truth_sources=[artifact], opr_seat=opr_seat, certified_by="CC")
+    if opr_failed:
+        coordinate(s, opr_seat, "nonconcur", "could not deliver")
+    decide(s, "Hale", "NOTED")
+    accomplish(s, artifact)
+    return s
+
+
+def test_cross_hale_close_requires_evidence(artifact):
+    s = _run_to_accomplished("OC", artifact)
+    with pytest.raises(SSSError, match="no concrete evidence"):
+        close_sss(s, certified_by="CC")                 # no evidence → blocked
+    close_sss(s, certified_by="CC", cross_hale_evidence="logs/oc_verify.log@ok")
+    assert s["status"] == "closed"
+    assert s["cross_hale_cert"]["seat"] == "CC"
+
+
+def test_cross_hale_failed_opr_seat_blocks_close(artifact):
+    s = _run_to_accomplished("AG", artifact, opr_failed=True)
+    with pytest.raises(SSSError, match="failed to deliver"):
+        close_sss(s, certified_by="CC", cross_hale_evidence="logs/x@ok")
+
+
+def test_cross_hale_certifier_must_be_a_seat(artifact):
+    s = _run_to_accomplished("OC", artifact)
+    with pytest.raises(SSSError, match="real cross-Hale seat"):
+        close_sss(s, certified_by="Sterling", cross_hale_evidence="logs/x@ok")
+
+
+def test_block_and_reopen_reassign(artifact):
+    s = _run_to_accomplished("AG", artifact, opr_failed=True)
+    from core.staffing.staff_summary_sheet import block_sss, reopen_sss
+    block_sss(s, "AG failed, no cross-Hale delivery")
+    assert s["status"] == "blocked"
+    reopen_sss(s, "tasked", "reassign to OC", new_opr="OC", new_opr_seat="OC")
+    assert s["status"] == "tasked" and s["opr"] == "OC"
+    # a reopened sheet has no lingering nonconcur from the NEW opr, so it can close
+    accomplish(s, artifact)
+    close_sss(s, certified_by="CC", cross_hale_evidence="logs/oc@ok")
+    assert s["status"] == "closed"
+
+
+def test_directive_ledger_binds_mandate(tmp_path, monkeypatch, artifact):
+    from core.staffing import directive_ledger as dl
+    monkeypatch.setattr(dl, "LEDGER", tmp_path / "md.jsonl")
+    dl.capture("Do something entirely new that is mandatory", source="msgX")
+    assert any(m["mandatory"] for m in dl.active_mandates())
+    keys = dl.active_gate_keys()
+    assert any(k.startswith("unmapped:") for k in keys)
+    # a sheet opened with an unmapped mandate cannot close without an ack
+    s = open_sss("SSS-M", "t", "p", opr="OC", action_type="COORD",
+                 acceptance_criteria="work product records 3 stages and 5 rows",
+                 ground_truth_sources=[artifact], opr_seat="OC", certified_by="CC")
+    assert any(k.startswith("unmapped:") for k in s["mandates"])
+    decide(s, "Hale", "NOTED"); accomplish(s, artifact)
+    with pytest.raises(SSSError, match="unmet mandatory directive"):
+        close_sss(s, certified_by="CC", cross_hale_evidence="logs/x@ok")
 
 
 # ── OPR-aware delegation wire ───────────────────────────────────────────────
