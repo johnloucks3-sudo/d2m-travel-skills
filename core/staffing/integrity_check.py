@@ -18,11 +18,11 @@ Usage:
     r = cc_integrity_double_check(
         claims=[
             "There are exactly 3 SSS sheets and all 3 are CLOSED.",
-            "grep for tcd_server in *.py returns 0 matches.",
+            "the retired web-app module has 0 references left in *.py.",
         ],
         ground_truth_cmds=[
             "python3 OpsCenter/mission_board_sync.py list",
-            "grep -rn 'tcd_server' --include='*.py' . | wc -l",
+            "grep -rn 'retired_module_name' --include='*.py' . | wc -l",
         ],
         deliverable_path="/home/john/Thunderbird/logs/sss_dispatch/cc_integrity.md",
         engine="AG",           # or "OC"
