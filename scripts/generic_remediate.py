@@ -97,6 +97,7 @@ LANE1_OWNED_UNITS = frozenset({
 # entirely, same as Lane-1-owned units, but for a different reason.
 SELF_ALERTING_UNITS = frozenset({
     "hale-credential-check.service",
+    "d2m-factbook-refresh.service",  # OAuth token missing (structural), restart can't fix
 })
 
 logging.basicConfig(
