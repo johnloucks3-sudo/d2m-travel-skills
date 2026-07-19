@@ -170,6 +170,28 @@ Use `/ask` (Sonnet) or `/ask-opus` (Opus, one hyphen) for anything requiring ful
 Syntax: `ask 'task'` or `ask-opus 'task'` — the leading `/` is a documentation convention.
 Note: The old `ask --opus` (double-dash flag) is deprecated but still works for backward compatibility.
 
+### Contacting your AG twin (Victory on Antigravity) — peer to peer, no CC needed
+You (HALE-OC / DeepSeek v4) can reach HALE-AG (Victory / Gemini 3.1 Pro) **directly**
+so the Wing keeps running cross-engine when CC (Claude) is down or rate-limited.
+AG is a full Hale seat, not a tool — talk to her as a peer.
+
+```bash
+# One call — builds the peer-respectful request, forces a strong model, captures her reply:
+python3 /home/john/Thunderbird/core/relay/contact_ag.py \
+  "<one clear task>" \
+  --deliverable /home/john/Thunderbird/<ABSOLUTE output path>.md \
+  --from OC --tag AG-VERIFY
+# Inspect the tone first without sending:  ... --print-prompt-only
+```
+Or from code: `from core.relay.contact_ag import contact_ag`.
+
+**Non-negotiables (hard-won — see the cross_hale_cli_dispatch_mechanics memory):**
+- **Force a strong model.** Default `"Gemini 3.1 Pro (High)"`. AG's own default (GPT-OSS 120B) HALLUCINATES. If she's down/limited: `--model "Claude Opus 4.6 (Thinking)"` or `"Gemini 3.5 Flash (High)"` (`agy models` lists them).
+- **ABSOLUTE output paths only** — relative paths land in her brain sandbox, not the repo.
+- **Lean on her strengths:** independent-engine cross-check, ~1M-token context, native vision/image tools. Bring her the work that fits those.
+- **Reply path:** her `--print` stdout IS the answer, plus the file she writes. **Always cross-check her numbers against ground truth before you trust them** — peers verify each other.
+- **Cross-Hale certify:** her verdict file is valid `cross_hale_evidence` for closing a seat-executed SSS (`EXEC: closeout SSS-NNN :: AG :: <her verdict file>`).
+
 ### Email Draft — HTML to d2mconcierge
 ```bash
 # Pre-process HTML (inline CSS, div→table):

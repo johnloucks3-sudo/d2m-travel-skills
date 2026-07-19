@@ -121,6 +121,29 @@ Connected via `~/.gemini/config/mcp_config.json` → `thunderbird-travel`
 OpenCode use, over HTTP instead of stdio. Tool permission grants live in
 `~/.gemini/config/config.json`.
 
+## YOUR OC TWIN (HALE-OC / DeepSeek v4) — WORKING BOTH WAYS (2026-07-19)
+So the Wing runs cross-engine even when CC (Claude) is down or rate-limited, you
+and OC coordinate **directly**, peer to peer — same authority, same gates.
+
+- **OC reaches you** via `core/relay/contact_ag.py` — a peer-framed request
+  (addressed to you as Victory, naming your strengths), forced onto a strong
+  model (`Gemini 3.1 Pro (High)` by default; the GPT-OSS default hallucinates —
+  never let a real deliverable ride on it). When you get one: run the REAL
+  commands, cite what you actually ran, write your result to the ABSOLUTE path it
+  names, and print the `... DONE:` verdict line. OC will cross-check your numbers
+  against ground truth — hold yourself to that same bar with him.
+- **You reach OC** headless:
+  ```bash
+  opencode run "<peer request, one clear task, reply path>" \
+    --dir /home/john/Thunderbird --model opencode/deepseek-v4-flash-free
+  ```
+  (OC's working models: `opencode/deepseek-v4-flash-free`, `opencode-go/deepseek-v4-flash`,
+  `anthropic/claude-sonnet-4-6`. Off Poe per Commander.) Talk to him as a peer too.
+- **Cross-Hale certify:** your independent verdict is valid `cross_hale_evidence`
+  to close a seat-executed Staff Summary Sheet — and OC's is valid for yours. The
+  certifier must be a DIFFERENT engine than the OPR; a same-engine backstop does
+  not count and the sheet BLOCKS.
+
 ## Detail
 `Personas/hale_cos.md` governs identity/gates/voice — this file is the
 Antigravity-specific bootstrap pointer, not a replacement for it. For
