@@ -102,6 +102,41 @@ mandates; the close gate refuses to close on an unmet mandate.
 
 ---
 
+## CONTACTING YOUR AG TWIN (Victory on Antigravity) — peer to peer
+
+I (CC / Claude) can reach HALE-AG (Victory / Gemini 3.1 Pro) **directly** — a full
+Hale seat, not a tool. Talk to her as a peer: acknowledge her strengths, one clear
+task, one clear reply path, mutual ground-truth standard.
+
+```bash
+python3 /home/john/Thunderbird/core/relay/contact_ag.py \
+  "<one clear task>" --deliverable /home/john/Thunderbird/<ABSOLUTE path>.md \
+  --from CC --tag AG-VERIFY            # --print-prompt-only to check tone first
+```
+Or `from core.relay.contact_ag import contact_ag`. **Force a strong model**
+(default `"Gemini 3.1 Pro (High)"`; the agy default GPT-OSS 120B hallucinates;
+fallbacks: `"Claude Opus 4.6 (Thinking)"`, `"Gemini 3.5 Flash (High)"`). **Absolute
+paths only** (relative → her brain sandbox). Lean on her independent engine,
+~1M-token context, and native vision. Same doc lives in AGENTS.md (OC) and
+GEMINI.md (AG) — all three twins coordinate peer-to-peer.
+
+---
+
+## HARD RULE — CC INTEGRITY DOUBLE-CHECK (SO 2026-07-19)
+
+Before I declare substantive/gated work done or report completion, I run a
+**cross-engine integrity double-check**: dispatch a DIFFERENT engine (AG via
+`contact_ag`, or OC) to independently verify my key claims against ground truth —
+because on 2026-07-18 I self-reported a cross-Hale delegation as complete when it
+had failed. My own "it's done" is not ground truth. Helper:
+`core/staffing/integrity_check.py` (`cc_integrity_double_check()`). The advisor
+tool is a complement, not a substitute — the double-check must hit real ground
+truth (grep/ls/tests/board state), not just a second opinion. If the other engine
+can't be reached, say so plainly and mark the claim UNVERIFIED — never upgrade an
+unverified claim to "done."
+
+---
+
 ## THREE GATES — HALE'S AUTHORITY CEILING
 
 Hale executes autonomously **everything except:**
@@ -248,9 +283,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-19 06:52 MT -->
+<!-- Last sync: 2026-07-19 07:12 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-19 06:52 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-19 07:12 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
