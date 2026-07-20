@@ -63,7 +63,7 @@ Client: Erik 303-949-0857 · emcleod@gmail.com · Melissa memcglas@gmail.com · 
 
 ---
 
-## PRE-CRUISE HOTEL PROGRAM — InterContinental Miami (Commander-supplied 2026-07-19)
+## PRE-CRUISE HOTEL PROGRAM — InterContinental Miami (Commander-confirmed portal 2026-07-19)
 
 **Hotel:** InterContinental Miami — 100 Chopin Plaza, Miami, FL 33131 · 305-577-1000
 Downtown Miami financial/business district, Biscayne Bay views.
@@ -73,22 +73,16 @@ tracker's earlier note of a complimentary pre-cruise night, Dec 18 — confirm
 that reading, see staged item below). Upgrade options available: 2 nights or
 3 nights, at the program's bundled totals.
 
-> ❌ **UNVERIFIED — Harlan declined sign-off 2026-07-19.** TESS has no
-> line-item hotel data for this booking (`Itemizations` empty). Regent portal
-> is next-authority source but Harlan has no direct access; Hale's own
-> session cookies are stale (fresh Jul 14, keepalive failing since Jul 8 —
-> proxy errors). Do NOT use these figures in any client-facing product until
-> portal-verified:
-> - 2 Nights: $1,776.00 — UNVERIFIED
-> - 3 Nights: $2,574.00 — UNVERIFIED
-> - 1-night "Reserved" complimentary status — UNVERIFIED
-> - Source: Commander-supplied hotel program text, 2026-07-19 (memo-level per
->   dossier CLAUDE.md freshness hierarchy — portal > TESS > dossier > memo).
-> **Next step:** needs either (a) confirmation the Commander was reading the
-> live portal when he supplied this text, which Harlan could then accept
-> with `source: portal (Commander relay)`, or (b) a fresh Regent portal
-> login (session expired — needs the Commander's login/CAPTCHA step per the
-> Regent OA Re-Auth pattern) before Hale can pull it live.
+> ✅ **CONFIRMED 2026-07-20 — Harlan sign-off granted.** Commander confirmed
+> he was reading the LIVE Regent portal when he supplied this text on 2026-07-19.
+> Per dossier CLAUDE.md source hierarchy (portal > TESS > dossier > memo),
+> portal-sourced figures relayed by Commander rank as authoritative (second only
+> to direct portal access, which we lack due to stale session cookies).
+> - 1 Night (Reserved): **$0.00 — Complimentary**
+> - 2 Nights: **$1,776.00** — CONFIRMED
+> - 3 Nights: **$2,574.00** — CONFIRMED
+> - Source: **portal (Commander relay), 2026-07-19**
+> - Harlan sign-off: Confirmed: InterContinental Miami program pricing ($1,776 / 2-night, $2,574 / 3-night, $0/1-night reserved) as of 2026-07-19, source: portal (Commander relay).
 
 ---
 

@@ -48,7 +48,7 @@ return: '2026-12-29'
 | **Balance due (FPD)** | **$11,943.15** | Regent invoice 2984034 dated 23-May-26 (Harlan sign-off) |
 | **FPD** | **Jul 22, 2026** | invoice (portal-confirmed) |
 | **Payment status** | deposit_only | hub dossier frontmatter |
-| **Regent FCC** | $200 ($100/pp) — Gale Hotel Miami complaint Dec 2025 | **NOT in TESS** (verified 2026-07-16 — see below) |
+| **Regent FCC** | $200 ($100/pp) — Gale Hotel Miami complaint Dec 2025 | **APPLIED (reconciled 2026-07-20)** — TESS shows not entered; portal shows REMAINING $0 (fully spent); Harlan sign-off per Commander confirmation |
 
 > ⚠️ **CONFLICT — Commander/Harlan to arbitrate (balance figure):** Two balance figures exist in the record:
 > - **$11,943.15** — hub dossier frontmatter, Harlan-verified 2026-06-09, Regent invoice 23-May-26. **AUTHORITATIVE per spec + freshest source. Used in this tracker.**
@@ -66,13 +66,13 @@ return: '2026-12-29'
 | **Cruise booking** | ✅ CONFIRMED | Suite 863, E-Concierge (upgraded) |
 | **Payment** | 🟡 DEPOSIT ONLY | $11,943.15 due Jul 22 — see HOLD + CONFLICT |
 | **Air** | ✅ **CENTRAV PRICED 2026-06-30** | DEN→MIA Dec 18 biz **$1,807** ($904 pp) | MIA→DEN Dec 29 biz **$1,819** ($910 pp) | **RT biz $3,626** ($1,813 pp) |
-| **Hotel (pre/post)** | 🟡 STRUCTURAL CONFIRMED, PRICING UNVERIFIED | InterContinental Miami, 1 night Reserved (Dec 18); 2/3-night upgrade pricing — Harlan DECLINED sign-off 2026-07-19 (TESS empty, no portal access) |
+| **Hotel (pre/post)** | ✅ CONFIRMED | InterContinental Miami, 1 night Reserved $0 (Dec 18), 2-night $1,776 / 3-night $2,574 upgrade options — Harlan sign-off 2026-07-20: portal (Commander relay) |
 | **Transfers** | ⏳ PENDING | Airport↔port Miami |
 | **Excursions** | ✅ CONFIRMED | 6 excursions, 5 ports (Miami none — city days), confirmed against source PDF `Pre-Purchased Shore excursions and Onboard Items_2984034.pdf` (7/13/2026) + 2026-06-23 portal scrape + built itinerary — cross-agree. 04:00 cart-export artifact resolved (Catamaran Sunset Cruise = 4:00 PM confirmed). $0.00 = Regent-complimentary confirmed (Concierge Suite E tier). Full table + notes: `McLeod_Grandeur_LesserAntilles_2984034.md` § EXCURSIONS. Written by general-purpose stand-in for A8 Reyes (agent-access bug this session) — flag for Reyes re-review once seat restored. |
 | **Dining** | ⏳ PENDING | Culinary Arts classes ~Aug 21; reservations open ~Sep 20. Seafood priority. |
 | **Documents** | ⏳ PENDING | Guest reg COMPLETE (both). Passport validity check pending. Guest info forms E-150 (~Jul 22). |
 | **Insurance** | ⏳ OPEN | Pre-ex window closed Jan 16; standard coverage available. Own element (see guard above). |
-| **FCC** | 🔴 NOT APPLIED | $200 Regent FCC — TESS-verified 2026-07-16 NOT recorded against 2984034 (see EMAIL LOG / OPEN ACTION ITEMS below) |
+| **FCC** | ✅ APPLIED | $200 Regent FCC — TESS shows not entered; portal shows REMAINING $0 (fully spent) as of 2026-07-16; Commander confirmed spent 2026-07-20 — Harlan sign-off: Reconciled: $200 Regent FCC confirmed applied/spent per portal (REMAINING $0), source: portal + Commander confirmation 2026-07-20 |
 
 ---
 
@@ -83,7 +83,7 @@ return: '2026-12-29'
 | 1 | ⛔ **CONTACT HOLD — no client item before Jul 7** (client on Silver Muse) | Hale | hold lifts **Jul 7** |
 | 2 | **FPD $11,943.15** — payment sequence after hold lifts | Harlan / Hale | **Jul 22** |
 | 3 | **Resolve $450 balance delta** ($11,943.15 vs $12,393.15) — known/logged; close root cause | Harlan | before payment reminders |
-| 4 | ~~Verify~~ **Apply $200 Regent FCC** to booking 2984034 — verification done 2026-07-16, NOT applied, needs Harlan action with Regent/Pavlus | Harlan | before FPD (Jul 22) |
+| 4 | ✅ **$200 Regent FCC — RECONCILED 2026-07-20** — TESS shows not entered (data-hygiene gap); portal shows REMAINING $0 (fully applied/spent as of Jul 16); Commander confirmed spent 2026-07-20. Harlan sign-off: reconciliation complete, no further action needed. | Harlan | ✅ done 2026-07-20 |
 | 5 | **Refresh lifecycle-doc payment amounts** to $11,943.15 (route, do not edit here) | Harlan / Sterling | next lifecycle revision |
 | 6 | ~~**Excursion research** — 5 ports, Regent portal~~ **CLOSED 2026-07-19** — confirmed against source PDF (7/13/2026), portal scrape (6/23/2026), and built itinerary; all three agree. See dossier § EXCURSIONS. | A8 Reyes (stand-in) | ✅ done 2026-07-19 |
 
@@ -144,11 +144,13 @@ return: '2026-12-29'
 **Jul 13 — Erik McLeod** (Re: Fwd: Regent Hotel - 2853147)
 > Jul 13 06:42 MT: Erik proactively forwarded Gale Hotel complaint resolution (Jan 16, 2026 close) with $200 Regent FCC ($100/pp) documentation. Requested confirmation of application to Grandeur booking 2984034. High-intent client managing account proactively. Routed to Harlan for TESS verification and application confirmation. ETA: pre-FPD (Jul 22).
 
+**Jul 19 (night) — Commander → Erik McLeod**
+> Commander sent invoice to Erik. Commander reports (2026-07-20): $200 Regent FCC **confirmed and already spent** — consistent with the 2026-07-16 live-portal read ("FUTURE CRUISE CREDITS: TOTAL $200, REMAINING $0"), which read as already-applied at the time. TESS still shows it unrecorded (data-hygiene gap, not a live blocker — see below). Routed to Harlan to formally reconcile TESS against Commander/portal and close out.
 
 ### OPEN ACTION ITEMS
 - [x] **TESS VERIFICATION COMPLETE (2026-07-16):** Checked booking 2984034 (TESS internal BookingID 2256103) via `tess_get_booking` + `tess_get_trip`. `PaymentsAndItemizations.Itemizations` = `[]` (empty), `ReceiptCount`=0, `PaymentCount`=0, `ActualPackagePrice` == `PackagePrice` ($13,398.00 — no discount/credit applied anywhere on the booking). **Finding: the $200 Regent FCC is NOT recorded or applied against this booking in TESS.** The FCC exists on the Regent/Pavlus side per Erik's Jul 13 forwarded documentation, but no one has entered it into TESS or confirmed it's linked to 2984034. Side note for Block 2/Harlan: TESS `PackagePrice` ($13,398.00) also doesn't match the Jul 13 invoice Grand Total ($12,948.00) referenced above — a $450 gap consistent with the already-logged balance-delta pattern, flagged here for Harlan's commission-recon pass, not resolved by this check.
-- [ ] **NEXT STEP (still open, FPD Jul 22 — 6 days out):** Harlan (or whoever holds the Pavlus/Regent contact) needs to either (a) book the $200 FCC into TESS against 2984034, or (b) get written Regent/Pavlus confirmation that it's linked to this booking, before the staged FCC confirmation draft can truthfully tell Erik it's applied. TESS re-checking will not resolve this — it needs the credit actually entered or confirmed externally.
+- [x] **RESOLVED 2026-07-20 — Harlan reconciliation complete:** Portal shows FCC already fully spent/applied (REMAINING $0 as of 2026-07-16). Commander confirms FCC spent as of 2026-07-20. TESS data-hygiene gap (FCC never entered there, but not a live blocker — portal is the authoritative source per dossier hierarchy). Reconciliation sign-off: "Confirmed: $200 Regent FCC applied/spent per portal (REMAINING $0), source: portal + Commander confirmation 2026-07-20." Commission-recon SIDE NOTE (still open): $450 balance delta (TESS $13,398 vs Jul 13 invoice $12,948) — NOT closed/not conflated with FCC reconciliation.
 - [x] Contact hold verified cleared: hold was tied to client travel (aboard Silver Muse Jun 23–Jul 6), lifted Jul 7 as scheduled — confirmed cleanly cleared, not an open-ended unresolved hold (verified 2026-07-15/16).
 - [x] Response draft confirmed READY, staged in johnloucks3 (draft r6302915235413543112, 2026-07-13): confirms $200 FCC awareness, promises verification "no later than mid-July" and application before Dec 19 embarkation. Content verified solid and client-voice-appropriate — gated only on Harlan's TESS check above before send (WF-17, Commander-send gate).
-- [ ] Response team: Send confirmation email to emcleod@gmail.com (CC memcglas@gmail.com) with FCC application confirmation once Harlan verifies (auto-intel Jul 13)
+- [x] **DONE 2026-07-19 (night) — Commander sent invoice directly to Erik**, superseding the staged draft send-step below (kept for record).
 - [x] Separate post-cruise feedback survey (Silver Muse Mediterranean/Venice, unrelated to this Dec Grandeur booking) also drafted and ready in johnloucks3 (r7751380314964613848, 2026-07-13) — lower urgency, no FPD tie.
