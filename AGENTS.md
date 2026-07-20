@@ -192,6 +192,24 @@ Or from code: `from core.relay.contact_ag import contact_ag`.
 - **Reply path:** her `--print` stdout IS the answer, plus the file she writes. **Always cross-check her numbers against ground truth before you trust them** — peers verify each other.
 - **Cross-Hale certify:** her verdict file is valid `cross_hale_evidence` for closing a seat-executed SSS (`EXEC: closeout SSS-NNN :: AG :: <her verdict file>`).
 
+### tmux / cc-fleet session convention (2026-07-19)
+One main tmux session on YOGA. Address panes as `session:window.pane`
+(e.g. `main:3.1` = window 3, pane 1). Dev servers and long-running jobs live
+in a tmux pane, not backgrounded blind — read their output directly:
+```bash
+tmux capture-pane -t main:3.1 -p -S -200   # last 200 lines of that pane
+tmux send-keys -t main:3.1 'command' Enter # drive that pane
+```
+**Need another agent working alongside you in this session?** Default to
+`cc-fleet` (`ccf`, on PATH), not a hand-rolled spawn — it puts a real `claude`
+process in a live tmux pane with the backend swapped to any
+Anthropic/OpenAI-compatible provider (DeepSeek, GLM, Kimi, Qwen, Codex),
+named + colored per teammate, `ccf hide`/`ccf show` to park without losing
+state, `ccf teardown` to guarantee no orphaned billing process. Say what you
+need in plain language or use `/team` / `/workflow` / `/subagent`. Requires
+`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` (set in `~/.claude/settings.json`).
+Full plan: `docs/TMUX_TERMIUS_IMPROVEMENT_PLAN.md`.
+
 ### Email Draft — HTML to d2mconcierge
 ```bash
 # Pre-process HTML (inline CSS, div→table):
