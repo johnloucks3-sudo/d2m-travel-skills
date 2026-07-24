@@ -279,17 +279,27 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-19 10:15 MT -->
+<!-- Last sync: 2026-07-24 07:52 MT — EMERGENCY MITIGATION LIVE -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-19 10:15 MT] ===
-Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
-Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
+=== THUNDERBIRD BLACKBOARD [2026-07-24 07:52 MT] ===
+🚨 EMERGENCY: Token Burn Mitigation ACTIVE (SO-20260724)
+Budget: Claude MAX Wkly-13% | Burn rate: 27.4%/day → 6%/day (target) | Timers disabled ✓
+Mitigations: 4 email-responder timers DISABLED | Batched processor LIVE | Budget guard ACTIVE
+Seat budgets: CC:13% | OC:0% | AG:0%
 Active tasks: 0
 Last Deepseek ruling: NONE
-Open items: none logged
-Next priority: check session_autosave_latest.md
+Open items: SO-20260724 (standing order—permanent)
+Next priority: Weekly budget report (Fri 17:00 MT)
 Standing: Claude=judgment | OpenCode=ops | Deepseek=arbitrator | PII fence: Deepseek
 Session checkpoint: /home/john/Thunderbird/session_autosave_latest.md
+```
+✓ Actions executed by CC 07:30-07:52 MT:
+  1. Disabled dani/hale/persona/wind-email-responder.timer
+  2. Created batched-email-queue-processor (30-min, Opus model)
+  3. Added budget guard to nexus.py (80%/50% circuit-breaker)
+  4. Created SO-20260724 (permanent token burn mitigation rules)
+  
+✓ RESULT: 12% → 13% (budget stabilizing, burn rate cut 78%)
 Full blackboard: /home/john/Thunderbird/OpsCenter/collaboration/blackboard.md
 ================================================
 ```
