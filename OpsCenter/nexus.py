@@ -66,6 +66,40 @@ logging.basicConfig(
 log = logging.getLogger("nexus")
 
 
+# ── Budget Guard: Prevent token exhaustion ────────────────────────────────
+def get_current_budget_percentage() -> int:
+    """Read current budget % from usage cache."""
+    cache_file = Path.home() / ".claude" / "hud" / ".usage-cache.json"
+    if not cache_file.exists():
+        return 0
+    try:
+        data = json.loads(cache_file.read_text())
+        return data.get("data", {}).get("sevenDay", 0)
+    except Exception:
+        return 0
+
+
+def should_spawn_claude(model: str = "sonnet") -> bool:
+    """
+    Circuit breaker: don't spawn if budget exhausted.
+
+    Rules:
+      - >= 80%: CRITICAL — no spawns
+      - >= 50%: HIGH — Sonnet only (no Opus/Haiku)
+      - < 50%: GREEN — all models OK
+
+    Returns: True if safe to spawn, False if blocked.
+    """
+    budget = get_current_budget_percentage()
+
+    if budget >= 80:
+        return False
+    elif budget >= 50 and model not in ("sonnet", "claude-sonnet-4.6", "anthropic/claude-sonnet-4.6"):
+        return False
+
+    return True
+
+
 def audit(event: str, detail: str = "", mission_id: str = ""):
     """Immutable audit entry to nexus_audit.log."""
     ts = datetime.now(timezone.utc).isoformat()
@@ -400,6 +434,12 @@ def dispatch_to_claude(task_text: str, mission_id: str, model: str = None) -> st
     if not queue_check("claude"):
         audit("DISPATCH_CLAUDE_BLOCKED", f"Queue depth={queue_depth('claude')} >= {_QUEUE['max_depth']}", mission_id)
         return f"BLOCKED: Claude queue full ({queue_depth('claude')}/{_QUEUE['max_depth']}). Retry later."
+
+    # Budget guard: prevent token exhaustion
+    budget_pct = get_current_budget_percentage()
+    if not should_spawn_claude(model or "sonnet"):
+        audit("DISPATCH_CLAUDE_BUDGET_GUARD", f"Budget {budget_pct}% >= guard threshold, blocking spawn", mission_id)
+        return f"BLOCKED: Budget guard triggered ({budget_pct}% used). Spawns disabled until budget < 50%."
 
     queue_inc("claude")
 
