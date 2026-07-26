@@ -178954,3 +178954,61 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-26T22:53Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-26 16:53 MT [WEAPONS FREE Execution]**: Completed 20 additional missions (35 total surge items) incorporating Mission Board P0/P1 tasks and approved TCD items. Staged Amy Darrow inquiry draft, reconciled TESS commission pipeline, audited Loucks Grandeur FPD ($24,798 Aug 1 due date), and updated system health telemetry.
+
+<!-- PLAN:OPEN plan_id=PLN-9e6897 tier=trivial session_id=none opened_at=2026-07-26T22:59:32.901972+00:00 -->
+**Plan Opened:** PLN-9e6897
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9e6897 verdict=PASS quality_tier=none closed_at=2026-07-26T22:59:32.906913+00:00 -->
+**Plan Closed:** PLN-9e6897
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67cd11 tier=trivial session_id=none opened_at=2026-07-26T23:07:20.593629+00:00 -->
+**Plan Opened:** PLN-67cd11
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67cd11 verdict=PASS quality_tier=none closed_at=2026-07-26T23:07:20.598506+00:00 -->
+**Plan Closed:** PLN-67cd11
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-26T23:08Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-f79b35 tier=trivial session_id=none opened_at=2026-07-26T23:14:48.112207+00:00 -->
+**Plan Opened:** PLN-f79b35
+**Task:** Icelandair session warm-ping -> warmed + re-saved 29 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f79b35 verdict=PASS quality_tier=none closed_at=2026-07-26T23:14:48.116841+00:00 -->
+**Plan Closed:** PLN-f79b35
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 29 cookies
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-26 17:16 MT**: Commander [Approved] `surge_execution_dashboard.md` (Original 15-item surge baseline) and [Rejected] `expanded_35_item_surge_dashboard.md`. Reverted active surge dashboard state back to approved 15-item standard.
