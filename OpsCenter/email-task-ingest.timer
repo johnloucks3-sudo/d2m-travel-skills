@@ -1,13 +1,11 @@
 [Unit]
-Description=Thunderbird Email Task Ingest — 2-minute poll
+Description=Thunderbird Email Task Ingest — 15-minute poll (SO-20260724)
 Requires=email-task-ingest.service
 
 [Timer]
-# Run every 2 minutes
+# Run every 15 minutes (reduced from 2-min, SO-20260724 cost mitigation)
 OnBootSec=10s
-OnUnitActiveSec=2min
-# Stagger slightly to avoid collision with other 2-min tasks
-OnCalendar=*:*:03,23,43
+OnUnitActiveSec=15min
 
 [Install]
 WantedBy=timers.target
