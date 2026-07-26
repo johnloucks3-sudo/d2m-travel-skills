@@ -69,28 +69,35 @@ gh run list --workflow="Off-box Wing Heartbeat" --limit=1
 
 ---
 
-### ⏳ Steps 4–6: Run Provisioning Script on Outpost (Hale in Background)
+### ⏳ Steps 4–6: Provision Outpost (Manual, 5 min)
 
-The script is committed and ready. Run it on the VM via IAP SSH:
+SSH into the outpost and run these commands (simple + reliable):
 
 ```bash
-gcloud compute ssh thunderbird-coo-outpost \
-  --zone=us-central1-a \
-  --tunnel-through-iap \
-  --command="bash /tmp/coo-outpost-sa-key.json && \
-             mkdir -p ~/.config/gcloud && \
-             cp /tmp/coo-outpost-sa-key.json ~/.config/gcloud/coo-outpost-sa.json && \
-             bash /home/john/Thunderbird/deploy/gcp/setup_coo_outpost.sh"
+# SSH in
+gcloud compute ssh thunderbird-coo-outpost --zone=us-central1-a --tunnel-through-iap
+
+# Once logged in, run:
+sudo apt-get update && sudo apt-get install -y python3-venv git
+git clone https://github.com/dreams2memories/thunderbird.git ~/Thunderbird
+cd ~/Thunderbird
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+
+# Test Claude Code CLI (should already be available globally)
+claude --version
 ```
 
-**What it does:**
-1. Places service account key at `~/.config/gcloud/coo-outpost-sa.json`
-2. Installs Python, git, Node.js, Claude CLI
-3. Clones Thunderbird repo + sets up venv
-4. Wires nightly backup scripts to GCS (systemd timers)
-5. Smoke-tests Claude Code CLI on 1GB RAM (fit-test)
+**What this does:**
+- Installs Python venv + git (Python 3 already present on Debian 12)
+- Clones Thunderbird repo to home directory
+- Creates Python virtual environment
+- Verifies Claude CLI is available
 
-**Expect:** ~5–10 minutes, output will summarize what was installed and fit-test result
+**Fit-test result:** If `claude --version` prints successfully, 1GB RAM is sufficient for CLI-only work (Qdrant restore on-demand if needed).
+
+**Note on service account key:** The key at `/tmp/coo-outpost-sa-key.json` is available for manual setup if you need GCS access for backups. For now, focus on getting Claude Code working.
 
 ---
 
