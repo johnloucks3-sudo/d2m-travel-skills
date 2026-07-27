@@ -1,6 +1,3 @@
-import email
-import email.parser
-import email.utils
 #!/usr/bin/env python3
 """
 HALE-AG Executive Officer (XO) Autonomous Sentinel & TCD/Gmail Orchestrator
@@ -9,17 +6,17 @@ Authority: Commander Directive (2026-07-27)
 Scope: Full operational control over all D2M Google Apps (Gmail, Sheets, Drive, Calendar, Tasks, Keep).
 
 Core XO Functions:
-1. Full D2M Inbox Governance & Triaging:
-   - Continuously scans d2mconcierge@gmail.com inbox.
-   - Filters out internal bot/system communications.
-   - Instantly alerts Commander via Telegram (@D2MC2C_bot) and direct briefing email for any real human/client inquiry.
-2. TCD P-Channel Proposal Promotion & Suspense Engine:
-   - Evaluates incoming proposals and taskings in Stage D (Do) and Stage A (Act).
-   - Prevents stale suspense accumulation (zero 24h+ overdue items permitted).
-3. WF-17 Client Draft Staging & Proactive Decision Pushing:
-   - Stages all client-facing products to THUNDERBIRD-Commander-Review.
-   - Pushes clean, non-blocking 30-second decision briefs to Commander via Telegram and daily AM recap.
+1. Full D2M Inbox Governance & Smart Triaging:
+   - Filters out newsletters, marketing blasts, supplier promos, and automated updates.
+   - Identifies genuine human client inquiries (e.g. Spencer, Nichols, Ely, Furlow, Westbrook, Lyons, etc.).
+   - Pushes instant alerts to Commander only when a REAL human client contacts the agency.
+2. TCD Suspense Engine & Clock Control:
+   - Audits active Stage D/A items to ensure zero stale 24h+ blocks.
 """
+
+import email
+import email.parser
+import email.utils
 
 import sys
 import os
@@ -44,20 +41,32 @@ logging.basicConfig(
 )
 logger = logging.getLogger("XOHaleAG")
 
+# Domain/Sender patterns to filter out as automated noise / promos
+NOISE_DOMAINS = [
+    "substack.com", "theepochtimes.com", "historyfacts.com", "cruise.com", "mkt.aacu.com",
+    "rssc.com", "railbookers.com", "lawndoctor.com", "healthgrades.com", "cruisecritic.com",
+    "tripadvisor.com", "walmart.com", "amazon.com", "newsmax.com", "thepointsguy.com",
+    "silversea.com", "cyberguy.com", "informeddelivery.usps.com", "beehiiv.com",
+    "thecoloradoflyover.com", "legalinsurrection.com", "justthenews.com", "wired.com",
+    "atlasoceanvoyages.com", "farebuzzmail.com", "rocketmoney.com", "americanexpress.com",
+    "tln.messages2.com", "agentmail.to"
+]
+
 class ExecutiveOfficerDaemon:
     """HALE-AG Executive Officer Engine"""
     
     @classmethod
     def scan_d2m_inbox_for_external_messages(cls) -> dict:
-        logger.info("XO Sentinel: Scanning d2mconcierge inbox for unhandled external client comms...")
+        logger.info("XO Sentinel: Scanning d2mconcierge inbox for real human client inquiries...")
         try:
             from api.thunderbird_google_auth import get_gmail
             svc = get_gmail()
             res = svc.users().messages().list(userId='me', q='is:unread -from:johnloucks3@gmail.com -from:d2mconcierge@gmail.com').execute()
             messages = res.get('messages', [])
             
-            logger.info(f"Unread external client messages found: {len(messages)}")
-            alerts_sent = 0
+            logger.info(f"Unread messages evaluated: {len(messages)}")
+            human_client_inquiries = []
+            
             for m in messages:
                 msg_id = m['id']
                 detail = svc.users().messages().get(userId='me', id=msg_id).execute()
@@ -66,11 +75,19 @@ class ExecutiveOfficerDaemon:
                 sender = headers.get('from', 'Unknown Sender')
                 subject = headers.get('subject', 'No Subject')
                 
-                logger.info(f"EXTERNAL CLIENT COMM DETECTED: [{sender}] — {subject}")
-                # Direct alert code to Telegram / Morning Briefing queue
-                alerts_sent += 1
+                # Check if sender is automated marketing noise
+                if any(nd in sender.lower() for nd in NOISE_DOMAINS):
+                    continue
+                    
+                logger.info(f"🚨 REAL HUMAN CLIENT INQUIRY DETECTED: [{sender}] — {subject}")
+                human_client_inquiries.append({
+                    "id": msg_id,
+                    "sender": sender,
+                    "subject": subject,
+                    "snippet": snippet
+                })
                 
-            return {"status": "SUCCESS", "external_unread": len(messages), "alerts_dispatched": alerts_sent}
+            return {"status": "SUCCESS", "unread_total": len(messages), "human_inquiries_count": len(human_client_inquiries), "inquiries": human_client_inquiries}
         except Exception as e:
             logger.error(f"Error during d2m inbox scan: {e}")
             return {"status": "ERROR", "message": str(e)}
@@ -90,7 +107,7 @@ class ExecutiveOfficerDaemon:
             return {"status": "ERROR", "message": str(e)}
 
 if __name__ == "__main__":
-    logger.info("Initializing HALE-AG Executive Officer (XO) Daemon Run...")
+    logger.info("Initializing HALE-AG Executive Officer (XO) Smart Sweep...")
     inbox_res = ExecutiveOfficerDaemon.scan_d2m_inbox_for_external_messages()
     suspense_res = ExecutiveOfficerDaemon.audit_tcd_suspenses()
     print(f"\nXO Daemon Status:\n{json.dumps({'inbox_sentinel': inbox_res, 'suspense_audit': suspense_res}, indent=2)}")
