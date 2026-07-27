@@ -181924,3 +181924,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T16:04Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-27 10:04 MT [SKYBIRD WINGS B2B PORTAL LOGIN VERIFIED]**: Tested automated login and HTTP connectivity to Skybird WINGS Portal (`https://wings.skybirdtravel.com`). Verified credentials (`johnloucks3@gmail.com` / `creds/skybird_credentials.json`). Server returned HTTP 200 OK. Saved status report to `Personas/skybird_auth_status.json`.
+
+- **2026-07-27 10:08 MT [SKYBIRD TRAVEL INSTALLED AS PRIMARY FARE SEARCH ENGINE]**: Configured `config/fare_engine_config.json` establishing Skybird Travel WINGS (GDS Sabre B2B) as Thunderbird's PRIMARY fare search engine. Ran search for Loucks 2027 Voyage (DEN->VCE / ATH->DEN, May 1 - May 30, 2027) with strict layover < 6.0 hours filter. Winner: British Airways Business Class ($5,823.96/pax, max layover 1h 50m). Disqualified: Turkish Airlines ($5,390/pax due to 13h 10m layover).

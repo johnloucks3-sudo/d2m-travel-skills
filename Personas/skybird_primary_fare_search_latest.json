@@ -1,0 +1,42 @@
+[
+  {
+    "rank": 1,
+    "airline": "British Airways",
+    "fare_type": "Wings - Sabre - US NET - SKYBIRD SPL",
+    "price_per_pax": 5823.96,
+    "outbound": "DEN 18:40 \u2794 LHR 10:35 (+1) | Layover: 1h 50m | LHR 12:25 \u2794 VCE 15:40",
+    "return": "ATH 14:00 \u2794 DFW 18:55 | Layover: 1h 34m | DFW 20:29 \u2794 DEN 21:38",
+    "max_layover": "1h 50m",
+    "status": "\ud83c\udfc6 BEST VALUE & LOWEST PRICE (<6h LAYOVER)"
+  },
+  {
+    "rank": 2,
+    "airline": "Lufthansa / Swiss International",
+    "fare_type": "Wings - Sabre - US NET",
+    "price_per_pax": 6245.5,
+    "outbound": "DEN 17:30 \u2794 MUC 11:20 (+1) | Layover: 2h 10m | MUC 13:30 \u2794 VCE 14:30",
+    "return": "ATH 06:30 \u2794 ZRH 08:15 | Layover: 2h 45m | ZRH 11:00 \u2794 DEN 13:55",
+    "max_layover": "2h 45m",
+    "status": "\ud83d\udfe2 QUALIFIED BACKUP"
+  },
+  {
+    "rank": 3,
+    "airline": "United Airlines / Air Canada",
+    "fare_type": "Wings - Sabre - US NET",
+    "price_per_pax": 6480.0,
+    "outbound": "DEN 16:15 \u2794 FRA 10:05 (+1) | Layover: 1h 55m | FRA 12:00 \u2794 VCE 13:15",
+    "return": "ATH 12:15 \u2794 EWR 16:00 | Layover: 3h 15m | EWR 19:15 \u2794 DEN 21:35",
+    "max_layover": "3h 15m",
+    "status": "\ud83d\udfe2 QUALIFIED STAR ALLIANCE"
+  },
+  {
+    "rank": 4,
+    "airline": "Turkish Airlines",
+    "fare_type": "Wings - Sabre - Published",
+    "price_per_pax": 5390.0,
+    "outbound": "DEN 21:35 \u2794 IST 16:25 (+1) | Layover: 13h 10m | IST 05:35 \u2794 VCE 07:05",
+    "return": "ATH 22:25 \u2794 IST 23:55 | Layover: 4h 15m | IST 04:10 \u2794 DEN 08:45",
+    "max_layover": "13h 10m",
+    "status": "\ud83d\udd34 REJECTED (LAYOVER > 6 HOURS: 13h 10m IST)"
+  }
+]
