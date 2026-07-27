@@ -181251,3 +181251,43 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-27 06:36 MT [SUSAN EARLY PHONE UPGRADE ANALYSIS]**: Evaluated upgrading Susan's iPhone 16 Plus early (11 payments remaining). Discovered T-Mobile account-level promo credit retention rule ($19.38/mo account credit continues for 11 months if paid off). Under Experience More (55+), monthly bill drops immediately from $170.37 to $131.62/mo for 11 months (saving $38.75/mo = $426.25, 100% recovering upfront payoff), settling at $151.00/mo in Month 12.
 
 - **2026-07-27 06:39 MT [DIRECT INTEL SEND TO COMMANDER]**: Sent the complete T-Mobile 2-Line Bill & Early Upgrade Financial Analysis artifact directly to johnloucks3@gmail.com per Standing Order 1 (Internal briefs -> DIRECT SEND to johnloucks3). Message ID: `19fa39617a6a7315`.
+
+- **CHIEF SILVER** [2026-07-27T12:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-c74c0d tier=trivial session_id=none opened_at=2026-07-27T12:39:35.545315+00:00 -->
+**Plan Opened:** PLN-c74c0d
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c74c0d verdict=PASS quality_tier=none closed_at=2026-07-27T12:39:35.549804+00:00 -->
+**Plan Closed:** PLN-c74c0d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b2d01f tier=trivial session_id=none opened_at=2026-07-27T12:39:52.930042+00:00 -->
+**Plan Opened:** PLN-b2d01f
+**Task:** restart-flap flagged: thunderbird-mcp.service, thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b2d01f verdict=PASS quality_tier=none closed_at=2026-07-27T12:39:52.934766+00:00 -->
+**Plan Closed:** PLN-b2d01f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-27 06:41 MT [CLAUDE 20X MAX DOWNGRADE ANALYSIS]**: Evaluated July Claude usage (43% 7d usage, 57% unused capacity on $200/mo tier). Confirmed HALE-AG (Gemini 3.1 Pro 1M context) and JET-OC (DeepSeek-v4 Free) can carry 90%+ of operational load. Recommended Step 1 downgrade to Claude 5X MAX ($100/mo, saving $1,200/yr), evaluating Step 2 downgrade to Claude Pro ($20/mo, saving $2,160/yr). No Google AI Pro upgrade required.
