@@ -180726,3 +180726,494 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **CHIEF SILVER** [2026-07-27T09:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 03:43 MT [CI REMEDIATION — d2m-github-sync.service]**: Sentinel alert: 6 failures in 10min (exit-code, gitleaks gate). Root cause: plaintext Spencer portal password logged in hale_decisions.md audit trail (commit 1ec4899, lines 179781+179803). Fix: redacted both occurrences → [REDACTED], added fingerprint to .gitleaksignore, committed (9b0b50a1). Service reset-failed + restarted → GATE CLEAN ✅, finished successfully 03:43 MT. Follow-up: recommend lint rule to prevent plaintext credential logging in audit trail writes. Authority: SO_CI_RAZOR_SHARP_20260620.
+
+- **CHIEF SILVER** [2026-07-27T09:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-3de555 tier=trivial session_id=none opened_at=2026-07-27T09:50:06.664037+00:00 -->
+**Plan Opened:** PLN-3de555
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3de555 verdict=PASS quality_tier=none closed_at=2026-07-27T09:50:06.668703+00:00 -->
+**Plan Closed:** PLN-3de555
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T09:52Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T09:53Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-9a4cc2 tier=trivial session_id=none opened_at=2026-07-27T10:03:05.096128+00:00 -->
+**Plan Opened:** PLN-9a4cc2
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9a4cc2 verdict=PASS quality_tier=none closed_at=2026-07-27T10:03:05.100589+00:00 -->
+**Plan Closed:** PLN-9a4cc2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-52c654 tier=trivial session_id=none opened_at=2026-07-27T10:05:28.790123+00:00 -->
+**Plan Opened:** PLN-52c654
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-52c654 verdict=PASS quality_tier=none closed_at=2026-07-27T10:05:28.794921+00:00 -->
+**Plan Closed:** PLN-52c654
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T10:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-341e26 tier=trivial session_id=none opened_at=2026-07-27T10:21:24.374019+00:00 -->
+**Plan Opened:** PLN-341e26
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-341e26 verdict=PASS quality_tier=none closed_at=2026-07-27T10:21:24.379002+00:00 -->
+**Plan Closed:** PLN-341e26
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T10:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T10:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T10:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T10:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T10:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-1e2f52 tier=trivial session_id=none opened_at=2026-07-27T10:29:02.625214+00:00 -->
+**Plan Opened:** PLN-1e2f52
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1063836.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e2f52 verdict=PASS quality_tier=none closed_at=2026-07-27T10:29:02.629857+00:00 -->
+**Plan Closed:** PLN-1e2f52
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1063836.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-da3fd6 tier=trivial session_id=none opened_at=2026-07-27T10:34:55.925566+00:00 -->
+**Plan Opened:** PLN-da3fd6
+**Task:** Loucks Silver Nova daily flight-routing recheck
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-da3fd6 verdict=FAIL quality_tier=none closed_at=2026-07-27T10:34:55.931023+00:00 -->
+**Plan Closed:** PLN-da3fd6
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+**Criteria unverified:** none
+**Notes:** {"den-muc-vce": null, "ath-ist-den": null, "ath-muc-den": null, "den-vce-direct": null}
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d511b9 tier=trivial session_id=none opened_at=2026-07-27T10:37:03.219603+00:00 -->
+**Plan Opened:** PLN-d511b9
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d511b9 verdict=PASS quality_tier=none closed_at=2026-07-27T10:37:03.224447+00:00 -->
+**Plan Closed:** PLN-d511b9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T10:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T10:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-632fa4 tier=trivial session_id=none opened_at=2026-07-27T10:52:08.228525+00:00 -->
+**Plan Opened:** PLN-632fa4
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-632fa4 verdict=PASS quality_tier=none closed_at=2026-07-27T10:52:08.233647+00:00 -->
+**Plan Closed:** PLN-632fa4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T10:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-57b66a tier=trivial session_id=none opened_at=2026-07-27T11:02:43.551598+00:00 -->
+**Plan Opened:** PLN-57b66a
+**Task:** Spencer Grand Tour daily flight-routing recheck
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** leg spencer-leg1-den-fco-tim-business-jun2027: price captured; leg spencer-leg1-den-fco-yaggispencer-pe-jun2027: price captured; leg spencer-leg2-fco-den-tim-business-jun2027: price captured; leg spencer-leg3-zrh-den-yaggispencer-pe-jul2027: price captured
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-57b66a verdict=FAIL quality_tier=none closed_at=2026-07-27T11:02:43.556417+00:00 -->
+**Plan Closed:** PLN-57b66a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** leg spencer-leg1-den-fco-tim-business-jun2027: price captured; leg spencer-leg1-den-fco-yaggispencer-pe-jun2027: price captured; leg spencer-leg2-fco-den-tim-business-jun2027: price captured; leg spencer-leg3-zrh-den-yaggispencer-pe-jul2027: price captured
+**Criteria unverified:** none
+**Notes:** {"spencer-leg1-den-fco-tim-business-jun2027": null, "spencer-leg1-den-fco-yaggispencer-pe-jun2027": null, "spencer-leg2-fco-den-tim-business-jun2027": null, "spencer-leg3-zrh-den-yaggispencer-pe-jul2027": null}
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-571a4c tier=trivial session_id=none opened_at=2026-07-27T11:04:01.257336+00:00 -->
+**Plan Opened:** PLN-571a4c
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-571a4c verdict=PASS quality_tier=none closed_at=2026-07-27T11:04:01.261961+00:00 -->
+**Plan Closed:** PLN-571a4c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-09d7f2 tier=trivial session_id=none opened_at=2026-07-27T11:07:11.497493+00:00 -->
+**Plan Opened:** PLN-09d7f2
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-09d7f2 verdict=PASS quality_tier=none closed_at=2026-07-27T11:07:11.501951+00:00 -->
+**Plan Closed:** PLN-09d7f2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T11:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-bfd0b0 tier=trivial session_id=none opened_at=2026-07-27T11:23:01.058211+00:00 -->
+**Plan Opened:** PLN-bfd0b0
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bfd0b0 verdict=PASS quality_tier=none closed_at=2026-07-27T11:23:01.063262+00:00 -->
+**Plan Closed:** PLN-bfd0b0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T11:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T11:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T11:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T11:27Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T11:27Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-496071 tier=trivial session_id=none opened_at=2026-07-27T11:29:58.479425+00:00 -->
+**Plan Opened:** PLN-496071
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1133849.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-496071 verdict=PASS quality_tier=none closed_at=2026-07-27T11:29:58.484133+00:00 -->
+**Plan Closed:** PLN-496071
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1133849.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+### 2026-07-27 05:30:00 — Autonomous Decision (Tier T0)
+**Decision:** Dossier freshness check — 1 stale dossier(s) for upcoming travel
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29 (33d), dossier 22d stale
+**Domain:** Client prep / Dossier management
+**Type:** proactive alert
+**Outcome:** surfaced to Commander
+
+- **CHIEF SILVER** [2026-07-27T11:34Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-209fca tier=trivial session_id=none opened_at=2026-07-27T11:38:17.654901+00:00 -->
+**Plan Opened:** PLN-209fca
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-209fca verdict=PASS quality_tier=none closed_at=2026-07-27T11:38:17.659569+00:00 -->
+**Plan Closed:** PLN-209fca
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T11:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-75b761 tier=trivial session_id=none opened_at=2026-07-27T11:53:23.290793+00:00 -->
+**Plan Opened:** PLN-75b761
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-75b761 verdict=PASS quality_tier=none closed_at=2026-07-27T11:53:23.295779+00:00 -->
+**Plan Closed:** PLN-75b761
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T11:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-891ea9 tier=trivial session_id=none opened_at=2026-07-27T11:56:16.644754+00:00 -->
+**Plan Opened:** PLN-891ea9
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-891ea9 verdict=PASS quality_tier=none closed_at=2026-07-27T11:56:16.650009+00:00 -->
+**Plan Closed:** PLN-891ea9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f915f2 tier=trivial session_id=none opened_at=2026-07-27T12:00:14.375787+00:00 -->
+**Plan Opened:** PLN-f915f2
+**Task:** CI repair attempt: fare-watch-centrav -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** fare-watch-centrav repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f915f2 verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:14.380983+00:00 -->
+**Plan Closed:** PLN-f915f2
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** fare-watch-centrav repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e11962 tier=trivial session_id=none opened_at=2026-07-27T12:00:14.450942+00:00 -->
+**Plan Opened:** PLN-e11962
+**Task:** CI repair attempt: fare-watch-amadeus -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** fare-watch-amadeus repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e11962 verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:14.455393+00:00 -->
+**Plan Closed:** PLN-e11962
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** fare-watch-amadeus repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-af68e7 tier=trivial session_id=none opened_at=2026-07-27T12:00:15.189295+00:00 -->
+**Plan Opened:** PLN-af68e7
+**Task:** CI repair attempt: competitive-intel-apis -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** competitive-intel-apis repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-af68e7 verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:15.193724+00:00 -->
+**Plan Closed:** PLN-af68e7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** competitive-intel-apis repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ba889b tier=trivial session_id=none opened_at=2026-07-27T12:00:15.702485+00:00 -->
+**Plan Opened:** PLN-ba889b
+**Task:** CI repair attempt: cruise-intelligence -> blocked_circuit
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** cruise-intelligence repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ba889b verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:15.707030+00:00 -->
+**Plan Closed:** PLN-ba889b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** cruise-intelligence repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-edfd5c tier=trivial session_id=none opened_at=2026-07-27T12:00:32.945779+00:00 -->
+**Plan Opened:** PLN-edfd5c
+**Task:** CI repair attempt: lifecycle-excursion-engine -> error
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** lifecycle-excursion-engine repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-edfd5c verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:32.950194+00:00 -->
+**Plan Closed:** PLN-edfd5c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** lifecycle-excursion-engine repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2a26fe tier=trivial session_id=none opened_at=2026-07-27T12:00:58.443133+00:00 -->
+**Plan Opened:** PLN-2a26fe
+**Task:** CI repair attempt: home-dir-health -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** home-dir-health repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2a26fe verdict=FAIL quality_tier=none closed_at=2026-07-27T12:00:58.447545+00:00 -->
+**Plan Closed:** PLN-2a26fe
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** home-dir-health repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e0b706 tier=trivial session_id=none opened_at=2026-07-27T12:09:00.669030+00:00 -->
+**Plan Opened:** PLN-e0b706
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e0b706 verdict=PASS quality_tier=none closed_at=2026-07-27T12:09:00.673779+00:00 -->
+**Plan Closed:** PLN-e0b706
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T12:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T12:21Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T12:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-8e5c62 tier=trivial session_id=none opened_at=2026-07-27T12:24:28.943699+00:00 -->
+**Plan Opened:** PLN-8e5c62
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e5c62 verdict=PASS quality_tier=none closed_at=2026-07-27T12:24:28.948389+00:00 -->
+**Plan Closed:** PLN-8e5c62
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-27 06:28 MT**: Commander [Approved] all 13 active strategic artifacts (T-Mobile Plan Comparison, Spencer Grand Voyage 12 Pax Intake Plan, HALE 4-Star Architecture Transformation Plan, and all 10 Surge/Batch Execution Dashboards covering 140 Initiatives). Master milestone locked in repository.
