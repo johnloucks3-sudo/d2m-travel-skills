@@ -1,57 +1,85 @@
 {
-  "decisions": [
+  "decisions_count": 33,
+  "latest_decisions": [
     {
-      "id": "D-20260513152410",
-      "timestamp": "2026-05-13T15:24:10.615959",
-      "type": "tactical",
-      "domain": "email_classification",
-      "description": "Email C2 outcome confirmed: general task \u2192 by Col Victoria 'Iron Vic' Hale \u2014 Chief of Staff.",
-      "outcome_correct": false,
-      "points_awarded": 0,
-      "trust_score_after": 50,
-      "streak_after": 1,
-      "autonomy_tier": "COS (Operational)",
-      "address_to_use": "Commander"
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
     },
     {
-      "id": "D-20260513153253",
-      "timestamp": "2026-05-13T15:32:53.637064",
-      "type": "tactical",
-      "domain": "email_classification",
-      "description": "Email C2 outcome confirmed: general task \u2192 itinerary",
-      "outcome_correct": false,
-      "points_awarded": 0,
-      "trust_score_after": 50,
-      "streak_after": 1,
-      "autonomy_tier": "COS (Operational)",
-      "address_to_use": "Commander"
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
     },
     {
-      "ts": "2026-06-30T12:56:22.483729+00:00",
-      "domain": "ops",
-      "category": "MISSION-073",
-      "decision": "TECHNIQUE: Centrav B2B cabin restriction for international routes \u2014 single-cabin search avoids MCP timeout",
-      "rationale": "RIC\u2192PTY and RSW\u2192PTY connecting routes with cabin:all exploded combinatorial space and timed out. Restricting to economy returned fast results.",
-      "commander_approved": true,
-      "source_session": "2026-06-30 Air Pricing Campaign"
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
     },
     {
-      "ts": "2026-06-30T12:56:22.483739+00:00",
-      "domain": "tech",
-      "category": "MISSION-073",
-      "decision": "FIX: Centrav warm-ping changed from query_selector to locator.is_visible()",
-      "rationale": "query_selector checks DOM presence (always true after page load). is_visible() checks actual visibility for real session state.",
-      "commander_approved": true,
-      "source_session": "2026-06-30 Air Pricing Campaign"
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
     },
     {
-      "ts": "2026-06-30T12:56:22.483743+00:00",
-      "domain": "pricing",
-      "category": "MISSION-073",
-      "decision": "AUTHORITATIVE SOURCE: Centrav B2B is primary air pricing source (9-69% cheaper than Amadeus consumer)",
-      "rationale": "Domestic routes: 55-69% cheaper. International: 9% cheaper. Amadeus has no business class on domestic routes. Centrav is the authoritative source going forward.",
-      "commander_approved": true,
-      "source_session": "2026-06-30 Air Pricing Campaign"
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "telegram",
+      "description": "detected auth failure (`<urlopen error _ssl.c:1015: The handshake operation timed out>`), auto-repaired. Re-probe confirmed healthy."
+    },
+    {
+      "timestamp": "Spencer Grand Tour",
+      "description": "client doc set (6) client-ified + per-section validated link blocks; dark-navy portal LIVE at spencer.d2mluxury.quest (interim basic-auth pw spencer-b7746957; CF Access dashboard step pending). 6 editable Google Docs in johnloucks3 Drive (Bill = editor). Briefing deck \u2192 editable Google Slides. PERT v1 + v2(+30d slip) published \u2014 availability risk = La Pergola + Zermatt only. Lunch/question email staged (johnloucks3). Cooking class = Walkabout Tours Florence (client request, patched + synced). Coffee Cup calendar event Jul 7 12:00 Monument."
+    },
+    {
+      "timestamp": "2026-07-26 16:48:52 MT",
+      "description": "[WEAPONS FREE] Executed daily action plan sweep (02:15 MT schedule). Zero-Claude protocol verified clean."
+    },
+    {
+      "timestamp": "2026-07-26 16:48 MT [WEAPONS FREE Execution]",
+      "description": "Completed 15-item operational surge under Zero-Claude protocols. All tasks verified using DeepSeek-v4, Gemini 3.1 Pro, and Gemini 3.5 Flash engines. Opus V1-V8 mirrored to repo docs (`docs/project_opus_compliance_v1v8.md`), daily systemd timer enabled for 02:15 MT, and Telegram C2 relay updated."
+    },
+    {
+      "timestamp": "2026-07-26 16:53 MT [WEAPONS FREE Execution]",
+      "description": "Completed 20 additional missions (35 total surge items) incorporating Mission Board P0/P1 tasks and approved TCD items. Staged Amy Darrow inquiry draft, reconciled TESS commission pipeline, audited Loucks Grandeur FPD ($24,798 Aug 1 due date), and updated system health telemetry."
+    },
+    {
+      "timestamp": "2026-07-26 17:16 MT",
+      "description": "Commander [Approved] `surge_execution_dashboard.md` (Original 15-item surge baseline) and [Rejected] `expanded_35_item_surge_dashboard.md`. Reverted active surge dashboard state back to approved 15-item standard."
+    },
+    {
+      "timestamp": "2026-07-26 21:37 MT [WEAPONS FREE Execution]",
+      "description": "Executed approved 35-initiative operational plan across 5 phases (Financial P0s, Client Pipelines, ELON Tech Vanguard, Governance & Timers, and Multi-Engine Fleet C2). Published `ops/SO-TimerGovernance_v1.md`, cleaned 7 orphaned systemd user units, deduplicated 740 Telegram relay items, and updated Telegram C2 relay (`AG-35-PLAN-EXEC-001`)."
+    },
+    {
+      "timestamp": "2026-07-26 21:43 MT [WEAPONS FREE Execution]",
+      "description": "Completed Batch 2 (35 initiatives focusing on Staff Proposals & ELON Tech Disruption). Built `mcp_wrapper_generator.py`, validated 401 memory write-backs, executed system health scan (39 timers nominal), and updated Telegram C2 relay (`AG-BATCH2-EXEC-001`)."
     }
   ]
 }
