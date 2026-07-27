@@ -179887,3 +179887,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **2026-07-26 22:40 MT [LAND STAY QUESTION DELETED]**: Removed Pre/Post Land Stay Extension interest question from Spencer Intake Form schema and live HTML pages per Commander instruction (already confirmed on itinerary). Verified live portal HTTP 200.
+
+- **2026-07-26 22:41 MT [TRAVELJOY CRM COMPARISON & FORM ENHANCEMENT]**: Audited standard TravelJoy Client Intake Form fields against D2M Spencer Intake. Added crucial TravelJoy CRM security, passport, seating, and logistics fields: 1) Passport Issue Date & Country of Citizenship, 2) TSA PreCheck / KTN # & Global Entry ID, 3) Secondary/Emergency Phone, 4) Flight Seating Position Preferences (Aisle/Window/Row Block), 5) Hotel Bedding Configurations (1 King / 2 Twins). Live portal verified HTTP 200.
