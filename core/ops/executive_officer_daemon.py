@@ -7,7 +7,7 @@ Scope: Full operational control over all D2M Google Apps (Gmail, Sheets, Drive, 
 
 Core XO Functions:
 1. Full D2M Inbox Governance & Smart Triaging:
-   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, and automated updates.
+   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, rewards, and automated updates.
    - Identifies genuine human client inquiries (e.g. Spencer, Nichols, Ely, Furlow, Westbrook, Lyons, etc.).
    - Pushes instant alerts to Commander only when a REAL human client contacts the agency.
 2. TCD Suspense Engine & Clock Control:
@@ -42,7 +42,7 @@ logging.basicConfig(
 logger = logging.getLogger("XOHaleAG")
 
 # Broad domain/sender noise filter for commercial emails, newsletters, and promos
-NOISE_PATTERNS = ["rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com", 
+NOISE_PATTERNS = ["cruisebound.com", "stanford.edu", 
     "substack.com", "theepochtimes.com", "historyfacts.com", "cruise.com", "mkt.aacu.com",
     "rssc.com", "railbookers.com", "lawndoctor.com", "healthgrades.com", "cruisecritic.com",
     "tripadvisor.com", "walmart.com", "amazon.com", "newsmax.com", "thepointsguy.com",
@@ -51,7 +51,10 @@ NOISE_PATTERNS = ["rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadviso
     "atlasoceanvoyages.com", "farebuzzmail.com", "rocketmoney.com", "americanexpress.com",
     "tln.messages2.com", "agentmail.to", "colorfulimages.com", "l.freddys.com",
     "allrecipes.com", "vitalitymedical.com", "parkdia.com", "accounts.google.com",
-    "simpleflying.com", "email.forbes.com", "expediapartnersolutions.com", "centrav.com"
+    "simpleflying.com", "email.forbes.com", "expediapartnersolutions.com", "centrav.com",
+    "thecheesecakefactory.com", "heritage.org", "fanatics.com", "tbo.com", "princesspartners.princess.com",
+    "oceaniacruises.com", "cosaction.com", "cruises.united.com", "ceoflights.com", "onlyinyourstate.com",
+    "thedeepview.co", "rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com"
 ]
 
 class ExecutiveOfficerDaemon:
