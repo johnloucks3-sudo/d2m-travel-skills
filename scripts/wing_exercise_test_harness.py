@@ -79,7 +79,7 @@ def run_full_wing_exercise():
     logger.info("=== SECTOR 6: Dani (A3) Dark Navy Template Engine ===")
     try:
         from scripts.d2m_email_builder import build_email_html
-        test_html = build_email_html("Wing Exercise Test Content", subject="WING EXERCISE AUDIT")
+        test_html = build_email_html("Wing Exercise Test Content", title="WING EXERCISE AUDIT")
         has_dark_navy = "#07076b" in test_html
         results["sector6_dani_template"] = {"status": "PASS" if has_dark_navy else "FAIL"}
     except Exception as e:
