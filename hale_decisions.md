@@ -181618,3 +181618,41 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 **Notes:** OpenCode inline dispatch completed in 219.9s. Output: 1277 chars. Model: Sonnet
 
 ---
+
+<!-- PLAN:OPEN plan_id=PLN-4ac8ad tier=trivial session_id=none opened_at=2026-07-27T14:44:24.297771+00:00 -->
+**Plan Opened:** PLN-4ac8ad
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ac8ad verdict=PASS quality_tier=none closed_at=2026-07-27T14:44:24.314259+00:00 -->
+**Plan Closed:** PLN-4ac8ad
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2eae73 tier=trivial session_id=none opened_at=2026-07-27T14:45:39.667166+00:00 -->
+**Plan Opened:** PLN-2eae73
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2eae73 verdict=PASS quality_tier=none closed_at=2026-07-27T14:45:39.679719+00:00 -->
+**Plan Closed:** PLN-2eae73
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T14:45Z] BACK INTERNAL-OPS → PASS — wing machinery
