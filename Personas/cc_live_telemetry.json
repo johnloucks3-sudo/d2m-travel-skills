@@ -1,13 +1,19 @@
 {
-  "timestamp": "2026-07-27T13:05:13.614684+00:00",
+  "timestamp": "2026-07-27T10:14:18.020954",
   "engine": "CC (Claude Code / TALON-3\u2605)",
-  "subscription_tier": "Claude 5X MAX ($100/mo)",
-  "usage_5h_pct": 3.0,
-  "usage_5h_remaining": "~2h",
-  "usage_7d_pct": 43.0,
-  "usage_7d_remaining": "~86h",
-  "context_used_pct": 82.0,
-  "active_model": "Haiku 4.5",
-  "cli_version": "v2.1.218",
+  "subscription_tier": "Claude Max (20x)",
+  "session_usage": {
+    "used_pct": 15.0,
+    "reset_in": "1 hr 36 min",
+    "reset_timestamp": "2026-07-27 11:50 MT"
+  },
+  "weekly_usage": {
+    "used_pct": 48.0,
+    "reset_in": "~82h 45m",
+    "reset_timestamp": "2026-07-30 21:00 MT (Thu 9:00 PM MT)"
+  },
+  "fable_usage_pct": 0.0,
+  "usage_credits": "$0.00 spent / $20.00 limit",
+  "active_model": "Claude 3.7 Sonnet / Haiku 4.5",
   "status": "NOMINAL"
 }

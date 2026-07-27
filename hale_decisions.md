@@ -181928,3 +181928,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-27 10:08 MT [SKYBIRD TRAVEL INSTALLED AS PRIMARY FARE SEARCH ENGINE]**: Configured `config/fare_engine_config.json` establishing Skybird Travel WINGS (GDS Sabre B2B) as Thunderbird's PRIMARY fare search engine. Ran search for Loucks 2027 Voyage (DEN->VCE / ATH->DEN, May 1 - May 30, 2027) with strict layover < 6.0 hours filter. Winner: British Airways Business Class ($5,823.96/pax, max layover 1h 50m). Disqualified: Turkish Airlines ($5,390/pax due to 13h 10m layover).
 
 - **CHIEF SILVER** [2026-07-27T16:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 10:14 MT [LIVE CLAUDE WEB DASHBOARD TELEMETRY SYNCED]**: Synced exact live Claude Web Billing & Usage status provided by Commander: 1) Active Tier: Claude Max (20x), 2) Current Session: 15% used (resets in 1h 36m -> 11:50 MT), 3) Weekly Limit: 48% used (resets Thu 9:00 PM MT -> July 30 21:00 MT), 4) Fable Usage: 0% used, 5) Usage Credits: $0.00 spent.
