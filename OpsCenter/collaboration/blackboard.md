@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-16 15:30 UTC)
+## COMMANDER-READY (2026-07-27 12:00 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,35 +59,33 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-16 09:30
+## STATE BRIDGE BRIEFING — 2026-07-27 06:00
 
-### Since last session (2026-07-16 15:00:01 → still open)
+### Since last session (2026-07-27 02:50:55 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `bd41dbacd` docs(kuklinski): log passive-disengagement relationship note  _67 minutes ago_
-- `b6d4ad39d` feat(email-intel): client self-sufficiency signal detector  _67 minutes ago_
-- `838f079bb` fix(telegram): fleet-wide flood suppression — mute list + cooldown dedup  _70 minutes ago_
-- `02738c8df` fix(oom): rewrite fix_memory_ceilings.sh generator to per-unit layout  _2 hours ago_
-- `00f45f122` feat(delegation): cross-Hale task-delegation design + Phase-0 routing library  _2 hours ago_
+- `9b0b50a15` fix(security): redact Spencer portal password from audit trail; clear gitleaks gate  _2 hours ago_
+- `d925f7ded` feat(archive): archive Spencer 12 Pax Master Intake Form to Git, local storage & Google Drive [POST-COMMIT]  _7 hours ago_
+- `2f77f8e5d` feat(portal): pre-fill known Spencer family manifest data & milestone celebrations into intake form [POST-COMMIT]  _7 hours ago_
+- `3f9b171fa` feat(portal): refine Spencer intake form UI with Glassmorphism, file dropzone & LocalStorage auto-save [POST-COMMIT]  _7 hours ago_
+- `70293255c` feat(portal): add Section 6 Travel Dreams & Bucket-List discovery to Spencer intake form [POST-COMMIT]  _7 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (53s ago)
+- `hale_brief.md` (0s ago)
+- `hale_state.json` (3s ago)
 - `OpsCenter/collaboration/blackboard.md` (30m ago)
-- `dossiers/GROUP_Kuklinski_VikingMars_Panama_Dec2026_TRACKER.md` (1.1h ago)
-- `hale_brief.md` (1.1h ago)
-- `dossiers/Nichols_Regent_3078056.md` (1.1h ago)
-- `dossiers/Westbrook_SilverNova_Personal.md` (1.1h ago)
-- `dossiers/grandeur_group_logistics_matrix_20260702.md` (1.1h ago)
-- `dossiers/McLeod_Erik_Melissa_SilverMuse_Complete.md` (1.1h ago)
+- `AGENTS.md` (7.9h ago)
+- `dossiers/Furlow_Regent_3071222.md` (11.1h ago)
+- `dossiers/Westbrook_SilverNova_Personal.md` (11.8h ago)
+- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (13.4h ago)
+- `dossiers/Westbrook_Brent_Kim_UPDATED.md` (1.8d ago)
 
-**Mission board:** 83 open (7 P0, 53 P1)
+**Mission board:** 160 open (15 P0, 98 P1)
   - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
-  - 🔴 MISSION-011: Close Regent cookie expiration P0 — restore session access
-  - 🔴 MISSION-033: Close Regent cookie P0 — restore authenticated agent-portal session
-  - 🔴 MISS
+  - 🔴 MISSION-011: Close Regent cookie expiration P0 — resto
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)
@@ -438,3 +436,57 @@ Built to the Zero-Latitude pipeline gates and the same quality bar as the Scandi
 - Brand/structure QC passed: hex-exact to spec, no rgba text colors, route map + expanded ship info + expanded port info all present; rendered to PNG and visually inspected (hero, ship, route, all port cards, footer).
 
 **Status:** McLeod itinerary is content-complete and send-ready pending Commander WF-17 gate + the one Dickenson/Runaway confirm. — CC/Hale
+
+## Loucks Panama Canal Voyage — Port Content (2026-07-16)
+**Built:** `cruises_web/itinerary_grandeur_loucks.html` (1.34 MB, self-contained). Commander's own trip — John & Susie Loucks, Seven Seas Grandeur, "Panama Canal & Pacific Gems," Miami→LA, Dec 29 2026–Jan 14 2027, booking 3122006, Suite 658 (Concierge E). Brand-spec navy/gold, furlow structural template.
+**Content:** Per-port romance copy for all 7 ports + a dedicated Panama Canal transit marquee section (Gatún locks / mule locomotives / Culebra Cut). All 7 booked excursions woven in with honest activity-level "Good to know" notes. Full intel expanders per port.
+**Images (8 sourced, every one VIEWED/QC'd before embedding):** George Town harbor, Cartagena Castillo San Felipe, Panama Canal Agua Clara locks, Monteverde cloud forest, Antigua Santa Catalina Arch, Acapulco La Quebrada divers, Cabo El Arco, San Diego/La Jolla sea lions. Grandeur ship + D2M logo reused from QC-verified furlow build. Rendered + full-page screenshot QA passed (only console noise = favicon 404).
+**⚠️ EXCURSION-FIT FLAG (recorded in new `dossiers/DOSSIER_Loucks_Grandeur_Panama_Dec2026.md`):** Checked booked excursions vs John's documented mobility profile (low-distance/flat, avoid uneven terrain, no active/adventure, flag tenders).
+- 🔴 **Puntarenas "A Walk in the Clouds" = POOR FIT** — it's a cloud-forest suspension-bridge HIKE (~90 stairs, hill trails, ~1h45 drive each way). Genuine mismatch; needs the Commander's decision. Excursion changes open until Jun 2 2026.
+- ⚠️ Cartagena Gastronomy (cobblestone Old-Town walking — food matches taste) & Antigua/Casa Santo Domingo (long drive + Antigua cobbles) = acceptable with pacing.
+- ⚠️ George Town Dolphin/Stingray = in-water active outing + **tender** port; enjoyable but not the scenic/culinary style on file.
+- ✅ Cabo (clear boat, seated/scenic — **tender** port), San Diego (SEAL amphibious, fully seated), Acapulco (mostly bus + spectator cliff-diver show) = good fits.
+- **Tender ports flagged:** George Town (Day 3), Cabo San Lucas (Day 14).
+**Committed:** c7dbcf04f.
+
+## DOSSIER FRESHNESS ALERT — 2026-07-21 16:54 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 16d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-21 17:01 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 16d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-21 17:01 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 16d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-21 17:07 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 16d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-22 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 17d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-23 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 18d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-24 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 19d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-25 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 20d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-26 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 21d stale
+
+## DOSSIER FRESHNESS ALERT — 2026-07-27 05:30 MDT
+1 stale dossier(s): 0 HIGH urgency (departs ≤14d)
+  - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 22d stale
+
+- **2026-07-27 08:43:56 MT [CROSS-SEAT ACKNOWLEDGMENT]**: `HALE-AG-4★` and `JET-OC-3★` have ingested and acknowledged `ops/SO_HALE_HARDENING_20260727.md`. Front-end Sterling pre-commit audit and back-end Sonnet Silver certification active.
