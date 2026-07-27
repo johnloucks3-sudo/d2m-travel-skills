@@ -181241,3 +181241,9 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T12:30Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-27 06:31 MT [LIVE CC TELEMETRY INTEGRATED]**: Integrated live CC (Claude Code v2.1.218) telemetry provided by Commander into central status dashboard (`scripts/ag_token_cost_dashboard.py`): 5h Limit Progress (3% used, ~2h left), 7d Limit Progress (43% used, ~94h left), Context Usage (82% used, Haiku 4.5).
+
+- **CHIEF SILVER** [2026-07-27T12:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T12:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 06:33 MT [T-MOBILE 2-LINE BILL AUDIT]**: Audited exact T-Mobile statement for John (`719-291-0742`) and Susan (`719-291-0743`). Identified Susan's iPhone 16 Plus installment (13 of 24, $19.37/mo net, 11 months remaining). Recommended upgrading John's line ($0 balance) to iPhone 17 on Experience More (55+), holding bill flat at $170.37/mo for 11 months, then dropping to $151.00/mo in Month 12.
