@@ -182218,3 +182218,73 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T20:09Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **CHIEF SILVER** [2026-07-27T20:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-ad5707 tier=trivial session_id=none opened_at=2026-07-27T20:35:09.391227+00:00 -->
+**Plan Opened:** PLN-ad5707
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1822855.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ad5707 verdict=PASS quality_tier=none closed_at=2026-07-27T20:35:09.396420+00:00 -->
+**Plan Closed:** PLN-ad5707
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1822855.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T20:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-25dfff tier=trivial session_id=none opened_at=2026-07-27T20:39:54.455068+00:00 -->
+**Plan Opened:** PLN-25dfff
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-25dfff verdict=PASS quality_tier=none closed_at=2026-07-27T20:39:54.460613+00:00 -->
+**Plan Closed:** PLN-25dfff
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T20:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:48Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:48Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:49Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:49Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:50Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T20:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-9119cd tier=trivial session_id=none opened_at=2026-07-27T20:58:28.493352+00:00 -->
+**Plan Opened:** PLN-9119cd
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9119cd verdict=FAIL quality_tier=none closed_at=2026-07-27T20:58:28.499266+00:00 -->
+**Plan Closed:** PLN-9119cd
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
