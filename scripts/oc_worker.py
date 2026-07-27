@@ -102,8 +102,7 @@ def dispatch_task(task: dict, dry_run: bool = False) -> tuple[bool, str]:
                 "--output", str(out_file),
                 "--prompt", prompt,
                 "--model", DEFAULT_MODEL,
-                "--wait",                    # block until complete
-                "--timeout", str(TASK_TIMEOUT),
+                "--foreground",               # block until complete (dispatch_claude.py's actual flag)
             ],
             capture_output=True,
             text=True,
