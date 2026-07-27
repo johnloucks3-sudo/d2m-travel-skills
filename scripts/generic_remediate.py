@@ -96,8 +96,10 @@ LANE1_OWNED_UNITS = frozenset({
 # is a data condition, not a process crash -- so they skip remediation
 # entirely, same as Lane-1-owned units, but for a different reason.
 SELF_ALERTING_UNITS = frozenset({
+    "d2m-icelandair-warm.service",  # Session expiry (data condition); restart cannot fix; escalates separately to Sterling with manual re-login prompt
     "hale-credential-check.service",
     "d2m-factbook-refresh.service",  # OAuth token missing (structural), restart can't fix
+    "drkonqi-coredump-pickup.service",  # KDE crash pickup; exits 1 because drkonqi-coredump-launcher@.service is intentionally masked (commit 0252479e0). Restart can't fix — structural.
 })
 
 logging.basicConfig(
@@ -264,15 +266,22 @@ def remediate(unit: str) -> int:
         # Deliberate non-attempt, not a failed attempt — 'unverified' keeps the
         # ledger's FAIL count meaning "attempted and did not recover" (the real
         # FAIL was already logged when the actual attempt failed).
+        # Return 0: exiting 1 here would mark THIS remediate unit failed, which
+        # triggers the OnFailure drop-in again (self-referential chain caught by the
+        # guard but still generates noise — root cause of the 42-error storm on
+        # browser-bridge 2026-07-25).
         _log_remediation_plan(unit, "unverified", note)
-        return 1
+        return 0
 
     if _cooldown_blocking(state, unit):
         note = f"cooldown active ({COOLDOWN_SECONDS}s) — not re-attempting"
         logger.warning("%s: %s", unit, note)
         _escalate(unit, f"{unit} failed again within cooldown window — needs manual attention")
         _log_remediation_plan(unit, "unverified", note)  # skip, not a failed attempt
-        return 1
+        # Return 0: intentional non-retry is not a script failure; returning 1 here
+        # causes systemd to fire OnFailure again on the remediate unit itself,
+        # amplifying every cooldown-blocked trigger into a self-referential storm.
+        return 0
 
     logger.info("%s: attempting generic remediation (reset-failed + start)", unit)
     _run(["systemctl", "--user", "reset-failed", unit])
