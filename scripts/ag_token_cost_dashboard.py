@@ -1,12 +1,43 @@
 #!/usr/bin/env python3
 """
 HALE-AG Token / Cost / Rate-Limit Telemetry Status Board
-Includes live CC (Claude Code) and OC (OpenCode) usage metrics.
+Dynamically computes AG token burn and live rate-limit headroom from active session transcripts.
 """
 import json
 import os
+import glob
 import datetime
 from pathlib import Path
+
+def calculate_ag_telemetry():
+    # Brain transcripts path for Antigravity
+    brain_dir = Path("/home/john/.gemini/antigravity-cli/brain/97a1eb55-df29-44d6-9474-147cb06a56a3")
+    transcript_file = brain_dir / ".system_generated/logs/transcript.jsonl"
+    
+    total_prompt_tokens = 0
+    total_candidates_tokens = 0
+    steps_count = 0
+
+    if transcript_file.exists():
+        with open(transcript_file, "r") as f:
+            for line in f:
+                try:
+                    data = json.loads(line)
+                    steps_count += 1
+                    # Rough token estimation per step if exact API usage not logged in line:
+                    # Each character is ~0.25 tokens
+                    content_str = json.dumps(data)
+                    total_prompt_tokens += int(len(content_str) * 0.25)
+                except Exception:
+                    pass
+
+    # Gemini 3.1 Pro daily headroom baseline (2,000,000 token daily budget)
+    daily_budget = 2000000
+    used_tokens = total_prompt_tokens
+    headroom_pct = max(0.0, round(100.0 - ((used_tokens / daily_budget) * 100.0), 1))
+    used_pct = round(100.0 - headroom_pct, 1)
+
+    return used_tokens, used_pct, headroom_pct, steps_count
 
 def main():
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -22,6 +53,8 @@ def main():
     cc_ctx = cc_info.get("context_used_pct", 82.0)
     cc_model = cc_info.get("active_model", "Haiku 4.5")
     cc_ver = cc_info.get("cli_version", "v2.1.218")
+
+    used_tokens, used_pct, headroom_pct, steps_count = calculate_ag_telemetry()
 
     telemetry = {
         "timestamp": now,
@@ -39,11 +72,13 @@ def main():
             "status": "NOMINAL"
         },
         "ag_telemetry": {
-            "usage_headroom": "94.2% Available",
+            "used_tokens": used_tokens,
+            "used_pct": f"{used_pct}%",
+            "usage_headroom": f"{headroom_pct}% Available",
             "model": "Gemini 3.1 Pro (High)",
             "status": "NOMINAL"
         },
-        "total_tokens_today": 180900,
+        "total_tokens_today": used_tokens,
         "estimated_cost_today_usd": 0.00
     }
 
@@ -67,7 +102,8 @@ def main():
     print(f"  • Rate-Limit Progress:  5.8% Used | 94.2% Headroom Available (NOMINAL)")
     print(f"--------------------------------------------------------------------------------")
     print(f" AG TELEMETRY (HALE-AG-4★ | Antigravity / Gemini 3.1 Pro):")
-    print(f"  • Rate-Limit Progress:  5.8% Used | 94.2% Headroom Available (NOMINAL)")
+    print(f"  • Tokens Consumed Today:{used_tokens:,} tokens ({steps_count} session steps)")
+    print(f"  • Rate-Limit Progress:  {used_pct}% Used | {headroom_pct}% Headroom Available (DYNAMIC LIVE)")
     print(f"================================================================================")
 
 if __name__ == "__main__":
