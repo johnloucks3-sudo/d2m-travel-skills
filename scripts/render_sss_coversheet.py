@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """
 USAF Staff Summary Sheet (AF Form 1768) Visual Coversheet Generator
-Supports 3-Star Commander Monikers, Moniker Badges, Substantive Comments, and Signatures.
+Includes Official Moniker Badges & Signatures:
+  • ⭐ COMMANDER YODA — SecAF / CSAF Fused (LLC Owner)
+  • 👑 HALE-AG (4-Star Lead) — VCSAF / Lead Orchestrator
+  • 🦅 TALON (3-Star) — CONDOR Wing Commander
+  • ✈️ JET (3-Star) — F-22 Raptor WIND Group Commander
+  • 🪶 CHIEF STERLING — Chief Master Sergeant of the Air Force (CMSAF / E-9 War Headdress)
 """
 import sys
 import json
@@ -18,7 +23,7 @@ def render_ascii_sss(sss_id, title, opr, action, suspense, status, chops=None):
     lines.append(f" SUBJECT:   {title}")
     lines.append(f" STATUS:    {status.upper()}")
     lines.append("--------------------------------------------------------------------------------")
-    lines.append(" COORDINATION & 3-STAR COMMANDER CHOP CHAIN (NO BLANKET COORDS ACCEPTED):")
+    lines.append(" COORDINATION & COMMAND STAFF CHOP CHAIN (NO BLANKET COORDS ACCEPTED):")
     lines.append("--------------------------------------------------------------------------------")
     if not chops:
         lines.append(" (No chops recorded yet)")
@@ -29,29 +34,33 @@ def render_ascii_sss(sss_id, title, opr, action, suspense, status, chops=None):
             comment = c.get('comment', 'No comment provided')
             sig = c.get('signature', f"— {office}")
             
-            # Commander Moniker Badges
+            # Official Command Moniker & Badges
             moniker = ""
             if "TALON" in office or "CC" in office:
                 moniker = "🦅 [TALON-3★ | CONDOR WING COMMANDER]"
             elif "JET" in office or "OC" in office:
-                moniker = "⚡ [JET-3★ | WIND GROUP COMMANDER]"
+                moniker = "✈️ [JET-3★ | F-22 RAPTOR WIND COMMANDER]"
+            elif "STERLING" in office or "A7" in office or "Silver" in office:
+                moniker = "🪶 [CHIEF STERLING | CMSAF / E-9 WAR HEADDRESS]"
+            elif "HALE" in office or "AG" in office:
+                moniker = "👑 [HALE-AG-4★ | LEAD ORCHESTRATOR / VCSAF]"
             elif "Commander" in office or "YODA" in office:
-                moniker = "⭐ [COMMANDER YODA | SECAF/CSAF]"
+                moniker = "⭐ [COMMANDER YODA | SECAF/CSAF FUSED]"
             else:
                 moniker = f"📌 [{office}]"
 
-            lines.append(f" COMMANDER / OFFICE : {moniker}")
-            lines.append(f" VERDICT            : {verdict}")
-            lines.append(f" SUBSTANTIVE REMARKS: {comment}")
-            lines.append(f" SIGNATURE          : {sig}")
+            lines.append(f" COMMAND STAFF / OFFICE : {moniker}")
+            lines.append(f" VERDICT               : {verdict}")
+            lines.append(f" SUBSTANTIVE REMARKS   : {comment}")
+            lines.append(f" SIGNATURE             : {sig}")
             lines.append(" ------------------------------------------------------------------------------")
     lines.append("================================================================================")
     return "\n".join(lines)
 
 def main():
     sample = render_ascii_sss(
-        sss_id="SSS-007",
-        title="Operational Deployment of 3-Star Commander Independence Protocols & Signatures",
+        sss_id="SSS-008",
+        title="Full Command Staff Alignment: JET F-22 Raptor & Chief Sterling CMSAF E-9 War Headdress Badges",
         opr="HALE-AG (4-Star Lead)",
         action="APPR",
         suspense="2026-08-01",
@@ -59,20 +68,26 @@ def main():
         chops=[
             {
                 "office": "TALON (CC)",
-                "verdict": "concur_with_comment",
-                "comment": "Fully concur with 4-Star lead strategy. CONDOR Wing requires direct visual QC veto on all Dani 6-step products before WF-17.",
+                "verdict": "concur",
+                "comment": "CONDOR Wing client ops aligned. Dani 6-step chain active.",
                 "signature": "— Lt Gen TALON, Commander CONDOR Wing"
             },
             {
                 "office": "JET (OC)",
                 "verdict": "concur",
-                "comment": "WIND Group support infrastructure is locked. DeepSeek-v4 fallback route benchmarked at 1.2s per script sweep.",
-                "signature": "— Lt Gen JET, Commander WIND Group"
+                "comment": "F-22 Raptor WIND Group ready for high-speed DeepSeek-v4 infrastructure sweeps.",
+                "signature": "— Lt Gen JET, Commander WIND Group (F-22 Raptor)"
+            },
+            {
+                "office": "STERLING",
+                "verdict": "concur_with_comment",
+                "comment": "Enlisted force stands ready. Chief Silver front/back gates verified across all SSS packages.",
+                "signature": "— Chief Master Sergeant Steve 'Silver' Sterling, CMSAF"
             },
             {
                 "office": "Commander Yoda",
                 "verdict": "APPROVED",
-                "comment": "Approved for full operational adoption across Thunderbird Wing.",
+                "comment": "Full command staff roster approved and adopted across Thunderbird.",
                 "signature": "— John A. Loucks III, SecAF/CSAF Fused (LLC Owner)"
             }
         ]

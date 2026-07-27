@@ -1,33 +1,38 @@
 #!/usr/bin/env python3
 """
-core/ai_infra/leader_follower_harness.py — Leader-Follower Agent Orchestration Engine.
-HALE-AG (4-Star Lead) orchestrating 3-Star Wing Commanders:
-  • TALON (CC) — 3-Star Commander, CONDOR Wing (Precision Client Ops & Strike) | Moniker: 🦅 [TALON-3★]
-  • JET (OC)   — 3-Star Commander, WIND Group (Support & Infrastructure Ops) | Moniker: ⚡ [JET-3★]
-
-No blanket coordination permitted. Every chop requires independent operational review,
-a persona moniker/signature, and substantive staff comments.
+core/ai_infra/leader_follower_harness.py — Leader-Follower & Command Staff Architecture Engine.
+Command Roster:
+  • HALE-AG (4-Star) — Lead Orchestrator | Moniker: 👑 [HALE-AG-4★ | LEAD ORCHESTRATOR]
+  • TALON (CC)     — 3-Star Commander, CONDOR Wing | Moniker: 🦅 [TALON-3★ | CONDOR WING COMMANDER]
+  • JET (OC)       — 3-Star Commander, WIND Group (F-22 Raptor) | Moniker: ✈️ [JET-3★ | F-22 RAPTOR WIND COMMANDER]
+  • Chief Sterling — Chief Master Sergeant of the Wing (CMSAF / E-9) | Moniker: 🪶 [CHIEF STERLING | CMSAF / E-9 WAR HEADDRESS]
 """
 import os
 import sys
 import json
 import datetime
-import random
 
 COMMANDERS = {
     "TALON": {
         "title": "Lt Gen TALON (HALE-CC)",
         "rank": "3-Star Commander, CONDOR Wing",
-        "moniker": "🦅 [TALON-3★]",
+        "moniker": "🦅 [TALON-3★ | CONDOR WING COMMANDER]",
         "signature": "— Lt Gen TALON, Commander CONDOR Wing",
         "perspective": "Client precision, Dani 6-step chain, visual QC, and WF-17 gate compliance."
     },
     "JET": {
         "title": "Lt Gen JET (HALE-OC)",
-        "rank": "3-Star Commander, WIND Group",
-        "moniker": "⚡ [JET-3★]",
-        "signature": "— Lt Gen JET, Commander WIND Group",
+        "rank": "3-Star Commander, WIND Group (F-22 Raptor)",
+        "moniker": "✈️ [JET-3★ | F-22 RAPTOR WIND COMMANDER]",
+        "signature": "— Lt Gen JET, Commander WIND Group (F-22 Raptor)",
         "perspective": "Infrastructure stability, cost efficiency, systemd health, and DeepSeek ops."
+    },
+    "STERLING": {
+        "title": "CMSAF Steve 'Silver' Sterling",
+        "rank": "Chief Master Sergeant of the Wing (CMSAF / E-9)",
+        "moniker": "🪶 [CHIEF STERLING | CMSAF / E-9 WAR HEADDRESS]",
+        "signature": "— Chief Master Sergeant Steve 'Silver' Sterling, CMSAF",
+        "perspective": "Enlisted leadership, code quality, Standing Orders, and Chief Silver gate integrity."
     }
 }
 
@@ -76,20 +81,21 @@ class LeaderFollowerHarness:
 
 def main():
     harness = LeaderFollowerHarness()
-    p1 = harness.dispatch_task("TALON", "Review Spencer Grand Tour 60-day preview email draft.")
-    harness.record_chop(
-        "TALON",
-        verdict="concur_with_comment",
-        substantive_comment="Narrative structure is sharp. Recommend expanding port prose for Stockholm pre-cruise from 2 to 3 sentences.",
-        alternative_proposal="Add At Six hotel neighborhood imagery to Tab 2 of the preview brochure."
-    )
-
-    p2 = harness.dispatch_task("JET", "Audit Regent portal scraper session keepalive scripts.")
+    
+    # JET F-22 Chop
     harness.record_chop(
         "JET",
         verdict="concur",
-        substantive_comment="ASPXAUTH keepalive cycle verified clean. Zero cookie decay detected over 48h loop.",
-        alternative_proposal="Switch fallback path to Hermai.ai if CDP connection drops."
+        substantive_comment="F-22 Raptor WIND Group ready for high-speed DeepSeek-v4 infrastructure sweeps.",
+        alternative_proposal="None needed. Systems nominal."
+    )
+    
+    # Chief Sterling CMSAF / E-9 Chop
+    harness.record_chop(
+        "STERLING",
+        verdict="concur_with_comment",
+        substantive_comment="Enlisted force stands ready. Chief Silver front/back gates verified across all SSS packages.",
+        alternative_proposal="Enforce mandatory pre-commit hooks on all timer scripts before repository merge."
     )
 
 if __name__ == "__main__":
