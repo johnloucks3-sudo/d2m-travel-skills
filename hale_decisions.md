@@ -181481,3 +181481,11 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T13:52Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-27 07:53 MT [ANTIGRAVITY REDDIT VULNERABILITY SCAN & MITIGATION LOCK]**: Audited `r/google_antigravity` community issue reports. Identified 5 core AG vulnerabilities: 1) Opaque rate limit lockouts, 2) Task completion hallucinations, 3) Unintended file deletion, 4) Agent terminated crashes, 5) Model routing drift. Verified Thunderbird hardened wrappers (`SELF-DISABLE-001`, `so_write_guard.py`, empirical stdout verification, multi-engine failovers to DeepSeek-v4 & Claude 5X MAX) insulate the Wing from all 5 flaws.
+
+- **CHIEF SILVER** [2026-07-27T13:53Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 07:54 MT [COMPREHENSIVE ANTIGRAVITY DEFECT AUDIT & MITIGATION PLAN]**: Conducted deep cross-platform security scan across Hacker News (`news.ycombinator.com`) and Reddit (`r/google_antigravity`). Cataloged 7 critical industry defects: 1) Indirect prompt injection, 2) Destructive file deletion, 3) Opaque rate limit lockouts, 4) Hallucinated task completion, 5) Mid-process agent crashes, 6) Model routing drift, 7) Scraping account restrictions. Formulated 7 active mitigations and 4 planned hardening actions (Input Sanitizer, Git Pre-Edit Snapshots, Dual-Engine Cross-Check, Backend Model Echo Audit).
