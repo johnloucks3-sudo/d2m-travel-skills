@@ -181343,3 +181343,57 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **2026-07-27 07:05 MT [CLAUDE SUBSCRIPTION DOWNGRADED TO 5X MAX ($100/MO)]**: Commander confirmed downgrade from Claude 20X MAX ($200/mo) to Claude 5X MAX ($100/mo). Instantly saves $100/month ($1,200/year). Updated multi-engine telemetry configuration (`Personas/cc_live_telemetry.json`) to reflect 5X MAX baseline. HALE-AG (Gemini 3.1 Pro 1M context) locked as 4-Star Lead Orchestrator to carry 80%+ of routine token volume.
+
+- **CHIEF SILVER** [2026-07-27T13:06Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-fcb0fa tier=trivial session_id=none opened_at=2026-07-27T13:11:09.194656+00:00 -->
+**Plan Opened:** PLN-fcb0fa
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fcb0fa verdict=PASS quality_tier=none closed_at=2026-07-27T13:11:09.199379+00:00 -->
+**Plan Closed:** PLN-fcb0fa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T13:15Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:16Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:16Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:17Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:22Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-985e14 tier=trivial session_id=none opened_at=2026-07-27T13:26:24.320042+00:00 -->
+**Plan Opened:** PLN-985e14
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-985e14 verdict=PASS quality_tier=none closed_at=2026-07-27T13:26:24.327433+00:00 -->
+**Plan Closed:** PLN-985e14
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
