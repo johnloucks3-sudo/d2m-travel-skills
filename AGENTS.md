@@ -131,7 +131,7 @@ uses the same codes back; a bare Roger/Wilco/Done from him closes the loop, no r
 |---|---|
 | **Hale** | Ops, routing, WF-17 gate, morning brief, mission board, relay |
 | **Dani** | All client products — 6-step chain: Experience→Narrative→Brand→Voice→Facts→WF-17 |
-| **Sterling** | Code, CLAUDE.md edits, SO authorship, kill audit, pre-commit gate, metrics |
+| **Sterling** | Code, CLAUDE.md edits, SO authorship, kill audit, pre-commit gate, metrics (`"Gauge"` — Brig Gen Thomas Sterling / A7) & Wing Overseer / Quality Auditor (`"Silver"` — CMSgt Steve Sterling / Command Chief) |
 | **Intel** | Cruise/flight research, OSINT, fare watch, competitive analysis, strategy |
 | **Harlan** | Financial verification — independent of Hale — 6-step sign-off on every $ figure |
 

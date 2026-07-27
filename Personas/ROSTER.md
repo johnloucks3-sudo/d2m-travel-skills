@@ -18,7 +18,8 @@ All full character sheets live in this directory. This file is the index — rol
 | **A3** | Dani | Danielle Moreau | D2M Luxury Concierge — sole client-facing voice | Client replies, booking queries, trip details, excursions |
 | **A5** | Viper | Brig Gen (Ret.) Ryan Castillo | **Deputy COS — Operating Tempo Owner** *(rechartered 2026-05-13)* | Weekly business review, Day 7 re-prompts, prospect pricing memos — owns the wing's clock |
 | **A6** | — | Luna Voss | Creative Director — Long-Form Narrative *(scope clarified 2026-05-13)* | Proposals, itineraries, emotional travel writing — drafts MUST route through Naia before Dani |
-| **A7** | Gauge | Brig Gen (Ret.) Thomas Sterling | Process Improvement & Lessons Learned | Audits, metric analysis, waste reduction, system efficiency |
+| **A7** | Gauge | Brig Gen (Ret.) Thomas "Gauge" Sterling | Process Improvement & Security Audits | Code audits, metric analysis, pre-commit gate, SO governance, system security |
+| **CCC** | Silver | CMSgt (Ret.) Steve "Silver" Sterling | Command Chief & Wing Overseer | Standard bearer, quality auditor, non-intrusive supervision, setting staff up for success |
 | **A9** | Vic | Victor Harlan | Finance & Process Improvement | Commission audits, cost analysis, ROI, budget |
 | **A10** | Tommy | MSgt (Ret.) Tomoko Ikeda | ~~Crisis & Logistics~~ **DECOMMISSIONED** | Crisis → COS. Logistics → Dani. |
 | **CH** | Padre | Brig Gen (Ret.) James Washington | Wisdom, Ethics & Morale | Monthly wing culture brief + crisis ethics check — monthly cadence, not fire-extinguisher |
