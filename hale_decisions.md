@@ -179889,3 +179889,23 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-26 22:40 MT [LAND STAY QUESTION DELETED]**: Removed Pre/Post Land Stay Extension interest question from Spencer Intake Form schema and live HTML pages per Commander instruction (already confirmed on itinerary). Verified live portal HTTP 200.
 
 - **2026-07-26 22:41 MT [TRAVELJOY CRM COMPARISON & FORM ENHANCEMENT]**: Audited standard TravelJoy Client Intake Form fields against D2M Spencer Intake. Added crucial TravelJoy CRM security, passport, seating, and logistics fields: 1) Passport Issue Date & Country of Citizenship, 2) TSA PreCheck / KTN # & Global Entry ID, 3) Secondary/Emergency Phone, 4) Flight Seating Position Preferences (Aisle/Window/Row Block), 5) Hotel Bedding Configurations (1 King / 2 Twins). Live portal verified HTTP 200.
+
+<!-- PLAN:OPEN plan_id=PLN-3b2b1e tier=trivial session_id=none opened_at=2026-07-27T04:41:54.560500+00:00 -->
+**Plan Opened:** PLN-3b2b1e
+**Task:** crash captured: script (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/script_668207.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3b2b1e verdict=PASS quality_tier=none closed_at=2026-07-27T04:41:54.565434+00:00 -->
+**Plan Closed:** PLN-3b2b1e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/script_668207.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-26 22:42 MT [TRAVELJOY CRUISE & VOYAGE FORM STANDARDS DEPLOYED]**: Audited TravelJoy Cruise/Voyage Intake Form standards against Spencer Intake. Injected 5 crucial cruise & voyage fields: 1) Cruise Line Loyalty Numbers (Viking Voyagers / Regent Society), 2) Stateroom Location Preference (Midship / High Deck / Forward / Aft), 3) Dining Time & Table Configuration (Single 12-top vs Split 6&6 vs Flexible), 4) Shore Excursion Pace (Easy Coach / Moderate Cultural / Active Hiking), 5) Medical & Stroller Logistics. Live portal verified HTTP 200.
