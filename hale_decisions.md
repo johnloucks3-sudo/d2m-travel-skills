@@ -181397,3 +181397,87 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 **Criteria unverified:** none
 **Notes:** warmed + re-saved 31 cookies
 <!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T13:28Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:29Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-8a0b86 tier=trivial session_id=none opened_at=2026-07-27T13:30:20.951437+00:00 -->
+**Plan Opened:** PLN-8a0b86
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1290997.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8a0b86 verdict=PASS quality_tier=none closed_at=2026-07-27T13:30:20.959037+00:00 -->
+**Plan Closed:** PLN-8a0b86
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1290997.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T13:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:35Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-05f6e0 tier=trivial session_id=none opened_at=2026-07-27T13:42:17.972706+00:00 -->
+**Plan Opened:** PLN-05f6e0
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-05f6e0 verdict=PASS quality_tier=none closed_at=2026-07-27T13:42:17.980380+00:00 -->
+**Plan Closed:** PLN-05f6e0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T13:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T13:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d48f39 tier=trivial session_id=none opened_at=2026-07-27T13:50:53.728330+00:00 -->
+**Plan Opened:** PLN-d48f39
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d48f39 verdict=PASS quality_tier=none closed_at=2026-07-27T13:50:53.737310+00:00 -->
+**Plan Closed:** PLN-d48f39
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T13:52Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 07:53 MT [ANTIGRAVITY REDDIT VULNERABILITY SCAN & MITIGATION LOCK]**: Audited `r/google_antigravity` community issue reports. Identified 5 core AG vulnerabilities: 1) Opaque rate limit lockouts, 2) Task completion hallucinations, 3) Unintended file deletion, 4) Agent terminated crashes, 5) Model routing drift. Verified Thunderbird hardened wrappers (`SELF-DISABLE-001`, `so_write_guard.py`, empirical stdout verification, multi-engine failovers to DeepSeek-v4 & Claude 5X MAX) insulate the Wing from all 5 flaws.
