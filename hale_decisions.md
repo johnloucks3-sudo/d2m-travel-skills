@@ -1,5 +1,22 @@
 ---
 
+## 2026-07-27 DECISIONS
+
+### CI AUTO-REMEDIATION: d2m-icelandair-warm.service session expiry [09:50 MT]
+**Action:** Stopped d2m-icelandair-warm.timer; reset-failed on service to clear crash loop.  
+**Root cause:** Icelandair iceAuth cookie (~14-day TTL) expired at 09:45 — session captured 2026-07-10. Script exited 2 by design; timer kept re-firing into dead-session wall.  
+**Status:** Loop stopped. Session re-establishment requires Commander manual re-login + Turnstile solve + cookie re-capture. Timer remains stopped until then.  
+**Ref:** `output/ci_remediation/fix_d2m-icelandair-warm_service.md`
+
+### CI AUTO-REMEDIATION: thunderbird-generic-remediate@d2m-icelandair-warm.service [09:50 MT]
+**Unit:** `thunderbird-generic-remediate@d2m-icelandair-warm.service` | 3 errors/10min, exit-code  
+**Root cause:** Cascading failure from transient Icelandair session expiry. Target (`d2m-icelandair-warm`) exited code 2 at 09:45 (session logged out, `hasLogin: True`). Generic remediator attempted `reset-failed + start`; target failed again (session still expired at that instant) → remediator exited 1 (`ok=False`) → landed in failed state itself. Timer re-fired at 09:50; session had self-healed; 31 cookies re-saved, target finished cleanly.  
+**Action:** `systemctl --user reset-failed thunderbird-generic-remediate@d2m-icelandair-warm.service` — cleared failed state. Target confirmed healthy (Finished 09:50:18).  
+**Authority:** SO_CI_RAZOR_SHARP_20260620.  
+**Status:** RESOLVED. Report: `output/ci_remediation/fix_thunderbird-generic-remediate@d2m-icelandair-warm_service.md`
+
+---
+
 ## 2026-07-25 DECISIONS
 
 ### CI AUTO-REMEDIATION: browser-bridge EADDRINUSE storm [08:15 MT]
@@ -181783,3 +181800,127 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **CHIEF SILVER** [2026-07-27T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-584f1b tier=trivial session_id=none opened_at=2026-07-27T15:46:01.179572+00:00 -->
+**Plan Opened:** PLN-584f1b
+**Task:** Icelandair session warm-ping -> session not authenticated (challenge or logged-out) — needs manual re-login
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-584f1b verdict=FAIL quality_tier=none closed_at=2026-07-27T15:46:01.186117+00:00 -->
+**Plan Closed:** PLN-584f1b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Icelandair session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session not authenticated (challenge or logged-out) — needs manual re-login
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-01229a tier=trivial session_id=none opened_at=2026-07-27T15:46:15.510213+00:00 -->
+**Plan Opened:** PLN-01229a
+**Task:** Icelandair session warm-ping -> session not authenticated (challenge or logged-out) — needs manual re-login
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-01229a verdict=FAIL quality_tier=none closed_at=2026-07-27T15:46:15.515147+00:00 -->
+**Plan Closed:** PLN-01229a
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Icelandair session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session not authenticated (challenge or logged-out) — needs manual re-login
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d9258d tier=trivial session_id=none opened_at=2026-07-27T15:46:20.662233+00:00 -->
+**Plan Opened:** PLN-d9258d
+**Task:** generic long-tail remediation: d2m-icelandair-warm -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-icelandair-warm verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d9258d verdict=FAIL quality_tier=none closed_at=2026-07-27T15:46:20.666720+00:00 -->
+**Plan Closed:** PLN-d9258d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** d2m-icelandair-warm verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-71a951 tier=trivial session_id=none opened_at=2026-07-27T15:50:18.689417+00:00 -->
+**Plan Opened:** PLN-71a951
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-71a951 verdict=PASS quality_tier=none closed_at=2026-07-27T15:50:18.694544+00:00 -->
+**Plan Closed:** PLN-71a951
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-085770 tier=trivial session_id=none opened_at=2026-07-27T15:50:19.117227+00:00 -->
+**Plan Opened:** PLN-085770
+**Task:** generic long-tail remediation: d2m-icelandair-warm -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-icelandair-warm verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-085770 verdict=PASS quality_tier=none closed_at=2026-07-27T15:50:19.121451+00:00 -->
+**Plan Closed:** PLN-085770
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-icelandair-warm verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T15:51Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T15:52Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T15:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T15:56Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T15:56Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-25aeed tier=trivial session_id=none opened_at=2026-07-27T16:01:50.852864+00:00 -->
+**Plan Opened:** PLN-25aeed
+**Task:** generic long-tail remediation: d2m-icelandair-warm.service -> self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-icelandair-warm.service verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-25aeed verdict=PASS quality_tier=none closed_at=2026-07-27T16:01:50.857819+00:00 -->
+**Plan Closed:** PLN-25aeed
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-icelandair-warm.service verified active after remediation attempt
+**Notes:** self-alerting unit (own Telegram dedup) -- skipping redundant Sterling escalation
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T16:03Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T16:04Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 10:04 MT [SKYBIRD WINGS B2B PORTAL LOGIN VERIFIED]**: Tested automated login and HTTP connectivity to Skybird WINGS Portal (`https://wings.skybirdtravel.com`). Verified credentials (`johnloucks3@gmail.com` / `creds/skybird_credentials.json`). Server returned HTTP 200 OK. Saved status report to `Personas/skybird_auth_status.json`.
