@@ -1,27 +1,30 @@
 #!/usr/bin/env python3
 """
-Phase 4 Proactive Client Lifecycle AI Engine & Semantic Personalization Layer
-=============================================================================
-Transforms passive email template generation into an intelligent, semantic journey orchestrator.
-Governed by E-9 Chief Silver Sterling and Victor Harlan (A9), operating under WEAPONS FREE HALE-AG.
-
-Core Capabilities:
-1. Semantic Port & Culinary Intelligence (A8 Reyes + Anansi):
-   Dynamically augments static email templates with hyper-curated dining and VIP excursion intel
-   matched directly to the client's individual Travel DNA profile.
-2. Proactive Upgrades & Fare Drop Surveillance:
-   Scans nightly booking snapshots for cabin category upgrade opportunities or B2B pricing drops,
-   automatically computing host tier commission delta without pricing dilution.
-3. 22-Touchpoint Dynamic Customization:
-   Improves ETB-003 milestones (e.g. 60-day voyage preview, 30-day mobile itinerary drop, 7-day weather brief)
-   with bespoke narrative paragraphs formatted under Naia's brand standards (Dark Navy #07076b).
-4. Absolute Staging Autonomy (WF-17 compliance):
-   Every generated phase is immediately staged to Commander Review box in Gmail; ZERO credit card or
-   financial binding occurs without Commander's explicit trigger pull.
+Phase 4 Ground Truth Lifecycle Engine & Touchpoint Orchestrator
+================================================================
+Strict Ground Truth Integration for Client Voyages under Standing Orders:
+1. Dossier Parsing & Exclusion of Reference/Non-Client files:
+   - Must parse structured trip parameters: Trip, Ship, Route, Embarkation, Disembarkation, Duration, Confirmation #.
+   - Absolutely excludes non-client files (CLAUDE.md, CallPrep, research notes, technical analyses, generic guides).
+2. Date-Driven Touchpoint Gating:
+   - Computes exact days until embarkation from live date string.
+   - Fires only when a specific milestone matches (e.g., 60-Day Voyage Preview, 30-Day Itinerary Drop, 7-Day Weather Brief).
+   - Aborts generating any correspondence if the trip does not match an imminent scheduled touchpoint.
+3. Mandatory Dani A3 & Brand Integration:
+   - All client emails must be built using scripts/d2m_email_builder.py (Dark Navy #07076b, Body Palette #e8f1ff/#a8c4f0/#c8dcff).
+   - Enforces Dani A3 Voice & Standing Order rules (e.g., 60-day opening: 'A little over sixty days', closing: 'We will send you one more document 30 days out: a beautiful itinerary for tablet, phone, or printing.').
+4. Harlan A9 & Sterling E-9 Governance:
+   - Verifies all dollar numbers directly against dossier financial records. Zero synthetic fabrication permitted.
 """
+
+# Import standard library email modules before modifying sys.path to prevent local core/email shadowing
+import email
+import email.parser
+import email.errors
 
 import os
 import sys
+import re
 import json
 import logging
 from datetime import datetime, timezone
@@ -29,186 +32,197 @@ from pathlib import Path
 
 ROOT = Path("/home/john/Thunderbird")
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "core"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
-LOG_FILE = ROOT / "logs" / "phase4_lifecycle_intelligence.log"
+LOG_FILE = ROOT / "logs" / "phase4_ground_truth.log"
 LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [PHASE4-LIFECYCLE-AI] %(levelname)s %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE),
-        logging.StreamHandler(sys.stdout)
-    ]
+    format="%(asctime)s [PHASE4-GROUND-TRUTH] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler(sys.stdout)]
 )
-logger = logging.getLogger("Phase4Lifecycle")
+logger = logging.getLogger("Phase4GroundTruth")
 
-# Import staging engine and financial gate
 try:
     from core.ops.hale_tier_staging_engine import HaleStagingEngine, HarlanFinancialGate
-    from core.ai_infra.chief_sterling_decision_dna import CommanderDecisionDNA
+    from scripts.d2m_email_builder import build_email_html
 except ImportError as e:
-    logger.warning(f"Could not import Hale / Sterling modules: {e}")
+    logger.error(f"Fatal import error in staging or builder modules: {e}")
     HaleStagingEngine = None
-    HarlanFinancialGate = None
+    build_email_html = None
 
-
-class SemanticExperienceEnricher:
-    """Invokes real-time semantic research (A8 Reyes + Perplexity/Anansi logic) to enrich Touchpoint text."""
+class GroundTruthDossierParser:
+    """Parses live markdown dossiers and extracts strict factual attributes without speculation."""
     
-    PORT_INTEL_DB = {
-        "Venice": "Private water taxi transfer from Marco Polo directly to your canal-side palazzo, followed by an exclusive behind-the-scenes twilight tour of Saint Mark's Basilica.",
-        "Athens": "Curated archeological deep-dive with an Acropolis scholar before public gates open, concluding with cliff-side terrace dining overlooking the Aegean.",
-        "Reykjavik": "Helicopter transit to a volcanic glacier summit paired with private thermal baths at the Retreat Spa before ship embarkation.",
-        "Monaco": "VIP paddock deck access during harbor maneuvers paired with private reserve cellar tasting at Hotel de Paris."
-    }
-    
-    CULINARY_MATCHES = {
-        "Wine Explorer": "Reserved Chef's Table pairing featuring rare regional vintages curated exclusively by the executive sommelier.",
-        "Adventure Seeker": "Private offshore sailing charter with fresh-caught Mediterranean seaside culinary preparation.",
-        "Relaxation / Wellness": "Serene private cabana dining deck with custom wellness gastronomy and organic spa infusion."
-    }
+    EXCLUDE_PATTERNS = ["CLAUDE", "CallPrep", "Technical_Analysis", "Tips_Guide", "Tracker", "Schengen", "Matrix", "Quote", "Plan"]
     
     @classmethod
-    def enrich_voyage_touchpoint(cls, destination: str, travel_dna: str) -> dict:
-        logger.info(f"Synthesizing semantic experience intel for Port: [{destination}] | DNA: [{travel_dna}]")
-        port_intel = cls.PORT_INTEL_DB.get(destination, f"Private luxury chauffeur VIP harbor transit and tailored architectural discovery in {destination}.")
-        culinary_intel = cls.CULINARY_MATCHES.get(travel_dna, cls.CULINARY_MATCHES["Wine Explorer"])
-        return {
-            "port_experience": port_intel,
-            "culinary_experience": culinary_intel,
-            "confidence_score": 0.98,
-            "synthesized_utc": datetime.now(timezone.utc).isoformat()
+    def is_valid_client_dossier(cls, file_path: Path, text: str) -> bool:
+        if any(ex.lower() in file_path.name.lower() for ex in cls.EXCLUDE_PATTERNS):
+            return False
+        if "TRIP DOSSIER" not in text and "BOOKING SUMMARY" not in text:
+            return False
+        return True
+
+    @classmethod
+    def extract_ground_truth(cls, file_path: Path) -> dict:
+        text = file_path.read_text(errors="ignore")
+        if not cls.is_valid_client_dossier(file_path, text):
+            return {}
+            
+        truth = {
+            "dossier_file": file_path.name,
+            "trip_name": "Confirmed Voyage",
+            "ship": "Luxury Vessel",
+            "embarkation_date": "",
+            "confirmation_number": "",
+            "client_name": "",
+            "client_email": "",
+            "total_cost": 0.0,
+            "raw_text": text
         }
+        
+        trip_m = re.search(r"^Trip:\s*(.+)$", text, re.M)
+        if trip_m: truth["trip_name"] = trip_m.group(1).strip()
+        
+        ship_m = re.search(r"^Ship:\s*(.+)$", text, re.M)
+        if ship_m: truth["ship"] = ship_m.group(1).strip()
+        
+        embark_m = re.search(r"^Embarkation:\s*([A-Za-z]+ \d{1,2}, \d{4})", text, re.M)
+        if not embark_m:
+            embark_m = re.search(r"Embarkation:\s*(\d{4}-\d{2}-\d{2})", text, re.M)
+        if embark_m: truth["embarkation_date"] = embark_m.group(1).strip()
+        
+        conf_m = re.search(r"Confirmation #:\s*(\w+)", text)
+        if conf_m: truth["confirmation_number"] = conf_m.group(1).strip()
+        
+        client_m = re.search(r"^4\. CLIENT:\s*(.+)$", text, re.M)
+        if client_m: truth["client_name"] = client_m.group(1).strip()
+        
+        email_m = re.search(r"Email:\s*([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})", text)
+        if email_m: truth["client_email"] = email_m.group(1).strip()
+        
+        cost_m = re.search(r"\$([\d,]+\.?\d*)\s*total", text, re.IGNORECASE)
+        if cost_m:
+            try:
+                truth["total_cost"] = float(cost_m.group(1).replace(",", ""))
+            except ValueError:
+                pass
+            
+        return truth
 
-
-class ProactiveUpgradeSurveillance:
-    """Monitors live bookings for cabin class upgrade opportunities and price drops."""
+class TouchpointGatingEngine:
+    """Evaluates ground truth dates against active lifecycle milestones (60-day, 30-day, 7-day)."""
     
     @staticmethod
-    def check_for_upgrades(booking_reference: str, current_cabin: str, current_price: float) -> dict:
-        logger.info(f"Scanning upgrade horizon for Booking [{booking_reference}] ({current_cabin} @ ${current_price:.2f})...")
-        # Simulated intelligent fare drop / suite availability detection
-        if "Suite" not in current_cabin or current_price > 5000:
-            upgrade_cabin = "Penthouse Veranda Suite (Category A)"
-            upgrade_rate = current_price + 450.00
-            value_prop = "Complimentary concierge service + $500 onboard credit bonus included."
-            logger.info(f"Upgrade opportunity identified: {upgrade_cabin} for +$450 delta.")
-            return {
-                "upgrade_available": True,
-                "target_cabin": upgrade_cabin,
-                "rate_delta": 450.00,
-                "new_total_price": upgrade_rate,
-                "value_proposition": value_prop,
-                "commission_protected": True
-            }
-        return {"upgrade_available": False}
-
-
-class Phase4LifecycleOrchestrator:
-    """Executes dynamic email generation across active client dossiers and stages to Commander Review box."""
-    
-    @classmethod
-    def execute_semantic_lifecycle_run(cls) -> dict:
-        logger.info("Initiating Phase 4 Proactive Client Lifecycle execution run...")
-        dossiers_path = ROOT / "dossiers"
-        if not dossiers_path.exists():
-            return {"status": "NO_DOSSIERS", "staged": 0}
+    def evaluate_milestone(embarkation_str: str) -> dict:
+        if not embarkation_str or "TBD" in embarkation_str:
+            return {"ready": False, "reason": "Embarkation date missing or TBD"}
             
-        staged_count = 0
-        processed_clients = []
-        
-        # We will iterate over dossiers and apply Phase 4 enrichment to key clients
-        for file_path in dossiers_path.glob("*.md"):
-            try:
-                text = file_path.read_text(errors="ignore")
-                # Identify prime luxury clients suitable for dynamic Phase 4 demonstration
-                if "Voyage" in text or "Regent" in text or "Silver" in text or "Grandeur" in text:
-                    client_name = file_path.stem.replace("_", " ").title()
-                    
-                    # Prevent duplicate run by checking tag
-                    if "<!-- PHASE4_LIFECYCLE_STAGED_V1 -->" in text:
-                        continue
-                        
-                    logger.info(f"Processing Phase 4 Intelligence for: {client_name}")
-                    
-                    # Determine target port & Travel DNA from content or heuristics
-                    destination = "Venice" if "Vce" in text or "Venice" in text else ("Athens" if "Ath" in text or "Athens" in text else "Reykjavik")
-                    dna = "Wine Explorer" if "wine" in text.lower() else ("Adventure Seeker" if "adventure" in text.lower() else "Relaxation / Wellness")
-                    
-                    # Step 1: Semantic enrichment
-                    intel = SemanticExperienceEnricher.enrich_voyage_touchpoint(destination, dna)
-                    
-                    # Step 2: Check for upgrade opportunities
-                    base_rate = 5820.00 if "Loucks" in client_name else 4200.00
-                    upg = ProactiveUpgradeSurveillance.check_for_upgrades(file_path.stem, "Veranda Stateroom", base_rate)
-                    
-                    # Step 3: Construct enriched Touchpoint body (Naia Brand Standards - Dark Navy #07076b)
-                    upgrade_section = ""
-                    total_figure = base_rate
-                    if upg.get("upgrade_available"):
-                        total_figure = upg.get("new_total_price", base_rate)
-                        upgrade_section = (
-                            f"<div style='margin-top: 20px; padding: 15px; background: #ffffff; border-left: 4px solid #07076b; border-radius: 4px;'>"
-                            f"<h3 style='color: #07076b; margin-top: 0;'>EXCLUSIVE CABIN UPGRADE PREFERRED LOCK</h3>"
-                            f"<p>Our daily surveillance team has identified an immediate opportunity to elevate your stateroom to a <b>{upg['target_cabin']}</b>.</p>"
-                            f"<p><b>Benefit:</b> {upg['value_proposition']}<br><b>Special Adjusted Rate:</b> ${total_figure:.2f} total package.</p>"
-                            f"<p><i>Note: We hold this upgrade staging ready for instant confirmation at your word.</i></p>"
-                            f"</div>"
-                        )
-                    else:
-                        upgrade_section = f"<p>Your current confirmed package rate remains optimal at <b>${base_rate:.2f}</b>.</p>"
-                        
-                    email_html = (
-                        f"<div style='font-family: Inter, Arial, sans-serif; color: #07076b; background: #e8f1ff; padding: 25px; border-radius: 8px; border: 1px solid #a8c4f0;'>"
-                        f"<h2 style='color: #07076b; border-bottom: 2px solid #07076b; padding-bottom: 10px;'>60-Day Voyage Preview & Curated Port Dossier</h2>"
-                        f"<p>Dear {client_name},</p>"
-                        f"<p>A little over sixty days from now, your exquisite voyage toward <b>{destination}</b> will set sail. Our Experience Architecture team has been meticulously reviewing local marine and cultural conditions to assure your time ashore is effortless.</p>"
-                        f"<div style='background: #ffffff; padding: 18px; border-radius: 6px; margin: 15px 0;'>"
-                        f"<h4 style='color: #07076b; margin: 0 0 8px 0;'>Tailored Port Highlight — {destination}</h4>"
-                        f"<p style='margin: 0; line-height: 1.5;'>{intel['port_experience']}</p>"
-                        f"</div>"
-                        f"<div style='background: #ffffff; padding: 18px; border-radius: 6px; margin: 15px 0;'>"
-                        f"<h4 style='color: #07076b; margin: 0 0 8px 0;'>Curated Culinary Profile ({dna})</h4>"
-                        f"<p style='margin: 0; line-height: 1.5;'>{intel['culinary_experience']}</p>"
-                        f"</div>"
-                        f"{upgrade_section}"
-                        f"<p style='margin-top: 20px;'>We will send you one more document 30 days out: a beautiful itinerary for tablet, phone, or printing.</p>"
-                        f"<p>Warmest regards,<br><b>Danielle Moreau</b><br>D2M Luxury Travel Concierge</p>"
-                        f"</div>"
-                    )
-                    
-                    # Step 4: Audit against Harlan A9 Financial Gate & Chief Sterling Decision DNA
-                    if HaleStagingEngine:
-                        logger.info(f"Dispatching to Hale Tier Staging Engine for review and Gmail draft staging...")
-                        res = HaleStagingEngine.process_client_deliverable(
-                            client_name=client_name,
-                            deliverable_type=f"Phase 4 Touchpoint Preview & Port Intel ({destination})",
-                            subject=f"Dreams2Memories: Your Upcoming Voyage Preview & Exclusive Highlights",
-                            body_html=email_html,
-                            client_email="d2mconcierge@gmail.com",
-                            ref_data={"approved_total": total_figure}
-                        )
-                        if res.get("status") == "SUCCESS":
-                            staged_count += 1
-                            processed_clients.append(client_name)
-                            # Mark dossier as enriched by Phase 4 engine
-                            with open(file_path, "a", encoding="utf-8") as df:
-                                df.write("\n<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->\n")
-                    else:
-                        logger.warning("HaleStagingEngine unavailable; simulated stage complete.")
-                        staged_count += 1
-                        processed_clients.append(client_name)
-                        
-            except Exception as ex:
-                logger.error(f"Error processing dossier {file_path}: {ex}")
-                continue
+        try:
+            for fmt in ["%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"]:
+                try:
+                    dt = datetime.strptime(embarkation_str, fmt).replace(tzinfo=timezone.utc)
+                    break
+                except ValueError:
+                    continue
+            else:
+                return {"ready": False, "reason": f"Could not parse date: {embarkation_str}"}
                 
-        logger.info(f"Phase 4 Lifecycle run complete. Total clients enriched and staged: {staged_count}")
-        return {"status": "SUCCESS", "staged_count": staged_count, "clients": processed_clients}
+            now = datetime.now(timezone.utc)
+            days_out = (dt - now).days
+            
+            if 58 <= days_out <= 62:
+                return {"ready": True, "milestone": "60_DAY_VOYAGE_PREVIEW", "days_out": days_out}
+            elif 28 <= days_out <= 31:
+                return {"ready": True, "milestone": "30_DAY_ITINERARY", "days_out": days_out}
+            elif 5 <= days_out <= 8:
+                return {"ready": True, "milestone": "7_DAY_WEATHER", "days_out": days_out}
+            else:
+                return {"ready": False, "reason": f"Voyage is {days_out} days out (no scheduled touchpoint due today)"}
+        except Exception as e:
+            return {"ready": False, "reason": str(e)}
 
+class DaniA3VoiceGenerator:
+    """Composes strictly grounded client correspondence under SO_EMAIL_RULES and d2m_email_builder standards."""
+    
+    @staticmethod
+    def draft_milestone_email(truth: dict, milestone_info: dict) -> dict:
+        milestone = milestone_info.get("milestone")
+        client_name = truth.get("client_name", "Valued Traveler").title()
+        ship = truth.get("ship", "your luxury vessel")
+        trip_name = truth.get("trip_name", "your upcoming voyage")
+        embark = truth.get("embarkation_date", "")
+        conf_num = truth.get("confirmation_number", "TBD")
+        
+        if milestone == "60_DAY_VOYAGE_PREVIEW":
+            subject = f"Dreams2Memories: Your Voyage Preview — {trip_name}"
+            content_html = f"""
+            <p>Dear {client_name},</p>
+            <p><strong>A little over sixty days</strong> remain until your embarkation aboard <em>{ship}</em> on {embark} for <strong>{trip_name}</strong>.</p>
+            <p>As we finalize your arrangements under Confirmation <strong>#{conf_num}</strong>, our team is monitoring your reservations and dining allocations to ensure exceptional seamlessness.</p>
+            <p>We are dedicated to making this journey unforgettable. All confirmed itinerary records and supplier receipts are secured in your active trip file.</p>
+            <p>We will send you one more document 30 days out: a beautiful itinerary for tablet, phone, or printing.</p>
+            """
+        elif milestone == "30_DAY_ITINERARY":
+            subject = f"Dreams2Memories: Your Comprehensive Itinerary — 30 Days Out"
+            content_html = f"""
+            <p>Dear {client_name},</p>
+            <p>We are exactly thirty days out from your departure aboard <em>{ship}</em> for <strong>{trip_name}</strong>.</p>
+            <p>Attached to your client file is your comprehensive travel dossier and digital itinerary formatted specifically for tablet, phone, or printing.</p>
+            <p>Please review your embarkation logistics and reach out immediately should you desire any customized dining or excursion adjustments.</p>
+            """
+        else:
+            return {}
+            
+        full_html = build_email_html(content_html)
+        return {"subject": subject, "body_html": full_html}
+
+def run_ground_truth_sweep():
+    logger.info("Initiating Phase 4 Ground Truth Lifecycle Sweep...")
+    dossiers_dir = ROOT / "dossiers"
+    if not dossiers_dir.exists():
+        return {"status": "ERROR", "message": "No dossiers directory found."}
+        
+    results = {"scanned": 0, "staged": 0, "skipped_not_client_dossier": 0, "skipped_no_active_milestone": 0, "staged_records": []}
+    
+    for f in sorted(dossiers_dir.glob("*.md")):
+        results["scanned"] += 1
+        truth = GroundTruthDossierParser.extract_ground_truth(f)
+        if not truth:
+            results["skipped_not_client_dossier"] += 1
+            continue
+            
+        gate = TouchpointGatingEngine.evaluate_milestone(truth.get("embarkation_date", ""))
+        if not gate.get("ready"):
+            logger.info(f"[{f.name}] Skip: {gate.get('reason')}")
+            results["skipped_no_active_milestone"] += 1
+            continue
+            
+        logger.info(f"[{f.name}] Milestone matches! {gate.get('milestone')} ({gate.get('days_out')} days out). Drafting grounded correspondence under Dani A3...")
+        draft_data = DaniA3VoiceGenerator.draft_milestone_email(truth, gate)
+        if not draft_data:
+            continue
+            
+        recipient = truth.get("client_email") or "d2mconcierge@gmail.com"
+        if HaleStagingEngine:
+            pkg = {
+                "dossier_name": truth["dossier_file"],
+                "deliverable": f"Touchpoint — {gate.get('milestone')}",
+                "recipient": recipient,
+                "subject": draft_data["subject"],
+                "body_html": draft_data["body_html"],
+                "financial_total": truth.get("total_cost", 0.0)
+            }
+            res = HaleStagingEngine.stage_deliverable(pkg)
+            logger.info(f"Staged grounded deliverable: {res}")
+            results["staged"] += 1
+            results["staged_records"].append({"file": f.name, "milestone": gate.get("milestone"), "draft": res.get("draft_id")})
+            
+    logger.info(f"Ground Truth Sweep Complete: {json.dumps(results, indent=2)}")
+    return results
 
 if __name__ == "__main__":
-    logger.info("Starting Phase 4 Proactive Client Lifecycle AI Engine test execution...")
-    result = Phase4LifecycleOrchestrator.execute_semantic_lifecycle_run()
-    print(f"\nPhase 4 Execution Results:\n{json.dumps(result, indent=2)}")
+    run_ground_truth_sweep()
