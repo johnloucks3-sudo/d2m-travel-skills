@@ -179847,3 +179847,43 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-26 22:37 MT [SPENCER AIRFARE SECTION RE-ENGINEERED]**: Re-structured Section 3 of Spencer Intake Form to split airfare preferences by the 3 verified family branches: 1) Mike Yaggi Family (4 Pax: Mike, Katie, Lillianna, Clara - Business Class), 2) Tim Spencer Family (4 Pax: Tim, Spouse, James [5yo], Judah [2yo] - Premium Econ / Econ Plus returning FCO Jun 23), 3) Bill Spencer Core Group (4 Pax: Bill, Kathleen, Billy, Amanda - Premium Econ returning ZRH Jul 2). Live portal verified HTTP 200.
 
 - **2026-07-26 22:38 MT [TIM SPENCER SPOUSE NAME IDENTIFIED & UPDATED]**: Located Tim Spencer's spouse's name (**Katie Spencer**, 35yo, DOB Feb 29 1992 / Mar 1) in the passenger manifest (`Spencer_Grand_Tour_2027_Working.md`). Updated Section 2 and Section 3 of the intake form and live portal HTML.
+
+- **CHIEF SILVER** [2026-07-27T04:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-2a43d2 tier=trivial session_id=none opened_at=2026-07-27T04:39:33.680111+00:00 -->
+**Plan Opened:** PLN-2a43d2
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2a43d2 verdict=PASS quality_tier=none closed_at=2026-07-27T04:39:33.684922+00:00 -->
+**Plan Closed:** PLN-2a43d2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f9140e tier=trivial session_id=none opened_at=2026-07-27T04:39:51.531965+00:00 -->
+**Plan Opened:** PLN-f9140e
+**Task:** restart-flap flagged: thunderbird-mcp.service, thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f9140e verdict=PASS quality_tier=none closed_at=2026-07-27T04:39:51.536822+00:00 -->
+**Plan Closed:** PLN-f9140e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-26 22:40 MT [LAND STAY QUESTION DELETED]**: Removed Pre/Post Land Stay Extension interest question from Spencer Intake Form schema and live HTML pages per Commander instruction (already confirmed on itinerary). Verified live portal HTTP 200.
