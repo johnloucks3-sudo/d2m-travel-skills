@@ -36,6 +36,10 @@ class H(SimpleHTTPRequestHandler):
             self.path = self.path.split("?", 1)[0]
         if self.path == "/" or self.path == "":
             self.path = "/index.html"
+        else:
+            target = os.path.join(directory, self.path.lstrip("/"))
+            if not os.path.exists(target) and os.path.exists(target + ".html"):
+                self.path = self.path + ".html"
         return super().do_GET()
 
     def do_HEAD(self):
@@ -45,6 +49,10 @@ class H(SimpleHTTPRequestHandler):
             self.path = self.path.split("?", 1)[0]
         if self.path == "/" or self.path == "":
             self.path = "/index.html"
+        else:
+            target = os.path.join(directory, self.path.lstrip("/"))
+            if not os.path.exists(target) and os.path.exists(target + ".html"):
+                self.path = self.path + ".html"
         return super().do_HEAD()
 
 if __name__ == "__main__":
