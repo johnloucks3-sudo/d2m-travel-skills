@@ -30,3 +30,11 @@ f22e8d892be5421d02f5ceb5084a09251c54a4a4:deploy/searxng/settings.yml:generic-api
 # tracking token (vawpToken) in a saved marketing email. Not a credential — it's a
 # per-message view/tracking URL parameter from Expedia's CRM system. False positive.
 70e0c13a22b61aac2f0049c84e4ef7bdf751fb82:intel/email_intel/2026-06-30_Up_to_40_off__extra_25_with_coupon.md:generic-api-key:10
+
+# hale_decisions.md commit 1ec4899 — Spencer client intake portal password logged in audit
+# trail entry (2026-07-26 22:21 MT). Credential is for spencer.d2mluxury.quest Basic-Auth
+# (low-privilege client intake form portal, private repo). Redacted in-place in worktree
+# (hale_decisions.md lines 179781, 179803 updated 2026-07-27). History rewrite deferred —
+# private repo, credential has not reached GitHub (origin froze 2026-06-12).
+# Hale CI authority per SO_CI_RAZOR_SHARP_20260620. A7 Sterling notified via decisions log.
+1ec4899484d923f12acaa2391fce892a11599e0c:hale_decisions.md:generic-api-key:179781
