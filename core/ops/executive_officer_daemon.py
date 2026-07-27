@@ -7,7 +7,7 @@ Scope: Full operational control over all D2M Google Apps (Gmail, Sheets, Drive, 
 
 Core XO Functions:
 1. Full D2M Inbox Governance & Smart Triaging:
-   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, rewards, and automated updates.
+   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, rewards, HOA notices, and automated updates.
    - Identifies genuine human client inquiries (e.g. Spencer, Nichols, Ely, Furlow, Westbrook, Lyons, etc.).
    - Pushes instant alerts to Commander only when a REAL human client contacts the agency.
 2. TCD Suspense Engine & Clock Control:
@@ -41,8 +41,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger("XOHaleAG")
 
-# Broad domain/sender noise filter for commercial emails, newsletters, and promos
-NOISE_PATTERNS = ["cruisebound.com", "stanford.edu", 
+# Broad domain/sender noise filter for commercial emails, newsletters, promos, and non-client automation
+NOISE_PATTERNS = [
     "substack.com", "theepochtimes.com", "historyfacts.com", "cruise.com", "mkt.aacu.com",
     "rssc.com", "railbookers.com", "lawndoctor.com", "healthgrades.com", "cruisecritic.com",
     "tripadvisor.com", "walmart.com", "amazon.com", "newsmax.com", "thepointsguy.com",
@@ -54,7 +54,9 @@ NOISE_PATTERNS = ["cruisebound.com", "stanford.edu",
     "simpleflying.com", "email.forbes.com", "expediapartnersolutions.com", "centrav.com",
     "thecheesecakefactory.com", "heritage.org", "fanatics.com", "tbo.com", "princesspartners.princess.com",
     "oceaniacruises.com", "cosaction.com", "cruises.united.com", "ceoflights.com", "onlyinyourstate.com",
-    "thedeepview.co", "rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com"
+    "thedeepview.co", "rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com",
+    "costco.com", "hillsdale.edu", "frontsteps.com", "windstarcruises.com", "chickensaladchick.com",
+    "members.netflix.com", "heavy.com", "celebritysales.celebrity.com", "ccsend.com", "cruisebound.com", "stanford.edu"
 ]
 
 class ExecutiveOfficerDaemon:
