@@ -181217,3 +181217,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **2026-07-27 06:28 MT**: Commander [Approved] all 13 active strategic artifacts (T-Mobile Plan Comparison, Spencer Grand Voyage 12 Pax Intake Plan, HALE 4-Star Architecture Transformation Plan, and all 10 Surge/Batch Execution Dashboards covering 140 Initiatives). Master milestone locked in repository.
+
+- **2026-07-27 06:30 MT [STANDING DOCTRINE MANDATE]**: Enforced mandatory reporting of OC/CC limit % progress and rate-limit headroom on every final milestone and repository lock summary.
