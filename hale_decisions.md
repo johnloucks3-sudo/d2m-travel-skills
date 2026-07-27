@@ -181219,3 +181219,25 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-27 06:28 MT**: Commander [Approved] all 13 active strategic artifacts (T-Mobile Plan Comparison, Spencer Grand Voyage 12 Pax Intake Plan, HALE 4-Star Architecture Transformation Plan, and all 10 Surge/Batch Execution Dashboards covering 140 Initiatives). Master milestone locked in repository.
 
 - **2026-07-27 06:30 MT [STANDING DOCTRINE MANDATE]**: Enforced mandatory reporting of OC/CC limit % progress and rate-limit headroom on every final milestone and repository lock summary.
+
+<!-- PLAN:OPEN plan_id=PLN-b1ecfb tier=trivial session_id=none opened_at=2026-07-27T12:30:14.542653+00:00 -->
+**Plan Opened:** PLN-b1ecfb
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1208975.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b1ecfb verdict=PASS quality_tier=none closed_at=2026-07-27T12:30:14.549677+00:00 -->
+**Plan Closed:** PLN-b1ecfb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1208975.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T12:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-27 06:31 MT [LIVE CC TELEMETRY INTEGRATED]**: Integrated live CC (Claude Code v2.1.218) telemetry provided by Commander into central status dashboard (`scripts/ag_token_cost_dashboard.py`): 5h Limit Progress (3% used, ~2h left), 7d Limit Progress (43% used, ~94h left), Context Usage (82% used, Haiku 4.5).
