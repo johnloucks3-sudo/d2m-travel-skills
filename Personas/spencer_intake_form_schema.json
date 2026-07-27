@@ -1,0 +1,134 @@
+{
+  "title": "Spencer Grand Voyage 2026-2027 \u2014 Master Client & Trip Information Intake",
+  "documentTitle": "Spencer Grand Voyage 12 Pax Intake Form",
+  "description": "Welcome to your Dreams2Memories Travel Master Intake. To ensure seamless travel arrangements, visa processing, flight preferences, stateroom allocations, and dining reservations for your party of 12, please complete the required information below.",
+  "sections": [
+    {
+      "section_title": "SECTION 1 \u2014 Primary Booking Contact Information",
+      "questions": [
+        {
+          "title": "Primary Contact Full Legal Name",
+          "type": "TEXT",
+          "required": true
+        },
+        {
+          "title": "Primary Contact Preferred Name / Moniker",
+          "type": "TEXT",
+          "required": false
+        },
+        {
+          "title": "Email Address",
+          "type": "TEXT",
+          "required": true
+        },
+        {
+          "title": "Mobile Phone Number (with Country Code)",
+          "type": "TEXT",
+          "required": true
+        },
+        {
+          "title": "Mailing / Billing Address",
+          "type": "PARAGRAPH",
+          "required": true
+        }
+      ]
+    },
+    {
+      "section_title": "SECTION 2 \u2014 Passenger Roster (12 Pax Legal Identifiers)",
+      "questions": [
+        {
+          "title": "Passenger Legal Names & Passports (Pax 1 through Pax 12)",
+          "description": "Please list Full Name (per Passport), Date of Birth (MM/DD/YYYY), Passport Number, Expiration Date, and Country of Issuance for each traveler.",
+          "type": "PARAGRAPH",
+          "required": true
+        },
+        {
+          "title": "Stateroom Allocation Preference",
+          "description": "Indicate how the 12 travelers should be paired across staterooms/suites (e.g. Suite 1: Pax 1 & Pax 2).",
+          "type": "PARAGRAPH",
+          "required": true
+        }
+      ]
+    },
+    {
+      "section_title": "SECTION 3 \u2014 Flight & Airfare Preferences",
+      "questions": [
+        {
+          "title": "Preferred Home / Departure Airport(s)",
+          "type": "TEXT",
+          "required": true
+        },
+        {
+          "title": "Airfare Seating Class Preference",
+          "type": "RADIO",
+          "options": [
+            "First Class",
+            "Business Class / Suite",
+            "Premium Economy",
+            "Economy"
+          ],
+          "required": true
+        },
+        {
+          "title": "Frequent Flyer / Airline Loyalty Program Numbers",
+          "type": "PARAGRAPH",
+          "required": false
+        },
+        {
+          "title": "Pre-Cruise / Post-Cruise Land Stay Extension Interest",
+          "type": "CHECKBOX",
+          "options": [
+            "Interested in 3-day pre-cruise hotel/tour extension",
+            "Interested in 3-day post-cruise hotel/tour extension",
+            "Direct airport-to-ship transfers only",
+            "Undecided / Discuss with D2M Travel Architect"
+          ],
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_title": "SECTION 4 \u2014 Dining, Medical, Dietary & Accessibility",
+      "questions": [
+        {
+          "title": "Dietary Restrictions & Food Allergies (All 12 Travelers)",
+          "type": "PARAGRAPH",
+          "required": false
+        },
+        {
+          "title": "Medical / Mobility Assistance Needs",
+          "description": "Wheelchair access, CPAP equipment, medication refrigeration, CPAP distilled water, etc.",
+          "type": "PARAGRAPH",
+          "required": false
+        },
+        {
+          "title": "Special Occasion Celebrations During Voyage",
+          "description": "Birthdays, anniversaries, milestones occurring during the trip.",
+          "type": "PARAGRAPH",
+          "required": false
+        }
+      ]
+    },
+    {
+      "section_title": "SECTION 5 \u2014 Emergency Contact & Travel Protection",
+      "questions": [
+        {
+          "title": "Primary Emergency Contact (Not Traveling with Group)",
+          "description": "Full Name, Relationship, Phone Number, Email.",
+          "type": "PARAGRAPH",
+          "required": true
+        },
+        {
+          "title": "Travel Protection Insurance Status",
+          "type": "RADIO",
+          "options": [
+            "Include D2M Comprehensive Travel Protection Quote",
+            "Group will use private travel insurance",
+            "Decline travel insurance (Waiver required)"
+          ],
+          "required": true
+        }
+      ]
+    }
+  ]
+}
