@@ -1,14 +1,14 @@
 {
   "loucks.d2mluxury.quest": {
     "slug": "loucks-grandeur-dec2026",
-    "name": "Loucks — Panama Canal & Pacific Gems",
+    "name": "Loucks \u2014 Panama Canal & Pacific Gems",
     "dir": "output/Loucks_Grandeur_Dec2026",
     "user": "loucks",
     "pw": "loucks-4f82c1d9",
     "drive_folder": "1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
     "drive_link": "https://drive.google.com/drive/folders/1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
     "added": "2026-07-03",
-    "note": "First tenant of the multi-client portal server (Spencer-approach rollout, Commander directive 2026-07-03). Commander's own trip — booking 3122006."
+    "note": "First tenant of the multi-client portal server (Spencer-approach rollout, Commander directive 2026-07-03). Commander's own trip \u2014 booking 3122006."
   },
   "lyons.d2mluxury.quest": {
     "slug": "lyons-voyages",
@@ -23,7 +23,7 @@
   },
   "furlow.d2mluxury.quest": {
     "slug": "furlow-scandinavia",
-    "name": "John & Melissa Furlow — Storied Scandinavia",
+    "name": "John & Melissa Furlow \u2014 Storied Scandinavia",
     "dir": "output/Grandeur_Scandinavia_Portal/furlow",
     "user": "furlow",
     "pw": "furlow-2b91ef4c",
@@ -34,7 +34,7 @@
   },
   "elydarrow.d2mluxury.quest": {
     "slug": "elydarrow-scandinavia",
-    "name": "Al Ely & Amy Darrow — Storied Scandinavia",
+    "name": "Al Ely & Amy Darrow \u2014 Storied Scandinavia",
     "dir": "output/Grandeur_Scandinavia_Portal/elydarrow",
     "user": "elydarrow",
     "pw": "elydarrow-7d34a1b8",
@@ -45,7 +45,7 @@
   },
   "nichols.d2mluxury.quest": {
     "slug": "nichols-scandinavia",
-    "name": "Larry & Heidi Nichols — Storied Scandinavia",
+    "name": "Larry & Heidi Nichols \u2014 Storied Scandinavia",
     "dir": "output/Grandeur_Scandinavia_Portal/nichols",
     "user": "nichols",
     "pw": "nichols-5e82c30f",
@@ -56,7 +56,7 @@
   },
   "mcleod-survey.d2mluxury.quest": {
     "slug": "mcleod-silvermuse-postsurvey",
-    "name": "Erik McLeod & Melissa McGlasson — Silver Muse Post-Voyage Survey",
+    "name": "Erik McLeod & Melissa McGlasson \u2014 Silver Muse Post-Voyage Survey",
     "dir": "output/McLeod_SilverMuse_PostSurvey",
     "user": "ERIK",
     "pw": "260618-MUSE",
@@ -64,10 +64,21 @@
     "note": "TP 5.2 post-voyage survey for Silver Muse Mediterranean (Jun 23-Jul 3, 2026). Standalone survey page, not the queued 4-cruise mcleod.d2mluxury.quest hub. Submit action opens mailto: to concierge@d2mluxury.quest with compiled answers (static file server has no form backend)."
   },
   "_queued": {
-    "mcleod.d2mluxury.quest": "ONE page, all 4 cruises — build after Loucks test passes",
+    "mcleod.d2mluxury.quest": "ONE page, all 4 cruises \u2014 build after Loucks test passes",
     "kuklinski-kyle.d2mluxury.quest": "per-suite page 1 of 3",
     "kuklinski-roger.d2mluxury.quest": "per-suite page 2 of 3",
     "kuklinski-morton.d2mluxury.quest": "per-suite page 3 of 3",
     "spencer.d2mluxury.quest": "MIGRATE from legacy spencer-portal.service:8920 once Loucks pattern proven"
+  },
+  "spencer.d2mluxury.quest": {
+    "slug": "spencer-grandvoyage",
+    "name": "Spencer Party of 12 \u2014 Grand Voyage 2026-2027",
+    "dir": "output/Spencer_GrandVoyage",
+    "user": "spencer",
+    "pw": "SPENCER_PORTAL_ENV_PASS",
+    "drive_folder": "1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
+    "drive_link": "https://drive.google.com/drive/folders/1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
+    "added": "2026-07-26",
+    "note": "Spencer Grand Voyage 12 Pax Intake Portal & Form."
   }
 }

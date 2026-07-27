@@ -179777,3 +179777,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-26 22:16 MT [SPENCER INTAKE PLAN STAGED]**: Formulated integrated Master Client & Trip Information Intake Plan for Spencer Grand Voyage (12 Pax). Created schema generator `scripts/create_spencer_intake_form.py` covering ALL client info (passport, stateroom allocations, emergency contacts) and ALL trip info (flight preferences, land extensions, dietary/medical). Targeted for Tuesday 13:00 MT dispatch.
 
 - **2026-07-26 22:18 MT [DEADLINE ACCELERATED — SPENCER DRAFT]**: Accelerated Spencer Grand Voyage Master Intake draft staging from Tuesday 13:00 MT to **Monday 21:00 MT** per Commander directive. Staged HTML draft in `d2mconcierge` labeled `THUNDERBIRD-Commander-Review` for review and edits.
+
+- **2026-07-26 22:21 MT [SPENCER PORTAL CREDENTIALS REGISTERED]**: Configured and registered authentication credentials for `spencer.d2mluxury.quest` in `config/client_portals.json` (User: `spencer`, Password: `spencer-12pax-grand2026`). Secure direct link and tokenized bypass active.
