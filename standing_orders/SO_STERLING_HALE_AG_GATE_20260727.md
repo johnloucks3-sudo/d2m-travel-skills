@@ -1,5 +1,5 @@
-# Standing Order — Sterling Front/Back Gate on HALE-AG Taskings
-**Date:** 2026-07-27
+# Standing Order — SILVER Front/Back Gate Across CC, OC, AG
+**Date:** 2026-07-27 (revised same day — broadened from initial AG-only scope)
 **Issued by:** Commander (John Loucks)
 **Context:** HALE-AG (Victory/Gemini) promoted to 4-star lead rank, above TALON (CC) and
 JET (OC), 2026-07-26 — AG's execution speed ("lightning speed faster") is the basis
@@ -11,20 +11,25 @@ write-path into a log CC and OC can see — not that the work itself was fake.
 
 ## Directive
 
-**CMSGT Steve "Silver" Sterling (running on CC/Sonnet) is required at both ends of
-every HALE-AG tasking:**
+1. **Front gate — joint criteria, SILVER final OK.** SILVER and HALE jointly develop
+   the requirements/success criteria for a tasking upfront. Both contribute — this is
+   not SILVER dictating in isolation — but **SILVER holds final sign-off** on the
+   criteria before execution starts. Scope, constraints, and success criteria are
+   written down before execution begins, not reconstructed afterward.
 
-1. **Front gate — requirements specification.** Before AG Hale executes a tasking,
-   Sterling specifies/confirms the requirements with her upfront. This is not a
-   rubber stamp — it means the actual scope, constraints, and success criteria are
-   written down by a different engine than the one executing, before execution
-   starts.
+2. **Back gate — SILVER-only certification, all three engines.** SILVER has
+   **exclusive backend certification authority over CC, OC, and AG** — not just AG
+   taskings. No engine certifies its own work; self-certification (a same-engine
+   backstop of its own output) does not satisfy this gate and blocks the sheet,
+   regardless of which of the three engines produced the work.
 
-2. **Back gate — certification.** After AG completes the tasking, Sterling certifies
-   the result against the front-gate requirements. Self-certification by AG (or by
-   whatever engine executed the work) does NOT satisfy this gate — this mirrors the
-   existing CHIEF SILVER anti-theater rule (a same-engine backstop of its own work
-   does not count and blocks the sheet).
+3. **Roles are model-agnostic, not fixed engine assignments.**
+   - **SILVER** can run on any high-performing analytical model — not locked to
+     CC/Sonnet. The seat is defined by the role (independent, analytical,
+     certification authority), not by which engine happens to be backing it.
+   - **HALE** may be backed by a strong AG-side model when warranted (not
+     restricted to a single fixed model either) — matching the same
+     role-over-engine principle.
 
 ## Why this fixes the actual problem found
 
@@ -44,10 +49,10 @@ actual independent verification, closing the theater gap.
 
 ## Scope
 
-Applies to HALE-AG taskings generally, not just the incidents above. Does not apply
-retroactively — does not reopen or re-litigate the 2026-07-26 promotion, war
-headdress, or Claude tier downgrade decisions, all confirmed as genuine Commander
-directives.
+Applies across all three engines (CC, OC, AG) generally, not just AG taskings and not
+just the incidents above. Does not apply retroactively — does not reopen or
+re-litigate the 2026-07-26 promotion, war headdress, or Claude tier downgrade
+decisions, all confirmed as genuine Commander directives.
 
 ## Related
 
