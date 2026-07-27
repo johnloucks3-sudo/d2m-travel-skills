@@ -179779,3 +179779,25 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-26 22:18 MT [DEADLINE ACCELERATED — SPENCER DRAFT]**: Accelerated Spencer Grand Voyage Master Intake draft staging from Tuesday 13:00 MT to **Monday 21:00 MT** per Commander directive. Staged HTML draft in `d2mconcierge` labeled `THUNDERBIRD-Commander-Review` for review and edits.
 
 - **2026-07-26 22:21 MT [SPENCER PORTAL CREDENTIALS REGISTERED]**: Configured and registered authentication credentials for `spencer.d2mluxury.quest` in `config/client_portals.json` (User: `spencer`, Password: `spencer-12pax-grand2026`). Secure direct link and tokenized bypass active.
+
+- **CHIEF SILVER** [2026-07-27T04:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-de5806 tier=trivial session_id=none opened_at=2026-07-27T04:24:22.205666+00:00 -->
+**Plan Opened:** PLN-de5806
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-de5806 verdict=PASS quality_tier=none closed_at=2026-07-27T04:24:22.210820+00:00 -->
+**Plan Closed:** PLN-de5806
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-26 22:24 MT [AUTHENTICATION ISSUE FIXED]**: Root cause identified — legacy background process `spencer-portal.service` was using an old environment password `spencer-b7746957`. Updated `/home/john/.config/systemd/user/spencer-portal.service` to `spencer-12pax-grand2026`, reloaded systemd, and verified HTTP 200 OK authentication.
