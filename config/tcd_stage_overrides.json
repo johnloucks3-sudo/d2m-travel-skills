@@ -31,6 +31,120 @@
     "owner": "Hale"
   },
   "mission-MISSION-24": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-001": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-005": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-011": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-012": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-013": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-014": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-015": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-016": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-017": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "a7metrics-continuity": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-020": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-021": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-022": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-023": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-025": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-26": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-027": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-028": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "watch-prediction-ledger-stale": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-006": {
     "stage": "P"
+  },
+  "mission-MISSION-007": {
+    "stage": "P"
+  },
+  "mission-MISSION-008": {
+    "stage": "P"
+  },
+  "elon-idea-001": {
+    "stage": "P",
+    "owner": "ELON"
+  },
+  "elon-idea-002": {
+    "stage": "P",
+    "owner": "ELON"
+  },
+  "dani-idea-001": {
+    "stage": "P",
+    "owner": "Dani (A3)"
+  },
+  "sterling-idea-001": {
+    "stage": "P",
+    "owner": "Sterling (E-9)"
+  },
+  "intel-idea-001": {
+    "stage": "P",
+    "owner": "Intel (A2)"
+  },
+  "harlan-idea-001": {
+    "stage": "P",
+    "owner": "Harlan (A9)"
+  },
+  "hale-idea-001": {
+    "stage": "P",
+    "owner": "Hale (COS)"
   }
 }
