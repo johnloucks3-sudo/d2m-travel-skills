@@ -7,7 +7,7 @@ Scope: Full operational control over all D2M Google Apps (Gmail, Sheets, Drive, 
 
 Core XO Functions:
 1. Full D2M Inbox Governance & Smart Triaging:
-   - Filters out newsletters, marketing blasts, supplier promos, and automated updates.
+   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, and automated updates.
    - Identifies genuine human client inquiries (e.g. Spencer, Nichols, Ely, Furlow, Westbrook, Lyons, etc.).
    - Pushes instant alerts to Commander only when a REAL human client contacts the agency.
 2. TCD Suspense Engine & Clock Control:
@@ -41,15 +41,17 @@ logging.basicConfig(
 )
 logger = logging.getLogger("XOHaleAG")
 
-# Domain/Sender patterns to filter out as automated noise / promos
-NOISE_DOMAINS = [
+# Broad domain/sender noise filter for commercial emails, newsletters, and promos
+NOISE_PATTERNS = ["rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com", 
     "substack.com", "theepochtimes.com", "historyfacts.com", "cruise.com", "mkt.aacu.com",
     "rssc.com", "railbookers.com", "lawndoctor.com", "healthgrades.com", "cruisecritic.com",
     "tripadvisor.com", "walmart.com", "amazon.com", "newsmax.com", "thepointsguy.com",
     "silversea.com", "cyberguy.com", "informeddelivery.usps.com", "beehiiv.com",
     "thecoloradoflyover.com", "legalinsurrection.com", "justthenews.com", "wired.com",
     "atlasoceanvoyages.com", "farebuzzmail.com", "rocketmoney.com", "americanexpress.com",
-    "tln.messages2.com", "agentmail.to"
+    "tln.messages2.com", "agentmail.to", "colorfulimages.com", "l.freddys.com",
+    "allrecipes.com", "vitalitymedical.com", "parkdia.com", "accounts.google.com",
+    "simpleflying.com", "email.forbes.com", "expediapartnersolutions.com", "centrav.com"
 ]
 
 class ExecutiveOfficerDaemon:
@@ -75,8 +77,8 @@ class ExecutiveOfficerDaemon:
                 sender = headers.get('from', 'Unknown Sender')
                 subject = headers.get('subject', 'No Subject')
                 
-                # Check if sender is automated marketing noise
-                if any(nd in sender.lower() for nd in NOISE_DOMAINS):
+                # Filter out commercial/newsletter noise
+                if any(np in sender.lower() for np in NOISE_PATTERNS):
                     continue
                     
                 logger.info(f"🚨 REAL HUMAN CLIENT INQUIRY DETECTED: [{sender}] — {subject}")
