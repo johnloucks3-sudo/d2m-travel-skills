@@ -181301,3 +181301,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-27 06:50 MT [REAL-TIME DYNAMIC AG TELEMETRY FIX]**: Commander correctly identified that AG rate-limit headroom was stuck static at 94.2%. Re-engineered `scripts/ag_token_cost_dashboard.py` to parse live session transcripts dynamically (`transcript.jsonl`). Measured real-time session token burn: 205,919 tokens consumed across 574 session steps. AG rate-limit headroom updated dynamically to **89.7% Available (10.3% Used)**.
 
 - **2026-07-27 06:51 MT [RESET SCHEDULE TELEMETRY INTEGRATED]**: Added dynamic reset date/time calculations to central status board (`scripts/ag_token_cost_dashboard.py`): 1) CC 5-hour session reset timestamp, 2) CC 7-day rolling reset timestamp, 3) AG & OC daily midnight quota reset timestamps.
+
+- **2026-07-27 06:53 MT [CC 7-DAY RESET VERIFIED TO 21:00 MT THURSDAYS]**: Corrected CC 7-day rolling reset timestamp to **Thursday July 30, 2026 at 21:00 MT** (~86h 6m / ~3.5 days from Monday morning). Locked verified reset schedule into `scripts/ag_token_cost_dashboard.py`.

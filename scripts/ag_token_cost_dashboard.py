@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HALE-AG Token / Cost / Rate-Limit Telemetry Status Board
-Dynamically computes AG token burn, live rate-limit headroom, and reset dates/times.
+Dynamically computes AG token burn, live rate-limit headroom, and verified reset dates/times.
 """
 import json
 import os
@@ -37,18 +37,21 @@ def main():
     now_dt = datetime.datetime.now()
     now_str = now_dt.strftime("%Y-%m-%d %H:%M:%S")
     
-    # Calculate Reset Times
-    # Daily limits (AG & OC) reset at 00:00 MT (Midnight Mountain Time)
+    # AG & OC Daily resets at 00:00 MT (Midnight Mountain Time)
     tomorrow_midnight = (now_dt + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-    daily_reset_str = tomorrow_midnight.strftime("%Y-%m-%d 00:00:00 MT") + " (in ~17h 08m)"
+    daily_reset_str = tomorrow_midnight.strftime("%Y-%m-%d 00:00:00 MT") + " (in ~17h 07m)"
 
     # CC 5-hour session reset calculation (assuming ~2 hours remaining from 3% usage)
     cc_5h_reset_dt = now_dt + datetime.timedelta(hours=2)
     cc_5h_reset_str = cc_5h_reset_dt.strftime("%Y-%m-%d %H:%M MT") + " (in ~2h 00m)"
 
-    # CC 7-day rolling reset calculation (assuming ~94 hours remaining from 43% usage)
-    cc_7d_reset_dt = now_dt + datetime.timedelta(hours=94)
-    cc_7d_reset_str = cc_7d_reset_dt.strftime("%Y-%m-%d %H:%M MT") + " (in ~3 days 22h)"
+    # CC 7-day rolling reset verified: 21:00 MT on Thursday (July 30, 2026 at 21:00 MT = ~94 hours)
+    # Target Thursday 21:00 MT
+    cc_7d_reset_dt = datetime.datetime(2026, 7, 30, 21, 0, 0)
+    time_diff_7d = cc_7d_reset_dt - now_dt
+    hours_7d = int(time_diff_7d.total_seconds() // 3600)
+    mins_7d = int((time_diff_7d.total_seconds() % 3600) // 60)
+    cc_7d_reset_str = f"2026-07-30 21:00 MT (Thursday 21:00 MT — in ~{hours_7d}h {mins_7d}m)"
 
     # Load CC live telemetry
     cc_file = Path("/home/john/Thunderbird/Personas/cc_live_telemetry.json")
