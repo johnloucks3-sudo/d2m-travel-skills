@@ -181695,3 +181695,85 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **2026-07-27 09:00 MT [WEEKLY CLAUDE CODE INTEL SWEEP EXECUTED]**: Executed scheduled Monday 09:00 MT tasking (`task-20`). Scraped and analyzed Claude Code CLI documentation and release notes (v2.1.216-v2.1.220). Highlighted Opus 5 1M context integration, 3-level subagent nesting caps (max 20 workers), strict network sandbox allowlisting, and native `llms.txt` documentation parsing. Dispatched formatted HTML Intel Report directly to johnloucks3@gmail.com (Message ID: `19fa4174de3ab0ea`).
+
+- **CHIEF SILVER** [2026-07-27T15:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T15:12Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-0a84b8 tier=trivial session_id=none opened_at=2026-07-27T15:14:48.547944+00:00 -->
+**Plan Opened:** PLN-0a84b8
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a84b8 verdict=PASS quality_tier=none closed_at=2026-07-27T15:14:48.552818+00:00 -->
+**Plan Closed:** PLN-0a84b8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T15:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-f9696f tier=trivial session_id=none opened_at=2026-07-27T15:30:38.116534+00:00 -->
+**Plan Opened:** PLN-f9696f
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f9696f verdict=PASS quality_tier=none closed_at=2026-07-27T15:30:38.125321+00:00 -->
+**Plan Closed:** PLN-f9696f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-27T15:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-95e281 tier=trivial session_id=none opened_at=2026-07-27T15:32:35.988377+00:00 -->
+**Plan Opened:** PLN-95e281
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1457894.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-95e281 verdict=PASS quality_tier=none closed_at=2026-07-27T15:32:35.993389+00:00 -->
+**Plan Closed:** PLN-95e281
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1457894.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a521cd tier=trivial session_id=none opened_at=2026-07-27T15:37:45.219417+00:00 -->
+**Plan Opened:** PLN-a521cd
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a521cd verdict=PASS quality_tier=none closed_at=2026-07-27T15:37:45.224007+00:00 -->
+**Plan Closed:** PLN-a521cd
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-27 09:38 MT [SKYBIRD TRAVEL BRITISH AIRWAYS BUSINESS CLASS QUOTE ENROLLED]**: Cached Skybird WINGS B2B credentials (`johnloucks3@gmail.com` / `creds/skybird_credentials.json`). Ingested British Airways Business Class (I-Class) quote ($5,823.96/pax, GDS Sabre US NET SKYBIRD SPL). Outbound: DEN->LHR->VCE (May 1, 1h 50m layover), Return: ATH->DFW->DEN (May 30, 1h 34m layover). Replaced Turkish Airlines 13h layover option. Injected quote live onto Spencer Intake Portal (https://spencer.d2mluxury.quest) and uploaded to Google Drive.
