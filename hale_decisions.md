@@ -181247,3 +181247,5 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T12:31Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-27 06:33 MT [T-MOBILE 2-LINE BILL AUDIT]**: Audited exact T-Mobile statement for John (`719-291-0742`) and Susan (`719-291-0743`). Identified Susan's iPhone 16 Plus installment (13 of 24, $19.37/mo net, 11 months remaining). Recommended upgrading John's line ($0 balance) to iPhone 17 on Experience More (55+), holding bill flat at $170.37/mo for 11 months, then dropping to $151.00/mo in Month 12.
+
+- **2026-07-27 06:36 MT [SUSAN EARLY PHONE UPGRADE ANALYSIS]**: Evaluated upgrading Susan's iPhone 16 Plus early (11 payments remaining). Discovered T-Mobile account-level promo credit retention rule ($19.38/mo account credit continues for 11 months if paid off). Under Experience More (55+), monthly bill drops immediately from $170.37 to $131.62/mo for 11 months (saving $38.75/mo = $426.25, 100% recovering upfront payoff), settling at $151.00/mo in Month 12.
