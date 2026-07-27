@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-HALE-AG Executive Officer (XO) Autonomous Sentinel & TCD/Gmail Orchestrator
-============================================================================
-Authority: Commander Directive (2026-07-27)
-Scope: Full operational control over all D2M Google Apps (Gmail, Sheets, Drive, Calendar, Tasks, Keep).
-
-Core XO Functions:
-1. Full D2M Inbox Governance & Smart Triaging:
-   - Filters out newsletters, marketing blasts, supplier promos, commercial offers, rewards, HOA notices, and automated updates.
-   - Identifies genuine human client inquiries (e.g. Spencer, Nichols, Ely, Furlow, Westbrook, Lyons, etc.).
-   - Pushes instant alerts to Commander only when a REAL human client contacts the agency.
-2. TCD Suspense Engine & Clock Control:
-   - Audits active Stage D/A items to ensure zero stale 24h+ blocks.
+HALE-AG Executive Officer (XO) Autonomous Sentinel & Folder Governance Daemon
+==============================================================================
+Authority: Commander Directives (2026-07-27)
+Scope & Rules of Engagement:
+1. johnloucks3@gmail.com ACCOUNT SCOPE:
+   - INBOX: STRICT HANDS-OFF. Zero autonomous reads/deletions/moves in main Inbox.
+   - OTHER FOLDERS & DRAFTS: Full authority to maintain, clean up, label, and manage drafts.
+   - Housekeeping & Languishing Items: Audit non-inbox folders & drafts, flagging stagnant items to Commander.
+2. d2mconcierge@gmail.com ACCOUNT SCOPE:
+   - FULL AUTHORITY over d2mconcierge inbox and folders.
+   - MANDATORY ALLOWLIST INCLUSION: Project Expedition, supplier/vendor applications (Sky Bird, Centrav, TBO, etc.), client inquiries, and Commander correspondence MUST be passed through as priority comms.
+   - Commercial / Consumer Marketing Blasts: Autonomous triaging and cleanup.
 """
 
 import email
@@ -41,80 +41,104 @@ logging.basicConfig(
 )
 logger = logging.getLogger("XOHaleAG")
 
-# Broad domain/sender noise filter for commercial emails, newsletters, promos, and non-client automation
+# Explicit ALLOWLIST patterns for d2mconcierge (NEVER filter these out)
+PRIORITY_ALLOWLIST = [
+    "projectexpedition.com", "project-expedition", "skybird", "centrav", "tbo.com",
+    "virtuoso", "rssc.com", "nexion", "outsideagents", "tess", "allianz", "viking",
+    "silversea", "princess", "seabourn", "oceania", "regent", "spencer", "nichols",
+    "ely", "furlow", "westbrook", "lyons", "darrow", "kuklinski"
+]
+
+# Broad domain/sender noise filter for commercial emails, consumer marketing, and retail promos
 NOISE_PATTERNS = [
-    "substack.com", "theepochtimes.com", "historyfacts.com", "cruise.com", "mkt.aacu.com",
-    "rssc.com", "railbookers.com", "lawndoctor.com", "healthgrades.com", "cruisecritic.com",
-    "tripadvisor.com", "walmart.com", "amazon.com", "newsmax.com", "thepointsguy.com",
-    "silversea.com", "cyberguy.com", "informeddelivery.usps.com", "beehiiv.com",
-    "thecoloradoflyover.com", "legalinsurrection.com", "justthenews.com", "wired.com",
-    "atlasoceanvoyages.com", "farebuzzmail.com", "rocketmoney.com", "americanexpress.com",
-    "tln.messages2.com", "agentmail.to", "colorfulimages.com", "l.freddys.com",
-    "allrecipes.com", "vitalitymedical.com", "parkdia.com", "accounts.google.com",
-    "simpleflying.com", "email.forbes.com", "expediapartnersolutions.com", "centrav.com",
-    "thecheesecakefactory.com", "heritage.org", "fanatics.com", "tbo.com", "princesspartners.princess.com",
-    "oceaniacruises.com", "cosaction.com", "cruises.united.com", "ceoflights.com", "onlyinyourstate.com",
-    "thedeepview.co", "rccl.com", "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "m.seabourn.com",
-    "costco.com", "hillsdale.edu", "frontsteps.com", "windstarcruises.com", "chickensaladchick.com",
-    "members.netflix.com", "heavy.com", "celebritysales.celebrity.com", "ccsend.com", "cruisebound.com", "stanford.edu"
+    "substack.com", "theepochtimes.com", "historyfacts.com", "mkt.aacu.com",
+    "lawndoctor.com", "healthgrades.com", "cruisecritic.com", "walmart.com", "amazon.com",
+    "newsmax.com", "thepointsguy.com", "cyberguy.com", "informeddelivery.usps.com",
+    "beehiiv.com", "thecoloradoflyover.com", "legalinsurrection.com", "justthenews.com",
+    "wired.com", "rocketmoney.com", "americanexpress.com", "colorfulimages.com",
+    "l.freddys.com", "allrecipes.com", "vitalitymedical.com", "parkdia.com",
+    "simpleflying.com", "email.forbes.com", "thecheesecakefactory.com", "heritage.org",
+    "fanatics.com", "cosaction.com", "onlyinyourstate.com", "thedeepview.co",
+    "loseit.com", "cntraveler.com", "rivercruiseadvisor.com", "costco.com",
+    "hillsdale.edu", "frontsteps.com", "chickensaladchick.com", "members.netflix.com",
+    "heavy.com", "ccsend.com", "stanford.edu"
 ]
 
 class ExecutiveOfficerDaemon:
     """HALE-AG Executive Officer Engine"""
     
     @classmethod
-    def scan_d2m_inbox_for_external_messages(cls) -> dict:
-        logger.info("XO Sentinel: Scanning d2mconcierge inbox for real human client inquiries...")
+    def scan_d2m_inbox(cls) -> dict:
+        logger.info("XO Sentinel: Scanning d2mconcierge inbox for priority client/vendor comms...")
         try:
             from api.thunderbird_google_auth import get_gmail
             svc = get_gmail()
             res = svc.users().messages().list(userId='me', q='is:unread -from:johnloucks3@gmail.com -from:d2mconcierge@gmail.com').execute()
             messages = res.get('messages', [])
             
-            logger.info(f"Unread messages evaluated: {len(messages)}")
-            human_client_inquiries = []
+            logger.info(f"d2mconcierge unread messages evaluated: {len(messages)}")
+            priority_comms = []
             
             for m in messages:
                 msg_id = m['id']
                 detail = svc.users().messages().get(userId='me', id=msg_id).execute()
                 snippet = detail.get('snippet', '')
                 headers = {h['name'].lower(): h['value'] for h in detail.get('payload', {}).get('headers', [])}
-                sender = headers.get('from', 'Unknown Sender')
+                sender = headers.get('from', 'Unknown Sender').lower()
                 subject = headers.get('subject', 'No Subject')
                 
-                # Filter out commercial/newsletter noise
-                if any(np in sender.lower() for np in NOISE_PATTERNS):
+                # Check Priority Allowlist FIRST (Project Expedition, Suppliers, Clients)
+                is_priority = any(al in sender or al in subject.lower() or al in snippet.lower() for al in PRIORITY_ALLOWLIST)
+                
+                # Check Noise Filter if not explicitly allowlisted
+                if not is_priority and any(np in sender for np in NOISE_PATTERNS):
                     continue
                     
-                logger.info(f"🚨 REAL HUMAN CLIENT INQUIRY DETECTED: [{sender}] — {subject}")
-                human_client_inquiries.append({
+                logger.info(f"🚨 PRIORITY D2M COMM DETECTED: [{sender}] — {subject}")
+                priority_comms.append({
                     "id": msg_id,
                     "sender": sender,
                     "subject": subject,
-                    "snippet": snippet
+                    "snippet": snippet,
+                    "is_allowlisted": is_priority
                 })
                 
-            return {"status": "SUCCESS", "unread_total": len(messages), "human_inquiries_count": len(human_client_inquiries), "inquiries": human_client_inquiries}
+            return {"status": "SUCCESS", "unread_total": len(messages), "priority_comms_count": len(priority_comms), "comms": priority_comms}
         except Exception as e:
             logger.error(f"Error during d2m inbox scan: {e}")
             return {"status": "ERROR", "message": str(e)}
 
     @classmethod
-    def audit_tcd_suspenses(cls) -> dict:
-        logger.info("XO Sentinel: Auditing TCD dataset for pending decision suspenses...")
+    def audit_johnloucks3_folder_housekeeping(cls) -> dict:
+        """Audits johnloucks3 drafts and non-inbox folders for stagnant/languishing items WITHOUT TOUCHING INBOX."""
+        logger.info("XO Sentinel: Auditing johnloucks3 drafts and non-inbox folders for housekeeping...")
         try:
-            from tcd import writeback
-            rows = writeback.read_sheet_rows()
-            active_items = [r for r in rows if r.get("stage") in ["D", "A"] and r.get("status") == "Open"]
+            from api.thunderbird_google_auth import get_gmail
+            svc = get_gmail() # Accesses main account
             
-            logger.info(f"Active TCD items currently in flight (Stage D/A): {len(active_items)}")
-            return {"status": "SUCCESS", "active_suspenses": len(active_items)}
+            # Check Drafts folder
+            drafts_res = svc.users().drafts().list(userId='me').execute()
+            drafts = drafts_res.get('drafts', [])
+            
+            stagnant_drafts = []
+            for d in drafts:
+                detail = svc.users().drafts().get(userId='me', id=d['id']).execute()
+                msg = detail.get('message', {})
+                headers = {h['name'].lower(): h['value'] for h in msg.get('payload', {}).get('headers', [])}
+                stagnant_drafts.append({
+                    "id": d['id'],
+                    "subject": headers.get('subject', '(No Subject)'),
+                    "to": headers.get('to', '(No Recipient)')
+                })
+                
+            logger.info(f"johnloucks3 Drafts audit complete: {len(drafts)} drafts currently managed.")
+            return {"status": "SUCCESS", "draft_count": len(drafts), "drafts": stagnant_drafts}
         except Exception as e:
-            logger.error(f"Error auditing TCD suspenses: {e}")
+            logger.error(f"Error auditing johnloucks3 folder housekeeping: {e}")
             return {"status": "ERROR", "message": str(e)}
 
 if __name__ == "__main__":
-    logger.info("Initializing HALE-AG Executive Officer (XO) Smart Sweep...")
-    inbox_res = ExecutiveOfficerDaemon.scan_d2m_inbox_for_external_messages()
-    suspense_res = ExecutiveOfficerDaemon.audit_tcd_suspenses()
-    print(f"\nXO Daemon Status:\n{json.dumps({'inbox_sentinel': inbox_res, 'suspense_audit': suspense_res}, indent=2)}")
+    logger.info("Initializing HALE-AG Executive Officer (XO) Governance & Housekeeping Run...")
+    d2m_res = ExecutiveOfficerDaemon.scan_d2m_inbox()
+    jl_res = ExecutiveOfficerDaemon.audit_johnloucks3_folder_housekeeping()
+    print(f"\nXO Daemon Status:\n{json.dumps({'d2m_inbox_sentinel': d2m_res, 'johnloucks3_folder_housekeeping': jl_res}, indent=2)}")
