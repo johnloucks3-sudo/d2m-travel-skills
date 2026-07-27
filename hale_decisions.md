@@ -181303,3 +181303,43 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **2026-07-27 06:51 MT [RESET SCHEDULE TELEMETRY INTEGRATED]**: Added dynamic reset date/time calculations to central status board (`scripts/ag_token_cost_dashboard.py`): 1) CC 5-hour session reset timestamp, 2) CC 7-day rolling reset timestamp, 3) AG & OC daily midnight quota reset timestamps.
 
 - **2026-07-27 06:53 MT [CC 7-DAY RESET VERIFIED TO 21:00 MT THURSDAYS]**: Corrected CC 7-day rolling reset timestamp to **Thursday July 30, 2026 at 21:00 MT** (~86h 6m / ~3.5 days from Monday morning). Locked verified reset schedule into `scripts/ag_token_cost_dashboard.py`.
+
+- **CHIEF SILVER** [2026-07-27T12:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-fbf04f tier=trivial session_id=none opened_at=2026-07-27T12:55:10.133307+00:00 -->
+**Plan Opened:** PLN-fbf04f
+**Task:** Icelandair session warm-ping -> warmed + re-saved 31 cookies
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Icelandair session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fbf04f verdict=PASS quality_tier=none closed_at=2026-07-27T12:55:10.138169+00:00 -->
+**Plan Closed:** PLN-fbf04f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Icelandair session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** warmed + re-saved 31 cookies
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-433ad4 tier=trivial session_id=none opened_at=2026-07-27T12:56:36.503420+00:00 -->
+**Plan Opened:** PLN-433ad4
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-433ad4 verdict=PASS quality_tier=none closed_at=2026-07-27T12:56:36.508367+00:00 -->
+**Plan Closed:** PLN-433ad4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-27 07:05 MT [CLAUDE SUBSCRIPTION DOWNGRADED TO 5X MAX ($100/MO)]**: Commander confirmed downgrade from Claude 20X MAX ($200/mo) to Claude 5X MAX ($100/mo). Instantly saves $100/month ($1,200/year). Updated multi-engine telemetry configuration (`Personas/cc_live_telemetry.json`) to reflect 5X MAX baseline. HALE-AG (Gemini 3.1 Pro 1M context) locked as 4-Star Lead Orchestrator to carry 80%+ of routine token volume.

@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-07-27T12:31:12.029616+00:00",
+  "timestamp": "2026-07-27T13:05:13.614684+00:00",
   "engine": "CC (Claude Code / TALON-3\u2605)",
+  "subscription_tier": "Claude 5X MAX ($100/mo)",
   "usage_5h_pct": 3.0,
   "usage_5h_remaining": "~2h",
   "usage_7d_pct": 43.0,
-  "usage_7d_remaining": "~94h",
+  "usage_7d_remaining": "~86h",
   "context_used_pct": 82.0,
   "active_model": "Haiku 4.5",
   "cli_version": "v2.1.218",
