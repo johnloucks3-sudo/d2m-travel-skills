@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-27 10:36:35 MT",
+  "client": "John Loucks",
+  "routing": "DEN -> VCE (May 01, 2027) | ATH -> DEN (May 30, 2027)",
+  "choice_1_ba": {
+    "airline": "British Airways",
+    "cabin": "Business Class (I-Class)",
+    "price_per_pax": 5823.96,
+    "outbound": "DEN 18:40 \u2794 LHR 10:35 (+1) | Layover: 1h 50m | LHR 12:25 \u2794 VCE 15:40",
+    "return": "ATH 14:00 \u2794 DFW 18:55 | Layover: 1h 34m | DFW 20:29 \u2794 DEN 21:38",
+    "max_layover": "1h 50m",
+    "status": "\ud83d\udfe2 CHOICE #1 PREFERRED FARE (STABLE)"
+  },
+  "watch_cue_turkish": {
+    "airline": "Turkish Airlines",
+    "cabin": "Business Class",
+    "price_per_pax": 5390.0,
+    "delta_vs_ba": "-$433.96",
+    "outbound": "DEN 21:35 \u2794 IST 16:25 (+1) | Layover: 13h 10m | IST 05:35 \u2794 VCE 07:05",
+    "return": "ATH 22:25 \u2794 IST 23:55 | Layover: 4h 15m | IST 04:10 \u2794 DEN 08:45",
+    "max_layover": "13h 10m",
+    "status": "\u23f3 ACTIVE FARE CUE (ANTICIPATING PRICE DROP / SCHEDULE ADJUSTMENT)"
+  }
+}

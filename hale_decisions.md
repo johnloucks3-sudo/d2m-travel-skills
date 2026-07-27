@@ -181930,3 +181930,45 @@ Scanned: 38 proposals | Active: 38 | Closed: 0
 - **CHIEF SILVER** [2026-07-27T16:09Z] BACK INTERNAL-OPS → PASS — wing machinery
 
 - **2026-07-27 10:14 MT [LIVE CLAUDE WEB DASHBOARD TELEMETRY SYNCED]**: Synced exact live Claude Web Billing & Usage status provided by Commander: 1) Active Tier: Claude Max (20x), 2) Current Session: 15% used (resets in 1h 36m -> 11:50 MT), 3) Weekly Limit: 48% used (resets Thu 9:00 PM MT -> July 30 21:00 MT), 4) Fable Usage: 0% used, 5) Usage Credits: $0.00 spent.
+
+- **CHIEF SILVER** [2026-07-27T16:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-27T16:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-c26806 tier=trivial session_id=none opened_at=2026-07-27T16:32:06.688753+00:00 -->
+**Plan Opened:** PLN-c26806
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c26806 verdict=PASS quality_tier=none closed_at=2026-07-27T16:32:06.694496+00:00 -->
+**Plan Closed:** PLN-c26806
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9171b9 tier=trivial session_id=none opened_at=2026-07-27T16:33:01.005341+00:00 -->
+**Plan Opened:** PLN-9171b9
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1547294.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9171b9 verdict=PASS quality_tier=none closed_at=2026-07-27T16:33:01.010231+00:00 -->
+**Plan Closed:** PLN-9171b9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_1547294.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **2026-07-27 10:36 MT [WEATHER EYE DAILY AIRFARE WATCH INSTALLED]**: Programmed daily automated survey for John Loucks Choice #1 (British Airways Business Class $5,823.96/pax via Skybird WINGS GDS Sabre) and secondary watch cue (Turkish Airlines $5,390/pax). Deployed systemd timer `weather-eye-loucks-airfare.timer` running daily at 07:30 MT. Initial survey email delivered directly to johnloucks3@gmail.com (Message ID: `19fa46f7652a81f6`).
