@@ -91,41 +91,43 @@ def execute_reorg():
         "Suspenses_Calendar": get_or_create_folder(service, "Suspenses_Calendar", CLIENT_ROOT),
     }
 
-    # 3. Scan and move scattered files from DRIVE_ROOT
-    logger.info("Scanning for scattered files in Drive root...")
-    results = service.files().list(
-        q=f"'{DRIVE_ROOT}' in parents and trashed = false and mimeType != 'application/vnd.google-apps.folder'",
-        fields="files(id, name, mimeType)",
-        pageSize=100,
-        supportsAllDrives=True,
-        includeItemsFromAllDrives=True
-    ).execute()
-    files = results.get("files", [])
-    logger.info(f"Found {len(files)} scattered files in root to process.")
+    # 3. Scan and move scattered files from both Shared Drive and My Drive root
+    roots = [DRIVE_ROOT, "root"]
+    for root_id in roots:
+        logger.info(f"Scanning for scattered files in root folder: {root_id}...")
+        results = service.files().list(
+            q=f"'{root_id}' in parents and trashed = false and mimeType != 'application/vnd.google-apps.folder'",
+            fields="files(id, name, mimeType)",
+            pageSize=100,
+            supportsAllDrives=True,
+            includeItemsFromAllDrives=True
+        ).execute()
+        files = results.get("files", [])
+        logger.info(f"Found {len(files)} scattered files in {root_id} to process.")
 
-    for f in files:
-        fid = f["id"]
-        fname = f["name"]
-        mimetype = f["mimeType"]
-        
-        target_folder = None
-        
-        # Mapping logic
-        if fname.startswith("hale_chat_log_") and fname.endswith(".jsonl"):
-            target_folder = d2m_folders["Daily_Brief_Logs"]
-        elif fname.endswith(".html") or fname.endswith(".pdf"):
-            target_folder = client_folders["Output_Deliverables"]
-        elif fname.startswith("~EARA") or fname.startswith("EARA"):
-            target_folder = d2m_folders["System_Configs"]
-        elif fname.endswith(".docx") and "template" in fname.lower():
-            target_folder = client_folders["Touchpoint_Templates"]
+        for f in files:
+            fid = f["id"]
+            fname = f["name"]
+            mimetype = f["mimeType"]
+            
+            target_folder = None
+            
+            # Mapping logic
+            if fname.startswith("hale_chat_log_") and fname.endswith(".jsonl"):
+                target_folder = d2m_folders["Daily_Brief_Logs"]
+            elif fname.endswith(".html") or fname.endswith(".pdf"):
+                target_folder = client_folders["Output_Deliverables"]
+            elif fname.startswith("~EARA") or fname.startswith("EARA"):
+                target_folder = d2m_folders["System_Configs"]
+            elif fname.endswith(".docx") and "template" in fname.lower():
+                target_folder = client_folders["Touchpoint_Templates"]
 
-        if target_folder:
-            logger.info(f"Moving file: {fname} -> Target Folder ID: {target_folder}")
-            if move_file_in_drive(service, fid, DRIVE_ROOT, target_folder):
-                logger.info(f"✓ Successfully moved {fname}")
-        else:
-            logger.debug(f"No target folder mapped for: {fname} ({mimetype})")
+            if target_folder:
+                logger.info(f"Moving file: {fname} -> Target Folder ID: {target_folder}")
+                if move_file_in_drive(service, fid, root_id, target_folder):
+                    logger.info(f"✓ Successfully moved {fname}")
+            else:
+                logger.debug(f"No target folder mapped for: {fname} ({mimetype})")
 
     logger.info("Google Drive reorganization complete.")
 
