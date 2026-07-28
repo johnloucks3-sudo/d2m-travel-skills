@@ -530,6 +530,15 @@ def send_evening_eod():
 
     sent_msg = svc.users().messages().send(userId="me", body={"raw": raw_b64}).execute()
     logger.info(f"✅ Delivered Evening Consolidated EOD Brief to johnloucks3 INBOX (ID: {sent_msg.get('id')})")
+
+    # Sync Hale system state log to Google Drive (d2m Daily_Brief_Logs)
+    try:
+        logger.info("Triggering Hale system state log sync to Google Drive...")
+        subprocess.run(["python3", str(ROOT / "scripts" / "sync_hale_state_logs.py")], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        logger.info("✓ Hale system state log synced to Drive.")
+    except Exception as e:
+        logger.error(f"Failed to sync Hale state log to Drive: {e}")
+
     return sent_msg
 
 
