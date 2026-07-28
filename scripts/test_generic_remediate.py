@@ -86,6 +86,45 @@ def test_remediate_escalates_when_cooldown_blocks(tmp_path, monkeypatch):
     assert "phantom.service" in escalated
 
 
+def test_circuit_breaker_trips_after_max_consecutive_failures(tmp_path, monkeypatch):
+    """ADDED 2026-07-16: the cooldown throttled FREQUENCY but never capped
+    TOTAL attempts -- a unit with a genuinely unfixable target (missing
+    recipe file, dead config) retried once an hour for 7 straight days
+    (~135 attempts, d2m-factbook-refresh.service) before this existed.
+    Once consecutive_failures reaches MAX_CONSECUTIVE_FAILURES, remediate()
+    must stop calling systemctl entirely and escalate exactly once, not
+    every subsequent call."""
+    from datetime import datetime, timezone, timedelta
+
+    state_file = tmp_path / "state.json"
+    old_enough = (datetime.now(timezone.utc) - timedelta(seconds=gr.COOLDOWN_SECONDS + 10)).isoformat()
+    state_file.write_text(json.dumps({
+        "chronic.service": {
+            "last_attempt": old_enough,
+            "consecutive_failures": gr.MAX_CONSECUTIVE_FAILURES,
+        }
+    }))
+    monkeypatch.setattr(gr, "STATE_FILE", state_file)
+    monkeypatch.setattr(ho_module, "HALE_DECISIONS", tmp_path / "decisions.md")
+
+    escalations = []
+    monkeypatch.setattr(gr, "_escalate", lambda unit, reason: escalations.append((unit, reason)))
+    systemctl_calls = []
+    monkeypatch.setattr(gr, "_run", lambda cmd, timeout=20: (systemctl_calls.append(cmd), (True, ""))[1])
+
+    exit_code = gr.remediate("chronic.service")
+    assert exit_code == 1
+    assert not systemctl_calls, "circuit breaker must skip systemctl entirely once tripped"
+    assert len(escalations) == 1
+    assert "CIRCUIT BREAKER TRIPPED" in escalations[0][1]
+
+    # Second call while still tripped must NOT escalate again.
+    exit_code2 = gr.remediate("chronic.service")
+    assert exit_code2 == 1
+    assert not systemctl_calls
+    assert len(escalations) == 1, "must not re-escalate on every subsequent call once already flagged"
+
+
 def test_remediate_defers_when_unit_arg_missing_suffix(tmp_path, monkeypatch):
     """Regression test for the real production bug found 2026-07-10: systemd's
     %i template specifier strips the .service/.timer suffix, but

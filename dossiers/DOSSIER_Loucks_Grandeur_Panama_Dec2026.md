@@ -49,3 +49,7 @@ Days 6–7 (Jan 3–4, 2027) — full transit, no port call. The marquee event o
 
 ## DELIVERABLE
 - Client itinerary page: `cruises_web/itinerary_grandeur_loucks.html`
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

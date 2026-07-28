@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """AgentMail <-> Gmail d2mconcierge integration bridge.
 
-Three active integration points (fourth is in scripts/agentmail_daily_digest.py):
+Four active integration points (fifth is in scripts/agentmail_daily_digest.py):
   1. poll_and_forward()       -- Gmail INBOUND: new client threads forwarded to hale-thunderbird@ as artifacts
-  2. push_draft_to_gmail()    -- AgentMail OUTBOUND: draft pushed to d2mconcierge with Commander-Review label + gate_veto
+  2. push_draft_to_gmail()    -- AgentMail OUTBOUND (client-review content): draft pushed to Commander's OWN
+                                 Gmail drafts (stage_in="johnloucks3") for WF-17 review before any client send.
   3. sync_commander_replies() -- REPLY BRIDGE: Commander's sent messages synced back into AgentMail thread context
+  4. send_to_commander()      -- AgentMail OUTBOUND (Commander-only content): direct send via AgentMail's own
+                                 SMTP delivery, real Inbox landing, dark-navy templated. Genuine redundancy for
+                                 gmail_send_email's Lane A -- works even if the Gmail API path is degraded.
+                                 Commander directive 2026-07-17: "mirror the gmail capabilities, as redundancy."
 
-Rocket compliance: ALL THREE are EDGE-TRIGGERED.
+Rocket compliance: ALL FOUR are EDGE-TRIGGERED where repeat-fire is possible.
   - Forwarded thread IDs tracked in state -- never re-fired on the same thread.
   - Synced sent message IDs tracked -- never re-fired on the same send.
   - Per-poll burst guard: MAX_SENDS_PER_POLL caps sends in any one cycle.
@@ -251,7 +256,8 @@ def push_draft_to_gmail(
     to_email: str,
     allow_repush: bool = False,
 ) -> dict:
-    """Push an AgentMail-authored draft into d2mconcierge Gmail for Commander review.
+    """Push an AgentMail-authored, client-facing draft into the Commander's OWN
+    Gmail Drafts box (johnloucks3) for WF-17 review before any client send.
 
     Creates draft with THUNDERBIRD-Commander-Review label.
     Fires gate_veto: Telegram ping + AgentMail confirmation (both channels per ROE Rule 1).
@@ -292,6 +298,77 @@ def push_draft_to_gmail(
     _save_state(state)
 
     return {"draft_id": draft_id, "channel": str(channel), "already_pushed": False}
+
+
+# ---------------------------------------------------------------------------
+# #4 — AgentMail DIRECT SEND to Commander (mirrors gmail_send_email Lane A)
+# ---------------------------------------------------------------------------
+
+COMMANDER_EMAIL_ADDR = "johnloucks3@gmail.com"
+
+
+def _navy_wrap(html_body: str | None, plain_body: str) -> str:
+    """Wrap content in the canonical dark-navy template unless it's already
+    a full HTML document. Shared with the Gmail send path's same rule."""
+    import html as _html_mod
+    import re as _re_mod
+
+    content = html_body if html_body else (
+        '<p style="margin:0 0 16px 0">'
+        + _html_mod.escape(plain_body).replace("\n", "<br>\n")
+        + "</p>"
+    )
+    if _re_mod.search(r"<!doctype|<html[\s>]", content, _re_mod.IGNORECASE):
+        return content
+    try:
+        _scripts_dir = "/home/john/Thunderbird/scripts"
+        if _scripts_dir not in sys.path:
+            sys.path.insert(0, _scripts_dir)
+        from d2m_email_builder import build_email_html
+        return build_email_html(content)
+    except Exception as e:
+        print(f"[bridge] navy template wrap failed, sending raw HTML: {e}", file=sys.stderr)
+        return content
+
+
+def send_to_commander(
+    subject: str,
+    plain_body: str,
+    html_body: str | None = None,
+) -> dict:
+    """Send navy-templated content directly to the Commander via AgentMail.
+
+    Genuine redundancy for gmail_send_email's Lane A (Wing -> Commander-only):
+    real SMTP delivery through AgentMail's own infrastructure, independent of
+    the Gmail API entirely -- works even if the Gmail send path is degraded.
+    AgentMail already stands-CCs johnloucks3@gmail.com on every send
+    (STANDING_MONITOR_CC); this function makes him the primary "to" instead
+    of an incidental CC, and always applies the same dark-navy template used
+    by the Gmail path. Per Commander directive 2026-07-17.
+
+    Not edge-triggered by design -- this is a direct, on-demand send (like
+    gmail_send_email), not a poll cycle. Caller decides when to send.
+
+    Returns: {"status": "sent"|"error", "message_id": str|None, "channel": "agentmail"}
+    """
+    content = _navy_wrap(html_body, plain_body)
+    client = AgentMailClient()
+    try:
+        sent = client.send_message(
+            inbox_id=HALE_INBOX,
+            to=[COMMANDER_EMAIL_ADDR],
+            subject=subject,
+            text=plain_body,
+            html=content,
+        )
+        msg_id = getattr(sent, "message_id", None) or getattr(sent, "id", None)
+        return {"status": "sent", "message_id": msg_id, "channel": "agentmail", "to": COMMANDER_EMAIL_ADDR}
+    except QuotaExceeded as e:
+        print(f"[bridge] send_to_commander quota exceeded: {e}", file=sys.stderr)
+        return {"status": "error", "error": f"quota exceeded: {e}", "channel": "agentmail"}
+    except Exception as e:
+        print(f"[bridge] send_to_commander failed: {e}", file=sys.stderr)
+        return {"status": "error", "error": str(e), "channel": "agentmail"}
 
 
 # ---------------------------------------------------------------------------

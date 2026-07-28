@@ -1,14 +1,28 @@
 {
-  "run_at": "2026-07-10T10:35:20.530879",
-  "tasks_attempted": 1,
-  "tasks_succeeded": 1,
+  "run_at": "2026-07-26T23:27:34.697857",
+  "tasks_attempted": 3,
+  "tasks_succeeded": 3,
   "results": [
     {
-      "id": "MISSION-1575",
-      "title": "Client inquiry: White House confirms what Heritage has warned about",
+      "id": "MISSION-743",
+      "title": "Complete FPD audit for Furlow and Kuklinski",
       "success": true,
-      "elapsed": 3.226503372192383,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-1575_20260710.md"
+      "elapsed": 2.8831591606140137,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-743_20260726.md"
+    },
+    {
+      "id": "MISSION-744",
+      "title": "Produce and deliver Lyons Regent pricing refresh",
+      "success": true,
+      "elapsed": 11.163341999053955,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-744_20260726.md"
+    },
+    {
+      "id": "MISSION-747",
+      "title": "Move Kuklinski validation and insurance emails to WF-17 queue",
+      "success": true,
+      "elapsed": 3.3431034088134766,
+      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-747_20260726.md"
     }
   ]
 }

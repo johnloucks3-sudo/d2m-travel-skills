@@ -1,0 +1,41 @@
+Subject: Tech Scan 2026-07-16 11:00 UTC — 7 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-16T11:01:44.394089+00:00
+
+TECH SCAN — 2026-07-16 11:00 UTC
+airborne scanner pulse · 23 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 7 TRIAL · 16 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Manage your Claude Code agents in Raycast — https://github.com/vmc-7645/claude-fleet
+↳ real tool (github.com) — worth a bounded look
+Agentty – A drop-in alternative to claude-code, written in C++26. 11.0 MB binary — https://github.com/1ay1/agentty
+↳ real tool (github.com) — worth a bounded look
+Fuse – an open source MCP/CLI tool to speed up Claude Code on C# codebases — https://github.com/Litenova-Solutions/Fuse
+↳ real tool (mcp, tool, github.com) — worth a bounded look
+Show HN: How you auto recover your Claude Code workflow when quota resumes — https://github.com/softcane/cc-session-recover
+↳ real tool (github.com) — worth a bounded look
+Show HN: OtoDock, run Claude Code and Codex as a team of agents on your server — https://github.com/OtoDock/oto-dock/
+↳ real tool (server, github.com) — worth a bounded look
+Show HN: Cc-hindsight – turn your Claude history into a reusable prompt library — https://github.com/adityaarunsinghal/cc-hindsigh
+↳ real tool (library, github.com) — worth a bounded look
+Show HN: Grepathy – Claude made a decision nobody approved — https://github.com/evansjp/grepathy
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I’m building a fighter jet game with Claude
+Claude spent +15 EUR of a 2 EUR limit.
+Inspired by caveman and co, I'm open-sourcing a Claude Code plugin that reduces token output by 99.9%
+I'm paying $200/month, and after tomorrow, I can't access Anthropic's best model with my sub?
+Why can I only buy $1,000,000 worth of tokens?
+Fable 5 in caveman mode comparing himself to gpt 5.6 is hilarious
+Claude Code on desktop now has an in-app browser.
+Day 43 of building GTA 6 using claude
+RAW — all finds this pulse (unfiltered)[llm] I’m building a fighter jet game with Claude (Reddit r/ClaudeAI)
+[llm] Claude spent +15 EUR of a 2 EUR limit. (Reddit r/ClaudeAI)
+[llm] Inspired by caveman and co, I'm open-sourcing a Claude Code plugin that reduces token output by 99.9% (Reddit r/ClaudeAI)
+[llm] I'm paying $200/month, and after tomorrow, I can't access Anthropic's best model with my sub? (Reddit r/ClaudeAI)
+[llm] Why can I only buy $1,000,000 worth of tokens? (Reddit r/ClaudeAI)
+[llm] Fable 5 in caveman mode comparing himself to gpt 5.6 is hilarious (Reddit r/ClaudeAI)
+[llm] Claude Code on desktop now has an in-app browser. (Reddit r/ClaudeAI)
+[llm] Day 43 of building GTA 6 using claude (Reddit r/ClaudeAI)
+[llm] Manage your Claude Code agents in Raycast — https://github.com/vmc-7645/claude-fleet (Hacker News — Claude Code)
+[llm] Show HN: Throttle – Local Claude Cockpit for macOS, now with remote control — https://lorislab.fr/throttle/ (Hacker News — Claude Code)
+[llm] Agentty – A drop-in alternative to claude-code, written in C++26. 11.0 MB binary — https://github.com/1ay1/agentty (Hacker News — 

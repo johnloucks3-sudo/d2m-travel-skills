@@ -935,3 +935,7 @@ Status changes since Mar 24 validation:
 - [ ] A7 Sterling: Evaluate Gemini 3.5 Flash managed agents vs. current Claude MAX + DeepSeek V3.1 + R1 stack—capability, cost, integration (auto-intel May 21)
 
 - [ ] Track Project Expedition refund PE151557101 via https://www.projectexpedition.com/purchase/receipt/PE151557101?q=eb06d3d914607d72c50d4e393f5aacc6 (status ETA 5-7 days from Apr 20) (auto-intel Apr 20) — *(factual, retained; the transfer refund itself stands independent of the corrected medical premise)*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

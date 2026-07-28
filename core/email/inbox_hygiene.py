@@ -31,7 +31,14 @@ LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 JOHNLOUCKS3_TOKEN = THUNDERBIRD / "gmail_token.json"
 D2MCONCIERGE_TOKEN = THUNDERBIRD / "config" / "persona_gmail_token.json"
 
-LABEL_FOR_DELETION = "Label_102"
+# FIXED 2026-07-16 (hot-window triage, same root cause as
+# scripts/d2m_inbox_triage.py): "Label_102" is a stale/deleted label ID --
+# confirmed gone via a live labels().list() call. This constant was also
+# used directly inside a `label:` SEARCH query, which matches Gmail's
+# visible label NAME, not its internal ID string, so this was doubly wrong:
+# even before the label was deleted, `label:Label_102` likely never matched
+# the intended "ForDeletion" label by name. Fixed to search by name.
+LABEL_FOR_DELETION = "ForDeletion"
 
 logging.basicConfig(
     level=logging.INFO,

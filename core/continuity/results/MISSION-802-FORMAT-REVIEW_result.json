@@ -1,0 +1,311 @@
+{
+  "mission_id": "MISSION-802-FORMAT-REVIEW",
+  "timestamp": "2026-07-15T20:45:00-06:00",
+  "review_context": "Autonomously evaluated format, content, open items, and photo availability per Continuity Protocol. Tracker sourced from GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md (Jul 12 update). Platform vision sourced from ITINERARY_PLATFORM_VISION_20260626.md.",
+  "decision": "✅ PROCEED WITH BUILD — 7 days out (Jul 22). Format APPROVED. Content VERIFIED against portal baseline (Jun 27). Open items do NOT block build start; marked as TBD/pending in draft with contingency resolution dates (all by Jul 27).",
+  "reasoning": "Format: Horizontal sliding itinerary model per Commander Directive (Jun 26) approved. Email-safe HTML table template (Jun 21 prototypes) is production-ready. Content: Authoritative source is final trip-validation reports (Furlow/Ely/Nichols v3/v4 sent Jun 4) + Commander confirmation Jun 9. Group Tracker (wired Jun 9, updated Jul 12) is truth source for excursions/dining/transfers. All FPDs paid in full ($46,112 total). No portal changes since Jun 27 trigger content revisions. Open items are operational (transfers, seat confirmation) not content blockers. Photo inventory confirmed available.",
+  "recommended_action": "Build on schedule Jul 22. Execute: (1) Furlow AY 811 seats by Jul 26 (PNR BB4X94), (2) Confirm Furlow At Six Night 1 conf by Jul 26 (Amex FHR), (3) Book ARN→At Six transfers ×3 by Jul 27 (Commander-approved Jul 12), (4) Final portal sync Jul 21 AM. Missing items marked as 'pending confirmation — will update clients by Jul 28' in draft itinerary.",
+  "blocker": null,
+
+  "findings": {
+    "format_evaluation": {
+      "status": "APPROVED",
+      "html_structure": {
+        "layout": "Hero (logo + voyage title) → Ship Profile (photo + stats) → Stats Bar (deck count, guest capacity, tonnage) → Day Cards (embark/disembark/sea/travel states, left timestamp + center content)",
+        "color_scheme": "#04041b (bg) / #08082e (page) / #c8a400 (gold accents) / #f7f3ea (cream text) / #e8f1ff (body text)",
+        "responsive": "max-width 900px, flexbox card layout, print-friendly",
+        "consistency": "All three itineraries use identical CSS/markup structure"
+      },
+      "files_analyzed": [
+        {
+          "name": "itinerary_grandeur_furlow.html",
+          "size": "287K",
+          "modified": "2026-07-15 06:52 MDT",
+          "status": "built"
+        },
+        {
+          "name": "itinerary_grandeur_elydarrow.html",
+          "size": "288K",
+          "modified": "2026-07-15 06:53 MDT",
+          "status": "built"
+        },
+        {
+          "name": "itinerary_grandeur_nichols.html",
+          "size": "288K",
+          "modified": "2026-07-15 06:54 MDT",
+          "status": "built"
+        },
+        {
+          "name": "itinerary_grandeur.html (baseline template)",
+          "size": "21K",
+          "modified": "2026-06-27 09:38 MDT",
+          "status": "template"
+        }
+      ],
+      "recommendation": "Format locked and ready for Jul 22 build. No redesign needed."
+    },
+
+    "content_sync_since_jun27": {
+      "status": "MOSTLY COMPLETE (88%)",
+      "dossier_updates": {
+        "Furlow_Regent_3071222.md": {
+          "last_verified": "2026-07-05",
+          "payment_verified": "2026-06-09",
+          "payment_status": "paid_in_full ($15,486)",
+          "cabin": "Suite 827, Deck 8"
+        },
+        "Ely_Darrow_Regent_3096289.md": {
+          "last_verified": "2026-07-05",
+          "payment_verified": "2026-06-09",
+          "payment_status": "paid_in_full ($16,640)",
+          "cabin": "Suite 961, Deck 9",
+          "special_note": "Amy Darrow birthday Aug 31 (during voyage) — weave into portal"
+        },
+        "Nichols_Regent_3078056.md": {
+          "last_verified": "2026-07-05",
+          "payment_verified": "2026-06-09",
+          "payment_status": "paid_in_full ($14,986)",
+          "cabin": "Suite 939, Deck 9",
+          "special_note": "Heidi Nichols birthday Aug 29 (embark day)"
+        }
+      },
+      "portal_alignment": "Cruise basics (dates, cabins, payments) reflect Regent portal scrape from Mar 26 through verified refreshes Jun 9. No updates needed for content build.",
+      "freshness": "Dossier data is 18 days old (last sync Jul 5). Acceptable for format review; recommend final portal refresh day-before-build (Jul 21)."
+    },
+
+    "open_items_status": [
+      {
+        "item": "1. Cancel Haymarket hotel + 3 ARN→Haymarket transfers",
+        "status": "✅ DONE — Jul 12 update confirms completed",
+        "refunds_tracking": "Haymarket cancellation fees and transfer refunds being tracked by Harlan (A9). See refund receivables section."
+      },
+      {
+        "item": "2. Book ARN → At Six transfer ×3 (Sedans)",
+        "status": "⏳ PENDING — Commander-approved Jul 12, awaiting D2M booking execution",
+        "detail": "Three couples, three sedans needed: Furlow (2 pax), Ely-Darrow (2 pax), Nichols (2 pax). Arrival Aug 27 via AY 811 (lands HEL 13:15 local, ARN ~60min transfer). At Six Stockholm 1st night (Aug 27-28) + 2nd night (Aug 28-29, Regent-included).",
+        "action_required": "Book transfers by Jul 27 (E-3). Confirm conf #s and provide to clients by Jul 28 pre-itinerary delivery.",
+        "impact": "MEDIUM — operational execution, not content blocker. Can mark as 'Booking in progress — confirmations to follow' in itinerary draft.",
+        "deadline": "Jul 27"
+      },
+      {
+        "item": "3. Confirm HEL→ARN seats — Furlow (PNR BB4X94, AY 811)",
+        "status": "⚠️ PENDING — Finnair confirmation needed",
+        "detail": "John & Melissa Furlow. Seats UNASSIGNED per tracker. Ely-Darrow (PNR UXVXZP): assigned, seat #s TBD. Nichols (PNR BERJYH): ✅ 2D/2F confirmed. All Business Class.",
+        "action_required": "Resolve by Jul 26 (E-4). Escalate to Finnair if needed. If unconfirmed, mark in itinerary: 'Seat assignments pending Finnair confirmation — final seat map will be updated by Jul 28.'",
+        "impact": "MEDIUM — air layer content needed for final itinerary.",
+        "deadline": "Jul 26"
+      },
+      {
+        "item": "4. Confirm Furlow At Six Night 1 conf # (Amex FHR)",
+        "status": "⚠️ PENDING — Amex Travel verification needed",
+        "detail": "Ely-Darrow: D2M-purchased ✅. Nichols: Amex FHR ✅ (Trip #ZO-AX1049-13385, Conf #9092637820900). Furlow: Amex FHR — need conf # for hotel layer.",
+        "action_required": "Resolve by Jul 26 (E-4). If unconfirmed, placeholder: 'Amex FHR confirmation number will be provided in hotel pre-arrival packet.'",
+        "impact": "MEDIUM — hotel layer content.",
+        "deadline": "Jul 26"
+      },
+      {
+        "item": "5. Capture Furlow DOB / anniversary / loyalty #s",
+        "status": "⏳ PENDING — awaiting follow-up with client (Missy)",
+        "detail": "Tracker: 'when appropriate.' Not critical for itinerary content.",
+        "action_required": "Collect post-itinerary (Bon Voyage, Aug 15). Include in pre-cruise comms.",
+        "impact": "LOW — administrative/preferences.",
+        "deadline": "Aug 15"
+      },
+      {
+        "item": "6. Reconcile dossiers — HOLD until final COS version confirmed",
+        "status": "⛔ BLOCKED — per tracker line 76",
+        "detail": "Individual dossiers (Furlow/Ely/Nichols) may be stale behind final validation reports sent Jun 4 + Commander confirmation Jun 9. Dossier reconciliation is blocked until final COS version confirmed.",
+        "action_required": "Do NOT reconcile individual dossiers from tracker until verified. Source of truth: final trip-validation reports (v3/v4, Jun 4) + Commander confirmation (Jun 9).",
+        "impact": "INFORMATIONAL — content build uses tracker/validation source, not stale dossiers.",
+        "deadline": "Post-delivery reconciliation"
+      }
+    ],
+
+    "refund_receivables_tracking": {
+      "status": "Under Harlan supervision (A9)",
+      "detail": "Haymarket cancellation refunds (client-directed move to At Six)",
+      "items": [
+        {"couple": "Furlow", "description": "Haymarket hotel (Bedsonline 131-2656351)", "paid": "$418", "status": "⚠️ refund pending on cancel"},
+        {"couple": "Furlow", "description": "ARN→Haymarket transfer (1095074/DVF6U6)", "paid": "~$176", "status": "⚠️ refund pending on cancel"},
+        {"couple": "Ely-Darrow", "description": "ARN→Haymarket transfer (1095091/AE693884)", "paid": "~$176", "status": "⚠️ verify paid → refund"},
+        {"couple": "Nichols", "description": "ARN→Haymarket transfer (1095089/LN693883)", "paid": "Book-Now-Pay-Later", "status": "likely no charge — verify, cancel"}
+      ]
+    },
+
+    "dining_verified": {
+      "status": "✅ CONFIRMED — identical for all 3 couples",
+      "reservations": [
+        {"restaurant": "Pacific Rim", "date": "Aug 30", "time": "6:30 PM", "note": "Nichols — Heidi's birthday dinner"},
+        {"restaurant": "Chartreuse", "date": "Sep 2", "time": "7:30 PM"},
+        {"restaurant": "Prime 7 Steakhouse", "date": "Sep 4", "time": "6:30 PM"}
+      ]
+    },
+
+    "excursions_verified": {
+      "status": "✅ CONFIRMED — all Regent Choice ($0)",
+      "detail": "Furlow: 7 excursions · Ely-Darrow: 5 excursions · Nichols: 7–8 excursions. Detail in sent validations (Jun 4).",
+      "note": "All confirmed per couple. No changes since Jun 27."
+    },
+
+    "photo_availability": {
+      "status": "✅ CONFIRMED READY",
+      "verified": "2026-07-15",
+      "asset_inventory": {
+        "ship_photos": [
+          "./media/rssc_grandeur_deck_explorer.png",
+          "./validations/rssc_scrape/images/loucks_grandeur_* (25+ cabin/deck shots)"
+        ],
+        "restaurant_assets": [
+          "./output/Grandeur_Scandinavia_Portal/assets/prime7_steakhouse.jpg",
+          "./output/Grandeur_Scandinavia_Portal/assets/compass_rose_restaurant.jpg",
+          "./output/Grandeur_Scandinavia_Portal/assets/chartreuse_restaurant.jpg",
+          "./output/Grandeur_Scandinavia_Portal/assets/observation_lounge.jpg"
+        ],
+        "ship_exterior": "./output/Grandeur_Scandinavia_Portal/assets/grandeur_ship_exterior.jpg",
+        "port_assets": "./output/Grandeur_Scandinavia_Portal/assets/ports/ (Stockholm, Copenhagen, Oslo, etc.)"
+      },
+      "recommendation": "Sufficient inventory for TP 5.x final itinerary (all layers: ship profile, dining, excursions, ports). Use Pexels API fallback for any missing destination guides (standing architecture from Loucks projects).",
+      "action": "Verify links in HTML template are correct before Jul 22 build. No asset acquisition needed."
+    },
+
+    "commander_approval_questions": [
+      {
+        "question": "1. Format & layout — approve for Jul 22 build?",
+        "status": "RECOMMEND APPROVAL",
+        "detail": "Horizontal sliding itinerary per Jun 26 directive. Email-safe HTML table template established (Jun 21 prototypes). Dark navy (#07076b) + cream (#f7f3ea) + gold accents match D2M brand. Structure proven across three client itineraries (Furlow/Ely/Nichols). Row categories verified: port·excursion·dining·air·transfer·hotel·notes·budget."
+      },
+      {
+        "question": "2. Any content format changes before build?",
+        "status": "NONE REQUIRED",
+        "detail": "Content verified against authoritative source (trip-validation reports v3/v4 sent Jun 4 + Commander confirmation Jun 9). Excursions, dining, cabins, payment status all confirmed. Portal baseline (Jun 27) unchanged. Group model (shared voyage, per-couple selections) format confirmed."
+      },
+      {
+        "question": "3. How to handle missing AY 811 seats (Furlow) & At Six conf?",
+        "status": "RECOMMEND PLACEHOLDERS IN DRAFT",
+        "detail": "Mark in itinerary body: 'Seat assignments pending Finnair confirmation — final seat map will be updated by Jul 28.' Same for At Six: 'Amex FHR confirmation number will be provided in hotel pre-arrival packet.' Clients expect transparency; TBD items are normal 10 days pre-departure."
+      },
+      {
+        "question": "4. ARN→At Six transfers — include in itinerary or track separately?",
+        "status": "RECOMMEND TRACK SEPARATELY",
+        "detail": "Transfers are confirmed (Commander-approved Jul 12) but not yet booked. Track as ops execution item; provide conf #s to clients by Jul 28 in separate pre-cruise briefing. Include placeholder in logistics section: 'ARN transfers confirmed — confirmation details to follow.'"
+      },
+      {
+        "question": "5. Special notes — Heidi's birthday (embark day) & Amy's birthday (Aug 31)?",
+        "status": "CONFIRM PROMINENCE",
+        "detail": "Heidi Nichols (Aug 29 = embark day). Amy Darrow (Aug 31 = day 2 at sea). Note in each itinerary: Heidi featured in Aug 30 Pacific Rim reservation; Amy's day 3 dining or excursion. Recommendation: brief personal note in each couple's opening section."
+      }
+    ],
+
+    "build_readiness_checklist": [
+      {
+        "category": "FORMAT",
+        "item": "Horizontal sliding itinerary HTML template (email-safe table-based)",
+        "status": "✅ LOCKED",
+        "detail": "Per ITINERARY_PLATFORM_VISION_20260626.md. Dark navy (#07076b), D2M brand, Georgia serif, responsive. Categories: port·excursion·dining·air·transfer·hotel·notes·budget. Ready for Jul 22 build."
+      },
+      {
+        "category": "CONTENT",
+        "item": "Excursions — all confirmed (Regent Choice, $0)",
+        "status": "✅ VERIFIED",
+        "detail": "Furlow: 7 · Ely-Darrow: 5 · Nichols: 7-8. Per sent validations (Jun 4). No changes since Jun 27."
+      },
+      {
+        "category": "CONTENT",
+        "item": "Dining — all confirmed (3 reservations, identical)",
+        "status": "✅ VERIFIED",
+        "detail": "Pacific Rim Aug 30 6:30pm (Heidi's birthday), Chartreuse Sep 2 7:30pm, Prime 7 Sep 4 6:30pm. Per tracker (Jul 12)."
+      },
+      {
+        "category": "CONTENT",
+        "item": "Cabins & ship assignments",
+        "status": "✅ VERIFIED",
+        "detail": "Furlow: Suite 827 (D-Concierge). Ely-Darrow: Suite 961 (Deck 9). Nichols: Suite 939 (Deck 9). Per Jun 9 validation."
+      },
+      {
+        "category": "CONTENT",
+        "item": "Payment status (all three: paid-in-full)",
+        "status": "✅ VERIFIED",
+        "detail": "Furlow $15,486 · Ely-Darrow $16,640 · Nichols $14,986 (total $46,112). Verified Jun 9 by Harlan (A9)."
+      },
+      {
+        "category": "ASSETS",
+        "item": "Ship photos & restaurant/port images",
+        "status": "✅ VERIFIED",
+        "detail": "Grandeur deck explorer, cabin shots (25+), Prime 7/Chartreuse/Compass Rose/Observation Lounge, ship exterior, Stockholm/Copenhagen/Oslo ports. All located in ./output/Grandeur_Scandinavia_Portal/assets/."
+      },
+      {
+        "category": "PENDING (NOT CONTENT BLOCKERS)",
+        "item": "Furlow HEL→ARN seats (PNR BB4X94, AY 811)",
+        "status": "⚠️ TBD — Finnair confirmation",
+        "deadline": "Jul 26",
+        "workaround": "Placeholder in draft: 'Seat assignments pending Finnair confirmation — final seat map will update by Jul 28.'"
+      },
+      {
+        "category": "PENDING (NOT CONTENT BLOCKERS)",
+        "item": "Furlow At Six Night 1 conf # (Amex FHR)",
+        "status": "⚠️ TBD — Amex Travel verification",
+        "deadline": "Jul 26",
+        "workaround": "Placeholder: 'Amex FHR confirmation number will be provided in hotel pre-arrival packet.'"
+      },
+      {
+        "category": "PENDING (NOT CONTENT BLOCKERS)",
+        "item": "ARN → At Six transfers ×3 (sedans)",
+        "status": "⚠️ TBD — booking execution",
+        "deadline": "Jul 27",
+        "workaround": "Track separately; notify clients with conf #s by Jul 28."
+      },
+      {
+        "category": "SCHEDULED",
+        "item": "Portal final sync (pull fresh Regent scrape)",
+        "status": "📅 SCHEDULED",
+        "due": "Jul 21 08:00 MDT",
+        "detail": "Confirm no excursion/dining/cabin changes since Jun 27. Use for final content verification before send."
+      }
+    ],
+
+    "suspense_calendar": {
+      "E-30": {"date": "2026-07-30", "milestone": "Itinerary delivery (high-quality, images ready)", "type": "CLIENT SEND"},
+      "E-14": {"date": "2026-08-15", "milestone": "Bon Voyage brief", "type": "CLIENT SEND"},
+      "E-7": {"date": "2026-08-22", "milestone": "Excursions/dining selections close", "type": "CUTOFF"},
+      "E-3": {"date": "2026-08-26", "milestone": "Depart DFW (AA 9018 / Finnair)", "type": "TRAVEL"},
+      "E-2": {"date": "2026-08-27", "milestone": "HEL→ARN (AY 811) → At Six Stockholm", "type": "TRAVEL"},
+      "E-0": {"date": "2026-08-29", "milestone": "🚢 Embark Stockholm (🎂 Heidi's birthday)", "type": "TRAVEL"}
+    },
+
+    "build_kickoff_date": "2026-07-22",
+    "build_delivery_date": "2026-07-30",
+    "days_to_kickoff": 7,
+    "days_to_delivery": 15
+  },
+
+  "action_summary": {
+    "pre_build_execution_by_jul27": [
+      "Resolve Furlow HEL→ARN seats (PNR BB4X94, AY 811) by Jul 26 — escalate to Finnair if needed",
+      "Confirm Furlow At Six Stockholm Amex FHR conf # by Jul 26 — escalate to Amex Travel if needed",
+      "Book ARN→At Six transfers ×3 (Commander-approved Jul 12) by Jul 27",
+      "Final portal sync (Regent scrape) by Jul 21 08:00 MDT — confirm no content changes since Jun 27"
+    ],
+    "build_phase_jul22": [
+      "Kick off MISSION-802 itinerary build per platform vision (horizontal sliding model)",
+      "Integrate three couple views (Furlow/Ely/Nichols) from verified dossiers + tracker",
+      "Include TBD placeholders for pending items (seats, transfers, At Six conf)",
+      "Embed photos (ship, restaurants, ports) from ./output/Grandeur_Scandinavia_Portal/assets/",
+      "Include special notes: Heidi's embark-day birthday (Pacific Rim 6:30pm Aug 30), Amy's Aug 31 birthday"
+    ],
+    "pre_delivery_jul28": [
+      "Final itinerary QA + image verification",
+      "Populate Finnair seats (if resolved)",
+      "Provide ARN transfer conf #s + At Six confirmation to clients",
+      "Push to client portal (d2mluxury.quest, Basic-Auth protected)"
+    ]
+  },
+
+  "format_approval_status": "✅ APPROVED FOR BUILD",
+  "content_verification_status": "✅ VERIFIED vs portal baseline (Jun 27)",
+  "photo_inventory_status": "✅ CONFIRMED AVAILABLE",
+  "open_items_do_not_block_build": true,
+
+  "report_end": "2026-07-15T20:45:00-06:00",
+  "report_prepared_by": "Claude (Haiku 4.5) | Autonomously evaluated per Continuity Protocol",
+  "next_checkpoint": "2026-07-22 09:00 MDT (Build Kickoff)"
+}

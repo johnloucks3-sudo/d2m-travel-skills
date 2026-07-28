@@ -1,0 +1,35 @@
+Subject: Tech Scan 2026-07-14 11:00 UTC — 7 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-14T11:00:38.510794+00:00
+
+TECH SCAN — 2026-07-14 11:00 UTC
+airborne scanner pulse · 15 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 7 TRIAL · 6 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Themis – Self-hosted AI code reviews with your own keys and models — https://github.com/Zaimwa9/themis
+↳ real tool (github.com) — worth a bounded look
+Show HN: Giving Claude Code and codex its voice using kokoro — https://github.com/softcane/aloud
+↳ real tool (github.com) — worth a bounded look
+Claude Code plugin that plays a Mr. Meeseeks voice line whene Claude is waiting — https://github.com/thephw/claude-meseeks
+↳ real tool (plugin, github.com) — worth a bounded look
+Show HN: Fleet Deck – see every Claude Code session on your machine in one board — https://github.com/lacion/fleet-deck
+↳ real tool (github.com) — worth a bounded look
+Show HN: I implemented a neural network in SQL — https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchm
+↳ real tool (github.com) — worth a bounded look
+Show HN: Make Production Ready Videos in After Effects Using Claude Code (OSS) — https://github.com/Arman-Luthra/aftr
+↳ real tool (github.com) — worth a bounded look
+How I Set Up Claude Code as My Testing Toolkit: Issue Fixes, PR Reviews, and Skills for Test Case Generation — https://dev.to/abig
+↳ real tool (skill, tool) — worth a bounded look
+👁 WATCH:Enhancing GNU-Pth for m:n threading using Claude and Codex — https://medium.com/@dibyendumajumdar/adding-m-n-t
+Groupchatty – Real time chat while using Codex and Claude — https://error.workos.com/redirect-uri-invalid?inva
+A Study of Microsoft's Early 2026 Rollout of Claude Code and GitHub Copilot CLI — https://arxiv.org/abs/2607.0
+Using Subagents to Improve Claude Code Results: A Step-by-Step Guide — https://software.rajivprab.com/2026/07/
+Claudio? Why we need and open source Claude — https://news.ycombinator.com/item?id=48897859
+Show HN: Finterm.ai Bloomberg terminal for Claude Code — https://finterm.ai/
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):How to Quantitatively Evaluate Prompt Quality in Claude Code and Codex — https://medium.co
+Ask HN: What makes someone good at using Claude Code? — https://news.ycombinator.com/item?
+RAW — all finds this pulse (unfiltered)[llm] Enhancing GNU-Pth for m:n threading using Claude and Codex — https://medium.com/@dibyendumajumdar/adding-m-n-threading-t (Hacker News — Claude Code)
+[llm] Show HN: Themis – Self-hosted AI code reviews with your own keys and models — https://github.com/Zaimwa9/themis (Hacker News — Claude Code)
+[llm] Show HN: Giving Claude Code and codex its voice using kokoro — https://github.com/softcane/aloud (Hacker News — Claude Code)
+[llm] Groupchatty – Real time chat while using Codex and Claude — https://error.workos.com/redirect-uri-invalid?invalid_redire (Hacker News — Claude Code)
+[llm] Claude Code plugin that plays a Mr. Meeseeks voice line whene Claude is waiting — http

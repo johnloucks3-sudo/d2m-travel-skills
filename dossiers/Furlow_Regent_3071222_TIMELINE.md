@@ -213,3 +213,7 @@ completed_tps: []
 
 *Full dossier: Furlow_Regent_3071222.md | Drive: D2M Trip Dossiers/*
 *Source workbook: EARA D2M Thunderbird v2.xlsx (modified 2026-03-19)*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

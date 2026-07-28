@@ -1,211 +1,135 @@
 [
   {
-    "title": "esengine/DeepSeek-Reasonix (26569 stars)",
+    "title": "slopus/happy (22903 stars)",
     "source": "github",
-    "url": "https://github.com/esengine/DeepSeek-Reasonix",
-    "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability \u2014 leave it running.",
+    "url": "https://github.com/slopus/happy",
+    "summary": "Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured",
     "keywords_matched": [
-      "coding agent"
+      "claude code"
     ],
-    "score": 26569,
+    "score": 22903,
     "tier": "CRITICAL",
-    "discovered": "2026-07-10T01:07:20.849632-06:00"
+    "discovered": "2026-07-28T01:07:42.920204-06:00"
   },
   {
-    "title": "avibe-bot/avibe (480 stars)",
+    "title": "omnigent-ai/omnigent (7825 stars)",
     "source": "github",
-    "url": "https://github.com/avibe-bot/avibe",
-    "summary": "The local-first Agent OS \u2014 your AI partner lives on your own machine. Drive the official Claude Code, Codex & OpenCode from your browser or any chat app.",
+    "url": "https://github.com/omnigent-ai/omnigent",
+    "summary": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents \u2014 swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.",
+    "keywords_matched": [
+      "claude code",
+      "agent framework"
+    ],
+    "score": 7825,
+    "tier": "CRITICAL",
+    "discovered": "2026-07-28T01:07:15.478577-06:00"
+  },
+  {
+    "title": "JimLiu/baocut (295 stars)",
+    "source": "github",
+    "url": "https://github.com/JimLiu/baocut",
+    "summary": "Open-source Agent Skill that drives the BaoCut macOS app CLI (transcribe \u00b7 subtitle \u00b7 translate \u00b7 cut) from Claude Code, Codex, and other agents",
     "keywords_matched": [
       "claude code"
     ],
-    "score": 480,
+    "score": 295,
     "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:00.060431-06:00"
+    "discovered": "2026-07-28T01:07:15.478358-06:00"
   },
   {
-    "title": "Fergana-Labs/stash (210 stars)",
+    "title": "upstash/box (34 stars)",
     "source": "github",
-    "url": "https://github.com/Fergana-Labs/stash",
-    "summary": "Shared memory for your team's coding agents",
+    "url": "https://github.com/upstash/box",
+    "summary": "TypeScript SDK and CLI for Upstash Box \u2014 sandboxed AI coding agents",
     "keywords_matched": [
       "coding agent"
     ],
-    "score": 210,
+    "score": 34,
     "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:08.970242-06:00"
+    "discovered": "2026-07-28T01:07:23.772227-06:00"
   },
   {
-    "title": "ghy196830-del/agent-watch-approve (111 stars)",
+    "title": "eclipse-enclave/enclave (9 stars)",
     "source": "github",
-    "url": "https://github.com/ghy196830-del/agent-watch-approve",
-    "summary": "\u231a \u5728 Apple Watch \u4e0a\u6279\u51c6 Claude Code / Codex \u7684\u5371\u9669\u64cd\u4f5c,\u4efb\u52a1\u5b8c\u6210\u81ea\u52a8\u63d0\u9192 | Approve your AI coding agent's risky actions from your Apple Watch, get buzzed when tasks finish",
+    "url": "https://github.com/eclipse-enclave/enclave",
+    "summary": "Sandbox for running AI coding agents autonomously: isolated, network-restricted, host-safe",
     "keywords_matched": [
-      "claude code",
       "coding agent"
-    ],
-    "score": 111,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:46.550947-06:00"
-  },
-  {
-    "title": "justrach/codegraff (22 stars)",
-    "source": "github",
-    "url": "https://github.com/justrach/codegraff",
-    "summary": "graff \u2014 a fast agentic coding harness in Zig: multi-provider, MCP, workflows, DGM evolution loop, TS/Python SDKs",
-    "keywords_matched": [
-      "agentic coding"
-    ],
-    "score": 22,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:08.970187-06:00"
-  },
-  {
-    "title": "Show HN: Policy enforcement for Claude Code, Cursor, and Codex",
-    "source": "hn/topstories",
-    "url": "https://kastra.ai/",
-    "summary": "HN score: 12, comments: 1",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 12,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:05:19.083666-06:00"
-  },
-  {
-    "title": "SinanTufekci/agent-intern (11 stars)",
-    "source": "github",
-    "url": "https://github.com/SinanTufekci/agent-intern",
-    "summary": "MCP bridge that drives Google's Antigravity CLI (agy), Github Copilot and OpenAI Codex as sub-agents inside Claude Code \u2014 text answers, image generation, and real coding work, on quota you already pay for.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 11,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:08.970124-06:00"
-  },
-  {
-    "title": "DevinoSolutions/ai-agent-notifier (10 stars)",
-    "source": "github",
-    "url": "https://github.com/DevinoSolutions/ai-agent-notifier",
-    "summary": "Desktop & phone notifications for AI coding agents (Claude Code, Codex, Gemini CLI, Cursor). Native VS Code support. Toast + ntfy push. Zero dependencies.",
-    "keywords_matched": [
-      "claude code",
-      "coding agent",
-      "devin"
-    ],
-    "score": 10,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:46.550894-06:00"
-  },
-  {
-    "title": "AliceLJY/telegram-ai-bridge (9 stars)",
-    "source": "github",
-    "url": "https://github.com/AliceLJY/telegram-ai-bridge",
-    "summary": "Heterogeneous AI agents (Claude Code + Codex + Gemini) collaborating in Telegram groups over A2A-TG \u2014 a generation-counted envelope protocol. Self-hosted.",
-    "keywords_matched": [
-      "claude code",
-      "self-hosted"
     ],
     "score": 9,
     "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:11.817197-06:00"
+    "discovered": "2026-07-28T01:07:34.832086-06:00"
   },
   {
-    "title": "zhchxiao123/coderfleet (8 stars)",
+    "title": "linny006/agent-eval-harness (8 stars)",
     "source": "github",
-    "url": "https://github.com/zhchxiao123/coderfleet",
-    "summary": "\u9762\u5411 UI \u7aef\u7f16\u7a0b\u7684\u591a\u8d26\u53f7 AI \u5f00\u53d1\u5de5\u4f5c\u53f0\u3002\u5728 Web \u63a7\u5236\u53f0\u91cc\u63d0\u4ea4\u4efb\u52a1\u3001\u8ddf\u8e2a\u65e5\u5fd7\u3001\u7ba1\u7406\u9879\u76ee\u548c\u8d26\u53f7\uff0c\u628a Codex CLI\u3001Claude Code \u3001Hermes Agent\u4ee5\u53ca OpenCode \u8d26\u53f7\u7ec4\u7ec7\u6210\u4e00\u5957\u53ef\u89c6\u5316\u5f00\u53d1\u8c03\u5ea6\u7cfb\u7edf\u3002",
+    "url": "https://github.com/linny006/agent-eval-harness",
+    "summary": "Live, open-source benchmark for comparing AI coding agents on real GitHub issues",
     "keywords_matched": [
-      "claude code",
-      "codex cli"
+      "coding agent"
     ],
     "score": 8,
     "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:20.849714-06:00"
+    "discovered": "2026-07-28T01:07:23.772183-06:00"
   },
   {
-    "title": "zhu-xiaowei/agentpeek (8 stars)",
+    "title": "gyunggyung/AGI-Papers (418 stars)",
     "source": "github",
-    "url": "https://github.com/zhu-xiaowei/agentpeek",
-    "summary": "View and interact with your Claude Code sessions from anywhere \u2014 powered by AWS serverless.",
+    "url": "https://github.com/gyunggyung/AGI-Papers",
+    "summary": "A curated archive of breakthroughs in Agents, Architecture, Training, RAG, and On-Device AI.",
     "keywords_matched": [
-      "claude code"
+      "breakthrough"
     ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:29.552576-06:00"
-  },
-  {
-    "title": "SlanchaAI/wire (7 stars)",
-    "source": "github",
-    "url": "https://github.com/SlanchaAI/wire",
-    "summary": "agent-to-agent comms, no vendor in the middle \u2014 telephone-exchange protocol for AI agents. wire dial / wire send / wire pending / wire accept.",
-    "keywords_matched": [
-      "agent-to-agent"
-    ],
-    "score": 7,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:11.817077-06:00"
-  },
-  {
-    "title": "tjdrhs90/rn-launch-harness (7 stars)",
-    "source": "github",
-    "url": "https://github.com/tjdrhs90/rn-launch-harness",
-    "summary": "Claude Code plugin that automates the entire React Native app lifecycle \u2014 from market research to App Store & Google Play submission. Harness engineering with Generator-Evaluator separation, file-based handoff, and contract negotiation.",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 7,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:07:29.552637-06:00"
-  },
-  {
-    "title": "Show HN: Shellular \u2013 run Claude Code, Codex, Pi from your phone",
-    "source": "rss/Hacker News RSS",
-    "url": "https://shellular.dev/",
-    "summary": "<p>Article URL: <a href=\"https://shellular.dev/\">https://shellular.dev/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=48818124\">https://news.ycombinator.com/item?id=48818124</a></p>\n<p>Points: 33</p>\n<p># Comments: 40</p>",
-    "keywords_matched": [
-      "claude code"
-    ],
-    "score": 5,
-    "tier": "HIGH",
-    "discovered": "2026-07-10T01:08:03.047973-06:00"
-  },
-  {
-    "title": "kellyvv/PhoneClaw (1137 stars)",
-    "source": "github",
-    "url": "https://github.com/kellyvv/PhoneClaw",
-    "summary": "PhoneClaw turns phones into local AI agent runtimes with on-device models, native mobile Skills, LiveLand, and optional Mac Gateway inference.",
-    "keywords_matched": [
-      "kills"
-    ],
-    "score": 1137,
+    "score": 418,
     "tier": "WATCH",
-    "discovered": "2026-07-10T01:07:35.595275-06:00"
+    "discovered": "2026-07-28T01:07:51.112128-06:00"
   },
   {
-    "title": "mohitbadwal/ringback (16 stars)",
-    "source": "github",
-    "url": "https://github.com/mohitbadwal/ringback",
-    "summary": "Let your AI agent call your phone and talk to you \u2014 MCP servers for live, interruptible voice calls + tiered alerts, using free self-hosted pieces (pjsua2 + whisper.cpp + Linphone). No paid telephony, no extra API key.",
-    "keywords_matched": [
-      "self-hosted"
-    ],
-    "score": 16,
-    "tier": "WATCH",
-    "discovered": "2026-07-10T01:07:46.550862-06:00"
-  },
-  {
-    "title": "The new GPT-5.6 family: Luna, Terra, Sol",
-    "source": "rss/Simon Willison",
-    "url": "https://simonwillison.net/2026/Jul/9/gpt-5-6/#atom-everything",
-    "summary": "<p>OpenAI's latest flagship model <a href=\"https://openai.com/index/gpt-5-6/\">hit general availability this morning</a>, and comes in three sizes: Luna, Terra, and Sol (from smallest to largest).</p>\n<p>The new models are priced per 1M input/output tokens as Luna $1/$6, Terra $2.50/$15, Sol $5/$30. ",
+    "title": "Elevated errors on Claude Opus 5",
+    "source": "hn/topstories",
+    "url": "https://status.claude.com/incidents/mfdtrknpxghq",
+    "summary": "HN score: 99, comments: 72",
     "keywords_matched": [
       "claude opus"
     ],
-    "score": 5,
+    "score": 99,
     "tier": "WATCH",
-    "discovered": "2026-07-10T01:08:00.929155-06:00"
+    "discovered": "2026-07-28T01:05:41.270485-06:00"
+  },
+  {
+    "title": "Google Chrome Arrives on ARM64 Linux, Widevine DRM Included",
+    "source": "hn/beststories",
+    "url": "https://www.omgubuntu.co.uk/2026/07/chrome-arm64-linux-available",
+    "summary": "HN score: 85, comments: 47",
+    "keywords_matched": [
+      "devin"
+    ],
+    "score": 85,
+    "tier": "WATCH",
+    "discovered": "2026-07-28T01:07:01.448059-06:00"
+  },
+  {
+    "title": "Show HN: Let's Seal \u2013 Let's Encrypt for document signing, free and self-hosted",
+    "source": "hn/topstories",
+    "url": "https://github.com/letsseal/letsseal",
+    "summary": "HN score: 83, comments: 29",
+    "keywords_matched": [
+      "self-hosted"
+    ],
+    "score": 83,
+    "tier": "WATCH",
+    "discovered": "2026-07-28T01:05:36.761561-06:00"
+  },
+  {
+    "title": "Elevated errors on Claude Opus 5",
+    "source": "hn/beststories",
+    "url": "https://status.claude.com/incidents/lhqp09kxq7pb",
+    "summary": "HN score: 50, comments: 24",
+    "keywords_matched": [
+      "claude opus"
+    ],
+    "score": 50,
+    "tier": "WATCH",
+    "discovered": "2026-07-28T01:07:11.892975-06:00"
   }
 ]

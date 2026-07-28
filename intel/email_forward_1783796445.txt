@@ -1,0 +1,37 @@
+Subject: Tech Scan 2026-07-11 19:00 UTC — 8 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-11T19:00:45.919705+00:00
+
+TECH SCAN — 2026-07-11 19:00 UTC
+airborne scanner pulse · 21 finds · sectors agentic, claude-code, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 8 TRIAL · 13 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: A Trust Index for MCP Servers — https://index.canopii.dev
+↳ real tool (server, mcp) — worth a bounded look
+Show HN: Standalone SearXNG CLI+MCP (no server needed) — https://github.com/nikvdp/searxng-ai-kit
+↳ real tool (server, mcp, github.com) — worth a bounded look
+Show HN: Code Airlock: Run Claude Code and Codex in Disposable MicroVMs — https://github.com/Trivo25/code-airlock
+↳ real tool (github.com) — worth a bounded look
+Hasharot – Control a Claude Code agent on your machine from Telegram — https://github.com/Mamasodikov/hasharot
+↳ real tool (github.com) — worth a bounded look
+Show HN: Persistent Claude Code sessions you drive as a terminal or a chat — https://github.com/thrinz/agentpeek
+↳ real tool (github.com) — worth a bounded look
+Show HN: An MCP server that lets AI agents request disability insurance quotes — https://github.com/seaworthy-io/seaworthy-mcp
+↳ real tool (server, mcp, github.com) — worth a bounded look
+Show HN: Bunrun – agent-configured local dashboard to start/stop dev apps — https://github.com/jokkebk/bunrun
+↳ real tool (github.com) — worth a bounded look
+Claude Code, Beyond the Prompt — Part 4: Your First MCP Server (Give Claude Safe Hands on Your Own Tools) — https://dev.to/gde03/c
+↳ real tool (server, mcp, tool) — worth a bounded look
+👁 WATCH:I just made $25K USD with my capybara game built entirely with Claude Code
+DeepSWE just added the gpt-5.6 models to their benchmark. I hope you guys don't get too used to Claude Code as
+Show HN: Aether – Run Claude Code, Codex, or OpenCode in devboxes you can watch — https://www.runaether.dev/
+Show HN: Aerial – DIY Orchestration and Agent Messaging — https://dcdeniz.github.io/aerial/
+Claude Code weekly limits will be lower from Jul 13th — https://old.reddit.com/r/ClaudeAI/comments/1tc9oa0/cla
+GPT 5.6 Ultra better in Claude Code than in Codex? — https://twitter.com/theo/status/2075776733626892542
+One Wikipedia page costs your AI agent 68,000 tokens — https://news.ycombinator.com/item?id=48867021
+I just made $25K USD with my capybara game built with Claude Code — https://old.reddit.com/r/ClaudeAI/comments
+RAW — all finds this pulse (unfiltered)[claude-code] I just made $25K USD with my capybara game built entirely with Claude Code (Reddit r/ClaudeAI)
+[claude-code] DeepSWE just added the gpt-5.6 models to their benchmark. I hope you guys don't get too used to Claude Code as your only (Reddit r/ClaudeAI)
+[mcp] Show HN: A Trust Index for MCP Servers — https://index.canopii.dev (Hacker News — Claude Code)
+[mcp] Show HN: Standalone SearXNG CLI+MCP (no server needed) — https://github.com/nikvdp/searxng-ai-kit (Hacker News — Claude Code)
+[claude-code] Show HN: Aether – Run Claude Code, Codex, or OpenCode in devboxes you can watch — 

@@ -1,0 +1,80 @@
+{
+  "route": "Stockholm_Arlanda_Airport_At_Six",
+  "from": "Stockholm Arlanda Airport",
+  "to": "At Six",
+  "date": "2026-08-27",
+  "pax": 6,
+  "scraped_at": "2026-07-17T15:16:23.670473",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "Stockholm Arlanda Airport\u2192At Six",
+    "description": "Stockholm Arlanda Airport \u2192 At Six",
+    "url": "https://kiwitaxi.com/en/sweden/taxi-from-stockholm-arlanda-airport-to-stockholm?ref=sf#transfers",
+    "pax": 6,
+    "date": "2026-08-27",
+    "scraped_at": "2026-07-17T15:16:24.828188",
+    "duration_min": 35,
+    "transfers": [
+      {
+        "vehicle_class": "Comfort",
+        "price_usd": 98,
+        "pax_capacity": 4,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minivan 4PAX",
+        "price_usd": 116,
+        "pax_capacity": 4,
+        "bags_capacity": 4,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 7PAX",
+        "price_usd": 130,
+        "pax_capacity": 7,
+        "bags_capacity": 7,
+        "badge": "Best Choice"
+      },
+      {
+        "vehicle_class": "Business",
+        "price_usd": 143,
+        "pax_capacity": 3,
+        "bags_capacity": 3,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 10PAX",
+        "price_usd": 244,
+        "pax_capacity": 10,
+        "bags_capacity": 10,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 13PAX",
+        "price_usd": 266,
+        "pax_capacity": 13,
+        "bags_capacity": 13,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 16PAX",
+        "price_usd": 284,
+        "pax_capacity": 16,
+        "bags_capacity": 16,
+        "badge": null
+      },
+      {
+        "vehicle_class": "Minibus 19PAX",
+        "price_usd": 486,
+        "pax_capacity": 19,
+        "bags_capacity": 19,
+        "badge": null
+      }
+    ],
+    "screenshot": "/home/john/Thunderbird/core/travel/data/transfer_kiwitaxi_custom_2026-08-27.png",
+    "status": "ok",
+    "notes": "Form-fill mode (route not in pre-map)"
+  },
+  "welcomepickups": {}
+}

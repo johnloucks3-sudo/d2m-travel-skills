@@ -220,3 +220,5 @@ D2M USAGE NOTES
 • Applicable clients: Furlow, Ely/Darrow, Nichols (all on SS Grandeur Aug 29 2026)
 • Potential deliverable: D2M-branded "First-Timer's Guide to Regent" PDF
 • Key dates for this content: excursions opened Jan 31, specialty dining opens May 31, closes Aug 22
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

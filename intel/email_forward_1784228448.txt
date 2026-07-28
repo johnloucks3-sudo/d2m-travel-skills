@@ -1,0 +1,34 @@
+Subject: Tech Scan 2026-07-16 19:00 UTC — 5 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-16T19:00:48.852356+00:00
+
+TECH SCAN — 2026-07-16 19:00 UTC
+airborne scanner pulse · 15 finds · sectors agentic, claude-code, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 10 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: A Claude Code skill that finds dev tools – or stays silent — https://github.com/jaimeramiro-dev/gold-digger
+↳ real tool (skill, tool, github.com) — worth a bounded look
+Claudeisms: A list of words Claude Code overuses — https://github.com/archiewood/claudeisms
+↳ real tool (github.com) — worth a bounded look
+Show HN: Tmux tab markers for Claude Code, Grok, and pi sessions — https://github.com/jhickner/tmux-agent-tabs
+↳ real tool (github.com) — worth a bounded look
+Call GPT 5.6-Sol Pro, Fable 5, SuperGrok Subscripions from Codex, Claude — https://github.com/agentify-sh/desktop
+↳ real tool (github.com) — worth a bounded look
+Show HN: An MCP server that frames screen recordings and shots in Apple bezels — https://github.com/cwooddgr/bezelbub/tree/main/be
+↳ real tool (server, mcp, github.com) — worth a bounded look
+👁 WATCH:Inspired by caveman and co, I'm open-sourcing a Claude Code plugin that reduces token output by 99.9%
+You can see inline diffs in Claude Code for free, similar to Cursor — https://www.norrin.dev/
+SnippAI – Screenshot, speak, straight into your Claude Code session — https://snippai.dev
+I'm 33 and I think Claude Code is melting my brain — https://twitter.com/BraedendotTECH/status/207735300048654
+Show HN: Mac App to turn your computer into a hands-off coding agent — https://caider.dev/
+Memories are an anti-pattern for Claude Code — https://keyboardsdown.com/posts/02-memories-are-an-anti-pattern
+Migrating off Webflow and the worst way to use Claude Code — https://www.sisyphus.bar/blog/migrating-off-webfl
+Show HN: Marigold – Get more done with your agent — https://marigold.page
+RAW — all finds this pulse (unfiltered)[claude-code] Inspired by caveman and co, I'm open-sourcing a Claude Code plugin that reduces token output by 99.9% (Reddit r/ClaudeAI)
+[claude-code] Show HN: A Claude Code skill that finds dev tools – or stays silent — https://github.com/jaimeramiro-dev/gold-digger (Hacker News — Claude Code)
+[claude-code] Claudeisms: A list of words Claude Code overuses — https://github.com/archiewood/claudeisms (Hacker News — Claude Code)
+[claude-code] You can see inline diffs in Claude Code for free, similar to Cursor — https://www.norrin.dev/ (Hacker News — Claude Code)
+[claude-code] SnippAI – Screenshot, speak, straight into your Claude Code session — https://snippai.dev (Hacker News — Claude Code)
+[claude-code] Show HN: Tmux tab markers for Claude Code, Grok, and pi sessions — https://github.com/jhickner/tmux-agent-tabs (Hacker News — Claude Code)
+[claude-code] I'm 33 and I think Claude Code is melting my brain — https://twitter.com/BraedendotTECH/status/2077353000486547633 (Hacker News — Claude Code)
+[agentic] Call GPT 5.6-Sol Pro, Fable 5, SuperGrok Subscripions from Codex,

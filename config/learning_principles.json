@@ -2,9 +2,9 @@
   "meta": {
     "generated": "2026-03-23T03:00:00.000000",
     "version": "1.0",
-    "total_principles": 14,
+    "total_principles": 19,
     "note": "Seeded from observed Commander edits and stated preferences. Grows via Learning Compiler.",
-    "last_updated": "2026-03-28T22:26:06.365811"
+    "last_updated": "2026-07-17T15:40:33.299638"
   },
   "principles": [
     {
@@ -148,6 +148,56 @@
       "extracted_from": "Commander edit \u2014 28 Mar 2026",
       "confidence": 0.75,
       "auto_captured": true
+    },
+    {
+      "id": "LP015",
+      "context": "group client email, addressing multiple couples on shared logistics",
+      "principle": "In a group email, never attribute a complaint/flag to one named client by name \u2014 depersonalize it (e.g. 'Larry flagged' -> 'Several of you flagged') so no one couple is singled out in front of the others.",
+      "direction": "soften",
+      "example_before": "Larry flagged that the sedan's listed luggage limit looked tight for the bags your group is bringing.",
+      "example_after": "Several of you flagged that the sedan's listed luggage limit looked tight for the bags you're bringing.",
+      "extracted_from": "Furlow/Ely-Darrow/Nichols van-switch group email \u2014 Commander edit 2026-07-17",
+      "confidence": 0.9
+    },
+    {
+      "id": "LP016",
+      "context": "group/client email, referencing a prior D2M research gap",
+      "principle": "Don't phrase re-checking work in a way that implies the first pass was lazy or wrong (e.g. 'rather than take the original answer at face value'). Use neutral framing ('re-checked the market') instead.",
+      "direction": "soften",
+      "example_before": "we went back and checked the market again rather than take the original answer at face value",
+      "example_after": "we re-checked the market rather than accepting the original search results",
+      "extracted_from": "Furlow/Ely-Darrow/Nichols van-switch group email \u2014 Commander edit 2026-07-17",
+      "confidence": 0.85
+    },
+    {
+      "id": "LP017",
+      "context": "client email, cost reassurance without a formal quote",
+      "principle": "Commander will add a rounded/approximate total price directly in client copy to reassure affordability (e.g. 'under $200'), even when the draft intentionally omitted a specific figure to avoid a financial sign-off gate. Rough, non-precise cost framing is acceptable in his voice without waiting on formal sign-off.",
+      "direction": "add",
+      "example_before": "(no price mentioned)",
+      "example_after": "The TOTAL would be under $200.",
+      "extracted_from": "Furlow/Ely-Darrow/Nichols van-switch group email \u2014 Commander edit 2026-07-17",
+      "confidence": 0.7
+    },
+    {
+      "id": "LP018",
+      "context": "client email, correcting a prior booking gap or mixup",
+      "principle": "When resolving a client-flagged issue caused by D2M's original arrangement, add a brief, direct apology line near the close ('My apologies for the confusion.') rather than omitting it.",
+      "direction": "add",
+      "example_before": "(no apology)",
+      "example_after": "My apologies for the confusion.",
+      "extracted_from": "Furlow/Ely-Darrow/Nichols van-switch group email \u2014 Commander edit 2026-07-17",
+      "confidence": 0.8
+    },
+    {
+      "id": "LP019",
+      "context": "group client email, opening greeting",
+      "principle": "For a group of multiple couples, prefer a warm collective address over listing every first name (e.g. 'Hi soon-to-be world travellers:'), optionally with a soft conversational opener ('If I may...') before the logistics point.",
+      "direction": "personalize",
+      "example_before": "Hi John, Missy, Al, Amy, Larry, and Heidi,",
+      "example_after": "Hi soon-to-be world travellers: If I may...a quick logistics note on your Stockholm arrival transfer.",
+      "extracted_from": "Furlow/Ely-Darrow/Nichols van-switch group email \u2014 Commander edit 2026-07-17",
+      "confidence": 0.65
     }
   ]
 }

@@ -1,0 +1,34 @@
+[Unit]
+Description=Dreams2Memories Fare Watch with Autonomous Engine Failover
+Documentation=file:///home/john/Thunderbird/docs/FARE_WATCH_FAILOVER.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+
+# Load environment (includes KIWI_RAPIDAPI_KEY, GOOGLE_FLIGHTS_RAPIDAPI_KEY, etc.)
+EnvironmentFile=-/home/john/Thunderbird/.env
+EnvironmentFile=-/home/john/Thunderbird/.env.vault
+
+# Run failover-integrated fare watch polling
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/fare_watch_failover_poll.py
+
+# Logging
+StandardOutput=append:/home/john/Thunderbird/logs/fare-watch-failover.log
+StandardError=append:/home/john/Thunderbird/logs/fare-watch-failover.log
+
+# Safety
+TimeoutStartSec=900  # 15 min (cascade can take time)
+KillMode=mixed
+Restart=on-failure
+RestartSec=60
+
+# Resource limits
+MemoryLimit=512M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

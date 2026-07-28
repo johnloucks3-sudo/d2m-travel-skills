@@ -1,0 +1,16 @@
+{
+  "watches": [
+    {
+      "label": "SEA→COS (Silvernova disembark)",
+      "origin": "SEA",
+      "destination": "COS",
+      "date": "2026-05-11",
+      "passengers": 2,
+      "filters": {
+        "min_departure_hour": 11,
+        "max_layover_minutes": 180
+      },
+      "notes": "2 seniors. Silver Nova arrives SEA 7:00 AM. Need dep after 11 AM, layover under 3 hours."
+    }
+  ]
+}

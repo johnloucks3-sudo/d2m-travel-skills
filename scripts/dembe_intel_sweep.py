@@ -323,6 +323,18 @@ def main() -> None:
 
     msg = build_intel_message(today, actionable, radar, fpd_alerts, queue_count, state, hot_tps=hot_tps)
 
+    try:
+        from core.staffing.sss_render import render_info_text
+        msg = render_info_text(
+            subject=f"Daily Intel Sweep — {today.isoformat()}",
+            opr="Dembe (A2)", staffed_by=["Dembe (A2)"],
+            purpose="Daily touchpoint/departure/FPD intelligence sweep.",
+            discussion=msg,
+            tag="Intel",
+        )
+    except Exception as e:
+        logger.error(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
+
     if args.local or not token:
         print(msg)
         if not token:

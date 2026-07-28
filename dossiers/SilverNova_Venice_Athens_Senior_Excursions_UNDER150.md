@@ -132,3 +132,5 @@ Even with **all** of those upgrades you'd land near **$2,100 pp — still under 
 
 ---
 *Prepared by Dreams2Memories Travel, LLC. Indicative prices — confirm live at booking via Silversea Shore Concierge. Mobility suitability quoted from official tour notes; final fitness call rests with the guests.*
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

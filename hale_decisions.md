@@ -188140,3 +188140,1421 @@ Surface to
   28. `tmobile_2line_bill_deepdive_analysis.md`
   29. `tmobile_plan_comparison_analysis.md`
   30. `tmobile_susan_upgrade_analysis.md`
+
+<!-- PLAN:OPEN plan_id=PLN-9616a6 tier=trivial session_id=none opened_at=2026-07-28T04:39:25.125520+00:00 -->
+**Plan Opened:** PLN-9616a6
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2381636.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9616a6 verdict=PASS quality_tier=none closed_at=2026-07-28T04:39:25.130369+00:00 -->
+**Plan Closed:** PLN-9616a6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2381636.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8eb5bb tier=trivial session_id=none opened_at=2026-07-28T04:39:56.651950+00:00 -->
+**Plan Opened:** PLN-8eb5bb
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8eb5bb verdict=PASS quality_tier=none closed_at=2026-07-28T04:39:56.659510+00:00 -->
+**Plan Closed:** PLN-8eb5bb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T04:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T04:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T04:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T05:09Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T05:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-7f154d tier=trivial session_id=none opened_at=2026-07-28T05:21:40.038922+00:00 -->
+**Plan Opened:** PLN-7f154d
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f154d verdict=PASS quality_tier=none closed_at=2026-07-28T05:21:40.043690+00:00 -->
+**Plan Closed:** PLN-7f154d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dcdf42 tier=trivial session_id=none opened_at=2026-07-28T05:22:33.672729+00:00 -->
+**Plan Opened:** PLN-dcdf42
+**Task:** generic long-tail remediation: thunderbird-drive-sync -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-drive-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dcdf42 verdict=PASS quality_tier=none closed_at=2026-07-28T05:22:33.677348+00:00 -->
+**Plan Closed:** PLN-dcdf42
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** thunderbird-drive-sync verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T05:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T05:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-c2d12c tier=trivial session_id=none opened_at=2026-07-28T05:40:15.528135+00:00 -->
+**Plan Opened:** PLN-c2d12c
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2452039.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2d12c verdict=PASS quality_tier=none closed_at=2026-07-28T05:40:15.533197+00:00 -->
+**Plan Closed:** PLN-c2d12c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2452039.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T05:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-4778b8 tier=trivial session_id=none opened_at=2026-07-28T05:43:46.888407+00:00 -->
+**Plan Opened:** PLN-4778b8
+**Task:** generic long-tail remediation: thunderbird-drive-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-drive-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4778b8 verdict=PASS quality_tier=none closed_at=2026-07-28T05:43:46.894269+00:00 -->
+**Plan Closed:** PLN-4778b8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-drive-sync verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+## 2026-07-27 23:52 MT — CI Remediation: thunderbird-drive-sync.service
+**Authority:** SO_CI_RAZOR_SHARP_20260620 | **Actor:** Hale  
+**Unit:** thunderbird-drive-sync.service | **Trigger:** Sentinel (3 errors/10min, result=exit-code)  
+**Root Cause:** `output/hale_dashboard.html` rewritten mid-sync → MD5 mismatch → rclone exit 1 on all 3 retries. Same race-condition class as Sterling's 2026-06-10 log-exclusion fix.  
+**Fix:** Added `- output/hale_dashboard.html` to `scripts/thunderbird_sync_filters.txt`. Filter exclusion verified live. Reset-failed cleared. Next scheduled run (2026-07-28 23:00) should be clean.  
+**Report:** `output/ci_remediation/fix_thunderbird-drive-sync_service.md`
+
+- **CHIEF SILVER** [2026-07-28T05:53Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T05:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T06:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-326023 tier=trivial session_id=none opened_at=2026-07-28T06:12:48.901337+00:00 -->
+**Plan Opened:** PLN-326023
+**Task:** generic long-tail remediation: thunderbird-drive-sync -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-drive-sync verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-326023 verdict=PASS quality_tier=none closed_at=2026-07-28T06:12:48.906053+00:00 -->
+**Plan Closed:** PLN-326023
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-drive-sync verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d78ff3 tier=trivial session_id=none opened_at=2026-07-28T06:13:45.159097+00:00 -->
+**Plan Opened:** PLN-d78ff3
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d78ff3 verdict=PASS quality_tier=none closed_at=2026-07-28T06:13:45.163674+00:00 -->
+**Plan Closed:** PLN-d78ff3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T06:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+---
+## CI Remediation — thunderbird-drive-sync.service [2026-07-28 00:25 MDT]
+**Authority:** SO_CI_RAZOR_SHARP_20260620 (no Commander gate)
+**Root cause:** Lock file race condition (`size changed from 0 to 24169`). `--ignore-errors` skipped the file; exit code 1 incorrectly treated as hard failure. Full 622 MiB transferred; only 1 volatile file skipped.
+**Fix 1:** `scripts/thunderbird-rclone-sync.sh` — added exit 1 to success-branch (alongside exit 6). With `--ignore-errors` active, exit 1 = skipped files, not auth/config failure.
+**Fix 2:** `scripts/thunderbird_sync_filters.txt` — added `*.lock` exclusion to prevent race at source.
+**Reset:** `systemctl --user reset-failed thunderbird-drive-sync.service` ✓
+**Status:** Service re-running (PID 2501233, started 00:21:07 MDT). Next completion ~00:43 MDT will confirm green.
+
+- **CHIEF SILVER** [2026-07-28T06:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T06:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T06:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-cdfc64 tier=trivial session_id=none opened_at=2026-07-28T06:40:27.684590+00:00 -->
+**Plan Opened:** PLN-cdfc64
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2525685.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cdfc64 verdict=PASS quality_tier=none closed_at=2026-07-28T06:40:27.689280+00:00 -->
+**Plan Closed:** PLN-cdfc64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2525685.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T06:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T07:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-ff95d0 tier=trivial session_id=none opened_at=2026-07-28T07:14:55.681866+00:00 -->
+**Plan Opened:** PLN-ff95d0
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ff95d0 verdict=PASS quality_tier=none closed_at=2026-07-28T07:14:55.687818+00:00 -->
+**Plan Closed:** PLN-ff95d0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T07:14Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T07:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T07:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-a6305a tier=trivial session_id=none opened_at=2026-07-28T07:40:38.582129+00:00 -->
+**Plan Opened:** PLN-a6305a
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2590072.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a6305a verdict=PASS quality_tier=none closed_at=2026-07-28T07:40:38.586519+00:00 -->
+**Plan Closed:** PLN-a6305a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2590072.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T07:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-fa5d9e tier=trivial session_id=none opened_at=2026-07-28T08:07:03.029642+00:00 -->
+**Plan Opened:** PLN-fa5d9e
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fa5d9e verdict=PASS quality_tier=none closed_at=2026-07-28T08:07:03.035056+00:00 -->
+**Plan Closed:** PLN-fa5d9e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T08:07Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T08:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T08:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T08:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **2026-07-28 02:15:00 MT**: [WEAPONS FREE] Executed daily action plan sweep (02:15 MT schedule). Zero-Claude protocol verified clean.
+- **CHIEF SILVER** [2026-07-28T08:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-56129b tier=trivial session_id=none opened_at=2026-07-28T08:39:58.278816+00:00 -->
+**Plan Opened:** PLN-56129b
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-56129b verdict=PASS quality_tier=none closed_at=2026-07-28T08:39:58.284016+00:00 -->
+**Plan Closed:** PLN-56129b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T08:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-8d12d9 tier=trivial session_id=none opened_at=2026-07-28T08:40:54.451087+00:00 -->
+**Plan Opened:** PLN-8d12d9
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2657200.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8d12d9 verdict=PASS quality_tier=none closed_at=2026-07-28T08:40:54.455590+00:00 -->
+**Plan Closed:** PLN-8d12d9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2657200.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T08:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T08:59Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-f129dc tier=trivial session_id=none opened_at=2026-07-28T08:59:16.567351+00:00 -->
+**Plan Opened:** PLN-f129dc
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f129dc verdict=FAIL quality_tier=none closed_at=2026-07-28T08:59:16.572215+00:00 -->
+**Plan Closed:** PLN-f129dc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T09:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T09:14Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T09:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T09:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-036907 tier=trivial session_id=none opened_at=2026-07-28T09:41:45.944242+00:00 -->
+**Plan Opened:** PLN-036907
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2722085.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-036907 verdict=PASS quality_tier=none closed_at=2026-07-28T09:41:45.948832+00:00 -->
+**Plan Closed:** PLN-036907
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2722085.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1e4dc5 tier=trivial session_id=none opened_at=2026-07-28T09:52:23.312865+00:00 -->
+**Plan Opened:** PLN-1e4dc5
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e4dc5 verdict=PASS quality_tier=none closed_at=2026-07-28T09:52:23.320316+00:00 -->
+**Plan Closed:** PLN-1e4dc5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T09:52Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T09:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T10:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T10:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d00711 tier=trivial session_id=none opened_at=2026-07-28T10:33:53.450125+00:00 -->
+**Plan Opened:** PLN-d00711
+**Task:** Loucks Silver Nova daily flight-routing recheck
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d00711 verdict=FAIL quality_tier=none closed_at=2026-07-28T10:33:53.455372+00:00 -->
+**Plan Closed:** PLN-d00711
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+**Criteria unverified:** none
+**Notes:** {"den-muc-vce": null, "ath-ist-den": null, "ath-muc-den": null, "den-vce-direct": null}
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T10:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-33c0be tier=trivial session_id=none opened_at=2026-07-28T10:42:00.169146+00:00 -->
+**Plan Opened:** PLN-33c0be
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2788493.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-33c0be verdict=PASS quality_tier=none closed_at=2026-07-28T10:42:00.173701+00:00 -->
+**Plan Closed:** PLN-33c0be
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2788493.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T10:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-682baa tier=trivial session_id=none opened_at=2026-07-28T10:45:21.746218+00:00 -->
+**Plan Opened:** PLN-682baa
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-682baa verdict=PASS quality_tier=none closed_at=2026-07-28T10:45:21.751045+00:00 -->
+**Plan Closed:** PLN-682baa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T10:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-6ee820 tier=trivial session_id=none opened_at=2026-07-28T11:02:00.783031+00:00 -->
+**Plan Opened:** PLN-6ee820
+**Task:** Spencer Grand Tour daily flight-routing recheck
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** leg spencer-leg1-den-fco-tim-business-jun2027: price captured; leg spencer-leg1-den-fco-yaggispencer-pe-jun2027: price captured; leg spencer-leg2-fco-den-tim-business-jun2027: price captured; leg spencer-leg3-zrh-den-yaggispencer-pe-jul2027: price captured
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6ee820 verdict=FAIL quality_tier=none closed_at=2026-07-28T11:02:00.788291+00:00 -->
+**Plan Closed:** PLN-6ee820
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** leg spencer-leg1-den-fco-tim-business-jun2027: price captured; leg spencer-leg1-den-fco-yaggispencer-pe-jun2027: price captured; leg spencer-leg2-fco-den-tim-business-jun2027: price captured; leg spencer-leg3-zrh-den-yaggispencer-pe-jul2027: price captured
+**Criteria unverified:** none
+**Notes:** {"spencer-leg1-den-fco-tim-business-jun2027": null, "spencer-leg1-den-fco-yaggispencer-pe-jun2027": null, "spencer-leg2-fco-den-tim-business-jun2027": null, "spencer-leg3-zrh-den-yaggispencer-pe-jul2027": null}
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T11:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:18Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:18Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:19Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:19Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-45ec47 tier=trivial session_id=none opened_at=2026-07-28T11:39:26.949575+00:00 -->
+**Plan Opened:** PLN-45ec47
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-45ec47 verdict=PASS quality_tier=none closed_at=2026-07-28T11:39:26.954923+00:00 -->
+**Plan Closed:** PLN-45ec47
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T11:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T11:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-370c88 tier=trivial session_id=none opened_at=2026-07-28T11:42:07.598070+00:00 -->
+**Plan Opened:** PLN-370c88
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2860169.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-370c88 verdict=PASS quality_tier=none closed_at=2026-07-28T11:42:07.612368+00:00 -->
+**Plan Closed:** PLN-370c88
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2860169.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T11:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-a05094 tier=trivial session_id=none opened_at=2026-07-28T12:00:20.673993+00:00 -->
+**Plan Opened:** PLN-a05094
+**Task:** CI repair attempt: self-observability -> auto_applied
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** self-observability repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a05094 verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:20.678836+00:00 -->
+**Plan Closed:** PLN-a05094
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** self-observability repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4e580c tier=trivial session_id=none opened_at=2026-07-28T12:00:22.941672+00:00 -->
+**Plan Opened:** PLN-4e580c
+**Task:** CI repair attempt: fare-watch-centrav -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** fare-watch-centrav repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4e580c verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:22.946382+00:00 -->
+**Plan Closed:** PLN-4e580c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** fare-watch-centrav repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3de551 tier=trivial session_id=none opened_at=2026-07-28T12:00:23.017841+00:00 -->
+**Plan Opened:** PLN-3de551
+**Task:** CI repair attempt: fare-watch-amadeus -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** fare-watch-amadeus repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3de551 verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:23.023825+00:00 -->
+**Plan Closed:** PLN-3de551
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** fare-watch-amadeus repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-91fc88 tier=trivial session_id=none opened_at=2026-07-28T12:00:29.473900+00:00 -->
+**Plan Opened:** PLN-91fc88
+**Task:** CI repair attempt: competitive-intel-apis -> auto_applied
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** competitive-intel-apis repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-91fc88 verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:29.481496+00:00 -->
+**Plan Closed:** PLN-91fc88
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** competitive-intel-apis repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ca931f tier=trivial session_id=none opened_at=2026-07-28T12:00:35.913817+00:00 -->
+**Plan Opened:** PLN-ca931f
+**Task:** CI repair attempt: cruise-intelligence -> auto_applied
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** cruise-intelligence repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ca931f verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:35.918151+00:00 -->
+**Plan Closed:** PLN-ca931f
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** cruise-intelligence repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0957aa tier=trivial session_id=none opened_at=2026-07-28T12:00:50.384310+00:00 -->
+**Plan Opened:** PLN-0957aa
+**Task:** CI repair attempt: lifecycle-travel-surveys -> blocked_cooldown
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** lifecycle-travel-surveys repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0957aa verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:50.388866+00:00 -->
+**Plan Closed:** PLN-0957aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** lifecycle-travel-surveys repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34d424 tier=trivial session_id=none opened_at=2026-07-28T12:00:50.612196+00:00 -->
+**Plan Opened:** PLN-34d424
+**Task:** CI repair attempt: lifecycle-excursion-engine -> error
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** lifecycle-excursion-engine repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34d424 verdict=FAIL quality_tier=none closed_at=2026-07-28T12:00:50.616483+00:00 -->
+**Plan Closed:** PLN-34d424
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** lifecycle-excursion-engine repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-14e397 tier=trivial session_id=none opened_at=2026-07-28T12:01:33.884558+00:00 -->
+**Plan Opened:** PLN-14e397
+**Task:** CI repair attempt: home-dir-health -> staged:CIRPR-691ED9086CE4
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** home-dir-health repaired and probe passing
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-14e397 verdict=FAIL quality_tier=none closed_at=2026-07-28T12:01:33.889271+00:00 -->
+**Plan Closed:** PLN-14e397
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** home-dir-health repaired and probe passing
+**Criteria unverified:** none
+**Notes:** repaired=False
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T12:02Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:18Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:19Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:19Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:19Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:21Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-8e8ae3 tier=trivial session_id=none opened_at=2026-07-28T12:31:45.319229+00:00 -->
+**Plan Opened:** PLN-8e8ae3
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e8ae3 verdict=PASS quality_tier=none closed_at=2026-07-28T12:31:45.324701+00:00 -->
+**Plan Closed:** PLN-8e8ae3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T12:35Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:36Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T12:36Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-2a1a0f tier=trivial session_id=none opened_at=2026-07-28T12:39:58.519745+00:00 -->
+**Plan Opened:** PLN-2a1a0f
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2a1a0f verdict=PASS quality_tier=none closed_at=2026-07-28T12:39:58.524632+00:00 -->
+**Plan Closed:** PLN-2a1a0f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T12:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-cc4401 tier=trivial session_id=none opened_at=2026-07-28T12:43:06.932654+00:00 -->
+**Plan Opened:** PLN-cc4401
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2944130.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc4401 verdict=PASS quality_tier=none closed_at=2026-07-28T12:43:06.937301+00:00 -->
+**Plan Closed:** PLN-cc4401
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_2944130.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T12:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:02Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:12Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:24Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-efdcae tier=trivial session_id=none opened_at=2026-07-28T13:27:04.469822+00:00 -->
+**Plan Opened:** PLN-efdcae
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-efdcae verdict=PASS quality_tier=none closed_at=2026-07-28T13:27:04.477632+00:00 -->
+**Plan Closed:** PLN-efdcae
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T13:27Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:27Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T13:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-b9a163 tier=trivial session_id=none opened_at=2026-07-28T13:43:22.862005+00:00 -->
+**Plan Opened:** PLN-b9a163
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3023087.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b9a163 verdict=PASS quality_tier=none closed_at=2026-07-28T13:43:22.866893+00:00 -->
+**Plan Closed:** PLN-b9a163
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3023087.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T13:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-1620a9 tier=trivial session_id=none opened_at=2026-07-28T14:20:47.380900+00:00 -->
+**Plan Opened:** PLN-1620a9
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1620a9 verdict=FAIL quality_tier=none closed_at=2026-07-28T14:20:47.387372+00:00 -->
+**Plan Closed:** PLN-1620a9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T14:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T14:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-af604f tier=trivial session_id=none opened_at=2026-07-28T14:45:11.340348+00:00 -->
+**Plan Opened:** PLN-af604f
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3093678.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-af604f verdict=PASS quality_tier=none closed_at=2026-07-28T14:45:11.344993+00:00 -->
+**Plan Closed:** PLN-af604f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3093678.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T14:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:05Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:06Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-585681 tier=trivial session_id=none opened_at=2026-07-28T15:09:24.320801+00:00 -->
+**Plan Opened:** PLN-585681
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-585681 verdict=PASS quality_tier=none closed_at=2026-07-28T15:09:24.325754+00:00 -->
+**Plan Closed:** PLN-585681
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T15:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-9e374d tier=trivial session_id=none opened_at=2026-07-28T15:15:39.169078+00:00 -->
+**Plan Opened:** PLN-9e374d
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9e374d verdict=FAIL quality_tier=none closed_at=2026-07-28T15:15:39.174256+00:00 -->
+**Plan Closed:** PLN-9e374d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T15:15Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:16Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:22Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:26Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:29Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:31Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-c6ad3e tier=trivial session_id=none opened_at=2026-07-28T15:46:39.746413+00:00 -->
+**Plan Opened:** PLN-c6ad3e
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3165423.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c6ad3e verdict=PASS quality_tier=none closed_at=2026-07-28T15:46:39.751059+00:00 -->
+**Plan Closed:** PLN-c6ad3e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3165423.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T15:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T15:57Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-ebe5c7 tier=trivial session_id=none opened_at=2026-07-28T16:08:36.814526+00:00 -->
+**Plan Opened:** PLN-ebe5c7
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ebe5c7 verdict=FAIL quality_tier=none closed_at=2026-07-28T16:08:36.819145+00:00 -->
+**Plan Closed:** PLN-ebe5c7
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T16:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:33Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:33Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:34Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:34Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-e45721 tier=trivial session_id=none opened_at=2026-07-28T16:39:58.724182+00:00 -->
+**Plan Opened:** PLN-e45721
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e45721 verdict=PASS quality_tier=none closed_at=2026-07-28T16:39:58.729746+00:00 -->
+**Plan Closed:** PLN-e45721
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T16:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-96e777 tier=trivial session_id=none opened_at=2026-07-28T16:46:51.101677+00:00 -->
+**Plan Opened:** PLN-96e777
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3234955.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96e777 verdict=PASS quality_tier=none closed_at=2026-07-28T16:46:51.106554+00:00 -->
+**Plan Closed:** PLN-96e777
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3234955.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T16:51Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T16:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-96ca2c tier=trivial session_id=none opened_at=2026-07-28T17:01:42.164617+00:00 -->
+**Plan Opened:** PLN-96ca2c
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96ca2c verdict=FAIL quality_tier=none closed_at=2026-07-28T17:01:42.169546+00:00 -->
+**Plan Closed:** PLN-96ca2c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T17:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T17:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T17:35Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T17:36Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T17:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T17:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-f8f9dc tier=trivial session_id=none opened_at=2026-07-28T17:47:37.314195+00:00 -->
+**Plan Opened:** PLN-f8f9dc
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3300622.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f8f9dc verdict=PASS quality_tier=none closed_at=2026-07-28T17:47:37.318833+00:00 -->
+**Plan Closed:** PLN-f8f9dc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3300622.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T17:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-fb9114 tier=trivial session_id=none opened_at=2026-07-28T17:56:52.199256+00:00 -->
+**Plan Opened:** PLN-fb9114
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fb9114 verdict=FAIL quality_tier=none closed_at=2026-07-28T17:56:52.204006+00:00 -->
+**Plan Closed:** PLN-fb9114
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T18:00Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-18d398 tier=trivial session_id=none opened_at=2026-07-28T18:29:32.888384+00:00 -->
+**Plan Opened:** PLN-18d398
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-18d398 verdict=PASS quality_tier=none closed_at=2026-07-28T18:29:32.893144+00:00 -->
+**Plan Closed:** PLN-18d398
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T18:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T18:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-65f43f tier=trivial session_id=none opened_at=2026-07-28T18:47:54.633514+00:00 -->
+**Plan Opened:** PLN-65f43f
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3371143.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-65f43f verdict=PASS quality_tier=none closed_at=2026-07-28T18:47:54.638138+00:00 -->
+**Plan Closed:** PLN-65f43f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3371143.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8413e9 tier=trivial session_id=none opened_at=2026-07-28T18:50:11.191970+00:00 -->
+**Plan Opened:** PLN-8413e9
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8413e9 verdict=FAIL quality_tier=none closed_at=2026-07-28T18:50:11.197124+00:00 -->
+**Plan Closed:** PLN-8413e9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T18:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:02Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:05Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:28Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:32Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:34Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T19:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-37ace9 tier=trivial session_id=none opened_at=2026-07-28T19:44:22.541986+00:00 -->
+**Plan Opened:** PLN-37ace9
+**Task:** Centrav session warm-ping -> session dead -- relogin failed, escalated to Commander
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-37ace9 verdict=FAIL quality_tier=none closed_at=2026-07-28T19:44:22.546836+00:00 -->
+**Plan Closed:** PLN-37ace9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** Centrav session verified authenticated after warm-ping
+**Criteria unverified:** none
+**Notes:** session dead -- relogin failed, escalated to Commander
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-859711 tier=trivial session_id=none opened_at=2026-07-28T19:48:12.051577+00:00 -->
+**Plan Opened:** PLN-859711
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3444422.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-859711 verdict=PASS quality_tier=none closed_at=2026-07-28T19:48:12.056357+00:00 -->
+**Plan Closed:** PLN-859711
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3444422.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T19:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:12Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:17Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:21Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d212b0 tier=trivial session_id=none opened_at=2026-07-28T20:40:00.989411+00:00 -->
+**Plan Opened:** PLN-d212b0
+**Task:** restart-flap flagged: thunderbird-telegram-gw.service, thunderbird-tunnel.service
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d212b0 verdict=PASS quality_tier=none closed_at=2026-07-28T20:40:00.997638+00:00 -->
+**Plan Closed:** PLN-d212b0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** flagged units recorded to /home/john/Thunderbird/logs/restart_flap_state.json
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T20:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d68cd3 tier=trivial session_id=none opened_at=2026-07-28T20:41:42.149113+00:00 -->
+**Plan Opened:** PLN-d68cd3
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d68cd3 verdict=PASS quality_tier=none closed_at=2026-07-28T20:41:42.153646+00:00 -->
+**Plan Closed:** PLN-d68cd3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T20:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d9d172 tier=trivial session_id=none opened_at=2026-07-28T20:48:22.635695+00:00 -->
+**Plan Opened:** PLN-d9d172
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3518288.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d9d172 verdict=PASS quality_tier=none closed_at=2026-07-28T20:48:22.640306+00:00 -->
+**Plan Closed:** PLN-d9d172
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3518288.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T20:50Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T20:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:01Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- COMMANDER-DECISIONS 2026-07-28T20:44Z Commander_Decision_Inbox -->
+**Commander Decision Batch — 2026-07-28T20:44:39Z (Commander Decision Inbox, 12 items)**
+1. McLeod Regent FINAL — FPD Contact → SEE ME (OBE — overtaken by events)
+2. Lyons Signet SIGNAL — SF 13 Payment Reminder → APPROVED
+3. Spencer Grand Tour — Bolivia 1st Quote → APPROVED
+4. Sanderson Consultants — Fund of C (sample) → SEE ME (OBE)
+5. Sanderson Consultants — Fund of C Review → SEE ME (OBE)
+6. McLeod FF/LC — Voyage Preview Send → SEE ME (route through Exec system)
+7. McLeod — TT/LC Welcome/Onboard → SEE ME (CLOSED)
+8. BRINSFIELD — Itinerary Format Notice → SEE ME (OBE — close)
+9. BRINSFIELD — Itinerary Build Complete → SEE ME (close)
+10. Durbin — Ferry booking finalize → APPROVED
+11. RENTING.com — Skyview Continental Rocky (Detail) → SEE ME (Exec, brief me)
+12. BRINSFIELD — Post-Onboard Validation → SEE ME (Exec, brief me)
+**Status:** logged, execution pending per-item source lookup.
+<!-- /COMMANDER-DECISIONS -->
+
+- **CHIEF SILVER** [2026-07-28T21:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:11Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:22Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:25Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:30Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-60c9c3 tier=trivial session_id=none opened_at=2026-07-28T21:36:11.858514+00:00 -->
+**Plan Opened:** PLN-60c9c3
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-60c9c3 verdict=PASS quality_tier=none closed_at=2026-07-28T21:36:11.896881+00:00 -->
+**Plan Closed:** PLN-60c9c3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T21:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:48Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-28T21:48Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-ccedc9 tier=trivial session_id=none opened_at=2026-07-28T21:49:00.712041+00:00 -->
+**Plan Opened:** PLN-ccedc9
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3611554.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ccedc9 verdict=PASS quality_tier=none closed_at=2026-07-28T21:49:00.719724+00:00 -->
+**Plan Closed:** PLN-ccedc9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3611554.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-28T21:55Z] BACK INTERNAL-OPS → PASS — wing machinery

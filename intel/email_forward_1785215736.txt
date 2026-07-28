@@ -1,0 +1,35 @@
+Subject: Tech Scan 2026-07-28 05:15 UTC — 7 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-28T05:15:36.304276+00:00
+
+TECH SCAN — 2026-07-28 05:15 UTC
+airborne scanner pulse · 17 finds · sectors agentic, claude-code, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 7 TRIAL · 9 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: I taught Claude Code to file Indian income-tax returns (ITR) — https://github.com/karanb192/itr-wala
+↳ real tool (github.com) — worth a bounded look
+ThinkFull: A 22-specialist Claude Code skill, not an agent pipeline — https://github.com/SuperNotesOnline/ThinkFull
+↳ real tool (skill, github.com) — worth a bounded look
+Agent Mesh: let Claude Code, Codex, Grok and other agents talk to each other — https://github.com/mubashir1osmani/agent-mesh
+↳ real tool (github.com) — worth a bounded look
+MemU – Personal Memory Shared by Codex, Claude Code, and Hermes — https://github.com/NevaMind-AI/memU
+↳ real tool (github.com) — worth a bounded look
+Show HN: Claude Playbooks – isolated, shareable Claude Code instances — https://github.com/ramazanpolat/claude-playbooks
+↳ real tool (github.com) — worth a bounded look
+Show HN: Agent Console – A Local Dashboard for Codex and Claude Code — https://github.com/buhuipao/agent-console
+↳ real tool (github.com) — worth a bounded look
+Show HN: Relay – turn Claude Code into a visual Kanban build loop — https://github.com/YoniRaviv/Relay
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I built a procedural desert explorer with Claude Code (Opus 5) and Three.js
+Anthropic changed a Claude Code default–how I insulated my framework — https://mauroepce.dev/blog/trust-bounda
+Show HN: Telegram bot that spins up Claude Code/Codex agents on their own VMs — https://agenticcloudcomputer.c
+I let Claude Code run my blog for 3 months: numbers and failures — https://bigguyonstuff.com/claude-code-3-mon
+Claude Code getting "API Error: 529 Overloaded" — https://news.ycombinator.com/item?id=49067964
+Brancher Kimi K3 dans une boucle agentique : les 4 trucs qui ont cassé — https://dev.to/hernanz/brancher-kimi-
+Why Burning Opus on Every Claude Code Turn Is the #1 Cost Mistake in AI Coding — https://dev.to/aplomb2/why-bu
+Solo production development with AI agents: enforce rules, don't explain them — https://dev.to/olegkostrikinde
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):What survives compaction in Claude Code — and how to keep your rules alive — https://dev.t
+RAW — all finds this pulse (unfiltered)[claude-code] I built a procedural desert explorer with Claude Code (Opus 5) and Three.js (Reddit r/ClaudeAI)
+[claude-code] Show HN: I taught Claude Code to file Indian income-tax returns (ITR) — https://github.com/karanb192/itr-wala (Hacker News — Claude Code)
+[claude-code] ThinkFull: A 22-specialist Claude Code skill, not an agent pipeline — https://github.com/SuperNotesOnline/ThinkFull (Hacker News — Claude Code)
+[claude-code] Anthropic changed a Claude Code default–how I insulated my framework — https://mauroepce.dev/blog/trust-boundaries-claud (Hacker Ne

@@ -1,0 +1,62 @@
+Subject: UPDATED: Commander Decision Inbox v2 — Watch Section + Batch 4
+From: johnloucks3@gmail.com
+Received: 2026-07-11T17:40:36.736226+00:00
+
+COMMANDER DECISION INBOX — UPDATED
+
+        
+        Dashboard now includes three sections:
+
+        
+        ⚡ Left Panel: Commander Inbox (55+ decisions)
+
+        
+            36 approved (Batches 1-3 complete)
+
+            20 new for approval (Batch 4, items 46-65)
+
+        
+        
+        ⏱️ Center Panel: WATCH (In Progress)
+
+        
+            12 executing now (active work)
+
+            7 scheduled (awaiting gate conditions like transfers, contact holds)
+
+            4 blocked (awaiting clarification — Westbrook status, Gmail fix, etc)
+
+        
+        
+        🚀 Right Panel: ELON Initiatives (8 tech trials)
+
+        
+            DeepSeek R1 trial (position paper sent)
+
+            Qdrant + CloakBrowser v2 + Gemini/Groq retirement
+
+            Gmail MCP fix (P0) + AgentMail 3-box + Farewatch automation
+
+        
+        
+        
+        
+        What's new:
+
+        
+            Watch section tracks all approved tasks until completion
+
+            Batch 4: 20 new tasks ready for your approval (items 46-65)
+
+            Real-time status of everything in flight
+
+            Single source of truth for operational state
+
+        
+        
+        Dashboard URL: Same artifact link
+
+        https://claude.ai/code/artifact/1f414483-7cb2-41a9-a6d1-bf594bd23f62
+
+        
+        — Hale

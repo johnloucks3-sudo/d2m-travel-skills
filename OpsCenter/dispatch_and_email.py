@@ -70,7 +70,41 @@ D2MC_TOKEN = ROOT / "config" / "persona_gmail_token.json"
 
 
 JL3_TOKEN = ROOT / "gmail_token.json"
-HALE_LABEL_ID = "Label_103"   # THUNDERBIRD-Hale — light blue in johnloucks3
+# Resolved live by name — see _resolve_or_create_label_id(). The old hardcoded
+# "Label_103" was deleted out-of-band (johnloucks3 label IDs jump 97→112, so
+# 102/103 are gone) and silently 400'd on every modify() call, so the blue
+# marker had stopped being applied entirely. Same rot class as the Label_102
+# fix in the 2026-07-16 hot-window sweep (#8, d2m_inbox_triage.py).
+HALE_LABEL_NAME = "THUNDERBIRD-Hale"
+
+
+def _resolve_or_create_label_id(svc, name: str) -> str | None:
+    """Resolve a Gmail label ID by NAME against the live label list, creating it
+    if absent. Never trusts a hardcoded/cached ID — a label deleted in Gmail
+    silently 400s every subsequent modify(). Returns the ID, or None on failure
+    (caller treats labeling as non-fatal)."""
+    try:
+        labels = svc.users().labels().list(userId="me").execute().get("labels", [])
+        # 1) exact name match
+        for lb in labels:
+            if lb.get("name") == name:
+                return lb["id"]
+        # 2) prefer an existing sibling (e.g. "THUNDERBIRD-Hale-Alert") over
+        #    creating a confusing net-new label in the Commander's live mailbox —
+        #    the pre-rot label may have been renamed rather than deleted.
+        siblings = [lb for lb in labels if lb.get("name", "").startswith(name)]
+        if siblings:
+            return siblings[0]["id"]
+        # 3) genuinely absent — create it
+        created = svc.users().labels().create(
+            userId="me",
+            body={"name": name, "labelListVisibility": "labelShow",
+                  "messageListVisibility": "show"},
+        ).execute()
+        return created["id"]
+    except Exception as e:
+        print(f"[LABEL] could not resolve/create label {name!r}: {e}")
+        return None
 
 
 def _send_threaded_reply(body: str, subject: str, thread_id: str, in_reply_to: str):
@@ -123,11 +157,13 @@ def _send_threaded_reply(body: str, subject: str, thread_id: str, in_reply_to: s
             maxResults=5,
         ).execute().get("messages", [])
         if recent:
-            jl3_svc.users().messages().modify(
-                userId="me", id=recent[0]["id"],
-                body={"addLabelIds": [HALE_LABEL_ID]}
-            ).execute()
-            print(f"[LABEL] blue label applied to msg {recent[0]['id']}")
+            hale_label_id = _resolve_or_create_label_id(jl3_svc, HALE_LABEL_NAME)
+            if hale_label_id:
+                jl3_svc.users().messages().modify(
+                    userId="me", id=recent[0]["id"],
+                    body={"addLabelIds": [hale_label_id]}
+                ).execute()
+                print(f"[LABEL] blue label applied to msg {recent[0]['id']}")
     except Exception as e:
         print(f"[LABEL] blue label failed (non-fatal): {e}")
 

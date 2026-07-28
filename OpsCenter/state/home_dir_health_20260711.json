@@ -1,0 +1,327 @@
+{
+  "probe": "home-dir-health",
+  "timestamp": "2026-07-11T23:56:55.635903+00:00",
+  "date": "20260711",
+  "overall_status": "CRITICAL",
+  "exit_code": 2,
+  "checks": [
+    {
+      "check": "cache_bloat",
+      "path": "/home/john/.cache",
+      "size_mb": 4477.0,
+      "size_gb": 4.37,
+      "threshold_gb": 2.0,
+      "status": "CRITICAL",
+      "note": "~/.cache is 4.4GB \u2014 exceeds 2.0GB threshold"
+    },
+    {
+      "check": "downloads_size",
+      "path": "/home/john/Downloads",
+      "size_mb": 457.0,
+      "threshold_mb": 500,
+      "status": "OK",
+      "note": "Downloads is 457MB \u2014 within 500MB threshold"
+    },
+    {
+      "check": "local_size",
+      "path": "/home/john/.local",
+      "size_mb": 34426.0,
+      "size_gb": 33.62,
+      "threshold_gb": 35.0,
+      "status": "OK",
+      "note": "~/.local is 33.6GB \u2014 within 35.0GB threshold"
+    },
+    {
+      "check": "npm_cache_size",
+      "path": "/home/john/.npm",
+      "size_mb": 662.0,
+      "threshold_mb": 500,
+      "status": "WARNING",
+      "note": "~/.npm is 662MB \u2014 exceeds 500MB threshold"
+    },
+    {
+      "check": "critical_bins",
+      "bins": [
+        {
+          "bin": "/home/john/.local/bin/claude",
+          "exists": true,
+          "executable": true,
+          "real_path": "/home/john/.local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+          "status": "OK"
+        },
+        {
+          "bin": "/usr/local/bin/n8n",
+          "exists": true,
+          "executable": true,
+          "real_path": "/usr/local/lib/node_modules/n8n/bin/n8n",
+          "status": "OK"
+        }
+      ],
+      "status": "OK",
+      "note": "Checked 2 critical executables"
+    },
+    {
+      "check": "loose_files",
+      "count": 39,
+      "loose_items": [
+        {
+          "name": "Add",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/Add"
+        },
+        {
+          "name": "Agency_Logo_original_4800x3584.png",
+          "type": "file",
+          "size_mb": 18.834,
+          "path": "/home/john/Agency_Logo_original_4800x3584.png"
+        },
+        {
+          "name": "Bryana_access_draft.md",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/Bryana_access_draft.md"
+        },
+        {
+          "name": "CLAUDE_TOKEN_COUNTER_README.md",
+          "type": "file",
+          "size_mb": 0.006,
+          "path": "/home/john/CLAUDE_TOKEN_COUNTER_README.md"
+        },
+        {
+          "name": "Click",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/Click"
+        },
+        {
+          "name": "Loucks May 2027 Silver Nova flight.pdf",
+          "type": "file",
+          "size_mb": 0.034,
+          "path": "/home/john/Loucks May 2027 Silver Nova flight.pdf"
+        },
+        {
+          "name": "OAUTH_HEADLESS_PATTERN.md",
+          "type": "file",
+          "size_mb": 0.006,
+          "path": "/home/john/OAUTH_HEADLESS_PATTERN.md"
+        },
+        {
+          "name": "T2_CRUISE_REPORT_FULL.html",
+          "type": "file",
+          "size_mb": 0.087,
+          "path": "/home/john/T2_CRUISE_REPORT_FULL.html"
+        },
+        {
+          "name": "__pycache__",
+          "type": "directory",
+          "size_mb": 1.0,
+          "path": "/home/john/__pycache__"
+        },
+        {
+          "name": "actions_log.md",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/actions_log.md"
+        },
+        {
+          "name": "briefing_sent.json",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/briefing_sent.json"
+        },
+        {
+          "name": "chromebook-bootstrap.sh",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/chromebook-bootstrap.sh"
+        },
+        {
+          "name": "chromebook-ssh-config.txt",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/chromebook-ssh-config.txt"
+        },
+        {
+          "name": "claude-token-monitor.service",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/claude-token-monitor.service"
+        },
+        {
+          "name": "claude-token-monitor.timer",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/claude-token-monitor.timer"
+        },
+        {
+          "name": "claude_response_temp.txt",
+          "type": "file",
+          "size_mb": 0.008,
+          "path": "/home/john/claude_response_temp.txt"
+        },
+        {
+          "name": "claude_token_counter.py",
+          "type": "file",
+          "size_mb": 0.008,
+          "path": "/home/john/claude_token_counter.py"
+        },
+        {
+          "name": "claude_with_oauth.sh",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/claude_with_oauth.sh"
+        },
+        {
+          "name": "fs_test_output.txt",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/fs_test_output.txt"
+        },
+        {
+          "name": "kuklinski_validation_preview.png",
+          "type": "file",
+          "size_mb": 0.241,
+          "path": "/home/john/kuklinski_validation_preview.png"
+        },
+        {
+          "name": "payment_alerts_sent.json",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/payment_alerts_sent.json"
+        },
+        {
+          "name": "perx_fare_watch_status_memo.md",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/perx_fare_watch_status_memo.md"
+        },
+        {
+          "name": "qrcode.png",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/qrcode.png"
+        },
+        {
+          "name": "query_token_usage.py",
+          "type": "file",
+          "size_mb": 0.007,
+          "path": "/home/john/query_token_usage.py"
+        },
+        {
+          "name": "restart-telegram.sh",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/restart-telegram.sh"
+        },
+        {
+          "name": "setup_token_counter.sh",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/setup_token_counter.sh"
+        },
+        {
+          "name": "silversea_2026_scan_results.md",
+          "type": "file",
+          "size_mb": 0.005,
+          "path": "/home/john/silversea_2026_scan_results.md"
+        },
+        {
+          "name": "silversea_2027_ta_rate_extrapolation_memo.md",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/silversea_2027_ta_rate_extrapolation_memo.md"
+        },
+        {
+          "name": "silversea_extrapolation_memo.md",
+          "type": "file",
+          "size_mb": 0.003,
+          "path": "/home/john/silversea_extrapolation_memo.md"
+        },
+        {
+          "name": "skyvern",
+          "type": "directory",
+          "size_mb": 0.0,
+          "path": "/home/john/skyvern"
+        },
+        {
+          "name": "ssh",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/ssh"
+        },
+        {
+          "name": "temp_task_claude.py",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/temp_task_claude.py"
+        },
+        {
+          "name": "temp_task_claude_gemini_goose_collaboration.py",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/temp_task_claude_gemini_goose_collaboration.py"
+        },
+        {
+          "name": "temp_task_claude_implementation_ideas.py",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/temp_task_claude_implementation_ideas.py"
+        },
+        {
+          "name": "temp_task_claude_mcp_bridge.py",
+          "type": "file",
+          "size_mb": 0.002,
+          "path": "/home/john/temp_task_claude_mcp_bridge.py"
+        },
+        {
+          "name": "temp_task_claude_tech_search.py",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/temp_task_claude_tech_search.py"
+        },
+        {
+          "name": "temp_task_claude_telegram_results.py",
+          "type": "file",
+          "size_mb": 0.001,
+          "path": "/home/john/temp_task_claude_telegram_results.py"
+        },
+        {
+          "name": "test_output.txt",
+          "type": "file",
+          "size_mb": 0.0,
+          "path": "/home/john/test_output.txt"
+        },
+        {
+          "name": "ystemctl --user restart thunderbird-inbox-watcher.service",
+          "type": "file",
+          "size_mb": 0.003,
+          "path": "/home/john/ystemctl --user restart thunderbird-inbox-watcher.service"
+        }
+      ],
+      "status": "WARNING",
+      "note": "39 non-standard items at home root"
+    },
+    {
+      "check": "major_dir_growth",
+      "major_dir_sizes": {
+        "/home/john/Thunderbird": 17467.0,
+        "/home/john/D2M": 6572.0,
+        "/home/john/Downloads": 457.0,
+        "/home/john/OpenMontage": 411.0,
+        "/home/john/google-cloud-sdk": 811.0,
+        "/home/john/playwright-venv": 151.0
+      },
+      "growth_threshold_mb": 500,
+      "growth_warnings": [],
+      "status": "OK",
+      "note": "No major growth detected vs baseline"
+    }
+  ],
+  "summary": {
+    "total_checks": 7,
+    "ok": 4,
+    "warnings": 2,
+    "critical": 1
+  }
+}

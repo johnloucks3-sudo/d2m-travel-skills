@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-07-24-001",
+    "title": "Thunderbird Assist - Email Triage & Understanding",
+    "source_signal": "[2] Thunderbird Assist \u2014 Built-in Smart Assistant for ... - Mozilla Connect",
+    "classification": "INTEGRATE",
+    "gap_closed": "Lack of AI-powered email summarization, drafting assistance, and intelligent triage within the core client.",
+    "thunderbird_component": "Core Mail Client / User Interface",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Directly addresses user productivity by integrating AI for email management and comprehension."
+  },
+  {
+    "id": "A2-2026-07-24-002",
+    "title": "ThunderAI Add-on (ChatGPT, Gemini, Claude, Ollama)",
+    "source_signal": "[3] ThunderAI (ChatGPT, Gemini, Claude, Ollama) :: Add-ons for Thunderbird",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This is an existing add-on, not a core gap for Thunderbird itself to build. We will watch its development and adoption."
+  },
+  {
+    "id": "A2-2026-07-24-003",
+    "title": "Thunderbird Native AI Integration (Subscription)",
+    "source_signal": "[4] Thunderbird AI - Mozilla Connect",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This describes a long-term vision and potential business model, not a current buildable gap for our incubator."
+  },
+  {
+    "id": "A2-2026-07-24-004",
+    "title": "Thunderbolt - User-Controlled AI (Local/API)",
+    "source_signal": "[5] GitHub - thunderbird/thunderbolt: AI You Control: Choose your \u2026",
+    "classification": "INTEGRATE",
+    "gap_closed": "Lack of user control over AI model choice and data privacy for AI-powered email features.",
+    "thunderbird_component": "AI Integration Layer / User Settings",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Enables user-centric AI by allowing choice of inference engine and data handling, aligning with privacy concerns."
+  },
+  {
+    "id": "A2-2026-07-24-005",
+    "title": "Thunderbolt - Open-Source AI Focus",
+    "source_signal": "[6] Thunderbolt: Thunderbird's New User-Controlled AI Project",
+    "classification": "INTEGRATE",
+    "gap_closed": "Absence of a transparent, open-source AI framework within Thunderbird that prioritizes data ownership.",
+    "thunderbird_component": "AI Integration Framework / Core Architecture",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Provides a foundation for secure, user-controlled AI features, enhancing trust and flexibility."
+  },
+  {
+    "id": "A2-2026-07-24-006",
+    "title": "Thunderbird Developer Updates",
+    "source_signal": "[1] Developer Updates - The Thunderbird Blog",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This is general development news and not a specific incubator finding to classify for a build."
+  }
+]

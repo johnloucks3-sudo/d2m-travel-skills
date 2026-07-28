@@ -90,3 +90,7 @@ completed_tps: []
 ---
 
 *Dossier v1.0 · Created 2026-06-08 · Source: Commander email directive + Steve Trien email Jun 7, 2026*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

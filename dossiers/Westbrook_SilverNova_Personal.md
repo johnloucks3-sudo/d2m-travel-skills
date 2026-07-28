@@ -200,6 +200,30 @@ Commander has designated the Westbrooks as the test case for itinerary improveme
 **Jul 02 — Ronald Westbrook** (Re: SAT NIGHT DINNER)
 > 2026-07-02: Personal email from Ron to Commander re: USAFA Academy fireworks cancellation due to Colorado wildfire danger. No service request or D2M action required. (Non-operational)
 
+**Jul 14 — Ronald Westbrook** (Re: Re: I Fuc*ed up)
+> 2026-07-14: Ron confirmed he respects privacy boundary regarding personal information. Demonstrated professional discretion and supportive communication style. Relationship integrity maintained despite recent bereavement.
+
+**Jul 14 — Ronald Westbrook** (Re: Re: Latest)
+> 2026-07-14 11:43 MT: Ron Westbrook responded positively to John Loucks' cruise research outreach, stating willingness to review materials. Intent unclear—may indicate interest in future bookings or simply acknowledge John's supportive outreach. Bereavement sensitivity protocol in effect. CRITICAL: Silver Nova cancellation approval drafts pending WF-17 gate; Allianz claim status unconfirmed. Follow-up clarification required before new booking proposal.
+
+**Jul 16 — Ronald Westbrook** (Re: CAKE AT 1800 WED I WILL BE THERE)
+> 2026-07-16 16:57: Received email with subject 'CAKE AT 1800 WED I WILL BE THERE' and empty body. Appears to be personal social engagement confirmation or misdirected message. Clarifying intent with Ron.
+
+**Jul 22 — Ronald Westbrook** (Re: Re: Cake...at 1900 now)
+> 2026-07-22 — Ron Westbrook confirmed 1900 availability for social event with Commander. Recommended newly opened Panda Express restaurant to Loucks party. Personal/friendly communication indicates continued positive relationship engagement post-bereavement. No D2M action required.
+
+**Jul 24 — Ronald Westbrook** (Re: WELL DID THE MONGOL HOARDS DEPART AND ARE YOU STILL IN ONE PEICE?RONDO)
+> 2026-07-24: Ron Westbrook initiated friendly check-in with D2M (casual, joking tone re: Loucks family departure and team status). Bereavement recovery signal positive—three months post-Lindy's passing, Ron remains engaged and warm. Response sent with matching light tone.
+
+**Jul 24 — Ronald Westbrook** (Re: Re: WELL DID THE MONGOL HOARDS DEPART AND ARE YOU STILL IN ONE PEICE?RONDO)
+> 2026-07-24 — Personal note from Ron to Commander; client demonstrating good emotional state and supportive presence; no business content or D2M action items.
+
+**Jul 25 — Ronald Westbrook** (Re: Re: Weather)
+> 2026-07-25: Ron expressed renewed enthusiasm about cruising in personal correspondence; positive sentiment 3 months post-bereavement. Early-stage intelligence signal. No immediate action; prepare sensitive outreach approach if Ron initiates future booking inquiry.
+
+**Jul 26 — Ronald Westbrook** (Re: Fwd: Documents received for your claim: 0011252480-001)
+> 2026-07-26: Ron forwards Allianz Claim 0011252480-001 (Trip Cancellation, $11,280 — Silver Nova $10,800 + Hilton Tokyo ~$480, Plan E2549991663) confirmation dated Jun 24. 15-business-day review window closed ~Jul 9-15. D2M to contact Allianz for decision status. Personal note reflects grief processing. Van return logistics mentioned; clarification needed.
+
 ---
 
 ---
@@ -819,8 +843,38 @@ atrium, dusk_bar, the_grill, salt_lab, owner_suite
 ### OPEN ACTION ITEMS
 - [ ] File in Ron's EMAIL LOG as personal/non-travel communication (2026-07-01) (auto-intel Jul 01)
 
+- [ ] Send brief response to Ron (tone: warm, supportive, action-oriented) confirming D2M is tracking the claim and will follow up with Allianz (auto-intel Jul 26)
+
+- [ ] Once Allianz decision received, update dossier and coordinate any refund processing with Perx/SkyLux (auto-intel Jul 26)
+
+- [ ] Call Ron at 719-679-2448 to clarify van return logistics (location, deadline, who is responsible) (auto-intel Jul 26)
+
+- [ ] Call Allianz (1-800-260-8635) TODAY to request status on Claim 0011252480-001 (Ron Westbrook, Plan E2549991663) (auto-intel Jul 26)
+
+- [ ] Update Ron Westbrook dossier EMAIL LOG with renewed-interest signal dated 2026-07-25 (auto-intel Jul 25)
+
+- [ ] Log this contact in dossier EMAIL LOG with response date and tone (auto-intel Jul 24)
+
+- [ ] Draft warm, brief reply from johnloucks3 inbox (WF-17 gate not required—internal team touchbase, not client-facing product) (auto-intel Jul 24)
+
+- [ ] Hold pending Ron's response before taking further action (auto-intel Jul 16)
+
+- [ ] Send clarification email to Ron: confirm if message was intended for D2M or misdirected (auto-intel Jul 16)
+
+- [ ] Log Ron's engagement status and bereavement recovery timeline for future outreach cadence (auto-intel Jul 14)
+
+- [ ] Contact Allianz or Perx to verify claim E2549991663 status and obtain documentation of $11,280 claim submission (auto-intel Jul 14)
+
+- [ ] WF-17: Execute pending Silver Nova cancellation approval drafts (Jenna Woodcock/Perx + Zoro L/SkyLux) — awaiting Commander send gate (auto-intel Jul 14)
+
+- [ ] Follow up with Ron within 5 business days: Ask directly whether he is considering new cruise bookings or if this was a courtesy response (auto-intel Jul 14)
+
 - [ ] File email in dossier EMAIL LOG section (auto-intel Jul 01)
 
 - [ ] Draft brief reply to Ron (low priority; personal/off-topic matter) (auto-intel Jul 01)
 
 - [ ] No follow-up required; monitor for future travel inquiry from Ron (auto-intel Jul 01)
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

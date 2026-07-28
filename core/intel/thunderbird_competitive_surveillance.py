@@ -386,11 +386,23 @@ def run_surveillance_sprint() -> Dict[str, Any]:
     # Step 5: Full send to Commander inbox (SO 27 MAR 2026 — internal reports are full sends)
     try:
         from core.email.thunderbird_gmail import gmail_send_from_wing
+        subject = f"Competitive Surveillance: Travel AI — {datetime.now().strftime('%B %-d, %Y')}"
+        wrapped_report = report
+        try:
+            from core.staffing.sss_render import render_info_text
+            wrapped_report = render_info_text(
+                subject=subject, opr="Dembe (A2)", staffed_by=["Dembe (A2)", "Sterling (A7)"],
+                purpose="Competitive landscape scan — Travel AI market.",
+                discussion=report,
+                tag="Competitive Surveillance",
+            )
+        except Exception as e:
+            logger.warning(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
         gmail_send_from_wing(
             to="johnloucks3@gmail.com",
-            subject=f"Competitive Surveillance: Travel AI — {datetime.now().strftime('%B %-d, %Y')}",
-            body=report,
-            persona_id="COS",
+            subject=subject,
+            body=wrapped_report,
+            persona_id="A2",  # was stale "COS" — this is Dembe/A2's report, not Hale's
         )
         email_status = "sent"
     except Exception as e:

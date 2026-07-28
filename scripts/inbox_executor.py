@@ -15,6 +15,7 @@ Task routing:
 No Claude. No OpenCode. Pure Python + DeepSeek API + Gmail API + Telegram.
 """
 
+import concurrent.futures
 import json
 import logging
 import os
@@ -88,13 +89,26 @@ from OpsCenter.hale_dispatcher import HaleDispatcher
 
 # ...
 
+_AI_CALL_TIMEOUT = 60  # HaleDispatcher retries 2×120s internally — this hard cap prevents
+                        # the service from blocking past TimeoutStartSec and getting SIGTERM'd
+
 def call_deepseek(system_prompt: str, user_prompt: str, max_tokens: int = 800) -> str:
-    """Compose email via HaleDispatcher."""
-    # REFACTORED: Use HaleDispatcher for composition
+    """Compose email via HaleDispatcher with a hard timeout guard.
+
+    Returns empty string on timeout so the caller's 'if not composed' fallback
+    fires immediately instead of the service being killed by systemd.
+    """
     hale = HaleDispatcher()
-    
-    # Brain 2 handles writing/drafting tasks automatically
-    return hale.dispatch(user_prompt, brain_override="sonnet")
+
+    def _dispatch() -> str:
+        return hale.dispatch(user_prompt, brain_override="sonnet")
+
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+            return pool.submit(_dispatch).result(timeout=_AI_CALL_TIMEOUT)
+    except (concurrent.futures.TimeoutError, Exception) as exc:
+        log.warning("  [call_deepseek] AI call failed/timed out (%s) — returning empty for wing_comms fallback", exc)
+        return ""
 
 
 def extract_tp_email(tp_id: str) -> dict | None:
@@ -256,6 +270,20 @@ def handle_overdue(block: dict):
     log.info(f"  [{block['type']}] Paged Commander — {client} {tp.strip()}")
 
 
+def _lifecycle_scheduler_already_fired(tp_id: str) -> bool:
+    """Return True if the lifecycle scheduler already fired TRIGGER_EMAIL for this TP today."""
+    sched_state = BASE / "state" / "lifecycle_scheduler_state.json"
+    if not sched_state.exists():
+        return False
+    try:
+        data = json.loads(sched_state.read_text())
+        today = datetime.now().strftime("%Y-%m-%d")
+        needle = f":{tp_id}:TRIGGER_EMAIL:{today}"
+        return any(k.endswith(needle) for k in data.get("fired_actions", {}))
+    except Exception:
+        return False
+
+
 def handle_trigger_email(block: dict):
     """
     Draft a lifecycle touchpoint email:
@@ -272,6 +300,11 @@ def handle_trigger_email(block: dict):
     action  = block.get("action", "")
 
     log.info(f"  [TRIGGER_EMAIL] {client} — {tp_id} {tp_lbl}")
+
+    # Skip if lifecycle scheduler already created a draft for this TP today
+    if _lifecycle_scheduler_already_fired(tp_id):
+        log.info(f"    ⏭  Skipping — lifecycle scheduler already fired TRIGGER_EMAIL for {tp_id} today")
+        return
 
     # ── Try pre-written email ──────────────────────────────────────────────
     email_data = extract_tp_email(tp_id)

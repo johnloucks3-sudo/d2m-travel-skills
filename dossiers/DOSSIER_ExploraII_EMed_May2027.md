@@ -271,3 +271,5 @@ OT1 21-night 2pp: $32,330 → **Portal promo is essentially the same** ($32,160 
 - Commission: ~10–15% (verify via Nexion/C&TU)
 - Active promo: "Save Up to 40%" expires Sep 8, 2026
 - Inclusions (P2P): dining, beverages, butler, Wi-Fi, gratuities — excursions NOT included
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

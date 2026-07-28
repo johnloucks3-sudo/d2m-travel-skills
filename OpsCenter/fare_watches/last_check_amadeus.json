@@ -1,31 +1,12 @@
 {
   "status": "complete",
   "provider": "amadeus",
-  "started_at": "2026-07-10T08:31:19.579270+00:00",
-  "watches_total": 13,
-  "watches_ok": 13,
+  "started_at": "2026-07-16T12:24:58.366450+00:00",
+  "watches_total": 11,
+  "watches_ok": 11,
   "watches_error": 0,
   "alerts_fired": 6,
   "results": {
-    "loucks-grandeur-panama-cos-fll-dec2026": {
-      "status": "ok",
-      "origin": "COS",
-      "dest": "FLL",
-      "date": "2026-12-27",
-      "cabin": "economy",
-      "adults": 2,
-      "lowest_pp": 574.84,
-      "lowest_total": 1149.68,
-      "highest_pp": 723.2,
-      "carriers": [
-        "UA"
-      ],
-      "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:09.032479+00:00",
-      "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
-      "label": "Loucks \u2014 Grandeur Panama Canal outbound COS\u2192FLL Dec 27 2026",
-      "baseline_pp": 416.0
-    },
     "loucks-grandeur-panama-lax-cos-jan2027": {
       "status": "ok",
       "origin": "LAX",
@@ -33,14 +14,14 @@
       "date": "2027-01-14",
       "cabin": "economy",
       "adults": 2,
-      "lowest_pp": 236.18,
-      "lowest_total": 472.36,
-      "highest_pp": 403.23,
+      "lowest_pp": 205.24,
+      "lowest_total": 410.48,
+      "highest_pp": 408.18,
       "carriers": [
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:14.356584+00:00",
+      "checked_at": "2026-07-16T12:23:47.769080+00:00",
       "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
       "label": "Loucks \u2014 Grandeur Panama Canal return LAX\u2192COS Jan 14 2027",
       "baseline_pp": 416.0
@@ -59,7 +40,7 @@
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:19.584467+00:00",
+      "checked_at": "2026-07-16T12:24:03.334425+00:00",
       "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
       "label": "Loucks \u2014 Grandeur Panama Canal return SNA\u2192COS Jan 14 2027 (alt)",
       "baseline_pp": 416.0
@@ -73,13 +54,12 @@
       "adults": 2,
       "lowest_pp": 657.9,
       "lowest_total": 1315.8,
-      "highest_pp": 853.9,
+      "highest_pp": 657.9,
       "carriers": [
-        "UA",
         "EI"
       ],
-      "offer_count": 3,
-      "checked_at": "2026-07-10T08:30:24.391948+00:00",
+      "offer_count": 2,
+      "checked_at": "2026-07-16T12:24:12.757150+00:00",
       "watch_id": "loucks-silver-nova-may2027-outbound",
       "label": "Loucks Silver Nova May 2027 \u2014 DEN\u2192VCE Apr 30 outbound (Business)",
       "baseline_pp": 3589.0
@@ -91,37 +71,17 @@
       "date": "2027-06-01",
       "cabin": "economy",
       "adults": 2,
-      "lowest_pp": 2944.93,
-      "lowest_total": 5889.86,
-      "highest_pp": 2944.93,
+      "lowest_pp": 2943.93,
+      "lowest_total": 5887.86,
+      "highest_pp": 2943.93,
       "carriers": [
         "A3"
       ],
       "offer_count": 1,
-      "checked_at": "2026-07-10T08:30:29.715418+00:00",
+      "checked_at": "2026-07-16T12:24:18.762556+00:00",
       "watch_id": "loucks-silver-nova-may2027-return",
       "label": "Loucks Silver Nova May 2027 \u2014 ATH\u2192DEN Jun 1 return (Business)",
       "baseline_pp": 5504.5
-    },
-    "mcleod-mcglasson-flights": {
-      "status": "ok",
-      "origin": "DEN",
-      "dest": "ARN",
-      "date": "2026-12-19",
-      "cabin": "economy",
-      "adults": 2,
-      "lowest_pp": 613.2,
-      "lowest_total": 1226.4,
-      "highest_pp": 662.2,
-      "carriers": [
-        "UA",
-        "AF"
-      ],
-      "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:46.100363+00:00",
-      "watch_id": "mcleod-mcglasson-flights",
-      "label": "McLeod McGlasson \u2014 SS Grandeur \u00b7 Regent Seven Seas",
-      "baseline_pp": 0.0
     },
     "kuklinski-ric-pty-dec16": {
       "status": "ok",
@@ -130,14 +90,14 @@
       "date": "2026-12-16",
       "cabin": "economy",
       "adults": 4,
-      "lowest_pp": 800.35,
-      "lowest_total": 3201.4,
-      "highest_pp": 862.25,
+      "lowest_pp": 810.35,
+      "lowest_total": 3241.4,
+      "highest_pp": 872.25,
       "carriers": [
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:52.041950+00:00",
+      "checked_at": "2026-07-16T12:24:30.009072+00:00",
       "watch_id": "kuklinski-ric-pty-dec16",
       "label": "Kuklinski Group \u2014 RIC \u2192 PTY Dec 16 (4 pax, not yet booked)",
       "baseline_pp": 553.0
@@ -149,14 +109,14 @@
       "date": "2026-12-27",
       "cabin": "economy",
       "adults": 4,
-      "lowest_pp": 549.24,
-      "lowest_total": 2196.96,
-      "highest_pp": 861.82,
+      "lowest_pp": 508.2,
+      "lowest_total": 2032.8,
+      "highest_pp": 846.77,
       "carriers": [
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:30:56.442805+00:00",
+      "checked_at": "2026-07-16T12:24:33.634072+00:00",
       "watch_id": "kuklinski-fll-ric-dec27",
       "label": "Kuklinski FLL\u2192RIC Dec 27 (4 pax economy)",
       "baseline_pp": 194.0
@@ -168,14 +128,14 @@
       "date": "2026-12-16",
       "cabin": "economy",
       "adults": 2,
-      "lowest_pp": 981.91,
-      "lowest_total": 1963.82,
-      "highest_pp": 2230.25,
+      "lowest_pp": 1016.91,
+      "lowest_total": 2033.82,
+      "highest_pp": 2016.25,
       "carriers": [
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:31:01.665430+00:00",
+      "checked_at": "2026-07-16T12:24:39.232209+00:00",
       "watch_id": "morton-rsw-pty-dec16",
       "label": "Morton/Dodge \u2014 RSW \u2192 PTY Dec 16 (2 pax, not yet booked)",
       "baseline_pp": 451.0
@@ -187,14 +147,14 @@
       "date": "2026-12-18",
       "cabin": "economy",
       "adults": 2,
-      "lowest_pp": 406.77,
-      "lowest_total": 813.54,
-      "highest_pp": 716.84,
+      "lowest_pp": 190.93,
+      "lowest_total": 381.86,
+      "highest_pp": 331.15,
       "carriers": [
-        "AS"
+        "F9"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:31:05.445106+00:00",
+      "checked_at": "2026-07-16T12:24:43.947229+00:00",
       "watch_id": "mcleod-den-mia-dec18",
       "label": "McLeod DEN\u2192MIA Dec 18 (2 pax business)",
       "baseline_pp": 904.0
@@ -206,14 +166,14 @@
       "date": "2026-12-29",
       "cabin": "economy",
       "adults": 2,
-      "lowest_pp": 265.36,
-      "lowest_total": 530.72,
-      "highest_pp": 406.77,
+      "lowest_pp": 181.03,
+      "lowest_total": 362.06,
+      "highest_pp": 229.62,
       "carriers": [
-        "UA"
+        "F9"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:31:10.164330+00:00",
+      "checked_at": "2026-07-16T12:24:50.187800+00:00",
       "watch_id": "mcleod-mia-den-dec29",
       "label": "McLeod MIA\u2192DEN Dec 29 (2 pax business)",
       "baseline_pp": 910.0
@@ -227,12 +187,12 @@
       "adults": 2,
       "lowest_pp": 242.16,
       "lowest_total": 484.32,
-      "highest_pp": 414.13,
+      "highest_pp": 419.08,
       "carriers": [
         "UA"
       ],
       "offer_count": 10,
-      "checked_at": "2026-07-10T08:31:16.002353+00:00",
+      "checked_at": "2026-07-16T12:24:55.277618+00:00",
       "watch_id": "loucks-doorcounty-cos-grb-out",
       "label": "Loucks Door County \u2014 United COS \u2192 GRB Sep 6 (2 pax, ANY time)",
       "baseline_pp": 311.0
@@ -251,7 +211,7 @@
         "UA"
       ],
       "offer_count": 6,
-      "checked_at": "2026-07-10T08:31:19.177647+00:00",
+      "checked_at": "2026-07-16T12:24:57.964709+00:00",
       "watch_id": "loucks-doorcounty-grb-cos-return",
       "label": "Loucks Door County \u2014 United GRB \u2192 COS Sep 14 (2 pax, ANY time)",
       "baseline_pp": 239.0

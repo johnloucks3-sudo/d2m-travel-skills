@@ -31,6 +31,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 REGISTRY = ROOT / "config/client_portals.json"
 MAX_UPLOAD = 25 * 1024 * 1024  # 25 MB
 
@@ -110,6 +112,9 @@ class Handler(BaseHTTPRequestHandler):
         if not self.authed(t):
             return self.deny(t)
         path = self.path.split("?")[0]
+        if t.get("kind") == "tcd_board":
+            from tcd import web as tcd_web
+            return self._send(200, tcd_web.render_board().encode())
         if path == "/files":
             return self._send(200, self.files_page(t).encode())
         base = (ROOT / t["dir"] / "html").resolve()
@@ -132,7 +137,18 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(404, b"Unknown portal")
         if not self.authed(t):
             return self.deny(t)
-        if self.path.split("?")[0] != "/upload":
+        path = self.path.split("?")[0]
+        if t.get("kind") == "tcd_board" and path == "/tcd/act":
+            from tcd import web as tcd_web
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length) if length else b"{}"
+            try:
+                result = tcd_web.handle_post_body(raw)
+            except Exception as e:
+                result = {"ok": False, "error": str(e)}
+            return self._send(200 if result.get("ok") else 400,
+                             json.dumps(result).encode(), "application/json")
+        if path != "/upload":
             return self._send(404, b"Not found")
         length = int(self.headers.get("Content-Length", 0))
         if length <= 0 or length > MAX_UPLOAD:

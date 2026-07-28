@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 296,
+  "emails_processed": 353,
   "entries": [
     {
       "category": "spam",
@@ -2936,6 +2936,519 @@
       "from": "jenn@projectexpedition.com",
       "subject": "Two advisor conversations coming up this summer",
       "ts": "2026-07-10T20:59:00.650486+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5067d294db7b5",
+      "from": "aidisruption@substack.com",
+      "subject": "\"AI Disruption\" 2-Year Anniversary: 10,260 Subscribers & 20% Off!",
+      "ts": "2026-07-11T09:01:19.683792+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f516b316f991b6",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Re: CLIA Glossary + Cruise Industry Resources",
+      "ts": "2026-07-11T14:25:54.603796+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f516b316f991b6",
+      "from": "bryanajarboe@gmail.com",
+      "subject": "Re: CLIA Glossary + Cruise Industry Resources",
+      "ts": "2026-07-11T14:37:55.818331+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f51e8e59c055f6",
+      "from": "adi@welcome.agentmail.cc",
+      "subject": "Whitelisting your API keys with AgentMail",
+      "ts": "2026-07-11T16:02:04.046464+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f556fac01e6cc2",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181156317: Cape Sounio and Temple of Poseidon Swimming & Sunset Experience",
+      "ts": "2026-07-12T08:27:09.965580+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f556fa6b2bdf13",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D",
+      "ts": "2026-07-12T08:27:10.276536+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f556fa00cf24bf",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE181142217: Bari Street Food Tour - Eat, Learn and have fun with a Local",
+      "ts": "2026-07-12T08:27:10.581924+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f565f41419076c",
+      "from": "aidisruption@substack.com",
+      "subject": "World's Largest Data Center Project Abandoned!",
+      "ts": "2026-07-12T12:49:38.149138+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f56adff7eafa43",
+      "from": "aidisruption@substack.com",
+      "subject": "Loop Design Is Simpler Than You Think",
+      "ts": "2026-07-12T14:15:48.437136+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f564e4339efed5",
+      "from": "amy.darrow@me.com",
+      "subject": "Re: Stretch Out in an Upgraded Suite \u2013 Booking: 3078056",
+      "ts": "2026-07-12T15:39:55.612475+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5842691ad17c9",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE184710612",
+      "ts": "2026-07-12T21:38:05.262089+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5847abd2a46cf",
+      "from": "support@projectexpedition.com",
+      "subject": "Modification to booking PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-12T21:44:05.721635+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f584e5db6c629c",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE184711812",
+      "ts": "2026-07-12T21:50:06.950161+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5852e0c4da2d7",
+      "from": "support@projectexpedition.com",
+      "subject": "Booking Confirmation - PE184712212",
+      "ts": "2026-07-12T21:56:06.847475+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f586a2faae994d",
+      "from": "support@projectexpedition.com",
+      "subject": "Cancellation - Booking PE181156317 for 22 May 2027",
+      "ts": "2026-07-12T22:20:09.454226+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5aec0453b0d9a",
+      "from": "support@projectexpedition.com",
+      "subject": "Project Expedition | How are we doing?",
+      "ts": "2026-07-13T10:01:17.918246+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5b6a6c83d5bca",
+      "from": "aidisruption@substack.com",
+      "subject": "Comet + OpenSpec + Superpowers = One Workflow",
+      "ts": "2026-07-13T12:19:31.775159+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5c375620200c4",
+      "from": "adi@welcome.agentmail.cc",
+      "subject": "Real-time email events with AgentMail",
+      "ts": "2026-07-13T16:03:53.452691+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5847abd2a46cf",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Modification to booking PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-13T20:56:26.348264+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f584e5db6c629c",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Booking Confirmation - PE184711812",
+      "ts": "2026-07-13T20:58:26.388812+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "internal_wing",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5852e0c4da2d7",
+      "from": "d2mconcierge@gmail.com",
+      "subject": "Fwd: Booking Confirmation - PE184712212",
+      "ts": "2026-07-13T21:00:26.610167+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5852e0c4da2d7",
+      "from": "larry.nichols4811@gmail.com",
+      "subject": "Re: Booking Confirmation - PE184712212",
+      "ts": "2026-07-14T02:49:08.421818+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6015201e16fd3",
+      "from": "support@projectexpedition.com",
+      "subject": "PE184714112 - HL960419",
+      "ts": "2026-07-14T10:04:00.960435+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f60b0b6cf81c06",
+      "from": "aidisruption@substack.com",
+      "subject": "I Read Both Superpowers and grill-me Source Codes",
+      "ts": "2026-07-14T12:54:18.137878+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f5847abd2a46cf",
+      "from": "john.furlow@tpf.org",
+      "subject": "RE: Modification to booking PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-14T13:32:22.105216+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f60e17adb75a4a",
+      "from": "aidisruption@substack.com",
+      "subject": "Grok Build Exposed Over Forced Full Repo Upload",
+      "ts": "2026-07-14T13:48:25.386219+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f584e5db6c629c",
+      "from": "al.ely58@gmail.com",
+      "subject": "Re: Booking Confirmation - PE184711812",
+      "ts": "2026-07-15T02:41:50.379868+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f646371852f910",
+      "from": "adi@newsletter.agentmail.to",
+      "subject": "Join the first ever AgentMail Town-hall",
+      "ts": "2026-07-15T06:08:11.716057+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6015201e16fd3",
+      "from": "support@projectexpedition.com",
+      "subject": "Re: PE184714112 - HL960419",
+      "ts": "2026-07-15T08:16:14.618090+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f64de661b0a408",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184712212: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-15T08:22:16.538214+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f64de6545fa067",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184711812: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-15T08:22:16.800150+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f64de625a4eb37",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-15T08:22:17.211310+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f65a34a506ef0b",
+      "from": "aidisruption@substack.com",
+      "subject": "DeepSeek Plans to Launch IPO This Year!",
+      "ts": "2026-07-15T11:58:17.174429+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f65e1c20f17f5e",
+      "from": "aidisruption@substack.com",
+      "subject": "Grok Build Now Open for Free Trial!",
+      "ts": "2026-07-15T13:06:18.777774+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f66086b1968d5c",
+      "from": "drive-shares-dm-noreply@google.com",
+      "subject": "Form shared with you: \"McLeod_SilverMuse_PostVoyage_Survey\"",
+      "ts": "2026-07-15T13:48:19.491541+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6015201e16fd3",
+      "from": "support@projectexpedition.com",
+      "subject": "Re: PE184714112 - HL960419",
+      "ts": "2026-07-15T15:22:15.546630+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6ae0ab6df9f7d",
+      "from": "aidisruption@substack.com",
+      "subject": "/goal & /loop as Verifiable AI Loops",
+      "ts": "2026-07-16T12:24:08.137711+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6c57db9dc462d",
+      "from": "jenn@projectexpedition.com",
+      "subject": "Maui sunrise. London, your way. The Amalfi Coast by boat.",
+      "ts": "2026-07-16T19:12:54.593510+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f6ea8ca67108d6",
+      "from": "adi@newsletter.agentmail.to",
+      "subject": "I'm not a robot: biggest lie on the internet?- AgentNews #20",
+      "ts": "2026-07-17T06:00:25.933285+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f74ceb8dcda5b2",
+      "from": "aidisruption@substack.com",
+      "subject": "\"AI Disruption\" 2-Year Anniversary: 10,300 Subscribers & 20% Off!",
+      "ts": "2026-07-18T10:39:17.779910+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f7a3fb1f825b38",
+      "from": "aidisruption@substack.com",
+      "subject": "DeepSeek V4 \"Full-Blooded Version\" Revealed!",
+      "ts": "2026-07-19T12:02:08.469797+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f7a9a7680c3b19",
+      "from": "aidisruption@substack.com",
+      "subject": "From Chat to Career: AI & Skills Are Essential",
+      "ts": "2026-07-19T13:40:18.130878+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f7f75bf6a613b3",
+      "from": "aidisruption@substack.com",
+      "subject": "People Are Already Uninstalling Superpowers",
+      "ts": "2026-07-20T12:18:41.312078+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f848b626495c84",
+      "from": "aidisruption@substack.com",
+      "subject": "Qwen3.8-Max-Preview Released",
+      "ts": "2026-07-21T12:01:11.592308+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f88ee678451598",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184712212: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-22T08:27:18.760372+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f88ee6485828cf",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184711812: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-22T08:27:19.005486+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "financial",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f88ee63166db38",
+      "from": "support@projectexpedition.com",
+      "subject": "Hold without Payment Reminder - PE184710612: Transfer: Stockholm Arlanda Airport (ARN) to Hotel At Six",
+      "ts": "2026-07-22T08:27:19.262457+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f89b3326f5c308",
+      "from": "aidisruption@substack.com",
+      "subject": "Gemini 3.6 Flash Officially Released",
+      "ts": "2026-07-22T12:01:40.006146+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f89f3de7e457b2",
+      "from": "jenn@projectexpedition.com",
+      "subject": "Live Q&A - Join Us Today at 12 ET",
+      "ts": "2026-07-22T13:11:50.404173+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f8a16932e5920e",
+      "from": "aidisruption@substack.com",
+      "subject": "Do It Once, Claude Will Follow Forever",
+      "ts": "2026-07-22T13:49:54.081858+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f8f4541fd06c35",
+      "from": "aidisruption@substack.com",
+      "subject": "For Everyday Development, Give Grill-Me a Try",
+      "ts": "2026-07-23T14:00:24.282115+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "booking_confirmation",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f9020dedefdbcf",
+      "from": "jenn@projectexpedition.com",
+      "subject": "Back to Ship Guarantee, reimagined\u2014 up to $10,000 per booking",
+      "ts": "2026-07-23T17:58:48.771044+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f9254fe424e6c1",
+      "from": "adi@newsletter.agentmail.to",
+      "subject": "An engineering discipline lasts only six weeks - AgentNews#21",
+      "ts": "2026-07-24T04:14:47.831805+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f9256309e78f1e",
+      "from": "support@rapidapi.com",
+      "subject": "You have used 85% of your available quota for the Google Flights API",
+      "ts": "2026-07-24T04:16:49.613650+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f93f99e2e2e3e8",
+      "from": "aidisruption@substack.com",
+      "subject": "AMD unveils world's first 2nm GPU, the Instinct MI455X",
+      "ts": "2026-07-24T11:55:46.524131+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f977ea90f6dc52",
+      "from": "support@rapidapi.com",
+      "subject": "You have reached 100% of your quota for the Google Flights API",
+      "ts": "2026-07-25T04:19:22.364070+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19f99110f03e1dc2",
+      "from": "aidisruption@substack.com",
+      "subject": "Claude Opus 5 Launches at Half the Price of Fable 5",
+      "ts": "2026-07-25T11:38:06.654983+00:00",
       "system": "n8n_python"
     }
   ]

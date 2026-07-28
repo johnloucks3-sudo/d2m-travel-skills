@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Ely &amp; Amy Darrow — Dossier Card</title>
+<style>
+  :root {
+    --navy:            #07076b;
+    --navy-ink:        #ffffff;
+    --surface:         #fcfcfb;
+    --surface-card:    #ffffff;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --text-muted:      #898781;
+    --hairline:        #e1e0d9;
+    --baseline:        #c3c2b7;
+    /* payment sequential ramp (gold, light->dark = unpaid->partial->paid), validated 2:1+/ordinal */
+    --pay-unpaid:      #dbb04a;
+    --pay-partial:     #b8860b;
+    --pay-paid:        #6b4a00;
+    /* status palette — fixed, icon+label always, never color alone */
+    --status-good:     #0ca30c;
+    --status-warning:  #fab219;
+    --status-serious:  #ec835a;
+    --status-critical: #d03b3b;
+    --accent:          #c98500;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 48px;
+    background: var(--surface);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  .card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--surface-card);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(11,11,11,0.06);
+  }
+  .card__internal-flag {
+    background: var(--status-critical);
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    text-transform: uppercase;
+  }
+  .card__header {
+    background: var(--navy);
+    color: var(--navy-ink);
+    padding: 20px 24px;
+    border-top: 6px solid var(--accent);
+  }
+  .card__header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card__name {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .accent-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 4px 10px 4px 6px;
+  }
+  .accent-chip .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+  .card__sub {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #cfd6f2;
+  }
+  .card__meta-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #e8ecfb;
+  }
+  .card__meta-row b { color: #fff; }
+
+  .section {
+    padding: 20px 24px;
+    border-top: 1px solid var(--hairline);
+  }
+  .section__title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  /* timeline */
+  .timeline {
+    position: relative;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--hairline);
+    margin: 28px 4px 8px;
+  }
+  .timeline__track {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    border-radius: 4px;
+    background: var(--accent);
+    opacity: 0.35;
+  }
+  .timeline__marker {
+    position: absolute;
+    top: -8px;
+    width: 2px;
+    height: 24px;
+    background: var(--text-primary);
+  }
+  .timeline__marker.today { background: var(--status-critical); width: 3px; top: -10px; height: 28px; }
+  .timeline__label {
+    position: absolute;
+    top: -30px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--text-secondary);
+  }
+  .timeline__label.today { color: var(--status-critical); font-weight: 700; }
+  .timeline__endpoints {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* payment ladder */
+  .ladder { display: flex; flex-direction: column; gap: 8px; }
+  .rung {
+    display: grid;
+    grid-template-columns: 20px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+  }
+  .rung__icon {
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #fff; font-weight: 700;
+  }
+  .rung__icon.paid    { background: var(--pay-paid); }
+  .rung__icon.partial { background: var(--pay-partial); }
+  .rung__icon.unpaid  { background: var(--pay-unpaid); color: #3a2a00; }
+  .rung__label { font-size: 14px; font-weight: 600; }
+  .rung__date { font-size: 12px; color: var(--text-secondary); }
+  .rung__amount { font-size: 14px; font-weight: 700; text-align: right; }
+  .rung__status-text {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .rung__status-text.paid    { color: var(--pay-paid); }
+  .rung__status-text.partial { color: var(--pay-partial); }
+  .rung__status-text.unpaid  { color: #7a5a00; }
+
+  .payment-summary {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--hairline);
+    font-size: 13px; color: var(--text-secondary);
+  }
+  .payment-summary b { color: var(--text-primary); }
+
+  /* quick facts grid */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media (min-width: 560px) {
+    .facts-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .fact-tile {
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .fact-tile__label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--text-muted); margin-bottom: 4px;
+  }
+  .fact-tile__value {
+    font-size: 15px; font-weight: 700; color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+  .fact-tile__sub {
+    font-size: 12px; color: var(--text-secondary); margin-top: 2px;
+  }
+  .tp-status-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px;
+    background: rgba(11,11,11,0.06); color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* alerts */
+  .alerts { display: flex; flex-direction: column; gap: 8px; }
+  .alert {
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+  .alert__bar.critical { background: var(--status-critical); }
+  .alert__bar.P0        { background: var(--status-critical); }
+  .alert__bar.P1        { background: var(--status-serious); }
+  .alert__bar.P2        { background: var(--status-warning); }
+  .alert__bar.info      { background: var(--status-good); }
+  .alert__body { padding: 10px 12px; }
+  .alert__head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 3px;
+  }
+  .alert__level {
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+  }
+  .alert__lock {
+    font-size: 10px; font-weight: 800; text-transform: uppercase;
+    background: var(--status-critical); color: #fff;
+    padding: 1px 6px; border-radius: 999px;
+  }
+  .alert__text { font-size: 13px; color: var(--text-primary); line-height: 1.4; }
+
+  .card__footer {
+    padding: 14px 24px 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--hairline);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    
+    <div class="card__internal-flag">🔒 Internal Briefing — Not For Client Distribution (contains staff-only alert data)</div>
+    
+
+    <div class="card__header">
+      <div class="card__header-top">
+        <h1 class="card__name">Al Ely &amp; Amy Darrow</h1>
+        <span class="accent-chip"><span class="dot"></span>gold · 2 guests</span>
+      </div>
+      <div class="card__sub">Regent Seven Seas · SS Grandeur — Storied Scandinavia</div>
+      <div class="card__meta-row">
+        <span>Booking <b>3096289</b></span>
+        <span>Suite <b>961</b>, Deck 9</span>
+        <span>Departs <b>Aug 29, 2026</b></span>
+        <span>Returns <b>Sep 8, 2026</b></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__title">Voyage Timeline</p>
+      <div class="timeline">
+        <div class="timeline__track" style="width: 96.6%;"></div>
+        <div class="timeline__marker today" style="left: 79.6%;"></div>
+        <div class="timeline__label today" style="left: 79.6%;">TODAY</div>
+      </div>
+      <div class="timeline__endpoints">
+        <span>Deposit Nov 18, 2025</span>
+        <span>Departure Aug 29, 2026</span>
+        <span>Return Sep 8, 2026</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__title">Payment Roadmap</p>
+      <div class="ladder">
+        
+        <div class="rung">
+          <div class="rung__icon paid">✓</div>
+          <div>
+            <div class="rung__label">Deposit</div>
+            <div class="rung__date">Nov 18, 2025</div>
+          </div>
+          <div>
+            <div class="rung__amount">—</div>
+            <div class="rung__status-text paid">paid</div>
+          </div>
+        </div>
+        
+        <div class="rung">
+          <div class="rung__icon paid">✓</div>
+          <div>
+            <div class="rung__label">Final Payment (FPD)</div>
+            <div class="rung__date">Apr 1, 2026</div>
+          </div>
+          <div>
+            <div class="rung__amount">$16,640</div>
+            <div class="rung__status-text paid">paid</div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="payment-summary">
+        <span>Total: <b>$16,640</b></span>
+        <span>Paid to date: <b>$16,640</b></span>
+        <span>Balance due: <b>$0</b></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__title">Quick Facts</p>
+      <div class="facts-grid">
+        <div class="fact-tile">
+          <div class="fact-tile__label">Next Touchpoint</div>
+          <div class="fact-tile__value">TP 1.2 — Excursion + Dining Guide</div>
+          <span class="tp-status-badge">AT WF-17 GATE — awaiting Commander review</span>
+        </div>
+        <div class="fact-tile">
+          <div class="fact-tile__label">Days to Departure</div>
+          <div class="fact-tile__value">50 days</div>
+        </div>
+        <div class="fact-tile">
+          <div class="fact-tile__label">Itinerary Build</div>
+          <div class="fact-tile__value" style="font-size:13px; font-weight:600;">MISSION-802 group HTML itinerary — build due 2026-07-22, 30-day send target 2026-07-29</div>
+        </div>
+        <div class="fact-tile">
+          <div class="fact-tile__label">Excursions Confirmed</div>
+          <div class="fact-tile__value">6 / 6</div>
+        </div>
+        <div class="fact-tile">
+          <div class="fact-tile__label">Specialty Dining</div>
+          <div class="fact-tile__value">3 / 3</div>
+        </div>
+        <div class="fact-tile">
+          <div class="fact-tile__label">Payment Status</div>
+          <div class="fact-tile__value" style="text-transform:capitalize;">paid</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section__title">Alerts</p>
+      <div class="alerts">
+        
+        <div class="alert">
+          <div class="alert__bar critical"></div>
+          <div class="alert__body">
+            <div class="alert__head">
+              <span class="alert__level">critical</span>
+              <span class="alert__lock">🔒 internal</span>
+            </div>
+            <div class="alert__text">Amy Darrow — confirmed Parkinson&#39;s diagnosis (2026-06-18). Affects insurance eligibility (pre-existing condition). INTERNAL ONLY — dossier hard rule: never in client copy, never in portal/TP text.</div>
+          </div>
+        </div>
+        
+        <div class="alert">
+          <div class="alert__bar P2"></div>
+          <div class="alert__body">
+            <div class="alert__head">
+              <span class="alert__level">P2</span>
+              
+            </div>
+            <div class="alert__text">Kristiansand (Sep 5) excursion shows &#39;None selected&#39; — confirm free-time preference vs. oversight before the Excursion+Dining TP sends. Owner: Reyes.</div>
+          </div>
+        </div>
+        
+        <div class="alert">
+          <div class="alert__bar P0"></div>
+          <div class="alert__body">
+            <div class="alert__head">
+              <span class="alert__level">P0</span>
+              
+            </div>
+            <div class="alert__text">ARN → At Six Hotel transfer not yet booked — group-wide gap, all 3 couples. MISSION-1545/1556.</div>
+          </div>
+        </div>
+        
+        <div class="alert">
+          <div class="alert__bar info"></div>
+          <div class="alert__body">
+            <div class="alert__head">
+              <span class="alert__level">info</span>
+              <span class="alert__lock">🔒 internal</span>
+            </div>
+            <div class="alert__text">Suite changed 1212 → 961 on 2026-04-10 per RSSC invoice — confirmed current, no action needed.</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="card__footer">
+      <span>Source: dossiers/Ely_Darrow_Regent_3096289.md</span>
+      <span>Data as of 2026-07-10</span>
+    </div>
+  </div>
+</body>
+</html>

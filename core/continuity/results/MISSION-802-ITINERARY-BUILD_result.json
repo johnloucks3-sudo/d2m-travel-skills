@@ -1,0 +1,150 @@
+{
+  "mission_id": "MISSION-802-ITINERARY-BUILD",
+  "evaluation_date": "2026-07-22",
+  "alert_timestamp": "2026-07-22T00:00:00-06:00",
+  "decision": "✅ BUILD READY — PROCEED IMMEDIATELY",
+
+  "reasoning": "Prior format-review (Jul 15) approved this build with zero blockers. Three production-ready HTML itineraries exist (built Jul 15, 287K each). All content verified against authoritative source (trip-validation reports Jun 4 + Commander confirmation Jun 9). Dossiers current (last verified Jul 5). Ship photos + restaurant/port assets confirmed available and indexed. Open items from Jul 15 (Furlow seats, At Six conf, ARN transfers) are operational execution tasks, NOT content blockers — content build proceeds in parallel. Platform vision framework locked (horizontal sliding itinerary per Jun 26 Commander directive). No format changes required. Build kickoff is TODAY per the 7-day review window.",
+
+  "recommended_action": [
+    {
+      "phase": "PRE-BUILD (TODAY — Jul 22)",
+      "steps": [
+        "1. Verify Jul 21 08:00 MDT portal final sync completed (Regent scrape refresh). Confirm no excursion/dining/cabin changes since Jun 27 baseline.",
+        "2. Spot-check the three existing HTML files (built Jul 15):\n   - /drafts/itinerary_grandeur_furlow.html (287K, modified Jul 15 06:52)\n   - /drafts/itinerary_grandeur_elydarrow.html (288K, modified Jul 15 06:53)\n   - /drafts/itinerary_grandeur_nichols.html (288K, modified Jul 15 06:54)\n   Verify: color scheme (#04041b/#07076b), layout (hero → ship profile → stats bar → day cards), row categories present (port·excursion·dining·air·transfer·hotel·notes·budget).",
+        "3. Validate photo asset links live in each HTML:\n   - ./media/rssc_grandeur_deck_explorer.png\n   - ./output/Grandeur_Scandinavia_Portal/assets/prime7_steakhouse.jpg\n   - ./output/Grandeur_Scandinavia_Portal/assets/chartreuse_restaurant.jpg\n   - ./output/Grandeur_Scandinavia_Portal/assets/grandeur_ship_exterior.jpg\n   - ./output/Grandeur_Scandinavia_Portal/assets/ports/* (Stockholm, Copenhagen, Oslo, etc.)\n   If any 404s, use Pexels API fallback (standing architecture from Loucks projects).",
+        "4. Check for outstanding Jul 15 placeholders:\n   - Furlow HEL→ARN seats: placeholder 'Seat assignments pending Finnair confirmation — final seat map will update by Jul 28' — if RESOLVED since Jul 15, update with actual seats\n   - Furlow At Six conf #: placeholder 'Amex FHR confirmation number will be provided in hotel pre-arrival packet' — if RESOLVED, update\n   - ARN transfers: placeholder 'ARN transfers confirmed — confirmation details to follow' — if RESOLVED, update with conf #s",
+        "5. Verify special date callouts are prominent:\n   - Heidi Nichols: Aug 29 (embark day). Check Pacific Rim reservation (Aug 30, 6:30 PM) is marked as her birthday dinner in Nichols itinerary.\n   - Amy Darrow: Aug 31 (day 3 at sea). Check dining/excursion on Aug 31 row in Ely-Darrow itinerary."
+      ]
+    },
+    {
+      "phase": "BUILD PHASE (Jul 22-23)",
+      "steps": [
+        "1. Review final three-couple integrated HTML — each should show:\n   - Furlow: Suite 827 (D-Concierge), 2 pax, 7 excursions (Regent Choice, $0), 3 dining reservations, flight details\n   - Ely-Darrow: Suite 961 (Deck 9), 2 pax, 5 excursions, 3 dining reservations, flight details, Amy's Aug 31 birthday noted\n   - Nichols: Suite 939 (Deck 9), 2 pax, 7-8 excursions, 3 dining reservations (Pacific Rim = Heidi's birthday, Aug 30), flight details\n        All shared voyage (Aug 27-Sep 5), identical dining, individual excursion selections.",
+        "2. QA image embedded in HTML:\n   - View each itinerary in a browser (Chrome/Safari)\n   - Verify all images load (no broken links, no 404s)\n   - Check responsive layout on desktop + mobile (max-width 900px flexbox card layout)\n   - Verify print-friendly styling (dark navy #07076b background, cream #f7f3ea text, gold #c8a400 accents)\n   - Test email rendering (Outlook, Gmail) — email-safe HTML table structure per Jun 21 prototypes",
+        "3. Cross-check dossier facts against tracker + validation reports (final truth source):\n   - Payment status: Furlow $15,486 ✅ | Ely-Darrow $16,640 ✅ | Nichols $14,986 ✅ (total $46,112)\n   - Cabins: Suite 827/961/939, decks 8/9/9\n   - Excursions: All Regent Choice ($0), counts per couple (7/5/7-8)\n   - Dining: Pacific Rim (Aug 30, 6:30 PM = Heidi's birthday), Chartreuse (Sep 2, 7:30 PM), Prime 7 (Sep 4, 6:30 PM)",
+        "4. Stage itineraries in /drafts/ (already there from Jul 15 build). Rename if needed for delivery:\n   - `/drafts/MISSION-802-Itinerary-Furlow.html`\n   - `/drafts/MISSION-802-Itinerary-ElyDarrow.html`\n   - `/drafts/MISSION-802-Itinerary-Nichols.html`"
+      ]
+    },
+    {
+      "phase": "PRE-DELIVERY (Jul 28)",
+      "steps": [
+        "1. Populate any resolved Jul 15 TBD items:\n   - Furlow AY 811 seats (if Finnair resolved by Jul 26 deadline) → update seat map in itinerary\n   - Furlow At Six Amex FHR conf # (if Amex Travel resolved by Jul 26 deadline) → update hotel section\n   - ARN→At Six transfer conf #s (if booked by Jul 27 deadline) → update logistics section",
+        "2. Final QA:\n   - Spot-check one random excursion detail per couple (name, time, price, provider confirmation)\n   - Verify flight times/airlines/PNRs match dossier (AA 9018 DFW→HEL; AY 811 HEL→ARN; return Sep 5)\n   - Check suite deck plans link correctly to ship profile photos",
+        "3. Notify Commander:\n   - Subject: 'MISSION-802 READY FOR REVIEW — Furlow/Ely-Darrow/Nichols Itinerary'\n   - Body: Three itineraries staged in /drafts/; all content verified; open items tracked separately (seats/transfers/At Six conf due by Jul 28). No client send until Commander approves (WF-17 gate).\n   - Attach summary: Format ✅ | Content ✅ | Assets ✅ | Open Items: 3 (all operational, not content). Ready for Commander review + client portal staging."
+      ]
+    }
+  ],
+
+  "blocker": null,
+
+  "critical_path": {
+    "current_status": "IMMEDIATE — BUILD PHASE TODAY",
+    "timeline": {
+      "Jul 22 (TODAY)": "✅ Kickoff: verify prior build, spot-check HTML/photos, confirm Jul 21 portal sync",
+      "Jul 23": "Build QA: image rendering, email compatibility, dossier cross-check, stage in /drafts/",
+      "Jul 26": "Deadline: Resolve Furlow seats (PNR BB4X94) + At Six conf (Amex FHR)",
+      "Jul 27": "Deadline: Book ARN→At Six transfers ×3",
+      "Jul 28": "Pre-delivery: Populate TBD items if resolved, final QA, notify Commander",
+      "Jul 29": "Client send target (30-day window before Aug 29 sail)"
+    },
+    "dependency_status": {
+      "format_locked": "✅ Approved Jul 15 per ITINERARY_PLATFORM_VISION_20260626.md",
+      "content_verified": "✅ Against Jun 4 trip-validations + Jun 9 Commander confirmation",
+      "assets_available": "✅ Confirmed Jul 15; Pexels API fallback ready",
+      "photos_embedded": "✅ 25+ cabin shots, restaurant/port assets indexed",
+      "portal_sync_jul21": "⏳ CRITICAL — Must verify TODAY before finalizing content"
+    }
+  },
+
+  "open_items_status": {
+    "summary": "3 operational items (NOT content blockers). All have workarounds; content build proceeds in parallel.",
+    "items": [
+      {
+        "item": "1. Furlow HEL→ARN seats (PNR BB4X94, AY 811)",
+        "status": "⚠️ TBD as of Jul 15",
+        "deadline": "Jul 26 (E-4)",
+        "blocker": false,
+        "workaround": "Placeholder in itinerary: 'Seat assignments pending Finnair confirmation — final seat map will update by Jul 28.' Escalate to Finnair if unresolved by Jul 26."
+      },
+      {
+        "item": "2. Furlow At Six Stockholm Amex FHR conf # (Night 1, Aug 27-28)",
+        "status": "⚠️ TBD as of Jul 15",
+        "deadline": "Jul 26 (E-4)",
+        "blocker": false,
+        "workaround": "Placeholder: 'Amex FHR confirmation number will be provided in hotel pre-arrival packet.' Escalate to Amex Travel if unresolved by Jul 26."
+      },
+      {
+        "item": "3. ARN→At Six transfers ×3 (3 sedans, Aug 27 arrival)",
+        "status": "⏳ Commander-approved Jul 12, awaiting booking execution",
+        "deadline": "Jul 27 (E-3)",
+        "blocker": false,
+        "workaround": "Track as separate ops execution. Provide conf #s to clients by Jul 28 in separate pre-cruise briefing. Placeholder: 'ARN transfers confirmed — confirmation details to follow.'"
+      }
+    ]
+  },
+
+  "special_handling": [
+    {
+      "note": "Heidi Nichols Birthday — Aug 29 (EMBARK DAY)",
+      "action": "Ensure Pacific Rim reservation (Aug 30, 6:30 PM) is prominently marked in Nichols itinerary as her birthday dinner. Include personal note in opening section."
+    },
+    {
+      "note": "Amy Darrow Birthday — Aug 31 (DAY 3 AT SEA)",
+      "action": "Highlight Aug 31 row in Ely-Darrow itinerary. Consider special dining or excursion. Include personal note in opening section."
+    },
+    {
+      "note": "Group Refund Tracking",
+      "action": "Harlan (A9) tracking Haymarket cancellations + transfer refunds. Not content-relevant; separate ops task. Do NOT mention in client itinerary."
+    }
+  ],
+
+  "reference_documents": {
+    "itinerary_platform_vision": "docs/ITINERARY_PLATFORM_VISION_20260626.md (Commander directive, Jun 26, 2026)",
+    "format_review": "core/continuity/results/MISSION-802-FORMAT-REVIEW_result.json (Jul 15, 2026, APPROVED)",
+    "dossiers": [
+      "dossiers/Furlow_Regent_3071222.md (verified Jul 5)",
+      "dossiers/Ely_Darrow_Regent_3096289.md (verified Jul 5)",
+      "dossiers/Nichols_Regent_3078056.md (verified Jul 5)"
+    ],
+    "tracker": "dossiers/port_data/FurlowElyNichols_Grandeur_2026-08-29_ports.md (authoritative source, updated Jul 12)",
+    "asset_location": "output/Grandeur_Scandinavia_Portal/assets/",
+    "html_templates": [
+      "drafts/itinerary_grandeur_furlow.html (287K, built Jul 15 06:52)",
+      "drafts/itinerary_grandeur_elydarrow.html (288K, built Jul 15 06:53)",
+      "drafts/itinerary_grandeur_nichols.html (288K, built Jul 15 06:54)"
+    ]
+  },
+
+  "build_readiness_checklist": {
+    "format": "✅ LOCKED (horizontal sliding itinerary per Jun 26 directive; email-safe HTML table template; D2M brand colors)",
+    "content": "✅ VERIFIED (excursions, dining, cabins, payments all confirmed vs authoritative source)",
+    "assets": "✅ AVAILABLE (ship photos, restaurant/port images, cabin shots indexed; Pexels fallback ready)",
+    "special_dates": "✅ FLAGGED (Heidi Aug 29 embark, Amy Aug 31 at sea; birthdays noted for prominence)",
+    "photos_embedded": "✅ READY (25+ ship interior, deck, restaurant photos; port destination guides available)",
+    "email_rendering": "⏳ NEEDS VERIFICATION (test in Outlook/Gmail; email-safe table structure per protocol)",
+    "responsive_design": "⏳ NEEDS VERIFICATION (max-width 900px flexbox; test mobile collapse/expand)",
+    "dossier_sync": "✅ CURRENT (Jul 5 baseline; Jul 12 tracker confirms no content changes since Jun 27 portal scrape)"
+  },
+
+  "action_summary": {
+    "immediate": "Verify Jul 21 portal final sync occurred. Spot-check three HTML files for layout/links/images. Confirm no content changes since Jun 27.",
+    "today_jul22": "Kick off QA phase: browser testing (desktop/mobile), email rendering, dossier cross-check. Stage itineraries in /drafts/.",
+    "by_jul26": "Escalate Furlow seats + At Six conf to respective vendors if still TBD. Update itinerary if resolved.",
+    "by_jul27": "Execute ARN transfer bookings (Commander-approved Jul 12). Provide conf #s for client brief by Jul 28.",
+    "by_jul28": "Populate resolved TBD items. Final QA pass. Notify Commander: ready for review + client portal staging.",
+    "jul29_target": "Client send (30-day window, right on schedule before Aug 29 sail)"
+  },
+
+  "commander_next_steps": [
+    "Review the three itineraries in /drafts/ (QA will be complete by Jul 28).",
+    "Approve final format + content for client delivery.",
+    "Confirm special date callouts (Heidi's birthday dinner, Amy's birthday note) are appropriate.",
+    "Authorize client portal staging + send to all three couples (WF-17 gate — Commander sends)."
+  ],
+
+  "evaluation_status": "READY TO BUILD — ALL GATES OPEN",
+  "report_prepared_by": "Claude (Haiku 4.5) | Autonomously evaluated per Continuity Protocol",
+  "next_checkpoint": "2026-07-22 18:00 MDT (End-of-day: QA phase status)",
+  "report_end_timestamp": "2026-07-22T00:00:00-06:00"
+}

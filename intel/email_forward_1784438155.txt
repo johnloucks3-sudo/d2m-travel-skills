@@ -1,0 +1,34 @@
+Subject: Tech Scan 2026-07-19 05:15 UTC — 3 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-19T05:15:55.085842+00:00
+
+TECH SCAN — 2026-07-19 05:15 UTC
+airborne scanner pulse · 18 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 13 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Synapse – local codebase indexer and MCP server for Claude Code — https://github.com/nrkoka786/synapse
+↳ real tool (server, mcp, github.com) — worth a bounded look
+Show HN: Peek-CLI: Let Claude Code iterate on front end designs — https://github.com/puffinsoft/peek-cli
+↳ real tool (github.com) — worth a bounded look
+OrgFramework – 537 hand-written role files for Claude Code — https://github.com/korishnn/orgframework
+↳ real tool (framework, github.com) — worth a bounded look
+👁 WATCH:Got 6 months of Claude Max 20x for free — thanks Anthropic and OpenSource
+I gave GPT-5.6 Sol, Claude Opus 4.8, and Grok 4.5 the same 100 frontend briefs—here are all 300 results
+Anthropic extends Claude Code's 50% weekly limit increase through August 19 — https://twitter.com/ClaudeDevs/s
+Track you Claude Code usage in dollars — https://www.claudeusage.com/leaderboard
+Claude Is Painful — https://news.ycombinator.com/item?id=48964237
+Claude Code May–August 2026 weekly limits promotion — https://support.claude.com/en/articles/15910845-claude-c
+Setting up your spare Mac for Claude Code to control, a step-by-step guide — https://ykdojo.github.io/claude-c
+Claude Code team should try macro so users can complete 3x as many tasks — https://news.ycombinator.com/item?i
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):Ask HN: Claude Creating Artifacts? — https://news.ycombinator.com/item?id=48959308
+Ask HN: Claude Code for Ordinary User — https://news.ycombinator.com/item?id=48955119
+RAW — all finds this pulse (unfiltered)[llm] Got 6 months of Claude Max 20x for free — thanks Anthropic and OpenSource (Reddit r/ClaudeAI)
+[llm] I gave GPT-5.6 Sol, Claude Opus 4.8, and Grok 4.5 the same 100 frontend briefs—here are all 300 results (Reddit r/ClaudeAI)
+[llm] Anthropic extends Claude Code's 50% weekly limit increase through August 19 — https://twitter.com/ClaudeDevs/status/2078 (Hacker News — Claude Code)
+[llm] Show HN: Synapse – local codebase indexer and MCP server for Claude Code — https://github.com/nrkoka786/synapse (Hacker News — Claude Code)
+[llm] Track you Claude Code usage in dollars — https://www.claudeusage.com/leaderboard (Hacker News — Claude Code)
+[llm] Claude Is Painful — https://news.ycombinator.com/item?id=48964237 (Hacker News — Claude Code)
+[llm] Claude Code May–August 2026 weekly limits promotion — https://support.claude.com/en/articles/15910845-claude-code-may-au (Hacker News — Claude Code)
+[llm] Show HN: Peek-CLI: Let Claude Code iterate on front end designs — https://github.com/puffinsoft/peek-cli (Hacker News — Claude Code)
+[llm] Setting up your spare Mac for Claude Code to control, a step-by-step guide — https://ykdojo.github.io/claude-controls-ma (Hacker News — Claude Code)
+[llm] Ask HN: Claude Creating 

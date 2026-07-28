@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-27 12:00 UTC)
+## COMMANDER-READY (2026-07-28 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,33 +59,29 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-27 06:00
+## STATE BRIDGE BRIEFING — 2026-07-28 09:30
 
-### Since last session (2026-07-27 02:50:55 → still open)
+### Since last session (2026-07-28 15:00:01 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `9b0b50a15` fix(security): redact Spencer portal password from audit trail; clear gitleaks gate  _2 hours ago_
-- `d925f7ded` feat(archive): archive Spencer 12 Pax Master Intake Form to Git, local storage & Google Drive [POST-COMMIT]  _7 hours ago_
-- `2f77f8e5d` feat(portal): pre-fill known Spencer family manifest data & milestone celebrations into intake form [POST-COMMIT]  _7 hours ago_
-- `3f9b171fa` feat(portal): refine Spencer intake form UI with Glassmorphism, file dropzone & LocalStorage auto-save [POST-COMMIT]  _7 hours ago_
-- `70293255c` feat(portal): add Section 6 Travel Dreams & Bucket-List discovery to Spencer intake form [POST-COMMIT]  _7 hours ago_
+- `fefadd6db` 🦅 [REORG] Executed Drive Reorganization Plan (local YOGA + Google Drive d2m & jl3)  _71 minutes ago_
+- `64079517f` 🦅 [PROPOSAL] Proposed Drive Reorganization Plan drafted and delivered to johnloucks3 inbox (ID: 19fa915cb4d00d29)  _73 minutes ago_
+- `cb5f33c9e` 🦅 [L1 DIRECTIVE] Upgrade both brief engines to live data — TCD suspenses, fare watch DB, mission board, ELON innovation digest, Harlan FPD alerts, Gauge dynamic take, git metrics  _2 hours ago_
+- `5d1d90ade` ⚡ [REPORTING OVERHAUL COMPLETE] — [Deployed 2-window consolidated brief daemons, restaged 36 drafts to johnloucks3, active systemd timers, & enacted SO-REPORTING-2026]  _2 hours ago_
+- `b4f949c60` ⚡ [REPORTING OVERHAUL] — [Drafted SSS-2026-0728-01 & Standing Order SO-REPORTING-2026 for universal reporting standards]  _2 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_brief.md` (0s ago)
-- `hale_state.json` (3s ago)
-- `OpsCenter/collaboration/blackboard.md` (30m ago)
-- `AGENTS.md` (7.9h ago)
-- `dossiers/Furlow_Regent_3071222.md` (11.1h ago)
-- `dossiers/Westbrook_SilverNova_Personal.md` (11.8h ago)
-- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (13.4h ago)
-- `dossiers/Westbrook_Brent_Kim_UPDATED.md` (1.8d ago)
-
-**Mission board:** 160 open (15 P0, 98 P1)
-  - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
-  - 🔴 MISSION-011: Close Regent cookie expiration P0 — resto
+- `hale_state.json` (22s ago)
+- `OpsCenter/collaboration/blackboard.md` (29m ago)
+- `hale_brief.md` (3.5h ago)
+- `AGENTS.md` (16.5h ago)
+- `dossiers/Loucks_2027_BA_Business_Airfare_Quote.md` (17.8h ago)
+- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (17.8h ago)
+- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (17.8h ago)
+- `dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md` (17.
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)

@@ -1,0 +1,36 @@
+Subject: Tech Scan 2026-07-24 19:00 UTC — 8 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-24T19:00:52.639550+00:00
+
+TECH SCAN — 2026-07-24 19:00 UTC
+airborne scanner pulse · 14 finds · sectors browser, claude-code, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 8 TRIAL · 6 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Drive your real logged-in Chrome from Claude Code and Codex (MCP) — https://github.com/vitalysim/browser-bridge
+↳ real tool (mcp, github.com) — worth a bounded look
+Show HN: Power Coding – an AI-coding skill I audited on Claude Code and Codex — https://github.com/APareek89/power-coding
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Self-hosted multi-tenant agents built on Claude Code and Codex — https://github.com/OtoDock/oto-dock/
+↳ real tool (github.com) — worth a bounded look
+Show HN: Marrow – self-hosted semantic search over your Claude Code sessions — https://github.com/gnosislabstech/marrow
+↳ real tool (github.com) — worth a bounded look
+Show HN: Cc-session-migrate: Cross-node migration for Claude Code sessions — https://github.com/bigwhite/cc-session-migrate
+↳ real tool (github.com) — worth a bounded look
+Claude Code hooks that block find/sed/cat, redirect to native tools — https://github.com/HabibiCodeCH/claude-no-bash-detour
+↳ real tool (tool, github.com) — worth a bounded look
+Show HN: Bookshelf – book quotes that appear between Claude Code and Codex turns — https://github.com/Amal-David/bookshelf
+↳ real tool (github.com) — worth a bounded look
+Show HN: Run Claude Code Through Codex, Kimi, Grok, or Cursor — https://github.com/raine/claude-code-proxy
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I made a Claude Code skill that turns a photo of your handwriting into an installable font
+Favorite claude-isms in no particular order
+AgentCost – local CLI,attributes token cost in Claude Code/Cursor/Codex sessions — https://pypi.org/project/ag
+RTK and Claude Code Token Savings: A Closer Look — https://blog.jetbrains.com/ai/2026/07/rtk-claude-code-token
+Save Up to 70% on Claude Code Costs with PNG Prompts? — https://ai-karma-tracker.github.io/blog/pxpipe-png-pro
+Connect Google Sheets to Claude Code in 5 minutes — https://dev.to/pastesheet/connect-google-sheets-to-claude-
+RAW — all finds this pulse (unfiltered)[claude-code] I made a Claude Code skill that turns a photo of your handwriting into an installable font (Reddit r/ClaudeAI)
+[voice] Favorite claude-isms in no particular order (Reddit r/ClaudeAI)
+[browser] Show HN: Drive your real logged-in Chrome from Claude Code and Codex (MCP) — https://github.com/vitalysim/browser-bridge (Hacker News — Claude Code)
+[claude-code] Show HN: Power Coding – an AI-coding skill I audited on Claude Code and Codex — https://github.com/APareek89/power-codin (Hacker News — Claude Code)
+[claude-code] Show HN: Self-hosted multi-tenant agents built on Claude Code and Codex — https://github.com/OtoDock/oto-dock/ (Hacker News — Claude Code)
+[claude-code] Show HN: Marrow – self-hosted semantic search over your Claude Code sessions 

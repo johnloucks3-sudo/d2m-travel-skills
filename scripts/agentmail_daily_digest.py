@@ -101,6 +101,17 @@ def main():
         print(f"Usage: {sys.argv[0]} [daily|weekly|monthly]")
         sys.exit(1)
     digest = build_digest(period)
+    try:
+        from core.staffing.sss_render import render_info_text
+        digest = render_info_text(
+            subject=f"AgentMail {period.title()} Digest",
+            opr="CC (Hale)", staffed_by=["Sterling (A7)"],
+            purpose=f"{period.title()} AgentMail activity digest.",
+            discussion=digest,
+            tag="AgentMail Digest",
+        )
+    except Exception as e:
+        print(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
     print(digest)
     result = send_telegram_notification(digest)
     print(f"telegram send: delivered={result['delivered']}")

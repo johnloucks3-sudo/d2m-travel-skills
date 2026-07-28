@@ -1,0 +1,32 @@
+Subject: Tech Scan 2026-07-26 19:00 UTC — 3 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-26T19:01:51.703701+00:00
+
+TECH SCAN — 2026-07-26 19:00 UTC
+airborne scanner pulse · 16 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 11 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Hallmark – Anti-AI-Slop Design Skill for Claude Code, Cursor, and Codex — https://github.com/Nutlope/hallmark
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Rules that stop AI coding agents from breaking working code — https://github.com/avenna01-ceo/claude-code-survival-kr
+↳ real tool (github.com) — worth a bounded look
+Ruflo: An agent meta-harness for Claude Code and Codex — https://github.com/ruvnet/ruflo
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Anthropic cut 80% of Claude Code's system prompt for the Claude 5 models and published what should still go in
+Data loss in Claude Code and OpenAI Codex: when AI deletes user files — https://firasd.substack.com/p/accident
+Design.md for Design in Claude Code — https://aifordevelopers.substack.com/p/designmd-for-design-in-claude-cod
+Claude Code Deletes Your Context History from Your Device After 30 Days — https://code.claude.com/docs/en/data
+Show HN: Termic – desktop app for running CLI coding agents (Claude Code, Codex) — https://termic.dev/
+Claude Code has a hardcoded instruction telling Opus 5 not to use subagents — https://old.reddit.com/r/ClaudeC
+Claude Code Cut Their System Prompt by 80%. Does That Work for Small Models Too? — https://antigma.ai/blog/202
+Show HN: Integrate any CLI agent into any terminal — https://terminai.app
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):Ask HN: What happens when we do compress the context in Claude Code? — https://news.ycombi
+How to structure CLAUDE.md, Skills and Agents — https://dev.to/hash01/how-to-structure-cla
+RAW — all finds this pulse (unfiltered)[claude-code] Anthropic cut 80% of Claude Code's system prompt for the Claude 5 models and published what should still go in your CLAU (Reddit r/ClaudeAI)
+[claude-code] Hallmark – Anti-AI-Slop Design Skill for Claude Code, Cursor, and Codex — https://github.com/Nutlope/hallmark (Hacker News — Claude Code)
+[claude-code] Data loss in Claude Code and OpenAI Codex: when AI deletes user files — https://firasd.substack.com/p/accidental-data-lo (Hacker News — Claude Code)
+[claude-code] Design.md for Design in Claude Code — https://aifordevelopers.substack.com/p/designmd-for-design-in-claude-code (Hacker News — Claude Code)
+[claude-code] Claude Code Deletes Your Context History from Your Device After 30 Days — https://code.claude.com/docs/en/data-usage (Hacker News — Claude Code)
+[claude-code] Show HN: Termic – desktop app for running CLI coding agents (Claude Code, Codex) — https://termic.dev/ (Hacker News — Claude Code)
+[claude-code] Claude Code has a hardcoded instruction telling Opus 5 not to use subagents — https://old.reddit.com/r/ClaudeCode/commen (Hacker News — Claude Code)
+[claude-code] Claude Code Cut Their Syst

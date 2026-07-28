@@ -578,3 +578,9 @@ completed_tps: []
 - Staying with Commander at 1655 Goldpeak Ct — treat as private address, do not share in client-facing comms
 - IAD (~20 min from Centerville) preferred; DCA (~30 min) secondary; BWI too far
 - Dani available to assist; mention she heard from John
+
+
+### EMAIL LOG
+
+**Jul 27 — Leslie Loucks** (Re: Thank you)
+> 2026-07-27: Leslie sent personal thank-you to Commander and Susie for hosting July 18-25 visit. Trip completed successfully. Positive client sentiment. No new travel needs or requests at this time.

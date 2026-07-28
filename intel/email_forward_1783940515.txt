@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-13 11:00 UTC — 3 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-13T11:01:55.854457+00:00
+
+TECH SCAN — 2026-07-13 11:00 UTC
+airborne scanner pulse · 14 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 10 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Use After Effects with Claude Code, Cursor and Antigravity — https://github.com/Arman-Luthra/aftr
+↳ real tool (github.com) — worth a bounded look
+Show HN: DejaView – Terminal dashboard for all your Claude Code sessions — https://github.com/dotbrt/dejaview
+↳ real tool (github.com) — worth a bounded look
+Show HN: Confessor – replay what private info Claude Code accessed on your PC — https://github.com/ninjahawk/Confessor
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:How I made $25k in 15 days with a game built by Claude Code — https://leocoout.medium.com/how-i-made-25k-in-15
+Show HN: Call to Control AI Agents via the Web — https://diffforge.ai/
+Run SSH and Claude Code on 3DS — https://news.ycombinator.com/item?id=48887733
+Show HN: Topsoil – a notch dashboard for coding agents, music, and files — https://topsoil-two.vercel.app/
+Claude Code Usage Global Leaderboard — https://www.claudeusage.com
+Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k — https://systima.ai/blog/claude-cod
+Claude Code May–July 2026 weekly limits promotion — https://support.claude.com/en/articles/15910845-claude-cod
+Show HN: Sanbox, batteries included sandboxes for AI agents — https://sanbox.cloud
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):How to Create a Skill in Claude Code — https://dev.to/thryx/how-to-create-a-skill-in-claud
+RAW — all finds this pulse (unfiltered)[claude-code] How I made $25k in 15 days with a game built by Claude Code — https://leocoout.medium.com/how-i-made-25k-in-15-days-with (Hacker News — Claude Code)
+[agentic] Show HN: Call to Control AI Agents via the Web — https://diffforge.ai/ (Hacker News — Claude Code)
+[claude-code] Run SSH and Claude Code on 3DS — https://news.ycombinator.com/item?id=48887733 (Hacker News — Claude Code)
+[claude-code] Show HN: Use After Effects with Claude Code, Cursor and Antigravity — https://github.com/Arman-Luthra/aftr (Hacker News — Claude Code)
+[agentic] Show HN: Topsoil – a notch dashboard for coding agents, music, and files — https://topsoil-two.vercel.app/ (Hacker News — Claude Code)
+[claude-code] Claude Code Usage Global Leaderboard — https://www.claudeusage.com (Hacker News — Claude Code)
+[claude-code] Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k — https://systima.ai/blog/claude-code-vs-openc (Hacker News — Claude Code)
+[claude-code] Claude Code May–July 2026 weekly limits promotion — https://support.claude.com/en/articles/15910845-claude-code-may-july (Hacker News — Claude Code)
+[agentic] Show HN: Sanbox, batteries included sandboxes for AI agents — https://sanbox.cloud (Hacker News — Claude Code)
+[claude-code] Show HN: DejaView – Terminal dashboard for all your Claude Code s

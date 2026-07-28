@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbird — Morning Brief Dashboard</title>
+<style>
+  :root{
+    --navy:#003087; --navy-ink:#001c52; --cream:#f7f3ea; --cream-2:#efe9db;
+    --gold:#d4af37; --good:#2ecc71; --warning:#f39c12; --critical:#e74c3c; --muted:#95a5a6;
+    --seq-lo:#e8f4f8; --seq-hi:#003087; --seq-mid:#7bb3d6;
+    --text:#1a1a1a; --text-muted:#666;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+    background:
+      radial-gradient(1200px 600px at 90% -10%, rgba(0,48,135,0.06), transparent 60%),
+      linear-gradient(180deg,var(--cream) 0%, var(--cream-2) 100%);
+    color:var(--text); min-height:100vh; padding:1.75rem;
+  }
+  .wrap{max-width:1440px;margin:0 auto}
+
+  header.top{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--navy); color:var(--cream);
+    border-radius:var(--radius); padding:1.1rem 1.6rem; margin-bottom:1.5rem;
+    box-shadow:0 6px 24px rgba(0,48,135,0.25);
+  }
+  header.top .brand{display:flex; align-items:center; gap:0.75rem}
+  header.top .brand .mark{
+    font-size:1.6rem; display:inline-block;
+    filter:drop-shadow(0 0 6px rgba(212,175,55,.55));
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  header.top h1{font-size:1.35rem;font-weight:600;margin:0;letter-spacing:.2px}
+  header.top .sub{font-size:.78rem;color:#c9d4ea;margin-top:2px}
+  header.top .meta{text-align:right;font-size:.78rem;color:#c9d4ea}
+  header.top .meta .dot{
+    display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--good);margin-right:6px;box-shadow:0 0 0 3px rgba(46,204,113,.18);
+  }
+  header.top .meta .dot.stale{background:var(--warning);box-shadow:0 0 0 3px rgba(243,156,18,.18)}
+  header.top .meta .dot.offline{background:var(--critical);box-shadow:0 0 0 3px rgba(231,76,60,.18)}
+
+  .grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1.3fr 1fr;
+    gap:1.25rem;
+    margin-bottom:1.25rem;
+  }
+  @media(max-width:1080px){ .grid{grid-template-columns:1fr} }
+
+  .card{
+    background:#fff; border-radius:var(--radius);
+    padding:1.35rem 1.4rem; box-shadow:0 2px 10px rgba(0,0,0,.06);
+    border-top:3px solid var(--navy);
+  }
+  .card h2{
+    font-size:.82rem; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--navy); margin:0 0 1rem 0; display:flex; align-items:center; gap:.5rem;
+    font-weight:700;
+  }
+  .card h2 .n{
+    margin-left:auto; font-size:.7rem; text-transform:none; letter-spacing:0;
+    color:var(--muted); font-weight:500;
+  }
+
+  /* ---------- PIPELINE GAUGE ---------- */
+  .gauge-wrap{display:flex; flex-direction:column; align-items:center}
+  .gauge-svg{width:100%; max-width:280px}
+  .gauge-num{font-size:2.1rem; font-weight:800; color:var(--navy); margin-top:-2.6rem; letter-spacing:-.5px}
+  .gauge-sub{font-size:.8rem;color:var(--text-muted); margin-top:.15rem}
+  .progress-track{width:100%; height:9px; background:#e7e2d6; border-radius:5px; overflow:hidden; margin-top:1.1rem}
+  .progress-fill{height:100%; border-radius:5px; background:linear-gradient(90deg,var(--seq-mid),var(--seq-hi)); transition:width 1s ease}
+  .progress-caption{display:flex; justify-content:space-between; font-size:.72rem; color:var(--text-muted); margin-top:.35rem}
+  .pipeline-clients{font-size:.72rem;color:var(--text-muted); margin-top:.75rem; text-align:center}
+
+  /* ---------- FPD ALERTS ---------- */
+  .fpd-item{
+    display:flex; align-items:center; gap:.85rem;
+    padding:.8rem .9rem; margin-bottom:.6rem; border-radius:8px;
+    background:#faf9f6; border-left:3px solid var(--muted);
+  }
+  .fpd-item.critical{border-color:var(--critical); background:rgba(231,76,60,.05)}
+  .fpd-item.warning{border-color:var(--warning); background:rgba(243,156,18,.05)}
+  .fpd-item.good{border-color:var(--good); background:rgba(46,204,113,.05)}
+  .fpd-badge{
+    width:8px;height:8px;border-radius:50%;flex-shrink:0;
+  }
+  .fpd-item.critical .fpd-badge{background:var(--critical)}
+  .fpd-item.warning .fpd-badge{background:var(--warning)}
+  .fpd-item.good .fpd-badge{background:var(--good)}
+  .fpd-left{flex:1; min-width:0}
+  .fpd-client{font-weight:700;color:var(--navy);font-size:.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .fpd-date{font-size:.74rem;color:var(--text-muted); margin-top:2px}
+  .fpd-right{text-align:right; flex-shrink:0}
+  .fpd-amount{font-weight:800; color:var(--navy); font-size:1rem}
+  .fpd-countdown{font-size:.72rem; font-weight:700; margin-top:2px}
+  .fpd-item.critical .fpd-countdown{color:var(--critical)}
+  .fpd-item.warning .fpd-countdown{color:var(--warning)}
+  .fpd-item.good .fpd-countdown{color:var(--good)}
+  .fpd-empty{color:var(--text-muted); font-size:.85rem; text-align:center; padding:1.5rem 0}
+
+  /* ---------- SYSTEM HEALTH ---------- */
+  .health-metric{margin-bottom:1.1rem}
+  .health-label{display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:.4rem}
+  .health-label b{color:var(--text); font-weight:700}
+  .health-label span.val{color:var(--text-muted)}
+  .health-track{width:100%; height:10px; background:#e7e2d6; border-radius:5px; overflow:hidden}
+  .health-fill{height:100%; border-radius:5px; transition:width 1s ease}
+  .health-fill.mem{background:linear-gradient(90deg,var(--seq-lo),var(--seq-mid),var(--seq-hi))}
+  .health-fill.swap{background:linear-gradient(90deg,var(--seq-lo),var(--gold))}
+  .status-row{display:flex; align-items:center; gap:.4rem; margin-top:.4rem; font-size:.75rem; color:var(--text-muted)}
+  .status-row .dot{width:7px;height:7px;border-radius:50%}
+  .status-row .dot.ok{background:var(--good)}
+  .status-row .dot.warn{background:var(--warning)}
+  .status-row .dot.crit{background:var(--critical)}
+  .svc-list{font-size:.72rem; color:var(--critical); margin-top:.3rem}
+
+  /* ---------- KANBAN ---------- */
+  .kanban-card{grid-column: span 3}
+  .kanban{display:grid; grid-template-columns:repeat(4,1fr); gap:.9rem}
+  @media(max-width:768px){ .kanban{grid-template-columns:repeat(2,1fr)} }
+  .kcol h3{
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; font-weight:700;
+    color:var(--navy); margin:0 0 .6rem 0; display:flex; align-items:center; gap:.4rem;
+  }
+  .kcol .count{
+    background:var(--navy); color:#fff; font-size:.78rem; font-weight:700;
+    padding:.1rem .45rem; border-radius:5px;
+  }
+  .kcol.done .count{background:var(--good)}
+  .kcol.review .count{background:var(--warning)}
+  .kcol.backlog .count{background:var(--muted)}
+  .kmission{
+    background:#faf9f6; border-left:3px solid var(--navy); border-radius:5px;
+    padding:.5rem .6rem; font-size:.72rem; color:#333; margin-bottom:.45rem;
+    line-height:1.35;
+  }
+  .kcol.review .kmission{border-color:var(--warning)}
+  .kcol.backlog .kmission{border-color:var(--muted)}
+  .kcol.done .kmission{border-color:var(--good)}
+  .kmission .id{font-weight:700; color:var(--navy); display:block; font-size:.68rem}
+  .kmore{font-size:.68rem; color:var(--text-muted); font-style:italic}
+
+  footer{text-align:center; color:var(--text-muted); font-size:.78rem; margin-top:1.5rem}
+  footer .refresh-note{margin-top:.2rem}
+  .offline-banner{
+    display:none; background:var(--warning); color:#fff; text-align:center;
+    padding:.5rem; border-radius:8px; font-size:.8rem; margin-bottom:1rem; font-weight:600;
+  }
+  .offline-banner.show{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark">⚡</span>
+      <div>
+        <h1>Thunderbird Daily Brief</h1>
+        <div class="sub">Dreams2Memories Travel, LLC · Morning Brief Dashboard</div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><span class="dot" id="live-dot"></span><span id="live-label">Live</span></div>
+      <div id="gen-time">—</div>
+    </div>
+  </header>
+
+  <div class="offline-banner" id="offline-banner">
+    Showing last-known snapshot — dashboard server unreachable (start <code>scripts/dashboard_server.py</code> for live data)
+  </div>
+
+  <div class="grid">
+    <!-- PIPELINE -->
+    <div class="card">
+      <h2>💰 Pipeline</h2>
+      <div class="gauge-wrap">
+        <svg class="gauge-svg" viewBox="0 0 200 120">
+          <path d="M20,110 A90,90 0 0,1 180,110" fill="none" stroke="#e7e2d6" stroke-width="16" stroke-linecap="round"/>
+          <path id="gauge-arc" d="M20,110 A90,90 0 0,1 180,110" fill="none" stroke="url(#gaugeGrad)" stroke-width="16" stroke-linecap="round"
+                stroke-dasharray="251" stroke-dashoffset="251"/>
+          <defs>
+            <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#7bb3d6"/>
+              <stop offset="100%" stop-color="#003087"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="gauge-num" id="pipeline-total">$0</div>
+        <div class="gauge-sub" id="pipeline-clients">across — clients</div>
+        <div class="progress-track"><div class="progress-fill" id="pipeline-fill" style="width:0%"></div></div>
+        <div class="progress-caption">
+          <span id="pipeline-pct">0% of YTD target</span>
+          <span id="pipeline-target">target —</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FPD ALERTS -->
+    <div class="card">
+      <h2>⏰ FPD Alerts <span class="n" id="fpd-count"></span></h2>
+      <div id="fpd-list"><div class="fpd-empty">Loading…</div></div>
+    </div>
+
+    <!-- SYSTEM HEALTH -->
+    <div class="card">
+      <h2>🖥️ System Health</h2>
+      <div class="health-metric">
+        <div class="health-label"><b>Memory</b><span class="val" id="mem-val">—</span></div>
+        <div class="health-track"><div class="health-fill mem" id="mem-fill" style="width:0%"></div></div>
+        <div class="status-row"><div class="dot ok" id="mem-dot"></div><span id="mem-status">—</span></div>
+      </div>
+      <div class="health-metric">
+        <div class="health-label"><b>Swap</b><span class="val" id="swap-val">—</span></div>
+        <div class="health-track"><div class="health-fill swap" id="swap-fill" style="width:0%"></div></div>
+        <div class="status-row"><div class="dot ok" id="swap-dot"></div><span id="swap-status">—</span></div>
+      </div>
+      <div class="health-metric" style="margin-bottom:0">
+        <div class="health-label"><b>Services</b><span class="val" id="svc-val">—</span></div>
+        <div class="status-row"><div class="dot ok" id="svc-dot"></div><span id="svc-status">—</span></div>
+        <div class="svc-list" id="svc-down"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KANBAN -->
+  <div class="grid" style="grid-template-columns:1fr">
+    <div class="card">
+      <h2>📋 Mission Board <span class="n" id="mission-total"></span></h2>
+      <div class="kanban">
+        <div class="kcol active">
+          <h3>Active <span class="count" id="k-active-count">0</span></h3>
+          <div id="k-active"></div>
+        </div>
+        <div class="kcol review">
+          <h3>Review <span class="count" id="k-review-count">0</span></h3>
+          <div id="k-review"></div>
+        </div>
+        <div class="kcol backlog">
+          <h3>Backlog <span class="count" id="k-backlog-count">0</span></h3>
+          <div id="k-backlog"></div>
+        </div>
+        <div class="kcol done">
+          <h3>Done <span class="count" id="k-done-count">0</span></h3>
+          <div id="k-done"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Data refreshes every 30s from <code>/api/data</code> · countdowns update live</div>
+    <div class="refresh-note" id="last-fetch">Awaiting first fetch…</div>
+  </footer>
+</div>
+
+<script>
+const API_URL = "/api/data";
+const REFRESH_MS = 30000;
+
+// Fallback snapshot — used when the local dashboard server isn't running
+// (e.g. viewed as a static artifact). Reflects hale_state.json / hale_brief.md
+// as of 2026-07-10.
+const FALLBACK = {
+  generated_at: "2026-07-10T21:35:00Z",
+  pipeline: { total: 18830.93, clients: 16, pct_of_target: 68, target_estimate: 27692.54 },
+  fpd_alerts: [
+    { client: "McLeod McGlasson", booking: "2984034", fpd_date: "2026-07-22", amount: 11943.15, priority: "P0" },
+    { client: "John & Susan Loucks", booking: "3122006", fpd_date: "2026-08-01", amount: 24798, priority: "P0" }
+  ],
+  system_health: {
+    memory: { total_mb: 13719, used_mb: 7962, free_mb: 619, pct_used: 58.0 },
+    swap: { total_mb: 10240, used_mb: 8609, free_mb: 1630, pct_used: 84.1 },
+    services: { active: 16, total: 16, down: [] }
+  },
+  missions: {
+    active: { count: 7, samples: [] },
+    review: { count: 2, samples: [] },
+    backlog: { count: 3, samples: [] },
+    done: { count: 14, samples: [] }
+  }
+};
+
+let liveData = null;
+
+function daysOutFrom(dateStr){
+  const target = new Date(dateStr + "T00:00:00Z").getTime();
+  const now = Date.now();
+  const diffMs = target - now;
+  return diffMs / 86400000; // fractional days
+}
+
+function severityFor(daysOut){
+  if (daysOut <= 14) return "critical";
+  if (daysOut <= 30) return "warning";
+  return "good";
+}
+
+function fmtMoney(n){
+  return "$" + Math.round(n).toLocaleString("en-US");
+}
+
+function fmtCountdown(daysOut){
+  if (daysOut < 0) return `T+${Math.abs(Math.round(daysOut))}d (overdue)`;
+  if (daysOut < 1) return `T-${Math.round(daysOut*24)}h`;
+  return `T-${Math.floor(daysOut)}d`;
+}
+
+function renderPipeline(p){
+  document.getElementById("pipeline-total").textContent = fmtMoney(p.total);
+  document.getElementById("pipeline-clients").textContent = `across ${p.clients} clients`;
+  const pct = Math.max(0, Math.min(100, p.pct_of_target));
+  document.getElementById("pipeline-fill").style.width = pct + "%";
+  document.getElementById("pipeline-pct").textContent = `${pct}% of YTD target`;
+  document.getElementById("pipeline-target").textContent = p.target_estimate
+    ? `~${fmtMoney(p.target_estimate)} target` : "";
+  // arc: circumference ~251 for r=90 half circle path used above
+  const circumference = 251;
+  const offset = circumference - (circumference * pct / 100);
+  document.getElementById("gauge-arc").style.strokeDashoffset = offset;
+}
+
+function renderFPD(alerts){
+  const list = document.getElementById("fpd-list");
+  document.getElementById("fpd-count").textContent = `${alerts.length} tracked`;
+  if (!alerts.length){
+    list.innerHTML = '<div class="fpd-empty">No FPD deadlines on file</div>';
+    return;
+  }
+  list.innerHTML = "";
+  alerts
+    .map(a => ({...a, daysOut: daysOutFrom(a.fpd_date)}))
+    .sort((a,b) => a.daysOut - b.daysOut)
+    .forEach(a => {
+      const sev = severityFor(a.daysOut);
+      const icon = sev === "critical" ? "🔴" : sev === "warning" ? "🟡" : "🟢";
+      const el = document.createElement("div");
+      el.className = `fpd-item ${sev}`;
+      el.innerHTML = `
+        <div class="fpd-badge"></div>
+        <div class="fpd-left">
+          <div class="fpd-client">${icon} ${a.client}</div>
+          <div class="fpd-date">${a.fpd_date}${a.booking ? " · #" + a.booking : ""}</div>
+        </div>
+        <div class="fpd-right">
+          <div class="fpd-amount">${a.amount != null ? fmtMoney(a.amount) : "—"}</div>
+          <div class="fpd-countdown">${fmtCountdown(a.daysOut)}</div>
+        </div>`;
+      list.appendChild(el);
+    });
+}
+
+function renderHealth(h){
+  const mem = h.memory, swap = h.swap, svc = h.services;
+  document.getElementById("mem-val").textContent =
+    `${(mem.free_mb/1024).toFixed(1)} GB free (${(100-mem.pct_used).toFixed(0)}%)`;
+  document.getElementById("mem-fill").style.width = mem.pct_used + "%";
+  const memDot = document.getElementById("mem-dot");
+  const memStatus = document.getElementById("mem-status");
+  if (mem.pct_used >= 90){ memDot.className="dot crit"; memStatus.textContent="Critical — low headroom"; }
+  else if (mem.pct_used >= 75){ memDot.className="dot warn"; memStatus.textContent="Elevated"; }
+  else { memDot.className="dot ok"; memStatus.textContent="Healthy"; }
+
+  document.getElementById("swap-val").textContent =
+    `${(swap.used_mb/1024).toFixed(1)} GB used (${swap.pct_used.toFixed(0)}%)`;
+  document.getElementById("swap-fill").style.width = swap.pct_used + "%";
+  const swapDot = document.getElementById("swap-dot");
+  const swapStatus = document.getElementById("swap-status");
+  if (swap.pct_used >= 80){ swapDot.className="dot warn"; swapStatus.textContent="High — monitor"; }
+  else { swapDot.className="dot ok"; swapStatus.textContent="Nominal"; }
+
+  document.getElementById("svc-val").textContent = `${svc.active}/${svc.total} active`;
+  const svcDot = document.getElementById("svc-dot");
+  const svcStatus = document.getElementById("svc-status");
+  if (svc.active === svc.total){ svcDot.className="dot ok"; svcStatus.textContent="All green"; }
+  else { svcDot.className="dot crit"; svcStatus.textContent=`${svc.total - svc.active} down`; }
+  document.getElementById("svc-down").textContent = (svc.down && svc.down.length) ? svc.down.join(", ") : "";
+}
+
+function renderKanban(m){
+  const cols = ["active","review","backlog","done"];
+  let total = 0;
+  cols.forEach(c => {
+    const bucket = m[c] || {count:0, samples:[]};
+    total += bucket.count;
+    document.getElementById(`k-${c}-count`).textContent = bucket.count;
+    const container = document.getElementById(`k-${c}`);
+    container.innerHTML = "";
+    (bucket.samples || []).forEach(s => {
+      const el = document.createElement("div");
+      el.className = "kmission";
+      el.innerHTML = `<span class="id">${s.id || ""} · ${s.priority || ""}</span>${s.title || ""}`;
+      container.appendChild(el);
+    });
+    if (bucket.count > (bucket.samples || []).length){
+      const more = document.createElement("div");
+      more.className = "kmore";
+      more.textContent = `+${bucket.count - bucket.samples.length} more`;
+      container.appendChild(more);
+    }
+  });
+  document.getElementById("mission-total").textContent = `${total} tracked`;
+}
+
+function renderAll(data){
+  renderPipeline(data.pipeline);
+  renderFPD(data.fpd_alerts);
+  renderHealth(data.system_health);
+  renderKanban(data.missions);
+  const genTime = new Date(data.generated_at);
+  document.getElementById("gen-time").textContent =
+    genTime.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" }) + " MT-ref";
+}
+
+async function fetchData(){
+  try{
+    const res = await fetch(API_URL, {cache:"no-store"});
+    if (!res.ok) throw new Error("bad status " + res.status);
+    const data = await res.json();
+    liveData = data;
+    document.getElementById("offline-banner").classList.remove("show");
+    document.getElementById("live-dot").className = "dot";
+    document.getElementById("live-label").textContent = "Live";
+    renderAll(data);
+  } catch(e){
+    document.getElementById("offline-banner").classList.add("show");
+    document.getElementById("live-dot").className = "dot stale";
+    document.getElementById("live-label").textContent = "Snapshot";
+    if (!liveData){ liveData = FALLBACK; renderAll(FALLBACK); }
+  }
+  document.getElementById("last-fetch").textContent =
+    "Last fetch: " + new Date().toLocaleTimeString("en-US");
+}
+
+// Live countdown re-render every second without a full re-fetch
+setInterval(() => { if (liveData) renderFPD(liveData.fpd_alerts); }, 1000);
+
+fetchData();
+setInterval(fetchData, REFRESH_MS);
+</script>
+</body>
+</html>

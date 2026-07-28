@@ -412,6 +412,56 @@ def cmd_sss_open(board, raw):
     return f"✅ Staff Summary Sheet opened: {sid}\n" + render_sss(sss)
 
 
+def cmd_batch_open(board, raw):
+    """EXEC: batch OPR :: title :: purpose :: MID1,MID2,MID3
+            [:: OCR1,OCR2 :: suspense :: certifier]
+
+    Lump N pending Mission Board items into ONE gated batch Staff Summary
+    Sheet (Commander directive: 'all Mission Board Tasks for my approval can
+    be lumped into a single staff summary'). Gated at the BATCH level — the
+    Silver front/back gate and mandatory cross-Hale certification apply to
+    the batch's own assembly/decision, not to re-litigating each child
+    mission's history. Each line item shows mission ID + description +
+    expected benefit; the rendered staffing block shows non-concurs only."""
+    try:
+        from core.staffing.staff_summary_sheet import open_batch_sss, build_batch_items, render_sss, SSSError
+    except Exception as e:
+        return f"❌ SSS model unavailable: {e}"
+    f = [x.strip() for x in raw.split("::")]
+    if len(f) < 4 or not all(f[:4]):
+        return ("❌ Usage: EXEC: batch OPR :: title :: purpose :: MID1,MID2,MID3 "
+                "[:: OCR1,OCR2 :: suspense :: certifier]")
+    opr, title, purpose = f[0], f[1], f[2]
+    mission_ids = [x.strip() for x in f[3].split(",") if x.strip()]
+    if not mission_ids:
+        return "❌ at least one mission_id is required"
+    ocrs = [x.strip() for x in f[4].split(",") if x.strip()] if len(f) > 4 and f[4] else []
+    suspense = f[5] if len(f) > 5 and f[5] else None
+    certifier = f[6].upper() if len(f) > 6 and f[6] else "CC"
+
+    missions, missing = [], []
+    for mid in mission_ids:
+        m, _ = find_mission(board, mid)
+        if m is None:
+            missing.append(mid)
+        else:
+            missions.append(m)
+    if missing:
+        return f"❌ mission(s) not found on board: {', '.join(missing)}"
+
+    batch_items = build_batch_items(missions)
+    sid = _next_sss_id(board)
+    ground_truth = [m["id"] for m in missions]  # child mission IDs are the ground truth refs
+    try:
+        sss = open_batch_sss(sid, title, purpose, opr, batch_items,
+                             ocr_chain=ocrs, suspense_date=suspense,
+                             certified_by=certifier, ground_truth_sources=ground_truth)
+    except SSSError as e:
+        return f"❌ Batch SSS rejected (CHIEF SILVER front gate): {e}"
+    board.setdefault("missions", []).append(sss)
+    return f"✅ Batch Staff Summary Sheet opened: {sid} ({len(batch_items)} items)\n" + render_sss(sss)
+
+
 def cmd_sss_chop(board, raw):
     """EXEC: chop SSS-001 :: office :: concur|concur_with_comment|nonconcur [:: comment]"""
     try:
@@ -684,6 +734,7 @@ def cmd_help():
   EXEC: delegate SEAT :: title :: criteria [:: PRIO :: task_type :: certifier] → Cross-Hale delegate (CC/OC/AG)
   ── Staff Summary Sheet (USAF staffing model) ──
   EXEC: sss OPR :: ACTION :: title :: criteria [:: OCRs :: PRIO :: suspense :: certifier :: gt :: seat] → Open sheet
+  EXEC: batch OPR :: title :: purpose :: MID1,MID2,MID3 [:: OCRs :: suspense :: certifier] → Lump N missions into one gated batch sheet
   EXEC: chop SSS-ID :: office :: concur|concur_with_comment|nonconcur [:: comment] → Coordinate (chop chain)
   EXEC: decide SSS-ID :: authority :: APPROVED|DISAPPROVED|SIGNED|NOTED [:: comment] → Decision authority acts
   EXEC: accomplish SSS-ID :: artifact → OPR submits work product
@@ -749,6 +800,8 @@ def process_exec_command(command_text):
         # ── Staff Summary Sheet verbs (USAF staffing model) ──────────────
         elif action == "sss":
             result = cmd_sss_open(board, text[len("sss"):].strip())
+        elif action == "batch":
+            result = cmd_batch_open(board, text[len("batch"):].strip())
         elif action == "chop":
             result = cmd_sss_chop(board, text[len("chop"):].strip())
         elif action == "decide":

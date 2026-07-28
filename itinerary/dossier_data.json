@@ -1,0 +1,231 @@
+{
+  "ship": {
+    "overview": "The *Seven Seas Splendor* (launched February 2020) is an ultra-luxury, all-suite, all-balcony cruise ship operated by Regent Seven Seas Cruises. It is renowned for its opulent finishes, featuring over an acre of Italian marble and more than 500 crystal chandeliers.\n\n*   **Maiden Voyage:** February 2020\n*   **Gross Tonnage:** ~55,254 – 56,000 GT\n*   **Length:** 735 feet (224 meters)\n*   **Beam:** 102 feet (31 meters)\n*   **Maximum Speed:** 19.5 knots\n*   **Decks:** 10 passenger-accessible decks (14 total)\n*   **Passenger Capacity:** 732 – 750 guests\n*   **Crew Size:** 542 – 567 members\n*   **Total Suites:** 373 – 377 suites (all feature private balconies)\n*   **Registry:** Marshall Islands\n*   **Sister Ships:** *Seven Seas Explorer* and *Seven Seas Grandeur*",
+    "suites": [
+      "Regent Suite (RS):** The pinnacle of luxury at over 4,400 sq ft, featuring an in-suite spa (with sauna and steam room), two bedrooms, massive living room, and a wraparound balcony.",
+      "Master Suite (MS):** Generous living areas with upscale amenities.",
+      "Grand Suite (GS):** Elegant design with premium finishes.",
+      "Splendor Suite (SP) & Signature Suite (SG):** Highly spacious and sophisticated retreats.",
+      "Seven Seas Suite (SS):** Classic, spacious luxury.",
+      "Penthouse Suite (A, B, C):** Includes elevated amenities, extra space, and personal butler service.",
+      "Concierge Suite (D, E):** Includes concierge-level perks and priority reservations.",
+      "Superior Suite (F1, F2):** Well-appointed and comfortable layout.",
+      "Deluxe Veranda Suite (G1, G2) & Veranda Suite (H):** Entry-level, yet still extremely spacious and luxurious suites."
+    ],
+    "dining": [
+      "Compass Rose:** The flagship Continental/European restaurant offering highly customizable menus.",
+      "Prime 7:** A classic, intimate American steakhouse serving premium aged beef and seafood.",
+      "Chartreuse:** Parisian-inspired modern French cuisine in a chic setting.",
+      "Pacific Rim:** Pan-Asian specialty dining with dramatic architectural details (including an intricate dragon installation).",
+      "La Veranda / Sette Mari:** A casual daytime buffet (La Veranda) that transforms into an intimate, table-service Italian dining experience at night (Sette Mari).",
+      "Pool Grill:** Relaxed poolside eatery for burgers, shakes, and quick bites.",
+      "Coffee Connection:** Casual spot for premium coffee, pastries, bagels, and light lunch fare."
+    ],
+    "decks": "*   **Decks 4–5 (Public Areas & Dining):** Constellation Theater, The Casino, Compass Rose, Splendor Lounge, Pacific Rim, Serene Spa & Wellness center, and Coffee Connection.\n*   **Decks 6–10 (Staterooms & Amenities):** Guest suites, Fitness Center (Deck 6), and self-service laundrettes. Deck 10 includes Chartreuse, Prime 7, and The Study.\n*   **Deck 11 (Dining & Leisure):** Pool Deck, La Veranda/Sette Mari, Culinary Arts Kitchen, Library, Card Room, Connoisseur Club, and Observation Lounge.\n*   **Deck 12 (Sports & Recreation):** Jogging track, bocce court, paddle tennis, putting green, golf net, and shuffleboard.\n*   **Deck 14:** Primarily houses the expansive, standalone Regent Suite."
+  },
+  "ports": {
+    "Athens": {
+      "info": "Piraeus is Europe's largest passenger port and the gateway to Athens, located about 12 kilometers (7.5 miles) southwest of the city center. It offers easy access to the capital via metro, taxi, or dedicated cruise shuttles.",
+      "romance": "Step ashore where democracy was born and mythology walked the earth. Bathed in the golden Aegean sunlight, the juxtaposition of millennia-old marble temples against a vibrant, modern metropolis makes Athens an unforgettable tapestry of human history and spirited Mediterranean culture.",
+      "highlights": [
+        "The Acropolis & Parthenon",
+        "The New Acropolis Museum",
+        "Plaka District (Neighborhood of the Gods)",
+        "Ancient Agora & Temple of Olympian Zeus"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Parthenon_from_west.jpg/1024px-Parthenon_from_west.jpg"
+    },
+    "Valletta": {
+      "info": "The Valletta Grand Harbour is one of the most spectacular natural ports in the world, flanked by massive 16th-century fortifications. The cruise terminal sits right at the waterfront, just a short walk or quick elevator ride directly up into the heart of the city.",
+      "romance": "Sail into a breathtaking harbor carved of honey-colored limestone, where the legacy of the Knights of St. John echoes through narrow, cobblestone streets. Valletta is a living open-air museum—a sun-drenched fortress city glowing dramatically against the deep azure of the Mediterranean.",
+      "highlights": [
+        "St. John's Co-Cathedral",
+        "Upper Barrakka Gardens (offering panoramic Grand Harbour views)",
+        "The Grandmaster's Palace",
+        "The Three Cities (Vittoriosa, Senglea, Cospicua)"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Valletta_skyline.jpg/1024px-Valletta_skyline.jpg"
+    },
+    "Naples": {
+      "info": "Stazione Marittima di Napoli is incredibly convenient, located directly adjacent to the city center. This allows immediate walking access to Naples' historic core and acts as the central hub for ferries to Capri and the Amalfi Coast, as well as land transit to Pompeii.",
+      "romance": "Raw, authentic, and utterly captivating, Naples pulses with a passionate Italian heartbeat. Nestled under the watchful gaze of Mount Vesuvius, this city seduces you with the world's best pizza, chaotic charm, and a front-row seat to the dramatic, frozen ruins of the ancient Roman world.",
+      "highlights": [
+        "Pompeii & Herculaneum Ruins",
+        "Mount Vesuvius National Park",
+        "National Archaeological Museum",
+        "Spaccanapoli Street and Authentic Pizzerias"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Naples_Gulf_and_Vesuvius.jpg/1024px-Naples_Gulf_and_Vesuvius.jpg"
+    },
+    "Rome": {
+      "info": "Civitavecchia (meaning \"Ancient Town\") is the primary cruise gateway to Rome, situated about 80 km (50 miles) northwest of the capital. Passengers typically take a 1 to 1.5-hour train ride or private transfer to reach central Rome.",
+      "romance": "All roads lead to Rome, an eternal city where empires rose and fell, leaving behind a sprawling, romantic canvas of Baroque fountains, colossal amphitheaters, and Renaissance masterpieces. To wander its streets is to stroll through the pages of history while savoring the timeless art of *la dolce vita*.",
+      "highlights": [
+        "The Colosseum & Roman Forum",
+        "Vatican City (St. Peter's Basilica & Sistine Chapel)",
+        "Trevi Fountain & Spanish Steps",
+        "The Pantheon & Piazza Navona"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rome_Colosseum_Night.jpg/1024px-Rome_Colosseum_Night.jpg"
+    },
+    "Tuscany": {
+      "info": "Livorno is the traditional industrial port gateway to Tuscany, requiring about a 1.5-hour drive or train ride to reach Florence or Pisa. La Spezia, slightly further north, is often used interchangeably and provides superior access to the Cinque Terre.",
+      "romance": "Surrender to the sweeping romance of Tuscany, a region of rolling, cypress-lined hills, terraced vineyards, and unmatched artistic heritage. Whether you're marveling at the Renaissance genius of Florence or sipping rich Chianti beneath the Tuscan sun, this is the undisputed soul of Italy.",
+      "highlights": [
+        "The Duomo (Cathedral of Santa Maria del Fiore) & Uffizi Gallery in Florence",
+        "The Leaning Tower of Pisa",
+        "The colorful coastal villages of Cinque Terre (via La Spezia)",
+        "Medieval walls of Lucca"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Florence_Italy_skyline.jpg/1024px-Florence_Italy_skyline.jpg"
+    },
+    "Cannes": {
+      "info": "Cannes operates primarily as a tender port (Vieux Port). Cruise ships anchor in the picturesque bay and tender passengers directly to the heart of the city, mere steps from the famous Promenade de la Croisette.",
+      "romance": "Step into a world of cinematic glamour and Riviera chic. Cannes dazzles with its sparkling blue waters, swaying palms, and sun-kissed beaches. Here, Belle Époque elegance meets modern luxury, inviting you to live out your own glamorous French Riviera fantasy.",
+      "highlights": [
+        "Promenade de la Croisette",
+        "Le Suquet (The Old Town & its panoramic views)",
+        "Palais des Festivals (Home of the Cannes Film Festival)",
+        "Lérins Islands (Île Sainte-Marguerite)"
+      ],
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Cannes_Port.jpg/1024px-Cannes_Port.jpg"
+    },
+    "Barcelona": {
+      "info": "- **Docking:** The port is massive; most large cruise ships dock at **Moll Adossat**, located 2–4 km from the city center. Smaller ships may dock at the World Trade Center (WTC) quay. - **Getting Around:** A dedicated Port Shuttle (Blue Bus/Cruiser T3) frequently runs from Moll Adossat to the Christopher Columbus Monument at the foot of Las Ramblas. Taxis are also readily available. - **Facilities:** Terminals feature Guest Information Centers, shops, and cafes.",
+      "romance": "Discover the heart of Catalonia where the Mediterranean sun kisses the soaring spires of Antoni Gaudí. From the bustling, vibrant thoroughfare of Las Ramblas to the historic secrets whispered in the alleys of the Gothic Quarter, Barcelona is a breathtaking fusion of modernist art, world-class gastronomy, and golden sandy beaches.",
+      "highlights": [
+        "**Sagrada Família & Park Güell:** Gaudí’s breathtaking architectural masterpieces.",
+        "**Gothic Quarter (Barri Gòtic):** A maze of atmospheric medieval alleys and squares.",
+        "**Las Ramblas & La Boqueria Market:** The city's famous pedestrian promenade and bustling local food market.",
+        "**Montjuïc:** Accessible via cable car, offering panoramic views of the port and city."
+      ],
+      "img": "https://images.unsplash.com/photo-1583422409516-2895a77ef244"
+    },
+    "Malaga": {
+      "info": "- **Docking:** The cruise terminal is extremely convenient, situated very close to the historic city center. - **Getting Around:** Most major sites are a simple 15–25 minute walk along the beautiful Muelle Uno promenade. Shuttle buses, taxis, and solar-powered road trains are also available. - **Facilities:** The port area (Muelle Uno) is packed with vibrant shops, restaurants, and bars.",
+      "romance": "Welcome to the sun-drenched capital of the Costa del Sol, a vibrant and historic haven nestled against the shimmering Mediterranean. Birthplace of Picasso, Málaga offers a perfect blend of ancient Moorish fortresses, grand Renaissance cathedrals, and a chic modern waterfront that invites you to linger over tapas and wine.",
+      "highlights": [
+        "**Alcazaba of Málaga & Castillo de Gibralfaro:** Stunning 11th-century Moorish fortresses offering panoramic city and sea views.",
+        "**Málaga Cathedral:** Known as \"La Manquita\" (The One-Armed Lady) due to its uncompleted south tower.",
+        "**Picasso Museum:** Houses hundreds of works by the city's most famous son.",
+        "**La Malagueta Beach:** A beautiful stretch of sand just a short walk from the cruise terminal."
+      ],
+      "img": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b"
+    },
+    "Portimao": {
+      "info": "- **Docking:** Ships typically dock at the Portimão Cruise Terminal on the Arade River, though some larger ships may require tendering. - **Getting Around:** The city center is a pleasant 15–20 minute walk (approx. 1.5 km) along the riverside promenade. Shuttles often run every 15 minutes, and taxis are available. - **Facilities:** Includes a Tourist Information Office, small duty-free shops, and a cafe terrace.",
+      "romance": "Step ashore in the Algarve, where dramatic, golden limestone cliffs meet the deep azure of the Atlantic. Portimão is a gateway to Portugal's breathtaking southern coast, offering a charming mix of old-world fishing village romance, spectacular sea caves, and the irresistible aroma of fresh grilled sardines drifting on the sea breeze.",
+      "highlights": [
+        "**Praia da Rocha:** Famous for its stunning sandstone cliffs and wide sandy shores.",
+        "**Benagil Sea Caves:** Boat excursions depart frequently to explore the region's famous arches and hidden coves.",
+        "**Ferragudo:** A traditional, whitewashed fishing village just across the river.",
+        "**Old Town Portimão:** Wander historic streets lined with tiled facades and wrought-iron balconies."
+      ],
+      "img": "https://images.unsplash.com/photo-1616483584852-04e339174dfb"
+    },
+    "Lisbon": {
+      "info": "- **Docking:** Lisbon has four terminals along the Tagus River, with the modern \"New\" Lisbon Cruise Terminal being the most utilized. - **Getting Around:** Highly walkable from the main terminals to districts like Alfama. Historic trams (like Tram 28), taxis, and hop-on/hop-off buses are easily accessible. - **Facilities:** The award-winning terminal features a Guest Information Center, cafes, and barrier-free access.",
+      "romance": "Sail along the majestic Tagus River into the \"City of Seven Hills,\" where pastel-colored buildings cling to steep cobbled streets and the soulful melodies of Fado music fill the evening air. Lisbon captivates with its monumental maritime history, iconic yellow trams, and the golden glow of its unforgettable sunsets.",
+      "highlights": [
+        "**Alfama District & Castelo de São Jorge:** The oldest part of the city, known for its narrow winding streets and historic castle.",
+        "**Belém Tower & Jerónimos Monastery:** UNESCO World Heritage sites reflecting Portugal's Age of Discovery (don't forget to eat a Pastel de Belém!).",
+        "**Praça do Comércio:** The grand, riverside square near the port.",
+        "**Miradouros (Viewpoints):** Scattered across the city's seven hills, offering spectacular panoramic views."
+      ],
+      "img": "https://images.unsplash.com/photo-1536663815808-535e2280d2c2"
+    },
+    "Ponta Delgada": {
+      "info": "- **Docking:** Ships dock directly at the **Portas do Mar** terminal in the heart of the city. - **Getting Around:** The terminal is incredibly convenient—the historic center, shops, and restaurants are within a 5-minute walk. - **Exploring the Island:** To see the island's famous natural highlights, organized excursions, taxis, or rental cars are necessary.",
+      "romance": "Disembark into a mid-Atlantic paradise, where lush volcanic landscapes, emerald-green crater lakes, and steaming hot springs create a world straight out of a fairy tale. Ponta Delgada, the charming capital of the Azores, blends historic black-and-white cobblestone streets with an untamed, dramatic natural beauty that will leave you breathless.",
+      "highlights": [
+        "**Portas da Cidade (City Gates):** The iconic three-arched gates in the city center.",
+        "**Sete Cidades:** Famous twin crater lakes (one blue, one green) offering breathtaking panoramic views from Vista do Rei.",
+        "**Furnas:** A geothermal hotspot with steaming vents, hot springs, and food cooked naturally underground.",
+        "**Whale Watching:** World-class marine life excursions departing directly from the local marina."
+      ],
+      "img": "https://images.unsplash.com/photo-1610486027174-8db9ba8ea89a"
+    }
+  },
+  "excursions": {
+    "Athens": [
+      {
+        "name": "The Acropolis & Landmarks",
+        "marketing": "Step back in time to the cradle of Western civilization. Ascend the legendary Acropolis to stand in awe before the Parthenon, a testament to ancient Greek glory. Enjoy sweeping views of Athens before descending to explore the city's vibrant historical tapestry.",
+        "description": "Coach transfer followed by a guided walking tour to the summit. Visits include the Propylaea, Temple of Athena Nike, Erechtheion, and the Parthenon. Often involves significant walking and climbing uneven steps (~80 steps).",
+        "duration": "~4 Hours (Half-Day)",
+        "price": "Included Unlimited Shore Excursion."
+      },
+      {
+        "name": "Temple of Poseidon at Cape Sounion",
+        "marketing": "Journey along the scenic Apollo Coast to the majestic Temple of Poseidon. Perched high above the Aegean Sea, watch as the ancient marble columns glow warmly against a breathtaking sunset.",
+        "description": "A coastal drive to Cape Sounion to view the ancient ruins of the Temple of Poseidon, famous for its cliffside location.",
+        "duration": "4 - 5 Hours",
+        "price": "Included Unlimited Shore Excursion."
+      }
+    ],
+    "Rome": [
+      {
+        "name": "Classic Rome Highlights",
+        "marketing": "Immerse yourself in the Eternal City. Toss a coin in the Trevi Fountain, marvel at the grandeur of the Colosseum, and walk in the footsteps of emperors and gladiators on this comprehensive exploration of Rome's most iconic monuments.",
+        "description": "A full-day overview covering the Colosseum, Roman Forum, Trevi Fountain, and Piazza Navona.",
+        "duration": "8 - 10 Hours (Full-Day)",
+        "price": "Included Unlimited Shore Excursion."
+      },
+      {
+        "name": "Epicurean & Wellness Tours (Regent Choice)",
+        "marketing": "Savor the true taste of Italy alongside a master chef, exploring bustling local markets before indulging in an authentic Roman culinary masterpiece. Or, find your inner peace at legendary thermal springs tucked away in the serene Italian countryside.",
+        "description": "Chef-led market tours with private authentic lunches, or \"Serene Spa & Wellness\" tours featuring visits to exclusive thermal baths.",
+        "duration": "5 - 7 Hours",
+        "price": "Regent Choice (Surcharge applies)."
+      }
+    ],
+    "Barcelona": [
+      {
+        "name": "Gaudí’s Masterpiece: La Sagrada Familia",
+        "marketing": "Behold the unfinished symphony of Antoni Gaudí. Wander through the surreal, forest-like interior of La Sagrada Familia, where kaleidoscopic stained glass illuminates architectural genius that defies imagination.",
+        "description": "Guided exploration of Sagrada Familia, often combined with panoramic drives past Casa Batlló and through the historic Gothic Quarter.",
+        "duration": "4 - 8 Hours",
+        "price": "Included Unlimited Shore Excursion."
+      },
+      {
+        "name": "Tapas and Local Flavors",
+        "marketing": "Taste your way through Catalonia's vibrant culinary scene. Stroll the labyrinthine streets of the Gothic Quarter, stopping to sample mouth-watering tapas paired with regional wines in authentic, hidden gems.",
+        "description": "Go Local\" culinary walking tours focusing on local markets and tapas bars.",
+        "duration": "4 Hours",
+        "price": "Regent Choice (Surcharge applies, starting around $119 per guest)."
+      }
+    ],
+    "Lisbon": [
+      {
+        "name": "Historic Lisbon & Belém",
+        "marketing": "Discover the maritime legacy of Portugal in the historic Belém quarter. Marvel at the intricate Manueline architecture of the Jerónimos Monastery and savor the world-famous pastéis de nata fresh from the oven.",
+        "description": "Coach tour covering the Belém Tower, Monument to the Discoveries, Principe Real district, Bairro Alto, and views from Castelo de São Jorge.",
+        "duration": "4 Hours",
+        "price": "Included Unlimited Shore Excursion."
+      },
+      {
+        "name": "Land & River Perspectives",
+        "marketing": "Experience Lisbon's undulating hills and vibrant neighborhoods from two breathtaking vantage points. Traverse the historic streets by land before boarding a private vessel to admire the city's sun-kissed skyline from the tranquil waters of the Tagus River.",
+        "description": "A combination tour providing sightseeing via coach or walking, followed by a scenic river cruise.",
+        "duration": "4 - 5 Hours",
+        "price": "Regent Choice (Limited to small groups, surcharge applies)."
+      }
+    ],
+    "Halifax": [
+      {
+        "name": "Historic Halifax & RMS Titanic",
+        "marketing": "Uncover Halifax's poignant connection to the sea. From its robust maritime defenses to its touching role in the aftermath of the Titanic tragedy, explore the stories that shaped this proud coastal capital.",
+        "description": "Visits to the Maritime Museum of the Atlantic (featuring Titanic artifacts) and the Fairview Lawn Cemetery (resting place of Titanic victims), alongside a downtown walking tour.",
+        "duration": "3 - 4 Hours",
+        "price": "Included Unlimited Shore Excursion."
+      },
+      {
+        "name": "Picturesque Peggy’s Cove",
+        "marketing": "Breathe in the crisp Atlantic air as you journey to Peggy's Cove. Wander among massive granite boulders and photograph the iconic red-and-white lighthouse that stands as a steadfast sentinel against the roaring sea.",
+        "description": "Scenic coastal drive to the fishing village of Peggy's Cove. Includes time to explore the lighthouse, local galleries, and sometimes a traditional lobster lunch.",
+        "duration": "3.5 - 4 Hours",
+        "price": "Included Unlimited Shore Excursion (Standard tour). Upgraded versions with private collections or extensive dining are Regent Choice."
+      }
+    ]
+  }
+}

@@ -21365,3 +21365,11482 @@ Inbox Checkpoint: Watcher died and restart FAILED
 
 ## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:21:00
 Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:26:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:31:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:35:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:35:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:40:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:45:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:50:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 16:55:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:00:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:05:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:10:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:15:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:20:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:25:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:30:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:35:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:40:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:45:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:50:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 17:55:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:00:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:05:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:10:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:15:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:20:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:25:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:30:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:35:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:40:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:45:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:50:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 18:55:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:00:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:05:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:10:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:15:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:20:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:25:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:30:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:35:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:40:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:45:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:50:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 19:55:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:00:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:05:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:10:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:15:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:20:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:25:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:30:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:35:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:40:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:46:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:51:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 20:56:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:01:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:06:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:11:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:16:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:21:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:26:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:31:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-10 21:36:03
+Token health issue: Token expiring in 5 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:36:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:41:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:46:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:51:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 21:56:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:01:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:06:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1723s old) | INBOX_PENDING=246 | ACTIVE_TASKS=48 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:11:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:16:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2324s old) | INBOX_PENDING=246 | ACTIVE_TASKS=48 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:21:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:26:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2925s old) | INBOX_PENDING=246 | ACTIVE_TASKS=48 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:31:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:36:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3525s old) | INBOX_PENDING=246 | ACTIVE_TASKS=48 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:41:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:46:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4125s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:51:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 22:56:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 22:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4726s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:01:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:06:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5326s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:11:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:16:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5926s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:21:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:26:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6527s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:31:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:36:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7127s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:41:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:46:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7727s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:51:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-10 23:56:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-10 23:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8328s old) | INBOX_PENDING=246 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## TP ALERT — 2026-07-11 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+- 🟠 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-4d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-7d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-10d) | Lead: Hale + A9
+- 🔵 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-11d) | Lead: A9 + Hale
+- 🔵 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-14d) | Lead: Hale + A9
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-18d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-20d) | Lead: Hale + A9
+- 🔵 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-35d) | Lead: A2 Dembe + A6 Luna
+- 🔵 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-41d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🔴 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:01:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:06:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8928s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:11:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:16:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9528s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:21:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:26:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10128s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:31:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:36:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10729s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:41:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:46:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11329s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:51:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 00:56:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 00:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11929s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:01:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:06:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12530s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:11:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:16:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13130s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:21:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:26:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13731s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:31:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:36:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14331s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:41:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:46:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14932s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:51:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 01:56:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 01:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15532s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:01:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:06:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16132s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:11:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:16:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16732s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:21:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:26:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17333s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:31:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:36:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17933s old) | INBOX_PENDING=248 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:41:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:46:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18534s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:51:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 02:56:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 02:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19134s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:01:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:06:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19734s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:11:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:16:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20335s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:21:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:26:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20935s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:31:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:36:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21535s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:41:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:46:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22135s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:51:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 03:56:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 03:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22736s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:01:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:06:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23336s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:11:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:16:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23936s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:21:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:26:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24537s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:31:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:36:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25137s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:41:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:46:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25737s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:51:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 04:56:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 04:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26338s old) | INBOX_PENDING=248 | ACTIVE_TASKS=41 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:01:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:06:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:07 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26938s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:11:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:16:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:17 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27539s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:21:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:26:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:27 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28140s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:31:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-11 05:36:36
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:36:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:37 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28741s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:41:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:46:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:47 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (507s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:51:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 05:56:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 05:57 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1109s old) | INBOX_PENDING=248 | ACTIVE_TASKS=42 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:01:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:06:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:11:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:16:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:21:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:26:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:31:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:36:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:41:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:46:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:51:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 06:56:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:01:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:07:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:12:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:17:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:22:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:27:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:32:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:37:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:42:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:47:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:52:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 07:57:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:02:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:07:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:12:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:17:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:22:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:27:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:32:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:37:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:42:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:47:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:52:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 08:57:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:02:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:07:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:12:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:17:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:22:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:27:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:32:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:37:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:42:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:47:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:52:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 09:57:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:02:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:07:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:12:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:17:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:22:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:27:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:32:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:37:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:42:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:47:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:52:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 10:57:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:02:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:07:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:12:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:17:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:22:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:27:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:32:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:37:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:42:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:47:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:52:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 11:57:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:02:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:07:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:12:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:17:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:22:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:27:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:32:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:37:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:42:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:47:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:52:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 12:57:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:02:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:07:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:12:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:17:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:22:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:27:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:32:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:37:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:42:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:47:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:52:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 13:57:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:02:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:07:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:12:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:17:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:22:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:27:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:32:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:37:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:42:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:47:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:52:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 14:57:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:02:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:07:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:12:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:17:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:22:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:24:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:25:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:30:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:35:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:40:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:45:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:50:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 15:55:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:00:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:05:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:10:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:15:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:20:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:25:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:30:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:35:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:40:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:45:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:50:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 16:55:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:00:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:05:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:10:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:15:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:20:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:25:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:30:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:35:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:40:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:45:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:50:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 17:55:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:00:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:05:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:10:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:15:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:20:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:25:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:30:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:35:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:40:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:45:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:50:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 18:55:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:00:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:05:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:10:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:15:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:20:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:25:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:30:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:35:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:40:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:45:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:50:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 19:55:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:00:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:05:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:10:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:15:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:20:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:25:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:30:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:35:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:40:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:45:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:50:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 20:55:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:00:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:05:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:10:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:15:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:20:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:25:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-11 21:25:58
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:30:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:35:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:40:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:45:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:50:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 21:55:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:00:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:05:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:06 MT
+SESSION=IDLE | TOKEN=FRESH (2218s old) | INBOX_PENDING=282 | ACTIVE_TASKS=4 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:10:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:15:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:16 MT
+SESSION=IDLE | TOKEN=FRESH (2818s old) | INBOX_PENDING=282 | ACTIVE_TASKS=4 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:21:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:26:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:26 MT
+SESSION=IDLE | TOKEN=FRESH (3418s old) | INBOX_PENDING=282 | ACTIVE_TASKS=4 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:31:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:36:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:37 MT
+SESSION=IDLE | TOKEN=STALE (4019s old) | INBOX_PENDING=282 | ACTIVE_TASKS=4 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:41:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:46:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:47 MT
+SESSION=IDLE | TOKEN=STALE (4619s old) | INBOX_PENDING=282 | ACTIVE_TASKS=4 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:51:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 22:56:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 22:57 MT
+SESSION=IDLE | TOKEN=STALE (5220s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:01:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:06:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:07 MT
+SESSION=IDLE | TOKEN=STALE (5820s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:11:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:16:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:17 MT
+SESSION=IDLE | TOKEN=STALE (6421s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:21:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:26:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:27 MT
+SESSION=IDLE | TOKEN=STALE (7021s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:31:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:36:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:37 MT
+SESSION=IDLE | TOKEN=STALE (7621s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:41:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:46:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:47 MT
+SESSION=IDLE | TOKEN=STALE (8221s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:51:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-11 23:56:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-11 23:57 MT
+SESSION=IDLE | TOKEN=STALE (8822s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:01:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:06:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:07 MT
+SESSION=IDLE | TOKEN=STALE (9423s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:11:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:16:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:17 MT
+SESSION=IDLE | TOKEN=STALE (10023s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:21:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:26:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:27 MT
+SESSION=IDLE | TOKEN=STALE (10623s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:31:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:36:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:37 MT
+SESSION=IDLE | TOKEN=STALE (11224s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:41:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:46:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:47 MT
+SESSION=IDLE | TOKEN=STALE (11824s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:51:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 00:56:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 00:57 MT
+SESSION=IDLE | TOKEN=STALE (12425s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:01:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:06:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:07 MT
+SESSION=IDLE | TOKEN=STALE (13025s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:11:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:16:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:17 MT
+SESSION=IDLE | TOKEN=STALE (13626s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:21:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:26:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:27 MT
+SESSION=IDLE | TOKEN=STALE (14226s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:31:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:36:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:37 MT
+SESSION=IDLE | TOKEN=STALE (14826s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:41:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:46:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:47 MT
+SESSION=IDLE | TOKEN=STALE (15427s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:51:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 01:56:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 01:57 MT
+SESSION=IDLE | TOKEN=STALE (16027s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:01:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:06:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:07 MT
+SESSION=IDLE | TOKEN=STALE (16627s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:11:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:16:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:17 MT
+SESSION=IDLE | TOKEN=STALE (17227s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:21:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:26:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:27 MT
+SESSION=IDLE | TOKEN=STALE (17827s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:31:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:36:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:37 MT
+SESSION=IDLE | TOKEN=STALE (18427s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:41:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:46:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:47 MT
+SESSION=IDLE | TOKEN=STALE (19027s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:51:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 02:56:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 02:57 MT
+SESSION=IDLE | TOKEN=STALE (19627s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:01:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:06:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:07 MT
+SESSION=IDLE | TOKEN=STALE (20228s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:11:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:16:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:17 MT
+SESSION=IDLE | TOKEN=STALE (20828s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:21:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:26:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:27 MT
+SESSION=IDLE | TOKEN=STALE (21428s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:31:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:36:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:37 MT
+SESSION=IDLE | TOKEN=STALE (22028s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:41:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:46:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:47 MT
+SESSION=IDLE | TOKEN=STALE (22628s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:51:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 03:56:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 03:57 MT
+SESSION=IDLE | TOKEN=STALE (23229s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:01:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:06:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:07 MT
+SESSION=IDLE | TOKEN=STALE (23829s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:11:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:16:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:17 MT
+SESSION=IDLE | TOKEN=STALE (24429s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:21:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:26:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:27 MT
+SESSION=IDLE | TOKEN=STALE (25029s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:31:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:36:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:37 MT
+SESSION=IDLE | TOKEN=STALE (25630s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:41:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:46:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:47 MT
+SESSION=IDLE | TOKEN=STALE (26230s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:51:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 04:56:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 04:57 MT
+SESSION=IDLE | TOKEN=STALE (26831s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:01:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:06:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:07 MT
+SESSION=IDLE | TOKEN=STALE (27431s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:11:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:16:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:17 MT
+SESSION=IDLE | TOKEN=STALE (28032s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:21:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-12 05:26:19
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:26:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:27 MT
+SESSION=IDLE | TOKEN=STALE (28632s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:31:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:36:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:37 MT
+SESSION=IDLE | TOKEN=FRESH (489s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:41:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:46:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:47 MT
+SESSION=IDLE | TOKEN=FRESH (1089s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:51:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 05:56:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 05:57 MT
+SESSION=IDLE | TOKEN=FRESH (1690s old) | INBOX_PENDING=282 | ACTIVE_TASKS=3 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:01:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:06:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:11:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:16:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:21:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:26:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:31:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:36:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:41:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:46:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:51:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 06:56:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:01:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:06:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:11:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:16:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:21:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:26:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:31:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:36:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:41:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:46:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:51:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 07:56:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:01:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:06:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:11:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:16:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:21:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:26:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:31:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:36:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:41:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:46:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:51:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 08:56:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:01:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:06:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:11:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:16:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:21:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:26:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:31:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:36:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:41:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:46:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:51:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 09:56:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:01:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:06:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:11:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:16:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:21:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:26:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:31:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:36:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:41:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:46:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:51:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 10:56:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:01:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:06:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:11:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:16:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:21:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:27:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:32:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:37:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:42:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:47:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:52:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 11:57:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:02:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:07:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:12:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:17:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:22:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:27:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:32:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:37:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:42:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:47:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:52:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 12:57:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:02:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:07:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:12:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:17:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:22:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-12 13:26:41
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:27:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:32:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:37:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:42:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:47:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:52:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 13:57:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:02:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:07:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:12:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:17:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:22:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:27:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:32:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:37:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:42:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:47:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:52:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 14:57:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:02:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:07:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:12:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:13:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:13:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:18:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:23:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:28:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:33:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:38:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:43:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:48:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:53:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 15:58:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:03:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:08:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:13:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:18:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:23:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:28:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:33:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:38:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:43:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:48:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:53:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 16:58:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:03:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:08:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:13:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:18:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:23:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:28:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:33:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:38:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:43:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:48:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:53:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 17:58:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:03:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:08:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:13:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:18:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:23:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:28:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:33:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:38:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:43:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:48:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:53:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 18:58:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:03:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:08:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:13:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:18:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:23:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:28:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:33:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:38:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:43:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:48:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:53:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 19:58:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:03:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:08:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:13:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:18:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:23:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:28:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:33:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:38:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:43:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:48:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:53:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 20:58:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:03:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:08:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:13:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:18:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:23:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:28:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:33:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:38:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:43:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:48:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:53:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 21:58:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:03:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:05 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2353s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:08:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:13:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:15 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2953s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:18:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:23:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:25 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3553s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:28:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:33:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:35 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4153s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:38:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:43:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:45 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4753s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:48:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:53:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 22:55 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5354s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 22:58:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:03:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:05 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5954s old) | INBOX_PENDING=318 | ACTIVE_TASKS=9 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:08:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:13:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:15 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6554s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:18:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:23:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:25 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7154s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:28:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:33:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:35 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7755s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:38:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:43:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:45 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8355s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:48:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:53:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-12 23:55 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8955s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-12 23:58:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+---
+## METRONOME NUDGE — 2026-07-13 06:00 UTC
+[HALE-ROUTE] LIFECYCLE WINDOWS — 2026-07-13 00:00 MT
+• **John & Susan Loucks** (Seven Seas Grandeur) T+169d → `arc1/a` — Research & Pricing — task A2 Dembe dest research + A9 Harlan pricing (T-169d) | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:04:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:05 MT
+SESSION=ACTIVE (5 procs) | TOKEN=STALE (9555s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:09:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:14:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:15 MT
+SESSION=ACTIVE (5 procs) | TOKEN=STALE (10155s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:19:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:24:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:25 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (10755s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:29:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:34:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:35 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (11355s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:39:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:44:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:45 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (11955s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:49:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:54:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 00:55 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (12555s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 00:59:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:04:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:05 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (13155s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:09:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:14:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:15 MT
+SESSION=IDLE | TOKEN=STALE (13755s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:19:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:24:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:25 MT
+SESSION=IDLE | TOKEN=STALE (14355s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:29:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:34:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:35 MT
+SESSION=IDLE | TOKEN=STALE (14956s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:39:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:44:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:45 MT
+SESSION=IDLE | TOKEN=STALE (15556s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:49:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:54:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 01:55 MT
+SESSION=IDLE | TOKEN=STALE (16157s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 01:59:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:04:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:05 MT
+SESSION=IDLE | TOKEN=STALE (16757s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:09:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:14:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:15 MT
+SESSION=IDLE | TOKEN=STALE (17357s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:19:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:24:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:25 MT
+SESSION=IDLE | TOKEN=STALE (17957s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:29:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:34:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:35 MT
+SESSION=IDLE | TOKEN=STALE (18558s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:39:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:44:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:45 MT
+SESSION=IDLE | TOKEN=STALE (19158s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:49:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:54:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 02:55 MT
+SESSION=IDLE | TOKEN=STALE (19758s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 02:59:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:04:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:05 MT
+SESSION=IDLE | TOKEN=STALE (20358s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:09:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:14:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:15 MT
+SESSION=IDLE | TOKEN=STALE (20958s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:19:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:24:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:25 MT
+SESSION=IDLE | TOKEN=STALE (21559s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:29:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:34:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:35 MT
+SESSION=IDLE | TOKEN=STALE (22159s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:39:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:44:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:45 MT
+SESSION=IDLE | TOKEN=STALE (22759s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:49:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:54:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 03:55 MT
+SESSION=IDLE | TOKEN=STALE (23359s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 03:59:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:04:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:05 MT
+SESSION=IDLE | TOKEN=STALE (23960s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:09:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:14:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:15 MT
+SESSION=IDLE | TOKEN=STALE (24561s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:19:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:24:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:25 MT
+SESSION=IDLE | TOKEN=STALE (25161s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:29:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:34:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:35 MT
+SESSION=IDLE | TOKEN=STALE (25761s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:39:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:44:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:45 MT
+SESSION=IDLE | TOKEN=STALE (26362s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:49:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:54:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 04:55 MT
+SESSION=IDLE | TOKEN=STALE (26963s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 04:59:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:04:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:05 MT
+SESSION=IDLE | TOKEN=STALE (27564s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:09:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-13 05:14:15
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:14:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:15 MT
+SESSION=IDLE | TOKEN=STALE (28165s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:19:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:24:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:25 MT
+SESSION=IDLE | TOKEN=STALE (28766s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-13 05:29:16
+Token health issue: Token expired 3 min ago
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:29:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+---
+**[INBOX EXECUTOR — 2026-07-13 05:30]**
+## WEEKLY INTEL REPORT DUE
+**Client:** John & Susan Loucks
+**TP:** TP-2.3 Culinary Arts Kitchen Classes
+**Assigned to:** A2 Dembe
+**Action:** Compile this week's research findings into a weekly report. SEND to johnloucks3@gmail.com (not draft — per intel full-send SO 27 MAR 2026).
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:34:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:35 MT
+SESSION=IDLE | TOKEN=FRESH (204s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:39:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:44:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:45 MT
+SESSION=IDLE | TOKEN=FRESH (805s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:49:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:54:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 05:55 MT
+SESSION=IDLE | TOKEN=FRESH (1406s old) | INBOX_PENDING=318 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 05:59:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:04:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:09:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:14:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:19:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:24:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:29:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:34:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:39:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:44:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:49:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:54:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 06:59:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:04:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:09:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:14:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:19:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:24:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:29:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:34:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:39:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:44:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:49:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:54:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 07:59:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:04:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:09:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:14:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:19:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:24:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:29:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:34:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:39:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:44:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:49:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:54:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 08:59:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:04:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:09:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:14:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:19:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:24:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:29:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:34:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:39:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:44:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:49:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:54:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 09:59:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:04:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:09:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:14:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:19:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:24:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:29:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:34:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:39:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:44:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:49:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:54:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 10:59:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:04:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:09:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:14:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:19:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:24:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:29:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:34:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:39:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:44:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:49:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:54:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 11:59:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:04:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:09:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:14:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:20:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:25:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:30:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:35:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:40:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:45:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:50:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 12:55:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:00:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:05:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:10:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:15:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:20:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:25:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-13 13:29:42
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:30:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:35:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:40:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:45:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:50:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 13:55:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:00:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:05:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:10:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:15:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:20:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:25:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:30:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:35:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:40:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:45:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:50:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 14:55:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:00:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:05:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:10:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:15:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:20:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:25:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:30:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:35:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:40:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:45:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:50:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 15:55:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:00:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:05:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:10:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:15:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:20:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:25:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:30:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:35:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:40:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:45:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:50:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 16:55:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:00:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:05:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:10:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:15:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:20:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:25:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:30:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:35:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:40:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:45:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:50:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 17:55:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:00:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:05:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:10:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:15:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:20:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:25:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:30:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:35:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:40:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:45:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:50:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 18:55:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:00:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:05:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:10:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:15:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:20:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:25:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:30:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:35:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:40:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:45:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:50:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 19:55:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:00:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:05:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:10:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:15:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:20:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:25:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:30:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:35:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:40:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:45:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:50:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 20:55:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:00:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:05:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:10:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:15:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:20:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:25:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-13 21:30:06
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:30:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:35:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:40:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:45:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:50:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 21:55:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1682s old) | INBOX_PENDING=326 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:00:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:05:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:10 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2283s old) | INBOX_PENDING=328 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:10:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:15:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:20 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2883s old) | INBOX_PENDING=328 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:20:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:25:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3487s old) | INBOX_PENDING=328 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:30:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:35:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4088s old) | INBOX_PENDING=328 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:40:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:45:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 22:50 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4689s old) | INBOX_PENDING=328 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:50:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 22:55:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5289s old) | INBOX_PENDING=329 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:00:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:05:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:10 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5890s old) | INBOX_PENDING=330 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:10:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:15:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:20 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6492s old) | INBOX_PENDING=330 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:20:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:25:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:30:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:30 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7093s old) | INBOX_PENDING=330 | ACTIVE_TASKS=6 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:35:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:40 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7693s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:40:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:46:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-13 23:50 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8295s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:51:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-13 23:56:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8896s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:01:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:06:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 00:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9497s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:11:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:16:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 00:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10097s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:21:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:26:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 00:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10699s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:31:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:36:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 00:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11300s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:41:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:46:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+---
+**[COS HALE — ARC DISPATCHER — 2026-07-14 00:49]**
+## 🔍 ARC2 SEARCH DISPATCHED — Kyle Kuklinski
+**TP:** ARC2-A — Excursion Preferences
+**Client:** Kyle Kuklinski
+**Status:** Scraper running in background
+**Results file:** `/home/john/Thunderbird/core/travel/data/arc_kuklinski_ARC2-A_2026-07-14.json`
+**Dispatcher log:** `/home/john/Thunderbird/logs/arc_kuklinski_ARC2-A_2026-07-14.log`
+**A2 Dembe:** Stand by for structured results. Will post to wing_comms on completion.
+**A9 Vic:** Markup validation queued (25% standard / 22% SLH). Check results file when ready.
+**ETA:** 5–15 minutes depending on source count.
+
+### AUTO-MONITOR 2026-07-14 00:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11901s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:51:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 00:56:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12502s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:01:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:06:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13102s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:11:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:16:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13702s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:21:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:26:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14302s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:31:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:36:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14905s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:41:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:46:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 01:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15507s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:51:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 01:56:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16107s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:01:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:06:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16709s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:11:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:16:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17310s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:21:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:26:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17911s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:31:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:36:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18512s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:41:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:46:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 02:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19112s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:51:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 02:56:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19713s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:01:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:06:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20313s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:11:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:16:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20914s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:21:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:26:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21517s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:31:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:36:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22118s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:41:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:46:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 03:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22719s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:51:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 03:56:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23320s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:01:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:06:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23920s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:11:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:16:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24522s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:21:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:26:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25123s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:31:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:36:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25724s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:41:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:46:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 04:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26325s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:51:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 04:56:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 05:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26925s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:01:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:06:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 05:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27527s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:11:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:16:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 05:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28128s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:21:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:26:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-14 05:30:33
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-14 05:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28728s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:31:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:36:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 05:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (522s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:41:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:46:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 05:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1123s old) | INBOX_PENDING=330 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:51:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 05:56:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:01:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:06:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:11:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:16:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:21:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:26:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:31:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:36:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:41:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:46:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:51:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 06:56:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:01:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:06:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:11:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:16:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:21:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:26:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:31:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:36:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:41:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:46:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:51:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 07:56:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:01:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:06:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:11:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:16:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:21:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:26:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:31:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:36:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:41:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:46:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:51:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 08:56:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:01:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:06:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:11:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:16:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:21:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:26:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:31:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:36:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:41:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:46:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:51:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 09:56:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:02:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:07:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:12:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:17:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:22:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:27:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:32:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:37:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:42:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:47:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:52:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 10:57:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:02:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:07:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:12:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:17:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:22:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:27:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:32:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:37:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:42:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:47:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:52:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 11:57:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:02:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:07:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:12:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:17:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:22:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:27:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:32:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:37:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:42:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:47:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:52:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 12:57:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:02:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:07:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:12:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:17:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:22:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:27:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-14 13:30:58
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:32:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:37:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:42:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:47:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:52:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 13:57:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:02:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:07:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:12:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:17:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:22:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:27:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:32:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:37:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:42:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:47:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:52:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 14:57:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:02:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:07:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:12:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:17:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:22:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:27:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:32:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:37:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:42:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:47:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:52:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 15:57:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:02:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:07:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:12:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:17:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:22:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:27:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:32:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:37:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:42:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:47:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:52:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 16:57:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:02:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:07:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:12:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:17:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:22:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:27:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:32:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:37:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:42:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:47:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:52:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 17:57:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:02:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:07:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:13:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:18:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:23:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:28:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:33:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:38:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:43:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:48:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:53:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 18:58:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:03:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:08:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:13:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:18:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:23:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:28:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:33:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:38:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:43:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:48:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:53:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 19:58:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:03:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:08:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:13:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:18:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:23:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:28:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:33:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:38:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:43:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:48:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:53:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 20:58:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:03:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:08:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:13:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:18:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:23:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:28:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:33:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:38:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:43:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:48:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:53:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 21:58:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:00 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1854s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:03:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:08:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2454s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:13:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:18:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3054s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:23:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:28:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3655s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:33:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:38:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4256s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:43:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:48:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 22:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4856s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:53:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 22:58:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (5456s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:03:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:08:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:10 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6056s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:13:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:18:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:20 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6656s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:23:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:28:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:30 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7257s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:33:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:38:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:40 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7858s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:43:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:48:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-14 23:50 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8459s old) | INBOX_PENDING=340 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:53:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-14 23:58:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## TP ALERT — 2026-07-15 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 (T-0d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-3d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-6d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-7d) | Lead: A9 + Hale
+- 🔵 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-10d) | Lead: Hale + A9
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-14d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-16d) | Lead: Hale + A9
+- 🔵 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-08-15 (T-31d) | Lead: A2 Dembe + A6 Luna
+- 🔵 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-37d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-15 00:00 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (9059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:03:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:08:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 00:10 MT
+SESSION=ACTIVE (12 procs) | TOKEN=STALE (9659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:13:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:18:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 00:20 MT
+SESSION=ACTIVE (19 procs) | TOKEN=STALE (10259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:23:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:28:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 00:30 MT
+SESSION=ACTIVE (27 procs) | TOKEN=STALE (10859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:33:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:38:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 00:40 MT
+SESSION=ACTIVE (34 procs) | TOKEN=STALE (11459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:43:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:48:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 00:50 MT
+SESSION=ACTIVE (38 procs) | TOKEN=STALE (12059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:53:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 00:58:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:00 MT
+SESSION=ACTIVE (46 procs) | TOKEN=STALE (12659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:03:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:08:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:10 MT
+SESSION=ACTIVE (9 procs) | TOKEN=STALE (13259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:13:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:18:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:20 MT
+SESSION=ACTIVE (17 procs) | TOKEN=STALE (13859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+---
+**[COS HALE — LIFECYCLE TASKING — 2026-07-15 01:20]**
+## RESEARCH TASK — TP-4.2 Payment Reminder #2 (FPD-14)
+**Client:** John & Susan Loucks
+**Assigned to:** Hale + A9 Harlan
+**Arc type:** timeline (no auto-execute)
+**Window:** 2026-07-15 → 2026-07-17
+**Deliverable date:** 2026-07-18
+**Weekly reports to Commander:** No
+**Notes:** Confirm payment method ready. Verify card expiration dates.
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:23:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:28:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:30 MT
+SESSION=ACTIVE (23 procs) | TOKEN=STALE (14459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:33:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:38:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:40 MT
+SESSION=ACTIVE (35 procs) | TOKEN=STALE (15059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:43:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:48:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 01:50 MT
+SESSION=ACTIVE (37 procs) | TOKEN=STALE (15659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:53:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 01:58:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:00 MT
+SESSION=ACTIVE (42 procs) | TOKEN=STALE (16259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:03:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:08:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:10 MT
+SESSION=ACTIVE (45 procs) | TOKEN=STALE (16859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:13:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:18:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:20 MT
+SESSION=ACTIVE (12 procs) | TOKEN=STALE (17459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:23:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:28:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:30 MT
+SESSION=ACTIVE (18 procs) | TOKEN=STALE (18059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:33:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:38:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:40 MT
+SESSION=ACTIVE (26 procs) | TOKEN=STALE (18659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:43:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:48:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 02:50 MT
+SESSION=ACTIVE (30 procs) | TOKEN=STALE (19259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:53:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 02:58:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:00 MT
+SESSION=ACTIVE (34 procs) | TOKEN=STALE (19859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:03:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:08:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:10 MT
+SESSION=ACTIVE (37 procs) | TOKEN=STALE (20459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:13:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:18:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:20 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (21059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:23:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:28:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:30 MT
+SESSION=ACTIVE (20 procs) | TOKEN=STALE (21659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:33:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:38:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:40 MT
+SESSION=ACTIVE (26 procs) | TOKEN=STALE (22259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:43:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:48:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 03:50 MT
+SESSION=ACTIVE (29 procs) | TOKEN=STALE (22859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:54:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 03:58:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:00 MT
+SESSION=ACTIVE (34 procs) | TOKEN=STALE (23459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:03:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:08:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:10 MT
+SESSION=ACTIVE (38 procs) | TOKEN=STALE (24059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:14:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:19:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:20 MT
+SESSION=ACTIVE (8 procs) | TOKEN=STALE (24659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:24:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:29:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:30 MT
+SESSION=ACTIVE (18 procs) | TOKEN=STALE (25259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:34:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:39:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:40 MT
+SESSION=ACTIVE (27 procs) | TOKEN=STALE (25859s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:44:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:49:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 04:50 MT
+SESSION=ACTIVE (37 procs) | TOKEN=STALE (26459s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:54:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 04:59:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:00 MT
+SESSION=ACTIVE (43 procs) | TOKEN=STALE (27059s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:04:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:09:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:10 MT
+SESSION=ACTIVE (49 procs) | TOKEN=STALE (27659s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:14:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-15 05:16:23
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:19:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:20 MT
+SESSION=ACTIVE (56 procs) | TOKEN=STALE (28259s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:24:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:29:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:30 MT
+SESSION=ACTIVE (9 procs) | TOKEN=FRESH (329s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:34:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:39:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:40 MT
+SESSION=ACTIVE (15 procs) | TOKEN=FRESH (930s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:44:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:49:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 05:50 MT
+SESSION=ACTIVE (21 procs) | TOKEN=FRESH (1530s old) | INBOX_PENDING=342 | ACTIVE_TASKS=5 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:54:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 05:59:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:04:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:09:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:14:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:19:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:24:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:29:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:34:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:39:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:44:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:49:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:54:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 06:59:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:04:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:09:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:14:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:19:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:24:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:29:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:34:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:39:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:44:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:49:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:53:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:54:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 07:59:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:04:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:09:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:14:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:19:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:24:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:27:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:28:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:33:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:38:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:43:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:48:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:53:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 08:58:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:03:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:08:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:13:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:18:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:23:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:28:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:33:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:38:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:43:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:48:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:53:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 09:58:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:03:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:08:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:13:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:18:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:23:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:28:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:33:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:38:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:43:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:48:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:53:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 10:58:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:03:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:08:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:13:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:18:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:23:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:28:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:33:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:38:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:43:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:48:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:53:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 11:58:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:03:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:08:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:13:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:18:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:23:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:28:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:33:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:38:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:43:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:48:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:53:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 12:58:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:03:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:08:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:13:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-15 13:13:45
+Token health issue: Token expiring in 11 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:18:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:23:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:28:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:33:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:38:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:43:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:48:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:53:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 13:58:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:03:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:08:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:13:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:18:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:23:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:28:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:33:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:39:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:43:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:48:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:53:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 14:58:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:03:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:08:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:09:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:10:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:15:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:20:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:25:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:30:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:35:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:40:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:45:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:50:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 15:55:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:00:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:05:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:10:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:15:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:20:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:25:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:30:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:35:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:40:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:45:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:50:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 16:55:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:00:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:05:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:10:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:15:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:20:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:25:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:30:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:35:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:40:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:45:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:50:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 17:55:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:00:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:05:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:10:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:15:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:20:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:25:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:30:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:35:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:40:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:45:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:50:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 18:55:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:00:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:05:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:10:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:15:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:20:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:25:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:30:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:35:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:40:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:45:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:50:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 19:55:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:00:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:05:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:10:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:15:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:20:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:25:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:30:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:35:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:40:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:45:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:50:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 20:55:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:00:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:05:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:10:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:15:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:20:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:25:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-15 21:25:43
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:30:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:35:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:40:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:45:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:50:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 21:55:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:00:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2032s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:05:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:10:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2633s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:15:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:20:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3233s old) | INBOX_PENDING=342 | ACTIVE_TASKS=22 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:25:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:30:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3833s old) | INBOX_PENDING=342 | ACTIVE_TASKS=23 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:35:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:40:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4434s old) | INBOX_PENDING=342 | ACTIVE_TASKS=23 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:45:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:50:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 22:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5034s old) | INBOX_PENDING=342 | ACTIVE_TASKS=23 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 22:55:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:00:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5634s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:05:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:10:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:11 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6246s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:15:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:20:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:21 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (6839s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:25:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:30:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:31 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (7434s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:35:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:40:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:41 MT
+SESSION=ACTIVE (4 procs) | TOKEN=STALE (8034s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:45:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:50:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-15 23:51 MT
+SESSION=ACTIVE (6 procs) | TOKEN=STALE (8634s old) | INBOX_PENDING=342 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-15 23:55:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## TP ALERT — 2026-07-16 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-2d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-5d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-14d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-14d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-14d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-14d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-6d) | Lead: A9 + Hale
+- 🔵 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-9d) | Lead: Hale + A9
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-13d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-15d) | Lead: Hale + A9
+- 🔵 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-36d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:00:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:01 MT
+SESSION=ACTIVE (6 procs) | TOKEN=STALE (9234s old) | INBOX_PENDING=344 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:05:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:10:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:11 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (9834s old) | INBOX_PENDING=344 | ACTIVE_TASKS=21 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:15:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:20:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:21 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (10434s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:25:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:30:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:31 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (11034s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:35:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:40:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:41 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (11634s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:45:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:50:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 00:51 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (12234s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 00:55:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:00:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:01 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (12834s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:05:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:10:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:11 MT
+SESSION=ACTIVE (8 procs) | TOKEN=STALE (13434s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:15:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:20:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:21 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (14034s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:25:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:30:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:31 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (14635s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:35:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:40:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:41 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (15235s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:45:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:50:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 01:51 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (15835s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 01:55:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:00:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:01 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (16435s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:05:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:10:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:11 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (17035s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:15:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:20:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:21 MT
+SESSION=ACTIVE (8 procs) | TOKEN=STALE (17635s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:25:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:30:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:31 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (18235s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:35:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:40:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:41 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (18835s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:45:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:50:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 02:51 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (19435s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 02:55:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:00:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:01 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (20035s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:05:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:10:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:11 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (20635s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:15:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:20:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:21 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (21235s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:25:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:30:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:31 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (21835s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:35:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:40:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:41 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (22435s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:45:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:50:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 03:51 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (23036s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 03:55:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:00:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:01 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (23636s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:05:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:10:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:11 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (24236s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:15:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:20:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:21 MT
+SESSION=ACTIVE (8 procs) | TOKEN=STALE (24836s old) | INBOX_PENDING=344 | ACTIVE_TASKS=17 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:25:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:30:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:31 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (25436s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:35:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:40:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:41 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (26036s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:45:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:50:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 04:51 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (26636s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 04:55:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:00:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:01 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (27236s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:05:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:10:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:11 MT
+SESSION=ACTIVE (7 procs) | TOKEN=STALE (27836s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:15:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:20:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:21 MT
+SESSION=ACTIVE (9 procs) | TOKEN=STALE (28436s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:25:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-16 05:25:55
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:30:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:31 MT
+SESSION=ACTIVE (8 procs) | TOKEN=FRESH (291s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:35:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:40:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:41 MT
+SESSION=ACTIVE (10 procs) | TOKEN=FRESH (891s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:45:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:50:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 05:51 MT
+SESSION=ACTIVE (10 procs) | TOKEN=FRESH (1491s old) | INBOX_PENDING=344 | ACTIVE_TASKS=12 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 05:55:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:00:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:05:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:10:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:15:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:20:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:23:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:23:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:28:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:33:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:38:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:43:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:48:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:53:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 06:58:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:03:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:08:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:13:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:18:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:23:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:28:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:33:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:38:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:43:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:48:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:53:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 07:58:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:03:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:08:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:13:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:18:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:23:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:28:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:33:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:38:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:43:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:48:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:53:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 08:58:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:03:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:08:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:13:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:18:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:23:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:28:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:33:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:38:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:43:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:48:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:53:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 09:58:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:03:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:08:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:14:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:19:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:24:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:29:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:34:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:39:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:44:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:49:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:54:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 10:59:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:04:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:09:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:14:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:19:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:24:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:29:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:34:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:39:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:44:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:49:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:54:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 11:59:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:04:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:09:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:14:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:19:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:24:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:29:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:34:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:39:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:44:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:49:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:54:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 12:59:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:04:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:09:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:14:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:19:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:24:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:29:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:34:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:39:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:44:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:49:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:54:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 13:59:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:04:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:09:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:14:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:19:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:24:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:29:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:34:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:39:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:44:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:49:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:54:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 14:59:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:04:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:09:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:14:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:19:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:24:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:29:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:34:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:39:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:44:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:49:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:54:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 15:59:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:04:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:09:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:14:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:19:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:24:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:29:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:34:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:39:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:44:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:49:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:54:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 16:59:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:04:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:09:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:14:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:19:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:24:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:29:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:34:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:39:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:44:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:49:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:54:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 17:59:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:04:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:09:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:14:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:19:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:24:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:29:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:34:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:39:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:44:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:49:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:54:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 18:59:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:04:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:09:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:14:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:19:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:24:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:29:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:34:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:39:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:44:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:49:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:54:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 19:59:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:04:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:09:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:14:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:19:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:24:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:29:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:34:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:39:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:44:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:49:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:54:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 20:59:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:04:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-16 21:09:33
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:09:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:14:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:19:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:24:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:29:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:34:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:39:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:44:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:49:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:54:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 21:59:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:04:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2927s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:09:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:14:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3527s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:19:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:24:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4128s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:29:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:34:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4728s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:39:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:44:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5331s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:49:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:54:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 22:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5932s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 22:59:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:04:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6533s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:09:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:14:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7133s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:19:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:24:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7735s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:29:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:34:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8335s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:39:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:44:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8937s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:49:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:54:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-16 23:56 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9538s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-16 23:59:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+---
+## METRONOME NUDGE — 2026-07-17 06:01 UTC
+[HALE-ROUTE] LIFECYCLE WINDOWS — 2026-07-17 00:01 MT
+• **Spencer** (Unknown) T+330d → `arc4/a` — Air Search open — task A2 Dembe route intel + A9 fare check + A8 airline fit | Route: a2 → a8 → a9 → exec → a3 [client-facing] [cos-review]
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:04:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10139s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:09:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:14:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10740s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:19:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:24:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11341s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:29:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:34:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11942s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:39:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:44:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12543s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:50:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 00:55:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 00:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13143s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:00:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:05:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13743s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:10:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:15:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14343s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:20:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:25:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14947s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:30:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:35:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15548s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:40:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:45:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:46 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16148s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:50:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 01:55:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 01:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16750s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:00:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:05:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17350s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:10:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:15:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:16 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17950s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:20:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:25:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18553s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:30:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:35:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19154s old) | INBOX_PENDING=474 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:40:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:45:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:46 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19754s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:50:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 02:55:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 02:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20356s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:00:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:05:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20960s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:10:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:15:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21563s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:20:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:25:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22164s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:30:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:35:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22765s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:40:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:45:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23366s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:50:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 03:55:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 03:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23967s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:00:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:05:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24568s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:10:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:15:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25169s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:20:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:25:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25770s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:30:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:35:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26371s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:40:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:45:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26972s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:50:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 04:55:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 04:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27573s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:00:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:05:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28173s old) | INBOX_PENDING=476 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-17 05:10:02
+Token health issue: Token expiring in 7 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:10:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:15:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (258s old) | INBOX_PENDING=478 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:20:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:25:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (858s old) | INBOX_PENDING=478 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:30:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:35:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1458s old) | INBOX_PENDING=478 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:40:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:45:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2062s old) | INBOX_PENDING=478 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:50:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 05:55:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+### AUTO-MONITOR 2026-07-17 05:56 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (2662s old) | INBOX_PENDING=478 | ACTIVE_TASKS=15 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:00:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:05:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:10:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:15:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:20:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:25:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:30:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:35:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:40:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:45:29
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:50:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 06:55:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:00:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:05:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:10:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:15:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:20:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:25:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:30:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:35:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:40:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:45:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:50:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 07:55:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:00:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:05:37
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:10:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:15:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:20:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:25:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:30:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:35:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:40:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:45:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:50:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 08:55:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:00:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:05:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:10:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:15:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:20:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:25:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:30:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:35:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:40:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:45:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:50:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 09:55:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:00:50
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:05:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:10:51
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:15:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:20:52
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:25:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:30:53
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:35:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:40:54
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:45:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:50:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 10:55:55
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:00:56
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:05:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:10:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:15:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:20:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:25:57
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:30:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:35:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:40:58
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:45:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:50:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 11:55:59
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:01:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:06:00
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:11:01
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:16:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:21:02
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:26:03
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:31:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:36:04
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:41:05
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:46:06
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:51:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 12:56:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:01:07
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:06:08
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:11:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:16:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:21:09
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:26:10
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:31:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:36:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:41:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:46:11
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:51:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 13:56:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:01:12
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:06:13
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:11:14
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:16:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:21:15
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:26:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:31:16
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:36:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:41:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:46:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:51:17
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 14:56:18
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:01:19
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:06:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:11:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:16:20
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:21:21
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:26:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:31:22
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:36:23
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:41:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:46:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:51:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 15:56:24
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:01:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:06:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:11:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:16:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:21:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:26:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:31:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:36:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:41:25
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:46:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:51:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 16:56:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:01:26
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:06:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:11:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:16:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:21:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:26:27
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:31:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:36:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:41:28
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:46:30
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:51:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 17:56:31
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:01:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:06:32
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:11:33
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:16:34
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:21:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:26:35
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:31:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:36:36
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:41:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:46:38
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:51:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 18:56:39
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:01:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:06:40
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:11:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:16:41
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:21:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:26:42
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:31:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:36:43
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:41:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:46:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:51:44
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 19:56:45
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:01:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:06:46
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:11:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:16:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:21:47
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:26:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:31:48
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:36:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Checkpoint Alert — 2026-07-17 20:41:49
+Inbox Checkpoint: Watcher died and restart FAILED
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-17 20:56:00
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-17 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3346s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 22:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3947s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 22:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4547s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5149s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 22:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5750s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 22:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6351s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6952s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7553s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8154s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8754s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9354s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-17 23:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9957s old) | INBOX_PENDING=500 | ACTIVE_TASKS=33 | QDRANT=UP
+
+## TP ALERT — 2026-07-18 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 (T-0d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-3d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-7d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-12d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-12d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-12d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-12d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-4d) | Lead: A9 + Hale
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-11d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-13d) | Lead: Hale + A9
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-14d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-21d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-21d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-21d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-21d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-34d) | Lead: A9
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-44d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-18 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10557s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 00:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11157s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 00:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11757s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 00:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12357s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 00:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12957s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 00:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13558s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:01 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14158s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14758s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15362s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15963s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16563s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 01:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17164s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17764s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18367s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18967s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19568s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20169s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 02:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20770s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21371s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21972s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22573s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23174s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23784s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 03:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24385s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24989s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25590s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26191s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26792s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27393s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 04:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27994s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 04:56:36
+Token health issue: Token expiring in 8 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-18 05:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28594s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 05:11:37
+Token health issue: Token expired 6 min ago
+
+### AUTO-MONITOR 2026-07-18 05:12 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (29194s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 05:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (602s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 05:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1202s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+---
+**[INBOX EXECUTOR — 2026-07-18 05:30]**
+## EMAIL COMPOSITION NEEDED — TP-2.2b Monthly Validation — July
+**Client:** Erik McLeod & Melissa McGlasson
+**Subject:** July Update — McLeod/McGlasson Grandeur Lesser Antilles
+**Reason:** DeepSeek V4 Pro unavailable. Manual composition required.
+**Staff:** Dani + Naia
+
+### AUTO-MONITOR 2026-07-18 05:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1802s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+---
+**[INBOX EXECUTOR — 2026-07-18 05:30]**
+## EMAIL COMPOSITION NEEDED — TP-4.3 Payment Goal (FPD-7)
+**Client:** Erik McLeod & Melissa McGlasson
+**Subject:** Final Payment — Target This Week
+**Reason:** DeepSeek V4 Pro unavailable. Manual composition required.
+**Staff:** A9 Harlan + Dani
+
+### AUTO-MONITOR 2026-07-18 05:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2406s old) | INBOX_PENDING=502 | ACTIVE_TASKS=33 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 12:57:02
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 14:26:55
+Token health issue: Token file missing
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 14:41:55
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 14:57:14
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 14:58:06
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 15:13:06
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 15:28:07
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 15:43:07
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 15:58:07
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 16:13:07
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 16:28:07
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 16:43:08
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 16:58:08
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 17:13:08
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 17:28:09
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 17:43:10
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 17:58:10
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 18:13:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 18:28:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 18:43:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 19:28:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 19:43:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 19:58:11
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 20:13:12
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 20:28:12
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 20:43:12
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 20:58:13
+Token health issue: No expiresAt in token
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-18 21:13:13
+Token health issue: No expiresAt in token
+
+### AUTO-MONITOR 2026-07-18 22:09 MT
+SESSION=ACTIVE (3 procs) | TOKEN=FRESH (3156s old) | INBOX_PENDING=504 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 22:16 MT
+SESSION=IDLE | TOKEN=FRESH (3548s old) | INBOX_PENDING=504 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 22:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4148s old) | INBOX_PENDING=504 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 22:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4748s old) | INBOX_PENDING=504 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 22:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5348s old) | INBOX_PENDING=504 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 22:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5948s old) | INBOX_PENDING=506 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:06 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6548s old) | INBOX_PENDING=506 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7148s old) | INBOX_PENDING=508 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7750s old) | INBOX_PENDING=518 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8350s old) | INBOX_PENDING=518 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8950s old) | INBOX_PENDING=518 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-18 23:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9551s old) | INBOX_PENDING=518 | ACTIVE_TASKS=44 | QDRANT=UP
+
+## TP ALERT — 2026-07-19 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 (T-2d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-6d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-11d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-11d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-11d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-11d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-3d) | Lead: A9 + Hale
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-10d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-12d) | Lead: Hale + A9
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-13d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-20d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-20d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-20d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-20d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-20d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [McLeod McGlasson] — Apply FCC / Credits
+  Deadline: 2026-08-21 (T-33d) | Lead: A9
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-43d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-19 00:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10151s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 00:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10752s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 00:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11353s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 00:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11954s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 00:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12555s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 00:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13155s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13756s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14357s old) | INBOX_PENDING=520 | ACTIVE_TASKS=44 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14957s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15560s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16161s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 01:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16762s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17362s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17962s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18562s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19162s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19762s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 02:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20362s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20963s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21563s old) | INBOX_PENDING=520 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22163s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22763s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23364s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 03:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23964s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24564s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25164s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25764s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26364s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26965s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 04:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27568s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 05:06 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28169s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-19 05:15:24
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-19 05:16 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28770s old) | INBOX_PENDING=522 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 05:26 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (524s old) | INBOX_PENDING=522 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 05:36 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1126s old) | INBOX_PENDING=522 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 05:46 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1726s old) | INBOX_PENDING=522 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 05:56 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2327s old) | INBOX_PENDING=522 | ACTIVE_TASKS=36 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-19 21:01:27
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-19 21:16:28
+Token health issue: Token expired 1 min ago
+
+### AUTO-MONITOR 2026-07-19 22:00 MT
+SESSION=IDLE | TOKEN=FRESH (2516s old) | INBOX_PENDING=546 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 22:10 MT
+SESSION=IDLE | TOKEN=FRESH (3116s old) | INBOX_PENDING=548 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 22:20 MT
+SESSION=IDLE | TOKEN=STALE (3717s old) | INBOX_PENDING=548 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 22:30 MT
+SESSION=IDLE | TOKEN=STALE (4317s old) | INBOX_PENDING=550 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 22:41 MT
+SESSION=IDLE | TOKEN=STALE (4918s old) | INBOX_PENDING=550 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 22:51 MT
+SESSION=IDLE | TOKEN=STALE (5518s old) | INBOX_PENDING=550 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:01 MT
+SESSION=IDLE | TOKEN=STALE (6119s old) | INBOX_PENDING=550 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:11 MT
+SESSION=IDLE | TOKEN=STALE (6719s old) | INBOX_PENDING=550 | ACTIVE_TASKS=27 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:21 MT
+SESSION=IDLE | TOKEN=STALE (7319s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:31 MT
+SESSION=IDLE | TOKEN=STALE (7920s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:41 MT
+SESSION=IDLE | TOKEN=STALE (8521s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-19 23:51 MT
+SESSION=IDLE | TOKEN=STALE (9122s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:01 MT
+SESSION=IDLE | TOKEN=STALE (9723s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:11 MT
+SESSION=IDLE | TOKEN=STALE (10324s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:21 MT
+SESSION=IDLE | TOKEN=STALE (10925s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:31 MT
+SESSION=IDLE | TOKEN=STALE (11526s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:41 MT
+SESSION=IDLE | TOKEN=STALE (12127s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 00:51 MT
+SESSION=IDLE | TOKEN=STALE (12728s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:01 MT
+SESSION=IDLE | TOKEN=STALE (13329s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13929s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:21 MT
+SESSION=IDLE | TOKEN=STALE (14531s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:31 MT
+SESSION=IDLE | TOKEN=STALE (15131s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:41 MT
+SESSION=IDLE | TOKEN=STALE (15733s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 01:51 MT
+SESSION=IDLE | TOKEN=STALE (16334s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:01 MT
+SESSION=IDLE | TOKEN=STALE (16935s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17535s old) | INBOX_PENDING=550 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:21 MT
+SESSION=IDLE | TOKEN=STALE (18137s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:31 MT
+SESSION=IDLE | TOKEN=STALE (18737s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:41 MT
+SESSION=IDLE | TOKEN=STALE (19338s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 02:51 MT
+SESSION=IDLE | TOKEN=STALE (19940s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:01 MT
+SESSION=IDLE | TOKEN=STALE (20541s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:11 MT
+SESSION=IDLE | TOKEN=STALE (21142s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:21 MT
+SESSION=IDLE | TOKEN=STALE (21743s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:31 MT
+SESSION=IDLE | TOKEN=STALE (22344s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:41 MT
+SESSION=IDLE | TOKEN=STALE (22945s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 03:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23545s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:01 MT
+SESSION=IDLE | TOKEN=STALE (24145s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:11 MT
+SESSION=IDLE | TOKEN=STALE (24748s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:21 MT
+SESSION=IDLE | TOKEN=STALE (25348s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:31 MT
+SESSION=IDLE | TOKEN=STALE (25950s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:41 MT
+SESSION=IDLE | TOKEN=STALE (26550s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 04:51 MT
+SESSION=IDLE | TOKEN=STALE (27154s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 05:01 MT
+SESSION=IDLE | TOKEN=STALE (27755s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 05:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28355s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 05:21 MT
+SESSION=IDLE | TOKEN=FRESH (412s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+---
+**[INBOX EXECUTOR — 2026-07-20 05:30]**
+## WEEKLY INTEL REPORT DUE
+**Client:** John & Susan Loucks
+**TP:** TP-2.3 Culinary Arts Kitchen Classes
+**Assigned to:** A2 Dembe
+**Action:** Compile this week's research findings into a weekly report. SEND to johnloucks3@gmail.com (not draft — per intel full-send SO 27 MAR 2026).
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+### AUTO-MONITOR 2026-07-20 05:31 MT
+SESSION=IDLE | TOKEN=FRESH (1014s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 05:41 MT
+SESSION=IDLE | TOKEN=FRESH (1614s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 05:51 MT
+SESSION=IDLE | TOKEN=FRESH (2214s old) | INBOX_PENDING=552 | ACTIVE_TASKS=28 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-20 13:02:13
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-20 13:17:14
+Token health issue: Token expired 2 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-20 21:17:58
+Token health issue: Token expiring in 3 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-20 22:09 MT
+SESSION=IDLE | TOKEN=FRESH (2936s old) | INBOX_PENDING=554 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 22:19 MT
+SESSION=IDLE | TOKEN=FRESH (3536s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 22:29 MT
+SESSION=IDLE | TOKEN=STALE (4138s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 22:39 MT
+SESSION=IDLE | TOKEN=STALE (4739s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 22:49 MT
+SESSION=IDLE | TOKEN=STALE (5340s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 22:59 MT
+SESSION=IDLE | TOKEN=STALE (5941s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:09 MT
+SESSION=IDLE | TOKEN=STALE (6541s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:19 MT
+SESSION=IDLE | TOKEN=STALE (7143s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:29 MT
+SESSION=IDLE | TOKEN=STALE (7743s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:39 MT
+SESSION=IDLE | TOKEN=STALE (8346s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:49 MT
+SESSION=IDLE | TOKEN=STALE (8947s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-20 23:59 MT
+SESSION=IDLE | TOKEN=STALE (9547s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:09 MT
+SESSION=IDLE | TOKEN=STALE (10149s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:19 MT
+SESSION=IDLE | TOKEN=STALE (10750s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:29 MT
+SESSION=IDLE | TOKEN=STALE (11351s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:39 MT
+SESSION=IDLE | TOKEN=STALE (11952s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:49 MT
+SESSION=IDLE | TOKEN=STALE (12553s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 00:59 MT
+SESSION=IDLE | TOKEN=STALE (13154s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:09 MT
+SESSION=IDLE | TOKEN=STALE (13755s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:19 MT
+SESSION=IDLE | TOKEN=STALE (14355s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:29 MT
+SESSION=IDLE | TOKEN=STALE (14957s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:39 MT
+SESSION=IDLE | TOKEN=STALE (15557s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:49 MT
+SESSION=IDLE | TOKEN=STALE (16158s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 01:59 MT
+SESSION=IDLE | TOKEN=STALE (16759s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:09 MT
+SESSION=IDLE | TOKEN=STALE (17360s old) | INBOX_PENDING=554 | ACTIVE_TASKS=36 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:19 MT
+SESSION=IDLE | TOKEN=STALE (17961s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:29 MT
+SESSION=IDLE | TOKEN=STALE (18562s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:39 MT
+SESSION=IDLE | TOKEN=STALE (19163s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:49 MT
+SESSION=IDLE | TOKEN=STALE (19764s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 02:59 MT
+SESSION=IDLE | TOKEN=STALE (20365s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:09 MT
+SESSION=IDLE | TOKEN=STALE (20966s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:19 MT
+SESSION=IDLE | TOKEN=STALE (21567s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:29 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22167s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:39 MT
+SESSION=IDLE | TOKEN=STALE (22769s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:49 MT
+SESSION=IDLE | TOKEN=STALE (23370s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 03:59 MT
+SESSION=IDLE | TOKEN=STALE (23971s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:09 MT
+SESSION=IDLE | TOKEN=STALE (24572s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:19 MT
+SESSION=IDLE | TOKEN=STALE (25173s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:29 MT
+SESSION=IDLE | TOKEN=STALE (25774s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:39 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26374s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:49 MT
+SESSION=IDLE | TOKEN=STALE (26976s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 04:59 MT
+SESSION=IDLE | TOKEN=STALE (27577s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 05:09 MT
+SESSION=IDLE | TOKEN=STALE (28178s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-21 05:18:16
+Token health issue: Token expiring in 1 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-21 05:19 MT
+SESSION=IDLE | TOKEN=FRESH (25s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 05:29 MT
+SESSION=IDLE | TOKEN=FRESH (630s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 05:39 MT
+SESSION=IDLE | TOKEN=FRESH (1231s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 05:49 MT
+SESSION=IDLE | TOKEN=FRESH (1831s old) | INBOX_PENDING=554 | ACTIVE_TASKS=35 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-21 13:18:41
+Token health issue: Token expiring in 0 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-21 21:19:14
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-21 22:00 MT
+SESSION=IDLE | TOKEN=FRESH (2313s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 22:10 MT
+SESSION=IDLE | TOKEN=FRESH (2913s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 22:20 MT
+SESSION=IDLE | TOKEN=FRESH (3513s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 22:30 MT
+SESSION=IDLE | TOKEN=STALE (4113s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 22:40 MT
+SESSION=IDLE | TOKEN=STALE (4714s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 22:50 MT
+SESSION=IDLE | TOKEN=STALE (5314s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:00 MT
+SESSION=IDLE | TOKEN=STALE (5914s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:10 MT
+SESSION=IDLE | TOKEN=STALE (6515s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:20 MT
+SESSION=IDLE | TOKEN=STALE (7115s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:30 MT
+SESSION=IDLE | TOKEN=STALE (7715s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:40 MT
+SESSION=IDLE | TOKEN=STALE (8315s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-21 23:50 MT
+SESSION=IDLE | TOKEN=STALE (8915s old) | INBOX_PENDING=556 | ACTIVE_TASKS=35 | QDRANT=UP
+
+## TP ALERT — 2026-07-22 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 (T-0d) | Lead: A9 + Hale
+  Task: A9 + Hale — begin work
+- 🟡 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-3d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-8d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-8d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-8d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-8d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-7d) | Lead: A9
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-9d) | Lead: Hale + A9
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-10d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-17d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-17d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-17d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-17d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-17d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-40d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🔴 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-22 00:00 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9515s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 00:10 MT
+SESSION=IDLE | TOKEN=STALE (10115s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 00:20 MT
+SESSION=IDLE | TOKEN=STALE (10715s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+---
+**[COS HALE — LIFECYCLE TASKING — 2026-07-22 00:24]**
+## RESEARCH TASK — TP-4.3 Payment Goal (FPD-7)
+**Client:** John & Susan Loucks
+**Assigned to:** Hale + A9 Harlan
+**Arc type:** timeline (no auto-execute)
+**Window:** 2026-07-22 → 2026-07-24
+**Deliverable date:** 2026-07-25
+**Weekly reports to Commander:** No
+**Notes:** Target early payment. One call/click to resolve.
+**Authority:** COS Hale (COO SO 2026-04-17)
+
+
+### AUTO-MONITOR 2026-07-22 00:30 MT
+SESSION=IDLE | TOKEN=STALE (11315s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 00:40 MT
+SESSION=IDLE | TOKEN=STALE (11915s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 00:50 MT
+SESSION=IDLE | TOKEN=STALE (12515s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:00 MT
+SESSION=IDLE | TOKEN=STALE (13115s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:10 MT
+SESSION=IDLE | TOKEN=STALE (13715s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:20 MT
+SESSION=IDLE | TOKEN=STALE (14315s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:30 MT
+SESSION=IDLE | TOKEN=STALE (14915s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:40 MT
+SESSION=IDLE | TOKEN=STALE (15515s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 01:50 MT
+SESSION=IDLE | TOKEN=STALE (16115s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:00 MT
+SESSION=IDLE | TOKEN=STALE (16716s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:10 MT
+SESSION=IDLE | TOKEN=STALE (17316s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:20 MT
+SESSION=IDLE | TOKEN=STALE (17916s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:30 MT
+SESSION=IDLE | TOKEN=STALE (18516s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:40 MT
+SESSION=IDLE | TOKEN=STALE (19116s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 02:50 MT
+SESSION=IDLE | TOKEN=STALE (19716s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:00 MT
+SESSION=IDLE | TOKEN=STALE (20316s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:10 MT
+SESSION=IDLE | TOKEN=STALE (20916s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:21 MT
+SESSION=IDLE | TOKEN=STALE (21517s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:31 MT
+SESSION=IDLE | TOKEN=STALE (22117s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:41 MT
+SESSION=IDLE | TOKEN=STALE (22717s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 03:51 MT
+SESSION=IDLE | TOKEN=STALE (23317s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:01 MT
+SESSION=IDLE | TOKEN=STALE (23918s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:11 MT
+SESSION=IDLE | TOKEN=STALE (24518s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:21 MT
+SESSION=IDLE | TOKEN=STALE (25119s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:31 MT
+SESSION=IDLE | TOKEN=STALE (25719s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:41 MT
+SESSION=IDLE | TOKEN=STALE (26319s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 04:51 MT
+SESSION=IDLE | TOKEN=STALE (26920s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 05:01 MT
+SESSION=IDLE | TOKEN=STALE (27520s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 05:11 MT
+SESSION=IDLE | TOKEN=STALE (28121s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-22 05:19:40
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-22 05:21 MT
+SESSION=IDLE | TOKEN=STALE (28721s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 05:31 MT
+SESSION=IDLE | TOKEN=FRESH (508s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 05:41 MT
+SESSION=IDLE | TOKEN=FRESH (1108s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 05:51 MT
+SESSION=IDLE | TOKEN=FRESH (1709s old) | INBOX_PENDING=558 | ACTIVE_TASKS=35 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-22 13:20:01
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-22 21:22:13
+Token health issue: Token expiring in 0 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-22 22:03 MT
+SESSION=IDLE | TOKEN=FRESH (2332s old) | INBOX_PENDING=560 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 22:13 MT
+SESSION=IDLE | TOKEN=FRESH (2932s old) | INBOX_PENDING=560 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 22:23 MT
+SESSION=IDLE | TOKEN=FRESH (3534s old) | INBOX_PENDING=560 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 22:33 MT
+SESSION=IDLE | TOKEN=STALE (4135s old) | INBOX_PENDING=560 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 22:43 MT
+SESSION=IDLE | TOKEN=STALE (4735s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 22:53 MT
+SESSION=IDLE | TOKEN=STALE (5337s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:03 MT
+SESSION=IDLE | TOKEN=STALE (5937s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:13 MT
+SESSION=IDLE | TOKEN=STALE (6537s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:23 MT
+SESSION=IDLE | TOKEN=STALE (7140s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:33 MT
+SESSION=IDLE | TOKEN=STALE (7740s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:43 MT
+SESSION=IDLE | TOKEN=STALE (8340s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-22 23:54 MT
+SESSION=IDLE | TOKEN=STALE (8945s old) | INBOX_PENDING=560 | ACTIVE_TASKS=37 | QDRANT=UP
+
+## TP ALERT — 2026-07-23 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-2d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-6d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-7d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-7d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-7d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-7d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-8d) | Lead: Hale + A9
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-9d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-16d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-16d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-16d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-16d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-16d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-39d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🔴 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🔴 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-23 00:04 MT
+SESSION=IDLE | TOKEN=STALE (9545s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 00:14 MT
+SESSION=IDLE | TOKEN=STALE (10156s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 00:24 MT
+SESSION=IDLE | TOKEN=STALE (10745s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 00:34 MT
+SESSION=IDLE | TOKEN=STALE (11346s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 00:44 MT
+SESSION=IDLE | TOKEN=STALE (11946s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 00:54 MT
+SESSION=IDLE | TOKEN=STALE (12546s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:04 MT
+SESSION=IDLE | TOKEN=STALE (13149s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:14 MT
+SESSION=IDLE | TOKEN=STALE (13750s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:24 MT
+SESSION=IDLE | TOKEN=STALE (14350s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:34 MT
+SESSION=IDLE | TOKEN=STALE (14951s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:44 MT
+SESSION=IDLE | TOKEN=STALE (15553s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 01:54 MT
+SESSION=IDLE | TOKEN=STALE (16154s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:04 MT
+SESSION=IDLE | TOKEN=STALE (16754s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:14 MT
+SESSION=IDLE | TOKEN=STALE (17356s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:24 MT
+SESSION=IDLE | TOKEN=STALE (17957s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:34 MT
+SESSION=IDLE | TOKEN=STALE (18557s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:44 MT
+SESSION=IDLE | TOKEN=STALE (19159s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 02:54 MT
+SESSION=IDLE | TOKEN=STALE (19760s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:04 MT
+SESSION=IDLE | TOKEN=STALE (20360s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:14 MT
+SESSION=IDLE | TOKEN=STALE (20962s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:24 MT
+SESSION=IDLE | TOKEN=STALE (21563s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:34 MT
+SESSION=IDLE | TOKEN=STALE (22164s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:44 MT
+SESSION=IDLE | TOKEN=STALE (22765s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 03:54 MT
+SESSION=IDLE | TOKEN=STALE (23366s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:04 MT
+SESSION=IDLE | TOKEN=STALE (23967s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:14 MT
+SESSION=IDLE | TOKEN=STALE (24567s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:24 MT
+SESSION=IDLE | TOKEN=STALE (25169s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:34 MT
+SESSION=IDLE | TOKEN=STALE (25770s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:44 MT
+SESSION=IDLE | TOKEN=STALE (26371s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 04:54 MT
+SESSION=IDLE | TOKEN=STALE (26972s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 05:04 MT
+SESSION=IDLE | TOKEN=STALE (27572s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 05:14 MT
+SESSION=IDLE | TOKEN=STALE (28174s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 05:22:35
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-23 05:24 MT
+SESSION=IDLE | TOKEN=STALE (28774s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 05:34 MT
+SESSION=IDLE | TOKEN=FRESH (536s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 05:44 MT
+SESSION=IDLE | TOKEN=FRESH (1139s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 05:54 MT
+SESSION=IDLE | TOKEN=FRESH (1740s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 21:08:21
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 21:23:21
+Token health issue: Token expired 0 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 21:38:22
+Token health issue: Token expired 15 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 21:53:22
+Token health issue: Token expired 30 min ago
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-23 21:59:49
+Token health issue: Token expired 37 min ago
+
+### AUTO-MONITOR 2026-07-23 22:01 MT
+SESSION=IDLE | TOKEN=FRESH (93s old) | INBOX_PENDING=562 | ACTIVE_TASKS=37 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 22:11 MT
+SESSION=IDLE | TOKEN=FRESH (694s old) | INBOX_PENDING=562 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 22:21 MT
+SESSION=IDLE | TOKEN=FRESH (1295s old) | INBOX_PENDING=562 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 22:31 MT
+SESSION=IDLE | TOKEN=FRESH (1895s old) | INBOX_PENDING=562 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 22:41 MT
+SESSION=IDLE | TOKEN=FRESH (2495s old) | INBOX_PENDING=562 | ACTIVE_TASKS=41 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 22:51 MT
+SESSION=IDLE | TOKEN=FRESH (3096s old) | INBOX_PENDING=562 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:01 MT
+SESSION=IDLE | TOKEN=STALE (3696s old) | INBOX_PENDING=562 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:11 MT
+SESSION=IDLE | TOKEN=STALE (4296s old) | INBOX_PENDING=562 | ACTIVE_TASKS=39 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:21 MT
+SESSION=IDLE | TOKEN=STALE (4898s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:32 MT
+SESSION=IDLE | TOKEN=STALE (5514s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:42 MT
+SESSION=IDLE | TOKEN=STALE (6119s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-23 23:52 MT
+SESSION=IDLE | TOKEN=STALE (6720s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:02 MT
+SESSION=IDLE | TOKEN=STALE (7320s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:12 MT
+SESSION=IDLE | TOKEN=STALE (7920s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:22 MT
+SESSION=IDLE | TOKEN=STALE (8523s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:32 MT
+SESSION=IDLE | TOKEN=STALE (9123s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:42 MT
+SESSION=IDLE | TOKEN=STALE (9725s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 00:52 MT
+SESSION=IDLE | TOKEN=STALE (10326s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:02 MT
+SESSION=IDLE | TOKEN=STALE (10930s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:12 MT
+SESSION=IDLE | TOKEN=STALE (11531s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:22 MT
+SESSION=IDLE | TOKEN=STALE (12132s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:32 MT
+SESSION=IDLE | TOKEN=STALE (12733s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:42 MT
+SESSION=IDLE | TOKEN=STALE (13334s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 01:52 MT
+SESSION=IDLE | TOKEN=STALE (13935s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:02 MT
+SESSION=IDLE | TOKEN=STALE (14535s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:12 MT
+SESSION=IDLE | TOKEN=STALE (15136s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:22 MT
+SESSION=IDLE | TOKEN=STALE (15738s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:32 MT
+SESSION=IDLE | TOKEN=STALE (16339s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:42 MT
+SESSION=IDLE | TOKEN=STALE (16940s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 02:52 MT
+SESSION=IDLE | TOKEN=STALE (17541s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:02 MT
+SESSION=IDLE | TOKEN=STALE (18141s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:12 MT
+SESSION=IDLE | TOKEN=STALE (18742s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:22 MT
+SESSION=IDLE | TOKEN=STALE (19343s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:32 MT
+SESSION=IDLE | TOKEN=STALE (19944s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:42 MT
+SESSION=IDLE | TOKEN=STALE (20545s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 03:52 MT
+SESSION=IDLE | TOKEN=STALE (21146s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:02 MT
+SESSION=IDLE | TOKEN=STALE (21747s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:12 MT
+SESSION=IDLE | TOKEN=STALE (22348s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:22 MT
+SESSION=IDLE | TOKEN=STALE (22949s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:32 MT
+SESSION=IDLE | TOKEN=STALE (23550s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:42 MT
+SESSION=IDLE | TOKEN=STALE (24151s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 04:52 MT
+SESSION=IDLE | TOKEN=STALE (24752s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 05:02 MT
+SESSION=IDLE | TOKEN=STALE (25353s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 05:12 MT
+SESSION=IDLE | TOKEN=STALE (25953s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 05:22 MT
+SESSION=IDLE | TOKEN=STALE (26555s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 05:32 MT
+SESSION=IDLE | TOKEN=STALE (27155s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 05:42 MT
+SESSION=IDLE | TOKEN=STALE (27756s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-24 05:45:53
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-24 05:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28356s old) | INBOX_PENDING=562 | ACTIVE_TASKS=40 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-24 13:46:11
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-24 21:46:40
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-24 22:00:19
+Token health issue: Token expired 0 min ago
+
+### AUTO-MONITOR 2026-07-24 22:02 MT
+SESSION=IDLE | TOKEN=FRESH (104s old) | INBOX_PENDING=568 | ACTIVE_TASKS=43 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 22:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (704s old) | INBOX_PENDING=568 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 22:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1305s old) | INBOX_PENDING=568 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 22:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1906s old) | INBOX_PENDING=568 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 22:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2507s old) | INBOX_PENDING=568 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 22:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3108s old) | INBOX_PENDING=568 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3708s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4308s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4911s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5511s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6114s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-24 23:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6715s old) | INBOX_PENDING=568 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## TP ALERT — 2026-07-25 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 (T-0d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-4d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-5d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-5d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-5d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-5d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-6d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-08-08 (T-14d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-7d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-14d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-14d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-14d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-14d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-14d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-37d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🔴 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🔴 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-25 00:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7316s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 00:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7917s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 00:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8518s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 00:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9119s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 00:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9720s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 00:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10321s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10922s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11523s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12124s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12725s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13326s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 01:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13927s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14528s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15129s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15730s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16331s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16931s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 02:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17531s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18134s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18735s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19336s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19937s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20538s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 03:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21139s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21739s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22340s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22941s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23542s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24143s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 04:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24743s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 05:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25345s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 05:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25946s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 05:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26547s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 05:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27148s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 05:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27749s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-25 05:46:20
+Token health issue: Token expiring in 14 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-25 05:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28349s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-25 13:46:45
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-25 21:47:20
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-25 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (30s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 22:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (630s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 22:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1230s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1833s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 22:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2434s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 22:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3035s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3636s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4236s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4836s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5438s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6039s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-25 23:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6640s old) | INBOX_PENDING=570 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## TP ALERT — 2026-07-26 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-3d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-4d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-4d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-4d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-4d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-5d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-08-08 (T-13d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-6d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-13d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-13d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-13d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-13d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-13d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-36d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🔴 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🔴 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+- 🔴 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-26 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7245s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 00:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (7846s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 00:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8447s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 00:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9048s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 00:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9648s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 00:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10249s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10850s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11451s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12052s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12652s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13254s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 01:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13855s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14455s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15055s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15655s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:31 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16255s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16855s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 02:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17455s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18055s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18655s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19257s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19858s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20459s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 03:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21060s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21660s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22262s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22862s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23463s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24064s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 04:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24665s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 05:02 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25266s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 05:12 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25867s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 05:22 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26468s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 05:32 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27069s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 05:42 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27670s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-26 05:47:40
+Token health issue: Token expiring in 13 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-26 05:52 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28271s old) | INBOX_PENDING=572 | ACTIVE_TASKS=47 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-26 21:50:50
+Token health issue: Token expiring in 4 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-26 22:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (841s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 22:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (1441s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 22:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2041s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 22:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (2641s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 22:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (3242s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 22:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (3842s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (4442s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5042s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (5643s old) | INBOX_PENDING=582 | ACTIVE_TASKS=54 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6243s old) | INBOX_PENDING=582 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (6843s old) | INBOX_PENDING=582 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-26 23:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7443s old) | INBOX_PENDING=582 | ACTIVE_TASKS=51 | QDRANT=UP
+
+## TP ALERT — 2026-07-27 — AUTO-GENERATED 00:00 MT
+
+### CRITICAL (overdue >30d)
+- 🔴 **TP 1.1** [Grandeur Scandinavia Group] — Voyage Preview (destination guide)
+  Deadline: 2026-01-31 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [John & Susan Loucks] — Voyage Preview (destination guide)
+  Deadline: 2026-02-09 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.2** [Grandeur Scandinavia Group] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Grandeur Scandinavia Group] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Ely] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Ely] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Furlow] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Furlow] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Nichols] — Airfare Watch
+  Deadline: 2026-03-02 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Nichols] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-02 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-03-11 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.1** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #1
+  Deadline: 2026-03-17 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.1** [Grandeur Scandinavia Group] — Payment Reminder #1
+  Deadline: 2026-03-18 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Kuklinski Group — Viking Mars Panama Canal] — Payment Reminder #2
+  Deadline: 2026-03-24 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.2** [Grandeur Scandinavia Group] — Payment Reminder #2
+  Deadline: 2026-03-25 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Kuklinski Group — Viking Mars Panama Canal] — Payment Goal
+  Deadline: 2026-03-30 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.3** [Grandeur Scandinavia Group] — Payment Goal
+  Deadline: 2026-03-31 | Lead: Hale + A9
+  Action: Hale + A9 — escalate immediately
+- 🔴 **TP 4.4** [Kuklinski Group — Viking Mars Panama Canal] — Final Payment Due
+  Deadline: 2026-03-31 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.4** [Grandeur Scandinavia Group] — Final Payment Due
+  Deadline: 2026-04-01 | Lead: A9 + Hale
+  Action: A9 + Hale — escalate immediately
+- 🔴 **TP 4.5** [Kuklinski Group — Viking Mars Panama Canal] — Payment Confirmation
+  Deadline: 2026-04-07 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.5** [Grandeur Scandinavia Group] — Payment Confirmation
+  Deadline: 2026-04-08 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski Group — Viking Mars Panama Canal] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Kuklinski] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 4.6** [Morton] — Apply FCC / Credits
+  Deadline: 2026-04-30 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Grandeur Scandinavia Group] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Grandeur Scandinavia Group] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Ely] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Ely] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Furlow] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Furlow] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [Nichols] — Excursion Research & Recs
+  Deadline: 2026-05-01 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 4.6** [Nichols] — Apply FCC / Credits
+  Deadline: 2026-05-01 | Lead: A9
+  Action: A9 — escalate immediately
+- 🔴 **TP 2.1** [John & Susan Loucks] — Excursion Research & Recs
+  Deadline: 2026-05-10 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.1** [Kuklinski Group — Viking Mars Panama Canal] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [Morton] — Voyage Preview (destination guide)
+  Deadline: 2026-05-21 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 1.1** [McLeod McGlasson] — Voyage Preview (destination guide)
+  Deadline: 2026-05-23 | Lead: A2 Dembe + A6 Luna
+  Action: A2 Dembe + A6 Luna — escalate immediately
+- 🔴 **TP 2.3** [Grandeur Scandinavia Group] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Ely] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Furlow] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [Nichols] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-05-31 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.3** [John & Susan Loucks] — Culinary Arts / Kitchen Classes
+  Deadline: 2026-06-09 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [Grandeur Scandinavia Group] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Ely] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Furlow] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 2.5** [Nichols] — Document Audit
+  Deadline: 2026-06-15 | Lead: Hale
+  Action: Hale — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski Group — Viking Mars Panama Canal] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski Group — Viking Mars Panama Canal] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Kuklinski] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Kuklinski] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [Morton] — Airfare Watch
+  Deadline: 2026-06-20 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [Morton] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-20 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 1.2** [McLeod McGlasson] — Airfare Watch
+  Deadline: 2026-06-22 | Lead: A2 Dembe + A5 Viper
+  Action: A2 Dembe + A5 Viper — escalate immediately
+- 🔴 **TP 1.3** [McLeod McGlasson] — Hotel Options (pre/post cruise)
+  Deadline: 2026-06-22 | Lead: A2 Dembe
+  Action: A2 Dembe — escalate immediately
+- 🔴 **TP 2.5** [John & Susan Loucks] — Document Audit
+  Deadline: 2026-06-24 | Lead: Hale
+  Action: Hale — escalate immediately
+
+### WARNING (overdue 14-30d)
+- 🟠 **TP 2.4** [Grandeur Scandinavia Group] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Ely] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Furlow] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 2.4** [Nichols] — Dining Reservations
+  Deadline: 2026-06-30 | Lead: A2 Dembe
+- 🟠 **TP 1.2** [John & Susan Loucks] — Airfare Watch
+  Deadline: 2026-07-02 | Lead: A2 Dembe + A5 Viper
+- 🟠 **TP 1.3** [John & Susan Loucks] — Hotel Options (pre/post cruise)
+  Deadline: 2026-07-02 | Lead: A2 Dembe
+- 🟠 **TP 4.1** [McLeod McGlasson] — Payment Reminder #1
+  Deadline: 2026-07-08 | Lead: Hale + A9
+- 🟠 **TP 2.4** [John & Susan Loucks] — Dining Reservations
+  Deadline: 2026-07-09 | Lead: A2 Dembe
+
+### CRITICAL-APPROACHING (≤14d to deadline)
+- 🟡 **TP 4.5** [McLeod McGlasson] — Payment Confirmation
+  Deadline: 2026-07-29 (T-2d) | Lead: A9
+  Task: A9 — begin work
+- 🟡 **TP 2.2** [Grandeur Scandinavia Group] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-3d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Ely] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-3d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Furlow] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-3d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 2.2** [Nichols] — Monthly Validation (rolling)
+  Deadline: 2026-07-30 (T-3d) | Lead: Hale
+  Task: Hale — begin work
+- 🟡 **TP 4.3** [John & Susan Loucks] — Payment Goal
+  Deadline: 2026-07-31 (T-4d) | Lead: Hale + A9
+  Task: Hale + A9 — begin work
+- 🟡 **TP 2.2** [John & Susan Loucks] — Monthly Validation (rolling)
+  Deadline: 2026-08-08 (T-12d) | Lead: Hale
+  Task: Hale — begin work
+
+### APPROACHING (due within 14d)
+- 🔵 **TP 4.4** [John & Susan Loucks] — Final Payment Due
+  Deadline: 2026-08-01 (T-5d) | Lead: A9 + Hale
+- 🔵 **TP 3.1** [Grandeur Scandinavia Group] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-12d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Ely] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-12d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [Furlow] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-12d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.5** [John & Susan Loucks] — Payment Confirmation
+  Deadline: 2026-08-08 (T-12d) | Lead: A9
+- 🔵 **TP 3.1** [Nichols] — Pre-Voyage Brief
+  Deadline: 2026-08-08 (T-12d) | Lead: Hale + A2 + A6
+- 🔵 **TP 3.1** [John & Susan Loucks] — Pre-Voyage Brief
+  Deadline: 2026-08-17 (T-21d) | Lead: Hale + A2 + A6
+- 🔵 **TP 4.6** [John & Susan Loucks] — Apply FCC / Credits
+  Deadline: 2026-08-31 (T-35d) | Lead: A9
+
+### OVERDUE (<14d, recent)
+- 🔴 **TP 4.2** [McLeod McGlasson] — Payment Reminder #2
+  Deadline: 2026-07-15 | Lead: Hale + A9
+- 🔴 **TP 4.1** [John & Susan Loucks] — Payment Reminder #1
+  Deadline: 2026-07-18 | Lead: Hale + A9
+- 🔴 **TP 4.3** [McLeod McGlasson] — Payment Goal
+  Deadline: 2026-07-21 | Lead: Hale + A9
+- 🔴 **TP 4.4** [McLeod McGlasson] — Final Payment Due
+  Deadline: 2026-07-22 | Lead: A9 + Hale
+- 🔴 **TP 4.2** [John & Susan Loucks] — Payment Reminder #2
+  Deadline: 2026-07-25 | Lead: Hale + A9
+
+---
+*Auto-generated by TP Alert Engine — next scan in 6h*
+
+
+### AUTO-MONITOR 2026-07-27 00:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8044s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 00:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (8648s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 00:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9249s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 00:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9850s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 00:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (10451s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 00:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11052s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (11653s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12254s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (12855s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (13456s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14056s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 01:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (14658s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:07 MT
+SESSION=ACTIVE (3 procs) | TOKEN=STALE (15258s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (15860s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (16461s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17061s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (17661s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 02:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18262s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (18863s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:17 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (19464s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:27 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20065s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:37 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (20666s old) | INBOX_PENDING=584 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:47 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21266s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 03:57 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (21867s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:07 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (22468s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:18 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23070s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:28 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (23671s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:38 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24272s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:48 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (24872s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 04:58 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (25473s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 05:08 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26073s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 05:18 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (26674s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 05:28 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27277s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 05:38 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (27877s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 05:48 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (28477s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-27 05:51:11
+Token health issue: Token expiring in 2 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-27 05:58 MT
+SESSION=ACTIVE (2 procs) | TOKEN=FRESH (244s old) | INBOX_PENDING=586 | ACTIVE_TASKS=51 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-27 21:37:09
+Token health issue: Token expiring in 12 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-27 22:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (803s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 22:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (1403s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 22:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2003s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 22:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (2607s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 22:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (3208s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 22:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (3808s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (4408s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5008s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (5609s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6209s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (6809s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-27 23:51 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (7409s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8010s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (8610s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:21 MT
+SESSION=ACTIVE (2 procs) | TOKEN=STALE (9210s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (9811s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (10411s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 00:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11011s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (11612s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12213s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (12814s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (13415s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14015s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 01:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (14615s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15216s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (15818s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (16419s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17020s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (17621s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 02:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18221s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (18823s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (19424s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20025s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (20626s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21227s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 03:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (21827s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (22428s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23029s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (23630s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24231s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (24832s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 04:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (25433s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 05:01 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26034s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 05:11 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (26635s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 05:21 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27236s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 05:31 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (27837s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-28 05:37:36
+Token health issue: Token expiring in 10 min (CRITICAL)
+
+### AUTO-MONITOR 2026-07-28 05:41 MT
+SESSION=ACTIVE (1 procs) | TOKEN=STALE (28438s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+### AUTO-MONITOR 2026-07-28 05:51 MT
+SESSION=ACTIVE (1 procs) | TOKEN=FRESH (364s old) | INBOX_PENDING=594 | ACTIVE_TASKS=51 | QDRANT=UP
+
+## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-28 13:38:02
+Token health issue: Token expiring in 7 min (CRITICAL)

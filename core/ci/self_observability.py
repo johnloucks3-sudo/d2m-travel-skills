@@ -173,7 +173,8 @@ def _error_count(unit: str, journal: str | None = None) -> int:
     out = journal if journal is not None else _journal(unit)
     return sum(1 for ln in out.splitlines()
                if any(k in ln for k in ("Error", "error", "ERROR", "Traceback",
-                                        "Not Found", "unrecognized", "FAILURE", "Failed")))
+                                        "unrecognized", "FAILURE", "Failed"))
+               and "HTTP/1." not in ln)   # exclude uvicorn access-log lines (HTTP 4xx/5xx are responses, not errors)
 
 
 def _port_conflicts(unit: str, journal: str | None = None) -> int:

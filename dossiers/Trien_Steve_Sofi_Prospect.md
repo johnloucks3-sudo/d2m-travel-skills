@@ -95,3 +95,7 @@
 - Sofi is the active independent traveler (South America x2 in 2026) — she may be the harder sell for a group commitment 12+ months out.
 - "Too far in advance" is not a rejection — it's a timing objection. Mediterranean + Silversea = confirmed interest. Re-engage Q4 2026.
 - Both asked Commander to keep in touch — standing relationship invitation is open.
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

@@ -331,7 +331,7 @@ def _usage_counts(catalog: dict) -> dict:
     """Rank tools by how often their name string is referenced elsewhere in the repo
     (skills, scripts, docs) — a mechanical proxy for 'most-used', not fabricated."""
     counts = {}
-    skip_dirs = {".venv", "node_modules", "__pycache__", ".git"}
+    skip_dirs = {".venv", "node_modules", "__pycache__", ".git", "FOR_DELETION"}
     all_text = []
     for path in REPO_ROOT.rglob("*"):
         if path.is_dir() or path.suffix not in (".py", ".md", ".json"):

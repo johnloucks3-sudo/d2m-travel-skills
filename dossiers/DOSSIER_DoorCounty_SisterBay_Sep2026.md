@@ -331,3 +331,7 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 *Updated 2026-07-16: origin corrected DEN→COS (matches `fare_watches.json` 2026-07-08 migration + Commander's Colorado Springs home location); Centrav scraper round-trip + price-selector bugs fixed; hotel pick corrected to Residence Inn by Marriott (Commander's actual Jun 14 choice); rental car and dining confirmed still unbooked via live Gmail search (not just dossier self-report); MISSION-649 opened for rental car (no automated booking path exists).*
 *Updated 2026-07-16 (Block 3A): added pointer to `DoorCounty_Dining_Excursion_Plan_Sep2026.md`; corrected Fish Boil day-of-week error (Sep 7, 2026 verified Monday via calendar calc — White Gull Wed/Fri/Sat/Sun nights are Sep 9/11/12/13, not Sep 10/12/13 as previously listed); confirmed CHOP open + reservable live 2026-07-16 with hours (closed Sundays); flagged kayak/hike items in the old sample flow as off-profile for the confirmed no-adventure/low-mobility preference.*
 *Owner: Hale | Financial sign-off: Harlan (fare figures below are unbooked estimates/live-portal reads, not committed financial fields) | Next review: DC-01 through DC-06 complete*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

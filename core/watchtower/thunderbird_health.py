@@ -149,7 +149,7 @@ def check_services() -> Dict[str, Any]:
 
     # Process-based checks (no fixed port to probe)
     proc_checks = [
-        ("telegram_c2",  "thunderbird_telegram_c2"),
+        ("telegram_c2",  "thunderbird_telegram_(c2|gw)"),
         ("scheduler",    "thunderbird_scheduler"),
     ]
     for name, pattern in proc_checks:
@@ -177,9 +177,36 @@ def check_data_freshness() -> Dict[str, Any]:
     """Check recency and counts for all data stores."""
     freshness: Dict[str, Any] = {}
 
-    # Morning briefing — last send date from briefing_sent.json
+    # Morning briefing — last send date from briefing_sent.json or lock files
     try:
-        if _BRIEFING_SENT_JSON.exists():
+        # Check lock files in OpsCenter first
+        lock_dir = THUNDERBIRD_DIR / "OpsCenter"
+        lock_files = list(lock_dir.glob("morning_brief_sent_*.lock"))
+        latest_lock_dt = None
+        latest_date = None
+
+        if lock_files:
+            latest_lock = max(lock_files, key=lambda p: p.name)
+            try:
+                lock_data = json.loads(latest_lock.read_text(encoding="utf-8"))
+                sent_at_str = lock_data.get("sent_at")
+                if sent_at_str:
+                    latest_lock_dt = _parse_iso(sent_at_str)
+                    if latest_lock_dt:
+                        latest_date = latest_lock_dt.strftime("%Y-%m-%d")
+            except Exception:
+                latest_lock_dt = _file_mtime(latest_lock)
+                if latest_lock_dt:
+                    latest_date = latest_lock_dt.strftime("%Y-%m-%d")
+
+        if latest_lock_dt:
+            age = _age_minutes(latest_lock_dt)
+            freshness["morning_briefing"] = {
+                "last_sent": latest_date,
+                "age_label": _age_label(age),
+                "stale": age is None or age > 1440,
+            }
+        elif _BRIEFING_SENT_JSON.exists():
             data = json.loads(_BRIEFING_SENT_JSON.read_text(encoding="utf-8"))
             # Values are date strings "YYYY-MM-DD"; find the most recent
             if data:

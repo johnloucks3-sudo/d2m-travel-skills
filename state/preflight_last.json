@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-07-28T12:56:59.625846",
+  "overall": "GREEN",
+  "checks": [
+    {
+      "name": "MCP Server",
+      "status": "GREEN",
+      "message": "Running (PID 3038)"
+    },
+    {
+      "name": "Scheduler",
+      "status": "GREEN",
+      "message": "Running (PID 3055)"
+    },
+    {
+      "name": "Telegram C2",
+      "status": "GREEN",
+      "message": "Running (PID 2144184)"
+    },
+    {
+      "name": "Gmail Token",
+      "status": "GREEN",
+      "message": "Valid (has refresh token)"
+    },
+    {
+      "name": "Persona Token",
+      "status": "GREEN",
+      "message": "Valid (has refresh token)"
+    },
+    {
+      "name": "Disk Space",
+      "status": "GREEN",
+      "message": "731.6 GB free"
+    },
+    {
+      "name": "TELEGRAM_BOT_TOKEN",
+      "status": "GREEN",
+      "message": "Set"
+    },
+    {
+      "name": "TELEGRAM_COMMANDER_ID",
+      "status": "GREEN",
+      "message": "Set"
+    },
+    {
+      "name": "GROQ_API_KEY",
+      "status": "GREEN",
+      "message": "Set"
+    },
+    {
+      "name": "Internet",
+      "status": "GREEN",
+      "message": "Connected"
+    },
+    {
+      "name": "Gemini API",
+      "status": "GREEN",
+      "message": "Responding"
+    },
+    {
+      "name": "MCP Port 8765",
+      "status": "GREEN",
+      "message": "Listening"
+    }
+  ]
+}

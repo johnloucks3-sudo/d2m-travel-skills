@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-07-15-001",
+    "title": "OpenAI AGI Research",
+    "source_signal": "OpenAI | Research & Deployment: We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building safe and benef (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Future-oriented AGI research is too immature for current integration but represents a significant future development."
+  },
+  {
+    "id": "A2-2026-07-15-002",
+    "title": "ChatGPT AI Assistant",
+    "source_signal": "ChatGPT: Chat with the most advanced AI to explore ideas, solve problems, and learn faster. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Enhanced problem-solving and knowledge exploration capabilities",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Integrates advanced AI for improved problem-solving and knowledge exploration, directly impacting client-facing capabilities and requiring SSS."
+  },
+  {
+    "id": "A2-2026-07-15-003",
+    "title": "Google Gemini AI Assistant",
+    "source_signal": "Google Gemini: Meet Gemini, Google\u2019s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Enhanced content generation and planning capabilities",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Integrates generative AI for enhanced content generation and planning, impacting client-facing capabilities and requiring SSS."
+  },
+  {
+    "id": "A2-2026-07-15-004",
+    "title": "DeepAI Video Generation",
+    "source_signal": "DeepAI: Whether you are a hobbyist, a professional artist, or a developer integrating AI into your product, DeepAI delivers advanced technology with new video (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "AI-powered video generation technology is interesting but not directly applicable to current Thunderbird components and requires further research."
+  },
+  {
+    "id": "A2-2026-07-15-005",
+    "title": "Google AI Helpful Tools",
+    "source_signal": "Google AI - How we're making AI helpful for everyone: Discover how Google AI is committed to enriching knowledge, solving complex challenges and helping people grow by building useful AI tools and technol (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": null,
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "General information on Google's AI initiatives does not present a specific integration opportunity or gap closure."
+  },
+  {
+    "id": "A2-2026-07-15-006",
+    "title": "Duck.ai Private AI Chat",
+    "source_signal": "Duck.ai by DuckDuckGo. Private AI chat. Free.: Protect chats from hackers, scammers, and companies. Keep info confidential. Free. No account required. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Enhanced private and secure communication channels",
+    "thunderbird_component": "Communications Suite",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Offers private AI chat capabilities that can enhance secure communication within Thunderbird, with low integration risk and no client-facing changes."
+  }
+]

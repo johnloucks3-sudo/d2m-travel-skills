@@ -19,7 +19,7 @@ completed_tps: ["0.5", "1.1"]
 completed_tps_basis: "TP 0.5 Welcome/Validation sent 2026-06-24 directly to johnloucks3@gmail.com (WF-17 waived, Loucks-as-client). msg_id=19efcefbeb4c054a. TP 1.1 Voyage Preview sent 2026-06-24 directly to johnloucks3@gmail.com (WF-17 waived). msg_id=19efb063e04a6a37. FPD Aug 1 2026 FUTURE → payment TPs NOT done (deposit only $1,000). Guest registration NOT COMPLETE (both John & Susan). Insurance NOT BOOKED."
 ---
 # DOSSIER — John & Susan Loucks | Regent Seven Seas Grandeur | Panama Canal & Pacific Gems
-**Status: 55% COMPLETE | Last updated: 2026-06-19 (portal scrape — excursions, hotel, OBC confirmed)**
+**Status: 55% COMPLETE | Last updated: 2026-07-28 (portal scrape — excursions, hotel, OBC confirmed)**
 **FPD: Aug 1, 2026 — 60-day alert Jun 2, 2026 | 30-day alert Jul 2, 2026** | **Balance: $24,798**
 **Embarkation: Dec 29, 2026, Miami | Disembarkation: Jan 14, 2027, Los Angeles**
 **Companions: Nancy & Ken Lyons (separate booking, same ship)**
@@ -124,9 +124,33 @@ completed_tps_basis: "TP 0.5 Welcome/Validation sent 2026-06-24 directly to john
 | Segment | Item | Status | Notes |
 |---------|------|--------|-------|
 | Pre-cruise | FLL hotel Dec 27-28 (1 night) | ❌ NOT BOOKED | Need recommendation |
-| Pre-cruise | **GRAND BEACH HOTEL MIAMI BEACH** — Miami Dec 28-29 (1 night) | ✅ BOOKED (Regent A La Carte) | Confirmed via Regent portal 2026-06-19 |
+| Pre-cruise | **GRAND BEACH HOTEL MIAMI BEACH** — Miami Dec 28-29 (1 night) | ✅ BOOKED (Regent A La Carte) | Confirmed via Regent portal |
 | Embarkation | FLL→Port of Miami transfer Dec 29 | ❌ NOT PLANNED | ~30 mi — Uber/Lyft ~$45-60 |
 | Disembarkation | Port of LA→LAX/SNA transfer Jan 14 | ❌ NOT PLANNED | LAX ~35 min, SNA ~60 min |
+
+### Regent Portal Hotel & Add-On Details
+| Description | Add | Reserved | Price |
+|---|---|---|---|
+| **Adventures Ashore** | | No Adventures Ashore selected. | — |
+| **Pre/Post Land Adventures** | | No Pre/Post Land Adventures selected. | — |
+| **Hotel A La Carte** | | **GRAND BEACH HOTEL MIAMI BEACH** (1 nights) - Pre Cruise<br>• LOUCKS, JOHN<br>• LOUCKS, SUSAN | — |
+| **RegentCare Insurance** | | N/A | — |
+| **Total** | | | **$0.00** |
+
+*Raw portal copy (2026-07-28):*
+```text
+Description    Add    Reserved    Price
+Adventures Ashore
+No Adventures Ashore selected.
+Pre/Post Land Adventures
+No Pre/Post Land Adventures selected.
+Hotel A La Carte
+GRAND BEACH HOTEL MIAMI BEACH (1 nights) - Pre Cruise            -
+LOUCKS, JOHN    -
+LOUCKS, SUSAN    -
+RegentCare Insurance:    N/A
+Total:    $0.00
+```
 
 ---
 
@@ -176,9 +200,9 @@ completed_tps_basis: "TP 0.5 Welcome/Validation sent 2026-06-24 directly to john
 | 15 | Excursions | Culinary Arts Kitchen | Optional | ⏳ OPENS AUG 31 | |
 | 16 | Dining | Specialty dining | Optional | ⏳ OPENS SEP 30 | |
 | 17 | Admin | Online check-in | YES | ⏳ OPENS DEC 8 | |
-| 18 | Admin | Dossier current | YES | ✅ YES | Updated 2026-06-06 |
+| 18 | Admin | Dossier current | YES | ✅ YES | Updated 2026-07-28 |
 
-**Coverage: ~55%** | **Critical Gaps:** Flights (both legs + Lyons), insurance, guest registration, FLL hotel (Dec 27-28), transfers, final payment ($24,798 due Aug 1) | **Updated 2026-06-19:** Miami hotel BOOKED (Grand Beach), 7 shore excursions BOOKED (all $0 included), OBC $300 confirmed, NCLH stockholder $250 NOT enrolled
+**Coverage: ~55%** | **Critical Gaps:** Flights (both legs + Lyons), insurance, guest registration, FLL hotel (Dec 27-28), transfers, final payment ($24,798 due Aug 1) | **Updated 2026-07-28:** Miami hotel BOOKED (Grand Beach), 7 shore excursions BOOKED (all $0 included), OBC $300 confirmed, NCLH stockholder $250 NOT enrolled
 
 ---
 
@@ -210,3 +234,7 @@ completed_tps_basis: "TP 0.5 Welcome/Validation sent 2026-06-24 directly to john
 ---
 
 *Dossier built 2026-06-06 per Commander directive. Fare watches active. FPD 60-day alert Jun 2.*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

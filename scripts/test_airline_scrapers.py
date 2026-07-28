@@ -656,6 +656,11 @@ async def _centrav_search_and_extract(
         log(f"  Centrav [{cabin}] — homepage loaded: {page.url}")
 
         # ── Set hidden inputs directly (trip type + cabin class) ─────────────
+        # NOTE: still hardcoded one-way (diagnostic script, not wired to any
+        # fare watch). The production path — core/travel/thunderbird_
+        # centrav_search.py::run_centrav_search — now supports
+        # trip_type="roundtrip"; port that fix here if this script is ever
+        # promoted beyond ad hoc diagnostics.
         await page.evaluate(f"""() => {{
             const tripInput = document.getElementById('FareTripTypeInput');
             if (tripInput) tripInput.value = 'OneWay';
@@ -739,6 +744,10 @@ async def _centrav_search_and_extract(
             pass
 
     # ── Extract prices ────────────────────────────────────────────────────────
+    # Regex was whole-dollar-only — could never match Centrav's actual
+    # per-fare-card totals ("Published Fare $514.40"), which always carry
+    # cents; only the coarser Fare Matrix summary cells (whole dollars) ever
+    # matched. See hale_decisions.md 2026-07-09 Centrav scraper bug entry.
     raw_prices = await page.evaluate("""() => {
         const prices = [];
         const selectors = [
@@ -748,7 +757,7 @@ async def _centrav_search_and_extract(
         for (const sel of selectors) {
             document.querySelectorAll(sel).forEach(el => {
                 const t = (el.innerText || el.textContent || '').trim();
-                const m = t.match(/^\\$[\\d,]+$/);
+                const m = t.match(/^\\$[\\d,]+(?:\\.\\d{2})?$/);
                 if (m) prices.push(m[0]);
             });
             if (prices.length > 3) break;

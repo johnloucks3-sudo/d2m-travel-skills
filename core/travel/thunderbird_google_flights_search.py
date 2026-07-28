@@ -129,7 +129,7 @@ def search_flights(
         f"{BASE_URL}/searchFlights",
         params=params,
         headers=_headers(),
-        timeout=30,
+        timeout=60,
     )
     r.raise_for_status()
     return r.json()
@@ -137,12 +137,15 @@ def search_flights(
 
 def cheapest_itinerary(search_result: dict) -> Optional[dict]:
     """Convenience: pull the cheapest itinerary out of a search response
-    (checks both topFlights and otherFlights)."""
+    (checks both topFlights and otherFlights). otherFlights can contain
+    price: "unavailable" (string) instead of a number — those are excluded
+    rather than crashing the min() comparison."""
     itins = search_result.get("data", {}).get("itineraries", {})
     all_itins = itins.get("topFlights", []) + itins.get("otherFlights", [])
-    if not all_itins:
+    priced = [i for i in all_itins if isinstance(i.get("price"), (int, float))]
+    if not priced:
         return None
-    return min(all_itins, key=lambda i: i.get("price", float("inf")))
+    return min(priced, key=lambda i: i["price"])
 
 
 def register_google_flights_tools(mcp: FastMCP):

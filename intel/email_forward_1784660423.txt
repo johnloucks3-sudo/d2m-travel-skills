@@ -1,0 +1,33 @@
+Subject: Tech Scan 2026-07-21 19:00 UTC — 4 trial / 3 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-21T19:00:23.992026+00:00
+
+TECH SCAN — 2026-07-21 19:00 UTC
+airborne scanner pulse · 11 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 4 TRIAL · 4 WATCH · 3 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:40–90% fewer tokens on Claude Code via TokenOptimization — https://github.com/IterateAI/compression
+↳ real tool (github.com) — worth a bounded look
+Show HN: Tokenmaxx – CLI that merges usage across Claude Code and Codex accounts — https://github.com/RubricLab/tokenmaxx
+↳ real tool (github.com) — worth a bounded look
+Show HN: Back up Claude Code sessions from Codespaces to a private repo — https://github.com/markmatsu/claude-logkeeper
+↳ real tool (github.com) — worth a bounded look
+Codekeel: A context drift governance tool for Claude Code — https://github.com/HabibiCodeCH/codekeel
+↳ real tool (tool, github.com) — worth a bounded look
+👁 WATCH:A Fireside Chat with Cat and Thariq from the Claude Code Team — https://simonwillison.net/2026/Jul/21/cat-and-
+Show HN: ChatPanel, A Privacy-first AI Agent browser side panel — https://chatpanel.net/
+NestJS Agent Skills for Claude Code and Codex — https://dev.to/amirtaherkhani/i-built-3-conflict-checked-nestj
+I built a package manager for AI agent best practices — because knowing them and applying them are completely 
+🗑 KILLED (3) — discussion/opinion, not tools (so they don't pile up):Ask HN: Which model do you use with Pi coding agent? — https://news.ycombinator.com/item?i
+Ask HN: Claude Code or Codex? — https://news.ycombinator.com/item?id=48989357
+Loop Engineering: How To Stop The "You're Absolutely Right" Sycophancy — https://dev.to/re
+RAW — all finds this pulse (unfiltered)[claude-code] 40–90% fewer tokens on Claude Code via TokenOptimization — https://github.com/IterateAI/compression (Hacker News — Claude Code)
+[claude-code] Show HN: Tokenmaxx – CLI that merges usage across Claude Code and Codex accounts — https://github.com/RubricLab/tokenmax (Hacker News — Claude Code)
+[claude-code] Show HN: Back up Claude Code sessions from Codespaces to a private repo — https://github.com/markmatsu/claude-logkeeper (Hacker News — Claude Code)
+[claude-code] A Fireside Chat with Cat and Thariq from the Claude Code Team — https://simonwillison.net/2026/Jul/21/cat-and-thariq/ (Hacker News — Claude Code)
+[agentic] Ask HN: Which model do you use with Pi coding agent? — https://news.ycombinator.com/item?id=48991997 (Hacker News — Claude Code)
+[claude-code] Codekeel: A context drift governance tool for Claude Code — https://github.com/HabibiCodeCH/codekeel (Hacker News — Claude Code)
+[agentic] Show HN: ChatPanel, A Privacy-first AI Agent browser side panel — https://chatpanel.net/ (Hacker News — Claude Code)
+[claude-code] Ask HN: Claude Code or Codex? — https://news.ycombinator.com/item?id=48989357 (Hacker News — Claude Code)
+[agentic] Loop Engineering: How To Stop The "You're Absolutely Right" Sycophancy — https://dev.to/reporails/loop-engineering-how-t (dev.to Claude)
+[claude-

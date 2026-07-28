@@ -1,0 +1,77 @@
+{
+  "mission_id": "MCLEOD-SILVER-MUSE-WELCOME-HOME",
+  "evaluation_timestamp": "2026-07-13T00:20:00Z",
+  "evaluation_revision": "v2 — BLOCKER IDENTIFIED",
+  "prior_evaluation_timestamp": "2026-07-13T00:05:00Z",
+  "client": "Erik McLeod & Melissa McGlasson",
+  "voyage": "Silver Muse Mediterranean Discovery",
+  "voyage_return_date": "2026-07-06",
+  "days_since_return": 7,
+  "touchpoint": "TP 5.1 Welcome Home",
+  "scheduled_send_date": "2026-07-13",
+  "decision": "HOLD_EMAIL_ADDRESS_CORRECTION_REQUIRED",
+  "severity": "HIGH",
+  "reasoning": "Voyage returned 7 days ago (appropriate timing). TP 5.1 draft is professionally written, personalized with specific voyage memories, and follows D2M standards. HOWEVER: Email addresses in draft are PLACEHOLDER DUMMY VALUES, not actual client emails. Prior evaluation missed this critical issue. Email will bounce if sent to @exampleemail.com addresses.",
+  "critical_blocker_details": {
+    "issue": "Email addresses are placeholder/example values, not actual client contact information",
+    "draft_file": "/home/john/Thunderbird/drafts/McLeod_SilverMuse_TP51_WelcomeHome.html",
+    "draft_line": 2,
+    "current_to_address": "emcleod@exampleemail.com",
+    "current_cc_address": "mmcglasson@exampleemail.com",
+    "correct_to_address": "emcleod@gmail.com",
+    "correct_cc_address": "memcglas@gmail.com",
+    "source_of_correction": "Client context cache (McLeod_context.json, verified 2026-06-30)",
+    "impact": "Email will bounce on send attempt. TP 5.1 fails completely. Client receives nothing.",
+    "fix_effort": "MINIMAL (1-minute email address edit in draft HTML)"
+  },
+  "recommended_action": [
+    "STEP 1: Correct email addresses in draft HTML (line 2 and any mailto links)",
+    "  - TO: emcleod@gmail.com (Erik McLeod)",
+    "  - CC: memcglas@gmail.com (Melissa McGlasson)",
+    "STEP 2: Validate corrected addresses match client dossier (double-check)",
+    "STEP 3: Route corrected draft to Commander for WF-17 review/send approval",
+    "STEP 4: Commander sends from johnloucks3 when ready",
+    "STEP 5: Log TP 5.1 send completion in dossier",
+    "STEP 6: Schedule TP 5.2 Survey for 2026-07-20"
+  ],
+  "blockers": [
+    {
+      "id": "EMAIL_ADDRESS_PLACEHOLDER",
+      "description": "To and CC addresses are @exampleemail.com dummy values",
+      "severity": "CRITICAL",
+      "resolves_to_ready": true
+    }
+  ],
+  "client_status": {
+    "payment": "PAID_IN_FULL",
+    "payment_verified_date": "2026-06-09",
+    "payment_source": "Silversea final invoice 298475-25",
+    "fpd_amount": 27813.32,
+    "commission": 2594.54,
+    "contact_hold": "LIFTED (was active until 2026-07-07)"
+  },
+  "draft_location": "/home/john/Thunderbird/drafts/McLeod_SilverMuse_TP51_WelcomeHome.html",
+  "draft_quality_assessment": {
+    "content_quality": "EXCELLENT",
+    "personalization": "HIGH (Colosseum, Florence historian, La Dame birthday dinner)",
+    "voice_consistency": "MATCHES_JOHN_SIGNATURE",
+    "formatting": "D2M_DARK_NAVY_TEMPLATE_COMPLIANT",
+    "voyage_details_accuracy": "VERIFIED",
+    "recipient_email_addresses": "INCORRECT_PLACEHOLDER_VALUES",
+    "send_from_address": "johnloucks3@gmail.com (CORRECT)"
+  },
+  "next_touchpoint": {
+    "tp": "5.2",
+    "type": "Post-Voyage Survey",
+    "scheduled_date": "2026-07-20",
+    "template_ready": true,
+    "draft_location": "/home/john/Thunderbird/drafts/McLeod_Survey_Draft.eml"
+  },
+  "timeline": {
+    "voyage_returned": "2026-07-06",
+    "tp_5_1_due_date": "2026-07-13",
+    "status_at_evaluation": "OVERDUE_BUT_CORRECTABLE_TODAY",
+    "tp_5_2_due_date": "2026-07-20"
+  },
+  "notes": "Prior evaluation (00:05Z) cleared this draft as 'production-ready' but missed placeholder email addresses. CORRECTION REQUIRED before any send attempt. Fix is trivial (30-second edit). No other issues identified. Content is sound."
+}

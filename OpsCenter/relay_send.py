@@ -51,6 +51,7 @@ THUNDERBIRD = Path(__file__).parent.parent
 RELAY_QUEUE = THUNDERBIRD / "OpsCenter" / "relay_queue.jsonl"
 OC_INBOX    = THUNDERBIRD / "OpsCenter" / "collaboration" / "opencode_inbox.md"
 CC_INBOX    = THUNDERBIRD / "OpsCenter" / "collaboration" / "claude_inbox.md"
+AG_INBOX    = THUNDERBIRD / "OpsCenter" / "collaboration" / "antigravity_inbox.md"
 GW_SCRIPT   = THUNDERBIRD / "OpsCenter" / "thunderbird_telegram_gw.py"
 
 # Telegram tokens (loaded from env)
@@ -164,6 +165,13 @@ def send_relay(from_app: str, to_app: str, message: str, priority: str = "normal
         # But also write to CC inbox for backward compat
         _write_cc_inbox(from_tag, message, msg_id, priority)
 
+    elif to_tag == "AG":
+        # Write to antigravity_inbox.md so AG (Hale-Antigravity) can pick it up
+        # via file polling — same pattern OC uses. The gateway drain only
+        # auto-replies to to=="CC" items, so AG-inbound needs this direct write
+        # for CC→AG and OC→AG delivery (no headless auto-response toward AG).
+        _write_ag_inbox(from_tag, message, msg_id, priority)
+
     elif to_tag == "COMMANDER":
         # Route to D2MC2C — genuine gate item only
         d2mc2c_token    = env.get("TELEGRAM_D2MC2C_TOKEN", "")
@@ -196,6 +204,20 @@ def _write_cc_inbox(from_app: str, message: str, msg_id: str, priority: str):
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     CC_INBOX.parent.mkdir(parents=True, exist_ok=True)
     with open(CC_INBOX, "a") as f:
+        f.write(f"""
+---
+## RELAY-{msg_id} from {from_app} — {ts}
+priority: {priority}
+status: UNREAD
+task: |
+{chr(10).join('  ' + line for line in message.splitlines())}
+""")
+
+
+def _write_ag_inbox(from_app: str, message: str, msg_id: str, priority: str):
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    AG_INBOX.parent.mkdir(parents=True, exist_ok=True)
+    with open(AG_INBOX, "a") as f:
         f.write(f"""
 ---
 ## RELAY-{msg_id} from {from_app} — {ts}
@@ -251,7 +273,7 @@ def main():
     parser.add_argument("--from", dest="from_app", default="CC",
                         help="Sender: OC or CC (default: CC)")
     parser.add_argument("--to", dest="to_app", default="OC",
-                        help="Recipient: OC, CC, or COMMANDER (default: OC)")
+                        help="Recipient: OC, CC, AG, or COMMANDER (default: OC)")
     parser.add_argument("--priority", choices=["high", "normal", "low"],
                         default="normal")
     parser.add_argument("--read", metavar="APP",

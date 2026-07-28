@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-07-17T01:13:29.797117+00:00",
+  "started_at": "2026-07-28T14:00:33.445990+00:00",
   "routes": [
     {
       "watch_id": "kuklinski-flights-ric-pty",
@@ -7,10 +7,10 @@
       "destination": "tocumen-international-panama-city-panama",
       "status": "ok",
       "cheapest": {
-        "id": "ItineraryReturn:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQjY6MTE0NTpSSUM6MTc5NzUxNDgwMDpGTEw6MTc5NzUyMzgwMDplY29ub215OkZhbHNlOjo6QjZ8QjY6Mzk6RkxMOjE3OTc1MjY4MDA6U0pPOjE3OTc1Mzc2MDA6ZWNvbm9teTpGYWxzZTo6OkI2fENNOjExNTpTSk86MTc5NzU1MTU4MDpQVFk6MTc5NzU1NjgwMDplY29ub215OlRydWU6OlRydWU6Q018QVY6MzE2OlBUWToxNzk4NDE5MDAwOlNBTDoxNzk4NDI2NTAwOmVjb25vbXk6RmFsc2U6OjpUQXxBVjo1ODA6U0FMOjE3OTg0MzA3MDA6SUFEOjE3OTg0NDU0MDA6ZWNvbm9teTpGYWxzZTo6OlRBfEI2OjE5NTQ6RENBOjE3OTg0NzQ4MDA6Qk9TOjE3OTg0ODAyMDA6ZWNvbm9teTpUcnVlOjpUcnVlOkI2fEI2OjE0ODE6Qk9TOjE3OTg0OTIwMjA6UklDOjE3OTg0OTkyMjA6ZWNvbm9teTpGYWxzZTo6OkI2IiwicHJpY2UiOiI2MDUzIn0=",
-        "legacy_id": "169a076b51440000b6c67612_0-169a076b51440000b6c67612_1-076b15d351440000117110ab_0-15d311af514e0000763d96c0_0-15d311af514e0000763d96c0_1-0b3b169a514f0000cc6ab557_0-0b3b169a514f0000cc6ab557_1",
+        "id": "ItineraryReturn:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiQjY6MTE0NTpSSUM6MTc5NzUwNjcwMDpGTEw6MTc5NzUxNTQ2MDplY29ub215OkZhbHNlOjo6QjZ8QjY6MjAzOTpGTEw6MTc5NzUxOTMwMDpTSk86MTc5NzUyOTgwMDplY29ub215OkZhbHNlOjo6QjZ8Q006MTQ1OlNKTzoxNzk3NTM4NjIwOlBUWToxNzk3NTQzODQwOmVjb25vbXk6VHJ1ZTo6VHJ1ZTpDTXxBVjo0MTpQVFk6MTc5ODM1ODEwMDpCT0c6MTc5ODM2NDQwMDplY29ub215OkZhbHNlOjo6QVZ8QVY6MTk0OkJPRzoxNzk4MzgwNjAwOlRQQToxNzk4Mzk1OTAwOmVjb25vbXk6RmFsc2U6OjpBVnxNWDoyNDExOlRQQToxNzk4NDU1OTAwOlJJQzoxNzk4NDYzNTgwOmVjb25vbXk6VHJ1ZTo6VHJ1ZTpNWCIsInByaWNlIjoiNTMzMSJ9",
+        "legacy_id": "169a076b514400009c48b131_0-169a076b514400009c48b131_1-076b15d3514400006c06e4ee_0-15d31ff5514e0000197aebd1_0-15d31ff5514e0000197aebd1_1-1ff5169a514f00006a6545ed_0",
         "type": "RETURN",
-        "duration_seconds": 122220,
+        "duration_seconds": 142620,
         "cabin_classes": [
           "ECONOMY"
         ],
@@ -19,26 +19,26 @@
           "name": "Kiwi.com"
         },
         "price": {
-          "amount": 6053,
+          "amount": 5331,
           "currency": "USD"
         },
-        "price_eur": 5289.692136,
+        "price_eur": 4690.242518,
         "outbound": {
-          "id": "Sector:2ff1a90be6caa9807479f7c3873af403f6090f23~5c0197fb492f0223e8fb992baa6be4b196bf39f5|2af7d6bbbceaf61640b6265ef7430fcc0f612705|6e7dc8d4782f255624110ad8517805ffef964fea",
-          "duration_seconds": 42000,
+          "id": "Sector:3e53fa8f6ec20bfadf7929373447db4c67aba78d~8e57dec97cd06740b2d1b81378ede5d97ed7ff9d|1f0ec01bb70f7c731884306d3d1ce48d602c3168|bdc167b4f64698ee9b5247ff1696685668eb2262",
+          "duration_seconds": 37140,
           "carriers": [
-            {
-              "code": "CM",
-              "name": "Copa Airlines"
-            },
             {
               "code": "B6",
               "name": "JetBlue Airways"
+            },
+            {
+              "code": "CM",
+              "name": "Copa Airlines"
             }
           ],
           "segments": [
             {
-              "id": "Segment:5c0197fb492f0223e8fb992baa6be4b196bf39f5",
+              "id": "Segment:8e57dec97cd06740b2d1b81378ede5d97ed7ff9d",
               "type": "FLIGHT",
               "flight_number": "1145",
               "cabin_class": "ECONOMY",
@@ -56,8 +56,8 @@
                   "name": "Richmond International",
                   "city": "Richmond"
                 },
-                "local_time": "2026-12-17T08:40:00",
-                "utc_time": "2026-12-17T13:40:00"
+                "local_time": "2026-12-17T06:25:00",
+                "utc_time": "2026-12-17T11:25:00"
               },
               "destination": {
                 "station": {
@@ -65,15 +65,15 @@
                   "name": "Fort Lauderdale\u2013Hollywood International",
                   "city": "Fort Lauderdale"
                 },
-                "local_time": "2026-12-17T11:10:00",
-                "utc_time": "2026-12-17T16:10:00"
+                "local_time": "2026-12-17T08:51:00",
+                "utc_time": "2026-12-17T13:51:00"
               },
-              "duration_seconds": 9000
+              "duration_seconds": 8760
             },
             {
-              "id": "Segment:2af7d6bbbceaf61640b6265ef7430fcc0f612705",
+              "id": "Segment:1f0ec01bb70f7c731884306d3d1ce48d602c3168",
               "type": "FLIGHT",
-              "flight_number": "39",
+              "flight_number": "2039",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "B6",
@@ -89,8 +89,8 @@
                   "name": "Fort Lauderdale\u2013Hollywood International",
                   "city": "Fort Lauderdale"
                 },
-                "local_time": "2026-12-17T12:00:00",
-                "utc_time": "2026-12-17T17:00:00"
+                "local_time": "2026-12-17T09:55:00",
+                "utc_time": "2026-12-17T14:55:00"
               },
               "destination": {
                 "station": {
@@ -98,15 +98,15 @@
                   "name": "Juan Santamar\u00eda International",
                   "city": "San Jos\u00e9"
                 },
-                "local_time": "2026-12-17T14:00:00",
-                "utc_time": "2026-12-17T20:00:00"
+                "local_time": "2026-12-17T11:50:00",
+                "utc_time": "2026-12-17T17:50:00"
               },
-              "duration_seconds": 10800
+              "duration_seconds": 10500
             },
             {
-              "id": "Segment:6e7dc8d4782f255624110ad8517805ffef964fea",
+              "id": "Segment:bdc167b4f64698ee9b5247ff1696685668eb2262",
               "type": "FLIGHT",
-              "flight_number": "115",
+              "flight_number": "145",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "CM",
@@ -122,8 +122,8 @@
                   "name": "Juan Santamar\u00eda International",
                   "city": "San Jos\u00e9"
                 },
-                "local_time": "2026-12-17T17:53:00",
-                "utc_time": "2026-12-17T23:53:00"
+                "local_time": "2026-12-17T14:17:00",
+                "utc_time": "2026-12-17T20:17:00"
               },
               "destination": {
                 "station": {
@@ -131,21 +131,21 @@
                   "name": "Tocumen International",
                   "city": "Panama"
                 },
-                "local_time": "2026-12-17T20:20:00",
-                "utc_time": "2026-12-18T01:20:00"
+                "local_time": "2026-12-17T16:44:00",
+                "utc_time": "2026-12-17T21:44:00"
               },
               "duration_seconds": 5220
             }
           ],
           "layovers": [
             {
-              "duration_seconds": 3000,
+              "duration_seconds": 3840,
               "is_station_change": false,
               "is_baggage_recheck": false,
               "transfer_type": null
             },
             {
-              "duration_seconds": 13980,
+              "duration_seconds": 8820,
               "is_station_change": false,
               "is_baggage_recheck": true,
               "transfer_type": null
@@ -153,31 +153,31 @@
           ]
         },
         "inbound": {
-          "id": "Sector:47e7c37a634723906f72fe9ff733907e0850e180~0ba7e48282ac10436b5112e4411194f6f1b4e5a4|31c20431b594603a21bfd39da52b97828abfb676|48a795b2b45ffa32ea7b1bb0f93e4a14ad480870|61e5eb426f4190b63f79eca2029b0fbe2be3fafc",
-          "duration_seconds": 80220,
+          "id": "Sector:fb4f4d38873eb4873143e41d06f154d8719ec98d~04ee19d639405f29df4b4844d9a73e1c1632402b|40c30156cf1a630e66100954baf5b70469550434|c6845419e18ae8c415cac6a7e0aa3762c3907743",
+          "duration_seconds": 105480,
           "carriers": [
             {
               "code": "AV",
               "name": "Avianca"
             },
             {
-              "code": "B6",
-              "name": "JetBlue Airways"
+              "code": "MX",
+              "name": "BREEZE"
             }
           ],
           "segments": [
             {
-              "id": "Segment:0ba7e48282ac10436b5112e4411194f6f1b4e5a4",
+              "id": "Segment:04ee19d639405f29df4b4844d9a73e1c1632402b",
               "type": "FLIGHT",
-              "flight_number": "316",
+              "flight_number": "41",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "AV",
                 "name": "Avianca"
               },
               "operating_carrier": {
-                "code": "TA",
-                "name": "Avianca El Salvador"
+                "code": "AV",
+                "name": "Avianca"
               },
               "source": {
                 "station": {
@@ -185,107 +185,74 @@
                   "name": "Tocumen International",
                   "city": "Panama"
                 },
-                "local_time": "2026-12-27T19:50:00",
-                "utc_time": "2026-12-28T00:50:00"
+                "local_time": "2026-12-27T02:55:00",
+                "utc_time": "2026-12-27T07:55:00"
               },
               "destination": {
                 "station": {
-                  "code": "SAL",
-                  "name": "Monse\u00f1or \u00d3scar Arnulfo Romero International",
-                  "city": "San Salvador"
+                  "code": "BOG",
+                  "name": "El Dorado International",
+                  "city": "Bogot\u00e1"
                 },
-                "local_time": "2026-12-27T20:55:00",
-                "utc_time": "2026-12-28T02:55:00"
+                "local_time": "2026-12-27T04:40:00",
+                "utc_time": "2026-12-27T09:40:00"
               },
-              "duration_seconds": 7500
+              "duration_seconds": 6300
             },
             {
-              "id": "Segment:31c20431b594603a21bfd39da52b97828abfb676",
+              "id": "Segment:40c30156cf1a630e66100954baf5b70469550434",
               "type": "FLIGHT",
-              "flight_number": "580",
+              "flight_number": "194",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "AV",
                 "name": "Avianca"
               },
               "operating_carrier": {
-                "code": "TA",
-                "name": "Avianca El Salvador"
+                "code": "AV",
+                "name": "Avianca"
               },
               "source": {
                 "station": {
-                  "code": "SAL",
-                  "name": "Monse\u00f1or \u00d3scar Arnulfo Romero International",
-                  "city": "San Salvador"
+                  "code": "BOG",
+                  "name": "El Dorado International",
+                  "city": "Bogot\u00e1"
                 },
-                "local_time": "2026-12-27T22:05:00",
-                "utc_time": "2026-12-28T04:05:00"
+                "local_time": "2026-12-27T09:10:00",
+                "utc_time": "2026-12-27T14:10:00"
               },
               "destination": {
                 "station": {
-                  "code": "IAD",
-                  "name": "Washington Dulles International",
-                  "city": "Washington, D.C."
+                  "code": "TPA",
+                  "name": "Tampa International",
+                  "city": "Tampa"
                 },
-                "local_time": "2026-12-28T03:10:00",
-                "utc_time": "2026-12-28T08:10:00"
+                "local_time": "2026-12-27T13:25:00",
+                "utc_time": "2026-12-27T18:25:00"
               },
-              "duration_seconds": 14700
+              "duration_seconds": 15300
             },
             {
-              "id": "Segment:48a795b2b45ffa32ea7b1bb0f93e4a14ad480870",
+              "id": "Segment:c6845419e18ae8c415cac6a7e0aa3762c3907743",
               "type": "FLIGHT",
-              "flight_number": "1954",
+              "flight_number": "2411",
               "cabin_class": "ECONOMY",
               "carrier": {
-                "code": "B6",
-                "name": "JetBlue Airways"
+                "code": "MX",
+                "name": "BREEZE"
               },
               "operating_carrier": {
-                "code": "B6",
-                "name": "JetBlue Airways"
+                "code": "MX",
+                "name": "BREEZE"
               },
               "source": {
                 "station": {
-                  "code": "DCA",
-                  "name": "Ronald Reagan Washington National",
-                  "city": "Washington, D.C."
+                  "code": "TPA",
+                  "name": "Tampa International",
+                  "city": "Tampa"
                 },
-                "local_time": "2026-12-28T11:20:00",
-                "utc_time": "2026-12-28T16:20:00"
-              },
-              "destination": {
-                "station": {
-                  "code": "BOS",
-                  "name": "Logan International",
-                  "city": "Boston"
-                },
-                "local_time": "2026-12-28T12:50:00",
-                "utc_time": "2026-12-28T17:50:00"
-              },
-              "duration_seconds": 5400
-            },
-            {
-              "id": "Segment:61e5eb426f4190b63f79eca2029b0fbe2be3fafc",
-              "type": "FLIGHT",
-              "flight_number": "1481",
-              "cabin_class": "ECONOMY",
-              "carrier": {
-                "code": "B6",
-                "name": "JetBlue Airways"
-              },
-              "operating_carrier": {
-                "code": "B6",
-                "name": "JetBlue Airways"
-              },
-              "source": {
-                "station": {
-                  "code": "BOS",
-                  "name": "Logan International",
-                  "city": "Boston"
-                },
-                "local_time": "2026-12-28T16:07:00",
-                "utc_time": "2026-12-28T21:07:00"
+                "local_time": "2026-12-28T06:05:00",
+                "utc_time": "2026-12-28T11:05:00"
               },
               "destination": {
                 "station": {
@@ -293,29 +260,23 @@
                   "name": "Richmond International",
                   "city": "Richmond"
                 },
-                "local_time": "2026-12-28T18:07:00",
-                "utc_time": "2026-12-28T23:07:00"
+                "local_time": "2026-12-28T08:13:00",
+                "utc_time": "2026-12-28T13:13:00"
               },
-              "duration_seconds": 7200
+              "duration_seconds": 7680
             }
           ],
           "layovers": [
             {
-              "duration_seconds": 4200,
+              "duration_seconds": 16200,
               "is_station_change": false,
               "is_baggage_recheck": false,
               "transfer_type": null
             },
             {
-              "duration_seconds": 29400,
-              "is_station_change": true,
+              "duration_seconds": 60000,
+              "is_station_change": false,
               "is_baggage_recheck": true,
-              "transfer_type": null
-            },
-            {
-              "duration_seconds": 11820,
-              "is_station_change": false,
-              "is_baggage_recheck": false,
               "transfer_type": null
             }
           ]
@@ -324,19 +285,19 @@
         "booking_options": [
           {
             "provider": "Kiwi.com",
-            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=4-0-0&token=HryRKYusNOJvve9iDVR4JSIedm37Rf-m16mpgj9X-7YBkuY1uvCm0V4-uVgoI5hz7B-kghvAsijI_5jCk9jJVuZOMmNLG9owXzBJDGWxOF8rhkPUW6QwgLOC5pMl3EiFsr2BxfpHAA9wA9RAJ_birKtuREF03E2PXDTnq7uDqm1W_k4AnrHTc3AQQ8jP5Edd39Wvs15H4-JStnWagoKOrb-PeYR8qEZxrVfNtJbYS8DXm27sXX7f-53J9Wsf5J3ABQzFqUhhAAODjDxERiYdFKF8yoqA7xMe5nhJqcJOwr5AMtjbQ94n3t7_9-w6x5fOd0hTPgf__ONWi3npGPJKy1nQE-FIUaDMB5PjVHHb584qRrLANuL2ffdaAe9YBpcphihNzNAVGk67s_FofdMJVG1crurX2E4WfenvnDV3HCLssLx853b10BwpR1EUDHLv_EU3zkvSfEiJ02rUE_SLGTQ9ZeKDbrfqIH6LJzGvSWU2YPO1FiNmv4ozdAhjuHl9z_Jt4n0GAaFWyzXl-H7DPXmnZK1GlrE7rQK3ytV43dVefnWd11WjhgFQg0ilvceS4OJZK-1uZXomKsI-k3ohMP5b0dYkHiS_HRPP2SuWXG8RXHkOvWfbatptCnyHzFK4rNPqrB-tlsiybomJBdkUJTNukP9wivK2Sl54fNs232QzujTjSOJW6Oi008_lZ30zWctSLuBij-FreBQ-wR7fa-JixAXBsotPXf4wXxC0vqtoglY1TIur6q5fAQCO2bZJ2P9dVUOnK1XqpeAd8BcZWZIXCL_j867NRtfmuTC-qDzC3RsS-yMBwZq73WyjVEv6nSdh8McrORcjOD0TNKlZ3wFHgXvfuv0rJFJXTHqWv7hKdp7KMlqjA4kiE9e6CKDR46xywvLNRM7Juj6KL3LX8jV0XG5LZQ4aSBYokRMawoglTPqw-koQTyldnYKQe4T9a1gV9yq0ix1i-xIIARrllbnYN0MTDWB3dpx4Rlb0ooHFnJlvmL9pmnyYgclW6VAVBoKatAZqC-ISiz9zBvyDSUTmT4Ylcna7D0S_DS9tASj4_vNkxIjo_YGLgkDd2G21Rho0IVH-9iSrpEtoDk0pyiurEbSA19DTZncVTUJhF-hNwETpSksTc2foGunt7feDRQhDWX-Zsi5dEYFIn9lplQFBeirDEoLggsyGaMTMKtNoX4lt7Ezs8GqXJLowfB3cGEqQr9t-YKRtdki6z7EPyjidzxDrkF6aLXj3lYNQNIsbdxL_N27zKYQWk5b8ON86uk3fGMOvYFibOAtrW2Cimk0b94d2lxwJE7eAMctlRrygXekwYzEET2qy-nlJym3YCGOL37lFdJvVYLD45QSIs983OxJjyTaV7ozUFVViSeNpkraA1Gjg7bEOVh01hLIdQDx7D7udnNZRvCfXJY7xB9ySyyprXrIZ-yj6BLNe9ZlmGvFz-RyRfB9mxEMWufxOry_MMNiIa6X5NOdJBjhV5K-tU21IZJJJiQtfPO4z6vXeLo1OaRRirSvqLlLHlPOD5&searchType=return&searchBags=0.0_0.0_0.0_0.0",
-            "token": "HryRKYusNOJvve9iDVR4JSIedm37Rf-m16mpgj9X-7YBkuY1uvCm0V4-uVgoI5hz7B-kghvAsijI_5jCk9jJVuZOMmNLG9owXzBJDGWxOF8rhkPUW6QwgLOC5pMl3EiFsr2BxfpHAA9wA9RAJ_birKtuREF03E2PXDTnq7uDqm1W_k4AnrHTc3AQQ8jP5Edd39Wvs15H4-JStnWagoKOrb-PeYR8qEZxrVfNtJbYS8DXm27sXX7f-53J9Wsf5J3ABQzFqUhhAAODjDxERiYdFKF8yoqA7xMe5nhJqcJOwr5AMtjbQ94n3t7_9-w6x5fOd0hTPgf__ONWi3npGPJKy1nQE-FIUaDMB5PjVHHb584qRrLANuL2ffdaAe9YBpcphihNzNAVGk67s_FofdMJVG1crurX2E4WfenvnDV3HCLssLx853b10BwpR1EUDHLv_EU3zkvSfEiJ02rUE_SLGTQ9ZeKDbrfqIH6LJzGvSWU2YPO1FiNmv4ozdAhjuHl9z_Jt4n0GAaFWyzXl-H7DPXmnZK1GlrE7rQK3ytV43dVefnWd11WjhgFQg0ilvceS4OJZK-1uZXomKsI-k3ohMP5b0dYkHiS_HRPP2SuWXG8RXHkOvWfbatptCnyHzFK4rNPqrB-tlsiybomJBdkUJTNukP9wivK2Sl54fNs232QzujTjSOJW6Oi008_lZ30zWctSLuBij-FreBQ-wR7fa-JixAXBsotPXf4wXxC0vqtoglY1TIur6q5fAQCO2bZJ2P9dVUOnK1XqpeAd8BcZWZIXCL_j867NRtfmuTC-qDzC3RsS-yMBwZq73WyjVEv6nSdh8McrORcjOD0TNKlZ3wFHgXvfuv0rJFJXTHqWv7hKdp7KMlqjA4kiE9e6CKDR46xywvLNRM7Juj6KL3LX8jV0XG5LZQ4aSBYokRMawoglTPqw-koQTyldnYKQe4T9a1gV9yq0ix1i-xIIARrllbnYN0MTDWB3dpx4Rlb0ooHFnJlvmL9pmnyYgclW6VAVBoKatAZqC-ISiz9zBvyDSUTmT4Ylcna7D0S_DS9tASj4_vNkxIjo_YGLgkDd2G21Rho0IVH-9iSrpEtoDk0pyiurEbSA19DTZncVTUJhF-hNwETpSksTc2foGunt7feDRQhDWX-Zsi5dEYFIn9lplQFBeirDEoLggsyGaMTMKtNoX4lt7Ezs8GqXJLowfB3cGEqQr9t-YKRtdki6z7EPyjidzxDrkF6aLXj3lYNQNIsbdxL_N27zKYQWk5b8ON86uk3fGMOvYFibOAtrW2Cimk0b94d2lxwJE7eAMctlRrygXekwYzEET2qy-nlJym3YCGOL37lFdJvVYLD45QSIs983OxJjyTaV7ozUFVViSeNpkraA1Gjg7bEOVh01hLIdQDx7D7udnNZRvCfXJY7xB9ySyyprXrIZ-yj6BLNe9ZlmGvFz-RyRfB9mxEMWufxOry_MMNiIa6X5NOdJBjhV5K-tU21IZJJJiQtfPO4z6vXeLo1OaRRirSvqLlLHlPOD5",
+            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=4-0-0&token=Hs1Wwxc-0EQ-vy1QH2tQDIsl2rVtrkVltjT7uBvNSw0kHQK_HSS6SU1gHH3PjcFP_L1wsxtqVoKLyS2OBzA3ip675bWXjXO7bcN97kceEPgz9-ZsiE60Kh6sVyZ9Fgf2F9gP7ZqIpg8MqB9GwtiUQK171zMAirb-Cb_dZJh5qIE_2QfqEvNXCD12d2B3GT_xHLL_57xU4iGaR-jQfLEwDkGQG54fRGd-CKTCYuMpBPMaRuQYquKQtxsVNxg0KY_wN2mQ2o37KMQ1QelgKGWaamZlNOPoNl2TBJ7uPGP5Zzu2KBeemVIr76YwzMpDDdICeD0l6m_MtdjQCUX7t2srH0MBk7U9JjfpPuCTdbSxpnJ-FLudOygblsAh-5dBB6uSYtduz1_nvOzNlbHeABy9n2ORT_wzNCuersSqk-NfSsMjnVe2xume__7tf_xd18TV1Vdc_1ZpKI8rWlQiID7Dxdd42tcmoFHEvmmFJLxg2jUqUfYW0Bz-XfGFN1e3J_4HT6DMQX_49vHg5PD3ebknpsDnfrOg_Fu6tF3w-n5zoknq3GLvm1AkbbMhLG_cWCDOlPi_CFx3WD85Wj_saikopCl575MEnh6n0m59eDNXQrsTruZArpxRI77eah_7d0_MlrPYHPZKS6Is6vAJ3I_PLAghDDgm55XQHR3cYTaLkzBOx--8uM9JWjWvUEYq86aMuV7xb-xRQNFDc-Qe2rRK42Euqnutc_NXO12b26ysZrr50c1oqqO3iB16Nr7F_SzUlJ9vlwPrxEk-jSyqlWnUOOM-gzAX6osXwdV27tE6aQWbdJDws_tEaGDqWdRsMIyiRM44QJh8Vli0AGNn5uUCA65mF9CUs5dfF638qf2uw0REToty9NjcHumzpAOvGMKvPMqcxI3LuG5jD_1H53kXmuZGD1CaufIToSXfVTjScN3blTwlkPlY-WsadUkOPZ6siIyfQ4XedxiRrX_cTKdeH-nDqevIawW4AB2FffOnlShdK0fAtOHlO9WAmwfywOEsNO2Q7Kb1M_PbP0Y6Vw5pxibECvnXXia-xcIjHV-A9uCY1ihy0rN4g8Nbbmb3VoJ7CUHk5_mj9g7y-PhVFoak1nOnI3wU_ZEfaafmnDdJmczUCc--1EJMC8861NcNCpzBfzqanIg6A5HrNMgdOt837dV0bY-fMq3wUDFjD3e6v9ETokodKYxyHE-51ts5KDwfyntgywl-xxYz3PjMs5ZYOpDMw7CEGZf7ROzis5QW3yQ-dkwY77N6vExN6W80377OulfnhznzE4IeVzMz0uW0JM0PVkgpKT1MNWBfM2_LQFmsUe0SgYxXRCzfTsFUGp0-FeFgBw6-1xCa_XKK5VPO-WR6q04_YGISZOJmtzSV8hOwsU3n5EKGJvQrDlcZBKIxrHYhMBJHqtQ48zdRnMNYZhkOUsMnt3fNGlluc6rvyT94zOiVfqj0skhScgCRdFPmJ6s3FzAtu0EOFQIt3luVzweDZZ1JxtBqAn4q7WGPnCXyNSmjp4WjLwYvz70pXvZ1L&searchType=return&searchBags=0.0_0.0_0.0_0.0",
+            "token": "Hs1Wwxc-0EQ-vy1QH2tQDIsl2rVtrkVltjT7uBvNSw0kHQK_HSS6SU1gHH3PjcFP_L1wsxtqVoKLyS2OBzA3ip675bWXjXO7bcN97kceEPgz9-ZsiE60Kh6sVyZ9Fgf2F9gP7ZqIpg8MqB9GwtiUQK171zMAirb-Cb_dZJh5qIE_2QfqEvNXCD12d2B3GT_xHLL_57xU4iGaR-jQfLEwDkGQG54fRGd-CKTCYuMpBPMaRuQYquKQtxsVNxg0KY_wN2mQ2o37KMQ1QelgKGWaamZlNOPoNl2TBJ7uPGP5Zzu2KBeemVIr76YwzMpDDdICeD0l6m_MtdjQCUX7t2srH0MBk7U9JjfpPuCTdbSxpnJ-FLudOygblsAh-5dBB6uSYtduz1_nvOzNlbHeABy9n2ORT_wzNCuersSqk-NfSsMjnVe2xume__7tf_xd18TV1Vdc_1ZpKI8rWlQiID7Dxdd42tcmoFHEvmmFJLxg2jUqUfYW0Bz-XfGFN1e3J_4HT6DMQX_49vHg5PD3ebknpsDnfrOg_Fu6tF3w-n5zoknq3GLvm1AkbbMhLG_cWCDOlPi_CFx3WD85Wj_saikopCl575MEnh6n0m59eDNXQrsTruZArpxRI77eah_7d0_MlrPYHPZKS6Is6vAJ3I_PLAghDDgm55XQHR3cYTaLkzBOx--8uM9JWjWvUEYq86aMuV7xb-xRQNFDc-Qe2rRK42Euqnutc_NXO12b26ysZrr50c1oqqO3iB16Nr7F_SzUlJ9vlwPrxEk-jSyqlWnUOOM-gzAX6osXwdV27tE6aQWbdJDws_tEaGDqWdRsMIyiRM44QJh8Vli0AGNn5uUCA65mF9CUs5dfF638qf2uw0REToty9NjcHumzpAOvGMKvPMqcxI3LuG5jD_1H53kXmuZGD1CaufIToSXfVTjScN3blTwlkPlY-WsadUkOPZ6siIyfQ4XedxiRrX_cTKdeH-nDqevIawW4AB2FffOnlShdK0fAtOHlO9WAmwfywOEsNO2Q7Kb1M_PbP0Y6Vw5pxibECvnXXia-xcIjHV-A9uCY1ihy0rN4g8Nbbmb3VoJ7CUHk5_mj9g7y-PhVFoak1nOnI3wU_ZEfaafmnDdJmczUCc--1EJMC8861NcNCpzBfzqanIg6A5HrNMgdOt837dV0bY-fMq3wUDFjD3e6v9ETokodKYxyHE-51ts5KDwfyntgywl-xxYz3PjMs5ZYOpDMw7CEGZf7ROzis5QW3yQ-dkwY77N6vExN6W80377OulfnhznzE4IeVzMz0uW0JM0PVkgpKT1MNWBfM2_LQFmsUe0SgYxXRCzfTsFUGp0-FeFgBw6-1xCa_XKK5VPO-WR6q04_YGISZOJmtzSV8hOwsU3n5EKGJvQrDlcZBKIxrHYhMBJHqtQ48zdRnMNYZhkOUsMnt3fNGlluc6rvyT94zOiVfqj0skhScgCRdFPmJ6s3FzAtu0EOFQIt3luVzweDZZ1JxtBqAn4q7WGPnCXyNSmjp4WjLwYvz70pXvZ1L",
             "price": {
-              "amount": 6053,
+              "amount": 5331,
               "currency": "USD"
             }
           },
           {
             "provider": "Kiwi.com",
-            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=4-0-0&token=H5vwVJ8CUQaltDeodleRqJO1gACP9nen2imlTCKifDUmrUBXkogvxw1js8LHz1Eo_WlxgobcGAk9SHvhk6n13C4zzTJqz9bfvDozq9WHOQ86bNcuQ9Juf-jLJtby3BWrHCs0MxGzvIf-rIIpNIEM-1rDk8j8rCzvYakM5zVwdDqonOPzj2VZQo_yAef56hUlA42AbbvCM6zPXKM9bgizPwq81r5NaddX_aWvxSE2g0dfKNgKSzMIBqW7N1th1M46cQ77XL2XCDvehPYkZTmxXqp-JDCzNjJiSNO7WJwH0K58r13Lt9aOmFDZxVSmTsTVX-6LzJQj842qg77IzslEM-ygfRF64lb6HZxOnO4Vbnm0o2NxqmIW5Kvt2_bFLwvihdqD_pH59hpt-3S6rgaxlHID1yp4eCWIFU5_C3fPYvycxa6V2DVAqmWJG9pJa5VDw5cQjSQdmRtYMA5UOFfbivQyFuhecCTPPdZj8N18QKxdOniEa0jDWw6GMLtJDQNWOVgOHZL6pbZAJ0hnrFAPQP3sP2LjhkuggQZ1e6XVoLIwgW7sPUfdzP3CAUl3qeDGn-XwAFtwobBEQPz5GMcJ4pEMkdkw5ITxaWbYVm2zAGBKyC1YVy1gbJzgbLehKUVoROl_IrRogpyHMOxBYGZuqYdOUzfyZR_SBW8c6ELQStu3salAfYG-gNgPYmftTK_94MzCPelWTK7bb1aEmLLPZILJnYJxnOtW6Suj2sGEjFahObQGutpRvQK8Z5MpyAZL5TBAhWBfkrJqkkEVt1vZoZZfQHWefGL2ZQwPUMaVXYTiAypJ-PNg-OAfK9zNfXygik_yEZPHkabuAlszVcAEHEM-yLYTlEV0Zlw_7c6zsKbgvNGdh9Q76WNaOpQ5ZKTmrEmV-qmuoN_mHCMVL7EEHLBTYuxiI6RQud07ql0rgSl5X09fNL7zn9-m7wgO7Gn0TX_JxdyTw-R6UE9FqSrf03MUU_aDc_8odjSTjAZG4hsS-lCldABt1dFBdJSvZzTK2RGl95MyoEBgeVJLpBleaCjr-tKEvtCrZuyESMxHsD0Qg2K5NYXI18iv9H7aM8Nrq_mt33lvfa5zOaKHCDuBx6_8uCC0OzTT25hy9x3DmPYHwp-qdzy5Ev0OGe48dplquW2dwbLxmPtTWJUc-3OM7_debVnTyt1iwvcm-H7KAU6HZBNZjaQ5g8PoaBkuFP9qJi6gGTYO6ytF1IKY13Y4H5YeijW74iYF9hwMBuwhxoxJYbSJv_m77XyY-QXzsBxxLm6ahYT4GJPKAzOFxPM-k_8X7GyKnfflldq2PTSq0MihKzOf8a4b6Kov6gbQ0BtMvlsbmepKcYQzDksvRWwOFDGE5G2caPcNlF3YV62rPtWfBaOU5pm78-Q9AOSFjhABW2ilz0XyU4RM2TJyiSWfe5ZJ4kftAOeZVjIml530RxZjnRi3IRwL81ymzDCWRIihhM-8KhjsGx9BIAKQ8SVd_DXI93lQCv9nBrY2ItLC_aihf0gewmbzqLZcs3SwAlIDL&searchType=return&searchBags=0.0_0.0_0.0_0.0",
-            "token": "H5vwVJ8CUQaltDeodleRqJO1gACP9nen2imlTCKifDUmrUBXkogvxw1js8LHz1Eo_WlxgobcGAk9SHvhk6n13C4zzTJqz9bfvDozq9WHOQ86bNcuQ9Juf-jLJtby3BWrHCs0MxGzvIf-rIIpNIEM-1rDk8j8rCzvYakM5zVwdDqonOPzj2VZQo_yAef56hUlA42AbbvCM6zPXKM9bgizPwq81r5NaddX_aWvxSE2g0dfKNgKSzMIBqW7N1th1M46cQ77XL2XCDvehPYkZTmxXqp-JDCzNjJiSNO7WJwH0K58r13Lt9aOmFDZxVSmTsTVX-6LzJQj842qg77IzslEM-ygfRF64lb6HZxOnO4Vbnm0o2NxqmIW5Kvt2_bFLwvihdqD_pH59hpt-3S6rgaxlHID1yp4eCWIFU5_C3fPYvycxa6V2DVAqmWJG9pJa5VDw5cQjSQdmRtYMA5UOFfbivQyFuhecCTPPdZj8N18QKxdOniEa0jDWw6GMLtJDQNWOVgOHZL6pbZAJ0hnrFAPQP3sP2LjhkuggQZ1e6XVoLIwgW7sPUfdzP3CAUl3qeDGn-XwAFtwobBEQPz5GMcJ4pEMkdkw5ITxaWbYVm2zAGBKyC1YVy1gbJzgbLehKUVoROl_IrRogpyHMOxBYGZuqYdOUzfyZR_SBW8c6ELQStu3salAfYG-gNgPYmftTK_94MzCPelWTK7bb1aEmLLPZILJnYJxnOtW6Suj2sGEjFahObQGutpRvQK8Z5MpyAZL5TBAhWBfkrJqkkEVt1vZoZZfQHWefGL2ZQwPUMaVXYTiAypJ-PNg-OAfK9zNfXygik_yEZPHkabuAlszVcAEHEM-yLYTlEV0Zlw_7c6zsKbgvNGdh9Q76WNaOpQ5ZKTmrEmV-qmuoN_mHCMVL7EEHLBTYuxiI6RQud07ql0rgSl5X09fNL7zn9-m7wgO7Gn0TX_JxdyTw-R6UE9FqSrf03MUU_aDc_8odjSTjAZG4hsS-lCldABt1dFBdJSvZzTK2RGl95MyoEBgeVJLpBleaCjr-tKEvtCrZuyESMxHsD0Qg2K5NYXI18iv9H7aM8Nrq_mt33lvfa5zOaKHCDuBx6_8uCC0OzTT25hy9x3DmPYHwp-qdzy5Ev0OGe48dplquW2dwbLxmPtTWJUc-3OM7_debVnTyt1iwvcm-H7KAU6HZBNZjaQ5g8PoaBkuFP9qJi6gGTYO6ytF1IKY13Y4H5YeijW74iYF9hwMBuwhxoxJYbSJv_m77XyY-QXzsBxxLm6ahYT4GJPKAzOFxPM-k_8X7GyKnfflldq2PTSq0MihKzOf8a4b6Kov6gbQ0BtMvlsbmepKcYQzDksvRWwOFDGE5G2caPcNlF3YV62rPtWfBaOU5pm78-Q9AOSFjhABW2ilz0XyU4RM2TJyiSWfe5ZJ4kftAOeZVjIml530RxZjnRi3IRwL81ymzDCWRIihhM-8KhjsGx9BIAKQ8SVd_DXI93lQCv9nBrY2ItLC_aihf0gewmbzqLZcs3SwAlIDL",
+            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=4-0-0&token=Hxaf1eLtyTZ-pBneGLEVslWxAAhGbcisdrUqru8IF6iMdAkcU84y7469cvQptQArTWEYNtiTLPH3baBZtrW5U_uOg9Uiw69Nq6AUZzdLaqQuS7ngUWsL0XncUsiukvqepUP-C0sUP5YA1QcZRBSMHQzkpvMXOWvLOiC1WHCkdmX8Q9GQoO-3-qQq9h4zi9WuAxdYrAm7ixnUX-lD9YMQZ1j6ShMrztMuyEGHJkTk9wPPTGgqPdOpb4JYQzYzRY_9bUC8fmebw6sOf39R0H_iH7tCkdb3uevMt3HzxIRT8moULMvpMsGgoWp9e3LCK3_JackWsrwBTTLJYwSBJLBWBGhQ-VP3wLnZ0bx1kcUdavXwQiUAID3_V3F6J0uZrsZylaQXDFpzKVgeY453gXgtjqDJMxhsRCqsjToOujnrN1zvDZ0oIjwpewhXbthiA5AQYJn40CBnH4y4FCLLTejzLwf_cqbWU9bDDRlGP2kfKMhu9_l6DN3oeRHRvQsv3utPQIDIEnwLQzjkRIjM_3VWFFuEAa1I7ImM1eGF5WTuz0rbI4SE3RrXsynmQbDoVtlomfTwXb7lMqehRmLmicITf_zbkqGJnk11SQ8AhmiTYPcZ8Hp6kkWSWfB3OCz0vfBC4EOBLnDrgRY8l4AcJEYmIcFHPpuh4sRBEiyAreqlomFRJOyzSTMlY75RNYyPQmKqwTQrMD2_2eWt3ZjqXvc3QkKmKa0AwWUBWRvl8GEEGnjjgk4zzvY3w4jSW4C-_w8Xz5rxa8BfyI7eCW86kW2upnb9qqqk-cN1JgnmD7EBn1_DRO6gqQgqzmZcB0-zPUO1YqdA8ktKnR_E1AAuGpCyWliymBzBVMuB-WAm-T-oQN5HMwZZwgdb88YxdlGnQEGDwBXQX8MohV7yFy5RtLa9ciof7eCbkGeUQqVPx9qy2XR0OagZ6uoDus7OLdBVqyviLp-fPka-7DA3h8Jm8sg_GZADtPKcmltAZ02pcVNzommJ6JyPzcqZJfA27qwh-tE5bFEIFj22rfPoNrJijOTb_nqM2B-PrHGsBLuUjMRisQk91EqvSy5_cj-AKv4E8UyOPPi2d2O8L3SN7XPBtDowzqG_pF4Y3_7nw1XNryZgIVQp1v-R-YLBCOJRBG57C0COqGmH5u8gOZuLgD---hx6YRTOBNQBu7wpUaNnik4rhLv3g-WQPIW-a9KmTRMRFzz65oJcLhO6BryNjAQ58Bi0E2urjGKxLvxPa4K1K02jvZiFF5zU8P511BpJJnJN2Sq0F06JpCh8RWRkPw-kRSRUbnqi_YCMrmAp6KPeVJHM8c1Q933mlB7oruoz8k_uz1YsA7NCF30nBc5KKlc2lgLf2HyxKtKHApANQf6e3ejZYB5ZLgik5L_VUhMTo01r2VcQ-eRPc1IHLPpMmvXICun3OK6DEpU-Od-NzJ-HnpeQ4bCovS_0Gx56PCZ4Tafmnpi31CPUmVWI-gb7X2nu2163q17X3S2IUH-8caecU8mAQyxnqpTTbv4mmXZF_oYpDyQ67&searchType=return&searchBags=0.0_0.0_0.0_0.0",
+            "token": "Hxaf1eLtyTZ-pBneGLEVslWxAAhGbcisdrUqru8IF6iMdAkcU84y7469cvQptQArTWEYNtiTLPH3baBZtrW5U_uOg9Uiw69Nq6AUZzdLaqQuS7ngUWsL0XncUsiukvqepUP-C0sUP5YA1QcZRBSMHQzkpvMXOWvLOiC1WHCkdmX8Q9GQoO-3-qQq9h4zi9WuAxdYrAm7ixnUX-lD9YMQZ1j6ShMrztMuyEGHJkTk9wPPTGgqPdOpb4JYQzYzRY_9bUC8fmebw6sOf39R0H_iH7tCkdb3uevMt3HzxIRT8moULMvpMsGgoWp9e3LCK3_JackWsrwBTTLJYwSBJLBWBGhQ-VP3wLnZ0bx1kcUdavXwQiUAID3_V3F6J0uZrsZylaQXDFpzKVgeY453gXgtjqDJMxhsRCqsjToOujnrN1zvDZ0oIjwpewhXbthiA5AQYJn40CBnH4y4FCLLTejzLwf_cqbWU9bDDRlGP2kfKMhu9_l6DN3oeRHRvQsv3utPQIDIEnwLQzjkRIjM_3VWFFuEAa1I7ImM1eGF5WTuz0rbI4SE3RrXsynmQbDoVtlomfTwXb7lMqehRmLmicITf_zbkqGJnk11SQ8AhmiTYPcZ8Hp6kkWSWfB3OCz0vfBC4EOBLnDrgRY8l4AcJEYmIcFHPpuh4sRBEiyAreqlomFRJOyzSTMlY75RNYyPQmKqwTQrMD2_2eWt3ZjqXvc3QkKmKa0AwWUBWRvl8GEEGnjjgk4zzvY3w4jSW4C-_w8Xz5rxa8BfyI7eCW86kW2upnb9qqqk-cN1JgnmD7EBn1_DRO6gqQgqzmZcB0-zPUO1YqdA8ktKnR_E1AAuGpCyWliymBzBVMuB-WAm-T-oQN5HMwZZwgdb88YxdlGnQEGDwBXQX8MohV7yFy5RtLa9ciof7eCbkGeUQqVPx9qy2XR0OagZ6uoDus7OLdBVqyviLp-fPka-7DA3h8Jm8sg_GZADtPKcmltAZ02pcVNzommJ6JyPzcqZJfA27qwh-tE5bFEIFj22rfPoNrJijOTb_nqM2B-PrHGsBLuUjMRisQk91EqvSy5_cj-AKv4E8UyOPPi2d2O8L3SN7XPBtDowzqG_pF4Y3_7nw1XNryZgIVQp1v-R-YLBCOJRBG57C0COqGmH5u8gOZuLgD---hx6YRTOBNQBu7wpUaNnik4rhLv3g-WQPIW-a9KmTRMRFzz65oJcLhO6BryNjAQ58Bi0E2urjGKxLvxPa4K1K02jvZiFF5zU8P511BpJJnJN2Sq0F06JpCh8RWRkPw-kRSRUbnqi_YCMrmAp6KPeVJHM8c1Q933mlB7oruoz8k_uz1YsA7NCF30nBc5KKlc2lgLf2HyxKtKHApANQf6e3ejZYB5ZLgik5L_VUhMTo01r2VcQ-eRPc1IHLPpMmvXICun3OK6DEpU-Od-NzJ-HnpeQ4bCovS_0Gx56PCZ4Tafmnpi31CPUmVWI-gb7X2nu2163q17X3S2IUH-8caecU8mAQyxnqpTTbv4mmXZF_oYpDyQ67",
             "price": {
-              "amount": 6710.791818,
+              "amount": 5911.304699,
               "currency": "USD"
             }
           }
@@ -350,10 +311,10 @@
       "destination": "tocumen-international-panama-city-panama",
       "status": "ok",
       "cheapest": {
-        "id": "ItineraryReturn:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiV1M6MTE4MTpSU1c6MTc5NzUyNTkwMDpZWVo6MTc5NzUzNzQ4MDplY29ub215OkZhbHNlOjo6V1N8VFM6MTEyOllZWjoxNzk3NTUzMjAwOlNKTzoxNzk3NTczMDAwOmVjb25vbXk6VHJ1ZTo6VHJ1ZTpUU3xDTTozOTI6U0pPOjE3OTc2MDUxNjA6UFRZOjE3OTc2MTAxNDA6ZWNvbm9teTpUcnVlOjpUcnVlOkNNfENNOjg4MDpQVFk6MTc5ODM4MzYwMDpBVEw6MTc5ODM5OTMyMDplY29ub215OkZhbHNlOjo6Q018Rjk6MjI5ODpBVEw6MTc5ODQ3NDIwMDpQSEw6MTc5ODQ4MTcwMDplY29ub215OlRydWU6OlRydWU6fEY5OjIwMjU6UEhMOjE3OTg0OTA0NjA6UlNXOjE3OTg1MDE3NDA6ZWNvbm9teTpUcnVlOjpUcnVlOiIsInByaWNlIjoiMzE5OSJ9",
-        "legacy_id": "058906b351440000445d991b_0-06b3076b51440000ce5dee56_0-076b15d351450000fb12b0b6_0-15d303a7514e00004fe47a21_0-03a7231f514f000062c86cac_0-231f0589514f00003b17ff7f_0",
+        "id": "ItineraryReturn:eyJwcm92aWRlcnMiOiJLSVdJLUJBU0lDOktJV0kiLCJyb3V0ZV9kYXRhIjoiTVg6NzQ2OlJTVzoxNzk3NTUxODIwOkNBSzoxNzk3NTYxOTYwOmVjb25vbXk6RmFsc2U6OjpNWHxHNDo1MTg6Q0FLOjE3OTc2MTI0MjA6RkxMOjE3OTc2MjI5MjA6ZWNvbm9teTpUcnVlOjpUcnVlOnxDTToyNjY6RkxMOjE3OTc2MzE2ODA6UFRZOjE3OTc2NDMxNDA6ZWNvbm9teTpUcnVlOjpUcnVlOkNNfENNOjg4MDpQVFk6MTc5ODM4MzYwMDpBVEw6MTc5ODM5OTMyMDplY29ub215OkZhbHNlOjo6Q018Rjk6MTgzODpBVEw6MTc5ODQ1MjA2MDpDTEU6MTc5ODQ1OTE0MDplY29ub215OlRydWU6OlRydWU6fEY5OjE1NDQ6Q0xFOjE3OTg0ODgwMDA6UlNXOjE3OTg0OTkyODA6ZWNvbm9teTpUcnVlOjpUcnVlOiIsInByaWNlIjoiMzI4MCJ9",
+        "legacy_id": "05890f3351440000cd905ed3_0-0f3304cd51450000c1a73c7f_0-04cd15d351450000c2c1221b_0-15d303a7514e00004fe47a21_0-03a72051514f0000de2fa9f8_0-20510589514f00006ad42a87_0",
         "type": "RETURN",
-        "duration_seconds": 202380,
+        "duration_seconds": 207000,
         "cabin_classes": [
           "ECONOMY"
         ],
@@ -362,40 +323,40 @@
           "name": "Kiwi.com"
         },
         "price": {
-          "amount": 3199,
+          "amount": 3280,
           "currency": "USD"
         },
-        "price_eur": 2795.593118,
+        "price_eur": 2885.761669,
         "outbound": {
-          "id": "Sector:416194d82dd76ca3c6a37893269d973bce593856~81b6d0c6a93e323bf4f3851585a26dc5f29cdf93|5b0bd67328394c237b48cbd5207b2bfb3bab839a|bf02539ed549a67ddc11ecaf9b27a87906d0d959",
-          "duration_seconds": 84240,
+          "id": "Sector:3a7fc6f0d4c3ae08f831891de272e945f99cd28e~82bd6dc0ea7a3502551811aeb033afb7c4824f94|1eb90ba30c4ceaa01173677b070c703c2ee9998b|64e2356ba6c3aeaeea0130a6c76d934a4b62e20f",
+          "duration_seconds": 91320,
           "carriers": [
+            {
+              "code": "G4",
+              "name": "Allegiant Air"
+            },
+            {
+              "code": "MX",
+              "name": "BREEZE"
+            },
             {
               "code": "CM",
               "name": "Copa Airlines"
-            },
-            {
-              "code": "WS",
-              "name": "WestJet"
-            },
-            {
-              "code": "TS",
-              "name": "Air Transat"
             }
           ],
           "segments": [
             {
-              "id": "Segment:81b6d0c6a93e323bf4f3851585a26dc5f29cdf93",
+              "id": "Segment:82bd6dc0ea7a3502551811aeb033afb7c4824f94",
               "type": "FLIGHT",
-              "flight_number": "1181",
+              "flight_number": "746",
               "cabin_class": "ECONOMY",
               "carrier": {
-                "code": "WS",
-                "name": "WestJet"
+                "code": "MX",
+                "name": "BREEZE"
               },
               "operating_carrier": {
-                "code": "WS",
-                "name": "WestJet"
+                "code": "MX",
+                "name": "BREEZE"
               },
               "source": {
                 "station": {
@@ -403,57 +364,54 @@
                   "name": "Southwest Florida International",
                   "city": "Fort Myers"
                 },
-                "local_time": "2026-12-17T11:45:00",
-                "utc_time": "2026-12-17T16:45:00"
+                "local_time": "2026-12-17T18:57:00",
+                "utc_time": "2026-12-17T23:57:00"
               },
               "destination": {
                 "station": {
-                  "code": "YYZ",
-                  "name": "Toronto Pearson International",
-                  "city": "Toronto"
+                  "code": "CAK",
+                  "name": "Akron\u2013Canton",
+                  "city": "Akron"
                 },
-                "local_time": "2026-12-17T14:58:00",
-                "utc_time": "2026-12-17T19:58:00"
+                "local_time": "2026-12-17T21:46:00",
+                "utc_time": "2026-12-18T02:46:00"
               },
-              "duration_seconds": 11580
+              "duration_seconds": 10140
             },
             {
-              "id": "Segment:5b0bd67328394c237b48cbd5207b2bfb3bab839a",
+              "id": "Segment:1eb90ba30c4ceaa01173677b070c703c2ee9998b",
               "type": "FLIGHT",
-              "flight_number": "112",
+              "flight_number": "518",
               "cabin_class": "ECONOMY",
               "carrier": {
-                "code": "TS",
-                "name": "Air Transat"
+                "code": "G4",
+                "name": "Allegiant Air"
               },
-              "operating_carrier": {
-                "code": "TS",
-                "name": "Air Transat"
-              },
+              "operating_carrier": null,
               "source": {
                 "station": {
-                  "code": "YYZ",
-                  "name": "Toronto Pearson International",
-                  "city": "Toronto"
+                  "code": "CAK",
+                  "name": "Akron\u2013Canton",
+                  "city": "Akron"
                 },
-                "local_time": "2026-12-17T19:20:00",
-                "utc_time": "2026-12-18T00:20:00"
+                "local_time": "2026-12-18T11:47:00",
+                "utc_time": "2026-12-18T16:47:00"
               },
               "destination": {
                 "station": {
-                  "code": "SJO",
-                  "name": "Juan Santamar\u00eda International",
-                  "city": "San Jos\u00e9"
+                  "code": "FLL",
+                  "name": "Fort Lauderdale\u2013Hollywood International",
+                  "city": "Fort Lauderdale"
                 },
-                "local_time": "2026-12-17T23:50:00",
-                "utc_time": "2026-12-18T05:50:00"
+                "local_time": "2026-12-18T14:42:00",
+                "utc_time": "2026-12-18T19:42:00"
               },
-              "duration_seconds": 19800
+              "duration_seconds": 10500
             },
             {
-              "id": "Segment:bf02539ed549a67ddc11ecaf9b27a87906d0d959",
+              "id": "Segment:64e2356ba6c3aeaeea0130a6c76d934a4b62e20f",
               "type": "FLIGHT",
-              "flight_number": "392",
+              "flight_number": "266",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "CM",
@@ -465,12 +423,12 @@
               },
               "source": {
                 "station": {
-                  "code": "SJO",
-                  "name": "Juan Santamar\u00eda International",
-                  "city": "San Jos\u00e9"
+                  "code": "FLL",
+                  "name": "Fort Lauderdale\u2013Hollywood International",
+                  "city": "Fort Lauderdale"
                 },
-                "local_time": "2026-12-18T08:46:00",
-                "utc_time": "2026-12-18T14:46:00"
+                "local_time": "2026-12-18T17:08:00",
+                "utc_time": "2026-12-18T22:08:00"
               },
               "destination": {
                 "station": {
@@ -478,21 +436,21 @@
                   "name": "Tocumen International",
                   "city": "Panama"
                 },
-                "local_time": "2026-12-18T11:09:00",
-                "utc_time": "2026-12-18T16:09:00"
+                "local_time": "2026-12-18T20:19:00",
+                "utc_time": "2026-12-19T01:19:00"
               },
-              "duration_seconds": 4980
+              "duration_seconds": 11460
             }
           ],
           "layovers": [
             {
-              "duration_seconds": 15720,
+              "duration_seconds": 50460,
               "is_station_change": false,
               "is_baggage_recheck": true,
               "transfer_type": null
             },
             {
-              "duration_seconds": 32160,
+              "duration_seconds": 8760,
               "is_station_change": false,
               "is_baggage_recheck": true,
               "transfer_type": null
@@ -500,16 +458,16 @@
           ]
         },
         "inbound": {
-          "id": "Sector:83ac63731a74fbd9156faba2edc07465014cfc65~c706114da6b62523fe82b8e74394076ce9a62c1f|00fdad88a8dfbf922ab231a295c79e1bd5112f9e|b12043387bd3a3ef6a3f0a06a5e02a65b23d9296",
-          "duration_seconds": 118140,
+          "id": "Sector:3ccd9e513699c39f372eb8224f0211a6f3fbe58e~c706114da6b62523fe82b8e74394076ce9a62c1f|eb4e794460d7d4d51fc1a9aa798c4901ae00d17d|fc4839eaac8b5b8ab5ff97d4695595748843bf5e",
+          "duration_seconds": 115680,
           "carriers": [
-            {
-              "code": "CM",
-              "name": "Copa Airlines"
-            },
             {
               "code": "F9",
               "name": "Frontier Airlines"
+            },
+            {
+              "code": "CM",
+              "name": "Copa Airlines"
             }
           ],
           "segments": [
@@ -547,9 +505,9 @@
               "duration_seconds": 15720
             },
             {
-              "id": "Segment:00fdad88a8dfbf922ab231a295c79e1bd5112f9e",
+              "id": "Segment:eb4e794460d7d4d51fc1a9aa798c4901ae00d17d",
               "type": "FLIGHT",
-              "flight_number": "2298",
+              "flight_number": "1838",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "F9",
@@ -562,24 +520,24 @@
                   "name": "Hartsfield\u2013Jackson Atlanta International",
                   "city": "Atlanta"
                 },
-                "local_time": "2026-12-28T11:10:00",
-                "utc_time": "2026-12-28T16:10:00"
+                "local_time": "2026-12-28T05:01:00",
+                "utc_time": "2026-12-28T10:01:00"
               },
               "destination": {
                 "station": {
-                  "code": "PHL",
-                  "name": "Philadelphia International",
-                  "city": "Philadelphia"
+                  "code": "CLE",
+                  "name": "Cleveland Hopkins International",
+                  "city": "Cleveland"
                 },
-                "local_time": "2026-12-28T13:15:00",
-                "utc_time": "2026-12-28T18:15:00"
+                "local_time": "2026-12-28T06:59:00",
+                "utc_time": "2026-12-28T11:59:00"
               },
-              "duration_seconds": 7500
+              "duration_seconds": 7080
             },
             {
-              "id": "Segment:b12043387bd3a3ef6a3f0a06a5e02a65b23d9296",
+              "id": "Segment:fc4839eaac8b5b8ab5ff97d4695595748843bf5e",
               "type": "FLIGHT",
-              "flight_number": "2025",
+              "flight_number": "1544",
               "cabin_class": "ECONOMY",
               "carrier": {
                 "code": "F9",
@@ -588,12 +546,12 @@
               "operating_carrier": null,
               "source": {
                 "station": {
-                  "code": "PHL",
-                  "name": "Philadelphia International",
-                  "city": "Philadelphia"
+                  "code": "CLE",
+                  "name": "Cleveland Hopkins International",
+                  "city": "Cleveland"
                 },
-                "local_time": "2026-12-28T15:41:00",
-                "utc_time": "2026-12-28T20:41:00"
+                "local_time": "2026-12-28T15:00:00",
+                "utc_time": "2026-12-28T20:00:00"
               },
               "destination": {
                 "station": {
@@ -601,21 +559,21 @@
                   "name": "Southwest Florida International",
                   "city": "Fort Myers"
                 },
-                "local_time": "2026-12-28T18:49:00",
-                "utc_time": "2026-12-28T23:49:00"
+                "local_time": "2026-12-28T18:08:00",
+                "utc_time": "2026-12-28T23:08:00"
               },
               "duration_seconds": 11280
             }
           ],
           "layovers": [
             {
-              "duration_seconds": 74880,
+              "duration_seconds": 52740,
               "is_station_change": false,
               "is_baggage_recheck": true,
               "transfer_type": null
             },
             {
-              "duration_seconds": 8760,
+              "duration_seconds": 28860,
               "is_station_change": false,
               "is_baggage_recheck": true,
               "transfer_type": null
@@ -626,19 +584,19 @@
         "booking_options": [
           {
             "provider": "Kiwi.com",
-            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=2-0-0&token=Hs-E6w9J7MyctMzfAncJIg6F77ZXfSgyAjlQH5l6uOl-saIva54pmiAS9XNeXVzNjCfYv-4GzI7o3F3O3wWUASv7SlG_QnQvdgcj4ykoEYPPn6S2x586W8AW09TTGaBbjp7lvNS7LqYvJ54ZrfeFIhkWO09mMKDL8MwTZL4iQrFWzuVcexRBykKo73-GKGSzYL7bIypq0wTy9p19p_AIOXKrIrVcUk8K_2kg_2jb7F4AF1LcpuxtGo7g9PDI8NR1iRzxox3BR_WhBVEYxG0FttF3ATlGsOtqAUnTL7DzkFaWm5fW1slCsFnjzaY2E4408ihqi2FREie4YVPbhaaaETHNsiAfCM_h5geBus4Kq7qqB5jODu6J9fe6ukgBvDntsUvOmDNUxAOcGn9hLSC1EqHp4sQL8bxWukntP2tonW-mpLhaIV_AYddZOAjuEXjfqrzT9muiAx29-gAqcMa33blC6jpl9EKHzeIc_3dCooFq7txeYNbZX_0fnlT_4EORizyZjfkX6yf3GLf-b29oc81SdN8Pr1VCRHQ5qJo0fuqlhKA7Z1pb6NCxNBoEYpDkKomZflcNAHpICZj1nx3TqtNpTUmhqaCMY4sjhml-l_GXoHBsRjhIbrqm9rPjJoMm2BaxolYWHG6aQhj0B06dSbdiJck1UrYkHCBN6uIiCU0g8f-lOu3rx5tk3sVV_m41oTv_92aomVoKx508f93Bmuks-iGV7VV73wXnw4n--oQcciuSZU1XEI7SARxB7VHRG9pKJj3vHpI_X7sd7tfbkKjGU86XqcPp9rNvIjD-bRSObg8NJT_L0pfNb0O74fcLO_Cz1FLUwxPZlDid6yvCxJNuc7asM7O1fa0loCQ9HNtcDp1Zw9mHyJDJBWiuqSB075M57i1dQsylkPahsOadLdUgtyvGtuIwR2qyWCFTThlv2iF14csWx9t1tQyED4U8-0YD5IQRcE0Aiwq-yw_6KYeKsJXMRSbkLcwWRG-ZKw0W-KcjiKgDIwly4MtXjHG-STvZwfmRv9uAaLlQvd0n8L7x7U6ZWZxUyAc6tNznWhNhE81ctKJc0bme28io-v8r4Kxa_3bJ1uzQLIbDDepVOlwWo8NmPjgedhyMJWINwmiHupl4_1hnAy1YTZSNVNqh297txMj-h9C3bi5G247EJ-N3Q4v2cTDkQilghrbYmmVSZImIGMJ016HV7OPrXn9bxcJA6TcjYu2vHr2nT5m9WZkYqBkFTBBSqVxWOH2q81UaMNZEupENyWad_JXF6XF4R2UVlvzDi3PYK-oGDcgk3WfaTGFNLN9GMCD8dqwWaxNqp5hAsm2eA2B9e3Q4CHLSTUCEL0-0s_V6i1-brWD0w2cwJzW--NBdPfmaJWyYIB2-uUAgwcaoSS0fcpXtOlck8hhGuov1CWxmT7ldRn9mcn5FTjJrapLCBdo1A8VLFbTfu8Pj95vN81997dkhSkyrBuG8yRf57C9Ap5PuH43ca6a8y5J8yt720eFEjt-CAmTv75CoJJ9WBNSmFS6gmVurvlp8giOoV2wNqmP-a5J_5aJGsHFUo8mC3Up4eRCI_NjiWUl-pukfqZQws0ag2w_tSacnYBMub88YDnxAviCj7uA%3D%3D&searchType=return&searchBags=0.0_0.0",
-            "token": "Hs-E6w9J7MyctMzfAncJIg6F77ZXfSgyAjlQH5l6uOl-saIva54pmiAS9XNeXVzNjCfYv-4GzI7o3F3O3wWUASv7SlG_QnQvdgcj4ykoEYPPn6S2x586W8AW09TTGaBbjp7lvNS7LqYvJ54ZrfeFIhkWO09mMKDL8MwTZL4iQrFWzuVcexRBykKo73-GKGSzYL7bIypq0wTy9p19p_AIOXKrIrVcUk8K_2kg_2jb7F4AF1LcpuxtGo7g9PDI8NR1iRzxox3BR_WhBVEYxG0FttF3ATlGsOtqAUnTL7DzkFaWm5fW1slCsFnjzaY2E4408ihqi2FREie4YVPbhaaaETHNsiAfCM_h5geBus4Kq7qqB5jODu6J9fe6ukgBvDntsUvOmDNUxAOcGn9hLSC1EqHp4sQL8bxWukntP2tonW-mpLhaIV_AYddZOAjuEXjfqrzT9muiAx29-gAqcMa33blC6jpl9EKHzeIc_3dCooFq7txeYNbZX_0fnlT_4EORizyZjfkX6yf3GLf-b29oc81SdN8Pr1VCRHQ5qJo0fuqlhKA7Z1pb6NCxNBoEYpDkKomZflcNAHpICZj1nx3TqtNpTUmhqaCMY4sjhml-l_GXoHBsRjhIbrqm9rPjJoMm2BaxolYWHG6aQhj0B06dSbdiJck1UrYkHCBN6uIiCU0g8f-lOu3rx5tk3sVV_m41oTv_92aomVoKx508f93Bmuks-iGV7VV73wXnw4n--oQcciuSZU1XEI7SARxB7VHRG9pKJj3vHpI_X7sd7tfbkKjGU86XqcPp9rNvIjD-bRSObg8NJT_L0pfNb0O74fcLO_Cz1FLUwxPZlDid6yvCxJNuc7asM7O1fa0loCQ9HNtcDp1Zw9mHyJDJBWiuqSB075M57i1dQsylkPahsOadLdUgtyvGtuIwR2qyWCFTThlv2iF14csWx9t1tQyED4U8-0YD5IQRcE0Aiwq-yw_6KYeKsJXMRSbkLcwWRG-ZKw0W-KcjiKgDIwly4MtXjHG-STvZwfmRv9uAaLlQvd0n8L7x7U6ZWZxUyAc6tNznWhNhE81ctKJc0bme28io-v8r4Kxa_3bJ1uzQLIbDDepVOlwWo8NmPjgedhyMJWINwmiHupl4_1hnAy1YTZSNVNqh297txMj-h9C3bi5G247EJ-N3Q4v2cTDkQilghrbYmmVSZImIGMJ016HV7OPrXn9bxcJA6TcjYu2vHr2nT5m9WZkYqBkFTBBSqVxWOH2q81UaMNZEupENyWad_JXF6XF4R2UVlvzDi3PYK-oGDcgk3WfaTGFNLN9GMCD8dqwWaxNqp5hAsm2eA2B9e3Q4CHLSTUCEL0-0s_V6i1-brWD0w2cwJzW--NBdPfmaJWyYIB2-uUAgwcaoSS0fcpXtOlck8hhGuov1CWxmT7ldRn9mcn5FTjJrapLCBdo1A8VLFbTfu8Pj95vN81997dkhSkyrBuG8yRf57C9Ap5PuH43ca6a8y5J8yt720eFEjt-CAmTv75CoJJ9WBNSmFS6gmVurvlp8giOoV2wNqmP-a5J_5aJGsHFUo8mC3Up4eRCI_NjiWUl-pukfqZQws0ag2w_tSacnYBMub88YDnxAviCj7uA==",
+            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=2-0-0&token=HKO5jgiiDCyM0hPYrpY8I4SbOyHKh4fDpuolVQWFd5SG1VwRDpewjkE_NJB-ciS5Xj6HMBe_ieOKKy6DHGzykU_YUgwwVXIJFIkdYUzCDXwb7_i-mHekfeuCeS-Iami4a97_d5FGqADCKU5n2wHRAWez0i5jo5n6CcFXZbn1F70mPB62M9fACwYdfmS0I9NEfzmtsqujnLgntzgExgMSu9hZT5P3Jz4yBoyvk5iASZokQRDpkoeu1NOQ--gYFJ9sgl39pqIDe-aoKouQG5R-bwFNATBq7crvBdrr51fP4tamtfzVzcG3Y75JbXB4uVg2-kf1XE54Mkvf666ugQatNV0XYo6jX5NjyHfvfjVqOaoSAiH7G2rb8T1DxHF5tpq8ft3yXuzTyxoT03r9d-4pLpsFXiPYgEq4ieimc1H1-uRiw9RP0DzDPlv2bSElAVWf-TBibyGgzvxpjxJbcwY7_BKd7o7ECYxSpEracctEZ2wmdPLfW79hHjWYssiHTljm_OQ-69zsQPD4libeMGan--1SO73jMIAXacYj3_upoe5vVxI0wgyLF8BKYdM1kjGtSlKN-5ZWvJXmgRGIcqK51Bch9pZfLDZmM_hMXhX9y7xiDtQbpyweGI2zZ1blA-G_7u_Hwlr0oZ1jUQ_7eqM-_7Ama7ORQ9JnKB9oSYX2ROHtHrfrGhLt76fh7dqLL4gGefA6dJeFgLWqnTPfsajv_n0xwLOyK6CqyuBF7vjs1Y-3zF4lCvLyG4yMQTNsJkZVSe4_kYgGKF_rAXi9cggnt2NXNLYOGEc5e3yPhUWale3j39szLT3dZn2B2ExNnoRIcRqKsmbQgQc5VSmgkWdwdrdHBDhjYG9TcCBAJyHfJiDJ53HLK90gK6kh3Segx03MNrYbBqikSyzcfKYLzeasZDwTNi_G534SPRpLry6B6QZrVqYgOK3heLjNQWtB_PlEoTXQquyL1Sar2u5nahtpWYp6FtBOp6ZkCOk6ETshpUqnOZdo59k8kWO96nypDsne02Cb98GlwAgAG3HWNacOGzbUFgEc5mb90oyfQ_PY8r5xWECX-mXVnSGdp32YBR2WAQ0HHl-i-9kG1NNcNEL9um67li_bOKM0m-6DfYXON3QFAcujDwy7Ktd9k6F-XX81NeeFy-iP1cytoIsF4CslgVJPDYeOtVIxlsEklUCORfY1xYECuO4NS8yVrA0vQ6aiQxoXqY0F0vtlXkhzEsdgnrlLxxHud86Hc9gbMO2wh2uEdvwfTXAL9Bylj_GaL8JXLaA1tKMdUegEfojWT6v1pBElcsASE1dnnlLfz5sZXqqW5oAwchUYD0yCgnYY5v5Vh0QQnMZsg7jxwdwhqEjsONY8RDzCtLiRrzQ_LqiLHTEhWFKcWLhn4-C7BOKP6-oZp7khsY9u6qTCL7gL_BghlCX-rhTG_GXHDZsylg-SIzveErH-7VwWiY6L2IbOMGCWhju_XHDxQEQaXaLsATwh0r6CC9Tu_EPlCk3P8zWmLLUXmOWe2oz8jiuzGyYgvdSeAIpMrka2Zq5z397l8axCKpuUpj1fVSBjdzGeQQ499Tffh6Xr5A3uxlDue9r48Mt6RNt7SCWQt_zWxjjiOzPPaLpTwOD4xSNPkQA43xGRjuZM%3D&searchType=return&searchBags=0.0_0.0",
+            "token": "HKO5jgiiDCyM0hPYrpY8I4SbOyHKh4fDpuolVQWFd5SG1VwRDpewjkE_NJB-ciS5Xj6HMBe_ieOKKy6DHGzykU_YUgwwVXIJFIkdYUzCDXwb7_i-mHekfeuCeS-Iami4a97_d5FGqADCKU5n2wHRAWez0i5jo5n6CcFXZbn1F70mPB62M9fACwYdfmS0I9NEfzmtsqujnLgntzgExgMSu9hZT5P3Jz4yBoyvk5iASZokQRDpkoeu1NOQ--gYFJ9sgl39pqIDe-aoKouQG5R-bwFNATBq7crvBdrr51fP4tamtfzVzcG3Y75JbXB4uVg2-kf1XE54Mkvf666ugQatNV0XYo6jX5NjyHfvfjVqOaoSAiH7G2rb8T1DxHF5tpq8ft3yXuzTyxoT03r9d-4pLpsFXiPYgEq4ieimc1H1-uRiw9RP0DzDPlv2bSElAVWf-TBibyGgzvxpjxJbcwY7_BKd7o7ECYxSpEracctEZ2wmdPLfW79hHjWYssiHTljm_OQ-69zsQPD4libeMGan--1SO73jMIAXacYj3_upoe5vVxI0wgyLF8BKYdM1kjGtSlKN-5ZWvJXmgRGIcqK51Bch9pZfLDZmM_hMXhX9y7xiDtQbpyweGI2zZ1blA-G_7u_Hwlr0oZ1jUQ_7eqM-_7Ama7ORQ9JnKB9oSYX2ROHtHrfrGhLt76fh7dqLL4gGefA6dJeFgLWqnTPfsajv_n0xwLOyK6CqyuBF7vjs1Y-3zF4lCvLyG4yMQTNsJkZVSe4_kYgGKF_rAXi9cggnt2NXNLYOGEc5e3yPhUWale3j39szLT3dZn2B2ExNnoRIcRqKsmbQgQc5VSmgkWdwdrdHBDhjYG9TcCBAJyHfJiDJ53HLK90gK6kh3Segx03MNrYbBqikSyzcfKYLzeasZDwTNi_G534SPRpLry6B6QZrVqYgOK3heLjNQWtB_PlEoTXQquyL1Sar2u5nahtpWYp6FtBOp6ZkCOk6ETshpUqnOZdo59k8kWO96nypDsne02Cb98GlwAgAG3HWNacOGzbUFgEc5mb90oyfQ_PY8r5xWECX-mXVnSGdp32YBR2WAQ0HHl-i-9kG1NNcNEL9um67li_bOKM0m-6DfYXON3QFAcujDwy7Ktd9k6F-XX81NeeFy-iP1cytoIsF4CslgVJPDYeOtVIxlsEklUCORfY1xYECuO4NS8yVrA0vQ6aiQxoXqY0F0vtlXkhzEsdgnrlLxxHud86Hc9gbMO2wh2uEdvwfTXAL9Bylj_GaL8JXLaA1tKMdUegEfojWT6v1pBElcsASE1dnnlLfz5sZXqqW5oAwchUYD0yCgnYY5v5Vh0QQnMZsg7jxwdwhqEjsONY8RDzCtLiRrzQ_LqiLHTEhWFKcWLhn4-C7BOKP6-oZp7khsY9u6qTCL7gL_BghlCX-rhTG_GXHDZsylg-SIzveErH-7VwWiY6L2IbOMGCWhju_XHDxQEQaXaLsATwh0r6CC9Tu_EPlCk3P8zWmLLUXmOWe2oz8jiuzGyYgvdSeAIpMrka2Zq5z397l8axCKpuUpj1fVSBjdzGeQQ499Tffh6Xr5A3uxlDue9r48Mt6RNt7SCWQt_zWxjjiOzPPaLpTwOD4xSNPkQA43xGRjuZM=",
             "price": {
-              "amount": 3199,
+              "amount": 3280,
               "currency": "USD"
             }
           },
           {
             "provider": "Kiwi.com",
-            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=2-0-0&token=HMHxjorinGf0VLOBALdAtBlnuTmVlO5PUTCayarnec8ZxxnU5dsrDxdPw3PYW1i9cZxFETh6MCqEJOMq4QQROYXx49opzPoQYsKb7fZ9bS1vv1AYo5l6oZAJ2SINe6srtHY2ETff6Z1AQDzvFnyzjtJA8pFx77qxxiq1YDrhjBGDfhGn9NGQD3QokWz7jXs6o8mfDfcgLfmYDhYEi9xomvvBWPn7KRiz_v_TcCQ9t2AC4kDVf0JTFMB-qyzb8rKzRcDfOZL4xf2SC363kE0-pGctP3IIBIlv2VRiytvaT4D13SY8E6x1OZGgum_LH4-oK9Tm_TupwqcBnttuEy1SekOZWbBMQnrT33gfVHdYArQKeZzyaA5CXe2pM0UNbW4QL1nenQTQvtoAVu_fWs7ER8HDYdNbxvszqPA_OJSe07ghFDW-pItxgRZ8dzh4FjbApEQrjXH5Lry7gCqw943KZD0ixh3TkhZJvlvkTsPIMnw7UxbX0hpk09SzXXEdpOGLnReeC-WyvCpkn3CsymPIEa24FmHKm4bL1J251Fu3QLqumkCfZPRoOqSIQJ1comg0jks6RAVMkI24VA5opE3sjmv19a4-1NoQZJwLQ3r7bQ5uCjKETUF5YZrCB_fburYPT8UPj7rMm-6xMlI3neYCTYsLGJiKdsi1lKcWQmkPhgPB-gFbnBd6Hd2ftyfgcCC-HuwUWgNeKtArPnooUgoPuzYNw6_LNgR9URG7oY2_Vgp_OKhl31CNmAm2HcNNPR-TpS5P0yXnQQPKQQFqplzUFz9nhYLo9z5pO3566Z-WvsFJCjxiU249WWoY6PPVyiYDTNDJxodGICS_2e1zUA3U8jHJ08WFKMD_e35VH_6juyFrkvWFsVulOaR3_UxQu37_ndN5ktWCEurAQJGb2e_wygu2ePpFcCRCi693jwFY4h-o0kplsPHhvB_xOK4ZEeSYSEIkoVowWpMYEq2Y3XO5JbPHL2X_CXMDhsMfASCcjfTaq6YNohfqS_9fFnKNybZa7NA78R07Yo7z-ygzd-TWlvlKX9gaF78sMxVfDUgAUf4Db_v9BSbpYoYEJ3yJMGzPNZTLH17R5ShPkNMl4ttdNXJON_4RwpQ01Bf3cnLbk2bMvxeXGJ3e284UENtOkDs3lhbKRp-WflAoAh7Qag0qiAz-yF7QcsMB826u_Q5EINRFRaridObH4d3hDi6wclV3jFEm7RC1AZ4IeN55ptn0rfA4xWrwQlonnnVBkms7IG_ErqvJF0Nnou8V7xuS2xwo4SmtOdaeLCbCH0Ikz1IDx6SCQcbmdaSXAvYruuFVVyIhnEBJpkjmYFoqbAVOvOU53dyyjPY0ezokyK05gkrgMFOmvaE-rv-_4IlvA3El5uma34xBfl0eBikGMTroU-BnhqivA8zPfVrJ-s2ydKoMVkrspIcD2yo74zS__PizsIh6D9rVFJCQaAn2GW0h8AdKbrdW_3Nwr1gg6XxUc7dLML58JySh241zHsfYoCcJ_ri-zTDjTH2JDVx02V1NjZjeQvEwV6tZsJ_1yVRsK2zah1jYN0r18V7B-nry5CeDO7k4zir24JvXoPS741ZM5sASS_BzabreP1WP1yB7sAlL4QQ%3D%3D&searchType=return&searchBags=0.0_0.0",
-            "token": "HMHxjorinGf0VLOBALdAtBlnuTmVlO5PUTCayarnec8ZxxnU5dsrDxdPw3PYW1i9cZxFETh6MCqEJOMq4QQROYXx49opzPoQYsKb7fZ9bS1vv1AYo5l6oZAJ2SINe6srtHY2ETff6Z1AQDzvFnyzjtJA8pFx77qxxiq1YDrhjBGDfhGn9NGQD3QokWz7jXs6o8mfDfcgLfmYDhYEi9xomvvBWPn7KRiz_v_TcCQ9t2AC4kDVf0JTFMB-qyzb8rKzRcDfOZL4xf2SC363kE0-pGctP3IIBIlv2VRiytvaT4D13SY8E6x1OZGgum_LH4-oK9Tm_TupwqcBnttuEy1SekOZWbBMQnrT33gfVHdYArQKeZzyaA5CXe2pM0UNbW4QL1nenQTQvtoAVu_fWs7ER8HDYdNbxvszqPA_OJSe07ghFDW-pItxgRZ8dzh4FjbApEQrjXH5Lry7gCqw943KZD0ixh3TkhZJvlvkTsPIMnw7UxbX0hpk09SzXXEdpOGLnReeC-WyvCpkn3CsymPIEa24FmHKm4bL1J251Fu3QLqumkCfZPRoOqSIQJ1comg0jks6RAVMkI24VA5opE3sjmv19a4-1NoQZJwLQ3r7bQ5uCjKETUF5YZrCB_fburYPT8UPj7rMm-6xMlI3neYCTYsLGJiKdsi1lKcWQmkPhgPB-gFbnBd6Hd2ftyfgcCC-HuwUWgNeKtArPnooUgoPuzYNw6_LNgR9URG7oY2_Vgp_OKhl31CNmAm2HcNNPR-TpS5P0yXnQQPKQQFqplzUFz9nhYLo9z5pO3566Z-WvsFJCjxiU249WWoY6PPVyiYDTNDJxodGICS_2e1zUA3U8jHJ08WFKMD_e35VH_6juyFrkvWFsVulOaR3_UxQu37_ndN5ktWCEurAQJGb2e_wygu2ePpFcCRCi693jwFY4h-o0kplsPHhvB_xOK4ZEeSYSEIkoVowWpMYEq2Y3XO5JbPHL2X_CXMDhsMfASCcjfTaq6YNohfqS_9fFnKNybZa7NA78R07Yo7z-ygzd-TWlvlKX9gaF78sMxVfDUgAUf4Db_v9BSbpYoYEJ3yJMGzPNZTLH17R5ShPkNMl4ttdNXJON_4RwpQ01Bf3cnLbk2bMvxeXGJ3e284UENtOkDs3lhbKRp-WflAoAh7Qag0qiAz-yF7QcsMB826u_Q5EINRFRaridObH4d3hDi6wclV3jFEm7RC1AZ4IeN55ptn0rfA4xWrwQlonnnVBkms7IG_ErqvJF0Nnou8V7xuS2xwo4SmtOdaeLCbCH0Ikz1IDx6SCQcbmdaSXAvYruuFVVyIhnEBJpkjmYFoqbAVOvOU53dyyjPY0ezokyK05gkrgMFOmvaE-rv-_4IlvA3El5uma34xBfl0eBikGMTroU-BnhqivA8zPfVrJ-s2ydKoMVkrspIcD2yo74zS__PizsIh6D9rVFJCQaAn2GW0h8AdKbrdW_3Nwr1gg6XxUc7dLML58JySh241zHsfYoCcJ_ri-zTDjTH2JDVx02V1NjZjeQvEwV6tZsJ_1yVRsK2zah1jYN0r18V7B-nry5CeDO7k4zir24JvXoPS741ZM5sASS_BzabreP1WP1yB7sAlL4QQ==",
+            "booking_url": "https://www.kiwi.com/en/booking/?direct=true&locale=en&currency=usd&passengers=2-0-0&token=HtpuxfRAVI7oBocqSfIJfNuG5uZxt59wxyCm_VrJ8-60WhfbzeAiJozM8NdTZ9p5RFsTKerQUaF7hC1comHgiWrtgXsKEx_ozDUc0RJBiiSzIFMJsBsmUsz7FwFS8G2ATEeZjUtwjq-IsxaJJN9usCAEBVqbcpDQvbnc4_3hGnjCheEfJCVNIVPaZpKv6axXGZ-daJ_Da5PkMCESU9HI592cKLO1WOFVTsYzb9oUpbFc9g27m-C740abPTd6cMKZcaxAXK36pYa9PcBt1cFkG1qVoTIC85P0zdh4pGfguxpTRI9UutL1TIM3ZsSRiCE0E-NnmT0eU5cRChKbkdH_6pEqOZVvBhD2AttHo-wRP7QEAtPt-SJJh6fJngIPfprxQLaPe-V4EYI6p8wLdbOeZM0VdtiopZBUh0AkjI_DqmJRBwV2qCOTQDkHdQO4xOhbB-dKGa8PqnPk20EXv9ptmurFDVNUi1VRrh8X11OediVBWYmrGd6ilcTBjQUrYz6LLwr3I37-qpogxJIfufdfeHnb_aMHbVKDMNOU6wxES4H_pfeb97jj6ke7cedZuLz5yYvdb00KP87FegKwfKDeh9ugo71VtjYE7t-cOsjXNnudthLpuSjhFA8kzcEt_xTnip0ZDGdqJ0XeCHFGD0Cgo2jAKlEraJFB8oGMorBwCEj2TLnlwTUfg706iiYBC0Mvib58VaYe3Dy5wh-9qPles6-qrgzUunHw-MjvUev_o4NZ5tbkqGr3fhba9JGSXumTWXuDKwXDaBm91xo-pzz3tm3NG01XHFwrMl0n324axbxBj4-w65yMzr1GMgZNeqQSBi4xKi0KSNqSx9Do1qz2FnFO8o82fygDRGu1b-mDzbJjwCLOhe_fPi8HNIH-P921wXWzDYHnZVYhZCgpS1RccxFtGjCTnl_xjHSPPs5GlGIymD_7Q2Qsvp0-h0QeOX5ZhIWY0iTs0HK5hFjisMGHxeh6piavWJyhOp7P0dSIUvVP5wmePHFgVpNXG8eQ76HJKGQFCYuGwM4a0g93cbhTWXFb3CwG9UXcrt_3hgOxKstAZhJYdSOQm5zIKZD3b0EVdDVM56Z47mbvRSIsoewDjbEMIGOoSqDHcf_Mec6C3Tc6cBDI88qDtQ4spQqCsVGh2tVOnmBO5zePijpEDZKV3DSHMV7_TT9qLKjAkVu2mHIAs2tam28g4eYHZ8fLQAzIFfpUtVEnC5tCMuav9rtzjXj_PYh1e1JrJBxU-tXnHmsv3NgFqC0jr9fbP6cOnbVKvkrQpOontGQW9COdUUFdasxaw720jwPhWr6si_F46IzFKoolDZ3gzWCqFpkNUVejABrSfn131z5z5auuyGVpz1jMtCbYJ7_vmlKv_n7O7NTHDTCu-oJCNar0clGyoV5lAEPyjV8UBMqOlIl37t3a8-8_9_-RhevKf4pmJzXwvKK0LBMbMbjPQTxGt7w17b8aWItlZHS4BPa0u7bIbU5vhmghH0GQ5t6i60NTe9BswLL93wLpWOWsB7YgrgXmKeosNy-UtmUigv3UdamNYwwfl7tEbKM6IgOeEha1gHMsjK_JGQVHuAOx1gb_caURoOwJqMLbdOnwuScjoZ4ZFrjwSSBzXYzoTwg9j96iwiPh7fTc%3D&searchType=return&searchBags=0.0_0.0",
+            "token": "HtpuxfRAVI7oBocqSfIJfNuG5uZxt59wxyCm_VrJ8-60WhfbzeAiJozM8NdTZ9p5RFsTKerQUaF7hC1comHgiWrtgXsKEx_ozDUc0RJBiiSzIFMJsBsmUsz7FwFS8G2ATEeZjUtwjq-IsxaJJN9usCAEBVqbcpDQvbnc4_3hGnjCheEfJCVNIVPaZpKv6axXGZ-daJ_Da5PkMCESU9HI592cKLO1WOFVTsYzb9oUpbFc9g27m-C740abPTd6cMKZcaxAXK36pYa9PcBt1cFkG1qVoTIC85P0zdh4pGfguxpTRI9UutL1TIM3ZsSRiCE0E-NnmT0eU5cRChKbkdH_6pEqOZVvBhD2AttHo-wRP7QEAtPt-SJJh6fJngIPfprxQLaPe-V4EYI6p8wLdbOeZM0VdtiopZBUh0AkjI_DqmJRBwV2qCOTQDkHdQO4xOhbB-dKGa8PqnPk20EXv9ptmurFDVNUi1VRrh8X11OediVBWYmrGd6ilcTBjQUrYz6LLwr3I37-qpogxJIfufdfeHnb_aMHbVKDMNOU6wxES4H_pfeb97jj6ke7cedZuLz5yYvdb00KP87FegKwfKDeh9ugo71VtjYE7t-cOsjXNnudthLpuSjhFA8kzcEt_xTnip0ZDGdqJ0XeCHFGD0Cgo2jAKlEraJFB8oGMorBwCEj2TLnlwTUfg706iiYBC0Mvib58VaYe3Dy5wh-9qPles6-qrgzUunHw-MjvUev_o4NZ5tbkqGr3fhba9JGSXumTWXuDKwXDaBm91xo-pzz3tm3NG01XHFwrMl0n324axbxBj4-w65yMzr1GMgZNeqQSBi4xKi0KSNqSx9Do1qz2FnFO8o82fygDRGu1b-mDzbJjwCLOhe_fPi8HNIH-P921wXWzDYHnZVYhZCgpS1RccxFtGjCTnl_xjHSPPs5GlGIymD_7Q2Qsvp0-h0QeOX5ZhIWY0iTs0HK5hFjisMGHxeh6piavWJyhOp7P0dSIUvVP5wmePHFgVpNXG8eQ76HJKGQFCYuGwM4a0g93cbhTWXFb3CwG9UXcrt_3hgOxKstAZhJYdSOQm5zIKZD3b0EVdDVM56Z47mbvRSIsoewDjbEMIGOoSqDHcf_Mec6C3Tc6cBDI88qDtQ4spQqCsVGh2tVOnmBO5zePijpEDZKV3DSHMV7_TT9qLKjAkVu2mHIAs2tam28g4eYHZ8fLQAzIFfpUtVEnC5tCMuav9rtzjXj_PYh1e1JrJBxU-tXnHmsv3NgFqC0jr9fbP6cOnbVKvkrQpOontGQW9COdUUFdasxaw720jwPhWr6si_F46IzFKoolDZ3gzWCqFpkNUVejABrSfn131z5z5auuyGVpz1jMtCbYJ7_vmlKv_n7O7NTHDTCu-oJCNar0clGyoV5lAEPyjV8UBMqOlIl37t3a8-8_9_-RhevKf4pmJzXwvKK0LBMbMbjPQTxGt7w17b8aWItlZHS4BPa0u7bIbU5vhmghH0GQ5t6i60NTe9BswLL93wLpWOWsB7YgrgXmKeosNy-UtmUigv3UdamNYwwfl7tEbKM6IgOeEha1gHMsjK_JGQVHuAOx1gb_caURoOwJqMLbdOnwuScjoZ4ZFrjwSSBzXYzoTwg9j96iwiPh7fTc=",
             "price": {
-              "amount": 3546.378659,
+              "amount": 3636.04965,
               "currency": "USD"
             }
           }
@@ -647,5 +605,5 @@
       "itinerary_count": 20
     }
   ],
-  "completed_at": "2026-07-17T01:13:33.514452+00:00"
+  "completed_at": "2026-07-28T14:00:39.958795+00:00"
 }

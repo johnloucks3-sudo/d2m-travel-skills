@@ -1,0 +1,64 @@
+Subject: ⚡ PROPOSED SYSTEM ARCHITECTURE: Drive Reorganization Plan
+From: johnloucks3@gmail.com
+Received: 2026-07-28T14:18:33.524581+00:00
+
+DREAMS2MEMORIES TRAVEL, LLC
+      
+
+    
+  
+
+
+  
+  
+     
+  
+
+
+  
+  
+    
+
+⚡ D2M DRIVE REORGANIZATION PLAN & SYSTEM ARCHITECTURE
+Commander, please find the proposed taxonomy, separation maps, and token-mapped worker queue configuration below.
+⚡ D2M DRIVE REORGANIZATION PLAN & SYSTEM ARCHITECTURE
+Authority: COS Victoria Hale SES-6 | Dreams2Memories Travel, LLC*
+--
+🎯 EXECUTIVE OVERVIEW
+This plan outlines the taxonomy, directory maps, and execution steps to systematically clean and reorganize the YOGA local drive and Google Drive accounts (d2m and jl3).
+Our goals are to:
+1. Facilitate Machine Indexing: Structure the YOGA local drive so Qdrant and LLM search queries can find target scripts and files instantly without getting lost in versioned sprawl.
+2. Clean separation of concerns:
+Google Drive d2m  → Dedicated to system operations, codebase components, standing orders, and operational states.
+Google Drive jl3  → Dedicated to client-facing assets, dossiers, drafts, templates, and final outputs.
+3. Optimize Token Consumption: Utilize a tiered model dispatch strategy to execute the migration at $0-native cost where possible, reserving premium reasoning tokens only for mapping validation.
+--
+1. YOGA DRIVE TAXONOMY (Local Workspace)
+Machine-Optimized layout for indexing and search*
+To facilitate fast vector search and eliminate redundant retrieval context, the local directory tree starting at /home/john/Thunderbird is mapped below. All legacy duplicate version scripts (e.g. *_v1.py, *_v2.py) will be archived into a single compressed .tar directory out of the path of search indexing.
+
+/home/john/Thunderbird/
+│
+├── core/                   # ◄ Core Python System files (Read-Only to non-Claude)
+│   ├── ai_infra/           # Persona loaders, model dispatchers, router logic
+│   ├── booking/            # Excursion crawlers, supplier monitors, PDF ingest
+│   ├── communication/      # Telegram C2 bot controllers, formatter engines
+│   ├── email/              # Thunderbird Gmail wrappers, template builders
+│   ├── lifecycle/          # Client lifecycle event pipelines, trackers
+│   ├── memory/             # Qdrant schema vectors, semantic indexing, session blasting
+│   └── ops/                # Daily reporting, EOD briefs, cost monitors
+│
+├── config/                 # ◄ Unified JSON & YAML configuration states
+│   ├── tcd_drives.json     # Google Drive folder links & mappings
+│   ├── tcd_sheets.json     # TCD active sheet targets
+│   └── overrides.json      # Persistent stage overrides
+│
+├── intel/                  # ◄ AI Innovation Digests and Route Research
+│   ├── daily_digests/      # Archive of daily innovation scans
+│   ├── flight_quotes/      # Live airfare and itinerary research
+│   └── weekly_reports/     # Weekly competitive sitreps
+│
+├── ops/                    # ◄ Active Standing Orders & Governance Policies
+│   └── SO_*.md             # Standing Order markdown files (Write-guarded)
+│
+├── OpsCenter/              # ◄ Active Operational Da

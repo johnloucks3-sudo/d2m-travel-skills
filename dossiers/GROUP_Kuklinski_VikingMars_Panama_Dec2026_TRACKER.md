@@ -122,3 +122,7 @@ Commander's read, distinct from the McLeod self-sufficiency pattern: *"I think K
 This is a **passive disengagement** risk, not an active-assertion one — Kyle won't say "we can book this ourselves" the way McLeod did; he'll just go quiet. That means the self-sufficiency text-classifier built the same day (`core/email/thunderbird_email_intel.py::_track_self_sufficiency_signal`) will **not** catch this pattern — it needs response-cadence/engagement-frequency tracking over time, not keyword/intent classification on individual emails. That tracking mechanism does not exist yet; this note exists so it isn't silently forgotten.
 
 **Until that's built:** Dani/Hale should default to personal-tone, personal-contact touchpoints for Kyle specifically (not template/form language) on the upcoming TP sends in the table above — Jul 28 insurance re-offer, Aug 1 excursion recs, Sep 18 dining/doc audit, etc.
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

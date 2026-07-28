@@ -1837,3 +1837,2876 @@ status: UNREAD
 
 ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
 ---
+
+---
+## RELAY-ee2e7c29 from CC — 2026-07-10 22:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] eaa06d188: fix: CLIENT WIRE next-TP label uses staged draft override when it repurposes a TP slot |  49 files changed, 3770 insertions(+), 253 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-10 22:23
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260711
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-11 at 00:00 MT.
+  59 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-eb9959cc from CC — 2026-07-11 14:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 851d9971d: docs: Position paper Q3 2026 tech adoption + DeepSeek R1 trial | MISSION-GMAIL-FIX P0 critical blocker |  2 files changed, 627 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 14:18
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ad9a4145 from CC — 2026-07-11 15:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4de2c8dd3: log: Batch 4 execution complete (20 decisions approved, audit trail updated) |  1 file changed, 9097 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 15:22
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-488e90c0 from CC — 2026-07-11 15:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5e38a8fa7: log: Batch 5 execution complete (20 decisions approved) | Grandeur itinerary FULL format · Transportation procured 6:00pm · McLeod TP today · Automation approved |  1 file changed, 96 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 15:26
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ab35652c from CC — 2026-07-11 17:24 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e2f5f7c3e: docs: CLAUDE.md v3.0.0 — cleaned up, current state only |  2 files changed, 542 insertions(+), 366 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 17:25
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-032f49bf from CC — 2026-07-11 17:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 68b1e61a4: feat: Commander Decision Inbox v2 — Watch section + Batch 4+ tasks |  1 file changed, 512 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 17:38
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-57cede6e from CC — 2026-07-11 17:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9e1c7cfab: refactor: Rename to Thunderbird Commander Desktop (TCD) — Inbox | Hold | Outbox |  1 file changed, 241 insertions(+), 264 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 17:42
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3884aa59 from CC — 2026-07-11 18:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3c059d6c4: feat: TCD v4 — file system interface prototype (Strategic/Operational/Reference inboxes) |  1 file changed, 1111 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 18:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-504cd05a from CC — 2026-07-11 18:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2afb5a82e: docs: Standing Order P-D-T-A-C workflow + update CLAUDE.md |  2 files changed, 176 insertions(+), 14 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 18:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4eaf44fe from CC — 2026-07-11 18:58 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 07b94fef9: docs: TCD v4 becomes full backend app on d2mluxury.quest + replaces AM briefing |  1 file changed, 23 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 18:58
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b2ef7602 from CC — 2026-07-11 19:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e0a05fc47: docs: Clarify TCD scope — replaces briefings + intel reports |  1 file changed, 11 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6f0ee126 from CC — 2026-07-11 19:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d4548e4a0: docs: ELON initiatives — daily email + TCD reference (non-negotiable) |  1 file changed, 4 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:01
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9bd8e2d7 from CC — 2026-07-11 19:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 59bdd360c: 🚨 CRITICAL: TCD becomes PRIMARY C2 channel, replaces Telegram |  1 file changed, 15 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:02
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2e0a9920 from CC — 2026-07-11 19:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 63653cc30: feat: TCD v4 backend — data adapter + Basic-Auth API server |  2 files changed, 472 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:18
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6032b612 from CC — 2026-07-11 19:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 352f08703: feat: TCD morning briefing default view |  2 files changed, 38 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:22
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9cfd9408 from CC — 2026-07-11 19:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 462e72459: feat: TCD Gmail/AgentMail inbox sync — johnloucks3 + d2mconcierge feed Operational inbox |  1 file changed, 94 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4d91e2ea from CC — 2026-07-11 19:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 824ec629b: feat: TCD P-D-T-A-C stage pills + Watch section |  2 files changed, 25 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 19:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3f740ca7 from CC — 2026-07-11 22:06 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e8985b1c4: feat: TCD delete-with-cascade + outbox noise filter |  3 files changed, 423 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-11 22:06
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-1ca4c1dd from CC — 2026-07-12 13:54 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d0ed5a661: feat: TCD Phase 0 — Google Sheets data plane for AppSheet pilot |  12 files changed, 1027 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 13:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2c2346f6 from CC — 2026-07-12 14:06 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 08361f930: fix: TCD deep-links — dossiers with YAML '---' first line no longer dead-link |  2 files changed, 44 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 14:06
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c7dbc695 from CC — 2026-07-12 15:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] dd760a9ce: feat: TCD Phase 2 — write-back loop closes AppSheet→Python |  3 files changed, 489 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 15:03
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-64eec891 from CC — 2026-07-12 15:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c7ccf4dc5: feat: TCD Phase 5a — Google Keep sync via existing gkeepapi token |  6 files changed, 200 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 15:18
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f205e617 from CC — 2026-07-12 15:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9847cbeff: feat: TCD Phase 3 data layer — Intel / Tech Scans / Next 7 Days tabs |  2 files changed, 13 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 15:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-7f66202e from CC — 2026-07-12 15:40 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 25180c7ee: fix: land Phase 3 source files omitted from prior commit + Android SMS gateway |  16 files changed, 1387 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 15:40
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-82eb885a from CC — 2026-07-12 16:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2c5a59dea: chore: sync timestamp bump (tcd-sync.timer running) |  1 file changed, 1 insertion(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 16:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-a75e27a4 from CC — 2026-07-12 16:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cdab81bfe: SECURITY FIX: Keep collector was leaking note body content into the Sheet |  2 files changed, 40 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 16:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-d7676c44 from CC — 2026-07-12 16:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fe261602e: intel: subscribe Travel Bulletin (travelbulletin.com) as industry_news source |  1 file changed, 11 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 16:56
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-1c423621 from CC — 2026-07-12 16:59 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7b649c075: feat: Gemini MCP function-calling bridge + self-built cost gate/cutoff |  5 files changed, 503 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 16:59
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c0053510 from CC — 2026-07-12 17:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2289fbe87: feat: expand Gemini bridge to Google write tools + hard-pinned d2m send |  2 files changed, 153 insertions(+), 18 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 17:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b51ea3a7 from CC — 2026-07-12 17:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9a737f301: feat: Vertex AI backend switch + Google Search grounding |  1 file changed, 170 insertions(+), 9 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 17:23
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-afb70bdb from CC — 2026-07-12 18:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9d07d911c: fix: dossier corruption scanner false-positives on markdown structural markers |  2 files changed, 121 insertions(+), 8 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 18:22
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b33cfa22 from CC — 2026-07-12 18:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a377e5c71: feat: expose tcd/ package as real MCP tools (tcd_get_items, tcd_sync_now, tcd_process_writeback) |  3 files changed, 178 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 18:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2f270474 from CC — 2026-07-12 19:36 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5207421a7: docs: TCD Phase 3 (Looker Studio dashboards) complete and verified |  2 files changed, 17 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 19:36
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-30178117 from CC — 2026-07-12 22:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 99dc8fca3: docs: TCD Phase 4 decommission complete — old dashboard/tunnel route retired |  1 file changed, 18 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-12 22:50
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-af5f760f from CC — 2026-07-13 03:36 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 788d0c7cd: feat(tcd): plain-English status + real Close action |  7 files changed, 136 insertions(+), 57 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-13 03:36
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-61dd5de5 from CC — 2026-07-13 04:04 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5ef40d7b8: feat(tcd): one PDTAC pipeline — P is the only decision entry point |  5 files changed, 97 insertions(+), 11 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-13 04:04
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-e0afecc0 from CC — 2026-07-13 12:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bedfa713c: feat(tcd): D->T auto-tasking, stage-override persistence, C-stage Certify surface |  9 files changed, 626 insertions(+), 22 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-13 12:38
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-dbb7d5c1 from CC — 2026-07-13 14:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f4fc2060a: feat: wire HALE-AG into Antigravity — GEMINI.md identity + verified live |  1 file changed, 76 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-13 14:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-36b4d4ab from CC — 2026-07-13 23:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 205e54f10: feat(tcd): MISSION-001A — P=Provide kind split, 4 A-tier gaps closed, watchdog scaffold |  12 files changed, 32904 insertions(+), 25012 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-13 23:45
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-570e7c4a from CC — 2026-07-14 00:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 27add64a6: chore(tcd): MISSION-001A complete — live-verified P=Provide kind gating + audit trail |  2 files changed, 439 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 00:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-e7ce5613 from CC — 2026-07-14 04:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f8fe73439: fix(tcd): Create Task action was silently dropping the Commander's free-text note |  3 files changed, 121 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 04:03
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-005e9f09 from CC — 2026-07-14 05:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e9cb34f3c: docs: log TCD Items view UX fixes + caught-not-shipped key regression to hale_decisions.md |  1 file changed, 3633 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 05:01
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5e0a038e from CC — 2026-07-14 12:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7f9032015: docs: log TCD stage-label fix (Summary column) + Group-by platform limitation |  1 file changed, 4885 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 12:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-a3cffa1a from CC — 2026-07-14 18:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f1251bc08: chore(tcd): sync state — mission board updates, sheet sync timestamps, stage overrides, interaction log |  4 files changed, 242 insertions(+), 8 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 18:51
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8e942cf2 from CC — 2026-07-14 20:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fe95502f1: docs(gemini): add headless-claude tasking + ask-Claude-Hale pointers — agy had neither |  1 file changed, 39 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 20:45
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c01c5d2f from CC — 2026-07-14 20:57 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7e013ab8f: feat(relay): add AG (Antigravity) to the CC Telegram relay alongside OC |  3 files changed, 66 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 20:57
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9761ae6e from CC — 2026-07-14 21:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 05c45c5b3: docs(hale): codify equal-performance standing order — CC/OC/AG same bar, no exceptions for newer seats |  1 file changed, 1 insertion(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-14 21:22
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260715
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-15 at 00:00 MT.
+  64 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-001 | 2026-07-15 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260716
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-16 at 00:00 MT.
+  69 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-7caed844 from CC — 2026-07-16 12:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 07132f2f3: fix(inbox-triage): wrap modify() calls in try/except to prevent crash loop |  2 files changed, 38352 insertions(+), 19 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 12:41
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b05d6dc5 from CC — 2026-07-16 12:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 08b1747e0: fix(factbook-refresh): restore haiku model + raise TimeoutStartSec to 900s |  2 files changed, 148 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 12:53
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-0e1f1f06 from CC — 2026-07-16 12:58 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 74d20e7f4: docs(master-plan): restore THUNDERBIRD_MASTER_PLAN.md to live path, add Part 15 (Architecture V4) |  1 file changed, 2330 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 12:58
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-25770504 from CC — 2026-07-16 13:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0c33fd028: fix(claude-md): add THUNDERBIRD_MASTER_PLAN.md to AUTO-LOAD block — the actual root cause |  1 file changed, 3 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:01
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9dfa900f from CC — 2026-07-16 13:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bac9188ec: fix(itinerary-so): resolve hex conflict, fix ambiguous Stage-4 owner, add Reyes Stage 0 |  2 files changed, 146 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:02
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-0eb159ee from CC — 2026-07-16 13:12 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 26e93b8cf: fix(backup): remove duplicate drive-sync task from supertimer backup_bot |  1 file changed, 9 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:12
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ed657a4c from CC — 2026-07-16 13:24 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ef480d96d: feat(mission-board): expose Mission Board via MCP — closes AGY capability gap |  3 files changed, 206 insertions(+), 27 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:24
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-cdbab786 from CC — 2026-07-16 13:24 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bec31f2b4: fix(oom): break fleet-wide 1GB memory cap + continuity spawn runaway |  13 files changed, 289 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:25
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f546b437 from CC — 2026-07-16 13:27 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4e16822ca: docs(mcp): regenerate tool catalog — mission_board_* tools now cataloged |  2 files changed, 565 insertions(+), 126 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:27
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-d922b798 from CC — 2026-07-16 13:36 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 00f45f122: feat(delegation): cross-Hale task-delegation design + Phase-0 routing library |  2 files changed, 390 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:36
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-382896bb from CC — 2026-07-16 13:37 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cf6af85b1: fix(oom): rewrite fix_memory_ceilings.sh generator to per-unit layout |  2 files changed, 74 insertions(+), 93 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:37
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-339a363b from CC — 2026-07-16 13:40 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 02738c8df: fix(oom): rewrite fix_memory_ceilings.sh generator to per-unit layout |  4 files changed, 82 insertions(+), 109 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 13:40
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8e8bca90 from CC — 2026-07-16 14:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 838f079bb: fix(telegram): fleet-wide flood suppression — mute list + cooldown dedup |  4 files changed, 240 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 14:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-85ed1a8f from CC — 2026-07-16 14:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b6d4ad39d: feat(email-intel): client self-sufficiency signal detector |  2 files changed, 265 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 14:22
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6f6c0a99 from CC — 2026-07-16 14:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bd41dbacd: docs(kuklinski): log passive-disengagement relationship note |  1 file changed, 27 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 14:23
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2cd12d5b from CC — 2026-07-16 16:58 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1bb496556: chore(ci): remove Regent from automated CI/watcher monitoring |  3 files changed, 1227 insertions(+), 1235 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 16:58
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-818be216 from CC — 2026-07-16 17:28 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 073ece966: chore(board): close 11 done-but-unmarked tickets, correct 2 stale premises, fix C2 Fabric doc header |  2 files changed, 1216 insertions(+), 64 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-13be70cc from CC — 2026-07-16 17:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3056d154c: Block 5: MISSION-044 TESS verification — McLeod $200 FCC NOT applied |  2 files changed, 21 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-57677469 from CC — 2026-07-16 17:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7dc38ea08: fix(watchtower): M-642 monthly-archive check read stale state/ copy |  2 files changed, 76 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-03a39da2 from CC — 2026-07-16 17:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 36ea40366: fix(email): M-645 recognize known-client tier as client_inquiry signal |  2 files changed, 76 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3942da0e from CC — 2026-07-16 17:35 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a4f260e9d: docs(blackboard): log Block 5 status — Nichols draft + McLeod TESS verify |  1 file changed, 38 insertions(+), 23 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-1f9b3cf1 from CC — 2026-07-16 17:35 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7bba2643b: docs(oc): M-616 wire bsk CLI reference into AGENTS.md |  1 file changed, 15 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3e4108a5 from CC — 2026-07-16 17:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 76fcc6f14: fix(ci): M-636 fleet razor-sharp sweep crashed on retired designation |  3 files changed, 83 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:42
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c03599a6 from CC — 2026-07-16 17:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ea54f093c: feat(relay): wire cross-Hale delegation ticket schema onto the live C2 Fabric bus |  4 files changed, 614 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-450924cb from CC — 2026-07-16 17:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b69655585: Block 4 prep: Scandinavia PDF regen + portal-staleness flag + dossier reconciliation |  3 files changed, 43 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:43
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:43
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ec37f5e4 from CC — 2026-07-16 17:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 158e78450: docs(itinerary): M-619 implementation-ready conveyor daemon design |  1 file changed, 164 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:43
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2df2abde from CC — 2026-07-16 17:44 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 011144be2: feat(web-intel): wire Camofox as Tier-4 + SearXNG free-text search; guard managed-agents SDK gap; expand Gemini flight allowlist |  6 files changed, 385 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:45
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-da323e37 from CC — 2026-07-16 17:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9bc10ef90: docs(blackboard): Block 7 web-intel + AI SDK integration status report |  1 file changed, 35 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:46
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ee8459f4 from CC — 2026-07-16 17:48 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8c4fb5924: docs(door-county): dining + excursion plan for Loucks Sep 2026 trip |  2 files changed, 190 insertions(+), 50 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:49
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f6bfd18a from CC — 2026-07-16 17:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 94d3bf30b: research: Grandeur group shared-van transfer proposal (real Kiwitaxi pricing) + draft |  4 files changed, 247 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:50
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-18d624a4 from CC — 2026-07-16 17:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f096262d4: blackboard: log Nichols/group shared-van research + draft status |  1 file changed, 48 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:51
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3fac20ad from CC — 2026-07-16 17:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7ddd8464a: fix(smart_fetch): Camofox macro search open on https not about: scheme; label macro fallback unverified/fragile |  1 file changed, 12 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:53
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-21e57ee7 from CC — 2026-07-16 17:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] da08b246b: test(odysseus): add health-check bool contract test + Block 2A MAG/CRM validation report |  2 files changed, 42 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:53
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2221205e from CC — 2026-07-16 17:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e6ee0384b: docs(blackboard): correct Block 7 report — Camofox macro fragile, managed-agents blocked by dummy key + SDK |  6 files changed, 255 insertions(+), 19 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-2f7ecc06 from CC — 2026-07-16 17:54 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 062cb83dc: fix(centrav): price-selector cents-precision preference + real round-trip support |  3 files changed, 176 insertions(+), 19 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5313ac93 from CC — 2026-07-16 17:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 26d813086: docs: d2mluxury.quest subdomain audit — 19/21 live, reverie+visuals CF-525 (edge fault, not backend) |  1 file changed, 134 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 17:57
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2228bc94 from CC — 2026-07-16 18:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d6f84b3f8: feat(files): YOGA→dv7 curated sync + files.d2mluxury.quest server + runbook |  1 file changed, 124 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f2b6060b from CC — 2026-07-16 18:05 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f94eee06e: docs(blackboard): Block 6 status — 8 remaining open tickets worked |  1 file changed, 86 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:05
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f33f075e from CC — 2026-07-16 18:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 038bd1801: fix(cruises): normalize duplicate region labels breaking selector filter |  2 files changed, 74 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:08
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4bfbc35d from CC — 2026-07-16 18:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fbf1d2057: docs(blackboard): M-636 correct causal story + flag ci-sweep.timer 06:00 fire |  1 file changed, 22 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-327d3c34 from CC — 2026-07-16 18:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2308819a2: fix(tess): repair get_booking() 500 + document Odysseus/TESS re-verify findings |  3 files changed, 47 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-edb314c1 from CC — 2026-07-16 18:20 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] be0bb3820: fix(drafts): correct TALON-flagged defects in 2 client drafts |  1 file changed, 1 insertion(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ba7b2fb9 from CC — 2026-07-16 18:32 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 40beb5f89: fix(cdp): tab-selection false-match + missing --remote-allow-origins flag |  2 files changed, 12 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:32
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-a99acbda from CC — 2026-07-16 18:36 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] aa92b9851: security: fix chrome-debug.sh CDP wildcard origin (--remote-allow-origins=*) |  1 file changed, 7 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:36
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-fd464055 from CC — 2026-07-16 18:54 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6e04f1997: docs(tap): re-verify vendor intel live, still current after 7 weeks |  1 file changed, 2 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 18:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-7aab864d from CC — 2026-07-16 19:05 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a4c14384b: stage(mcleod): live Regent portal read finds a 3rd balance figure + FCC contradiction |  2 files changed, 65 insertions(+), 33 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:05
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b3da429a from CC — 2026-07-16 19:28 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5c1c292e5: feat(itinerary): build McLeod Lesser Antilles (Grandeur, Dec 2026) — romance copy + viewed port images |  2 files changed, 215 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:28
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4beb0c7d from CC — 2026-07-16 19:30 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1c3aab470: docs(mcleod): resolve excursion naming discrepancy, log itinerary build |  1 file changed, 3 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:30
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-e764ec6c from CC — 2026-07-16 19:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c7dbcf04f: feat(itinerary): Loucks Panama Canal voyage page (Grandeur 3122006) + excursion-fit dossier |  2 files changed, 239 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:34
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3456caea from CC — 2026-07-16 19:40 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 27e540dbf: fix(tess): add_note() targeted a nonexistent Booking/Client note action |  2 files changed, 89 insertions(+), 29 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:41
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-609f83fb from CC — 2026-07-16 19:47 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 21d86c2f5: docs(loucks): Commander confirmed all Panama Canal excursions acceptable |  1 file changed, 2 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 19:47
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-bbcfa027 from CC — 2026-07-16 20:57 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ce41a1835: feat(silver): mandatory FRONT/BACK gate on all delegated work + corrected seat capability model |  9 files changed, 515 insertions(+), 203 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 20:57
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4139505e from CC — 2026-07-16 21:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 216a44d44: feat(silver): DNA reasoner + cross-Hale Insight Exchange |  5 files changed, 494 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:02
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6fcf9bfd from CC — 2026-07-16 21:17 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] bf1a68225: feat(silver): first REAL cross-seat round-trip + live Insight Exchange |  3 files changed, 93 insertions(+), 9 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:17
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-782484bd from CC — 2026-07-16 21:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e370fa7b8: feat(silver): seat scorecard + per-seat budget state + honest preflight + Telegram fold-in |  8 files changed, 284 insertions(+), 13 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:23
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9b860acd from CC — 2026-07-16 21:35 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a0b8463bd: feat(silver): daily digest in canonical AM-brief format |  1 file changed, 113 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-125c7ada from CC — 2026-07-16 21:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d30d0f129: fix(silver): digest inline styles — Gmail strips <style> blocks |  1 file changed, 26 insertions(+), 25 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:42
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8a6bc238 from CC — 2026-07-16 21:44 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f52b2cbc9: style(silver): digest larger bold font per Commander |  1 file changed, 7 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 21:44
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-0f9faf5f from CC — 2026-07-16 22:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a9e7da375: fix(tess): stop 90-min OnFailure alert storm on stale vault password |  1 file changed, 75 insertions(+), 11 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 22:10
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-637b63e2 from CC — 2026-07-16 22:12 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3f22647fc: fix(tess): contain transient Playwright exceptions in credential fallback |  1 file changed, 7 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 22:13
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-63cb2a59 from CC — 2026-07-16 22:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 903ee09eb: feat(ops): air-only keepalive policy — shut down ALL site-session keepalives |  2 files changed, 6 insertions(+), 48 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 22:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-81509bf6 from CC — 2026-07-16 22:28 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 534074690: feat(orchestrator): effectiveness fixes from 2026-07-16 audit — reader, honest grading |  5 files changed, 243 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-16 22:28
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2e86e815 from CC — 2026-07-17 01:14 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 227b4dd98: feat(flights): keep a real flight-fare scan alive — stateless Kiwi API, no session |  3 files changed, 837 insertions(+), 150 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 01:14
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-782c31f6 from CC — 2026-07-17 01:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 95fe48b00: feat(flights): second stateless fare scan — Google Flights RapidAPI |  3 files changed, 410 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 01:19
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b300a04e from CC — 2026-07-17 01:48 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b7405dd28: fix(flights): repair dead Amadeus import + remove Centrav from master pipeline |  1 file changed, 43 insertions(+), 37 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 01:49
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-6a77423a from CC — 2026-07-17 08:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8c873215e: fix(fare-watch): soft-fail on ConnectionError when Amadeus proxy is down |  1 file changed, 8 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 08:45
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-68664ba8 from CC — 2026-07-17 11:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 155f18459: fix(flights): Amadeus fast-fail after confirmed permanent API retirement |  1 file changed, 28 insertions(+), 7 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 11:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b9aa4124 from CC — 2026-07-17 22:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b325074f0: fix(tcd): wire Silver gate into writeback D->T auto-task + Close/Certify (MISSION-658) |  2 files changed, 343 insertions(+), 24 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 22:16
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b52029f1 from CC — 2026-07-17 22:17 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ebede64de: fix(tcd): wire Silver gate into writeback D->T auto-task + Close/Certify (MISSION-658) |  2 files changed, 290 insertions(+), 22 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 22:17
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-7942376d from CC — 2026-07-17 22:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7b421bea6: fix(tcd): wire Silver gate into writeback D->T auto-task + Close/Certify (MISSION-658) |  2 files changed, 295 insertions(+), 22 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 22:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-619c167e from CC — 2026-07-17 22:49 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b0384ea5c: fix(dedup): board-level find_open_duplicate guard on TCD + weekly-report mission paths (MISSION-647) |  4 files changed, 129 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 22:50
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9df63c55 from CC — 2026-07-17 22:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3f3102b10: fix(dedup): board-level find_open_duplicate guard on ELON synthesis + adopt pipeline (MISSION-647) |  3 files changed, 281 insertions(+), 87 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 22:56
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8934aa7d from CC — 2026-07-17 23:01 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b7f434a7f: fix(tcd): front-frame reads mission description when comments empty (MISSION-658 efficacy) |  2 files changed, 41 insertions(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-17 23:01
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8c086d3c from CC — 2026-07-18 02:44 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c7608d07e: fix(ci): retire dead watcher-restart loop flooding wing_comms (MISSION-667) |  1 file changed, 8 insertions(+), 97 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 02:44
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-db1d10b4 from CC — 2026-07-18 03:13 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d440cc4fb: feat(notify): route non-actionable events to brief digest, not real-time Telegram (MISSION-669) |  2 files changed, 155 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 03:13
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-38d44bad from CC — 2026-07-18 03:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0a7adc271: feat(notify): route non-actionable events to brief digest, not real-time Telegram (MISSION-669) |  2 files changed, 62 insertions(+), 16 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 03:16
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-fc29c0a7 from CC — 2026-07-18 03:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4d5d67c27: feat(notify): bound notify_digest.jsonl to ~1000 recent records (MISSION-669) |  1 file changed, 6 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 03:18
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ec3babaa from CC — 2026-07-18 03:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 135393941: fix(relay): retry/backoff + durable queue so relay_send never crashes (MISSION-670) |  1 file changed, 48 insertions(+), 12 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 03:27
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260718
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-18 at 00:00 MT.
+  70 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-b2b26b2f from CC — 2026-07-18 19:28 UTC
+priority: high
+status: UNREAD
+task: |
+  TASK for OC (CC delegating to keep CC token spend down, Commander directive):
+  
+  Context: Commander wants TCD scrapped and a foundation-first rebuild covering
+  Project Management + USAF-style staffing/tasking + CRM + Document Production
+  + Agentic AI Management, on a Google-native foundation (Sheets/Apps
+  Script/Tasks/Keep/Calendar/Docs/Slides/Forms/Drive/Looker Studio), laptop-
+  primary (not phone), phased (foundation layer first, no exotic connections
+  yet). Full context: docs/UNIFIED_C2_FABRIC_PROPOSAL_20260706.md, docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md, docs/CROSS_HALE_DELEGATION_EXISTING_SOFTWARE_SURVEY_20260716.md, core/hale_bus/hale_bus_state.json, core/relay/delegation_wiring.py.
+  
+  Two things, please:
+  1. Live-inventory core/hale_bus/hale_bus_state.json + core/relay/delegation_wiring.py + OpsCenter/mission_board.json: how many real missions have ever actually used assigned_to + certify_mission() in practice (grep git log / hale_decisions.md for delegate_mission/certify_mission calls), vs. just existing as unused code. Ground truth, not self-report.
+  2. Web-search: dedicated USAF/military staff-process software or templates (Action Officer tasking, OPR/OCR coordination process, AF Form 1768-style staff summary sheets) that might already model the sequence the Commander wants — he says the workflow sequence we've been using (PDTAC) was our invention, not his, and he wants his original model back, so anything genuinely modeled on real USAF staffing process is high-signal.
+  
+  Reply via relay (--to CC) or claude_inbox.md with findings. Keep it tight — this feeds a live planning conversation with the Commander, not a final deliverable.
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-18 19:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-14acff3d from CC — 2026-07-19 04:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 84a685314: feat(staffing): restore USAF Staff Summary Sheet model as the tasker backbone |  5 files changed, 850 insertions(+), 3 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 04:52
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-eefaed38 from CC — 2026-07-19 05:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] af52226d2: feat(crm): TESS->Sheets Client Roster read-sync (SSS-002, OC-executed) |  1 file changed, 281 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:09
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c94dde0c from CC — 2026-07-19 05:17 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9373fcaeb: feat(tcd): decommission the TCD web app shell, keep the data plane (SSS-001/SSS-003) |  1 file changed, 352 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:17
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-69f23ddd from CC — 2026-07-19 05:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c626a1572: docs(claude): mark TCD web app decommissioned, point tasking at the SSS model |  1 file changed, 15 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:18
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-abd93842 from CC — 2026-07-19 05:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8855cfa3f: docs(claude): mark TCD web app decommissioned, point tasking at the SSS model |  6 files changed, 144 insertions(+), 9 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:20
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-8e6690a9 from CC — 2026-07-19 05:25 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5561e01f0: feat(tcd): decommission the TCD web app shell, keep the data plane (SSS-001/SSS-003) |  6 files changed, 129 insertions(+), 357 deletions(-) | author: Claude Haiku 4.5
+
+---
+## RELAY-136a039a from CC — 2026-07-19 05:25 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e765f1373: docs(claude): mark TCD web app decommissioned, point tasking at the SSS model |  1 file changed, 15 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:25
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 05:25
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260719
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-19 at 00:00 MT.
+  69 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-d4594166 from CC — 2026-07-19 09:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9642f3594: fix(remediate): exclude d2m-factbook-refresh from auto-remediation |  1 file changed, 1 insertion(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 09:19
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-32c17461 from CC — 2026-07-19 12:58 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ee06a99a5: fix(staffing): make CROSS-HALE MANDATORY a hard gate + capture every directive |  7 files changed, 491 insertions(+), 11 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 12:58
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-711072db from CC — 2026-07-19 13:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f48b90d41: feat(relay): OC<->AG direct peer contact so the Wing runs without CC |  3 files changed, 196 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f26e7bda from CC — 2026-07-19 13:14 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5748f9226: feat(integrity): CC cross-engine integrity double-check + AG-twin contact in CLAUDE.md |  2 files changed, 183 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:14
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-27190461 from CC — 2026-07-19 13:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 726342fd9: fix(integrity): remove tcd_server literal from integrity_check docstring example |  1 file changed, 2 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:16
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-3f68131a from CC — 2026-07-19 13:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b6652cfce: harden(relay): validate agy argv inputs + document the skip-permissions trust boundary |  2 files changed, 43 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:19
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-1e22eebd from CC — 2026-07-19 13:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 03f9daa5d: feat(staffing): SSS-004 staff package — SSS adoption policy + 3-media build |  2 files changed, 99 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:38
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-f81ec030 from CC — 2026-07-19 13:40 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 892b9542e: feat(staffing): mandate acknowledgment path (ack_mandate + EXEC: ack) |  2 files changed, 42 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 13:41
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-23d32aa8 from CC — 2026-07-19 16:18 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c2c9d2b0e: policy(sss): SO-2026-07-19-SSS_ADOPTION SIGNED and IN FORCE - PDTAC retired |  3 files changed, 36751 insertions(+), 12 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-19 16:19
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-786c66cb from CC — 2026-07-20 03:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1dc70d4da: feat(relay): DeepSeek v4 backend for Claude Code (core/relay/deepseek_claude_code.py) |  1 file changed, 133 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 03:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-271cd32c from CC — 2026-07-20 03:39 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4fde675af: docs(tmux): TMUX/Termius improvement plan baselined on Hwee-Boon Yar article |  2 files changed, 144 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 03:39
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-0faa8677 from CC — 2026-07-20 03:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f9c5ec251: docs(intel): Hermai.ai flight-scan analysis — verified live, hosted fetch not yet enabled for travel |  1 file changed, 99 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 03:51
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-1e12034a from CC — 2026-07-20 03:58 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e5768e688: docs(intel): Tonkotsu parallel-agent analysis — Linux-unsupported, skip; SSS already covers the pattern |  1 file changed, 109 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 03:59
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-c5388085 from CC — 2026-07-20 04:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 71698f750: docs(intel): multi-model Claude Code analysis — cc-fleet's only 2 providers have dead keys |  1 file changed, 121 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 04:02
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-dcac2347 from CC — 2026-07-20 04:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 73347dcb2: dossier(mcleod): confirm Grandeur Lesser Antilles excursions + stage hotel pricing |  3 files changed, 227 insertions(+), 4 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 04:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-eb36f52a from CC — 2026-07-20 08:11 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 748b3b250: security: remove deprecated OpenRouter haiku agent with hardcoded (dead) key |  1 file changed, 198 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 08:11
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-972ce892 from CC — 2026-07-20 12:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1073d2186: dossier(mcleod): Harlan signs off hotel pricing (portal relay) + FCC reconciled applied/spent |  2 files changed, 19 insertions(+), 23 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-20 12:29
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-89b16c33 from CC — 2026-07-21 23:08 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 63a741db3: fix(ci): repair lifecycle-dossiers and lifecycle-booking-surveys sweeps |  1 file changed, 91 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-21 23:08
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260722
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-22 at 00:00 MT.
+  70 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-22 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-08e0060e from CC — 2026-07-23 00:56 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1ccf44aa9: theme: switch OpenCode TUI from tokyonight to commanders-ink |  1 file changed, 1 insertion(+), 1 deletion(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-23 00:56
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260723
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-23 at 00:00 MT.
+  71 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-23 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-daf2a94b from CC — 2026-07-24 13:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b4e059673: EMERGENCY: Disable 4 email-responder timers + add budget guard |  2 files changed, 148 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-24 13:52
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-9114e8d1 from CC — 2026-07-24 13:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 21d2b3801: doc: SO-20260724 standing order + update CLAUDE.md blackboard |  2 files changed, 109 insertions(+), 6 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-24 13:52
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-d562b6e2 from CC — 2026-07-24 14:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ee0c0bb07: feat: weekly budget report framework (SO-20260724) |  1 file changed, 241 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-24 14:41
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260725
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-25 at 00:00 MT.
+  73 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-25 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260726
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-26 at 00:00 MT.
+  72 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-ccff942e from CC — 2026-07-26 12:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 884a28337: fix: reduce email timers 2-min → 15-min cadence (SO-20260724) |  1 file changed, 3 insertions(+), 5 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 12:52
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-21c9ad5e from CC — 2026-07-26 20:32 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8f9ec8028: docs: YOGA memory relief campaign — swap extended to 20GB, baloo disabled, XFCE4 installed |  1 file changed, 187 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 20:32
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-2b5c4b80 from CC — 2026-07-26 22:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 95f08667b: feat: COO Outpost provisioning script (Claude Code + backups + fit-test on e2-micro) |  1 file changed, 262 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 22:09
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-84b95cbe from CC — 2026-07-26 22:10 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0eaca0a64: doc: COO Outpost execution runbook (steps 1-7 guide, rollback, troubleshooting) |  1 file changed, 206 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 22:10
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-97d2a528 from CC — 2026-07-26 22:36 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3137a643d: doc: Simplify COO Outpost provisioning (manual 10-line setup, no complex automation) |  1 file changed, 23 insertions(+), 16 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-26 22:36
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## TASK: TP-ALERT-20260727
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-27 at 00:00 MT.
+  72 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 06:00
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5d73cec8 from CC — 2026-07-27 09:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9b0b50a15: fix(security): redact Spencer portal password from audit trail; clear gitleaks gate |  2 files changed, 821 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 09:43
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5271edfb from CC — 2026-07-27 13:34 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b89636230: doc: SO — Sterling front/back gate on all HALE-AG taskings |  1 file changed, 61 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 13:35
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5f78d7c6 from CC — 2026-07-27 13:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 53daf3efe: doc: broaden SILVER gate SO — all 3 engines, joint front-gate criteria, model-agnostic roles |  1 file changed, 23 insertions(+), 18 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 13:38
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-bfb6190c from CC — 2026-07-27 13:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 86a2beec2: fix(oc-worker): correct dispatch_claude.py CLI flags (--wait/--timeout don't exist) |  1 file changed, 1 insertion(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 13:54
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-890d4744 from CC — 2026-07-27 16:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3353bb06d: fix(remediate): skip d2m-icelandair-warm on OnFailure; session expiry is data-driven, not infra |  2 files changed, 120 insertions(+), 2 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-27 16:03
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---

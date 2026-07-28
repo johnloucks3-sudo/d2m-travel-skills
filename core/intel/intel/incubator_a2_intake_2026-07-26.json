@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-07-26-001",
+    "title": "Web Search Integration",
+    "source_signal": "[1] Google: Search the world's information, including webpages, images, videos and more. Google has many special features to help you find \u2026 (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Direct integration of a major web search engine API for contextual information retrieval.",
+    "thunderbird_component": "Core Search Functionality",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "This directly addresses the need for enhanced contextual information retrieval by integrating a leading search engine API."
+  },
+  {
+    "id": "A2-2026-07-26-002",
+    "title": "AI-Powered Web Search Integration",
+    "source_signal": "[2] Search - Microsoft Bing: Search with Microsoft Bing and use the power of AI to find information, explore webpages, images, videos, maps, and more. A smart \u2026 (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Leveraging AI-enhanced web search capabilities for more intelligent information discovery.",
+    "thunderbird_component": "Core Search Functionality",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "Incorporating AI-powered search improves information discovery beyond basic keyword matching, a clear D2M value."
+  },
+  {
+    "id": "A2-2026-07-26-003",
+    "title": "Web Search Integration (Yahoo)",
+    "source_signal": "[3] Yahoo Search - Web Search: The search engine that helps you find exactly what you're looking for. Find the most relevant information, video, images, and answers \u2026 (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Provides an alternative web search engine API for broader information access.",
+    "thunderbird_component": "Core Search Functionality",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "Offers an additional, established search provider to broaden user information access within Thunderbird."
+  },
+  {
+    "id": "A2-2026-07-26-004",
+    "title": "Web Search & Information Hub (Yahoo)",
+    "source_signal": "[4] Yahoo: News, email and search are just the beginning. Discover more every day. Find your yodel. (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": "Potential for a more integrated information hub beyond basic search.",
+    "thunderbird_component": "User Interface/Dashboard",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "While interesting for a broader information hub, the current signal doesn't clearly define a specific Thunderbird gap or immediate buildable feature."
+  },
+  {
+    "id": "A2-2026-07-26-005",
+    "title": "Advanced Search Intelligence Integration",
+    "source_signal": "[5] Google Search - A new kind of help: Explore a new kind of help for your everyday with breakthroughs in Search intelligence from Google I/O. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Enhancement of search capabilities with advanced AI-driven intelligence for more helpful results.",
+    "thunderbird_component": "Core Search Functionality",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "This directly improves our search functionality by leveraging advanced AI, aligning with user needs for more intelligent assistance."
+  },
+  {
+    "id": "A2-2026-07-26-006",
+    "title": "Privacy-Focused Search Integration",
+    "source_signal": "[6] DuckDuckGo - Protection. Privacy. Peace of mind.: The Internet privacy company that empowers you to seamlessly take control of your personal information online, without any tradeoffs. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Integration of a privacy-centric search engine to align with user privacy expectations.",
+    "thunderbird_component": "Core Search Functionality",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "Integrating a privacy-focused search engine addresses a key user concern and aligns with Thunderbird's privacy-conscious ethos."
+  }
+]

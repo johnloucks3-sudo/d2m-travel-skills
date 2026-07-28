@@ -1572,5 +1572,1071 @@
         ]
       }
     }
+  },
+  {
+    "ts": "2026-07-10T22:36:18.738141+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2944.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-10T22:37:15.358699+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 236.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2944.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-11T08:30:53.120976+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI",
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2949.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-11T21:26:18.347304+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2949.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-12T08:31:07.852747+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 226.18,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2949.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 406.77,
+        "carriers": [
+          "AS"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-12T21:24:18.317330+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI",
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2949.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 292.37,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-13T08:31:06.772891+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "UA",
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2949.33,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 800.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 981.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-14T08:31:00.402263+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2944.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 549.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-15T08:30:53.713148+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2941.73,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 503.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-15T13:55:13.475834+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2941.73,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 503.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-15T14:29:06.740027+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2941.73,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 503.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-15T14:59:11.141611+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2941.73,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 503.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-15T21:11:07.674298+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2941.73,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 503.15,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 991.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-16T08:31:10.977985+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2943.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 508.2,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 1016.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
+  },
+  {
+    "ts": "2026-07-16T12:24:58.366450+00:00",
+    "results": {
+      "loucks-grandeur-panama-lax-cos-jan2027": {
+        "lowest_pp": 205.24,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-grandeur-panama-sna-cos-jan2027": {
+        "lowest_pp": 319.19,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-silver-nova-may2027-outbound": {
+        "lowest_pp": 657.9,
+        "carriers": [
+          "EI"
+        ]
+      },
+      "loucks-silver-nova-may2027-return": {
+        "lowest_pp": 2943.93,
+        "carriers": [
+          "A3"
+        ]
+      },
+      "kuklinski-ric-pty-dec16": {
+        "lowest_pp": 810.35,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "kuklinski-fll-ric-dec27": {
+        "lowest_pp": 508.2,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "morton-rsw-pty-dec16": {
+        "lowest_pp": 1016.91,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "mcleod-den-mia-dec18": {
+        "lowest_pp": 190.93,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "mcleod-mia-den-dec29": {
+        "lowest_pp": 181.03,
+        "carriers": [
+          "F9"
+        ]
+      },
+      "loucks-doorcounty-cos-grb-out": {
+        "lowest_pp": 242.16,
+        "carriers": [
+          "UA"
+        ]
+      },
+      "loucks-doorcounty-grb-cos-return": {
+        "lowest_pp": 304.48,
+        "carriers": [
+          "UA"
+        ]
+      }
+    }
   }
 ]

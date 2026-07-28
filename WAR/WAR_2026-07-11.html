@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jul 11–Jul 17, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jul 11–Jul 17, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-17 21:00 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>100</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$18,831</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>30</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-07-11 → 2026-07-17 · 100 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(ci): retire dead watcher-restart loop flooding wing_comms (MISSION-667) <span style="color:#aaa;font-size:0.78rem;">(c7608d07e)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(tcd): front-frame reads mission description when comments empty (MISSION-658 efficacy) <span style="color:#aaa;font-size:0.78rem;">(b7f434a7f)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(dedup): board-level find_open_duplicate guard on ELON synthesis + adopt pipeline (MISSION-647) <span style="color:#aaa;font-size:0.78rem;">(3f3102b10)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(dedup): board-level find_open_duplicate guard on TCD + weekly-report mission paths (MISSION-647) <span style="color:#aaa;font-size:0.78rem;">(b0384ea5c)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(tcd): wire Silver gate into writeback D->T auto-task + Close/Certify (MISSION-658) <span style="color:#aaa;font-size:0.78rem;">(7b421bea6)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(flights): Amadeus fast-fail after confirmed permanent API retirement <span style="color:#aaa;font-size:0.78rem;">(155f18459)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-17</strong> — fix(fare-watch): soft-fail on ConnectionError when Amadeus proxy is down <span style="color:#aaa;font-size:0.78rem;">(8c873215e)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(flights): repair dead Amadeus import + remove Centrav from master pipeline <span style="color:#aaa;font-size:0.78rem;">(b7405dd28)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(flights): second stateless fare scan — Google Flights RapidAPI <span style="color:#aaa;font-size:0.78rem;">(95fe48b00)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(flights): keep a real flight-fare scan alive — stateless Kiwi API, no session <span style="color:#aaa;font-size:0.78rem;">(227b4dd98)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(orchestrator): effectiveness fixes from 2026-07-16 audit — reader, honest grading <span style="color:#aaa;font-size:0.78rem;">(534074690)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(ops): air-only keepalive policy — shut down ALL site-session keepalives <span style="color:#aaa;font-size:0.78rem;">(903ee09eb)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(tess): contain transient Playwright exceptions in credential fallback <span style="color:#aaa;font-size:0.78rem;">(3f22647fc)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(tess): stop 90-min OnFailure alert storm on stale vault password <span style="color:#aaa;font-size:0.78rem;">(a9e7da375)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — style(silver): digest larger bold font per Commander <span style="color:#aaa;font-size:0.78rem;">(f52b2cbc9)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(silver): digest inline styles — Gmail strips <style> blocks <span style="color:#aaa;font-size:0.78rem;">(d30d0f129)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(silver): daily digest in canonical AM-brief format <span style="color:#aaa;font-size:0.78rem;">(a0b8463bd)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(silver): seat scorecard + per-seat budget state + honest preflight + Telegram fold-in <span style="color:#aaa;font-size:0.78rem;">(e370fa7b8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(silver): first REAL cross-seat round-trip + live Insight Exchange <span style="color:#aaa;font-size:0.78rem;">(bf1a68225)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(silver): DNA reasoner + cross-Hale Insight Exchange <span style="color:#aaa;font-size:0.78rem;">(216a44d44)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(silver): mandatory FRONT/BACK gate on all delegated work + corrected seat capability model <span style="color:#aaa;font-size:0.78rem;">(ce41a1835)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs(loucks): Commander confirmed all Panama Canal excursions acceptable <span style="color:#aaa;font-size:0.78rem;">(21d86c2f5)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(tess): add_note() targeted a nonexistent Booking/Client note action <span style="color:#aaa;font-size:0.78rem;">(27e540dbf)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(itinerary): Loucks Panama Canal voyage page (Grandeur 3122006) + excursion-fit dossier <span style="color:#aaa;font-size:0.78rem;">(c7dbcf04f)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-16</strong> — docs(mcleod): resolve excursion naming discrepancy, log itinerary build <span style="color:#aaa;font-size:0.78rem;">(1c3aab470)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(itinerary): build McLeod Lesser Antilles (Grandeur, Dec 2026) — romance copy + viewed port images <span style="color:#aaa;font-size:0.78rem;">(5c1c292e5)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-16</strong> — stage(mcleod): live Regent portal read finds a 3rd balance figure + FCC contradiction <span style="color:#aaa;font-size:0.78rem;">(a4c14384b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs(tap): re-verify vendor intel live, still current after 7 weeks <span style="color:#aaa;font-size:0.78rem;">(6e04f1997)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — security: fix chrome-debug.sh CDP wildcard origin (--remote-allow-origins=*) <span style="color:#aaa;font-size:0.78rem;">(aa92b9851)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(cdp): tab-selection false-match + missing --remote-allow-origins flag <span style="color:#aaa;font-size:0.78rem;">(40beb5f89)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(drafts): correct TALON-flagged defects in 2 client drafts <span style="color:#aaa;font-size:0.78rem;">(be0bb3820)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(tess): repair get_booking() 500 + document Odysseus/TESS re-verify findings <span style="color:#aaa;font-size:0.78rem;">(2308819a2)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs(blackboard): M-636 correct causal story + flag ci-sweep.timer 06:00 fire <span style="color:#aaa;font-size:0.78rem;">(fbf1d2057)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(cruises): normalize duplicate region labels breaking selector filter <span style="color:#aaa;font-size:0.78rem;">(038bd1801)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs(blackboard): Block 6 status — 8 remaining open tickets worked <span style="color:#aaa;font-size:0.78rem;">(f94eee06e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — feat(files): YOGA→dv7 curated sync + files.d2mluxury.quest server + runbook <span style="color:#aaa;font-size:0.78rem;">(d6f84b3f8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs: d2mluxury.quest subdomain audit — 19/21 live, reverie+visuals CF-525 (edge fault, not backend) <span style="color:#aaa;font-size:0.78rem;">(26d813086)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-16</strong> — fix(centrav): price-selector cents-precision preference + real round-trip support <span style="color:#aaa;font-size:0.78rem;">(062cb83dc)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — docs(blackboard): correct Block 7 report — Camofox macro fragile, managed-agents blocked by dummy key + SDK <span style="color:#aaa;font-size:0.78rem;">(e6ee0384b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-16</strong> — test(odysseus): add health-check bool contract test + Block 2A MAG/CRM validation report <span style="color:#aaa;font-size:0.78rem;">(da08b246b)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$18,830.93</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">30 of 110</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

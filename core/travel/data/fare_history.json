@@ -21076,5 +21076,1148 @@
     "price_change_pct": -48.9,
     "alert_triggered": "PRICE DROP: $2,813/pp is below alert threshold $5,064",
     "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-10T19:02:58.045456",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-10T19:03:31.607415",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-10T19:04:06.093491",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-10T19:04:43.734660",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-10T19:05:18.229475",
+    "price_pp": 2813.0,
+    "total": 5626.0,
+    "price_change_pct": -48.9,
+    "alert_triggered": "PRICE DROP: $2,813/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-10T23:08:56.642311",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-10T23:09:29.537851",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-10T23:10:03.857592",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-10T23:10:42.391520",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-10T23:11:18.615756",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T03:15:52.306464",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "kuklinski-fll-ric-dec27",
+    "timestamp": "2026-07-11T03:16:51.779958",
+    "price_pp": 293.25,
+    "total": 1173.0,
+    "price_change_pct": 51.2,
+    "alert_triggered": "PRICE SPIKE: $293/pp exceeds alert threshold $250",
+    "notes": ""
+  },
+  {
+    "watch_id": "morton-rsw-pty-dec16",
+    "timestamp": "2026-07-11T03:17:21.789093",
+    "price_pp": 707.0,
+    "total": 1414.0,
+    "price_change_pct": 56.8,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "mcleod-den-mia-dec18",
+    "timestamp": "2026-07-11T03:17:50.908762",
+    "price_pp": 903.5,
+    "total": 1807.0,
+    "price_change_pct": -0.1,
+    "alert_triggered": null,
+    "notes": ""
+  },
+  {
+    "watch_id": "den-muc-vce",
+    "timestamp": "2026-07-11T10:32:08.737579+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-ist-den",
+    "timestamp": "2026-07-11T10:32:34.247920+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-muc-den",
+    "timestamp": "2026-07-11T10:32:59.303637+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "den-vce-direct",
+    "timestamp": "2026-07-11T10:33:24.590974+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
+    "timestamp": "2026-07-11T11:02:48.984702+00:00",
+    "price_pp": 2504.0,
+    "total": 10016.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
+    "timestamp": "2026-07-11T11:03:14.336466+00:00",
+    "price_pp": 2163.0,
+    "total": 17304.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
+    "timestamp": "2026-07-11T11:03:38.589208+00:00",
+    "price_pp": 2900.0,
+    "total": 11600.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
+    "timestamp": "2026-07-11T11:04:02.837190+00:00",
+    "price_pp": 1430.0,
+    "total": 11440.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T07:22:22.495692",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T07:22:57.860269",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-11T07:23:33.012610",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-11T07:24:12.641494",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T11:23:09.447424",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T11:23:42.992321",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-11T11:24:18.972194",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-11T11:24:59.072627",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T15:25:52.355912",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T15:26:27.860064",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T15:27:32.490489",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T15:28:00.808743",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-11T15:28:36.377037",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-11T15:29:14.814575",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-11T15:29:49.623624",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T19:32:33.636864",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T19:33:06.631850",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-11T19:33:41.003472",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-11T19:34:18.983736",
+    "price_pp": 2512.0,
+    "total": 5024.0,
+    "price_change_pct": -30.0,
+    "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-11T19:34:54.180078",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-11T23:39:43.538265",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-11T23:40:17.737543",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-11T23:40:51.494170",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-11T23:41:30.294942",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-11T23:42:05.188688",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-12T03:45:56.946799",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-12T03:46:24.982337",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-12T03:46:56.729485",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-12T03:47:30.615558",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-12T03:48:03.301691",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "den-muc-vce",
+    "timestamp": "2026-07-12T10:33:16.944176+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-ist-den",
+    "timestamp": "2026-07-12T10:33:41.958756+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-muc-den",
+    "timestamp": "2026-07-12T10:34:07.075945+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "den-vce-direct",
+    "timestamp": "2026-07-12T10:34:31.918808+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
+    "timestamp": "2026-07-12T11:03:23.517893+00:00",
+    "price_pp": 2504.0,
+    "total": 10016.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
+    "timestamp": "2026-07-12T11:03:48.100353+00:00",
+    "price_pp": 2160.0,
+    "total": 17280.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
+    "timestamp": "2026-07-12T11:04:13.763148+00:00",
+    "price_pp": 2900.0,
+    "total": 11600.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
+    "timestamp": "2026-07-12T11:04:38.027190+00:00",
+    "price_pp": 1430.0,
+    "total": 11440.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-12T07:54:25.851186",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-12T07:55:00.633194",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-12T07:55:37.049952",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-12T07:56:16.934160",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-12T12:04:15.059680",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-12T12:04:49.657609",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-12T12:05:24.597413",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-12T12:06:04.062355",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-12T16:04:38.779860",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-12T16:05:14.790906",
+    "price_pp": 549.0,
+    "total": 1098.0,
+    "price_change_pct": 32.0,
+    "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-12T16:05:51.338823",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-12T16:06:31.671350",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-12T20:13:25.572390",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-12T20:13:59.271558",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-12T20:14:33.876475",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-12T20:15:13.050377",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-12T20:15:51.625034",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T00:21:11.138382",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T00:21:50.853832",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T00:22:26.668640",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T00:23:07.339453",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T04:28:13.884143",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T04:28:48.418637",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T04:29:22.381827",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T04:30:03.243754",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-13T04:30:35.932791",
+    "price_pp": 2817.0,
+    "total": 5634.0,
+    "price_change_pct": -48.8,
+    "alert_triggered": "PRICE DROP: $2,817/pp is below alert threshold $5,064",
+    "notes": ""
+  },
+  {
+    "watch_id": "den-muc-vce",
+    "timestamp": "2026-07-13T10:32:07.772908+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-ist-den",
+    "timestamp": "2026-07-13T10:32:32.651036+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-muc-den",
+    "timestamp": "2026-07-13T10:32:57.471917+00:00",
+    "price_pp": 5778.0,
+    "total": 11556.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "den-vce-direct",
+    "timestamp": "2026-07-13T10:33:22.461927+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
+    "timestamp": "2026-07-13T11:00:28.868317+00:00",
+    "price_pp": 2504.0,
+    "total": 10016.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
+    "timestamp": "2026-07-13T11:00:53.969436+00:00",
+    "price_pp": 2160.0,
+    "total": 17280.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
+    "timestamp": "2026-07-13T11:01:19.757670+00:00",
+    "price_pp": 2900.0,
+    "total": 11600.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
+    "timestamp": "2026-07-13T11:01:44.542994+00:00",
+    "price_pp": 1469.0,
+    "total": 11752.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T08:36:35.733818",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T08:37:10.611323",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T08:37:45.967974",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T08:38:25.241882",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T12:45:08.654831",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T12:45:43.407898",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T12:46:19.194870",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T12:46:59.005913",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T16:45:24.278694",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T16:45:59.944847",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T16:46:36.770479",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T16:47:17.182332",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-13T20:55:06.790443",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-13T20:55:40.808745",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-13T20:56:15.101469",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-13T20:56:53.663383",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-14T01:00:36.435836",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-14T01:01:10.839891",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-14T01:01:45.027598",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-14T01:02:24.135179",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "den-muc-vce",
+    "timestamp": "2026-07-14T10:33:36.810906+00:00",
+    "price_pp": null,
+    "total": null,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-ist-den",
+    "timestamp": "2026-07-14T10:34:02.412749+00:00",
+    "price_pp": 5770.0,
+    "total": 11540.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "ath-muc-den",
+    "timestamp": "2026-07-14T10:34:28.939006+00:00",
+    "price_pp": 5770.0,
+    "total": 11540.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "den-vce-direct",
+    "timestamp": "2026-07-14T10:34:53.911530+00:00",
+    "price_pp": 5024.0,
+    "total": 10048.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
+    "timestamp": "2026-07-14T11:01:48.564515+00:00",
+    "price_pp": 2504.0,
+    "total": 10016.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
+    "timestamp": "2026-07-14T11:02:13.244097+00:00",
+    "price_pp": 2160.0,
+    "total": 17280.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
+    "timestamp": "2026-07-14T11:02:37.755722+00:00",
+    "price_pp": 2896.0,
+    "total": 11584.0,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
+    "timestamp": "2026-07-14T11:03:03.347592+00:00",
+    "price_pp": null,
+    "total": null,
+    "price_change_pct": 0.0,
+    "alert_triggered": null,
+    "notes": "daily recheck, Cruise fare-type checked"
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
+    "timestamp": "2026-07-14T05:07:05.463790",
+    "price_pp": 313.0,
+    "total": 626.0,
+    "price_change_pct": -24.8,
+    "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
+    "timestamp": "2026-07-14T05:07:39.372641",
+    "price_pp": 517.0,
+    "total": 1034.0,
+    "price_change_pct": 24.3,
+    "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
+    "timestamp": "2026-07-14T05:08:14.412290",
+    "price_pp": 201.0,
+    "total": 402.0,
+    "price_change_pct": -51.7,
+    "alert_triggered": "PRICE DROP: $201/pp is below alert threshold $383",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-outbound",
+    "timestamp": "2026-07-14T05:08:52.905568",
+    "price_pp": 2719.0,
+    "total": 5438.0,
+    "price_change_pct": -24.2,
+    "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
+    "notes": ""
+  },
+  {
+    "watch_id": "loucks-silver-nova-may2027-return",
+    "timestamp": "2026-07-14T05:09:29.126767",
+    "price_pp": 2813.0,
+    "total": 5626.0,
+    "price_change_pct": -48.9,
+    "alert_triggered": "PRICE DROP: $2,813/pp is below alert threshold $5,064",
+    "notes": ""
   }
 ]

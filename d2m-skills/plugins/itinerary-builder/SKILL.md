@@ -33,7 +33,7 @@ Builds a complete, client-ready trip itinerary from raw booking data.
 
 ## Output
 
-- Branded PDF itinerary (D2M stationery: cream #f7f3ea, blue #0000ff, Georgia)
+- Branded PDF itinerary (D2M stationery: dark navy #07076b, gold #c8a400, Georgia)
 - Day-by-day narrative with port descriptions
 - Transfer timing verification (flag gaps < 90 min)
 - Dining schedule grid

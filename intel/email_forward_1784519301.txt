@@ -1,0 +1,101 @@
+Subject: Thunderbird tmux + Termius Instruction Manual
+From: johnloucks3@gmail.com
+Received: 2026-07-20T03:48:21.686888+00:00
+
+body { background:#f7f3ea; color:#0000ff; font-family:Georgia, 'Times New Roman', serif; padding:32px; max-width:760px; margin:0 auto; }
+  h1 { font-size:26px; border-bottom:2px solid #0000ff; padding-bottom:8px; }
+  h2 { font-size:19px; margin-top:32px; }
+  p, li { font-size:15px; line-height:1.55; }
+  code, pre { font-family:'Menlo','Consolas',monospace; font-size:13px; }
+  pre { background:#eae5d6; color:#1a1a1a; padding:12px 14px; border-left:3px solid #0000ff; overflow-x:auto; white-space:pre-wrap; }
+  code.inline { background:#eae5d6; color:#1a1a1a; padding:1px 5px; border-radius:3px; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:14px; }
+  th, td { border:1px solid #c9c2ab; padding:6px 10px; text-align:left; vertical-align:top; }
+  th { background:#eae5d6; }
+  .meta { font-size:13px; color:#3333aa; }
+  .footer { margin-top:40px; font-size:13px; color:#3333aa; border-top:1px solid #c9c2ab; padding-top:12px; }
+
+Thunderbird tmux + Termius Instruction Manual
+
+Dreams2Memories Travel, LLC — Thunderbird Wing · 2026-07-19 · Hale
+
+Quick-reference for running interactive Claude Code sessions on YOGA, connecting remotely
+via Termius/Termux, and spawning multi-provider agent teammates via cc-fleet.
+Full gap-analysis and rationale: docs/TMUX_TERMIUS_IMPROVEMENT_PLAN.md.
+
+1. Connecting to YOGA
+
+Primary: the wing() shell function opens the ttyd web
+terminal at code.d2mluxury.quest — works from any browser, no SSH
+client needed.
+
+Fallback: Termius (Z Fold) or Termux (Android) over SSH via Tailscale.
+
+FieldValue
+
+Host100.69.222.124 (Tailscale) — LAN fallback 192.168.1.198
+
+Userjohn
+
+Port22
+
+AuthED25519 key generated on-device, public key appended to ~/.ssh/authorized_keys on YOGA
+
+First-time setup: scripts/termius_termux_setup.md. Never paste a
+shared private key into a doc or chat — generate it on the device connecting.
+
+2. tmux basics on YOGA
+
+Prefix is remapped to Ctrl-a (not the tmux default
+Ctrl-b). One main session; each project or agent gets its own
+window; panes are addressed session:window.pane — e.g.
+main:3.1 means session main, window 3,
+pane 1.
+
+KeysAction
+
+Ctrl-a |Split pane horizontally
+
+Ctrl-a -Split pane vertically
+
+Alt+ArrowSwitch panes (no prefix needed)
+
+Shift+ArrowSwitch windows (no prefix needed)
+
+Ctrl-a rReload ~/.tmux.conf
+
+Ctrl-a pPaste buffer
+
+Middle-clickPaste (mouse mode)
+
+3. Copy mode — scrollback and search
+
+Enter with Ctrl-a [. Vi-style keys inside copy mode:
+
+KeyAction
+
+j / kLine down/up
+
+Ctrl-u / Ctrl-dPage up/down
+
+/  and  ?Search forward / backward
+
+n / NNext / previous match
+
+vBegin selection
+
+yCopy selection and exit
+
+VSelect whole line
+
+Ctrl-vToggle rectangle selection
+
+Ctrl-cExit copy mode
+
+Mouse drag also scrolls/selects (mouse mode is on). OSC52 clipboard is already wired so
+browser copy/paste works cleanly through ttyd.
+
+4. Reading another pane or a dev server's output
+
+tmux capture-pane -t main:3.1 -p -S -200   # last 200 lines of that pane
+tmux send-keys -t main:3.1 'command' Enter # dr

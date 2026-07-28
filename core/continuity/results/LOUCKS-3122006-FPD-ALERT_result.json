@@ -1,0 +1,87 @@
+{
+  "alert_id": "LOUCKS-3122006-FPD-ALERT",
+  "evaluated_at": "2026-07-11T05:36:00Z",
+  "booking_ref": "3122006",
+  "client": "John & Susan Loucks",
+  "fpd_date": "2026-08-01",
+  "days_to_fpd": 21,
+  "decision": "ACTION NEEDED — BLOCKED",
+  "decision_rationale": "Payment reminder is due by timeline, but guest registration incompleteness creates a data gap that must be resolved first. TP 4.1 cannot be drafted responsibly without knowing registration status.",
+  "current_blockers": [
+    {
+      "blocker": "Guest registration incomplete",
+      "detail": "John & Susan Loucks guest registration NOT complete on Regent booking 3122006",
+      "severity": "P0",
+      "impact": "Payment reminder cannot reference complete manifest; registration may be required by cruise line before final charges finalize"
+    }
+  ],
+  "payment_status": {
+    "total_booking_amount": 24798,
+    "balance_due": 4798,
+    "fpd": "2026-08-01",
+    "days_remaining": 21,
+    "status": "ON_TRACK_IF_PAID"
+  },
+  "recommended_action_sequence": [
+    {
+      "step": 1,
+      "action": "VERIFY guest registration status on Regent portal",
+      "detail": "Log into Regent agent portal for booking 3122006. Check guest registration section. Determine: (a) is registration required before final payment, (b) is registration optional/parallel, (c) what fields are missing",
+      "owner": "HALE",
+      "timeout": "2 hours",
+      "next_on_complete": "step 2"
+    },
+    {
+      "step": 2,
+      "action": "ESCALATE if registration is prerequisite",
+      "detail": "If guest registration is required before final payment: notify Commander that registration blocks payment reminder. Ask Commander to handle registration via guest login or Regent phone line, then signal ready for TP 4.1.",
+      "owner": "HALE",
+      "condition": "if registration_required == true",
+      "next_on_complete": "step 4"
+    },
+    {
+      "step": 3,
+      "action": "PROCEED if registration is parallel",
+      "detail": "If registration is optional or parallel-path: note in TP 4.1 that registration must complete before embarkation. Proceed to draft.",
+      "owner": "HALE",
+      "condition": "if registration_required == false",
+      "next_on_complete": "step 4"
+    },
+    {
+      "step": 4,
+      "action": "DRAFT TP 4.1 Payment Reminder",
+      "detail": "Create TP 4.1 lifecycle email (Loucks-as-client, WF-17 waived). Standard payment reminder structure: (a) FPD date and amount due, (b) payment methods, (c) registration status/next steps, (d) final pre-voyage checklist. Stage in johnloucks3 drafts.",
+      "owner": "HALE (voice: Dani)",
+      "next_on_complete": "step 5"
+    },
+    {
+      "step": 5,
+      "action": "SURFACE for Commander awareness",
+      "detail": "Although WF-17 is waived, flag the draft to Commander for final review via Telegram or email inbox. Loucks are direct clients and in-person (Commander's own voyage), so awareness check is prudent before auto-send.",
+      "owner": "HALE",
+      "urgency": "same-day",
+      "next_on_complete": "step 6"
+    },
+    {
+      "step": 6,
+      "action": "SEND or HOLD per Commander signal",
+      "detail": "If Commander approves or does not object within 4 hours: send TP 4.1 to johnloucks3@gmail.com. If Commander requests changes or hold: update and resurface.",
+      "owner": "HALE or Commander",
+      "send_method": "johnloucks3@gmail.com (per Loucks-as-client waiver)",
+      "next_on_complete": "CLOSE"
+    }
+  ],
+  "timing_assessment": {
+    "alert_trigger": "2026-07-11 (today)",
+    "fpd": "2026-08-01 (21 days)",
+    "standard_pre_voyage_TP_window": "18-21 days before FPD",
+    "assessment": "ON_SCHEDULE — TP 4.1 should be sent today or tomorrow to stay within standard 18-21d window. Do not delay beyond 2026-07-12."
+  },
+  "wf17_gate_status": {
+    "standing_rule": "WF-17 client-send prohibition applies to all clients",
+    "loucks_exception": "Loucks-as-client waiver: Commander and spouse operating as direct clients, WF-17 gate WAIVED for johnloucks3@gmail.com sends per memory project_loucks_as_client_lifecycle.md",
+    "policy_recommendation": "Even with waiver, surface to Commander for awareness. This is John's own voyage; he appreciates seeing drafts pre-send.",
+    "send_authority": "WAIVED — Hale may send directly, but notification-first is prudent given relationship."
+  },
+  "outcome": "AWAITING GATE CLEARANCE — Step 1 (verify registration) must complete before TP 4.1 draft proceeds. Estimated completion: 2026-07-11 08:00 MT. If registration check clears: TP ready for send by EOD 2026-07-11."
+}

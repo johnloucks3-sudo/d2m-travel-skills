@@ -730,3 +730,7 @@ completed_tps: []
 - **$850 SBC is non-refundable** — flag to Nancy that it must be used before voyage ends
 - **Amex Platinum** — both Ken and Nancy hold cards ($150 SBC each from Amex)
 - Dani may reach out mentioning she heard from John with latest updates
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

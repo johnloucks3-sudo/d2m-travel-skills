@@ -1,0 +1,39 @@
+Subject: Tech Scan 2026-07-26 05:15 UTC — 8 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-26T05:16:28.045388+00:00
+
+TECH SCAN — 2026-07-26 05:15 UTC
+airborne scanner pulse · 23 finds · sectors llm, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 8 TRIAL · 14 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Rules that stop AI coding agents from breaking working code — https://github.com/avenna01-ceo/claude-code-survival-kr
+↳ real tool (github.com) — worth a bounded look
+Ruflo: An agent meta-harness for Claude Code and Codex — https://github.com/ruvnet/ruflo
+↳ real tool (github.com) — worth a bounded look
+I was paying too much for Claude and codex here is how I reduced 90% of it — https://github.com/AjnasNB/qarinah
+↳ real tool (github.com) — worth a bounded look
+Claude Code Lightbar for Mac OS — https://github.com/gregsramblings/claude-status-bar
+↳ real tool (github.com) — worth a bounded look
+Show HN: Curated Claude Code – a small agent harness with an intake gate — https://github.com/Sanexxxx777/curated-claude-code
+↳ real tool (github.com) — worth a bounded look
+MCP Clock: live public hosted tool for Claude, Codex, any MCP Client — https://github.com/firasd/mcpclock
+↳ real tool (mcp, tool, github.com) — worth a bounded look
+Show HN: Sync Claude Code and Codex configs, with a board that shows the drift — https://github.com/slash9494/ai-config-sync-manag
+↳ real tool (github.com) — worth a bounded look
+Show HN: WhipDesk – Control your full dev machine from your phone — https://github.com/BinaryBananaLLC/WhipDesk
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I made a Claude Code skill that turns a photo of your handwriting into an installable font
+Introducing Claude Opus 5
+Anthropic cut 80% of Claude Code's system prompt for the Claude 5 models and published what should still go in
+Used claude to replay everybody that played my daily racing game yesterday at the same time
+What’s a Claude "hidden gem" feature or prompt technique that completely changed how you use it?
+From Kimi K3 to Claude Opus 5
+The new rules of context engineering for Claude 5 generation models — https://claude.com/blog/the-new-rules-of
+Show HN: I built a blind taste test for Claude and Codex designs — https://taste.rubenflamshepherd.com/
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Ask HN: What happens when we do compress the context in Claude Code? — https://news.ycombi
+RAW — all finds this pulse (unfiltered)[llm] I made a Claude Code skill that turns a photo of your handwriting into an installable font (Reddit r/ClaudeAI)
+[llm] Introducing Claude Opus 5 (Reddit r/ClaudeAI)
+[llm] Anthropic cut 80% of Claude Code's system prompt for the Claude 5 models and published what should still go in your CLAU (Reddit r/ClaudeAI)
+[llm] Used claude to replay everybody that played my daily racing game yesterday at the same time (Reddit r/ClaudeAI)
+[llm] What’s a Claude "hidden gem" feature or prompt technique that completely changed how you use it? (Reddit r/ClaudeAI)
+[llm] From Kimi K3 to Claude Opus 5 (Reddit r/Cla

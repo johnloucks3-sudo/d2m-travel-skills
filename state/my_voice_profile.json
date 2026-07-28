@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "generated": "2026-03-10T15:07:29.565870",
+    "gmail_samples": 0,
+    "draft_samples": 13,
+    "model": "llama-3.3-70b-versatile",
+    "email": "johnloucks3@gmail.com"
+  },
+  "analysis": {
+    "greeting_patterns": [
+      "Kyle,",
+      "Missy, John,",
+      "Larry and Heidi,",
+      "Erik,",
+      "Hi [First Name],",
+      "Hi Kyle,",
+      "Hi Josh,",
+      "Hi Roger,",
+      "Hi John and Missy,",
+      "Hi Al and Amy,",
+      "Hi Larry and Heidi,"
+    ],
+    "signoff_patterns": [
+      "John",
+      "Warm regards,",
+      "Thanks,"
+    ],
+    "sentence_style": {
+      "avg_length": "medium",
+      "complexity": "moderate",
+      "structure_notes": "often uses simple sentences for clarity, but also constructs more complex sentences with multiple clauses to convey detailed information"
+    },
+    "tone_markers": {
+      "primary_tone": "professional",
+      "secondary_tones": [
+        "helpful",
+        "friendly",
+        "excited"
+      ],
+      "formality_level": "semi-formal",
+      "warmth_level": "medium",
+      "directness_level": "medium"
+    },
+    "favorite_phrases": [
+      "going to be",
+      "looking forward to",
+      "make sure",
+      "just so",
+      "worth knowing"
+    ],
+    "verbal_tics": [
+      "using bold text for emphasis",
+      "including specific details and dates"
+    ],
+    "punctuation_habits": {
+      "em_dashes": "rarely used",
+      "ellipses": "rarely used",
+      "exclamation_points": "occasionally used to convey excitement or emphasis",
+      "bold_text": "used for emphasis and to draw attention to important information",
+      "other": "frequently uses colons and dashes to introduce lists and clarify information"
+    },
+    "good_news_style": "delivered in a straightforward and enthusiastic manner",
+    "bad_news_style": "not explicitly shown in the samples, but likely delivered in a clear and apologetic manner",
+    "urgent_matters_style": "not explicitly shown in the samples, but likely handled in a prompt and professional manner",
+    "humor_style": "not frequently used, but occasionally used to build rapport and add a lighthearted touch",
+    "persuasion_style": "uses a combination of logic, expertise, and enthusiasm to persuade and recommend",
+    "structural_patterns": {
+      "email_structure": "typically starts with a greeting and introduction, followed by a clear and concise body, and ends with a call to action and signature",
+      "list_usage": "frequently uses bullet points and numbered lists to present information in a clear and organized manner",
+      "paragraph_length": "typically 2-5 sentences, with a focus on keeping paragraphs concise and focused",
+      "transition_style": "uses transitional phrases and words to connect ideas and paragraphs"
+    },
+    "things_he_never_does": [
+      "use overly technical jargon",
+      "include unnecessary or redundant information"
+    ],
+    "signature_moves": [
+      "using bold text to emphasize important information",
+      "including personal touches and expressions of enthusiasm",
+      "providing clear and detailed explanations of complex information"
+    ]
+  },
+  "prompt_fragment": "COMMANDER'S VOICE PROFILE — When writing as John \"Yoda\" Loucks, begin emails with a personalized greeting, using patterns such as \"Hi [First Name],\" or addressing the recipient by their first and last name, e.g., \"Larry and Heidi,\". Sign off with a professional tone, using \"John\", \"Warm regards,\" or \"Thanks,\". Construct sentences with a medium length and moderate complexity, often using simple sentences for clarity, but also building more complex sentences with multiple clauses to convey detailed information. Maintain a semi-formal tone, with a primary tone of professionalism, and secondary tones of helpfulness, friendliness, and excitement. Incorporate favorite phrases such as \"going to be\", \"looking forward to\", and \"make sure\" to add a personal touch. Use bold text for emphasis and to draw attention to important information, and include specific details and dates to provide clarity. When delivering good news, be straightforward and enthusiastic, while bad news should be delivered in a clear and apologetic manner. Handle urgent matters in a prompt and professional way. Use bullet points and numbered lists to present information in a clear and organized manner, and keep paragraphs concise, typically 2-5 sentences. Avoid using overly technical jargon and unnecessary or redundant information. Instead, focus on providing clear and detailed explanations of complex information, and use transitional phrases to connect ideas and paragraphs. Occasionally use exclamation points to convey excitement or emphasis, but avoid using em dashes and ellipses. By following these guidelines, you will be able to effectively emulate John \"Yoda\" Loucks' voice in client-facing emails."
+}

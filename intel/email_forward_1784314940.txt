@@ -1,0 +1,37 @@
+Subject: Tech Scan 2026-07-17 19:00 UTC — 7 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-17T19:02:20.038594+00:00
+
+TECH SCAN — 2026-07-17 19:00 UTC
+airborne scanner pulse · 23 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 7 TRIAL · 16 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Anthropic breaks July 19th promise, pulling plug in Fable 5 — https://github.com/anthropics/claude-code/issues/78610
+↳ real tool (github.com) — worth a bounded look
+Macaz – GPT 5.6 inside Claude Code — https://github.com/macaz-dev/macaz-cli
+↳ real tool (github.com) — worth a bounded look
+Dex – Claude Code / Codex Skills for Analytics Engineering — https://github.com/exmergo/dex
+↳ real tool (skill, github.com) — worth a bounded look
+Retok: Token-efficiency analyzer for Claude Code and Codex CLI (zero deps) — https://github.com/d-date/retok
+↳ real tool (github.com) — worth a bounded look
+Show HN: A hook that stops Claude Code from re-trying fixes that failed — https://github.com/anlor1002-alt/regressionledger
+↳ real tool (github.com) — worth a bounded look
+Show HN: cc-context-telemetry - context and rate-limit % in Claude Code's bar — https://github.com/alagiz/cc-context-telemetry
+↳ real tool (github.com, mit) — worth a bounded look
+Show HN: Mocca – Claude Code wrapper where Plugin takes center stage — https://github.com/valehelle/mocca-hub
+↳ real tool (plugin, github.com) — worth a bounded look
+👁 WATCH:letting Claude run unattended for three hours changed how i feel about my own job more than the output did
+I built an open-source canvas where Claude responds beside your handwritings
+Laid off in March, I built a job-search tool almost entirely with Claude. Here's the whole process.
+Show HN: Maxx – HUD for Claude token usage — https://meetmaxx.co/
+Fable gone – Usage credits are required for this model — https://news.ycombinator.com/item?id=48950625
+Tile-pack repos, files, and prompts into images for 60–75% fewer Claude tokens — https://old.reddit.com/r/Clau
+Portal: Teleport into your Claude Code sessions — https://portal.cybercorpresearch.com/
+I have built a supervision and Orchestration layer for Claude Code and other CLI — https://cli.agentproto.sh
+RAW — all finds this pulse (unfiltered)[llm] letting Claude run unattended for three hours changed how i feel about my own job more than the output did (Reddit r/ClaudeAI)
+[llm] I built an open-source canvas where Claude responds beside your handwritings (Reddit r/ClaudeAI)
+[llm] Laid off in March, I built a job-search tool almost entirely with Claude. Here's the whole process. (Reddit r/ClaudeAI)
+[llm] Show HN: Maxx – HUD for Claude token usage — https://meetmaxx.co/ (Hacker News — Claude Code)
+[llm] Anthropic breaks July 19th promise, pulling plug in Fable 5 — https://github.com/anthropics/claude-code/issues/78610 (Hacker News — Claude Code)
+[llm] Fable gone – Usage credits are required for this model — https://news.ycombinator.com/item?id=48950625 (Hacker News — Claude Code)
+[llm] Tile-pack repos, files, and prompts into images for 60–75% fewer Claude tokens — https://ol

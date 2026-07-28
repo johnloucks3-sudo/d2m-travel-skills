@@ -1,0 +1,10 @@
+{
+  "booking_id": "LOUCKS-BA-2027",
+  "supplier": "Skybird / British Airways",
+  "amount": 5823.96,
+  "description": "Business Class Choice #1 Hold Confirmation",
+  "card_vault_token": "VAULT_REF_COMMANDER_AMEX_PLATINUM",
+  "auth_code_required": "GO",
+  "staged_timestamp_utc": "2026-07-27T21:26:38.259231+00:00",
+  "status": "AWAITING_TELEGRAM_GO"
+}

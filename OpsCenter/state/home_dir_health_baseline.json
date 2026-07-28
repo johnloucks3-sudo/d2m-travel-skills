@@ -1,11 +1,11 @@
 {
-  "updated": "2026-07-10T22:21:33.346168+00:00",
+  "updated": "2026-07-28T21:55:05.923984+00:00",
   "major_dir_sizes": {
-    "/home/john/Thunderbird": 17319.0,
+    "/home/john/Thunderbird": 22397.0,
     "/home/john/D2M": 6572.0,
-    "/home/john/Downloads": 453.0,
+    "/home/john/Downloads": 703.0,
     "/home/john/OpenMontage": 411.0,
-    "/home/john/google-cloud-sdk": 811.0,
+    "/home/john/google-cloud-sdk": 812.0,
     "/home/john/playwright-venv": 151.0
   }
 }

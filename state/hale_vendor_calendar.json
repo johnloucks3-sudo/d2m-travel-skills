@@ -1,0 +1,87 @@
+{
+  "last_updated": "2026-05-17T17:00:56.167067",
+  "vendors": {
+    "silversea": {
+      "commission": {
+        "rate": 0.16,
+        "last_known": "2026-01-01",
+        "change_date": null
+      },
+      "contract_renewal": "2026-12-31",
+      "intel_windows": [
+        {
+          "name": "Summer 2027 itineraries",
+          "expected": "2026-09-01"
+        },
+        {
+          "name": "Wave season promos",
+          "expected": "2027-01-15"
+        }
+      ]
+    },
+    "regent": {
+      "commission": {
+        "rate": 0.7,
+        "note": "via Nexion, D2M keeps 70%",
+        "last_known": "2026-01-01"
+      },
+      "contract_renewal": "2026-12-31",
+      "intel_windows": [
+        {
+          "name": "2027-2028 itineraries",
+          "expected": "2026-10-01"
+        },
+        {
+          "name": "Savings events",
+          "expected": "2026-11-01"
+        }
+      ]
+    },
+    "viking": {
+      "commission": {
+        "rate": 0.8,
+        "note": "via Outside Agents, D2M keeps 80%",
+        "last_known": "2026-01-01"
+      },
+      "contract_renewal": "2026-12-31",
+      "intel_windows": [
+        {
+          "name": "2027 ocean itineraries",
+          "expected": "2026-08-01"
+        },
+        {
+          "name": "2027 river itineraries",
+          "expected": "2026-09-01"
+        }
+      ]
+    },
+    "celebritiy": {
+      "commission": {
+        "rate": 0.1,
+        "note": "standard",
+        "last_known": "2026-01-01"
+      },
+      "contract_renewal": null,
+      "intel_windows": []
+    },
+    "princess": {
+      "commission": {
+        "rate": 0.1,
+        "note": "standard",
+        "last_known": "2026-01-01"
+      },
+      "contract_renewal": null,
+      "intel_windows": []
+    },
+    "ponant": {
+      "commission": {
+        "rate": 0.1,
+        "note": "standard",
+        "last_known": "2026-01-01"
+      },
+      "contract_renewal": null,
+      "intel_windows": []
+    }
+  },
+  "alerts": []
+}

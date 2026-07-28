@@ -1,0 +1,49 @@
+{
+  "_doc": "Kaizen finding -> mission-board ticket template. Spec: docs/KAIZEN_ACTIVE_HALE_ROLE_20260716.md (Sec 5.1). Plugs into mission_board_sync.py add path + existing _find_open_duplicate / generic_remediate circuit-breaker. NOT new runtime; a schema+contract for auto-generated Kaizen tickets.",
+  "_contract": {
+    "dedup": "Before create, compute kaizen_signature = sha1(subsystem + '::' + failure_class). If an OPEN mission with matching kaizen_signature exists, append to its logs and DO NOT create a new ticket. Reuses _find_open_duplicate.",
+    "circuit_breaker": "If the same kaizen_signature was auto-created and auto-closed > 3 times within 30 days, STOP auto-creating; escalate the recurrence itself as a P1 'fix is not holding' ticket. Reuses generic_remediate circuit-breaker.",
+    "owner_suspense_mandatory": "assigned_to and suspense_date are required. Ticket ages red via escalation_rule exactly like any mission.",
+    "closure": "status may not be set to verified_closed by the fixing seat. Only the verification lane (Rocket / CMSgt Starbound) sets verified_closed. Self-graded closure is forbidden (CCP Annex E)."
+  },
+  "template": {
+    "id": "MISSION-KZN-<auto>",
+    "title": "<KAIZEN> <one-line finding>",
+    "status": "open",
+    "priority": "P2",
+    "assigned_to": "CC | OC | AG",
+    "description": "<what claim/status was found unbacked, and the evidence gap>",
+    "kaizen_signature": "<sha1(subsystem::failure_class)>",
+    "kaizen": {
+      "lane": "code_process_integrity | operational_continuity | fresh_eyes_client",
+      "failure_class": "detection_without_execution | success_theater | dedup_bypass | silent_archive | policy_code_drift | timer_ran_no_effect | oom_crash | commander_touchpoint_leak",
+      "found_by_pass": "<weekly-YYYY-MM-DD | hot-trigger>",
+      "subsystem": "<file / module / timer / subsystem>",
+      "claim": "<the SUCCESS/DONE claim that had no state change behind it>",
+      "evidence_gap": "<what verification showed missing>",
+      "feeds_metric": "success_theater_rate | detection_without_execution_count | lessons_implementation_rate_pct"
+    },
+    "deliverables": ["<concrete fix>", "<Rocket verification of fix>"],
+    "dependencies": [],
+    "suspense_date": "<ISO8601, required>",
+    "escalation_rule": "red_at_14d",
+    "verified_closed_by": null,
+    "source": "kaizen_active_pass",
+    "logs": [],
+    "created_at": "<ISO8601>",
+    "updated_at": "<ISO8601>"
+  },
+  "scorecard_metrics": [
+    "success_theater_rate",
+    "detection_without_execution_count",
+    "dedup_circuit_breaker_bypass_incidents",
+    "oom_crash_events",
+    "lessons_implementation_rate_pct",
+    "oldest_open_kaizen_finding_age_days"
+  ],
+  "breach_thresholds": {
+    "success_theater_rate": "> 0 for 2 consecutive passes -> surface to Commander",
+    "oldest_open_kaizen_finding_age_days": "> 14 -> surface to Commander",
+    "lessons_implementation_rate_pct": "< 80 -> surface to Commander"
+  }
+}

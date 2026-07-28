@@ -1,0 +1,35 @@
+Subject: Tech Scan 2026-07-18 05:15 UTC — 5 trial / 2 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-18T05:15:23.575021+00:00
+
+TECH SCAN — 2026-07-18 05:15 UTC
+airborne scanner pulse · 16 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 9 WATCH · 2 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Macaz – GPT 5.6 inside Claude Code — https://github.com/macaz-dev/macaz-cli
+↳ real tool (github.com) — worth a bounded look
+Dex – Claude Code / Codex Skills for Analytics Engineering — https://github.com/exmergo/dex
+↳ real tool (skill, github.com) — worth a bounded look
+Retok: Token-efficiency analyzer for Claude Code and Codex CLI (zero deps) — https://github.com/d-date/retok
+↳ real tool (github.com) — worth a bounded look
+Show HN: A hook that stops Claude Code from re-trying fixes that failed — https://github.com/anlor1002-alt/regressionledger
+↳ real tool (github.com) — worth a bounded look
+Show HN: cc-context-telemetry - context and rate-limit % in Claude Code's bar — https://github.com/alagiz/cc-context-telemetry
+↳ real tool (github.com, mit) — worth a bounded look
+👁 WATCH:Claude Code(Fable) refused my slow down instruction — https://qusaisuwan.github.io/cc-incident/index.html
+Show HN: Like Claude Code for Images — https://visuali.io
+Show HN: Run Hermes Agent with Kimi 3 in a sandbox — https://news.ycombinator.com/item?id=48951167
+Portal: Teleport into your Claude Code sessions — https://portal.cybercorpresearch.com/
+I have built a supervision and Orchestration layer for Claude Code and other CLI — https://cli.agentproto.sh
+Use caffeinate to keep Claude Code and Codex running on Mac — https://www.narendravardi.com/use-caffeinate-to-
+Claude Code: Anatomy of a Misfeature — https://www.olafalders.com/2026/07/17/claude-code-anatomy-of-a-misfeatu
+Show HN: Sokkan – my Claude Code sessions kept forgetting, so I gave them memory — https://sokkan.ch
+🗑 KILLED (2) — discussion/opinion, not tools (so they don't pile up):Ask HN: Claude Code for Ordinary User — https://news.ycombinator.com/item?id=48955119
+Why I route each phase of my coding agent to a different model — https://dev.to/rohit_gamp
+RAW — all finds this pulse (unfiltered)[claude-code] Ask HN: Claude Code for Ordinary User — https://news.ycombinator.com/item?id=48955119 (Hacker News — Claude Code)
+[claude-code] Claude Code(Fable) refused my slow down instruction — https://qusaisuwan.github.io/cc-incident/index.html (Hacker News — Claude Code)
+[claude-code] Show HN: Like Claude Code for Images — https://visuali.io (Hacker News — Claude Code)
+[agentic] Show HN: Run Hermes Agent with Kimi 3 in a sandbox — https://news.ycombinator.com/item?id=48951167 (Hacker News — Claude Code)
+[claude-code] Macaz – GPT 5.6 inside Claude Code — https://github.com/macaz-dev/macaz-cli (Hacker News — Claude Code)
+[claude-code] Portal: Teleport into your Claude Code sessions — https://portal.cybercorpresearch.com/ (Hacker News — Claude Code)
+[claude-code] Dex – Claude Code / Codex Skills for Analytics Engineering — https://github.com/exmergo/dex (Hacker News — Claude Code)

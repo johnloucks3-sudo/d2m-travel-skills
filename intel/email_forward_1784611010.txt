@@ -1,0 +1,37 @@
+Subject: Tech Scan 2026-07-21 05:15 UTC — 6 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-21T05:16:50.116033+00:00
+
+TECH SCAN — 2026-07-21 05:15 UTC
+airborne scanner pulse · 21 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 6 TRIAL · 14 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Claudexor – quota-aware routing for Claude Code, Codex, and Cursor — https://github.com/razzant/claudexor
+↳ real tool (github.com) — worth a bounded look
+Show HN: A chess game you play with Claude as your wing-bot in the CLI — https://github.com/goawaygeek/ground-control
+↳ real tool (github.com) — worth a bounded look
+Claude Code repo: issues labeled as duplicates without referencing the original — https://github.com/anthropics/claude-code/issues
+↳ real tool (github.com) — worth a bounded look
+Show HN: Amnesia – audit Claude Code's memory for contradictions — https://github.com/tiny-cloud-ventures/amnesia
+↳ real tool (github.com) — worth a bounded look
+Show HN: Effort Router: Intelligent /effort selection per Claude turn — https://github.com/cfitzgerald-pd/effort-router
+↳ real tool (github.com) — worth a bounded look
+Show HN: A Pipeline for Making 10-minute AI Movies with Claude Code and Seedance — https://github.com/dawndrain/movie-gen
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Claude usage as reward
+I made Claude read an entire World Cup (all 102 match commentaries) to tell me who wins tomorrow’s final. It’s
+asked fable 5 to make its own website pretty. now my claude has falling sakura petals and i cant go back
+Claude helped me make my internet 100x faster
+I built a web game with over 25K plays so far using Claude: You try to time the market against a couch that bu
+Is OpenCode and Kimi K3 better than Claude Code? — https://news.ycombinator.com/item?id=48987547
+Claude Code now has a screen reader mode — https://twitter.com/i/status/2079315549163778366
+Claude Fable is stylistically closer to Kimi K3 than Claude Opus — https://slopidx.com/models/claude-fable-5
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):How to Write Loops with Claude Code — https://karanbansal.in/blog/loop-engineering/
+RAW — all finds this pulse (unfiltered)[llm] Claude usage as reward (Reddit r/ClaudeAI)
+[llm] I made Claude read an entire World Cup (all 102 match commentaries) to tell me who wins tomorrow’s final. It’s either br (Reddit r/ClaudeAI)
+[llm] asked fable 5 to make its own website pretty. now my claude has falling sakura petals and i cant go back (Reddit r/ClaudeAI)
+[llm] Claude helped me make my internet 100x faster (Reddit r/ClaudeAI)
+[llm] I built a web game with over 25K plays so far using Claude: You try to time the market against a couch that buys once an (Reddit r/ClaudeAI)
+[llm] Show HN: Claudexor – quota-aware routing for Claude Code, Codex, and Cursor — https://github.com/razzant/claudexor (Hacker News — Claude Code)
+[llm] Is OpenCode and Kimi K3 better than Claude Code? — https://news.ycombinator.com/item?id=48987547 (Hacker News — Claude Code)
+[llm] Show HN: A chess game you play w

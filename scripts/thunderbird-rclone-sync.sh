@@ -22,9 +22,15 @@ $RCLONE copy "$SRC" "$DST" \
   2>&1
 
 EXIT_CODE=$?
-# rclone exit 6 = minor errors (file changed during copy) — treat as success
-# Only hard-fail on exit codes indicating config/auth problems (1-5, 7)
-if [ "$EXIT_CODE" -eq 6 ]; then
+# With --ignore-errors, rclone skips files that fail to transfer and continues.
+# Exit 1 = transfer errors occurred but were skipped (e.g. source file changed size
+#           mid-copy due to a race with a live writer — "size changed from 0 to N").
+#           This is non-fatal: the full 622+ MiB still transfers; one volatile state
+#           file is retried next run. Treat as success.
+# Exit 6 = rclone's own "less serious errors" bucket — also treat as success.
+# Hard-fail on 2 (usage), 3 (dir not found), 4 (file not found), 5 (temp/retry),
+#               7 (fatal), 8 (transfer limit exceeded).
+if [ "$EXIT_CODE" -eq 1 ] || [ "$EXIT_CODE" -eq 6 ]; then
   echo "$(date '+%Y-%m-%d %H:%M:%S') — Thunderbird rclone sync finished with minor warnings (exit: $EXIT_CODE) — treating as success" >> "$LOG"
   exit 0
 fi

@@ -1,0 +1,34 @@
+Subject: Tech Scan 2026-07-19 19:00 UTC — 5 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-19T19:01:32.564000+00:00
+
+TECH SCAN — 2026-07-19 19:00 UTC
+airborne scanner pulse · 16 finds · sectors claude-code, voice
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 10 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Giving Claude Code and Codex its voice — https://github.com/softcane/aloud
+↳ real tool (github.com) — worth a bounded look
+Show HN: Claude Code Workflows for GPT/Codex — https://github.com/cyrusNuevoDia/gpt-workflow
+↳ real tool (github.com) — worth a bounded look
+Claude Code skill for searching royalty-free stock photos via the Pexels API — https://github.com/amalshehu/pexels-skill
+↳ real tool (skill, github.com) — worth a bounded look
+Show HN: Synapse – local codebase indexer and MCP server for Claude Code — https://github.com/nrkoka786/synapse
+↳ real tool (server, mcp, github.com) — worth a bounded look
+Show HN: Peek-CLI: Let Claude Code iterate on front end designs — https://github.com/puffinsoft/peek-cli
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Show HN: CallBro – Granola, but Powered by Codex, Claude Code, or Your Local LLM — https://callbro.ai/
+Show HN: AI Buddy – Free STT and Screenshot Tool for Mac (Requires Gemini) — https://claudete.co/ai-buddy
+Claude Code 50% higher weekly limits continuing through August 19 — https://twitter.com/i/status/2078511173759
+Claude Code uses Bun written in Rust now — https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/
+Claude Code now uses the new (unreleased) version of Bun (in Rust) — https://twitter.com/simonw/status/2078692
+Anthropic runs large-scale code migrations with Claude Code — https://claude.com/blog/ai-code-migration
+Anthropic extends Claude Code's 50% weekly limit increase through August 19 — https://twitter.com/ClaudeDevs/s
+Track you Claude Code usage in dollars — https://www.claudeusage.com/leaderboard
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Why do you use GPT-5.6 and kimi k3 inside of Claude Code? — https://twitter.com/theo/statu
+RAW — all finds this pulse (unfiltered)[claude-code] Why do you use GPT-5.6 and kimi k3 inside of Claude Code? — https://twitter.com/theo/status/2078217355780624864 (Hacker News — Claude Code)
+[voice] Show HN: Giving Claude Code and Codex its voice — https://github.com/softcane/aloud (Hacker News — Claude Code)
+[claude-code] Show HN: CallBro – Granola, but Powered by Codex, Claude Code, or Your Local LLM — https://callbro.ai/ (Hacker News — Claude Code)
+[claude-code] Show HN: Claude Code Workflows for GPT/Codex — https://github.com/cyrusNuevoDia/gpt-workflow (Hacker News — Claude Code)
+[claude-code] Claude Code skill for searching royalty-free stock photos via the Pexels API — https://github.com/amalshehu/pexels-skill (Hacker News — Claude Code)
+[voice] Show HN: AI Buddy – Free STT and Screenshot Tool for Mac (Requires Gemini) — https://claudete.co/ai-buddy (Hacker News — Claude Code)
+[claude-code] Claude Code 50% higher weekly limits continuing through Augu

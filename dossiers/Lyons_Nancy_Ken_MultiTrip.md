@@ -76,3 +76,5 @@ The Regent booking-detail pages render dollar figures (Total / Remaining) in a J
 - Tool: `tools/cloak/lyons_scrape.mjs` (CloakBrowser). Login modal: `#account-email` / `#account-password`, submit = in-form button. List page: `/myaccount/bookedcruises.aspx`. Detail: `/myaccount/bookedcruise.aspx?<ENCID>`.
 - Session is ephemeral per run — login + scrape must happen in ONE invocation.
 - Codified as the `regent-scrape` skill 2026-07-03.
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

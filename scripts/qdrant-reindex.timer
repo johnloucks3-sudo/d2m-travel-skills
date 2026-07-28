@@ -1,0 +1,10 @@
+[Unit]
+Description=Qdrant Daily Re-index Timer
+After=qdrant.service
+
+[Timer]
+OnCalendar=*-*-* 03:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,19 @@
+[Unit]
+Description=CI Armed Overwatch — Self-Observability F2T2EA (Find/Fix/Track/Target/Engage/Assess)
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/ci_sentinel.py
+SuccessExitStatus=0 2
+# FIXED 2026-07-16 (hot-window triage): default KillMode=control-group meant
+# systemd SIGKILLed this unit's ENTIRE cgroup ~1s after ci_sentinel.py's main
+# loop returned -- including the detached headless-Claude fix-agent
+# grandchild it spawns via core/ai_infra/thunderbird_headless_spawn.py
+# (start_new_session=True only escapes the process GROUP, not the cgroup).
+# Confirmed fleet-wide: 2,707 claude_ci-fix-*.log files across 78 services,
+# only 4 ever produced a nonzero-size log. KillMode=process signals only the
+# tracked main process on exit, letting detached grandchildren survive to
+# actually write their output.
+KillMode=process

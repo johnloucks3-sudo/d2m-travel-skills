@@ -1,0 +1,42 @@
+{
+  "name": "Bryana Onboarding - Access Control Policy",
+  "effective_date": "2026-07-11",
+  "scope": "Interim staff (non-persona)",
+  "access": {
+    "tess_bookings": {
+      "allowed": true,
+      "level": "read-only",
+      "scope": "booking status only"
+    },
+    "dossiers": {
+      "allowed": true,
+      "level": "read-only",
+      "scope": "research folder only, exclude client PII folders"
+    },
+    "google_drive": {
+      "allowed": true,
+      "level": "read-only",
+      "scope": "research/intel folders, exclude Loucks/Furlow/Ely/Nichols client folders"
+    },
+    "gmail_drafts": {
+      "allowed": true,
+      "level": "read-only",
+      "scope": "review only, no send authority"
+    },
+    "personal_pii": {
+      "allowed": false,
+      "scope": "N/A"
+    },
+    "financial_data": {
+      "allowed": false,
+      "scope": "N/A"
+    },
+    "wing_operations": {
+      "allowed": false,
+      "scope": "N/A"
+    }
+  },
+  "exceptions": "None. Policy is comprehensive.",
+  "owner": "Hale",
+  "approved_by": "Commander 2026-07-11"
+}

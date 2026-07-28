@@ -779,6 +779,23 @@ def main():
     )
     logger.info(f"  HTML built: {len(html):,} bytes")
 
+    # Staff Summary Sheet coversheet (INFO/read-ahead — no gate, no mission
+    # board object; SO-2026-07-19-SSS_ADOPTION + AF Form 1768 format only).
+    try:
+        from core.staffing.sss_render import render_info_html
+        html = render_info_html(
+            subject=subject, opr="CC (Hale)", staffed_by=["Sterling (A7)"],
+            purpose="End-of-day status: today's completions, tonight's queue, "
+                    "overnight incubator sectors, and any urgent overnight items.",
+            discussion_html=html,
+            recommendation="Review flagged items below; overnight ops proceed "
+                           "as queued unless noted.",
+            tag="EOD Brief",
+        )
+        logger.info("  Wrapped in SSS/1768 coversheet")
+    except Exception as e:
+        logger.error(f"sss_render wrap failed (non-fatal, sending unwrapped brief): {e}")
+
     # ── PREVIEW OR SEND ────────────────────────────────────────────────────
     if args.preview:
         out_path = Path(f"/tmp/thunderbird_eod_{date_str.replace('-','')}.html")

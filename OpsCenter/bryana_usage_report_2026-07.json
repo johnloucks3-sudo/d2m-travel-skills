@@ -1,15 +1,18 @@
 {
-  "generated_at": "2026-07-10T12:00:01.260141+00:00",
+  "generated_at": "2026-07-28T11:45:00.399892+00:00",
   "email": "bryanajarboe@gmail.com",
   "name": "Bryana Jarboe",
   "month": "2026-07",
-  "used_this_month": 1,
+  "used_this_month": 4,
   "allowance": 750,
-  "pct_used": 0.1,
+  "pct_used": 0.5,
   "trend": "no_prior_data",
   "approaching_limit": false,
   "over_limit": false,
-  "weekly_breakdown": {},
+  "weekly_breakdown": {
+    "2026-W28": 2,
+    "2026-W30": 1
+  },
   "weekly_alert_weeks": [],
   "is_quarterly_review_day": false,
   "recommend_rebalance": false

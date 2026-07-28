@@ -1,0 +1,14 @@
+[Unit]
+Description=YOGA -> dv7 curated file sync (feeds files.d2mluxury.quest)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/bin/bash /home/john/Thunderbird/scripts/yoga_dv7_files_sync.sh
+StandardOutput=append:/home/john/Thunderbird/logs/yoga_dv7_files_sync.log
+StandardError=append:/home/john/Thunderbird/logs/yoga_dv7_files_sync.log
+
+[Install]
+WantedBy=default.target

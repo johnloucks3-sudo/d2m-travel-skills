@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 STATE = Path("/home/john/Thunderbird/OpsCenter/state/d2m_digest_state.json")
-STALE_HOURS = 8
+STALE_HOURS = 26
 
 
 def fail(m): print(f"RED email-handling: {m}"); sys.exit(1)

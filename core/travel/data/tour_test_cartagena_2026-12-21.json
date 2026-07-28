@@ -1,0 +1,322 @@
+{
+  "dest": "cartagena",
+  "query": "group shore excursion",
+  "date": "2026-12-21",
+  "scraped_at": "2026-07-14T00:49:20.027379",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "cartagena",
+    "query": "group shore excursion",
+    "url": "https://www.getyourguide.com/cartagena-l2459/",
+    "scraped_at": "2026-07-14T00:49:20.709877",
+    "date_filter": "2026-12-21",
+    "tours": [
+      {
+        "name": "Traditional Moliceiro Boat Tour",
+        "duration": "45 minutes \u2022 Small group",
+        "rating": 4.5,
+        "review_count": 3763,
+        "price_pp": 16.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-traditional-moliceiro-boat-tour-t393116/"
+      },
+      {
+        "name": "Moliceiro Boat Cruise + tasting of local product",
+        "duration": "45 minutes \u2022 Skip the line",
+        "rating": 4.6,
+        "review_count": 986,
+        "price_pp": 15.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-moliceiro-boat-trip-t391326/"
+      },
+      {
+        "name": "From Porto: Aveiro Canals & Costa Nova Private Tour",
+        "duration": "6 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 266.0,
+        "original_price_pp": 296.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/from-porto-aveiro-canals-costa-nova-private-tour-t1390465/"
+      },
+      {
+        "name": "Porto",
+        "duration": "8.5 hours \u2022 Skip the line",
+        "rating": 4.7,
+        "review_count": 1451,
+        "price_pp": 42.0,
+        "original_price_pp": 48.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/porto-l151/portoaveiro-cruise-costa-nova-capelha-da-pedra-full-day-t437281/"
+      },
+      {
+        "name": "Aveiro, Paiva Walkways, & Suspension Bridge Tour",
+        "duration": "10 hours \u2022 Small group",
+        "rating": 4.9,
+        "review_count": 1845,
+        "price_pp": 123.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/porto-l151/from-porto-aveiro-paiva-walkways-and-suspension-bridge-t184232/"
+      },
+      {
+        "name": "Porto",
+        "duration": "4 - 7 hours",
+        "rating": 4.4,
+        "review_count": 1456,
+        "price_pp": 40.0,
+        "original_price_pp": 50.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/porto-l151/aveiro-half-day-tour-from-porto-with-optional-cruise-t32323/"
+      },
+      {
+        "name": "Guided Hot Rod City Tour",
+        "duration": "1 hour \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 101.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-guided-hot-rod-city-tour-t1255610/"
+      },
+      {
+        "name": "Aveiro Ovos Moles Workshop",
+        "duration": "30 minutes \u2022 Skip the line",
+        "rating": 4.6,
+        "review_count": 148,
+        "price_pp": 6.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-ovos-moles-workshop-t922428/"
+      },
+      {
+        "name": "Moliceiro Boat and Tuk Tuk Tour with Guide in Aveiro",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": 4.7,
+        "review_count": 51,
+        "price_pp": 28.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/moliceiro-boat-and-tuk-tuk-tour-with-guide-in-aveiro-t1220676/"
+      },
+      {
+        "name": "Moliceiro Boat Ride, Salt Flats, and Beach Tour",
+        "duration": "135 minutes \u2022 Small group",
+        "rating": 4.1,
+        "review_count": 25,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-moliceiro-boat-ride-salt-flats-and-beach-tour-t1220863/"
+      },
+      {
+        "name": "Wine Tourism Experience in the Bairrada Region",
+        "duration": "8 hours \u2022 Skip the line \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 626.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/aveiro-l2459/wine-tourism-experience-in-the-bairrada-region-t1384365/"
+      },
+      {
+        "name": "Walking Tour of Canals, History, and Culture",
+        "duration": "2 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 20.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-walking-tour-of-canals-history-and-culture-t1320185/"
+      },
+      {
+        "name": "Guided Bike Tour Through Portuguese Venice",
+        "duration": "2 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 33.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-guided-bike-tour-through-portuguese-venice-t1321903/"
+      },
+      {
+        "name": "Photo Session in Aveiro City Center",
+        "duration": "1.5 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 98.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/photo-session-in-aveiro-city-center-t1326434/"
+      },
+      {
+        "name": "Beach Horseback Riding Experience",
+        "duration": "1 hour \u2022 Private group",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": 114.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-beach-horseback-riding-experience-t1033385/"
+      },
+      {
+        "name": "Ovos Moles Workshop & Moliceiro Boat Ride",
+        "duration": "75 minutes",
+        "rating": 4.8,
+        "review_count": 5,
+        "price_pp": 20.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-ovos-moles-workshop-moliceiro-boat-ride-t1331710/"
+      },
+      {
+        "name": "Walking Tour, Boat Tour, Sweets & Colorful Ribbons",
+        "duration": "2.5 hours",
+        "rating": 4.9,
+        "review_count": 86,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-walking-and-boat-tour-ovos-moles-colorful-ribbons-t861701/"
+      },
+      {
+        "name": "Boat ride and traditional pastry workshop (Ovos Moles)",
+        "duration": "1.5 hours \u2022 Skip the line",
+        "rating": 4.3,
+        "review_count": null,
+        "price_pp": 36.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-boat-ride-traditional-dessert-workshop-ovos-moles-t1324892/"
+      },
+      {
+        "name": "Wine Tasting",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 31.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/wine-tasting-t720699/"
+      },
+      {
+        "name": "Aveiro Private Tour with cruise",
+        "duration": "4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 172.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-tour-t197563/"
+      },
+      {
+        "name": "Scenic Guided Boat Tour",
+        "duration": "45 minutes",
+        "rating": 4.4,
+        "review_count": 1404,
+        "price_pp": 17.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-scenic-guided-boat-tour-t490846/"
+      },
+      {
+        "name": "Feij\u00e3o Verde Fun Park Admission Ticket (Adult)",
+        "duration": "3 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 11.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/aveiro-l2459/aveiro-feijao-verde-fun-park-admission-ticket-adult-t1291268/"
+      },
+      {
+        "name": "Private Sunset Boat Tour with Sparkling Wine & Sweets",
+        "duration": "1.5 hours \u2022 Skip the line \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 182.0,
+        "original_price_pp": 228.0,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/aveiro-l2459/private-sunset-boat-tour-with-sparkling-wine-sweets-t1398322/"
+      },
+      {
+        "name": "Porto, aulas de surf para mulheres com equipamento incluido",
+        "duration": "2 hours \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 40.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/espinho-l156712/porto-aulas-de-surf-para-mulheres-com-equipamento-incluido-t1349699/"
+      }
+    ],
+    "total_found_estimate": "135 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_cartagena_2026-12-21.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "cartagena",
+    "url": "https://www.tourradar.com/d/colombia",
+    "scraped_at": "2026-07-14T00:49:30.017814",
+    "date_filter": "2026-12-21",
+    "tours": [
+      {
+        "name": "Best of Colombia: Culture, Coffee & Caribbean 11 Days Tour",
+        "duration": "Best of Colombia: Culture, Coffee & Caribbean 11 Days Tour",
+        "rating": 4.6,
+        "price_pp": 3990.0,
+        "url": "https://www.tourradar.com/t/183101"
+      },
+      {
+        "name": "Colombia: The magic of south America - Bogota, Medell\u00edn and Cartagena- in 8 days",
+        "duration": "Colombia: The magic of south America - Bogota, Medell\u00edn and Cartagena- in 8 days",
+        "rating": 4.8,
+        "price_pp": 2399.0,
+        "url": "https://www.tourradar.com/t/300845"
+      },
+      {
+        "name": "5 Days in Colombia La Macarena & The River of Seven Colors",
+        "duration": "5 Days in Colombia La Macarena & The River of Seven Colors",
+        "rating": 4.3,
+        "price_pp": 1750.0,
+        "url": "https://www.tourradar.com/t/112316"
+      },
+      {
+        "name": "9 Days in Colombia \u2013 Coffee Traditions, Mountain Landscapes & Colonial Treasures - Backpacker",
+        "duration": "9 Days in Colombia \u2013 Coffee Traditions, Mountain Landscapes & Colonial Treasures - Backpacker",
+        "rating": 4.0,
+        "price_pp": 1800.0,
+        "url": "https://www.tourradar.com/t/275203"
+      },
+      {
+        "name": "Private Tour on a Budget: Bogot\u00e1, Medell\u00edn & Cartagena with Domestic Flights and Confirmed Daily Departures (9 days, 8 nights)",
+        "duration": "Private Tour on a Budget: Bogot\u00e1, Medell\u00edn & Cartagena with Domestic Flights and Confirmed Daily Departures (9 days, 8 nights)",
+        "rating": 5.0,
+        "price_pp": 3230.0,
+        "url": "https://www.tourradar.com/t/287292"
+      },
+      {
+        "name": "Private Service I Best-Selling Journey: One Week in Bogot\u00e1, Medell\u00edn & Cartagena \u2014 Domestic Flights Included",
+        "duration": "7 days",
+        "rating": 4.9,
+        "price_pp": 3350.0,
+        "url": "https://www.tourradar.com/t/204581"
+      },
+      {
+        "name": "An Essential Colombian Tour to Bogota, Medellin and Cartagena Tour",
+        "duration": "8 days",
+        "rating": 4.8,
+        "price_pp": 2257.0,
+        "url": "https://www.tourradar.com/t/245370"
+      }
+    ],
+    "total_found_estimate": "190 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_cartagena_2026-12-21.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

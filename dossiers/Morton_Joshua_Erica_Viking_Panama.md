@@ -112,3 +112,7 @@ Total group FPD: $21,244 — all due Mar 31, 2026
 | Sep 17, 2026 | | E-90: All docs confirmed |
 | Dec 10, 2026 | | E-7: Final excursion/dining close |
 | Dec 17, 2026 | | EMBARKATION — Viking Mars |
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

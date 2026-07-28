@@ -58,7 +58,7 @@ No financial conflict — dossier frontmatter, lifecycle doc, and spec all agree
 | **Payment** | 🟡 DEPOSIT ONLY | $24,798 due Aug 1 — single highest-risk date |
 | **Air (Loucks)** | 🔴 NOT BOOKED | COS→MIA Dec 27 · IAD→MIA Dec 27 · LAX→COS Jan 14. Fare watches live. *(Updated 2026-06-14: FLL→MIA, IAD added. Priced 2026-06-14 — see fare watch below.)* |
 | **Air (Lyons)** | 🔴 NOT BOOKED | ATL→MIA Dec 27 / LAX→ATL Jan 14 — coordinate (WF-17) |
-| **Hotel (pre/post)** | 🔴 NOT BOOKED | Miami Dec 27–29 (2 nights pre-cruise); LA Jan 14 if late flights |
+| **Hotel (pre/post)** | 🟡 PARTIALLY BOOKED | Grand Beach Hotel Miami Beach Dec 28-29 (1 nt, ✅ BOOKED); FLL hotel Dec 27-28 (1 nt, 🔴 NOT BOOKED) |
 | **Transfers** | 🔴 NOT PLANNED | Hotel→Port of Miami Dec 29; Port of LA→airport Jan 14 |
 | **Excursions** | ⏳ OPENS JUN 2 | 8 intl ports + Panama transit. Pre-research critical. |
 | **Dining** | ⏳ PENDING | Culinary classes open Aug 31; specialty dining open Sep 30 |
@@ -132,3 +132,7 @@ No financial conflict — dossier frontmatter, lifecycle doc, and spec all agree
 ---
 
 *Wired 2026-06-09 by Sonnet. Internal trip — no client-send gate to Commander; Lyons-facing = WF-17. Financials = Harlan-verified frontmatter (do not recompute). Clock = existing lifecycle doc. Register with scheduler once timing-engine fix lands.*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

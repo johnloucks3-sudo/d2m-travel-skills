@@ -73,7 +73,7 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 |---------|------|-------|--------|------|
 | At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket group booking (131-2656351, CANCELLING). Brunkebergstorg 6, Stockholm. Guest: Larry Nichols (2 guests). Standard Room, 1 King Bed. Amex FHR: 12pm check-in, room upgrade, breakfast×2, $100 F&B credit, Wi-Fi, guaranteed 4pm checkout. **Amex Trip #ZO-AX1049-13385 · Conf #9092637820900** | Aug 27-28 (check-in 3pm / check-out 12pm) | ✅ CONFIRMED | SEK 3,715 (incl. taxes) — due at hotel |
 | — | At Six Stockholm — Regent included hotel night (Regent booking ref TBD) | Aug 28-29 | Included | — |
-| New — D2M to book | ARN → At Six transfer — replaces ARN→Haymarket (#1095089/LN693883, cancelling) | Aug 27 | ⚠️ to book | — |
+| ✅ PE184712212 | ARN → At Six transfer — replaces ARN→Haymarket (#1095089/LN693883, cancelling) | Aug 27 | ✅ **CONFIRMED** (Sedan, seats 3) — Hold w/o Payment, full payment due Aug 16 2026 [source: Project Expedition confirmation email, d2mconcierge, 2026-07-12]. ⚠️ **OPEN:** Larry Nichols flagged voucher shows max luggage 3 vs. party's actual bag count (2026-07-13); Commander explained no larger van/luggage-capacity combo available in this market, went with sedan. **Unconfirmed if Nichols is satisfied — no reply on file after Commander's 2026-07-13 explanation. Follow up before Aug 16 final payment.** | TBD — Harlan to verify |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -140,6 +140,9 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 - Also has Amex Platinum (may have built-in travel protection)
 - Going on a cruise this week (separate trip)
 
+**Jul 17 — Heidi Nichols** (Re: Re: Stockholm Arrival Transfer — One Van Instead of Three Sedans?)
+> 2026-07-17 17:51 UTC — Heidi Nichols confirms Nichols declining shared van; sedan (3-seat, max 3 luggage) remains confirmed for ARN→At Six transfer Aug 27. All three couples (Nichols/Furlow/Ely) confirmed preference for individual sedans. Final payment due PE Aug 16. Luggage-capacity concern addressed; no escalation flagged.
+
 ---
 
 ---
@@ -157,7 +160,7 @@ completed_tps_basis: "PAID IN FULL $14,986 (FPD Apr 1 2026 passed, Harlan-verifi
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: DSTAGH / Finnair: BERJYH |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ALL CONFIRMED** | DFW→HEL: 5D/5H; HEL→ARN: 2D/2F (Heidi confirmed Mar 16) |
-| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **REBOOKING** | ARN→At Six to book; ARN→Haymarket (#1095089/LN693883) cancelling |
+| 8 | Transfers | Airport → hotel transfer | YES | **✅ CONFIRMED, ⚠️ luggage concern open** | ARN→At Six PE184712212 confirmed (Sedan, seats 3) — Hold w/o Payment due Aug 16 2026; Nichols flagged bag-count vs. sedan capacity 2026-07-13, unresolved. ARN→Haymarket (#1095089/LN693883) cancelling |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | ✅ **CONFIRMED** | At Six Stockholm, Aug 27-28. Amex FHR Conf #9092637820900. Client confirmed via email 2026-05-13. |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Conf #9092637820900) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
@@ -202,7 +205,7 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 ### ISSUES NEEDING RESOLUTION
 
 1. **Return Flight Seat Assignments** — Seats NOT assigned on BA 6776 (OSL→LHR, Sep 8) and AA 79 (LHR→DFW, Sep 8). Outbound flights confirmed (5D/5H + 2D/2F). Contact BA/AA to assign return seats for Larry & Heidi.
-2. ~~**At Six Stockholm Night 1**~~ — **RESOLVED** (Heidi confirmed via email 2026-05-13). Amex FHR Conf #9092637820900. **ARN→At Six transfer still needed** — book to replace ARN→Haymarket (#1095089/LN693883, cancelling).
+2. ~~**At Six Stockholm Night 1**~~ — **RESOLVED** (Heidi confirmed via email 2026-05-13). Amex FHR Conf #9092637820900. ~~**ARN→At Six transfer still needed**~~ — **RESOLVED**: PE184712212 confirmed 2026-07-12 (Sedan). ⚠️ Larry Nichols flagged luggage capacity 2026-07-13 (max 3 bags shown vs. party's actual count) — Commander's sedan-availability explanation sent same day, no client reply on file since. Confirm satisfaction before Aug 16 final payment.
 3. ~~**Insurance Policy Clarification**~~ — **MOOT** (Commander-arbitrated 2026-06-09, all 3 couples). CFAR dropped; no further action. Historical email log above retained as record.
 4. **Schengen Visa/Entry Requirements** — Confirm Sweden/Norway entry requirements for US passports (6+ month validity). Both passports valid through Feb 2030.
 
@@ -234,3 +237,15 @@ All included (Regent Choice — $0.00). Both Larry & Heidi confirmed on all excu
 > THESE CORRECTIONS OVERRIDE DOSSIER DATA WHERE THEY CONFLICT.
 
 1. CFAR dropped, At Six Night 1 confirmed
+
+
+### OPEN ACTION ITEMS
+- [ ] Confirm with Project Expedition that 3× sedans remain locked (Nichols/Furlow/Ely); cancel any van-option holds (auto-intel Jul 17)
+
+- [ ] Send transfer vouchers and driver contact info to all three couples by Aug 25 (auto-intel Jul 17)
+
+- [ ] Update dossier: ARN transfer = 3 sedans confirmed (not van); no outstanding luggage risk (auto-intel Jul 17)
+
+- [ ] Collect final payment on sedans from all three couples by Aug 16 deadline (auto-intel Jul 17)
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

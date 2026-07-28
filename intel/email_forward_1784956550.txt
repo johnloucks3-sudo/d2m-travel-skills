@@ -1,0 +1,26 @@
+Subject: Tech Scan 2026-07-25 05:15 UTC — 3 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-25T05:15:50.063758+00:00
+
+TECH SCAN — 2026-07-25 05:15 UTC
+airborne scanner pulse · 7 finds · sectors agentic, ai-writing, mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 3 TRIAL · 4 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Drive your real logged-in Chrome from Claude Code and Codex (MCP) — https://github.com/vitalysim/browser-bridge
+↳ real tool (mcp, github.com) — worth a bounded look
+Show HN: Self-hosted multi-tenant agents built on Claude Code and Codex — https://github.com/OtoDock/oto-dock/
+↳ real tool (github.com) — worth a bounded look
+Show HN: A monorepo where AI agents can safely build and maintain applications — https://github.com/louisbrulenaudet/monorepo-temp
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:I made a Claude Code skill that turns a photo of your handwriting into an installable font
+Pair prompt with Claude/codex AI agents — https://liveshortly.com
+NestJS Agent Skills for Claude Code and Codex — https://dev.to/amirtaherkhani/i-built-3-conflict-checked-nestj
+Claude Code Subagents Can Now Spawn Subagents — https://dev.to/ucjung/claude-code-subagents-can-now-spawn-suba
+RAW — all finds this pulse (unfiltered)[ai-writing] I made a Claude Code skill that turns a photo of your handwriting into an installable font (Reddit r/ClaudeAI)
+[mcp] Show HN: Drive your real logged-in Chrome from Claude Code and Codex (MCP) — https://github.com/vitalysim/browser-bridge (Hacker News — Claude Code)
+[agentic] Show HN: Self-hosted multi-tenant agents built on Claude Code and Codex — https://github.com/OtoDock/oto-dock/ (Hacker News — Claude Code)
+[agentic] Pair prompt with Claude/codex AI agents — https://liveshortly.com (Hacker News — Claude Code)
+[agentic] Show HN: A monorepo where AI agents can safely build and maintain applications — https://github.com/louisbrulenaudet/mon (Hacker News — Claude Code)
+[agentic] NestJS Agent Skills for Claude Code and Codex — https://dev.to/amirtaherkhani/i-built-3-conflict-checked-nestjs-agent-sk (dev.to Claude)
+[agentic] Claude Code Subagents Can Now Spawn Subagents — https://dev.to/ucjung/claude-code-subagents-can-now-spawn-subagents-4h2a (dev.to Claude)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

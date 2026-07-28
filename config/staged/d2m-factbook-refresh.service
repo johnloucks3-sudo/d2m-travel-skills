@@ -1,0 +1,18 @@
+[Unit]
+Description=D2M World Factbook Weekly Refresh
+After=network-online.target
+Wants=network-online.target
+StartLimitBurst=3
+StartLimitIntervalSec=300
+
+[Service]
+Type=oneshot
+User=john
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/scripts/factbook_refresh.py
+EnvironmentFile=/home/john/Thunderbird/.env
+Environment="PATH=/home/john/.local/bin:/home/john/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/home/john/Thunderbird"
+StandardOutput=append:/home/john/Thunderbird/logs/factbook_refresh.log
+StandardError=append:/home/john/Thunderbird/logs/factbook_refresh.log
+TimeoutStartSec=300

@@ -133,3 +133,7 @@ Likely **$10,000–$16,000+ per guest** for 11 nights depending on category, bef
 
 ---
 *Atlas call-prep — Dembe (A2 Intel) | 2026-06-11 | M-108 | Personal travel research, internal*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

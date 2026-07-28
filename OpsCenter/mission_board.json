@@ -424,9 +424,16 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "2026-07-17T17:14:09.464329+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-07-18T17:20:41.143511+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-07-21T23:04:51.959493+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-07-22T17:56:37.743953+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-07-22T23:00:58.992799+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-07-26T23:04:32.441794+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
+      ],
       "created_at": "2026-07-13T03:21:06.722989+00:00",
-      "updated_at": "2026-07-13T03:21:06.723000+00:00"
+      "updated_at": "2026-07-26T23:04:32.441810+00:00"
     },
     {
       "id": "MISSION-001A",
@@ -650,10 +657,11 @@
       "logs": [
         "[2026-07-15T13:59:42] Created by Weekly Report Generator",
         "[2026-07-15T18:00:57] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-030: Deliver Kuklinski validation and insurance emails to WF-17 queue\n\n**Analysis and Action Report**\n\n**Summary:**\nThe task to draft and stage Kuklinski validation and insurance emails for Co",
-        "[2026-07-15T18:00:57] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-15T18:00:57] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-26T19:46:10] Weekly Report Generator duplicate blocked \u2014 \"Deliver Kuklinski validation and insurance emails to WF-17 queue\" already tracked here"
       ],
       "created_at": "2026-07-15T13:59:42.300375+00:00",
-      "updated_at": "2026-07-15T18:00:57",
+      "updated_at": "2026-07-26T19:46:10.112916+00:00",
       "source": "weekly_report"
     },
     {
@@ -1258,10 +1266,11 @@
         "[2026-07-16T12:26:40] Created by Weekly Report Generator",
         "2026-07-16T12:53:04.371182+00:00: Consolidated duplicate ticket (016) -- FPD deadline audit for Furlow and Kuklinski.",
         "[2026-07-16T14:29:21] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-623: FPD deadline audit \u2014 Furlow and Kuklinski\n\n## FPD Deadline Audit Report\n\n**Date:** 2026-07-16\n\n**Prepared For:** Commander\n\n**Prepared By:** Hale, COS for Dreams2Memories Travel\n\n**Subjec",
-        "[2026-07-16T14:29:21] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-16T14:29:21] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-18T20:16:23] Weekly Report Generator duplicate blocked \u2014 \"Run FPD deadline audit \u2014 Furlow and Kuklinski\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450150+00:00",
-      "updated_at": "2026-07-16T14:29:21",
+      "updated_at": "2026-07-18T20:16:23.499121+00:00",
       "source": "weekly_report"
     },
     {
@@ -1281,10 +1290,18 @@
         "[2026-07-16T14:29:28] \u274c Auto-executed by daily_mission_executor \u2014 3s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "2026-07-16T17:28:23.946027+00:00: SCOPE CORRECTED. TESS itself is live (token valid, Playwright-fallback keepalive working every ~90min). Real remaining work is narrower than title: (a) root-cause OAuth invalid_client instead of relying on fallback, (b) fix broken monthly commission-recon pipeline (0 matches in production), (c) real per-host commission formula (Nexion 70%, C&TU/Viking 80%, Silversea 70% per OpsCenter/state/commission_reconciliation_20260702.md, not flat 15%/80%), (d) resolve $0.10 discrepancy in verified total, (e) chase missing McLeod (2984034) invoice PDF. The stale \"$21,849 commission expectation\" premise in the original title was already disproven by Harlan/Sterling 2026-06-24 (real figure $18,830.93) -- do not re-verify against that stale baseline.",
         "[2026-07-16T18:30:44] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-624: Restore TESS pipeline and run commission cross-check\n\n**Analysis Report:**\n\nThe TESS data pipeline is partially operational, with the core TESS service confirmed live and its keepalive me",
-        "[2026-07-16T18:30:44] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-16T18:30:44] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-18T00:03:15] Weekly Report Generator duplicate blocked \u2014 \"Run TESS pipeline restore and commission cross-check\" already tracked here",
+        "[2026-07-19T04:20:29] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run full commission cross-check\" already tracked here",
+        "[2026-07-21T02:22:36] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
+        "[2026-07-24T04:04:06] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
+        "[2026-07-25T00:02:58] Weekly Report Generator duplicate blocked \u2014 \"Run TESS pipeline restore and commission cross-check (MISSION-624)\" already tracked here",
+        "[2026-07-26T19:46:10] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
+        "[2026-07-26T20:18:53] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here",
+        "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450239+00:00",
-      "updated_at": "2026-07-16T18:30:44",
+      "updated_at": "2026-07-26T20:39:02.223600+00:00",
       "source": "weekly_report"
     },
     {
@@ -1304,10 +1321,13 @@
         "[2026-07-16T14:29:31] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "2026-07-16T17:28:23.946033+00:00: PREMISE CORRECTED. Was blocked on MISSION-621 (Regent P0 restore) -- that ticket is now cancelled per Commander directive 2026-07-16: Regent is on-demand-only (Chrome browser capability), not a standing automated requirement. This ticket can proceed via an on-demand Regent session when Lyons pricing is actually needed, not blocked on any automated credential-restore process.",
         "[2026-07-16T18:30:49] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-625: Produce Regent pricing refresh for Lyons renewal window\n\n**Analysis:**\n\nThe task to produce a Regent pricing refresh for the Lyons renewal window was initially blocked by a dependency on ",
-        "[2026-07-16T18:30:49] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-16T18:30:49] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-21T02:22:36] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here",
+        "[2026-07-24T04:04:06] Weekly Report Generator duplicate blocked \u2014 \"Regent pricing refresh for Lyons renewal window\" already tracked here",
+        "[2026-07-26T19:46:10] Weekly Report Generator duplicate blocked \u2014 \"Produce Regent pricing refresh for Lyons renewal window\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450331+00:00",
-      "updated_at": "2026-07-16T18:30:49",
+      "updated_at": "2026-07-26T19:46:10.113678+00:00",
       "source": "weekly_report"
     },
     {
@@ -1677,7 +1697,7 @@
     {
       "id": "MISSION-647",
       "title": "ELON mission-creation paths bypass board-level find_open_duplicate",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "P3",
       "assigned_to": "Sterling",
       "description": "DEDUP GAP (closing sweep 2026-07-16). intel/daily_search/elon_daily_synthesis.py and intel/daily_search/elon_adopt_pipeline.py append mission_entry directly via their own _save_mission_board, never calling mission_board_sync._find_open_duplicate \u2014 same class as the 3 paths fixed tonight (tcd/writeback.py, generate_weekly_report.py, mission_board_sync.cmd_add). Lower risk than those because both keep their own name-keyed dedup logs (already_promoted / best_by_name), but a board-level guard is still absent. Wire _find_open_duplicate defensively before append.",
@@ -1685,9 +1705,12 @@
       "dependencies": [],
       "suspense_date": null,
       "escalation_rule": null,
-      "logs": [],
+      "logs": [
+        "[2026-07-17T22:56:38] COMPLETE. Wired board-level _find_open_duplicate guard into the final 2 ELON mission-creation paths (elon_daily_synthesis.py::_apply_decisions IMPLEMENT_NOW+ESCALATE, elon_adopt_pipeline.py::run_adopt_pipeline INTEGRATE_NOW) \u2014 committed 3f3102b10. Both keep their own name-keyed logs (already_promoted/best_by_name); this is the defensive board-level backstop for divergence. Guard is best-effort \u2014 import/lookup failure never blocks promotion; dry-run keeps fresh-id preview. Prior sweep commit b0384ea5c covered TCD Create Task + weekly-report generator (was the uncommitted 'done tonight' work, committed atomically, separate from MISSION-658). mission_board_sync.cmd_add already committed. Tests: tests/test_elon_dedup_guard.py 8 pass (synthesis re-run dedup both tiers, full run_adopt_pipeline integration dup-blocked+novel-appended, completed-status not a dup). Regression: 96 pass; 2 pre-existing env failures (opencode CLI/litellm not installed) unrelated. Silver BACK-gate: PASS. Not pushed."
+      ],
       "created_at": "2026-07-16T13:29:45.575545+00:00",
-      "updated_at": "2026-07-16T13:29:45.575549+00:00"
+      "updated_at": "2026-07-17T22:56:38.484482+00:00",
+      "completed_at": "2026-07-17T22:56:38.537361+00:00"
     },
     {
       "id": "MISSION-648",
@@ -1774,8 +1797,2254 @@
       "silver_front_frame": "2026-07-16T21:03:46.700878+00:00",
       "delegation_rationale": "routing validated (OC): deterministic ops/mechanical \u2014 OC (DeepSeek v4) JET default",
       "completed_at": "2026-07-16T21:07:16.500507+00:00"
+    },
+    {
+      "id": "MISSION-653",
+      "title": "\ud83d\udee1\ufe0f CHIEF SILVER",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "\u2014 Daily Synthesis \u2014 Jul 16 Commander email directive: \ud83d\udee1\ufe0f CHIEF SILVER \u2014 Daily Synthesis \u2014 Jul 16. \ud83d\udee1\ufe0f CHIEF SILVER \u2014 Daily Synthesis \u2014 Thursday, July 16, 2026 Time: 15:42 MT | 30 distinct open insights | Scoreboard: CC: 0\u2713 0\u2717 5 open \u00b7 OC: 0\u2713 0\u2717 8 open \u00b7 SILVER: 0\u2713 0\u2717 23 open",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "2026-07-16T21:45:45.651958+00:00: duplicate creation attempt blocked \u2014 \"\ud83d\udee1\ufe0f CHIEF SILVER\" already tracked here"
+      ],
+      "created_at": "2026-07-16T21:43:45.478135+00:00",
+      "updated_at": "2026-07-16T21:45:45.651967+00:00"
+    },
+    {
+      "id": "MISSION-654",
+      "title": "Client inquiry: How Heritage can still limit birthplace citizenship",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Tony Johnson <tjohnson@heritage.org> \u2014 subject: How Heritage can still limit birthplace citizenship",
+      "created_at": "2026-07-17T16:00:15.532125+00:00",
+      "updated_at": "2026-07-18T12:15:18",
+      "logs": [
+        "[2026-07-17T16:00:15.532125+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f70b28a54202fc",
+        "[2026-07-17T18:44:06] \u274c Auto-executed by daily_mission_executor \u2014 2s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-17T22:48:57] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T02:51:49] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T06:53:18] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T10:55:45] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T12:15:18] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: # MISSION-654: Client inquiry: How Heritage can still limit birthplace citizenship\n\n## Work Product\n\n### Client Email Analysis\n\n**From:** Tony Johnson <tjohnson@heritage.org>\n**Subject:** How Heritage",
+        "[2026-07-18T12:15:18] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-655",
+      "title": "Client inquiry: Re: Odysseus Password Reset Issue #100210",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from MAGsos <magsos@myagentgenie.com> \u2014 subject: Re: Odysseus Password Reset Issue #100210",
+      "created_at": "2026-07-17T20:00:20.864724+00:00",
+      "updated_at": "2026-07-18T12:15:30",
+      "logs": [
+        "[2026-07-17T20:00:20.864724+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f717932fa4e97a",
+        "[2026-07-17T22:48:59] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T02:51:52] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T06:53:21] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T10:55:48] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T12:15:30] \u2705 Auto-executed by daily_mission_executor \u2014 9s \u2014 SUCCESS: # MISSION-655: Client Inquiry: Re: Odysseus Password Reset Issue #100210\n\n## Work Product\n\n### 1. Task Execution\n\nTo execute this task, I will follow these steps:\n\n1. **Retrieve the Client Email**: Ac",
+        "[2026-07-18T12:15:30] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-656",
+      "title": "Client inquiry: Re: Odysseus Password Reset Issue #100210",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from MAGsos <magsos@myagentgenie.com> \u2014 subject: Re: Odysseus Password Reset Issue #100210",
+      "created_at": "2026-07-17T20:00:20.868034+00:00",
+      "updated_at": "2026-07-18T12:15:40",
+      "logs": [
+        "[2026-07-17T20:00:20.868034+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f7150bcae1a515",
+        "[2026-07-17T22:49:02] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T02:51:55] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T06:53:24] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T10:55:50] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T12:15:40] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: # MISSION-656: Client inquiry: Re: Odysseus Password Reset Issue #100210\n\n## Work Product\n\n### 1. Task Execution\n\nTo execute this task, I will follow these steps:\n\n1. **Retrieve the Client Email**: Ac",
+        "[2026-07-18T12:15:40] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-657",
+      "title": "Client inquiry: Re: Vendor Setup: Farebuzz #100209",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from MAGsos <magsos@myagentgenie.com> \u2014 subject: Re: Vendor Setup: Farebuzz #100209",
+      "created_at": "2026-07-17T20:00:20.870534+00:00",
+      "updated_at": "2026-07-19T07:18:25",
+      "logs": [
+        "[2026-07-17T20:00:20.870534+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f714ee58bc3af5",
+        "[2026-07-17T22:32:19] Confirmed: SNAP+Cruise Complete (ticket #100205) and Farebuzz (ticket #100209) both got MAGsos agent replies 2026-07-17. Commander reports access now live for SNAP, Farebuzz, and Skybird (thru OA \u2014 no Skybird ticket found in Gmail, likely granted via a separate OA channel). No credentials stored yet in config/portal_creds.json for any of the 3; api/thunderbird_outside_agents.py PORTALS registry only knows magtap/odysseus/tess \u2014 SNAP/Farebuzz/Skybird not wired in. Ticket reply content is behind sos.myagentgenie.com login, not in the email body. chrome-debug CDP (9222) confirmed connected but no authenticated portal tabs (isolated debug profile, no session cookies). Blocked on: either (a) Commander shares credentials for portal_creds.json, or (b) Commander's real Chrome session gets bridged via cookie-import/extension for oa_browse to ride.",
+        "[2026-07-17T22:44:07] RESOLVED credential gap: found real Farebuzz login in Google Keep note 'FAREBUZZ' (username JLoucks92) \u2014 added to config/portal_creds.json. Commander confirmed Keep-as-credential-store is a live, working pattern (also holds RSSC payment CC info, D2M client portal logins, itinerary server passwords). SNAP and Skybird have no Keep notes yet \u2014 still blocked on those two specifically. Separately: .env credential injection was migrated to Infisical (self-hosted, MISSION-260, Sterling 2026-06-17) after 5 git-leak incidents \u2014 Infisical containers confirmed running (docker ps, up 34h).",
+        "[2026-07-17T22:49:05] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T14:59:42] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T19:09:46] \u274c Auto-executed by daily_mission_executor \u2014 2s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T20:57:14] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T23:12:44] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T03:15:08] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T07:18:25] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-657: Client inquiry: Re: Vendor Setup: Farebuzz #100209\n\n**Analysis of Recent Activity:**\n\nThe recent activity log indicates multiple failed attempts by the `daily_mission_executor` to process",
+        "[2026-07-19T07:18:25] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-658",
+      "title": "Wire Silver gate into tcd/writeback.py D\u2192T auto-task and Close/Certify handling",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TCD-GATE-FIX, PASS \u2014 see silver_ledger.jsonl).\n\nRoot cause: tcd/writeback.py's _handle_auto_task() (D\u2192T) never calls silver_front_frame() \u2014 only assignment.assign_owner(). _handle_close() and _handle_stage_move() (incl. moves into stage C/Certify) unconditionally write verdict=\"PASS\" to hale_decisions.md regardless of what actually happened (writeback.py:135-152) \u2014 same \"write-only theater\" pattern already found+fixed once in core/ops/hale_orchestrator.py (2026-07-16 audit), but that fix never touched tcd/writeback.py. Confirmed live, not theoretical: TCD row a7metrics-continuity claims failed_unit_count=10; live systemctl + current a7_metrics_dashboard.json both show 0/GREEN \u2014 a stale row nothing in the pipeline caught.\n\nFix: import silver_front_frame/run_gate from core.silver.gate into tcd/writeback.py. Call silver_front_frame() in _handle_auto_task() before persisting the D\u2192T override. Call run_gate() in _handle_close()/_handle_stage_move() (to_stage==C) and write the REAL verdict into _append_decision() instead of hardcoded PASS; on HOLD, still record the transition (don't block AppSheet) but page/flag it like gate.py's _page_hold() already does for delegated missions \u2014 never a silent skip.\n\nSCOPING DECISION IS STERLING'S TO MAKE (Commander directive, not pre-decided in code): most TCD rows (Gmail/dossier/hale_state-sourced) have no acceptance_criteria field and would HOLD on every auto-task if gated indiscriminately. Options: (a) gate only mission-/watch- prefixed rows (real delegated work), pass FYI/reference rows through ungated as today; (b) gate everything, accept the disruption while row types grow real criteria; (c) a third option Sterling identifies. Whichever is chosen, HOLD must be visible+logged, never silent.\n\nCertification: Silver run_gate() against the shipped diff + the verification steps below before this closes \u2014 not self-certified.\n\nVerify: (1) D\u2192T transition on a row with no acceptance_criteria now visibly HOLDs instead of silently auto-tasking; row with valid criteria still auto-tasks normally. (2) stage-C move / Closed status on a row shows a real PASS/HOLD in hale_decisions.md + OpsCenter/silver_ledger.jsonl, not unconditional PASS. (3) a7_metrics_dashboard.json failed_unit_count matches live `systemctl --user list-units --state=failed` count.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md. TCD stalled-item triage (30 items, MISSION-023 Nichols/Furlow/Ely-Darrow van already resolved outside TCD this session) is BLOCKED until this ships and verifies clean.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-17T21:57:12] Tasked to a7-sterling agent for scoping decision + implementation, 2026-07-17T21:57:12Z",
+        "[2026-07-17T22:17:37] SHIPPED (commit ebede64d). Scoping decision (A7): D->T auto-task front-frame gates only delegated Wing work = id prefix mission-/watch- (same class delegate_mission already frames); all other row types auto-task ungated but still audit-logged (never silent). Rejected gate-everything (would HOLD every criteria-less context row and silence the engine) and prefix-agnostic. Changes in tcd/writeback.py: (1) _handle_auto_task calls silver_front_frame for delegated rows; HOLD = not tasked, pinned at D, reason surfaced to comments+Sheet, verdict=HOLD. (2) _handle_close + _handle_stage_move(to C) call run_gate, write real PASS/HOLD to hale_decisions.md + silver_ledger.jsonl (hardcoded PASS removed); run_gate pages on HOLD. Non-C moves keep bare audit PASS. Tests: gate LEDGER/DECISIONS/_page_hold isolated to tmp; +TestSilverGateFrontFrame +TestSilverGateBackGate; 46 pass, 131 pass across TCD+delegation suites. Verify step 3: a7_metrics_dashboard failed_unit_count.value=0 GREEN == live systemctl 0. Silver BACK-gate on shipped diff: PASS (exit 0).",
+        "[2026-07-17T22:30:06] FINAL commit 7b421bea6 (supersedes ebede64d after post-review refinement). Refinement 1 (advisor catch): dropped the D-pin override on front-frame HOLD \u2014 a pinned row could never re-task even after criteria were added. Now no override on HOLD, so the next full sheet_sync surfaces the row back at P (needs-a-decision) for a clean re-approve; HOLD still visible (comments+Sheet+verdict=HOLD+ledger). Verified committed subset in isolated git worktree: 45 pass (46 minus create_task dedup test that belongs to a separate uncommitted change by another agent, which I preserved unstaged, NOT bundled). Known non-blocking production behavior logged: run_gate uses comments as BOTH work_product and acceptance_criteria, so a bare artifact path containing digits (e.g. report_2026.md) treats those digits as promised criteria numbers \u2192 could spuriously HOLD/page; within mission's 'comments as criteria source' spec, deferred. Not pushed.",
+        "[2026-07-17T22:54:12] POST-SHIP DISCOVERY: shared MCP daemons (thunderbird-mcp.service, thunderbird-mcp-tailscale.service) were running since 11:37 MT, 5h before this commit (16:29:48) \u2014 Python doesn't hot-reload, so every tcd_process_writeback call after the commit (including my own MISSION-001A close test) ran the OLD ungated code. Confirmed via hale_decisions.md: MISSION-001A close shows bare verdict=PASS with zero matching silver_ledger.jsonl entry. Restarted both daemons 16:52 MT \u2014 now serving fresh code. IMPORTANT for Sterling's scoping design: the same stale-code call also auto-tasked 11 mission-/watch- prefixed D->T rows, ALL with empty comments fields. Under the real front_frame gate (requires non-empty acceptance_criteria), these would almost certainly have HELD, not auto-tasked -- meaning in practice, most existing TCD mission-board-sourced rows will HOLD on D->T until they carry real acceptance criteria in comments. This is empirical evidence Sterling should see before considering MISSION-647/658 fully settled -- the gate is correctly strict, but the practical HOLD rate on real data may be very high. Recommend a follow-up: either backfill acceptance_criteria into mission_board_sync's mission creation, or reconsider the scoping. Not reverting the stale-code batch (35 closes + 11 auto-tasks) -- practical triage decisions in it are sound, just not independently gate-verified. Flagging for the record per Commander's original TCD-integrity concern.",
+        "[2026-07-17T23:02:14] EFFICACY FIX (commit b7f434a7f, Silver back-gate PASS). Live-data finding confirmed team lead's flag: mission-board rows arrive comments=[] (scripts/tcd_data.py:289) so 0/32 open missions passed the front frame \u2192 ~100% HOLD. Ground truth: 27/32 carry a checkable token in their DESCRIPTION, 0/32 in deliverables. Fix: front-frame acceptance_criteria = comments OR body(=description). Gate NOT weakened \u2014 feeds the real criteria the source already carries into the same strict check; vague missions still HOLD. 48 tests pass (PASS-path + HOLD-path). Projected pass ~27/32 vs 0/32. STALE-DAEMON confirmed: MISSION-001A close = 13x in hale_decisions.md, 0x in silver_ledger.jsonl (ran old ungated code; daemons restarted 16:52). RECOMMEND two follow-ups: (1) missions born with concrete acceptance_criteria at add_mission time (NO MORE BLACK HOLES applies to authoring); (2) MCP daemon staleness guard \u2014 no restart-on-deploy today, so committed code silently doesn't take effect. Not pushed."
+      ],
+      "created_at": "2026-07-17T21:55:58.544938+00:00",
+      "updated_at": "2026-07-17T23:02:14.170576+00:00",
+      "source": "agy_mcp_tool",
+      "completed_at": "2026-07-17T22:46:18.322955+00:00"
+    },
+    {
+      "id": "MISSION-659",
+      "title": "MCP daemon staleness",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "guard \u2014 committed code silently not live until restart DEFECT (found MISSION-658 review 2026-07-17). thunderbird-mcp.service + thunderbird-mcp-tailscale.service run since 11:37; Python does not hot-reload, so tcd_process_writeback calls after the 16:29 gate commit ran OLD ungated code for ~5h (proof: MISSION-001A close = bare verdict=PASS in hale_decisions.md, 0 matching silver_ledger.jsonl entry). Restarted manually 16:52. No restart-on-deploy or version guard exists, so any code fix to an MCP-served module is silently dead until someone restarts. ACCEPTANCE CRITERIA: (1) a source-mtime or git-SHA line logged by the MCP daemon on each tcd_process_writeback call so stale code is visible in the audit trail; (2) a post-commit or systemd path-unit that restarts thunderbird-mcp*.service when their served source (tcd/, core/silver/, scripts/tcd_data.py) changes; (3) test proving a stale-SHA call is flagged. Owner: Sterling A7. Metric: zero stale-code executions post-deploy.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-17T23:04:25] Assigned to Sterling per his own ticket description ('Owner: Sterling A7'); board had it unassigned."
+      ],
+      "created_at": "2026-07-17T23:02:30.176996+00:00",
+      "updated_at": "2026-07-17T23:04:25.471723+00:00"
+    },
+    {
+      "id": "MISSION-660",
+      "title": "Pull Kuklinski return-leg open-jaw routing and pricing",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Research and price the Dec 27 Fort Lauderdale departure open-jaw options for all three Kuklinski couples and surface in TCD by end of day Tuesday July 22.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator",
+        "[2026-07-18T14:59:45] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T19:09:52] \u274c Auto-executed by daily_mission_executor \u2014 4s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T20:57:16] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T23:12:46] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T03:15:10] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T07:18:56] \u2705 Auto-executed by daily_mission_executor \u2014 18s \u2014 SUCCESS: MISSION-660: Pull Kuklinski return-leg open-jaw routing and pricing\n\n**Research and Pricing for Kuklinski Return-Leg Open-Jaw Options**\n\n**Objective:** To research and price open-jaw return-leg routin",
+        "[2026-07-19T07:18:56] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T00:03:15.718271+00:00",
+      "updated_at": "2026-07-19T07:18:56",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-661",
+      "title": "Source air options for all three Scandinavia groups",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Produce real routing and pricing candidates for Furlow, Nichols, and Ely-Darrow (Aug 29 departure) with options filed in TCD by July 22 so Commander can make selection decisions.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator",
+        "[2026-07-18T14:59:48] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T19:09:57] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T20:57:18] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T23:12:48] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T03:15:12] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T07:19:07] \u2705 Auto-executed by daily_mission_executor \u2014 8s \u2014 SUCCESS: # MISSION-661: Source air options for all three Scandinavia groups\n\n## Air Routing and Pricing Analysis for Scandinavia Groups\n\nThis report details the sourced air routing and pricing candidates for t",
+        "[2026-07-19T07:19:07] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T00:03:15.718451+00:00",
+      "updated_at": "2026-07-19T07:19:07",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-662",
+      "title": "Resolve McLeod FCC discrepancy \u2014 three-way balance compare",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Pull Regent portal balance, TESS ledger, and D2M records and produce a reconciliation table that resolves the $200 FCC non-application and the third balance figure contradiction.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator",
+        "[2026-07-18T14:59:50] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T19:10:00] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T20:57:20] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T23:12:50] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T03:15:14] \u274c Auto-executed by daily_mission_executor \u2014 0s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-19T11:20:59] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: MISSION-662: Resolve McLeod FCC discrepancy \u2014 three-way balance compare\n\n### Data Retrieval and Reconciliation\n\nTo execute MISSION-662, I need to access three distinct data sources: the Regent portal ",
+        "[2026-07-19T11:20:59] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T00:03:15.718619+00:00",
+      "updated_at": "2026-07-19T11:20:59",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-663",
+      "title": "Release Kuklinski WF-17 drafts to Commander review queue",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Confirm MISSION-030 drafts (validation + insurance emails) are clean, surface to Commander for send approval, and close the mission on approval.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator",
+        "[2026-07-19T11:21:06] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-663: Release Kuklinski WF-17 drafts to Commander review queue\n\n## Execution of Task: MISSION-663 - Release Kuklinski WF-17 drafts to Commander review queue\n\nAs Hale, COS for Dreams2Memories Tr",
+        "[2026-07-19T11:21:06] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T00:03:15.718784+00:00",
+      "updated_at": "2026-07-19T11:21:06",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-664",
+      "title": "Post-mortem on MISSION-648 format-review 752-spawn runaway",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Document root cause of the continuity re-run loop that reached 752 spawns, identify the process gate that should have caught it earlier, and add that gate before closing the mission.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-18T00:03:15.719046+00:00",
+      "updated_at": "2026-07-18T00:03:15.719049+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-665",
+      "title": "Retire five orphaned systemd units pointing at deleted scripts",
+      "status": "active",
+      "priority": "P3",
+      "assigned_to": "Whetstone",
+      "description": "Execute MISSION-646 \u2014 remove or disable the five orphaned units cleanly with a single commit and audit confirmation.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-18T00:03:15.719209+00:00",
+      "updated_at": "2026-07-18T00:03:15.719211+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-666",
+      "title": "Surface Loucks Grandeur FPD reminder at 7-day mark",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "File a TCD reminder to alert Commander of the $24,798 Grandeur FPD due August 1 no later than July 25, with payment instructions included.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T00:03:15] Created by Weekly Report Generator",
+        "[2026-07-19T11:21:12] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: # MISSION-666: Surface Loucks Grandeur FPD reminder at 7-day mark\n\n## Task Execution and Analysis\n\n**Objective:** File a TCD reminder to alert Commander of the $24,798 Grandeur FPD due August 1 no lat",
+        "[2026-07-19T11:21:12] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T00:03:15.719373+00:00",
+      "updated_at": "2026-07-19T11:21:12",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-667",
+      "title": "Retire dead-watcher restart loop (inbox_checkpoint_daemon.py / inbox-checkpoint.service)",
+      "status": "completed",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-01, PASS).\n\nRoot cause: OpsCenter/inbox_checkpoint_daemon.py runs every 5 min (system-scope inbox-checkpoint.service/.timer, /etc/systemd/system/, OnUnitActiveSec=5min) checking for a process named thunderbird_tasking_watcher.py via psutil. That script was deliberately retired 2026-07-03 (commit f22e8d892, moved to OpsCenter/_retired/), replaced by scripts/cc_overflow_watcher.py, per OpsCenter/elon_proposals/PROPOSAL-20260703-d2m-tasking-watcher.md \u2014 which recommends full RETIRE but was flagged QUEUE_FOR_COMMANDER and never actioned. inbox_checkpoint_daemon.py was never updated. Every cycle it runs nohup python3 <path that no longer exists> (restart_watcher(), lines 186-191), fails instantly, stderr thrown to DEVNULL (line 189) so nobody saw why. 44 consecutive failed restarts logged (last success 2026-07-08), fires alert_wing_comms(\"CRITICAL\", \"Inbox Checkpoint: Watcher died and restart FAILED\") every failure \u2014 4,172 occurrences in OpsCenter/collaboration/wing_comms.md, continuous 5-min-interval entries from 16:26-20:06 TODAY alone, still firing.\n\nNOTE: two independent investigation passes could NOT confirm wing_comms.md entries actually bridge to the Commander's Telegram \"D2M System\" channel \u2014 alert_wing_comms() only writes the local markdown file, no relay_send()/send_to_relay() call found downstream. Fix this regardless (it's a real 2-week-old bug burning cycles/log space either way), but see MISSION-TG-02 for the confirmed-live Telegram bridge candidate.\n\nFix: resolve the stale QUEUE_FOR_COMMANDER decision from the 2026-07-03 proposal (Sterling's own prior analysis recommends RETIRE) \u2014 retire inbox_checkpoint_daemon.py's watcher-restart function (or repoint at the real successor if a health check still has value), disable inbox-checkpoint.service/.timer (system-scope) alongside it.\n\nCertification: Silver run_gate() before closing \u2014 not self-certified.\n\nVerify: zero new \"[CRITICAL] Inbox Checkpoint: Watcher died and restart FAILED\" entries in wing_comms.md for 24h post-fix (grep, not self-report).\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T02:45:01] CODE FIX SHIPPED (commit c7608d07e, Silver back-gate PASS). Root cause confirmed: inbox_checkpoint_daemon.py relaunched retired thunderbird_tasking_watcher.py every 5min \u2192 4163 'Watcher died and restart FAILED' CRITICAL entries in wing_comms.md. Whole daemon was theater (force-wake = no-op stub, stale-scan takes no action). Removed check_watcher_health/restart_watcher/the CRITICAL-alert block/force-wake/retired constants/unused imports; kept read-only inbox scan. LIVE-FIRE: ran one full pass clean, grep 'Watcher died and restart FAILED' = 4163 before AND after (delta 0) \u2014 flood eliminated in code. REMAINING (needs root, handed to Commander): 'sudo systemctl disable --now inbox-checkpoint.timer inbox-checkpoint.service' for full retirement \u2014 I lack sudo. Code fix alone satisfies the zero-new-CRITICAL verify; timer now runs harmless no-op scan until disabled. Leaving in_progress pending timer-disable + 24h grep confirm.",
+        "[2026-07-18T02:46:27] Sudo cleanup completed by Hale: inbox-checkpoint.timer + .service disabled and stopped (sudo -n worked passwordlessly). Confirmed inactive/disabled via systemctl status. Sterling's code fix (c7608d07e) already verified: wing_comms.md flood count 4163 before/after (delta 0), Silver back-gate PASS. Both parts of MISSION-667 now complete."
+      ],
+      "created_at": "2026-07-18T02:24:58.498383+00:00",
+      "updated_at": "2026-07-18T02:46:27.616741+00:00",
+      "source": "agy_mcp_tool",
+      "completed_at": "2026-07-18T02:46:27.661699+00:00"
+    },
+    {
+      "id": "MISSION-668",
+      "title": "Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-02, PASS).\n\nRoot cause: core/ci/self_observability.py's escalate_to_commander() fallback (lines 368-382) calls relay_send(\"CC\", msg) DIRECTLY to the D2M Channels relay chat (-5248121475, @d2m_channels_bot) \u2014 a CONFIRMED live bridge, unlike MISSION-TG-01's local-only alert. OpsCenter/ci_awareness.jsonl shows this firing TODAY with real ENGAGE events for services genuinely failing right now: d2m-drive-sync, thunderbird-fare-watch, d2m-lifecycle, claude-sync, and possibly others. This is the strongest candidate for what the Commander is actually seeing in Telegram \u2014 confirmed-live bridge + confirmed-current failures, not a historical or local-only pattern.\n\nFix: for each unit showing repeated ENGAGE events in ci_awareness.jsonl over the past 7 days, diagnose and fix the UNDERLYING service failure (not the escalation/notification path \u2014 that's working as designed). This needs a separate root-cause investigation per failing service; do not treat as one fix.\n\nCertification: Silver run_gate() before closing \u2014 not self-certified.\n\nVerify: OpsCenter/ci_awareness.jsonl shows zero new ENGAGE events for the named units 24h post-fix.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T02:51:45] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T02:54:36] PARTIAL \u2014 3 fixed (verified), 6 diagnosed (Silver back-gate PASS on disposition). Applied selector objectively (top ENGAGE/7d + current failures), not just the 4 named. FIXED: (1) thunderbird-fare-watch RETIRED \u2014 Amadeus API permanently dead, Kiwi/Google successors live; disabled user timer (verified inactive). (2) elon-proposal-weekly-review core-dump FIXED \u2014 unit had malformed 'StandardOutput=append'/'StandardError=append' (no path) tripping systemd setup_output assertion \u2192 SIGABRT; removed lines \u2192 journal; live-fire clean. (3) deadwood-review-1month same malformed-append fix (preventive). DIAGNOSED (need own tickets): (4) hale-credential-check exits 1 BY DESIGN on client-affecting cred alert \u2014 short-TTL creds read expired almost always \u2192 false ENGAGE; design decision needed. (5) d2m-inbox-triage Gmail HttpError 400 labelId-not-found (stale cache); code fix. (6) d2m-drive-sync .sh exits nonzero (Drive API, external). (7) claude-sync R2 push intermittent (external). (8) d2m-factbook-refresh >15min TimeoutStartSec (slow fetch). (9) d2m-lifecycle brain2 model 120sx2 timeout >15min (model latency). PREMISE NOTE: CI escalate\u2192Telegram logged ZERO ESCALATE events (async headless never escalates; CI_REPAIR_ESCALATION quiet since 07-02) \u2014 ENGAGE\u2260Commander page; real flood likely MISSION-669's path. RECOMMEND splitting 4-9 into per-service tickets (independent problems). Leaving in_progress.",
+        "[2026-07-18T03:01:02] REFINED via last-failure triage (currently-live vs historical). RESOLVED/quiet \u226538h (meet zero-ENGAGE-24h criterion): d2m-inbox-triage (labelId fix landed 2026-07-16, _resolve_label_id now verifies vs live list; 243 ENGAGE all pre-fix), hale-credential-check (46h quiet; latent exit-1-by-design remains for genuine expiry), d2m-factbook-refresh (weekly). FIXED tonight: thunderbird-fare-watch (retired), elon-proposal-weekly-review + deadwood-review-1month (malformed StandardOutput=append core-dump). STILL LIVE-FAILING \u226418h, all EXTERNAL-DEPENDENCY (not code-fixable from here): d2m-lifecycle (brain2 model 120s timeout x2 \u2192 15min service timeout \u2014 model latency/availability), claude-sync (Cloudflare R2 push intermittent \u2014 R2 auth/network), d2m-drive-sync (Google Drive API/network). A7 INSIGHT: CI ENGAGE on transient external-dependency failures is waste \u2014 the auto-fix agent cannot remediate an external outage; these should either soft-fail (exit 0 + log, like fare-watch precedent) or be excluded from OnFailure ENGAGE (ties to MISSION-669's non-actionable\u2192digest directive). RECOMMEND: (a) 3 live ones \u2192 infra tickets or soft-fail decision; (b) broader CI-policy fix so external transients don't ENGAGE. Net flood reduction: 6 of 9 now quiet.",
+        "[2026-07-18T03:03:18] SPINOFFS FILED per team-lead: 4 P3 tickets for the genuinely-open items (hale-credential-check design decision w/ 3 options; d2m-lifecycle brain2 timeout; claude-sync R2; d2m-drive-sync Drive) \u2014 the 3 external ones cross-ref MISSION-669's systemic fix. SKIPPED filing for d2m-inbox-triage (self-resolved via 2026-07-16 labelId fix) and d2m-factbook-refresh (weekly, quiet) \u2014 verify criterion already met, no ticket needed (dedup hygiene). 668 stays in_progress crediting the 3 shipped fixes (fare-watch retire, elon-proposal + deadwood core-dump). Moving to MISSION-669.",
+        "[2026-07-18T06:53:16] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T10:55:42] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
+        "[2026-07-18T12:15:10] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: # MISSION-668: Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations\n\n## Work Product\n\n### Step 1: Review and Verify Current Status\n\nFirst, let's review the cu",
+        "[2026-07-18T12:15:10] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T02:25:03.993187+00:00",
+      "updated_at": "2026-07-18T12:15:10",
+      "source": "agy_mcp_tool"
+    },
+    {
+      "id": "MISSION-669",
+      "title": "Notify-on-every-failure Telegram policy \u2014 route auto-repaired/non-actionable events to digest",
+      "status": "completed",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-03, PASS).\n\nRoot cause: core/notify/hale_notify.py's notify_hale() (line 48) posts a Telegram message via wing_relay.py for EVERY bot failure \u2014 including repaired=True (already auto-fixed, message literally says \"No Commander action needed\") and non-client MONITOR tier (\"failed (non-client). Repair queued\" \u2014 also no action needed). notify_sterling() (line 106), called from scripts/generic_remediate.py's OnFailure handler guarding 273 systemd units, unconditionally relays every routed issue too (_relay() call, line 120). 2,043 generic-remediate@* journal lines in the past 7 days confirm frequent firing \u2014 routine self-healing noise likely reaching Telegram as visible alerts instead of being filtered to actionable-only.\n\nCommander directive (2026-07-17): non-actionable events go to DIGEST ONLY, not real-time Telegram.\n\nFix: notify_hale(repaired=True) and non-client MONITOR-tier calls become log-only (no _relay() call) \u2014 roll into existing EOD/morning brief. Same treatment for notify_sterling()'s routine routing. Preserve immediate Telegram escalation ONLY for genuinely client-affecting failures, financial/FPD-critical items, and Three-Gates items.\n\nCertification: Silver run_gate() before closing \u2014 not self-certified.\n\nVerify: relay_send() Telegram post count over 24h before vs after \u2014 expect major reduction. Spot-check 2-3 known real incidents from the past week to confirm nothing genuinely actionable got silenced.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T03:19:25] SHIPPED (commits 0a7adc271 + 4d5d67c27, Silver back-gate PASS). notify_hale(repaired=True) + non-client MONITOR + notify_sterling now digest-only (OpsCenter/state/notify_digest.jsonl, bounded ~1000 rec); client_affecting branch keeps real-time Telegram. morning_brief_engine _build_overnight_section renders 'Self-Healing/Auto-Repairs (last 24h)' table from the digest \u2014 nothing goes silent. LIVE-FIRE: notify_hale x3 + notify_sterling with _relay monkeypatched \u2192 exactly 1 relay (client_affecting), other 3 digested; confirmed the 3 render in the brief section. Baseline (logs/hale_notify.log, 2d): 144 non-actionable relays (AUTONOMY-REPAIR 2 + MONITOR 113 + STERLING-NOTIFY 29) vs 45 ESCALATE-CLIENT \u2192 projected ~76% relay cut. CAVEAT: notify_sterling carries a few client-relevant advisories (loucks IST-layover watch) now routed to inbox+brief not real-time \u2014 not silenced; caller should use notify_hale(client_affecting=True) if real-time wanted. Effective on next invocation of each caller (oneshot/timer imports, no daemon restart needed). 24h relay-count drop = team-lead post-deploy confirm. NOTE: surgically committed only my hunks \u2014 morning_brief_engine had pre-existing uncommitted overnight-scans work by another agent, left unstaged (not bundled)."
+      ],
+      "created_at": "2026-07-18T02:25:09.524995+00:00",
+      "updated_at": "2026-07-18T03:19:25.782376+00:00",
+      "source": "agy_mcp_tool",
+      "completed_at": "2026-07-18T03:19:25.827803+00:00"
+    },
+    {
+      "id": "MISSION-670",
+      "title": "Harden wing_relay.py \u2014 retry/backoff on send failure, fix broken crash reporting",
+      "status": "completed",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-04, PASS).\n\nRoot cause: core/relay/wing_relay.py's relay_send()/relay_send_wb() (lines 46-65) make a bare synchronous urllib.request.urlopen(timeout=10) call with ZERO try/except, retry, or backoff. Invoked as a fresh subprocess per message by supertimer/leader.py, supertimer/base_bot.py, hale_notify.py, and others. 224 crashed invocations in the past 7 days (logs/crash_reports/wing_relay_*.log) \u2014 mostly SSL/connection failures, one HTTP 404 cluster \u2014 all silently-lost messages, never reached Telegram. Of those 224, 213 (95%) are EMPTY crash report files \u2014 sitecustomize.py's zero-touch crash reporter fails to capture the traceback in the vast majority of cases, likely because the process is killed/exits before the exception hook fully installs.\n\nNOTE: this file is a PROTECTED FILE per standing order (SO_EMAIL_SCANNER_PROTECT_20260608.md header comment) \u2014 non-Claude/OpenCode agents may not edit without explicit Claude Code authorization. Sterling (Claude Code seat) has authorization to proceed on this mission.\n\nFix: wrap relay_send()/relay_send_wb() in try/except with 2-3x retry + exponential backoff before giving up. On final failure, write to a local durable queue/log instead of crashing silently (must not itself trigger alert-on-alert-failure \u2014 avoid infinite regress). Separately investigate/fix why the crash reporter produces empty files ~95% of the time for this specific script.\n\nCertification: Silver run_gate() before closing \u2014 not self-certified.\n\nVerify: logs/crash_reports/wing_relay_*.log volume and empty-file rate drop over 24-48h post-fix. Live-fire test: simulate a transient failure, confirm relay_send() actually retries and succeeds rather than crashing.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T03:27:37] SHIPPED (commit 135393941, Silver back-gate PASS). Protected file core/relay/wing_relay.py edited by Claude Code seat; token lines untouched (verified absent from diff). relay_send/relay_send_wb had bare urlopen(timeout=10) with zero try/except \u2192 224 crashes/7d, 213 (95%) empty reports. New _post_send(): 3 attempts, exp backoff (1s,2s), per-attempt timeout 3s = ~12s total budget, deliberately UNDER the tightest caller subprocess timeout (hale_notify=15s; touchpoint=20; rollup=30) so the retry can't be SIGKILLed mid-flight \u2014 that SIGKILL was the empty-report cause. On exhaustion: durable-queue to logs/wing_relay_failures.jsonl + return 0, never raises, no alert-on-alert. LIVE-FIRE (urlopen mocked): transient fail-2-succeed-3 \u2192 retries+returns id; permanent \u2192 3 attempts, returns 0, no raise, queued. Empty-report issue now MOOT for wing_relay (no crashes). Broader crash-reporter empty-file gap (fast-dying subprocesses, 51 units) = separate ticket."
+      ],
+      "created_at": "2026-07-18T02:25:16.175155+00:00",
+      "updated_at": "2026-07-18T03:27:37.311340+00:00",
+      "source": "agy_mcp_tool",
+      "completed_at": "2026-07-18T03:27:37.364921+00:00"
+    },
+    {
+      "id": "MISSION-671",
+      "title": "Fix CI degradation paging \u2014 no real Whetstone routing, no auto-escalation to Hale",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "CHIEF SILVER front-framed 2026-07-17 (MISSION-TG-05, PASS).\n\nRoot cause (Commander directly asked \"why did I have to initiate it\" re: acting on Whetstone's CI report \u2014 traced live): scripts/ci_daily_routine.py calls page(\"commander\" if client_red else \"whetstone\", \"CI daily routine \u2014 not razor-sharp:\\n...\") assuming a recipient-routing API. But core/comms/wing_page.py's send_page(problem, discussion, options, action, next_steps, level, source) has NO recipient parameter at all \u2014 it only ever pages the Commander via Telegram. The \"whetstone\"/\"commander\" string lands positionally in `problem` (the alert title), not a routing destination \u2014 which is why tonight's page showed a garbled \"1. Problem: whetstone\" header instead of a real title. There is no Whetstone inbox, no auto-spawn, no notify-Hale hook anywhere in this pipeline. Confirmed design as-is: detect degradation -> send raw text to Commander's phone -> stop. Zero closed loop; Commander has to manually notice and task a session every time, which is what happened tonight.\n\nFix (two parts):\n1. MUST FIX: correct the ci_daily_routine.py call site so problem/discussion/source are passed correctly per send_page's real signature -- no more garbled \"Problem: whetstone\" headers, ever.\n2. DESIGN DECISION (Sterling's call, scope and recommend, matching tonight's gate-scoping delegation pattern): should CI degradation auto-trigger a headless Hale/Whetstone session to triage automatically (per docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md pattern already used elsewhere in this Wing), or remain Commander-notify-only by design? Lay out the tradeoff (autonomy vs Commander wanting visibility/control over what gets auto-fixed) and either implement the chosen path or document the decision clearly if staying manual.\n\nCertification: Silver run_gate() before closing -- not self-certified.\n\nVerify: next real CI degradation page shows a correctly formatted problem/discussion (not garbled). Auto-escalation decision documented and, if chosen, demonstrated end to end with a real triggered session.\n\nPlan: /home/john/.claude/plans/deep-humming-harp.md (Telegram flood investigation, same session)",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T11:21:28] \u2705 Auto-executed by daily_mission_executor \u2014 13s \u2014 SUCCESS: # MISSION-671: Fix CI degradation paging \u2014 no real Whetstone routing, no auto-escalation to Hale\n\n## 1. Analysis of CI Degradation Paging Pipeline\n\nI have reviewed the provided description and the ind",
+        "[2026-07-19T11:21:28] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T02:32:26.383708+00:00",
+      "updated_at": "2026-07-19T11:21:28",
+      "source": "agy_mcp_tool"
+    },
+    {
+      "id": "MISSION-672",
+      "title": "hale-credential-check exits 1",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "unassigned",
+      "description": "by design \u2192 CI ENGAGE on short-TTL false-positive expiry MISSION-668 spinoff (A7 diagnosis 2026-07-18). scripts/credentials_health_check.py returns 1 whenever a client-affecting credential reads expired/expiring (line ~506 by design) \u2014 but short-TTL creds (_gat, 1-min TTL, line ~142) read 'expired' almost every run, so systemd sees exit 1 = failure \u2192 CI-sentinel ENGAGE churn (232 ENGAGE/7d, currently quiet 46h but latent). DESIGN DECISION needed (do not mask genuine client-affecting expiry \u2014 no B2B quotes/portal access at stake). OPTIONS: (a) script exits 0 always (ran fine) and signals expiry ONLY via its existing one-and-done Telegram/log alert, not the exit code; (b) add SuccessExitStatus=1 to hale-credential-check.service so systemd doesn't treat the alert-signal as failure; (c) exclude short-TTL/self-renewing creds from the exit-1 signal, keep exit 1 only for genuinely-stuck client-affecting creds. ACCEPTANCE: decision made + implemented; genuine client-affecting expiry still alerts; zero false-positive ENGAGE from short-TTL creds 24h. Owner: Sterling A7; decision gate: Commander/COS.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-18T03:02:59.057966+00:00",
+      "updated_at": "2026-07-18T03:02:59.057980+00:00"
+    },
+    {
+      "id": "MISSION-673",
+      "title": "d2m-lifecycle: brain2 model",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "unassigned",
+      "description": "calls timeout (120s x2) exceed 15min service timeout MISSION-668 spinoff (A7 2026-07-18). D2M/d2m_lifecycle_scheduler.py calls brain2 (model endpoint); journal shows 'Retry 1/2 for brain2: Exceeded 120s timeout \u2192 Escalating sonnet->opus \u2192 Retry 2/2 timeout \u2192 start operation timed out' (TimeoutStartUSec=15min). Root: model latency/availability on brain2. Currently live-failing (last 15h). ACCEPTANCE: daily touchpoint completes within TimeoutStartSec OR fails-fast/soft on brain2 timeout without hanging the whole run; zero new 'result timeout' failures 24h (or documented external root cause). Consider shorter per-call timeout + skip-and-log vs blocking retries. Owner: Sterling A7.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-18T03:02:59.109482+00:00",
+      "updated_at": "2026-07-18T03:02:59.109495+00:00"
+    },
+    {
+      "id": "MISSION-674",
+      "title": "claude-sync: Cloudflare R2",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "unassigned",
+      "description": "push intermittent exit-1 MISSION-668 spinoff (A7 2026-07-18). claude-sync.service ExecStart 'claude-sync push' to Cloudflare R2 intermittently exits 1 (R2 auth/network); some runs Finish clean. Live-failing (last 14h). ACCEPTANCE: R2 push succeeds reliably OR soft-fails on transient network without triggering CI ENGAGE (must not silently mask a real backup-push failure \u2014 log + surface to digest); zero new exit-code failures 24h or documented external cause. Owner: Sterling A7.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-18T03:02:59.161261+00:00",
+      "updated_at": "2026-07-18T03:02:59.161307+00:00"
+    },
+    {
+      "id": "MISSION-675",
+      "title": "d2m-drive-sync: Google Drive",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "unassigned",
+      "description": "sync exits nonzero (Drive API/network) MISSION-668 spinoff (A7 2026-07-18). ~/.local/bin/d2m-drive-sync.sh exits nonzero after logging 'Finished' (Google Drive API/network transient). Live-failing (last 18h). ACCEPTANCE: sync succeeds OR soft-fails on transient without CI ENGAGE (don't mask a real sync failure \u2014 log+digest); zero new failures 24h or documented external cause. Owner: Sterling A7. NOTE: all 3 external-dep spinoffs (this + lifecycle + claude-sync) share the systemic fix in MISSION-669 \u2014 CI should not ENGAGE/real-time-alert on non-actionable external transients.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-18T03:02:59.207586+00:00",
+      "updated_at": "2026-07-18T03:02:59.207600+00:00"
+    },
+    {
+      "id": "MISSION-676",
+      "title": "Crash reporter produces",
+      "status": "in_progress",
+      "priority": "P3",
+      "assigned_to": "unassigned",
+      "description": "empty report files for fast-dying/SIGKILLed subprocesses MISSION-670 spinoff (A7 2026-07-18). logs/crash_reports/ had 213/224 (95%) EMPTY wing_relay_*.log files. Root hypothesis: core/monitoring/crash_reporter.py creates the crash file at install() but a subprocess SIGKILLed by its caller's subprocess.run timeout dies before the excepthook/atexit writes+flushes the traceback, leaving a 0-byte kept file. wing_relay itself is now fixed (retry within caller budget, no crash) so its reports stop, but the crash reporter's empty-file behavior likely affects ANY fast-dying subprocess across the 51 units sharing sitecustomize. ACCEPTANCE: crash_reporter either (a) doesn't leave 0-byte files (delete on exit if nothing written), or (b) writes a minimal 'killed by signal, no traceback' stub so a kept file always has content; test with a SIGKILL'd child; empty-file rate ~0. HIGH BLAST RADIUS (sitecustomize, 51 units) \u2014 stage + verify carefully. Owner: Sterling A7.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-18T03:27:37.419871+00:00",
+      "updated_at": "2026-07-18T03:27:37.419892+00:00"
+    },
+    {
+      "id": "MISSION-677",
+      "title": "Commander review of Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "Review and authorize payment for MISSION-052 before the August 1 deadline \u2014 14 days out, action required today.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-18T20:16:23.497047+00:00",
+      "updated_at": "2026-07-18T20:16:23.497051+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-678",
+      "title": "Resolve McLeod compound exposure as single coordinated action",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Reconcile FCC discrepancy and portal balance contradiction first, update McLeod draft to reflect accurate figures, then route the corrected product through WF-17 as one clean package.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-19T12:15:04] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-678: Resolve McLeod compound exposure as single coordinated action\n\n**Analysis and Action Report**\n\n**1. Reconcile FCC discrepancy and portal balance contradiction:**\n\n*   **Action:** I have a",
+        "[2026-07-19T12:15:04] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T20:16:23.497485+00:00",
+      "updated_at": "2026-07-19T12:15:04",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-679",
+      "title": "Route Kuklinski validation email through WF-17 independently of air routing",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Decouple MISSION-030 from MISSION-048 \u2014 send the warm-touch validation email now to preserve the relationship; air pricing follows separately when complete.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-19T12:15:14] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: MISSION-679: Route Kuklinski validation email through WF-17 independently of air routing\n\n## Task Execution and Analysis\n\n**Objective:** Decouple the warm-touch validation email from air routing, send",
+        "[2026-07-19T12:15:14] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T20:16:23.497722+00:00",
+      "updated_at": "2026-07-19T12:15:14",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-680",
+      "title": "Activate TESS pipeline restore \u2014 move MISSION-624 to in-progress",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Restore TESS pipeline and run commission cross-check so Harlan's financial verification reflects live booking data across all clients.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-19T12:15:21] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-680: Activate TESS pipeline restore \u2014 move MISSION-624 to in-progress\n\n**Analysis and Action Report**\n\n**Objective:** Restore the TESS pipeline and run a commission cross-check to ensure Harla",
+        "[2026-07-19T12:15:21] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T20:16:23.498047+00:00",
+      "updated_at": "2026-07-19T12:15:21",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-681",
+      "title": "Close Kuklinski return-leg air routing open-jaw",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Complete MISSION-048 Dec-17 return-leg pricing (open-jaw) so it can feed into the Kuklinski WF-17 queue once the warm-touch email has gone.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-19T12:15:28] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-681: Close Kuklinski return-leg air routing open-jaw\n\n## Action Report and Analysis\n\nThis task requires the completion of \"MISSION-048 Dec-17 return-leg pricing (open-jaw)\" to feed into the \"K",
+        "[2026-07-19T12:15:28] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-24T04:04:06] Weekly Report Generator duplicate blocked \u2014 \"Kuklinski return-leg open-jaw air routing \u2014 close or document dead-end\" already tracked here",
+        "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Close Kuklinski air routing return-leg open-jaw\" already tracked here"
+      ],
+      "created_at": "2026-07-18T20:16:23.498662+00:00",
+      "updated_at": "2026-07-26T20:39:02.223498+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-682",
+      "title": "Formally close MISSION-802-FORMAT-REVIEW continuity loop",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Create and close a formal ticket documenting the 752-spawn loop as quiescent and resolved \u2014 \"quiescent\" is not the same as closed and the board needs the distinction.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-18T20:16:23.499505+00:00",
+      "updated_at": "2026-07-18T20:16:23.499508+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-683",
+      "title": "Assign and activate MISSION-618 \u2014 Furlow/Ely-Darrow/Nichols Grandeur",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "MISSION-618 is P1 with no owner \u2014 Hale assigns appropriate staff and moves to in-progress before end of day.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-19T15:25:22] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: # MISSION-683 \u2014 Assign and activate MISSION-618 \u2014 Furlow/Ely-Darrow/Nichols Grandeur\n\n## Analysis and Action Report\n\n### Task Execution: Assign and Activate MISSION-618\n\n**Objective:** Assign appropri",
+        "[2026-07-19T15:25:22] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-18T20:16:23.499903+00:00",
+      "updated_at": "2026-07-19T15:25:22",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-684",
+      "title": "Client inquiry: You're 1 of only 500 invited \ud83d\udc40",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Olivia <hello@wellamoon.com> \u2014 subject: You're 1 of only 500 invited \ud83d\udc40",
+      "created_at": "2026-07-19T04:00:04.894538+00:00",
+      "updated_at": "2026-07-19T15:25:36",
+      "logs": [
+        "[2026-07-19T04:00:04.894538+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f77feb3920edf7",
+        "[2026-07-19T15:25:36] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-684: Client inquiry: You're 1 of only 500 invited \ud83d\udc40\n\n**Analysis of Client Inquiry**\n\nThe mission requires me to process an inbound client email. The email is from Olivia at hello@wellamoon.com",
+        "[2026-07-19T15:25:36] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-685",
+      "title": "Resolve McLeod FCC discrepancy and execute overdue lifecycle TP",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Contact Regent to confirm $200 FCC application status and resolve the third balance figure contradiction found in the portal, then execute the lifecycle touchpoint that is 8 days overdue before the McLeod relationship goes cold.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator",
+        "[2026-07-19T15:25:44] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-685: Resolve McLeod FCC discrepancy and execute overdue lifecycle TP\n\n**Analysis and Action Report**\n\n**1. Confirm FCC Application Status with Regent:**\n\n*   **Action:** I need to access the i",
+        "[2026-07-19T15:25:44] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-19T04:20:29.717238+00:00",
+      "updated_at": "2026-07-19T15:25:44",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-686",
+      "title": "Confirm Loucks Grandeur FPD payment mechanism before August 1",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Harlan",
+      "description": "Verify the $24,798 FPD payment path for Grandeur booking 3122006 and confirm Commander authorization so the deadline does not become a scramble on July 31.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator",
+        "[2026-07-19T07:18:09] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-686: Confirm Loucks Grandeur FPD payment mechanism before August 1\n\n**Analysis and Action Report**\n\n**Objective:** To verify the $24,798 FPD payment path for Grandeur booking 3122006 and confi",
+        "[2026-07-19T07:18:09] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-19T04:20:29.718202+00:00",
+      "updated_at": "2026-07-19T07:18:09",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-687",
+      "title": "Submit Kuklinski insurance and validation emails to WF-17",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Finalize both Kuklinski emails, submit to WF-17 queue, and include a brief relationship-health note flagging the passive-disengagement signal so Commander can calibrate outreach timing.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator",
+        "[2026-07-19T15:25:51] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-687: Submit Kuklinski insurance and validation emails to WF-17\n\n**Analysis and Action Report**\n\n**1. Task Execution - Kuklinski Insurance and Validation Emails**\n\n*   **Objective:** Finalize a",
+        "[2026-07-19T15:25:51] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-19T04:20:29.719424+00:00",
+      "updated_at": "2026-07-19T15:25:51",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-688",
+      "title": "Complete Kuklinski December 17 return-leg open-jaw pricing",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Pull real pricing for the Kuklinski return-leg open-jaw routing and close out MISSION-048 with a complete air candidate list for Commander review.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator",
+        "[2026-07-19T19:27:11] \u2705 Auto-executed by daily_mission_executor \u2014 10s \u2014 SUCCESS: MISSION-688: Complete Kuklinski December 17 return-leg open-jaw pricing\n\n**Analysis and Action Report**\n\n**Objective:** To determine real pricing for the Kuklinski return-leg open-jaw routing and fina",
+        "[2026-07-19T19:27:11] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-19T04:20:29.720261+00:00",
+      "updated_at": "2026-07-19T19:27:11",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-689",
+      "title": "Deliver Regent pricing refresh for Lyons renewal window",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Pull current Regent suite pricing for the Lyons renewal window (MISSION-625) and package a competitive positioning summary before the window closes.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator",
+        "[2026-07-19T19:27:26] \u2705 Auto-executed by daily_mission_executor \u2014 12s \u2014 SUCCESS: MISSION-689: Deliver Regent pricing refresh for Lyons renewal window\n\n**Regent Pricing Refresh for Lyons Renewal Window (MISSION-625)**\n\n**Objective:**\nTo provide an updated Regent suite pricing struc",
+        "[2026-07-19T19:27:26] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Deliver Regent pricing refresh for Lyons renewal window\" already tracked here"
+      ],
+      "created_at": "2026-07-19T04:20:29.720858+00:00",
+      "updated_at": "2026-07-26T20:39:02.225200+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-690",
+      "title": "Drive Commander's first live TCD decision cycle",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Stage two P-tier items in TCD Strategic Inbox and guide Commander through the move-to-Outbox workflow so TCD becomes actual C2 behavior rather than available infrastructure.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-19T04:20:29.721783+00:00",
+      "updated_at": "2026-07-19T04:20:29.721788+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-691",
+      "title": "Retire 5 orphaned systemd units pointing at deleted scripts",
+      "status": "active",
+      "priority": "P3",
+      "assigned_to": "Sterling",
+      "description": "Disable and mask all 5 orphaned units (MISSION-646) and document removal in the CI ledger to eliminate false-alarm monitoring noise from dead service definitions.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-19T04:20:29] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-19T04:20:29.722522+00:00",
+      "updated_at": "2026-07-19T04:20:29.722525+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "SSS-001",
+      "title": "Decommission the TCD web app shell",
+      "purpose": "Decommission the TCD web app shell",
+      "opr": "CC",
+      "assigned_to": "CC",
+      "action_type": "APPR",
+      "ocr_chain": [
+        {
+          "office": "Sterling",
+          "status": "concur_with_comment",
+          "comment": "code review: grep confirms 0 imports of tcd_server; the 3 refs in kept files (tcd_data.py, tcd_google.py, collectors.py) are stale docstring comments only \u2014 will neutralize on removal. Data plane decoupled, safe to delete.",
+          "ts": "2026-07-19T04:57:51.609217+00:00"
+        },
+        {
+          "office": "AG",
+          "status": "pending",
+          "comment": "",
+          "ts": ""
+        }
+      ],
+      "coordination_log": [
+        {
+          "office": "Sterling",
+          "verdict": "concur_with_comment",
+          "comment": "code review: grep confirms 0 imports of tcd_server; the 3 refs in kept files (tcd_data.py, tcd_google.py, collectors.py) are stale docstring comments only \u2014 will neutralize on removal. Data plane decoupled, safe to delete.",
+          "ts": "2026-07-19T04:57:51.609217+00:00"
+        },
+        {
+          "office": "Hale (decision authority)",
+          "verdict": "APPROVED",
+          "comment": "AG coordination waived (failed 3x, documented); safety basis = SSS-003 audit docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md confirming 0 imports of tcd_server, all KEEP-file refs are docstring comments, service already inactive+disabled. Sterling concurred. Execute decommission.",
+          "ts": "2026-07-19T05:15:14.138141+00:00"
+        }
+      ],
+      "acceptance_criteria": "tcd_server.py and tcd-server.service removed, repo grep for tcd_server returns 0 code references, tcd sheet_sync data plane retained",
+      "ground_truth_sources": [
+        "scripts/tcd_server.py"
+      ],
+      "verification_artifact": "docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md",
+      "certified_by": "AG",
+      "silver_front_frame": "2026-07-19T04:54:58.322310+00:00",
+      "suspense_date": null,
+      "priority": "P1",
+      "status": "closed",
+      "created_at": "2026-07-19T04:54:58.323194+00:00",
+      "updated_at": "2026-07-19T12:57:53.234455+00:00",
+      "logs": [
+        "2026-07-19T04:54:58.323213+00:00: SSS opened \u2014 OPR CC, action APPR, 2 OCR(s) to coordinate",
+        "2026-07-19T04:57:51.609217+00:00: Sterling concur_with_comment \u2014 code review: grep confirms 0 imports of tcd_server; the 3 refs in kept files (tc",
+        "2026-07-19T05:15:14.138141+00:00: APPROVED by Hale \u2014 OPR CC tasked to execute",
+        "2026-07-19T05:16:51.725184+00:00: OPR reported accomplished \u2014 artifact docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md",
+        "2026-07-19T05:16:51.807730+00:00: closed \u2014 certified by OC, Silver back-gate PASS",
+        "2026-07-19T12:57:53.181915+00:00: REOPENED closed\u2192accomplished \u2014 Reverse improper close (mandatory cross-Hale gate was missing). Re-certify with AG's genuine independent verification.",
+        "2026-07-19T12:57:53.234455+00:00: closed \u2014 certified by AG, Silver back-gate PASS"
+      ],
+      "opr_seat": "CC",
+      "decision": {
+        "authority": "Hale",
+        "disposition": "APPROVED",
+        "comment": "AG coordination waived (failed 3x, documented); safety basis = SSS-003 audit docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md confirming 0 imports of tcd_server, all KEEP-file refs are docstring comments, service already inactive+disabled. Sterling concurred. Execute decommission.",
+        "ts": "2026-07-19T05:15:14.138141+00:00",
+        "adjudicated_nonconcurs": []
+      },
+      "cross_hale_cert": {
+        "seat": "AG",
+        "evidence": "docs/TCD_DECOMMISSION_AG_COORDINATION_20260719.md",
+        "ts": "2026-07-19T12:57:53.233512+00:00"
+      },
+      "completed_at": "2026-07-19T12:57:53.234455+00:00"
+    },
+    {
+      "id": "SSS-002",
+      "title": "TESS to Sheets Client Roster read-sync script",
+      "purpose": "TESS to Sheets Client Roster read-sync script",
+      "opr": "OC",
+      "assigned_to": "OC",
+      "action_type": "COORD",
+      "ocr_chain": [
+        {
+          "office": "CC",
+          "status": "concur_with_comment",
+          "comment": "verified: --dry-run pulled 24 real TESS rows as valid JSON, clean AST, read-only list_clients only, idempotent clear+rewrite w/ config persistence",
+          "ts": "2026-07-19T05:08:05.277429+00:00"
+        },
+        {
+          "office": "Sterling",
+          "status": "concur",
+          "comment": "models tcd/sheet_sync.py pattern correctly; graceful TESS-unreachable fallback present",
+          "ts": "2026-07-19T05:08:05.335434+00:00"
+        }
+      ],
+      "coordination_log": [
+        {
+          "office": "CC",
+          "verdict": "concur_with_comment",
+          "comment": "verified: --dry-run pulled 24 real TESS rows as valid JSON, clean AST, read-only list_clients only, idempotent clear+rewrite w/ config persistence",
+          "ts": "2026-07-19T05:08:05.277429+00:00"
+        },
+        {
+          "office": "Sterling",
+          "verdict": "concur",
+          "comment": "models tcd/sheet_sync.py pattern correctly; graceful TESS-unreachable fallback present",
+          "ts": "2026-07-19T05:08:05.335434+00:00"
+        },
+        {
+          "office": "Hale (decision authority)",
+          "verdict": "APPROVED",
+          "comment": "within-gates internal ops; OC delivered to spec",
+          "ts": "2026-07-19T05:08:05.401191+00:00"
+        }
+      ],
+      "acceptance_criteria": "scripts/tess_sheets_roster_sync.py exists, dry-run emits at least 1 JSON roster row offline with 0 credentials, models tcd/sheet_sync.py idempotent clear-rewrite",
+      "ground_truth_sources": [
+        "tcd/sheet_sync.py",
+        "core/booking/thunderbird_tess.py"
+      ],
+      "verification_artifact": "scripts/tess_sheets_roster_sync.py",
+      "certified_by": "CC",
+      "silver_front_frame": "2026-07-19T04:54:58.715143+00:00",
+      "suspense_date": null,
+      "priority": "P2",
+      "status": "closed",
+      "created_at": "2026-07-19T04:54:58.715853+00:00",
+      "updated_at": "2026-07-19T12:58:11.633172+00:00",
+      "logs": [
+        "2026-07-19T04:54:58.715868+00:00: SSS opened \u2014 OPR OC, action COORD, 2 OCR(s) to coordinate",
+        "2026-07-19T05:08:05.277429+00:00: CC concur_with_comment \u2014 verified: --dry-run pulled 24 real TESS rows as valid JSON, clean AST, read-only",
+        "2026-07-19T05:08:05.335434+00:00: Sterling concur \u2014 models tcd/sheet_sync.py pattern correctly; graceful TESS-unreachable fallback p",
+        "2026-07-19T05:08:05.401191+00:00: APPROVED by Hale \u2014 OPR OC tasked to execute",
+        "2026-07-19T05:08:05.505574+00:00: OPR reported accomplished \u2014 artifact scripts/tess_sheets_roster_sync.py",
+        "2026-07-19T05:08:05.599699+00:00: closed \u2014 certified by CC, Silver back-gate PASS",
+        "2026-07-19T12:58:11.581466+00:00: REOPENED closed\u2192accomplished \u2014 Re-close through the mandatory cross-Hale gate for consistency (was genuine: OC built, CC certified) \u2014 stamp cross_hale_cert.",
+        "2026-07-19T12:58:11.633172+00:00: closed \u2014 certified by CC, Silver back-gate PASS"
+      ],
+      "opr_seat": "OC",
+      "decision": {
+        "authority": "Hale",
+        "disposition": "APPROVED",
+        "comment": "within-gates internal ops; OC delivered to spec",
+        "ts": "2026-07-19T05:08:05.401191+00:00",
+        "adjudicated_nonconcurs": []
+      },
+      "cross_hale_cert": {
+        "seat": "CC",
+        "evidence": "scripts/tess_sheets_roster_sync.py dry-run 24 rows verified",
+        "ts": "2026-07-19T12:58:11.632259+00:00"
+      },
+      "completed_at": "2026-07-19T12:58:11.633172+00:00"
+    },
+    {
+      "id": "SSS-003",
+      "title": "TCD reference-surface audit and USAF Staff Summary Sheet design addendum",
+      "purpose": "TCD reference-surface audit and USAF Staff Summary Sheet design addendum",
+      "opr": "CC",
+      "assigned_to": "CC",
+      "action_type": "COORD",
+      "ocr_chain": [
+        {
+          "office": "CC",
+          "status": "concur_with_comment",
+          "comment": "backstop deliverable produced from verified grep ground truth: docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md (per-file keep/remove table + SAFE/KEEP lists) + design-doc USAF addendum. Accurate, no hallucination.",
+          "ts": "2026-07-19T05:14:26.296736+00:00"
+        },
+        {
+          "office": "AG",
+          "status": "nonconcur",
+          "comment": "AG OPR failed to deliver across 3 dispatch attempts (2x hallucinated/wrong-path output, 1x conversational non-response). Per obstacle-routing SO, deliverable reassigned to CC backstop; OC to certify (cross-seat). AG engagement documented in logs/sss_dispatch/.",
+          "ts": "2026-07-19T05:12:00.224859+00:00"
+        }
+      ],
+      "coordination_log": [
+        {
+          "office": "AG",
+          "verdict": "nonconcur",
+          "comment": "AG OPR failed to deliver across 3 dispatch attempts (2x hallucinated/wrong-path output, 1x conversational non-response). Per obstacle-routing SO, deliverable reassigned to CC backstop; OC to certify (cross-seat). AG engagement documented in logs/sss_dispatch/.",
+          "ts": "2026-07-19T05:12:00.224859+00:00"
+        },
+        {
+          "office": "CC",
+          "verdict": "concur_with_comment",
+          "comment": "backstop deliverable produced from verified grep ground truth: docs/TCD_DECOMMISSION_REFERENCE_AUDIT_20260718.md (per-file keep/remove table + SAFE/KEEP lists) + design-doc USAF addendum. Accurate, no hallucination.",
+          "ts": "2026-07-19T05:14:26.296736+00:00"
+        },
+        {
+          "office": "Hale (decision authority)",
+          "verdict": "APPROVED",
+          "comment": "AG nonconcur adjudicated \u2014 OPR reassigned to CC after 3 failed AG attempts; deliverables accurate; OC certifying independently",
+          "ts": "2026-07-19T05:14:26.355828+00:00"
+        }
+      ],
+      "acceptance_criteria": "audit doc lists every file referencing tcd_server or tcd_v4_wired with a keep or remove verdict, and the design doc gains an addendum naming AF Form 1768 and 5 SSS fields",
+      "ground_truth_sources": [
+        "scripts/tcd_server.py",
+        "docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md"
+      ],
+      "verification_artifact": "docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md",
+      "certified_by": "AG",
+      "silver_front_frame": "2026-07-19T04:54:58.857759+00:00",
+      "suspense_date": null,
+      "priority": "P2",
+      "status": "closed",
+      "created_at": "2026-07-19T04:54:58.858049+00:00",
+      "updated_at": "2026-07-19T12:57:53.364643+00:00",
+      "logs": [
+        "2026-07-19T04:54:58.858063+00:00: SSS opened \u2014 OPR AG, action COORD, 1 OCR(s) to coordinate",
+        "2026-07-19T05:12:00.224859+00:00: AG nonconcur \u2014 AG OPR failed to deliver across 3 dispatch attempts (2x hallucinated/wrong-path ",
+        "2026-07-19T05:14:26.296736+00:00: CC concur_with_comment \u2014 backstop deliverable produced from verified grep ground truth: docs/TCD_DECOMMIS",
+        "2026-07-19T05:14:26.355828+00:00: APPROVED by Hale \u2014 OPR AG tasked to execute",
+        "2026-07-19T05:14:26.451044+00:00: OPR reported accomplished \u2014 artifact docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md",
+        "2026-07-19T05:16:51.881176+00:00: closed \u2014 certified by OC, Silver back-gate PASS",
+        "2026-07-19T12:57:53.316044+00:00: REOPENED closed\u2192accomplished \u2014 OPR now CC \u2014 AG OPR failed originally; docs were CC backstop. Reassign OPR=CC, AG now genuinely certifies cross-engine.",
+        "2026-07-19T12:57:53.364643+00:00: closed \u2014 certified by AG, Silver back-gate PASS"
+      ],
+      "opr_seat": "CC",
+      "decision": {
+        "authority": "Hale",
+        "disposition": "APPROVED",
+        "comment": "AG nonconcur adjudicated \u2014 OPR reassigned to CC after 3 failed AG attempts; deliverables accurate; OC certifying independently",
+        "ts": "2026-07-19T05:14:26.355828+00:00",
+        "adjudicated_nonconcurs": [
+          "AG"
+        ]
+      },
+      "cross_hale_cert": {
+        "seat": "AG",
+        "evidence": "docs/TCD_DECOMMISSION_AG_COORDINATION_20260719.md",
+        "ts": "2026-07-19T12:57:53.363891+00:00"
+      },
+      "completed_at": "2026-07-19T12:57:53.364643+00:00"
+    },
+    {
+      "id": "SSS-004",
+      "title": "Staff package \u2014 TCD decommission and USAF Staff Summary Sheet adoption",
+      "purpose": "Staff package \u2014 TCD decommission and USAF Staff Summary Sheet adoption",
+      "opr": "CC",
+      "assigned_to": "CC",
+      "action_type": "SIG",
+      "ocr_chain": [
+        {
+          "office": "OC",
+          "status": "concur_with_comment",
+          "comment": "AAR authored (Tab 5.2) in my own voice \u2014 built SSS-002 (24 rows), certified the decommission. Constructive flag: mark task ownership (OC-owned/CC-owned) in the CC handoff. \u2014 HALE-OC",
+          "ts": "2026-07-19T13:31:24.208153+00:00"
+        },
+        {
+          "office": "AG",
+          "status": "concur_with_comment",
+          "comment": "AAR authored (Tab 5) in my own voice; owned the GPT-OSS failure + the Gemini 3.1 Pro correction + catching CC's false claim. Standing by to certify. \u2014 V. Hale, HALE-AG",
+          "ts": "2026-07-19T13:26:29.534455+00:00"
+        },
+        {
+          "office": "Sterling",
+          "status": "concur",
+          "comment": "WBS (Tab 3) delivered \u2014 5 work-package phases, companion table, substrate-fit division of labor. 258 tests green, 7+ atomic commits.",
+          "ts": "2026-07-19T13:26:29.439685+00:00"
+        },
+        {
+          "office": "Naia",
+          "status": "concur",
+          "comment": "Approval/policy document (Tab 1) delivered \u2014 AF Form 1768 register, 6 adopted articles, Commander signature block, files as Standing Order on sig.",
+          "ts": "2026-07-19T13:26:29.488748+00:00"
+        }
+      ],
+      "coordination_log": [
+        {
+          "office": "Sterling",
+          "verdict": "concur",
+          "comment": "WBS (Tab 3) delivered \u2014 5 work-package phases, companion table, substrate-fit division of labor. 258 tests green, 7+ atomic commits.",
+          "ts": "2026-07-19T13:26:29.439685+00:00"
+        },
+        {
+          "office": "Naia",
+          "verdict": "concur",
+          "comment": "Approval/policy document (Tab 1) delivered \u2014 AF Form 1768 register, 6 adopted articles, Commander signature block, files as Standing Order on sig.",
+          "ts": "2026-07-19T13:26:29.488748+00:00"
+        },
+        {
+          "office": "AG",
+          "verdict": "concur_with_comment",
+          "comment": "AAR authored (Tab 5) in my own voice; owned the GPT-OSS failure + the Gemini 3.1 Pro correction + catching CC's false claim. Standing by to certify. \u2014 V. Hale, HALE-AG",
+          "ts": "2026-07-19T13:26:29.534455+00:00"
+        },
+        {
+          "office": "OC",
+          "verdict": "concur_with_comment",
+          "comment": "AAR authored (Tab 5.2) in my own voice \u2014 built SSS-002 (24 rows), certified the decommission. Constructive flag: mark task ownership (OC-owned/CC-owned) in the CC handoff. \u2014 HALE-OC",
+          "ts": "2026-07-19T13:31:24.208153+00:00"
+        },
+        {
+          "office": "Hale (decision authority)",
+          "verdict": "APPROVED",
+          "comment": "Coordination complete (OC, AG, Sterling, Naia all concur). Produce the package in 3 media + commit the Standing Order for Commander signature. Policy adoption is the Commander's downstream SIG on Tab 1.",
+          "ts": "2026-07-19T13:31:40.877248+00:00"
+        }
+      ],
+      "acceptance_criteria": "staff package delivered in 3 media (Google Doc, HTML artifact, Google Sheets) with 6 tabs, policy committed as a standing_orders file, cross-Hale AAR authored by OC and AG",
+      "ground_truth_sources": [
+        "core/staffing/staff_summary_sheet.py",
+        "docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md"
+      ],
+      "verification_artifact": "logs/sss_dispatch/sss004_delivery.md",
+      "certified_by": "AG",
+      "silver_front_frame": "2026-07-19T13:23:48.639998+00:00",
+      "suspense_date": null,
+      "priority": "P1",
+      "status": "closed",
+      "created_at": "2026-07-19T13:23:48.640378+00:00",
+      "updated_at": "2026-07-19T13:40:29.235420+00:00",
+      "logs": [
+        "2026-07-19T13:23:48.641114+00:00: SSS opened \u2014 OPR CC, action SIG, 4 OCR(s) to coordinate",
+        "2026-07-19T13:26:29.439685+00:00: Sterling concur \u2014 WBS (Tab 3) delivered \u2014 5 work-package phases, companion table, substrate-fit di",
+        "2026-07-19T13:26:29.488748+00:00: Naia concur \u2014 Approval/policy document (Tab 1) delivered \u2014 AF Form 1768 register, 6 adopted ar",
+        "2026-07-19T13:26:29.534455+00:00: AG concur_with_comment \u2014 AAR authored (Tab 5) in my own voice; owned the GPT-OSS failure + the Gemini 3.1",
+        "2026-07-19T13:31:24.208153+00:00: OC concur_with_comment \u2014 AAR authored (Tab 5.2) in my own voice \u2014 built SSS-002 (24 rows), certified the ",
+        "2026-07-19T13:31:40.877248+00:00: APPROVED by Hale \u2014 OPR CC tasked to execute",
+        "2026-07-19T13:39:18.557854+00:00: OPR reported accomplished \u2014 artifact logs/sss_dispatch/sss004_delivery.md",
+        "2026-07-19T13:40:29.104806+00:00: mandate(s) acknowledged (1) \u2014 hooks/plan_mode_mandates.py + must_haves_must_dos() built and wired as ExitPlanM",
+        "2026-07-19T13:40:29.151515+00:00: mandate(s) acknowledged (1) \u2014 core/staffing/directive_ledger.py captures every message and binds mandates",
+        "2026-07-19T13:40:29.193332+00:00: mandate(s) acknowledged (1) \u2014 integrity fix \u2014 directive_ledger + mandatory cross-Hale gate + core/staffing/int",
+        "2026-07-19T13:40:29.235420+00:00: closed \u2014 certified by AG, Silver back-gate PASS"
+      ],
+      "opr_seat": "CC",
+      "mandates": [
+        "cross_hale",
+        "silver",
+        "unmapped:Modify code to direct you to summarize the must-haves and mu",
+        "unmapped:This is a FAIL for integrity, for advisor, for Silver \u2014 a cl",
+        "unmapped:You must also modify the code to capture all messages sent d"
+      ],
+      "decision": {
+        "authority": "Hale",
+        "disposition": "APPROVED",
+        "comment": "Coordination complete (OC, AG, Sterling, Naia all concur). Produce the package in 3 media + commit the Standing Order for Commander signature. Policy adoption is the Commander's downstream SIG on Tab 1.",
+        "ts": "2026-07-19T13:31:40.877248+00:00",
+        "adjudicated_nonconcurs": []
+      },
+      "cross_hale_cert": {
+        "seat": "AG",
+        "evidence": "logs/sss_dispatch/ag_sss004_cert.md",
+        "ts": "2026-07-19T13:40:29.234825+00:00"
+      },
+      "mandate_ack": {
+        "unmapped:Modify code to direct you to summarize the must-haves and mu": {
+          "evidence": "hooks/plan_mode_mandates.py + must_haves_must_dos() built and wired as ExitPlanMode hook",
+          "ts": "2026-07-19T13:40:29.104806+00:00"
+        },
+        "unmapped:You must also modify the code to capture all messages sent d": {
+          "evidence": "core/staffing/directive_ledger.py captures every message and binds mandates",
+          "ts": "2026-07-19T13:40:29.151515+00:00"
+        },
+        "unmapped:This is a FAIL for integrity, for advisor, for Silver \u2014 a cl": {
+          "evidence": "integrity fix \u2014 directive_ledger + mandatory cross-Hale gate + core/staffing/integrity_check.py",
+          "ts": "2026-07-19T13:40:29.193332+00:00"
+        }
+      },
+      "completed_at": "2026-07-19T13:40:29.235420+00:00"
+    },
+    {
+      "id": "MISSION-692",
+      "title": "Staff Package SSS-004",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "\u2014 Staff Summary Sheet Adoption (for your signature) Commander email directive: Staff Package SSS-004 \u2014 Staff Summary Sheet Adoption (for your signature). Thunderbird Wing \u00b7 AF Form 1768 \u00b7 Staff Summary Sheet SSS-004 Staff Package \u2014 TCD Decommission & Staff Summary Sheet Adoption Commander \u2014 the complete staff package is prepared for your signatur",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-19T13:42:56.170112+00:00",
+      "updated_at": "2026-07-19T13:42:56.170125+00:00"
+    },
+    {
+      "id": "MISSION-693",
+      "title": "Tech Scan 2026-07-20",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-20 05:15 UTC \u2014 2 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-20 05:15 UTC airborne scanner pulse \u00b7 6 finds \u00b7 sectors agentic, ai-writing, mcp HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 2 TRIAL \u00b7 4 WATCH \u00b7 0 KILLED as noise",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-20T05:16:32.437089+00:00",
+      "updated_at": "2026-07-20T05:16:32.437099+00:00"
+    },
+    {
+      "id": "MISSION-694",
+      "title": "Re: Re: Multi-Model",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead) Commander email directive: Re: Re: Multi-Model Claude Code Analysis + Plan \u2014 cc-fleet Gap Found (Groq/Cerebras dead). Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-07-20 12:30 UTC",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-20T12:31:30.766029+00:00",
+      "updated_at": "2026-07-20T12:31:30.766043+00:00"
+    },
+    {
+      "id": "MISSION-695",
+      "title": "Re: Hermai.ai Analysis",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "+ Implementation Plan \u2014 Low-Volume Air Scans Commander email directive: Re: Hermai.ai Analysis + Implementation Plan \u2014 Low-Volume Air Scans. Approved On Sun, Jul 19, 2026 at 9:50 PM <johnloucks3@gmail.com> wrote: > Hermai.ai \u2014 Analysis & Implementation Plan for Low-Volume Air Scans > > Source: r/ClaudeCode post by u/Tradingoso \u00b7 An",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-20T12:41:30.824355+00:00",
+      "updated_at": "2026-07-20T12:41:30.824365+00:00"
+    },
+    {
+      "id": "MISSION-696",
+      "title": "Commander review and send Kuklinski WF-17 emails",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Commander",
+      "description": "Review and send the staged Kuklinski validation and insurance emails from WF-17 queue before the passive-disengagement window extends further.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-21T02:22:36.389134+00:00",
+      "updated_at": "2026-07-21T02:22:36.389254+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-697",
+      "title": "Pay Loucks Grandeur FPD before August 1 deadline",
+      "status": "active",
+      "priority": "P1",
+      "assigned_to": "Commander",
+      "description": "Submit $24,798 payment for Loucks Grandeur (voyage 3122006) before the August 1 FPD deadline to protect the booking.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-21T02:22:36.391504+00:00",
+      "updated_at": "2026-07-21T02:22:36.392538+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-698",
+      "title": "Close Kuklinski Dec-17 return open-jaw routing",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Pull real pricing for the Kuklinski Dec-17 return leg open-jaw so the air proposal can be presented complete to the group (MISSION-048).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator",
+        "[2026-07-21T04:11:46] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-698: Close Kuklinski Dec-17 return open-jaw routing\n\n**Analysis and Action Report**\n\n**Objective:** To obtain real pricing for the return leg of the Kuklinski Dec-17 trip, specifically an open",
+        "[2026-07-21T04:11:46] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-21T02:22:36.393720+00:00",
+      "updated_at": "2026-07-21T04:11:46",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-699",
+      "title": "Remediate cc-fleet dead provider keys",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Replace the two dead provider keys in the cc-fleet configuration to restore the Wing's parallel-agent multiplier capability (dormant since June 25).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-21T02:22:36.395329+00:00",
+      "updated_at": "2026-07-21T02:22:36.395333+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-700",
+      "title": "Assign all unassigned P1 missions on the board",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Sweep the 70-item mission board and assign an owner to every unassigned P1 \u2014 MISSION-618 (Furlow/Ely-Darrow/Nichols Grandeur), MISSION-619, MISSION-636, MISSION-649 \u2014 with a suspense date for each.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator",
+        "[2026-07-26T20:18:53] Weekly Report Generator duplicate blocked \u2014 \"Assign owners to all unassigned P1 missions on the board\" already tracked here"
+      ],
+      "created_at": "2026-07-21T02:22:36.395929+00:00",
+      "updated_at": "2026-07-26T20:18:53.770661+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-701",
+      "title": "Close McLeod lifecycle contact and transfer dispute",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Drive MISSION-044 to closure \u2014 the FCC and hotel pricing are resolved; the remaining lifecycle contact/transfer dispute needs a completion date and a client-facing status update via Dani.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator",
+        "[2026-07-24T04:04:06] Weekly Report Generator duplicate blocked \u2014 \"Close McLeod lifecycle contact and transfer dispute\" already tracked here"
+      ],
+      "created_at": "2026-07-21T02:22:36.397278+00:00",
+      "updated_at": "2026-07-24T04:04:06.113923+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-702",
+      "title": "Client inquiry: Invite to Vote - Ridge at Fox Run Homeowners Association",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Ridge at Fox Run Homeowners Association eVoting Administrator <ridgeatfoxrun@ivotehoa.com> \u2014 subject: Invite to Vote - Ridge at Fox Run Homeowners Association",
+      "created_at": "2026-07-21T08:00:08.654604+00:00",
+      "updated_at": "2026-07-21T08:13:35",
+      "logs": [
+        "[2026-07-21T08:00:08.654604+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f83a6519823fef",
+        "[2026-07-21T08:13:35] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-702: Client inquiry: Invite to Vote - Ridge at Fox Run Homeowners Association\n\n**Analysis and Action Report**\n\n**1. Task Execution:**\n\nThe task involves processing an inbound client email from",
+        "[2026-07-21T08:13:35] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-703",
+      "title": "Payment Reminder \u2014",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "Panama Canal & Pacific Gems Final Payment Window Commander email directive: Payment Reminder \u2014 Panama Canal & Pacific Gems Final Payment Window. Dear John, Your final payment for the Panama Canal & Pacific Gems voyage is approaching. We want to make sure this is on your radar. If you have any questions about the balance due, payment met",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-22T12:50:20.926684+00:00",
+      "updated_at": "2026-07-22T12:50:20.926698+00:00"
+    },
+    {
+      "id": "MISSION-704",
+      "title": "Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Hale",
+      "description": "Escalate MISSION-052 directly to Commander today with the August 1 due date, payment instructions, and a clear action required \u2014 not a status update.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T00:33:12] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-704: Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline\n\n**Action Report and Analysis**\n\n**1. Task Execution:**\n\nThe primary objective of MISSION-704 is to escalate MISSION-052 directly ",
+        "[2026-07-23T00:33:12] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-26T22:53:08] Surfaced Loucks Grandeur FPD 4,798 to Commander for Aug 1 deadline"
+      ],
+      "created_at": "2026-07-22T20:54:22.002373+00:00",
+      "updated_at": "2026-07-26T22:53:08.096756+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-705",
+      "title": "Close Kuklinski and Westbrook welcome emails this week",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Set a committed send date for both welcome emails (no later than July 25), complete drafts, route through WF-17, and close MISSION-019 on send confirmation.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T00:33:19] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-705: Close Kuklinski and Westbrook welcome emails this week\n\n**Analysis and Action Report**\n\nThis report details the execution of MISSION-705, focused on finalizing and scheduling the welcome ",
+        "[2026-07-23T00:33:19] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-22T20:54:22.003139+00:00",
+      "updated_at": "2026-07-23T00:33:19",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-706",
+      "title": "Run TESS commission cross-check and certify pipeline figure",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Execute MISSION-624, run the commission cross-check against TESS, and produce a verified vs. expected delta that Harlan can certify \u2014 resolving the $21,849.16 unverified figure.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T00:33:25] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-706: Run TESS commission cross-check and certify pipeline figure\n\n**Analysis and Action Report**\n\n**Objective:** Execute MISSION-624, run the commission cross-check against TESS, and produce a",
+        "[2026-07-23T00:33:25] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-22T20:54:22.003696+00:00",
+      "updated_at": "2026-07-23T00:33:25",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-707",
+      "title": "Assign owners to all seven unowned P1 missions on the board",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Pull the seven ownerless P1s, assign OPR by domain, apply suspense dates per SSS model, and update the board before EOD today so nothing remains unowned past this report.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T00:33:32] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-707: Assign owners to all seven unowned P1 missions on the board\n\n## Execution Details\n\nThis report details the execution of MISSION-707, focusing on identifying, assigning ownership, and appl",
+        "[2026-07-23T00:33:32] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-22T20:54:22.004573+00:00",
+      "updated_at": "2026-07-23T00:33:32",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-708",
+      "title": "Complete Kuklinski Dec-17 return-leg open-jaw routing",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Close MISSION-048 by sourcing the return-leg pricing, logging it in the dossier, and handing the full air package to Dani for the client proposal.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T04:35:16] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-708: Complete Kuklinski Dec-17 return-leg open-jaw routing\n\n**Analysis and Action Report**\n\n**Objective:**\nThe primary objective of this task is to complete the return-leg routing for the Kukl",
+        "[2026-07-23T04:35:16] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-25T00:02:58] Weekly Report Generator duplicate blocked \u2014 \"Complete Kuklinski Dec-17 return-leg open-jaw routing (MISSION-048)\" already tracked here"
+      ],
+      "created_at": "2026-07-22T20:54:22.005438+00:00",
+      "updated_at": "2026-07-25T00:02:58.261188+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-709",
+      "title": "Determine Lyons renewal window close date and trigger Regent refresh",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Confirm when the Lyons renewal window closes, then execute MISSION-625 pricing refresh before that date with a specific Regent suite option and pricing for Commander review.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T04:35:22] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-709: Determine Lyons renewal window close date and trigger Regent refresh\n\n## Analysis and Action Report\n\n**1. Determining the Lyons Renewal Window Close Date:**\n\nMy initial assessment is that",
+        "[2026-07-23T04:35:22] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-22T20:54:22.006294+00:00",
+      "updated_at": "2026-07-23T04:35:22",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-710",
+      "title": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Close MISSION-623 by running the FPD verification against both clients, documenting the findings, and flagging any overdue or at-risk deposits to the Commander.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator",
+        "[2026-07-23T04:35:28] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-710: Resolve Furlow and Kuklinski FPD audit with Harlan sign-off\n\n**FPD Verification Execution and Findings**\n\nThis report details the execution of MISSION-710, the FPD audit for clients Furlo",
+        "[2026-07-23T04:35:28] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-22T20:54:22.006802+00:00",
+      "updated_at": "2026-07-23T04:35:28",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-711",
+      "title": "Fund DeepSeek v4 backend \u2014 Commander approval gate",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Commander",
+      "description": "Approve DEEPSEEK_API_KEY funding to unblock `core/relay/deepseek_claude_code.py` and restore full OC capacity on the DeepSeek v4 backend.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-22T20:54:22] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-22T20:54:22.007585+00:00",
+      "updated_at": "2026-07-22T20:54:22.007590+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-712",
+      "title": "Client inquiry: Your Early Preview \u2014 Atlas Ocean Voyages Europe 2028",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Nicole Aguirre <nicole@atlasoceanvoyages.com> \u2014 subject: Your Early Preview \u2014 Atlas Ocean Voyages Europe 2028",
+      "created_at": "2026-07-23T20:00:19.100995+00:00",
+      "updated_at": "2026-07-23T20:41:56",
+      "logs": [
+        "[2026-07-23T20:00:19.100995+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f8fd088512a3e1",
+        "[2026-07-23T20:41:56] \u2705 Auto-executed by daily_mission_executor \u2014 9s \u2014 SUCCESS: MISSION-712: Client inquiry: Your Early Preview \u2014 Atlas Ocean Voyages Europe 2028\n\n**Analysis and Action Report**\n\n**1. Task Execution:**\n\nThe primary task is to process an inbound client email from N",
+        "[2026-07-23T20:41:56] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-713",
+      "title": "Kuklinski and Westbrook welcome emails \u2014 WF-17 by Friday",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Draft and queue both welcome emails to WF-17 for Commander review by end of week; the April stale-date flag in the brief confirms these have been sitting too long.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-24T04:04:06] Created by Weekly Report Generator",
+        "[2026-07-24T04:45:21] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: ### MISSION-713: Kuklinski and Westbrook welcome emails \u2014 WF-17 by Friday\n\n**Analysis and Action Report**\n\n**Task Execution:**\n\nThe mission requires drafting and queuing two welcome emails for WF-17, ",
+        "[2026-07-24T04:45:21] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-24T04:04:06.112411+00:00",
+      "updated_at": "2026-07-24T04:45:21",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-714",
+      "title": "Loucks Grandeur FPD \u2014 confirm payment track by July 25",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Move MISSION-052 from pending_review to an active payment confirmation track; $24,798 due August 1 is nine days out and cannot remain in pending_review.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-24T04:04:06] Created by Weekly Report Generator",
+        "[2026-07-24T04:45:27] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: # MISSION-714: Loucks Grandeur FPD \u2014 confirm payment track by July 25\n\n## Execution of Task\n\nThe mission requires moving `MISSION-052` from `pending_review` to an active payment confirmation track due",
+        "[2026-07-24T04:45:27] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-24T04:04:06.113377+00:00",
+      "updated_at": "2026-07-24T04:45:27",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-715",
+      "title": "Brief system audit \u2014 flag stale in-progress dates as P1 anomalies",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Add a brief-integrity check that flags any deliverable with an \"in progress\" state and a due date older than 30 days as a P1 anomaly rather than suppressing it.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-24T04:04:06] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-24T04:04:06.114725+00:00",
+      "updated_at": "2026-07-24T04:04:06.114728+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-716",
+      "title": "MISSION-802-FORMAT-REVIEW post-mortem \u2014 root cause the 752-spawn loop",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Document what loop condition allowed 752 spawns to run on MISSION-648 and add a guard to prevent recurrence before the next continuity re-run.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-24T04:04:06] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-24T04:04:06.115234+00:00",
+      "updated_at": "2026-07-24T04:04:06.115236+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-717",
+      "title": "Tech Scan 2026-07-24",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated) Commander email directive: Tech Scan 2026-07-24 05:15 UTC \u2014 5 trial / 0 killed (Hale adjudicated). TECH SCAN \u2014 2026-07-24 05:15 UTC airborne scanner pulse \u00b7 17 finds \u00b7 sectors llm HALE'S ADJUDICATION (kill-pass before anything's believed) \ud83d\udcca 5 TRIAL \u00b7 12 WATCH \u00b7 0 KILLED as noise \u00b7 0 adopt \ud83e\uddea TRIAL \u2014",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-24T05:15:23.544155+00:00",
+      "updated_at": "2026-07-24T05:15:23.544167+00:00"
+    },
+    {
+      "id": "MISSION-718",
+      "title": "Client inquiry: Everyone Needs to Vote on the 2026 Special Assessment - Drai",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Ridge at Fox Run Homeowners Association eVoting Administrator <ridgeatfoxrun@ivotehoa.com> \u2014 subject: Everyone Needs to Vote on the 2026 Special Assessment - Drainage Channel 2 Improvement",
+      "created_at": "2026-07-24T12:00:09.023352+00:00",
+      "updated_at": "2026-07-24T12:15:05",
+      "logs": [
+        "[2026-07-24T12:00:09.023352+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f93269b2851243",
+        "[2026-07-24T12:15:05] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-718: Client inquiry: Everyone Needs to Vote on the 2026 Special Assessment - Drai\n\n**Analysis and Action Report**\n\n**1. Task Execution and Findings:**\n\nThe primary task is to process an inboun",
+        "[2026-07-24T12:15:05] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-719",
+      "title": "Client inquiry: A new major step for Heritage",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Tony Johnson <tjohnson@heritage.org> \u2014 subject: A new major step for Heritage",
+      "created_at": "2026-07-24T16:00:16.576423+00:00",
+      "updated_at": "2026-07-24T16:52:12",
+      "logs": [
+        "[2026-07-24T16:00:16.576423+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f9499d93db26f2",
+        "[2026-07-24T16:52:12] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-719: Client inquiry: A new major step for Heritage\n\n**Analysis of Inbound Client Email**\n\nI have received an inbound email from Tony Johnson at Heritage.org with the subject line \"A new major ",
+        "[2026-07-24T16:52:12] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-720",
+      "title": "Confirm or escalate Loucks Grandeur FPD payment by July 31",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "FPD of $24,798 is due August 1 \u2014 Commander confirms payment has been made or opens extension negotiation with Regent before COB July 31.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T00:02:58.260021+00:00",
+      "updated_at": "2026-07-25T00:02:58.260024+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-721",
+      "title": "Close Kuklinski validation and insurance emails through WF-17",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Complete MISSION-030 by drafting the Kuklinski validation and insurance emails and staging them in WF-17 for Commander review, clearing the longest-stalled P1 client product in the queue.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator",
+        "[2026-07-25T00:54:56] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-721: Close Kuklinski validation and insurance emails through WF-17\n\n### Email Drafting and Staging\n\n**Objective:** To draft and stage the Kuklinski validation and insurance emails in WF-17, ad",
+        "[2026-07-25T00:54:56] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T00:02:58.260417+00:00",
+      "updated_at": "2026-07-25T00:54:56",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-722",
+      "title": "Assign owners to all five unassigned P1/P2 missions",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Review MISSION-618, MISSION-629, MISSION-636, MISSION-637, MISSION-649 and assign a named owner to each, with a suspense date, to eliminate the routing gap surfaced in this report.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator",
+        "[2026-07-25T00:55:02] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-722: Assign owners to all five unassigned P1/P2 missions\n\n**Analysis and Action Report**\n\nThis mission requires me to review five specific unassigned P1/P2 missions (MISSION-618, MISSION-629, ",
+        "[2026-07-25T00:55:02] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T00:02:58.260896+00:00",
+      "updated_at": "2026-07-25T00:55:02",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-723",
+      "title": "Draft Lyons renewal window Regent pricing refresh",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Produce a current Regent pricing sweep for the Lyons renewal window and deliver it to Dani for client outreach sequencing, while the Lyons file is warm from FPD payment.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator",
+        "[2026-07-25T00:55:11] \u2705 Auto-executed by daily_mission_executor \u2014 6s \u2014 SUCCESS: MISSION-723: Draft Lyons renewal window Regent pricing refresh\n\n**Regent Pricing Sweep - Lyons Renewal Window**\n\n**Date:** 2026-07-24\n\n**Objective:** To produce a current Regent pricing sweep for the ",
+        "[2026-07-25T00:55:11] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T00:02:58.261536+00:00",
+      "updated_at": "2026-07-25T00:55:11",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-724",
+      "title": "Root-cause and fix room reservation cookie keepalive cycling",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Diagnose why room_res_cookies expire every 25\u201330 minutes overnight and implement a proper keepalive or session extension so the credential health check shows stable validity, not a flip-flop loop.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T00:02:58.261933+00:00",
+      "updated_at": "2026-07-25T00:02:58.261936+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-725",
+      "title": "Write standing order for timer lifecycle governance",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Draft and sign a standing order defining what earns a systemd timer, required spend-gate parameters, and a quarterly timer manifest review, preventing recurrence of the July 24 emergency disable event.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T00:02:58.262295+00:00",
+      "updated_at": "2026-07-25T00:02:58.262298+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-726",
+      "title": "Confirm Loucks Grandeur FPD payment or contingency before August 1",
+      "status": "active",
+      "priority": "P0",
+      "assigned_to": "Commander",
+      "description": "The $24,798 FPD is due in eight days \u2014 Commander confirms payment status and authorizes action or contingency plan by end of day July 25.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T04:04:31.834444+00:00",
+      "updated_at": "2026-07-25T04:04:31.834448+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-727",
+      "title": "Draft and route Kuklinski validation and insurance emails to WF-17",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Close MISSION-030 by producing both Kuklinski emails and placing them in the WF-17 queue for Commander review and send.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator",
+        "[2026-07-25T04:56:17] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-727: Draft and route Kuklinski validation and insurance emails to WF-17\n\n## Kuklinski Validation and Insurance Emails\n\nAs per MISSION-727, I have drafted the required emails for the Kuklinski ",
+        "[2026-07-25T04:56:17] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T04:04:31.835235+00:00",
+      "updated_at": "2026-07-25T04:56:17",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-728",
+      "title": "Verify Westbrook welcome email status and close or redeliver",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Confirm whether the Westbrook welcome email was sent (brief shows April 15 due date, now three months past) \u2014 if not sent, produce and route to WF-17 immediately.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator",
+        "[2026-07-25T04:56:23] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-728: Verify Westbrook welcome email status and close or redeliver\n\n**Analysis and Action Report**\n\n**1. Verification of Westbrook Welcome Email Status**\n\n*   **Objective:** To determine if the",
+        "[2026-07-25T04:56:23] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T04:04:31.835671+00:00",
+      "updated_at": "2026-07-25T04:56:23",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-729",
+      "title": "Restore TESS pipeline and reconcile commission cross-check",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Sterling",
+      "description": "Close MISSION-624 by restoring the TESS data feed and verifying the $21,849 expected commission figure against live TESS source records.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator",
+        "[2026-07-25T04:56:28] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-729: Restore TESS pipeline and reconcile commission cross-check\n\n**Action Report:**\n\nI have initiated the following steps to address MISSION-729:\n\n1.  **TESS Pipeline Restoration:**\n    *   I ",
+        "[2026-07-25T04:56:28] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T04:04:31.836287+00:00",
+      "updated_at": "2026-07-25T04:56:28",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-730",
+      "title": "Assign owners to MISSION-618, MISSION-629, and MISSION-649",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Furlow/Ely-Darrow/Nichols Grandeur fix, Anansi fallback, and GRB rental car are all in_progress with no owner \u2014 assign and log in the mission board before end of day.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator",
+        "[2026-07-25T04:56:35] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-730: Assign owners to MISSION-618, MISSION-629, and MISSION-649\n\n**Analysis and Action Report**\n\nThe objective of MISSION-730 is to assign owners to three existing \"in_progress\" missions that ",
+        "[2026-07-25T04:56:35] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-25T04:04:31.836838+00:00",
+      "updated_at": "2026-07-25T04:56:35",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-731",
+      "title": "Close McLeod lifecycle dispute with resolution or escalation",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "MISSION-044 is 8+ days overdue \u2014 produce a firm resolution or escalate to Commander with a recommended action and specific decision needed.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T04:04:31.837392+00:00",
+      "updated_at": "2026-07-25T04:04:31.837396+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-732",
+      "title": "Authorize and fund DeepSeek v4 relay API key",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Commander",
+      "description": "The relay backend is wired and verified \u2014 Commander approves API key funding to activate the third engine and unlock the full CC/OC/DeepSeek arbitration triad.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T04:04:31.837839+00:00",
+      "updated_at": "2026-07-25T04:04:31.837842+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-733",
+      "title": "Confirm MISSION-802 loop cannot self-resume and close the mission record",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Document hard confirmation in MISSION-648 that the 752-spawn MISSION-802 format-review loop is permanently quiescent and cannot auto-restart \u2014 close the mission with a concrete technical reference, not prose.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-25T04:04:31.838804+00:00",
+      "updated_at": "2026-07-25T04:04:31.838808+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-734",
+      "title": "Client inquiry: We Value Your Opinion!",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Inbound client email from Budget <budget@express.medallia.com> \u2014 subject: We Value Your Opinion!",
+      "created_at": "2026-07-26T16:00:17.124203+00:00",
+      "updated_at": "2026-07-26T17:20:40",
+      "logs": [
+        "[2026-07-26T16:00:17.124203+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f9f09dec9426e4",
+        "[2026-07-26T17:20:40] \u2705 Auto-executed by daily_mission_executor \u2014 2s \u2014 SUCCESS: MISSION-734: Client inquiry: We Value Your Opinion!\n\n**Analysis of Inbound Client Email**\n\nThe email with the subject \"We Value Your Opinion!\" from `budget@express.medallia.com` has been ingested. Thi",
+        "[2026-07-26T17:20:40] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ]
+    },
+    {
+      "id": "MISSION-735",
+      "title": "Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Harlan",
+      "description": "Verify payment status and initiate or confirm execution of the $24,798 FPD for Loucks Grandeur before August 1 hard deadline.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T19:46:10] Created by Weekly Report Generator",
+        "[2026-07-26T21:21:52] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-735: Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1\n\n**Analysis and Action Report**\n\nAs Hale, COS for Dreams2Memories Travel, I have reviewed MISSION-735 concerning the Loucks Gra",
+        "[2026-07-26T21:21:52] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T19:46:10.111268+00:00",
+      "updated_at": "2026-07-26T21:21:52",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-736",
+      "title": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Identify whether the $21,849.16 commission expected vs. $18,830.93 pipeline gap represents a valid different-cohort difference or a calculation error, and document the finding.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T19:46:10] Created by Weekly Report Generator",
+        "[2026-07-26T21:22:12] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-736: Reconcile commission-vs-pipeline discrepancy ($3,018 gap)\n\n**Analysis and Action Report**\n\n**Objective:** To determine if the $3,018 discrepancy between expected commission ($21,849.16) a",
+        "[2026-07-26T21:22:12] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T19:46:10.112143+00:00",
+      "updated_at": "2026-07-26T21:22:12",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-737",
+      "title": "Pull pricing for Kuklinski Dec-17 open-jaw return leg",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Complete the Kuklinski Dec-17 air routing by sourcing return-leg open-jaw pricing so Dani can finalize the flight recommendation.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T19:46:10] Created by Weekly Report Generator",
+        "[2026-07-27T01:24:32] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-737: Pull pricing for Kuklinski Dec-17 open-jaw return leg\n\n**Analysis and Action Report**\n\n**Objective:** Source return-leg open-jaw pricing for the Kuklinski Dec-17 itinerary to enable Dani ",
+        "[2026-07-27T01:24:32] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T19:46:10.113417+00:00",
+      "updated_at": "2026-07-27T01:24:32",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-738",
+      "title": "Run full system health diagnostic and deliver findings to Commander",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Hale",
+      "description": "Diagnose and document current system health status (listed UNKNOWN in brief) and deliver a one-page findings report to Commander by EOD today.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T19:46:10] Created by Weekly Report Generator",
+        "[2026-07-27T01:24:39] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-738: Run full system health diagnostic and deliver findings to Commander\n\n**System Health Diagnostic Report**\n\n**Date:** 2026-07-26\n**Time:** 19:46:10 (UTC)\n**Prepared For:** Commander\n**Prepa",
+        "[2026-07-27T01:24:39] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T19:46:10.114118+00:00",
+      "updated_at": "2026-07-27T01:24:39",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-739",
+      "title": "Assign owners to unassigned P1 in-progress missions",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Assign explicit owners to MISSION-618, MISSION-617, MISSION-649, MISSION-636, and MISSION-637 \u2014 unowned P1/P2 missions do not close on their own.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T19:46:10] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-26T19:46:10.114561+00:00",
+      "updated_at": "2026-07-26T19:46:10.114563+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-740",
+      "title": "Surface and execute Loucks Grandeur FPD before August 1",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Harlan",
+      "description": "Confirm $24,798 FPD payment is on track and execute before August 1 deadline; escalate immediately to Commander if any obstacle blocks same-day execution.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator",
+        "[2026-07-26T21:21:59] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-740: Surface and execute Loucks Grandeur FPD before August 1\n\n**Analysis and Action Report**\n\n**Objective:** Confirm $24,798 FPD payment is on track and execute before August 1 deadline. Escal",
+        "[2026-07-26T21:21:59] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:18:53.765681+00:00",
+      "updated_at": "2026-07-26T21:21:59",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-741",
+      "title": "Move MISSION-030 Kuklinski WF-17 emails to Commander's hands",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Complete Kuklinski validation and insurance emails, stage in WF-17 queue, and notify Commander for same-day review and send authorization.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator",
+        "[2026-07-27T01:24:45] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-741: Move MISSION-030 Kuklinski WF-17 emails to Commander's hands\n\n**Analysis and Action Report**\n\n**Objective:** To complete validation and insurance emails for Kuklinski (MISSION-030), stage",
+        "[2026-07-27T01:24:45] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:18:53.766688+00:00",
+      "updated_at": "2026-07-27T01:24:45",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-742",
+      "title": "Verify Kuklinski and Westbrook welcome email dispatch records",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Pull Gmail sent records for both accounts, confirm what clients actually received, correct the stale April 15 date in the morning audit, and close any gap with an immediate dispatch if emails were never sent.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator",
+        "[2026-07-27T01:24:51] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-742: Verify Kuklinski and Westbrook welcome email dispatch records\n\n**Analysis and Action Report**\n\n**Objective:** Verify welcome email dispatch records for Kuklinski and Westbrook, confirm cl",
+        "[2026-07-27T01:24:51] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:18:53.767995+00:00",
+      "updated_at": "2026-07-27T01:24:51",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-743",
+      "title": "Complete FPD audit for Furlow and Kuklinski",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Harlan",
+      "description": "Execute MISSION-623 to audit FPD status for Furlow and Kuklinski accounts and surface any overdue or at-risk deadlines to Commander before end of week.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator",
+        "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Complete Furlow and Kuklinski FPD audit\" already tracked here",
+        "[2026-07-27T05:27:37] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-743: Complete FPD audit for Furlow and Kuklinski\n\n**Audit of FPD Status for Furlow and Kuklinski Accounts**\n\n**Objective:** To audit the FPD (Future Payment Deposit) status for Furlow and Kukl",
+        "[2026-07-27T05:27:37] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:18:53.768963+00:00",
+      "updated_at": "2026-07-27T05:27:37",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-744",
+      "title": "Produce and deliver Lyons Regent pricing refresh",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Intel",
+      "description": "Complete MISSION-625 Regent pricing refresh and deliver to Dani for Lyons renewal window \u2014 renewal window is time-bound and does not wait for board clearance.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator",
+        "[2026-07-27T05:27:51] \u2705 Auto-executed by daily_mission_executor \u2014 11s \u2014 SUCCESS: MISSION-744: Produce and deliver Lyons Regent pricing refresh\n\n**Analysis and Action Report**\n\n**Objective:** Complete MISSION-625 Regent pricing refresh and deliver to Dani for Lyons renewal window.\n",
+        "[2026-07-27T05:27:51] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:18:53.769951+00:00",
+      "updated_at": "2026-07-27T05:27:51",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-745",
+      "title": "Mandate cost envelope and budget threshold for all new timers pre-merge",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Draft and commit a pre-deployment checklist (cost impact estimate, fallback threshold, budget guard) as a mandatory gate for any new timer or automation \u2014 wired to SO-20260724.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:18:53] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-26T20:18:53.772308+00:00",
+      "updated_at": "2026-07-26T20:18:53.772312+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-746",
+      "title": "Escalate Loucks Grandeur FPD for Commander payment authorization",
+      "status": "pending_review",
+      "priority": "P0",
+      "assigned_to": "Harlan",
+      "description": "Surface MISSION-052 ($24,798 Grandeur FPD due August 1) to Commander with payment authorization request \u2014 six days remaining, no action taken to date.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:39:02] Created by Weekly Report Generator",
+        "[2026-07-26T21:22:04] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-746: Escalate Loucks Grandeur FPD for Commander payment authorization\n\n## Analysis and Action Report\n\n**Task Execution:**\n\nThe mission requires escalating MISSION-052, a $24,798 Grandeur FPD d",
+        "[2026-07-26T21:22:04] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:39:02.222173+00:00",
+      "updated_at": "2026-07-26T21:22:04",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-747",
+      "title": "Move Kuklinski validation and insurance emails to WF-17 queue",
+      "status": "pending_review",
+      "priority": "P1",
+      "assigned_to": "Dani",
+      "description": "Complete MISSION-030 and deliver Kuklinski validation/insurance emails to WF-17 queue for Commander review and send authorization.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:39:02] Created by Weekly Report Generator",
+        "[2026-07-27T05:27:58] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-747: Move Kuklinski validation and insurance emails to WF-17 queue\n\n**Task Execution and Analysis:**\n\nThis task requires the completion of MISSION-030 and the subsequent delivery of Kuklinski ",
+        "[2026-07-27T05:27:58] \u23f8 pending_review: STATUS: COMPLETE not found"
+      ],
+      "created_at": "2026-07-26T20:39:02.223144+00:00",
+      "updated_at": "2026-07-27T05:27:58",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-748",
+      "title": "Implement weekly mission board closure cadence with P3 hard-kill criteria",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Hale",
+      "description": "Design and wire a weekly closure review that retires P3 missions >30 days stale and auto-escalates pending_review P1s with no movement in 7 days.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:39:02] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-26T20:39:02.225629+00:00",
+      "updated_at": "2026-07-26T20:39:02.225632+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-749",
+      "title": "Schedule Hermai.ai hosted fetch integration sprint",
+      "status": "active",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "Move Hermai.ai flight-scan from docs/intel commit to a tracked ELON pipeline integration sprint with a target date and acceptance criteria.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [
+        "[2026-07-26T20:39:02] Created by Weekly Report Generator"
+      ],
+      "created_at": "2026-07-26T20:39:02.226242+00:00",
+      "updated_at": "2026-07-26T20:39:02.226246+00:00",
+      "source": "weekly_report"
+    },
+    {
+      "id": "MISSION-750",
+      "title": "Morning Intel Brief",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "- Airline Route Monitoring Sweep (Draft - Technical Issue) Commander email directive: Morning Intel Brief - Airline Route Monitoring Sweep (Draft - Technical Issue). Please view HTML.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-28T13:10:30.399830+00:00",
+      "updated_at": "2026-07-28T13:10:30.399840+00:00"
+    },
+    {
+      "id": "MISSION-751",
+      "title": "\ud83c\udf05 MORNING CONSOLIDATED",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "BRIEF \u2014 2026-07-28 Commander email directive: \ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-28. DREAMS2MEMORIES TRAVEL, LLC \ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 TUESDAY, JULY 28, 2026 Good morning, Commander. Your live briefing follows",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-28T13:20:30.097015+00:00",
+      "updated_at": "2026-07-28T13:20:30.097034+00:00"
+    },
+    {
+      "id": "MISSION-752",
+      "title": "Re: Re: \ud83d\udea2",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "Silver Spirit Daily Intel \u2014 June 22, 2026 Commander email directive: Re: Re: \ud83d\udea2 Silver Spirit Daily Intel \u2014 June 22, 2026. Wing researched this but could not produce a confident answer. Check the mission board for follow-up. \u2014 Hale \u00b7 2026-07-28 15:10 UTC",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-28T15:12:38.728974+00:00",
+      "updated_at": "2026-07-28T15:12:38.728985+00:00"
+    },
+    {
+      "id": "MISSION-753",
+      "title": "Re: \ud83d\udea2 Silver",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "Spirit Daily Intel \u2014 June 22, 2026 Commander email directive: Re: \ud83d\udea2 Silver Spirit Daily Intel \u2014 June 22, 2026. COS. Do a Silver Nova Daily Intel and update both to current day. Daily. JL On Tue, Jul 28, 2026, 09:09 John Loucks3 <johnloucks3@gmail.com> wrote: > COS, I cannot read this!!! > > On Tue, Ju",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-28T15:30:40.212769+00:00",
+      "updated_at": "2026-07-28T15:30:40.212781+00:00"
     }
   ],
-  "last_updated": "2026-07-16T18:30:52.480097+00:00",
+  "last_updated": "2026-07-27T05:28:01.047954+00:00",
   "suspense_watch": []
 }

@@ -81,7 +81,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 | — | **At Six Stockholm** — Regent included hotel night | Aug 28-29 | Included | — |
 | #1095091 / AE693884 | Royal Transfer to Haymarket — **CANCEL UPON COMMANDER APPROVAL** | Aug 27 | ⚠️ CANCEL PENDING | ~$176 |
 | Bedsonline 131-2656351 | Haymarket By Scandic group booking — **CANCEL UPON COMMANDER APPROVAL** | Aug 27-28 | ⚠️ CANCEL PENDING | — |
-| NEW — D2M to book | ARN → At Six Stockholm transfer | Aug 27 | ⚠️ NOT YET BOOKED | TBD |
+| ✅ PE184711812 | ARN → At Six Stockholm transfer | Aug 27 | ✅ **CONFIRMED** — Hold w/o Payment, full payment due Aug 16 2026 [source: Project Expedition confirmation email, d2mconcierge, 2026-07-12; Al Ely replied "Looks good" 2026-07-14] | TBD — Harlan to verify |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -131,7 +131,7 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | PNR: UXVXZP |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **✅ ASSIGNED** | DFW→HEL: 2H/2D; HEL→ARN: assigned per Commander 2026-03-26 (seat #s TBD) |
-| 8 | Transfers | Airport → hotel transfer | YES | **⚠️ REBOOKING** | Old Royal Transfer (#1095091/AE693884) to Haymarket — cancel pending. New ARN→At Six: D2M to arrange. |
+| 8 | Transfers | Airport → hotel transfer | YES | **✅ CONFIRMED** | New ARN→At Six PE184711812 confirmed, Hold w/o Payment due Aug 16 2026. Old Royal Transfer (#1095091/AE693884) to Haymarket — cancel pending. |
 | 9 | Hotel | Pre-cruise hotel (1 night) | YES | **CONFIRMED** | At Six Stockholm, Aug 27-28 — own/deferred payment reservation |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Regent arrangement) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
@@ -210,7 +210,7 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 
 - [ ] **Schengen entry verification** — Confirm Al & Amy qualify for 90-day visa-free Schengen entry (USA passport). No visa required Sweden/Norway/Denmark. (Owner: Navarro)
 - [ ] **Kristiansand excursion clarification** — Sep 5: "None selected" — confirm if free time preference or oversight. Briefing needed if booking. (Owner: Reyes)
-- [ ] **ARN → At Six transfer** — NEW BOOKING needed. D2M to arrange. (Replaces cancelled Haymarket transfer.)
+- [x] **ARN → At Six transfer** — **DONE**, PE184711812 confirmed 2026-07-12. Al Ely replied "Looks good" 2026-07-14. Hold w/o Payment, full payment due Aug 16 2026. (Replaces cancelled Haymarket transfer.)
 - [ ] **Cancel Royal Transfer (#1095091/AE693884)** — ARN→Haymarket. Pending Commander approval.
 - [ ] **Cancel Haymarket group booking (Bedsonline 131-2656351)** — Aug 27-28. Pending Commander approval.
 - [ ] **Guest profile forms** — not yet received from Al & Amy. Request via Kyle's green-light channel.
@@ -253,3 +253,5 @@ All included (Regent Choice — $0.00). Both Al & Amy confirmed on all excursion
 
 1. At Six both nights, eliminate insurance
 2. deferred payment plan confirmed
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

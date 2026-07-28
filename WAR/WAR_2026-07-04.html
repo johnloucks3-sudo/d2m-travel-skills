@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jul 04–Jul 10, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jul 04–Jul 10, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-10 21:00 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>164</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$18,831</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>48</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-07-04 → 2026-07-10 · 164 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-10</strong> — fix: CLIENT WIRE next-TP label uses staged draft override when it repurposes a TP slot <span style="color:#aaa;font-size:0.78rem;">(eaa06d188)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — docs: log Track A/C parallel-build reconciliation in standup <span style="color:#aaa;font-size:0.78rem;">(cf800e7e9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: Track A v1.1 (FPD alerts, wing health, mission kanban, staff concerns, TP draft) + Track C full 3-couple render <span style="color:#aaa;font-size:0.78rem;">(8551c9d3e)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: Track C dossier visual card renderer — Furlow payment-roadmap proof-of-structure <span style="color:#aaa;font-size:0.78rem;">(bc648035a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: Track A morning brief dashboard — brand tokens + stat tiles + renderer wired into morning_brief_engine.py <span style="color:#aaa;font-size:0.78rem;">(83ec1411f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: fare-watch pipelines, Telegram flood fixes, voice/SMS capability, Dani fix <span style="color:#aaa;font-size:0.78rem;">(b9d24b931)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: fare-watch pipelines, Telegram flood fixes, voice/SMS capability, Dani fix <span style="color:#aaa;font-size:0.78rem;">(607926778)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-10</strong> — fix: correct Spencer Grand Tour departure date + Icelandair constraint <span style="color:#aaa;font-size:0.78rem;">(abf5591fa)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: daily flight-routing recheck + artifact refresh for Loucks Silver Nova <span style="color:#aaa;font-size:0.78rem;">(4b3acb669)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: wire Hale Orchestrator into Centrav keep-alive + fix missing PYTHONPATH <span style="color:#aaa;font-size:0.78rem;">(a16983e3f)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-10</strong> — fix: _is_active() always reported False for Type=oneshot units <span style="color:#aaa;font-size:0.78rem;">(a38fc6a48)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: Google Flights MCP tool + fix for cheapest-only blind spot <span style="color:#aaa;font-size:0.78rem;">(21e6db673)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — security: rotate SearXNG key, redact CC-fleet API keys in docs, suppress historical fingerprints <span style="color:#aaa;font-size:0.78rem;">(dc1081439)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — security: untrack validations/lyons_regent/ scrape artifacts (23 files) <span style="color:#aaa;font-size:0.78rem;">(b561cd324)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-10</strong> — fix: ai-auth-probe probe_claude_oauth HEALTHY unreachable bug <span style="color:#aaa;font-size:0.78rem;">(c0fe32d11)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — security: untrack validations/lyons_regent/ scrape artifacts; add gitleaks allowlist <span style="color:#aaa;font-size:0.78rem;">(8977b2c62)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-10</strong> — fix: LANE1_OWNED_UNITS exclusion was silently non-functional in production <span style="color:#aaa;font-size:0.78rem;">(461e9557d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-10</strong> — feat: Icelandair authenticated-session persistence (warm-ping keepalive) <span style="color:#aaa;font-size:0.78rem;">(18f0765e4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: close Lane-1 cross-check, activate long-tail remediation fleet-wide <span style="color:#aaa;font-size:0.78rem;">(654234366)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: adopt systemd OnFailure= native pattern for long-tail remediation <span style="color:#aaa;font-size:0.78rem;">(b00ec7e8a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: reverse-engineer self-healing architecture, wire in Hale Orchestrator <span style="color:#aaa;font-size:0.78rem;">(63ff15365)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — docs: fold Task 9 (cross-engine backstop) section into the plan doc — was edited directly on master by mistake, now properly part of branch history <span style="color:#aaa;font-size:0.78rem;">(e91dedacc)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — cross-engine universal backstop (systemd timer, staged for post-merge install) <span style="color:#aaa;font-size:0.78rem;">(bef40433b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — test: Hale orchestrator — end-to-end integration coverage <span style="color:#aaa;font-size:0.78rem;">(4a0f0fdfb)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-09</strong> — fix: add exit-code test for Hale orchestrator backstop hook <span style="color:#aaa;font-size:0.78rem;">(74c290f60)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-09</strong> — fix: Hale orchestrator backstop test — resolve hook path via git root, not hardcoded main-repo path <span style="color:#aaa;font-size:0.78rem;">(c6e240b6c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — chore: untrack .claude/hooks/hale_orchestrator_backstop.py — .claude/ is gitignored project-wide, matches convention for all other hook files <span style="color:#aaa;font-size:0.78rem;">(79c87aa6b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — Stop-hook backstop for universal Plan coverage <span style="color:#aaa;font-size:0.78rem;">(1e676b7b6)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — close_plan <span style="color:#aaa;font-size:0.78rem;">(e3ce6adb7)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — test: Hale orchestrator — assess_plan trivial+missed and exception-path coverage <span style="color:#aaa;font-size:0.78rem;">(ef1e174f4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — assess_plan verdict/quality-tier logic <span style="color:#aaa;font-size:0.78rem;">(463d24504)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-09</strong> — fix: Hale orchestrator — narrow open_plan error handling to I/O only <span style="color:#aaa;font-size:0.78rem;">(9fb850efe)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — open_plan with auto-derived criteria <span style="color:#aaa;font-size:0.78rem;">(26ab324f8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — PlanStore locked append + orphan queries <span style="color:#aaa;font-size:0.78rem;">(ea6bbe297)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: Hale orchestrator — core Plan/AssessResult dataclasses <span style="color:#aaa;font-size:0.78rem;">(5b21649d9)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — docs: Hale Orchestrator implementation plan (8 tasks, TDD) <span style="color:#aaa;font-size:0.78rem;">(1daf97a8a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — docs: Hale Orchestrator design spec — unified plan/compliance/eval ledger <span style="color:#aaa;font-size:0.78rem;">(76f081610)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — feat: fleet-wide stdlib crash reporter (core/monitoring/crash_reporter.py) <span style="color:#aaa;font-size:0.78rem;">(d004ec59b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — infra: add py-spy live process diagnostics wrapper (diagnose_hung_process.py) <span style="color:#aaa;font-size:0.78rem;">(282cfada8)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-09</strong> — docs: Pulse phone C2 operator's manual <span style="color:#aaa;font-size:0.78rem;">(d06df5b69)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$18,830.93</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">48 of 1152</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

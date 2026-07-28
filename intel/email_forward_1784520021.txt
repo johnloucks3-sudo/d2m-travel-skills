@@ -1,0 +1,51 @@
+Subject: Tonkotsu Analysis + Integration Assessment — Parallel Claude Code Agents
+From: johnloucks3@gmail.com
+Received: 2026-07-20T04:00:21.155452+00:00
+
+body { background:#f7f3ea; color:#0000ff; font-family:Georgia, 'Times New Roman', serif; padding:32px; max-width:760px; margin:0 auto; }
+  h1 { font-size:24px; border-bottom:2px solid #0000ff; padding-bottom:8px; }
+  h2 { font-size:18px; margin-top:28px; }
+  p, li { font-size:15px; line-height:1.55; }
+  code { font-family:'Menlo','Consolas',monospace; font-size:13px; background:#eae5d6; color:#1a1a1a; padding:1px 5px; border-radius:3px; }
+  .meta { font-size:13px; color:#3333aa; }
+  .caveat { background:#eae5d6; border-left:3px solid #0000ff; padding:10px 14px; }
+  .footer { margin-top:32px; font-size:13px; color:#3333aa; border-top:1px solid #c9c2ab; padding-top:12px; }
+
+Tonkotsu — Analysis & Integration Assessment
+
+Source: r/ClaudeCode, u/Fresh_Profile544, "I built an app so running parallel Claude Codes doesn't fry your brain" · Analyzed 2026-07-19 by Hale
+
+Summary
+
+Tonkotsu (tonkotsu.ai) is a document-interface app for running multiple parallel Claude Code
+sessions without terminal-hopping burnout. Framing: unmanaged parallel agents mirror a first-time
+engineering manager micromanaging — no structure for when work escalates back. Fix: a rigid
+plan → code → verify workflow concentrating human involvement into two checkpoints — approve
+the plan before coding, review quality after. Bonus: auto-resumes on hitting Anthropic usage
+limits. Free during early access, Mac and Windows only — no Linux support (confirmed in
+comments).
+
+Notable pushback (u/Shep_Alderson): if it drives the CLI with skip-permissions (likely, since a
+GUI can't surface interactive prompts), it needs container sandboxing or it's one bad session from
+damaging a user's machine — unaddressed by the founder. Also: closed source + metered API access +
+no locked-in pricing is a real trust gap. Founder confirmed pricing is still undetermined.
+
+Relevance to Thunderbird
+
+Hard blocker: no Linux support. YOGA runs Linux. Not installable as-is, independent of
+everything else below.
+
+Trust/vendor-risk profile matches Hermai last week: closed source, early access, pricing TBD,
+and an unaddressed sandboxing question. Thunderbird handles client PII — even with Linux support,
+this wouldn't be a same-day production install without that answered.
+
+The core idea isn't new here — it's already built, just not in GUI form. Tonkotsu's real
+insight — concentrate attention into plan-approval and post-completion checkpoints instead of
+interrupt-driven monitoring — is structurally what the USAF Staff Summary Sheet model
+already does: OPR proposes, OCR chop chain coordinates, the Commander's action block is one
+concentrated decision, CHIEF SILVER's mandatory front+back gate is the concentrated quality
+checkpoint before close-out. Same shape, built for three Hale seats instead of one operator's
+coding sessions, running as our own infra instead of a third-party GUI. The "auto-resume on usage
+limits" idea is also already covered narrowly via claude agents --bg + /resume.
+
+What's actually worth taking from thi

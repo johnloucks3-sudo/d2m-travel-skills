@@ -414,3 +414,5 @@ Silversea explicitly marks these *Suitable for limited mobility* — and they ha
 - **Santorini (May 23, tender)** — **Exclusive Santorini, Oia & Winery $139** (exact fit) or Oia & Fira Highlights w/ boat transfer $129. SEG.
 
 **Still open to decide:** Zadar (SEG $82), Katakolon (SEG $103), Paros (TBL private/quote), Milos (TBL private/quote), Bodrum (SEG $79).
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

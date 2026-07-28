@@ -135,3 +135,7 @@ The EU's Entry/Exit System launched in October 2025. At Schengen entry ports, US
 
 *A2 Dembe — MISSION-085 Schengen Entry Verification*
 *Verified: 2026-07-02*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

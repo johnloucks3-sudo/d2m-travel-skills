@@ -279,9 +279,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-26 22:01 MT -->
+<!-- Last sync: 2026-07-28 15:55 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-26 22:01 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-28 15:55 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0

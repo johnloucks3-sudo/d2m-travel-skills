@@ -41,26 +41,21 @@ All three couples directed to At Six Stockholm (Brunkebergstorg 6) — moved fro
 
 ## 2. ARN → At Six Stockholm Transfer (Aug 27)
 
-**STATUS: NOT BOOKED FOR ANY COUPLE. Three old Haymarket transfers must be cancelled.**
+**STATUS: DECISION MADE (3 SEPARATE SEDANS) — D2M TO BOOK. Three old Haymarket transfers must be cancelled.**
+
+*   **Decision**: Approved by Commander on July 12, 2026: **Option 3 — Three separate private sedans** (each holding up to 2 passengers and up to 4 bags) to maintain luxury standard and ensure enough luggage capacity for checked bags + carry-ons.
+*   **Action Required**: D2M to book 3 separate private sedans (via Welcome Pickups or Kiwitaxi) and cancel old Haymarket transfers.
 
 | Couple | Old Transfer (Cancel) | New Transfer | Status |
 |---|---|---|---|
-| **Furlow** | Royal Transfer 1095074 / DVF6U6 — ARN→Haymarket ($176 refund) | ARN → At Six | ❌ Not booked |
-| **Ely-Darrow** | Royal Transfer #1095091 / AE693884 — ARN→Haymarket (~$176) | ARN → At Six | ❌ Not booked |
-| **Nichols** | Royal Transfer #1095089 / LN693883 — ARN→Haymarket | ARN → At Six | ❌ Not booked (Heidi confirmed: "We will need private transportation to the hotel from the airport.") |
+| **Furlow** | ~~Royal Transfer 1095074 / DVF6U6 — ARN→Haymarket ($176 refund)~~ ✅ **CANCELLED** | ARN → At Six (Private Sedan) | ⏳ Awaiting Booking |
+| **Ely-Darrow** | ~~Royal Transfer #1095091 / AE693884 — ARN→Haymarket (~$176)~~ ✅ **CANCELLED** | ARN → At Six (Private Sedan) | ⏳ Awaiting Booking |
+| **Nichols** | ~~Royal Transfer #1095089 / LN693883 — ARN→Haymarket~~ ✅ **CANCELLED** | ARN → At Six (Private Sedan) | ⏳ Awaiting Booking (Heidi confirmed: "We will need private transportation to the hotel from the airport.") |
 
-### Transfer Options — ARN → At Six Stockholm (~40 km, 40-60 min)
-
-| Option | Price (per vehicle) | Pax | Notes |
-|---|---|---|---|
-| **Arlanda Express + taxi** | ~SEK 320 ($30)/pp train + ~$20 taxi | 2 | Train to Stockholm Central, then cab to At Six (~5 min). Budget option. Not recommended for couples with luggage. |
-| **Kiwitaxi — Sedan (Comfort 4+)** | EUR 55-80 (~$60-87) | 2-3 | Private car, meet & greet, luggage included. 3 separate vehicles for luxury standard. |
-| **Kiwitaxi — Minivan** | EUR 80-115 (~$87-125) | 4-6 | Could combine couples if arrivals are coordinated (all arrive same flight AY 811). |
-| **Welcome Pickups (alternative)** | Similar pricing range | 2-4 | Competitor to Kiwitaxi — same private car model. |
-
-**Recommendation:** Since all three couples arrive on the same flight (AY 811 HEL→ARN Aug 27), one shared minivan (EUR 80-115) or two sedans covers all 6 guests. Confirm all three couples want to ride together — likely yes given the group dynamic.
-
-**Commander Decision Required:** Approve transfer option + authorize D2M to book. Dembe intel (2026-06-11) noted "3 separate private vehicles recommended for luxury standard / Commander decision required before booking."
+### Transfer Details — ARN → At Six Stockholm (~40 km, 40-60 min)
+*   **Pickup Time**: August 27, 2026 at **1:45 PM** (after flight AY 811 lands at 1:15 PM)
+*   **Provider**: Welcome Pickups or Kiwitaxi (Comfort Sedan category)
+*   **Estimated Cost**: ~$65–$85 USD per vehicle (Total Group: ~$210–$255 USD)
 
 ---
 
@@ -174,3 +169,7 @@ Priority-ordered by time sensitivity and impact.
 *Compiled: 2026-07-02 | Dani, D2M Luxury Travel Concierge | MISSION-087*
 *Source dossiers: Furlow_Regent_3071222.md · Ely_Darrow_Regent_3096289.md · Nichols_Regent_3078056.md*
 *Port data: dossiers/port_data/FurlowElyNichols_Grandeur_2026-08-29_ports.md*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

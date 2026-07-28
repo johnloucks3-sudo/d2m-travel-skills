@@ -863,6 +863,95 @@ def _build_overnight_section() -> str:
 
 
 # ---------------------------------------------------------------------------
+# Overnight scans consolidation (SO 2026-07-16 — "no more report flood")
+# All daily SCAN timers now fire after 2200 MT and drop artifacts overnight.
+# This section folds those artifacts into the SINGLE 05:45 AM report so the
+# Commander sees one consolidated brief instead of 7 separate deliverables.
+# Returns a self-contained HTML fragment (also embedded in hale_brief.md).
+# Fully defensive: any failure yields an empty/partial section, never raises.
+# ---------------------------------------------------------------------------
+
+def _build_overnight_scans_section() -> str:
+    blocks: list[str] = []
+
+    # --- Tech scan / collection deck (airborne scanner → scanner_holding.jsonl) ---
+    try:
+        holding = THUNDERBIRD / "state" / "scanner_holding.jsonl"
+        if holding.exists():
+            rows = []
+            for line in holding.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rows.append(json.loads(line))
+                except Exception:
+                    pass
+            if rows:
+                sectors: dict[str, int] = {}
+                for r in rows:
+                    sectors[r.get("sector", "?")] = sectors.get(r.get("sector", "?"), 0) + 1
+                sector_str = ", ".join(f"{k} ({v})" for k, v in sorted(sectors.items(), key=lambda x: -x[1])[:6])
+                latest = rows[-5:]
+                items = "".join(
+                    f"<li style='margin:2px 0'>[{r.get('sector','?')}] {str(r.get('text',''))[:140]}</li>"
+                    for r in latest
+                )
+                blocks.append(
+                    "<p style='color:#07076b;margin:8px 0 2px'><b>🛰 Tech Scan — Collection Deck</b></p>"
+                    f"<p style='margin:0 0 4px;font-size:13px'>{len(rows)} finds in holding · {sector_str}</p>"
+                    f"<ul style='margin:0 0 6px;padding-left:18px;font-size:12px;color:#333'>{items}</ul>"
+                    "<p style='margin:0;font-size:11px;color:#888'>Full timestamped adjudication emails overnight (Hale kill-pass, standing order).</p>"
+                )
+    except Exception as e:
+        logger.warning(f"overnight_scans tech-scan block failed (non-fatal): {e}")
+
+    # --- Airfare watch (daily_airfare_scan → output/airfare_dashboard.html) ---
+    try:
+        dash = THUNDERBIRD / "output" / "airfare_dashboard.html"
+        if dash.exists():
+            mtime = datetime.fromtimestamp(dash.stat().st_mtime).strftime("%-d %b %H:%M MT")
+            blocks.append(
+                "<p style='color:#07076b;margin:8px 0 2px'><b>✈ Airfare Watch</b></p>"
+                f"<p style='margin:0 0 6px;font-size:13px'>Overnight scan complete (updated {mtime}) — "
+                "27 active watches (Centrav/Kayak/Google Flights). "
+                "<a href='https://itinerary.d2mluxury.quest/airfare_dashboard.html' style='color:#0000ff'>Open dashboard</a></p>"
+            )
+    except Exception as e:
+        logger.warning(f"overnight_scans airfare block failed (non-fatal): {e}")
+
+    # --- Incubator overnight builds (incubator_build_queue.json, if present) ---
+    try:
+        bq = THUNDERBIRD / "core" / "intel" / "incubator_build_queue.json"
+        if bq.exists():
+            queue = json.loads(bq.read_text(encoding="utf-8"))
+            y = (date.today() - timedelta(days=1)).isoformat()[:10]
+            last = [b for b in queue if str(b.get("date", "")).startswith(y)]
+            if last:
+                done = sum(1 for b in last if b.get("status") == "success")
+                fail = sum(1 for b in last if b.get("status") == "failed")
+                run = sum(1 for b in last if b.get("status") == "running")
+                blocks.append(
+                    "<p style='color:#07076b;margin:8px 0 2px'><b>🧪 Incubator — Overnight Builds</b></p>"
+                    f"<p style='margin:0 0 6px;font-size:13px'>{len(last)} builds · ✅ {done} · ❌ {fail} · ⏳ {run}</p>"
+                )
+    except Exception as e:
+        logger.warning(f"overnight_scans incubator block failed (non-fatal): {e}")
+
+    if not blocks:
+        return ""
+
+    return (
+        "<div style='font-family:Georgia,serif;background:#f7f3ea;border-left:3px solid #07076b;"
+        "padding:10px 14px;margin:12px 0'>"
+        "<p style='color:#07076b;margin:0 0 4px;font-size:15px'><b>🌙 Overnight Scans</b> "
+        "<span style='font-size:11px;color:#888'>— gathered after 2200 MT, consolidated here (SO 2026-07-16)</span></p>"
+        + "".join(blocks)
+        + "</div>"
+    )
+
+
+# ---------------------------------------------------------------------------
 # ELON proposals section
 # ---------------------------------------------------------------------------
 
@@ -1089,6 +1178,7 @@ def main() -> None:
     quota_section = _build_quota_review_section()
     predictor_section = _build_predicted_next_moves_section()
     recurring_section = _build_recurring_corrections_section()
+    overnight_scans_section = _build_overnight_scans_section()
 
     concerns = load_staff_concerns()
     tp_draft = load_tp_draft()
@@ -1096,6 +1186,8 @@ def main() -> None:
 
     # Write hale_brief.md — compressed header first, overnight ops, ELON proposals, full brief appended
     combined_md = compressed_brief + "\n---\n\n" + overnight_section
+    if overnight_scans_section:
+        combined_md += "\n---\n\n" + overnight_scans_section
     if fare_watch_section:
         combined_md += "\n---\n\n" + fare_watch_section
     if elon_section:
@@ -1120,8 +1212,24 @@ def main() -> None:
     if not args.local:
         # Email sends the compressed brief + full HTML — compressed as plain text header
         compressed_html = f"<pre style='font-family:monospace;font-size:12px;background:#f7f3ea;padding:12px'>{compressed_brief}</pre><hr>"
-        full_html_out = compressed_html + html_brief
+        full_html_out = compressed_html + overnight_scans_section + html_brief
         subject = f"🦅 Thunderbird Brief — {today.strftime('%-d %b %Y')} — {len(clients)} clients"
+
+        # Staff Summary Sheet coversheet (INFO/read-ahead — no gate, no mission
+        # board object; SO-2026-07-19-SSS_ADOPTION + AF Form 1768 format only).
+        try:
+            from core.staffing.sss_render import render_info_html
+            full_html_out = render_info_html(
+                subject=subject, opr="CC (Hale)", staffed_by=["Sterling (A7)", "Silver"],
+                purpose="Daily Commander situational awareness — client wire, financial "
+                        "pulse, staff concerns, tech vanguard, overnight ops.",
+                discussion_html=full_html_out,
+                recommendation="Review flagged items below; no action required unless noted.",
+                tag="AM Brief",
+            )
+        except Exception as e:
+            logger.error(f"sss_render wrap failed (non-fatal, sending unwrapped brief): {e}")
+
         ok = send_brief_email(subject, full_html_out)
         if not args.timer:
             print(f"  {'✅' if ok else '❌'} Brief emailed to johnloucks3")

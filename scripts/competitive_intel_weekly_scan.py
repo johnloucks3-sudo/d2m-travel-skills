@@ -293,10 +293,22 @@ def build_summary(aggregate: dict) -> str:
 def send_email_to_dembe_voice(summary: str, wk: str):
     try:
         from core.email.thunderbird_gmail import gmail_send_from_wing
+        subject = f"A2 Dembe — Competitive Intelligence Weekly Scan {wk}"
+        wrapped_summary = summary
+        try:
+            from core.staffing.sss_render import render_info_text
+            wrapped_summary = render_info_text(
+                subject=subject, opr="Dembe (A2)", staffed_by=["Dembe (A2)"],
+                purpose="Weekly competitive intelligence roll-up.",
+                discussion=summary,
+                tag="Competitive Surveillance — Weekly",
+            )
+        except Exception as e:
+            log.warning(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
         gmail_send_from_wing(
             to="johnloucks3@gmail.com",
-            subject=f"A2 Dembe — Competitive Intelligence Weekly Scan {wk}",
-            body=summary,
+            subject=subject,
+            body=wrapped_summary,
             persona_id="A2",
         )
         log.info("Summary email sent to johnloucks3 (persona A2)")

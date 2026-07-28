@@ -123,4 +123,48 @@ Read-only comparison of this tracker against the 3 individual dossiers (`dossier
 
 ---
 
+---
+
+## 🖼️ ITINERARY STATUS — COMPLETE (2026-07-26)
+
+**Files:** `cruises_web/itinerary_grandeur_[furlow|elydarrow|nichols].html` — 15.8MB each
+**Standard:** `ops/SO-ItineraryImages_v1.md` (v2.3) — 2 images single-day, 4 images overnight, ship interiors sea days
+**Silver Sterling verdict (2026-07-26 final):** ✅ CLEARED — 25 unique images, zero duplicates, all SO-compliant
+**Image QC owner: CMSgt Steve "Silver" Sterling** (NOT Gauge Sterling — two different CMSgts, two different lanes)
+
+| Port | Type | Image A | Image B | Image C | Image D |
+|---|---|---|---|---|---|
+| Stockholm pre-cruise | Overnight (3 nights) | Stadshuset golden sunset | Södermalm colorful hilltop | Gamla Stan Stortorget summer | Riddarfjärden tall ships blue dusk |
+| Embarkation / Baltic Sea | Sea day | Grandeur ship exterior (hull name) | Observation Lounge gold/marble | Chartreuse botanical ceiling | Prime 7 steakhouse |
+| Warnemünde Day 1 → Berlin | Overnight | Brandenburg Gate blue hour twilight | Berlin skyline Fernsehturm visible | — | — |
+| Warnemünde Day 2 | Overnight (pair 2) | Teepott pavilion + lighthouse + Strandkörbe | Schwerin Castle golden hour on lake | — | — |
+| Copenhagen | Overnight (2 days) | Nyhavn panoramic blue hour | Tivoli entrance illuminated at night | Frederiksborg Castle (Two Kingdoms tie) | Nyhavn daytime wooden boats |
+| North Sea | Sea day | Compass Rose cathedral arches | — | — | — |
+| Kristiansand | Single day | Posebyen white wooden houses | Golden hour coastal harbor / Norwegian flag | — | — |
+| Oslo | Overnight (2 days) | Oslofjord sailboats + lighthouse (sail-in) | Oslofjord island summer cottages seen from water | Oslo Opera House warm afternoon | Vigeland Monolith panoramic blue sky |
+
+**⚡ WING FIRST — 2026-07-26:** OC (OpenCode Claude Sonnet) invoked CC (Claude Code Sonnet) via `/ask` headless dispatch to produce all per-couple romance narratives. First cross-engine production build in Wing history.
+
+**Romance narrative status:** ✅ COMPLETE — unique per day, excursion-tied, per-couple differentiated. Staff chain: Dembe → Luna → Dani. No repeated copy across overnight port days.
+
+**Per-couple differentiation:** ✅ Furlow ≠ Ely-Darrow ≠ Nichols — excursion times, narratives, birthdays, At Six confirmation all differentiated.
+
+**Transmittal emails:** ✅ Staged in johnloucks3 drafts (THUNDERBIRD-Commander-Review) — ready for WF-17.
+
+**Image sourcing failures logged (4 consecutive, session record 2026-07-26):** embedded without viewing, 2+2 doctrine unknown, single-folder search, wrong Sterling invoked. All four corrected in SO v2.3.
+
+**AAR on file:** `OpsCenter/AAR_GRANDEUR_SCANDINAVIA_ITINERARY_20260726.md`
+**Chronicle Chapter 2 on file:** `docs/chronicles/chronicle_2026_0726_scandinavian_itinerary_production.md`
+
+**⚠️ OPEN ITEMS before WF-17:**
+1. Furlow At Six Night 1 conf # — Commander certified booked; not yet in dossier
+2. Ely-Darrow At Six Night 1 conf # — Al & Amy's own reservation; they have it
+3. Ely-Darrow / Nichols Kristiansand excursion — OPEN (no booking confirmed) — E-30 Jul 30
+
+---
+
 *Wired 2026-06-09 by Opus. Source: final sent validations (Furlow/Ely/Nichols v3-v4, Jun 4) + Commander confirmation. This file supersedes hotel/transfer/dining/insurance fields in the individual dossiers until those are reconciled.*
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

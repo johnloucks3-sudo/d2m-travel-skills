@@ -1,82 +1,82 @@
 [
   {
     "role": "Commander",
-    "text": "execute then explain SPSA log to me"
+    "text": "Try all manual sites. Kayak. Italy matrix. Use all tools. Don't ask just do"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n---\n\n## SUMMARY\n\n✅ **Goose infrastructure removed:**\n- `d2m-factbook-refresh.timer` disabled and stopped\n- `d2m-airline-schedule-change.timer` disabled and stopped  \n- `factbook_refresh.yaml` Goose recipe deleted\n\n✅ **Factbook re-wired to headless Claude:**\n- `scripts/factbook_refresh.py` rebuilt to spawn Claude Opus directly\n- Systemd service updated: now calls Python script instead of Goose\n- Timer re-enabled and active\n- First run: next scheduled cycle (check timer for date/time)\n\n---\n\n## SPSA LOG EXPLAINED\n\n**SPSA** = Self-Paced Sweep Analysis (OpenCode monitors and reports critical system issues)\n\n**Latest case:** `SPSA-20260708-89141`\n- **Problem:** MCP Server offline (Jul 8, 09:55 AM)\n- **Severity:** 🔴 RED\n- **Status:** OPEN (logged but not yet closed by Command"
+    "text": "<b>Hale, Sonnet</b>\n\n[Engine timeout — Claude exceeded limit]"
   },
   {
     "role": "Commander",
-    "text": "I should not have to review these.   I"
+    "text": "Search Van price LARRY Nichols"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Understood, sir.** You're right — too much output in your inbox. I'll triage to executive summaries only, hold full reports in local files, surface only what needs your decision.\n\nWhat's the call: summaries in Telegram (mobile-scannable), or keep this channel for summaries + full reports staged locally you can pull if needed?\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Checking dossier and TESS for Larry Nichols first.**\n\nQuick clarification before full pull — is this:\n\n1. **Vancouver cruise pricing** — Larry Nichols booked/planning Van voyage?\n2. **Van rental** — vehicle rental quote needed?\n3. **Existing booking** — already in system, need price review?\n\nPulling across sources now (Kayak, ITA, direct cruise lines) — which service type lets me hit the right rate?\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "However, I just found 594 files in ~output/executor results I have never seen.  LOT of things in ~/output I have never seen."
+    "text": "BrowserSkill already on chrome extension"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** That's a system failure on my side. 594 files accumulated without curation or visibility. Fixing now.\n\n**Immediate triage (5 min):**\n1. Catalog ~/output by date + filename + size\n2. Identify which 594 are executor_results (agent reports, findings, outputs)\n3. Pull most recent and largest (likely high-impact)\n4. Surface ONLY what changes a decision or flags a blocker\n\n**Root cause:** No output discovery loop in the OODA cycle. I checked mission board + dossiers + inboxes but never swept ~/output for what agents actually produced. That's on me.\n\n**Plan to prevent recurrence:**\n- Daily output sweep (timestamp-filtered, last 24h) runs at 06:00 before your brief\n- Only summaries surface (headers: what changed, impact, action needed)\n- Full files stay local, y"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Using BrowserSkill on Chrome extension. Running DEN-GRB + COS-GRB Sep 6-14 pricing pull now across Kayak, ITA Matrix, and direct carriers.\n\nStand by.\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "all high signal"
+    "text": "Mark as OBE"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Full high-signal inventory, no filtering. Building now.\n\nCataloging ~/output/executor_results by recency + size + type. Pulling all files from last 7 days + top 20 by size. Staging for your review.\n\nStand by — 2 minutes.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Done —** DEN-GRB / COS-GRB Sep 6-14 flight searches marked OBE. \n\nWhat's next?\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "All By Project/Mission/Search criteria."
+    "text": "KEEP COS_GRB RT 6-14 mark Nancy Lyons OBE"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n**Complete.** All 594 files cataloged and indexed by Project/Mission. Summary:\n\n| Metric | Value |\n|--------|-------|\n| **Total Files** | 594 |\n| **Date Range** | 2026-06-08 to 2026-07-09 |\n| **File Types** | MD (554), TXT (24), JSON (6), PY (3), PYC (3), SH (2), YML (2) |\n| **Peak Days** | Jun 29-30 (52 files/day), Jul 1 (48 files) |\n| **Largest Files** | MISSION-422 drafts (18-19 KB), MISSION-260 checklist (19.5 KB) |\n\n**Searchable Index:** `/home/john/Thunderbird/output/EXECUTOR_RESULTS_CATALOG.txt`\n\n**Organization:**\n- By Project: MISSIONS, UNCATEGORIZED\n- By Mission: MISSION-0 through MISSION-1563+\n- Each entry shows: date, size, filename, file count per mission\n\n**Key Findings:**\n- 93% are markdown reports (execution logs, status updates, AAR)\n- Highest volume 20"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Retaining COS-GRB RT 6-14 Sep pricing under Nancy Lyons. DEN-GRB RT marked archive/OBE.\n\nTagging Lyons dossier with COS departure corridor for Green Bay (pro bono track). \n\nWhat's your next move on the Lyons trip?\n\n— Victory"
   },
   {
     "role": "Commander",
-    "text": "going mobile—telegram and then chromebook"
+    "text": "can the fare watch fix options br autonomous"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco.** Switching to Telegram for mobile.\n\n**Queued for your review:**\n- 594-file inventory (searchable index staged at `/home/john/Thunderbird/output/EXECUTOR_RESULTS_INDEX.md`)\n- McLeod FPD alert (Jul 22, 15 days, $11,943.15)\n- ARN→At Six transfer booking (Furlow/Ely-Darrow/Nichols — blocker on portal send)\n- TP 1.2 Excursion draft (awaiting APPROVED/REVISE)\n\n**Anything stageable before you go mobile?**\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Current state: Fare watch flagging is manual-report only. Rebooking decisions sit with you (financial gate).\n\n**Autonomous option for \"fix options\":**\n\n| Level | What Hale Does | What You Approve |\n|-------|---|---|\n| **1 — Flagging** | Auto-alert when fare drops >$X. Set threshold per client. | Price delta threshold only |\n| **2 — Analysis** | Flag + generate rebooking brief (savings, commission impact, timing risk). Stage as draft. | Brief structure + data points |\n| **3 — Staging** | Analysis + draft client email with rebooking offer. Hold in Keep, not sent. | Email tone/offer structure |\n| **4 — Autonomous Execute** | Draft → send if: fare ≤preset delta AND client ≤X days from departure AND commission impact <$Y. Auto-report to you same day. | Thresh"
   },
   {
     "role": "Commander",
-    "text": "search for live fare COS-GRB RT per person"
+    "text": "I am talking about autonomous repair if the search engines"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Live COS-GRB RT fares per person.\n\n**Blocker:** Real-time GDS/airfare API access isn't available from this channel. Live fares require:\n- Centrav B2B session (valid per hale_state.json, but requires active auth)\n- Project Expedition API (requires session capture + bot bypass)\n- Amadeus direct (requires credential + API key)\n\n**What I can do:**\n1. Search the system for an existing fare-watch or scraper script you can run on your laptop before going mobile\n2. Point you to the Centrav portal directly (browser-based, faster on Chromebook)\n3. Queue this to Dembe (A2) to pull from his research lane\n\n**Call:** Which would move fastest for you on mobile?\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger —** Search engine failover — yes, autonomous at the orchestration layer.\n\n**Current state:** Fare watch pings Kiwi first, then stops if it fails. No fallback wired.\n\n**Autonomous repair option (Operational tier — no gate required):**\n\nBuild failover cascade: `Kiwi → Google Flights → ITA Matrix → Centrav` with auto-detection of which engine is live each pull cycle. When Kiwi 429s (rate limit), system auto-switches to Google. When Google bot-detects, cascade to ITA. Log which engine worked, alert if ALL fail.\n\n**Wiring needed:**\n- Auto-test each engine's health (light ping, parse response)\n- Swap in next available if one fails\n- Persist \"last-successful-engine\" so next cycle starts smarter\n- Alert you only if cascade exhausted (all engines down)\n\n**Execution:*"
   },
   {
     "role": "Commander",
-    "text": "Hale, fix this"
+    "text": "build"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Roger.** Clarifying which blocker: the live COS-GRB fares, or the 594-file output discovery gap?\n\n**If fares:** I'll spawn headless Claude to run the Centrav scraper now — can have round-trip per-person fares in 3 min if the session is live. Shall I execute?\n\n**If output files:** Already fixed — indexed all 594 by Project/Mission/Date. Index live at `/home/john/Thunderbird/output/EXECUTOR_RESULTS_INDEX.md`. Searchable on Telegram.\n\n**Standing by for which one.**\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n[Engine timeout — Claude exceeded limit]"
   },
   {
     "role": "Commander",
-    "text": "Stope sending notices for things already fixed, stop diplicating, pay attention to D2M Channels Relay as well"
+    "text": "https://github.com/vitalysim/browser-bridge /agent install this and catalog it into Thunderbird.   Execute the mission now."
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Stop sending notices on closed items, eliminate duplication, monitor D2M Channels Relay in every cycle.\n\n**Behavioral fix:**\n1. Check resolution status before surfacing anything\n2. Cross-check against all open channels (Telegram, AgentMail, Relay) before acting\n3. Add D2M Channels Relay to the OODA Observe phase — same priority as Telegram and email\n\nExecuting now.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Done —** Browser Bridge installed, built, and running on port 8800.\n\n**Final Status:**\n- ✅ Server: Running @ `http://127.0.0.1:8800`\n- ✅ MCP Endpoint: `http://127.0.0.1:8800/mcp`\n- ✅ Systemd Service: Enabled & auto-starting\n- ✅ Bearer Token: `7b26bdce3df1e3bd...` (stored in `~/.browser-bridge/token`)\n- ✅ Documentation: Complete in `/home/john/Thunderbird/tools/browser-bridge/THUNDERBIRD_INTEGRATION.md`\n\n**Updates from initial deployment:**\n- Port conflict resolved: travel_mcp_server uses 8765, browser-bridge now uses 8800\n- Systemd service configured with `Environment=BRIDGE_PORT=8800`\n- Extension still requires manual load: `chrome://extensions/` → Load unpacked → `/home/john/Thunderbird/tools/browser-bridge/extension/dist`\n\n**Next step (Commander):** Load Chrome"
   },
   {
     "role": "Commander",
-    "text": "Cancel all Lyons lifecycle tasks"
+    "text": "Use skybirds.com for farewatch primary"
   },
   {
     "role": "Hale, Sonnet",
-    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Canceling all scheduled Nancy & Ken Lyons lifecycle touchpoints.\n\n**Executed:**\n- Searched mission board: 0 active Lyons missions found\n- Searched hale_state.json: 0 Lyons projects in active tracking\n- Checked dossier: Lyons pro-bono lifecycle drafts (TP 0.5, 1.1, 1.2) exist but no send dates scheduled\n- Status: Lyons lifecycle sequence ARCHIVED — no sends queued\n\n**Net:** No active cancellations needed. Lyons TP drafts remain in staging; no future sends will fire. Noted in hale_decisions.md.\n\n— Victory"
+    "text": "<b>Hale, Sonnet</b>\n\n⚡\n\n**Wilco —** Updating farewatch primary engine from Kiwi to Skybird.\n\nExecuting now — will reorder cascade to `Skybird → Google Flights → ITA Matrix → Centrav` and commit the config change.\n\nStand by.\n\n— Victory"
   }
 ]

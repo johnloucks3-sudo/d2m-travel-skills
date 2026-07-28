@@ -1,7 +1,7 @@
 {
   "loucks_silvernova": {
     "label": "Loucks Silver Nova 2027 \u2014 Flight Routing Options",
-    "as_of": "2026-07-10T20:24:03.421901+00:00",
+    "as_of": "2026-07-28T11:45:00.491721+00:00",
     "upload": {
       "ok": true,
       "id": "1pv3Pa7zPTTLLv3qyjDNgWhK3wsp_yzWu",
@@ -10,7 +10,7 @@
     "latest_prices": [
       {
         "watch_id": "ath-ist-den",
-        "timestamp": "2026-07-10T18:38:16.221372+00:00",
+        "timestamp": "2026-07-14T10:34:02.412749+00:00",
         "price_pp": 5770.0,
         "total": 11540.0,
         "price_change_pct": 0.0,
@@ -19,7 +19,7 @@
       },
       {
         "watch_id": "ath-muc-den",
-        "timestamp": "2026-07-10T18:38:41.006308+00:00",
+        "timestamp": "2026-07-14T10:34:28.939006+00:00",
         "price_pp": 5770.0,
         "total": 11540.0,
         "price_change_pct": 0.0,
@@ -28,16 +28,16 @@
       },
       {
         "watch_id": "den-muc-vce",
-        "timestamp": "2026-07-10T18:37:50.902207+00:00",
-        "price_pp": 5024.0,
-        "total": 10048.0,
+        "timestamp": "2026-07-14T10:33:36.810906+00:00",
+        "price_pp": null,
+        "total": null,
         "price_change_pct": 0.0,
         "alert_triggered": null,
         "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "den-vce-direct",
-        "timestamp": "2026-07-10T18:39:06.147665+00:00",
+        "timestamp": "2026-07-14T10:34:53.911530+00:00",
         "price_pp": 5024.0,
         "total": 10048.0,
         "price_change_pct": 0.0,
@@ -48,7 +48,7 @@
   },
   "spencer_grandtour": {
     "label": "Spencer Grand Tour 2027 \u2014 Flight Options All Legs",
-    "as_of": "2026-07-10T20:24:07.625284+00:00",
+    "as_of": "2026-07-28T11:45:04.824822+00:00",
     "upload": {
       "ok": true,
       "id": "1HjWpOjS2_yDynOynlt25RJetLF7U_rB3",
@@ -57,45 +57,45 @@
     "latest_prices": [
       {
         "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2156.0,
-        "total": 8624.0,
+        "timestamp": "2026-07-14T11:01:48.564515+00:00",
+        "price_pp": 2504.0,
+        "total": 10016.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, Cruise fare-type checked also run ($10,016 total, did not beat default)"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2163.0,
-        "total": 17304.0,
+        "timestamp": "2026-07-14T11:02:13.244097+00:00",
+        "price_pp": 2160.0,
+        "total": 17280.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default and Cruise fare-type both returned same lowest"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2280.0,
-        "total": 9120.0,
+        "timestamp": "2026-07-14T11:02:37.755722+00:00",
+        "price_pp": 2896.0,
+        "total": 11584.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default Consolidator+Published"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 1428.0,
-        "total": 11424.0,
+        "timestamp": "2026-07-14T11:03:03.347592+00:00",
+        "price_pp": null,
+        "total": null,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default Consolidator+Published, 8pax combined query"
+        "notes": "daily recheck, Cruise fare-type checked"
       }
     ]
   },
   "airfare_dashboard": {
     "label": "Thunderbird Airfare Dashboard",
-    "as_of": "2026-07-10T20:24:09.258815+00:00",
+    "as_of": "2026-07-28T11:45:06.864964+00:00",
     "upload": {
       "ok": true,
       "id": "10UFKH5CSFFyvhHHh1nTUCe87bu_Re838",
@@ -104,7 +104,7 @@
     "latest_prices": [
       {
         "watch_id": "ath-ist-den",
-        "timestamp": "2026-07-10T18:38:16.221372+00:00",
+        "timestamp": "2026-07-14T10:34:02.412749+00:00",
         "price_pp": 5770.0,
         "total": 11540.0,
         "price_change_pct": 0.0,
@@ -113,7 +113,7 @@
       },
       {
         "watch_id": "ath-muc-den",
-        "timestamp": "2026-07-10T18:38:41.006308+00:00",
+        "timestamp": "2026-07-14T10:34:28.939006+00:00",
         "price_pp": 5770.0,
         "total": 11540.0,
         "price_change_pct": 0.0,
@@ -122,16 +122,16 @@
       },
       {
         "watch_id": "den-muc-vce",
-        "timestamp": "2026-07-10T18:37:50.902207+00:00",
-        "price_pp": 5024.0,
-        "total": 10048.0,
+        "timestamp": "2026-07-14T10:33:36.810906+00:00",
+        "price_pp": null,
+        "total": null,
         "price_change_pct": 0.0,
         "alert_triggered": null,
         "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "den-vce-direct",
-        "timestamp": "2026-07-10T18:39:06.147665+00:00",
+        "timestamp": "2026-07-14T10:34:53.911530+00:00",
         "price_pp": 5024.0,
         "total": 10048.0,
         "price_change_pct": 0.0,
@@ -221,11 +221,11 @@
       },
       {
         "watch_id": "kuklinski-fll-ric-dec27",
-        "timestamp": "2026-07-02T08:11:04.701452",
-        "price_pp": 254.25,
-        "total": 1017.0,
-        "price_change_pct": 31.1,
-        "alert_triggered": "PRICE SPIKE: $254/pp exceeds alert threshold $250",
+        "timestamp": "2026-07-11T03:16:51.779958",
+        "price_pp": 293.25,
+        "total": 1173.0,
+        "price_change_pct": 51.2,
+        "alert_triggered": "PRICE SPIKE: $293/pp exceeds alert threshold $250",
         "notes": ""
       },
       {
@@ -338,25 +338,25 @@
       },
       {
         "watch_id": "loucks-grandeur-panama-cos-fll-dec2026",
-        "timestamp": "2026-07-10T10:56:02.996341",
-        "price_pp": 348.0,
-        "total": 696.0,
-        "price_change_pct": -16.3,
-        "alert_triggered": "PRICE DROP: $348/pp is below alert threshold $383",
+        "timestamp": "2026-07-14T05:07:05.463790",
+        "price_pp": 313.0,
+        "total": 626.0,
+        "price_change_pct": -24.8,
+        "alert_triggered": "PRICE DROP: $313/pp is below alert threshold $383",
         "notes": ""
       },
       {
         "watch_id": "loucks-grandeur-panama-lax-cos-jan2027",
-        "timestamp": "2026-07-10T06:52:16.923783",
-        "price_pp": 549.0,
-        "total": 1098.0,
-        "price_change_pct": 32.0,
-        "alert_triggered": "PRICE SPIKE: $549/pp exceeds alert threshold $500",
+        "timestamp": "2026-07-14T05:07:39.372641",
+        "price_pp": 517.0,
+        "total": 1034.0,
+        "price_change_pct": 24.3,
+        "alert_triggered": "PRICE SPIKE: $517/pp exceeds alert threshold $500",
         "notes": ""
       },
       {
         "watch_id": "loucks-grandeur-panama-sna-cos-jan2027",
-        "timestamp": "2026-07-10T10:56:44.097768",
+        "timestamp": "2026-07-14T05:08:14.412290",
         "price_pp": 201.0,
         "total": 402.0,
         "price_change_pct": -51.7,
@@ -392,16 +392,16 @@
       },
       {
         "watch_id": "loucks-silver-nova-may2027-outbound",
-        "timestamp": "2026-07-10T06:53:19.444083",
-        "price_pp": 2512.0,
-        "total": 5024.0,
-        "price_change_pct": -30.0,
-        "alert_triggered": "PRICE DROP: $2,512/pp is below alert threshold $3,302",
+        "timestamp": "2026-07-14T05:08:52.905568",
+        "price_pp": 2719.0,
+        "total": 5438.0,
+        "price_change_pct": -24.2,
+        "alert_triggered": "PRICE DROP: $2,719/pp is below alert threshold $3,302",
         "notes": ""
       },
       {
         "watch_id": "loucks-silver-nova-may2027-return",
-        "timestamp": "2026-07-10T10:57:29.269062",
+        "timestamp": "2026-07-14T05:09:29.126767",
         "price_pp": 2813.0,
         "total": 5626.0,
         "price_change_pct": -48.9,
@@ -419,7 +419,7 @@
       },
       {
         "watch_id": "mcleod-den-mia-dec18",
-        "timestamp": "2026-07-02T08:12:07.250518",
+        "timestamp": "2026-07-11T03:17:50.908762",
         "price_pp": 903.5,
         "total": 1807.0,
         "price_change_pct": -0.1,
@@ -500,10 +500,10 @@
       },
       {
         "watch_id": "morton-rsw-pty-dec16",
-        "timestamp": "2026-07-02T08:11:36.641402",
-        "price_pp": 627.0,
-        "total": 1254.0,
-        "price_change_pct": 0.0,
+        "timestamp": "2026-07-11T03:17:21.789093",
+        "price_pp": 707.0,
+        "total": 1414.0,
+        "price_change_pct": 56.8,
         "alert_triggered": null,
         "notes": ""
       },
@@ -527,39 +527,39 @@
       },
       {
         "watch_id": "spencer-leg1-den-fco-tim-business-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2156.0,
-        "total": 8624.0,
+        "timestamp": "2026-07-14T11:01:48.564515+00:00",
+        "price_pp": 2504.0,
+        "total": 10016.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, Cruise fare-type checked also run ($10,016 total, did not beat default)"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg1-den-fco-yaggispencer-pe-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2163.0,
-        "total": 17304.0,
+        "timestamp": "2026-07-14T11:02:13.244097+00:00",
+        "price_pp": 2160.0,
+        "total": 17280.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default and Cruise fare-type both returned same lowest"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg2-fco-den-tim-business-jun2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 2280.0,
-        "total": 9120.0,
+        "timestamp": "2026-07-14T11:02:37.755722+00:00",
+        "price_pp": 2896.0,
+        "total": 11584.0,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default Consolidator+Published"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "spencer-leg3-zrh-den-yaggispencer-pe-jul2027",
-        "timestamp": "2026-07-10T19:22:43.826649+00:00",
-        "price_pp": 1428.0,
-        "total": 11424.0,
+        "timestamp": "2026-07-14T11:03:03.347592+00:00",
+        "price_pp": null,
+        "total": null,
         "price_change_pct": 0.0,
         "alert_triggered": null,
-        "notes": "seed capture 2026-07-10, default Consolidator+Published, 8pax combined query"
+        "notes": "daily recheck, Cruise fare-type checked"
       },
       {
         "watch_id": "viking-kuklinski-panama-2026-12-17",

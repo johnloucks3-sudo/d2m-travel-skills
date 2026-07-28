@@ -1,0 +1,322 @@
+{
+  "dest": "colon",
+  "query": "group shore excursion",
+  "date": "2026-12-22",
+  "scraped_at": "2026-07-14T00:49:36.026356",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "colon",
+    "query": "group shore excursion",
+    "url": "https://www.getyourguide.com/s/?q=colon+group+shore+excursion",
+    "scraped_at": "2026-07-14T00:49:36.398734",
+    "date_filter": "2026-12-22",
+    "tours": [
+      {
+        "name": "Monkey and Sloth Jungle Habitat Panama Tour",
+        "duration": "5 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 1079,
+        "price_pp": 30.0,
+        "original_price_pp": 60.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-monkey-and-sloth-jungle-habitat-panama-tour-t841266/"
+      },
+      {
+        "name": "From Colon Cruise Termi: 3 Caribbean Island & Portobelo Fort",
+        "duration": "8 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 3.4,
+        "review_count": 15,
+        "price_pp": 158.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/from-colon-caribbean-island-hopping-portobelo-fort-t780162/"
+      },
+      {
+        "name": "Panama Canal Tour: New Locks Agua Clara & Gatun Center",
+        "duration": "6 hours \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 163,
+        "price_pp": 48.0,
+        "original_price_pp": 59.0,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-canal-tour-agua-clara-gatun-locks-t443749/"
+      },
+      {
+        "name": "From Colon Port: Fort San Lorenzo & PanamaCanalAguaClaraLock",
+        "duration": "4 hours \u2022 Small group",
+        "rating": 3.9,
+        "review_count": 35,
+        "price_pp": 100.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/from-colon-fort-san-lorenzo-panama-canal-agua-clara-lock-t780126/"
+      },
+      {
+        "name": "Colon City tour: Exploring Caribbean roots, food and culture",
+        "duration": "6 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 17,
+        "price_pp": 115.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/colon-caribbean-gastronomy-eat-like-a-local-private-tour-t849799/"
+      },
+      {
+        "name": "Panama Canal Tour at Colon City: Agua Clara and Gatun Locks",
+        "duration": "5 - 6 hours \u2022 Skip the line \u2022 Private group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 200.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/panama-canal-tour-colon-edition-agua-clara-and-gatun-locks-t658941/"
+      },
+      {
+        "name": "Panama City",
+        "duration": "11 hours",
+        "rating": 4.8,
+        "review_count": 57,
+        "price_pp": 220.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-canal-tour-ocean-to-ocean-in-one-day-t411091/"
+      },
+      {
+        "name": "Enjoy paradise beaches located in Col\u00f3n",
+        "duration": "10 hours",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 65.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/portobelo-l143593/disfruta-de-playas-paradisiacas-situadas-en-colon-t508695/"
+      },
+      {
+        "name": "Visit the New and Old Panama Canal Locks",
+        "duration": "6 hours",
+        "rating": 3.8,
+        "review_count": null,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-city-visit-the-new-and-old-panama-canal-locks-t1131637/"
+      },
+      {
+        "name": "Panama City",
+        "duration": "8 hours \u2022 Skip the line \u2022 Private group",
+        "rating": 4.9,
+        "review_count": 16,
+        "price_pp": 200.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/full-day-panama-canal-coast-to-coast-by-land-t450663/"
+      },
+      {
+        "name": "Panama City",
+        "duration": "30 hours \u2022 Skip the line",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 130.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/panama-1-night-and-2-days-in-a-caribbean-island-beach-house-t826987/"
+      },
+      {
+        "name": "Private Panama City Tour in a Classic VW Safari",
+        "duration": "2 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 106,
+        "price_pp": 249.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/panama-city-l811/award-winning-panama-city-classic-car-tour-t477060/"
+      },
+      {
+        "name": "Panama Canal Caribbean Experience & Col\u00f3n 2000 Shopping Tour",
+        "duration": "6 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 3.5,
+        "review_count": null,
+        "price_pp": 130.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-canal-caribbean-experience-colon-2000-shopping-tour-t1134359/"
+      },
+      {
+        "name": "Panama City",
+        "duration": "5 hours \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 190,
+        "price_pp": 65.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-city-shared-half-day-city-and-canal-tour-t307658/"
+      },
+      {
+        "name": "Canal Locks & San Lorenzo Fort Tour",
+        "duration": "8 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 3.8,
+        "review_count": null,
+        "price_pp": 160.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/panama-city-canal-locks-san-lorenzo-fort-tour-t1281074/"
+      },
+      {
+        "name": "Panama Canal Miraflores Locks and Tour",
+        "duration": "5 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.3,
+        "review_count": 19,
+        "price_pp": 64.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-city-tour-and-panama-canal-miraflores-locks-t694369/"
+      },
+      {
+        "name": "Tour playero",
+        "duration": "8 hours \u2022 Private group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 65.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/portobelo-l143593/tour-playero-t505172/"
+      },
+      {
+        "name": "San Lorenzo Fort plus Old and New Panama Canal locks Tour",
+        "duration": "4 - 5 hours \u2022 Skip the line \u2022 Private option available",
+        "rating": 4.5,
+        "review_count": 2,
+        "price_pp": 140.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/san-lorenzo-fort-plus-old-and-new-panama-canal-locks-tour-t758528/"
+      },
+      {
+        "name": "Colon City Panama Private Tour",
+        "duration": "7 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.1,
+        "review_count": 10,
+        "price_pp": 145.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/colon-city-panama-private-tour-t596785/"
+      },
+      {
+        "name": "Panama City",
+        "duration": "8 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.8,
+        "review_count": 14,
+        "price_pp": 155.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/historical-portobelo-venas-azules-beach-day-and-history-t440356/"
+      },
+      {
+        "name": "Personalized Tour with Local Guide",
+        "duration": "5 hours \u2022 Skip the line \u2022 Private group",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 70.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/panama-city-personalized-tour-with-local-guide-t1102420/"
+      },
+      {
+        "name": "From Panam\u00e1 City: Panama Canal and Fort San Lorenzo Tour",
+        "duration": "6 hours \u2022 Skip the line \u2022 Small group",
+        "rating": null,
+        "review_count": 2,
+        "price_pp": 136.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/panama-city-l811/from-panama-city-canal-railway-and-fort-san-lorenzo-tour-t385413/"
+      },
+      {
+        "name": "Affordable Private Transportation Service to Col\u00f3n Free Zone",
+        "duration": "8 hours \u2022 Private group \u2022 Pickup available",
+        "rating": null,
+        "review_count": 1,
+        "price_pp": 240.0,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/colon-l32237/affordable-private-transportation-service-to-colon-free-zone-t764725/"
+      },
+      {
+        "name": "Gatun Expedition: Panama Canal and the Biodiversity of Gatun Lake",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": 191.0,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/colon-l32237/gatun-expedition-panama-canal-and-the-biodiversity-of-gatun-lake-t1256748/"
+      }
+    ],
+    "total_found_estimate": "31 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_colon_2026-12-22.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "colon",
+    "url": "https://www.tourradar.com/d/colon",
+    "scraped_at": "2026-07-14T00:49:42.148730",
+    "date_filter": "2026-12-22",
+    "tours": [
+      {
+        "name": "9 Days Across Panama: Culture, Mountains & Caribbean Paradise",
+        "duration": "9 Days Across Panama: Culture, Mountains & Caribbean Paradise",
+        "rating": 5.0,
+        "price_pp": 1990.0,
+        "url": "https://www.tourradar.com/t/316756"
+      },
+      {
+        "name": "Highlights of Panama",
+        "duration": "8 days",
+        "rating": 5.0,
+        "price_pp": 1760.0,
+        "url": "https://www.tourradar.com/t/311830"
+      },
+      {
+        "name": "Explore Panama and Enjoy Paradise at Playa Bonita",
+        "duration": "8 days",
+        "rating": 4.3,
+        "price_pp": 1418.0,
+        "url": "https://www.tourradar.com/t/218326"
+      },
+      {
+        "name": "Panama & San Blas Islands (Guna Yala) - 5 days",
+        "duration": "Panama & San Blas Islands (Guna Yala) - 5 days",
+        "rating": 5.0,
+        "price_pp": 150.0,
+        "url": "https://www.tourradar.com/t/192917"
+      },
+      {
+        "name": "Panama: Panama city and Boca de Toros - 7 days",
+        "duration": "Panama: Panama city and Boca de Toros - 7 days",
+        "rating": 4.0,
+        "price_pp": 1409.0,
+        "url": "https://www.tourradar.com/t/296608"
+      },
+      {
+        "name": "San Blas Yanis Island Budget Experience 4D/3N",
+        "duration": "4 days",
+        "rating": 3.8,
+        "price_pp": 442.0,
+        "url": "https://www.tourradar.com/t/179572"
+      },
+      {
+        "name": "Panama Highlights: City, Highlands, and Island Escapes",
+        "duration": "10 days",
+        "rating": 4.0,
+        "price_pp": 3263.0,
+        "url": "https://www.tourradar.com/t/296899"
+      }
+    ],
+    "total_found_estimate": "51 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_colon_2026-12-22.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

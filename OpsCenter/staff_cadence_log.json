@@ -9,6 +9,63 @@
         "ticket": "OpsCenter/elon_proposals/PROPOSAL-2026-07-07-integration-debt.md",
         "unwired_count": 16
       }
+    },
+    {
+      "run_date": "2026-07-12",
+      "integration_rate": 0.568,
+      "throttle_threshold": 0.5,
+      "gate_decision": "OPEN \u2014 cadence slots issued",
+      "detail": {
+        "proposals_written": [
+          "PROPOSAL-2026-07-12-cadence-elon.md",
+          "PROPOSAL-2026-07-12-cadence-whetstone.md",
+          "PROPOSAL-2026-07-12-cadence-sterling.md",
+          "PROPOSAL-2026-07-12-cadence-dembe.md",
+          "PROPOSAL-2026-07-12-cadence-dani.md",
+          "PROPOSAL-2026-07-12-cadence-harlan.md",
+          "PROPOSAL-2026-07-12-cadence-reyes.md",
+          "PROPOSAL-2026-07-12-cadence-luna.md",
+          "PROPOSAL-2026-07-12-cadence-naia.md"
+        ]
+      }
+    },
+    {
+      "run_date": "2026-07-19",
+      "integration_rate": 0.568,
+      "throttle_threshold": 0.5,
+      "gate_decision": "OPEN \u2014 cadence slots issued",
+      "detail": {
+        "proposals_written": [
+          "PROPOSAL-2026-07-19-cadence-elon.md",
+          "PROPOSAL-2026-07-19-cadence-whetstone.md",
+          "PROPOSAL-2026-07-19-cadence-sterling.md",
+          "PROPOSAL-2026-07-19-cadence-dembe.md",
+          "PROPOSAL-2026-07-19-cadence-dani.md",
+          "PROPOSAL-2026-07-19-cadence-harlan.md",
+          "PROPOSAL-2026-07-19-cadence-reyes.md",
+          "PROPOSAL-2026-07-19-cadence-luna.md",
+          "PROPOSAL-2026-07-19-cadence-naia.md"
+        ]
+      }
+    },
+    {
+      "run_date": "2026-07-26",
+      "integration_rate": 0.568,
+      "throttle_threshold": 0.5,
+      "gate_decision": "OPEN \u2014 cadence slots issued",
+      "detail": {
+        "proposals_written": [
+          "PROPOSAL-2026-07-26-cadence-elon.md",
+          "PROPOSAL-2026-07-26-cadence-whetstone.md",
+          "PROPOSAL-2026-07-26-cadence-sterling.md",
+          "PROPOSAL-2026-07-26-cadence-dembe.md",
+          "PROPOSAL-2026-07-26-cadence-dani.md",
+          "PROPOSAL-2026-07-26-cadence-harlan.md",
+          "PROPOSAL-2026-07-26-cadence-reyes.md",
+          "PROPOSAL-2026-07-26-cadence-luna.md",
+          "PROPOSAL-2026-07-26-cadence-naia.md"
+        ]
+      }
     }
   ]
 }

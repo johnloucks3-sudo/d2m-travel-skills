@@ -81,13 +81,13 @@ STATE_DIR.mkdir(exist_ok=True)
 ALLOWLIST_DIRS = ["experiments/incubator/", "intel/digests/"]
 
 QUERIES_BY_DAY = {
-    0: ["AI travel agency CRM automation improvement 2026", "open source dev tooling travel advisor platform", "AI agent workflow orchestration Python 2026"],
-    1: ["AI travel agency observability logging monitoring improvement", "Python async task queue pattern travel CRM", "AI code review automation tool 2026"],
-    2: ["AI travel agency model routing agent improvement", "LLM prompt management open source tool 2026", "multi-agent orchestration framework Python"],
-    3: ["AI travel agency client-facing tech enhancement", "luxury travel advisor AI tool 2026", "automated itinerary generation personalization"],
-    4: ["AI travel agency data analytics CRM enhancement", "travel CRM data enrichment open source", "client preference learning recommendation engine"],
-    5: ["AI travel agency security compliance hardening", "AI pipeline security best practices 2026", "open source secret scanning CI/CD tool"],
-    6: ["AI travel agency architecture tech debt reduction", "Python monorepo build tool improvement", "API gateway pattern microservices 2026"],
+    0: ["AI travel agency CRM automation improvement 2026", "open source dev tooling travel advisor platform", "AI agent workflow orchestration Python 2026", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    1: ["AI travel agency observability logging monitoring improvement", "Python async task queue pattern travel CRM", "AI code review automation tool 2026", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    2: ["AI travel agency model routing agent improvement", "LLM prompt management open source tool 2026", "multi-agent orchestration framework Python", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    3: ["AI travel agency client‑facing tech enhancement", "luxury travel advisor AI tool 2026", "automated itinerary generation personalization", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    4: ["AI travel agency data analytics CRM enhancement", "travel CRM data enrichment open source", "client preference learning recommendation engine", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    5: ["AI travel agency security compliance hardening", "AI pipeline security best practices 2026", "open source secret scanning CI/CD tool", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
+    6: ["AI travel agency architecture tech debt reduction", "Python monorepo build tool improvement", "API gateway pattern microservices 2026", "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."],
 }
 
 
@@ -825,6 +825,20 @@ def phase_overnight_report():
 {report_text}
 
 Full package: intel/incubator_package_{(date.today() - timedelta(days=1)).isoformat()}.json"""
+            try:
+                from core.staffing.sss_render import render_info_text
+                email_body = render_info_text(
+                    subject=f"THUNDERBIRD INCUBATOR — Overnight Build Report — {today}",
+                    opr="OC (JET)", staffed_by=["CC (Hale)", "Silver"],
+                    purpose="Overnight incubator build status — completed, failed, "
+                            "running, and queued (SSS-pending) builds.",
+                    discussion=email_body,
+                    recommendation="Queued items need an SSS opened before build; "
+                                   "no other action required.",
+                    tag="Incubator",
+                )
+            except Exception as e:
+                log.error(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
             result = gmail_send_from_wing(
                 to="johnloucks3@gmail.com",
                 subject=f"THUNDERBIRD INCUBATOR — Overnight Build Report — {today}",
@@ -857,6 +871,18 @@ Full package: intel/incubator_package_{(date.today() - timedelta(days=1)).isofor
         tg_msg += "\n⏳ *Still running:*\n" + "\n".join(f"• {b.get('title','')}" for b in running[:3]) + "\n"
     if queued:
         tg_msg += "\n📋 *SSS pending:*\n" + "\n".join(f"• {b.get('title','')}" for b in queued[:5])
+
+    try:
+        from core.staffing.sss_render import render_info_text
+        tg_msg = render_info_text(
+            subject=f"Incubator Morning Report — {today}",
+            opr="OC (JET)", staffed_by=["CC (Hale)"],
+            purpose="Overnight incubator build status.",
+            discussion=tg_msg,
+            tag="Incubator",
+        )
+    except Exception as e:
+        log.error(f"sss_render wrap failed (non-fatal, sending unwrapped): {e}")
 
     _send_telegram(tg_msg)
     _write_sentinel("overnight_report")

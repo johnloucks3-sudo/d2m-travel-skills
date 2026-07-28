@@ -1,55 +1,7 @@
 {
-  "permanent_sectors": [
-    "LLM & AI APIs",
-    "Agentic Apps & Frameworks"
-  ],
-  "rotation_sectors": [
-    "Claude Code",
-    "OpenCode & Local AI",
-    "GitHub New Releases",
-    "Travel Tech B2B",
-    "Voice & Multimodal",
-    "Competitor Intel",
-    "CRM & Automation"
-  ],
-  "rotation_count_per_night": 2,
-  "gate_candidate": {
-    "name": "claude agents --json session monitor",
-    "owner": "Sterling",
-    "status": "approved",
-    "description": "Wire claude agents --json output into hale_state.json wing_health section"
-  },
-  "tonight_incubator": {
-    "topic": "Email Scanner Ground-Up Redesign",
-    "injected": "2026-06-28",
-    "priority": "P0",
-    "brief": "The current email scanner (thunderbird_email_intel.py) is dead \u2014 killed 2026-06-28. Research architectures for a zero-model or free-model email processing pipeline. Requirements: (1) alert Commander via Telegram when D2M-relevant email arrives, (2) NO paid model calls in the background loop, (3) rule-based classification first (sender whitelist, subject keywords), (4) optional on-demand AI processing triggered manually by Commander. Research: Gmail watch push notifications vs polling, filter-first vs classify-first, sender-based routing. Deliverable: design doc + recommended implementation.",
-    "search_angles": [
-      "Gmail push notifications vs polling for real-time alerts",
-      "Rule-based email classification without LLM",
-      "Zero-token email alerting pipelines open source 2025-2026",
-      "Lightweight email triage architectures for small business",
-      "Sender whitelist + keyword filter patterns Gmail API Python"
-    ],
-    "owner": "ELON",
-    "skip_rotation": false
-  },
-  "techpulse_format": "Tool: [Name] / What: [one line] / Case: [one line] / Rec: [Adopt|Watch|Skip]",
-  "techpulse_routing": "Adopt or Watch \u2192 Telegram page to Commander. Skip \u2192 AM brief only.",
-  "search_posture": "24/7 continuous \u2014 permanent sectors run every night, rotation supplements. Anything breaking on Anthropic changelog, HN, GitHub AI releases \u2192 surface immediately, do not wait for EOD.",
-  "nomination_time": "17:30",
-  "execute_window_minutes": 5,
-  "last_updated": "2026-06-19",
-  "last_nomination_sent": "2026-07-10T11:30:01.475631",
-  "sectors_tonight": [
-    "Claude Code",
-    "OpenCode & Local AI",
-    "GitHub New Releases",
-    "Travel Tech B2B"
-  ],
-  "_gate_fingerprint": "claude agents --json session monitor|Sterling|approved",
-  "_gate_first_seen": "2026-06-19",
-  "sectors_tonight_date": "2026-07-10",
-  "sectors_half1_sent_date": "2026-07-10",
-  "sectors_half2_sent_date": "2026-07-09"
+  "sectors_tonight": [],
+  "sectors_tonight_date": "2026-07-28",
+  "sectors_half2_sent_date": "2026-07-27",
+  "last_nomination_sent": "2026-07-28T11:30:01.123542",
+  "sectors_half1_sent_date": "2026-07-28"
 }

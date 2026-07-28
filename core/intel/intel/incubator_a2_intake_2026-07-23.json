@@ -1,0 +1,68 @@
+[
+  {
+    "id": "A2-2026-07-23-001",
+    "title": "AGI Research",
+    "source_signal": "[1] OpenAI | Research & Deployment: We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Building \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": "Future potential for advanced problem-solving beyond current capabilities.",
+    "thunderbird_component": "All",
+    "risk": "HIGH",
+    "sss_required": false,
+    "rationale": "While the pursuit of AGI is a long-term goal, current implementations are too immature for direct integration into Thunderbird OS."
+  },
+  {
+    "id": "A2-2026-07-23-002",
+    "title": "Google Gemini Assistant",
+    "source_signal": "[2] \u200eGoogle Gemini: Meet Gemini, Google\u2019s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Enhanced capabilities for writing, planning, and brainstorming within market intelligence analysis.",
+    "thunderbird_component": "A2 Research & Market Intelligence",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "Gemini offers a direct enhancement to our analytical capabilities, but its client-facing potential and integration cost necessitate SSS approval."
+  },
+  {
+    "id": "A2-2026-07-23-003",
+    "title": "DeepAI Platform",
+    "source_signal": "[3] DeepAI: Whether you are a hobbyist, a professional artist, or a developer integrating AI into your product, DeepAI delivers advanced \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": "Potential for advanced AI integration into products.",
+    "thunderbird_component": "All",
+    "risk": "MED",
+    "sss_required": false,
+    "rationale": "DeepAI's broad offering is interesting but lacks specificity for immediate Thunderbird gaps; further research is needed to define its exact utility."
+  },
+  {
+    "id": "A2-2026-07-23-004",
+    "title": "Google AI for Everyone",
+    "source_signal": "[4] Google AI - How we're making AI helpful for everyone: Discover how Google AI is committed to enriching knowledge, solving complex challenges and helping people grow by building \u2026 (ddg_web)",
+    "classification": "WATCH",
+    "gap_closed": "Broad applications of AI for knowledge enrichment and problem-solving.",
+    "thunderbird_component": "All",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This signal describes Google's general AI philosophy, not a specific technology ready for integration into Thunderbird."
+  },
+  {
+    "id": "A2-2026-07-23-005",
+    "title": "Duck.ai Private AI Chat",
+    "source_signal": "[5] Duck.ai by DuckDuckGo. Private AI chat. Free.: Protect chats from hackers, scammers, and companies. Keep info confidential. Free. No account required. (ddg_web)",
+    "classification": "INTEGRATE",
+    "gap_closed": "Secure and private AI chat functionality for internal research and client communication.",
+    "thunderbird_component": "A2 Research & Market Intelligence",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "Provides a critical gap closure for secure, private AI interactions, but SSS approval is needed due to its direct client and internal security implications."
+  },
+  {
+    "id": "A2-2026-07-23-006",
+    "title": "AI Definition",
+    "source_signal": "[6] Artificial intelligence - Wikipedia: Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, \u2026 (ddg_web)",
+    "classification": "REJECT",
+    "gap_closed": "None",
+    "thunderbird_component": "None",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "This is a general definition of AI and does not represent a specific technology or capability for integration."
+  }
+]

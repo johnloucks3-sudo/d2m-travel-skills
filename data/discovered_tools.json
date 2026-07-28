@@ -244,5 +244,795 @@
     "d2m_score": 0,
     "integration_path": null,
     "discovered": "2026-07-09"
+  },
+  {
+    "name": "phone native AI writing assistant",
+    "tool name": "phone native AI writing assistant",
+    "url": "N/A",
+    "cost": "free tier",
+    "capability": "A voice-controlled AI writing assistant integrated natively on phones.",
+    "d2m_score": 0,
+    "integration_path": "N/A",
+    "discovered": "2026-07-11"
+  },
+  {
+    "name": "VoiceMatchDraft",
+    "url": "https://voicematchdraft.com",
+    "cost": "Free tier with limited usage",
+    "capability": "AI-driven tool that matches the voice and tone of drafts to a specified style, useful for proposals and emails.",
+    "d2m_score": 5,
+    "integration_path": "REST API available for integration.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-17"
+  },
+  {
+    "name": "OpenStyleAI",
+    "url": "https://openstyleai.org",
+    "cost": "Free tier with basic features, open source",
+    "capability": "An open-source AI tool that specializes in writing style transfer, ensuring emails and proposals match a specific tone and format.",
+    "d2m_score": 8,
+    "integration_path": "REST API available for integration into Python pipelines.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-17"
+  },
+  {
+    "name": "ToneMaster Pro",
+    "url": "https://tonemasterpro.com",
+    "cost": "Free tier with limited usage, open source",
+    "capability": "A tool that focuses on tone correction and format control for business correspondence.",
+    "d2m_score": 6,
+    "integration_path": "Python SDK available for integration.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-17"
+  },
+  {
+    "name": "EmailPolish",
+    "url": "https://emailpolish.ai",
+    "cost": "Free tier with basic features, open source",
+    "capability": "An AI-driven email rewriter that ensures tone, format, and focus are consistent with business standards.",
+    "d2m_score": 7,
+    "integration_path": "REST API available for integration into Python pipelines.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-17"
+  },
+  {
+    "name": "Ollama + Llama 3 (or similar open LLM)",
+    "url": "https://ollama.com/",
+    "cost": "Free (requires hardware and technical setup)",
+    "capability": "Allows self-hosting of various open-source LLMs locally for text generation and manipulation, including tone and style adjustments through advanced prompting.",
+    "d2m_score": 5,
+    "integration_path": "Ollama provides a REST API. Python scripts can send prompts to the API to request tone correction, rephrasing, or formatting. Requires careful prompt engineering to achieve desired tone and format.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-18"
+  },
+  {
+    "name": "LM Studio (for local LLM execution)",
+    "url": "https://lmstudio.ai/",
+    "cost": "Free (requires hardware and technical setup)",
+    "capability": "A desktop application that simplifies downloading and running local LLMs, offering a chat interface and a local inference server with an OpenAI-compatible API.",
+    "d2m_score": 5,
+    "integration_path": "LM Studio exposes an OpenAI-compatible API endpoint. Python scripts can interact with this API using libraries like `openai` or `requests` to send prompts for email editing.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-18"
+  },
+  {
+    "name": "Open-source LLM via Hugging Face (e.g., Llama 3, Mistral variants)",
+    "url": "https://huggingface.co/",
+    "cost": "Free (requires self-hosting or cloud compute)",
+    "capability": "Highly customizable large language models that can be fine-tuned for specific writing styles and tasks.",
+    "d2m_score": 8,
+    "integration_path": "Utilize Hugging Face's `transformers` library in Python for local inference or host models on cloud platforms with API access.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Google Workspace AI Features (Duet AI - now Gemini for Workspace)",
+    "url": "https://workspace.google.com/intl/en_in/gemini/",
+    "cost": "Included in certain Google Workspace plans (check specific tier for AI feature availability). Potentially zero cost if already subscribed.",
+    "capability": "Provides AI-powered writing assistance within Gmail and Docs for drafting, summarizing, and improving email tone and format.",
+    "d2m_score": 7,
+    "integration_path": "Directly integrated within Gmail and Google Docs. Python can interact via Google Workspace APIs for data retrieval and triggering actions (though direct API control of AI features might be limited).",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "LanguageTool (Open Source)",
+    "url": "https://languagetool.org/",
+    "cost": "Free and open source. Self-hostable or use free online version with limitations.",
+    "capability": "An open-source proofreading software that checks for grammar, style, and spelling errors.",
+    "d2m_score": 6,
+    "integration_path": "Has a Python API available for self-hosted instances. Can be integrated into custom workflows.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "OpenAI API (GPT-4 Turbo)",
+    "url": "https://openai.com/api/",
+    "cost": "Pay-as-you-go, with generous free tier for new users. Potential for very low cost for moderate use.",
+    "capability": "Provides advanced text generation and editing capabilities, allowing for fine-tuning of tone, format, and style through prompts and system messages.",
+    "d2m_score": 8,
+    "integration_path": "Python SDK available. Can be called via REST API. Requires API key management. Can be integrated into a Python pipeline for email processing.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Llama 3 (Self-hosted via Ollama)",
+    "url": "https://ollama.com/",
+    "cost": "Free (open-source model and runner). Hardware costs for self-hosting.",
+    "capability": "A powerful open-source LLM that can be self-hosted and fine-tuned for specific writing tasks, including tone and style adjustments for business correspondence.",
+    "d2m_score": 7,
+    "integration_path": "Ollama provides a REST API. Can be integrated into a Python pipeline. Requires setting up and managing the LLM on local or private infrastructure.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Hugging Face Transformers (for various open-source LLMs)",
+    "url": "https://huggingface.co/transformers/",
+    "cost": "Free (open-source library). Hardware costs for running models.",
+    "capability": "A Python library that provides access to a vast array of open-source LLMs, enabling custom development for tone, format, and style control in writing.",
+    "d2m_score": 6,
+    "integration_path": "Direct Python integration. Requires significant development effort to set up and fine-tune specific models for desired outcomes.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Open-Source LLM with fine-tuning (e.g., Llama 3, Mistral)",
+    "url": "https://huggingface.co/models",
+    "cost": "Free (requires hardware for self-hosting)",
+    "capability": "Can be fine-tuned on John Loucks' existing correspondence to learn and replicate his specific tone, format, and style.",
+    "d2m_score": 8,
+    "integration_path": "Requires Python libraries like `transformers` and `torch` for loading and running the model. Fine-tuning would involve preparing a dataset of John's emails and using training scripts.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Gmail's Built-in Smart Compose & Smart Reply",
+    "url": "https://workspace.google.com/learn-more/gmail/smart-compose/",
+    "cost": "Included with Google Workspace (free Gmail accounts have limited functionality)",
+    "capability": "Offers AI-powered suggestions for completing sentences and replies, adapting to writing style over time.",
+    "d2m_score": 6,
+    "integration_path": "Directly integrated into Gmail. No explicit API integration needed for basic use, but programmatic access for advanced features might be limited.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "ProseMirror (with custom AI plugins)",
+    "url": "https://prosemirror.net/",
+    "cost": "Free (MIT License)",
+    "capability": "A highly configurable rich-text editor framework that can be extended with custom AI plugins for style analysis and rewriting.",
+    "d2m_score": 5,
+    "integration_path": "Requires significant custom development to build AI plugins. Could be integrated into a web application via JavaScript, with backend AI processing.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-19"
+  },
+  {
+    "name": "Open-Source LLM (e.g., Llama 3 fine-tuned)",
+    "url": "https://llama.meta.com/",
+    "cost": "Free (requires hardware and technical expertise to self-host and fine-tune)",
+    "capability": "A powerful, open-source large language model that can be fine-tuned for specific tasks like tone adjustment and format control if sufficient data and expertise are available.",
+    "d2m_score": 6,
+    "integration_path": "Requires setting up a local inference server (e.g., using Ollama, vLLM, or Hugging Face Transformers) and building custom Python scripts to interact with the model via its API. Fine-tuning for specific tone and format requires significant data and machine learning expertise.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "GPT-2 (Fine-tuned for specific tasks)",
+    "url": "https://huggingface.co/gpt2",
+    "cost": "Free (requires hardware and technical expertise to self-host and fine-tune)",
+    "capability": "An older but still capable open-source language model that can be fine-tuned for simpler writing tasks, including basic tone and format adjustments, with less computational overhead than larger models.",
+    "d2m_score": 5,
+    "integration_path": "Similar to Llama 3, requires self-hosting via Hugging Face Transformers or similar libraries. Python scripts would be needed to manage input and output. Fine-tuning for complex tone matching and strict format control may be challenging.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "TextBlob (for basic grammar and sentiment)",
+    "url": "https://textblob.readthedocs.io/en/dev/",
+    "cost": "Free (open source Python library)",
+    "capability": "A Python library for processing textual data, offering capabilities for part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, and translation. Can assist with basic tone and clarity checks.",
+    "d2m_score": 4,
+    "integration_path": "Directly callable from Python scripts. Can be integrated into a workflow to analyze sentiment or check for certain stylistic elements, but does not perform advanced tone transfer or format enforcement.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "Google Workspace AI Features (Gmail/Docs)",
+    "url": "https://workspace.google.com/features/",
+    "cost": "Included with Google Workspace subscriptions (e.g., Business Starter, Standard, Plus). Free tier for personal Gmail/Docs may have limited AI features.",
+    "capability": "Provides AI-powered writing assistance for tone adjustment, summarization, and drafting within Gmail and Google Docs.",
+    "d2m_score": 8,
+    "integration_path": "Directly integrated into Gmail and Google Docs. API access for advanced automation might be available through Google Cloud AI services for Workspace.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "OpenAI API (GPT-4/GPT-3.5)",
+    "url": "https://openai.com/api/",
+    "cost": "Pay-as-you-go pricing, with free credits often available for new users. Significant usage can incur costs, but for moderate use, it can be cost-effective.",
+    "capability": "Leverages powerful LLMs for text generation, rewriting, tone adjustment, and format control via API calls.",
+    "d2m_score": 7,
+    "integration_path": "Python SDK available for easy integration into custom scripts and applications.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "Hugging Face Transformers (Open Source)",
+    "url": "https://huggingface.co/transformers/",
+    "cost": "Open source, free to use. Requires computational resources for self-hosting and fine-tuning.",
+    "capability": "Provides access to a vast library of pre-trained NLP models, including those for text style transfer and writing assistance, which can be fine-tuned.",
+    "d2m_score": 6,
+    "integration_path": "Python library for integration. Can be deployed on private servers or cloud instances.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "Microsoft Copilot for Microsoft 365",
+    "url": "https://www.microsoft.com/en-us/microsoft-365/copilot",
+    "cost": "Add-on subscription to Microsoft 365 plans. Pricing details vary based on plan.",
+    "capability": "Integrates AI assistance across Microsoft 365 apps, including Outlook, for drafting, summarizing, and tone adjustment in emails and documents.",
+    "d2m_score": 7,
+    "integration_path": "Directly integrated within Microsoft 365 applications. API access might be available through Microsoft Graph.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "OpenAI API (GPT-3.5-turbo) - Free Tier/Credits",
+    "url": "https://openai.com/api/",
+    "cost": "Free credits for new accounts. Usage beyond free tier incurs costs, but can be managed for low volume.",
+    "capability": "Provides access to powerful LLMs capable of rephrasing text for tone, format, and focus, with API access for automation.",
+    "d2m_score": 7,
+    "integration_path": "Python's 'openai' library. Can be integrated by sending email content and desired output parameters (e.g., 'rewrite this email to be more professional and concise') to the API.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "Mistral AI (Open Source Models)",
+    "url": "https://mistral.ai/news/mistral-7b/",
+    "cost": "Free (open-source, self-hostable). Requires compute resources.",
+    "capability": "High-performance open-source LLMs that can be fine-tuned or prompted for specific writing styles and corrections.",
+    "d2m_score": 6,
+    "integration_path": "Can be self-hosted and accessed via local API endpoints (e.g., using libraries like LangChain or direct model inference). Requires significant setup and hardware.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-20"
+  },
+  {
+    "name": "OpenAI API (with careful prompting)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, with a generous free tier for new accounts. Costs can be minimized with efficient prompting and model selection.",
+    "capability": "Leverages powerful LLMs to rewrite text, adjust tone, and enforce formatting through detailed prompt engineering.",
+    "d2m_score": 7,
+    "integration_path": "Directly callable via Python SDK (openai library). Requires constructing specific prompts for tone, format, and focus.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Hugging Face Transformers (Self-Hosted)",
+    "url": "https://huggingface.co/docs/transformers/index",
+    "cost": "Open Source (Apache 2.0 License). Requires compute resources for hosting.",
+    "capability": "Provides access to a vast array of open-source LLMs that can be fine-tuned or prompted for specific writing style transfer and tone correction.",
+    "d2m_score": 6,
+    "integration_path": "Python library. Models can be loaded and used locally or on a private server. Requires significant technical expertise for setup and fine-tuning.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Google AI Studio (Gemini API)",
+    "url": "https://aistudio.google.com/",
+    "cost": "Free tier available for initial usage, with pay-as-you-go for higher volumes.",
+    "capability": "Offers a web-based interface and API access to Google's Gemini models, allowing for text generation, rewriting, and style adaptation with prompt-based control.",
+    "d2m_score": 6,
+    "integration_path": "Python SDK available. Similar to OpenAI API, integration involves sending structured prompts to the Gemini API.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "OpenAI API (with fine-tuning)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, free tier for initial experimentation is common, but requires careful cost management. Open-source LLMs can be hosted for free.",
+    "capability": "Provides access to powerful language models that can be fine-tuned to learn specific tones and formatting rules for email and proposal editing.",
+    "d2m_score": 7,
+    "integration_path": "Integrate via Python SDK. Fine-tuning requires data preparation and training, but the API itself is callable.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "LangChain (Open Source Framework)",
+    "url": "https://www.langchain.com/",
+    "cost": "Open Source (Free)",
+    "capability": "A framework for developing applications powered by language models, facilitating the chaining of LLM calls for complex tasks like email editing with specific tone and format requirements.",
+    "d2m_score": 7,
+    "integration_path": "Python framework, highly flexible for building custom pipelines and integrating with various LLMs.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Google Workspace AI (Duet AI for Workspace - check free tier/existing)",
+    "url": "https://workspace.google.com/intl/en_in/solutions/duet-ai/",
+    "cost": "Check current Google Workspace subscription for included AI features or available free trials/tiers.",
+    "capability": "Offers AI assistance within Gmail for drafting, summarizing, and refining email content, potentially with tone and style suggestions.",
+    "d2m_score": 7,
+    "integration_path": "Directly integrated into Gmail; utilize through the Gmail interface. Python integration would involve Google Workspace APIs for email management.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Free AI Email Assistant (various browser extensions)",
+    "url": "Search for 'free AI email assistant chrome extension' or similar.",
+    "cost": "Varies, many offer limited free usage or basic features.",
+    "capability": "Browser extensions that offer AI-powered suggestions for email writing, often focusing on brevity, politeness, and clarity.",
+    "d2m_score": 4,
+    "integration_path": "Typically browser extensions, limited direct Python integration. Some might have basic API access for free tiers.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Open-Source LLMs (e.g., Llama 3, Mistral 7B) with Custom Fine-tuning",
+    "url": "https://huggingface.co/models",
+    "cost": "Free (requires hardware for self-hosting)",
+    "capability": "Can be fine-tuned to learn and replicate specific writing styles, tones, and formats for email and proposals.",
+    "d2m_score": 8,
+    "integration_path": "Deploy a fine-tuned model locally or on a private cloud. Interact via Python libraries like `transformers` or a custom REST API wrapper.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "GPT-2/GPT-Neo (via Hugging Face Transformers)",
+    "url": "https://huggingface.co/models?search=gpt-2",
+    "cost": "Free (requires hardware for self-hosting or inference)",
+    "capability": "Older, but still capable open-source language models that can be fine-tuned for specific writing tasks and styles.",
+    "d2m_score": 6,
+    "integration_path": "Load model weights using the `transformers` Python library. Can be wrapped in a Flask/FastAPI for API access.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Google Gemini Pro API (Free Tier)",
+    "url": "https://ai.google.dev/models/gemini",
+    "cost": "Free tier available (check current usage limits for 2026)",
+    "capability": "Offers advanced AI capabilities for text generation, summarization, and style adaptation, with a generous free tier for experimentation.",
+    "d2m_score": 7,
+    "integration_path": "Access via the Google AI Python SDK. Can be integrated into Python scripts for email processing.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "OpenAI GPT-3.5 Turbo (Free Tier/Legacy Access)",
+    "url": "https://openai.com/blog/gpt-3-5-turbo",
+    "cost": "Potentially free access via legacy programs or limited free trials. Actual free tier status for 2026 needs verification.",
+    "capability": "A powerful language model capable of understanding and generating human-like text, adaptable to various tones and formats.",
+    "d2m_score": 5,
+    "integration_path": "Integrate via OpenAI's Python library. Can be called from Python scripts.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-21"
+  },
+  {
+    "name": "Google AI Studio (with Gemini)",
+    "url": "https://aistudio.google.com/",
+    "cost": "Free tier with usage limits.",
+    "capability": "Web-based interface for prototyping with Gemini models, allowing for prompt engineering to achieve desired tone and format, with potential for API access.",
+    "d2m_score": 5,
+    "integration_path": "API access is available, allowing for Python integration. Prompt engineering is key for tone and format.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Local LLM Deployments (e.g., Llama 3 via Ollama)",
+    "url": "https://ollama.ai/",
+    "cost": "Free (open source, self-hostable). Hardware costs apply.",
+    "capability": "Allows running large language models locally, offering maximum privacy and control over tone and format through prompt engineering and model selection.",
+    "d2m_score": 7,
+    "integration_path": "Ollama provides a REST API that can be called from Python.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "OpenAI API (GPT-4o with fine-tuning potential)",
+    "url": "https://openai.com/api/",
+    "cost": "Free tier available for limited usage, then pay-as-you-go. Potential for fine-tuning on private data.",
+    "capability": "Offers powerful language generation and editing capabilities that can be instructed to match tone, format, and focus through well-crafted prompts or fine-tuning.",
+    "d2m_score": 8,
+    "integration_path": "Accessible via Python SDK. Can be integrated into custom scripts for email processing. Fine-tuning requires dedicated setup.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Local LLM GUIs (e.g., LM Studio, Ollama)",
+    "url": "https://lmstudio.ai/",
+    "cost": "Free (software), requires hardware for local LLM execution.",
+    "capability": "Enables running various open-source LLMs locally, allowing for private experimentation and prompt-based editing for tone, format, and focus.",
+    "d2m_score": 6,
+    "integration_path": "Primarily GUI-based for interactive use. Limited direct API integration for automation without additional scripting layers.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Google Workspace (Docs, Gmail)",
+    "url": "https://workspace.google.com/",
+    "cost": "Included with existing Google Workspace subscription for John Loucks",
+    "capability": "Leverages built-in AI features in Gmail and Docs for smart compose, grammar checking, and tone suggestions.",
+    "d2m_score": 7,
+    "integration_path": "Directly integrated within Gmail for email drafting and Docs for proposal writing. Python can interact via Google Workspace APIs (e.g., Gmail API, Docs API).",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Hugging Face Transformers (Self-hosted LLMs)",
+    "url": "https://huggingface.co/transformers/",
+    "cost": "Free (open source models). Requires hardware for self-hosting.",
+    "capability": "Offers access to a vast array of open-source LLMs that can be fine-tuned for specific writing styles and tasks, providing complete privacy.",
+    "d2m_score": 5,
+    "integration_path": "Python integration via the Hugging Face Transformers library. Requires significant technical expertise for setup, fine-tuning, and API creation.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Hugging Face `transformers` library (various LLMs)",
+    "url": "https://huggingface.co/docs/transformers/index",
+    "cost": "Open source, free to use. Requires computational resources for self-hosting or fine-tuning.",
+    "capability": "Provides access to a vast array of open-source LLMs that can be adapted for writing assistance, including tone and style transfer, if fine-tuned.",
+    "d2m_score": 6,
+    "integration_path": "Python library. Self-hostable for maximum privacy. Requires significant technical expertise to set up, fine-tune, and manage for specific tone and format requirements.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Microsoft Copilot (Free Tier/Existing Microsoft 365)",
+    "url": "https://www.microsoft.com/en-us/microsoft-copilot",
+    "cost": "Included in some Microsoft 365 subscriptions; standalone free version with limited features and potential usage caps.",
+    "capability": "AI-powered assistant that can help draft, edit, and summarize emails, with some ability to adjust tone and format.",
+    "d2m_score": 5,
+    "integration_path": "Integrates directly into Outlook. Standalone web interface. Python integration might be limited to web scraping or specific API access if available.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-22"
+  },
+  {
+    "name": "Google Workspace (Built-in Features)",
+    "url": "https://workspace.google.com/",
+    "cost": "Included with Google Workspace subscriptions (e.g., Business Starter at $6/user/month). Free for personal Gmail accounts with limited AI features.",
+    "capability": "Offers smart compose, smart reply, and grammar/spelling checks within Gmail, with potential for more advanced AI features to emerge.",
+    "d2m_score": 4,
+    "integration_path": "Directly integrated into Gmail. Python integration via Google Workspace APIs for email processing.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "Llama 2 (Self-hosted)",
+    "url": "https://ai.meta.com/llama/",
+    "cost": "Free and open-source for research and commercial use. Requires significant hardware for self-hosting.",
+    "capability": "A powerful open-source LLM that can be fine-tuned or prompted to perform various writing tasks, including tone and style adjustments, when self-hosted.",
+    "d2m_score": 5,
+    "integration_path": "Can be integrated into a Python pipeline by running the model locally or on a private server. Requires significant technical expertise for setup and optimization.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "Open-Source LLMs (e.g., Llama 3, Mistral) with Fine-tuning",
+    "url": "https://github.com/meta-llama/llama3",
+    "cost": "Free (requires hardware for self-hosting)",
+    "capability": "Can be fine-tuned on John Loucks' existing correspondence to learn and replicate his specific tone, format, and style.",
+    "d2m_score": 9,
+    "integration_path": "Requires Python libraries like `transformers` and `torch` for loading and interacting with the model. Fine-tuning would involve preparing a dataset of John's emails and running a training script. API can be exposed via Flask/FastAPI.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "GPT-2/GPT-Neo/GPT-J (via Hugging Face)",
+    "url": "https://huggingface.co/models?library=pytorch&sort=downloads",
+    "cost": "Free (requires hardware for self-hosting)",
+    "capability": "Older but capable open-source LLMs that can be fine-tuned for style transfer and text generation, offering a foundational layer for custom AI writing assistance.",
+    "d2m_score": 7,
+    "integration_path": "Accessible via Hugging Face's `transformers` library in Python. Fine-tuning on specific datasets is feasible. Can be wrapped in a simple API.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "Google AI Studio (with Gemini API)",
+    "url": "https://aistudio.google.com/",
+    "cost": "Free tier available, usage limits apply (Generous for individual use)",
+    "capability": "Provides access to Gemini models with a user-friendly interface and API, allowing for prompt engineering to control tone, format, and focus in email drafts.",
+    "d2m_score": 6,
+    "integration_path": "Python SDK for the Gemini API is available. Can be integrated into Python scripts to generate and refine email content. Limited self-hosting capabilities.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "OpenAI API (GPT-3.5 Turbo - free credits upon sign-up)",
+    "url": "https://openai.com/",
+    "cost": "Free credits upon sign-up, then pay-as-you-go (consider free tier limits)",
+    "capability": "Offers powerful text generation and editing capabilities that can be steered via prompts to adjust tone, format, and focus for business correspondence.",
+    "d2m_score": 5,
+    "integration_path": "Official Python library available for easy integration into custom applications. Can be used to process and rewrite emails. Data privacy is a consideration for sensitive business data.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "Google AI (Gemini API)",
+    "url": "https://ai.google.dev/",
+    "cost": "Free tier available for initial usage; pay-as-you-go for exceeding limits.",
+    "capability": "Offers advanced LLMs capable of understanding and manipulating text for tone, format, and focus adjustments in business communications.",
+    "d2m_score": 7,
+    "integration_path": "Utilize the Google AI Python SDK to send requests for email rewriting, proposal refinement, and tone correction.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-23"
+  },
+  {
+    "name": "OpenAI API (GPT-3.5 Turbo)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, free tier credits may be available for new users.",
+    "capability": "Provides access to powerful language models capable of rewriting text for tone, format, and focus via API.",
+    "d2m_score": 7,
+    "integration_path": "Integrate via OpenAI Python client library. Requires API key management.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "Hugging Face Transformers (various models)",
+    "url": "https://huggingface.co/models",
+    "cost": "Open Source (models are free, compute costs apply for self-hosting or inference)",
+    "capability": "Offers a vast library of open-source LLMs that can be fine-tuned or used for text generation, style transfer, and editing tasks.",
+    "d2m_score": 6,
+    "integration_path": "Utilize Hugging Face's `transformers` Python library for local or cloud-based inference.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "OpenAI API (via self-hosted wrapper)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, free tier available for limited usage or via existing Google/Max subscriptions for API access.",
+    "capability": "Provides access to powerful LLMs that can be fine-tuned or prompted for tone, format, and focus adjustments in correspondence.",
+    "d2m_score": 8,
+    "integration_path": "Utilize Python libraries like 'openai' to interact with the API. A self-hosted wrapper can be built to manage API calls, prompt engineering, and data privacy.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "Google Generative AI (via Vertex AI or Gemini API)",
+    "url": "https://cloud.google.com/vertex-ai",
+    "cost": "Free tier available, then pay-as-you-go. Potentially included in existing Google Workspace subscriptions.",
+    "capability": "Leverages Google's advanced AI models for text generation and refinement, offering capabilities for tone, style, and format adjustments.",
+    "d2m_score": 7,
+    "integration_path": "Integrate via Python SDKs for Vertex AI or the Gemini API. Can be called from a Python script to process email drafts and proposals.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "OpenAI API (GPT-4o via Azure or direct)",
+    "url": "https://openai.com/api/",
+    "cost": "Pay-as-you-go, free tier for limited usage or via Azure for existing Microsoft subscribers.",
+    "capability": "Provides powerful language models capable of rewriting text for tone, format, and focus via API calls.",
+    "d2m_score": 7,
+    "integration_path": "Python SDK available. Can be integrated into a pipeline by sending email content to the API and receiving the revised text. Requires careful prompt engineering for tone and format.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "Hugging Face Transformers (for fine-tuning LLMs)",
+    "url": "https://huggingface.co/transformers/",
+    "cost": "Open Source (Apache 2.0 License). Compute costs for training/hosting apply.",
+    "capability": "A library for building and fine-tuning large language models that can be adapted for specific writing styles and tasks.",
+    "d2m_score": 6,
+    "integration_path": "Requires significant technical expertise to fine-tune an open-source LLM (e.g., Llama 3, Mistral) on example correspondence. Can then be deployed locally or on a server and accessed via API.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-24"
+  },
+  {
+    "name": "OpenAI API (with custom fine-tuning)",
+    "url": "https://openai.com/api",
+    "cost": "Free tier available for initial experimentation; pay-as-you-go thereafter. Fine-tuning incurs training costs.",
+    "capability": "Provides powerful language models that can be fine-tuned to learn specific tones and styles for email and proposal editing.",
+    "d2m_score": 8,
+    "integration_path": "Callable via Python SDK. Custom fine-tuning can be trained on John Loucks' past correspondence.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Hugging Face Transformers (Open Source LLMs)",
+    "url": "https://huggingface.co/docs/transformers/index",
+    "cost": "Open Source (free to use and modify). Requires self-hosting and computational resources.",
+    "capability": "A library providing access to a vast array of open-source LLMs that can be adapted for tone matching, format control, and style transfer.",
+    "d2m_score": 9,
+    "integration_path": "Integrate via Python. Self-hosting allows for maximum privacy and customization. Can be used to build a custom writing coach.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Google AI Platform (Vertex AI - Free Tier)",
+    "url": "https://cloud.google.com/vertex-ai",
+    "cost": "Free tier available for certain services and usage limits. Pay-as-you-go beyond free tier.",
+    "capability": "Offers managed AI services including LLM access and model training capabilities, suitable for customizing writing style and tone.",
+    "d2m_score": 7,
+    "integration_path": "Accessible via Python SDK. Can integrate with existing Google Workspace tools if applicable.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "LLaMA (Meta AI - Open Source)",
+    "url": "https://github.com/facebookresearch/llama",
+    "cost": "Open Source (free to use and modify). Requires self-hosting and computational resources.",
+    "capability": "A family of powerful open-source LLMs that can be fine-tuned for specific writing tasks, including tone and style adjustments.",
+    "d2m_score": 9,
+    "integration_path": "Integrate via Python. Self-hosting provides excellent privacy. Can be fine-tuned on a dataset of John Loucks' emails.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "GPT-2 (OpenAI - Open Source)",
+    "url": "https://github.com/openai/gpt-2",
+    "cost": "Open Source (free to use and modify). Requires self-hosting and computational resources.",
+    "capability": "An earlier but still capable open-source LLM that can be fine-tuned for text generation and style adaptation.",
+    "d2m_score": 6,
+    "integration_path": "Integrate via Python. Self-hostable for privacy. Can be a starting point for a basic AI writing assistant.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Google AI Gemini (via API)",
+    "url": "https://ai.google.dev/pricing",
+    "cost": "Free tier with generous limits, then pay-as-you-go. Check current free tier limits.",
+    "capability": "A multimodal AI model that can understand and generate text, suitable for refining email correspondence for various communication styles and requirements.",
+    "d2m_score": 8,
+    "integration_path": "Accessible via Python SDK. Requires API key. Can be integrated into a Python script to process email drafts.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Local LLM Inference (e.g., Llama 2, Mistral)",
+    "url": "https://github.com/ggerganov/llama.cpp",
+    "cost": "Open Source (free to use and modify). Requires powerful local hardware for efficient inference.",
+    "capability": "Allows running powerful LLMs locally on your own hardware, offering maximum privacy and control for text generation and editing tasks.",
+    "d2m_score": 6,
+    "integration_path": "Requires setting up a local LLM environment (e.g., using `llama.cpp`). Can be controlled via Python scripts that interact with the local inference server.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Google AI Platform (Vertex AI)",
+    "url": "https://cloud.google.com/vertex-ai",
+    "cost": "Pay-as-you-go, with a generous free tier for experimentation.",
+    "capability": "Offers access to Google's large language models and tools for custom model training, enabling the creation of a personalized AI writing assistant for tone and style.",
+    "d2m_score": 8,
+    "integration_path": "Python SDK available. Can be called from Python scripts. Integration with Google Workspace (Gmail) is possible via APIs.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "GPT-2 (self-hosted)",
+    "url": "https://github.com/openai/gpt-2",
+    "cost": "Open Source. Requires computing resources for self-hosting.",
+    "capability": "An earlier but still capable LLM that can be fine-tuned to generate text in a specific style, useful for editing correspondence.",
+    "d2m_score": 6,
+    "integration_path": "Can be integrated into Python applications. Fine-tuning is possible but may be more resource-intensive than newer models.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "LangChain (with various LLMs)",
+    "url": "https://python.langchain.com/docs/get_started/introduction",
+    "cost": "Open Source (MIT License). Cost depends on the underlying LLM used (e.g., OpenAI API, Hugging Face models).",
+    "capability": "A framework for developing applications powered by LLMs, facilitating the creation of custom writing assistants that can manage tone, format, and focus.",
+    "d2m_score": 7,
+    "integration_path": "Python library. Designed for easy integration with various LLMs and custom logic. Can abstract away direct API calls.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-25"
+  },
+  {
+    "name": "Open-Source LLM with Fine-tuning (e.g., Llama 3)",
+    "url": "https://llama.meta.com/llama3/",
+    "cost": "Free (requires self-hosting and compute resources)",
+    "capability": "A powerful open-source large language model that can be fine-tuned on John Loucks' own email and proposal data to learn his specific tone, format, and style.",
+    "d2m_score": 8,
+    "integration_path": "Self-host the LLM and use its Python API to send correspondence for editing. Fine-tuning would require a dedicated ML workflow.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-26"
+  },
+  {
+    "name": "LangChain with a local LLM (e.g., Mistral 7B)",
+    "url": "https://www.langchain.com/",
+    "cost": "Free (requires self-hosting of LLM and LangChain)",
+    "capability": "LangChain provides frameworks to chain together LLM calls and other components, allowing for custom AI assistants that can enforce tone, format, and focus on business correspondence when integrated with a local LLM.",
+    "d2m_score": 7,
+    "integration_path": "Set up a local LLM (like Mistral 7B) and use LangChain's Python SDK to build custom agents for email editing. This can be triggered via Python scripts.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-26"
+  },
+  {
+    "name": "GPT-4 (via OpenAI API, potentially using existing subscription if available)",
+    "url": "https://openai.com/gpt-4",
+    "cost": "Pay-as-you-go API calls (potentially covered by existing business subscriptions)",
+    "capability": "Can be instructed via prompts to rewrite emails for tone, format, focus, and attitude, and can learn a specific style with few-shot examples. Its API allows for Python integration.",
+    "d2m_score": 6,
+    "integration_path": "Utilize the OpenAI Python library to send correspondence to the GPT-4 API with specific instructions for editing. Requires API key and careful prompt engineering.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-26"
+  },
+  {
+    "name": "Google Gemini (via Google AI Studio or Vertex AI, potentially using existing Google Workspace)",
+    "url": "https://ai.google.dev/",
+    "cost": "Free tier with limits, or potentially included in existing Google Workspace subscriptions",
+    "capability": "Offers powerful AI capabilities for text generation and editing that can be guided to match specific tones and formats, with Python SDKs for integration.",
+    "d2m_score": 6,
+    "integration_path": "Use the Google AI Python SDK to interact with Gemini models. Can be integrated into Python scripts for email processing. Leverage Google Workspace integration if available.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-26"
+  },
+  {
+    "name": "OpenAI API (GPT-4)",
+    "url": "https://openai.com/api",
+    "cost": "Pay-as-you-go, free credits often available for new users. Pricing details on OpenAI's website.",
+    "capability": "Provides powerful language models capable of sophisticated text rewriting, tone adjustment, and format adherence via API.",
+    "d2m_score": 8,
+    "integration_path": "Python client library available. Can be integrated via REST API calls to the GPT-4 endpoint for text processing.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-26"
+  },
+  {
+    "name": "Google Workspace AI (Duet AI for Workspace - Free Tier)",
+    "url": "https://workspace.google.com/intl/en_in/features/duet-ai/",
+    "cost": "Free tier within Google Workspace (specific limits apply, likely sufficient for individual use).",
+    "capability": "Offers AI-powered writing assistance directly within Gmail, capable of suggesting rephrasing for tone and clarity.",
+    "d2m_score": 7,
+    "integration_path": "Directly integrated into Gmail. Can potentially be accessed programmatically via Google Workspace APIs for more advanced automation if available.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-27"
+  },
+  {
+    "name": "Hugging Face Transformers (for Text Generation/Style Transfer)",
+    "url": "https://huggingface.co/docs/transformers/index",
+    "cost": "Free (open-source library, requires hardware for running models)",
+    "capability": "Provides access to a vast array of pre-trained NLP models that can be adapted for text rewriting and style transfer tasks.",
+    "d2m_score": 6,
+    "integration_path": "Install the `transformers` library in Python. Load a suitable model and tokenizer. Implement custom Python scripts for API-like calls to rewrite text.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-27"
+  },
+  {
+    "name": "OpenAI API (GPT-3.5 Turbo - Free Credits/Tier)",
+    "url": "https://openai.com/pricing",
+    "cost": "Free tier/credits available for new users, then pay-as-you-go. GPT-3.5 Turbo is very cost-effective.",
+    "capability": "Powerful LLM accessible via API that can be prompted to rewrite text for specific tones, formats, and to maintain focus.",
+    "d2m_score": 5,
+    "integration_path": "Use the OpenAI Python client library to make API calls. Craft specific prompts to guide the AI's rewriting based on desired tone and format.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-27"
+  },
+  {
+    "name": "Writer.com (Free Tier)",
+    "url": "https://www.writer.com/",
+    "cost": "Free tier offers basic AI writing assistance and style guide adherence for individuals.",
+    "capability": "Helps maintain brand voice and style consistency, with some capabilities for checking tone and clarity.",
+    "d2m_score": 6,
+    "integration_path": "Web application. Python integration may be possible via their API if the free tier supports it, but advanced features are likely paid.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-27"
+  },
+  {
+    "name": "LLaMA (Meta AI - Self-hosted)",
+    "url": "https://llama.meta.com/",
+    "cost": "Free (open-source weights available under license). Requires significant compute resources for self-hosting and fine-tuning.",
+    "capability": "A powerful open-source LLM family that can be fine-tuned for a wide range of writing tasks, including style and tone adjustments, when self-hosted.",
+    "d2m_score": 7,
+    "integration_path": "Requires significant technical expertise for self-hosting and integration. Python libraries can interact with hosted models.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-27"
+  },
+  {
+    "name": "Hugging Face Transformers (various LLMs)",
+    "url": "https://huggingface.co/models",
+    "cost": "Open source models are free to download and use. Self-hosting incurs infrastructure costs.  Many models have free inference APIs with rate limits.",
+    "capability": "Provides access to a vast collection of open-source LLMs that can be fine-tuned or used with prompt engineering for writing assistance, tone adjustment, and format control.",
+    "d2m_score": 6,
+    "integration_path": "Use Python library (transformers) to load and run models locally or via Hugging Face Inference API.  Requires more technical setup for self-hosting and fine-tuning.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-28"
+  },
+  {
+    "name": "LLaMA 3 (via Ollama or local deployment)",
+    "url": "https://ollama.ai/",
+    "cost": "LLaMA 3 model weights are freely available. Ollama provides a free local deployment. Self-hosting incurs infrastructure costs.",
+    "capability": "A powerful open-source LLM that can be deployed locally to provide writing assistance, including tone, format, and style adjustments, with strong privacy benefits.",
+    "d2m_score": 7,
+    "integration_path": "Deploy LLaMA 3 using Ollama and interact with its REST API from Python.  Self-hosting provides maximum privacy and control.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-28"
   }
 ]

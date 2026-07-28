@@ -277,7 +277,7 @@
       "subject": "Excursion Planning Starts Now \u2014 Your Port Preferences, Kyle",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-A",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
       "notes": "Must send by Jul 28 \u2014 Viking window opens Aug 2",
       "arc_search_params": {
@@ -311,7 +311,9 @@
             "date": "2026-12-27"
           }
         ]
-      }
+      },
+      "draft_id": "r6171820393015046027",
+      "draft_date": "2026-07-28"
     },
     {
       "id": "ARC2-B",
@@ -323,7 +325,7 @@
       "subject": "Your Shore Excursion Candidates \u2014 All Ports, Kuklinski Group",
       "template_file": "Kuklinski_Discretionary_Arc_Library.md",
       "template_anchor": "ARC 2-B",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
       "notes": "Can send same day as ARC2-A if preferences already known from TP-2 reply",
       "arc_search_params": {
@@ -359,7 +361,9 @@
             "date": "2026-12-27"
           }
         ]
-      }
+      },
+      "draft_id": "r-1850331517407443991",
+      "draft_date": "2026-07-28"
     },
     {
       "id": "TP-4",
@@ -371,9 +375,11 @@
       "subject": "Excursion Booking Opens August 2 \u2014 Your Port-by-Port Plan, Kyle",
       "template_file": "Kuklinski_Timeline_Touchpoint_Emails.md",
       "template_anchor": "PHASE 4 OF 6",
-      "status": "pending",
+      "status": "draft_created",
       "sent_date": null,
-      "notes": ""
+      "notes": "",
+      "draft_id": "r5259022859939001372",
+      "draft_date": "2026-07-28"
     },
     {
       "id": "ARC2-C",

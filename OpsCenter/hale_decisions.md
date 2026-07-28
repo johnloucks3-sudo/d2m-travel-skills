@@ -58,3 +58,24 @@ Prior sessions swept 335+ entries; daemon kept regenerating. Operational harm on
 **Commander notified:** Email dispatched to johnloucks3@gmail.com.
 **Sterling audit:** Required post-hoc — nexus.py needs CLAUDE RESULT skip guard.
 
+
+---
+
+## 2026-07-16 — McLeod (Erik & Melissa) Contact-Hold Resolution — Hot-Window Triage
+by: Hale (Claude Code, Sonnet 5)
+authority: Weapons-free hot-window execution (Commander directive 2026-07-15 ~22:35 MT)
+
+**Decision:** MISSION-044 ("Resolve McLeod lifecycle contact and transfer dispute — 8 days overdue") investigated and resolved to its real remaining blocker, not closed outright.
+
+**Findings:**
+1. DO-NOT-CONTACT hold was travel-based (client aboard Silver Muse Jun 23–Jul 6), scheduled to lift Jul 7 — confirmed cleanly cleared, not an open-ended unresolved condition. No relationship risk from the hold itself.
+2. Two client-facing drafts already staged in johnloucks3 since 2026-07-13, unsent:
+   - FCC confirmation response to Erik (draft r6302915235413543112) — content verified solid, client-voice-appropriate. Promises FCC verification "no later than mid-July" (now overdue) and application before Dec 19 embarkation.
+   - Unrelated post-cruise feedback survey (draft r7751380314964613848) — ready, no FPD/urgency tie.
+3. **Real blocker:** dossier's own open action item — Harlan has not yet verified the $200 Regent FCC in TESS for booking 2984034. The FCC draft's promise depends on this. FPD is $11,943.15 due Jul 22 (6 days out).
+
+**Action taken:** Updated `dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md` with verified status on both open items; escalated the Harlan TESS verification with the FPD deadline attached. Updated MISSION-044 to reflect the actual remaining blocker (Harlan verification, not a Hale/Dani contact gap).
+
+**Not done (respecting the Client Send / WF-17 gate):** Did not send either staged draft — that decision and action remain the Commander's per the Three Gates. Flagging clearly: the FCC draft is ready and its own "mid-July" promise is now due; recommend sending once Harlan's TESS check closes, ahead of the Jul 22 FPD.
+
+**Commander notification:** Surfaced in hot-window session summary.

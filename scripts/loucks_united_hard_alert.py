@@ -26,12 +26,24 @@ RTN = ("GRB", "DEN", "2026-09-14")
 
 
 def _amadeus_token() -> str | None:
+    # Returns: valid token | None (creds missing → exit 2) | "" (API unreachable → exit 0 / skip)
     sys.path.insert(0, str(ROOT))
+    key = sec = None
     try:
         from core.secrets.infisical_client import get_secret
         key = get_secret("AMADEUS_CLIENT_ID"); sec = get_secret("AMADEUS_CLIENT_SECRET")
     except Exception:
-        key = sec = None
+        pass
+    if not (key and sec):
+        # .env fallback — same pattern as Telegram, guards against transient Infisical outages
+        try:
+            for line in (ROOT / ".env").read_text().splitlines():
+                if line.startswith("AMADEUS_CLIENT_ID="):
+                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                elif line.startswith("AMADEUS_CLIENT_SECRET="):
+                    sec = line.split("=", 1)[1].strip().strip('"').strip("'")
+        except Exception:
+            pass
     if not (key and sec):
         return None
     d = urllib.parse.urlencode({"grant_type": "client_credentials",
@@ -39,8 +51,8 @@ def _amadeus_token() -> str | None:
     try:
         r = urllib.request.urlopen("https://test.api.amadeus.com/v1/security/oauth2/token", data=d, timeout=15)
         return json.loads(r.read())["access_token"]
-    except Exception:
-        return None
+    except Exception as e:
+        print(f"amadeus API unreachable: {e}"); return ""
 
 
 def _cheapest_united(tok: str, o: str, dst: str, date: str) -> tuple[float | None, str]:
@@ -89,8 +101,10 @@ def _telegram(msg: str) -> None:
 
 def main() -> int:
     tok = _amadeus_token()
-    if not tok:
+    if tok is None:
         print("no amadeus creds"); return 2
+    if tok == "":
+        print("amadeus API unreachable — skipping run, no OnFailure trigger"); return 0
     o_price, o_when = _cheapest_united(tok, *OUT)
     r_price, r_when = _cheapest_united(tok, *RTN)
     if o_price is None or r_price is None:

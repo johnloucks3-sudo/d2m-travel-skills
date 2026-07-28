@@ -1,0 +1,55 @@
+Subject: Multi-Model Claude Code Analysis + Plan — cc-fleet Gap Found (Groq/Cerebras dead)
+From: johnloucks3@gmail.com
+Received: 2026-07-20T04:04:21.186626+00:00
+
+body { background:#f7f3ea; color:#0000ff; font-family:Georgia, 'Times New Roman', serif; padding:32px; max-width:760px; margin:0 auto; }
+  h1 { font-size:24px; border-bottom:2px solid #0000ff; padding-bottom:8px; }
+  h2 { font-size:18px; margin-top:28px; }
+  p, li { font-size:15px; line-height:1.55; }
+  code, pre { font-family:'Menlo','Consolas',monospace; font-size:13px; }
+  pre { background:#eae5d6; color:#1a1a1a; padding:10px 14px; border-left:3px solid #0000ff; overflow-x:auto; white-space:pre-wrap; }
+  code.inline { background:#eae5d6; color:#1a1a1a; padding:1px 5px; border-radius:3px; }
+  .meta { font-size:13px; color:#3333aa; }
+  .caveat { background:#eae5d6; border-left:3px solid #0000ff; padding:10px 14px; }
+  .footer { margin-top:32px; font-size:13px; color:#3333aa; border-top:1px solid #c9c2ab; padding-top:12px; }
+
+Multi-Model Claude Code Setup — Analysis & Integration Plan
+
+Source: r/ClaudeCode, u/ThreeKiloZero (Top 1% Commenter), "How to Set Up Claude Code with Multiple AI Models" · Analyzed 2026-07-19 by Hale
+
+Summary
+
+Shell-function technique for swapping Claude Code's backend per invocation: unset
+ANTHROPIC_API_KEY, set ANTHROPIC_BASE_URL +
+ANTHROPIC_AUTH_TOKEN + model vars to a provider's Anthropic-compatible
+endpoint, then exec the real claude binary. Confirmed endpoints:
+Kimi For Coding (api.kimi.com/coding/), Z.AI/GLM (api.z.ai/api/anthropic),
+MiniMax M2 (api.minimax.io/anthropic). A dispatcher function makes switching a one-word
+prefix (claude glm, claude kimi). Windows
+port confirmed working in comments; VS Code extension only supports one model at a time.
+
+Real usage pattern (OP runs 2-6 parallel agents daily): Sonnet/Opus for judgment-heavy
+work, cheap providers for repetitive/scaffolded execution — "you get more usage than Sonnet Max
+$200 for about 1/4 the price and 70 to 80 percent of the capability." Top commenter confirms
+the dual-auth warning is safe to ignore — "been ignoring it for months." Claude Code Router
+(OpenAI-spec proxy) is reported glitchy; direct endpoints run at full provider speed.
+
+Relevance to Thunderbird
+
+This is the exact technique already validated for DeepSeek earlier today
+(core/relay/deepseek_claude_code.py) — this article generalizes it and
+hands over three more concrete, community-validated endpoints.
+
+Correction to the tmux/cc-fleet plan sent earlier: that plan said cc-fleet "already does
+DeepSeek/GLM/Kimi/Qwen" — true of the tool, not true of Thunderbird's actual config. Checked
+ground truth just now:
+
+$ ccf list
+NAME      DEFAULT_MODEL            STATUS   SECRET_BACKEND  MODELS
+cerebras  cerebras-gemma           enabled  file            2 (stale)
+groq      llama-3.3-70b-versatile  enabled  file            17 (stale)
+
+$ ccf doctor
+[6/10] FAIL  2/2 provider(s) failed: cerebras: HTTP 401; groq: HTTP 401
+Only Cerebras and Groq are registered, and both keys are dead — this is what the Blackboard's
+"Groq UNKNOWN" flag has been quietly reporting. DeepSeek/GLM/Kimi/MiniMax aren't registered at all.

@@ -1,7 +1,7 @@
 {
   "status": "complete",
-  "started_at": "2026-07-16T18:20:44.171528",
-  "completed_at": "2026-07-16T18:20:59.567923",
+  "started_at": "2026-07-28T12:19:28.767109",
+  "completed_at": "2026-07-28T12:19:41.812029",
   "watches_total": 19,
   "watches_checked": 6,
   "watches_with_errors": 1,
@@ -18,34 +18,23 @@
   "results": {
     "loucks-grandeur-panama-cos-fll-dec2026": {
       "status": "auth_error",
-      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false",
-      "google_flights_price_usd": 495,
-      "google_flights_checked_at": "2026-07-17T01:18:35.900122+00:00",
-      "note": "Google Flights real price also available (this run)"
+      "error": "Centrav session expired and auto-login failed. Re-authenticate manually: python3 scripts/centrav_flights.py --centrav-login --headless false"
     },
     "kuklinski-flights-ric-pty": {
       "status": "fallback",
       "source": "anansi",
       "query": "cheapest economy flights RIC \u2192 PTY on 2026-12-17 for 4 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare) | Google Flights real price also available (this run)",
-      "checked_at": "2026-07-16T18:20:59.688980",
-      "kiwi_price_usd": 6053,
-      "kiwi_carrier": null,
-      "kiwi_checked_at": "2026-07-17T01:13:31.663819+00:00",
-      "google_flights_price_usd": 3044,
-      "google_flights_checked_at": "2026-07-17T01:18:54.946167+00:00"
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-28T12:19:41.929764"
     },
     "morton-dodge-flights-rsw-pty": {
       "status": "fallback",
       "source": "anansi",
       "query": "cheapest economy flights RSW \u2192 PTY on 2026-12-17 for 2 passengers round trip price per person USD",
       "snippet": "",
-      "note": "FALLBACK \u2014 Centrav dead; Kiwi real LCC/connecting price available alongside web-estimate (not B2B net fare)",
-      "checked_at": "2026-07-16T18:20:59.688980",
-      "kiwi_price_usd": 3199,
-      "kiwi_carrier": null,
-      "kiwi_checked_at": "2026-07-17T01:13:33.514228+00:00"
+      "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
+      "checked_at": "2026-07-28T12:19:41.929764"
     },
     "loucks-den-vce-apr2027": {
       "status": "fallback",
@@ -53,7 +42,7 @@
       "query": "cheapest economy flights DEN \u2192 VCE on 2027-04-30 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-07-16T18:20:59.688980"
+      "checked_at": "2026-07-28T12:19:41.929764"
     },
     "loucks-ath-den-may2027": {
       "status": "fallback",
@@ -61,7 +50,7 @@
       "query": "cheapest economy flights ATH \u2192 DEN on 2027-05-30 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-07-16T18:20:59.688980"
+      "checked_at": "2026-07-28T12:19:41.929764"
     },
     "loucks-den-grb-sep2026": {
       "status": "fallback",
@@ -69,7 +58,7 @@
       "query": "cheapest economy flights DEN \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-07-16T18:20:59.688980"
+      "checked_at": "2026-07-28T12:19:41.929764"
     },
     "loucks-cos-grb-sep2026": {
       "status": "fallback",
@@ -77,9 +66,9 @@
       "query": "cheapest economy flights COS \u2192 GRB (RT Sep 6 out / Sep 14 return) on 2026-09-06 for 2 passengers round trip price per person USD",
       "snippet": "",
       "note": "FALLBACK \u2014 Centrav dead; price is web estimate, not B2B fare",
-      "checked_at": "2026-07-16T18:20:59.688980"
+      "checked_at": "2026-07-28T12:19:41.929764"
     }
   },
   "fallback_anansi": true,
-  "fallback_at": "2026-07-16T18:20:59.688980"
+  "fallback_at": "2026-07-28T12:19:41.929764"
 }

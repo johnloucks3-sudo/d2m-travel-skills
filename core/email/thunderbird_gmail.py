@@ -1305,6 +1305,7 @@ def register_gmail_tools(mcp):
         reply_to_message_id: Optional[str] = Field(None, description="Message ID to reply to (creates reply draft)"),
         attachment_paths: Optional[List[str]] = Field(None, description="List of absolute file paths to attach (e.g. PDFs, images)"),
         from_persona: Optional[str] = Field(None, description="Persona ID (e.g. 'A3', 'CONCIERGE') — sets From to persona display name via concierge@d2mluxury.quest"),
+        account: Optional[str] = Field("wing", description="Account to draft in: 'wing' (d2mconcierge) or 'commander' (johnloucks3)"),
     ) -> str:
         """Create a Gmail draft with optional file attachments. Does NOT send — saves as draft for review.
 
@@ -1313,10 +1314,12 @@ def register_gmail_tools(mcp):
         When from_persona is set, uses the D2M persona display name with concierge@d2mluxury.quest as the From address.
         """
         try:
-            # MISSION-180: align with gmail_create_draft_sync — stage client drafts
-            # in d2mconcierge, fail loud on wrong account.
-            service = _get_wing_gmail_service()
-            _assert_wing_account(service)
+            # Route to correct account
+            if account == "commander":
+                service = _get_commander_gmail_service()
+            else:
+                service = _get_wing_gmail_service()
+                _assert_wing_account(service)
 
             # Lane 1 (Edit Lane): plain draft only — no stationery template.
             # Template is applied at publish time via publish_draft() so Gmail compose
@@ -1567,12 +1570,61 @@ def register_gmail_tools(mcp):
         Reply-To is always set to johnloucks3@gmail.com so client replies reach the Commander.
         """
         try:
-            service = _get_gmail_service()
+            # ── Commander directive 2026-07-17 — two-lane routing, no gate ──
+            # Lane A: recipient is Commander (and only Commander) → send now,
+            #   from the wing account (real cross-account delivery → lands in
+            #   his actual Inbox), always wrapped in the canonical dark-navy
+            #   template.
+            # Lane B: any other recipient (client/external) → always staged
+            #   as a draft in the Commander's OWN Gmail account (his Drafts
+            #   box, for his review before WF-17 send), always navy-templated.
+            # commander_approved is kept for backward compatibility but no
+            # longer gates anything — recipient identity decides the lane.
+            _to_bare = to.strip().lower()
+            _m = __import__("re").search(r"<([^>]+)>", _to_bare)
+            if _m:
+                _to_bare = _m.group(1).strip()
+            _cc_bare = {a.strip().lower() for a in (cc or "").split(",") if a.strip()}
+            _bcc_bare = {a.strip().lower() for a in (bcc or "").split(",") if a.strip()}
+            _commander_set = {a.lower() for a in COMMANDER_ADDRS}
+            is_commander_only = (
+                _to_bare in _commander_set
+                and _cc_bare <= _commander_set
+                and _bcc_bare <= _commander_set
+            )
 
-            # Build MIME message — plain draft; stationery applied at publish_draft() send time
+            # Always wrap in the canonical dark-navy template unless the
+            # caller already handed us a full HTML document.
+            def _navy_wrap(raw_html: Optional[str], plain: str) -> str:
+                import html as _html_mod
+                import re as _re_mod
+
+                content = raw_html if raw_html else (
+                    "<p style=\"margin:0 0 16px 0\">"
+                    + _html_mod.escape(plain).replace("\n", "<br>\n")
+                    + "</p>"
+                )
+                looks_like_full_doc = bool(
+                    _re_mod.search(r"<!doctype|<html[\s>]", content, _re_mod.IGNORECASE)
+                )
+                if looks_like_full_doc:
+                    return content
+                try:
+                    _scripts_dir = str(THUNDERBIRD_DIR / "scripts")
+                    if _scripts_dir not in sys.path:
+                        sys.path.insert(0, _scripts_dir)
+                    from d2m_email_builder import build_email_html  # noqa: PLC0415
+                    return build_email_html(content)
+                except Exception as tmpl_err:
+                    logger.warning(f"Navy template wrap failed, sending raw HTML: {tmpl_err}")
+                    return content
+
+            navy_html = _navy_wrap(html_body, body)
+
+            # Build MIME message
             message = MIMEMultipart("alternative")
             message.attach(MIMEText(body, "plain"))
-            message.attach(MIMEText(html_body if html_body else body, "html"))
+            message.attach(MIMEText(navy_html, "html"))
 
             message["to"] = to
             message["subject"] = subject
@@ -1594,130 +1646,91 @@ def register_gmail_tools(mcp):
             if bcc:
                 message["bcc"] = bcc
 
-            # Thread support — reply to existing conversation
-            thread_id_for_msg = ""
-            if reply_to_message_id:
-                try:
-                    orig = (
-                        service.users()
-                        .messages()
-                        .get(userId="me", id=reply_to_message_id, format="metadata",
-                             metadataHeaders=["Message-ID", "Subject"])
-                        .execute()
-                    )
-                    orig_headers = {h["name"]: h["value"] for h in orig.get("payload", {}).get("headers", [])}
-                    if orig_headers.get("Message-ID"):
-                        message["In-Reply-To"] = orig_headers["Message-ID"]
-                        message["References"] = orig_headers["Message-ID"]
-                    thread_id_for_msg = orig.get("threadId", "")
-                except Exception as thread_err:
-                    logger.warning(f"Could not thread reply: {thread_err}")
+            pid_used = (from_persona or "CONCIERGE").upper()
 
-            raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+            if is_commander_only:
+                # ── LANE A: Wing → Commander — send now, real Inbox delivery ──
+                service = _get_wing_gmail_service()
+                _assert_wing_account(service)
 
-            # ── WF17 APPROVAL GATE ──────────────────────────────────────
-            # DEFAULT: stage as draft → label → notify Commander
-            # OVERRIDE: commander_approved=True → send immediately
-            if not commander_approved:
-                logger.info(f"WF17 GATE: staging draft for Commander review — to={to} subj={subject[:60]}")
-                draft_body = {"message": {"raw": raw}}
+                thread_id_for_msg = ""
+                if reply_to_message_id:
+                    try:
+                        orig = (
+                            service.users()
+                            .messages()
+                            .get(userId="me", id=reply_to_message_id, format="metadata",
+                                 metadataHeaders=["Message-ID", "Subject"])
+                            .execute()
+                        )
+                        orig_headers = {h["name"]: h["value"] for h in orig.get("payload", {}).get("headers", [])}
+                        if orig_headers.get("Message-ID"):
+                            message["In-Reply-To"] = orig_headers["Message-ID"]
+                            message["References"] = orig_headers["Message-ID"]
+                        thread_id_for_msg = orig.get("threadId", "")
+                    except Exception as thread_err:
+                        logger.warning(f"Could not thread reply: {thread_err}")
+
+                raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+                send_body = {"raw": raw}
                 if thread_id_for_msg:
-                    draft_body["message"]["threadId"] = thread_id_for_msg
+                    send_body["threadId"] = thread_id_for_msg
 
-                draft = (
-                    service.users()
-                    .drafts()
-                    .create(userId="me", body=draft_body)
-                    .execute()
-                )
-                draft_id = draft.get("id", "unknown")
+                sent = service.users().messages().send(userId="me", body=send_body).execute()
+                msg_id = sent.get("id", "unknown")
 
-                # Tag with THUNDERBIRD-Commander-Review label
-                try:
-                    draft_msg_id = draft.get("message", {}).get("id")
-                    if draft_msg_id:
-                        _tag_commander_review(service, draft_msg_id)
-                except Exception as e:
-                    logger.warning(f"Failed to tag draft with review label: {e}")
-
-                # Cache original AI-generated body for learning diff at send time
-                _cache_draft_body(draft_id, body)
-
-                pid_used = (from_persona or "CONCIERGE").upper()
                 _log_email_action(
                     to=to, subject=subject,
-                    persona_id=pid_used, auto_send=False, ref_id=draft_id,
+                    persona_id=pid_used, auto_send=True, ref_id=msg_id,
                 )
 
                 return json.dumps({
                     "status": "success",
-                    "action": "draft_created",
-                    "draft_id": draft_id,
+                    "action": "sent",
+                    "lane": "wing_to_commander",
+                    "message_id": msg_id,
+                    "thread_id": sent.get("threadId", ""),
                     "from_persona": pid_used,
                     "from_display": PERSONA_DISPLAY_NAMES.get(pid_used, "D2M Concierge"),
                     "to": to,
                     "subject": subject,
-                    "note": "WF17: Draft staged for Commander review. NOT sent. "
-                            "Commander must approve via Telegram /drafts flow.",
+                    "labels": sent.get("labelIds", []),
+                    "note": "Sent from wing account → lands in Commander's Inbox directly.",
                 }, indent=2)
 
-            # ── COMMANDER APPROVED — internal addresses only ─────────────
-            # Extract bare email from "Display Name <email>" format if needed
-            _to_bare = to.strip().lower()
-            _m = __import__("re").search(r"<([^>]+)>", _to_bare)
-            if _m:
-                _to_bare = _m.group(1).strip()
-            if _to_bare not in {a.lower() for a in COMMANDER_ADDRS}:
-                # External send permanently blocked — stage as draft instead
-                logger.warning("EXT SEND GUARD: blocking send to %s — staging as draft", to)
-                draft_body = {"message": {"raw": raw}}
-                if thread_id_for_msg:
-                    draft_body["message"]["threadId"] = thread_id_for_msg
-                draft = (
-                    service.users().drafts().create(userId="me", body=draft_body).execute()
-                )
-                draft_id = draft.get("id", "unknown")
-                return json.dumps({
-                    "status": "blocked",
-                    "action": "draft_created",
-                    "draft_id": draft_id,
-                    "to": to,
-                    "subject": subject,
-                    "note": "External send permanently prohibited. Only Commander addresses "
-                            "(johnloucks3/johnloucks75/d2mluxury.quest) may receive direct sends. "
-                            "Draft staged in d2mconcierge for review.",
-                }, indent=2)
+            # ── LANE B: any other recipient — always stage in Commander's ──
+            #   OWN Drafts box for his review (never auto-send, regardless
+            #   of commander_approved).
+            service = _get_commander_gmail_service()
+            raw = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+            draft_body = {"message": {"raw": raw}}
 
-            # All clear — send immediately ───────────────────────────────
-            send_body = {"raw": raw}
-            if thread_id_for_msg:
-                send_body["threadId"] = thread_id_for_msg
+            draft = service.users().drafts().create(userId="me", body=draft_body).execute()
+            draft_id = draft.get("id", "unknown")
 
-            sent = (
-                service.users()
-                .messages()
-                .send(userId="me", body=send_body)
-                .execute()
-            )
+            try:
+                draft_msg_id = draft.get("message", {}).get("id")
+                if draft_msg_id:
+                    _tag_commander_review(service, draft_msg_id)
+            except Exception as e:
+                logger.warning(f"Failed to tag draft with review label: {e}")
 
-            msg_id = sent.get("id", "unknown")
-            pid_used = (from_persona or "CONCIERGE").upper()
+            _cache_draft_body(draft_id, body)
             _log_email_action(
                 to=to, subject=subject,
-                persona_id=pid_used, auto_send=True, ref_id=msg_id,
+                persona_id=pid_used, auto_send=False, ref_id=draft_id,
             )
 
             return json.dumps({
                 "status": "success",
-                "action": "sent",
-                "message_id": msg_id,
-                "thread_id": sent.get("threadId", ""),
+                "action": "draft_created",
+                "lane": "client_review",
+                "draft_id": draft_id,
                 "from_persona": pid_used,
                 "from_display": PERSONA_DISPLAY_NAMES.get(pid_used, "D2M Concierge"),
                 "to": to,
                 "subject": subject,
-                "labels": sent.get("labelIds", []),
-                "note": "Commander-approved send.",
+                "note": "Staged in Commander's own Drafts box for review (WF-17). NOT sent.",
             }, indent=2)
 
         except HttpError as e:

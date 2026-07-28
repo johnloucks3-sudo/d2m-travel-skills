@@ -1,0 +1,29 @@
+Subject: Tech Scan 2026-07-15 11:00 UTC — 1 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-15T11:00:58.059090+00:00
+
+TECH SCAN — 2026-07-15 11:00 UTC
+airborne scanner pulse · 10 finds · sectors agentic
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 1 TRIAL · 9 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Skills as a Service via MCP –> Coding Agent Skill Library — https://github.com/mmccalla/coding-agent-skill-library
+↳ real tool (library, skill, mcp) — worth a bounded look
+👁 WATCH:DeepSWE just added the gpt-5.6 models to their benchmark. I hope you guys don't get too used to Claude Code as
+Launch HN: Agnost AI (YC S26) – Extract user feedback from agent conversations — https://agnost.ai
+Show HN: I built a smart proxy so your coding agent can run loose — https://trollbridge.dev/
+Show HN: Hiver – Chrome DevTools for Agents — https://hiver.sh
+Show HN: Liveshortly - stream and pair prompt with ai agents — https://liveshortly.com
+Loop Engineering: Fine-Tuning the Guardrail That Fired Wrong — https://dev.to/reporails/loop-engineering-fine-
+I Gave an AI Agent an Impossible Target to See If It Would Cheat — https://dev.to/anvaysingh/i-gave-an-ai-agen
+Your AI agent says "done." Who checks that from outside the agent? — https://dev.to/nexuslabzen/your-ai-agent-
+RAW — all finds this pulse (unfiltered)[agentic] DeepSWE just added the gpt-5.6 models to their benchmark. I hope you guys don't get too used to Claude Code as your only (Reddit r/ClaudeAI)
+[agentic] Launch HN: Agnost AI (YC S26) – Extract user feedback from agent conversations — https://agnost.ai (Hacker News — Claude Code)
+[agentic] Show HN: Skills as a Service via MCP –> Coding Agent Skill Library — https://github.com/mmccalla/coding-agent-skill-libr (Hacker News — Claude Code)
+[agentic] Show HN: I built a smart proxy so your coding agent can run loose — https://trollbridge.dev/ (Hacker News — Claude Code)
+[agentic] Show HN: Hiver – Chrome DevTools for Agents — https://hiver.sh (Hacker News — Claude Code)
+[agentic] Show HN: Liveshortly - stream and pair prompt with ai agents — https://liveshortly.com (Hacker News — Claude Code)
+[agentic] Loop Engineering: Fine-Tuning the Guardrail That Fired Wrong — https://dev.to/reporails/loop-engineering-fine-tuning-the (dev.to Claude)
+[agentic] I Gave an AI Agent an Impossible Target to See If It Would Cheat — https://dev.to/anvaysingh/i-gave-an-ai-agent-an-impos (dev.to Claude)
+[agentic] Your AI agent says "done." Who checks that from outside the agent? — https://dev.to/nexuslabzen/your-ai-agent-says-done- (dev.to Claude)
+[agentic] Claude Code subagents: when to delegate, and when a rule or hook is enough — https://dev.to/rulestack/claude-code-subage (dev.to Claude)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

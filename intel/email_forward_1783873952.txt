@@ -1,0 +1,39 @@
+Subject: CREDENTIAL ROTATION COMPLETE — Cloudflare token + SSH key
+From: johnloucks3@gmail.com
+Received: 2026-07-12T16:32:32.887926+00:00
+
+CREDENTIAL ROTATION COMPLETE
+
+Both verified dead/live via API, not self-reported.
+
+1. Cloudflare token "D2M Access Setup" — REVOKED
+
+Confirmed via /verify API: now returns "Invalid API Token" (was "active" before rotation).
+
+2. SSH key for zfold Termius — ROTATED
+
+The leaked RSA key (zfold-termius-20260522) is REMOVED from authorized_keys on yoga.
+Import the new key below into Termius — the old key already stops working.
+
+New private key (ed25519, replaces zfold-termius-20260522):
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACCOcOo2isOU89qkrj09mTIY0jd5XaQvkkKBLnmA1jTYLwAAAKg5b9aIOW/W
+iAAAAAtzc2gtZWQyNTUxOQAAACCOcOo2isOU89qkrj09mTIY0jd5XaQvkkKBLnmA1jTYLw
+AAAEDG6boQdQvgaQZ5i1TYT2BdPKTwURE8TqFiN4xv0hF9lI5w6jaKw5Tz2qSuPT2ZMhjS
+N3ldpC+SQoEueYDWNNgvAAAAHnpmb2xkLXRlcm1pdXMtcm90YXRlZC0yMDI2MDcxMgECAw
+QFBgc=
+-----END OPENSSH PRIVATE KEY-----
+
+Host: yoga (100.69.222.124 via Tailscale, or your usual host/IP)
+
+User: john
+
+Key name suggestion in Termius: zfold-termius-rotated-20260712
+
+Root cause fixed
+
+Keep sync in TCD will never copy note body content again — title only, permanent (regression-tested).
+
+Standing order noted: I rotate credentials on sight from now on, report here.

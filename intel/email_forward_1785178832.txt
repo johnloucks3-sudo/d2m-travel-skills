@@ -1,0 +1,38 @@
+Subject: Tech Scan 2026-07-27 19:00 UTC — 8 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-27T19:00:32.737509+00:00
+
+TECH SCAN — 2026-07-27 19:00 UTC
+airborne scanner pulse · 25 finds · sectors llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 8 TRIAL · 16 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Agent Mesh: let Claude Code, Codex, Grok and other agents talk to each other — https://github.com/mubashir1osmani/agent-mesh
+↳ real tool (github.com) — worth a bounded look
+MemU – Personal Memory Shared by Codex, Claude Code, and Hermes — https://github.com/NevaMind-AI/memU
+↳ real tool (github.com) — worth a bounded look
+Show HN: Save your Claude/codex/copilot tokens by using context profiler — https://github.com/RimantasZ/contextspy
+↳ real tool (github.com) — worth a bounded look
+Show HN: Claude Playbooks – isolated, shareable Claude Code instances — https://github.com/ramazanpolat/claude-playbooks
+↳ real tool (github.com) — worth a bounded look
+Show HN: Agent Console – A Local Dashboard for Codex and Claude Code — https://github.com/buhuipao/agent-console
+↳ real tool (github.com) — worth a bounded look
+Show HN: Relay – turn Claude Code into a visual Kanban build loop — https://github.com/YoniRaviv/Relay
+↳ real tool (github.com) — worth a bounded look
+Show HN: A 60-line PreToolUse hook that stops Claude Code from editing your .env — https://github.com/avenna01-ceo/claude-code-sur
+↳ real tool (tool, github.com) — worth a bounded look
+Jeffy Loop, an autonomous code improvement loop for Claude Code — https://github.com/lenamonj/jeffy-loop
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Claude ran mock interviews for a job I badly wanted. The real one felt like a rerun. I got it.
+Used Claude to fight a $1,200 medical bill. It drafted the letter. The bill got cut to $180.
+I built a procedural desert explorer with Claude Code (Opus 5) and Three.js
+Used claude to replay over 3000 users that played my daily racing game yesterday at the same time
+Claude has to take that code from somewhere — https://jcs.org/2026/07/23/ai
+Show HN: Telegram bot that spins up Claude Code/Codex agents on their own VMs — https://agenticcloudcomputer.c
+Claude weekly digest What's new — https://code.claude.com/docs/en/whats-new
+I let Claude Code run my blog for 3 months: numbers and failures — https://bigguyonstuff.com/claude-code-3-mon
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):How to structure CLAUDE.md, Skills and Agents — https://dev.to/hash01/how-to-structure-cla
+RAW — all finds this pulse (unfiltered)[llm] Claude ran mock interviews for a job I badly wanted. The real one felt like a rerun. I got it. (Reddit r/ClaudeAI)
+[llm] Used Claude to fight a $1,200 medical bill. It drafted the letter. The bill got cut to $180. (Reddit r/ClaudeAI)
+[llm] I built a procedural desert explorer with Claude Code (Opus 5) and Three.js (Reddit r/ClaudeAI)
+[llm] Used claude to replay over 3000 users that played my daily racing game yesterday at the same time (Reddit r/ClaudeAI)
+[llm] Agent Mesh: let Claude Code, Codex, Grok and o

@@ -132,3 +132,5 @@ python3 scripts/validate_dossier.py --json
 ```
 
 Exit code 0 = all pass. Exit code 1 = failures present. Sterling runs weekly in Baldrige sweep.
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

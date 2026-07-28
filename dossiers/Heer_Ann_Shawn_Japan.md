@@ -194,8 +194,17 @@ All depart NRT evening of **August 16, 2026** (tight window — both ~6:30-6:40p
 > **2026-07-07 00:52 UTC EMAIL: Portal Login Issue** — Ann unable to access portal (iamheer@outlook.com). Politely asked if she's making an error. Status: troubleshooting account access. Action: verify account registry, reset credentials, send clear login + fallback email-review option. Response due within 24h.
 
 
+**Jul 21 — ann heer** (Re: Re: Using AI)
+> 2026-07-21 — Ann Heer confirmed readiness and accepted offer of AI tool support for final preparations. No changes to itinerary requested. 17 days to departure (Aug 8). INTERNAL FLAG: Verify Gion Elite Terrace cancellation (noted 2026-05-21 as unresolved; must clear before trip lock).
+
 ### OPEN ACTION ITEMS
 - [ ] MISSION-HEER-PORTAL-001: Check if Ann Heer has an active portal account; verify in registry; reset or create credentials immediately (auto-intel Jul 07)
+
+- [ ] Schedule pre-trip checklist (airline confirmations, JR Pass, pocket WiFi) for ~July 26–28 (auto-intel Jul 21)
+
+- [ ] Cross-check all 8 lodging bookings against final itinerary: Tokyo (2x), Kyoto (2x), Osaka (2x), Hakone ryokan (1x) (auto-intel Jul 21)
+
+- [ ] URGENT: Verify Gion Elite Terrace cancellation status (self-booked Aug 12-14; conflicts with current structure; flagged May 21 as needing cancellation) (auto-intel Jul 21)
 
 - [ ] MISSION-HEER-PORTAL-004: If portal is down or broken, notify Commander + escalate to portal team (MISSION-1539 or infrastructure owner) (auto-intel Jul 07)
 

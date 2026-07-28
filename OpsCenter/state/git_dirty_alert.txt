@@ -1,21 +1,21 @@
-2026-07-09T21:47:00.338738: 493 uncommitted files
- M .ask_usage_log
- M .claude/settings.local.json
- M Blackboard
- M CLAUDE.md
- M D2M/clients/kuklinski_touchpoints.json
- M Dossiers/Ely_Darrow_Regent_3096289.md
- D MANUALS/PULSE_PHONE_C2.md
- M OpsCenter/.ci_rapid_repair_notify_dedup.json
- M OpsCenter/.deepseek_rate_log
- M OpsCenter/.lifecycle_last_scan_date
- M OpsCenter/.metronome_seq
- M OpsCenter/.regent_cookie_alert_dedup.json
- M OpsCenter/.session_blast_fingerprint.json
- M OpsCenter/.silversea_api_alert_dedup.json
- M OpsCenter/.supervisor_patterns.json
- M OpsCenter/00_COMMAND_LOG.md
- M OpsCenter/CLAUDE_DESKTOP_INIT.md
- M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/ask_wrapper.sh
+2026-07-27T21:47:01.826557: 867 uncommitted files
+A  .agents/AGENTS.md
+M  .ask_usage_log
+M  .claude/settings.json
+M  .opencode/skills/ask-opus/SKILL.md
+M  .opencode/skills/ask/SKILL.md
+A  .opencode/themes/d2m.json
+A  Antigravity-x64/LICENSE.electron.txt
+A  Antigravity-x64/LICENSES.chromium.html
+A  Antigravity-x64/antigravity
+A  Antigravity-x64/chrome-sandbox
+A  Antigravity-x64/chrome_100_percent.pak
+A  Antigravity-x64/chrome_200_percent.pak
+A  Antigravity-x64/chrome_crashpad_handler
+A  Antigravity-x64/icudtl.dat
+A  Antigravity-x64/libEGL.so
+A  Antigravity-x64/libGLESv2.so
+A  Antigravity-x64/libffmpeg.so
+A  Antigravity-x64/libvk_swiftshader.so
+A  Antigravity-x64/libvulkan.so.1
+A  Antigravity-x64/locales/af.pak

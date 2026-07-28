@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "timestamp": "2026-07-14T06:34:26.408283",
+  "voyages_scraped": 0,
+  "pricing_alerts": 0,
+  "availability_alerts": 0,
+  "cruise_lines_monitored": [
+    "CruiseMapper",
+    "Regent Seven Seas",
+    "Silversea"
+  ],
+  "cruisemapper_intel": {
+    "deck_plans_indexed": 0,
+    "itineraries_indexed": 0,
+    "ship_specs_indexed": 0,
+    "reviews_indexed": 0,
+    "routes_indexed": 0,
+    "capacity_data_indexed": true
+  },
+  "next_sweep": "Scheduled for 7:00 AM / 5:00 PM daily"
+}

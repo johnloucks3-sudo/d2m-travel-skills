@@ -1,0 +1,23 @@
+{
+  "route": "Stockholm_Arlanda_Airport_At_Six_Hotel_Stockholm",
+  "from": "Stockholm Arlanda Airport",
+  "to": "At Six Hotel Stockholm",
+  "date": "2026-08-27",
+  "pax": 6,
+  "scraped_at": "2026-07-17T15:14:17.088092",
+  "kiwitaxi": {
+    "source": "kiwitaxi",
+    "route": "Stockholm Arlanda Airport\u2192At Six Hotel Stockholm",
+    "description": "Stockholm Arlanda Airport \u2192 At Six Hotel Stockholm",
+    "url": "https://kiwitaxi.com/",
+    "pax": 6,
+    "date": "2026-08-27",
+    "scraped_at": "2026-07-17T15:14:18.917334",
+    "duration_min": null,
+    "transfers": [],
+    "screenshot": null,
+    "status": "error",
+    "notes": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"At Six Hot\").first\n"
+  },
+  "welcomepickups": {}
+}

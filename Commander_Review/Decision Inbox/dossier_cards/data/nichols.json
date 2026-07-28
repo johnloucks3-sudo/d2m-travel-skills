@@ -1,0 +1,46 @@
+{
+  "client_id": "nichols",
+  "display_name": "Larry & Heidi Nichols",
+  "accent_hex": "#1baf7a",
+  "accent_label": "teal-blue",
+  "group_size": 2,
+  "cruise_line": "Regent Seven Seas",
+  "ship": "SS Grandeur",
+  "voyage_name": "Storied Scandinavia",
+  "booking_ref": "3078056",
+  "suite": "939",
+  "deck": "9",
+  "departure_date": "2026-08-29",
+  "return_date": "2026-09-08",
+  "payment": {
+    "overall_status": "paid",
+    "total_amount": 14986,
+    "paid_to_date": 14986,
+    "balance_due": 0,
+    "stages": [
+      {"label": "Deposit", "date": "2025-10-01", "status": "paid"},
+      {"label": "Final Payment (FPD)", "date": "2026-04-01", "amount": 14986, "status": "paid"}
+    ]
+  },
+  "next_touchpoint": {
+    "code": "TP 1.2",
+    "title": "Excursion + Dining Guide",
+    "status": "AT WF-17 GATE — awaiting Commander review",
+    "note": "hale_brief.md CLIENT WIRE table shows a stale 'Airfare Watch' label for this slot; the dossier LIFECYCLE note (2026-07-05) and the actual staged draft both confirm Excursion + Dining is the live TP."
+  },
+  "quick_facts": {
+    "days_to_departure": 50,
+    "itinerary_status": "MISSION-802 group HTML itinerary — build due 2026-07-22, 30-day send target 2026-07-29",
+    "excursions_confirmed": 7,
+    "excursions_total": 7,
+    "specialty_dining_confirmed": 3,
+    "specialty_dining_total": 3
+  },
+  "alerts": [
+    {"level": "info", "internal_only": false, "text": "Heidi's birthday is Aug 29 — embarkation day. Prime 7 specialty dining reservation (Sep 4) already confirmed as the celebration night; consider an onboard surprise for arrival day too."},
+    {"level": "P2", "internal_only": true, "text": "Mission board M-083 flags a discrepancy: matrix row 22 says return seats missing, but detail rows 19-20 show BA 6776 (3C/3A) and AA 79 (8D/8G) assigned. Verify which is current before referencing in client copy."},
+    {"level": "P0", "internal_only": false, "text": "ARN → At Six Hotel transfer not yet booked — group-wide gap, all 3 couples. MISSION-1545/1556."}
+  ],
+  "source_dossier": "dossiers/Nichols_Regent_3078056.md",
+  "data_as_of": "2026-07-10"
+}

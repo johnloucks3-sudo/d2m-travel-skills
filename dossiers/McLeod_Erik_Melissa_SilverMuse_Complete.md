@@ -427,6 +427,10 @@ completed_tps: []
 | 2026-06-22 | Re: Silversea cruise | Melissa |
 | 2026-06-26 | A free cruise discovery tool from John — your honest take welcome | Erik |
 | 2026-07-08 | A few things I'd love your feedback on, Erik and Melissa | Erik, Melissa |
+| 2026-07-13 | Request for FCC application to fare, Erik Mc Leod/Melissa Mc Glasson BKG#2984034 (atchd) | Erik, Melissa |
+| 2026-07-13 | Re: Request for FCC application to fare, Erik Mc Leod/Melissa Mc Glasson BKG#2984034 (atchd) | Erik, Melissa |
+| 2026-07-19 | Fwd: Regent Seven Seas Cruises Invoice: 2984034 Guest: MC GLASSON | Erik, Melissa |
+| 2026-07-20 | Fwd: Regent Seven Seas Cruises Invoice: 2984034 Guest: MC GLASSON | Erik, Melissa |
 
 ---
 
@@ -461,3 +465,7 @@ completed_tps: []
 - [ ] Post-cruise outreach: Email survey 1-2 days after Jul 6 disembarkation requesting full trip feedback and future recommendations (auto-intel Jun 22)
 
 - [ ] Restaurant database: La Fata Ignorante (Rome)—add to preferred vendors, rating EXCEPTIONAL (auto-intel Jun 22)
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

@@ -1,0 +1,56 @@
+Subject: Hermai.ai Analysis + Implementation Plan — Low-Volume Air Scans
+From: johnloucks3@gmail.com
+Received: 2026-07-20T03:52:21.202544+00:00
+
+body { background:#f7f3ea; color:#0000ff; font-family:Georgia, 'Times New Roman', serif; padding:32px; max-width:760px; margin:0 auto; }
+  h1 { font-size:24px; border-bottom:2px solid #0000ff; padding-bottom:8px; }
+  h2 { font-size:18px; margin-top:28px; }
+  p, li { font-size:15px; line-height:1.55; }
+  code { font-family:'Menlo','Consolas',monospace; font-size:13px; background:#eae5d6; color:#1a1a1a; padding:1px 5px; border-radius:3px; }
+  .meta { font-size:13px; color:#3333aa; }
+  .caveat { background:#eae5d6; border-left:3px solid #0000ff; padding:10px 14px; }
+  .footer { margin-top:32px; font-size:13px; color:#3333aa; border-top:1px solid #c9c2ab; padding-top:12px; }
+
+Hermai.ai — Analysis & Implementation Plan for Low-Volume Air Scans
+
+Source: r/ClaudeCode post by u/Tradingoso · Analyzed 2026-07-19 by Hale
+
+Summary
+
+Hermai is an open-source (AGPL-3.0) catalog of reverse-engineered website API schemas —
+1,971 community-maintained schemas across 15 categories (35 in Travel). Install a Claude Code
+skill (npx skills add hermai-ai/hermai-skills) and the agent looks up a target site,
+pulls its schema (exact request parameters, headers, signing/session logic), and either
+self-executes the request or — where enabled — calls Hermai's hosted POST /v1/fetch.
+Free tier: 1,000 credits/mo, no card. Verified live: kayak.com (5 endpoints incl.
+flight_search) and booking.com (10 endpoints) both have real, published schemas today.
+
+The catch (verified, not assumed)
+
+For both Kayak and Booking.com — the travel sites that matter here — hosted execution is
+explicitly marked "not yet enabled." Every endpoint reads: "Data package available. Hosted
+fetch not enabled yet. Pull the package to run this endpoint yourself." Hermai doesn't proxy
+these requests through its own infrastructure (good for PII), but it also doesn't solve
+anti-bot for you — Thunderbird's own infrastructure would execute the documented request against
+Kayak's live bot defenses. The real value on offer today is saved reverse-engineering time, not a
+guaranteed bypass. Per-call credit cost also isn't published.
+
+This is a real, live, open-source project — the catalog, playground, and specific
+Kayak/Booking.com schemas all checked out on direct inspection — but it's a documentation/shortcut
+layer for travel sites as of today, not a magic anti-bot-bypass service.
+
+Why it's still worth testing
+
+Current flight stack — Kiwi RapidAPI (300/mo cap), Google Flights RapidAPI (150/mo cap),
+Centrav B2B (headed-browser login), United CloakBrowser (one-way only) — is either quota-capped
+or requires full browser automation. If Hermai's documented Kayak request shape holds up under a
+direct HTTP call, that's a lighter path for quick, low-stakes ad hoc fare checks without burning
+quota or spinning up CloakBrowser. Worst case: zero cost, zero risk, learned in an afternoon.
+
+Implementation plan
+
+P0 — Sandboxed evaluation (today, $0, no client data):
+
+Register a free Hermai API key under a Thunderbird-owned email.
+
+Pul

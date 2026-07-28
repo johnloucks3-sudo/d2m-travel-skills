@@ -115,3 +115,5 @@ No purchases or reservations have been made against this plan — **all items re
 ---
 
 *Built by Reyes/Dembe research, 2026-07-16. Grounded in `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` preference lines 91–94 and live 2026 web verification of all venues (see individual source links above). Supersedes the EXCURSIONS & ACTIVITIES section of `DOSSIER_DoorCounty_SisterBay_Sep2026.md` for excursion/dining selection — that dossier's financial/lodging/air data remains authoritative and unchanged.*
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

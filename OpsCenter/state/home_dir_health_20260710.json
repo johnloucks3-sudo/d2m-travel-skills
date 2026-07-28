@@ -1,6 +1,6 @@
 {
   "probe": "home-dir-health",
-  "timestamp": "2026-07-10T22:21:33.346168+00:00",
+  "timestamp": "2026-07-10T23:57:01.597832+00:00",
   "date": "20260710",
   "overall_status": "CRITICAL",
   "exit_code": 2,
@@ -8,8 +8,8 @@
     {
       "check": "cache_bloat",
       "path": "/home/john/.cache",
-      "size_mb": 4487.0,
-      "size_gb": 4.38,
+      "size_mb": 4510.0,
+      "size_gb": 4.4,
       "threshold_gb": 2.0,
       "status": "CRITICAL",
       "note": "~/.cache is 4.4GB \u2014 exceeds 2.0GB threshold"
@@ -25,7 +25,7 @@
     {
       "check": "local_size",
       "path": "/home/john/.local",
-      "size_mb": 34392.0,
+      "size_mb": 34397.0,
       "size_gb": 33.59,
       "threshold_gb": 35.0,
       "status": "OK",
@@ -34,10 +34,10 @@
     {
       "check": "npm_cache_size",
       "path": "/home/john/.npm",
-      "size_mb": 663.0,
+      "size_mb": 662.0,
       "threshold_mb": 500,
       "status": "WARNING",
-      "note": "~/.npm is 663MB \u2014 exceeds 500MB threshold"
+      "note": "~/.npm is 662MB \u2014 exceeds 500MB threshold"
     },
     {
       "check": "critical_bins",
@@ -305,7 +305,7 @@
     {
       "check": "major_dir_growth",
       "major_dir_sizes": {
-        "/home/john/Thunderbird": 17319.0,
+        "/home/john/Thunderbird": 17336.0,
         "/home/john/D2M": 6572.0,
         "/home/john/Downloads": 453.0,
         "/home/john/OpenMontage": 411.0,
@@ -313,15 +313,22 @@
         "/home/john/playwright-venv": 151.0
       },
       "growth_threshold_mb": 500,
-      "growth_warnings": [],
-      "status": "OK",
-      "note": "No major growth detected vs baseline"
+      "growth_warnings": [
+        {
+          "path": "/home/john/Thunderbird",
+          "prev_mb": 0.0,
+          "current_mb": 17336.0,
+          "delta_mb": 17336.0
+        }
+      ],
+      "status": "WARNING",
+      "note": "1 dir(s) grew >500MB since last run"
     }
   ],
   "summary": {
     "total_checks": 7,
-    "ok": 4,
-    "warnings": 2,
+    "ok": 3,
+    "warnings": 3,
     "critical": 1
   }
 }

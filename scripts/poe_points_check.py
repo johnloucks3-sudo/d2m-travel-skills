@@ -159,7 +159,15 @@ async def main():
     print("  Poe Points Check  — poe.com/api_key")
     print("─" * 44)
 
-    data = await scrape()
+    try:
+        data = await scrape()
+    except Exception as exc:
+        # Transient network error (e.g. ERR_NETWORK_CHANGED at boot before
+        # network is stable). Exit 0 so systemd's OnFailure= cascade doesn't
+        # fire — the daily timer will retry. Not a persistent fault.
+        print(f"  ⚠️  Scrape error (transient): {exc}")
+        print("  ℹ️  Exiting 0 — timer will retry on next schedule.")
+        return
     save(data)
 
     status = data.get("status")

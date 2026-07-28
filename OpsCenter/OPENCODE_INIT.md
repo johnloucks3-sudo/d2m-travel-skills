@@ -80,10 +80,11 @@ print(f"SENT: {result['id']}")
 - Config: `OpsCenter/eod_incubator_config.json` | Full SO: `standing_orders/SO_EOD_INCUBATOR_PROTOCOL_20260610.md`
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-10 16:20 MT -->
+<!-- Last sync: 2026-07-28 15:55 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-10 16:20 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-28 15:55 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
+Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE
 Open items: none logged

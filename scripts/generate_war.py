@@ -107,15 +107,15 @@ def build_commit_rows(commits):
             f'<div class="build-item">'
             f'<span class="tag {css}">{tag}</span>'
             f'<div class="item-body"><strong>{c["date"]}</strong> — {c["msg"]}'
-            f' <span style="color:#aaa;font-size:0.78rem;">({c["hash"]})</span></div>'
+            f' <span style="color:#444;font-size:0.78rem;">({c["hash"]})</span></div>'
             f'</div>\n'
         )
-    return rows or "<p style='color:#888;font-size:0.85rem;'>No commits found for this period.</p>"
+    return rows or "<p style='color:#444;font-size:0.85rem;'>No commits found for this period.</p>"
 
 
 def build_mission_rows(closed):
     if not closed:
-        return "<tr><td colspan='2' style='color:#888;'>No missions closed this week.</td></tr>"
+        return "<tr><td colspan='2' style='color:#444;'>No missions closed this week.</td></tr>"
     rows = ""
     for m in closed:
         rows += f"<tr><td>{m.get('id','?')}</td><td>{m.get('title','')[:80]}</td></tr>\n"

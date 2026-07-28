@@ -83,9 +83,9 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 ### HOTEL & TRANSFERS
 | Booking | Item | Dates | Status | Cost |
 |---------|------|-------|--------|------|
-| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket; booking 131-2656351 ($418 paid) **CANCELLING → refund pending** | Aug 27-28 | ⚠️ to arrange | — |
+| At Six Stockholm | Pre-cruise Night 1 (client-directed) — replaces Haymarket; booking 131-2656351 ($418 paid) **✅ CANCELLED → refund pending** | Aug 27-28 | ⚠️ to arrange | — |
 | — | At Six Stockholm — Regent included hotel night (Conf #9092637820900) | Aug 28-29 | Included | — |
-| New — D2M to book | ARN → At Six transfer — replaces ARN→Haymarket (Royal Transfer 1095074/DVF6U6, $176 paid → **cancel/refund**) | Aug 27 | ⚠️ to book | — |
+| ✅ PE184710612 | ARN → At Six transfer — replaces ARN→Haymarket (Royal Transfer 1095074/DVF6U6 ✅ **CANCELLED**) | Aug 27 | ✅ **CONFIRMED** (Sedan, private) — Hold w/o Payment, full payment due Aug 16 2026 [source: Project Expedition confirmation email, d2mconcierge, 2026-07-12] | TBD — Harlan to verify |
 | — | Regent transport hotel → ship | Aug 29 | Included | — |
 | — | Regent transport ship → Oslo airport | Sep 8 | Included | — |
 
@@ -101,6 +101,12 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 > "We are in Costa Rica. Missy has me in the middle of some jungle looking at monkeys. Short answer, I renewed my passport last fall and expires in 2035. I will look over your email in detail when I get back."
 - **PASSPORT: CONFIRMED** — renewed fall 2025, expires 2035
 - Will review details after Mar 16
+
+**Jul 10 — Melissa Furlow** (Re: Re: ARN to At Six Transfer)
+> **Jul 10 — Melissa Furlow (email approval):** Confirms Furlow couple approves 3-car transfer arrangement ARN→At Six Aug 27. Melissa defers booking to John Loucks. Missy reports she and John very excited; already packing. Group approval status: Furlow ✅, Ely-Darrow ⏳, Nichols ⏳. Booking target: Sunday Jul 14.
+
+**Jul 17 — John C. Furlow, Jr.** (Re: Automatic reply: Stockholm Arrival Transfer — One Van Instead of Three Sedans?)
+> Jul 17, 2026 — John Furlow auto-reply received; unavailable until Jul 20. Pending decision on Stockholm ARN→At Six transfer: one van vs. three sedans. Transfer booking (Project Expedition PE184710612, private sedan) currently configured; payment due Aug 16, 2026. Secondary contacts for urgent matters: stephanie.johnson@tpf.org, alex.panzeri@tpf.org. Follow up: Jul 20 or later.
 
 ---
 
@@ -176,6 +182,11 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 | 2026-05-18 | SS Grandeur — Specialty Dining Strategy | John Furlow, Missy |
 | 2026-06-04 | Furlow — Trip Validation Report · Regent Seven Seas Grandeur · Storied Scandinavia · Aug 29 – Sep... | Missy |
 | 2026-06-27 | SS Grandeur — Storied Scandinavia \| Voyage Preview | John Furlow, Missy |
+| 2026-07-12 | Re: Stretch Out in an Upgraded Suite – Booking: 3078056 | John Furlow, Missy |
+| 2026-07-17 | Re: Stockholm Arrival Transfer — One Van Instead of Three Sedans? | John Furlow |
+| 2026-07-17 | Re: Stockholm Arrival Transfer — One Van Instead of Three Sedans? | John Furlow, Missy |
+| 2026-07-17 | Stockholm Arrival Transfer — One Van Instead of Three Sedans? | John Furlow, Missy |
+| 2026-07-26 | Your Scandinavia Voyage — Regent Seven Seas Grandeur | John Furlow, Missy |
 
 ---
 
@@ -192,8 +203,8 @@ completed_tps: ["4.1", "4.2", "4.3", "4.4", "4.5", "1.1"]
 | 5 | Flights | Outbound leg 2 (HEL→ARN) | YES | **CONFIRMED** | AY 811 Aug 27 1:15PM |
 | 6 | Flights | Outbound PNR / e-ticket | YES | **CONFIRMED** | AA: CKZHXA / Finnair: BB4X94 |
 | 7 | Flights | Outbound seat assignments | Nice-to-have | **PARTIAL** | DFW→HEL: ✅ assigned (seat #s TBD); HEL→ARN: ⚠️ still unassigned (BB4X94) |
-| 8 | Transfers | Airport → hotel transfer | YES | ⚠️ **REBOOKING** | ARN→At Six to book; ARN→Haymarket Royal Transfer (1095074/DVF6U6, $176 paid) cancelling → refund |
-| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **REBOOKING** | At Six Stockholm, Aug 27-28 (client-directed). Haymarket (131-2656351, $418 paid) cancelling → refund pending |
+| 8 | Transfers | Airport → hotel transfer | YES | **✅ CONFIRMED** | ARN→At Six PE184710612 (Sedan) — Hold w/o Payment, due Aug 16 2026; ARN→Haymarket Royal Transfer (1095074/DVF6U6) ✅ **CANCELLED** |
+| 9 | Hotel | Pre-cruise hotel (1 night) | YES | ⚠️ **REBOOKING** | At Six Stockholm, Aug 27-28 (client-directed). Haymarket (131-2656351) ✅ **CANCELLED** |
 | 10 | Hotel | Regent included hotel night | YES | **CONFIRMED** | At Six Stockholm, Aug 28-29 (Conf #9092637820900) |
 | 11 | Transfers | Hotel → port transfer | YES | **CONFIRMED** | Regent transport, Aug 29 |
 | 12 | Cruise | Booking confirmed | YES | **CONFIRMED** | 3071222, Suite 827 |
@@ -288,3 +299,23 @@ Commander replied to Missy at 15:13 MT: "Thanks Missy, got it — John" ✅
 9. [x] ~~Travel insurance gap~~ — Chase Sapphire Reserve active & paid. Card covers cancellation/interruption up to $10K/pp but NOT cruise-specific risks. Standalone policy still not booked.
 10. [ ] Outbound seat assignments — BB4X94 (DFW→HEL and HEL→ARN) still unassigned
 11. [ ] **Store passport images** to Google Drive — D2M Trip Dossiers/Furlow/Passports/ (pending Drive upload)
+
+
+### OPEN ACTION ITEMS
+- [ ] MISSION-1545: Furlow couple confirmed for 3-car transfer—cross off; await Ely-Darrow and Nichols confirmations (auto-intel Jul 10)
+
+- [ ] Update transfer booking once John confirms his preference; coordinate with other two couples if one-van consolidation is approved. (auto-intel Jul 17)
+
+- [ ] Verify Project Expedition booking (PE184710612) payment schedule and confirm Aug 16 due date is correct. (auto-intel Jul 17)
+
+- [ ] Follow up with John Furlow on or after July 20, 2026 regarding Stockholm transfer preference (one van vs. three sedans). (auto-intel Jul 17)
+
+- [ ] Ungate SCANDI-PORTAL-SEND (deferred alert): once all transfers booked, portal links to Furlow/Ely-Darrow/Nichols are authorized for send Jul 20 (auto-intel Jul 10)
+
+- [x] Book 3 vehicles with vendor for Aug 27, 1:30 PM pickup from ARN (after AY 811 landing) → At Six Stockholm by 2:30 PM — **DONE**, confirmed via Project Expedition Jul 12 2026 (PE184710612 Furlow / PE184711812 Ely-Darrow / PE184712212 Nichols). Sent to all 3 couples Jul 13; Furlow & Ely-Darrow acknowledged. Hold without Payment — full payment due Aug 16 2026. Nichols raised a 3-bag luggage-capacity concern on the sedan (Jul 13) — Commander responded citing no larger van/luggage-capacity combo available in this market; unconfirmed if Nichols is satisfied, follow up before final payment.
+
+- [ ] Follow-up by EOB Jul 11: verify Ely-Darrow and Nichols have responded to the transfer proposal (auto-intel Jul 10)
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

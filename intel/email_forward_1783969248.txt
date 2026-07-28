@@ -1,0 +1,14 @@
+Subject: Tech Scan 2026-07-13 19:00 UTC — 1 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-13T19:00:48.791119+00:00
+
+TECH SCAN — 2026-07-13 19:00 UTC
+airborne scanner pulse · 2 finds · sectors mcp
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 1 TRIAL · 1 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Claude Code, Beyond the Prompt — Part 4: Your First MCP Server (Give Claude Safe Hands on Your Own Tools) — https://dev.to/gde03/c
+↳ real tool (server, mcp, tool) — worth a bounded look
+👁 WATCH:MCP with Keycloak, Claude, Codex and a Whole Lot of Coffee — https://blog.priyavijai-kalyan2007.workers.dev/mc
+RAW — all finds this pulse (unfiltered)[mcp] MCP with Keycloak, Claude, Codex and a Whole Lot of Coffee — https://blog.priyavijai-kalyan2007.workers.dev/mcp-via-keyc (Hacker News — Claude Code)
+[mcp] Claude Code, Beyond the Prompt — Part 4: Your First MCP Server (Give Claude Safe Hands on Your Own Tools) — https://dev. (dev.to Claude)
+— Hale · cheap collects, I adjudicate · this lands every pulse, no direction needed.

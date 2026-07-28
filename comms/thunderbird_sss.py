@@ -3,6 +3,21 @@ Thunderbird Staff Summary Sheet — IOC Build 2
 ===============================================
 Formal coordination mechanism modeled on USAF AF Form 1768.
 
+⚠️ DEPRECATED — CLIENT COMMS ONLY — DO NOT USE FOR NEW STAFFING.
+This module is retained solely for its live client-scope dissent/escalation
+callers (MCP tools registered via `register_sss_tools`, the FastAPI routes in
+api/thunderbird_api.py, the Telegram Approve/Modify/Reject buttons in
+core/communication/thunderbird_telegram_c2.py, and the auto-escalation call
+sites in thunderbird_dani_email.py / thunderbird_sentience.py /
+thunderbird_personas.py). Its coordinator vocab (IOC_COORDINATORS /
+CLIENT_COORDINATION: A2/A3/A5/COS/EXEC/A12) is stale relative to the current
+JET/TALON/SILVER/HALE org structure. The canonical Staff Summary Sheet
+implementation for ALL non-client staffing/tasking is
+`core/staffing/staff_summary_sheet.py` (Silver front/back gate, anti-theater
+cross-seat certification, mission-board integration) — reviewed and confirmed
+by cross-Hale audit 2026-07-19 (docs/ag_sss_migration_review_20260719.md).
+Do not add new callers here; do not fork new staffing logic from this file.
+
 Skill addressed:
   5. Debate Then Align — show real disagreement, resolve it, Commander decides.
 

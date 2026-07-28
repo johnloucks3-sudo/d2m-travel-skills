@@ -2,28 +2,37 @@
  "explora": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 25,
+  "consecutive_failures": 42,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-10T20:34:04.415534+00:00",
+  "last_seen": "2026-07-28T06:24:59.095397+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "regent_direct": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 18,
+  "consecutive_failures": 34,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-10T20:34:38.594408+00:00",
+  "last_seen": "2026-07-28T15:06:56.378279+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "regent_oa": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 19,
+  "consecutive_failures": 34,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-10T20:34:47.637697+00:00",
+  "last_seen": "2026-07-28T15:07:05.884960+00:00",
+  "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
+ },
+ "atlas": {
+  "status": "needs_repair",
+  "owner": "HALE",
+  "consecutive_failures": 3,
+  "backoff_hours": 6.0,
+  "first_seen": "2026-07-28T21:14:30.001304+00:00",
+  "last_seen": "2026-07-28T21:14:30.001309+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  }
 }

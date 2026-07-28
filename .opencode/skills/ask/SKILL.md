@@ -9,7 +9,9 @@ Dispatch a task to Claude Code (Sonnet) running headless with full Wing context 
 Use this when the task requires: Wing procedures, creative chain, client email drafting,
 trip validation, itinerary generation, or anything that needs CLAUDE.md knowledge.
 
-## How to invoke
+Full cross-engine dispatch doctrine: `standing_orders/SO_ASK_DISPATCH_CROSSENGINE_20260726.md`
+
+## How to invoke — CC and OC
 
 ```bash
 ask 'task description here'
@@ -17,6 +19,7 @@ ask 'task description here'
 
 The `ask` command is symlinked to `OpsCenter/ask_wrapper.sh` in `~/.local/bin/`.
 Available as **`/ask`** (canonical name) or `ask` (bash command — slash is a doc convention).
+**Both CC and OC use this exact same syntax** — the wrapper is shared.
 
 ## When to use /ask
 
@@ -42,3 +45,57 @@ ask 'Draft the Kuklinski ARC4-B specialty dining lifecycle email. Client profile
 ## Output location
 
 Results print inline. File saved to `/home/john/Thunderbird/output/`.
+
+---
+
+## Reaching AG (Antigravity / Victory) — Peer Dispatch
+
+AG is a full Hale seat (HALE-AG), not a tool. Use her for: independent cross-check,
+large-corpus reads (~1M token context), native vision/image work, or when CC is down.
+
+**AG CANNOT run `bsk`** (browser automation excluded from her shell permissions, M-617).
+
+### CLI
+
+```bash
+python3 /home/john/Thunderbird/core/relay/contact_ag.py \
+  "<one clear task>" \
+  --deliverable /home/john/Thunderbird/<ABSOLUTE_path>.md \
+  --from OC \
+  --tag AG-VERIFY
+# Preview without sending:
+python3 .../contact_ag.py "<task>" ... --print-prompt-only
+```
+
+### Python
+
+```python
+from core.relay.contact_ag import contact_ag
+r = contact_ag(
+    task="Independently verify X and record your verdict.",
+    deliverable_path="/home/john/Thunderbird/docs/ag_verdict.md",
+    from_seat="OC",   # or "CC"
+    verdict_tag="AG-VERIFY",
+)
+```
+
+### Model rules — NON-NEGOTIABLE
+
+AG's default model (GPT-OSS 120B) **hallucinates**. Always force a strong model:
+
+| Priority | Model |
+|---|---|
+| Default | `"Gemini 3.1 Pro (High)"` |
+| Fallback 1 | `"Claude Opus 4.6 (Thinking)"` |
+| Fallback 2 | `"Claude Sonnet 4.6 (Thinking)"` |
+| Fallback 3 | `"Gemini 3.5 Flash (High)"` |
+
+`contact_ag.py` sets `"Gemini 3.1 Pro (High)"` by default — do not remove.
+Override with `--model "..."` or `model=` kwarg.
+
+### Path rules
+
+- **Absolute deliverable paths ONLY** — relative paths land in AG's sandbox, not the repo.
+- Cross-check her output against ground truth before acting — peers verify each other.
+- AG verdict file is valid `cross_hale_evidence` for SSS closeout:
+  `EXEC: closeout SSS-NNN :: AG :: <her verdict file>`

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A2-2026-07-11-001",
+    "title": "OpenAI AGI Research",
+    "source_signal": "OpenAI | Research & Deployment: We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems.",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": "Core Research",
+    "risk": "HIGH",
+    "sss_required": false,
+    "rationale": "While not immediately integrable, AGI research represents a significant future capability that warrants monitoring."
+  },
+  {
+    "id": "A2-2026-07-11-002",
+    "title": "Google Gemini Assistant",
+    "source_signal": "\u200eGoogle Gemini: Meet Gemini, Google\u2019s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of \u2026",
+    "classification": "INTEGRATE",
+    "gap_closed": "AI-powered assistance for content generation and planning",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "Gemini's capabilities can directly enhance Thunderbird's content generation and planning functions, closing a known gap in AI assistance."
+  },
+  {
+    "id": "A2-2026-07-11-003",
+    "title": "ChatGPT Advanced AI",
+    "source_signal": "ChatGPT: Chat with the most advanced AI to explore ideas, solve problems, and learn faster.",
+    "classification": "INTEGRATE",
+    "gap_closed": "Advanced AI for problem-solving and knowledge exploration",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "LOW",
+    "sss_required": true,
+    "rationale": "ChatGPT offers advanced AI for problem-solving and learning, directly addressing a gap in Thunderbird's analytical capabilities."
+  },
+  {
+    "id": "A2-2026-07-11-004",
+    "title": "DeepAI Advanced AI Integration",
+    "source_signal": "DeepAI: Whether you are a hobbyist, a professional artist, or a developer integrating AI into your product, DeepAI delivers advanced \u2026",
+    "classification": "INTEGRATE",
+    "gap_closed": "Advanced AI for product integration",
+    "thunderbird_component": "Market Intelligence",
+    "risk": "MED",
+    "sss_required": true,
+    "rationale": "DeepAI's focus on advanced AI integration can be leveraged to enhance Thunderbird's product features, closing a gap in its AI-driven functionalities."
+  },
+  {
+    "id": "A2-2026-07-11-005",
+    "title": "Google AI for Everyone",
+    "source_signal": "Google AI - How we're making AI helpful for everyone: Discover how Google AI is committed to enriching knowledge, solving complex challenges and helping people grow by \u2026",
+    "classification": "WATCH",
+    "gap_closed": null,
+    "thunderbird_component": "Core Research",
+    "risk": "LOW",
+    "sss_required": false,
+    "rationale": "Google's broad AI initiatives offer insights into future trends and potential applications for Thunderbird, warranting a watch."
+  }
+]

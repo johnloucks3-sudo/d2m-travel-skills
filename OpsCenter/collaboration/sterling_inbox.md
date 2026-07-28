@@ -8806,3 +8806,11168 @@ _Auto-routed by hale_notify.py_
 **[20:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
 d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
 _Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-org.kde.discover@3c70a930f61e429aab2e3ce6ef9fecb5**
+app-org.kde.discover@3c70a930f61e429aab2e3ce6ef9fecb5 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:35 UTC] HALE → STERLING: generic-remediate:d2m-fare-watch-alert**
+d2m-fare-watch-alert entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:35 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:35 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:39 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-11T12:09:54.275675+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:44 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:44 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:48 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:48 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:48 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:49 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:49 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:49 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:25 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:25 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:25 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:35 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:45 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:05 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:05 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:05 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:25 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:05 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:05 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:15 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:25 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:25 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:25 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:52 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:05 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:25 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:25 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:52 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:54 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:26 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:54 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:57 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:58 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:59 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:01 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:02 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:06 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:07 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:08 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:13 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:38 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:43 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:43 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:53 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:23 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:43 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:23 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:23 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:23 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:33 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:33 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:33 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:33 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:43 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:43 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:43 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:12 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:03 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:13 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:34 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:15 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:44 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-13T12:06:13.348855+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:16 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:16 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:16 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:16 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:17 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:17 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:18 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:18 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:18 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:19 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:19 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:19 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:19 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:49 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da**
+app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da**
+app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da**
+app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da**
+app-google\x2dchrome@5298b2c5444445c1a6569bb6d77d82da failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:22 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:22 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:22 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:23 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:24 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:24 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:33 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:33 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:01 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:34 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:34 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:11 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:21 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:30 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:35 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:35 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:36 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:36 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:36 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:37 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:37 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:37 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:37 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:37 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:37 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:41 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:37 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:37 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:38 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:41 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:38 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:38 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:38 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:01 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:01 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:36 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:39 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: telegram-relay**
+CI telegram-relay BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:11 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:21 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:31 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:42 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:42 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:42 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:42 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:42 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:52 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:54 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:04 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:43 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:43 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:44 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:54 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:44 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:45 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:45 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:45 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:45 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:19 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708**
+app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:19 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111**
+app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708**
+app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111**
+app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708**
+app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111**
+app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:40 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708**
+app-google\x2dchrome@2f7ce5d8d8a54178a3fd23d6b7441708 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:40 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111**
+app-google\x2dchrome@3fe5f8793c474c728c60a06b129dd111 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:46 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:47 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:47 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:47 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:49 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:49 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:49 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:49 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:49 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:42 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:01 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:09 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c**
+app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:09 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5**
+app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5**
+app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c**
+app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:16 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6**
+app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6**
+app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5**
+app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:20 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c**
+app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6**
+app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5**
+app-google\x2dchrome@e6d6be2c400b4bf5ad83298332ec01c5 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c**
+app-google\x2dchrome@ff22ea7b7c2945bba1fae98712f5f52c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6**
+app-google\x2dchrome@dd28fee62890499186c6ac24f29130a6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0**
+app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:46 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811**
+app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16**
+app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c**
+app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083**
+app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949**
+app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083**
+app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0**
+app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949**
+app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c**
+app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811**
+app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16**
+app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083**
+app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0**
+app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949**
+app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c**
+app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811**
+app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16**
+app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083**
+app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0**
+app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949**
+app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c**
+app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811**
+app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16**
+app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083**
+app-google\x2dchrome@2ca96206b13d45a4a9705d5e8f2f1083 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0**
+app-google\x2dchrome@5c09d9f74b814fcdb2b111b16323f6b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949**
+app-google\x2dchrome@7c27d4e3fc4c4719a7664d4a13aca949 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c**
+app-google\x2dchrome@85630897127d4aeb8b34f3d6f439225c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811**
+app-google\x2dchrome@bfd5be5de4414fd6a2f81bf51f396811 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16**
+app-google\x2dchrome@eadad50d9b684070b274010c8da5ad16 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:11 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:52 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:52 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:52 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:21 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:36 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:41 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:46 UTC] HALE → STERLING: generic-remediate:d2m-x-osint**
+d2m-x-osint failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:53 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:53 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:31 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:17 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:54 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:01 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:50 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cloak-browser-regent**
+CI cloak-browser-regent BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav STAGED (CAUTION) token=CIRPR-D0B3D8493373 — confirm to apply
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:02 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:30 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:56 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:56 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:00 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:16 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@921f320a64a64121a68a7def67bf38ce**
+app-google\x2dchrome@921f320a64a64121a68a7def67bf38ce entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:53 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:53 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:54 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:54 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:04 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:04 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:04 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:14 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:27 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:27 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:27 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:27 UTC] HALE → STERLING: generic-remediate:portal-keepalive**
+portal-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:28 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:29 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:29 UTC] HALE → STERLING: generic-remediate:portal-keepalive**
+portal-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:29 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:36 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:38 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:38 UTC] HALE → STERLING: generic-remediate:portal-keepalive**
+portal-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:38 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:38 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:48 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:48 UTC] HALE → STERLING: generic-remediate:portal-keepalive**
+portal-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:48 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:58 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:58 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:58 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:59 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:59 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:59 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:04 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:40 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:53 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:30 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:41 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:02 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:02 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:02 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:03 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:09 UTC] HALE → STERLING: generic-remediate:elon-proposal-weekly-review**
+elon-proposal-weekly-review failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:09 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:09 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:22 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224**
+app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:30 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224**
+app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:40 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224**
+app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224**
+app-google\x2dchrome@61329ffe38124cc8a13e50d22caa1224 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:54 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:02 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:02 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:42 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:45 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:34 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:34 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:50 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:15 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:20 UTC] HALE → STERLING: generic-remediate:thunderbird-continuity**
+thunderbird-continuity failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:00 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:40 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:40 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:43 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:50 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:00 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:05 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:11 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:17 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:20 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:22 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:34 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:35 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:49 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:51 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:55 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:00 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:04 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:05 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:10 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:14 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:18 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:21 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:32 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:41 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:45 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:55 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:01 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:05 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:06 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:15 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:16 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:23 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:24 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:34 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:45 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:15 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:24 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:25 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:05 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:26 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:30 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:36 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:15 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:32 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:45 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:50 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-16T12:06:33.630913+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:09 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:23 UTC] HALE → STERLING: generic-remediate:thunderbird-nomination-half2**
+thunderbird-nomination-half2 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:23 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:23 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:24 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:28 UTC] HALE → STERLING: generic-remediate:poe-points-check**
+poe-points-check failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:28 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:38 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:44 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:48 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:28 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:30 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:32 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:40 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:43 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:45 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:46 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:47 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:loucks-united-hard-alert**
+loucks-united-hard-alert entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:loucks-united-hard-alert**
+loucks-united-hard-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:loucks-united-hard-alert**
+loucks-united-hard-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:40 UTC] HALE → STERLING: generic-remediate:loucks-united-hard-alert**
+loucks-united-hard-alert failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:47 UTC] HALE → STERLING: generic-remediate:amadeus-curl-test**
+amadeus-curl-test entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:50 UTC] HALE → STERLING: generic-remediate:amadeus-curl-test**
+amadeus-curl-test failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:00 UTC] HALE → STERLING: generic-remediate:amadeus-curl-test**
+amadeus-curl-test failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[08:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:04 UTC] HALE → STERLING: generic-remediate:d2m-drive-sync**
+d2m-drive-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:d2m-drive-sync**
+d2m-drive-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:30 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[08:30 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:37 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:39 UTC] HALE → STERLING: generic-remediate:thunderbird-fare-watch**
+thunderbird-fare-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:45 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:51 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:d2m-lifecycle**
+d2m-lifecycle failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: tech-adoption**
+CI tech-adoption BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-17T12:06:38.087575+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-17T12:06:55.071102+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: generic-remediate:claude-sync**
+claude-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:09 UTC] HALE → STERLING: test-issue**
+some process detail
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-18T12:08:26.004052+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:12 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:15 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d**
+app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:18 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:18 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:18 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@24714f693ce049bc8893eff08295c175**
+app-google\x2dchrome@24714f693ce049bc8893eff08295c175 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:20 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@24714f693ce049bc8893eff08295c175**
+app-google\x2dchrome@24714f693ce049bc8893eff08295c175 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d**
+app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:23 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@24714f693ce049bc8893eff08295c175**
+app-google\x2dchrome@24714f693ce049bc8893eff08295c175 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d**
+app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:31 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:32 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:33 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0**
+app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:40 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:41 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@24714f693ce049bc8893eff08295c175**
+app-google\x2dchrome@24714f693ce049bc8893eff08295c175 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0**
+app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d**
+app-google\x2dchrome@d6c1c5b3a402412abf17544730dd1d4d failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:42 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:43 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:44 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:44 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:44 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:44 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:44 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:47 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:48 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:50 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0**
+app-google\x2dchrome@859d1e149d7a447faea47499af21e4d0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:51 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:52 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:52 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:53 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:55 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:56 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@583a75318c984af7846e3344860ae512**
+app-google\x2dchrome@583a75318c984af7846e3344860ae512 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:56 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:57 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:57 UTC] HALE → STERLING: generic-remediate:alsa-mic-restore**
+alsa-mic-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:58 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:58 UTC] HALE → STERLING: generic-remediate:drkonqi-coredump-pickup**
+drkonqi-coredump-pickup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:59 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:59 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:00 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:04 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:04 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:06 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:07 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:07 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:07 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:drkonqi-coredump-pickup**
+drkonqi-coredump-pickup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:08 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:09 UTC] HALE → STERLING: generic-remediate:drkonqi-coredump-pickup**
+drkonqi-coredump-pickup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:10 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:drkonqi-coredump-pickup**
+drkonqi-coredump-pickup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:11 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:12 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:12 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:13 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:14 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:16 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:17 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:18 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:18 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:20 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:22 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:23 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:24 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:26 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:27 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:29 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:31 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:32 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:33 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:35 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:37 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:37 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:38 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:38 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:38 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:39 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:41 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:42 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:43 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:45 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:47 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:47 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:47 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:48 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:48 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:48 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:50 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:52 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:52 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:54 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:56 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:57 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:57 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:57 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:58 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[21:59 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:02 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:02 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:03 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:04 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:06 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:07 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:08 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:08 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:10 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:13 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:14 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:16 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47d7fa06cad344aa84375470693009b0**
+app-google\x2dchrome@47d7fa06cad344aa84375470693009b0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47d7fa06cad344aa84375470693009b0**
+app-google\x2dchrome@47d7fa06cad344aa84375470693009b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:17 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:18 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:18 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:19 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a**
+app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa**
+app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:22 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f**
+app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:23 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:23 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d7585798434847e4bb8d4832b359e222**
+app-google\x2dchrome@d7585798434847e4bb8d4832b359e222 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:24 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:26 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47d7fa06cad344aa84375470693009b0**
+app-google\x2dchrome@47d7fa06cad344aa84375470693009b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f**
+app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa**
+app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d7585798434847e4bb8d4832b359e222**
+app-google\x2dchrome@d7585798434847e4bb8d4832b359e222 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a**
+app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:27 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:28 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:28 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:32 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:33 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:34 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:36 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47d7fa06cad344aa84375470693009b0**
+app-google\x2dchrome@47d7fa06cad344aa84375470693009b0 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f**
+app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa**
+app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d7585798434847e4bb8d4832b359e222**
+app-google\x2dchrome@d7585798434847e4bb8d4832b359e222 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a**
+app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:37 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:39 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:41 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:42 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:43 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:43 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:44 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:45 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f**
+app-google\x2dchrome@47e23cb596484fe39c5f16dc5a515d3f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa**
+app-google\x2dchrome@84e3d618521b4888a4c53ab619bfcafa failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d7585798434847e4bb8d4832b359e222**
+app-google\x2dchrome@d7585798434847e4bb8d4832b359e222 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a**
+app-google\x2dchrome@dc39b9882f8941f9a7d2f81808761b3a failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:47 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:48 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:49 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:50 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:51 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:52 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:53 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:55 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:57 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:57 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:57 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[22:58 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:00 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:02 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:03 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:03 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:04 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:06 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:07 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:08 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:12 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:12 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:13 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:14 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:16 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:16 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:18 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:20 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:21 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:22 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:23 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:24 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:26 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:27 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:27 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:27 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:27 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:27 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:32 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:33 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:33 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:34 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:36 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:38 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:39 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:41 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:42 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:42 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:42 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:42 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:42 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:43 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:43 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:45 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:47 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:49 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:51 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:52 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:53 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:54 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:55 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:57 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:57 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:57 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:57 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:57 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:58 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:58 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:58 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:00 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:02 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:02 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:03 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:04 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:04 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:06 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:06 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157**
+app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:07 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f**
+app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:07 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:07 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f**
+app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157**
+app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:08 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:09 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:10 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:12 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:12 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:12 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f**
+app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157**
+app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:13 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:15 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:17 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:17 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:17 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f**
+app-google\x2dchrome@9a6e455687ce4dd3a529f95a5052383f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:17 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157**
+app-google\x2dchrome@b5c9e7d82fac43a2b4e52b9b7cb4e157 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:17 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:19 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:19 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:20 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:21 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:25 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:27 UTC] HALE → STERLING: generic-remediate:thunderbird-email-conversation**
+thunderbird-email-conversation: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[00:27 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:28 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:37 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:37 UTC] HALE → STERLING: generic-remediate:inbox-restore**
+inbox-restore: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:38 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:39 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:43 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:45 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8**
+app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:47 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:47 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8**
+app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:48 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@59d4957c5d7d470cb7b0667cde6cee5c**
+app-google\x2dchrome@59d4957c5d7d470cb7b0667cde6cee5c entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@1ce7e22fe75b46d2b3f8b7164e6f0298**
+app-google\x2dchrome@1ce7e22fe75b46d2b3f8b7164e6f0298 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@c91379c5fbcf40f28cd987c0095c9cef**
+app-google\x2dchrome@c91379c5fbcf40f28cd987c0095c9cef entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@8804070ef5d94f95a6d60f4aac3d3a18**
+app-google\x2dchrome@8804070ef5d94f95a6d60f4aac3d3a18 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@c85c456462e94f37a6ae9b4c0c0a47f8**
+app-google\x2dchrome@c85c456462e94f37a6ae9b4c0c0a47f8 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:51 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58**
+app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:58 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8**
+app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:59 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58**
+app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:59 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@2b8ca1b2d28848c0a4553416e090c7b1**
+app-google\x2dchrome@2b8ca1b2d28848c0a4553416e090c7b1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@8faad8967a3141dfb197d66b2389e7db**
+app-google\x2dchrome@8faad8967a3141dfb197d66b2389e7db entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@255804bad7e34d1f8710a80658193964**
+app-google\x2dchrome@255804bad7e34d1f8710a80658193964 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@4026924ca275483ba669e31070e846dd**
+app-google\x2dchrome@4026924ca275483ba669e31070e846dd entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@4eccd4e9c3ea4dedbd987e70e9dac390**
+app-google\x2dchrome@4eccd4e9c3ea4dedbd987e70e9dac390 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b**
+app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b**
+app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8**
+app-google\x2dchrome@54058cb4abfe463381d3f6bb307f49f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58**
+app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:08 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:09 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:09 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:09 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:09 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:09 UTC] HALE → STERLING: generic-remediate:wind-email-responder**
+wind-email-responder: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@22d8f1f0cea74ff3ac680b14af2713bf**
+app-google\x2dchrome@22d8f1f0cea74ff3ac680b14af2713bf entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e3439cc0426643edae16395564032800**
+app-google\x2dchrome@e3439cc0426643edae16395564032800 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@291fd6e345194c55985a04f4a9f0e334**
+app-google\x2dchrome@291fd6e345194c55985a04f4a9f0e334 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@6a8d6df05fac432294b64e8c1f39137d**
+app-google\x2dchrome@6a8d6df05fac432294b64e8c1f39137d entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ad1e81d878ca4b75a6ec5b5da51ef130**
+app-google\x2dchrome@ad1e81d878ca4b75a6ec5b5da51ef130 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:11 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb**
+app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:client-inbox-watch**
+client-inbox-watch: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:cruise-quote-scanner**
+cruise-quote-scanner: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:13 UTC] HALE → STERLING: generic-remediate:d2m-agentmail-bridge**
+d2m-agentmail-bridge: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:dani-email-responder**
+dani-email-responder: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:persona-email-responder**
+persona-email-responder: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b**
+app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb**
+app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:14 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58**
+app-google\x2dchrome@d27d7fe16a0e4b66b0189ab5e7934b58 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:18 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b**
+app-google\x2dchrome@3e048ce69d1f4a0d9749a529b6cf353b failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:18 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb**
+app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@190fd90efa7d4efc91d569c9f4af5ceb**
+app-google\x2dchrome@190fd90efa7d4efc91d569c9f4af5ceb entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@62125b7d98df454fb9b6eac2d60729ee**
+app-google\x2dchrome@62125b7d98df454fb9b6eac2d60729ee entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@7c3875dcdbfd43a69f91f8496c6bec22**
+app-google\x2dchrome@7c3875dcdbfd43a69f91f8496c6bec22 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ec4365ca65404a919542a00204a47f30**
+app-google\x2dchrome@ec4365ca65404a919542a00204a47f30 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@542cf8f9069541af8d78168d3a5fbbb2**
+app-google\x2dchrome@542cf8f9069541af8d78168d3a5fbbb2 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3550161ccdce498bb7022192f61962c8**
+app-google\x2dchrome@3550161ccdce498bb7022192f61962c8 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:25 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3550161ccdce498bb7022192f61962c8**
+app-google\x2dchrome@3550161ccdce498bb7022192f61962c8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb**
+app-google\x2dchrome@b9bcdd7dc50b4394be071f432c1880eb failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:30 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:32 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[01:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3550161ccdce498bb7022192f61962c8**
+app-google\x2dchrome@3550161ccdce498bb7022192f61962c8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:38 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:39 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:42 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:45 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@3550161ccdce498bb7022192f61962c8**
+app-google\x2dchrome@3550161ccdce498bb7022192f61962c8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:48 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:51 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:56 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:58 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:58 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:02 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:08 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:08 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[02:12 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[02:14 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[02:14 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:14 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:14 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[02:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:23 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:27 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:28 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:36 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:38 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:41 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:45 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:48 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[02:53 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:56 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:58 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:00 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:06 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:08 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:11 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:15 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:15 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:15 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:15 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:16 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7**
+app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:17 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:18 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:18 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7**
+app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:21 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca**
+app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:22 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8**
+app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:22 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:agentmail-daily-digest**
+agentmail-daily-digest failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8**
+app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7**
+app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:28 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca**
+app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:32 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:38 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8**
+app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:38 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7**
+app-google\x2dchrome@97fe494a338c4d01a39cf76b855154d7 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:38 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca**
+app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:38 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8**
+app-google\x2dchrome@07bf67ab6d20435abc5ced7b5289b8f8 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:48 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca**
+app-google\x2dchrome@9dfbf4d3246b41d0830fbbec9c6f2eca failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:58 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:58 UTC] HALE → STERLING: generic-remediate:d2m-gmail-agentmail-bridge**
+d2m-gmail-agentmail-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:58 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:08 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:08 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:26 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:35 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:40 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:45 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:50 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:55 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[04:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:46 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:54 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:55 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:56 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:05 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:10 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:01 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:05 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:06 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:15 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:16 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:12 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:15 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:16 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:19 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:d2m-factbook-refresh**
+d2m-factbook-refresh failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-19T12:06:19.780018+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-19T12:06:30.164401+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:37 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ca32001c54f240f68a7b6dcecb5a8f17**
+app-google\x2dchrome@ca32001c54f240f68a7b6dcecb5a8f17 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:23 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@ca32001c54f240f68a7b6dcecb5a8f17**
+app-google\x2dchrome@ca32001c54f240f68a7b6dcecb5a8f17 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:39 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@1112169915d84b478516b5c29d93be2c**
+app-google\x2dchrome@1112169915d84b478516b5c29d93be2c entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:40 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@1112169915d84b478516b5c29d93be2c**
+app-google\x2dchrome@1112169915d84b478516b5c29d93be2c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:41 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4**
+app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@1112169915d84b478516b5c29d93be2c**
+app-google\x2dchrome@1112169915d84b478516b5c29d93be2c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[17:50 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4**
+app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@1112169915d84b478516b5c29d93be2c**
+app-google\x2dchrome@1112169915d84b478516b5c29d93be2c failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:00 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4**
+app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:10 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4**
+app-google\x2dchrome@455f74bacc194868a1d4c322506c62c4 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:dbus-:1.50-org.a11y.atspi.Registry@0**
+dbus-:1.50-org.a11y.atspi.Registry@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.telegram.desktop@0**
+dbus-:1.1-org.telegram.desktop@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kwalletd6@0**
+dbus-:1.1-org.kde.kwalletd6@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:plasma-xdg-desktop-portal-kde**
+plasma-xdg-desktop-portal-kde entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:46 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:04 UTC] HALE → STERLING: generic-remediate:hale-chatlog-backup**
+hale-chatlog-backup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:06 UTC] HALE → STERLING: generic-remediate:hale-chatlog-backup**
+hale-chatlog-backup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:10 UTC] HALE → STERLING: generic-remediate:hale-chatlog-backup**
+hale-chatlog-backup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:21 UTC] HALE → STERLING: generic-remediate:hale-chatlog-backup**
+hale-chatlog-backup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:28 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[23:31 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:31 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:37 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:40 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:48 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:55 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[23:56 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:01 UTC] HALE → STERLING: generic-remediate:thunderbird-blackboard-sync**
+thunderbird-blackboard-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:01 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:06 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-22T12:01:47.671378+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-22T12:01:53.657643+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-22T12:01:59.584180+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:16 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:20 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:00 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:25 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:30 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:46 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:50 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:52 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:00 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:10 UTC] HALE → STERLING: generic-remediate:ci-sentinel**
+ci-sentinel failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-24T12:02:12.097066+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-24T12:02:18.128928+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: github-actions**
+CI github-actions NOT_REPAIRABLE: not repairable: GitHub Actions DORMANT — awaiting Commander PAT provisioning; no auto-repair available
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: DESTRUCTIVE already staged (token CIRPR-1161D59B8CFD) — awaiting confirm, not re-staging
+_Auto-routed by hale_notify.py_
+
+---
+**[13:01 UTC] HALE → STERLING: generic-remediate:app-google\x2dchrome@e67802777a1b47639c6a663563b9db78**
+app-google\x2dchrome@e67802777a1b47639c6a663563b9db78 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:55 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:56 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:57 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:57 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:58 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:59 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:01 UTC] HALE → STERLING: generic-remediate:browser-bridge**
+browser-bridge failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:dbus-:1.51-org.a11y.atspi.Registry@0**
+dbus-:1.51-org.a11y.atspi.Registry@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kwalletd6@0**
+dbus-:1.1-org.kde.kwalletd6@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:plasma-xdg-desktop-portal-kde**
+plasma-xdg-desktop-portal-kde entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:31 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[18:36 UTC] HALE → STERLING: generic-remediate:app-waveterm@0990f6c1d87247c6a418863d2b941f1f**
+app-waveterm@0990f6c1d87247c6a418863d2b941f1f failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:12 UTC] HALE → STERLING: generic-remediate:dbus-:1.1858-org.a11y.atspi.Registry@0**
+dbus-:1.1858-org.a11y.atspi.Registry@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:12 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kwalletd6@1**
+dbus-:1.1-org.kde.kwalletd6@1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:12 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:12 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[19:13 UTC] HALE → STERLING: generic-remediate:drkonqi-coredump-pickup**
+drkonqi-coredump-pickup failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:18 UTC] HALE → STERLING: generic-remediate:app-waveterm@f0bad862685f449a9cde0be481dc5c30**
+app-waveterm@f0bad862685f449a9cde0be481dc5c30 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:dbus-:1.52-org.a11y.atspi.Registry@0**
+dbus-:1.52-org.a11y.atspi.Registry@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:plasma-xdg-desktop-portal-kde**
+plasma-xdg-desktop-portal-kde entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:36 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1**
+dbus-:1.1-org.freedesktop.impl.portal.desktop.kwallet@1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[20:39 UTC] HALE → STERLING: generic-remediate:app-waveterm@db94d60dcacd485994c8dd5651502c19**
+app-waveterm@db94d60dcacd485994c8dd5651502c19 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[09:30 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[09:36 UTC] HALE → STERLING: generic-remediate:d2m-github-sync**
+d2m-github-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-27T12:02:24.527550+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence BLOCKED_CIRCUIT: durable circuit OPEN until 2026-07-27T12:02:30.597818+00:00
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:46 UTC] HALE → STERLING: icelandair-session-warm**
+Icelandair warm-ping: session not authenticated (challenge or logged-out) — needs manual re-login. Run the login proof-of-concept again.
+_Auto-routed by hale_notify.py_
+
+---
+**[15:46 UTC] HALE → STERLING: icelandair-session-warm**
+Icelandair warm-ping: session not authenticated (challenge or logged-out) — needs manual re-login. Run the login proof-of-concept again.
+_Auto-routed by hale_notify.py_
+
+---
+**[15:46 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:d2m-icelandair-warm**
+d2m-icelandair-warm failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:43 UTC] HALE → STERLING: generic-remediate:thunderbird-drive-sync**
+thunderbird-drive-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[06:12 UTC] HALE → STERLING: generic-remediate:thunderbird-drive-sync**
+thunderbird-drive-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health STAGED (DESTRUCTIVE) token=CIRPR-691ED9086CE4 — confirm to apply
+_Auto-routed by hale_notify.py_

@@ -168,6 +168,10 @@ def open_sss(
     opr_seat: Optional[str] = None,
     certified_by: str = "CC",
     priority: str = "P2",
+    background: str = "",
+    discussion: str = "",
+    views_of_others: str = "",
+    tabs: Optional[list[dict]] = None,
 ) -> dict:
     """Draft a Staff Summary Sheet and run CHIEF SILVER's mandatory front frame.
 
@@ -175,7 +179,16 @@ def open_sss(
     verify "done" without asking the OPR (Silver enforces this). `ocr_chain` is
     the ordered list of coordinating offices. Raises SSSError on a Silver HOLD or
     an unknown action_type. Returns the SSS mission dict (status in_coordination,
-    or coordinated when there are no OCRs to chop)."""
+    or coordinated when there are no OCRs to chop).
+
+    `background`/`discussion`/`views_of_others`/`tabs` are the AF Form 1768
+    narrative sections (ported field-shape only from the legacy
+    comms/thunderbird_sss.py — see that module's deprecation notice). All are
+    optional and additive: an SSS opened without them renders exactly as
+    before. `views_of_others`, if left blank, is computed at render time from
+    the ocr_chain's nonconcurs/caveats only (dissent, not a full concur
+    roster) — see `_default_views_of_others`. `tabs` is a list of
+    `{"label": str, "ref": str, "kind": str}` attachment references."""
     action_type = (action_type or "").upper()
     if action_type not in ACTION_TYPES:
         raise SSSError(f"action_type must be one of {ACTION_TYPES}, got {action_type!r}")
@@ -211,6 +224,10 @@ def open_sss(
         "created_at": _now(),
         "updated_at": _now(),
         "logs": [],
+        "background": background.strip(),
+        "discussion": discussion.strip(),
+        "views_of_others": views_of_others.strip(),
+        "tabs": tabs or [],
     }
     if opr_seat and opr_seat in SEATS:
         sss["opr_seat"] = opr_seat
@@ -230,6 +247,72 @@ def open_sss(
     sss["logs"].append(f"{_now()}: SSS opened — OPR {opr}, action {action_type}, "
                        f"{len(chain)} OCR(s) to coordinate")
     _mirror_bus(sss, sss["status"], f"SSS {sss_id} opened → OPR {opr} | {title[:60]}")
+    return sss
+
+
+def build_batch_items(missions: list[dict]) -> list[dict]:
+    """Build batch line items from mission dicts (as looked up by caller — this
+    module has no mission-board file access). Each item is `{"mission_id",
+    "description", "expected_benefit"}`. Falls back to `purpose`/`title` text
+    when a mission has no `expected_benefit` field yet (a known rollout gap,
+    not silently masked — callers should backfill the field going forward)."""
+    items = []
+    for m in missions:
+        mid = m.get("id") or m.get("mission_id") or "?"
+        desc = (m.get("title") or m.get("description") or "")[:100]
+        benefit = (m.get("expected_benefit") or m.get("purpose") or m.get("title") or "")[:150]
+        items.append({"mission_id": mid, "description": desc, "expected_benefit": benefit})
+    return items
+
+
+def open_batch_sss(
+    sss_id: str,
+    title: str,
+    purpose: str,
+    opr: str,
+    batch_items: list[dict],
+    *,
+    action_type: str = "APPR",
+    ocr_chain: Optional[list[str]] = None,
+    suspense_date: Optional[str] = None,
+    ground_truth_sources: Optional[list[str]] = None,
+    opr_seat: Optional[str] = None,
+    certified_by: str = "CC",
+    priority: str = "P2",
+    acceptance_criteria: Optional[str] = None,
+) -> dict:
+    """Open one SSS that lumps N Mission Board items into a single batch
+    decision (Commander directive: 'all Mission Board Tasks for my approval
+    can be lumped into a single staff summary'). Gated at the BATCH level —
+    the Silver front/back gate and mandatory cross-Hale certification apply to
+    whether the batch itself was correctly assembled and decided, not to
+    re-litigating each child mission's own history. Each `batch_items` entry
+    must have `mission_id`/`description`/`expected_benefit` (see
+    `build_batch_items`). Raises SSSError if `batch_items` is empty or a row
+    is missing a required key."""
+    if not batch_items:
+        raise SSSError("a batch SSS requires at least one batch_item")
+    required = ("mission_id", "description", "expected_benefit")
+    for row in batch_items:
+        missing = [k for k in required if not (row.get(k) or "").strip()]
+        if missing:
+            raise SSSError(f"batch_item {row!r} missing required field(s): {missing}")
+    if acceptance_criteria is None:
+        ids = ", ".join(r["mission_id"] for r in batch_items)
+        acceptance_criteria = (
+            f"verification artifact lists all {len(batch_items)} batch mission "
+            f"IDs ({ids}) and records one disposition for the batch"
+        )
+    sss = open_sss(
+        sss_id, title, purpose, opr, action_type, acceptance_criteria,
+        ocr_chain=ocr_chain, suspense_date=suspense_date,
+        ground_truth_sources=ground_truth_sources, opr_seat=opr_seat,
+        certified_by=certified_by, priority=priority,
+    )
+    sss["is_batch"] = True
+    sss["batch_items"] = batch_items
+    sss["logs"].append(f"{_now()}: batch SSS — {len(batch_items)} mission(s) lumped: "
+                       + ", ".join(r["mission_id"] for r in batch_items))
     return sss
 
 
@@ -476,8 +559,27 @@ def reopen_sss(sss: dict, to_status: str, reason: str, *,
 
 # ── RENDER — the coversheet view ────────────────────────────────────────────
 
+def _default_views_of_others(sss: dict) -> str:
+    """Dissent-only 'Views of Others' (AF Form 1768/Tongue & Quill convention:
+    this section documents disagreement and caveats, not a full concur
+    roster). Used whenever `sss['views_of_others']` is left blank, and by the
+    batch renderer's staffing block."""
+    dissent = [e for e in sss.get("ocr_chain", [])
+               if e.get("status") in ("nonconcur", "concur_with_comment")]
+    if not dissent:
+        return "— no dissent recorded —"
+    lines = []
+    for e in dissent:
+        mark = "✗" if e["status"] == "nonconcur" else "✓*"
+        lines.append(f"[{mark}] {e['office']}" + (f" — {e['comment']}" if e.get("comment") else ""))
+    return "\n".join(lines)
+
+
 def render_sss(sss: dict) -> str:
-    """Render the sheet as an AF Form 1768-style coversheet for the Commander."""
+    """Render the sheet as an AF Form 1768-style coversheet for the Commander.
+    Dispatches to `render_batch_sss` for batch sheets (is_batch=True)."""
+    if sss.get("is_batch"):
+        return render_batch_sss(sss)
     L = [
         "═══════════════════════════════════════════════════════════",
         f"  STAFF SUMMARY SHEET — {sss.get('id')}",
@@ -489,9 +591,14 @@ def render_sss(sss: dict) -> str:
         f"  ACTION  : {sss.get('action_type')}   PRIORITY: {sss.get('priority')}"
         f"   SUSPENSE: {sss.get('suspense_date') or '—'}",
         f"  STATUS  : {sss.get('status', '').upper()}",
-        "  ─────────────────────────────────────────────────────────",
-        "  COORDINATION (chop chain):",
     ]
+    if sss.get("background"):
+        L.append("  ─────────────────────────────────────────────────────────")
+        L.append(f"  BACKGROUND: {sss['background']}")
+    if sss.get("discussion"):
+        L.append(f"  DISCUSSION: {sss['discussion']}")
+    L.append("  ─────────────────────────────────────────────────────────")
+    L.append("  COORDINATION (chop chain):")
     for e in sss.get("ocr_chain", []):
         mark = {"concur": "✓", "concur_with_comment": "✓*", "nonconcur": "✗",
                 "pending": "…"}.get(e["status"], e["status"])
@@ -499,6 +606,59 @@ def render_sss(sss: dict) -> str:
                  + (f" — {e['comment']}" if e.get("comment") else ""))
     if not sss.get("ocr_chain"):
         L.append("    (none)")
+    L.append(f"  VIEWS OF OTHERS: {sss.get('views_of_others') or _default_views_of_others(sss)}")
+    if sss.get("tabs"):
+        L.append("  ─────────────────────────────────────────────────────────")
+        for i, t in enumerate(sss["tabs"]):
+            L.append(f"  TAB {i + 1}: {t.get('label', '')} — {t.get('ref', '')}")
+    if sss.get("decision"):
+        d = sss["decision"]
+        L.append("  ─────────────────────────────────────────────────────────")
+        L.append(f"  DECISION: {d['disposition']} by {d['authority']}"
+                 + (f" — {d['comment']}" if d.get("comment") else ""))
+    L += [
+        "  ─────────────────────────────────────────────────────────",
+        f"  ACCEPTANCE CRITERIA: {sss.get('acceptance_criteria')}",
+        f"  VERIFICATION ARTIFACT: {sss.get('verification_artifact') or '(pending)'}",
+        f"  CERTIFIED BY: {sss.get('certified_by')}"
+        + ("  ✅ CLOSED" if sss.get("status") == "closed" else ""),
+        "═══════════════════════════════════════════════════════════",
+    ]
+    return "\n".join(L)
+
+
+def render_batch_sss(sss: dict) -> str:
+    """Render a batch SSS: N Mission Board items lumped into one decision.
+    Line items show mission ID + description + expected benefit; the
+    staffing section shows non-concurs ONLY (dissent, not a full concur
+    roster) per Commander's explicit rendering rule."""
+    L = [
+        "═══════════════════════════════════════════════════════════",
+        f"  STAFF SUMMARY SHEET (BATCH) — {sss.get('id')}",
+        "═══════════════════════════════════════════════════════════",
+        f"  SUBJECT : {sss.get('title')}",
+        f"  PURPOSE : {sss.get('purpose')}",
+        f"  OPR     : {sss.get('opr')}"
+        + (f"  (seat: {sss['opr_seat']})" if sss.get('opr_seat') else ""),
+        f"  ACTION  : {sss.get('action_type')}   PRIORITY: {sss.get('priority')}"
+        f"   SUSPENSE: {sss.get('suspense_date') or '—'}",
+        f"  STATUS  : {sss.get('status', '').upper()}",
+        "  ─────────────────────────────────────────────────────────",
+        f"  BATCH ITEMS ({len(sss.get('batch_items', []))}):",
+    ]
+    for row in sss.get("batch_items", []):
+        L.append(f"    [{row.get('mission_id')}] {row.get('description')}"
+                 f" — benefit: {row.get('expected_benefit')}")
+    if not sss.get("batch_items"):
+        L.append("    (none)")
+    L.append("  ─────────────────────────────────────────────────────────")
+    L.append("  STAFFING (non-concurs only):")
+    dissent = [e for e in sss.get("ocr_chain", []) if e.get("status") == "nonconcur"]
+    if dissent:
+        for e in dissent:
+            L.append(f"    [✗] {e['office']}" + (f" — {e['comment']}" if e.get("comment") else ""))
+    else:
+        L.append("    — no dissent recorded —")
     if sss.get("decision"):
         d = sss["decision"]
         L.append("  ─────────────────────────────────────────────────────────")
@@ -614,6 +774,46 @@ if __name__ == "__main__":
         assert "OPR" in str(e) and "cross-Hale" in str(e)
         print("[PASS] mandatory cross-Hale: failed OPR seat blocks close"); passed += 1
 
+    # 5. Narrative fields + tabs render additively, without disturbing the
+    # existing status-transition/gate assertions above.
+    sss4 = open_sss(
+        "SSS-T4", "narrative test", "prove narrative fields render",
+        opr="Dani", action_type="INFO",
+        acceptance_criteria=f"artifact at {path} exists",
+        ground_truth_sources=[path], certified_by="Hale",
+        background="some background", discussion="some discussion",
+        tabs=[{"label": "Tab 1", "ref": path, "kind": "file"}],
+    )
+    rendered4 = render_sss(sss4)
+    assert "some background" in rendered4 and "some discussion" in rendered4
+    assert "Tab 1" in rendered4 and path in rendered4
+    assert "no dissent recorded" in rendered4  # default views_of_others, no ocr_chain entries
+    print("[PASS] narrative fields + tabs render additively"); passed += 1
+
+    # 6. Batch SSS: mission ID/description/benefit rows render; staffing
+    # section shows a nonconcur but NOT a concur (dissent-only rule).
+    batch_items = build_batch_items([
+        {"id": "MISSION-01", "title": "Farewatch automation build",
+         "expected_benefit": "cuts manual fare-check time"},
+        {"id": "MISSION-02", "title": "Gmail MCP token fix",
+         "expected_benefit": "restores AM brief send reliability"},
+    ])
+    bsss = open_batch_sss(
+        "SSS-BATCH-T1", "Daily Mission Board Approvals", "Batch approval",
+        opr="Hale", batch_items=batch_items, ocr_chain=["Sterling", "Harlan"],
+        ground_truth_sources=[path],
+    )
+    assert bsss["is_batch"] is True
+    coordinate(bsss, "Sterling", "nonconcur", "budget concern")
+    coordinate(bsss, "Harlan", "concur")
+    rendered_batch = render_sss(bsss)
+    assert "MISSION-01" in rendered_batch and "cuts manual fare-check time" in rendered_batch
+    assert "MISSION-02" in rendered_batch and "restores AM brief send reliability" in rendered_batch
+    assert "Sterling" in rendered_batch and "budget concern" in rendered_batch
+    assert "Harlan" not in rendered_batch  # concur must NOT appear in dissent-only staffing block
+    print("[PASS] batch SSS renders mission rows + non-concurs-only staffing"); passed += 1
+
     os.unlink(path)
-    print(f"\n{passed}/8 SSS checks passed")
+    print(f"\n{passed}/10 SSS checks passed")
     print("\n" + render_sss(sss))
+    print("\n" + render_sss(bsss))

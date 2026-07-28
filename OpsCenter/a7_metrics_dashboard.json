@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T12:00:01.278523+00:00",
+  "generated_at": "2026-07-28T12:00:00.739368+00:00",
   "note": "Automated generation by generate_a7_metrics.py",
   "process": {
     "open_tasks_count": 5,
@@ -21,45 +21,5 @@
   "exercise": {},
   "red_items": [
     "Quality score (42%) below red threshold (60%). Review latest 1 exercises."
-  ],
-  "continuity_recert": {
-    "timestamp": "2026-07-10T22:02:16.388128+00:00",
-    "overall": "RED",
-    "metrics": {
-      "failed_unit_count": {
-        "value": 1,
-        "status": "YELLOW",
-        "threshold_red": ">2",
-        "failed_units": [
-          "hale-credential-check.service"
-        ],
-        "commander_gated": []
-      },
-      "heartbeat_ping_miss_24h": {
-        "value": 1253,
-        "status": "RED",
-        "threshold_red": ">1",
-        "last_scan_ts": "2026-07-10 15:55:58",
-        "note": "current consecutive DEGRADED scans (0 = last scan healthy)"
-      },
-      "scrape_checkpoint_completion_pct": {
-        "value": null,
-        "status": "N/A",
-        "note": "No scrape run detected today (no .done files found)",
-        "bookings_total": 4,
-        "bookings_done": 0,
-        "missing_bookings": [
-          "3096289_Ely",
-          "3078056_Nichols",
-          "3071222_Furlow",
-          "2984034_McLeod"
-        ]
-      }
-    },
-    "red_items": [
-      "heartbeat_miss_24h=1253 (threshold >1)"
-    ],
-    "commander_gated": []
-  },
-  "_last_updated": "2026-07-10T22:02:16.388128+00:00"
+  ]
 }

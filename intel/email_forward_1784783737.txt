@@ -1,0 +1,34 @@
+Subject: Tech Scan 2026-07-23 05:15 UTC — 4 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-23T05:15:37.641328+00:00
+
+TECH SCAN — 2026-07-23 05:15 UTC
+airborne scanner pulse · 13 finds · sectors agentic, claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 4 TRIAL · 8 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Ravenspire – watch your Claude Code and Codex agents as a JRPG — https://github.com/Kapala-Solutions/ravenspire
+↳ real tool (github.com) — worth a bounded look
+Running Claude Code on a Jailbroken Kindle over SSH via Tailscale — https://github.com/Mounstroya/kindle-ssh-guide
+↳ real tool (github.com) — worth a bounded look
+Proxy for OpenAI Codex and Claude Code, use any LLM with those apps — https://github.com/lidge-jun/opencodex
+↳ real tool (github.com) — worth a bounded look
+Show HN: Yorishiro – a macOS terminal where AI agents live — https://github.com/sktkkoo/Yorishiro
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Claude Code unlocked my laptop's bios!
+Show HN: Promptrack A local menu bar app that tracks your Claude Code usage — https://promptrack.dev/
+Claude Security Plugin for Claude Code Now in Beta — https://claude.com/product/claude-security
+I Had 11 AI Subagents Test Every PPTX Skill for Claude Code. Here's What Works — https://www.bulaev.net/p/i-ha
+Show HN: A Governed Context Vault for Claude Code and Cowork (AGPL CLI) — https://promptowl.ai/resources/make-
+The Scary Metric Was Wrong, the Audit Still Paid: A 21-Agent Sweep of My Claude Code Fleet — https://dev.to/he
+Bridge the Gap Between Cowork and Claude Code with Human Approval Loops — https://dev.to/suresh_pegadapelli_dc
+Claude Code Subagents Can Now Spawn Subagents — https://dev.to/ucjung/claude-code-subagents-can-now-spawn-suba
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Loop Engineering: How to Stop Your Agent Reward-Hacking Its Own Checks — https://dev.to/re
+RAW — all finds this pulse (unfiltered)[claude-code] Claude Code unlocked my laptop's bios! (Reddit r/ClaudeAI)
+[claude-code] Ravenspire – watch your Claude Code and Codex agents as a JRPG — https://github.com/Kapala-Solutions/ravenspire (Hacker News — Claude Code)
+[claude-code] Show HN: Promptrack A local menu bar app that tracks your Claude Code usage — https://promptrack.dev/ (Hacker News — Claude Code)
+[claude-code] Running Claude Code on a Jailbroken Kindle over SSH via Tailscale — https://github.com/Mounstroya/kindle-ssh-guide (Hacker News — Claude Code)
+[claude-code] Proxy for OpenAI Codex and Claude Code, use any LLM with those apps — https://github.com/lidge-jun/opencodex (Hacker News — Claude Code)
+[claude-code] Claude Security Plugin for Claude Code Now in Beta — https://claude.com/product/claude-security (Hacker News — Claude Code)
+[claude-code] I Had 11 AI Subagents Test Every PPTX Skill for Claude Code. Here's What Works — https://www.bulaev.net/p/i-had-11-ai-su (Hacker News — Claude Code)
+[agentic] Show HN: Yorishiro – a macOS terminal where AI agents live — https://github.com/sktkkoo/Yorishiro (Hacker News — Claude Code)
+[claude-c

@@ -14,7 +14,7 @@ Sources:
   - Amadeus (primary, via MCP search_flights)
   - Centrav B2B (via thunderbird_centrav_search)
   - Kayak (via kayak_scraper)
-  - Google Flights (via google_flights_scraper)
+  - Google Flights (via thunderbird_google_flights_search)
 
 Exit codes:
   0 = all sources OK
@@ -61,11 +61,10 @@ def _import_modules():
     """Lazy-import pipeline modules. Returns (fare_logger, kayak, google, centrav)."""
     from core.travel import fare_watch_logger
     from core.travel import kayak_scraper
-    from core.travel import google_flights_scraper
-    # Centrav search imported directly
+    from core.travel import thunderbird_google_flights_search as google_flights_mod
     import importlib
     centrav = importlib.import_module("core.travel.thunderbird_centrav_search")
-    return fare_watch_logger, kayak_scraper, google_flights_scraper, centrav
+    return fare_watch_logger, kayak_scraper, google_flights_mod, centrav
 
 
 def _load_watches() -> list[dict]:
@@ -287,7 +286,7 @@ async def _scan_kayak(watch: dict, kayak_mod) -> Optional[dict]:
 
 
 async def _scan_google(watch: dict, google_mod) -> Optional[dict]:
-    """Run Google Flights consumer price check."""
+    """Run Google Flights price check via RapidAPI (sync wrapped in thread)."""
     if not watch.get("travel_date"):
         logger.debug("google: no travel_date for %s — skipping", watch.get("id"))
         return None
@@ -296,17 +295,26 @@ async def _scan_google(watch: dict, google_mod) -> Optional[dict]:
         return None
 
     try:
-        result = await google_mod.search_google_flights(
-            origin=origin,
-            dest=dest,
-            depart_date=watch.get("travel_date", ""),
+        result = await asyncio.to_thread(
+            google_mod.search_flights,
+            departure_id=origin,
+            arrival_id=dest,
+            outbound_date=watch.get("travel_date", ""),
             adults=watch.get("passengers", 2),
+            travel_class={"economy": "ECONOMY", "premium": "PREMIUM_ECONOMY", "business": "BUSINESS", "first": "FIRST"}.get(_infer_cabin(watch), "ECONOMY"),
         )
-        if result.get("status") == "ok":
+        cheapest = google_mod.cheapest_itinerary(result)
+        if cheapest:
+            segs = cheapest.get("flights", [])
+            price = cheapest.get("price")
+            airline = segs[0].get("airline") if segs else None
             return {
-                "best_price_pp": result.get("lowest_price"),
-                "airline": (result.get("airlines") or [None])[0],
-                "raw": result,
+                "best_price_pp": price,
+                "airline": airline,
+                "raw": {
+                    "cheapest": cheapest,
+                    "top_count": len(result.get("data", {}).get("itineraries", {}).get("topFlights", [])),
+                },
             }
         return {"best_price_pp": None, "airline": None, "raw": result}
     except Exception as exc:

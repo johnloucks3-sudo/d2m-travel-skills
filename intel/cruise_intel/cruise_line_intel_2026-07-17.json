@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-17",
+  "lines": {
+    "Regent Seven Seas Cruises": {
+      "summary": "[ERROR] <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    },
+    "Silversea Cruises": {
+      "summary": "[ERROR] <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    },
+    "Viking Ocean Cruises": {
+      "summary": "[ERROR] <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    },
+    "Princess Cruises": {
+      "summary": "[ERROR] <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    },
+    "Carnival Cruise Line": {
+      "summary": "[ERROR] <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+    }
+  }
+}

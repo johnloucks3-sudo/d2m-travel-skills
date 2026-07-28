@@ -146,6 +146,55 @@ wf17_exception_date: 2026-06-10
 
 ---
 
+## 🆕 ITINERARY CHANGE NOTIFICATION — 2026-07-22
+
+**Source:** Silversea Guest Confirmation email, "Silver Nova: Update to Our Voyage" (received 2026-07-22 09:19 MT)  
+**Booking:** 506101-26  
+**Segment Affected:** Segment 2 (SN270515007, May 15–22, 7 nights)
+
+### BEFORE (Original)
+| Date | Day | Port | Country | Arrival | Departure |
+|------|-----|------|---------|---------|-----------|
+| 15-May-27 | Sat | PIRAEUS (ATHENS) | Greece | — | — |
+| 16-May-27 | Sun | Paros (Naousa) | Greece | — | — |
+| 17-May-27 | Mon | Souda Bay, Crete | Greece | — | — |
+| 18-May-27 | Tue | Gythion | Greece | — | — |
+| 19-May-27 | Wed | Milos | Greece | — | — |
+| 20-May-27 | Thu | Kusadasi | Turkey | — | — |
+| 21-May-27 | Fri | Mykonos | Greece | — | — |
+| 22-May-27 | Sat | PIRAEUS (ATHENS) | Greece | — | — |
+
+### AFTER (Updated 2026-07-22)
+| Date | Day | Port | Country | Arrival | Departure |
+|------|-----|------|---------|---------|-----------|
+| 15-May-27 | Sat | PIRAEUS (ATHENS) | Greece | — | 19:00 |
+| 16-May-27 | Sun | Paros (anchored, NOT Naousa call) | Greece | 08:00 | 21:30 |
+| 17-May-27 | Mon | Souda Bay, Crete | Greece | 08:00 | **17:30** ⭐ |
+| 18-May-27 | Tue | **Kusadasi** | Turkey | 08:00 | 23:00 |
+| 19-May-27 | Wed | **Mykonos** | Greece | 08:00 | 20:00 |
+| 20-May-27 | Thu | Milos | Greece | — | — |
+| 21-May-27 | Fri | Gythion | Greece | — | — |
+| 22-May-27 | Sat | PIRAEUS (ATHENS) | Greece | — | — |
+
+### KEY CHANGES
+1. **Paros port call DOWNGRADED:** Ship now anchors off Paros on the opposite side of the island (not entering Naousa). Per Silversea: "new local regulations no longer allow cruise ships to call Naousa, Paros."
+2. **Souda Bay departure moved earlier:** From unknown to **5:30 PM (17:30)** — tighter turnaround for May 17 evening activities.
+3. **Port sequence reordered:** Kusadasi and Mykonos swapped forward; Gythion pushed to Day 7. See "IMPACT ON EXCURSIONS" below.
+
+### IMPACT ON EXCURSIONS
+**⚠️ MOBILITY IMPACT — John's mobility profile (low-distance, flat excursions):**
+- **Paros (Naousa → anchorage):** May become tender-only. Verify tender logistics at booking — short tender rides OK per dossier mobility notes, but confirm with Silversea.
+- **Kusadasi (May 18 vs. prior May 20):** Move earlier in cruise. **KUS-G "Easy Ephesus" ⭐ remains mobility-suitable** — no change to recommendation.
+- **Mykonos (May 19 vs. prior May 21):** Move earlier. **JMK-B ⭐ wheelchair-accessible ouzo+mezedes tour** — still recommended, no change.
+- **Milos (May 20 — Day 6 vs. prior Day 5):** Remains hardest port per dossier notes. May be best as a "ship day" candidate.
+- **Gythion (May 21 — Day 7 vs. prior Day 4):** Now on penultimate day. **GYT-G wine tour (10 steps, gentler than Mani villages)** remains ⭐ suitable — no change.
+
+**Action:** Cross-reference against `Loucks_SilverNova_May2027_Excursions.md` excursion bookings (4 PE on hold). None are date-locked yet (all on hold, pay-by dates are in early May 2027). **No rebooking required unless client changes mind on port-by-port plan.** Recommend review itinerary with clients post-notification to confirm comfort with changes.
+
+**Next:** Surface to Commander + flag for Dani when doing client lifecycle email on this voyage update.
+
+---
+
 ## CRUISE SEGMENTS
 
 | Segment | Voyage Code | Dates | Nights | Status | Suite |
@@ -162,8 +211,8 @@ wf17_exception_date: 2026-06-10
 **Segment 1 — SN270505010 — May 5–15 (10 nights):**
 Fusina (Venice) · Koper · Zadar · Split · Dubrovnik · Bari · Kotor · Day at Sea · Katakolon (Olympia) · Gythion · Athens (Piraeus)
 
-**Segment 2 — SN270515007 — May 15–22 (7 nights):**
-Athens (Piraeus) · Paros (Naousa) · Crete (Souda Bay) · Gythion · Milos · Kusadasi · Mykonos · Athens (Piraeus)
+**Segment 2 — SN270515007 — May 15–22 (7 nights):** ⚠️ ITINERARY UPDATED 2026-07-22
+Athens (Piraeus) · Paros (anchoring off, NOT Naousa) · Souda Bay, Crete (Depart 5:30 PM) · Kusadasi · Mykonos · Milos · Gythion · Athens (Piraeus)
 
 **Segment 3 — SN270522007 — May 22–29 (7 nights):**
 Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · Patmos · Athens (Piraeus)
@@ -242,6 +291,35 @@ Athens (Piraeus) · Santorini · Nafplion · Day at Sea · Bodrum · Rhodes · P
 - EasyJet/Vueling — neither airline serves Istanbul at all.
 
 **Methodology (reusable, see also memory reference):** Kiwi + ITA Matrix for route discovery (does a real nonstop exist at all) → Google Flights with `list_all_top=true` to narrow candidates past the single-cheapest-fare blind spot → Centrav with the Cruise fare-type box checked for final real bookable pricing.
+
+---
+
+### 🆕 FAREBUZZ LIVE QUOTE — DEN→VCE Outbound Only — Captured 2026-07-17 (Commander)
+
+*Source: Farebuzz.com "Review & Book" checkout screen, pasted by Commander 2026-07-17. Not booked — session/price hold expires 20 min from capture, almost certainly already lapsed. This is the outbound leg of the #3 Icelandair+ITA option above (same routing, cheaper live price) — no return leg included in this quote.*
+
+| Leg | Flight | Depart | Arrive | Duration | Cabin / Brand |
+|-----|--------|--------|--------|----------|----------------|
+| DEN → KEF (Reykjavik) | Icelandair FI670, 7M8 | Sat May 1, 4:40 PM | 6:00 AM May 2 | 7h20m | Business / Saga Premium |
+| *Stop 1: 1h50m in KEF* | | | | | |
+| KEF → FCO (Rome Fiumicino) | Icelandair FI930, 32Q | 7:50 AM | 2:35 PM | 4h45m | Business / Saga Premium |
+| *Stop 2: 2h45m in FCO — ⚠️ "Transit visa may be required with double connections in Europe" (Farebuzz boilerplate; KEF+FCO are both Schengen, unlikely to apply to a brief US-passport connection, but flag for verification — not previously checked in this dossier)* | | | | | |
+| FCO → VCE (Marco Polo) | Icelandair FI6722, operated by ITA Airways, A223 | 5:20 PM | 6:25 PM | 1h5m | Business / Saga Premium |
+
+**Total:** 17h45m, 2 stops, both connections under 4h (meets Commander's 2026-07-17 "under 4h" rule above).
+
+**Pricing (2 pax, "Senior" fare class):**
+- $2,110.47 pp × 2 = **$4,220.94 total** (outbound only)
+- Optional Travel Protection $189.94 pp ($379.88/2) — declined/skipped in this quote
+- ⚠️ **"Senior" fare** — Farebuzz age-restricted fare class (typically 65+), not yet confirmed eligible for John/Susie at booking. Verify before relying on this price.
+- ⚠️ Baggage differs from prior Icelandair research: **carry-on bag NOT included** at this fare (personal item + 2 checked bags included per FI policy) — confirm this against whatever return-leg carrier is paired, since carry-on policy may differ.
+- Booking channel: Farebuzz (JEN NY, Inc. DBA Farebuzz) 1.888.808.4123 — IATA-bonded consolidator, new source for this dossier (not previously used). 24-hr free cancellation per Farebuzz policy; fare itself is nonrefundable/nontransferable/no name changes once ticketed.
+
+**Comparison to existing #3 pick outbound leg:** previously logged at $5,259.60/2pax (2026-07-10 Centrav pull). This Farebuzz quote is **$1,038.66 cheaper** for the same routing/cabin — but Senior-fare-restricted and outbound-only (no return priced yet). **Not swapped in as the new #3 baseline pending: (a) Senior eligibility confirmation, (b) a matching return-leg quote, (c) Harlan verification before treating as bookable** — flagged here as a live candidate, not yet actioned.
+
+**Next step:** price the Turkish ATH→IST→DEN return (or an equivalent) against this same Farebuzz Senior channel to get a true round-trip total comparable to the #3 pick's $11,485.60.
+
+**⚠️ Commander directive 2026-07-17 — search constraint updated:** Mixed one-way itineraries (different carriers/tickets for outbound vs. return, not just single-carrier open-jaw) are explicitly acceptable — do not restrict the search space to one-carrier round-trip/open-jaw pricing only. Governing rule going forward: **cost is the primary driver; any connection under 4 hours is acceptable** (the ~13h overnight Istanbul layover on the Turkish outbound is what's NOT acceptable — a <4h connection on any carrier, mixed or not, clears the bar). Re-run outbound/return as independent one-way searches (any carrier) under this rule rather than assuming a single-carrier open-jaw ticket is required.
 
 ---
 
@@ -632,3 +710,28 @@ All dining · Premium beverages · Butler service · Wi-Fi · Gratuities · Shor
 *Session 9 updated: 2026-06-10 — BOOKING CONFIRMED. Agency PDF 506101-26 ingested. Booking #506101-26 assigned. Suite 8071/Superior Veranda. Deposit $8,612.50 PAID. Balance $25,837.50 due Dec 6, 2026. Commission $5,517.18 / D2M share $4,413.74 (80%). Host agency transfer RESOLVED (Cruises & Tours Unlimited). YAML frontmatter added per dossier schema v2.0.*
 *Session 10 updated: 2026-06-13 — EXCURSION PLAN built from 3 official Silversea Tour Programmes. Mobility port-by-port stub RESOLVED. Supplement created (`Loucks_SilverNova_May2027_Excursions.md`) + onboard one-pager (`output/...html`/`.pdf`). Recommended one-per-port ≈ $2,100 pp gross / ~$1,300–1,600 pp net of shore credit. 7 ⭐ limited-mobility-suitable tours anchor the plan. OPEN: confirm shore-credit per-person vs per-booking + SBC excursion eligibility before the booking window opens (~T-130).*
 *Session 11 updated: 2026-07-02 — Official Silversea voyage confirmation email received and ingested. Source: guestconfirmation@silversea.com → JOHNLOUCKS3@gmail.com, dated 2026-06-10. Subject: "SILVERSEA VOYAGE CONFIRMATION 506101-26 COLONEL JOHN ALDON LOUCKS." Guest name on Silversea record: COLONEL JOHN ALDON LOUCKS. Agency of record: Cruises & Tours Unlimited. All data consistent with Harlan portal-verified figures — no changes to financials or cabin details. Booking Master Sheet row 27 upserted (506101-26). Blackboard YAML updated.*
+
+
+### EMAIL LOG
+
+**Jul 12 — Project Expedition** (Re: Hold without Payment Reminder - PE181149717: Original Hop on Hop off Classic Tour of Athens, Piraeus and Beaches for 3D)
+> **2026-07-12 — Project Expedition Tour Booking Alert (PE181149717):** Automated hold-without-payment reminder received for Sights of Athens Hop-on-Hop-off 3D tour ($60.06). Tour dates listed as May 15–18, 2027 (appears to conflict with cruise May 5–29 itinerary). Status: On hold; payment required by May 4, 2027. **ACTION REQUIRED:** (1) Verify intended tour dates with clients (pre-cruise vs. post-cruise vs. misentry); (2) Assess fit against John's mobility profile (low-distance, flat excursions); (3) Process $60.06 payment once dates confirmed. Tour operator: Sights of Athens (+30 210-4176144). Contact: Cruises & Tours, Unlimited (Outside Agents, booked by John Loucks agent).
+
+
+**Jul 24 — Susan Loucks** (Re: Re: WELL DID THE MONGOL HOARDS DEPART AND ARE YOU STILL IN ONE PEICE?RONDO)
+> 2026-07-24 — Susan exchanged casual post-voyage messages with fellow Silver Nova Tokyo–Seattle passenger Ronald Westbrook regarding group gathering departure; no D2M action.
+
+### OPEN ACTION ITEMS
+- [ ] URGENT: Ping clients via johnloucks3@gmail.com and susanna.loucks@gmail.com—clarify intended tour dates (pre-cruise May 1–4? post-cruise May 29–June 1? or other?) (auto-intel Jul 12)
+
+- [ ] Once paid, send confirmation email to Sights of Athens and log final tour details in client dossier (auto-intel Jul 12)
+
+- [ ] Upon date confirmation, arrange $60.06 payment via Project Expedition payment link (https://www.projectexpedition.com/purchase/?q=PE181149717&single_payment=60.06) (auto-intel Jul 12)
+
+- [ ] Cross-reference dossier mobility notes: assess if 3-day independent hop-on-hop-off aligns with John's low-distance/flat-terrain preference; prepare alternative Silversea port excursions from Athens call as fallback (auto-intel Jul 12)
+
+- [ ] Verify booking PE181149717 directly with Sights of Athens (+30 210-4176144, info@sightsofathens.gr) to confirm whether May 15–18 dates are editable (auto-intel Jul 12)
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

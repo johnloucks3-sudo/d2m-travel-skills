@@ -223,6 +223,17 @@ def send_eod_summary(day_results: list, all_wave_paths: list) -> None:
         sys.path.insert(0, str(REPO_ROOT))
         from core.comms.wing_page import send_page
         body = build_eod_synthesis(day_results, all_wave_paths)
+        try:
+            from core.staffing.sss_render import render_info_text
+            body = render_info_text(
+                subject="Daily Market/Competitor Intel Synthesis",
+                opr="Dembe (A2)", staffed_by=["Dembe (A2)"],
+                purpose="Daily market and competitor intelligence synthesis.",
+                discussion=body,
+                tag="Market Intel",
+            )
+        except Exception as e:
+            print(f"  sss_render wrap failed (non-fatal, sending unwrapped): {e}")
         send_page(body)
         print("\n  EOD synthesis sent to Telegram.")
     except Exception as exc:

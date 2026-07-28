@@ -165,3 +165,7 @@ names/times.
 - Dec 24 is a double-excursion day (beach AM, catamaran PM) — no conflict,
   4 hours between end of one (10:30 AM + 4.0 hrs = ~2:30 PM) and start of next
   (4:00 PM); comfortable turnaround, no logistics flag.
+
+<!-- EXCURSIONS_STAGED_TRUE | Staged autonomously by Hale Staging Engine -->
+
+<!-- PHASE4_LIFECYCLE_STAGED_V1 | Autonomously enriched by Phase 4 AI Engine -->

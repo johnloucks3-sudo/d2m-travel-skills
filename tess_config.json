@@ -1,4 +1,1 @@
-{
-  "_note": "TESS uses the public Angular SPA client 'ngAuthApp' (PKCE, no client_secret). The refresh_token grant must send client_id=ngAuthApp and NO secret; sending a secret or a non-client client_id (e.g. an email) makes crm.myagentgenie.com reject with invalid_client. Do not add client_secret here. Fixed 2026-07-16 (Block 2).",
-  "client_id": "ngAuthApp"
-}
+creds/tess_config.json

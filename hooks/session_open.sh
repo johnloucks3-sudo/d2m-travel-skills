@@ -2,14 +2,19 @@
 # Session-open forcing function — runs via SessionStart hook.
 # Closes non-gated missions, checks credentials, surfaces action queue.
 # Initiative gap fix: Wing acts on state, not prompts.
+#
+# FIXED 2026-07-16 (hot-window triage): this used to skip ALL init work
+# (session_init.py, mission_auto_executor.py, session_context_blast.py)
+# whenever stdin wasn't a TTY, on the assumption that "no TTY" meant a
+# throwaway headless one-off. Headless/dispatched sessions are now the
+# NORMAL way most work runs, not the exception -- this silently stopped
+# the deferred-alert pipeline and session_open_report.md for 14+ days
+# straight with zero error surfaced. SessionStart hooks run async with
+# their own timeout budget regardless of TTY, so there's no real cost to
+# always doing the work; only the human-readable completion banner is now
+# gated on TTY, since headless/API contexts don't need it printed.
 
 set -euo pipefail
-
-# Skip expensive init in headless/dispatch mode (no TTY = non-interactive subprocess)
-if [ ! -t 0 ]; then
-    echo '{"continue": true, "suppressOutput": true}'
-    exit 0
-fi
 
 TBIRD="/home/john/Thunderbird"
 LOG="$TBIRD/logs/session_open.log"
@@ -37,8 +42,13 @@ python3 "$TBIRD/core/memory/session_context_blast.py" >> "$LOG" 2>&1 || true
 
 echo "=== DONE $(date -u +%Y-%m-%dT%H:%M:%SZ) ===" >> "$LOG"
 
-# Surface the report path so Hale sees it on session open
-if [ -f "$REPORT" ]; then
-    echo ""
-    echo "🦅 SESSION OPEN COMPLETE — report at $REPORT"
+if [ -t 0 ]; then
+    # Interactive terminal: surface the report path for a human to see.
+    if [ -f "$REPORT" ]; then
+        echo ""
+        echo "🦅 SESSION OPEN COMPLETE — report at $REPORT"
+    fi
+else
+    # Headless/dispatched: work is done (above), just ack the hook cleanly.
+    echo '{"continue": true, "suppressOutput": true}'
 fi

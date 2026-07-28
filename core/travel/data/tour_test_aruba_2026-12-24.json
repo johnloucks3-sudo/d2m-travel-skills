@@ -1,0 +1,322 @@
+{
+  "dest": "aruba",
+  "query": "group shore excursion",
+  "date": "2026-12-24",
+  "scraped_at": "2026-07-14T00:49:47.754407",
+  "getyourguide": {
+    "source": "getyourguide",
+    "dest": "aruba",
+    "query": "group shore excursion",
+    "url": "https://www.getyourguide.com/s/?q=aruba+group+shore+excursion",
+    "scraped_at": "2026-07-14T00:49:48.108482",
+    "date_filter": "2026-12-24",
+    "tours": [
+      {
+        "name": "Snorkel Cruise with Open Bar and Light Lunch",
+        "duration": "3 hours",
+        "rating": 4.6,
+        "review_count": 383,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-catamaran-cruise-and-snorkeling-adventure-t432756/"
+      },
+      {
+        "name": "Snorkel with Turtles at WW2 Shipwreck & Sunset BBQ",
+        "duration": "4.5 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 132,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/bbq-sailing-experience-to-boca-catalina-t550484/"
+      },
+      {
+        "name": "Aruba Snorkel Sites by Glass Bottom Boat",
+        "duration": "1.5 hours \u2022 Small group",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-snorkel-sites-by-glass-bottom-boat-t1381136/"
+      },
+      {
+        "name": "Natural Pool, Caves & Baby Beach Jeep Adventure",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 222,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-natural-pool-caves-baby-beach-jeep-adventure-t621155/"
+      },
+      {
+        "name": "Sail & Snorkel with Turtles at WW2 Shipwreck with BBQ",
+        "duration": "4.5 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 37,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/luxury-champagne-and-lobster-sail-to-boca-catalina-t552943/"
+      },
+      {
+        "name": "4x4 UTV Off-Road Adventure Tour",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 133,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-4x4-utv-off-road-adventure-tour-t621138/"
+      },
+      {
+        "name": "Aruba Full Island Safari with Baby Beach & Natural Bridge",
+        "duration": "4.5 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 134,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/santa-cruz-aruba-l111930/aruba-full-island-safari-with-baby-beach-natural-bridge-t738231/"
+      },
+      {
+        "name": "Ecological Trail & Beach Horsebackriding",
+        "duration": "75 minutes \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 220,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-guided-ecological-horseback-ride-to-coastline-t190382/"
+      },
+      {
+        "name": "Boat Trip with Snorkeling and Open Bar",
+        "duration": "3 hours",
+        "rating": 4.7,
+        "review_count": 144,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-boat-trip-with-snorkeling-and-open-bar-t400684/"
+      },
+      {
+        "name": "Natural Pool & Caves Off-Road Safari",
+        "duration": "4.5 hours \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 59,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/santa-cruz-aruba-l111930/natural-pool-caves-off-road-safari-t974139/"
+      },
+      {
+        "name": "From $900 $765",
+        "duration": "3 Hours Private Boat Includes Snorkeling & Swim with turtles",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/noord-l1101/3-hours-private-boat-includes-snorkeling-swim-with-turtles-t1381099/"
+      },
+      {
+        "name": "From $55",
+        "duration": "4 hours \u2022 Private option available \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 114,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/oranjestad-half-day-aruba-island-tour-with-top-attractions-t733828/"
+      },
+      {
+        "name": "4-Course Dinner Cruise",
+        "duration": "3 hours",
+        "rating": 4.7,
+        "review_count": 228,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-4-course-dinner-cruise-t382722/"
+      },
+      {
+        "name": "From $90",
+        "duration": "2 hours",
+        "rating": 4.8,
+        "review_count": 270,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/noord-happy-hour-sunset-cruise-t270452/"
+      },
+      {
+        "name": "Northcoast UTV Afternoon Adventure",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 35,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-northcoast-utv-afternoon-adventure-t621176/"
+      },
+      {
+        "name": "Horseback Ride Tour to Wariruri Beach",
+        "duration": "1.5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 158,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/aruba-horseback-ride-tour-to-wariruri-beach-t414262/"
+      },
+      {
+        "name": "Private Island Tour with Pickup and Custom Itinerary",
+        "duration": "4 hours \u2022 Private group \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": true,
+        "url": "https://www.getyourguide.com/santa-cruz-aruba-l111930/aruba-private-island-tour-with-pickup-and-custom-itinerary-t1375034/"
+      },
+      {
+        "name": "From $155",
+        "duration": "4 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.9,
+        "review_count": 109,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-4-hour-atv-adventure-t399690/"
+      },
+      {
+        "name": "Aruba Nightlife Party Bus, Free Cocktails, Live DJ & Host",
+        "duration": "4 hours \u2022 Pickup available",
+        "rating": 4.6,
+        "review_count": 158,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-barhopping-party-bus-tour-with-dj-and-dancing-t454392/"
+      },
+      {
+        "name": "Afternoon Sailing Trip with Snorkeling and Open Bar",
+        "duration": "3 hours",
+        "rating": 4.8,
+        "review_count": 360,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/noord-l1101/noord-afternoon-sailing-trip-with-snorkeling-and-open-bar-t321623/"
+      },
+      {
+        "name": "Guided Countryside Exploration Tour",
+        "duration": "3 hours \u2022 Pickup available",
+        "rating": 4.7,
+        "review_count": 114,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-countryside-exploration-tour-t621084/"
+      },
+      {
+        "name": "Half Island Guided Bus Tour with Iconic Landmarks",
+        "duration": "6.5 hours \u2022 Pickup available",
+        "rating": null,
+        "review_count": null,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/aruba-half-island-guided-bus-tour-with-iconic-landmarks-t1356312/"
+      },
+      {
+        "name": "Mangel Halto and Baby Beach Snorkeling Tour",
+        "duration": "5 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 4.5,
+        "review_count": 103,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/oranjestad-l341/oranjestad-mangel-halto-and-baby-beach-snorkeling-tour-t422463/"
+      },
+      {
+        "name": "Turtle Spotting Snorkel Tour with Pickup",
+        "duration": "2 hours \u2022 Small group \u2022 Pickup available",
+        "rating": 3.8,
+        "review_count": 17,
+        "price_pp": null,
+        "original_price_pp": null,
+        "per_group_price": false,
+        "url": "https://www.getyourguide.com/malmok-l186634/aruba-turtle-spotting-snorkel-tour-with-pickup-t1172674/"
+      }
+    ],
+    "total_found_estimate": "120 results:",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_gyg_aruba_2026-12-24.png",
+    "status": "ok",
+    "notes": ""
+  },
+  "tourradar": {
+    "source": "tourradar",
+    "dest": "aruba",
+    "url": "https://www.tourradar.com/d/aruba",
+    "scraped_at": "2026-07-14T00:49:54.020820",
+    "date_filter": "2026-12-24",
+    "tours": [
+      {
+        "name": "Epic Mexico to Costa Rica",
+        "duration": "32 days",
+        "rating": 4.3,
+        "price_pp": 3095.0,
+        "url": "https://www.tourradar.com/t/92135"
+      },
+      {
+        "name": "Central American Journey",
+        "duration": "16 days",
+        "rating": 4.1,
+        "price_pp": 2320.0,
+        "url": "https://www.tourradar.com/t/82981"
+      },
+      {
+        "name": "Central American Journey: Rainforests & Ruins",
+        "duration": "32 days",
+        "rating": 4.6,
+        "price_pp": 2949.0,
+        "url": "https://www.tourradar.com/t/5294"
+      },
+      {
+        "name": "33-day South America Tour: Colombia, Peru, Bolivia, Chile, Argentina & Brazil with Inca Trail & Patagonia",
+        "duration": "33 days",
+        "rating": 5.0,
+        "price_pp": 8195.0,
+        "url": "https://www.tourradar.com/t/307570"
+      },
+      {
+        "name": "South American Explorer (With Train To Machu Picchu)",
+        "duration": "Peru, Argentina, and Brazil showcase their wonders over 18 days, featuring Machu Picchu's Incan heritage, Amazon wildlife at Sandoval Lake, and Buenos Aires' colorful La Boca district. The package includes 17 breakfasts, 6 dinners, internal flights, and visits to sites from Cusco to Christ the Redeemer.",
+        "rating": 4.5,
+        "price_pp": 3550.0,
+        "url": "https://www.tourradar.com/t/156885"
+      },
+      {
+        "name": "Ultimate South America (With Train To Machu Picchu)",
+        "duration": "Trek through Latin America's most iconic sites over 24 days, from Peru's Sacred Valley and Machu Picchu to Brazil's vibrant Rio. Experience authentic culture with homestays at Lake Titicaca's Llachon Village, explore Buenos Aires' tango scene, and marvel at Iguassu Falls from both Brazilian and Argentine sides.",
+        "rating": 5.0,
+        "price_pp": 4275.0,
+        "url": "https://www.tourradar.com/t/198613"
+      },
+      {
+        "name": "Volcano Trail: Waves & Local Ways",
+        "duration": "17 days",
+        "rating": 4.7,
+        "price_pp": 100.0,
+        "url": "https://www.tourradar.com/t/5295"
+      }
+    ],
+    "total_found_estimate": "3,275 tours",
+    "screenshot": "/home/john/Thunderbird/core/travel/data/tour_tourradar_aruba_2026-12-24.png",
+    "status": "ok",
+    "notes": "Multi-day guided tours (not day excursions)"
+  }
+}

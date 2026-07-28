@@ -165,7 +165,7 @@ def read_git_status_short() -> str:
         return "(git unavailable)"
 
 def read_financial_pulse() -> str:
-    pulse_path = BASE / "OpsCenter/hale_state.json"
+    pulse_path = BASE / "hale_state.json"
     try:
         data = load_json(pulse_path, {})
         fp = data.get("financial_pulse", {})

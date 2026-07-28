@@ -2,7 +2,7 @@
   "route": "COS-GRB",
   "depart_date": "2026-09-06",
   "adults": 2,
-  "scraped_at": "2026-07-09T13:07:51.183637",
+  "scraped_at": "2026-07-16T16:43:48.507169",
   "skiplagged": {},
   "kayak": {
     "economy": {
@@ -68,30 +68,20 @@
     "economy": {
       "source": "centrav",
       "cabin": "economy",
-      "url": "https://www.centrav.com/fares",
+      "url": "https://www.centrav.com/login",
       "adults": 2,
       "depart_date": "2026-09-06",
-      "raw_prices": [
-        "$434",
-        "$514",
-        "$617",
-        "$559",
-        "$890",
-        "$525",
-        "$647",
-        "$1,054",
-        "$1,019"
-      ],
-      "lowest_price_pp": 217.0,
-      "total_lowest": 434.0,
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
       "airlines_found": [],
       "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_economy_2026-09-06.png",
-      "status": "ok"
+      "status": "no_prices_found"
     },
     "premium": {
       "source": "centrav",
       "cabin": "premium",
-      "url": "https://www.centrav.com/fares",
+      "url": "https://www.centrav.com/login",
       "adults": 2,
       "depart_date": "2026-09-06",
       "raw_prices": [],
@@ -104,17 +94,15 @@
     "first": {
       "source": "centrav",
       "cabin": "first",
-      "url": "https://www.centrav.com/fares",
+      "url": "https://www.centrav.com/login",
       "adults": 2,
       "depart_date": "2026-09-06",
-      "raw_prices": [
-        "$1,087"
-      ],
-      "lowest_price_pp": 543.5,
-      "total_lowest": 1087.0,
+      "raw_prices": [],
+      "lowest_price_pp": null,
+      "total_lowest": null,
       "airlines_found": [],
       "screenshot": "/home/john/Thunderbird/core/travel/data/centrav_search_first_2026-09-06.png",
-      "status": "ok"
+      "status": "no_prices_found"
     }
   }
 }

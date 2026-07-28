@@ -92,8 +92,12 @@ def main() -> int:
     factbook = spawn_claude_factbook()
 
     if "error" in factbook:
-        print(f"ERROR: {factbook['error']}", file=sys.stderr)
-        return 1
+        # Non-mission-critical (ELON 2026-07-18): exit 0 so the unit never
+        # enters failed state and the OnFailure remediation cascade cannot fire.
+        # The spawn timeout is the expected failure mode when Claude OAuth is
+        # temporarily unavailable; crashing the unit only burns swap and CPU.
+        print(f"WARNING: factbook skipped this cycle — {factbook['error']}", file=sys.stderr)
+        return 0
 
     REPORT.write_text(json.dumps(factbook, indent=2))
     dest_count = len(factbook.get("destinations", []))
