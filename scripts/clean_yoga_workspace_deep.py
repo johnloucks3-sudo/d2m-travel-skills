@@ -163,6 +163,9 @@ def deep_clean():
             target = creds_dir / name
             logger.info(f"Relocating raw credential file: {name} -> creds/")
             try:
+                # Remove target if it already exists to prevent move collision
+                if target.exists():
+                    target.unlink()
                 # Move to creds/
                 shutil.move(str(f), str(target))
                 # Create symlink in root
@@ -170,6 +173,88 @@ def deep_clean():
                 logger.info(f"✓ Created symlink in root: {name} -> creds/{name}")
             except Exception as e:
                 logger.error(f"Failed to relocate credential file {name}: {e}")
+
+    # 8. Relocate state JSONs, database files, and markdown logs to state/ and replace with symlinks in root
+    state_dir = ROOT / "state"
+    state_dir.mkdir(parents=True, exist_ok=True)
+
+    state_files = [
+        "conversation_bridge.db",
+        "hud_memory.db",
+        "learning_rules.db",
+        "zfold_test_state.json",
+        "evernote_backup_state.json",
+        "monthly_archive_state.json",
+        "backup_verify_state.json",
+        "email_intel_state.json",
+        "commander_inbox_state.json",
+        "commander_inbox_log.json",
+        "briefing_sent.json",
+        "claude_code_digest_seen.json",
+        "preflight_last.json",
+        "hale_activity_log.jsonl",
+        "hale_decision_journal.jsonl",
+        "hale_email_ooda_state.json",
+        "hale_state.json",
+        "hale_scan_results.json",
+        "hale_vendor_calendar.json",
+        "voice_ledger.json",
+        "dani_training_data.json",
+        "recipient_profiles.json",
+        "d2m_brand_voice.json",
+        "dani_voice_profile.json",
+        "my_voice_profile.json",
+        "flight_watch.json",
+        "tui.json",
+        "claude_inbox.md",
+        "claude_outbox.md",
+        "dani_followups.md",
+        "session_autosave_latest.html",
+        "session_autosave_latest.md",
+        "OpsCenter_Master_Summary_2026.json"
+    ]
+    for name in state_files:
+        f = ROOT / name
+        if f.is_file() and not f.is_symlink():
+            target = state_dir / name
+            logger.info(f"Relocating state file: {name} -> state/")
+            try:
+                # Remove target if it already exists
+                if target.exists():
+                    target.unlink()
+                # Move to state/
+                shutil.move(str(f), str(target))
+                # Create symlink in root
+                os.symlink(f"state/{name}", str(f))
+                logger.info(f"✓ Created symlink in root: {name} -> state/{name}")
+            except Exception as e:
+                logger.error(f"Failed to relocate state file {name}: {e}")
+
+    # 9. Relocate configs to config/ and replace with symlinks in root
+    config_dir = ROOT / "config"
+    config_dir.mkdir(parents=True, exist_ok=True)
+
+    config_files = [
+        "poe.env",
+        "x_osint_follow_list.txt",
+        "d2m_osint_follow_list.txt"
+    ]
+    for name in config_files:
+        f = ROOT / name
+        if f.is_file() and not f.is_symlink():
+            target = config_dir / name
+            logger.info(f"Relocating config file: {name} -> config/")
+            try:
+                # Remove target if it already exists
+                if target.exists():
+                    target.unlink()
+                # Move to config/
+                shutil.move(str(f), str(target))
+                # Create symlink in root
+                os.symlink(f"config/{name}", str(f))
+                logger.info(f"✓ Created symlink in root: {name} -> config/{name}")
+            except Exception as e:
+                logger.error(f"Failed to relocate config file {name}: {e}")
 
     logger.info("Deep clean of YOGA Thunderbird workspace root complete.")
 
