@@ -64,17 +64,25 @@ def deep_clean():
             logger.info(f"Moving historical report: {name} -> archive/")
             shutil.move(str(f), str(target))
 
-    # Move doc/research md files to docs/
+    # Move doc/research md files to docs/ and symlink in root
     doc_files = [
         "POSITION_PAPER_Q3_TECH_ADOPTION_20260711.md",
-        "rapidapi_kiwi_search.md"
+        "rapidapi_kiwi_search.md",
+        "BRAND_SOUL_Dreams2Memories.md"
     ]
     for name in doc_files:
         f = ROOT / name
-        if f.is_file():
+        if f.is_file() and not f.is_symlink():
             target = DOCS_DIR / name
             logger.info(f"Moving documentation file: {name} -> docs/")
-            shutil.move(str(f), str(target))
+            try:
+                if target.exists():
+                    target.unlink()
+                shutil.move(str(f), str(target))
+                os.symlink(f"docs/{name}", str(f))
+                logger.info(f"✓ Created symlink in root: {name} -> docs/{name}")
+            except Exception as e:
+                logger.error(f"Failed to relocate doc file {name}: {e}")
 
     # 4. Move scattered data JSON dumps to archive/
     scattered_jsons = [
@@ -155,7 +163,8 @@ def deep_clean():
         "gmail_token_commander.json",
         "gmail_token_johnloucks3_backup.json",
         "amadeus_credentials.json", # ensure these are sorted in creds
-        "gmail_token.json"
+        "gmail_token.json",
+        "tess_config.json"
     ]
     for name in cred_files:
         f = ROOT / name
