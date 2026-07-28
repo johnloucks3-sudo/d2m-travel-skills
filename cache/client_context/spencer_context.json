@@ -15,7 +15,16 @@
     {
       "date": "2026-07-27",
       "summary": "Master Client & Trip Intake Form sent by Commander (bkspencer381@gmail.com). Verified 200 OK token URL + PERT 3-step milestones attached."
+    },
+    {
+      "date": "2026-07-27",
+      "summary": "CORRECTION: Ground truth sent email verified. Step 1 Due: Aug 4, 2026; Step 2 Due: Aug 5, 2026; Step 3 Due: Aug 28, 2026."
     }
   ],
-  "last_updated": "2026-07-27T19:54:31-06:00"
+  "last_updated": "2026-07-27T19:54:31-06:00",
+  "suspense_dates": {
+    "step1_intake": "2026-08-04",
+    "step2_flights": "2026-08-05",
+    "step3_excursions": "2026-08-28"
+  }
 }
