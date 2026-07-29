@@ -40,8 +40,6 @@
   "core/watchtower/thunderbird_heartbeat.py:176: service.users().messages().send(userId=\"me\", body={\"raw\": raw}).execute()",
   "core/ops/thunderbird_monthly_archive.py:187: service.users().messages().send(userId=\"me\", body={\"raw\": raw}).execute()",
   "core/ops/confirmed_auto_execute.py:82: sent = svc.users().messages().send(userId=\"me\", body={\"raw\": raw}).execute()",
-  "core/ops/morning_consolidated_brief_engine.py:340: sent_msg = svc.users().messages().send(userId=\"me\", body={\"raw\": raw_b64}).execute()",
-  "core/ops/evening_consolidated_eod_engine.py:570: sent_msg = svc.users().messages().send(userId=\"me\", body={\"raw\": raw_b64}).execute()",
   "core/hale/brief_email_sender.py:186: sent = service.users().messages().send(",
   "core/comms/commander_channel.py:8: Before this module, 44 files called `messages().send()` directly and 140 could send",
   "core/email/thunderbird_email_scanner_fixed.py:390: service.users().messages().send(",

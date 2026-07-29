@@ -93,6 +93,13 @@
    "exec": "scripts/commander_decision_inbox_update.py",
    "disposition": "RE-ENABLED 2026-07-29 \u2014 stub replaced with real implementation over core/comms/commander_queue.py closure ledger",
    "re_enabled": true
+  },
+  {
+   "unit": "d2m-fpd-alert.timer",
+   "prior_enabled": "enabled",
+   "prior_active": "active",
+   "exec": "core/watchtower/thunderbird_fpd_alert.py",
+   "disposition": "RETIRED 2026-07-29 task 9 \u2014 FPD now rendered inside the 06:30 consolidated brief (build_fpd_section() line 252, called 336, embedded 361). Standalone sender no longer needed. Coverage verified BEFORE retirement, not assumed."
   }
  ],
  "deliberately_kept_running": [
@@ -107,11 +114,6 @@
    "reason": "Commander-selected delivery window #2"
   },
   {
-   "unit": "d2m-fpd-alert.timer",
-   "schedule": "01:35 America/Denver",
-   "reason": "MONEY. The 06:30 consolidated engine contains ZERO FPD references \u2014 masking this would silently drop payment-deadline coverage while Erik Wiedenbach McLeod is overdue. Was never a noise source: today's duplicate FPD alerts (11:30 and 11:43 MDT) came from ad-hoc invocation, not this timer. Retires only after Phase 1 task 9 folds FPD into the 06:30 brief."
-  },
-  {
    "unit": "*-oauth-keepalive.timer, credential/health/watchdog timers",
    "reason": "Infrastructure. These page nobody."
   }
@@ -119,5 +121,8 @@
  "verification": {
   "live_timer_list_hits_after_change": 0,
   "command": "systemctl --user list-timers --all | grep -Ec 'intel-digest|intel-telegram|brief-telegram|agentmail-daily|incubator-overnight|validation-report|hale-morning-brief|hale-brief-generator|commander-digest|usage-monitor|gp-notifier|decision-inbox-update'"
- }
+ },
+ "retired_after_coverage_moved": [
+  "d2m-fpd-alert.timer"
+ ]
 }

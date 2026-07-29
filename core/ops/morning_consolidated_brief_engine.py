@@ -388,29 +388,26 @@ def generate_morning_brief_html() -> str:
 
 def send_morning_brief():
     logger.info("Generating and delivering Morning Consolidated Brief (LIVE DATA)...")
-    svc = _get_commander_gmail_service()
-    if not svc:
-        logger.error("Failed to acquire Commander Gmail service!")
-        return
 
     html_content = generate_morning_brief_html()
     now_str = datetime.now().strftime("%Y-%m-%d")
+    subject = f"🌅 MORNING CONSOLIDATED BRIEF — {now_str}"
 
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-
-    msg = MIMEMultipart("alternative")
-    msg["To"] = "johnloucks3@gmail.com"
-    msg["Subject"] = f"🌅 MORNING CONSOLIDATED BRIEF — {now_str}"
-
-    msg.attach(MIMEText("Please view in HTML.", "plain"))
-    msg.attach(MIMEText(html_content, "html"))
-
-    raw_b64 = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-
-    sent_msg = svc.users().messages().send(userId="me", body={"raw": raw_b64}).execute()
-    logger.info(f"✅ Delivered Morning Consolidated Brief to johnloucks3 INBOX (ID: {sent_msg.get('id')})")
-    return sent_msg
+    # Routed through the single gate (C2 RECALIBRATION task 9, 2026-07-29). This engine
+    # used to hand-roll a MIME message and call the Gmail send API itself — one of the 44
+    # direct senders that made the 11:34/11:48 duplicate possible. notify() dedups on
+    # dedup_key, so a double invocation on the same day is suppressed instead of
+    # delivered twice. urgency="NOW" is correct here: this IS the 06:30 window, so the
+    # brief is the flush, not something queued for a later one.
+    from core.comms.commander_channel import notify
+    result = notify("brief", subject, html_content,
+                    urgency="NOW",
+                    reason="scheduled 06:30 consolidated delivery window (SO-REPORTING-2026)",
+                    dedup_key=f"morning-brief-{now_str}",
+                    source="morning_consolidated_brief_engine")
+    logger.info(f"✅ Delivered Morning Consolidated Brief via notify gate "
+                f"(status: {result.get('status', 'unknown')})")
+    return result
 
 
 if __name__ == "__main__":
