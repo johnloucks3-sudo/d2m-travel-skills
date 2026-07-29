@@ -60,9 +60,15 @@ Neither failure was stupidity. **A weak model will not infer a boundary you did 
 write down.** So state three things:
 
 - **Include** — exact paths, exact patterns
-- **Exclude** — by name: `node_modules`, `.venv`, `archive`, binaries, test fixtures,
-  anything that contains the pattern as *data* rather than as *code*
+- **Exclude** — by name. Run this list; it is what a thorough follower still misses:
+  `node_modules` and vendored third-party trees · generated code · `archive` and
+  retired trees · `.venv` · compiled binaries · test fixtures · and anything holding
+  the pattern as *data* rather than as *code* (a manifest that lists violations will
+  match every pattern you search for).
 - **A value that can only be right if the work was really done** — not just a schema
+
+Vendored, generated, and third-party trees are the exclusion most often forgotten,
+including by careful reasoning that catches everything else. Name them explicitly.
 
 ### Make every criterion mechanically checkable
 
@@ -83,24 +89,25 @@ was standing in the wrong directory, not failing to run tests.
 
 ## Verify — never accept the report as the result
 
-Check every deliverable against ground truth before you believe it. This is not
-distrust; it is the only thing that separates a delegation system from a rumour mill.
+Run the acceptance criteria yourself, as commands. A follower claiming
+`{"compiled": true, "direct_sends_remaining": 0}` is a claim; `py_compile` exiting 0
+and `grep -c` printing 0 is a fact.
 
 ```python
 from core.staffing.integrity_check import verify_and_record   # never the raw function
 ```
 
-Run the acceptance criteria yourself as commands. A follower claiming
-`{"compiled": true, "direct_sends_remaining": 0}` is a claim; `py_compile` exiting
-0 and `grep -c` printing 0 is a fact.
+You will be tempted to skip this when the report is articulate and confident. That is
+exactly when it costs most — a summary that reads well is not evidence, and this rule
+is broken far more often by trusting a *good-sounding* report than a bad one.
 
 **A perfect record is a warning, not a reassurance.** A seat showing 128 passes and
-0 failures is far more likely unchecked than flawless. Zero observed failures across
-many tasks means the sensor is broken, not that the work is.
+0 failures is more likely unchecked than flawless. Zero observed failures across many
+tasks means the sensor is broken, not the work.
 
 **Value honesty over score.** A follower that reports "no tests ran" instead of
 claiming success has told you something true and cheap to fix. One that confabulates
-a passing result costs you the next three hours. Weight the lanes accordingly.
+a passing result costs you the next three hours.
 
 ## Record the outcome — failures loudest
 
