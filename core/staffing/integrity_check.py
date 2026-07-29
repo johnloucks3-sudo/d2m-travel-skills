@@ -127,6 +127,81 @@ def cc_integrity_double_check(
     raise ValueError(f"engine must be 'AG' or 'OC', got {engine!r}")
 
 
+def _parse_verdict(stdout: str) -> tuple[str, str]:
+    """Parse the verifier's mandatory roll-up line. Returns (verdict, detail).
+    No roll-up line found at all → UNVERIFIED, not a silent PASS — the
+    verifier's own contract wasn't followed, so its answer can't be trusted."""
+    import re
+    text = stdout or ""
+    if re.search(r"INTEGRITY:\s*ALL-VERIFIED", text):
+        return "PASS", ""
+    m = re.search(r"INTEGRITY:\s*DISCREPANCIES\s*(?:—|-)?\s*(.*)", text)
+    if m:
+        return "DISCREPANCY", m.group(1).strip()[:300]
+    return "UNVERIFIED", "verifier produced no INTEGRITY: roll-up line"
+
+
+def verify_and_record(
+    claims: list[str],
+    *,
+    ground_truth_cmds: Optional[list[str]] = None,
+    engine: str = "AG",
+    deliverable_path: Optional[str] = None,
+    ticket_id: str = "",
+    task_type: str = "",
+    model: Optional[str] = None,
+    timeout: int = 300,
+    page_on_discrepancy: bool = True,
+) -> dict:
+    """The recording wrapper CLAUDE.md's HARD RULE now names — use this,
+    never cc_integrity_double_check() directly, so the verdict is never
+    silently unrecorded (Commander directive, SO-WING-OVERSIGHT-2026).
+
+    Calls cc_integrity_double_check() unchanged, parses its mandatory
+    roll-up line, forces UNVERIFIED (never a silent upgrade to PASS) if the
+    engine itself was unreachable, records the outcome to
+    core.staffing.delegation_outcomes, scores CC's claim in the seat
+    scorecard, and pages the Commander in real time on DISCREPANCY/
+    UNVERIFIED — the mechanical fix for a discrepancy passing through
+    silently (2026-07-28 night 8-Sector Wing Exercise: AG marked a state
+    complete when it wasn't; nothing durable recorded the catch)."""
+    from core.staffing.delegation_outcomes import record_outcome, page_commander
+
+    r = cc_integrity_double_check(
+        claims, ground_truth_cmds=ground_truth_cmds, engine=engine,
+        deliverable_path=deliverable_path, model=model, timeout=timeout,
+    )
+    if not r["ok"]:
+        verdict, detail = "UNVERIFIED", f"engine {engine} unreachable/failed (rc={r['returncode']})"
+    else:
+        verdict, detail = _parse_verdict(r["stdout"])
+
+    record_outcome(
+        seat="CC", action="integrity_check", verdict=verdict,
+        ticket_id=ticket_id, task_type=task_type, dispatch_mode="sync",
+        discrepancy_detail=detail, verified_by=engine,
+    )
+    try:
+        from core.silver.scorecard import record as scorecard_record
+        if verdict in ("PASS", "DISCREPANCY"):
+            scorecard_record("CC", category=task_type or "integrity",
+                             outcome="pass" if verdict == "PASS" else "fail",
+                             task_type=task_type, ref=ticket_id)
+    except Exception:
+        pass
+
+    if page_on_discrepancy and verdict in ("DISCREPANCY", "UNVERIFIED"):
+        page_commander(
+            problem=f"Integrity check {verdict} — {ticket_id or 'ad hoc claim'}: {', '.join(claims)[:120]}",
+            discussion=detail or "Verifier could not confirm CC's claim(s) against ground truth.",
+            action=f"Verified by {engine}. See routing_log.md / deliverable for full findings.",
+            next_steps="Review before treating the underlying task as done.",
+        )
+    r["verdict"] = verdict
+    r["discrepancy_detail"] = detail
+    return r
+
+
 if __name__ == "__main__":
     import argparse, json, sys
     ap = argparse.ArgumentParser(description="CC cross-engine integrity double-check.")

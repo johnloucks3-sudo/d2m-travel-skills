@@ -22,6 +22,7 @@ import json
 from urllib.parse import parse_qs
 
 from . import writeback
+from . import overrides as _overrides
 from .item_model import SHEET_COLUMNS
 
 INBOX_ORDER = [
@@ -49,7 +50,63 @@ def _pending_rows():
     from .multi_tab import collect_multi_tab
     rows = writeback.read_sheet_rows()
     rows.extend(collect_multi_tab())
+    # Main-sheet rows already carry overrides baked in via the
+    # collectors->sheet_sync round trip; multi_tab rows read a second
+    # spreadsheet directly and never pass through that pipeline, so a
+    # Commander action on one (see apply_non_sheet_action) would vanish on
+    # the next reload without this. Re-applying to already-overridden main
+    # rows is a harmless no-op (same value in, same value out).
+    persisted = _overrides.load_overrides()
+    for row in rows:
+        rid = row.get("id", "")
+        entry = persisted.get(rid)
+        if not entry:
+            continue
+        if "stage" in entry:
+            row["stage"] = _overrides.apply_override(rid, row.get("stage", ""), persisted)
+        if "status" in entry:
+            row["status"] = _overrides.apply_status(rid, row.get("status", ""), persisted)
+        owner = _overrides.apply_owner(rid, persisted)
+        if owner:
+            row["owner"] = owner
     return rows
+
+
+# Hold/Modify leave stage and status untouched (see apply_action's Hold
+# comment), so the only durable, Sheet-backed signal that either happened is
+# the marker text apply_action stamps into ``comments`` — same field
+# AppSheet/the Sheet already shows, nothing client-only. rfind so the most
+# recently stamped marker (furthest right in the comment trail) wins.
+_ACTION_MARKERS = (
+    ("[Commander HOLD via tcd.d2mluxury.quest]", "HELD", "held"),
+    ("[Commander CLOSE via tcd.d2mluxury.quest]", "CLOSED", "closed"),
+    ("[Commander via tcd.d2mluxury.quest]", "MODIFIED", "modified"),
+)
+
+
+def _action_state(row: dict):
+    """(decided, label, css_key) derived purely from status/stage/comments —
+    fields the Sheet/Gmail mirror already carries — so a page reload always
+    shows the true last action instead of an action flashing then vanishing."""
+    status = row.get("status", "")
+    stage = row.get("stage", "")
+    if status == "Closed":
+        return True, "CLOSED", "closed"
+    if status == "Delete":
+        return True, "REJECTED", "rejected"
+    if status == "Reference":
+        return True, "HELD", "held"
+    if stage not in ("", "P"):
+        return True, "APPROVED", "approved"
+    comments = row.get("comments", "") or ""
+    best_idx, best = -1, None
+    for marker, label, css_key in _ACTION_MARKERS:
+        idx = comments.rfind(marker)
+        if idx > best_idx:
+            best_idx, best = idx, (label, css_key)
+    if best:
+        return True, best[0], best[1]
+    return False, "", ""
 
 
 def _card(row: dict) -> str:
@@ -65,8 +122,12 @@ def _card(row: dict) -> str:
     owner = html.escape(row.get("owner", ""))
     link_html = (f'<a class="src-link" href="{link}" target="_blank" rel="noopener">open source ↗</a>'
                  if link else '<span class="src-link" style="opacity:.4">no source link</span>')
+    decided, label, css_key = _action_state(row)
+    card_class = "card decided" if decided else "card"
+    pill_class = f"status-pill show {css_key}" if decided else "status-pill"
+    pill_text = html.escape(label)
     return f"""
-      <article class="card" data-id="{rid}">
+      <article class="{card_class}" data-id="{rid}">
         <div class="card-main">
           <div class="card-id">{rid} · {priority or '—'} · stage {stage or '—'}{f' · owner {owner}' if owner else ''}</div>
           <div class="card-title">{title}</div>
@@ -74,7 +135,7 @@ def _card(row: dict) -> str:
           <div class="card-meta"><span><b>From:</b> {source or '—'}</span><span><b>Date:</b> {date or '—'}</span>{link_html}</div>
         </div>
         <div class="card-actions">
-          <span class="status-pill"></span>
+          <span class="{pill_class}">{pill_text}</span>
           <div class="btn-row">
             <button class="act approve" data-action="approve">Approve</button>
             <button class="act modify" data-action="modify">Modify</button>
@@ -102,15 +163,20 @@ def render_board(rows=None) -> str:
             by_inbox["operational"].extend(by_inbox.pop(k))
 
     sections = []
+    total = 0
     for key, label, desc, color in INBOX_ORDER:
-        lane_rows = by_inbox.get(key, [])
-        active_rows = [r for r in lane_rows if r.get("status") not in ("Closed", "Delete", "Reference") and r.get("stage") in ACTIVE_STAGES]
-        closed_rows = [r for r in lane_rows if r.get("status") in ("Closed", "Delete", "Reference") or r.get("stage") not in ACTIVE_STAGES]
-        
+        # A Closed card is gone — not shown even collapsed. "Close" means
+        # delete it from the board; the audit trail (hale_decisions.md) and
+        # the Sheet/override still carry the record, this is display only.
+        lane_rows = [r for r in by_inbox.get(key, []) if r.get("status") != "Closed"]
+        active_rows = [r for r in lane_rows if r.get("status") not in ("Delete", "Reference") and r.get("stage") in ACTIVE_STAGES]
+        closed_rows = [r for r in lane_rows if r.get("status") in ("Delete", "Reference") or r.get("stage") not in ACTIVE_STAGES]
+        total += len(active_rows) + len(closed_rows)
+
         cards = "\n".join(_card(r) for r in active_rows)
         if not cards:
             cards = '<div class="empty-lane">Nothing active pending here right now.</div>'
-            
+
         closed_cards = "\n".join(_card(r) for r in closed_rows)
         closed_html = ""
         if closed_cards:
@@ -120,7 +186,7 @@ def render_board(rows=None) -> str:
                 <div class="card-list">{closed_cards}</div>
             </details>
             '''
-            
+
         sections.append(f"""
   <section class="gate" data-gate="{key}">
     <div class="gate-head">
@@ -130,14 +196,25 @@ def render_board(rows=None) -> str:
     <div class="card-list">{cards}</div>
     {closed_html}
   </section>""")
-
-    total = sum(len(v) for v in by_inbox.values())
     return _PAGE.replace("__SECTIONS__", "\n".join(sections)).replace("__TOTAL__", str(total))
 
 
 def apply_action(item_id: str, action: str, note: str = "") -> dict:
     """Write the real vocab for one Commander verb, then run the write-back
-    pass immediately so it executes now instead of on the next 10-min timer."""
+    pass immediately so it executes now instead of on the next 10-min timer.
+
+    Every card on the board — whether it came from the main Items sheet or
+    from a multi_tab.py tab (mission-/techscan-/next7-, a different
+    spreadsheet with no per-row write path) — routes through here and ends
+    up durably persisted: main-sheet rows via the real Sheet cell write,
+    everything else via writeback.apply_non_sheet_action's override+audit
+    fallback. Neither path is client-only state that a reload can wipe.
+    """
+    sheet_rows = writeback.read_sheet_rows()
+    in_sheet = any(r.get("id") == item_id for r in sheet_rows)
+    row = next((r for r in _pending_rows() if r.get("id") == item_id), None)
+    prior_comments = (row or {}).get("comments", "")
+
     updates = {}
     if action == "approve":
         updates["stage"] = "D"
@@ -149,39 +226,30 @@ def apply_action(item_id: str, action: str, note: str = "") -> dict:
         # next read). A comment IS durable (process_once's comment-diff
         # branch + hale_decisions.md), so Hold logs intent that way instead
         # of pretending a non-durable status flip is a real park action.
-        rows = writeback.read_sheet_rows()
-        row = next((r for r in rows if r.get("id") == item_id), None)
-        prior_comments = (row or {}).get("comments", "")
         updates["comments"] = f"{prior_comments}\n[Commander HOLD via tcd.d2mluxury.quest]".strip()
     elif action == "reject":
         updates["status"] = "Delete"
     elif action == "close":
-        # _handle_close feeds row["comments"] to Silver's back-gate as BOTH
-        # the work-product artifact AND the criteria to check it against — a
-        # bare status=Closed write with no comment is correctly HELD as
-        # "no work product given" (verified live 2026-07-28: 6 one-click
-        # closes all held, Sheet reverted to Open on the next sync). Close
-        # needs a real one-line reason for the same reason Modify needs one.
-        if not note:
-            return {"ok": False, "error": "close needs a one-line reason — Silver's gate holds a bare close with no work product to check"}
-        rows = writeback.read_sheet_rows()
-        row = next((r for r in rows if r.get("id") == item_id), None)
-        prior_comments = (row or {}).get("comments", "")
-        updates["comments"] = f"{prior_comments}\n[Commander CLOSE via tcd.d2mluxury.quest] {note}".strip()
+        # This board is the one place we can positively assert the caller
+        # IS the Commander, so Close here is self-certifying — no reason
+        # required, no Silver back-gate (that gate exists to check AI/
+        # AppSheet-diff closes, not the Commander's own decision). See
+        # _handle_close(actor="commander") in writeback.py.
+        stamp = f"\n[Commander CLOSE via tcd.d2mluxury.quest] {note}".rstrip() if note else "\n[Commander CLOSE via tcd.d2mluxury.quest]"
+        updates["comments"] = f"{prior_comments}{stamp}".strip()
         updates["status"] = "Closed"
     elif action == "modify":
         if not note:
             return {"ok": False, "error": "no note text supplied for modify"}
-        rows = writeback.read_sheet_rows()
-        row = next((r for r in rows if r.get("id") == item_id), None)
-        prior_comments = (row or {}).get("comments", "")
-        stamp_note = f"{prior_comments}\n[Commander via tcd.d2mluxury.quest] {note}".strip()
-        updates["comments"] = stamp_note
+        updates["comments"] = f"{prior_comments}\n[Commander via tcd.d2mluxury.quest] {note}".strip()
     else:
         return {"ok": False, "error": f"unknown action {action!r}"}
 
-    writeback._default_write_fn(item_id, updates)
-    result = writeback.process_once()
+    if in_sheet:
+        writeback._default_write_fn(item_id, updates)
+        result = writeback.process_once(actor="commander")
+    else:
+        result = writeback.apply_non_sheet_action(row or {"id": item_id}, updates, actor="commander")
     return {"ok": True, "action": action, "updates": updates, "process_result": result}
 
 
@@ -231,10 +299,10 @@ _PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
   .gate-title { font-family:var(--font-head); font-weight:800; text-transform:uppercase; letter-spacing:.05em; font-size:13px; }
   .gate-desc { font-family:var(--font-mono); font-size:11px; color:var(--ink-dim); }
   .card-list { display:flex; flex-direction:column; gap:10px; }
-  .card { background:var(--surface); border:1px solid var(--hairline); border-radius:8px; padding:16px 18px;
-    display:grid; grid-template-columns:1fr auto; gap:12px 20px; }
+  .card { position:relative; background:var(--surface); border:1px solid var(--hairline); border-radius:8px; padding:16px 18px;
+    display:grid; grid-template-columns:1fr auto; gap:12px 20px; transition:opacity .25s, transform .25s; }
   .card.decided { opacity:.6; }
-  .card-main { display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .card-main { display:flex; flex-direction:column; gap:6px; min-width:0; padding-right:8px; }
   .card-id { font-family:var(--font-mono); font-size:11px; color:var(--ink-dim); }
   .card-title { font-size:15px; font-weight:600; }
   .card-detail { font-size:13px; color:var(--ink-dim); line-height:1.5; max-width:62ch; }
@@ -250,9 +318,15 @@ _PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
   button.act.hold:hover { background:var(--warn); color:var(--warn-ink); border-color:var(--warn); }
   button.act.reject:hover { background:var(--crit); color:var(--crit-ink); border-color:var(--crit); }
   button.act.close:hover { background:var(--ink); color:var(--ground); border-color:var(--ink); }
-  .status-pill { font-family:var(--font-mono); font-size:10px; text-transform:uppercase; padding:4px 9px;
-    border-radius:20px; border:1px solid transparent; display:none; }
+  .status-pill { position:absolute; top:10px; right:12px; font-family:var(--font-mono); font-size:10px;
+    font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:4px 10px; border-radius:20px;
+    border:1px solid var(--hairline); background:var(--surface-2); color:var(--ink-dim); display:none; }
   .status-pill.show { display:inline-block; }
+  .status-pill.approved { background:var(--good); color:var(--good-ink); border-color:var(--good); }
+  .status-pill.held { background:var(--warn); color:var(--warn-ink); border-color:var(--warn); }
+  .status-pill.rejected { background:var(--crit); color:var(--crit-ink); border-color:var(--crit); }
+  .status-pill.modified { background:var(--focus); color:var(--focus-ink); border-color:var(--focus); }
+  .status-pill.closed { background:var(--ink); color:var(--ground); border-color:var(--ink); }
   .note-field { grid-column:1/-1; display:none; flex-direction:column; gap:6px; }
   .note-field.show { display:flex; }
   .note-field textarea { width:100%; min-height:60px; background:var(--surface-2); border:1px solid var(--hairline);
@@ -279,8 +353,9 @@ _PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <main>
   <p class="lede"><b style="color:var(--ink)">This is live.</b> Every click writes straight to the same Sheet
   AppSheet uses and runs the same write-back engine — Approve stages it to your staff, Reject deletes it at the
-  source, Close marks it done. Hold and Modify both log a comment to the item's audit trail (a bare "park" status
-  isn't durable across the 10-minute sync yet, so Hold stays visible here rather than silently vanishing).
+  source, Close removes the card here and marks it done (source record kept, no reason needed). Hold and Modify
+  both log a comment to the item's audit trail and gray the card out. Every card, whatever tab it came from, is
+  tied to a real Sheet write or a persisted override — nothing shown here is client-only state.
   Reload any time for the current state; no export/import step.</p>
 __SECTIONS__
 </main>
@@ -289,22 +364,35 @@ __SECTIONS__
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   clearTimeout(showToast._h);showToast._h=setTimeout(function(){t.classList.remove('show');},2500);}
 
+var PILL_LABELS = {approve:'APPROVED', hold:'HELD', reject:'REJECTED', modify:'MODIFIED'};
+var PILL_CLASS = {approve:'approved', hold:'held', reject:'rejected', modify:'modified'};
+
 async function act(card, action){
   var id = card.getAttribute('data-id');
   var noteField = card.querySelector('.note-field');
   var textarea = noteField.querySelector('textarea');
   var note = textarea.value.trim();
-  if ((action === 'modify' || action === 'close') && note === '') { noteField.classList.add('show'); textarea.focus();
-    showToast(action === 'close' ? 'Close needs a one-line reason first (Silver\\'s gate requires it)' : 'Type your edits, then click Log as Modified'); return; }
+  if (action === 'modify' && note === '') { noteField.classList.add('show'); textarea.focus();
+    showToast('Type your edits, then click Log as Modified'); return; }
   showToast('Sending ' + action + '…');
   try {
     var res = await fetch('/tcd/act', { method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ id: id, action: action, note: note }) });
     var data = await res.json();
     if (data.ok) {
+      if (action === 'close') {
+        // Closed cards are deleted from the board — the write already
+        // landed (Sheet cell or override, see apply_action), so remove the
+        // card now instead of waiting on a full reload.
+        showToast(id + ' → closed (removed)');
+        card.style.opacity = '0'; card.style.transform = 'scale(.97)';
+        setTimeout(function(){ card.remove(); }, 260);
+        return;
+      }
       card.classList.add('decided');
       var pill = card.querySelector('.status-pill');
-      pill.textContent = action; pill.className = 'status-pill show';
+      pill.textContent = PILL_LABELS[action] || action.toUpperCase();
+      pill.className = 'status-pill show ' + (PILL_CLASS[action] || '');
       showToast(id + ' → ' + action + ' (live)');
       setTimeout(function(){ location.reload(); }, 900);
     } else {

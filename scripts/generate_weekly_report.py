@@ -131,6 +131,34 @@ def inject_task(board: dict, title: str, description: str, owner: str, priority:
 
     p = priority if priority in ("P0", "P1", "P2", "P3") else "P2"
 
+    # ONE AND DONE — route through the shared duplicate guard instead of
+    # appending blind.
+    #
+    # This generator appended directly to board["missions"] and therefore
+    # bypassed mission_board_sync's `_find_open_duplicate` entirely. Between
+    # 2026-07-15 and 2026-07-26 it created TWELVE separate missions for a
+    # single $24,798 final payment, each with a freshly-worded title
+    # ("Surface..." / "Pay..." / "Confirm..." / "Escalate..."), because it
+    # re-detected the same unresolved deadline on every run and had no memory
+    # of the previous ones. Re-detecting is not resolving (MAST FM-1.3).
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+        from OpsCenter.mission_board_sync import (
+            _find_entity_duplicate, _find_open_duplicate)
+        existing = board.get("missions", [])
+        dup = (_find_entity_duplicate(existing, title, description or "")
+               or _find_open_duplicate(existing, title))
+        if dup is not None:
+            dup.setdefault("logs", []).append(
+                f"[{datetime.now(timezone.utc).isoformat()[:19]}] weekly report "
+                f"re-detected this ({title!r}) — not re-created, still open here")
+            dup["updated_at"] = datetime.now(timezone.utc).isoformat()
+            return dup["id"]
+    except Exception:
+        # Never let a dedupe failure stop the weekly report from running.
+        pass
+
     board.setdefault("missions", []).append({
         "id": mission_id,
         "title": title,

@@ -185,6 +185,24 @@ def build_fare_watch_section(watches: list[dict]) -> str:
 """
 
 
+def pull_wing_ops_digest() -> dict:
+    """Delegation/verification compliance + per-seat budget — SO-WING-OVERSIGHT-2026."""
+    try:
+        from core.ops.wing_ops_report import build_wing_ops_digest
+        return build_wing_ops_digest(since_hours=24)
+    except Exception as e:
+        logger.warning(f"Wing Ops digest pull failed: {e}")
+        return {}
+
+
+def build_wing_ops_section(digest: dict) -> str:
+    try:
+        from core.ops.wing_ops_report import build_wing_ops_section as _build
+        return _build(digest)
+    except Exception as e:
+        return f'<p style="color:#dc2626;">Wing Ops section failed to render: {e}</p>'
+
+
 def build_mission_board_section(missions: list[dict]) -> str:
     if not missions:
         return '<p style="color:#16a34a;font-style:italic;">✅ No P0/P1 missions pending Commander attention.</p>'
@@ -244,12 +262,14 @@ def generate_morning_brief_html() -> str:
     action_items = pull_live_tcd_action_items(max_items=10)
     fare_watches = pull_live_fare_watch(max_watches=6)
     missions_p0p1 = pull_mission_board_p0_p1()
+    wing_ops_digest = pull_wing_ops_digest()
 
     # Build sections
     tcd_html = build_tcd_suspense_section(action_items)
     fare_html = build_fare_watch_section(fare_watches)
     mission_html = build_mission_board_section(missions_p0p1)
     osint_html = pull_live_osint_watchdog()
+    wing_ops_html = build_wing_ops_section(wing_ops_digest)
 
     # Summary counts for header
     p0_count = sum(1 for i in action_items if i.get("priority", "").lower() == "p0")
@@ -283,6 +303,9 @@ def generate_morning_brief_html() -> str:
 
 <h3 style="color:#07076b;margin-top:25px;">🛰️ WORLD & AIRLINE DISRUPTION WATCHDOG</h3>
 {osint_html}
+
+<h3 style="color:#07076b;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
+{wing_ops_html}
 
 <div style="margin-top:30px;font-family:Arial,sans-serif;color:#07076b;border-top:1px solid #e2e8f0;padding-top:12px;">
     <p style="font-weight:bold;margin:0;">DREAMS2MEMORIES TRAVEL, LLC</p>

@@ -1,7 +1,7 @@
 # Innovation Scan — Daily
-**Generated:** 2026-07-28T09:50:29.261238
+**Generated:** 2026-07-29T10:32:15.973178
 **Sources:** 24 scanned, 0 failed
-**Findings:** 62 total
+**Findings:** 71 total
 
 ---
 
@@ -9,46 +9,59 @@
 
 | # | Score | Source | Title | Category |
 |---|-------|--------|-------|----------|
-| 1 | 717 | github/trending | [xiaotianfotos/homerail](https://github.com/xiaotianfotos/homerail) | agents |
-| 2 | 364 | github/trending | [sandbaseai/managed-agents](https://github.com/sandbaseai/managed-agents) | mcp |
-| 3 | 290 | github/trending | [shlokkhemani/rabbithole](https://github.com/shlokkhemani/rabbithole) | mcp |
-| 4 | 240 | github/trending | [Oft3r/agentic-trading-desk](https://github.com/Oft3r/agentic-trading-desk) | mcp |
-| 5 | 236 | github/trending | [yanliudesign/offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) | general |
-| 6 | 216 | github/trending | [katipally/openlive](https://github.com/katipally/openlive) | agents |
-| 7 | 214 | github/trending | [livetennisapi/livetennisapi-mcp](https://github.com/livetennisapi/livetennisapi-mcp) | mcp |
-| 8 | 202 | github/trending | [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole) | mcp |
-| 9 | 173 | github/trending | [ZCZHAO-1999/shakespeare-writing-studio](https://github.com/ZCZHAO-1999/shakespeare-writing-studio) | agents |
-| 10 | 163 | github/trending | [Sophomoresty/gemini-search-mcp](https://github.com/Sophomoresty/gemini-search-mcp) | mcp |
+| 1 | 734 | github/trending | [xiaotianfotos/homerail](https://github.com/xiaotianfotos/homerail) | agents |
+| 2 | 578 | hackernews | [Codex Security](https://github.com/openai/codex-security) | devtools |
+| 3 | 388 | github/trending | [sandbaseai/managed-agents](https://github.com/sandbaseai/managed-agents) | mcp |
+| 4 | 290 | github/trending | [shlokkhemani/rabbithole](https://github.com/shlokkhemani/rabbithole) | mcp |
+| 5 | 245 | hackernews | [LearnVector – Andrew Ng's AI company building one‑to‑one lea...](https://learnvector.ai/) | knowledge |
+| 6 | 241 | github/trending | [yanliudesign/offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill) | general |
+| 7 | 240 | github/trending | [Oft3r/agentic-trading-desk](https://github.com/Oft3r/agentic-trading-desk) | mcp |
+| 8 | 219 | github/trending | [katipally/openlive](https://github.com/katipally/openlive) | agents |
+| 9 | 214 | github/trending | [livetennisapi/livetennisapi-mcp](https://github.com/livetennisapi/livetennisapi-mcp) | mcp |
+| 10 | 204 | github/trending | [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole) | mcp |
 
-## Agents (22 findings)
+## Agents (26 findings)
 
 ### [xiaotianfotos/homerail](https://github.com/xiaotianfotos/homerail)
-- **Source:** github/trending | **Score:** 717
+- **Source:** github/trending | **Score:** 734
 - **Relevance:** Direct | **Difficulty:** Medium
 - Voice-first local agent orchestration runtime for auditable DAG workflows.
 
 ### [katipally/openlive](https://github.com/katipally/openlive)
-- **Source:** github/trending | **Score:** 216
+- **Source:** github/trending | **Score:** 219
 - **Relevance:** Direct | **Difficulty:** Medium
 - Opensource, on-device voice + vision layer for AI agents. Bring any model or coding agent; the whole speech loop (VAD, STT, TTS, barge-in) runs locally. An open alternative to ElevenLabs Agents, Gemin
 
+### [QwenAudio/qwen-audio-agent](https://github.com/QwenAudio/qwen-audio-agent)
+- **Source:** github/trending | **Score:** 183
+- **Relevance:** Direct | **Difficulty:** Medium
+- A realtime voice runtime that keeps Agents talking, working, and present.  Real-time Voice Runtime for AI Agents
+
 ### [ZCZHAO-1999/shakespeare-writing-studio](https://github.com/ZCZHAO-1999/shakespeare-writing-studio)
-- **Source:** github/trending | **Score:** 173
+- **Source:** github/trending | **Score:** 180
 - **Relevance:** Direct | **Difficulty:** Medium
 - Agent-ready writing studio for Chinese WeChat articles, English essays, research writing, human voice editing, source-bound data storytelling, and statistical graphics.
+
+### [Handbook.md shows that long policy documents do not reliably govern agents](https://arxiv.org/abs/2607.25398)
+- **Source:** hackernews | **Score:** 175
+- **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [kairyou/agent-tools](https://github.com/kairyou/agent-tools)
 - **Source:** github/trending | **Score:** 159
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Reusable skills, hooks, statusline tools, and installers for Codex, Claude Code, and opencode.
 
+### [Hubble: Open-source notetaking app for you and your agents](https://www.hubble.md/)
+- **Source:** hackernews | **Score:** 140
+- **Relevance:** Indirect | **Difficulty:** Medium
+
 ### [agutinbaigo28/financial-agent-api](https://github.com/agutinbaigo28/financial-agent-api)
-- **Source:** github/trending | **Score:** 130
+- **Source:** github/trending | **Score:** 127
 - **Relevance:** Direct | **Difficulty:** Medium
 - financial agent api with multi-agent framework for scalable AI systems focusing on financial intelligence, RAG pipelines, observability, and secure governance. ACP Openclaw, Gemini CLI, Opencode
 
 ### [calesthio/generative-media-skills](https://github.com/calesthio/generative-media-skills)
-- **Source:** github/trending | **Score:** 104
+- **Source:** github/trending | **Score:** 107
 - **Relevance:** Direct | **Difficulty:** Medium
 - Research-backed agent skills and tools for premium image, video, audio, voice, and generative media production across AI coding assistants.
 
@@ -73,7 +86,7 @@
 - Demo app built with Expo and Grok voice agents
 
 ### [forestai123456/Daisy-Voice-Agent](https://github.com/forestai123456/Daisy-Voice-Agent)
-- **Source:** github/trending | **Score:** 57
+- **Source:** github/trending | **Score:** 59
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Daisy：AI 语音助手
 
@@ -85,32 +98,10 @@
 Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target
 Added screen-reader announc
 
-### [v2.1.212](https://github.com/anthropics/claude-code/releases/tag/v2.1.212)
-- **Source:** blog/Claude Code Releases | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- What's changed
-
-/fork now copies your conversation into a new background session (its own row in claude agents) while you keep working; the in-session subagent it used to launch is now /subtask
-Added 
-
-### [v2.1.211](https://github.com/anthropics/claude-code/releases/tag/v2.1.211)
-- **Source:** blog/Claude Code Releases | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- What's changed
-
-Added --forward-subagent-text flag and CLAUDE_CODE_FORWARD_SUBAGENT_TEXT environment variable to include subagent text and thinking in stream-json output
-Fixed permission previews rela
-
-### [The first known runaway AI agent - or a very bad marketing stunt?](https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything)
-- **Source:** blog/Simon Willison | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- The first known runaway AI agent - or a very bad marketing stunt?
-Martin Alderson's commentary on the OpenAI accidental cyberattack a
-
-## Mcp (21 findings)
+## Mcp (24 findings)
 
 ### [sandbaseai/managed-agents](https://github.com/sandbaseai/managed-agents)
-- **Source:** github/trending | **Score:** 364
+- **Source:** github/trending | **Score:** 388
 - **Relevance:** Direct | **Difficulty:** Medium
 - Open-source CMA-compatible agent runtime. Run multi-agent systems locally with any model (Ollama/vLLM/Claude/GPT), MCP tools, scenario templates, and a beautiful dashboard. One command start. Built fo
 
@@ -130,39 +121,48 @@ Martin Alderson's commentary on the OpenAI accidental cyberattack a
 - MCP server for the Live Tennis API — give Claude, Cursor and other LLM agents real-time tennis scores, odds and model win-probability
 
 ### [risa-labs-inc/BossConsole](https://github.com/risa-labs-inc/BossConsole)
-- **Source:** github/trending | **Score:** 202
+- **Source:** github/trending | **Score:** 204
 - **Relevance:** Direct | **Difficulty:** Medium
 - Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor,
 
-### [Sophomoresty/gemini-search-mcp](https://github.com/Sophomoresty/gemini-search-mcp)
-- **Source:** github/trending | **Score:** 163
-- **Relevance:** Direct | **Difficulty:** Medium
-- Free MCP server for web search powered by Google AI Mode (Gemini). Unlimited, no API key.
-
 ### [JesusRS1/stock-trade-finance-api](https://github.com/JesusRS1/stock-trade-finance-api)
-- **Source:** github/trending | **Score:** 142
+- **Source:** github/trending | **Score:** 139
 - **Relevance:** Direct | **Difficulty:** Medium
 - Stock Trade MCP server in Tiingo with stock prices, news, forex, and fundamentals programmatically via the MCP
 
 ### [pueschel88/Tradingview-MCP](https://github.com/pueschel88/Tradingview-MCP)
-- **Source:** github/trending | **Score:** 134
+- **Source:** github/trending | **Score:** 131
 - **Relevance:** Direct | **Difficulty:** Medium
 - Tradingview MCP server for controlling Tradingview Desktop from Claude Code via Chrome DevTools Protocol
 
+### [MCP 2026-07-28 Specification: transport going stateless](https://blog.modelcontextprotocol.io/posts/2026-07-28/)
+- **Source:** hackernews | **Score:** 124
+- **Relevance:** Direct | **Difficulty:** Medium
+
+### [patsnap/patent-literature-search-mcp](https://github.com/patsnap/patent-literature-search-mcp)
+- **Source:** github/trending | **Score:** 122
+- **Relevance:** Direct | **Difficulty:** Medium
+- Search 200M+ patents and scientific literature in natural language directly inside Claude, Cursor, or any MCP-compatible AI tool. Powered by PatSnap's global R&D intelligence database.
+
 ### [atagon-GmbH/kogiqa-mcp](https://github.com/atagon-GmbH/kogiqa-mcp)
-- **Source:** github/trending | **Score:** 120
+- **Source:** github/trending | **Score:** 121
 - **Relevance:** Direct | **Difficulty:** Medium
 - This web browser has been designed to help your agent debug and develop complex web applications. (MCP Server)
 
+### [UiPath/coder_eval](https://github.com/UiPath/coder_eval)
+- **Source:** github/trending | **Score:** 107
+- **Relevance:** Direct | **Difficulty:** Medium
+- Test that your Claude Code skills, MCP servers, and CLIs actually work when an agent uses them — sandboxed YAML suites, activation checks, A/B experiments, CI gates.
+
 ### [realchendahuang/pi-config](https://github.com/realchendahuang/pi-config)
-- **Source:** github/trending | **Score:** 100
+- **Source:** github/trending | **Score:** 102
 - **Relevance:** Direct | **Difficulty:** Medium
 - My Pi coding agent setup: 17 plugins + 18 global skills + 2 MCP servers, with a one-line installer and tutorial README.
 
-### [patsnap/patent-literature-search-mcp](https://github.com/patsnap/patent-literature-search-mcp)
-- **Source:** github/trending | **Score:** 78
+### [bilieebiliee1-design/SOMCP](https://github.com/bilieebiliee1-design/SOMCP)
+- **Source:** github/trending | **Score:** 83
 - **Relevance:** Direct | **Difficulty:** Medium
-- Search 200M+ patents and scientific literature in natural language directly inside Claude, Cursor, or any MCP-compatible AI tool. Powered by PatSnap's global R&D intelligence database.
+- Android-native SO reverse engineering MCP server
 
 ### [MentionNetwork/awesome-agentic-commerce](https://github.com/MentionNetwork/awesome-agentic-commerce)
 - **Source:** github/trending | **Score:** 75
@@ -174,32 +174,15 @@ Martin Alderson's commentary on the OpenAI accidental cyberattack a
 - **Relevance:** Direct | **Difficulty:** Medium
 - Open-source cookbook for the Stormy Social Data API and MCP server (Model Context Protocol) — one REST API for the TikTok API, YouTube API, Instagram API, LinkedIn API, X (Twitter) API and Reddit API.
 
-### [DevOpsAIguru123/awesome-agentic-devops](https://github.com/DevOpsAIguru123/awesome-agentic-devops)
-- **Source:** github/trending | **Score:** 71
-- **Relevance:** Direct | **Difficulty:** Medium
-- Curated + scored map of official MCP servers and agents for DevOps, Cloud, SRE, and Platform Engineering — every entry rated on production access, approval gates, and audit evidence.
-
-### [Release 2026.7.10](https://github.com/modelcontextprotocol/servers/releases/tag/2026.7.10)
-- **Source:** blog/MCP Servers | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- Release : v2026.7.10
-Updated packages
-
-@modelcontextprotocol/server-filesystem@2026.7.10
-mcp-server-time@2026.7.10
-mcp-server-fetch@2026.7.10
-mcp-server-git@2026.7.10
-
-
-## General (7 findings)
+## General (8 findings)
 
 ### [yanliudesign/offer-toolkit-skill](https://github.com/yanliudesign/offer-toolkit-skill)
-- **Source:** github/trending | **Score:** 236
+- **Source:** github/trending | **Score:** 241
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Full job-hunt Claude skill bundle — Job Description decoder + Resume builder (11 templates) + Behavioral Interview / story bank. Three self-contained sub-skills with a top-level router.
 
 ### [mixelpixx/Konnect](https://github.com/mixelpixx/Konnect)
-- **Source:** github/trending | **Score:** 114
+- **Source:** github/trending | **Score:** 118
 - **Relevance:** Indirect | **Difficulty:** Medium
 - AI-assisted PCB design for KiCAD 10. Native KiCAD plugin — a single Rust binary exposing 171 schematic, layout, routing, design-review, and manufacturing tools to Claude, or the LLM of your choosing
 
@@ -221,8 +204,12 @@ Fixed a slowdown in long sessions where message normalization cost grew quad
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Portable — a drop in replacement /remote-control on Claude, + batteries
 
+### [Self-hosting Kimi K3: 20% more hardware cost, 20% better task resolution](https://aistack.imec-int.com/blog/gpu-self-hosting)
+- **Source:** hackernews | **Score:** 21
+- **Relevance:** Indirect | **Difficulty:** Medium
+
 ### [playbookTV/claude-cowork-job-application](https://github.com/playbookTV/claude-cowork-job-application)
-- **Source:** github/trending | **Score:** 10
+- **Source:** github/trending | **Score:** 11
 - **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [AlpharomeroJL/reticle](https://github.com/AlpharomeroJL/reticle)
@@ -230,20 +217,30 @@ Fixed a slowdown in long sessions where message normalization cost grew quad
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Browser-native, GPU-accelerated editor for very large hierarchical 2D IC-layout scenes, written in Rust (native and WebAssembly).
 
-## Knowledge (6 findings)
+## Devtools (4 findings)
 
-### [RTX 2080 Ti Memory Upgrade to 22 GB](https://gpusolutions.net/rbservices/graphics-card-upgrade/)
-- **Source:** hackernews | **Score:** 144
+### [Codex Security](https://github.com/openai/codex-security)
+- **Source:** hackernews | **Score:** 578
 - **Relevance:** Indirect | **Difficulty:** Medium
 
-### [Mondragon Corporation – a federation of co-operatives](https://en.wikipedia.org/wiki/Mondragon_Corporation)
-- **Source:** hackernews | **Score:** 129
+### [Document-borne AI worms can self-propagate through Copilot for Word](https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/)
+- **Source:** hackernews | **Score:** 204
 - **Relevance:** Indirect | **Difficulty:** Medium
 
-### [SMJAI/open-memory-protocol](https://github.com/SMJAI/open-memory-protocol)
-- **Source:** github/trending | **Score:** 72
+### [Multiple Mouse Cursors in Wayland](https://blinry.org/multi-seat-wayland/)
+- **Source:** hackernews | **Score:** 156
 - **Relevance:** Indirect | **Difficulty:** Medium
-- An open standard for portable, interoperable AI memory across tools, sessions, and devices.
+
+### [madhavajay/alex](https://github.com/madhavajay/alex)
+- **Source:** github/trending | **Score:** 60
+- **Relevance:** Indirect | **Difficulty:** Medium
+- Alex — a local LLM proxy for all your token providers, APIs and harnesses. Route Claude, ChatGPT/Codex, Gemini, Grok, Kimi & OpenRouter subscriptions into any coding tool. Your tokens, your traces, yo
+
+## Knowledge (4 findings)
+
+### [LearnVector – Andrew Ng's AI company building one‑to‑one learning experiences](https://learnvector.ai/)
+- **Source:** hackernews | **Score:** 245
+- **Relevance:** Indirect | **Difficulty:** Medium
 
 ### [Release 2026.7.4](https://github.com/modelcontextprotocol/servers/releases/tag/2026.7.4)
 - **Source:** blog/MCP Servers | **Score:** 50
@@ -275,35 +272,29 @@ Fascinating investigation by Matt Lenhard into the market that has grown up arou
 ## Claude (3 findings)
 
 ### [LiteLLM-Labs/litellm-relay](https://github.com/LiteLLM-Labs/litellm-relay)
-- **Source:** github/trending | **Score:** 89
+- **Source:** github/trending | **Score:** 90
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Onboard AI tools in one step, and catch the rest. Relay sets up Claude Desktop, Claude Code, and Codex to run through your LiteLLM AI Gateway with zero dev setup and routes shadow AI (Notion AI, Perpl
 
-### [Introducing Claude Opus 5](https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything)
+### [Discovering cryptographic weaknesses with Claude](https://simonwillison.net/2026/Jul/28/discovering-cryptographic-weaknesses-with-claude/#atom-everything)
 - **Source:** blog/Simon Willison | **Score:** 50
 - **Relevance:** Direct | **Difficulty:** Medium
-- Introducing Claude Opus 5
-I've been offline kayaking with sea otters for much of today so I haven't had a chance to put Anthropic's new model Claude Opus 5 th
+- Discovering cryptographic weaknesses with Claude
+The best part of this article (here's the repo) about how Anthropic re
 
 ### [SixSigmaEngineer/Claude-Status-Bar-Lilygo](https://github.com/SixSigmaEngineer/Claude-Status-Bar-Lilygo)
 - **Source:** github/trending | **Score:** 17
 - **Relevance:** Indirect | **Difficulty:** Medium
 - Live hardware status display for Claude — model, current tool, tokens, context and rate limits on a LilyGo T-Display S3 Long. Works with Claude Desktop (Cowork) and Claude Code.
 
-## Security (2 findings)
+## Infrastructure (1 findings)
 
-### [OpenAI’s accidental cyberattack against Hugging Face is science fiction that hap](https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything)
-- **Source:** blog/Simon Willison | **Score:** 50
-- **Relevance:** Direct | **Difficulty:** Medium
-- This story is wild. The short version: OpenAI were running a cybersecurity test against an unreleased model, with the model's guardrail features turned off. Rather than solve the test, the model broke
-
-### [Programming Languages Are Authoring Tools for Platforms](https://www.makonea.com/en-US/blog/programming-languages-are-authoring-tools-for-platforms)
-- **Source:** hackernews | **Score:** 44
+### [SQLite in Production: Optimizing WAL Mode, Concurrency, and VFS Layers](https://micrologics.org/blog/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers-for-low-latency-app-servers)
+- **Source:** hackernews | **Score:** 192
 - **Relevance:** Indirect | **Difficulty:** Medium
 
-## Devtools (1 findings)
+## Security (1 findings)
 
-### [madhavajay/alex](https://github.com/madhavajay/alex)
-- **Source:** github/trending | **Score:** 49
+### [SpecForge – A Platform for Authoring Formal Specifications](https://docs.imiron.io/v/0.5.10/en/tour.html)
+- **Source:** hackernews | **Score:** 61
 - **Relevance:** Indirect | **Difficulty:** Medium
-- Alex — a local LLM proxy for all your token providers, APIs and harnesses. Route Claude, ChatGPT/Codex, Gemini, Grok, Kimi & OpenRouter subscriptions into any coding tool. Your tokens, your traces, yo

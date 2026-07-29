@@ -46,6 +46,15 @@ _CONCRETE_ARTIFACT = re.compile(r"/|@|\bhttps?://|\.[a-z]{2,4}\b|#\d|\brow\b", r
 _PLACEHOLDERS = ("📷", "TODO", "TBD", "FIXME", "lorem ipsum", "PLACEHOLDER", "XXX-")
 
 
+def is_checkable(text: str) -> bool:
+    """Public wrapper on the FRONT gate's checkability test (Commander
+    directive 2026-07-29 — Wing tasking-clarity templates reuse Silver's own
+    checkability bar instead of a second, parallel heuristic). True if
+    `text` names something a machine or second seat can verify: a number, a
+    path/file, a commit/url/sheet ref, or a count word."""
+    return bool(_CHECKABLE.search(text or ""))
+
+
 @dataclass
 class Verdict:
     stage: str                      # "front" | "back"

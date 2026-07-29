@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-28 15:55:59 MDT
+## Generated: 2026-07-29 10:40:12 MDT
 
 ---
 
 ### Recent Commits
-- 75b849f98 🦅 [REORG] Swept and symlinked BRAND_SOUL and tess_config in YOGA root folder
-- efec9ef3f 🦅 [REORG] Expanded YOGA deep workspace clean to sweep and symlink state and config files
-- 6dfdc1c3e 🦅 [REORG] Deployed and ran deep clean workspace script on YOGA root
-- f392e5453 🦅 [BUGFIX] Updated Google Drive reorganization script to scan personal My Drive root ('root') in addition to Shared Drive root
-- fefadd6db 🦅 [REORG] Executed Drive Reorganization Plan (local YOGA + Google Drive d2m & jl3)
+- b12742d19 oversight v2: status and roadmap, with outstanding FPD flagged
+- c3ef4e73c oversight v2: add the canary, wire timers, surface the real backlog
+- 98009dd1d oversight v2: span ledger, MAST taxonomy, reaper, and fix a live green-on-silence lie
+- 8db5095f1 ci: fix d2m-github-sync gate — remove hardcoded Pexels keys, allowlist historical commit, add .mjs files
+- 9e2792e73 TCD fusion-center: full Sheet mirror + Gmail draft cards, status-override fix
 
 ### Uncommitted Changes
- M .ask_usage_log
- M .claude/settings.json
- M .opencode/skills/ask-opus/SKILL.md
- M .opencode/skills/ask/SKILL.md
- D "Autonomy Survey.txt"
- T BRAND_SOUL_Dreams2Memories.md
  m Blackboard
- D CHECKPOINT_20260621.md
  M CLAUDE.md
- D CLAUDE.md.archive.2026-07-11
- D "Command Chief Logo"
- D Commander_Decision_Inbox_Live.html
- M D2M/clients/kuklinski_touchpoints.json
- D ELON_MISSION_AUDIT_20260621.json
- D FALLBACK_INSTRUCTION_20260627.md
- D GATEWAY_STATUS.md
- D KEYWORD_ROUTER_WIRED.md
- D MISSION-172-PHASE-2-STATUS.md
- D MISSION-172-PHASE-2C-GATE3-REPORT.json
- D MISSION-172-PHASE-2D-LIVE-DISSENT-TEST.json
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.lifecycle_last_scan_date
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/00_COMMAND_LOG.md
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/collaboration/blackboard.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/fare_watches/google_flights_last_check.json
+ M OpsCenter/fare_watches/last_check.json
+ M OpsCenter/itinerary_watchdog_status.json
+ M OpsCenter/keepalive_health.json
+ M OpsCenter/mission_board.json
+ M OpsCenter/mission_board_sync.py
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 594 pending task(s)
+- OpenCode inbox: 1016 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

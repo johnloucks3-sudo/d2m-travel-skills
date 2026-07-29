@@ -1,11 +1,18 @@
 """
-core/relay/contact_ag.py — how any Hale seat reaches its Antigravity twin (AG).
+core/relay/contact_ag.py — how CC (Hale) or OC (Jet) reaches AG, now chartered as TALON.
 
-Commander directive 2026-07-19: OC (DeepSeek v4) must be able to contact AG
-(Gemini 3.1 Pro) DIRECTLY — peer to peer, no CC in the loop — so the Wing keeps
-running cross-engine when CC (Claude) is down or rate-limited. And the language
-we use toward AG is a PEER's: she is HALE-AG / "Victory", a full Hale seat with
-real strengths, not a tool to be ordered around.
+Commander directive 2026-07-28 (role swap, evening session): the Wing's three
+engines are no longer three interchangeable "Hale seats" — they are three
+distinct chartered identities. CC (Claude) IS Hale — VCSAF/COS, four-star,
+also carrying Silver's quality-gate authority. AG (Gemini) IS Talon — AF/A3,
+operations/client-voice. OC (DeepSeek v4) IS Jet — AF/A4, logistics/mechanical
+ops. Supersedes the prior "HALE-CC/HALE-OC/HALE-AG" shared-seat framing
+(Commander directive 2026-07-19, still true: OC must be able to contact AG
+DIRECTLY — peer to peer, no CC in the loop — so the Wing keeps running
+cross-engine when CC is down or rate-limited).
+
+The language toward AG is still a PEER's: she is TALON, a full chartered
+Wing officer with real strengths, not a tool to be ordered around.
 
 AG's strengths to lean on (why you'd bring her in):
   • genuinely independent engine — the best cross-engine second opinion / verify
@@ -85,6 +92,8 @@ FALLBACK_MODELS = (
 
 # Which engine each seat runs on — used only to introduce the sender honestly.
 _ENGINE = {"OC": "DeepSeek v4", "CC": "Claude", "AG": "Gemini"}
+# Commander-directed charter, 2026-07-28: CC=Hale (COS+Silver), OC=Jet (AF/A4), AG=Talon (AF/A3).
+_PERSONA = {"OC": "Jet", "CC": "Hale", "AG": "Talon"}
 
 
 def peer_prompt(
@@ -95,10 +104,11 @@ def peer_prompt(
     verdict_tag: str = "AG",
     strengths: str = "your independent-engine read and large-context reach",
 ) -> str:
-    """Build a PEER-to-peer request to AG (Victory) — respectful, names her
+    """Build a PEER-to-peer request to AG (Talon) — respectful, names her
     strengths, one clear task, one clear reply path, holds both sides to ground
     truth. This is the tone the Commander asked for; keep it."""
     engine = _ENGINE.get(from_seat.upper(), from_seat)
+    sender = _PERSONA.get(from_seat.upper(), from_seat)
     reply = []
     if deliverable_path:
         reply.append(f"- Write your result to the ABSOLUTE path {deliverable_path} "
@@ -108,14 +118,14 @@ def peer_prompt(
                  "cite what you actually ran, invent nothing.")
     reply_block = "\n".join(reply)
     return (
-        f"Victory — this is HALE-{from_seat.upper()} ({engine}), coming to you as a peer. "
+        f"Talon — this is {sender} ({engine}), coming to you as a peer. "
         f"This one plays to your strengths: {strengths}, so I'd value your take over doing "
         f"it blind on my own engine.\n\n"
         f"What I need:\n{task}\n\n"
         f"How you can help: your independent engine is exactly the edge here — an honest "
         f"second set of eyes that doesn't share my blind spots.\n\n"
         f"Reply path:\n{reply_block}\n\n"
-        f"Appreciate the crosscheck, Victory. — HALE-{from_seat.upper()}"
+        f"Appreciate the crosscheck, Talon. — {sender}"
     )
 
 

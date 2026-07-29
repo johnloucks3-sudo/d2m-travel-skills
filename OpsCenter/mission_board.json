@@ -1103,7 +1103,7 @@
     {
       "id": "MISSION-052",
       "title": "Surface Loucks Grandeur FPD \u2014 $24,798 due August 1",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Alert Commander directly on Grandeur FPD payment ($24,798 due August 1, 17 days), provide payment instructions, and confirm receipt.",
@@ -1115,11 +1115,13 @@
         "[2026-07-15T21:17:47] Created by Weekly Report Generator",
         "[2026-07-16T10:26:28] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-052: Surface Loucks Grandeur FPD \u2014 $24,798 due August 1\n\n**Analysis:**\n\nThe task requires immediate action due to the approaching payment deadline for the Grandeur FPD. The payment amount is $",
         "[2026-07-16T10:26:28] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "2026-07-16T12:53:04.371194+00:00: Consolidated duplicate ticket (036) -- Loucks Grandeur FPD $24,798 due Aug 1."
+        "2026-07-16T12:53:04.371194+00:00: Consolidated duplicate ticket (036) -- Loucks Grandeur FPD $24,798 due Aug 1.",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-15T21:17:47.983336+00:00",
-      "updated_at": "2026-07-16T12:53:04.371196+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558873+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-616",
@@ -2070,7 +2072,7 @@
     {
       "id": "MISSION-666",
       "title": "Surface Loucks Grandeur FPD reminder at 7-day mark",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "File a TCD reminder to alert Commander of the $24,798 Grandeur FPD due August 1 no later than July 25, with payment instructions included.",
@@ -2081,11 +2083,13 @@
       "logs": [
         "[2026-07-18T00:03:15] Created by Weekly Report Generator",
         "[2026-07-19T11:21:12] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: # MISSION-666: Surface Loucks Grandeur FPD reminder at 7-day mark\n\n## Task Execution and Analysis\n\n**Objective:** File a TCD reminder to alert Commander of the $24,798 Grandeur FPD due August 1 no lat",
-        "[2026-07-19T11:21:12] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T11:21:12] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-18T00:03:15.719373+00:00",
-      "updated_at": "2026-07-19T11:21:12",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558898+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-667",
@@ -2267,7 +2271,7 @@
     {
       "id": "MISSION-677",
       "title": "Commander review of Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
-      "status": "active",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "Review and authorize payment for MISSION-052 before the August 1 deadline \u2014 14 days out, action required today.",
@@ -2276,11 +2280,13 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-07-18T20:16:23] Created by Weekly Report Generator"
+        "[2026-07-18T20:16:23] Created by Weekly Report Generator",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-18T20:16:23.497047+00:00",
-      "updated_at": "2026-07-18T20:16:23.497051+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558906+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-678",
@@ -2440,7 +2446,7 @@
     {
       "id": "MISSION-686",
       "title": "Confirm Loucks Grandeur FPD payment mechanism before August 1",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Harlan",
       "description": "Verify the $24,798 FPD payment path for Grandeur booking 3122006 and confirm Commander authorization so the deadline does not become a scramble on July 31.",
@@ -2451,11 +2457,13 @@
       "logs": [
         "[2026-07-19T04:20:29] Created by Weekly Report Generator",
         "[2026-07-19T07:18:09] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-686: Confirm Loucks Grandeur FPD payment mechanism before August 1\n\n**Analysis and Action Report**\n\n**Objective:** To verify the $24,798 FPD payment path for Grandeur booking 3122006 and confi",
-        "[2026-07-19T07:18:09] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-19T07:18:09] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-19T04:20:29.718202+00:00",
-      "updated_at": "2026-07-19T07:18:09",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558912+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-687",
@@ -2993,7 +3001,7 @@
     {
       "id": "MISSION-697",
       "title": "Pay Loucks Grandeur FPD before August 1 deadline",
-      "status": "active",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Commander",
       "description": "Submit $24,798 payment for Loucks Grandeur (voyage 3122006) before the August 1 FPD deadline to protect the booking.",
@@ -3002,11 +3010,13 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-07-21T02:22:36] Created by Weekly Report Generator"
+        "[2026-07-21T02:22:36] Created by Weekly Report Generator",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-21T02:22:36.391504+00:00",
-      "updated_at": "2026-07-21T02:22:36.392538+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558922+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-698",
@@ -3117,7 +3127,7 @@
     {
       "id": "MISSION-704",
       "title": "Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Hale",
       "description": "Escalate MISSION-052 directly to Commander today with the August 1 due date, payment instructions, and a clear action required \u2014 not a status update.",
@@ -3129,11 +3139,13 @@
         "[2026-07-22T20:54:22] Created by Weekly Report Generator",
         "[2026-07-23T00:33:12] \u2705 Auto-executed by daily_mission_executor \u2014 5s \u2014 SUCCESS: MISSION-704: Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline\n\n**Action Report and Analysis**\n\n**1. Task Execution:**\n\nThe primary objective of MISSION-704 is to escalate MISSION-052 directly ",
         "[2026-07-23T00:33:12] \u23f8 pending_review: STATUS: COMPLETE not found",
-        "[2026-07-26T22:53:08] Surfaced Loucks Grandeur FPD 4,798 to Commander for Aug 1 deadline"
+        "[2026-07-26T22:53:08] Surfaced Loucks Grandeur FPD 4,798 to Commander for Aug 1 deadline",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-22T20:54:22.002373+00:00",
-      "updated_at": "2026-07-26T22:53:08.096756+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558929+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-705",
@@ -3312,7 +3324,7 @@
     {
       "id": "MISSION-714",
       "title": "Loucks Grandeur FPD \u2014 confirm payment track by July 25",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Move MISSION-052 from pending_review to an active payment confirmation track; $24,798 due August 1 is nine days out and cannot remain in pending_review.",
@@ -3323,11 +3335,13 @@
       "logs": [
         "[2026-07-24T04:04:06] Created by Weekly Report Generator",
         "[2026-07-24T04:45:27] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: # MISSION-714: Loucks Grandeur FPD \u2014 confirm payment track by July 25\n\n## Execution of Task\n\nThe mission requires moving `MISSION-052` from `pending_review` to an active payment confirmation track due",
-        "[2026-07-24T04:45:27] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-24T04:45:27] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-24T04:04:06.113377+00:00",
-      "updated_at": "2026-07-24T04:45:27",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558935+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-715",
@@ -3413,7 +3427,7 @@
     {
       "id": "MISSION-720",
       "title": "Confirm or escalate Loucks Grandeur FPD payment by July 31",
-      "status": "active",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "FPD of $24,798 is due August 1 \u2014 Commander confirms payment has been made or opens extension negotiation with Regent before COB July 31.",
@@ -3422,11 +3436,13 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-07-25T00:02:58] Created by Weekly Report Generator"
+        "[2026-07-25T00:02:58] Created by Weekly Report Generator",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-25T00:02:58.260021+00:00",
-      "updated_at": "2026-07-25T00:02:58.260024+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558942+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-721",
@@ -3527,7 +3543,7 @@
     {
       "id": "MISSION-726",
       "title": "Confirm Loucks Grandeur FPD payment or contingency before August 1",
-      "status": "active",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Commander",
       "description": "The $24,798 FPD is due in eight days \u2014 Commander confirms payment status and authorizes action or contingency plan by end of day July 25.",
@@ -3536,11 +3552,13 @@
       "suspense_date": null,
       "escalation_rule": null,
       "logs": [
-        "[2026-07-25T04:04:31] Created by Weekly Report Generator"
+        "[2026-07-25T04:04:31] Created by Weekly Report Generator",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-25T04:04:31.834444+00:00",
-      "updated_at": "2026-07-25T04:04:31.834448+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558947+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-727",
@@ -3694,7 +3712,7 @@
     {
       "id": "MISSION-735",
       "title": "Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Harlan",
       "description": "Verify payment status and initiate or confirm execution of the $24,798 FPD for Loucks Grandeur before August 1 hard deadline.",
@@ -3705,11 +3723,13 @@
       "logs": [
         "[2026-07-26T19:46:10] Created by Weekly Report Generator",
         "[2026-07-26T21:21:52] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-735: Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1\n\n**Analysis and Action Report**\n\nAs Hale, COS for Dreams2Memories Travel, I have reviewed MISSION-735 concerning the Loucks Gra",
-        "[2026-07-26T21:21:52] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-26T21:21:52] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-26T19:46:10.111268+00:00",
-      "updated_at": "2026-07-26T21:21:52",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558954+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-736",
@@ -3792,7 +3812,7 @@
     {
       "id": "MISSION-740",
       "title": "Surface and execute Loucks Grandeur FPD before August 1",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Harlan",
       "description": "Confirm $24,798 FPD payment is on track and execute before August 1 deadline; escalate immediately to Commander if any obstacle blocks same-day execution.",
@@ -3803,11 +3823,13 @@
       "logs": [
         "[2026-07-26T20:18:53] Created by Weekly Report Generator",
         "[2026-07-26T21:21:59] \u2705 Auto-executed by daily_mission_executor \u2014 4s \u2014 SUCCESS: MISSION-740: Surface and execute Loucks Grandeur FPD before August 1\n\n**Analysis and Action Report**\n\n**Objective:** Confirm $24,798 FPD payment is on track and execute before August 1 deadline. Escal",
-        "[2026-07-26T21:21:59] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-26T21:21:59] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-26T20:18:53.765681+00:00",
-      "updated_at": "2026-07-26T21:21:59",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558960+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-741",
@@ -3911,7 +3933,7 @@
     {
       "id": "MISSION-746",
       "title": "Escalate Loucks Grandeur FPD for Commander payment authorization",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P0",
       "assigned_to": "Harlan",
       "description": "Surface MISSION-052 ($24,798 Grandeur FPD due August 1) to Commander with payment authorization request \u2014 six days remaining, no action taken to date.",
@@ -3922,11 +3944,13 @@
       "logs": [
         "[2026-07-26T20:39:02] Created by Weekly Report Generator",
         "[2026-07-26T21:22:04] \u2705 Auto-executed by daily_mission_executor \u2014 3s \u2014 SUCCESS: MISSION-746: Escalate Loucks Grandeur FPD for Commander payment authorization\n\n## Analysis and Action Report\n\n**Task Execution:**\n\nThe mission requires escalating MISSION-052, a $24,798 Grandeur FPD d",
-        "[2026-07-26T21:22:04] \u23f8 pending_review: STATUS: COMPLETE not found"
+        "[2026-07-26T21:22:04] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T16:42:39] rolled into batch SSS-005 \u2014 Commander decision 2026-07-29: FPD $24,798 will be paid 31 Jul. Tracked at SSS-005, not independently. Do not re-detect or re-spawn."
       ],
       "created_at": "2026-07-26T20:39:02.222173+00:00",
-      "updated_at": "2026-07-26T21:22:04",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T16:42:39.558967+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-005"
     },
     {
       "id": "MISSION-747",
@@ -4043,6 +4067,154 @@
       "logs": [],
       "created_at": "2026-07-28T15:30:40.212769+00:00",
       "updated_at": "2026-07-28T15:30:40.212781+00:00"
+    },
+    {
+      "id": "MISSION-754",
+      "title": "Repo git bloat",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "unassigned",
+      "description": "blocking Ultraplan teleport 23G working tree, 4.9G .git, 139,134 loose objects (4.44 GiB) never gc'd (only 400MB actually packed). This is the likely real cause of 'repo too large to teleport' from Ultraplan/claude.ai remote sessions, independent of the GitHub connection (origin=git@github.com:johnloucks3-sudo/d2m-travel-skills.git, confirmed intact). Recommend git gc to pack down loose objects. Commander to authorize before running (mutating git operation).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-29T14:47:00.462766+00:00",
+      "updated_at": "2026-07-29T14:47:00.462776+00:00"
+    },
+    {
+      "id": "MISSION-755",
+      "title": "Perplexity API key",
+      "status": "in_progress",
+      "priority": "P1",
+      "assigned_to": "unassigned",
+      "description": "dead since 2026-06-24, PENDING_COMMANDER 4+ weeks Confirmed live 2026-07-29: PERPLEXITY_API_KEY in .env returns 401 Unauthorized on both /search and /v1/responses. Prior diagnosis (OpsCenter/state/perplexity_api_status_20260702.md, MISSION-438, A7 Sterling) found this same 401 on 2026-07-02 and flagged PENDING_COMMANDER \u2014 never resolved. 5 production consumers degraded to Serper fallback (quality loss, not outage): intel/daily_search/thunderbird_daily_search.py, intel/daily_search/daily_intel_runner.py, intel/cruise_line_intel_sweep.py, core/ci/ci_auto_repair_engine.py, scripts/ai_price_fetcher.py. Fix requires Commander: perplexity.ai/settings/api -> generate new key -> paste into .env PERPLEXITY_API_KEY. ~3 min, human-only (no programmatic workaround, it's an account credential rotation).",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-07-29T15:43:55.612337+00:00",
+      "updated_at": "2026-07-29T15:43:55.612353+00:00"
+    },
+    {
+      "id": "SSS-005",
+      "title": "Loucks Grandeur FPD $24,798 \u2014 Commander paying 31 Jul",
+      "purpose": "Consolidate 12 duplicate FPD detections into one tracked item. Commander decision 2026-07-29: payment WILL be made 31 Jul 2026, one day before the 1 Aug deadline. This is a DECISION, not an open question \u2014 do not re-detect, do not re-spawn, do not nag. Surface once on 31 Jul for confirmation of execution, and once after for receipt verification.",
+      "opr": "Harlan",
+      "assigned_to": "Harlan",
+      "action_type": "APPR",
+      "ocr_chain": [
+        {
+          "office": "CC",
+          "status": "pending",
+          "comment": "",
+          "ts": ""
+        }
+      ],
+      "coordination_log": [],
+      "acceptance_criteria": "verification artifact lists all 12 batch mission IDs (MISSION-052, MISSION-666, MISSION-677, MISSION-686, MISSION-697, MISSION-704, MISSION-714, MISSION-720, MISSION-726, MISSION-735, MISSION-740, MISSION-746) and records one disposition for the batch",
+      "ground_truth_sources": [
+        "MISSION-052",
+        "MISSION-666",
+        "MISSION-677",
+        "MISSION-686",
+        "MISSION-697",
+        "MISSION-704",
+        "MISSION-714",
+        "MISSION-720",
+        "MISSION-726",
+        "MISSION-735",
+        "MISSION-740",
+        "MISSION-746"
+      ],
+      "verification_artifact": "",
+      "certified_by": "CC",
+      "silver_front_frame": "2026-07-29T16:38:45.216027+00:00",
+      "suspense_date": "2026-07-31",
+      "priority": "P2",
+      "status": "in_coordination",
+      "created_at": "2026-07-29T16:38:45.216370+00:00",
+      "updated_at": "2026-07-29T16:38:45.216376+00:00",
+      "logs": [
+        "2026-07-29T16:38:45.217191+00:00: SSS opened \u2014 OPR Harlan, action APPR, 1 OCR(s) to coordinate",
+        "2026-07-29T16:38:45.217200+00:00: batch SSS \u2014 12 mission(s) lumped: MISSION-052, MISSION-666, MISSION-677, MISSION-686, MISSION-697, MISSION-704, MISSION-714, MISSION-720, MISSION-726, MISSION-735, MISSION-740, MISSION-746"
+      ],
+      "background": "",
+      "discussion": "",
+      "views_of_others": "",
+      "tabs": [],
+      "mandates": [
+        "cross_hale",
+        "silver",
+        "unmapped:Modify code to direct you to summarize the must-haves and mu",
+        "unmapped:This is a FAIL for integrity, for advisor, for Silver \u2014 a cl",
+        "unmapped:You must also modify the code to capture all messages sent d"
+      ],
+      "is_batch": true,
+      "batch_items": [
+        {
+          "mission_id": "MISSION-052",
+          "description": "Surface Loucks Grandeur FPD \u2014 $24,798 due August 1",
+          "expected_benefit": "Surface Loucks Grandeur FPD \u2014 $24,798 due August 1"
+        },
+        {
+          "mission_id": "MISSION-666",
+          "description": "Surface Loucks Grandeur FPD reminder at 7-day mark",
+          "expected_benefit": "Surface Loucks Grandeur FPD reminder at 7-day mark"
+        },
+        {
+          "mission_id": "MISSION-677",
+          "description": "Commander review of Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
+          "expected_benefit": "Commander review of Loucks Grandeur FPD \u2014 $24,798 due Aug 1"
+        },
+        {
+          "mission_id": "MISSION-686",
+          "description": "Confirm Loucks Grandeur FPD payment mechanism before August 1",
+          "expected_benefit": "Confirm Loucks Grandeur FPD payment mechanism before August 1"
+        },
+        {
+          "mission_id": "MISSION-697",
+          "description": "Pay Loucks Grandeur FPD before August 1 deadline",
+          "expected_benefit": "Pay Loucks Grandeur FPD before August 1 deadline"
+        },
+        {
+          "mission_id": "MISSION-704",
+          "description": "Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline",
+          "expected_benefit": "Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline"
+        },
+        {
+          "mission_id": "MISSION-714",
+          "description": "Loucks Grandeur FPD \u2014 confirm payment track by July 25",
+          "expected_benefit": "Loucks Grandeur FPD \u2014 confirm payment track by July 25"
+        },
+        {
+          "mission_id": "MISSION-720",
+          "description": "Confirm or escalate Loucks Grandeur FPD payment by July 31",
+          "expected_benefit": "Confirm or escalate Loucks Grandeur FPD payment by July 31"
+        },
+        {
+          "mission_id": "MISSION-726",
+          "description": "Confirm Loucks Grandeur FPD payment or contingency before August 1",
+          "expected_benefit": "Confirm Loucks Grandeur FPD payment or contingency before August 1"
+        },
+        {
+          "mission_id": "MISSION-735",
+          "description": "Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1",
+          "expected_benefit": "Confirm and execute Loucks Grandeur FPD \u2014 $24,798 due Aug 1"
+        },
+        {
+          "mission_id": "MISSION-740",
+          "description": "Surface and execute Loucks Grandeur FPD before August 1",
+          "expected_benefit": "Surface and execute Loucks Grandeur FPD before August 1"
+        },
+        {
+          "mission_id": "MISSION-746",
+          "description": "Escalate Loucks Grandeur FPD for Commander payment authorization",
+          "expected_benefit": "Escalate Loucks Grandeur FPD for Commander payment authorization"
+        }
+      ]
     }
   ],
   "last_updated": "2026-07-27T05:28:01.047954+00:00",

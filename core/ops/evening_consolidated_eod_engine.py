@@ -443,22 +443,57 @@ def build_tech_analysis_section(git: dict) -> str:
 # MAIN EOD GENERATOR
 # ──────────────────────────────────────────────
 
+def _run_oc_reconciliation() -> None:
+    """OC's follow-up sweep runs from the evening build — no new daemon
+    (SO-REPORTING-2026 explicitly flagged daemon proliferation as the
+    problem). Best-effort: a reconciliation failure must never break the
+    EOD brief itself."""
+    try:
+        from core.relay.reconcile_oc import reconcile_due
+        results = reconcile_due()
+        if results:
+            logger.info(f"OC reconciliation: {len(results)} outstanding ticket(s) swept.")
+    except Exception as e:
+        logger.warning(f"OC reconciliation failed: {e}")
+
+
+def pull_wing_ops_digest() -> dict:
+    """Delegation/verification compliance + per-seat budget — SO-WING-OVERSIGHT-2026."""
+    try:
+        from core.ops.wing_ops_report import build_wing_ops_digest
+        return build_wing_ops_digest(since_hours=24)
+    except Exception as e:
+        logger.warning(f"Wing Ops digest pull failed: {e}")
+        return {}
+
+
+def build_wing_ops_section(digest: dict) -> str:
+    try:
+        from core.ops.wing_ops_report import build_wing_ops_section as _build
+        return _build(digest)
+    except Exception as e:
+        return f'<p style="color:#dc2626;">Wing Ops section failed to render: {e}</p>'
+
+
 def generate_evening_eod_html() -> str:
     now_str = datetime.now().strftime("%A, %B %d, %Y")
     now_time = datetime.now().strftime("%H:%M MT")
 
     # Pull all live data in sequence
     logger.info("Pulling live data: Gauge → Harlan → ELON → Git...")
+    _run_oc_reconciliation()
     gauge_data = GaugeEODAuditEngine.generate_daily_eod_gauge_section()
     harlan_data = pull_harlan_financial_data()
     elon_data = pull_elon_innovation_digest(top_n=5)
     git_data = pull_git_metrics()
+    wing_ops_digest = pull_wing_ops_digest()
 
     # Build sections
     gauge_html = build_gauge_section(gauge_data)
     harlan_html = build_harlan_section(harlan_data)
     elon_html = build_elon_section(elon_data)
     tech_html = build_tech_analysis_section(git_data)
+    wing_ops_html = build_wing_ops_section(wing_ops_digest)
 
     # EOD summary bar
     fpd_alert_count = len(harlan_data.get("fpd_alerts", []))
@@ -497,6 +532,10 @@ def generate_evening_eod_html() -> str:
 <!-- RADICAL TECH & SYSTEM PERFORMANCE -->
 <h3 style="color:#07076b;margin-top:25px;">⚙️ RADICAL TECH & WING SYSTEM PERFORMANCE</h3>
 {tech_html}
+
+<!-- WING OPS — DELEGATION, VERIFICATION & COMPLIANCE -->
+<h3 style="color:#07076b;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
+{wing_ops_html}
 
 <div style="margin-top:30px;font-family:Arial,sans-serif;color:#07076b;border-top:1px solid #e2e8f0;padding-top:12px;">
     <p style="font-weight:bold;margin:0;">DREAMS2MEMORIES TRAVEL, LLC</p>

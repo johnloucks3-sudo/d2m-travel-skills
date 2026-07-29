@@ -189558,3 +189558,219 @@ Surface to
 <!-- /PLAN:CLOSE -->
 
 - **CHIEF SILVER** [2026-07-28T21:55Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T14:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T14:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T14:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-40c6c8 tier=trivial session_id=none opened_at=2026-07-29T14:45:58.578248+00:00 -->
+**Plan Opened:** PLN-40c6c8
+**Task:** generic long-tail remediation: nexus -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** nexus verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-40c6c8 verdict=PASS quality_tier=none closed_at=2026-07-29T14:45:58.582907+00:00 -->
+**Plan Closed:** PLN-40c6c8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** nexus verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-29T14:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+---
+## 2026-07-29 08:45 MDT — CI Remediation: nexus.service error spike (179 err/10min)
+**Auth:** SO_CI_RAZOR_SHARP_20260620 — autonomous fix, no Commander gate required  
+**Root cause:** Self-feeding loop — `_scan_inbox_file()` matched YAML `task: |` block scalar markers as task commands. State pointer at 4712 vs 8456-line file; result write-backs amplified the loop at ~1 cycle/sec.  
+**Fix:** (1) Advanced `opencode_last_line` to 8456 (EOF); (2) patched nexus.py ~L936 to skip bare YAML block scalars; (3) restarted + `reset-failed`.  
+**Status:** RESOLVED — service active, CPU 75ms/68s, loop stopped.  
+**Report:** `output/ci_remediation/fix_nexus_service.md`
+
+- **CHIEF SILVER** [2026-07-29T14:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260729T145143Z verdict=PASS closed_at=2026-07-29T14:51:43.469077+00:00 -->
+**Plan Closed:** TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260729T145143Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Loucks Regent Grandeur 3122006 — FPD Aug 1 is 21 days out. TP 4.1 Payment Remind
+**Notes:** D -> T
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-elon-verify-latest-20260729T145143Z verdict=PASS closed_at=2026-07-29T14:51:43.470319+00:00 -->
+**Plan Closed:** TCD-STAGE-elon-verify-latest-20260729T145143Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: ELON proposal verification — claimed vs. git-verified counts diverge
+**Notes:** D -> T
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-alert-MISSION-1530-SKYVERN-REVIEW-20260729T145143Z verdict=PASS closed_at=2026-07-29T14:51:43.470725+00:00 -->
+**Plan Closed:** TCD-STAGE-alert-MISSION-1530-SKYVERN-REVIEW-20260729T145143Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: MISSION-1530 (Skyvern credential keep-alive trial) parked 2026-07-04 — Commander
+**Notes:** D -> T
+
+<!-- PLAN:OPEN plan_id=PLN-3ffcc9 tier=trivial session_id=none opened_at=2026-07-29T14:51:46.826704+00:00 -->
+**Plan Opened:** PLN-3ffcc9
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ffcc9 verdict=PASS quality_tier=none closed_at=2026-07-29T14:51:46.831316+00:00 -->
+**Plan Closed:** PLN-3ffcc9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-29T14:58Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d90622 tier=trivial session_id=none opened_at=2026-07-29T14:58:41.752870+00:00 -->
+**Plan Opened:** PLN-d90622
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_493918.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d90622 verdict=PASS quality_tier=none closed_at=2026-07-29T14:58:41.757470+00:00 -->
+**Plan Closed:** PLN-d90622
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_493918.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-29T15:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:17Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:CLOSE plan_id=TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260729T151831Z verdict=PASS closed_at=2026-07-29T15:18:31.967024+00:00 -->
+**Plan Closed:** TCD-STAGE-alert-LOUCKS-3122006-FPD-ALERT-20260729T151831Z
+**Verdict:** PASS
+**Quality tier:** trivial
+**Criteria met:** TCD stage move: Loucks Regent Grandeur 3122006 — FPD Aug 1 is 21 days out. TP 4.1 Payment Remind
+**Notes:** T -> D
+
+- **CHIEF SILVER** [2026-07-29T15:20Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:28Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:35Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:35Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:36Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:36Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:37Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF WING-OPS** [2026-07-29T15:43Z] delegated AG (AG-RESEARCH-20260729) → PENDING
+
+- **CHIEF WING-OPS** [2026-07-29T15:43Z] delegated CC (OPUS-REVIEW-20260729) → PENDING
+
+- **CHIEF SILVER** [2026-07-29T15:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-bd18f8 tier=trivial session_id=none opened_at=2026-07-29T15:45:36.791568+00:00 -->
+**Plan Opened:** PLN-bd18f8
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd18f8 verdict=PASS quality_tier=none closed_at=2026-07-29T15:45:36.796411+00:00 -->
+**Plan Closed:** PLN-bd18f8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-29T15:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF WING-OPS** [2026-07-29T15:48Z] reconciliation CC (OPUS-REVIEW-20260729) → PASS (3 of 6 shipped functions (verify_and_record, dispatch_to_oc, check_before_self_execute) have zero call sites; brief shows green on silence not just on pass.)
+
+- **CHIEF WING-OPS** [2026-07-29T15:48Z] reconciliation AG (AG-RESEARCH-20260729) → DISCREPANCY (Explicitly asked to cite real sources with URLs; delivered zero citations/URLs — well-organized synthesis, not verified against live web sources.)
+
+- **CHIEF SILVER** [2026-07-29T15:48Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:50Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:58Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T15:59Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-88293c tier=trivial session_id=none opened_at=2026-07-29T16:00:32.637188+00:00 -->
+**Plan Opened:** PLN-88293c
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_592821.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-88293c verdict=PASS quality_tier=none closed_at=2026-07-29T16:00:32.641977+00:00 -->
+**Plan Closed:** PLN-88293c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_592821.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-07-29T16:02Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:03Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:23Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:34Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:38Z] FRONT SSS-005 → PASS — Loucks Grandeur FPD $24,798 — Commander paying 31 Jul
+
+- **CHIEF SILVER** [2026-07-29T16:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:42Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-07-29T16:42Z] BACK INTERNAL-OPS → PASS — wing machinery

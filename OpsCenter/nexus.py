@@ -934,6 +934,11 @@ def _scan_inbox_file(filepath: Path, last_line: int) -> list:
         if not stripped:
             continue
         if stripped.upper().startswith(("NEXUS:", "EXEC:", "TASK:", "MISSION:")):
+            # Skip bare YAML block scalar markers (e.g. "task: |") — these are
+            # metadata fields in result write-back entries, not actual commands.
+            after_colon = stripped[stripped.find(":")+1:].strip()
+            if not after_colon or after_colon == "|":
+                continue
             tasks.append({
                 "text": stripped,
                 "source": filepath.name,

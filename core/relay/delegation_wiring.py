@@ -250,6 +250,58 @@ def certify_mission(
     )
 
 
+def certify_mission_and_record(
+    mission_id: str,
+    assigned_to: str,
+    certified_by: str,
+    verification_artifact: str,
+    acceptance_criteria: str,
+    task_type: str = "",
+) -> dict:
+    """Recording wrapper CLAUDE.md's HARD RULE now names — use this, never
+    certify_mission() directly, so a blocked certification is never just a
+    string returned to whoever ran the CLI and then gone. Prior to this,
+    OpsCenter/mission_board_sync.py::cmd_complete() was the one call site and
+    a DelegationError just vanished into the CLI's return value.
+
+    Wraps certify_mission() unchanged — same anti-theater raises, same
+    Silver BACK gate, same scorecard.record() on success (that's already
+    inside certify_mission(), not duplicated here). Records PASS/BLOCKED to
+    core.staffing.delegation_outcomes; pages the Commander only on a
+    content-level Silver back-gate HOLD (the work itself is actually wrong),
+    not on a routine missing-field DelegationError (self-cert/no-artifact/
+    no-criteria) — those are caller mistakes, not Wing failures, and paging
+    on every one would be alert fatigue."""
+    from core.staffing.delegation_outcomes import record_outcome, page_commander
+
+    try:
+        result = certify_mission(
+            mission_id, assigned_to, certified_by,
+            verification_artifact, acceptance_criteria, task_type,
+        )
+        record_outcome(
+            seat=assigned_to, action="certification", verdict="PASS",
+            ticket_id=mission_id, task_type=task_type, dispatch_mode="sync",
+            certified_by=certified_by,
+        )
+        return {"ok": True, "bus_entry": result}
+    except DelegationError as e:
+        detail = str(e)
+        record_outcome(
+            seat=assigned_to, action="certification", verdict="BLOCKED",
+            ticket_id=mission_id, task_type=task_type, dispatch_mode="sync",
+            certified_by=certified_by, discrepancy_detail=detail,
+        )
+        if detail.startswith("CHIEF SILVER back-gate HOLD"):
+            page_commander(
+                problem=f"Certification BLOCKED — {mission_id} ({assigned_to}): Silver back-gate HOLD",
+                discussion=detail,
+                action=f"Certifier {certified_by} could not certify {assigned_to}'s work — content check failed.",
+                next_steps="Fix the holds; the ticket cannot certify until the gate passes.",
+            )
+        return {"ok": False, "error": detail}
+
+
 def block_mission(mission_id: str, seat: str, reason: str) -> dict:
     """Mirror the `blocked` stage onto the bus (§3.5.5 watchdog / escalation)."""
     return mirror_stage_to_bus(mission_id, "blocked", f"{seat} blocked: {reason}")

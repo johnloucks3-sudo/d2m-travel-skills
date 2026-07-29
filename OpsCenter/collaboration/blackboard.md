@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-28 15:30 UTC)
+## COMMANDER-READY (2026-07-29 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,29 +59,34 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-28 09:30
+## STATE BRIDGE BRIEFING — 2026-07-29 09:30
 
-### Since last session (2026-07-28 15:00:01 → still open)
+### Since last session (2026-07-29 15:00:00 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `fefadd6db` 🦅 [REORG] Executed Drive Reorganization Plan (local YOGA + Google Drive d2m & jl3)  _71 minutes ago_
-- `64079517f` 🦅 [PROPOSAL] Proposed Drive Reorganization Plan drafted and delivered to johnloucks3 inbox (ID: 19fa915cb4d00d29)  _73 minutes ago_
-- `cb5f33c9e` 🦅 [L1 DIRECTIVE] Upgrade both brief engines to live data — TCD suspenses, fare watch DB, mission board, ELON innovation digest, Harlan FPD alerts, Gauge dynamic take, git metrics  _2 hours ago_
-- `5d1d90ade` ⚡ [REPORTING OVERHAUL COMPLETE] — [Deployed 2-window consolidated brief daemons, restaged 36 drafts to johnloucks3, active systemd timers, & enacted SO-REPORTING-2026]  _2 hours ago_
-- `b4f949c60` ⚡ [REPORTING OVERHAUL] — [Drafted SSS-2026-0728-01 & Standing Order SO-REPORTING-2026 for universal reporting standards]  _2 hours ago_
+- `8db5095f1` ci: fix d2m-github-sync gate — remove hardcoded Pexels keys, allowlist historical commit, add .mjs files  _5 hours ago_
+- `9e2792e73` TCD fusion-center: full Sheet mirror + Gmail draft cards, status-override fix  _10 hours ago_
+- `0d3af2a4b` dossier: update Loucks Dec 2026 Grandeur hotel details from portal  _17 hours ago_
+- `75b849f98` 🦅 [REORG] Swept and symlinked BRAND_SOUL and tess_config in YOGA root folder  _19 hours ago_
+- `efec9ef3f` 🦅 [REORG] Expanded YOGA deep workspace clean to sweep and symlink state and config files  _19 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (22s ago)
+- `hale_state.json` (29s ago)
 - `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `hale_brief.md` (3.5h ago)
-- `AGENTS.md` (16.5h ago)
-- `dossiers/Loucks_2027_BA_Business_Airfare_Quote.md` (17.8h ago)
-- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (17.8h ago)
-- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (17.8h ago)
-- `dossiers/McLeod_Grandeur_LesserAntilles_Dec2026_TRACKER.md` (17.
+- `hale_brief.md` (49m ago)
+- `dossiers/Loucks_Grandeur_PanamaPacific_Dec2026_TRACKER.md` (17.5h ago)
+- `dossiers/Loucks_Regent_Grandeur_3122006.md` (17.6h ago)
+- `AGENTS.md` (1.7d ago)
+- `dossiers/Loucks_2027_BA_Business_Airfare_Quote.md` (1.7d ago)
+- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (1.7d ago)
+
+**Mission board:** 165 open (15 P0, 102 P1)
+  - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
+  - 🔴 MISSION-011: Close Regent cookie expiration P0 — restore session access
+  - 🔴 MISSION-033: Close Regent cookie P0 — restore
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)

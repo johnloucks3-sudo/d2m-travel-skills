@@ -155,6 +155,98 @@ def _normalize_title(title):
     return "".join(c for c in title.lower() if c.isalnum() or c.isspace()).split()
 
 
+import re as _re
+
+_MONEY_RE = _re.compile(r"\$\s?(\d{1,3}(?:,\d{3})+|\d{4,})(?:\.\d{2})?")
+_ID_RE = _re.compile(
+    r"(?:#|\b(?:conf(?:irmation)?|booking|invoice|res(?:ervation)?)\s*#?\s*)(\d{6,})\b",
+    _re.I)
+
+# Commitment/deadline nouns. Two OPEN missions about the same money, the same
+# booking reference, or the same party+commitment are the same work no matter
+# how the verb is phrased.
+_ENTITY_NOUNS = ("fpd", "final payment", "balance due", "deposit", "invoice",
+                 "commission", "refund", "payment")
+
+# Verbs and scaffolding that carry no identity — stripped before looking for
+# the party/proper-noun cluster.
+_STOPWORDS = frozenset("""
+surface pay confirm escalate execute review resolve complete run check track
+and or the a an to for of by before after at on due deadline reminder mark day
+days week month commander authorization mechanism contingency payment final
+balance audit deliver open close update status now asap urgent item task
+mission with from into out over under is are be been this that these those
+""".split())
+
+
+def _entity_signature(title, description=""):
+    """Reword-proof identity for a mission.
+
+    WHY THIS EXISTS (2026-07-29): `_find_open_duplicate` compares title word
+    sets. A generator that writes a fresh title each run defeats it trivially.
+    "Surface Loucks Grandeur FPD — $24,798 due August 1", "Pay Loucks Grandeur
+    FPD before August 1 deadline", "Confirm Loucks Grandeur FPD payment
+    mechanism" and "Escalate Loucks Grandeur FPD for Commander payment
+    authorization" are four different word sets describing ONE payment.
+    Twelve such missions accumulated Jul 15-26, each re-detecting a deadline
+    nobody had resolved (MAST FM-1.3, step repetition).
+
+    Returns a dict of signal sets, or None when the text carries no commitment
+    noun at all — in which case we fall back to word-set matching rather than
+    guess. Matching policy lives in `_entity_matches`, deliberately separate,
+    because a FALSE MERGE is worse than a duplicate: it hides real work.
+    """
+    blob = f"{title} {description or ''}".lower()
+    if not any(n in blob for n in _ENTITY_NOUNS):
+        return None
+    amounts = {a.replace(",", "") for a in _MONEY_RE.findall(blob)}
+    refs = set(_ID_RE.findall(blob))
+    parties = {w for w in _re.findall(r"[a-z][a-z'-]{3,}", blob)
+               if w not in _STOPWORDS}
+    if not (amounts or refs or parties):
+        return None
+    return {"amounts": amounts, "refs": refs, "parties": frozenset(parties)}
+
+
+def _entity_matches(a, b):
+    """Do two signatures describe the same commitment?
+
+    Ordered most-certain first, and biased AGAINST merging:
+      * different explicit amounts  -> definitively NOT the same commitment
+      * shared booking reference    -> same
+      * shared amount               -> same
+      * shared distinctive parties  -> same, but only when the amounts don't
+                                       contradict (one side may omit it)
+    """
+    if not a or not b:
+        return False
+    if a["refs"] & b["refs"]:
+        return True
+    if a["amounts"] and b["amounts"]:
+        return bool(a["amounts"] & b["amounts"])
+    # At least one side omits the amount (the generator often does). Fall back
+    # to the party cluster — needs two distinctive shared tokens, e.g.
+    # {"loucks", "grandeur"}, so a lone shared word can't merge unrelated work.
+    return len(a["parties"] & b["parties"]) >= 2
+
+
+def _find_entity_duplicate(all_missions, title, description=""):
+    """Open mission describing the same commitment, regardless of wording."""
+    sig = _entity_signature(title, description)
+    if not sig:
+        return None
+    for m in all_missions:
+        if not isinstance(m, dict):
+            continue
+        if m.get("status") not in ("active", "in_progress", "pending", "open",
+                                   "pending_review"):
+            continue
+        other = _entity_signature(m.get("title") or "", m.get("description") or "")
+        if _entity_matches(sig, other):
+            return m
+    return None
+
+
 def _find_open_duplicate(all_missions, title):
     """ONE AND DONE (fixed 2026-07-04 — Sterling/A7): before creating a new
     mission, check open missions for the same work already tracked under a
@@ -223,7 +315,11 @@ def add_mission(board, title, description="No description", priority="P0", assig
     in the message instead)."""
     all_missions = board.get("missions", board.get("active_missions", []))
 
-    dup = _find_open_duplicate(all_missions, title)
+    # Entity-signature check runs FIRST: it survives rewording, which the
+    # word-set check below does not. See _entity_signature for the twelve-
+    # duplicate-FPD incident that motivated it.
+    dup = (_find_entity_duplicate(all_missions, title, description or "")
+           or _find_open_duplicate(all_missions, title))
     if dup is not None:
         dup.setdefault("logs", []).append(
             f"{now_iso()}: duplicate creation attempt blocked — \"{title}\" already tracked here"
@@ -459,7 +555,27 @@ def cmd_batch_open(board, raw):
     except SSSError as e:
         return f"❌ Batch SSS rejected (CHIEF SILVER front gate): {e}"
     board.setdefault("missions", []).append(sss)
-    return f"✅ Batch Staff Summary Sheet opened: {sid} ({len(batch_items)} items)\n" + render_sss(sss)
+
+    # Absorb the children. Without this, "lump N missions into ONE sheet" left
+    # all N independently active on the board and merely ADDED a row — batching
+    # inflated the backlog instead of consolidating it, and every downstream
+    # stale-scan still counted each child separately.
+    #
+    # Found 2026-07-29 while consolidating twelve duplicate missions for a
+    # single $24,798 FPD: the command printed "✅ ... (12 items)" while the
+    # twelve were untouched. A tool's success message is not ground truth.
+    absorbed = []
+    for m in missions:
+        m["status"] = "rolled_up"
+        m["batch_parent"] = sid
+        m["updated_at"] = now_iso()
+        m.setdefault("log", []).append(
+            f"{now_iso()} — rolled into batch {sid}; tracked there, not independently")
+        absorbed.append(m["id"])
+
+    return (f"✅ Batch Staff Summary Sheet opened: {sid} ({len(batch_items)} items)\n"
+            f"   absorbed {len(absorbed)} child mission(s) → status=rolled_up: "
+            f"{', '.join(absorbed)}\n" + render_sss(sss))
 
 
 def cmd_sss_chop(board, raw):
@@ -654,18 +770,17 @@ def cmd_complete(board, mission_id):
     # untouched by this branch.
     if mission.get("assigned_to") in _delegation_seats() and mission.get("acceptance_criteria"):
         try:
-            from core.relay.delegation_wiring import certify_mission, DelegationError
-            try:
-                certify_mission(
-                    mission_id,
-                    mission.get("assigned_to", ""),
-                    mission.get("certified_by", "CC"),
-                    mission.get("verification_artifact", ""),
-                    mission.get("acceptance_criteria", ""),
-                )
-            except DelegationError as e:
+            from core.relay.delegation_wiring import certify_mission_and_record
+            r = certify_mission_and_record(
+                mission_id,
+                mission.get("assigned_to", ""),
+                mission.get("certified_by", "CC"),
+                mission.get("verification_artifact", ""),
+                mission.get("acceptance_criteria", ""),
+            )
+            if not r["ok"]:
                 return (
-                    f"⛔ Cannot complete {mission_id} — delegation gate: {e}\n"
+                    f"⛔ Cannot complete {mission_id} — delegation gate: {r['error']}\n"
                     f"Set a verification_artifact and a cross-seat certified_by first."
                 )
         except ImportError:

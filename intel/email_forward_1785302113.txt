@@ -1,0 +1,35 @@
+Subject: Tech Scan 2026-07-29 05:15 UTC — 6 trial / 0 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-29T05:15:13.683998+00:00
+
+TECH SCAN — 2026-07-29 05:15 UTC
+airborne scanner pulse · 13 finds · sectors automation, llm
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 6 TRIAL · 7 WATCH · 0 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: Hamza Mask secrets and PII before Claude Code or Codex sends them — https://github.com/softcane/hamza
+↳ real tool (github.com) — worth a bounded look
+Show HN: Learning Mode – Claude refuses to write code — https://github.com/melsayedx/learning-mode
+↳ real tool (github.com) — worth a bounded look
+Show HN: FedTerm – a Claude-native terminal for macOS that popup like Spotlight — https://github.com/feod1/fedterm
+↳ real tool (github.com) — worth a bounded look
+Show HN: Sessiongrep – Local-First Memory Across Claude Code, Codex, and Cursor — https://github.com/braincompany/sessiongrep
+↳ real tool (github.com) — worth a bounded look
+Show HN: Cetus – A macOS App for Claude Code, Codex, OpenCode, and More — https://github.com/drewnekota/cetus
+↳ real tool (github.com) — worth a bounded look
+Show HN: The mentor setup I've run for months, now as a Claude Code plugin — https://github.com/hcsum/dont-let-me
+↳ real tool (plugin, github.com) — worth a bounded look
+👁 WATCH:SessionRadar – Monitor Claude Code and Codex sessions from your menu bar — https://sessionradar.com
+I built a WebGPU multiplayer game with Claude Code and limited coding experience — https://sweatypanzer.com/
+Claude Opus 5: Model Welfare — https://thezvi.substack.com/p/claude-opus-5-model-welfare
+Show HN: Tines 3B – safe workflow automation for when everyone builds software — https://www.tines.com/
+Claude Code system prompt says not to ask for permission, assumes user is absent — https://elliotmilco.substac
+Opus 5 is the model you pick when you're tired of picking models — https://dev.to/rmarinsky/opus-5-is-the-mode
+Coding agents: Your skill bodies are fine, your descriptions are broken — https://dev.to/hash01/claude-skill-d
+RAW — all finds this pulse (unfiltered)[llm] SessionRadar – Monitor Claude Code and Codex sessions from your menu bar — https://sessionradar.com (Hacker News — Claude Code)
+[llm] Show HN: Hamza Mask secrets and PII before Claude Code or Codex sends them — https://github.com/softcane/hamza (Hacker News — Claude Code)
+[llm] Show HN: Learning Mode – Claude refuses to write code — https://github.com/melsayedx/learning-mode (Hacker News — Claude Code)
+[llm] I built a WebGPU multiplayer game with Claude Code and limited coding experience — https://sweatypanzer.com/ (Hacker News — Claude Code)
+[llm] Show HN: FedTerm – a Claude-native terminal for macOS that popup like Spotlight — https://github.com/feod1/fedterm (Hacker News — Claude Code)
+[llm] Show HN: Sessiongrep – Local-First Memory Across Claude Code, Codex, and Cursor — https://github.com/braincompany/sessio (Hacker News — Claude Code)
+[llm] Claude Opus 5: Model Welfare — https://thezvi.substack.com/p/claude-opus-5-model-welfare (Hacker News — Claude Code)
+[automation] Show HN

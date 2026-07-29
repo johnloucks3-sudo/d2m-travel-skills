@@ -1,50 +1,5 @@
 [
   {
-    "ts": "2026-07-28T01:42:57.719175-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T02:07:56.669508-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T02:33:06.428303-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T02:58:00.393533-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T03:28:11.431960-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
     "ts": "2026-07-28T03:48:10.908045-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
@@ -267,6 +222,51 @@
     "client_alerts": 0,
     "details": [
       "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T09:00:38.587236-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T09:20:36.454100-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T09:50:40.842552-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T10:10:39.320096-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T10:40:38.165212-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
     ]
   }
 ]

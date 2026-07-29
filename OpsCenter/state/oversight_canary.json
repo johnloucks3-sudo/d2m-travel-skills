@@ -1,0 +1,42 @@
+{
+  "ts": "2026-07-29T16:31:13.815084+00:00",
+  "scenarios_run": 6,
+  "passed": 6,
+  "failed": 0,
+  "healthy": true,
+  "failures": [],
+  "results": [
+    {
+      "scenario": "lost",
+      "ok": true,
+      "detected_as": "LOST",
+      "mast_code": "FM-3.1"
+    },
+    {
+      "scenario": "silent_success",
+      "ok": true,
+      "detected_as": "SILENT_SUCCESS",
+      "mast_code": "WING-1"
+    },
+    {
+      "scenario": "healthy_control",
+      "ok": true,
+      "detected_as": "correctly left alone"
+    },
+    {
+      "scenario": "self_verification_rejected",
+      "ok": true,
+      "detected_as": "self-grade correctly refused"
+    },
+    {
+      "scenario": "bad_mast_code_rejected",
+      "ok": true,
+      "detected_as": "invalid code demoted to proposed"
+    },
+    {
+      "scenario": "page_lane_reachable",
+      "ok": true,
+      "detected_as": "lane importable and callable"
+    }
+  ]
+}

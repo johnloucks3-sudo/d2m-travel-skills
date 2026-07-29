@@ -11,10 +11,10 @@
  "regent_direct": {
   "status": "needs_repair",
   "owner": "HALE",
-  "consecutive_failures": 34,
+  "consecutive_failures": 35,
   "backoff_hours": 24.0,
   "first_seen": "2026-06-13T21:07:31.849972+00:00",
-  "last_seen": "2026-07-28T15:06:56.378279+00:00",
+  "last_seen": "2026-07-29T16:12:22.763089+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  },
  "regent_oa": {
@@ -32,7 +32,7 @@
   "consecutive_failures": 3,
   "backoff_hours": 6.0,
   "first_seen": "2026-07-28T21:14:30.001304+00:00",
-  "last_seen": "2026-07-28T21:14:30.001309+00:00",
+  "last_seen": "2026-07-29T15:22:40.523971+00:00",
   "action": "Hale: attempt re-auth/self-heal; escalate to Commander only if manual re-auth required."
  }
 }

@@ -155,12 +155,21 @@ def _gate_note(verdict) -> str:
     return "Silver back-gate HOLD: " + "; ".join(verdict.holds)[:200]
 
 
-def _handle_close(row: dict, decisions_path, overrides_path=None) -> None:
-    """Mark a row Closed — the row's ``comments`` are the staff verification
-    artifact (SO_PDTAC_WORKFLOW_20260711), so Silver's back-gate decides the
-    verdict instead of the old unconditional PASS. On HOLD the close is still
-    recorded (AppSheet's own state isn't blocked) but ``run_gate`` pages it the
-    same way it pages a held delegated mission — never a silent PASS.
+def _handle_close(row: dict, decisions_path, overrides_path=None, actor: str = "ai") -> None:
+    """Mark a row Closed.
+
+    ``actor="commander"`` (the Commander clicking Close on the live TCD
+    Decision Board — the only path that can positively assert this) is
+    self-certifying: no reason/artifact required, no Silver back-gate. The
+    Commander's own decision to close something IS the verification.
+
+    Every other actor (default ``"ai"`` — AppSheet-diff pickup, the MCP
+    write-back tool, the 10-min timer, or any other non-Commander caller)
+    still runs the row's ``comments`` through Silver's back-gate as the
+    verification artifact (SO_PDTAC_WORKFLOW_20260711). On HOLD the close is
+    still recorded (AppSheet's own state isn't blocked) but ``run_gate``
+    pages it the same way it pages a held delegated mission — never a silent
+    PASS.
 
     Persists a status override regardless of verdict (2026-07-29 fix) — found
     live that a Close with NO override survived until the next 10-minute
@@ -168,16 +177,62 @@ def _handle_close(row: dict, decisions_path, overrides_path=None) -> None:
     derive_status() and silently reverted it back to Open. Same bug the stage
     override already fixed; Delete doesn't need this because a disposed row's
     source is gone and stops being collected entirely."""
-    artifact = row.get("comments", "")
-    verdict = run_gate(artifact, artifact, mission_id=row["id"])
-    _append_decision(
-        _plan_id(row["id"], "CLOSE"), verdict.verdict,
-        criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",
-        notes=("Marked Closed by Commander in AppSheet; source record untouched. "
-               + _gate_note(verdict)),
-        decisions_path=decisions_path,
-    )
+    if actor == "commander":
+        _append_decision(
+            _plan_id(row["id"], "CLOSE"), "PASS",
+            criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",
+            notes="Closed by Commander via TCD Decision Board; no gate — Commander close is self-certifying.",
+            decisions_path=decisions_path,
+        )
+    else:
+        artifact = row.get("comments", "")
+        verdict = run_gate(artifact, artifact, mission_id=row["id"])
+        _append_decision(
+            _plan_id(row["id"], "CLOSE"), verdict.verdict,
+            criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",
+            notes=("Marked Closed by AppSheet/AI write-back; source record untouched. "
+                   + _gate_note(verdict)),
+            decisions_path=decisions_path,
+        )
     _overrides.set_override(row["id"], status="Closed", path=overrides_path)
+
+
+def apply_non_sheet_action(row: dict, updates: dict, actor: str = "commander",
+                           decisions_path=None, overrides_path=None) -> dict:
+    """Persist a Commander board action for a row that has no writable cell
+    in the main Items sheet — ``multi_tab.py``'s mission-/techscan-/next7-
+    cards, pulled straight from a different spreadsheet's tabs with no
+    per-row write-back path wired yet. ``_default_write_fn``/``process_once``
+    silently no-op for these ids (not found in the Items tab), so without
+    this the card's action vanished on the next reload — never "tied to the
+    Sheet" at all, just a client-side flash. The override file IS the
+    persisted state here (same override contract every other row uses to
+    survive tcd-sync.timer); ``render_board`` applies it to every row
+    regardless of origin. Does NOT edit the row's actual origin cell in the
+    second spreadsheet — that needs per-tab row-index tracking not yet built.
+    """
+    rid = row["id"]
+    decisions_path = decisions_path or HALE_DECISIONS
+    if updates.get("status") == "Closed":
+        _handle_close(row, decisions_path, overrides_path=overrides_path, actor=actor)
+    elif updates.get("status") == "Delete":
+        _overrides.set_override(rid, status="Delete", path=overrides_path)
+        _append_decision(
+            _plan_id(rid, "DELETE"), "PASS",
+            criteria_met=f"TCD rejected: {row.get('title', rid)[:80]}",
+            notes="Rejected via TCD Decision Board (non-Sheet origin — no source cascade delete available; hidden in TCD only).",
+            decisions_path=decisions_path,
+        )
+    else:
+        if "stage" in updates:
+            _overrides.set_override(rid, stage=updates["stage"], path=overrides_path)
+        _append_decision(
+            _plan_id(rid, "COMMENT"), "PASS",
+            criteria_met=f"TCD action: {row.get('title', rid)[:80]}",
+            notes=f"Commander action via TCD Decision Board (non-Sheet origin): {updates}",
+            decisions_path=decisions_path,
+        )
+    return {"ok": True, "id": rid, "via": "override-only (non-Sheet origin)"}
 
 
 def _handle_stage_move(row: dict, prior_stage: str, decisions_path,
@@ -400,10 +455,16 @@ def _default_write_fn(item_id: str, updates: dict) -> None:
             return
 
 
-def process_once(rows: list = None, *, state_path=None, decisions_path=None,
+def process_once(rows: list = None, *, actor: str = "ai", state_path=None, decisions_path=None,
                  delete_fn=None, overrides_path=None, write_fn=None,
                  create_task_fn=None) -> dict:
     """One write-back pass: diff current Sheet vs. last-known state, act, save.
+
+    ``actor`` identifies who's closing items this pass — "commander" skips
+    the reason requirement and Silver back-gate on Close (see
+    ``_handle_close``); default "ai" keeps both. Only the live TCD Decision
+    Board (tcd/web.py) can positively assert "commander" — every other
+    caller (timer, MCP tool) should leave the default.
 
     All parameters default to production paths/behavior (live Sheet read,
     real cascade delete, real hale_decisions.md, real
@@ -452,7 +513,7 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
 
         if row.get("status") == "Closed" and prev.get("status") != "Closed":
             try:
-                _handle_close(row, decisions_path, overrides_path=overrides_path)
+                _handle_close(row, decisions_path, overrides_path=overrides_path, actor=actor)
                 summary["closed"].append({"id": rid})
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "close", "error": str(e)})

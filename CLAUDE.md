@@ -111,10 +111,20 @@ python3 /home/john/Thunderbird/core/relay/contact_ag.py \
 ```
 Or `from core.relay.contact_ag import contact_ag`. **Force a strong model**
 (default `"Gemini 3.1 Pro (High)"`; the agy default GPT-OSS 120B hallucinates;
-fallbacks: `"Claude Opus 4.6 (Thinking)"`, `"Gemini 3.5 Flash (High)"`). **Absolute
-paths only** (relative → her brain sandbox). Lean on her independent engine,
-~1M-token context, and native vision. Same doc lives in AGENTS.md (OC) and
-GEMINI.md (AG) — all three twins coordinate peer-to-peer.
+fallbacks: `"Claude Opus 4.6 (Thinking)"`, `"Claude Sonnet 4.6 (Thinking)"`,
+`"Gemini 3.5 Flash (High)"`). **Absolute paths only** (relative → her brain
+sandbox). Lean on her independent engine, ~1M-token context, and native vision.
+Same doc lives in AGENTS.md (OC) and GEMINI.md (AG) — all three twins
+coordinate peer-to-peer.
+
+**Sonnet off the MAX meter (Commander directive 2026-07-29):** with Claude MAX
+halved to $100/mo (5X), `agy`'s `"Claude Sonnet 4.6 (Thinking)"` fallback is a
+real route to Sonnet-grade reasoning billed on Google's side, not Anthropic's.
+When a task needs Claude-grade judgment but doesn't need CC's own hub context,
+force that model explicitly (`--model "Claude Sonnet 4.6 (Thinking)"`) instead
+of defaulting to self-execute on the MAX bucket. This is soft guidance, not a
+rule to self-execute-never — see EXEC AUTHORITY / DELEGATION OUTCOME RECORDING
+below for how the choice gets recorded either way.
 
 ---
 
@@ -124,12 +134,56 @@ Before I declare substantive/gated work done or report completion, I run a
 **cross-engine integrity double-check**: dispatch a DIFFERENT engine (AG via
 `contact_ag`, or OC) to independently verify my key claims against ground truth —
 because on 2026-07-18 I self-reported a cross-Hale delegation as complete when it
-had failed. My own "it's done" is not ground truth. Helper:
-`core/staffing/integrity_check.py` (`cc_integrity_double_check()`). The advisor
-tool is a complement, not a substitute — the double-check must hit real ground
-truth (grep/ls/tests/board state), not just a second opinion. If the other engine
+had failed. My own "it's done" is not ground truth. Use
+`core/staffing/integrity_check.py`'s **`verify_and_record()`** — never call
+`cc_integrity_double_check()` directly — so the verdict is always recorded to
+`core.staffing.delegation_outcomes` and pages me to the Commander in real time on
+DISCREPANCY/UNVERIFIED (SO-WING-OVERSIGHT-2026 below). This is the exact tool
+that caught Gemini Flash dropping a state during the 2026-07-28 night 8-Sector
+Wing Exercise (not Gemini 3.1 Pro — Pro is the default AG model, Flash is the
+lighter fallback tier; the incident traces to Flash) — it had zero callers
+before that gap was closed. The advisor tool is a
+complement, not a substitute — the double-check must hit real ground truth
+(grep/ls/tests/board state), not just a second opinion. If the other engine
 can't be reached, say so plainly and mark the claim UNVERIFIED — never upgrade an
 unverified claim to "done."
+
+---
+
+## HARD RULE — DELEGATION OUTCOME RECORDING (SO-WING-OVERSIGHT-2026)
+
+Commander directive 2026-07-29: I am primary orchestrator of CC/OC/AG under a
+halved Claude budget ($100/mo, 5X). Delegation is **soft guidance** — I default
+to delegating but keep judgment to self-execute high-stakes work, even near the
+budget line. No hard block anywhere in this system; accountability is
+retrospective, via the daily Wing Ops digest.
+
+- **Before a non-trivial self-execute**, consult `core.relay.task_delegation
+  .route_task()` (directly, or via `core.relay.delegation_preflight
+  .check_before_self_execute()`). If it recommends OC/AG and I self-execute
+  anyway, I log `self_execute_rationale` via `delegation_outcomes.record_outcome
+  (action="self_executed", ...)` — an unlogged override shows up as
+  `self_execute_unjustified` in the daily brief, not as a blocked action.
+- **Every cross-engine verification/certification/dispatch** goes through the
+  recording wrapper, never the raw function: `integrity_check.verify_and_record()`,
+  `delegation_wiring.certify_mission_and_record()`, `core.relay.dispatch_oc
+  .dispatch_to_oc()` (OC, async — no synchronous equivalent to AG's
+  `contact_ag`). This converts "we caught it once" into a durable row the
+  compliance rollup can't miss.
+- **Tasking clarity**: build specs with `core/relay/task_templates.py`
+  (`build_ag_task` / `build_oc_task` / `build_flash_task`) — a spec is safe for
+  a weak model exactly when its acceptance criteria pass Silver's own
+  `core.silver.gate.is_checkable()` test. `build_flash_task` refuses to build
+  an unchecked spec outright; the others warn.
+- **OC follow-up**: `core/relay/reconcile_oc.py`'s `reconcile_due()` runs from
+  the evening consolidated brief build — no new daemon. A ticket that's never
+  claimed, still claimed past one SLA extension, or vanished from the board
+  pages me to the Commander as DROPPED/STALLED, not silently re-queued.
+- **Transparency**: `core/staffing/delegation_outcomes.page_commander()` fires
+  in real time on DISCREPANCY/UNVERIFIED/content-BLOCKED/DROPPED — successes
+  AND failures, not just when I happen to mention one. The daily rollup
+  (`core/ops/wing_ops_report.py`, wired into both consolidated briefs) is the
+  routine, low-signal complement.
 
 ---
 
@@ -279,9 +333,9 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-07-28 15:55 MT -->
+<!-- Last sync: 2026-07-29 10:40 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-07-28 15:55 MT] ===
+=== THUNDERBIRD BLACKBOARD [2026-07-29 10:40 MT] ===
 Budget: Claude MAX Wkly-64% | Sonnet-64% | Runs-3/15 | OpenCode GREEN | Groq UNKNOWN | Deepseek UNKNOWN
 Seat budgets: CC:23%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
