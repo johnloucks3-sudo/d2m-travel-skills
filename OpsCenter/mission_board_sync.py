@@ -199,24 +199,40 @@ def _entity_signature(title, description=""):
     blob = f"{title} {description or ''}".lower()
     if not any(n in blob for n in _ENTITY_NOUNS):
         return None
+    # Amounts and references may come from anywhere — they are precise.
     amounts = {a.replace(",", "") for a in _MONEY_RE.findall(blob)}
     refs = set(_ID_RE.findall(blob))
-    parties = {w for w in _re.findall(r"[a-z][a-z'-]{3,}", blob)
+    # Parties come from the TITLE ONLY. Descriptions are long prose, and a
+    # 2026-07-29 sweep showed description tokens linking wholly unrelated work
+    # through generic words ("booking", "live", "client", "against") and even
+    # "mission-" harvested from cross-referenced mission IDs. That produced one
+    # bogus 15-mission cluster spanning a rental car, orphaned systemd units,
+    # and a client transfer dispute.
+    parties = {w for w in _re.findall(r"[a-z][a-z'-]{3,}", (title or "").lower())
                if w not in _STOPWORDS}
     if not (amounts or refs or parties):
         return None
     return {"amounts": amounts, "refs": refs, "parties": frozenset(parties)}
 
 
-def _entity_matches(a, b):
+def _entity_matches(a, b, is_rare=None):
     """Do two signatures describe the same commitment?
 
-    Ordered most-certain first, and biased AGAINST merging:
-      * different explicit amounts  -> definitively NOT the same commitment
-      * shared booking reference    -> same
-      * shared amount               -> same
-      * shared distinctive parties  -> same, but only when the amounts don't
-                                       contradict (one side may omit it)
+    Ordered most-certain first, and biased AGAINST merging, because a FALSE
+    MERGE HIDES REAL WORK and is worse than a duplicate:
+      * shared booking reference    -> same (outranks differing amounts, e.g.
+                                       deposit vs balance on one booking)
+      * both carry amounts          -> same only if an amount matches;
+                                       different amounts are definitively NOT
+                                       the same commitment
+      * otherwise, party cluster    -> needs >= 2 shared title tokens, AND at
+                                       least one must be RARE on this board
+
+    `is_rare(token) -> bool` is supplied by the caller, which knows the corpus.
+    Without it, any shared pair passes — the permissive path, used only when
+    there is no board context. Rarity matters because a busy client name
+    ("kuklinski") legitimately appears across many unrelated missions and
+    therefore identifies nothing; a name like "furlow" appearing twice does.
     """
     if not a or not b:
         return False
@@ -224,10 +240,33 @@ def _entity_matches(a, b):
         return True
     if a["amounts"] and b["amounts"]:
         return bool(a["amounts"] & b["amounts"])
-    # At least one side omits the amount (the generator often does). Fall back
-    # to the party cluster — needs two distinctive shared tokens, e.g.
-    # {"loucks", "grandeur"}, so a lone shared word can't merge unrelated work.
-    return len(a["parties"] & b["parties"]) >= 2
+    shared = a["parties"] & b["parties"]
+    if len(shared) < 2:
+        return False
+    return True if is_rare is None else any(is_rare(w) for w in shared)
+
+
+def _rarity_predicate(all_missions, max_share=0.05):
+    """Build `is_rare` from how often a title token occurs across open missions.
+
+    A token appearing in more than `max_share` of the board is common vocabulary
+    and cannot identify a duplicate on its own.
+    """
+    from collections import Counter
+    df = Counter()
+    n = 0
+    for m in all_missions:
+        if not isinstance(m, dict):
+            continue
+        if m.get("status") not in ("active", "in_progress", "pending", "open",
+                                   "pending_review"):
+            continue
+        n += 1
+        for w in _re.findall(r"[a-z][a-z'-]{3,}", (m.get("title") or "").lower()):
+            if w not in _STOPWORDS:
+                df[w] += 1
+    threshold = max(2, int(n * max_share))
+    return lambda w: df.get(w, 0) <= threshold
 
 
 def _find_entity_duplicate(all_missions, title, description=""):
@@ -235,6 +274,7 @@ def _find_entity_duplicate(all_missions, title, description=""):
     sig = _entity_signature(title, description)
     if not sig:
         return None
+    is_rare = _rarity_predicate(all_missions)
     for m in all_missions:
         if not isinstance(m, dict):
             continue
@@ -242,7 +282,7 @@ def _find_entity_duplicate(all_missions, title, description=""):
                                    "pending_review"):
             continue
         other = _entity_signature(m.get("title") or "", m.get("description") or "")
-        if _entity_matches(sig, other):
+        if _entity_matches(sig, other, is_rare=is_rare):
             return m
     return None
 

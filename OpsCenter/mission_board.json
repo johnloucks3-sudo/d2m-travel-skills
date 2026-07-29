@@ -1256,7 +1256,7 @@
     {
       "id": "MISSION-623",
       "title": "FPD deadline audit \u2014 Furlow and Kuklinski",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Execute the consolidated FPD audit mission, surface any overdue or approaching final-payment deadlines to Commander with recommended action date and consequence if missed.",
@@ -1272,13 +1272,17 @@
         "[2026-07-18T20:16:23] Weekly Report Generator duplicate blocked \u2014 \"Run FPD deadline audit \u2014 Furlow and Kuklinski\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450150+00:00",
-      "updated_at": "2026-07-18T20:16:23.499121+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.902121+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-007",
+      "log": [
+        "2026-07-29T17:15:20.902124+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-624",
       "title": "Restore TESS pipeline and run commission cross-check",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Execute MISSION-006 to bring the TESS data pipeline live and verify the $21,849 commission expectation against independently sourced booking records.",
@@ -1303,8 +1307,12 @@
         "[2026-07-26T20:39:02] Weekly Report Generator duplicate blocked \u2014 \"Restore TESS pipeline and run commission cross-check\" already tracked here"
       ],
       "created_at": "2026-07-16T12:26:40.450239+00:00",
-      "updated_at": "2026-07-26T20:39:02.223600+00:00",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.827932+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-006",
+      "log": [
+        "2026-07-29T17:15:20.827936+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-625",
@@ -1859,12 +1867,12 @@
     {
       "id": "MISSION-656",
       "title": "Client inquiry: Re: Odysseus Password Reset Issue #100210",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Hale",
       "description": "Inbound client email from MAGsos <magsos@myagentgenie.com> \u2014 subject: Re: Odysseus Password Reset Issue #100210",
       "created_at": "2026-07-17T20:00:20.868034+00:00",
-      "updated_at": "2026-07-18T12:15:40",
+      "updated_at": "2026-07-29T17:15:44.615710+00:00",
       "logs": [
         "[2026-07-17T20:00:20.868034+00:00] Auto-created by email_ingestion_pipeline \u2014 message_id=19f7150bcae1a515",
         "[2026-07-17T22:49:02] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
@@ -1872,8 +1880,10 @@
         "[2026-07-18T06:53:24] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-18T10:55:50] \u274c Auto-executed by daily_mission_executor \u2014 1s \u2014 FAILED: All LLM providers failed (Gemini + GitHub Models)",
         "[2026-07-18T12:15:40] \u2705 Auto-executed by daily_mission_executor \u2014 7s \u2014 SUCCESS: # MISSION-656: Client inquiry: Re: Odysseus Password Reset Issue #100210\n\n## Work Product\n\n### 1. Task Execution\n\nTo execute this task, I will follow these steps:\n\n1. **Retrieve the Client Email**: Ac",
-        "[2026-07-18T12:15:40] \u23f8 pending_review: STATUS: COMPLETE not found"
-      ]
+        "[2026-07-18T12:15:40] \u23f8 pending_review: STATUS: COMPLETE not found",
+        "[2026-07-29T17:15:44] exact duplicate of MISSION-655 (identical title) \u2014 rolled up by duplicate sweep 2026-07-29"
+      ],
+      "batch_parent": "MISSION-655"
     },
     {
       "id": "MISSION-657",
@@ -2331,7 +2341,7 @@
     {
       "id": "MISSION-680",
       "title": "Activate TESS pipeline restore \u2014 move MISSION-624 to in-progress",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Restore TESS pipeline and run commission cross-check so Harlan's financial verification reflects live booking data across all clients.",
@@ -2345,8 +2355,12 @@
         "[2026-07-19T12:15:21] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-18T20:16:23.498047+00:00",
-      "updated_at": "2026-07-19T12:15:21",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.827941+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-006",
+      "log": [
+        "2026-07-29T17:15:20.827945+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-681",
@@ -3170,7 +3184,7 @@
     {
       "id": "MISSION-706",
       "title": "Run TESS commission cross-check and certify pipeline figure",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Execute MISSION-624, run the commission cross-check against TESS, and produce a verified vs. expected delta that Harlan can certify \u2014 resolving the $21,849.16 unverified figure.",
@@ -3184,8 +3198,12 @@
         "[2026-07-23T00:33:25] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-22T20:54:22.003696+00:00",
-      "updated_at": "2026-07-23T00:33:25",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.827949+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-006",
+      "log": [
+        "2026-07-29T17:15:20.827953+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-707",
@@ -3251,7 +3269,7 @@
     {
       "id": "MISSION-710",
       "title": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Close MISSION-623 by running the FPD verification against both clients, documenting the findings, and flagging any overdue or at-risk deposits to the Commander.",
@@ -3265,8 +3283,12 @@
         "[2026-07-23T04:35:28] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-22T20:54:22.006802+00:00",
-      "updated_at": "2026-07-23T04:35:28",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.902129+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-007",
+      "log": [
+        "2026-07-29T17:15:20.902131+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-711",
@@ -3603,7 +3625,7 @@
     {
       "id": "MISSION-729",
       "title": "Restore TESS pipeline and reconcile commission cross-check",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Sterling",
       "description": "Close MISSION-624 by restoring the TESS data feed and verifying the $21,849 expected commission figure against live TESS source records.",
@@ -3617,8 +3639,12 @@
         "[2026-07-25T04:56:28] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-25T04:04:31.836287+00:00",
-      "updated_at": "2026-07-25T04:56:28",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.827956+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-006",
+      "log": [
+        "2026-07-29T17:15:20.827960+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-730",
@@ -3734,7 +3760,7 @@
     {
       "id": "MISSION-736",
       "title": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Identify whether the $21,849.16 commission expected vs. $18,830.93 pipeline gap represents a valid different-cohort difference or a calculation error, and document the finding.",
@@ -3748,8 +3774,12 @@
         "[2026-07-26T21:22:12] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-26T19:46:10.112143+00:00",
-      "updated_at": "2026-07-26T21:22:12",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.827962+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-006",
+      "log": [
+        "2026-07-29T17:15:20.827965+00:00 \u2014 rolled into batch SSS-006; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-737",
@@ -3874,7 +3904,7 @@
     {
       "id": "MISSION-743",
       "title": "Complete FPD audit for Furlow and Kuklinski",
-      "status": "pending_review",
+      "status": "rolled_up",
       "priority": "P1",
       "assigned_to": "Harlan",
       "description": "Execute MISSION-623 to audit FPD status for Furlow and Kuklinski accounts and surface any overdue or at-risk deadlines to Commander before end of week.",
@@ -3889,8 +3919,12 @@
         "[2026-07-27T05:27:37] \u23f8 pending_review: STATUS: COMPLETE not found"
       ],
       "created_at": "2026-07-26T20:18:53.768963+00:00",
-      "updated_at": "2026-07-27T05:27:37",
-      "source": "weekly_report"
+      "updated_at": "2026-07-29T17:15:20.902135+00:00",
+      "source": "weekly_report",
+      "batch_parent": "SSS-007",
+      "log": [
+        "2026-07-29T17:15:20.902137+00:00 \u2014 rolled into batch SSS-007; tracked there, not independently"
+      ]
     },
     {
       "id": "MISSION-744",
@@ -4213,6 +4247,146 @@
           "mission_id": "MISSION-746",
           "description": "Escalate Loucks Grandeur FPD for Commander payment authorization",
           "expected_benefit": "Escalate Loucks Grandeur FPD for Commander payment authorization"
+        }
+      ]
+    },
+    {
+      "id": "SSS-006",
+      "title": "TESS pipeline restore + commission cross-check ($3,018 gap)",
+      "purpose": "Five missions all describe one job: restore the TESS pipeline and reconcile the commission-vs-pipeline discrepancy. Consolidated 2026-07-29 by duplicate sweep.",
+      "opr": "Harlan",
+      "assigned_to": "Harlan",
+      "action_type": "APPR",
+      "ocr_chain": [
+        {
+          "office": "CC",
+          "status": "pending",
+          "comment": "",
+          "ts": ""
+        }
+      ],
+      "coordination_log": [],
+      "acceptance_criteria": "verification artifact lists all 5 batch mission IDs (MISSION-624, MISSION-680, MISSION-706, MISSION-729, MISSION-736) and records one disposition for the batch",
+      "ground_truth_sources": [
+        "MISSION-624",
+        "MISSION-680",
+        "MISSION-706",
+        "MISSION-729",
+        "MISSION-736"
+      ],
+      "verification_artifact": "",
+      "certified_by": "CC",
+      "silver_front_frame": "2026-07-29T17:15:20.826737+00:00",
+      "suspense_date": "2026-08-05",
+      "priority": "P2",
+      "status": "in_coordination",
+      "created_at": "2026-07-29T17:15:20.827080+00:00",
+      "updated_at": "2026-07-29T17:15:20.827086+00:00",
+      "logs": [
+        "2026-07-29T17:15:20.827909+00:00: SSS opened \u2014 OPR Harlan, action APPR, 1 OCR(s) to coordinate",
+        "2026-07-29T17:15:20.827921+00:00: batch SSS \u2014 5 mission(s) lumped: MISSION-624, MISSION-680, MISSION-706, MISSION-729, MISSION-736"
+      ],
+      "background": "",
+      "discussion": "",
+      "views_of_others": "",
+      "tabs": [],
+      "mandates": [
+        "cross_hale",
+        "silver",
+        "unmapped:Modify code to direct you to summarize the must-haves and mu",
+        "unmapped:This is a FAIL for integrity, for advisor, for Silver \u2014 a cl",
+        "unmapped:You must also modify the code to capture all messages sent d"
+      ],
+      "is_batch": true,
+      "batch_items": [
+        {
+          "mission_id": "MISSION-624",
+          "description": "Restore TESS pipeline and run commission cross-check",
+          "expected_benefit": "Restore TESS pipeline and run commission cross-check"
+        },
+        {
+          "mission_id": "MISSION-680",
+          "description": "Activate TESS pipeline restore \u2014 move MISSION-624 to in-progress",
+          "expected_benefit": "Activate TESS pipeline restore \u2014 move MISSION-624 to in-progress"
+        },
+        {
+          "mission_id": "MISSION-706",
+          "description": "Run TESS commission cross-check and certify pipeline figure",
+          "expected_benefit": "Run TESS commission cross-check and certify pipeline figure"
+        },
+        {
+          "mission_id": "MISSION-729",
+          "description": "Restore TESS pipeline and reconcile commission cross-check",
+          "expected_benefit": "Restore TESS pipeline and reconcile commission cross-check"
+        },
+        {
+          "mission_id": "MISSION-736",
+          "description": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)",
+          "expected_benefit": "Reconcile commission-vs-pipeline discrepancy ($3,018 gap)"
+        }
+      ]
+    },
+    {
+      "id": "SSS-007",
+      "title": "FPD deadline audit \u2014 Furlow and Kuklinski",
+      "purpose": "Three missions all describe one FPD audit for the Furlow and Kuklinski bookings. Consolidated 2026-07-29 by duplicate sweep.",
+      "opr": "Harlan",
+      "assigned_to": "Harlan",
+      "action_type": "APPR",
+      "ocr_chain": [
+        {
+          "office": "CC",
+          "status": "pending",
+          "comment": "",
+          "ts": ""
+        }
+      ],
+      "coordination_log": [],
+      "acceptance_criteria": "verification artifact lists all 3 batch mission IDs (MISSION-623, MISSION-710, MISSION-743) and records one disposition for the batch",
+      "ground_truth_sources": [
+        "MISSION-623",
+        "MISSION-710",
+        "MISSION-743"
+      ],
+      "verification_artifact": "",
+      "certified_by": "CC",
+      "silver_front_frame": "2026-07-29T17:15:20.901388+00:00",
+      "suspense_date": "2026-08-05",
+      "priority": "P2",
+      "status": "in_coordination",
+      "created_at": "2026-07-29T17:15:20.901588+00:00",
+      "updated_at": "2026-07-29T17:15:20.901595+00:00",
+      "logs": [
+        "2026-07-29T17:15:20.902104+00:00: SSS opened \u2014 OPR Harlan, action APPR, 1 OCR(s) to coordinate",
+        "2026-07-29T17:15:20.902114+00:00: batch SSS \u2014 3 mission(s) lumped: MISSION-623, MISSION-710, MISSION-743"
+      ],
+      "background": "",
+      "discussion": "",
+      "views_of_others": "",
+      "tabs": [],
+      "mandates": [
+        "cross_hale",
+        "silver",
+        "unmapped:Modify code to direct you to summarize the must-haves and mu",
+        "unmapped:This is a FAIL for integrity, for advisor, for Silver \u2014 a cl",
+        "unmapped:You must also modify the code to capture all messages sent d"
+      ],
+      "is_batch": true,
+      "batch_items": [
+        {
+          "mission_id": "MISSION-623",
+          "description": "FPD deadline audit \u2014 Furlow and Kuklinski",
+          "expected_benefit": "FPD deadline audit \u2014 Furlow and Kuklinski"
+        },
+        {
+          "mission_id": "MISSION-710",
+          "description": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off",
+          "expected_benefit": "Resolve Furlow and Kuklinski FPD audit with Harlan sign-off"
+        },
+        {
+          "mission_id": "MISSION-743",
+          "description": "Complete FPD audit for Furlow and Kuklinski",
+          "expected_benefit": "Complete FPD audit for Furlow and Kuklinski"
         }
       ]
     }

@@ -133,3 +133,66 @@ def test_empty_board_is_safe():
 def test_malformed_missions_do_not_crash_the_scan():
     board = [{"id": "M-1"}, {"title": None, "status": "active"}, _open("x")]
     assert _find_entity_duplicate(board, "Loucks FPD $24,798 due") is None
+
+
+# ---------------------------------------------- false-merge guards (sweep)
+# A 2026-07-29 duplicate sweep over the live board produced a bogus 15-mission
+# cluster spanning a rental car, orphaned systemd units, and a client transfer
+# dispute. Cause: `parties` were harvested from long DESCRIPTION prose, so
+# unrelated work linked through generic tokens. These pin the fix.
+
+from OpsCenter.mission_board_sync import _rarity_predicate
+
+
+def test_parties_come_from_title_only_not_description_prose():
+    """Generic words in a long description must not become identity."""
+    sig = _entity_signature(
+        "GRB Rental Car",
+        "Commander's booking is live in TESS; verify against the client "
+        "itinerary and confirm the payment record only after review.")
+    assert sig is not None
+    for junk in ("booking", "live", "tess", "client", "itinerary", "verify"):
+        assert junk not in sig["parties"], f"{junk!r} leaked in from description"
+
+
+def test_unrelated_ops_work_does_not_merge_via_description():
+    """The exact bogus pairing from the sweep."""
+    board = [_open("Resolve McLeod lifecycle contact and transfer dispute",
+                   "8 days overdue; booking data live in TESS, verify payment")]
+    hit = _find_entity_duplicate(
+        board, "GRB Rental Car",
+        "booking is live; confirm the payment record only")
+    assert hit is None
+
+
+def test_systemd_units_do_not_merge_with_tess_pipeline():
+    board = [_open("Restore TESS pipeline and run commission cross-check",
+                   "commission data live against MISSION-624")]
+    hit = _find_entity_duplicate(
+        board, "Five orphaned systemd units point at deleted scripts",
+        "all disabled; live scripts recommend removal per MISSION-646")
+    assert hit is None
+
+
+def test_common_client_name_alone_cannot_identify_a_duplicate():
+    """A busy client appears across many unrelated missions, so the name
+    identifies nothing on its own."""
+    board = [_open(f"Kuklinski task {i} payment") for i in range(20)]
+    is_rare = _rarity_predicate(board)
+    assert not is_rare("kuklinski")
+
+
+def test_rare_shared_token_still_identifies_a_duplicate():
+    """Furlow+Kuklinski FPD audits are genuinely one job."""
+    board = ([_open(f"Kuklinski routing item {i} payment") for i in range(20)]
+             + [_open("FPD deadline audit — Furlow and Kuklinski")])
+    hit = _find_entity_duplicate(
+        board, "Complete FPD audit for Furlow and Kuklinski")
+    assert hit is not None
+    assert hit["title"] == "FPD deadline audit — Furlow and Kuklinski"
+
+
+def test_rarity_predicate_ignores_closed_missions():
+    board = [{"id": f"M{i}", "title": "Kuklinski payment", "description": "",
+              "status": "completed"} for i in range(30)]
+    assert _rarity_predicate(board)("kuklinski")
