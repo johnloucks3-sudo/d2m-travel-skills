@@ -90,3 +90,45 @@ def test_healthy_oversight_layer_adds_no_noise(monkeypatch):
 def test_missing_stats_still_returns_unavailable_notice():
     html = wor.build_wing_ops_section({"since_hours": 24, "stats": {}})
     assert "unavailable" in html
+
+
+# ------------------------------------------------- backlog surfacing (v2)
+
+def test_agent_stalls_and_commander_queue_are_never_collapsed():
+    """Collapsing these would let the Wing's own dropped work hide inside the
+    Commander's review queue, or blame him for work agents abandoned."""
+    d = _digest({**EMPTY_LEDGER, "total": 5})
+    d["backlog"] = {"agent_stalled": 51, "awaiting_commander": 69,
+                    "agent_oldest_days": 13.2, "commander_oldest_days": 15.5}
+    html = wor.build_wing_ops_section(d)
+    assert "51 mission(s) stalled agent-side" in html
+    assert "69 awaiting Commander" in html
+
+
+def test_stale_backlog_breaks_an_otherwise_green_line():
+    """A window with no discrepancies but 51 abandoned missions is not clean."""
+    d = _digest({**EMPTY_LEDGER, "total": 5, "verified_pass": 5})
+    d["backlog"] = {"agent_stalled": 51, "awaiting_commander": 0,
+                    "agent_oldest_days": 13.2, "commander_oldest_days": 0}
+    html = wor.build_wing_ops_section(d)
+    assert "no discrepancies, blocks, or drops across" not in html
+
+
+def test_no_backlog_leaves_green_intact():
+    d = _digest({**EMPTY_LEDGER, "total": 5, "verified_pass": 5})
+    d["backlog"] = {"agent_stalled": 0, "awaiting_commander": 0,
+                    "agent_oldest_days": 0, "commander_oldest_days": 0}
+    html = wor.build_wing_ops_section(d)
+    assert "no discrepancies, blocks, or drops across 5 checked outcome(s)" in html
+
+
+def test_renderer_is_pure_and_does_not_read_the_live_board(monkeypatch):
+    """Regression: the renderer briefly reached out to mission_board.json,
+    making it non-deterministic and untestable. Data gathering belongs in
+    build_wing_ops_digest()."""
+    import core.oversight.reaper as rp
+    monkeypatch.setattr(rp, "stale_missions",
+                        lambda **kw: (_ for _ in ()).throw(
+                            AssertionError("renderer must not scan the board")))
+    html = wor.build_wing_ops_section(_digest({**EMPTY_LEDGER, "total": 2}))
+    assert html

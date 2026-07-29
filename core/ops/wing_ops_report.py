@@ -45,7 +45,31 @@ def build_wing_ops_digest(since_hours: float = 24) -> dict:
     except Exception as e:
         log.warning("seat_budget unavailable: %s", e)
 
-    return {"since_hours": since_hours, "stats": stats, "scorecard": scorecard, "budgets": budgets}
+    # Stale missions read straight from mission_board.json — deliberately NOT
+    # via the delegation helpers, because the 2026-07-29 audit showed those
+    # helpers are never called, which left the old detector structurally unable
+    # to fire while this digest printed green.
+    backlog = {}
+    try:
+        from core.oversight.reaper import stale_missions
+        stale = stale_missions()
+        awaiting = [m for m in stale if m["status"] == "pending_review"]
+        stalled = [m for m in stale if m["status"] != "pending_review"]
+        backlog = {
+            "agent_stalled": len(stalled),
+            "awaiting_commander": len(awaiting),
+            "agent_oldest_days": (max((m["stale_hours"] for m in stalled), default=0) / 24),
+            "commander_oldest_days": (max((m["stale_hours"] for m in awaiting), default=0) / 24),
+            "worst_agent_stalled": [
+                {"id": m["mission_id"], "days": round(m["stale_hours"] / 24, 1),
+                 "owner": m["owner"], "title": m["title"]}
+                for m in stalled[:5]],
+        }
+    except Exception as e:
+        log.warning("stale mission scan unavailable: %s", e)
+
+    return {"since_hours": since_hours, "stats": stats, "scorecard": scorecard,
+            "budgets": budgets, "backlog": backlog}
 
 
 def build_wing_ops_section(digest: dict) -> str:
@@ -98,16 +122,55 @@ def build_wing_ops_section(digest: dict) -> str:
                      f'across {total} checked outcome(s) ✅</span>')
 
     # The oversight layer's own liveness. A silent sensor is worse than no
-    # sensor — "monitor efficacy, not presence." If the reaper has stopped,
-    # every clean line above is unsupported and must say so.
+    # sensor — "monitor efficacy, not presence." Two independent checks:
+    #   reaper_is_healthy() — is the detector still RUNNING?
+    #   canary_status()     — does it still DETECT? (synthetic failures injected
+    #                         and confirmed caught; absence of detection is P0)
+    # A running-but-blind reaper would pass the first and fail the second, so
+    # both must be surfaced. If either is bad, every clean claim below it is
+    # unsupported and the brief must say so before anything else.
+    warnings = []
     try:
         from core.oversight.reaper import reaper_is_healthy
-        healthy, health_msg = reaper_is_healthy()
-        if not healthy:
-            fail_line = (f'<span style="color:#dc2626;font-weight:bold;">⚠ OVERSIGHT LAYER '
-                         f'DEGRADED: {health_msg}</span><br>' + fail_line)
-    except Exception:
-        pass
+        ok, msg = reaper_is_healthy()
+        if not ok:
+            warnings.append(f"OVERSIGHT LAYER DEGRADED: {msg}")
+    except Exception as e:  # a broken import is itself a degraded layer
+        warnings.append(f"OVERSIGHT LAYER UNIMPORTABLE: {e}")
+    try:
+        from core.oversight.canary import canary_status
+        ok, msg = canary_status()
+        if not ok:
+            warnings.append(f"OVERSIGHT UNVERIFIED: {msg}")
+    except Exception as e:
+        warnings.append(f"OVERSIGHT CANARY UNIMPORTABLE: {e}")
+
+    # Stale work, gathered in build_wing_ops_digest() so this renderer stays
+    # pure and testable. Split deliberately: `pending_review` is queued on the
+    # COMMANDER, while in_progress/active are agent-side stalls. Collapsing
+    # them into one number would let the Wing's own dropped work hide inside
+    # the Commander's queue.
+    backlog = digest.get("backlog") or {}
+    if backlog.get("agent_stalled"):
+        fail_bits.append(
+            f'<span style="color:#dc2626;font-weight:bold;">'
+            f'{backlog["agent_stalled"]} mission(s) stalled agent-side '
+            f'(oldest {backlog.get("agent_oldest_days", 0):.0f}d)</span>')
+    if backlog.get("awaiting_commander"):
+        fail_bits.append(
+            f'<span style="color:#ea580c;font-weight:bold;">'
+            f'{backlog["awaiting_commander"]} awaiting Commander '
+            f'(oldest {backlog.get("commander_oldest_days", 0):.0f}d)</span>')
+
+    # Recompute: stale-mission findings must be able to break a green line.
+    if fail_bits:
+        fail_line = " &nbsp;|&nbsp; ".join(fail_bits)
+
+    if warnings:
+        banner = "<br>".join(
+            f'<span style="color:#dc2626;font-weight:bold;">⚠ {w}</span>'
+            for w in warnings)
+        fail_line = banner + "<br>" + fail_line
 
     budget_cells = ""
     for seat in ("CC", "OC", "AG"):
