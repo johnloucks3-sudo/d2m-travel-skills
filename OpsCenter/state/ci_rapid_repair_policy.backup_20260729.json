@@ -1,0 +1,9 @@
+{
+  "_doc": "CI Rapid-Repair armed-tier policy. This file IS the auto-arm policy — Hale/Commander edit `armed_tiers` here; no code change needed. CONSERVATIVE CUTOVER: SAFE only. Widen to [\"SAFE\",\"CAUTION\"] only AFTER validation (Commander/Hale call). DESTRUCTIVE can NEVER be armed — the tier gate in run_capability stages it unconditionally, and this file's parser drops any DESTRUCTIVE entry.",
+  "armed_tiers": ["SAFE"],
+  "policy": "SAFE effective-tier -> auto-apply + verify-after. CAUTION + DESTRUCTIVE effective-tier -> STAGED (one-touch confirm required). apply=False everywhere else.",
+  "owner": "Sterling (A7) proposes / Hale + Commander decide",
+  "history": [
+    {"ts": "2026-07-02", "armed_tiers": ["SAFE"], "by": "Sterling (A7)", "note": "Conservative cutover — integrate CI rapid-repair warehouse into live auto-repair, SAFE-only armed."}
+  ]
+}

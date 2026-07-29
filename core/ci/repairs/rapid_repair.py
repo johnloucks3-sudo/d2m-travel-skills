@@ -191,7 +191,8 @@ def _save_dedup(d: dict) -> None:
 
 
 def _notify_once(key: str, msg: str, client_affecting: bool, dedup: dict,
-                 window_seconds: int = 3600, recovered: bool = False) -> None:
+                 window_seconds: int = 3600, recovered: bool = False,
+                 staged: bool = False) -> None:
     """Page Telegram (via hale_notify) at most once per key per window. Only
     called for NEW AUTO_APPLIED and NEW STAGED — never for BLOCKED_* / reused
     tokens, so a persistently-RED skill does not page every heartbeat.
@@ -207,7 +208,8 @@ def _notify_once(key: str, msg: str, client_affecting: bool, dedup: dict,
         from core.notify.hale_notify import notify_hale
         notify_hale("ci-rapid-repair", key, msg,
                     repaired=recovered,
-                    client_affecting=client_affecting)
+                    client_affecting=client_affecting,
+                    staged=staged)
     except Exception as e:
         _log(f"notify failed for {key}: {e}")
     dedup[key] = now
@@ -300,11 +302,20 @@ def run_all_red(armed_tiers: Optional[set] = None, notify: bool = True) -> dict:
                         recovered=recovered,
                     )
                 elif r.decision == Decision.STAGED:
+                    # Dedup key is the SKILL, deliberately NOT the token. Each staging
+                    # run mints a fresh token, so keying on it made every key new and the
+                    # suppression window never once engaged: 323 pages across 3 skills in
+                    # the 7 days to 2026-07-29 (146 fare-watch-centrav, 140 home-dir-health,
+                    # 37 lifecycle-travel-surveys), one per token, 46/day and climbing.
+                    # The token still travels in the message body so the Commander can
+                    # confirm the current one.
                     _notify_once(
-                        f"STAGED:{sid}:{r.staged_token}",
+                        f"STAGED:{sid}",
                         f"CI rapid-repair STAGED '{sid}' "
                         f"({r.risk_tier.value}) token={r.staged_token} — one-touch confirm to apply",
                         client_affecting, dedup,
+                        window_seconds=86400,   # one ask per skill per day, not per run
+                        staged=True,            # success awaiting approval, NOT a failure
                     )
                 # BLOCKED_*, DRY_RUN, SKIPPED_HEALTHY, reused tokens -> no page.
 

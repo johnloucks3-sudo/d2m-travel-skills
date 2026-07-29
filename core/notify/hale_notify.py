@@ -70,17 +70,45 @@ def _relay(msg: str):
 
 
 def notify_hale(bot: str, task: str, error: str, repaired: bool = False,
-                client_affecting: bool = False):
+                client_affecting: bool = False, staged: bool = False):
     """
-    Route a bot failure notification.
+    Route a bot notification.
 
-    - repaired=True       → [AUTONOMY REPAIR] Telegram (brief, no action needed)
+    - staged=True         → approval request. Work SUCCEEDED and is parked behind a
+                            gate awaiting the Commander's confirm.
+    - repaired=True       → [AUTONOMY REPAIR] digest only, no action needed
     - repaired=False + client_affecting → escalate to Commander
     - repaired=False + NOT client_affecting → log + monitor note, no action needed
+
+    WHY `staged` EXISTS (2026-07-29). Until today there were only three branches, and
+    "succeeded, awaiting your approval" was not one of them. A CAUTION-tier repair that
+    correctly STAGED itself reported repaired=False, fell into the client_affecting
+    branch, and paged the Commander as:
+
+        `ci-rapid-repair/STAGED:...` failed. Auto-repair unsuccessful.
+        *CLIENT-AFFECTING — needs your attention.*
+
+    — while its own error text read "STAGED ... one-touch confirm to apply". The message
+    contradicted itself, and nothing had touched client data because nothing had been
+    applied. Over the 7 days to 2026-07-29 that produced 323 pages across just 3 skills,
+    46/day, a 97% false-alarm rate against 9 genuine notifications. The safety gate was
+    working perfectly; only the wording was wrong.
     """
     ts = datetime.now(timezone.utc).strftime("%H:%M UTC")
 
-    if repaired:
+    if staged:
+        # Success awaiting confirmation — page once, ask plainly, never say "failed".
+        msg = (
+            f"🟡 *CONFIRM TO APPLY* [{ts}]\n"
+            f"`{bot}/{task}` is STAGED and waiting on you.\n"
+            f"Nothing has been applied — no client data touched.\n"
+            f"Detail: `{error[:200]}`"
+        )
+        _log(f"STAGED-AWAITING-CONFIRM: {bot}/{task} — {error[:100]}")
+        _digest("staged_awaiting_confirm", bot, task, error)
+        _relay(msg)
+
+    elif repaired:
         # Auto-repaired = "No Commander action needed" → digest only, not
         # real-time Telegram (MISSION-669, Commander directive 2026-07-17).
         _log(f"AUTONOMY-REPAIR: {bot}/{task} repaired.")
