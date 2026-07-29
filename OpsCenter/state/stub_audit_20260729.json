@@ -1,0 +1,1674 @@
+{
+  "audited": 236,
+  "scripts": [
+    {
+      "path": "/home/john/.local/bin/d2m-drive-sync.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-drive-sync"
+    },
+    {
+      "path": "/home/john/.local/bin/goose",
+      "verdict": "STUB",
+      "evidence_lines": [
+        491355
+      ],
+      "evidence": "NotImplementedError on line 491355: \u0000dollar-sign\u0000underscore\u0000y\u0000)?\u0000email\u0000exclusiveMaximum\u0000Break statement ex",
+      "timer": "goose-telegram"
+    },
+    {
+      "path": "/home/john/Thunderbird/.venv/bin/litellm",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-litellm-gateway"
+    },
+    {
+      "path": "/home/john/Thunderbird/.venv/bin/python",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-hooks"
+    },
+    {
+      "path": "/home/john/Thunderbird/.venv/bin/uvicorn",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cost-dashboard"
+    },
+    {
+      "path": "/home/john/Thunderbird/D2M/hale_draft_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-draft-engine"
+    },
+    {
+      "path": "/home/john/Thunderbird/D2M/hale_touchpoint_proposer_daily.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-touchpoint-proposer"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/ai_auth_probe.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "ai-auth-probe"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/alpha_wing_watch.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "alpha-wing-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/auto_session_monitor.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "auto-session-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/blackboard_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-blackboard-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/dashboard_generator.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-dashboard-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/dispatcher.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-dispatcher"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/elon_proposal_integration_check.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "staff-proposal-cadence"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/email_task_ingest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "email-task-ingest"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_brain_monitor_12h.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale_brain_monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_cc_heartbeat.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-cc-heartbeat"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_daily_audit.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-daily-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_dispatcher.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-brief-generate"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_incident_router.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-incident-handler"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/hale_morning_brief.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-morning-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/harlan_cost_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-harlan-weekly"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/job_spsa_eod_brief.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-spsa-eod-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/job_spsa_intake.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-spsa-intake"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/job_spsa_weekly_brief.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-spsa-weekly-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/loucks_guinea_pig_notifier.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "loucks-gp-notifier"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/max_proxy.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "max-proxy"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/opencode_spsa_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "opencode-spsa-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/opscenter_test_harness.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-opscenter-test"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/opscenter_watchdog.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-watchdog"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/red_star_scanner.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-red-star-scanner"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/run_commander_directive_sweep.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-commander-directive-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/run_directive_sweep_wrapped.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-commander-directive-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/run_inbox_sweep.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-inbox-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/staff_proposal_cadence.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "staff-proposal-cadence"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/staff_tasking_timers_system.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "staff_tasking_timers_system"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/task_sla_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-sla-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/thunderbird_coo_watchdog.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-coo-watchdog"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/thunderbird_overwatch.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-overwatch"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-telegram-gw"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/whatsapp_webhook.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-whatsapp-webhook"
+    },
+    {
+      "path": "/home/john/Thunderbird/OpsCenter/wing_heartbeat.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-heartbeat"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_1730_nomination.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-1730-nomination"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_daily_brief.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-daily-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_eod_brief.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-eod-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_llm_proxy.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-llm-proxy"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_morning_briefing.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-morning-briefing"
+    },
+    {
+      "path": "/home/john/Thunderbird/agents/thunderbird_star_protocol.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-star-protocol"
+    },
+    {
+      "path": "/home/john/Thunderbird/api/thunderbird_api.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-api"
+    },
+    {
+      "path": "/home/john/Thunderbird/api/thunderbird_evernote_backup.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-evernote-backup"
+    },
+    {
+      "path": "/home/john/Thunderbird/api/thunderbird_power_harvest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-power-harvest"
+    },
+    {
+      "path": "/home/john/Thunderbird/api/thunderbird_preflight.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-preflight"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ai_infra/daemons/router_health_daemon.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "router-health-daemon"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/booking/thunderbird_booking_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-booking-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/booking/thunderbird_pdf_ingest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-pdf-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/booking/thunderbird_tess.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tess-keepalive"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ci/repairs/rapid_repair.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "ci-auto-repair"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/communication/thunderbird_brief_telegram.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-brief-telegram"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/continuity/continuity_executor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-continuity"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/cost_dashboard/collectors/claude_usage.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cost-claude"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/cost_dashboard/realtime_tracker.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cost-tracker"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/dossier/dossier_validation_sweep.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "dossier-validation-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/agentmail_listener.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "agentmail-listener"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/d2m_agentmail_bridge.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-agentmail-bridge"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/dani_email_responder.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "dani-email-responder"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/email_conversation_agent.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-email-conversation"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/hale_email_responder.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-email-responder"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/inbox_hygiene.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "inbox-hygiene"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/persona_email_responder.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "persona-email-responder"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/thunderbird_dani_email.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-dani-email"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/thunderbird_email_intel.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-email-intel"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/thunderbird_inbox_cleanup_daily.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-inbox-cleanup"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/email/wind_email_responder.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "wind-email-responder"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/health_check_worker.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-health-check"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/intel/mythos_availability_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "mythos-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/intel/thunderbird_incubator.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-incubator-evening-review"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/intel/thunderbird_innovation_scanner.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-innovation-scan-weekly"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/intel/thunderbird_intel_digest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-intel-digest"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/intel/thunderbird_nightly_tech_harvest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-sculptor-harvest"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/learning/thunderbird_voice_harvest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-voice-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/lifecycle/lifecycle_scheduler.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-lifecycle-scheduler"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/lifecycle/validation_report_generator.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-validation-report"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/mcp/travel_mcp_server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "goose-mcp-http"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/memory/qdrant_docker_watchdog.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "qdrant-watchdog"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/memory/qdrant_reindex_incremental.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-qdrant-reindex"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/monitoring/telegram_bot_healthcheck.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-telegram-health"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/monitoring/weekly_budget_report.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "weekly-budget-report"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/notifications/booking_notifications.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "booking-notifications"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/bryana_dashboard.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "bryana-dashboard"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/dossier_freshness.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-dossier-freshness"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/evening_consolidated_eod_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-evening-consolidated"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/executive_officer_daemon.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-xo-sentinel"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/fpd_auto_update.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "fpd-auto-update"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/hale_dashboard_gen.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-dashboard-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/hale_hourly_summary.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-hourly-summary"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/lead_receiver.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "lead-receiver"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/morning_consolidated_brief_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-morning-consolidated"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/tess_web_api.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tess-web-api"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/thunderbird_ai_metrics_dashboard.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-ai-metrics"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/thunderbird_monthly_archive.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-monthly-archive"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/thunderbird_usage_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-usage-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/ops/timer_self_audit.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-timer-self-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/relay/email_batch_processor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "batched-email-queue-processor"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/scheduling/thunderbird_scheduler.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-scheduler"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/visual_synthesis/dashboard_app/server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-dashboard"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/watchtower/thunderbird_backup_verify.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-backup-verify"
+    },
+    {
+      "path": "/home/john/Thunderbird/core/watchtower/thunderbird_fpd_alert.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-fpd-alert"
+    },
+    {
+      "path": "/home/john/Thunderbird/deploy/health_check.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-healthcheck"
+    },
+    {
+      "path": "/home/john/Thunderbird/hooks/claude_oauth_keepalive.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "claude-oauth-keepalive"
+    },
+    {
+      "path": "/home/john/Thunderbird/hooks/refresh_tool_api_keys.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tool-key-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/intel/daily_search/daily_intel_runner.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-daily-intel"
+    },
+    {
+      "path": "/home/john/Thunderbird/intel/thunderbird_zfold_test.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-zfold-test"
+    },
+    {
+      "path": "/home/john/Thunderbird/itinerary/thunderbird_doc_sculptor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-sculptor-learn"
+    },
+    {
+      "path": "/home/john/Thunderbird/mcps/apify/node_modules/.bin/actors-mcp-server",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "apify-mcp"
+    },
+    {
+      "path": "/home/john/Thunderbird/mcps/mapbox/node_modules/.bin/mcp-server",
+      "verdict": "PARTIAL",
+      "evidence_lines": [
+        117
+      ],
+      "evidence": "TODO/FIXME on line 117: // TODO: Remove this workaround when SDK fixes their type definitions",
+      "timer": "mapbox-mcp"
+    },
+    {
+      "path": "/home/john/Thunderbird/ops/commander_updates_enhanced.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "commander-updates"
+    },
+    {
+      "path": "/home/john/Thunderbird/output/mission-090_worktree_sweep.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "mission-090-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/portal/server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-portal"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/a7_daily_audit.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "a7-daily-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/agentmail_daily_digest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "agentmail-daily-digest"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/ai_price_fetcher.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cruise-ai-price"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/airborne_scanner.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-airborne-scanner"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/airline_schedule_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-airline-schedule-change"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/anti_theater_audit.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-anti-theater-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/auth_static_server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "spencer-portal"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/autosave_checkpoint.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-autosave"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/blackboard_conflict_resolver.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-blackboard-conflict-resolver"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/booking_survey_generator.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-booking-survey"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/build_master_cruise_db.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cruise-db-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/centrav_session_warm.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-centrav-warm"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/cf_agent_identity_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cf-agent-identity-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/chrome_cdp_health.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "chrome-cdp-health"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/ci_daily_routine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "ci-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/ci_sentinel.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "ci-sentinel"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/client_gdoc_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "client-gdoc-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/client_inbox_watch.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "client-inbox-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/client_path_canary.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-canary-monitor"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/client_portal_server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "client-portal-server"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/commander_context_restore.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-commander-context-restore"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/commander_decision_inbox_update.py",
+      "verdict": "STUB",
+      "evidence_lines": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "evidence": "Lines 34-39: TODO placeholder - 'In production, this would identify completed items to archive' - no actual archiving implementation",
+      "timer": "commander-decision-inbox-update"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/commander_task_intake.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-commander-intake"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/commission_aging_pipeline.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-commission-aging"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/commission_watch.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-commission-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/continuity_daily_recert.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-continuity-recert"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/credential_expiry_forecast.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-credential-expiry-forecast"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/credentials_health_check.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-credential-check"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/cruise_excursion_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "loucks-excursion-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/cruise_quote_scanner.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cruise-quote-scanner"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/d2m_commander_digest.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-commander-digest"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/d2m_inbox_triage.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-inbox-triage"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/daily_airfare_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-airfare-scan"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/daily_loucks_airfare_watch.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "weather-eye-loucks-airfare"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/daily_mission_executor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-daily-executor"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/dani_voice_draft.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-dani-voice"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/deadwood_review.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "deadwood-review-1month"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/dembe_intel_sweep.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-dembe-intel"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/dictate_hotkey.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "dictate-hotkey"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/disk_maintenance.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "disk-maintenance"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/disk_pressure.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-disk-pressure"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/dossier_correspondence_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-correspondence-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/dossier_freshness_cron.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-dossier-freshness"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/elon_proposal_review.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "elon-proposal-weekly-review"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/email_canary_shadow.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "email-canary-shadow"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/email_ingestion_pipeline.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-email-ingestion"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/factbook_refresh.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-factbook-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/fare_watch_alert.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-fare-watch-alert"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/fare_watch_amadeus.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-fare-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/fdp_reconcile.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-fdp-reconcile"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/fetch_consumer_prices.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "cruise-price-refresh"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/flight_scan_trigger.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-flight-scan"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/generate_war.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-war"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/github_safe_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-github-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/gmail_agentmail_bridge_poller.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-gmail-agentmail-bridge"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/google_flights_fare_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-google-flights-fare-scan"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/hale_daemon.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-daemon"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/hale_decision_log_rollup.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-decision-log"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/hale_heartbeat_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-heartbeat"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/hale_orchestrator_timer_sweep.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-orchestrator-sweep"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/hale_vendor_calendar.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "hale-daemon"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/inbox_restore.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "inbox-restore"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/ita_fare_watch_poll.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-ita-fare-watch"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/itinerary_watchdog.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "itinerary-watchdog"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/keepalive_supervisor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "keepalive-supervisor"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/kiwi_fare_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-kiwi-fare-scan"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/label_system.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-label-aging"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/lessons_implementation_tracker.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-lessons-implementation-tracker"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/lifecycle_calendar_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "lifecycle-calendar-engine"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/loucks_united_hard_alert.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "loucks-united-hard-alert"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/mission_board_promoter.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-mission-board-promoter"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/morning_brief_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-morning-brief"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/oc_worker.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "opencode-worker"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/perx_intel_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-perx-intel"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/perx_session_keepalive.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-perx-keepalive"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/perx_trigger_detector.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-perx-trigger-detector"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/poe_points_check.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "poe-points-check"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/portal_live_probe.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-portal-live-probe"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/post_trip_followup.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-post-trip-followup"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/preflight_gate.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-preflight-gate"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/push_claude_usage.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "claude-usage-push"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/regent_firefox_cookie_capture.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "regent-firefox-capture"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/rotate_daemon_logs.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-log-rotate"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/silversea_cookie_refresh.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-silversea-session"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/spencer_gdoc_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "spencer-gdoc-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/stack_freshness_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-freshness-daily"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/supplier_promo_scan.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-supplier-promo-scan"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/supplier_rate_drift.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-supplier-rate-drift"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/systemd_alert_send.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-alert@"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/tess_dossier_sync.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-tess-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/tess_token_keepalive.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tess-token-keepalive"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/thunderbird-rclone-sync.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-drive-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/thunderbird_dir_server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "itinerary-server"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/timer_self_audit.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d-thunderbird-timer-self-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/tmp_leak_cleanup.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tmp-leak-cleanup"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/tool_trim_audit.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tool-trim-audit"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/touchpoint_execute.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-touchpoint-execute"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/tp_alert_engine.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "tp-alert-engine"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/train_demand_predictor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "demand-predictor-retrain"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/weather_disruption_monitor.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-weather-disruption"
+    },
+    {
+      "path": "/home/john/Thunderbird/scripts/yoga_dv7_files_sync.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "yoga-dv7-files-sync"
+    },
+    {
+      "path": "/home/john/Thunderbird/storage/reverie/api/.venv_new/bin/uvicorn",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "reverie-api"
+    },
+    {
+      "path": "/home/john/Thunderbird/storage/reverie/reverie_static_server.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "reverie-frontend"
+    },
+    {
+      "path": "/home/john/Thunderbird/supertimer/leader.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-supertimer"
+    },
+    {
+      "path": "/home/john/bin/goose-d2m",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "d2m-x-osint"
+    },
+    {
+      "path": "/home/john/bin/ttyd",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "ttyd-terminal"
+    },
+    {
+      "path": "/home/john/bin/yoga-quiet-hours.sh",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "yoga-quiet-on"
+    },
+    {
+      "path": "/home/john/claude_token_counter.py",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "claude-token-monitor"
+    },
+    {
+      "path": "/usr/bin/bash",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "claude-sync"
+    },
+    {
+      "path": "/usr/bin/docker",
+      "verdict": "STUB",
+      "evidence_lines": [
+        62816
+      ],
+      "evidence": "NotImplementedError on line 62816: invalid Trailer key already registeredunknown status codeinvalid UUID ",
+      "timer": "d2m-openwebui"
+    },
+    {
+      "path": "/usr/bin/google-chrome-stable",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "chrome-debug"
+    },
+    {
+      "path": "/usr/bin/node",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-ccr"
+    },
+    {
+      "path": "/usr/bin/node24",
+      "verdict": "PARTIAL",
+      "evidence_lines": [
+        81076
+      ],
+      "evidence": "TODO/FIXME on line 81076: // TODO: instead of injecting the start/end at this point, just return",
+      "timer": "browser-bridge"
+    },
+    {
+      "path": "/usr/bin/rsync",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-rsync"
+    },
+    {
+      "path": "/usr/bin/systemctl",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-code-reload"
+    },
+    {
+      "path": "/usr/local/bin/cloudflared",
+      "verdict": "STUB",
+      "evidence_lines": [
+        62096
+      ],
+      "evidence": "NotImplementedError on line 62096: invalid Trailer key already registeredunknown status codeinvalid URL e",
+      "timer": "thunderbird-tunnel"
+    },
+    {
+      "path": "/usr/local/bin/n8n",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "n8n"
+    },
+    {
+      "path": "/usr/sbin/logrotate",
+      "verdict": "REAL",
+      "evidence_lines": [],
+      "evidence": "",
+      "timer": "thunderbird-logrotate"
+    }
+  ]
+}
