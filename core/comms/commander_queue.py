@@ -184,6 +184,38 @@ def is_closed(item_id: str) -> bool:
     return str(item_id) in closed_ids()
 
 
+def is_satisfied(alert: dict) -> bool:
+    """True if this alert's underlying obligation has been met and it must stop firing.
+
+    Why this lives on the ALERT and not only in the ledger — found 2026-07-29 when the
+    Commander was told "McLeod FPD overdue" for a payment he made on 20 July:
+
+    24 files read `deferred_alerts` from hale_state.json; only 3 consult the closure
+    ledger. Closing an alert therefore removed it from his desk while it kept firing in
+    the daily brief, the EOD brief, the dashboard, TCD, and the FPD calendar alerts.
+    A `satisfied_at` stamp travels WITH the data, so every reader sees it — including the
+    21 that have never heard of this module.
+
+    Known weakness, raised by AG in its own design review: this duplicates state that
+    also lives in the dossier and TESS. The durable fix is for conditions to evaluate
+    against the system of record (`NOT dossier_is_paid("2984034")`) rather than carry a
+    manual stamp. Until then a payment can be recorded in TESS and still fire here,
+    because nothing cross-updates. Treat this as a stopgap that is honest about being one.
+    """
+    return bool(alert.get("satisfied_at")) or is_closed(alert.get("id", ""))
+
+
+def active_alerts(alerts: Optional[list] = None) -> list[dict]:
+    """The accessor every reader of deferred_alerts should migrate to.
+
+    Filters on satisfaction AND the closure ledger in one place, so a new generator gets
+    the behaviour by default instead of having to remember it.
+    """
+    if alerts is None:
+        alerts = (_load(STATE_PATH, {}) or {}).get("deferred_alerts", []) or []
+    return [a for a in alerts if not is_satisfied(a)]
+
+
 def closure_count() -> int:
     return len(closed_ids())
 
@@ -240,7 +272,9 @@ def build_queue() -> dict:
         aid = str(a.get("id", "")).strip()
         if not aid:
             continue
-        if aid in closed:
+        # An alert whose obligation has been met must not reach his desk, whether that
+        # was recorded in the ledger or stamped on the alert itself.
+        if aid in closed or a.get("satisfied_at"):
             suppressed += 1
             continue
         items.append({

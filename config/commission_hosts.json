@@ -1,0 +1,30 @@
+{
+  "_comment": "Host agency and commission split per booking. Commander statement 2026-07-29. Before this file, host/split data existed only as hardcoded literals scattered across scripts/spawn_commission_audit.py, scripts/fix_booking_master.py and scripts/hale_vendor_calendar.py, with no field in dossier frontmatter. This is the single record; those scripts should read it rather than restate it.",
+  "recorded": "2026-07-29",
+  "source": "Commander, verbatim",
+  "hosts": {
+    "NEXION": {"d2m_share_pct": 70, "note": "D2M keeps 70%"},
+    "OA": {"d2m_share_pct": 80, "note": "Outside Agents. D2M keeps 80%"}
+  },
+  "bookings": [
+    {"client": "McLeod",     "trip": "Grandeur Lesser Antilles Dec 2026", "booking": "2984034", "supplier": "Regent Seven Seas", "host": "NEXION", "d2m_share_pct": 70},
+    {"client": "Furlow",     "trip": "Grandeur Scandinavia Aug 2026",     "booking": "3071222", "supplier": "Regent Seven Seas", "host": "NEXION", "d2m_share_pct": 70},
+    {"client": "Ely",        "trip": "Grandeur Scandinavia Aug 2026",     "booking": "3096289", "supplier": "Regent Seven Seas", "host": "NEXION", "d2m_share_pct": 70},
+    {"client": "Nichols",    "trip": "Grandeur Scandinavia Aug 2026",     "booking": "3078056", "supplier": "Regent Seven Seas", "host": "NEXION", "d2m_share_pct": 70},
+    {"client": "McLeod",     "trip": "Princess Mexico Riviera Mar 2027",  "booking": "8X6PGQ",  "supplier": "Princess",          "host": "NEXION", "d2m_share_pct": 70},
+    {"client": "Kuklinski",  "trip": "Viking Panama Dec 2026",            "booking": "9593873", "supplier": "Viking",            "host": "OA",     "d2m_share_pct": 80},
+    {"client": "Loucks",     "trip": "Grandeur Panama Pacific Dec 2026",  "booking": "3122006", "supplier": "Regent Seven Seas", "host": "OA",     "d2m_share_pct": 80},
+    {"client": "Loucks",     "trip": "Silver Nova May 2027",              "booking": "506101",  "supplier": "Silversea",         "host": "OA",     "d2m_share_pct": 80},
+    {"client": "McLeod",     "trip": "Prestige Season To Cheer Dec 2027", "booking": "3114500", "supplier": "Regent Seven Seas", "host": "OA",     "d2m_share_pct": 80}
+  ],
+  "payment_routing": {
+    "statement": "All payments to Regent except Westbrook Insurance ~$260",
+    "needs_clarification": true,
+    "why": "Taken literally this conflicts with the booking list above: Kuklinski is Viking, Loucks May 2027 is Silversea, McLeod Mar 2027 is Princess — all verified from dossier frontmatter (cruise_line field). Most likely the statement scopes to the current Regent payment cycle rather than to every booking on file. Recorded as stated and flagged rather than silently narrowed, because guessing the scope here would put money in the wrong place.",
+    "westbrook_insurance": {"approx_usd": 260, "supplier": "insurance", "note": "explicitly NOT Regent"}
+  },
+  "not_yet_assigned": [
+    "Westbrook (Silver Nova personal / Pacific Apr 2026) — host and split not stated",
+    "Spencer, Britan, Lyons, Loucks Personal Silver Nova Japan (566910) — not in the Commander's 2026-07-29 list"
+  ]
+}
