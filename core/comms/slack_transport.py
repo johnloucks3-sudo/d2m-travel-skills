@@ -117,23 +117,67 @@ def whoami() -> dict:
     return _call("auth.test", {})
 
 
+def granted_scopes() -> set[str]:
+    """What the installed token can actually do, straight from Slack's response header.
+
+    Assuming scopes from the manifest is how you get a 3am `missing_scope` on the one
+    night it matters. Ask the API instead.
+    """
+    tok = bot_token()
+    if not tok:
+        return set()
+    try:
+        r = requests.post(f"{API}/auth.test", timeout=TIMEOUT,
+                          headers={"Authorization": f"Bearer {tok}"})
+        return {s.strip() for s in r.headers.get("x-oauth-scopes", "").split(",") if s.strip()}
+    except requests.RequestException:
+        return set()
+
+
 def ensure_channel(name: str) -> str:
-    """Return the channel id, creating the channel if needed. Idempotent."""
+    """Return a channel reference usable by chat.postMessage.
+
+    Degrades deliberately rather than failing shut. A thin token must not cost the
+    Commander a payment-deadline alert, so this walks down:
+
+      1. channels:read present  -> resolve the real channel id (and create it if
+         channels:manage is also present).
+      2. Neither present        -> fall back to the '#name' literal, which
+         chat.postMessage accepts for public channels when the bot holds
+         chat:write.public or is already a member.
+
+    The fallback is the reason a Slack install with only chat:write still delivers.
+    """
     name = name.lstrip("#")
-    cursor = ""
-    while True:
-        params = {"limit": 200, "exclude_archived": True,
-                  "types": "public_channel,private_channel"}
-        if cursor:
-            params["cursor"] = cursor
-        data = _call("conversations.list", params)
-        for ch in data.get("channels", []):
-            if ch.get("name") == name:
-                return ch["id"]
-        cursor = (data.get("response_metadata") or {}).get("next_cursor") or ""
-        if not cursor:
-            break
-    return _call("conversations.create", {"name": name, "is_private": False})["channel"]["id"]
+    scopes = granted_scopes()
+
+    if "channels:read" in scopes:
+        cursor = ""
+        while True:
+            params = {"limit": 200, "exclude_archived": True,
+                      "types": "public_channel,private_channel"}
+            if cursor:
+                params["cursor"] = cursor
+            try:
+                data = _call("conversations.list", params)
+            except SlackError:
+                break                       # scope revoked mid-flight — use the fallback
+            for ch in data.get("channels", []):
+                if ch.get("name") == name:
+                    return ch["id"]
+            cursor = (data.get("response_metadata") or {}).get("next_cursor") or ""
+            if not cursor:
+                break
+
+        if "channels:manage" in scopes:
+            try:
+                return _call("conversations.create",
+                             {"name": name, "is_private": False})["channel"]["id"]
+            except SlackError as e:
+                if "name_taken" not in str(e):
+                    raise
+
+    return f"#{name}"
 
 
 # ─────────────────────────────────────────────────────────────────────────────────
@@ -216,7 +260,17 @@ def selftest() -> int:
     try:
         who = whoami()
         print(f"auth.test OK — team={who.get('team')} bot={who.get('user')}")
-        print(f"socket-mode app token: {'present' if app_token() else 'ABSENT (buttons will need a public URL)'}")
+        have = granted_scopes()
+        want = {"chat:write", "chat:write.public", "channels:manage",
+                "channels:read", "groups:read", "im:write", "users:read"}
+        print(f"granted scopes: {', '.join(sorted(have)) or '(none reported)'}")
+        missing = sorted(want - have)
+        if missing:
+            print(f"missing scopes: {', '.join(missing)}")
+            print("  -> add at api.slack.com/apps > OAuth & Permissions > Bot Token Scopes,")
+            print("     then Reinstall to Workspace. Posting still works via the #name fallback.")
+        print(f"socket-mode app token: "
+              f"{'present' if app_token() else 'ABSENT (buttons stay inert until it is set)'}")
         r = post("Thunderbird C2 — transport check",
                  "Slack transport is live. This message came through "
                  "`commander_channel.notify()`, so it was deduped, format-checked "
