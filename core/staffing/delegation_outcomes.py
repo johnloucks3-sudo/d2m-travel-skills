@@ -235,10 +235,6 @@ def rollup_stats(since_days: int = 1, path: Optional[Path] = None) -> dict:
         elif action == "integrity_check":
             if verdict == "PASS":
                 stats["verified_pass"] += 1
-            elif verdict == "DISCREPANCY":
-                stats["discrepancies_caught"] += 1
-            elif verdict == "UNVERIFIED":
-                stats["unverified"] += 1
         elif action == "certification":
             if verdict == "PASS":
                 stats["certified_pass"] += 1
@@ -246,6 +242,17 @@ def rollup_stats(since_days: int = 1, path: Optional[Path] = None) -> dict:
                 stats["blocked_certifications"] += 1
         elif action == "reconciliation" and verdict == "DROPPED":
             stats["dropped"] += 1
+
+        # Failures are counted by VERDICT, never by action label.
+        # Until 2026-07-29 these lived inside the `action == "integrity_check"`
+        # branch, so a DISCREPANCY or UNVERIFIED recorded under any other action
+        # (e.g. "verification") was silently dropped from the rollup — the ledger
+        # reported clean while real failures sat in it. An accountability layer
+        # that can under-report failure is worse than none.
+        if verdict == "DISCREPANCY":
+            stats["discrepancies_caught"] += 1
+        elif verdict == "UNVERIFIED":
+            stats["unverified"] += 1
     outstanding_now = outstanding("async_poll", older_than_hours=0, path=path)
     stats["unreconciled_oc"] = len(outstanding_now)
     stats["follow_up_overdue"] = len(outstanding_now)
