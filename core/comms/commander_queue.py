@@ -37,6 +37,7 @@ patching it per-symptom the way commit 0f4ce31a3 had to.
 from __future__ import annotations
 
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -44,10 +45,32 @@ from typing import Any, Iterable, Optional
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CLOSURES_PATH = ROOT / "OpsCenter" / "state" / "commander_closures.jsonl"
-QUEUE_PATH = ROOT / "OpsCenter" / "state" / "commander_queue.json"
-BOARD_PATH = ROOT / "OpsCenter" / "mission_board.json"
-STATE_PATH = ROOT / "hale_state.json"
+# Data root is overridable so tests NEVER touch production state.
+# On 2026-07-29 a regression test was run against live data and permanently closed a
+# real mission (MISSION-COMMANDER-196-CALL). Reversed on the record, but the module
+# should have made that impossible rather than relying on care.
+#   COMMANDER_QUEUE_DATA_ROOT=/tmp/whatever  -> all paths relocate under it
+_DATA_ROOT = Path(os.environ.get("COMMANDER_QUEUE_DATA_ROOT", str(ROOT)))
+_IS_TEST_ROOT = _DATA_ROOT != ROOT
+
+CLOSURES_PATH = _DATA_ROOT / "OpsCenter" / "state" / "commander_closures.jsonl"
+QUEUE_PATH = _DATA_ROOT / "OpsCenter" / "state" / "commander_queue.json"
+# Read-only sources always come from the real repo unless explicitly relocated.
+BOARD_PATH = _DATA_ROOT / "OpsCenter" / "mission_board.json"
+STATE_PATH = _DATA_ROOT / "hale_state.json"
+
+# Who may close. A closure attributed to the Commander is an assertion that HE
+# decided — it must never be forgeable by a caller that simply omitted the argument.
+ACTORS = {"Commander", "CC", "OC", "AG", "system"}
+
+
+class LedgerCorruption(RuntimeError):
+    """The closure ledger could not be read in full.
+
+    Raised rather than degraded, because a line we cannot parse might BE a closure —
+    and silently skipping it resurrects the item, which is the precise bug this
+    ledger exists to prevent.
+    """
 
 # Board statuses that mean the item is sitting on the Commander's desk.
 AWAITING_COMMANDER = {"pending_review", "in_coordination"}
@@ -60,17 +83,28 @@ def _now() -> str:
 
 
 def _read_jsonl(path: Path) -> list[dict]:
+    """Strict read. A malformed line is fatal, not skippable.
+
+    The original version swallowed JSONDecodeError with the comment "one corrupt line
+    must not un-close everything" — which had exactly the inverted effect: the skipped
+    line might have BEEN a close, so swallowing it un-closed that item silently. An
+    audit trail that degrades quietly under corruption is not an audit trail.
+    """
     if not path.exists():
         return []
-    rows = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    rows: list[dict] = []
+    for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         line = line.strip()
         if not line:
             continue
         try:
             rows.append(json.loads(line))
-        except json.JSONDecodeError:
-            continue  # one corrupt line must not un-close everything
+        except json.JSONDecodeError as exc:
+            raise LedgerCorruption(
+                f"{path}:{n} is not valid JSON ({exc}). Refusing to compute the closed "
+                "set from a partial ledger — a dropped line could resurrect an item the "
+                "Commander closed. Repair or quarantine the line, then retry."
+            ) from exc
     return rows
 
 
@@ -84,23 +118,37 @@ def _append_jsonl(path: Path, row: dict) -> None:
 # The closure ledger — the whole point of this module
 # ─────────────────────────────────────────────────────────────────────────────────
 
-def close(item_id: str, *, by: str = "Commander", reason: str = "",
-          source: str = "") -> dict:
+def _check_actor(by: str) -> str:
+    by = (by or "").strip()
+    if by not in ACTORS:
+        raise ValueError(
+            f"unknown actor {by!r}; must be one of {sorted(ACTORS)}. "
+            "Attribution is explicit by design — a closure recorded against the "
+            "Commander asserts that HE decided, and must never be the accidental "
+            "result of an omitted argument."
+        )
+    return by
+
+
+def close(item_id: str, *, by: str, reason: str = "", source: str = "") -> dict:
     """Close an item permanently. Idempotent; re-closing is a no-op that still records.
 
-    `by` defaults to Commander because that is the authority this ledger exists to
-    protect. A seat closing on his behalf should say so explicitly.
+    `by` is REQUIRED and validated. It previously defaulted to "Commander", which meant
+    any caller — including a test, a script, or a weak model — could manufacture what
+    the record would show as a Commander decision. That is authorization forgery in a
+    ledger whose entire purpose is to protect his authority.
     """
     item_id = str(item_id).strip()
     if not item_id:
         raise ValueError("close() requires a non-empty item_id")
+    by = _check_actor(by)
     row = {"ts": _now(), "item_id": item_id, "by": by,
            "reason": reason, "source": source}
     _append_jsonl(CLOSURES_PATH, row)
     return row
 
 
-def reopen(item_id: str, *, by: str = "Commander", reason: str = "") -> dict:
+def reopen(item_id: str, *, by: str, reason: str = "") -> dict:
     """Reverse a closure by APPENDING a reversal, never by editing history.
 
     A closure ledger you can rewrite is not an audit trail, so an erroneous close is
@@ -112,6 +160,7 @@ def reopen(item_id: str, *, by: str = "Commander", reason: str = "") -> dict:
     item_id = str(item_id).strip()
     if not item_id:
         raise ValueError("reopen() requires a non-empty item_id")
+    by = _check_actor(by)
     row = {"ts": _now(), "item_id": item_id, "by": by,
            "reason": reason, "action": "reopen"}
     _append_jsonl(CLOSURES_PATH, row)
@@ -251,7 +300,7 @@ def summary_md(limit: int = 12) -> str:
 
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "close":
-        r = close(sys.argv[2], reason=" ".join(sys.argv[3:]))
+        r = close(sys.argv[2], by="Commander", reason=" ".join(sys.argv[3:]))
         print(f"closed {r['item_id']} — permanent, will never re-enter the queue")
     else:
         q = write_queue()
