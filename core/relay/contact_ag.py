@@ -136,8 +136,13 @@ def contact_ag(
     from_seat: str = "OC",
     verdict_tag: str = "AG",
     model: str = DEFAULT_MODEL,
+    # 300s gave agy only 4 minutes of think time, and every real verification task
+    # dispatched on 2026-07-29 died on "timeout waiting for response" with no
+    # deliverable. AG is the Wing's ONLY lane that does not bill the Claude MAX
+    # bucket, so starving it of wall-clock is the most expensive false economy here.
+    # 900s -> 14m, enough for Gemini 3.1 Pro to actually run commands and write a file.
     strengths: str = "your independent-engine read and large-context reach",
-    timeout: int = 300,
+    timeout: int = 900,
     add_dir: str = REPO,
 ) -> dict:
     """Dispatch a peer request to AG via the `agy` CLI and return the result.

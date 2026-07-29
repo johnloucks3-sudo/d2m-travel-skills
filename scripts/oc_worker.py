@@ -38,7 +38,18 @@ from core.hale_bus.brain_bridge import BrainBridge
 POLL_INTERVAL   = int(os.getenv("OC_WORKER_POLL_SEC", "15"))   # seconds between polls
 TASK_TIMEOUT    = int(os.getenv("OC_WORKER_TIMEOUT_SEC", "300"))  # per-task timeout
 AGENT_NAME      = os.getenv("OC_WORKER_AGENT", "hale-oc-worker")
-DEFAULT_MODEL   = os.getenv("OC_WORKER_MODEL", "haiku")         # cheap for oc-lane ops
+# ── OC LANE MODEL — Commander directive 2026-07-29 ─────────────────────────────
+# OC ran `claude -p --model haiku` through the Claude MAX OAuth proxy, which meant
+# delegating to OC spent the SAME MAX bucket CC spends — zero budget relief — and did
+# it on Haiku, which returned a stub audit that grepped /usr/bin/docker for the string
+# "NotImplementedError" and reported byte offsets as findings.
+#
+# OC is now what its name always claimed: the opencode CLI on DeepSeek v4 Zen FREE.
+# Off the Anthropic meter entirely, and a stronger model than Haiku.
+#   opencode/deepseek-v4-flash-free   <- Zen free tier. USE THIS.
+#   opencode-go/*                     <- different tier, NOT authorised (Commander, 2026-07-29)
+OPENCODE_BIN    = os.getenv("OC_WORKER_BIN", str(Path.home() / ".opencode" / "bin" / "opencode"))
+DEFAULT_MODEL   = os.getenv("OC_WORKER_MODEL", "opencode/deepseek-v4-flash-free")
 
 # ── logging ────────────────────────────────────────────────────────────────────
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -88,35 +99,32 @@ def dispatch_task(task: dict, dry_run: bool = False) -> tuple[bool, str]:
         log.info(f"[DRY-RUN] Would dispatch task {task['id']} — {task['title']}")
         return True, f"DRY-RUN: task {task['id']} not executed"
 
-    if not DISPATCH.exists():
-        log.error(f"dispatch_claude.py not found at {DISPATCH}")
-        return False, "dispatch_claude.py missing"
+    oc_bin = Path(OPENCODE_BIN)
+    if not oc_bin.exists():
+        log.error(f"opencode CLI not found at {oc_bin} — OC lane cannot run off-meter")
+        return False, f"opencode binary missing at {oc_bin}"
 
-    log.info(f"Dispatching task {task['id']} → headless Claude ({DEFAULT_MODEL})")
+    log.info(f"Dispatching task {task['id']} → opencode ({DEFAULT_MODEL}) [off Claude meter]")
 
     try:
         result = subprocess.run(
-            [
-                sys.executable, str(DISPATCH),
-                "--task", f"oc-worker-{task['id']}",
-                "--output", str(out_file),
-                "--prompt", prompt,
-                "--model", DEFAULT_MODEL,
-                "--foreground",               # block until complete (dispatch_claude.py's actual flag)
-            ],
+            [str(oc_bin), "run", "--model", DEFAULT_MODEL, prompt],
             capture_output=True,
             text=True,
             timeout=TASK_TIMEOUT + 30,
+            cwd=str(ROOT),
         )
 
         if result.returncode != 0:
-            log.warning(f"dispatch exited {result.returncode}: {result.stderr[:200]}")
-            # Try direct fallback if dispatch doesn't support --wait
-            return _dispatch_direct(task, prompt, out_file)
+            log.warning(f"opencode exited {result.returncode}: {result.stderr[:200]}")
+            # Claude fallback is DELIBERATELY not automatic: silently failing over to
+            # the MAX meter is how this lane came to bill Anthropic for every "OC" task
+            # in the first place. Surface the failure and let the caller decide.
+            return False, f"opencode failed rc={result.returncode}: {result.stderr[:200]}"
 
-        # Read output file for result summary
-        result_text = _extract_result(out_file)
-        return True, result_text
+        out_file.parent.mkdir(parents=True, exist_ok=True)
+        out_file.write_text(result.stdout, encoding="utf-8")
+        return True, (result.stdout or "").strip()[:4000]
 
     except subprocess.TimeoutExpired:
         log.error(f"Task {task['id']} timed out after {TASK_TIMEOUT}s")
