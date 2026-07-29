@@ -167,9 +167,93 @@ def build_staff_cadence_alert(path=None):
     }
 
 
+_SILVER_LEDGER = ROOT / "OpsCenter" / "silver_ledger.jsonl"
+_DISMISSED_CACHE: dict = {}
+
+
+def _commander_dismissals(ledger_path=None) -> dict:
+    """Map alert-id -> timestamp of the Commander's most recent close/override.
+
+    WHY THIS EXISTS (2026-07-29). `build_strategic`/`build_operational`
+    regenerated every alert card from state on EVERY sync, `unread: True`, with
+    no check for whether the Commander had already answered. tcd-sync runs
+    roughly every ten minutes, so a close was erased on the next tick.
+
+    The ledger for alert-MCLEOD-2984034-FPD-TRIGGER records the cost:
+
+      Jul 29 00:36  "will contact Erik McLeod re: $11,943.15 FPD directly"
+      Jul 29 03:50  "FBD accomplished 20 July, 8 days ago"
+      Jul 29 03:54  "FBD accomplished 20 July, 8 days ago"   (again)
+      Jul 29 04:10  (card re-raised anyway)
+      Jul 29 17:35  "AS I have stated many times, the final payment
+                     has been submitted"
+
+    Five answers over eighteen hours about a payment completed on 20 July. The
+    system had no memory of being answered, so re-detection masqueraded as
+    diligence. Detecting a thing repeatedly is not tracking it (MAST FM-1.3).
+    """
+    key = str(ledger_path or _SILVER_LEDGER)
+    if key in _DISMISSED_CACHE:
+        return _DISMISSED_CACHE[key]
+    out: dict = {}
+    try:
+        voided = set()
+        rows = []
+        for line in Path(key).read_text(errors="ignore").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rows.append(json.loads(line))
+            except Exception:
+                continue
+        # VOID annotations retract synthetic/test rows so a probe can never
+        # silence a real alert.
+        for r in rows:
+            if r.get("verdict") == "VOID":
+                voided.add(r.get("mission_id"))
+        for r in rows:
+            mid = r.get("mission_id") or ""
+            if mid in voided:
+                continue
+            wp = r.get("work_product") or ""
+            is_override = r.get("verdict") == "OVERRIDE"
+            is_cmdr_close = "Commander CLOSE" in wp or "Commander via" in wp
+            if not (is_override or is_cmdr_close):
+                continue
+            ts = r.get("ts") or ""
+            if ts > out.get(mid, ""):
+                out[mid] = ts
+    except FileNotFoundError:
+        pass
+    except Exception:
+        pass
+    _DISMISSED_CACHE[key] = out
+    return out
+
+
+def _alert_answered(alert, dismissals) -> bool:
+    """Has the Commander already answered THIS alert since it last triggered?
+
+    Deliberately compares against the alert's own trigger_date, so a genuinely
+    NEW trigger (a later date — a new deadline, a changed amount) surfaces
+    again. Suppressing forever would be the opposite failure: a real recurrence
+    silently swallowed.
+    """
+    mid = f"alert-{alert.get('id')}"
+    when = dismissals.get(mid) or dismissals.get(str(alert.get("id")))
+    if not when:
+        return False
+    trig = (alert.get("trigger_date") or "")[:19]
+    return not trig or when[:19] >= trig
+
+
 def build_strategic(state):
     files = []
+    dismissals = _commander_dismissals()
     for a in state.get("deferred_alerts", []):
+        if _alert_answered(a, dismissals):
+            continue
         if a.get("priority") not in ("P0", "P1"):
             continue
         if not (a.get("amount") or "financial" in (a.get("condition_type") or "")):
@@ -248,10 +332,13 @@ def build_operational(state):
             "snippet": _snip(body), "body": body,
             "tags": [p.get("mission", ""), p.get("status", "")], "comments": [],
         })
+    dismissals = _commander_dismissals()
     for a in state.get("deferred_alerts", []):
         if a.get("priority") not in ("P1", "P2"):
             continue
         if a.get("amount"):
+            continue
+        if _alert_answered(a, dismissals):
             continue
         body = a.get("message", "")
         files.append({
