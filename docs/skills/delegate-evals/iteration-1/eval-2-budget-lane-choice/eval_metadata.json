@@ -1,0 +1,12 @@
+{
+ "eval_id": 2,
+ "eval_name": "budget-lane-choice",
+ "prompt": "I'm at 70% of my weekly Claude limit with 30 hours left. There's a big refactor to do plus I want a security review of the auth module. Who should do what?",
+ "assertions": [
+  "Routes the security review to an INDEPENDENT engine rather than self-review",
+  "Routes the mechanical refactor off the metered lane",
+  "Warns that a lane's real cost must be verified (a worker may shell out to Claude and bill the metered bucket)",
+  "States that returned work must be verified against ground truth before acceptance",
+  "Reserves the metered lane for judgment-heavy work"
+ ]
+}

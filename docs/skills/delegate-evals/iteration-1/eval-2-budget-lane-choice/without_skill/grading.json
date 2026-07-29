@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "Routes the security review to an INDEPENDENT engine rather than self-review",
+      "passed": false,
+      "evidence": "'Security review of the auth module → you (Claude), now, prioritized.' — explicitly keeps the security review as self-review rather than routing it to an independent engine."
+    },
+    {
+      "text": "Routes the mechanical refactor off the metered lane",
+      "passed": true,
+      "evidence": "'Big refactor → route around the constrained resource ... A cheaper/different model or tool (local model, a lower-cost API tier, an IDE-integrated assistant) for the bulk mechanical transformation.'"
+    },
+    {
+      "text": "Warns that a lane's real cost must be verified (a worker may shell out to Claude and bill the metered bucket)",
+      "passed": false,
+      "evidence": "No mention anywhere in the document of a 'cheaper' lane's actual billing needing verification, or of a worker silently shelling out to Claude."
+    },
+    {
+      "text": "States that returned work must be verified against ground truth before acceptance",
+      "passed": false,
+      "evidence": "Only a passing, vague mention — 'you spot-checking a sample rather than authoring every change' — with no statement that delegated/returned work must be checked against ground truth before acceptance."
+    },
+    {
+      "text": "Reserves the metered lane for judgment-heavy work",
+      "passed": true,
+      "evidence": "'Security review of the auth module → you (Claude), now, prioritized ... this is exactly where the strongest available reasoning should be spent' paired with routing the mechanical refactor elsewhere — judgment-heavy work is kept on the metered (Claude) lane."
+    }
+  ]
+}

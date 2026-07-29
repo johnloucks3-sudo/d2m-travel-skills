@@ -1,0 +1,34 @@
+{
+  "expectations": [
+    {
+      "text": "REFUSES to close it out",
+      "passed": true,
+      "evidence": "# Verdict: No — do not close this out yet"
+    },
+    {
+      "text": "Identifies that compiled binaries were searched as if they were source code",
+      "passed": true,
+      "evidence": "'/usr/bin/docker and /usr/local/bin/cloudflared are not scripts in our tree — they're compiled system binaries ... grep-ing a compiled executable for a string literal and reporting the match location as if it were source evidence.'"
+    },
+    {
+      "text": "Notes that net NEW findings are effectively zero (only the already-known stub)",
+      "passed": true,
+      "evidence": "'The fact that it also correctly flagged the one stub you already knew about doesn't rescue the other 235 entries — that's the one item where the ground truth was already known ... It doesn't validate the rest of the file.'"
+    },
+    {
+      "text": "Explicitly separates 'met the acceptance criteria' from 'did the actual work'",
+      "passed": true,
+      "evidence": "'The file passing every schema check ... tells you the shape of the answer is right. It says nothing about whether the content is right. Those are independent, and in this case the content looks broken.'"
+    },
+    {
+      "text": "Recommends recording the outcome as a DISCREPANCY or equivalent failure record",
+      "passed": true,
+      "evidence": "'Don't count this as PASS. Record it as DISCREPANCY (or UNVERIFIED until the sample check above is done), not closed.'"
+    },
+    {
+      "text": "Recommends re-issuing the task with explicit scope/exclusions",
+      "passed": true,
+      "evidence": "'If it didn't name /usr/bin, /usr/local/bin, or \"exclude compiled binaries,\" that's the root cause — fix the spec, not just this run.' and 'Fix the scope boundary in the spec (explicit include/exclude, binaries excluded), re-run or manually verify a sample.'"
+    }
+  ]
+}

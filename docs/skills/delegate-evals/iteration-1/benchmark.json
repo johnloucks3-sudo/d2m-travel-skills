@@ -1,0 +1,26 @@
+{
+ "skill_name": "delegate",
+ "iteration": 1,
+ "configurations": [
+  {
+   "name": "with_skill",
+   "pass_rate": 1.0,
+   "passed": 11,
+   "total": 11
+  },
+  {
+   "name": "without_skill",
+   "pass_rate": 0.636,
+   "passed": 7,
+   "total": 11
+  }
+ ],
+ "assertion_quality": {
+  "discriminating": 4,
+  "non_discriminating": 7
+ },
+ "notes": [
+  "eval-0 with_skill grading pending",
+  "eval-1 prompt names the failure evidence explicitly (docker/cloudflared byte offsets), which primes the baseline \u2014 non-discriminating result there is likely test design, not redundant skill content"
+ ]
+}

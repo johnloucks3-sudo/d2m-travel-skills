@@ -1,0 +1,12 @@
+{
+ "eval_id": 0,
+ "eval_name": "audit-spec-writing",
+ "prompt": "I need every Python script that's launched by a systemd user timer checked for whether it's a real implementation or just a stub with TODOs. I want to hand this to our OpenCode worker rather than doing it myself. Write me the task spec and the acceptance criteria you'd send it.",
+ "assertions": [
+  "Names explicit EXCLUSIONS by directory or file type (e.g. node_modules, .venv, archive, binaries, test fixtures)",
+  "Instructs the follower where to start (a cd or explicit working directory)",
+  "Acceptance criteria are shell-checkable commands whose output decides pass/fail without interpretation",
+  "Acceptance criteria constrain the SUBJECT/scope of the audit, not only the output schema",
+  "Warns that schema-only criteria can be satisfied by work that ignored the scope"
+ ]
+}

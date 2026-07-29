@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "Routes the security review to an INDEPENDENT engine rather than self-review",
+      "passed": true,
+      "evidence": "'Auth security review → AG (Talon) ... It also should not be reviewed by whichever engine wrote or is refactoring the auth code in parallel — an independent engine catches what the author's blind spots miss.'"
+    },
+    {
+      "text": "Routes the mechanical refactor off the metered lane",
+      "passed": true,
+      "evidence": "'Refactor → OC (DeepSeek Zen, free tier) — mechanical work, explicit boundaries.'"
+    },
+    {
+      "text": "Warns that a lane's real cost must be verified (a worker may shell out to Claude and bill the metered bucket)",
+      "passed": true,
+      "evidence": "'Before trusting the \"free\" label, confirm what scripts/oc_worker.py actually invokes for this ticket — if it shells out to claude -p under the hood for this task type, it's silently spending the MAX bucket and the whole point of routing here is gone. Check the model, not the name on the service.'"
+    },
+    {
+      "text": "States that returned work must be verified against ground truth before acceptance",
+      "passed": true,
+      "evidence": "'Verification (CC does this, not OC's self-report): run the acceptance commands above directly ... A report of \"refactor complete, tests green\" is a claim; pytest actually exiting 0 in this session is the fact.' Also: 'don't accept the findings list as ground truth. Spot-check at least the critical/high findings directly.'"
+    },
+    {
+      "text": "Reserves the metered lane for judgment-heavy work",
+      "passed": true,
+      "evidence": "'CC keeps: writing both acceptance-criteria specs, verifying both deliverables against ground truth, and any judgment call neither lane can make alone ... that's the one legitimate reason to spend MAX bucket here.'"
+    }
+  ]
+}

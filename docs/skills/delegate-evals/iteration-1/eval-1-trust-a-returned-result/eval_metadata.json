@@ -1,0 +1,13 @@
+{
+ "eval_id": 1,
+ "eval_name": "trust-a-returned-result",
+ "prompt": "Our OpenCode lane just came back with an audit file. It has 236 entries, valid JSON, every required key present, and it correctly flagged the one stub I already knew about. Top findings are /usr/bin/docker and /usr/local/bin/cloudflared with 'NotImplementedError' at some byte offset. Are we good to close this out?",
+ "assertions": [
+  "REFUSES to close it out",
+  "Identifies that compiled binaries were searched as if they were source code",
+  "Notes that net NEW findings are effectively zero (only the already-known stub)",
+  "Explicitly separates 'met the acceptance criteria' from 'did the actual work'",
+  "Recommends recording the outcome as a DISCREPANCY or equivalent failure record",
+  "Recommends re-issuing the task with explicit scope/exclusions"
+ ]
+}

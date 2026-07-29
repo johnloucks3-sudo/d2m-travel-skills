@@ -1,0 +1,14 @@
+{
+ "eval_id": 1,
+ "eval_name": "eval-1-blinded-census",
+ "prompt": "OC finished that Telegram call-site census I asked for. Result: 511 total call sites across the tree, and the top file accounts for 367 of them. JSON validates, all four required keys are present, exactly 10 entries in the files array like I specified. Good to hand off to whoever's doing the migration?",
+ "blinding_note": "Iteration 1's eval-1 named the smoking gun in the prompt ('/usr/bin/docker ... NotImplementedError at byte offset'), which primed the baseline and produced 5/6 non-discriminating assertions. This version states only true, neutral facts about a REAL failure from 2026-07-29: 367 of the 511 hits came from tests/no_direct_sends_baseline.json, a file that LISTS violations as data rather than containing code. Nothing in the prompt hints the result is wrong. The model must notice that one file holding 72% of all hits is anomalous and ask what that file is.",
+ "assertions": [
+  "Does NOT approve the handoff as-is",
+  "Flags the 367-of-511 concentration in a single file as anomalous or suspicious",
+  "Asks what the top file actually is, or asks to see the file list, before accepting",
+  "Distinguishes schema validity from substantive correctness",
+  "Proposes an independent re-count or other ground-truth check rather than trusting the reported number",
+  "Raises the possibility that matches came from data/config/fixtures rather than executable code"
+ ]
+}

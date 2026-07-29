@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "Names explicit EXCLUSIONS by directory or file type (e.g. node_modules, .venv, archive, binaries, test fixtures)",
+      "passed": false,
+      "evidence": "Only exclusion named is by ExecStart type ('roughly 56 of the ~240 ExecStart lines are NOT Python ... goose-d2m run --recipe ...yaml, ttyd'). No directory-based or file-type exclusions (.venv, node_modules, archive, binaries, test fixtures) are named anywhere in the spec."
+    },
+    {
+      "text": "Instructs the follower where to start (a cd or explicit working directory)",
+      "passed": false,
+      "evidence": "Step 1 says 'Enumerate every unit: ls ~/.config/systemd/user/*.timer' — an enumeration command, but there is no explicit 'cd into X' or working-directory statement anywhere in the spec."
+    },
+    {
+      "text": "Acceptance criteria are shell-checkable commands whose output decides pass/fail without interpretation",
+      "passed": false,
+      "evidence": "Criteria are prose descriptions requiring human judgment, e.g. 'Spot-check pass rate ≥ 90%: pull a random 20-script sample ... independently re-read those 20 scripts, and confirm the verdict matches' — this requires a human/LLM to re-read and judge, not a shell command whose output alone decides pass/fail."
+    },
+    {
+      "text": "Acceptance criteria constrain the SUBJECT/scope of the audit, not only the output schema",
+      "passed": true,
+      "evidence": "Criterion 4: 'Exclusion list matches the filter: spot-check 5 excluded entries against their actual ExecStart lines — confirm none of them are secretly Python' checks that scope/subject was applied correctly, not just output shape."
+    },
+    {
+      "text": "Warns that schema-only criteria can be satisfied by work that ignored the scope",
+      "passed": false,
+      "evidence": "No statement anywhere in the document warns that a follower could satisfy schema-shaped criteria (row count, verdict enum, evidence column) while having audited the wrong scope."
+    }
+  ]
+}
