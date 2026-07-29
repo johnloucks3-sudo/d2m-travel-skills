@@ -268,15 +268,30 @@ def _recent_fingerprints(hours: int = DEDUP_WINDOW_HOURS) -> dict[str, str]:
 # Delivery
 # ─────────────────────────────────────────────────────────────────────────────────
 
-def _deliver(subject: str, body_html: str) -> dict:
-    """Render into the canonical Dark Navy shell and hand to the ONLY sanctioned
-    email transport. This is the single place in the codebase permitted to call it."""
+def _deliver(subject: str, body_html: str, *, urgency: str = "NOW",
+             item_id: Optional[str] = None) -> dict:
+    """Hand the already-vetted payload to every configured transport.
+
+    Email is authoritative and must succeed. Slack is additive: a Slack outage must
+    never cost the Commander a payment deadline, so its failure is recorded and
+    swallowed rather than raised. Transports are called ONLY from here — that
+    single-chokepoint property is what tests/test_no_direct_sends.py enforces.
+    """
     from d2m_email_builder import build_email_html      # scripts/
     from wing_email_sender import send_wing_email       # scripts/
 
     full = build_email_html(body_html)
-    msg_id = send_wing_email(COMMANDER, subject, full)
-    return {"message_id": msg_id}
+    out: dict[str, Any] = {"message_id": send_wing_email(COMMANDER, subject, full)}
+
+    try:
+        from core.comms import slack_transport as _slack
+        if _slack.is_configured():
+            r = _slack.post(subject, body_html, urgency=urgency, item_id=item_id)
+            out["slack_channel"] = r.get("channel")
+            out["slack_ts"] = r.get("ts")
+    except Exception as exc:                      # never let Slack break delivery
+        out["slack_error"] = f"{type(exc).__name__}: {exc}"
+    return out
 
 
 # ─────────────────────────────────────────────────────────────────────────────────
@@ -343,7 +358,7 @@ def notify(kind: str,
                       detail="held for the next 06:30/18:30 consolidated window", **base)
 
     try:
-        res = _deliver(title, body_html)
+        res = _deliver(title, body_html, urgency=urgency, item_id=dedup_key)
     except Exception as exc:  # delivery failure must not crash the caller
         return _audit(status="failed", fingerprint=fp,
                       detail=f"{type(exc).__name__}: {exc}", **base)
