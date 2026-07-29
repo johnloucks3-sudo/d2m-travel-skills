@@ -684,21 +684,35 @@ def cmd_sss_close(board, raw):
     """EXEC: closeout SSS-001 [:: certifier :: cross_hale_evidence]
     CHIEF SILVER back gate + cross-seat certify + MANDATORY cross-Hale gate.
     For a seat-executed sheet, cross_hale_evidence (the certifying seat's
-    verdict/log reference) is required — no evidence, no close."""
+    verdict/log reference) is required — no evidence, no close.
+
+    Commander human override: EXEC: closeout SSS-001 :: COMMANDER [:: reason]
+    — the reserved literal "COMMANDER" in the certifier slot skips the gate
+    entirely (Commander directive 2026-07-29): no artifact, no cross-Hale
+    evidence, no Silver back-gate. Recorded as an attributed OVERRIDE in
+    silver_ledger.jsonl, never a silent bypass — see
+    staff_summary_sheet.close_sss's human_override param. Any other seat
+    still faces the full gate below, unchanged."""
     try:
         from core.staffing.staff_summary_sheet import close_sss, SSSError
     except Exception as e:
         return f"❌ SSS model unavailable: {e}"
     f = [x.strip() for x in raw.split("::")]
     if not f or not f[0]:
-        return "❌ Usage: EXEC: closeout SSS-ID [:: certifier :: cross_hale_evidence]"
+        return ("❌ Usage: EXEC: closeout SSS-ID [:: certifier :: cross_hale_evidence] "
+                "| EXEC: closeout SSS-ID :: COMMANDER [:: reason]")
     sid = f[0]
-    certifier = f[1].upper() if len(f) > 1 and f[1] else None
-    evidence = f[2] if len(f) > 2 and f[2] else None
+    field1 = f[1] if len(f) > 1 and f[1] else None
     m, _ = find_mission(board, sid)
     if not m:
         return f"❌ {sid} not found"
     try:
+        if field1 and field1.strip().upper() == "COMMANDER":
+            reason = f[2] if len(f) > 2 and f[2] else None
+            close_sss(m, human_override="Commander", human_note=reason)
+            return f"✅ {sid} CLOSED — Commander override (human close is self-certifying, no gate)"
+        certifier = field1.upper() if field1 else None
+        evidence = f[2] if len(f) > 2 and f[2] else None
         close_sss(m, certified_by=certifier, cross_hale_evidence=evidence)
     except SSSError as e:
         return f"⛔ Close-out held: {e}"
@@ -797,12 +811,37 @@ def cmd_suspense(board, mission_id, date_str):
     return f"⏰ Suspense set: {mission_id} until {date_str}"
 
 
-def cmd_complete(board, mission_id):
-    """EXEC: complete MISSION-001"""
+def cmd_complete(board, mission_id, human_override=False):
+    """EXEC: complete MISSION-001 [COMMANDER]
+
+    The reserved second token "COMMANDER" (Commander directive 2026-07-29)
+    is a human override: skips the cross-Hale certification / Silver
+    back-gate entirely — the Commander's own close IS the verification.
+    Recorded as an attributed OVERRIDE in silver_ledger.jsonl (never a silent
+    bypass). Any other/no second token leaves the AI-seat gate below
+    completely unchanged."""
     mission, state = find_mission(board, mission_id)
     if not mission:
         return f"❌ Mission {mission_id} not found"
-    
+
+    if human_override:
+        from core.silver.gate import human_override as _silver_human_override
+        _silver_human_override(
+            mission_id,
+            mission.get("verification_artifact") or mission.get("title", ""),
+            overridden_by="Commander",
+        )
+        mission.setdefault("logs", []).append(
+            f"{now_iso()}: completed by COMMANDER OVERRIDE — no gate, human close is self-certifying"
+        )
+        mission["status"] = "completed"
+        mission["completed_at"] = now_iso()
+        watch = board.get("suspense_watch", [])
+        if mission_id in watch:
+            watch.remove(mission_id)
+        board["suspense_watch"] = watch
+        return f"✅ Completed: {mission['id']} — {mission['title']} (Commander override, no gate)"
+
     # Cross-Hale delegation ticket → completion must clear the anti-theater
     # gate (§3.5): a cross-seat certifier + a verification_artifact. Enforced
     # here rather than silently flipping status, and mirrored onto the C2
@@ -894,9 +933,10 @@ def cmd_help():
   EXEC: decide SSS-ID :: authority :: APPROVED|DISAPPROVED|SIGNED|NOTED [:: comment] → Decision authority acts
   EXEC: accomplish SSS-ID :: artifact → OPR submits work product
   EXEC: closeout SSS-ID [:: certifier] → CHIEF SILVER back-gate + cross-seat certify
+  EXEC: closeout SSS-ID :: COMMANDER [:: reason] → Human override, no gate (Commander only)
   EXEC: sheet SSS-ID        → Render the coversheet
   EXEC: add suspense <id> <date> → Set suspense
-  EXEC: complete <id>       → Mark done
+  EXEC: complete <id> [COMMANDER] → Mark done (COMMANDER = human override, no gate)
   EXEC: status <id>         → Show details
   EXEC: log <id> <msg>      → Add log entry
   EXEC: help                → This message"""
@@ -979,9 +1019,10 @@ def process_exec_command(command_text):
 
         elif action == "complete":
             if args:
-                result = cmd_complete(board, args[0])
+                override = len(args) > 1 and args[1].strip().upper() == "COMMANDER"
+                result = cmd_complete(board, args[0], human_override=override)
             else:
-                result = "❌ Usage: EXEC: complete <mission_id>"
+                result = "❌ Usage: EXEC: complete <mission_id> [COMMANDER]"
         
         elif action == "status":
             if args:

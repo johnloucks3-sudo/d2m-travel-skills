@@ -176,8 +176,19 @@ def _handle_close(row: dict, decisions_path, overrides_path=None, actor: str = "
     tcd-sync.timer full clear+rewrite, which regenerates status fresh from
     derive_status() and silently reverted it back to Open. Same bug the stage
     override already fixed; Delete doesn't need this because a disposed row's
-    source is gone and stops being collected entirely."""
+    source is gone and stops being collected entirely.
+
+    Also writes an attributed OVERRIDE row to OpsCenter/silver_ledger.jsonl
+    (core.silver.gate.human_override) — hale_decisions.md alone wasn't the
+    ledger an audit checks for "did Silver's gate run" (2026-07-29 fix); now
+    every Commander close is visible in the SAME ledger a PASS/HOLD lands in,
+    distinguishably (verdict=OVERRIDE, not PASS)."""
     if actor == "commander":
+        from core.silver.gate import human_override as _silver_human_override
+        _silver_human_override(
+            row["id"], row.get("comments") or row.get("title", ""),
+            overridden_by="Commander",
+        )
         _append_decision(
             _plan_id(row["id"], "CLOSE"), "PASS",
             criteria_met=f"TCD closed: {row.get('title', row['id'])[:80]}",

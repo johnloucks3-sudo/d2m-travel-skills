@@ -29,7 +29,7 @@ ROOT = Path("/home/john/Thunderbird")
 LEDGER = ROOT / "OpsCenter/silver_ledger.jsonl"
 DECISIONS = ROOT / "hale_decisions.md"
 
-PASS, HOLD = "PASS", "HOLD"
+PASS, HOLD, OVERRIDE = "PASS", "HOLD", "OVERRIDE"
 
 WORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
         "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
@@ -60,14 +60,15 @@ class Verdict:
     stage: str                      # "front" | "back"
     mission_id: str
     work_product: str
-    verdict: str                    # PASS | HOLD
+    verdict: str                    # PASS | HOLD | OVERRIDE
     checks_run: list[str] = field(default_factory=list)
     holds: list[str] = field(default_factory=list)
     ts: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    overridden_by: str | None = None   # set only when verdict == OVERRIDE
 
     @property
     def ok(self) -> bool:
-        return self.verdict == PASS
+        return self.verdict in (PASS, OVERRIDE)
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -255,6 +256,28 @@ def run_gate(
     return v
 
 
+def human_override(mission_id: str, work_product: str, overridden_by: str,
+                    *, stage: str = "back") -> Verdict:
+    """The Commander's own close IS the verification (Commander directive
+    2026-07-29 — CHIEF SILVER exists to stop an AI seat from self-certifying
+    a hollow completion, not to interrogate the Commander). No artifact, no
+    criteria, no deterministic battery — but never a SILENT bypass: this
+    still writes an attributed row to the same ledger every PASS/HOLD lands
+    in, verdict=OVERRIDE, so `brief_section()` and any audit can always tell
+    "a human overrode the gate" from "the gate actually passed." Callers MUST
+    reserve this for a genuine human close (see the "COMMANDER" literal gate
+    in staff_summary_sheet.close_sss / mission_board_sync.cmd_sss_close /
+    cmd_complete) — an AI seat closing its own work always goes through
+    run_gate() instead, unchanged."""
+    who = (overridden_by or "").strip()
+    if not who:
+        raise ValueError("human_override requires an attributed overridden_by (who asserted this close)")
+    v = Verdict(stage, mission_id, work_product or "(no artifact — human override)",
+                OVERRIDE, ["human-override"], [], overridden_by=who)
+    _log(v)
+    return v
+
+
 def _page_hold(v: Verdict) -> None:
     """A back-gate HOLD is a stopped work product — page the Commander via the
     disciplined wing_page lane (P1, one-and-done dedup). Best-effort."""
@@ -347,9 +370,13 @@ def brief_section(for_date: date | None = None) -> str:
     fronts = [e for e in entries if e["stage"] == "front"]
     backs = [e for e in entries if e["stage"] == "back"]
     held = [e for e in entries if e["verdict"] == HOLD]
-    lines.append(f"- Framed (front): {len(fronts)} · Gated (back): {len(backs)} · Held: {len(held)}")
+    overridden = [e for e in entries if e["verdict"] == OVERRIDE]
+    lines.append(f"- Framed (front): {len(fronts)} · Gated (back): {len(backs)} · "
+                 f"Held: {len(held)} · Human overrides: {len(overridden)}")
     for e in held:
         lines.append(f"  - 🔴 HOLD {e['mission_id']} — {'; '.join(e['holds'])[:160]}")
+    for e in overridden:
+        lines.append(f"  - 🟡 OVERRIDE {e['mission_id']} — by {e.get('overridden_by', '?')} (no gate run)")
     for e in entries:
         if e["verdict"] == PASS:
             lines.append(f"  - ✅ {e['stage'].upper()} {e['mission_id']} — {e['work_product'][:70]}")

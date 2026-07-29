@@ -8,6 +8,7 @@ back gate, anti-theater cross-seat certification), the chop-chain semantics
 (nonconcur is recorded, not a veto), stage guards, and the OPR-aware wire into
 core/relay/delegation_wiring.py.
 """
+import json
 import os
 import tempfile
 
@@ -264,6 +265,76 @@ def test_directive_ledger_binds_mandate(tmp_path, monkeypatch, artifact):
     decide(s, "Hale", "NOTED"); accomplish(s, artifact)
     with pytest.raises(SSSError, match="unmet mandatory directive"):
         close_sss(s, certified_by="CC", cross_hale_evidence="logs/x@ok")
+
+
+# ── Commander human override (SO 2026-07-29) ────────────────────────────────
+# CHIEF SILVER's back-gate exists to stop an AI seat from self-certifying a
+# hollow completion; it was never meant to interrogate the Commander. A human
+# close must succeed with NO artifact/criteria/gate, but an AI seat's close
+# must remain fully gated, and the override must be attributed + visible in
+# the ledger (never a silent bypass).
+
+def test_human_override_closes_with_no_artifact_at_all(artifact):
+    """The whole point: a human close needs nothing checkable."""
+    s = open_sss("SSS-HO1", "t", "p", opr="Dani", action_type="APPR",
+                 acceptance_criteria=_criteria(artifact), ground_truth_sources=[artifact],
+                 certified_by="Hale")
+    decide(s, "Hale", "APPROVED")
+    # deliberately never call accomplish() — no verification_artifact exists
+    close_sss(s, human_override="Commander", human_note="Yoda said close it")
+    assert s["status"] == "closed"
+    assert s["certified_by"] == "Commander"
+    assert "COMMANDER OVERRIDE" in s["logs"][-1]
+
+
+def test_human_override_is_case_insensitive_but_reserved(artifact):
+    s = open_sss("SSS-HO2", "t", "p", opr="Dani", action_type="APPR",
+                 acceptance_criteria=_criteria(artifact), ground_truth_sources=[artifact],
+                 certified_by="Hale")
+    decide(s, "Hale", "APPROVED")
+    close_sss(s, human_override="commander")   # lowercase still accepted
+    assert s["status"] == "closed"
+
+
+def test_ai_seat_cannot_self_attribute_human_override(artifact):
+    """An AI seat passing its own name as `human_override` must be rejected —
+    only the literal Commander identity may bypass the gate."""
+    s = open_sss("SSS-HO3", "t", "p", opr="Dani", action_type="APPR",
+                 acceptance_criteria=_criteria(artifact), ground_truth_sources=[artifact],
+                 certified_by="Hale")
+    decide(s, "Hale", "APPROVED")
+    with pytest.raises(SSSError, match="human_override must be"):
+        close_sss(s, human_override="CC")
+    assert s["status"] != "closed"
+
+
+def test_ai_seat_close_still_fully_gated_no_human_override(artifact):
+    """REGRESSION GUARD: without human_override, a seat-executed sheet must
+    still clear anti-theater + mandatory cross-Hale evidence + Silver back-gate
+    — none of that logic may be weakened by the new override path."""
+    s = _run_to_accomplished("AG", artifact)
+    with pytest.raises(SSSError, match="no concrete evidence"):
+        close_sss(s, certified_by="OC")             # no cross_hale_evidence → still blocked
+    close_sss(s, certified_by="OC", cross_hale_evidence="logs/oc_verify.log@ok")
+    assert s["status"] == "closed"
+    assert s["certified_by"] == "OC"                 # NOT "Commander" — real gate ran
+
+
+def test_human_override_writes_distinct_ledger_row(artifact, tmp_path, monkeypatch):
+    from core.silver import gate
+    monkeypatch.setattr(gate, "LEDGER", tmp_path / "ledger.jsonl")
+    s = open_sss("SSS-HO4", "t", "p", opr="Dani", action_type="APPR",
+                 acceptance_criteria=_criteria(artifact), ground_truth_sources=[artifact],
+                 certified_by="Hale")
+    decide(s, "Hale", "APPROVED")
+    close_sss(s, human_override="Commander")
+    rows = [json.loads(line) for line in gate.LEDGER.read_text().splitlines()]
+    override_rows = [r for r in rows if r["mission_id"] == "SSS-HO4" and r["verdict"] == "OVERRIDE"]
+    assert len(override_rows) == 1
+    assert override_rows[0]["overridden_by"] == "Commander"
+    # distinguishable from a real PASS — never confusable with "the gate ran and passed"
+    assert not any(r["mission_id"] == "SSS-HO4" and r["verdict"] == "PASS"
+                   and r["stage"] == "back" for r in rows)
 
 
 # ── OPR-aware delegation wire ───────────────────────────────────────────────
