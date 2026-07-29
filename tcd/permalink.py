@@ -103,6 +103,8 @@ def derive_link(item: dict) -> str:
     fid = item.get("id", "") or ""
 
     # Google-native sources already carry canonical URLs / ids.
+    if fid.startswith("draft-"):
+        return "https://mail.google.com/mail/u/0/#drafts"
     if fid.startswith("gmail-"):
         permalink = gmail_permalink(item.get("message_id_header", ""))
         return first_nonempty(permalink, gmail_search_link(item.get("title", "")))

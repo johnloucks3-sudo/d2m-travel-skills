@@ -155,12 +155,19 @@ def _gate_note(verdict) -> str:
     return "Silver back-gate HOLD: " + "; ".join(verdict.holds)[:200]
 
 
-def _handle_close(row: dict, decisions_path) -> None:
+def _handle_close(row: dict, decisions_path, overrides_path=None) -> None:
     """Mark a row Closed — the row's ``comments`` are the staff verification
     artifact (SO_PDTAC_WORKFLOW_20260711), so Silver's back-gate decides the
     verdict instead of the old unconditional PASS. On HOLD the close is still
     recorded (AppSheet's own state isn't blocked) but ``run_gate`` pages it the
-    same way it pages a held delegated mission — never a silent PASS."""
+    same way it pages a held delegated mission — never a silent PASS.
+
+    Persists a status override regardless of verdict (2026-07-29 fix) — found
+    live that a Close with NO override survived until the next 10-minute
+    tcd-sync.timer full clear+rewrite, which regenerates status fresh from
+    derive_status() and silently reverted it back to Open. Same bug the stage
+    override already fixed; Delete doesn't need this because a disposed row's
+    source is gone and stops being collected entirely."""
     artifact = row.get("comments", "")
     verdict = run_gate(artifact, artifact, mission_id=row["id"])
     _append_decision(
@@ -170,6 +177,7 @@ def _handle_close(row: dict, decisions_path) -> None:
                + _gate_note(verdict)),
         decisions_path=decisions_path,
     )
+    _overrides.set_override(row["id"], status="Closed", path=overrides_path)
 
 
 def _handle_stage_move(row: dict, prior_stage: str, decisions_path,
@@ -444,7 +452,7 @@ def process_once(rows: list = None, *, state_path=None, decisions_path=None,
 
         if row.get("status") == "Closed" and prev.get("status") != "Closed":
             try:
-                _handle_close(row, decisions_path)
+                _handle_close(row, decisions_path, overrides_path=overrides_path)
                 summary["closed"].append({"id": rid})
             except Exception as e:
                 summary["errors"].append({"id": rid, "action": "close", "error": str(e)})

@@ -5,7 +5,7 @@
     "name": "Thunderbird Commander Desktop",
     "dir": "",
     "user": "commander",
-    "pw": "tcd-83bb8f5f",
+    "pw": "535277-yoda-grandeur",
     "added": "2026-07-28",
     "note": "RESTORED 2026-07-28 (was retired 2026-07-12 Phase 4). Live view + write-back onto the same TCD Google Sheet AppSheet uses (tcd/writeback.py, tcd/web.py) — not a static snapshot, not a parallel system. Commander directive: real board on d2mluxury.quest talking to the Sheet."
   },
@@ -14,7 +14,7 @@
     "name": "Loucks \u2014 Panama Canal & Pacific Gems",
     "dir": "output/Loucks_Grandeur_Dec2026",
     "user": "loucks",
-    "pw": "loucks-4f82c1d9",
+    "pw": "535277-yoda-grandeur",
     "drive_folder": "1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
     "drive_link": "https://drive.google.com/drive/folders/1mrcsHoeylJbaY8vDe0P_IW3aVsH0xkU_",
     "added": "2026-07-03",

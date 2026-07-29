@@ -39,11 +39,17 @@ def save_overrides(overrides: dict, path=None) -> None:
     tmp.replace(path)
 
 
-def set_override(item_id: str, stage: str = None, owner: str = None, path=None) -> None:
-    """Merge a stage and/or owner into the persisted entry for ``item_id``.
+def set_override(item_id: str, stage: str = None, owner: str = None, status: str = None, path=None) -> None:
+    """Merge a stage/owner/status into the persisted entry for ``item_id``.
 
-    Merge (not replace) so setting stage alone doesn't wipe a previously
-    assigned owner, and vice versa.
+    Merge (not replace) so setting one field alone doesn't wipe the others.
+
+    ``status`` added 2026-07-29: found live that Close (status=Closed) had
+    the exact bug this module already fixed for stage — sheet_sync's next
+    full clear+rewrite regenerates status fresh from derive_status(), which
+    "never emits Closed/Delete" by its own docstring (that's write-back's
+    job), but nothing was actually persisting the Commander's Close past the
+    next 10-minute sync. Same fix, same pattern, one field later.
     """
     if not item_id:
         return
@@ -53,6 +59,8 @@ def set_override(item_id: str, stage: str = None, owner: str = None, path=None) 
         entry["stage"] = stage
     if owner is not None:
         entry["owner"] = owner
+    if status is not None:
+        entry["status"] = status
     overrides[item_id] = entry
     save_overrides(overrides, path)
 
@@ -80,3 +88,13 @@ def apply_override(item_id: str, derived_stage: str, overrides: dict) -> str:
 def apply_owner(item_id: str, overrides: dict) -> str:
     entry = overrides.get(item_id) or {}
     return entry.get("owner", "")
+
+
+def apply_status(item_id: str, derived_status: str, overrides: dict) -> str:
+    """Effective status: a persisted Closed override always wins over the
+    fresh "Open"/"Reference" derive_status() recomputes every sync — same
+    reasoning as apply_override for stage. Delete isn't stored here; a
+    disposed row's SOURCE is gone, so it stops being collected at all and
+    never reaches this function again."""
+    entry = overrides.get(item_id) or {}
+    return entry.get("status") or derived_status

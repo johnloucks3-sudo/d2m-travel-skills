@@ -32,23 +32,31 @@ INBOX_ORDER = [
 
 ACTIVE_STAGES = {"P", "D", "T"}  # Propose/Decide/Task — not yet Accomplished/Certified
 
+# The Sheet's 311 rows include everything collectors.py pulls — raw Gmail
+# inbox sweep (newsletters, CI probes, spam) included. That's fine for
+# AppSheet's full board, wrong for a "decide without reading" Commander
+# view. Scope down to rows that actually carry a curated decision signal:
+# alert-*/watch-* ids (hale_state.json deferred_alerts + prediction-ledger
+# watches — hand-curated, not raw inbox), inbox=="strategic" (the explicit
+# >$5K/>90d/board-level bucket), or type=="decision". A raw "gmail-*" row
+# never qualifies on its own — that prefix is unfiltered inbox mail.
+def _id_prefix(row: dict) -> str:
+    rid = row.get("id", "")
+    return rid.split("-")[0] if rid else ""
+
 
 def _pending_rows():
+    from .multi_tab import collect_multi_tab
     rows = writeback.read_sheet_rows()
-    out = []
-    for r in rows:
-        if r.get("status") in ("Closed", "Delete"):
-            continue
-        if r.get("stage") not in ACTIVE_STAGES and r.get("stage") != "":
-            continue
-        out.append(r)
-    return out
+    rows.extend(collect_multi_tab())
+    return rows
 
 
 def _card(row: dict) -> str:
+    from . import mfr
     rid = html.escape(row.get("id", ""))
     title = html.escape(row.get("title", "") or "(untitled)")
-    snippet = html.escape((row.get("snippet") or row.get("body") or "")[:400])
+    snippet = html.escape(mfr.describe(row))
     link = html.escape(row.get("link", ""), quote=True)
     source = html.escape(row.get("from", ""))
     date = html.escape(row.get("date", ""))
@@ -95,9 +103,24 @@ def render_board(rows=None) -> str:
 
     sections = []
     for key, label, desc, color in INBOX_ORDER:
-        cards = "\n".join(_card(r) for r in by_inbox.get(key, []))
+        lane_rows = by_inbox.get(key, [])
+        active_rows = [r for r in lane_rows if r.get("status") not in ("Closed", "Delete", "Reference") and r.get("stage") in ACTIVE_STAGES]
+        closed_rows = [r for r in lane_rows if r.get("status") in ("Closed", "Delete", "Reference") or r.get("stage") not in ACTIVE_STAGES]
+        
+        cards = "\n".join(_card(r) for r in active_rows)
         if not cards:
-            cards = '<div class="empty-lane">Nothing pending here right now.</div>'
+            cards = '<div class="empty-lane">Nothing active pending here right now.</div>'
+            
+        closed_cards = "\n".join(_card(r) for r in closed_rows)
+        closed_html = ""
+        if closed_cards:
+            closed_html = f'''
+            <details class="closed-section">
+                <summary>Show Closed/Reference ({len(closed_rows)})</summary>
+                <div class="card-list">{closed_cards}</div>
+            </details>
+            '''
+            
         sections.append(f"""
   <section class="gate" data-gate="{key}">
     <div class="gate-head">
@@ -105,6 +128,7 @@ def render_board(rows=None) -> str:
       <div><div class="gate-title">{label}</div><div class="gate-desc">{desc}</div></div>
     </div>
     <div class="card-list">{cards}</div>
+    {closed_html}
   </section>""")
 
     total = sum(len(v) for v in by_inbox.values())
@@ -118,10 +142,32 @@ def apply_action(item_id: str, action: str, note: str = "") -> dict:
     if action == "approve":
         updates["stage"] = "D"
     elif action == "hold":
-        updates["status"] = "Reference"
+        # status="Reference" is a real SHEET_COLUMNS value but tcd/overrides.py
+        # only persists stage/owner overrides — a bare status write here would
+        # get silently clobbered by the next 10-min tcd-sync.timer full
+        # rewrite (found live, 2026-07-28: wrote Reference, verified gone on
+        # next read). A comment IS durable (process_once's comment-diff
+        # branch + hale_decisions.md), so Hold logs intent that way instead
+        # of pretending a non-durable status flip is a real park action.
+        rows = writeback.read_sheet_rows()
+        row = next((r for r in rows if r.get("id") == item_id), None)
+        prior_comments = (row or {}).get("comments", "")
+        updates["comments"] = f"{prior_comments}\n[Commander HOLD via tcd.d2mluxury.quest]".strip()
     elif action == "reject":
         updates["status"] = "Delete"
     elif action == "close":
+        # _handle_close feeds row["comments"] to Silver's back-gate as BOTH
+        # the work-product artifact AND the criteria to check it against — a
+        # bare status=Closed write with no comment is correctly HELD as
+        # "no work product given" (verified live 2026-07-28: 6 one-click
+        # closes all held, Sheet reverted to Open on the next sync). Close
+        # needs a real one-line reason for the same reason Modify needs one.
+        if not note:
+            return {"ok": False, "error": "close needs a one-line reason — Silver's gate holds a bare close with no work product to check"}
+        rows = writeback.read_sheet_rows()
+        row = next((r for r in rows if r.get("id") == item_id), None)
+        prior_comments = (row or {}).get("comments", "")
+        updates["comments"] = f"{prior_comments}\n[Commander CLOSE via tcd.d2mluxury.quest] {note}".strip()
         updates["status"] = "Closed"
     elif action == "modify":
         if not note:
@@ -220,6 +266,10 @@ _PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
     font-family:var(--font-mono); font-size:12px; padding:9px 14px; border-radius:6px; opacity:0;
     transform:translateY(6px); transition:opacity .2s,transform .2s; pointer-events:none; }
   .toast.show { opacity:1; transform:translateY(0); }
+  .closed-section { margin-top: 15px; }
+  .closed-section summary { font-family:var(--font-mono); font-size:12px; color:var(--ink-dim); cursor:pointer; padding:8px 0; user-select:none; }
+  .closed-section .card-list { margin-top: 10px; }
+  .closed-section .card { opacity: 0.7; }
 </style></head>
 <body>
 <header class="board">
@@ -229,8 +279,9 @@ _PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <main>
   <p class="lede"><b style="color:var(--ink)">This is live.</b> Every click writes straight to the same Sheet
   AppSheet uses and runs the same write-back engine — Approve stages it to your staff, Reject deletes it at the
-  source, Close marks it done, Hold parks it as Reference, Modify appends a comment. Reload any time for the
-  current state; no export/import step.</p>
+  source, Close marks it done. Hold and Modify both log a comment to the item's audit trail (a bare "park" status
+  isn't durable across the 10-minute sync yet, so Hold stays visible here rather than silently vanishing).
+  Reload any time for the current state; no export/import step.</p>
 __SECTIONS__
 </main>
 <div class="toast" id="toast"></div>
@@ -243,8 +294,8 @@ async function act(card, action){
   var noteField = card.querySelector('.note-field');
   var textarea = noteField.querySelector('textarea');
   var note = textarea.value.trim();
-  if (action === 'modify' && note === '') { noteField.classList.add('show'); textarea.focus();
-    showToast('Type your edits, then click Log as Modified'); return; }
+  if ((action === 'modify' || action === 'close') && note === '') { noteField.classList.add('show'); textarea.focus();
+    showToast(action === 'close' ? 'Close needs a one-line reason first (Silver\\'s gate requires it)' : 'Type your edits, then click Log as Modified'); return; }
   showToast('Sending ' + action + '…');
   try {
     var res = await fetch('/tcd/act', { method:'POST', headers:{'Content-Type':'application/json'},

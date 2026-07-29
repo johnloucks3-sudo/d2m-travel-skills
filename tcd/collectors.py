@@ -42,12 +42,13 @@ def _enrich(item: dict, overrides: dict = None) -> Item:
     overrides = overrides if overrides is not None else {}
     item_id = item.get("id", "")
     stage = _overrides.apply_override(item_id, derive_stage(item), overrides)
+    status = _overrides.apply_status(item_id, derive_status(item, stage), overrides)
     return Item.from_legacy(
         item,
         link=derive_link(item),
         source_path=derive_source_path(item),
         stage=stage,
-        status=derive_status(item, stage),
+        status=status,
         owner=_overrides.apply_owner(item_id, overrides),
     )
 
@@ -123,6 +124,58 @@ def collect_gmail(max_per_account: int = 12) -> list:
         except Exception as e:
             print(f"tcd.collectors: gmail fetch failed for {account}: {e}",
                   file=sys.stderr)
+    return items
+
+
+def collect_gmail_drafts(max_per_account: int = 100) -> list:
+    """Recent drafts from both Gmail accounts, paginated via pageToken."""
+    try:
+        gauth = _imports.load_google_auth()
+    except Exception as e:
+        print(f"tcd.collectors: google auth unavailable: {e}", file=sys.stderr)
+        return []
+
+    items = []
+    for account, getter_name in GMAIL_ACCOUNTS:
+        try:
+            svc = getattr(gauth, getter_name)()
+            drafts = []
+            page_token = None
+            while True:
+                res = svc.users().drafts().list(
+                    userId="me", pageToken=page_token
+                ).execute()
+                drafts.extend(res.get("drafts", []))
+                page_token = res.get("nextPageToken")
+                if not page_token or len(drafts) >= max_per_account:
+                    break
+            
+            for d in drafts[:max_per_account]:
+                try:
+                    full_d = svc.users().drafts().get(userId="me", id=d["id"], format="full").execute()
+                    msg = full_d.get("message", {})
+                    headers = msg.get("payload", {}).get("headers", [])
+                    subject = _header(headers, "Subject") or "(no subject)"
+                    to = _header(headers, "To") or "unknown recipient"
+                    message_id = _header(headers, "Message-ID")
+                    try:
+                        date_iso = parsedate_to_datetime(_header(headers, "Date")).date().isoformat()
+                    except Exception:
+                        date_iso = ""
+                    snippet = msg.get("snippet", "")
+                    items.append({
+                        "id": f"draft-{account}-{d['id']}",
+                        "inbox": "operational", "folder": "o-inbox", "type": "decision",
+                        "priority": "p1", "unread": True,
+                        "title": subject, "from": to,
+                        "date": date_iso, "snippet": snippet, "body": snippet,
+                        "tags": ["draft", account], "comments": [],
+                        "message_id_header": message_id,
+                    })
+                except Exception as e:
+                    print(f"Failed to fetch draft {d['id']}: {e}", file=sys.stderr)
+        except Exception as e:
+            print(f"tcd.collectors: gmail drafts fetch failed for {account}: {e}", file=sys.stderr)
     return items
 
 
@@ -204,7 +257,7 @@ def collect_all(include_gmail: bool = True, include_keep: bool = True,
     """All sources → list[Item], each with a non-empty source deep-link."""
     raw = list(collect_local())
     if include_gmail:
-        raw = collect_gmail() + raw
+        raw = collect_gmail() + collect_gmail_drafts() + raw
     if include_keep:
         raw = raw + collect_keep()
     if include_sms:

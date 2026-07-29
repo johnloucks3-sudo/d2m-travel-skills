@@ -140,10 +140,12 @@ def contact_ag(
     add_dir = _validate_dir(add_dir)
     prompt = peer_prompt(task, deliverable_path=deliverable_path,
                          from_seat=from_seat, verdict_tag=verdict_tag, strengths=strengths)
+    agy_timeout_min = max(1, (timeout - 30) // 60)
     cmd = [
         "agy", "--add-dir", add_dir,
         "--dangerously-skip-permissions", "--mode", "accept-edits",
-        "--model", model, "--print", prompt,
+        "--model", model, "--print-timeout", f"{agy_timeout_min}m",
+        "--print", prompt,
     ]
     before = os.path.exists(deliverable_path) if deliverable_path else False
     try:
@@ -155,6 +157,24 @@ def contact_ag(
         rc, out, err = 127, "", "agy CLI not found on PATH"
     written = bool(deliverable_path) and os.path.exists(deliverable_path) and (
         not before or os.path.getsize(deliverable_path) > 0)
+        
+    try:
+        import datetime
+        timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        log_path = os.path.join(REPO, "OpsCenter", "collaboration", "routing_log.md")
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(f"\n## [{timestamp}] AG-Contact Attempt ({verdict_tag})\n")
+            f.write(f"**From:** {from_seat}\n**Model:** {model}\n")
+            f.write("### Prompt\n```\n" + prompt + "\n```\n")
+            f.write(f"### Result (rc={rc})\n")
+            f.write("**stdout:**\n```\n" + (out or "") + "\n```\n")
+            if err:
+                f.write("**stderr:**\n```\n" + err + "\n```\n")
+    except Exception as exc:
+        import sys
+        print(f"Failed to write routing log: {exc}", file=sys.stderr)
+
     return {
         "ok": rc == 0,
         "returncode": rc,

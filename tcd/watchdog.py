@@ -44,10 +44,14 @@ def _snip(text, n=220):
     return text[:n] + ("…" if len(text) > n else "")
 
 
-def _extract_staff_tasking(d: dict):
+def _extract_staff_tasking(d):
     """staff_tasking_schedule.json — surface only when a task is flagged
     critical; quiet log otherwise."""
-    critical = [t for t in d.get("tasks", []) if t.get("critical")]
+    if isinstance(d, list):
+        tasks = d
+    else:
+        tasks = d.get("tasks", []) if isinstance(d, dict) else []
+    critical = [t for t in tasks if t.get("critical")]
     if not critical:
         return None
     body = "\n".join(
