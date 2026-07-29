@@ -1,51 +1,54 @@
 #!/usr/bin/env python3
 """
-Commander Decision Inbox Hourly Update
-Fetches new pending items from hale_state.json and updates artifact/sheets.
-Runs hourly via systemd timer.
-"""
-import json
-from datetime import datetime
-from pathlib import Path
+Commander Decision Inbox — hourly queue refresh.
 
-def load_hale_state():
-    """Load current hale_state.json."""
-    state_path = Path('/home/john/Thunderbird/hale_state.json')
-    if state_path.exists():
-        with open(state_path) as f:
-            return json.load(f)
-    return {}
+C2 RECALIBRATION task 10, Commander directive 2026-07-29.
 
-def get_pending_items():
-    """Extract pending items from hale_state.json deferred_alerts."""
-    state = load_hale_state()
-    pending = state.get('deferred_alerts', [])
-    return pending
-
-def log_update():
-    """Log hourly update run to system journal."""
-    pending = get_pending_items()
-    count = len(pending)
-    timestamp = datetime.now().isoformat()
-
-    log_entry = f"[{timestamp}] Decision Inbox update: {count} pending items"
-    print(log_entry)
+HISTORY — WHY THIS FILE MATTERS
+-------------------------------
+Until 2026-07-29 this script was a 51-line stub. It ran hourly on
+commander-decision-inbox-update.timer and did nothing but print a count. The work it
+claimed to do lived in a comment:
 
     # In production, this would:
     # 1. Compare pending items against last update
     # 2. Identify new items to add
-    # 3. Identify completed items to archive
+    # 3. Identify completed items to archive      <-- never implemented
     # 4. Update artifact HTML
     # 5. Update Google Sheets log
 
-def main():
-    """Hourly update routine."""
+Step 3 never existed, so nothing the Commander closed was ever archived, and every
+regeneration resurrected it. His report — "I have tried to reduce my queue and it keeps
+getting overridden" — was an accurate description of the implementation.
+
+The real logic now lives in core/comms/commander_queue.py, which keeps an append-only
+closure ledger. This script is the thin timer entry point over it.
+"""
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from core.comms.commander_queue import write_queue  # noqa: E402
+
+
+def main() -> int:
     try:
-        log_update()
-    except Exception as e:
-        print(f"Error: {e}")
+        q = write_queue()
+    except Exception as exc:
+        print(f"ERROR: queue refresh failed: {type(exc).__name__}: {exc}")
         return 1
+
+    print(
+        f"Decision Inbox: {q['open_count']} open | "
+        f"{q['suppressed_by_closure']} suppressed by Commander closure | "
+        f"{q['total_closures_on_record']} closures on record"
+    )
     return 0
 
-if __name__ == '__main__':
-    exit(main())
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,719 @@
+{
+ "generated": "2026-07-29T20:35:00.927957+00:00",
+ "open_count": 70,
+ "suppressed_by_closure": 0,
+ "total_closures_on_record": 1,
+ "items": [
+  {
+   "id": "MISSION-COMMANDER-196-CALL",
+   "kind": "alert",
+   "title": "Call United Group Desk (800-426-1122 opt 3) with Spencer DEN-FCO 12-pax brief from Dembe. Request written quote. Document quote + booking decision. Return to De",
+   "priority": "P0",
+   "status": "deferred",
+   "client": "Spencer (Grand Tour)",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-06-24"
+  },
+  {
+   "id": "MISSION-317-SPENCER-CALL-REMINDER",
+   "kind": "alert",
+   "title": "MISSION-317 — Call United Group Desk TODAY (800-426-1122, opt 3) for Spencer's DEN-FCO 12-pax quote. Scheduled 2026-07-04 via decision matrix (Sat holiday weeke",
+   "priority": "P0",
+   "status": "deferred",
+   "client": "",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-06"
+  },
+  {
+   "id": "MCLEOD-2984034-FPD-TRIGGER",
+   "kind": "alert",
+   "title": "McLeod Regent Grandeur 2984034 — FPD Jul 22 is 15 days out. $11,943.15 due. Contact Erik McLeod re final payment.",
+   "priority": "P0",
+   "status": "deferred",
+   "client": "McLeod McGlasson",
+   "amount": 11943.15,
+   "fpd": "2026-07-22",
+   "suspense_date": "2026-07-07"
+  },
+  {
+   "id": "LOUCKS-3122006-FPD-ALERT",
+   "kind": "alert",
+   "title": "Loucks Regent Grandeur 3122006 — FPD Aug 1 is 21 days out. TP 4.1 Payment Reminder due TODAY. Balance: 4,798. WF-17 waived for Loucks-as-client — send directly.",
+   "priority": "P0",
+   "status": "deferred",
+   "client": "John & Susan Loucks",
+   "amount": 24798,
+   "fpd": "2026-08-01",
+   "suspense_date": "2026-07-11"
+  },
+  {
+   "id": "SCANDI-PORTAL-SEND",
+   "kind": "alert",
+   "title": "TARGET SEND 20 JUL — 3 Grandeur Scandinavia portals to Furlow / Ely-Darrow / Nichols. ⛔ GATED: send ONLY AFTER Commander books the ARN->At Six arrival transfers",
+   "priority": "P0",
+   "status": "deferred",
+   "client": "Grandeur Scandinavia — Furlow/Ely-Darrow/Nichols",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-20"
+  },
+  {
+   "id": "MISSION-668",
+   "kind": "mission",
+   "title": "Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Sterling",
+   "suspense_date": null,
+   "created_at": "2026-07-18T02:25:03.993187+00:00"
+  },
+  {
+   "id": "MISSION-686",
+   "kind": "mission",
+   "title": "Confirm Loucks Grandeur FPD payment mechanism before August 1",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Harlan",
+   "suspense_date": null,
+   "created_at": "2026-07-19T04:20:29.718202+00:00"
+  },
+  {
+   "id": "MISSION-704",
+   "kind": "mission",
+   "title": "Surface Loucks FPD $24,798 to Commander — Aug 1 deadline",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-22T20:54:22.002373+00:00"
+  },
+  {
+   "id": "MISSION-735",
+   "kind": "mission",
+   "title": "Confirm and execute Loucks Grandeur FPD — $24,798 due Aug 1",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Harlan",
+   "suspense_date": null,
+   "created_at": "2026-07-26T19:46:10.111268+00:00"
+  },
+  {
+   "id": "MISSION-740",
+   "kind": "mission",
+   "title": "Surface and execute Loucks Grandeur FPD before August 1",
+   "priority": "P0",
+   "status": "pending_review",
+   "assigned_to": "Harlan",
+   "suspense_date": null,
+   "created_at": "2026-07-26T20:18:53.765681+00:00"
+  },
+  {
+   "id": "MCLEOD-2984034-TP11-SEND",
+   "kind": "alert",
+   "title": "McLeod Regent Grandeur 2984034 — TP 1.1 Voyage Preview draft was staged 2026-06-24 with contact hold. Send today: review draft in johnloucks3 (search subject \"L",
+   "priority": "P1",
+   "status": "deferred",
+   "client": "McLeod McGlasson - Grandeur Dec 2026",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-07"
+  },
+  {
+   "id": "SCANDI-PORTAL-REVIEW",
+   "kind": "alert",
+   "title": "WING REVIEW — 3 Grandeur Scandinavia per-couple portals (Furlow furlow.d2mluxury.quest / Ely-Darrow elydarrow.d2mluxury.quest / Nichols nichols.d2mluxury.quest)",
+   "priority": "P1",
+   "status": "deferred",
+   "client": "Grandeur Scandinavia — Furlow/Ely-Darrow/Nichols",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-10"
+  },
+  {
+   "id": "MCLEOD-SILVER-MUSE-WELCOME-HOME",
+   "kind": "alert",
+   "title": "McLeod/McGlasson Silver Muse voyage returned Jul 6. Send TP 5.1 Welcome Home today. Follow with TP 5.2 Survey Jul 20. Eric McLeod & Melissa McGlasson.",
+   "priority": "P1",
+   "status": "deferred",
+   "client": "McLeod McGlasson - Silver Muse",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-13"
+  },
+  {
+   "id": "MISSION-802-FORMAT-REVIEW",
+   "kind": "alert",
+   "title": "MISSION-802 PRE-BUILD REVIEW — 1 week before Jul 22 itinerary build.\nSurface to Commander: (1) itinerary layout format for approval, (2) content check vs. porta",
+   "priority": "P1",
+   "status": "deferred",
+   "client": "Furlow / Ely-Darrow / Nichols — Grandeur Aug 2026",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-15"
+  },
+  {
+   "id": "MISSION-802-ITINERARY-BUILD",
+   "kind": "alert",
+   "title": "MISSION-802 — Furlow/Ely-Darrow/Nichols Group HTML Itinerary BUILD DUE TODAY.\n30-day send target: Jul 29 (30 days before Aug 29 sail). 7-day review window start",
+   "priority": "P1",
+   "status": "deferred",
+   "client": "Furlow / Ely-Darrow / Nichols — Grandeur Aug 2026",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-22"
+  },
+  {
+   "id": "MISSION-0615",
+   "kind": "mission",
+   "title": "Quick & TL;DR recommendations for incubator reports",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-16T00:00:00+00:00"
+  },
+  {
+   "id": "MISSION-10",
+   "kind": "mission",
+   "title": "Client inquiry: Introducing Our Destination Experiences",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-12T20:00:13.541172+00:00"
+  },
+  {
+   "id": "MISSION-030",
+   "kind": "mission",
+   "title": "Deliver Kuklinski validation and insurance emails to WF-17 queue",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-15T13:59:42.300375+00:00"
+  },
+  {
+   "id": "MISSION-048",
+   "kind": "mission",
+   "title": "Kuklinski Dec-17 air routing — real pricing pulled, return-leg open-jaw still needed",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-15T21:17:47.981636+00:00"
+  },
+  {
+   "id": "MISSION-625",
+   "kind": "mission",
+   "title": "Produce Regent pricing refresh for Lyons renewal window",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-16T12:26:40.450331+00:00"
+  },
+  {
+   "id": "MISSION-654",
+   "kind": "mission",
+   "title": "Client inquiry: How Heritage can still limit birthplace citizenship",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-17T16:00:15.532125+00:00"
+  },
+  {
+   "id": "MISSION-655",
+   "kind": "mission",
+   "title": "Client inquiry: Re: Odysseus Password Reset Issue #100210",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-17T20:00:20.864724+00:00"
+  },
+  {
+   "id": "MISSION-657",
+   "kind": "mission",
+   "title": "Client inquiry: Re: Vendor Setup: Farebuzz #100209",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-17T20:00:20.870534+00:00"
+  },
+  {
+   "id": "MISSION-660",
+   "kind": "mission",
+   "title": "Pull Kuklinski return-leg open-jaw routing and pricing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-18T00:03:15.718271+00:00"
+  },
+  {
+   "id": "MISSION-661",
+   "kind": "mission",
+   "title": "Source air options for all three Scandinavia groups",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-18T00:03:15.718451+00:00"
+  },
+  {
+   "id": "MISSION-662",
+   "kind": "mission",
+   "title": "Resolve McLeod FCC discrepancy — three-way balance compare",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-18T00:03:15.718619+00:00"
+  },
+  {
+   "id": "MISSION-663",
+   "kind": "mission",
+   "title": "Release Kuklinski WF-17 drafts to Commander review queue",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-18T00:03:15.718784+00:00"
+  },
+  {
+   "id": "MISSION-671",
+   "kind": "mission",
+   "title": "Fix CI degradation paging — no real Whetstone routing, no auto-escalation to Hale",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Sterling",
+   "suspense_date": null,
+   "created_at": "2026-07-18T02:32:26.383708+00:00"
+  },
+  {
+   "id": "MISSION-678",
+   "kind": "mission",
+   "title": "Resolve McLeod compound exposure as single coordinated action",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-18T20:16:23.497485+00:00"
+  },
+  {
+   "id": "MISSION-679",
+   "kind": "mission",
+   "title": "Route Kuklinski validation email through WF-17 independently of air routing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-18T20:16:23.497722+00:00"
+  },
+  {
+   "id": "MISSION-681",
+   "kind": "mission",
+   "title": "Close Kuklinski return-leg air routing open-jaw",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-18T20:16:23.498662+00:00"
+  },
+  {
+   "id": "MISSION-683",
+   "kind": "mission",
+   "title": "Assign and activate MISSION-618 — Furlow/Ely-Darrow/Nichols Grandeur",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-18T20:16:23.499903+00:00"
+  },
+  {
+   "id": "MISSION-684",
+   "kind": "mission",
+   "title": "Client inquiry: You're 1 of only 500 invited 👀",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-19T04:00:04.894538+00:00"
+  },
+  {
+   "id": "MISSION-685",
+   "kind": "mission",
+   "title": "Resolve McLeod FCC discrepancy and execute overdue lifecycle TP",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-19T04:20:29.717238+00:00"
+  },
+  {
+   "id": "MISSION-687",
+   "kind": "mission",
+   "title": "Submit Kuklinski insurance and validation emails to WF-17",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-19T04:20:29.719424+00:00"
+  },
+  {
+   "id": "MISSION-688",
+   "kind": "mission",
+   "title": "Complete Kuklinski December 17 return-leg open-jaw pricing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-19T04:20:29.720261+00:00"
+  },
+  {
+   "id": "MISSION-689",
+   "kind": "mission",
+   "title": "Deliver Regent pricing refresh for Lyons renewal window",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-19T04:20:29.720858+00:00"
+  },
+  {
+   "id": "MISSION-698",
+   "kind": "mission",
+   "title": "Close Kuklinski Dec-17 return open-jaw routing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-21T02:22:36.393720+00:00"
+  },
+  {
+   "id": "MISSION-702",
+   "kind": "mission",
+   "title": "Client inquiry: Invite to Vote - Ridge at Fox Run Homeowners Association",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-21T08:00:08.654604+00:00"
+  },
+  {
+   "id": "MISSION-705",
+   "kind": "mission",
+   "title": "Close Kuklinski and Westbrook welcome emails this week",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-22T20:54:22.003139+00:00"
+  },
+  {
+   "id": "MISSION-707",
+   "kind": "mission",
+   "title": "Assign owners to all seven unowned P1 missions on the board",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-22T20:54:22.004573+00:00"
+  },
+  {
+   "id": "MISSION-708",
+   "kind": "mission",
+   "title": "Complete Kuklinski Dec-17 return-leg open-jaw routing",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-22T20:54:22.005438+00:00"
+  },
+  {
+   "id": "MISSION-709",
+   "kind": "mission",
+   "title": "Determine Lyons renewal window close date and trigger Regent refresh",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-22T20:54:22.006294+00:00"
+  },
+  {
+   "id": "MISSION-712",
+   "kind": "mission",
+   "title": "Client inquiry: Your Early Preview — Atlas Ocean Voyages Europe 2028",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-23T20:00:19.100995+00:00"
+  },
+  {
+   "id": "MISSION-713",
+   "kind": "mission",
+   "title": "Kuklinski and Westbrook welcome emails — WF-17 by Friday",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-24T04:04:06.112411+00:00"
+  },
+  {
+   "id": "MISSION-718",
+   "kind": "mission",
+   "title": "Client inquiry: Everyone Needs to Vote on the 2026 Special Assessment - Drai",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-24T12:00:09.023352+00:00"
+  },
+  {
+   "id": "MISSION-719",
+   "kind": "mission",
+   "title": "Client inquiry: A new major step for Heritage",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-24T16:00:16.576423+00:00"
+  },
+  {
+   "id": "MISSION-721",
+   "kind": "mission",
+   "title": "Close Kuklinski validation and insurance emails through WF-17",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-25T00:02:58.260417+00:00"
+  },
+  {
+   "id": "MISSION-722",
+   "kind": "mission",
+   "title": "Assign owners to all five unassigned P1/P2 missions",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-25T00:02:58.260896+00:00"
+  },
+  {
+   "id": "MISSION-723",
+   "kind": "mission",
+   "title": "Draft Lyons renewal window Regent pricing refresh",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-25T00:02:58.261536+00:00"
+  },
+  {
+   "id": "MISSION-727",
+   "kind": "mission",
+   "title": "Draft and route Kuklinski validation and insurance emails to WF-17",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-25T04:04:31.835235+00:00"
+  },
+  {
+   "id": "MISSION-728",
+   "kind": "mission",
+   "title": "Verify Westbrook welcome email status and close or redeliver",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-25T04:04:31.835671+00:00"
+  },
+  {
+   "id": "MISSION-730",
+   "kind": "mission",
+   "title": "Assign owners to MISSION-618, MISSION-629, and MISSION-649",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-25T04:04:31.836838+00:00"
+  },
+  {
+   "id": "MISSION-734",
+   "kind": "mission",
+   "title": "Client inquiry: We Value Your Opinion!",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": "",
+   "created_at": "2026-07-26T16:00:17.124203+00:00"
+  },
+  {
+   "id": "MISSION-737",
+   "kind": "mission",
+   "title": "Pull pricing for Kuklinski Dec-17 open-jaw return leg",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-26T19:46:10.113417+00:00"
+  },
+  {
+   "id": "MISSION-738",
+   "kind": "mission",
+   "title": "Run full system health diagnostic and deliver findings to Commander",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-26T19:46:10.114118+00:00"
+  },
+  {
+   "id": "MISSION-741",
+   "kind": "mission",
+   "title": "Move MISSION-030 Kuklinski WF-17 emails to Commander's hands",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-26T20:18:53.766688+00:00"
+  },
+  {
+   "id": "MISSION-742",
+   "kind": "mission",
+   "title": "Verify Kuklinski and Westbrook welcome email dispatch records",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-26T20:18:53.767995+00:00"
+  },
+  {
+   "id": "MISSION-744",
+   "kind": "mission",
+   "title": "Produce and deliver Lyons Regent pricing refresh",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Intel",
+   "suspense_date": null,
+   "created_at": "2026-07-26T20:18:53.769951+00:00"
+  },
+  {
+   "id": "MISSION-747",
+   "kind": "mission",
+   "title": "Move Kuklinski validation and insurance emails to WF-17 queue",
+   "priority": "P1",
+   "status": "pending_review",
+   "assigned_to": "Dani",
+   "suspense_date": null,
+   "created_at": "2026-07-26T20:39:02.223144+00:00"
+  },
+  {
+   "id": "MISSION-1530-SKYVERN-REVIEW",
+   "kind": "alert",
+   "title": "MISSION-1530 (Skyvern credential keep-alive trial) parked 2026-07-04 — Commander deprioritized after seeing scope of the Anthropic API billing blocker. Review: ",
+   "priority": "P2",
+   "status": "deferred",
+   "client": "",
+   "amount": "",
+   "fpd": "",
+   "suspense_date": "2026-07-10"
+  },
+  {
+   "id": "SSS-005",
+   "kind": "mission",
+   "title": "Loucks Grandeur FPD $24,798 — Commander paying 31 Jul",
+   "priority": "P2",
+   "status": "in_coordination",
+   "assigned_to": "Harlan",
+   "suspense_date": "2026-07-31",
+   "created_at": "2026-07-29T16:38:45.216370+00:00"
+  },
+  {
+   "id": "SSS-006",
+   "kind": "mission",
+   "title": "TESS pipeline restore + commission cross-check ($3,018 gap)",
+   "priority": "P2",
+   "status": "in_coordination",
+   "assigned_to": "Harlan",
+   "suspense_date": "2026-08-05",
+   "created_at": "2026-07-29T17:15:20.827080+00:00"
+  },
+  {
+   "id": "SSS-007",
+   "kind": "mission",
+   "title": "FPD deadline audit — Furlow and Kuklinski",
+   "priority": "P2",
+   "status": "in_coordination",
+   "assigned_to": "Harlan",
+   "suspense_date": "2026-08-05",
+   "created_at": "2026-07-29T17:15:20.901588+00:00"
+  },
+  {
+   "id": "MISSION-021",
+   "kind": "mission",
+   "title": "Re: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt | Systima Blog",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-14T03:55:35.938280+00:00"
+  },
+  {
+   "id": "MISSION-022",
+   "kind": "mission",
+   "title": "Innovation Scan — Daily 2026-07-13 (74 findings)",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-14T03:55:35.939560+00:00"
+  },
+  {
+   "id": "MISSION-023",
+   "kind": "mission",
+   "title": "Re: Booking Confirmation - PE184712212",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "A2",
+   "suspense_date": null,
+   "created_at": "2026-07-14T03:55:35.940275+00:00"
+  },
+  {
+   "id": "MISSION-025",
+   "kind": "mission",
+   "title": "Fwd: travel update",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "COS/A2",
+   "suspense_date": null,
+   "created_at": "2026-07-14T04:05:36.037177+00:00"
+  },
+  {
+   "id": "MISSION-027",
+   "kind": "mission",
+   "title": "A Conversation with John Sailer: How to Make Universities More Accountable",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "COS",
+   "suspense_date": null,
+   "created_at": "2026-07-14T19:10:19.902990+00:00"
+  },
+  {
+   "id": "MISSION-028",
+   "kind": "mission",
+   "title": "GitHub - Tencent/BrowserSkill: Let AI agents use your real, logged-in browser without interrupting your work. CLI + exte",
+   "priority": "P2",
+   "status": "pending_review",
+   "assigned_to": "Hale",
+   "suspense_date": null,
+   "created_at": "2026-07-14T19:10:19.906016+00:00"
+  }
+ ]
+}
