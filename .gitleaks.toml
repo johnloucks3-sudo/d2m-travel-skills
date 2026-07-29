@@ -42,6 +42,10 @@ useDefault = true
     '''validations/lyons_regent/''',
   ]
 
+[[allowlists]]
+  description = "Historical findings in commit 0d3af2a4b (2026-07-28): (1) Pexels API key hardcoded as default in image_selector_cli.py and core/media/validator.py — both fixed in working tree 2026-07-29 (removed default value, key must come from PEXELS_API_KEY env var); (2) SSH private key (zfold-termius-rotated-20260712, ED25519) in intel/email_forward_1783873952.txt — key rotation notification email saved as intel archive, cannot edit archived email content. Pexels key is free-tier, recommend rotation at pexels.com. SSH key: recommend rotation if still active. Hale CI authority, SO_CI_RAZOR_SHARP_20260620. Allowlist entry count: 5."
+  commits = ["0d3af2a4b50684ba7cea41df41bffb6c6441fc5a"]
+
 # ─────────────────────────────────────────────────────────────────────────────
 # KNOWN TRUE POSITIVES — NOT allowlisted. Rotate these credentials:
 #

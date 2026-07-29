@@ -9,7 +9,7 @@ import urllib.request
 import urllib.parse
 import json
 
-PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "NqwZOrjkDQhdFdR2NgXbpBGsz1Gl7MSFvbLKSta63PWAI8Sh4oZNyfwF")
+PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 
 def fetch_pexels_choices(query: str, per_page: int = 3) -> list:
     """Fetch multiple photo options from Pexels API matching the query."""

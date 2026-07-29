@@ -45,7 +45,9 @@ SUSPECT_ALLOW = (".example", ".template", ".md", "cookie_refresh_status",
                  # verified clean 2026-07-01 (code/status only, no credential values):
                  "grab_regent_cookies_cdp.py", "regent_firefox_cookie_capture.py",
                  "silversea_cookie_refresh.py", "vtg_cookie_refresh.py",
-                 "silversea_session.json")
+                 "silversea_session.json",
+                 # verified clean 2026-07-29 (CloakBrowser test runners — code only, no embedded creds):
+                 "test_cookies.mjs", "test_rssc_cookies.mjs")
 
 
 def _run(cmd: list[str] | str, **kw) -> subprocess.CompletedProcess:

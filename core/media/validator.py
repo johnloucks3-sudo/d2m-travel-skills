@@ -8,7 +8,7 @@ import urllib.request
 import urllib.parse
 import json
 
-PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "NqwZOrjkDQhdFdR2NgXbpBGsz1Gl7MSFvbLKSta63PWAI8Sh4oZNyfwF")
+PEXELS_API_KEY = os.environ.get("PEXELS_API_KEY", "")
 
 def verify_url(url: str) -> bool:
     """Check if a URL is active by issuing a HEAD request with custom User-Agent."""
