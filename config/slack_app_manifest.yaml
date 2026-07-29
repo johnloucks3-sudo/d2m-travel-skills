@@ -44,12 +44,16 @@ oauth_config:
       - users:read
 
 settings:
-  # Interactivity is what makes Approve/Close/Defer buttons work. It needs a public
-  # request URL. Leave it OFF for now — briefs will deliver fine without it. We turn
-  # it on once the receiver endpoint is stood up (task 14), so the app installs clean
-  # today rather than blocking on a tunnel.
+  # Interactivity + Socket Mode are BOTH on, and deliberately paired.
+  #
+  # Interactive buttons normally demand a public HTTPS request_url — a tunnel, a cert,
+  # a DNS record, three more things to break. Socket Mode replaces all of that with an
+  # OUTBOUND websocket from this host, so `request_url` is intentionally absent below
+  # and nothing inbound is ever exposed.
+  #
+  # Receiver: core/comms/slack_receiver.py  ·  unit: slack-receiver.service
   interactivity:
-    is_enabled: false
+    is_enabled: true
+  socket_mode_enabled: true
   org_deploy_enabled: false
-  socket_mode_enabled: false
   token_rotation_enabled: false
