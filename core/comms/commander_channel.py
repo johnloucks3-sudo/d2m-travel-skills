@@ -138,6 +138,54 @@ def _is_probably_html(text: str) -> bool:
     return bool(re.search(r"<(?:p|div|table|h[1-6]|ul|ol|br|span)\b", text, re.I))
 
 
+# ── Claims check — designed by AG, 2026-07-29 ────────────────────────────────────
+# Origin: the weekly report told the Commander "60+ initiatives executed across the
+# Weapons Free surge". Its sibling claim, "approximately 124 commits", was ACCURATE
+# (git: 125) — but "initiative" maps to no artifact in any system here, so the headline
+# number could not be checked, and he read the whole report as inflation.
+# SO-REPORTING-2026 §2.4 already bans anti-theater; nothing enforced it.
+#
+# DELIBERATE DEVIATION from AG's proposal: AG offered both a CHECKABLE_ARTIFACTS
+# allowlist and a THEATER_NOUNS denylist. We implement the DENYLIST ONLY, because AG's
+# own adversarial section showed the allowlist punishes legitimate specificity — it
+# rejects "I spun up 3 new test harnesses" purely because "harnesses" wasn't enumerated.
+# A gate that blocks honest precision trains people to write vaguer, which is the
+# opposite of the goal. The denylist catches the actual offenders and lets real nouns
+# through.
+#
+# KNOWN HOLE, AG's own finding, documented rather than papered over: "We took 60
+# actions to improve client trust" passes, because "actions" is a real countable noun.
+# It is exactly as unfalsifiable as "initiatives". This check raises the cost of
+# theater; it does not make theater impossible.
+_THEATER_NOUNS = (
+    "initiative", "initiatives", "effort", "efforts", "win", "wins",
+    "improvement", "improvements", "enhancement", "enhancements",
+    "optimization", "optimizations", "capability", "capabilities",
+)
+_NUM_THEATER = re.compile(
+    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|dozens?|scores?)\s*\+?\s+"
+    r"(?:[a-z][a-z\-]*\s+){0,2}"
+    r"(" + "|".join(_THEATER_NOUNS) + r")\b",
+    re.IGNORECASE,
+)
+
+
+def check_claims(body_md: str) -> Optional[str]:
+    """Reject a body that attaches a number to something no system can count.
+
+    Returns a rejection reason, or None if the body is clean.
+    """
+    m = _NUM_THEATER.search(body_md or "")
+    if not m:
+        return None
+    return (
+        f"unfalsifiable count: {m.group(0).strip()!r}. No system here counts "
+        f"'{m.group(2).lower()}', so this number cannot be checked and reads as "
+        "inflation. Cite a countable artifact instead — commits, missions, files, "
+        "drafts, closures, dollars — or drop the number and describe the work."
+    )
+
+
 # ─────────────────────────────────────────────────────────────────────────────────
 # Markdown → HTML. Self-contained: no `markdown` package on this host, and a
 # notification path must not carry an optional dependency.
@@ -335,8 +383,8 @@ def notify(kind: str,
     base = {"kind": kind, "title": title, "urgency": urgency,
             "source": source, "reason": reason}
 
-    # 1. Content fitness.
-    bad = check_body(body_md)
+    # 1. Content fitness — scaffolding leaks, then unfalsifiable counts.
+    bad = check_body(body_md) or check_claims(body_md)
     if bad:
         return _audit(status="rejected", detail=bad, **base)
 
