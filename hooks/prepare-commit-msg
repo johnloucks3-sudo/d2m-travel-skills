@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# prepare-commit-msg — stamp the PRODUCING seat and model as commit trailers.
+# C2 RECALIBRATION task 4, Commander directive 2026-07-29.
+#
+# Install:  ln -sf ../../hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
+#
+# The author field can be spoofed by whatever sets GIT_AUTHOR_NAME. These trailers are
+# a second, independent record of who actually produced the work, so that a mis-set
+# identity is detectable rather than silent. An unset seat is recorded as UNKNOWN —
+# we record ignorance honestly instead of defaulting to a model name that may be a lie.
+
+MSG_FILE="$1"
+SOURCE="$2"
+
+# Don't touch merges, squashes, or amend/-C reuse.
+case "$SOURCE" in
+  merge|squash|commit) exit 0 ;;
+esac
+
+SEAT="${THUNDERBIRD_SEAT:-UNKNOWN}"
+MODEL="${THUNDERBIRD_MODEL:-UNKNOWN}"
+
+# Idempotent — never double-stamp.
+grep -qi '^Seat:' "$MSG_FILE" && exit 0
+
+printf '\nSeat: %s\nModel: %s\n' "$SEAT" "$MODEL" >> "$MSG_FILE"
+exit 0

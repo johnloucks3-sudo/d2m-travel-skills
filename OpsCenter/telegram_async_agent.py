@@ -8,7 +8,7 @@ message poll loop never blocks (this is the fix for the disabled in-loop
 dispatcher: tool work happens off the hot path).
 
 Flow:
-  gateway detects a tool-needing request → sends instant "Wilco" ack →
+  gateway detects a tool-needing request → (no ack is sent; see C2 policy below) →
   Popen(this script, start_new_session=True) → returns immediately.
   This worker then: wraps the task in Hale persona + live state, runs headless
   Claude with the full ~/.claude/mcp.json toolset (Gmail/Drive/TESS/wing tools),
@@ -76,9 +76,13 @@ def main() -> int:
         f"{state_block}Commander sent this via Telegram and it needs real tools "
         f"(you are in full-MCP agent mode — Gmail, Drive, TESS, wing tools all available):\n\n"
         f"\"{args.task}\"\n\n"
-        f"Do the actual work with your tools, then reply with a tight, Telegram-ready answer "
-        f"(plain text, scannable, under ~1500 chars). Lead with Wilco/Roger/Done and restate "
-        f"what you did. If a client/figure isn't in a primary source, say so — never substitute."
+        f"Do the actual work with your tools FIRST, then reply with a tight, Telegram-ready answer "
+        f"(plain text, scannable, under ~1500 chars).\n\n"
+        f"REPLY POLICY — C2 RECALIBRATION 2026-07-29: report only what is DONE, citing a concrete "
+        f"artifact (file path, mission id, thread id, row, commit sha). Never emit 'Wilco', "
+        f"'report follows', or any future-tense commitment — an acknowledgement is not a deliverable. "
+        f"If the work is not complete, say plainly what is NOT done and why; do not promise. "
+        f"If a client/figure isn't in a primary source, say so — never substitute."
     )
     prompt = wrap_with_persona(task_prompt, channel="telegram", compact=True)
 

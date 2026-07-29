@@ -1,0 +1,35 @@
+{
+  "_comment": "C2 RECALIBRATION — Phase 0 silence manifest. Records every notification timer stopped+disabled on 2026-07-29, its prior state, and how to restore it. Authority: Commander directive 2026-07-29 ('stop all the worthless time sink notifications'). Plan: ~/.claude/plans/misty-churning-feather.md",
+  "created": "2026-07-29T19:20:00+00:00",
+  "created_by": "CC",
+  "phase": "0",
+  "action_taken": "systemctl --user stop + disable",
+  "mask_attempted": true,
+  "mask_succeeded": false,
+  "mask_failure_reason": "systemd cannot mask a unit when a real unit file exists at the same path in ~/.config/systemd/user/. Units are disabled+stopped and absent from the live timer schedule, but a deliberate re-enable remains possible. Durable enforcement is deferred to Phase 1 task 9: the underlying scripts raise when invoked outside core/comms/commander_channel.py::notify().",
+  "restore_command": "systemctl --user enable --now <unit>.timer",
+  "silenced": [
+    {"unit": "d2m-intel-digest.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "core/intel/thunderbird_intel_digest.py", "disposition": "convert_to_notify"},
+    {"unit": "d2m-intel-telegram.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "core/communication/thunderbird_intel_telegram.py", "disposition": "retire_with_telegram"},
+    {"unit": "d2m-brief-telegram.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "core/communication/thunderbird_brief_telegram.py", "disposition": "retire_with_telegram"},
+    {"unit": "agentmail-daily-digest.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "scripts/agentmail_daily_digest.py daily", "disposition": "convert_to_notify"},
+    {"unit": "d2m-incubator-overnight-report.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "core/intel/thunderbird_incubator.py overnight_report", "disposition": "convert_to_notify"},
+    {"unit": "d2m-validation-report.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "core/lifecycle/validation_report_generator.py", "disposition": "convert_to_notify"},
+    {"unit": "hale-morning-brief.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "OpsCenter/hale_morning_brief.py", "disposition": "superseded_by_consolidated_0630"},
+    {"unit": "hale-brief-generator.timer", "prior_enabled": "disabled", "prior_active": "inactive", "exec": "core.hale.generate_and_send_brief", "disposition": "superseded_by_consolidated_0630"},
+    {"unit": "d2m-commander-digest.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "scripts/d2m_commander_digest.py", "disposition": "superseded_by_consolidated_0630"},
+    {"unit": "d2m-usage-monitor.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "core/ops/thunderbird_usage_monitor.py --alert", "disposition": "convert_to_notify_window"},
+    {"unit": "loucks-gp-notifier.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "OpsCenter/loucks_guinea_pig_notifier.py", "disposition": "convert_to_notify"},
+    {"unit": "commander-decision-inbox-update.timer", "prior_enabled": "enabled", "prior_active": "active", "exec": "scripts/commander_decision_inbox_update.py", "disposition": "STUB_CONFIRMED_VAPORWARE__replace_in_task_10"}
+  ],
+  "deliberately_kept_running": [
+    {"unit": "thunderbird-morning-consolidated.timer", "schedule": "06:30 America/Denver", "reason": "Commander-selected delivery window #1"},
+    {"unit": "thunderbird-evening-consolidated.timer", "schedule": "18:30 America/Denver", "reason": "Commander-selected delivery window #2"},
+    {"unit": "d2m-fpd-alert.timer", "schedule": "01:35 America/Denver", "reason": "MONEY. The 06:30 consolidated engine contains ZERO FPD references — masking this would silently drop payment-deadline coverage while Erik Wiedenbach McLeod is overdue. Was never a noise source: today's duplicate FPD alerts (11:30 and 11:43 MDT) came from ad-hoc invocation, not this timer. Retires only after Phase 1 task 9 folds FPD into the 06:30 brief."},
+    {"unit": "*-oauth-keepalive.timer, credential/health/watchdog timers", "reason": "Infrastructure. These page nobody."}
+  ],
+  "verification": {
+    "live_timer_list_hits_after_change": 0,
+    "command": "systemctl --user list-timers --all | grep -Ec 'intel-digest|intel-telegram|brief-telegram|agentmail-daily|incubator-overnight|validation-report|hale-morning-brief|hale-brief-generator|commander-digest|usage-monitor|gp-notifier|decision-inbox-update'"
+  }
+}
