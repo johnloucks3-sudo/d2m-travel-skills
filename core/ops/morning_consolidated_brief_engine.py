@@ -249,6 +249,57 @@ def pull_live_osint_watchdog() -> str:
 """
 
 
+def build_fpd_section(alerts: list[dict]) -> str:
+    if not alerts:
+        return '<p style="color:#64748b;font-style:italic;">No FPD alerts. All payments current. ✅</p>'
+
+    rows_html = ""
+    for a in alerts:
+        pri = a.get("priority", "").lower()
+        badge = PRIORITY_BADGE.get(pri, "")
+        client = str(a.get("client", ""))[:40]
+        msg = str(a.get("message", ""))[:70]
+        amount = a.get("amount")
+        amount_str = f"${amount:,.2f}" if amount else "—"
+        fpd = str(a.get("fpd", ""))[:10] or "—"
+        bg = "#ffffff" if rows_html.count("<tr") % 2 == 0 else "#f8fafc"
+        rows_html += f"""
+        <tr style="background-color:{bg};">
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;">{badge}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:600;color:#0f172a;">{client}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569;font-size:12px;">{msg}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:bold;color:#07076b;">{amount_str}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569;font-size:12px;">{fpd}</td>
+        </tr>"""
+
+    return f"""
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
+    <tr style="background:#07076b;color:#fff;">
+        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:100px;">Priority</th>
+        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;">Client</th>
+        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;">Alert</th>
+        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:120px;">Amount</th>
+        <th style="padding:9px 10px;border:1px solid #07076b;text-align:left;width:110px;">FPD</th>
+    </tr>
+    {rows_html}
+</table>
+<p style="font-size:12px;color:#64748b;margin-top:4px;">Source: hale_state.json deferred_alerts · {len(alerts)} active</p>
+"""
+
+
+def build_commander_desk_section() -> str:
+    try:
+        from core.comms.commander_queue import summary_md
+        from core.comms.commander_channel import render_markdown
+        md = summary_md()
+        if not md or not md.strip():
+            return '<p style="color:#64748b;font-style:italic;">Commander desk queue is empty. No pending items.</p>'
+        return render_markdown(md)
+    except Exception as e:
+        logger.warning(f"Commander desk section failed: {e}")
+        return '<p style="color:#dc2626;">Commander desk section unavailable.</p>'
+
+
 # ──────────────────────────────────────────────
 # MAIN BRIEF GENERATOR
 # ──────────────────────────────────────────────
@@ -264,12 +315,26 @@ def generate_morning_brief_html() -> str:
     missions_p0p1 = pull_mission_board_p0_p1()
     wing_ops_digest = pull_wing_ops_digest()
 
+    # Pull FPD alerts from Hale state
+    try:
+        _fpd_state_path = ROOT / "state" / "hale_state.json"
+        if _fpd_state_path.exists():
+            _fpd_data = json.loads(_fpd_state_path.read_text(errors="ignore"))
+            fpd_alerts = _fpd_data.get("deferred_alerts", [])
+        else:
+            fpd_alerts = []
+    except Exception as e:
+        logger.warning(f"FPD alerts pull failed: {e}")
+        fpd_alerts = []
+
     # Build sections
     tcd_html = build_tcd_suspense_section(action_items)
     fare_html = build_fare_watch_section(fare_watches)
     mission_html = build_mission_board_section(missions_p0p1)
     osint_html = pull_live_osint_watchdog()
     wing_ops_html = build_wing_ops_section(wing_ops_digest)
+    fpd_html = build_fpd_section(fpd_alerts)
+    commander_desk_html = build_commander_desk_section()
 
     # Summary counts for header
     p0_count = sum(1 for i in action_items if i.get("priority", "").lower() == "p0")
@@ -292,8 +357,14 @@ def generate_morning_brief_html() -> str:
 
 {summary_bar}
 
+<h3 style="color:#07076b;margin-top:25px;">💰 FINAL PAYMENT DATE (FPD) ALERTS — Priority Sorted</h3>
+{fpd_html}
+
 <h3 style="color:#07076b;margin-top:25px;">📌 ACTIVE TCD SUSPENSES & ACTION ITEMS (Live)</h3>
 {tcd_html}
+
+<h3 style="color:#07076b;margin-top:25px;">📋 COMMANDER DESK — Pending Items</h3>
+{commander_desk_html}
 
 <h3 style="color:#07076b;margin-top:25px;">🎯 MISSION BOARD — P0 / P1 REQUIRING ATTENTION</h3>
 {mission_html}

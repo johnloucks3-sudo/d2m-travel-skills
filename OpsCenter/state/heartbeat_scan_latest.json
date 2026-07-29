@@ -1,17 +1,17 @@
 {
- "scanned_at": "2026-07-29T15:00:00.072900+00:00",
- "finding_count": 56,
+ "scanned_at": "2026-07-29T21:00:03.446017+00:00",
+ "finding_count": 54,
  "findings": [
   {
    "category": "repeat_alert",
-   "what": "\"room_res_cookies: expired\" appeared 15x in the ops log",
+   "what": "\"room_res_cookies: valid\" appeared 15x in the ops log",
    "why": "crossed repeat threshold (3+)",
    "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
    "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
   },
   {
    "category": "repeat_alert",
-   "what": "\"room_res_cookies: valid\" appeared 15x in the ops log",
+   "what": "\"room_res_cookies: expired\" appeared 15x in the ops log",
    "why": "crossed repeat threshold (3+)",
    "action": "Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
    "file": "/home/john/Thunderbird/OpsCenter/state/overnight_ops_log.json"
@@ -326,7 +326,7 @@
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-649 (P1) \u2014 \"GRB Rental Car\" open 12d",
+   "what": "MISSION-649 (P1) \u2014 \"GRB Rental Car\" open 13d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
@@ -337,13 +337,6 @@
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
-  },
-  {
-   "category": "aging_mission",
-   "what": "MISSION-677 (P0) \u2014 \"Commander review of Loucks Grandeur FPD \u2014 $24,798 due Aug 1\" open 10d",
-   "why": "P0/P1 untouched >= 7d",
-   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
-   "file": "/home/john/Thunderbird/dossiers/Loucks_Ryan_Family.md"
   },
   {
    "category": "aging_mission",
@@ -379,13 +372,6 @@
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/dossiers/Kuklinski_Viking_FreeAir_Eligibility.md"
-  },
-  {
-   "category": "aging_mission",
-   "what": "MISSION-697 (P1) \u2014 \"Pay Loucks Grandeur FPD before August 1 deadline\" open 8d",
-   "why": "P0/P1 untouched >= 7d",
-   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
-   "file": "/home/john/Thunderbird/dossiers/Loucks_Ryan_Family.md"
   },
   {
    "category": "aging_mission",

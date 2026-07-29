@@ -1,21 +1,21 @@
-2026-07-27T21:47:01.826557: 867 uncommitted files
-A  .agents/AGENTS.md
-M  .ask_usage_log
-M  .claude/settings.json
-M  .opencode/skills/ask-opus/SKILL.md
-M  .opencode/skills/ask/SKILL.md
-A  .opencode/themes/d2m.json
-A  Antigravity-x64/LICENSE.electron.txt
-A  Antigravity-x64/LICENSES.chromium.html
-A  Antigravity-x64/antigravity
-A  Antigravity-x64/chrome-sandbox
-A  Antigravity-x64/chrome_100_percent.pak
-A  Antigravity-x64/chrome_200_percent.pak
-A  Antigravity-x64/chrome_crashpad_handler
-A  Antigravity-x64/icudtl.dat
-A  Antigravity-x64/libEGL.so
-A  Antigravity-x64/libGLESv2.so
-A  Antigravity-x64/libffmpeg.so
-A  Antigravity-x64/libvk_swiftshader.so
-A  Antigravity-x64/libvulkan.so.1
-A  Antigravity-x64/locales/af.pak
+2026-07-29T12:42:41.498860: 55 uncommitted files
+ M Blackboard
+ M CLAUDE.md
+ M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.metronome_seq
+ M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/CLAUDE_DESKTOP_INIT.md
+ M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/sterling_inbox.md
+ M OpsCenter/context_d2mc2c.json
+ M OpsCenter/eod_incubator_config.json
+ M OpsCenter/executor_last_run.json
+ M OpsCenter/executor_run.lock
+ M OpsCenter/hale_incident_signatures.json
+ M OpsCenter/hale_incidents_today.json
+ M OpsCenter/itinerary_watchdog_status.json

@@ -1,104 +1,5 @@
 [
   {
-    "ts": "2026-07-28T03:48:10.908045-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T04:18:12.191693-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T05:38:10.516923-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T06:08:22.049194-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T06:28:23.084364-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T06:58:21.421990-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T07:23:22.236112-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T07:53:27.015154-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T08:18:26.301037-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
-    "ts": "2026-07-28T08:48:21.540372-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T09:53:31.756194-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: expired"
-    ]
-  },
-  {
     "ts": "2026-07-28T10:23:43.875784-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
@@ -267,6 +168,105 @@
     "client_alerts": 0,
     "details": [
       "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T11:00:47.554132-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T11:30:44.429650-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T11:55:42.771793-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T12:25:43.135541-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T12:42:56.763504-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T13:13:01.714719-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T13:38:11.182593-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T14:08:10.282192-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T14:23:09.317976-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-29T14:53:15.935598-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
+    ]
+  },
+  {
+    "ts": "2026-07-29T15:13:19.599582-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: expired"
     ]
   }
 ]

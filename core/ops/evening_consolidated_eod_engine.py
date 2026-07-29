@@ -16,9 +16,6 @@ Template: Dark Navy (#07076b) HTML Standard with inline CSS.
 """
 
 import email
-import email.parser
-import email.utils
-import base64
 import sys
 import os
 import json
@@ -33,7 +30,6 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "api"))
 sys.path.insert(0, str(ROOT / "core"))
 
-from core.email.thunderbird_gmail import _get_commander_gmail_service
 from scripts.d2m_email_builder import build_email_html
 from core.ops.gauge_eod_audit_engine import GaugeEODAuditEngine
 
@@ -547,28 +543,17 @@ def generate_evening_eod_html() -> str:
 
 def send_evening_eod():
     logger.info("Generating and delivering Evening Consolidated EOD Brief (LIVE DATA)...")
-    svc = _get_commander_gmail_service()
-    if not svc:
-        logger.error("Failed to acquire Commander Gmail service!")
-        return
 
     html_content = generate_evening_eod_html()
     now_str = datetime.now().strftime("%Y-%m-%d")
+    subject = f"🌆 EVENING CONSOLIDATED BRIEF & EOD — {now_str}"
 
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-
-    msg = MIMEMultipart("alternative")
-    msg["To"] = "johnloucks3@gmail.com"
-    msg["Subject"] = f"🌆 EVENING CONSOLIDATED BRIEF & EOD — {now_str}"
-
-    msg.attach(MIMEText("Please view in HTML.", "plain"))
-    msg.attach(MIMEText(html_content, "html"))
-
-    raw_b64 = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-
-    sent_msg = svc.users().messages().send(userId="me", body={"raw": raw_b64}).execute()
-    logger.info(f"✅ Delivered Evening Consolidated EOD Brief to johnloucks3 INBOX (ID: {sent_msg.get('id')})")
+    from core.comms.commander_channel import notify
+    result = notify("brief", subject, html_content,
+                    urgency="NOW",
+                    dedup_key=f"evening-eod-{now_str}",
+                    source="evening_consolidated_eod_engine")
+    logger.info(f"✅ Delivered Evening Consolidated EOD Brief via notify gate (status: {result.get('status', 'unknown')})")
 
     # Sync Hale system state log to Google Drive (d2m Daily_Brief_Logs)
     try:
@@ -578,7 +563,7 @@ def send_evening_eod():
     except Exception as e:
         logger.error(f"Failed to sync Hale state log to Drive: {e}")
 
-    return sent_msg
+    return result
 
 
 if __name__ == "__main__":
