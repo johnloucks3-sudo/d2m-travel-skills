@@ -1,0 +1,55 @@
+# THUNDERBIRD WING — Slack app manifest
+# C2 RECALIBRATION Phase 3, Commander directive 2026-07-29.
+# Workspace: https://newworkspace-wya3670.slack.com/
+#
+# HOW TO USE (about 60 seconds):
+#   1. Go to  https://api.slack.com/apps  →  "Create New App"  →  "From an app manifest"
+#   2. Pick the workspace  newworkspace-wya3670
+#   3. Choose YAML, paste this whole file, Next → Create
+#   4. Left sidebar → "Install App" → "Install to Workspace" → Allow
+#   5. Copy the "Bot User OAuth Token" (starts with xoxb-)
+#   6. Save it — do NOT paste it into chat:
+#        echo 'SLACK_BOT_TOKEN=xoxb-your-token-here' >> /home/john/Thunderbird/.env
+#      then tell me it's in place and I'll take it from there.
+#
+# Scope rationale — least privilege, nothing speculative:
+#   chat:write        post the consolidated briefs
+#   chat:write.public post to a channel without being invited first
+#   channels:manage   create #d2m-command and #d2m-alerts
+#   channels:read     resolve channel ids
+#   groups:read       same, for private channels
+#   im:write          DM you directly for urgency=NOW breakthroughs
+#   users:read        map you to a member id
+# Deliberately NOT requested: files:*, search:*, admin:*, users:read.email.
+
+display_information:
+  name: Thunderbird Wing
+  description: Hale — Dreams2Memories Travel command channel. Consolidated briefs, approve/close actions.
+  background_color: "#07076b"
+
+features:
+  bot_user:
+    display_name: Hale
+    always_online: true
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - chat:write.public
+      - channels:manage
+      - channels:read
+      - groups:read
+      - im:write
+      - users:read
+
+settings:
+  # Interactivity is what makes Approve/Close/Defer buttons work. It needs a public
+  # request URL. Leave it OFF for now — briefs will deliver fine without it. We turn
+  # it on once the receiver endpoint is stood up (task 14), so the app installs clean
+  # today rather than blocking on a tunnel.
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
