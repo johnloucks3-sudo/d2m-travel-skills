@@ -24,6 +24,21 @@ def _parse_date(d: str):
         return date_type.max
 
 
+def _is_overdue(item: dict) -> bool:
+    """Past its suspense date. Independent of workflow status on purpose.
+
+    An item does not stop being overdue because someone deferred it — that is
+    precisely the move that made four P0s invisible for up to 36 days.
+    """
+    raw = item.get("suspense_date") or ""
+    if not raw:
+        return False
+    try:
+        return datetime.strptime(str(raw).strip()[:10], "%Y-%m-%d").date() < date_type.today()
+    except (ValueError, IndexError):
+        return False
+
+
 def _sort_key(item: dict):
     return (_priority_key(item.get("priority", "")),
             _parse_date(item.get("date", "")))
@@ -55,15 +70,38 @@ def _assign_items(items: list[dict]) -> OrderedDict:
     #
     # "Awaiting You" means: he personally has to decide. That is pending_review (the
     # literal meaning of the status), anything P0, and Strategic in the TCD shape.
-    _OPEN = {"open", "pending_review", "in_coordination"}
-    _AWAITING_STATUS = {"pending_review"}
+    # THE BLIND SPOT, fixed 2026-07-30.
+    #
+    # This gate used to require `status in _OPEN` BEFORE considering priority — and
+    # 'deferred' was not in _OPEN. Measured against the live board that hid:
+    #   4 of 4 P0 items, and 10 of 10 overdue items. Every single one.
+    # The 50 items it DID show were 49 P1s and one P2 — the least urgent work on the
+    # board — while four P0s sat 10-36 days overdue, invisible. Every item carrying a
+    # client name was also in the hidden set.
+    #
+    # That is the exact "items aging unseen" failure this whole surface exists to
+    # prevent, reproduced inside the fix for it. Written 2026-07-29, never tested
+    # against a deferred item.
+    #
+    # NEW RULE: urgency outranks workflow status. A P0 or a past-suspense item is
+    # shown REGARDLESS of status — being deferred does not make an overdue P0 stop
+    # mattering. `deferred` is now also a legitimately open state in its own right.
+    _OPEN = {"open", "pending_review", "in_coordination", "deferred"}
+    _AWAITING_STATUS = {"pending_review", "deferred"}
 
     for item in items:
         status = (item.get("status", "") or "").strip().lower()
         inbox = (item.get("inbox", "") or "").strip().lower()
         priority = (item.get("priority", "") or "").strip().lower()
+
+        # Urgency short-circuit: nothing about workflow state can hide these.
+        if priority == "p0" or _is_overdue(item):
+            awaiting.append(item)
+            seen.add(item["id"])
+            continue
+
         if status in _OPEN and (
-            status in _AWAITING_STATUS or inbox == "strategic" or priority == "p0"
+            status in _AWAITING_STATUS or inbox == "strategic"
         ):
             awaiting.append(item)
             seen.add(item["id"])
