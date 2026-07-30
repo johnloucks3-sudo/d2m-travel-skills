@@ -183,6 +183,13 @@ async def _run_once() -> None:
                       f"({env.get('reason')})")
                 return
 
+            # Log EVERY envelope before doing anything with it. On 2026-07-29 a tap
+            # produced total silence and there was no way to tell "Slack never sent it"
+            # from "we received it and ignored it" — two very different bugs. One line
+            # here collapses that ambiguity permanently.
+            print(f"[slack-receiver] envelope type={env.get('type')!r} "
+                  f"payload_type={(env.get('payload') or {}).get('type')!r}")
+
             # ACK FIRST. Slack tears down the socket if an envelope is not acked
             # promptly, so the ledger write must never sit in front of the ack.
             eid = env.get("envelope_id")
