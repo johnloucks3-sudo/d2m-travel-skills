@@ -250,6 +250,21 @@ def post(title: str, body: str, *, urgency: str = "WINDOW",
     return {"channel": ch_name, "channel_id": ch_id, "ts": res.get("ts")}
 
 
+def publish_home(user_id: str, view: dict) -> dict:
+    """views.publish — replace a user's App Home tab wholesale.
+
+    Unlike chat.postMessage this is not additive: every call replaces whatever the tab
+    currently shows, in full. That is the property that makes App Home fit a live queue
+    view instead of another stream to scroll past — it renders current state, not one
+    more notification on top of the last one.
+
+    Like the rest of this module, publish_home is on the test_no_direct_sends ALLOWLIST
+    because it IS a transport — the thing the gate/home layer calls. It must never be
+    called directly by feature code.
+    """
+    return _call("views.publish", {"user_id": user_id, "view": view})
+
+
 def selftest() -> int:
     """`python3 -m core.comms.slack_transport` — proves the wiring end to end."""
     if not is_configured():

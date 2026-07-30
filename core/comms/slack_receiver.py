@@ -147,6 +147,42 @@ def handle_block_action(payload: dict) -> Optional[dict]:
     return row
 
 
+def handle_app_home_opened(payload: dict) -> Optional[dict]:
+    """Render the App Home tab when the Commander opens it.
+
+    slack_home owns the view — what the tab looks like, which items it draws from — this
+    receiver only wires the trigger to the render. slack_home is being built in parallel
+    by another agent, so its absence must degrade to an audit row, never a crash: the
+    receiver is live C2, and a bad or half-built import must not take Approve/Close/Defer
+    down with it.
+    """
+    event = payload.get("event") or {}
+    user_id = event.get("user")
+    if not user_id:
+        return _audit(status="ignored", detail="app_home_opened carried no user id")
+
+    try:
+        from core.comms import slack_home
+    except Exception as exc:
+        return _audit(status="error", detail=f"slack_home import failed: "
+                      f"{type(exc).__name__}: {exc}", user=user_id)
+
+    try:
+        from core.comms.commander_queue import build_queue
+        # slack_home exports build_home_view, not build_view. Two agents built the two
+        # halves of this call in parallel and each picked a reasonable name; the mismatch
+        # would have failed into an audit row rather than an exception, so App Home would
+        # simply never render while nothing looked broken. Caught by checking the module's
+        # actual exports instead of trusting either agent's report.
+        view = slack_home.build_home_view(build_queue().get("items", []))
+        tx.publish_home(user_id=user_id, view=view)
+    except Exception as exc:
+        return _audit(status="error", detail=f"app_home render/publish failed: "
+                      f"{type(exc).__name__}: {exc}", user=user_id)
+
+    return _audit(status="ok", detail="app_home published", user=user_id)
+
+
 def _dispatch(envelope: dict) -> None:
     etype = envelope.get("type")
     payload = envelope.get("payload") or {}
@@ -155,8 +191,10 @@ def _dispatch(envelope: dict) -> None:
     elif etype == "slash_commands":
         _audit(status="ignored", detail="slash command received; no handler wired yet",
                command=payload.get("command"))
-    # events_api envelopes are acked and dropped — this receiver exists for decisions,
-    # not for mirroring channel chatter into the Wing.
+    elif etype == "events_api" and (payload.get("event") or {}).get("type") == "app_home_opened":
+        handle_app_home_opened(payload)
+    # all other events_api envelopes are acked and dropped — this receiver exists for
+    # decisions, not for mirroring channel chatter into the Wing.
 
 
 # ─────────────────────────────────────────────────────────────────────────────────
