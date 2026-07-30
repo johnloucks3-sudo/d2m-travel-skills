@@ -95,7 +95,8 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | Date | Milestone | Status |
 |------|-----------|--------|
 | Jun 10, 2026 | Dossier created | ✅ |
-| Sep 6, 2026 | Fly COS→GRB · overnight at GRB hotel | 🔴 NOT BOOKED |
+| Sep 6, 2026 | Fly COS→GRB — **AIR STILL NOT BOOKED** | 🔴 NOT BOOKED |
+| **Sep 6–7, 2026** | **Pre-position overnight — Wave Pointe Marina & Resort, Sturgeon Bay** | ✅ **CONFIRMED #5XMKEFFT9D** |
 | **Sep 7, 2026** | **CHECK-IN — Country House Resort · 3:00–10:00 PM** | ✅ Confirmed |
 | Sep 7–13, 2026 | Door County activities | ⏳ Planning |
 | **Sep 14, 2026** | **CHECK-OUT — 11:00 AM · Drive GRB · Fly home** | ✅ Confirmed |
@@ -118,6 +119,29 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 ---
 
 ## TRAVEL LOGISTICS
+
+### Pre-Position Hotel — Sturgeon Bay (Sep 6–7) ✅ BOOKED
+
+Added 2026-07-30 from Commander's forwarded confirmation. **This closes the "overnight at GRB hotel" gap** — booked in Sturgeon Bay rather than Green Bay, which is the better call: it is ~45 min *north* of GRB and roughly 35 min from Sister Bay, so it shortens Sep 7 rather than repeating the drive.
+
+| Field | Value |
+|---|---|
+| Property | Wave Pointe Marina & Resort |
+| Address | 3600 County Road CC, Sturgeon Bay, WI 54235 |
+| Phone | 920-824-5440 · frontdesk@wavepointe.com |
+| Confirmation | **5XMKEFFT9D** |
+| Room | Deluxe Corner King Suite |
+| Dates | **Sep 6 → Sep 7, 2026** · 1 night · 2 adults |
+| Check-in / out | 3:00 PM / 11:00 AM (late to 12:00 PM, $50 fee) |
+| Room + tax | $305.00 + $24.40 room tax + $16.78 sales tax |
+| **Grand total** | **$346.18** |
+| Deposit paid | $173.09 |
+| **Balance due** | **$173.09** — at property |
+| Commission | $0.00 — Commander personal trip, guinea pig, consistent with Country House |
+
+**Cancellation:** refund minus the greater of 10% or $20, and only if cancelled **7+ days before arrival** — i.e. **by Aug 30, 2026**. Inside 7 days it is non-refundable. Date changes are free if requested 72+ hours ahead.
+
+⚠️ **Timing risk worth naming:** the cancellation deadline (Aug 30) falls *before* any realistic air-booking deadline pressure eases. If COS→GRB air proves unworkable for a Sep 6 arrival, this room must be cancelled by Aug 30 or it is a total loss of $346.18.
 
 ### Air — COS ↔ GRB
 *(Origin corrected 2026-07-16 — was DEN, see banner above. COS = Colorado Springs, Commander's actual home airport.)*
