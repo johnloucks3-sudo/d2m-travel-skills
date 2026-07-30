@@ -471,6 +471,40 @@ def build_wing_ops_section(digest: dict) -> str:
         return f'<p style="color:#dc2626;">Wing Ops section failed to render: {e}</p>'
 
 
+def build_queued_reports_section() -> str:
+    try:
+        from core.comms.commander_channel import drain_queue
+        items = drain_queue(clear=True)
+        if not items:
+            return ""
+
+        html_parts = []
+        for i, item in enumerate(items):
+            title = str(item.get("title", "Untitled Report"))
+            body = item.get("body_html", "")
+            source = str(item.get("source", "unknown"))
+            ts = str(item.get("ts", ""))[:16].replace("T", " ")
+            bg = "#ffffff" if i % 2 == 0 else "#f8fafc"
+            
+            html_parts.append(f"""
+<div style="background:{bg};border:1px solid #cbd5e1;padding:15px;border-radius:4px;margin-bottom:12px;">
+    <h4 style="color:#07076b;margin-top:0;margin-bottom:10px;font-size:14px;">{title}</h4>
+    <div style="font-size:13px;color:#1e293b;line-height:1.6;">{body}</div>
+    <p style="font-size:11px;color:#64748b;margin-top:12px;margin-bottom:0;border-top:1px solid #e2e8f0;padding-top:6px;">
+        <b>Source:</b> {source} &nbsp;|&nbsp; <b>Queued:</b> {ts}
+    </p>
+</div>
+""")
+        return f"""
+<h3 style="color:#07076b;margin-top:25px;">📥 QUEUED REPORTS & NOTIFICATIONS</h3>
+<p style="font-size:12px;color:#64748b;margin-bottom:12px;">The following items were held for this delivery window:</p>
+{"".join(html_parts)}
+"""
+    except Exception as e:
+        logger.warning(f"Failed to drain queued reports: {e}")
+        return ""
+
+
 def generate_evening_eod_html() -> str:
     now_str = datetime.now().strftime("%A, %B %d, %Y")
     now_time = datetime.now().strftime("%H:%M MT")
@@ -490,6 +524,7 @@ def generate_evening_eod_html() -> str:
     elon_html = build_elon_section(elon_data)
     tech_html = build_tech_analysis_section(git_data)
     wing_ops_html = build_wing_ops_section(wing_ops_digest)
+    queued_reports_html = build_queued_reports_section()
 
     # EOD summary bar
     fpd_alert_count = len(harlan_data.get("fpd_alerts", []))
@@ -533,6 +568,8 @@ def generate_evening_eod_html() -> str:
 <h3 style="color:#07076b;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
 {wing_ops_html}
 
+{queued_reports_html}
+
 <div style="margin-top:30px;font-family:Arial,sans-serif;color:#07076b;border-top:1px solid #e2e8f0;padding-top:12px;">
     <p style="font-weight:bold;margin:0;">DREAMS2MEMORIES TRAVEL, LLC</p>
     <p style="margin:0;font-size:13px;color:#475569;">Prepared by: Victoria Hale, Chief of Staff &nbsp;&amp;&nbsp; Brig Gen (Ret.) Thomas "Gauge" Sterling (A7) &nbsp;|&nbsp; Auto-generated {now_time}</p>
@@ -548,9 +585,19 @@ def send_evening_eod():
     now_str = datetime.now().strftime("%Y-%m-%d")
     subject = f"🌆 EVENING CONSOLIDATED BRIEF & EOD — {now_str}"
 
+    # urgency="NOW" is correct here even though this IS the 18:30 window: this call
+    # is the flush, not something to queue for a later one. With urgency="WINDOW" the
+    # engine queues its own fully-built brief and nothing else exists to flush it — the
+    # only thing that drains the queue is the NEXT engine run, so the brief never arrives
+    # as its own delivery. Confirmed live: the 2026-07-29 18:30 EOD brief queued at 00:37
+    # UTC and was silently absorbed into the 2026-07-30 06:30 morning brief's own
+    # drain_queue() call instead of reaching the Commander at 18:30. Same class of bug as
+    # the morning engine's original direct-send — just one call away from a different
+    # instance of "words went somewhere, but not to him."
     from core.comms.commander_channel import notify
     result = notify("brief", subject, html_content,
                     urgency="NOW",
+                    reason="scheduled 18:30 consolidated delivery window (SO-REPORTING-2026)",
                     dedup_key=f"evening-eod-{now_str}",
                     source="evening_consolidated_eod_engine")
     logger.info(f"✅ Delivered Evening Consolidated EOD Brief via notify gate (status: {result.get('status', 'unknown')})")
