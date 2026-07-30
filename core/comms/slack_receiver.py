@@ -157,6 +157,26 @@ def handle_block_action(payload: dict) -> Optional[dict]:
         except Exception as exc:
             row["audit_trail_skipped"] = f"{type(exc).__name__}: {exc}"
 
+    # Republish App Home so the item actually LEAVES his desk.
+    #
+    # An App Home tap has no response_url — that only exists for channel messages — so
+    # without this the view is only rebuilt on the next app_home_opened event. The
+    # Commander taps Close, the closure is recorded permanently, and the card just sits
+    # there looking untouched. He reported exactly that on 2026-07-29: "When I CLOSE an
+    # item in Slack it does not disappear." The record was right; the screen was lying.
+    #
+    # Best-effort: a failed republish must never undo a closure that already succeeded.
+    user_id = (payload.get("user") or {}).get("id")
+    if user_id and (payload.get("view") or {}).get("type") == "home":
+        try:
+            from core.comms import slack_home
+            from core.comms.commander_queue import build_queue
+            tx.publish_home(user_id=user_id,
+                            view=slack_home.build_home_view(build_queue().get("items", [])))
+            row["home_republished"] = True
+        except Exception as exc:
+            row["home_republish_error"] = f"{type(exc).__name__}: {exc}"
+
     # Replace the buttons with the outcome so the channel shows state, not stale options.
     try:
         rt = payload.get("response_url")
