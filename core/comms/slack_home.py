@@ -1,8 +1,12 @@
+import json
 from collections import OrderedDict
 from datetime import datetime, date as date_type
+from pathlib import Path
 
 
 MAX_VIEW_BLOCKS = 100
+
+SHEET_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "tcd_sheet_config.json"
 
 _PRIORITY_RANK = {"p0": 0, "p1": 1, "p2": 2, "p3": 3}
 
@@ -39,11 +43,28 @@ def _assign_items(items: list[dict]) -> OrderedDict:
 
     seen: set[str] = set()
 
+    # Two item shapes reach this function and they do NOT share a schema:
+    #
+    #   TCD items (tcd/item_model.py)      -> inbox='Strategic'|..., status='Open'
+    #   commander_queue.build_queue()      -> NO inbox field at all, and status is
+    #                                         'pending_review'|'deferred'|'in_coordination'
+    #
+    # The original test only matched the TCD shape, so against the live board every one
+    # of the 76 real items fell through to Watch and App Home rendered EMPTY — a tab that
+    # loads fine and shows the Commander nothing. Match both shapes explicitly.
+    #
+    # "Awaiting You" means: he personally has to decide. That is pending_review (the
+    # literal meaning of the status), anything P0, and Strategic in the TCD shape.
+    _OPEN = {"open", "pending_review", "in_coordination"}
+    _AWAITING_STATUS = {"pending_review"}
+
     for item in items:
-        status = item.get("status", "")
+        status = (item.get("status", "") or "").strip().lower()
         inbox = (item.get("inbox", "") or "").strip().lower()
         priority = (item.get("priority", "") or "").strip().lower()
-        if status == "Open" and (inbox == "strategic" or priority == "p0"):
+        if status in _OPEN and (
+            status in _AWAITING_STATUS or inbox == "strategic" or priority == "p0"
+        ):
             awaiting.append(item)
             seen.add(item["id"])
 
@@ -137,55 +158,91 @@ def _overflow_block(section: str, count: int) -> dict:
     }
 
 
-def build_home_view(items: list[dict]) -> dict:
-    """Render the Commander's desk, never hiding work without saying so.
+def _sheet_url() -> str:
+    """spreadsheet_url from config/tcd_sheet_config.json, or "" if absent.
 
-    THE INVARIANT THIS FUNCTION EXISTS TO HOLD:
-        items rendered + items declared hidden == items in
-    for every section, always.
-
-    The first implementation broke it in a way that passed every acceptance criterion:
-    when the 100-block budget ran out mid-list it recorded `hidden[section] = N` and
-    moved on WITHOUT emitting a block — so the count lived in a dict the Commander never
-    saw. With 150 items: 96 rendered, footer claimed 17 hidden, 54 actually were, and the
-    Watch section vanished with no header at all. A desk that looks clear while it is not
-    is the precise failure this whole migration exists to end, so the budget is now
-    reserved up front rather than consumed first-come-first-served.
-
-    Every non-empty section is GUARANTEED a header, and a footer whenever anything in it
-    is withheld — even if the section can show zero items.
+    Never invent a link — a wrong URL sends the Commander to a blank tab looking for
+    the board he was just told exists. Absent config degrades to plain text below.
     """
-    sections: OrderedDict[str, list[dict]] = _assign_items(items)
-    live = [(name, its) for name, its in sections.items() if its]
-    if not live:
-        return {"type": "home", "blocks": [_header_block("Nothing on your desk")]}
+    try:
+        cfg = json.loads(SHEET_CONFIG_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ""
+    url = cfg.get("spreadsheet_url")
+    return url.strip() if isinstance(url, str) and url.strip() else ""
 
-    # Reserve the non-negotiable chrome first: one header per section, plus one footer
-    # slot per section in case it needs one. Whatever survives is the item budget.
-    reserved = 2 * len(live)
+
+def _summary_block(total: int, awaiting: int) -> dict:
+    """Top-of-tab context block: the count this scoped view does NOT show.
+
+    App Home renders Awaiting You only (see build_home_view), so without this line
+    scoping the view down would cost the Commander his sense of the total board —
+    trading "items aging unseen" for "items he doesn't know exist." This line is the
+    fix: he always sees the full-board number even though he isn't looking at it.
+    """
+    text = f"{total} open · {awaiting} awaiting your decision · full board in Sheets"
+    return {"type": "context", "elements": [{"type": "mrkdwn", "text": text}]}
+
+
+def _sheet_footer_block() -> dict:
+    """Bottom-of-tab link out to the Sheet for bulk work App Home cannot do.
+
+    App Home is single-item buttons only — no drag-fill, no multi-select. Anything
+    beyond a one-off Close belongs in the Sheet, so the way there is always on screen.
+    """
+    url = _sheet_url()
+    text = f"<{url}|Full board: Google Sheets>" if url else "Full board: Google Sheets"
+    return {"type": "context", "elements": [{"type": "mrkdwn", "text": text}]}
+
+
+def build_home_view(items: list[dict]) -> dict:
+    """Render ONLY what needs the Commander's decision — not the whole board.
+
+    2026-07-29 AG parity audit (OpsCenter/state/ag_tcd_slack_parity.md): App Home is
+    hard-capped at 100 blocks and cannot be threaded or tabbed. Rendering every section
+    (Strategic/Operational/Reference/Watch) at 2 blocks/item hits that cap around 50
+    items — with 200+ items on the board, ~150 go invisible behind a footer. That is
+    the exact "items aging unseen" failure TCD existed to prevent. So this view no
+    longer tries to be the whole board: it shows Awaiting You (status=='Open' and
+    (priority=='P0' or inbox=='Strategic')) and nothing else. Bulk/tabbed work stays in
+    the Sheet, one link away (see _sheet_footer_block).
+
+    THE INVARIANT THIS FUNCTION EXISTS TO HOLD (unchanged from the prior version):
+        items rendered + items declared hidden == items in
+    for the Awaiting You set, always — the budget is reserved up front, never consumed
+    first-come-first-served, so a full list can never disappear silently.
+
+    The Commander must never lose sight of the total board just because this view is
+    scoped: _summary_block carries the ALL-inboxes open count and the Awaiting You count
+    every time, sourced from home_item_count() so the header line and the section content
+    can never drift apart from double bookkeeping.
+    """
+    counts = home_item_count(items)
+    total = sum(counts.values())
+    awaiting: list[dict] = _assign_items(items)["Awaiting You"]
+    awaiting_total = counts.get("Awaiting You", 0)
+
+    top = _summary_block(total, awaiting_total)
+    footer = _sheet_footer_block()
+
+    if not awaiting:
+        return {"type": "home", "blocks": [
+            top, _header_block("Nothing awaiting your decision"), footer,
+        ]}
+
+    # Reserve the non-negotiable chrome first: top summary, section header, sheet
+    # footer, and one slot in case an overflow footer is needed. Whatever survives is
+    # the item budget — the same "reserve first" fix that closed the silent-loss bug.
+    reserved = 4
     item_budget = max(0, MAX_VIEW_BLOCKS - reserved)
+    show = min(len(awaiting), item_budget)
+    withheld = len(awaiting) - show
 
-    # Fair-share the item budget, then hand unused remainder to sections that want more,
-    # so a small section never strands capacity a large one could use.
-    share = item_budget // len(live)
-    quota = {name: min(len(its), share) for name, its in live}
-    leftover = item_budget - sum(quota.values())
-    for name, its in live:
-        if leftover <= 0:
-            break
-        want = len(its) - quota[name]
-        take = min(want, leftover)
-        quota[name] += take
-        leftover -= take
-
-    blocks: list[dict] = []
-    for name, its in live:
-        blocks.append(_header_block(name))
-        show = quota[name]
-        for si in its[:show]:
-            blocks.append(_item_block(si))
-        withheld = len(its) - show
-        if withheld:
-            blocks.append(_overflow_block(name, withheld))
+    blocks: list[dict] = [top, _header_block("Awaiting You")]
+    for it in awaiting[:show]:
+        blocks.append(_item_block(it))
+    if withheld:
+        blocks.append(_overflow_block("Awaiting You", withheld))
+    blocks.append(footer)
 
     return {"type": "home", "blocks": blocks}
