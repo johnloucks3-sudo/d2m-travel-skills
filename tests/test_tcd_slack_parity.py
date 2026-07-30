@@ -2,9 +2,8 @@
 tests/test_tcd_slack_parity.py — TCD->Slack migration, task 22: handler parity +
 no-silent-truncation tests.
 
-Locks down three contracts the Slack migration (core/comms/tcd_actions.py, not yet
-built) must preserve exactly, because Slack's "Close"/"Approve"/"Comment" buttons will
-call the same underlying functions AppSheet's write-back polling calls today:
+Covers the four contracts in the task's authoritative description (TaskGet #22),
+which is broader than the first-pass summary this file shipped under:
 
   1. CLOSURE PERMANENCE (core/comms/commander_queue.py) — a Commander close is an
      append-only ledger fact. is_closed()/closed_ids() see it immediately, and
@@ -13,13 +12,52 @@ call the same underlying functions AppSheet's write-back polling calls today:
   2. HANDLER SHAPE (tcd/writeback.py) — each write-back handler (_handle_close,
      _handle_dispose, _handle_stage_move, _handle_comment, _handle_create_task),
      called directly with a synthetic row, appends a decision block that carries
-     the row id and the action verb (CLOSE/DELETE/STAGE/COMMENT/CREATETASK) — the
-     exact shape a Slack action handler needs to render a confirmation back to the
-     Commander.
+     the row id and the action verb (CLOSE/DELETE/STAGE/COMMENT/CREATETASK).
   3. SILVER BACK GATE (core/silver/gate.py) — a close whose reason is prose with no
      concrete reference (no path, no mission/row id, no thread/url) is HELD, never
      silently passed — tested against the real gate in core/silver/gate.py, not a
      reimplementation of its rule.
+  4. NO-SILENT-TRUNCATION (core/comms/slack_home.py's build_home_view) — for 150
+     synthetic items, the rendered-vs-hidden split on the Awaiting You overflow
+     footer is asserted EXACT (not "a footer exists"), the top summary line's
+     total/awaiting counts are cross-checked against home_item_count() so items
+     outside the rendered set are still accounted for, and the block count never
+     exceeds Slack's MAX_VIEW_BLOCKS. Two real, already-fixed bugs live in this
+     file's own history: the original 5-section version once rendered 96/150,
+     claimed 17 hidden when 54 actually were, and dropped the Watch section's
+     header entirely; the 2026-07-29 AG parity audit then found even a CORRECT
+     5-section render goes invisible past ~50 items against a 200+ item board,
+     which is why the view was rescoped to Awaiting-You-only — these tests target
+     that current, rescoped contract.
+
+SLACK-PATH PARITY — TWO SEPARATE FINDINGS, both load-bearing for #23 (retiring
+AppSheet polling): task #20 (core/comms/tcd_actions.py, "the adapter") landed
+WHILE this file was in progress, changing the picture from "doesn't exist yet" to
+"exists but isn't wired up":
+
+  (a) core/comms/tcd_actions.py's apply() genuinely achieves parity: for every one
+      of close/delete/stage/comment/create_task it calls the EXACT SAME
+      tcd/writeback.py handler the Sheets path calls (see its own docstring: "this
+      module reimplements none of their logic"). TestSlackActionAdapterParity below
+      fires apply() for real (not a reimplementation) for all five actions and
+      asserts the hale_decisions.md shape matches TestHandlerShape's assertions —
+      because it IS the same handler. apply() takes no dependency injection
+      (decisions_path/overrides_path/delete_fn/item source are all hardcoded
+      production paths/calls), so isolating it means monkeypatching four module-
+      level things directly rather than passing parameters — see isolated_apply.
+  (b) But nothing calls apply() yet. core/comms/slack_receiver.py's
+      handle_block_action() — the function actually wired to the live Socket Mode
+      button clicks — still only handles close/approve/defer, and does so by
+      calling commander_queue.close()/reopen() directly, with zero reference to
+      tcd_actions anywhere in the file (grep confirms). So today, live, a Slack
+      button tap: (1) supports only close/approve/defer, no delete/stage/comment/
+      create_task at all; (2) even for close, writes ONLY to the commander_queue
+      ledger, never hale_decisions.md — no PLAN:CLOSE block, no Silver back-gate
+      run. TestLiveSlackButtonVsAdapter pins both halves of this with real
+      assertions (a call-recording stub proving apply() is never invoked, and a
+      check that decisions.md stays untouched) specifically so it goes red the
+      moment someone wires the two together — at which point these two tests
+      should be deleted, not "fixed."
 
 CRITICAL — ISOLATION: on 2026-07-29 a regression test ran against live data and
 permanently closed a real production mission (MISSION-COMMANDER-196-CALL). Every path
@@ -31,15 +69,20 @@ touched here is tmp_path-scoped:
     parameters) and pages the Commander on a back-gate HOLD; both are neutralized
     for every test in this file via an autouse fixture, regardless of which
     writeback handler ends up calling run_gate()/human_override().
+  - core/comms/slack_receiver.py's AUDIT_PATH (OpsCenter/slack_interactions.jsonl)
+    is likewise a hardcoded module constant, patched per-test.
 No test in this file may write to the real hale_decisions.md, OpsCenter/mission_
-board.json, OpsCenter/silver_ledger.jsonl, or OpsCenter/state/commander_closures.jsonl.
+board.json, OpsCenter/silver_ledger.jsonl, OpsCenter/state/commander_closures.jsonl,
+or OpsCenter/slack_interactions.jsonl.
 
 Run: python3 -m pytest tests/test_tcd_slack_parity.py -q
 """
 from __future__ import annotations
 
 import json
+import re
 import sys
+from collections import OrderedDict
 from pathlib import Path
 
 import pytest
@@ -47,7 +90,11 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.comms import commander_queue  # noqa: E402
+from core.comms import slack_home  # noqa: E402
+from core.comms import slack_receiver  # noqa: E402
+from core.comms import tcd_actions  # noqa: E402
 from core.silver import gate  # noqa: E402
+from tcd import overrides as tcd_overrides  # noqa: E402
 from tcd import writeback  # noqa: E402
 from tcd.item_model import SHEET_COLUMNS  # noqa: E402
 
@@ -285,3 +332,304 @@ class TestSilverBackGate:
         text = decisions_path.read_text()
         assert "verdict=PASS" in text
         assert "self-certifying" in text
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. NO-SILENT-TRUNCATION — core/comms/slack_home.py build_home_view()
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _parse_home_view(view: dict) -> dict:
+    """Count rendered item ("section"-type) blocks and pull the exact "+N more
+    in SECTION" overflow count, if any, from the blocks between the "Awaiting
+    You" header and the trailing sheet-link footer."""
+    rendered = 0
+    hidden = 0
+    seen_header = False
+    for b in view["blocks"]:
+        if b["type"] == "header":
+            seen_header = True
+            continue
+        if not seen_header:
+            continue
+        if b["type"] == "section":
+            rendered += 1
+        elif b["type"] == "context":
+            m = re.match(r"\+(\d+) more in (.+)$", b["elements"][0]["text"])
+            if m:
+                hidden = int(m.group(1))
+    return {"rendered": rendered, "hidden": hidden}
+
+
+def _parse_summary(view: dict) -> tuple[int, int]:
+    """(total, awaiting) parsed out of the top "{total} open · {awaiting}
+    awaiting your decision · full board in Sheets" context block."""
+    text = view["blocks"][0]["elements"][0]["text"]
+    m = re.match(r"(\d+) open · (\d+) awaiting your decision", text)
+    assert m, f"summary line changed shape, update the parser: {text!r}"
+    return int(m.group(1)), int(m.group(2))
+
+
+def _synth_items(n: int, *, id_prefix: str, status: str, inbox: str, priority: str) -> list:
+    return [{"id": f"{id_prefix}-{i}", "status": status, "inbox": inbox,
+             "priority": priority, "title": f"synthetic {id_prefix} {i}",
+             "source": "test-harness", "date": ""}
+            for i in range(n)]
+
+
+class TestNoSilentTruncation:
+    """core/comms/slack_home.py's build_home_view() (rewritten post-2026-07-29 AG
+    parity audit, OpsCenter/state/ag_tcd_slack_parity.md) renders ONLY the
+    "Awaiting You" set -- not all 5 inbox sections -- because the 100-block cap
+    made a full-board render itself go silently invisible past ~50 items. The
+    invariant carried over unchanged: rendered + declared-hidden == the awaiting
+    set's real size, always, and the top summary line's totals must never drift
+    from home_item_count()'s own numbers -- so even the sections this view
+    doesn't render (Strategic/Operational/Reference/Watch) are still accounted
+    for, just not itemized. These tests pin the EXACT counts, not "a footer/
+    summary line exists.\""""
+
+    @pytest.fixture(autouse=True)
+    def _no_live_sheet_config(self, tmp_path, monkeypatch):
+        # _sheet_footer_block() reads config/tcd_sheet_config.json (a real repo
+        # file) for a URL to embed; read-only and harmless, but pinning it to a
+        # path that doesn't exist keeps the footer text deterministic instead
+        # of depending on whatever happens to be configured live.
+        monkeypatch.setattr(slack_home, "SHEET_CONFIG_PATH", tmp_path / "no_such_config.json")
+
+    def test_150_awaiting_items_footer_exact(self):
+        # All 150 land in "Awaiting You" (inbox=strategic satisfies the test).
+        # reserved=4 (summary + header + sheet-footer + one overflow slot) ->
+        # budget=96 -> 150-96=54 hidden.
+        items = _synth_items(150, id_prefix="aw", status="Open",
+                             inbox="strategic", priority="p1")
+        view = slack_home.build_home_view(items)
+        assert len(view["blocks"]) <= slack_home.MAX_VIEW_BLOCKS
+        parsed = _parse_home_view(view)
+        assert parsed["rendered"] == 96
+        assert parsed["hidden"] == 54
+        assert parsed["rendered"] + parsed["hidden"] == 150
+        assert len(view["blocks"]) == 100  # summary + header + 96 items + overflow + sheet-footer
+        total, awaiting = _parse_summary(view)
+        assert (total, awaiting) == (150, 150)
+
+    def test_150_items_mixed_only_awaiting_renders_but_total_never_drifts(self):
+        # 60 land in Awaiting You (inbox=strategic); 30 each in Operational/
+        # Reference/Watch (deliberately NOT awaiting -- plain status=Open with
+        # a non-strategic inbox and non-p0 priority). Those 90 are intentionally
+        # not itemized in this scoped view, but must still be counted in the
+        # summary line -- the actual no-silent-loss guarantee this view makes.
+        items = (
+            _synth_items(60, id_prefix="aw", status="Open", inbox="strategic", priority="p1")
+            + _synth_items(30, id_prefix="op", status="Open", inbox="operational", priority="p2")
+            + _synth_items(30, id_prefix="rf", status="Open", inbox="reference", priority="p3")
+            + _synth_items(30, id_prefix="wa", status="Open", inbox="", priority="p3")
+        )
+        assert len(items) == 150
+
+        # Ground truth for section membership comes from the SAME production
+        # function build_home_view calls internally -- not a re-derived rule.
+        expected_counts = slack_home.home_item_count(items)
+        assert expected_counts == {"Awaiting You": 60, "Operational": 30,
+                                   "Reference": 30, "Watch": 30}
+
+        view = slack_home.build_home_view(items)
+        assert len(view["blocks"]) <= slack_home.MAX_VIEW_BLOCKS
+        parsed = _parse_home_view(view)
+
+        # Awaiting You itself is under budget (60 < 96) -- no truncation, no
+        # overflow footer, everything in that set renders.
+        assert parsed == {"rendered": 60, "hidden": 0}
+
+        # The 90 non-awaiting items aren't itemized here, but the summary line
+        # still carries the true total -- this is what "no silent" means for a
+        # deliberately scoped view: never itemized without being counted.
+        total, awaiting = _parse_summary(view)
+        assert (total, awaiting) == (150, 60)
+
+    def test_no_awaiting_items_still_reports_the_true_total(self):
+        # 5 real items exist, none of them Awaiting You -- must not render as
+        # a bare empty state that implies zero items exist anywhere.
+        items = _synth_items(5, id_prefix="op", status="Open",
+                             inbox="operational", priority="p2")
+        view = slack_home.build_home_view(items)
+        assert view["blocks"][1] == {"type": "header", "text": {
+            "type": "plain_text", "text": "Nothing awaiting your decision", "emoji": True}}
+        total, awaiting = _parse_summary(view)
+        assert (total, awaiting) == (5, 0)
+
+    def test_zero_items_reports_zero_not_a_stale_number(self):
+        view = slack_home.build_home_view([])
+        total, awaiting = _parse_summary(view)
+        assert (total, awaiting) == (0, 0)
+
+    def test_small_awaiting_batch_no_truncation_no_spurious_footer(self):
+        # Below the budget entirely -- must render everything and add no
+        # overflow footer.
+        items = _synth_items(5, id_prefix="aw", status="Open",
+                             inbox="strategic", priority="p1")
+        view = slack_home.build_home_view(items)
+        parsed = _parse_home_view(view)
+        assert parsed == {"rendered": 5, "hidden": 0}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. SLACK-PATH PARITY, PART A — core/comms/tcd_actions.py's apply() (task #20)
+#    genuinely calls the same writeback handlers as the Sheets path.
+# ─────────────────────────────────────────────────────────────────────────────
+
+class _FakeItem:
+    """Stands in for a tcd.item_model.Item -- slack_action_to_row only ever
+    calls .to_dict() on whatever collect_all() yields."""
+    def __init__(self, row: dict):
+        self._row = row
+
+    def to_dict(self) -> dict:
+        return self._row
+
+
+class TestSlackActionAdapterParity:
+    @pytest.fixture
+    def isolated_apply(self, tmp_path, monkeypatch):
+        """apply() takes no parameters for decisions_path/overrides_path/
+        delete_fn/item source -- every one is a hardcoded production path or
+        live call (writeback.HALE_DECISIONS, tcd.overrides.OVERRIDES_PATH,
+        writeback._default_delete_fn, tcd.collectors.collect_all). Isolating
+        it for a test means monkeypatching each directly."""
+        monkeypatch.setattr(writeback, "HALE_DECISIONS", tmp_path / "decisions.md")
+        monkeypatch.setattr(tcd_overrides, "OVERRIDES_PATH", tmp_path / "overrides.json")
+        monkeypatch.setattr(writeback, "_default_delete_fn",
+                            lambda item_id: {"ok": True, "source": "test-fixture"})
+        return tmp_path
+
+    def _stub_items(self, monkeypatch, **row_overrides):
+        row = _row(**row_overrides)
+        monkeypatch.setattr(tcd_actions, "collect_all", lambda: [_FakeItem(row)])
+        return row
+
+    def test_close_writes_same_shape_as_sheets_path(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-close-1",
+                         comments="closed per row 42 in hale_decisions.md")
+        result = tcd_actions.apply("slack-close-1", "close", actor="Commander")
+        assert result["ok"] is True
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "slack-close-1" in text
+        assert "TCD-CLOSE-slack-close-1" in text  # same action verb TestHandlerShape checks
+        assert "verdict=PASS" in text
+
+    def test_close_ai_actor_prose_only_still_holds(self, isolated_apply, monkeypatch):
+        # actor defaults to "ai" unless the caller can positively assert
+        # Commander identity -- see tcd_actions.py's own module docstring on
+        # why this was deliberately changed FROM defaulting to "Commander".
+        self._stub_items(monkeypatch, id="slack-close-2", comments="All set, thanks!")
+        tcd_actions.apply("slack-close-2", "close", actor="ai")
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "verdict=HOLD" in text
+        assert "Silver back-gate HOLD" in text
+
+    def test_delete_writes_same_shape_as_sheets_path(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-del-1")
+        result = tcd_actions.apply("slack-del-1", "delete")
+        assert result["ok"] is True
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "TCD-DELETE-slack-del-1" in text
+
+    def test_stage_writes_same_shape_as_sheets_path(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-stage-1", stage="D")
+        result = tcd_actions.apply("slack-stage-1", "stage", value="T")
+        assert result == {"ok": True, "action": "stage", "id": "slack-stage-1",
+                          "from": "D", "to": "T"}
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "TCD-STAGE-slack-stage-1" in text
+        assert "D -> T" in text
+
+    def test_stage_requires_a_target_value(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-stage-2", stage="D")
+        with pytest.raises(ValueError):
+            tcd_actions.apply("slack-stage-2", "stage")
+
+    def test_comment_writes_same_shape_as_sheets_path(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-comment-1", comments="Sterling: on it")
+        result = tcd_actions.apply("slack-comment-1", "comment", value="any update?")
+        assert result["ok"] is True
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "TCD-COMMENT-slack-comment-1" in text
+        assert "any update" in text
+
+    def test_create_task_writes_same_shape_as_sheets_path(self, isolated_apply, monkeypatch):
+        self._stub_items(monkeypatch, id="slack-task-1", title="File this")
+        board_path = isolated_apply / "mission_board.json"
+        board_path.write_text(json.dumps({"missions": [], "last_updated": ""}))
+        from OpsCenter import mission_board_sync as mbs
+        monkeypatch.setattr(mbs, "BOARD_PATH", board_path)
+        monkeypatch.setattr(mbs, "LOCK_PATH", isolated_apply / "mission_board.lock")
+
+        result = tcd_actions.apply("slack-task-1", "create_task", value="do the thing")
+        assert result["ok"] is True
+        text = (isolated_apply / "decisions.md").read_text()
+        assert "TCD-CREATETASK-slack-task-1" in text
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. SLACK-PATH PARITY, PART B — the LIVE button handler is not wired to the
+#    adapter above. These two tests should go RED (and be deleted) the moment
+#    someone connects them.
+# ─────────────────────────────────────────────────────────────────────────────
+
+class TestLiveSlackButtonVsAdapter:
+    @pytest.fixture(autouse=True)
+    def _isolate_slack_audit(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(slack_receiver, "AUDIT_PATH", tmp_path / "slack_interactions.jsonl")
+
+    def test_live_close_button_closes_the_queue_permanently(self, isolated_queue):
+        # The one thing the live path DOES do correctly today.
+        payload = {"actions": [{"action_id": "close", "value": "ITEM-SLACK-1"}],
+                  "user": {"username": "yoda"}}  # no response_url -- skip the network call
+        row = slack_receiver.handle_block_action(payload)
+        assert row["status"] == "ok"
+        assert isolated_queue.is_closed("ITEM-SLACK-1") is True
+
+    def test_live_close_button_DOES_call_the_adapter(self, isolated_queue, monkeypatch):
+        """The Commander's tap must reach the canonical audit trail, not just the ledger.
+
+        This test was originally written inverted — asserting the adapter was NEVER
+        reached — to pin a real gap: on 2026-07-29 three genuine Commander taps landed in
+        commander_closures.jsonl and left no trace in hale_decisions.md, because
+        handle_block_action called commander_queue.close() and stopped there. Silver never
+        ran and no PLAN:CLOSE block was written.
+
+        The wiring now exists, so the assertion is flipped rather than deleted: it stays a
+        permanent guard that the tap keeps reaching the audit trail. If someone unwires it,
+        this goes red instead of the gap returning silently.
+
+        actor must be exactly 'Commander' — this is the one call site that earns the Silver
+        bypass, having actually read payload['user'].
+        """
+        calls = []
+        monkeypatch.setattr(tcd_actions, "apply", lambda *a, **k: calls.append((a, k)))
+        payload = {"actions": [{"action_id": "close", "value": "ITEM-SLACK-2"}],
+                  "user": {"username": "yoda"}}
+        slack_receiver.handle_block_action(payload)
+        assert calls, "Commander's tap never reached tcd_actions.apply() — audit trail gap"
+        args, kwargs = calls[0]
+        assert args[0] == "ITEM-SLACK-2"
+        assert kwargs.get("actor") == "Commander"
+
+    def test_live_close_button_never_writes_hale_decisions_md(self, isolated_queue):
+        # Documents the asymmetry directly: no PLAN:CLOSE block, no Silver
+        # back-gate run -- because handle_block_action never calls the
+        # handler that would produce either.
+        payload = {"actions": [{"action_id": "close", "value": "ITEM-SLACK-3"}],
+                  "user": {"username": "yoda"}}
+        slack_receiver.handle_block_action(payload)
+        assert not gate.DECISIONS.exists()
+
+    def test_live_path_has_no_delete_stage_comment_or_create_task_action(self, isolated_queue):
+        # Only close/approve/defer are recognized; everything else is
+        # explicitly "ignored", not routed anywhere -- confirmed against the
+        # real dispatch, not asserted from reading the source.
+        for action_id in ("delete", "stage", "comment", "create_task"):
+            payload = {"actions": [{"action_id": action_id, "value": "ITEM-SLACK-4"}],
+                      "user": {"username": "yoda"}}
+            row = slack_receiver.handle_block_action(payload)
+            assert row["status"] == "ignored"
+            assert f"unknown action_id {action_id!r}" in row["detail"]

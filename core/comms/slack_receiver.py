@@ -132,6 +132,31 @@ def handle_block_action(payload: dict) -> Optional[dict]:
 
     row = _audit(status="ok", item_id=item_id, action_id=action_id, user=user, result=result)
 
+    # Mirror the decision into the canonical audit trail.
+    #
+    # commander_queue.close() above makes the closure PERMANENT — that is the fix for
+    # "my queue keeps getting overridden" and it is not in question. But it writes only
+    # to commander_closures.jsonl. hale_decisions.md is what the rest of the Wing parses,
+    # and until this call existed the Commander's taps never reached it: three real taps
+    # on 2026-07-29 landed in the ledger and left no trace in the audit trail. Found by a
+    # test that asserted the absence rather than by reading anyone's report.
+    #
+    # actor="Commander" is asserted explicitly and is EARNED here — payload["user"] was
+    # read above, so this call site genuinely knows the tap came from his own account.
+    # tcd_actions.apply() defaults to "ai" precisely so no other caller can claim this.
+    #
+    # Best-effort by design: TCD items and commander_queue items are different id spaces,
+    # so a mission id simply will not resolve in the TCD set. That is expected, not an
+    # error, and it must never undo a closure that already succeeded.
+    if action_id in ("close", "approve"):
+        try:
+            from core.comms import tcd_actions
+            tcd_actions.apply(item_id, "close", actor="Commander",
+                              value=f"Slack {action_id} by {user}")
+            row["audit_trail"] = "hale_decisions.md"
+        except Exception as exc:
+            row["audit_trail_skipped"] = f"{type(exc).__name__}: {exc}"
+
     # Replace the buttons with the outcome so the channel shows state, not stale options.
     try:
         rt = payload.get("response_url")
