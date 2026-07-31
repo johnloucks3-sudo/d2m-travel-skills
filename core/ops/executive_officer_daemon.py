@@ -104,13 +104,103 @@ class ExecutiveOfficerDaemon:
 
     @classmethod
     def audit_full_google_apps_governance(cls) -> dict:
-        """Verifies access to Forms, Tasks, Slides, Drive, Keep, Calendar, and Sheets with zero inbox deletion on johnloucks3."""
-        logger.info("XO Sentinel: Verifying multi-app governance across Forms, Tasks, Slides, Drive, Keep, Calendar, Sheets...")
+        """Runs one real, read-only probe per Google app against the live johnloucks3 account.
+
+        Each app is checked independently and a failure in one never hides the others.
+        Apps with no working client in this codebase (Slides) are reported as
+        not_integrated rather than claimed as governed.
+        """
+        logger.info("XO Sentinel: Auditing live governance across Gmail, Sheets, Drive, Forms, Tasks, Calendar, Keep...")
+
+        checks: dict[str, str] = {}
+
+        # Gmail — profile lookup only, never a delete-capable call
+        try:
+            from api.thunderbird_google_auth import get_gmail
+            profile = get_gmail().users().getProfile(userId="me").execute()
+            checks["gmail"] = f"ok: {profile.get('emailAddress', 'unknown')}"
+        except Exception as e:
+            checks["gmail"] = f"fail: {e}"
+
+        # Drive — about().get, read-only account/quota metadata
+        try:
+            from api.thunderbird_google_auth import get_drive
+            about = get_drive().about().get(fields="user,storageQuota").execute()
+            checks["drive"] = f"ok: {about.get('user', {}).get('emailAddress', 'unknown')}"
+        except Exception as e:
+            checks["drive"] = f"fail: {e}"
+
+        # Sheets — metadata read of the known Booking Master / Decision Log spreadsheet
+        try:
+            from api.thunderbird_google_auth import get_sheets
+            known_spreadsheet_id = "1GFjUe8RvP-GT4YHGn0DYv_BEAZGXlYfwEicFrm8ANuU"
+            meta = get_sheets().spreadsheets().get(
+                spreadsheetId=known_spreadsheet_id, fields="properties.title"
+            ).execute()
+            checks["sheets"] = f"ok: {meta.get('properties', {}).get('title', 'unknown')}"
+        except Exception as e:
+            checks["sheets"] = f"fail: {e}"
+
+        # Calendar — list at most 1 upcoming event on the primary calendar
+        try:
+            from api.thunderbird_google_auth import get_calendar
+            now = datetime.now(timezone.utc).isoformat()
+            events = get_calendar().events().list(
+                calendarId="primary", maxResults=1, singleEvents=True,
+                orderBy="startTime", timeMin=now,
+            ).execute()
+            checks["calendar"] = f"ok: {len(events.get('items', []))} upcoming event(s) visible"
+        except Exception as e:
+            checks["calendar"] = f"fail: {e}"
+
+        # Tasks — list task lists (read-only)
+        try:
+            from api.thunderbird_google_auth import get_tasks
+            tasklists = get_tasks().tasklists().list(maxResults=1).execute()
+            checks["tasks"] = f"ok: {len(tasklists.get('items', []))} task list(s) visible"
+        except Exception as e:
+            checks["tasks"] = f"fail: {e}"
+
+        # Forms — metadata read of a known form (forms.get has no list endpoint)
+        try:
+            from api.thunderbird_google_auth import get_forms
+            known_form_id = "1Ni_MKR8gqfpVVlaNt3RUBfDFd4hcy4U5SSTse4RUpo8"
+            form = get_forms().forms().get(formId=known_form_id).execute()
+            checks["forms"] = f"ok: {form.get('info', {}).get('title', 'unknown')}"
+        except Exception as e:
+            checks["forms"] = f"fail: {e}"
+
+        # Keep — list at most 1 note via the gkeepapi client already wired in this repo
+        try:
+            from api.thunderbird_keep import list_notes
+            res = list_notes(max_results=1)
+            checks["keep"] = f"ok: {res.get('count', 0)} note(s) visible"
+        except Exception as e:
+            checks["keep"] = f"fail: {e}"
+
+        # Slides — no service builder, no OAuth scope, and no client anywhere in this
+        # codebase. Reported honestly instead of claimed.
+        checks["slides"] = "not_integrated"
+
+        not_integrated = [app for app, result in checks.items() if result == "not_integrated"]
+        checked_results = {app: r for app, r in checks.items() if app not in not_integrated}
+        failed = {app: r for app, r in checked_results.items() if not r.startswith("ok")}
+
+        if failed:
+            status = "FAIL"
+        elif not_integrated:
+            status = "PARTIAL"
+        else:
+            status = "SUCCESS"
+
+        logger.info(f"XO Sentinel: Multi-app governance audit -> {status}: {checks}")
+
         return {
-            "status": "SUCCESS",
-            "apps_governed": ["Gmail", "Sheets", "Drive", "Forms", "Tasks", "Slides", "Calendar", "Keep"],
-            "johnloucks3_inbox_protection": "STRICT_ZERO_DELETE_ENFORCED",
-            "tcd_rules_enforcement": "ACTIVE"
+            "status": status,
+            "per_app": checks,
+            "not_integrated": not_integrated,
+            "johnloucks3_inbox_protection": "read-only checks only in this audit; no delete-capable call issued",
+            "tcd_rules_enforcement": "ACTIVE",
         }
 
 if __name__ == "__main__":
