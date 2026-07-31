@@ -228,6 +228,7 @@ _EMAIL_PROBE = "ci_probe_email_handling.py"
 _EMAIL_TIMERS = [
     "d2mconcierge-oauth-keepalive.timer",
     "johnloucks3-oauth-keepalive.timer",
+    "d2m-commander-digest.timer",
 ]
 
 

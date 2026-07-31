@@ -220,7 +220,7 @@ def repair_self_observability() -> bool:
 
 
 def repair_email_handling() -> bool:
-    """Email-handling: Check Gmail token files exist. True if at least one token file present."""
+    """Email-handling: Check Gmail token files exist and d2m-commander-digest timer is enabled/active."""
     token_paths = [
         Path.home() / ".gmail-mcp" / "d2mconcierge" / "credentials.json",
         Path.home() / ".gmail-mcp" / "john-loucks3" / "credentials.json",
@@ -248,7 +248,43 @@ def repair_email_handling() -> bool:
     except Exception as e:
         logger.warning(f"REPAIR email-handling: creds dir check exception — {e}")
 
-    success = len(found) > 0
+    # Ensure d2m-commander-digest.timer is enabled and active
+    timer_unit = "d2m-commander-digest.timer"
+    timer_ok = False
+    try:
+        check_enabled = subprocess.run(
+            ["systemctl", "--user", "is-enabled", timer_unit],
+            timeout=10,
+            capture_output=True,
+            text=True,
+        )
+        check_active = subprocess.run(
+            ["systemctl", "--user", "is-active", timer_unit],
+            timeout=10,
+            capture_output=True,
+            text=True,
+        )
+        is_enabled = check_enabled.stdout.strip() == "enabled"
+        is_active = check_active.stdout.strip() == "active"
+        logger.info(f"REPAIR email-handling: {timer_unit} is_enabled={is_enabled}, is_active={is_active}")
+
+        if not (is_enabled and is_active):
+            logger.info(f"REPAIR email-handling: enabling and starting {timer_unit}")
+            enable_res = subprocess.run(
+                ["systemctl", "--user", "enable", "--now", timer_unit],
+                timeout=15,
+                capture_output=True,
+                text=True,
+            )
+            timer_ok = enable_res.returncode == 0
+            logger.info(f"REPAIR email-handling: systemctl enable --now {timer_unit} rc={enable_res.returncode}")
+        else:
+            timer_ok = True
+    except Exception as e:
+        logger.warning(f"REPAIR email-handling: timer check/enable exception — {e}")
+        timer_ok = False
+
+    success = len(found) > 0 and timer_ok
     logger.info(f"REPAIR email-handling: {'SUCCESS' if success else 'FAILED'}")
     return success
 
