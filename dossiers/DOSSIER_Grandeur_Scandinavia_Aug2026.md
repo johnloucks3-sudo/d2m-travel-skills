@@ -27,7 +27,7 @@ Route: Stockholm → Berlin → Copenhagen → Kristiansand → Oslo
 Embarkation: August 29, 2026 — Stockholm, Sweden
 Disembarkation: September 08, 2026 — Oslo, Norway
 Duration: 10 nights
-Last Updated: March 26, 2026
+Last Updated: 2026-07-30 (hotel corrected; prior content dated March 26, 2026)
 
 ────────────────────────────────────────────────────────────
 1. GENERAL TRIP NOTES
@@ -42,9 +42,9 @@ Last Updated: March 26, 2026
 ────────────────────────────────────────────────────────────
 2. PRE-CRUISE ARRANGEMENTS
 ────────────────────────────────────────────────────────────
-Hotel: Haymarket by Scandic, Stockholm
+Hotel: **At Six Stockholm** (Brunkebergstorg 6) — Haymarket by Scandic CANCELLED, see banner
 Dates: Aug 27-29 (night 1 client pays, night 2 Regent pays)
-Transfers: Private car ARN airport → Haymarket (Bedsonline)
+Transfers: ARN → **At Six** — ❌ NOT BOOKED; old Royal Transfer bookings pending cancellation
 
 
 ════════════════════════════════════════════════════════════
@@ -119,7 +119,7 @@ Date         Status Category     Milestone
 2026-08-22          [supplier  ] ★ HARD: Excursions/dining close (E-7)
 2026-08-23          [supplier  ] ★ HARD: Bedsonline transfer free cancel
 2026-08-24          [supplier  ] ★ HARD: Bedsonline hotel free cancel
-2026-08-27          [supplier  ] ★ HARD: Haymarket check-in
+2026-08-27          [supplier  ] ★ HARD: At Six Stockholm check-in (was Haymarket — cancelled)
 2026-08-28          [supplier  ] ★ HARD: Regent included hotel night
 2026-08-29          [milestone ]   EMBARKATION DAY
 2026-09-08          [milestone ]   DISEMBARKATION DAY
@@ -140,7 +140,7 @@ SUPPLIER HARD DATES (from invoice)
        2026-08-22 — Excursions/dining close (E-7)
        2026-08-23 — Bedsonline transfer free cancel
        2026-08-24 — Bedsonline hotel free cancel
-       2026-08-27 — Haymarket check-in
+       2026-08-27 — At Six Stockholm check-in (was Haymarket — cancelled)
        2026-08-28 — Regent included hotel night
 
 TOURS & EXCURSIONS
@@ -232,7 +232,7 @@ Date         Status Category     Milestone
 2026-08-23          [supplier  ] ★ HARD: Bedsonline transfer free cancel
 2026-08-24          [supplier  ] ★ HARD: Bedsonline hotel free cancel
 2026-08-26          [supplier  ] ★ HARD: Ely/Darrow flight DFW→Helsinki
-2026-08-27          [supplier  ] ★ HARD: Haymarket check-in
+2026-08-27          [supplier  ] ★ HARD: At Six Stockholm check-in (was Haymarket — cancelled)
 2026-08-28          [supplier  ] ★ HARD: Regent included hotel night
 2026-08-29          [milestone ]   EMBARKATION DAY
 2026-09-08          [milestone ]   DISEMBARKATION DAY
@@ -255,7 +255,7 @@ SUPPLIER HARD DATES (from invoice)
        2026-08-23 — Bedsonline transfer free cancel
        2026-08-24 — Bedsonline hotel free cancel
        2026-08-26 — Ely/Darrow flight DFW→Helsinki
-       2026-08-27 — Haymarket check-in
+       2026-08-27 — At Six Stockholm check-in (was Haymarket — cancelled)
        2026-08-28 — Regent included hotel night
        2026-09-08 — Ely/Darrow return Oslo→London→Dallas
 
@@ -346,7 +346,7 @@ Date         Status Category     Milestone
 2026-08-22          [supplier  ] ★ HARD: Excursions/dining close (E-7)
 2026-08-23          [supplier  ] ★ HARD: Bedsonline transfer free cancel
 2026-08-24          [supplier  ] ★ HARD: Bedsonline hotel free cancel
-2026-08-27          [supplier  ] ★ HARD: Haymarket check-in
+2026-08-27          [supplier  ] ★ HARD: At Six Stockholm check-in (was Haymarket — cancelled)
 2026-08-28          [supplier  ] ★ HARD: Regent included hotel night
 2026-08-29          [milestone ]   EMBARKATION DAY
 2026-08-29          [supplier  ] ★ HARD: Heidi Nichols birthday
@@ -368,7 +368,7 @@ SUPPLIER HARD DATES (from invoice)
        2026-08-22 — Excursions/dining close (E-7)
        2026-08-23 — Bedsonline transfer free cancel
        2026-08-24 — Bedsonline hotel free cancel
-       2026-08-27 — Haymarket check-in
+       2026-08-27 — At Six Stockholm check-in (was Haymarket — cancelled)
        2026-08-28 — Regent included hotel night
        2026-08-29 — Heidi Nichols birthday
 
