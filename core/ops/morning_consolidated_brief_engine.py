@@ -88,12 +88,28 @@ def pull_mission_board_p0_p1() -> list[dict]:
         if not mb_path.exists():
             return []
         data = json.loads(mb_path.read_text(errors="ignore"))
-        items = data.get("items", [])
+        # "items" is not a key in mission_board.json — the real list is "missions"
+        # (208 entries). Reading the absent key meant this section rendered empty
+        # every single morning since it shipped.
+        items = data.get("missions", [])
         urgent = [
             i for i in items
             if i.get("priority") in ("P0", "P1")
-            and i.get("status") not in ("Done", "closed", "resolved")
+            and i.get("status") not in (
+                "Done", "done", "closed", "resolved",
+                "completed", "cancelled", "rolled_up",
+            )
         ]
+        # The board's own status is not the whole truth: a Commander closure lands
+        # in the append-only closure ledger and may never be written back to
+        # mission_board.json. Without this, items he already closed keep showing
+        # up as pending — the exact "I approved these and they came back" symptom.
+        try:
+            from core.comms.commander_queue import closed_ids
+            closed = closed_ids()
+            urgent = [i for i in urgent if str(i.get("id")) not in closed]
+        except Exception as e:  # ledger unavailable — surface the board, don't fail the brief
+            logger.warning(f"closure-ledger filter skipped: {e}")
         return urgent[:6]
     except Exception as e:
         logger.warning(f"Mission board pull failed: {e}")
@@ -121,12 +137,17 @@ def build_tcd_suspense_section(action_items: list[dict]) -> str:
         badge = PRIORITY_BADGE.get(pri, "")
         title = str(r.get("title", ""))[:70]
         inbox = str(r.get("inbox", "—"))
-        # Alternate row bg
+        from tcd.permalink import sheet_row_link
+        link = sheet_row_link(r.get("id"))
+        link_html = f' <a href="{link}" style="color:#2563eb;text-decoration:none;font-size:11px;">[Sheet]</a>' if link else ""
+        
+        title_disp = f"{title}{link_html}"
+        
         bg = "#ffffff" if rows_html.count("<tr") % 2 == 0 else "#f8fafc"
         rows_html += f"""
         <tr style="background-color:{bg};">
             <td style="padding:9px 10px;border:1px solid #e2e8f0;">{badge}</td>
-            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:600;color:#0f172a;">{title}</td>
+            <td style="padding:9px 10px;border:1px solid #e2e8f0;font-weight:600;color:#0f172a;">{title_disp}</td>
             <td style="padding:9px 10px;border:1px solid #e2e8f0;color:#475569;font-size:12px;">{inbox}</td>
         </tr>"""
 
@@ -215,7 +236,12 @@ def build_mission_board_section(missions: list[dict]) -> str:
         assignee = m.get("to", m.get("assigned_to", "—"))
         pri = m.get("priority", "")
         badge = PRIORITY_BADGE.get(pri.lower(), "")
-        items_html += f'<li style="margin:6px 0;">{badge} <b>[{mid}]</b> {title} — <i style="color:#475569;">{status} · {assignee}</i></li>\n'
+        
+        from tcd.permalink import sheet_row_link
+        link = sheet_row_link(mid)
+        link_html = f' <a href="{link}" style="color:#2563eb;text-decoration:none;font-size:11px;">[Sheet]</a>' if link else ""
+        
+        items_html += f'<li style="margin:6px 0;">{badge} <b>[{mid}]</b> {title}{link_html} — <i style="color:#475569;">{status} · {assignee}</i></li>\n'
 
     return f'<ul style="line-height:1.7;padding-left:18px;color:#0f172a;">{items_html}</ul>'
 
@@ -300,6 +326,40 @@ def build_commander_desk_section() -> str:
         return '<p style="color:#dc2626;">Commander desk section unavailable.</p>'
 
 
+def build_queued_reports_section() -> str:
+    try:
+        from core.comms.commander_channel import drain_queue
+        items = drain_queue(clear=True)
+        if not items:
+            return ""
+
+        html_parts = []
+        for i, item in enumerate(items):
+            title = str(item.get("title", "Untitled Report"))
+            body = item.get("body_html", "")
+            source = str(item.get("source", "unknown"))
+            ts = str(item.get("ts", ""))[:16].replace("T", " ")
+            bg = "#ffffff" if i % 2 == 0 else "#f8fafc"
+            
+            html_parts.append(f"""
+<div style="background:{bg};border:1px solid #cbd5e1;padding:15px;border-radius:4px;margin-bottom:12px;">
+    <h4 style="color:#07076b;margin-top:0;margin-bottom:10px;font-size:14px;">{title}</h4>
+    <div style="font-size:13px;color:#1e293b;line-height:1.6;">{body}</div>
+    <p style="font-size:11px;color:#64748b;margin-top:12px;margin-bottom:0;border-top:1px solid #e2e8f0;padding-top:6px;">
+        <b>Source:</b> {source} &nbsp;|&nbsp; <b>Queued:</b> {ts}
+    </p>
+</div>
+""")
+        return f"""
+<h3 style="color:#07076b;margin-top:25px;">📥 QUEUED REPORTS & NOTIFICATIONS</h3>
+<p style="font-size:12px;color:#64748b;margin-bottom:12px;">The following items were held for this delivery window:</p>
+{"".join(html_parts)}
+"""
+    except Exception as e:
+        logger.warning(f"Failed to drain queued reports: {e}")
+        return ""
+
+
 # ──────────────────────────────────────────────
 # MAIN BRIEF GENERATOR
 # ──────────────────────────────────────────────
@@ -335,6 +395,7 @@ def generate_morning_brief_html() -> str:
     wing_ops_html = build_wing_ops_section(wing_ops_digest)
     fpd_html = build_fpd_section(fpd_alerts)
     commander_desk_html = build_commander_desk_section()
+    queued_reports_html = build_queued_reports_section()
 
     # Summary counts for header
     p0_count = sum(1 for i in action_items if i.get("priority", "").lower() == "p0")
@@ -377,6 +438,8 @@ def generate_morning_brief_html() -> str:
 
 <h3 style="color:#07076b;margin-top:25px;">🦅 WING OPS — DELEGATION, VERIFICATION & COMPLIANCE</h3>
 {wing_ops_html}
+
+{queued_reports_html}
 
 <div style="margin-top:30px;font-family:Arial,sans-serif;color:#07076b;border-top:1px solid #e2e8f0;padding-top:12px;">
     <p style="font-weight:bold;margin:0;">DREAMS2MEMORIES TRAVEL, LLC</p>

@@ -110,6 +110,16 @@
         ]
       }
     ],
-    "UserPromptSubmit": []
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/john/Thunderbird/hooks/capture_commander_message.py"
+          }
+        ]
+      }
+    ]
   }
 }

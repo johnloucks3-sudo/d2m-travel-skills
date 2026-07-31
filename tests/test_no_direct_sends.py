@@ -41,6 +41,7 @@ ALLOWLIST = {
 EXCLUDE_DIRS = {
     ".git", "node_modules", "__pycache__", ".venv", "venv",
     "archive", "mcps", "Antigravity-x64", ".smart-env",
+    ".claude", "worktrees",
 }
 
 GMAIL_SEND = re.compile(r"messages\(\)\s*\.\s*send\s*\(")

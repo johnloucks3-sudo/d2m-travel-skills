@@ -41,7 +41,14 @@
       "category": "fix",
       "created": "2026-07-08T18:57:09Z",
       "active": true
+    },
+    {
+      "id": 7,
+      "item": "Morning brief now has FPD (priority-sorted) + Commander Desk sections in correct order",
+      "category": "critical",
+      "created": "2026-07-29T20:56:19Z",
+      "active": true
     }
   ],
-  "next_id": 7
+  "next_id": 8
 }

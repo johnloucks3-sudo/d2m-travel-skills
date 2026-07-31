@@ -1,0 +1,965 @@
+{
+ "priced": 103,
+ "still_failed": 43,
+ "rates": {
+  "Assistant": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t50% discount on cached chat"
+   }
+  },
+  "Claude-Fable-5": {
+   "Output": {
+    "usd": "$0.010/search",
+    "points": "334 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Claude-Opus-4.7": {
+   "Output": {
+    "usd": "$0.010/search",
+    "points": "334 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Claude-Opus-4.8": {
+   "Output": {
+    "usd": "$0.010/search",
+    "points": "334 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Claude-Opus-5": {
+   "Output": {
+    "usd": "$0.010/search",
+    "points": "334 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Claude-Sonnet-5": {
+   "Output": {
+    "usd": "$0.010/search",
+    "points": "334 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "DeepSeek-V3.2-N": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t50% discount on cached chat"
+   }
+  },
+  "ElevenLabs-Music-v2": {
+   "Output (message)": {
+    "usd": "$1.43/message",
+    "points": "47334 points/message"
+   }
+  },
+  "Exa-Answer": {
+   "Bot message": {
+    "usd": "$0.0081/message",
+    "points": "267 points/message"
+   }
+  },
+  "FLUX-pro-1.1-T": {
+   "Total cost": {
+    "usd": "$0.030/message",
+    "points": "1000 points/message"
+   }
+  },
+  "Flux-Schnell-T": {
+   "Total cost": {
+    "usd": "$0.0021/message",
+    "points": "70 points/message"
+   }
+  },
+  "GLM-4.7-Flash-N": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t85% discount on cached chat"
+   }
+  },
+  "GLM-5-N": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t80% discount on cached chat"
+   }
+  },
+  "GPT-4.1-mini": {
+   "Output": {
+    "usd": "$0.023/search",
+    "points": "750 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t75% discount on cached chat"
+   }
+  },
+  "GPT-4o-Search": {
+   "Output (message)": {
+    "usd": "$0.032/message",
+    "points": "1050 points/message"
+   },
+   "Output": {
+    "usd": "$0.023/search",
+    "points": "750 points/search"
+   }
+  },
+  "GPT-4o-mini": {
+   "Output": {
+    "usd": "$0.023/search",
+    "points": "750 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t50% discount on cached chat"
+   }
+  },
+  "GPT-5-mini": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5-nano": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.3-Codex": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.3-Instant": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.4": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.4-Mini": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.4-Nano": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.4-Pro": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   }
+  },
+  "GPT-5.5": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.5-Pro": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   }
+  },
+  "GPT-5.6-Luna": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.6-Sol": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-5.6-Terra": {
+   "Output": {
+    "usd": "$0.0091/search",
+    "points": "300 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "GPT-Image-2": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t75% discount on cached chat"
+   }
+  },
+  "Gemini-2.5-Flash": {
+   "Input (video)": {
+    "usd": "$0.000080/second",
+    "points": "3 points/second"
+   },
+   "Input (audio)": {
+    "usd": "$0.0000097/second",
+    "points": "1 point/second"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-2.5-Flash-Lite": {
+   "Input (video)": {
+    "usd": "$0.000027/second",
+    "points": "1 point/second"
+   }
+  },
+  "Gemini-2.5-Pro": {
+   "Input (video)": {
+    "usd": "$0.00033/second",
+    "points": "11 points/second"
+   },
+   "Input (audio)": {
+    "usd": "$0.000040/second",
+    "points": "2 points/second"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-3-Flash": {
+   "Input (video)": {
+    "usd": "$0.000028/second",
+    "points": "1 point/second"
+   },
+   "Input (audio)": {
+    "usd": "$0.000013/second",
+    "points": "1 point/second"
+   },
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-3.1-Flash-Lite": {
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   }
+  },
+  "Gemini-3.1-Pro": {
+   "Input (video)": {
+    "usd": "$0.00014/second",
+    "points": "5 points/second"
+   },
+   "Input (audio)": {
+    "usd": "$0.000065/second",
+    "points": "3 points/second"
+   },
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-3.5-Flash": {
+   "Input (video)": {
+    "usd": "$0.000088/second",
+    "points": "3 points/second"
+   },
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-3.5-Flash-Lite": {
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemini-3.6-Flash": {
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Gemma-4-31B": {
+   "Total cost": {
+    "usd": "$0.00/message",
+    "points": "0 points/message"
+   }
+  },
+  "Grok-3-Mini": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t75% discount on cached chat"
+   }
+  },
+  "Grok-4.1-Fast-Non-Reasoning": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t75% discount on cached chat"
+   }
+  },
+  "Grok-4.20-Multi-Agent": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t84% discount on cached chat"
+   }
+  },
+  "Grok-4.3": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t84% discount on cached chat"
+   }
+  },
+  "Grok-4.5": {
+   "Output": {
+    "usd": "$0.0051/search",
+    "points": "167 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t75% discount on cached chat"
+   }
+  },
+  "Grok-Code-Fast-1": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Grok-Imagine-Video": {
+   "Input (image)": {
+    "usd": "$0.0020/image",
+    "points": "67 points/image"
+   },
+   "Output (video)": {
+    "usd": "$0.051/second",
+    "points": "1667 points/second"
+   }
+  },
+  "Inkling": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t83% discount on cached chat"
+   }
+  },
+  "Kimi-K3": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Linkup-Deep-Search": {
+   "Bot message": {
+    "usd": "$0.081/message",
+    "points": "2667 points/message"
+   }
+  },
+  "Linkup-Standard": {
+   "Bot message": {
+    "usd": "$0.0081/message",
+    "points": "267 points/message"
+   }
+  },
+  "Lyria-3": {
+   "Base": {
+    "usd": "$0.04/message",
+    "points": "1,334 points/message"
+   },
+   "Full song": {
+    "usd": "$0.08/message",
+    "points": "2,667 points/message"
+   }
+  },
+  "MiMo-V2-Flash": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t80% discount on cached chat"
+   }
+  },
+  "MiniMax-M2.1-N": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "MiniMax-M2.5-N": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "MiniMax-Speech-2.8": {
+   "Total cost": {
+    "usd": "$0.0061/message",
+    "points": "200 points/message"
+   }
+  },
+  "Mistral-Small-3.1": {
+   "Bot message": {
+    "usd": "$0.0020/message",
+    "points": "67 points/message"
+   }
+  },
+  "Muse-Spark-1.1": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t88% discount on cached chat"
+   }
+  },
+  "Nano-Banana": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Nano-Banana-2": {
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   }
+  },
+  "Nano-Banana-Pro": {
+   "Output": {
+    "usd": "$0.014/search",
+    "points": "467 points/search"
+   },
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t90% discount on cached chat"
+   }
+  },
+  "Nova-Micro-1.0": {
+   "Cache discount": {
+    "usd": "",
+    "points": "Cache discount\t44% discount on cached chat"
+   }
+  },
+  "Qwen3.5-Flash-EL": {
+   "Bot message": {
+    "usd": "$0.010/message",
+    "points": "334 points/message"
+   }
+  },
+  "Qwen3.5-Omni-Flash": {
+   "Web Search": {
+    "usd": "$0.015/request",
+    "points": "500 points/request"
+   }
+  },
+  "Veo-3.1": {
+   "Total Cost": {
+    "usd": "$0.404/second",
+    "points": "13,333 points/second"
+   }
+  },
+  "Veo-3.1-Fast": {
+   "Total Cost": {
+    "usd": "$0.135/second",
+    "points": "4,500 points/second"
+   }
+  },
+  "Veo-3.1-Lite": {
+   "720p": {
+    "usd": "$0.05/second",
+    "points": "1,500 points/second"
+   },
+   "1080p": {
+    "usd": "$0.08/second",
+    "points": "2,400 points/second"
+   }
+  },
+  "Whisper-V3-Large-T": {
+   "Total cost": {
+    "usd": "$0.0030/message",
+    "points": "100 points/message"
+   }
+  },
+  "Amazon-Nova-Canvas": {
+   "raw": [
+    "Cost overview (per image generated):",
+    "Image Size & Quality\tCost per Image (points)",
+    "Total cost = Number of Images \u00d7 Per Image Cost"
+   ]
+  },
+  "ElevenLabs-v2.5-Turbo": {
+   "raw": [
+    "Input (text)\t$0.11 $0.03 / 1k characters\t1 point / character"
+   ]
+  },
+  "Exa-Search": {
+   "raw": [
+    "Search (1-25 results)\t200 ($0.0061) per search",
+    "Search (26-100 results)\t1000 ($0.030) per search"
+   ]
+  },
+  "GPT-Audio": {
+   "raw": [
+    "Input (text)\t138 ($0.0042) points / 1K tokens",
+    "Output (text)\t550 ($0.017) points / 1K tokens",
+    "Input (audio)\t1760 ($0.053) points / 1K tokens",
+    "Output (audio)\t3520 ($0.11) points / 1K tokens"
+   ]
+  },
+  "GPT-Audio-1.5": {
+   "raw": [
+    "Input (text)\t138 ($0.0042) points / 1K tokens",
+    "Output (text)\t550 ($0.017) points / 1K tokens",
+    "Input (audio)\t1760 ($0.053) points / 1K tokens",
+    "Output (audio)\t3520 ($0.11) points / 1K tokens"
+   ]
+  },
+  "GPT-Audio-Mini": {
+   "raw": [
+    "Input (text)\t34 ($0.0010) points / 1K tokens",
+    "Output (text)\t133 ($0.0040) points / 1K tokens",
+    "Input (audio)\t550 ($0.017) points / 1K tokens",
+    "Output (audio)\t1100 ($0.033) points / 1K tokens"
+   ]
+  },
+  "GPT-Image-1": {
+   "raw": [
+    "Input (text)\t5.00 $4.53/1M tokens\t151 points/1k tokens",
+    "Input (images)\t10.00 $9.03/1M tokens\t301 points/1k tokens"
+   ]
+  },
+  "GPT-Image-1-Mini": {
+   "raw": [
+    "Input (text)\t2.00 $1.8/1M tokens\t60 points/1k tokens",
+    "Input (images)\t2.50 $2.25/1M tokens\t75 points/1k tokens"
+   ]
+  },
+  "GPT-Image-1.5": {
+   "raw": [
+    "Input (text)\t$5.00 $4.53/1M tokens\t151 points/1k tokens",
+    "Input (images)\t$8.00 $7.22/1M tokens\t241 points/1k tokens"
+   ]
+  },
+  "GPT-OSS-120B-CS": {
+   "raw": [
+    "Input (text)\t$0.35/1M tokens\t12 points/1k tokens",
+    "Output (text)\t$0.76/1M tokens\t25 points/1k tokens"
+   ]
+  },
+  "GPT-Researcher": {
+   "raw": [
+    "Text input\t100 points / token",
+    "Research analysis\t200 points / research",
+    "Research response\t150 points / research"
+   ]
+  },
+  "Gemini-Omni-Flash": {
+   "raw": [
+    "Input\t$1.52/1M tokens\t50 points/1k tokens",
+    "Output (text)\t$9.09/1M tokens\t300 points/1k tokens",
+    "Output (video)\t$17.68/1M tokens\t584 points/1k tokens"
+   ]
+  },
+  "Gemma-4-26B-A4B": {
+   "raw": [
+    "Input (text)\t$0.13/1M tokens\t5 points/1k tokens",
+    "Output (text)\t$0.40/1M tokens\t14 points/1k tokens"
+   ]
+  },
+  "Kling-O3": {
+   "raw": [
+    "Per second of generated video."
+   ]
+  },
+  "Kling-v3-Motion-Ctrl": {
+   "raw": [
+    "Per second of generated video.",
+    "Tier\tPrice per second"
+   ]
+  },
+  "Lyria": {
+   "raw": [
+    "Input (text)\t1400 points per generated song"
+   ]
+  },
+  "MOSS-Video-and-Audio": {
+   "raw": [
+    "Video Generation \u2014 Pricing (per second of video)"
+   ]
+  },
+  "Nano-Banana-2-Lite": {
+   "raw": [
+    "Input\t$0.25/1M tokens\t9 points/1k tokens",
+    "Output (text)\t$1.52/1M tokens\t50 points/1k tokens",
+    "Output (image)\t$30.30/1M tokens\t1000 points/1k tokens"
+   ]
+  },
+  "Perplexity-Adv-Deep-Research": {
+   "raw": [
+    "- Max tokens per page [4096-16384]: Max tokens extracted per search result page (default: 4096)"
+   ]
+  },
+  "Qwen3-Coder-Next-N": {
+   "raw": [
+    "Input (text)\t$0.20/1M tokens\t7 points/1k tokens",
+    "Output (text)\t$1.52/1M tokens\t50 points/1k tokens"
+   ]
+  },
+  "Reka-Research": {
+   "raw": [
+    "Total Cost\t334 ($0.010) points / message"
+   ]
+  },
+  "Seed-2.0-Mini": {
+   "raw": [
+    "Input (text)\t$0.13/1M tokens\t5 points/1k tokens",
+    "Output (text)\t$0.51/1M tokens\t17 points/1k tokens"
+   ]
+  },
+  "Seedance-2-Fast": {
+   "raw": [
+    "Cost estimate - $0.115 per second (10300 tokens per second) at 480p, $0.24752 per second (22100 tokens per second) at 720p, at a rate of $0.0112 per 1000 tokens."
+   ]
+  },
+  "Seedance-2.0": {
+   "raw": [
+    "Cost estimate - $0.1442 per second at 480p (10300 tokens per second), $0.3094 per second at 720p (22100 tokens per second) at a rate of $0.014 per 1000 tokens."
+   ]
+  },
+  "Seedance-2.0-Fast-EL": {
+   "raw": [
+    "Pricing is per second of video generated.",
+    "480P\t$0.122/sec\t4,067 pts/sec",
+    "720P\t$0.260/sec\t8,667 pts/sec",
+    "480P\t$0.284/sec\t9,467 pts/sec",
+    "720P\t$0.610/sec\t20,333 pts/sec"
+   ]
+  },
+  "Seedance-2.0-Pro-EL": {
+   "raw": [
+    "Pricing is per second of video generated.",
+    "480P\t$0.129/sec\t4,286 pts/sec",
+    "720P\t$0.278/sec\t9,250 pts/sec",
+    "1080P\t$0.693/sec\t23,094 pts/sec",
+    "4K\t$1.438/sec\t47,946 pts/sec",
+    "480P\t$0.316/sec\t10,545 pts/sec",
+    "720P\t$0.681/sec\t22,693 pts/sec",
+    "1080P\t$1.703/sec\t56,764 pts/sec",
+    "4K\t$3.452/sec\t115,070 pts/sec"
+   ]
+  },
+  "Sora-2": {
+   "raw": [
+    "720x1280 or 1280x720\t$0.10 $0.09 / second\t3000 points / second"
+   ]
+  },
+  "Sora-2-Pro": {
+   "raw": [
+    "1280x720 or 720x1280\t$0.30 $0.27 / second\t9000 points / second",
+    "1024x1792 or 1792x1024\t$0.50 $0.45 / second\t15000 points / second"
+   ]
+  },
+  "Wan-2.6": {
+   "raw": [
+    "Pricing is per second of video generated.",
+    "720P\t$0.10 $0.09/sec\t3,000 pts/sec",
+    "1080P\t$0.15 $0.138/sec\t4,600 pts/sec",
+    "720P\tWith\t$0.050 $0.045/sec\t1,500 pts/sec",
+    "720P\tWithout\t$0.0250 $0.0225/sec\t750 pts/sec",
+    "1080P\tWith\t$0.0750 $0.0690/sec\t2,300 pts/sec",
+    "1080P\tWithout\t$0.03750 $0.03450/sec\t1,150 pts/sec"
+   ]
+  },
+  "Wan-2.7": {
+   "raw": [
+    "Pricing is per second of video generated.",
+    "720P\t$0.10/sec\t3,333 pts/sec",
+    "1080P\t$0.150/sec\t5,000 pts/sec"
+   ]
+  },
+  "Wan2.7-Image": {
+   "raw": [
+    "- Maximum file size per image: 20 MB.",
+    "Pricing is per image generated.",
+    "Wan 2.7 Image\t$0.030/img\t1,000 pts/img",
+    "Wan 2.7 Image Pro\t$0.075/img\t2,500 pts/img"
+   ]
+  },
+  "Kling-2.0-Master": {
+   "raw": [
+    "Generate high-quality videos from text or images using Kling 2.0 Master. Use `--negative_prompt` to send a negative prompt, and `--cfg_scale` to send a classifier-free guidance scale between 0.0 and 1.0 (inclusive). Use `--aspect` to set the aspect ratio (One of `16:9`, `9:16` and `1:1`). Use `--duration` to set either 5 or 10 second video."
+   ]
+  },
+  "Kling-2.1-Std": {
+   "raw": [
+    "- CFG Scale. To send a classifier-free guidance scale between 0.0 and 1.0. This is set to 0.5 as default"
+   ]
+  },
+  "Kling-2.5-Turbo-Pro": {
+   "raw": [
+    "- CFG Scale. To send a classifier-free guidance scale between 0.0 and 1.0. This is set to 0.5 as default"
+   ]
+  },
+  "Kling-2.6-Pro": {
+   "raw": [
+    "- CFG Scale. To send a classifier-free guidance scale between 0.0 and 1.0. This is set to 0.5 as default"
+   ]
+  }
+ },
+ "failures": [
+  [
+   "Canvas-Creator",
+   "no rate text"
+  ],
+  [
+   "Clarity-Upscaler",
+   "no rate text"
+  ],
+  [
+   "FLUX-2-Dev",
+   "no rate text"
+  ],
+  [
+   "FLUX-2-Pro",
+   "no rate text"
+  ],
+  [
+   "Flux-2-Flash",
+   "no rate text"
+  ],
+  [
+   "Flux-2-Turbo",
+   "no rate text"
+  ],
+  [
+   "Flux-Kontext-Max",
+   "no rate text"
+  ],
+  [
+   "Flux-Kontext-Pro",
+   "no rate text"
+  ],
+  [
+   "Grok-Imagine-Image",
+   "no rate text"
+  ],
+  [
+   "Hailuo-02-Pro",
+   "no rate text"
+  ],
+  [
+   "Hailuo-02-Standard",
+   "no rate text"
+  ],
+  [
+   "Hailuo-Music-v1.5",
+   "no rate text"
+  ],
+  [
+   "Ideogram-v3",
+   "no rate text"
+  ],
+  [
+   "Kling-Omni",
+   "no rate text"
+  ],
+  [
+   "Kling-v3-Pro",
+   "no rate text"
+  ],
+  [
+   "LTX-2-Pro",
+   "no rate text"
+  ],
+  [
+   "Luma-Photon",
+   "no rate text"
+  ],
+  [
+   "Luma-Photon-Flash",
+   "no rate text"
+  ],
+  [
+   "Orpheus-TTS",
+   "no rate text"
+  ],
+  [
+   "Perplexity-Pro-Search",
+   "no rate text"
+  ],
+  [
+   "Perplexity-Search",
+   "no rate text"
+  ],
+  [
+   "Perplexity-Sonar",
+   "no rate text"
+  ],
+  [
+   "Perplexity-Sonar-Pro",
+   "no rate text"
+  ],
+  [
+   "Perplexity-Sonar-Rsn-Pro",
+   "no rate text"
+  ],
+  [
+   "Pixverse-v4.5",
+   "no rate text"
+  ],
+  [
+   "Pixverse-v5.6",
+   "no rate text"
+  ],
+  [
+   "Runway-Gen-4.5",
+   "no rate text"
+  ],
+  [
+   "Script-Bot-Creator",
+   "no rate text"
+  ],
+  [
+   "SeedEdit-3.0",
+   "no rate text"
+  ],
+  [
+   "Seedance-1.0-Pro",
+   "no rate text"
+  ],
+  [
+   "Seedance-1.0-Pro-Fast",
+   "no rate text"
+  ],
+  [
+   "Seedream-4.0",
+   "no rate text"
+  ],
+  [
+   "Seedream-5.0-Lite",
+   "no rate text"
+  ],
+  [
+   "Stable-Audio-2.0",
+   "no rate text"
+  ],
+  [
+   "Stable-Audio-2.5",
+   "no rate text"
+  ],
+  [
+   "StableDiffusion3.5-L",
+   "no rate text"
+  ],
+  [
+   "Veo-3-vFast",
+   "no rate text"
+  ],
+  [
+   "Veo-v3.1",
+   "no rate text"
+  ],
+  [
+   "Veo-v3.1-Fast",
+   "no rate text"
+  ],
+  [
+   "Vidu",
+   "no rate text"
+  ],
+  [
+   "Wan-2.5",
+   "no rate text"
+  ],
+  [
+   "Z-Image-Lightning",
+   "no rate text"
+  ],
+  [
+   "remove-background",
+   "no rate text"
+  ]
+ ]
+}

@@ -172,10 +172,18 @@ def main():
     cur = load_cursor()
     seen = set(cur["seen"])
     already_queued = queued_msg_ids()
-    svc = gmail()
+    try:
+        svc = gmail()
+    except (TimeoutError, OSError) as e:
+        print(f"{datetime.now():%H:%M} [SKIP-NET] — Gmail auth/connect failed: {e}. Exiting 0; timer retries in 5min.")
+        sys.exit(0)
 
-    q = f"in:inbox after:{cur['after_epoch']}"
-    res = svc.users().messages().list(userId="me", q=q, maxResults=50).execute()
+    try:
+        q = f"in:inbox after:{cur['after_epoch']}"
+        res = svc.users().messages().list(userId="me", q=q, maxResults=50).execute()
+    except (TimeoutError, OSError) as e:
+        print(f"{datetime.now():%H:%M} [SKIP-NET] — Gmail API timed out: {e}. Exiting 0; timer retries in 5min.")
+        sys.exit(0)
     msgs = [m for m in res.get("messages", []) if m["id"] not in seen]
 
     dispositions = []
@@ -184,9 +192,15 @@ def main():
     for_deletion_label = get_for_deletion_label_id(svc, cur, apply) if msgs else cur.get("for_deletion_label_id")
 
     for m in msgs:
-        full = svc.users().messages().get(
-            userId="me", id=m["id"], format="metadata",
-            metadataHeaders=["Subject", "From", "Date"]).execute()
+        try:
+            full = svc.users().messages().get(
+                userId="me", id=m["id"], format="metadata",
+                metadataHeaders=["Subject", "From", "Date"]).execute()
+        except (TimeoutError, OSError) as e:
+            print(f"{datetime.now():%H:%M} [SKIP-NET] — messages.get timeout mid-loop: {e}. Exiting 0; timer retries.")
+            if apply or not CURSOR.exists():
+                save_cursor(cur)
+            sys.exit(0)
         sender = hdr(full, "From")
         subject = hdr(full, "Subject")
         snippet = full.get("snippet", "")[:300]

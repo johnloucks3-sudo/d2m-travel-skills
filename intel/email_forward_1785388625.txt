@@ -1,0 +1,34 @@
+Subject: Tech Scan 2026-07-30 05:15 UTC — 5 trial / 1 killed (Hale adjudicated)
+From: johnloucks3@gmail.com
+Received: 2026-07-30T05:17:05.991031+00:00
+
+TECH SCAN — 2026-07-30 05:15 UTC
+airborne scanner pulse · 11 finds · sectors claude-code
+HALE'S ADJUDICATION (kill-pass before anything's believed)
+📊 5 TRIAL · 5 WATCH · 1 KILLED as noise · 0 adopt
+🧪 TRIAL — real tools, worth a bounded look:Show HN: a Rust coding agent that is compatible with Claude Code plugins/skills — https://github.com/KonghaYao/peri
+↳ real tool (plugin, skill, github.com) — worth a bounded look
+Show HN: A local merge queue for parallel Claude Code agents — https://github.com/funador/claude-code-merge-queue
+↳ real tool (github.com) — worth a bounded look
+Show HN: Rekol, the memory for Claude Code that's yours — https://github.com/rekol-io/rekol
+↳ real tool (github.com) — worth a bounded look
+Oryxflow – cheaper and more reliable AI data analysis in Python and Claude Code — https://github.com/oryxintel/oryxflow
+↳ real tool (github.com) — worth a bounded look
+Cloister – isolated Claude Code and Codex, one cell per company — https://github.com/alxpolan/cloister
+↳ real tool (github.com) — worth a bounded look
+👁 WATCH:Why is Claude so mean to its subagents
+Show HN: Extra Headroom – cut Claude Code and Codex token costs by ~50% — https://extraheadroom.com/
+An Android and iOS app from 7 Claude Code commands, every prompt and timing — https://proandroiddev.com/seven-
+Why Claude Code Stops Halfway Through Long Tasks—and the Harness I Built to Keep It Moving — https://dev.to/or
+y Claude Code safety hook wasn't blocking anything — https://dev.to/ashton_dutoit_c99f445ceb/y-claude-code-saf
+🗑 KILLED (1) — discussion/opinion, not tools (so they don't pile up):Anyone else think Claude Code and Codex are too slow? We hate it — https://bullet.davidhf.
+RAW — all finds this pulse (unfiltered)[claude-code] Why is Claude so mean to its subagents (Reddit r/ClaudeAI)
+[claude-code] Show HN: a Rust coding agent that is compatible with Claude Code plugins/skills — https://github.com/KonghaYao/peri (Hacker News — Claude Code)
+[claude-code] Show HN: A local merge queue for parallel Claude Code agents — https://github.com/funador/claude-code-merge-queue (Hacker News — Claude Code)
+[claude-code] Anyone else think Claude Code and Codex are too slow? We hate it — https://bullet.davidhf.com (Hacker News — Claude Code)
+[claude-code] Show HN: Rekol, the memory for Claude Code that's yours — https://github.com/rekol-io/rekol (Hacker News — Claude Code)
+[claude-code] Oryxflow – cheaper and more reliable AI data analysis in Python and Claude Code — https://github.com/oryxintel/oryxflow (Hacker News — Claude Code)
+[claude-code] Show HN: Extra Headroom – cut Claude Code and Codex token costs by ~50% — https://extraheadroom.com/ (Hacker News — Claude Code)
+[claude-code] An Android and iOS app from 7 Claude Code commands, every prompt and timing — https://proandroiddev.com/seven-claude-cod (Hacker News — Claude Code)
+[claude-code] Cloister – isolated Claude Code and Codex, one cell per company — https://github.com/alxpolan/cloister (Hacker News — Claude Code)
+[claude-c

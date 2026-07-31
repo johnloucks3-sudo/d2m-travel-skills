@@ -249,8 +249,9 @@ async def run(args):
     changed = 0
 
     async with async_playwright() as pw:
-        # Firefox: chromium_headless_shell SIGTRAP's on this OS (openSUSE); firefox stable
-        browser = await pw.firefox.launch(headless=True)
+        # Chromium (not chromium_headless_shell — that SIGTRAPs on openSUSE).
+        # Firefox juggler pipe broke after playwright updated firefox-1509→1522 (2026-07-04).
+        browser = await pw.chromium.launch(headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"])
         context = await browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

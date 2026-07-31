@@ -218,5 +218,33 @@
   "11181d04b841cbb2": {
     "problem": "CHIEF SILVER HOLD \u2014 mission-MISSION-042: [Commander CLOSE via tcd.d2mluxury.quest]",
     "sent_at": 1785349820.8104537
+  },
+  "a2e5d2ebadec9198": {
+    "problem": "CHIEF SILVER HOLD \u2014 C2-TASK5-STUBAUDIT: Audited 236 systemd scripts, identified 4 STUB and 2 PARTIAL entries, generated ",
+    "sent_at": 1785371402.766981
+  },
+  "dd2387c2df5d895a": {
+    "problem": "OC ticket DISCREPANCY \u2014 C2-TASK5-STUBAUDIT: C2 RECALIBRATION TASK 5 \u2014 STUB AUDIT (Commander-directed 2026-07-29).\n\nCONTEXT: ",
+    "sent_at": 1785371403.5529227
+  },
+  "0598ce407299c4ec": {
+    "problem": "CHIEF SILVER HOLD \u2014 mission-MISSION-680: ",
+    "sent_at": 1785378075.4895396
+  },
+  "239099ceaea4076a": {
+    "problem": "CHIEF SILVER HOLD \u2014 test-1: ",
+    "sent_at": 1785383431.467954
+  },
+  "d9b8a79629d7e3e2": {
+    "problem": "CHIEF SILVER HOLD \u2014 mission-MISSION-729: ",
+    "sent_at": 1785392497.337475
+  },
+  "a01b2fc697642293": {
+    "problem": "STAFF SUMMARY SHEET \u2014 INFO (Market Intel)\nSUBJECT: Daily Market/Competitor Intel Synthesis\nOPR: Dembe (A2) | STAFFED BY: Dembe (A2) | ACTION: INFO\n\nPURPOSE\nDaily market and competitor intelligence syn",
+    "sent_at": 1785423616.875025
+  },
+  "11bbfe753bdcff92": {
+    "problem": "CHIEF SILVER HOLD \u2014 test-id-123: ",
+    "sent_at": 1785425240.5959256
   }
 }

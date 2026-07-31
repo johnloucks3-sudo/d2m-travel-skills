@@ -111,20 +111,18 @@ def check_timer_armed(name: str) -> bool:
 
 
 def send_telegram(message: str):
-    """Send alert to Commander via Telegram."""
+    """Send alert to Commander.
+
+    # Routed through the single gate (C2 RECALIBRATION task 8, Commander
+    # directive 2026-07-29). This used to hit the bot API directly.
+    """
     try:
-        token = _load_bot_token()
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        payload = json.dumps({
-            "chat_id": COMMANDER_CHAT_ID,
-            "text": message,
-            "parse_mode": "HTML",
-        }).encode()
-        req = Request(url, data=payload, headers={"Content-Type": "application/json"})
-        urlopen(req, timeout=15)
-        log.info("Telegram alert sent to Commander")
+        from core.comms.commander_channel import notify
+        notify("ops", message.splitlines()[0][:80] if message.strip() else "Preflight Gate",
+               message, urgency="WINDOW", source="preflight_gate")
+        log.info("Alert routed to notify() gate")
     except Exception as e:
-        log.error(f"Telegram send failed: {e}")
+        log.error(f"notify() send failed: {e}")
 
 
 def run_preflight():

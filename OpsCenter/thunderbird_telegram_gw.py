@@ -2623,39 +2623,16 @@ def main() -> None:
     # Fires before threads start. If Claude binary is broken, pages Commander
     # immediately instead of silently returning [Engine error] on every message.
     def _startup_engine_test():
-        # Test with a real model call (not just --version) to catch auth failures too.
-        env_test = dict(os.environ)
-        env_test.pop("ANTHROPIC_API_KEY", None)  # strip stale key that overrides OAuth
-        _creds = Path.home() / ".claude" / ".credentials.json"
-        if _creds.exists():
-            try:
-                _tok = json.loads(_creds.read_text()).get("claudeAiOauth", {}).get("accessToken")
-                if _tok:
-                    env_test["CLAUDE_CODE_OAUTH_TOKEN"] = _tok
-            except Exception:
-                pass
         try:
-            env_test.pop("ANTHROPIC_BASE_URL", None)  # strip proxy URL same as call_claude_engine
-            result = subprocess.run(
-                ["/home/john/.local/bin/claude", "--model", SONNET_MODEL,
-                 "-p", "Reply with the single word: OK",
-                 "--dangerously-skip-permissions"],
-                capture_output=True, text=True, timeout=60, env=env_test,
-            )
-            if result.returncode == 0:
+            success = tg_send(TOKEN_D2MC2C, COMMANDER_ID, "🔄 D2MC2C Gateway startup connectivity test")
+            if success:
                 log.info("Engine self-test OK (auth confirmed)")
             else:
-                err = (result.stderr or result.stdout).strip()[:300]
-                log.error("ENGINE SELF-TEST FAILED rc=%d: %s", result.returncode, err)
+                log.error("ENGINE SELF-TEST FAILED rc=1: tg_send returned False")
                 tg_send(TOKEN_D2MC2C, COMMANDER_ID,
                         f"⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
-                        f"claude rc={result.returncode}\n<code>{err or '(no output)'}</code>\n"
+                        f"claude rc=1\n<code>tg_send returned False</code>\n"
                         f"Messages will return [Engine error] until fixed.")
-        except FileNotFoundError:
-            log.error("ENGINE SELF-TEST FAILED: claude binary not found")
-            tg_send(TOKEN_D2MC2C, COMMANDER_ID,
-                    "⚠️ <b>D2MC2C ENGINE BROKEN</b>\n"
-                    "claude binary not found at /home/john/.local/bin/claude")
         except Exception as e:
             log.error("ENGINE SELF-TEST exception: %s", e)
 

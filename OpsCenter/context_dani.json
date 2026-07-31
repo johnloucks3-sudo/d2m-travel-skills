@@ -1,22 +1,6 @@
 [
   {
     "role": "Bryana",
-    "text": "Hi Dani, can you please help me navigate the differences between these? What defines \"luxury\" vs \"premium\" vs \"contemporary"
-  },
-  {
-    "role": "Dani, Sonnet",
-    "text": "<b>Dani, Sonnet</b>\n\n[Engine error — Claude rc=1]"
-  },
-  {
-    "role": "Bryana",
-    "text": "Hi Dani are you working now?"
-  },
-  {
-    "role": "Dani, Sonnet",
-    "text": "<b>Dani, Sonnet</b>\n\nHi there! Absolutely — I'm here and ready to help. What's on your mind? Whether it's questions about a cruise, ship details, destinations, or anything else travel-related, I'm happy to dig in.\n\nWhat can I help you with today?\n\nThanks"
-  },
-  {
-    "role": "Bryana",
     "text": "Yay, you're back up and running!"
   },
   {
@@ -78,5 +62,21 @@
   {
     "role": "Dani, Sonnet",
     "text": "<b>Dani, Sonnet</b>\n\nHi Bryana! Welcome — great to meet you. I'm Dani, the travel concierge here at D2M, and I'm happy to help you learn the ropes.\n\nI can talk through cruise operations, help with general cruise Q&A, destination research, booking processes, ship comparisons, that kind of thing. I can also walk you through how we work with clients and what D2M's service looks like from the inside.\n\nWhat I *won't* be able to do is discuss other clients' specific bookings or financial details — that's strictly between John and them.\n\nWhat would be most helpful for you right now? Are you diving into a specific cruise line, a destination, or just getting oriented with how we do things?\n\nThanks,\nDani"
+  },
+  {
+    "role": "Bryana",
+    "text": "Hi Dani, when helping a client choose a cruise (they don't have a specific destination in mind or want to go somewhere new), where do you start? What questions do you ask?"
+  },
+  {
+    "role": "Dani, Sonnet",
+    "text": "<b>Dani, Sonnet</b>\n\nGreat question. Here's how I approach it:\n\n**First, I listen for travel *style*, not just destination:**\n- \"What does your ideal vacation feel like?\" (Beach lounging? Cultural exploration? Fine dining focus? Active ports?)\n- \"Have you cruised before? What did you love—or NOT love—about it?\"\n- This tells me if they want a mega-ship party atmosphere vs. intimate expedition vs. luxury boutique experience.\n\n**Then I map *timing & rhythm*:***\n- When do they want to travel? (Affects weather, crowds, pricing, ship rotation)\n- How long? (4 days? 10 days? Round-the-world?)\n- Any hard dates or seasons they're locked into?\n\n**I ask about *group dynamics*:***\n- Who's traveling? (Couple, family, friends, multigenerational?)\n- Do they all have the same energy level / interests?\n- An"
+  },
+  {
+    "role": "Bryana",
+    "text": "Yes, I like that. I especially like the \"destination matter way less than the fit\""
+  },
+  {
+    "role": "Dani, Sonnet",
+    "text": "<b>Dani, Sonnet</b>\n\nI appreciate that, but I'm not seeing the earlier part of our conversation in my context — looks like I'm picking up mid-stream. I don't have the thread that led to that \"destination matters way less than the fit\" line.\n\nCan you remind me what we were discussing? That way I can pick up where we left off without you having to repeat yourself.\n\nThanks."
   }
 ]

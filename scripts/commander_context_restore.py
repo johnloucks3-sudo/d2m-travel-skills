@@ -18,13 +18,14 @@ HOOK = Path('/home/john/Thunderbird/OpsCenter/state_bridge/session_startup_hook.
 DECISION_LOG = Path('/home/john/Thunderbird/hale_decisions.md')
 
 def tg(msg):
+    # Routed through the single gate (C2 RECALIBRATION task 8, Commander
+    # directive 2026-07-29). This used to hit the bot API directly.
     try:
-        urllib.request.urlopen(urllib.request.Request(
-            f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage',
-            json.dumps({'chat_id':COMMANDER_ID,'text':msg}).encode(),
-            headers={'Content-Type':'application/json'}), timeout=15)
+        from core.comms.commander_channel import notify
+        notify('ops', msg.splitlines()[0][:80] if msg.strip() else 'alert', msg,
+               urgency='WINDOW', source=__name__)
     except Exception as e:
-        logging.warning(f'telegram failed: {e}')
+        logging.warning(f'notify() failed: {e}')
 
 def hook_summary():
     if not HOOK.exists(): return ''

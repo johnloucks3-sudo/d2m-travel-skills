@@ -14,10 +14,18 @@ gmail.modify scope (no settings.basic / filter needed).
 
 Run on a timer, same cadence as the old primary-router.timer (every 5 min).
 """
+import socket
+import sys
 from pathlib import Path
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
+
+try:
+    import httplib2 as _httplib2
+    _TRANSPORT_ERRORS = (OSError, TimeoutError, socket.gaierror, _httplib2.HttpLib2Error)
+except ImportError:
+    _TRANSPORT_ERRORS = (OSError, TimeoutError, socket.gaierror)
 
 TOKEN = Path("/home/john/Thunderbird/creds/johnloucks3_token.json")
 
@@ -42,4 +50,10 @@ def main(window="newer_than:2d"):
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except _TRANSPORT_ERRORS as e:
+        # Transient network failure (DNS, TCP timeout, httplib2 transport error).
+        # Exit 0 so systemd doesn't mark the unit failed; the timer fires again in 5 min.
+        print(f"inbox_restore: skipped — transient network error: {e}", file=sys.stderr)
+        sys.exit(0)

@@ -5,7 +5,7 @@
     "n8n_python",
     "lindy_ai"
   ],
-  "emails_processed": 353,
+  "emails_processed": 357,
   "entries": [
     {
       "category": "spam",
@@ -3449,6 +3449,42 @@
       "from": "aidisruption@substack.com",
       "subject": "Claude Opus 5 Launches at Half the Price of Fable 5",
       "ts": "2026-07-25T11:38:06.654983+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fb2d02a0ef7814",
+      "from": "aidisruption@substack.com",
+      "subject": "Microsoft Earns $3.2 Billion from Anthropic",
+      "ts": "2026-07-30T11:39:03.093470+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fb42971b1a75a3",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Security alert",
+      "ts": "2026-07-30T17:54:11.747896+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "spam",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fb42805bd64f39",
+      "from": "poe-no-reply@quora.com",
+      "subject": "Your verification code",
+      "ts": "2026-07-30T17:54:12.143928+00:00",
+      "system": "n8n_python"
+    },
+    {
+      "category": "other",
+      "action": "skipped_non_actionable",
+      "thread_id": "19fb450f47fab08d",
+      "from": "jenn@projectexpedition.com",
+      "subject": "The best part of Japan isn't the flight",
+      "ts": "2026-07-30T18:39:10.501688+00:00",
       "system": "n8n_python"
     }
   ]

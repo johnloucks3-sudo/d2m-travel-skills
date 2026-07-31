@@ -1,6 +1,6 @@
 {
- "scanned_at": "2026-07-29T21:00:03.446017+00:00",
- "finding_count": 54,
+ "scanned_at": "2026-07-31T09:00:00.091116+00:00",
+ "finding_count": 55,
  "findings": [
   {
    "category": "repeat_alert",
@@ -18,50 +18,50 @@
   },
   {
    "category": "stale_ci_tool",
-   "what": "Cruise-line Portal Access last re-evaluated 39d ago (cadence: 30d)",
-   "why": "exceeds its own 30-day reeval cadence by 9d",
+   "what": "Cruise-line Portal Access last re-evaluated 41d ago (cadence: 30d)",
+   "why": "exceeds its own 30-day reeval cadence by 11d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/scripts/regent_oa_reauth.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Web Fetch & Scrape last re-evaluated 39d ago (cadence: 30d)",
-   "why": "exceeds its own 30-day reeval cadence by 9d",
+   "what": "Web Fetch & Scrape last re-evaluated 41d ago (cadence: 30d)",
+   "why": "exceeds its own 30-day reeval cadence by 11d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/.venv/bin/anansi"
   },
   {
    "category": "stale_ci_tool",
-   "what": "CloakBrowser Tier 3 \u2014 Regent Akamai Wall Bypass last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "CloakBrowser Tier 3 \u2014 Regent Akamai Wall Bypass last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/core/web/smart_fetch.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Headless AI Dispatch (claude -p / MAX OAuth) last re-evaluated 39d ago (cadence: 30d)",
-   "why": "exceeds its own 30-day reeval cadence by 9d",
+   "what": "Headless AI Dispatch (claude -p / MAX OAuth) last re-evaluated 41d ago (cadence: 30d)",
+   "why": "exceeds its own 30-day reeval cadence by 11d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/OpsCenter/dispatch_claude.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Credential & OAuth Keepalive last re-evaluated 39d ago (cadence: 30d)",
-   "why": "exceeds its own 30-day reeval cadence by 9d",
+   "what": "Credential & OAuth Keepalive last re-evaluated 41d ago (cadence: 30d)",
+   "why": "exceeds its own 30-day reeval cadence by 11d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/scripts/keepalive_supervisor.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "New-Tech Scout / Watch-list / Integration last re-evaluated 39d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 25d",
+   "what": "New-Tech Scout / Watch-list / Integration last re-evaluated 41d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 27d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/api/thunderbird_power_harvest.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Armed Overwatch (Self-Observability F2T2EA) last re-evaluated 39d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 25d",
+   "what": "Armed Overwatch (Self-Observability F2T2EA) last re-evaluated 41d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 27d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/systemctl --user"
   },
@@ -81,197 +81,197 @@
   },
   {
    "category": "stale_ci_tool",
-   "what": "Dani Identity Layer (trainee isolation) last re-evaluated 34d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 20d",
+   "what": "Dani Identity Layer (trainee isolation) last re-evaluated 36d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 22d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Flight Fare Watch \u2014 Centrav B2B Source last re-evaluated 32d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 18d",
+   "what": "Flight Fare Watch \u2014 Centrav B2B Source last re-evaluated 34d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 20d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/scripts/fare_watch_centrav.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Flight Fare Watch \u2014 ITA Matrix Source last re-evaluated 31d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 17d",
+   "what": "Flight Fare Watch \u2014 ITA Matrix Source last re-evaluated 33d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 19d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/scripts/ita_fare_watch_poll.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Flight Fare Watch \u2014 Amadeus API (API-native, no browser) last re-evaluated 31d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 17d",
+   "what": "Flight Fare Watch \u2014 Amadeus API (API-native, no browser) last re-evaluated 33d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 19d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/scripts/amadeus_fare_watch.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Supertimer Bot Health (consecutive-failure + Firefox dependency) last re-evaluated 31d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 17d",
+   "what": "Supertimer Bot Health (consecutive-failure + Firefox dependency) last re-evaluated 33d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 19d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/supertimer/bots/intel_bot.py"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Competitive Intelligence APIs last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Competitive Intelligence APIs last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Cruise Intelligence Cache last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Cruise Intelligence Cache last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Klaviyo Email Marketing Canary last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Klaviyo Email Marketing Canary last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "LiteLLM Model Routing last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "LiteLLM Model Routing last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "OpenCode CLI Integration last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "OpenCode CLI Integration last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "PII Governance & Data Hygiene last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "PII Governance & Data Hygiene last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "n8n Workflow Automation last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "n8n Workflow Automation last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Cloudflare Tunnel \u2014 d2mluxury.quest last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Cloudflare Tunnel \u2014 d2mluxury.quest last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "ttyd Terminal-over-Browser last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "ttyd Terminal-over-Browser last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Tailscale Mesh VPN last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Tailscale Mesh VPN last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Google Drive OAuth Integration last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Google Drive OAuth Integration last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Evernote Code Backup (Weekly) last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Evernote Code Backup (Weekly) last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Master Cruise Database (d2mluxury.quest/cruises) last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Master Cruise Database (d2mluxury.quest/cruises) last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Reverie Itinerary App (frontend) last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Reverie Itinerary App (frontend) last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Qdrant Vector DB (thunderbird_memories) last re-evaluated 28d ago (cadence: 7d)",
-   "why": "exceeds its own 7-day reeval cadence by 21d",
+   "what": "Qdrant Vector DB (thunderbird_memories) last re-evaluated 30d ago (cadence: 7d)",
+   "why": "exceeds its own 7-day reeval cadence by 23d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Lifecycle \u2014 Dossier Freshness Scanner last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Lifecycle \u2014 Dossier Freshness Scanner last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Lifecycle \u2014 Touchpoint Scheduler last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Lifecycle \u2014 Touchpoint Scheduler last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Lifecycle \u2014 Arc Dispatch Router last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Lifecycle \u2014 Arc Dispatch Router last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Post-Voyage Travel Survey Generator last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Post-Voyage Travel Survey Generator last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "New-Booking Preferences Survey Generator last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "New-Booking Preferences Survey Generator last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "E-180 Excursion Research Trigger last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "E-180 Excursion Research Trigger last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Pre/Post-Cruise Hotel Price Scan last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Pre/Post-Cruise Hotel Price Scan last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
   {
    "category": "stale_ci_tool",
-   "what": "Pre/Post-Cruise Transfer Price Scan last re-evaluated 28d ago (cadence: 14d)",
-   "why": "exceeds its own 14-day reeval cadence by 14d",
+   "what": "Pre/Post-Cruise Transfer Price Scan last re-evaluated 30d ago (cadence: 14d)",
+   "why": "exceeds its own 14-day reeval cadence by 16d",
    "action": "Route to Whetstone for currency check",
    "file": "/home/john/Thunderbird/config/ci_registry.json"
   },
@@ -298,84 +298,91 @@
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-019 (P1) \u2014 \"(no subject) Commander\" open 16d",
+   "what": "MISSION-019 (P1) \u2014 \"(no subject) Commander\" open 18d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-618 (P1) \u2014 \"Fix Furlow/Ely-Darrow/Nichols Grandeur\" open 13d",
+   "what": "MISSION-618 (P1) \u2014 \"Fix Furlow/Ely-Darrow/Nichols Grandeur\" open 15d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-636 (P1) \u2014 \"Full CI infrastructure\" open 13d",
+   "what": "MISSION-636 (P1) \u2014 \"Full CI infrastructure\" open 14d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-637 (P1) \u2014 \"Mission Board capability\" open 13d",
+   "what": "MISSION-637 (P1) \u2014 \"Mission Board capability\" open 14d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-649 (P1) \u2014 \"GRB Rental Car\" open 13d",
+   "what": "MISSION-649 (P1) \u2014 \"GRB Rental Car\" open 14d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-653 (P1) \u2014 \"\ud83d\udee1\ufe0f CHIEF SILVER\" open 12d",
+   "what": "MISSION-653 (P1) \u2014 \"\ud83d\udee1\ufe0f CHIEF SILVER\" open 14d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-692 (P1) \u2014 \"Staff Package SSS-004\" open 10d",
+   "what": "MISSION-692 (P1) \u2014 \"Staff Package SSS-004\" open 11d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-693 (P1) \u2014 \"Tech Scan 2026-07-20\" open 9d",
+   "what": "MISSION-693 (P1) \u2014 \"Tech Scan 2026-07-20\" open 11d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-694 (P1) \u2014 \"Re: Re: Multi-Model\" open 9d",
+   "what": "MISSION-694 (P1) \u2014 \"Re: Re: Multi-Model\" open 10d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-695 (P1) \u2014 \"Re: Hermai.ai Analysis\" open 9d",
+   "what": "MISSION-695 (P1) \u2014 \"Re: Hermai.ai Analysis\" open 10d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-696 (P1) \u2014 \"Commander review and send Kuklinski WF-17 emails\" open 8d",
+   "what": "MISSION-696 (P1) \u2014 \"Commander review and send Kuklinski WF-17 emails\" open 10d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/dossiers/Kuklinski_Viking_FreeAir_Eligibility.md"
   },
   {
    "category": "aging_mission",
-   "what": "MISSION-703 (P1) \u2014 \"Payment Reminder \u2014\" open 7d",
+   "what": "MISSION-703 (P1) \u2014 \"Payment Reminder \u2014\" open 8d",
+   "why": "P0/P1 untouched >= 7d",
+   "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
+   "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"
+  },
+  {
+   "category": "aging_mission",
+   "what": "MISSION-717 (P1) \u2014 \"Tech Scan 2026-07-24\" open 7d",
    "why": "P0/P1 untouched >= 7d",
    "action": "Surface in next brief with a status/kill recommendation, not just a re-list",
    "file": "/home/john/Thunderbird/OpsCenter/mission_board.json"

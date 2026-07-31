@@ -19971,3 +19971,838 @@ _Auto-routed by hale_notify.py_
 **[12:01 UTC] HALE → STERLING: home-dir-health**
 CI home-dir-health STAGED (DESTRUCTIVE) token=CIRPR-691ED9086CE4 — confirm to apply
 _Auto-routed by hale_notify.py_
+
+---
+**[18:34 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[18:37 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:05 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:05 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:30 UTC] HALE → STERLING: generic-remediate:thunderbird-evening-consolidated**
+thunderbird-evening-consolidated entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[00:33 UTC] HALE → STERLING: generic-remediate:thunderbird-evening-consolidated**
+thunderbird-evening-consolidated failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:32 UTC] HALE → STERLING: generic-remediate:app-com.google.Chrome@ef9627d20fe344c28d96f594abf8a554**
+app-com.google.Chrome@ef9627d20fe344c28d96f594abf8a554 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:32 UTC] HALE → STERLING: generic-remediate:app-com.google.Chrome@3794b397f62440a7b8592977c3b3e920**
+app-com.google.Chrome@3794b397f62440a7b8592977c3b3e920 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:33 UTC] HALE → STERLING: generic-remediate:app-com.google.Chrome@3794b397f62440a7b8592977c3b3e920**
+app-com.google.Chrome@3794b397f62440a7b8592977c3b3e920 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:50 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:53 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:53 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:55 UTC] HALE → STERLING: generic-remediate:inbox-hygiene**
+inbox-hygiene failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:55 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:56 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[07:59 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:02 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:04 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:05 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:08 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:10 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:10 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:11 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:14 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:14 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:17 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:19 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:tcd-sync**
+tcd-sync failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:20 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:23 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:thunderbird-mcp**
+thunderbird-mcp failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:26 UTC] HALE → STERLING: generic-remediate:thunderbird-red-star-scanner**
+thunderbird-red-star-scanner failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[08:28 UTC] HALE → STERLING: generic-remediate:thunderbird-email-ingestion**
+thunderbird-email-ingestion failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: self-observability**
+CI self-observability BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: cooldown active (300s)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:01 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[17:10 UTC] HALE → STERLING: generic-remediate:ai-auth-probe**
+ai-auth-probe failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:02 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:05 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:10 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:14 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:16 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[19:17 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal**
+xdg-desktop-portal failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:36 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:42 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[00:52 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:02 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[01:55 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:02 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[02:12 UTC] HALE → STERLING: generic-remediate:d2m-booking-monitor**
+d2m-booking-monitor failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[03:07 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[03:09 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[05:24 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[05:29 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:39 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:42 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[10:52 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:02 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:10 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:18 UTC] HALE → STERLING: generic-remediate:loucks-silvernova-daily-recheck**
+loucks-silvernova-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:23 UTC] HALE → STERLING: generic-remediate:spencer-grandtour-daily-recheck**
+spencer-grandtour-daily-recheck failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:chrome-debug**
+chrome-debug entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.50-org.a11y.atspi.Registry@0**
+dbus-:1.50-org.a11y.atspi.Registry@0 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:app-\x2fusr\x2fbin\x2fkalendarac@77aeb6f3bc614b39b198bb7e965e3793**
+app-\x2fusr\x2fbin\x2fkalendarac@77aeb6f3bc614b39b198bb7e965e3793 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@1**
+dbus-:1.1-org.kde.kded6@1 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@2**
+dbus-:1.1-org.kde.kded6@2 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@3**
+dbus-:1.1-org.kde.kded6@3 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@4**
+dbus-:1.1-org.kde.kded6@4 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@5**
+dbus-:1.1-org.kde.kded6@5 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:26 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@6**
+dbus-:1.1-org.kde.kded6@6 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:28 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:app-\x2fusr\x2fbin\x2fkalendarac@77aeb6f3bc614b39b198bb7e965e3793**
+app-\x2fusr\x2fbin\x2fkalendarac@77aeb6f3bc614b39b198bb7e965e3793 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@7**
+dbus-:1.1-org.kde.kded6@7 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@8**
+dbus-:1.1-org.kde.kded6@8 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:chrome-debug**
+chrome-debug entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@9**
+dbus-:1.1-org.kde.kded6@9 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@10**
+dbus-:1.1-org.kde.kded6@10 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@11**
+dbus-:1.1-org.kde.kded6@11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@12**
+dbus-:1.1-org.kde.kded6@12 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@13**
+dbus-:1.1-org.kde.kded6@13 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@14**
+dbus-:1.1-org.kde.kded6@14 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@15**
+dbus-:1.1-org.kde.kded6@15 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@16**
+dbus-:1.1-org.kde.kded6@16 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@6**
+dbus-:1.1-org.kde.kded6@6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:30 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.Notifications@1**
+dbus-:1.1-org.freedesktop.Notifications@1 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:33 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:35 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (3/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:35 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.Notifications@2**
+dbus-:1.1-org.freedesktop.Notifications@2 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:38 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-plasmashell**
+plasma-plasmashell failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@17**
+dbus-:1.1-org.kde.kded6@17 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@18**
+dbus-:1.1-org.kde.kded6@18 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:chrome-debug**
+chrome-debug entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@19**
+dbus-:1.1-org.kde.kded6@19 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@20**
+dbus-:1.1-org.kde.kded6@20 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@21**
+dbus-:1.1-org.kde.kded6@21 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.kde.kded6@22**
+dbus-:1.1-org.kde.kded6@22 entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[11:40 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.Notifications@3**
+dbus-:1.1-org.freedesktop.Notifications@3 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:plasma-kded6**
+plasma-kded6 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:plasma-kwin_x11**
+plasma-kwin_x11 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:41 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:43 UTC] HALE → STERLING: generic-remediate:xdg-desktop-portal-gtk**
+xdg-desktop-portal-gtk failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:45 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:45 UTC] HALE → STERLING: generic-remediate:dbus-:1.1-org.freedesktop.Notifications@4**
+dbus-:1.1-org.freedesktop.Notifications@4 failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:50 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[11:55 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-centrav**
+CI fare-watch-centrav BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: fare-watch-amadeus**
+CI fare-watch-amadeus BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: competitive-intel-apis**
+CI competitive-intel-apis AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: cruise-intelligence**
+CI cruise-intelligence AUTO_APPLIED: applied but verify=RED — escalating
+_Auto-routed by hale_notify.py_
+
+---
+**[12:00 UTC] HALE → STERLING: lifecycle-excursion-engine**
+CI lifecycle-excursion-engine ERROR: assess() raised: 'FailureContext' object has no attribute 'probe_stdout'
+_Auto-routed by hale_notify.py_
+
+---
+**[12:01 UTC] HALE → STERLING: home-dir-health**
+CI home-dir-health BLOCKED_COOLDOWN: anti-flap window exceeded (3 in window)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:05 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:10 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:15 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:20 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:25 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:25 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:30 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:35 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (4/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[12:40 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:45 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:50 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[12:55 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:00 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:05 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:10 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:15 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:20 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:25 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:25 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:30 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[13:35 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (5/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[13:40 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
+chrome-cdp-health: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
+_Auto-routed by hale_notify.py_

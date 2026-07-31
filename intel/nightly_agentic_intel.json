@@ -1,135 +1,139 @@
 [
   {
-    "title": "slopus/happy (22903 stars)",
+    "title": "earendil-works/pi (81102 stars)",
     "source": "github",
-    "url": "https://github.com/slopus/happy",
-    "summary": "Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured",
+    "url": "https://github.com/earendil-works/pi",
+    "summary": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 81102,
+    "tier": "CRITICAL",
+    "discovered": "2026-07-31T01:06:23.907347-06:00"
+  },
+  {
+    "title": "Agent-Manager: A Tmux TUI for Running Claude Code, Codex and OpenCode",
+    "source": "hn/topstories",
+    "url": "https://github.com/YoanWai/agent-manager",
+    "summary": "HN score: 95, comments: 76",
     "keywords_matched": [
       "claude code"
     ],
-    "score": 22903,
-    "tier": "CRITICAL",
-    "discovered": "2026-07-28T01:07:42.920204-06:00"
+    "score": 95,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:04:37.510803-06:00"
   },
   {
-    "title": "omnigent-ai/omnigent (7825 stars)",
-    "source": "github",
-    "url": "https://github.com/omnigent-ai/omnigent",
-    "summary": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents \u2014 swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.",
-    "keywords_matched": [
-      "claude code",
-      "agent framework"
-    ],
-    "score": 7825,
-    "tier": "CRITICAL",
-    "discovered": "2026-07-28T01:07:15.478577-06:00"
-  },
-  {
-    "title": "JimLiu/baocut (295 stars)",
-    "source": "github",
-    "url": "https://github.com/JimLiu/baocut",
-    "summary": "Open-source Agent Skill that drives the BaoCut macOS app CLI (transcribe \u00b7 subtitle \u00b7 translate \u00b7 cut) from Claude Code, Codex, and other agents",
+    "title": "Show HN: Claude-account \u2013 switch Claude Code accounts without logging in again",
+    "source": "hn/topstories",
+    "url": "https://github.com/hamzarehmandeveloper/claude-account",
+    "summary": "HN score: 49, comments: 24",
     "keywords_matched": [
       "claude code"
     ],
-    "score": 295,
+    "score": 49,
     "tier": "HIGH",
-    "discovered": "2026-07-28T01:07:15.478358-06:00"
+    "discovered": "2026-07-31T01:04:33.414598-06:00"
   },
   {
-    "title": "upstash/box (34 stars)",
+    "title": "holgerleichsenring/agent-smith (23 stars)",
     "source": "github",
-    "url": "https://github.com/upstash/box",
-    "summary": "TypeScript SDK and CLI for Upstash Box \u2014 sandboxed AI coding agents",
+    "url": "https://github.com/holgerleichsenring/agent-smith",
+    "summary": "Self-hosted AI coding agent \u00b7 ticket \u2192 code \u2192 PR",
     "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 34,
-    "tier": "HIGH",
-    "discovered": "2026-07-28T01:07:23.772227-06:00"
-  },
-  {
-    "title": "eclipse-enclave/enclave (9 stars)",
-    "source": "github",
-    "url": "https://github.com/eclipse-enclave/enclave",
-    "summary": "Sandbox for running AI coding agents autonomously: isolated, network-restricted, host-safe",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 9,
-    "tier": "HIGH",
-    "discovered": "2026-07-28T01:07:34.832086-06:00"
-  },
-  {
-    "title": "linny006/agent-eval-harness (8 stars)",
-    "source": "github",
-    "url": "https://github.com/linny006/agent-eval-harness",
-    "summary": "Live, open-source benchmark for comparing AI coding agents on real GitHub issues",
-    "keywords_matched": [
-      "coding agent"
-    ],
-    "score": 8,
-    "tier": "HIGH",
-    "discovered": "2026-07-28T01:07:23.772183-06:00"
-  },
-  {
-    "title": "gyunggyung/AGI-Papers (418 stars)",
-    "source": "github",
-    "url": "https://github.com/gyunggyung/AGI-Papers",
-    "summary": "A curated archive of breakthroughs in Agents, Architecture, Training, RAG, and On-Device AI.",
-    "keywords_matched": [
-      "breakthrough"
-    ],
-    "score": 418,
-    "tier": "WATCH",
-    "discovered": "2026-07-28T01:07:51.112128-06:00"
-  },
-  {
-    "title": "Elevated errors on Claude Opus 5",
-    "source": "hn/topstories",
-    "url": "https://status.claude.com/incidents/mfdtrknpxghq",
-    "summary": "HN score: 99, comments: 72",
-    "keywords_matched": [
-      "claude opus"
-    ],
-    "score": 99,
-    "tier": "WATCH",
-    "discovered": "2026-07-28T01:05:41.270485-06:00"
-  },
-  {
-    "title": "Google Chrome Arrives on ARM64 Linux, Widevine DRM Included",
-    "source": "hn/beststories",
-    "url": "https://www.omgubuntu.co.uk/2026/07/chrome-arm64-linux-available",
-    "summary": "HN score: 85, comments: 47",
-    "keywords_matched": [
-      "devin"
-    ],
-    "score": 85,
-    "tier": "WATCH",
-    "discovered": "2026-07-28T01:07:01.448059-06:00"
-  },
-  {
-    "title": "Show HN: Let's Seal \u2013 Let's Encrypt for document signing, free and self-hosted",
-    "source": "hn/topstories",
-    "url": "https://github.com/letsseal/letsseal",
-    "summary": "HN score: 83, comments: 29",
-    "keywords_matched": [
+      "coding agent",
       "self-hosted"
     ],
-    "score": 83,
-    "tier": "WATCH",
-    "discovered": "2026-07-28T01:05:36.761561-06:00"
+    "score": 23,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:06:12.641838-06:00"
   },
   {
-    "title": "Elevated errors on Claude Opus 5",
+    "title": "jfrog/agent-belt (17 stars)",
+    "source": "github",
+    "url": "https://github.com/jfrog/agent-belt",
+    "summary": "Reproducible evaluation for AI coding agents. Multi-turn scenarios against Claude Code, Codex, Copilot, Cursor, Gemini CLI, Goose, OpenCode, or any custom agent you plug in; verify behavior with rule checks, workspace diffs, multi-judge LLM consensus; pin reliability with pass^k variance across tria",
+    "keywords_matched": [
+      "claude code",
+      "coding agent"
+    ],
+    "score": 17,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:06:07.253872-06:00"
+  },
+  {
+    "title": "kobiton/automate (12 stars)",
+    "source": "github",
+    "url": "https://github.com/kobiton/automate",
+    "summary": "AI coding assistant plugin for the Kobiton mobile testing platform. Works with Claude Code, Copilot CLI, Gemini CLI Extension, Cursor CLI and Codex CLI to manage devices, upload apps, run mobile automation, and view test results directly from your workspace.",
+    "keywords_matched": [
+      "claude code",
+      "codex cli",
+      "ai coding assistant"
+    ],
+    "score": 12,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:06:32.405811-06:00"
+  },
+  {
+    "title": "noogram/cosmon (6 stars)",
+    "source": "github",
+    "url": "https://github.com/noogram/cosmon",
+    "summary": "Stateless CLI giving AI coding agents persistent identity, a typed lifecycle, and crash-recovery. Self-hostable, AGPL-3.0.",
+    "keywords_matched": [
+      "coding agent"
+    ],
+    "score": 6,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:06:23.907229-06:00"
+  },
+  {
+    "title": "binary16labs/prime-silo (5 stars)",
+    "source": "github",
+    "url": "https://github.com/binary16labs/prime-silo",
+    "summary": "The canonical Sovereign AI Agent OS & runtime harness. Built for Model Context Protocol (MCP), Agent-to-Agent (A2A) swarms, and zero-token tax execution.",
+    "keywords_matched": [
+      "agent-to-agent",
+      "model context protocol"
+    ],
+    "score": 5,
+    "tier": "HIGH",
+    "discovered": "2026-07-31T01:06:15.512541-06:00"
+  },
+  {
+    "title": "Show HN: Bullshit Detector \u2013 agent skills that fact-check videos and articles",
     "source": "hn/beststories",
-    "url": "https://status.claude.com/incidents/lhqp09kxq7pb",
-    "summary": "HN score: 50, comments: 24",
+    "url": "https://github.com/SerhiiKorniienko/bullshit-detector",
+    "summary": "HN score: 62, comments: 68",
+    "keywords_matched": [
+      "kills"
+    ],
+    "score": 62,
+    "tier": "WATCH",
+    "discovered": "2026-07-31T01:06:02.993449-06:00"
+  },
+  {
+    "title": "Claude Opus 5 jailbreak with a 3-word prompt",
+    "source": "hn/topstories",
+    "url": "https://twitter.com/i/status/2082566186785480708",
+    "summary": "HN score: 13, comments: 2",
     "keywords_matched": [
       "claude opus"
     ],
-    "score": 50,
+    "score": 13,
     "tier": "WATCH",
-    "discovered": "2026-07-28T01:07:11.892975-06:00"
+    "discovered": "2026-07-31T01:04:23.075580-06:00"
+  },
+  {
+    "title": "Quoting Bruce Schneier",
+    "source": "rss/Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/30/bruce-schneier/#atom-everything",
+    "summary": "<blockquote cite=\"https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html\"><p>The writing assignments I give my students are gym tasks, not work tasks. I ask them to write policy memos not because the world needs more policy memos. I assign them ",
+    "keywords_matched": [
+      "kills"
+    ],
+    "score": 5,
+    "tier": "WATCH",
+    "discovered": "2026-07-31T01:07:00.878287-06:00"
   }
 ]

@@ -518,29 +518,21 @@ def _create_gmail_draft(classification: dict, reply_text: str) -> Optional[str]:
 _MUTE_FLAG = Path("/home/john/Thunderbird/config/d2mc2c_client_mute")
 
 def _telegram_alert(text: str):
-    """Send a Telegram DM to the Commander about an inbound concierge email."""
+    """Alert the Commander about an inbound concierge email.
+
+    Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    2026-07-29). This used to hit the bot API directly — one of the direct senders
+    the gate replaced.
+    """
     if _MUTE_FLAG.exists():
         return  # client/supplier push muted — SO 2026-05-05
     try:
-        import requests
-        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-        requests.post(url, json={
-            "chat_id": TELEGRAM_COMMANDER_ID,
-            "text": text,
-            "parse_mode": "Markdown",
-        }, timeout=10)
-        log.info("Telegram alert sent to Commander")
+        from core.comms.commander_channel import notify
+        title = text.splitlines()[0][:80] if text.strip() else "Concierge alert"
+        notify("client", title, text, urgency="WINDOW", source="thunderbird_concierge_monitor")
+        log.info("Alert routed to notify() gate")
     except Exception as e:
-        log.error(f"Telegram alert failed: {e}")
-        # Try without markdown
-        try:
-            import requests
-            requests.post(url, json={
-                "chat_id": TELEGRAM_COMMANDER_ID,
-                "text": text.replace("*", "").replace("_", ""),
-            }, timeout=10)
-        except Exception:
-            pass
+        log.error(f"notify() send failed: {e}")
 
 
 def alert_commander(classification: dict, draft_id: Optional[str]):
@@ -901,25 +893,19 @@ def _check_heartbeat(state: dict):
     if datetime.now() - last_dt > timedelta(minutes=30):
         log.critical("HEARTBEAT FAILURE: No successful poll in 30+ minutes")
         try:
-            from thunderbird_gmail import _get_gmail_service
-            service = _get_gmail_service()
-
-            from email.mime.text import MIMEText
-            import base64
-
-            msg = MIMEText(
+            # Routed through the single gate (C2 RECALIBRATION task 8, Commander
+            # directive 2026-07-29). This used to hit the Gmail send API directly.
+            from core.comms.commander_channel import notify
+            notify(
+                "ops",
+                "Concierge Monitor — Heartbeat Failure",
                 f"Concierge Monitor heartbeat failure.\n"
                 f"Last successful poll: {last_poll}\n"
                 f"Current time: {datetime.now().isoformat()}\n"
                 f"Check logs: {LOG_FILE}",
-                "plain",
+                urgency="WINDOW",
+                source="thunderbird_concierge_monitor",
             )
-            msg["to"] = COMMANDER_EMAIL
-            msg["from"] = CONCIERGE_ADDR
-            msg["subject"] = "⚠ Concierge Monitor — Heartbeat Failure"
-
-            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
-            service.users().messages().send(userId="me", body={"raw": raw}).execute()
         except Exception:
             pass  # If we can't even send the alert, we're in deep trouble
 

@@ -79,21 +79,16 @@ def load_env() -> dict:
     return env
 
 
+# Routed through the single gate (C2 RECALIBRATION task 8, Commander
+# directive 2026-07-29). This used to hit the bot API directly.
 def telegram(msg: str):
-    env = load_env()
-    tok, chat = env.get("TELEGRAM_C2_BOT_TOKEN", ""), env.get("TELEGRAM_COMMANDER_ID", "")
-    if not tok or not chat:
-        log("WARN: missing Telegram creds — alert logged only")
-        return
-    import urllib.request
-    body = json.dumps({"chat_id": chat, "text": msg, "disable_web_page_preview": True}).encode()
     try:
-        urllib.request.urlopen(urllib.request.Request(
-            f"https://api.telegram.org/bot{tok}/sendMessage", data=body,
-            headers={"Content-Type": "application/json"}), timeout=20)
-        log("Telegram alert sent")
+        from core.comms.commander_channel import notify
+        notify("intel", msg.splitlines()[0][:80] if msg.strip() else "Cruise Excursion Scan",
+               msg, urgency="WINDOW", source="cruise_excursion_scan")
+        log("Alert routed to notify() gate")
     except Exception as e:
-        log(f"WARN: Telegram send failed: {e}")
+        log(f"WARN: notify() send failed: {e}")
 
 
 def best_picked_price(port_rec: dict):

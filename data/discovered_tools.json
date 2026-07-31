@@ -1034,5 +1034,25 @@
     "integration_path": "Deploy LLaMA 3 using Ollama and interact with its REST API from Python.  Self-hosting provides maximum privacy and control.",
     "flag": "INTEGRATE_NOW",
     "discovered": "2026-07-28"
+  },
+  {
+    "name": "ChatGPT (Free Tier)",
+    "url": "https://chat.openai.com/",
+    "cost": "Free tier available with limitations on model access and usage speed. Paid tiers offer more advanced features.",
+    "capability": "Can be prompted to rewrite emails for tone, format, and focus, acting as a writing assistant.",
+    "d2m_score": 5,
+    "integration_path": "Manual copy-pasting or can be integrated via the OpenAI API (paid, but the free tier can be used for testing prompts). Limited direct API access for the free tier.",
+    "flag": "MONITOR",
+    "discovered": "2026-07-29"
+  },
+  {
+    "name": "Google Workspace AI (Duet AI)",
+    "url": "https://workspace.google.com/solutions/duet-ai/",
+    "cost": "Included with Google Workspace Business Standard/Plus/Enterprise subscriptions. Specific pricing for AI features may vary.",
+    "capability": "Assists with writing, summarizing, and replying to emails directly within Gmail, offering tone and style suggestions.",
+    "d2m_score": 8,
+    "integration_path": "Already integrated into Gmail for Google Workspace users. Can potentially be accessed via Google Cloud APIs for custom workflows, though this may incur separate costs.",
+    "flag": "INTEGRATE_NOW",
+    "discovered": "2026-07-29"
   }
 ]

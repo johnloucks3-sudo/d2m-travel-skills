@@ -171,20 +171,16 @@ def _load_env_var(key: str) -> str:
     return val
 
 
+# Routed through the single gate (C2 RECALIBRATION task 8, Commander
+# directive 2026-07-29). This used to hit the bot API directly.
 def _tg_send(text: str) -> bool:
-    token = _load_env_var("TELEGRAM_C2_BOT_TOKEN") or _load_env_var("TELEGRAM_BOT_TOKEN")
-    if not token:
-        log.warning("No Telegram token — alert logged only")
-        return False
     try:
-        resp = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": COMMANDER_ID, "text": text, "parse_mode": "HTML"},
-            timeout=15,
-        )
-        return resp.ok
+        from core.comms.commander_channel import notify
+        result = notify("intel", text.splitlines()[0][:80] if text.strip() else "Perx Intel",
+                        text, urgency="WINDOW", source="perx_intel_monitor")
+        return result.get("status") in ("sent", "queued", "suppressed")
     except Exception as exc:
-        log.error("Telegram send failed: %s", exc)
+        log.error("notify() send failed: %s", exc)
         return False
 
 

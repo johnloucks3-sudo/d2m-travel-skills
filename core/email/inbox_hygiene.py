@@ -17,7 +17,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-socket.setdefaulttimeout(30)
+socket.setdefaulttimeout(10)  # 30s × 3 simultaneous timeouts > 120s TimeoutStartSec; 10s is still generous for Gmail API
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials

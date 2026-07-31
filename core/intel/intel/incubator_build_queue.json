@@ -375,5 +375,83 @@
     "a9_verdict": "FLAG_FOR_COMMANDER",
     "status": "queued",
     "date": "2026-07-27"
+  },
+  {
+    "id": "ELON-2026-07-29-001",
+    "title": "Local Service Provider Search - Angi Integration",
+    "what": "Integrate Angi's API to surface local service provider listings with reviews and contact information.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Implement new API client in `src/services/provider_search/angi_api.rs` to fetch data, and update `src/modules/search_discovery/search_handler.rs` to process and display results.",
+    "effort": "MED",
+    "allowlisted": false,
+    "a5_fit": "SERVES_CLIENTS",
+    "a9_verdict": "FLAG_FOR_COMMANDER",
+    "status": "queued",
+    "date": "2026-07-29"
+  },
+  {
+    "id": "ELON-2026-07-29-002",
+    "title": "Local Service Provider Search - Yelp Integration",
+    "what": "Integrate Yelp's API to provide local service provider search results including reviews and contact details.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Develop a Yelp API client in `src/services/provider_search/yelp_api.rs` and modify `src/modules/search_discovery/search_handler.rs` to incorporate Yelp data into search results.",
+    "effort": "MED",
+    "allowlisted": false,
+    "a5_fit": "SERVES_CLIENTS",
+    "a9_verdict": "FLAG_FOR_COMMANDER",
+    "status": "queued",
+    "date": "2026-07-29"
+  },
+  {
+    "id": "ELON-2026-07-29-003",
+    "title": "Local Service Provider Search - Real Yellow Pages Integration",
+    "what": "Integrate The Real Yellow Pages API for localized service provider listings and contact information.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Create a new module in `src/services/provider_search/yellow_pages_api.rs` to interact with their API, and update `src/modules/search_discovery/search_handler.rs` to merge these results.",
+    "effort": "MED",
+    "allowlisted": false,
+    "a5_fit": "SERVES_CLIENTS",
+    "a9_verdict": "FLAG_FOR_COMMANDER",
+    "status": "queued",
+    "date": "2026-07-29"
+  },
+  {
+    "id": "ELON-2026-07-29-004",
+    "title": "Local Service Provider Search - Yelp (Additional)",
+    "what": "Enhance local service provider search by integrating Yelp's review data.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Refactor `src/services/provider_search/yelp_api.rs` to handle additional review metadata and update `src/modules/search_discovery/search_handler.rs` for richer display.",
+    "effort": "LOW",
+    "allowlisted": false,
+    "a5_fit": "",
+    "a9_verdict": "",
+    "status": "queued",
+    "date": "2026-07-29"
+  },
+  {
+    "id": "ELON-2026-07-29-005",
+    "title": "Local Service Provider Search - Angi (Additional)",
+    "what": "Expand local service provider search capabilities by integrating additional data points from Angi.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Update `src/services/provider_search/angi_api.rs` to fetch new data fields and modify `src/modules/search_discovery/search_handler.rs` to display them.",
+    "effort": "LOW",
+    "allowlisted": false,
+    "a5_fit": "",
+    "a9_verdict": "",
+    "status": "queued",
+    "date": "2026-07-29"
+  },
+  {
+    "id": "ELON-2026-07-29-006",
+    "title": "Local Service Provider Search - Plumber Directory Integration",
+    "what": "Incorporate listings from the Plumber Directory API for localized service provider search.",
+    "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+    "how": "Create a new API client in `src/services/provider_search/plumber_directory_api.rs` and integrate its output into `src/modules/search_discovery/search_handler.rs`.",
+    "effort": "MED",
+    "allowlisted": false,
+    "a5_fit": "",
+    "a9_verdict": "",
+    "status": "queued",
+    "date": "2026-07-29"
   }
 ]

@@ -1,125 +1,5 @@
 [
   {
-    "timestamp": "2026-06-28T23:30:53.134225+00:00",
-    "msg_id": "19f1091208512d1c",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:30:54.149872+00:00",
-    "msg_id": "19f10911d2805071",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:32:52.740675+00:00",
-    "msg_id": "19f1093ca3cb6036",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:36:53.173487+00:00",
-    "msg_id": "19f10969cd5471ff",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:38:53.397416+00:00",
-    "msg_id": "19f1099914a8bf8e",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:42:54.790453+00:00",
-    "msg_id": "19f109c6b987e005",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:46:54.172452+00:00",
-    "msg_id": "19f109f333788011",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:48:54.385117+00:00",
-    "msg_id": "19f10a204241530f",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:52:55.137423+00:00",
-    "msg_id": "19f10a4d5474645f",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:54:55.153757+00:00",
-    "msg_id": "19f10a7caa0d252a",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:58:55.735638+00:00",
-    "msg_id": "19f10aac2f03882e",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-28T23:58:56.594904+00:00",
-    "msg_id": "19f10aabe2f9bc92",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:00:55.530623+00:00",
-    "msg_id": "19f10ad7305f7cc8",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:04:56.592513+00:00",
-    "msg_id": "19f10b03cdcf9929",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:06:58.479254+00:00",
-    "msg_id": "19f10b337c519a72",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
     "timestamp": "2026-06-29T00:10:57.455763+00:00",
     "msg_id": "19f10b6007df356d",
     "subject": "(no subject)",
@@ -3997,6 +3877,126 @@
     "subject": "Tech Scan 2026-07-28 19:00 UTC \u2014 0 trial / 0 killed (Hale adjudicated)",
     "sender": "johnloucks3@gmail.com",
     "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-29T19:02:02.769281+00:00",
+    "msg_id": "19faf3fae6f74787",
+    "subject": "Tech Scan 2026-07-29 19:00 UTC \u2014 13 trial / 0 killed (Hale adjudicated)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-29T21:36:20.163756+00:00",
+    "msg_id": "19fafce02c6b1c14",
+    "subject": "How I task out a complex job \u2014 method, from today's evidence",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "QUESTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-29T23:00:31.193454+00:00",
+    "msg_id": "19fb01b6cfbcee96",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-29T23:02:30.726163+00:00",
+    "msg_id": "19fb01b6cfbcee96",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-29T23:20:33.368300+00:00",
+    "msg_id": "19fb02c7385e4337",
+    "subject": "C2 gate \u2014 end-to-end proof",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T05:17:06.155536+00:00",
+    "msg_id": "19fb172a2d690991",
+    "subject": "Tech Scan 2026-07-30 05:15 UTC \u2014 5 trial / 1 killed (Hale adjudicated)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T12:31:41.848867+00:00",
+    "msg_id": "19fb300d6c49c683",
+    "subject": "\ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-30",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T12:33:41.122386+00:00",
+    "msg_id": "19fb300d6c49c683",
+    "subject": "\ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-30",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T19:01:38.409423+00:00",
+    "msg_id": "19fb465ff5792d80",
+    "subject": "Tech Scan 2026-07-30 19:00 UTC \u2014 6 trial / 1 killed (Hale adjudicated)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T19:15:41.622967+00:00",
+    "msg_id": "19fb472b0de2ce12",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-30T19:16:02.907330+00:00",
+    "msg_id": "19fb472b0de2ce12",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-31T00:30:14.554320+00:00",
+    "msg_id": "19fb5941749c5a18",
+    "subject": "\ud83c\udf06 EVENING CONSOLIDATED BRIEF & EOD \u2014 2026-07-30",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-31T07:09:00.120771+00:00",
+    "msg_id": "19fb6ff7e0fc8336",
+    "subject": "Agentic Intel Sweep \u2014 2026-07-31 01:03 | 11 findings",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "INFORMATION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-31T12:31:33.920761+00:00",
+    "msg_id": "19fb827306d665ed",
+    "subject": "\ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-31",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-07-31T12:33:34.779910+00:00",
+    "msg_id": "19fb827306d665ed",
+    "subject": "\ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-31",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
     "status": "actioned"
   }
 ]

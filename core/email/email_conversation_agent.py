@@ -241,9 +241,13 @@ def fetch_unread(service, max_results: int = POLL_MAX_MESSAGES) -> list[dict]:
     from_raw, subject, date, body. Includes ALL senders (Commander AND clients);
     routing by sender happens in the caller.
     """
-    results = service.users().messages().list(
-        userId="me", q="is:unread in:inbox", maxResults=min(max_results, 50)
-    ).execute()
+    try:
+        results = service.users().messages().list(
+            userId="me", q="is:unread in:inbox", maxResults=min(max_results, 50)
+        ).execute()
+    except Exception as e:  # noqa: BLE001
+        log.warning("Gmail list request failed (network/API error): %s — skipping cycle", e)
+        return []
     stubs = results.get("messages", [])
     out = []
     for stub in stubs:

@@ -1,4 +1,68 @@
-# Daily Hale Transformation Audit — 2026-07-28
+## SCAN SUMMARY
+*Timestamp: 2026-07-31T01:00:00.548108*
+
+### 📅 Deadline Radar
+- **UPCOMING** | DOSSIER_Regent_Loucks_Dec2026_UPDATED (deadline) | 1d out [**HIGH**]
+- **OVERDUE** | DOSSIER_Regent_LesserAntilles_Dec2026 (deadline) | -9d out [**HIGH**]
+
+### ⏱️ Stale Tasks (>48h)
+- MISSION-018: Redirect Telegram-output automations to TCD and mark emergency-only (354.1h old) [**HIGH**]
+- MISSION-044: Resolve McLeod lifecycle contact and transfer dispute — 8 days overdue (347.9h old) [**HIGH**]
+- MISSION-617: browser-skill AG integration (349.3h old) [**HIGH**]
+- MISSION-618: Fix Furlow/Ely-Darrow/Nichols Grandeur (349.3h old) [**HIGH**]
+- MISSION-629: Fix anansi fallback (354.3h old) [**HIGH**]
+- MISSION-637: Mission Board capability (354.0h old) [**HIGH**]
+- MISSION-646: Five orphaned systemd units point at deleted scripts (all disabled) (353.5h old) [**HIGH**]
+- MISSION-648: MISSION-802-FORMAT-REVIEW continuity re-run loop (752 spawns, now quiescent) (353.5h old) [**HIGH**]
+- MISSION-649: GRB Rental Car (349.3h old) [**HIGH**]
+- MISSION-650: TESS Trip-notes subsystem broken (PostTripNote 500, GetTripNotes 405) (347.1h old) [**HIGH**]
+- MISSION-653: 🛡️ CHIEF SILVER (345.2h old) [**HIGH**]
+- MISSION-659: MCP daemon staleness (319.9h old) [**HIGH**]
+- MISSION-664: Post-mortem on MISSION-648 format-review 752-spawn runaway (318.9h old) [**HIGH**]
+- MISSION-665: Retire five orphaned systemd units pointing at deleted scripts (318.9h old) [**HIGH**]
+- MISSION-672: hale-credential-check exits 1 (316.0h old) [**HIGH**]
+- MISSION-673: d2m-lifecycle: brain2 model (316.0h old) [**HIGH**]
+- MISSION-674: claude-sync: Cloudflare R2 (316.0h old) [**HIGH**]
+- MISSION-675: d2m-drive-sync: Google Drive (316.0h old) [**HIGH**]
+- MISSION-676: Crash reporter produces (315.5h old) [**HIGH**]
+- MISSION-682: Formally close MISSION-802-FORMAT-REVIEW continuity loop (298.7h old) [**HIGH**]
+- MISSION-690: Drive Commander's first live TCD decision cycle (290.7h old) [**HIGH**]
+- MISSION-691: Retire 5 orphaned systemd units pointing at deleted scripts (290.7h old) [**HIGH**]
+- MISSION-692: Staff Package SSS-004 (281.3h old) [**HIGH**]
+- MISSION-693: Tech Scan 2026-07-20 (265.7h old) [**HIGH**]
+- MISSION-694: Re: Re: Multi-Model (258.5h old) [**HIGH**]
+- MISSION-695: Re: Hermai.ai Analysis (258.3h old) [**HIGH**]
+- MISSION-696: Commander review and send Kuklinski WF-17 emails (244.6h old) [**HIGH**]
+- MISSION-699: Remediate cc-fleet dead provider keys (244.6h old) [**HIGH**]
+- MISSION-700: Assign all unassigned P1 missions on the board (106.7h old) [**HIGH**]
+- MISSION-703: Payment Reminder — (210.2h old) [**HIGH**]
+- MISSION-711: Fund DeepSeek v4 backend — Commander approval gate (202.1h old) [**HIGH**]
+- MISSION-715: Brief system audit — flag stale in-progress dates as P1 anomalies (170.9h old) [**HIGH**]
+- MISSION-716: MISSION-802-FORMAT-REVIEW post-mortem — root cause the 752-spawn loop (170.9h old) [**HIGH**]
+- MISSION-717: Tech Scan 2026-07-24 (169.7h old) [**HIGH**]
+- MISSION-724: Root-cause and fix room reservation cookie keepalive cycling (151.0h old) [**HIGH**]
+- MISSION-725: Write standing order for timer lifecycle governance (151.0h old) [**HIGH**]
+- MISSION-731: Close McLeod lifecycle dispute with resolution or escalation (146.9h old) [**HIGH**]
+- MISSION-732: Authorize and fund DeepSeek v4 relay API key (146.9h old) [**HIGH**]
+- MISSION-733: Confirm MISSION-802 loop cannot self-resume and close the mission record (146.9h old) [**HIGH**]
+- MISSION-739: Assign owners to unassigned P1 in-progress missions (107.2h old) [**HIGH**]
+- MISSION-745: Mandate cost envelope and budget threshold for all new timers pre-merge (106.7h old) [**HIGH**]
+- MISSION-748: Implement weekly mission board closure cadence with P3 hard-kill criteria (106.3h old) [**HIGH**]
+- MISSION-749: Schedule Hermai.ai hosted fetch integration sprint (106.3h old) [**HIGH**]
+- MISSION-750: Morning Intel Brief (65.8h old) [**MEDIUM**]
+- MISSION-752: Re: Re: 🚢 (63.8h old) [**MEDIUM**]
+- MISSION-753: Re: 🚢 Silver (63.5h old) [**MEDIUM**]
+
+### ⚠️ Priority Conflicts
+- 60 active missions may indicate priority overload [**MEDIUM**]
+
+### 🕵️ Competitor Intel Freshness
+- Most recent competitor intel (sector_I_competitor_20260702.md) is 29d old [**HIGH**]
+
+**Summary:** 50 total findings | **46 HIGH** | 3 MEDIUM
+
+
+# Daily Hale Transformation Audit — 2026-07-31
 Phase 1: ✅ 9.5/10
 Phase 2: ✅ COMPLETE (approved + deployed)
 Phase 3: ✅ ACTIVE (personality refinement, trust compounding, preference modeling)
@@ -9,7 +73,7 @@ Open Tasks: 5
 System Health: UNKNOWN
 ## END AUDIT
 
-# HALE — Compressed Brief [2026-07-28 05:45 MT]
+# HALE — Compressed Brief [2026-07-30 05:45 MT]
 *3-7-30 Format | yesterday's Δ: +0 items*
 
 ---
@@ -30,85 +94,84 @@ System Health: UNKNOWN
 | **$18,831** | 0 drafts | 16 |
 
 *Full brief: /home/john/Thunderbird/hale_brief.md*
-*— V. Hale, VCS · Next: 2026-07-29 06:00 MT*
+*— V. Hale, VCS · Next: 2026-07-31 06:00 MT*
 
 ---
 
 ### 0. OVERNIGHT OPS
 *What the Wing did while you slept — no action needed unless flagged 🔴*
 
-| 2026-07-27 17:57 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 18:22 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 18:52 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 19:12 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 19:42 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 20:07 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 20:37 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 20:57 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 21:27 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 21:47 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 22:17 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 22:37 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-27 23:07 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-27 23:32 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 00:02 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 00:22 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 00:52 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 01:12 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 01:42 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 02:07 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 02:33 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 02:58 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 03:28 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 03:48 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 04:18 | ✅ credentials_health_check | room_res_cookies: valid |
-| 2026-07-28 05:38 | ✅ credentials_health_check | room_res_cookies: expired |
-| 2026-07-28 05:43 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 17:48 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 18:18 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 18:43 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 19:13 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 19:33 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 20:03 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 20:28 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 20:53 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 21:18 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 21:48 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 22:13 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 22:44 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 23:04 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-29 23:34 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-29 23:59 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 00:29 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-30 00:49 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 01:19 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-30 02:39 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 03:09 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-30 03:29 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 04:00 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-30 04:20 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 04:49 | ✅ credentials_health_check | room_res_cookies: valid |
+| 2026-07-30 05:14 | ✅ credentials_health_check | room_res_cookies: expired |
+| 2026-07-30 05:44 | ✅ credentials_health_check | room_res_cookies: valid |
 
 **Credentials Status:**
 
 | Credential | Status | Detail |
 |---|---|---|
-| ✅ gmail_token | valid | Expires in 0.8h — has refresh_token (auto-refreshes) |
-| ✅ johnloucks3_token | valid | Expires in 0.5h — has refresh_token (auto-refreshes) |
-| ✅ room_res_cookies | valid | Expires in 0.4h (cookie: __stripe_sid) |
+| ✅ gmail_token | valid | Expires in 0.5h — has refresh_token (auto-refreshes) |
+| ✅ johnloucks3_token | valid | Expires in 0.8h — has refresh_token (auto-refreshes) |
+| ✅ room_res_cookies | valid | Expires in 0.0h (cookie: __stripe_sid) |
 
 **Self-Healing / Auto-Repairs (last 24h — batched, not paged):**
 
-_122 non-actionable event(s) routed off Telegram → monitor: 108, sterling_queue: 12, autonomy_repair: 2_
+_138 non-actionable event(s) routed off Telegram → monitor: 93, sterling_queue: 40, autonomy_repair: 3, staged_awaiting_confirm: 2_
 
 | Time | Kind | Source | Detail |
 |---|---|---|---|
-| 2026-07-28 09:54 | monitor | `ci-rapid-repair/AUTO_APPLIED:cruise-intelligence` | CI rapid-repair 'cruise-intelligence' APPLIED but verify sti |
-| 2026-07-28 09:59 | monitor | `ci-rapid-repair/STAGED:home-dir-health:CIRPR-124F2B747DBA` | CI rapid-repair STAGED 'home-dir-health' (DESTRUCTIVE) token |
-| 2026-07-28 10:29 | monitor | `ci-rapid-repair/AUTO_APPLIED:self-observability` | CI rapid-repair 'self-observability' APPLIED but verify stil |
-| 2026-07-28 10:53 | monitor | `ci-rapid-repair/STAGED:fare-watch-centrav:CIRPR-53C69F231A62` | CI rapid-repair STAGED 'fare-watch-centrav' (CAUTION) token= |
-| 2026-07-28 10:59 | monitor | `ci-rapid-repair/AUTO_APPLIED:competitive-intel-apis` | CI rapid-repair 'competitive-intel-apis' APPLIED but verify  |
-| 2026-07-28 10:59 | monitor | `ci-rapid-repair/AUTO_APPLIED:cruise-intelligence` | CI rapid-repair 'cruise-intelligence' APPLIED but verify sti |
-| 2026-07-28 10:59 | monitor | `ci-rapid-repair/STAGED:home-dir-health:CIRPR-F1A6F6566007` | CI rapid-repair STAGED 'home-dir-health' (DESTRUCTIVE) token |
-| 2026-07-28 11:34 | monitor | `ci-rapid-repair/AUTO_APPLIED:self-observability` | CI rapid-repair 'self-observability' APPLIED but verify stil |
+| 2026-07-30 09:20 | monitor | `ci-rapid-repair/AUTO_APPLIED:cruise-intelligence` | CI rapid-repair 'cruise-intelligence' APPLIED but verify sti |
+| 2026-07-30 09:55 | monitor | `ci-rapid-repair/AUTO_APPLIED:fare-watch-centrav` | CI rapid-repair 'fare-watch-centrav' APPLIED but verify stil |
+| 2026-07-30 10:25 | monitor | `ci-rapid-repair/AUTO_APPLIED:competitive-intel-apis` | CI rapid-repair 'competitive-intel-apis' APPLIED but verify  |
+| 2026-07-30 10:26 | monitor | `ci-rapid-repair/AUTO_APPLIED:cruise-intelligence` | CI rapid-repair 'cruise-intelligence' APPLIED but verify sti |
+| 2026-07-30 11:00 | monitor | `ci-rapid-repair/AUTO_APPLIED:fare-watch-centrav` | CI rapid-repair 'fare-watch-centrav' APPLIED but verify stil |
+| 2026-07-30 11:20 | monitor | `ci-rapid-repair/AUTO_APPLIED:self-observability` | CI rapid-repair 'self-observability' APPLIED but verify stil |
+| 2026-07-30 11:31 | monitor | `ci-rapid-repair/AUTO_APPLIED:competitive-intel-apis` | CI rapid-repair 'competitive-intel-apis' APPLIED but verify  |
+| 2026-07-30 11:31 | monitor | `ci-rapid-repair/AUTO_APPLIED:cruise-intelligence` | CI rapid-repair 'cruise-intelligence' APPLIED but verify sti |
 
 ---
 
-<div style='font-family:Georgia,serif;background:#f7f3ea;border-left:3px solid #07076b;padding:10px 14px;margin:12px 0'><p style='color:#07076b;margin:0 0 4px;font-size:15px'><b>🌙 Overnight Scans</b> <span style='font-size:11px;color:#888'>— gathered after 2200 MT, consolidated here (SO 2026-07-16)</span></p><p style='color:#07076b;margin:8px 0 2px'><b>🛰 Tech Scan — Collection Deck</b></p><p style='margin:0 0 4px;font-size:13px'>919 finds in holding · llm (466), claude-code (265), agentic (121), mcp (29), voice (11), ai-writing (10)</p><ul style='margin:0 0 6px;padding-left:18px;font-size:12px;color:#333'><li style='margin:2px 0'>[agentic] Brancher Kimi K3 dans une boucle agentique : les 4 trucs qui ont cassé — https://dev.to/hernanz/brancher-kimi-k3-dans-une-boucle-agentique-l</li><li style='margin:2px 0'>[claude-code] Why Burning Opus on Every Claude Code Turn Is the #1 Cost Mistake in AI Coding — https://dev.to/aplomb2/why-burning-opus-on-every-claude-cod</li><li style='margin:2px 0'>[claude-code] What survives compaction in Claude Code — and how to keep your rules alive — https://dev.to/rulestack/what-survives-compaction-in-claude-cod</li><li style='margin:2px 0'>[agentic] Solo production development with AI agents: enforce rules, don't explain them — https://dev.to/olegkostrikindev/solo-production-development-</li><li style='margin:2px 0'>[claude-code] I benchmarked Claude Code skills against a placebo — and half of mine failed — https://dev.to/sjh9714/i-benchmarked-claude-code-skills-again</li></ul><p style='margin:0;font-size:11px;color:#888'>Full timestamped adjudication emails overnight (Hale kill-pass, standing order).</p><p style='color:#07076b;margin:8px 0 2px'><b>✈ Airfare Watch</b></p><p style='margin:0 0 6px;font-size:13px'>Overnight scan complete (updated 28 Jul 05:45 MT) — 27 active watches (Centrav/Kayak/Google Flights). <a href='https://itinerary.d2mluxury.quest/airfare_dashboard.html' style='color:#0000ff'>Open dashboard</a></p></div>
+<div style='font-family:Georgia,serif;background:#f7f3ea;border-left:3px solid #07076b;padding:10px 14px;margin:12px 0'><p style='color:#07076b;margin:0 0 4px;font-size:15px'><b>🌙 Overnight Scans</b> <span style='font-size:11px;color:#888'>— gathered after 2200 MT, consolidated here (SO 2026-07-16)</span></p><p style='color:#07076b;margin:8px 0 2px'><b>🛰 Tech Scan — Collection Deck</b></p><p style='margin:0 0 4px;font-size:13px'>964 finds in holding · llm (495), claude-code (276), agentic (121), mcp (29), automation (14), voice (11)</p><ul style='margin:0 0 6px;padding-left:18px;font-size:12px;color:#333'><li style='margin:2px 0'>[claude-code] Show HN: Extra Headroom – cut Claude Code and Codex token costs by ~50% — https://extraheadroom.com/</li><li style='margin:2px 0'>[claude-code] An Android and iOS app from 7 Claude Code commands, every prompt and timing — https://proandroiddev.com/seven-claude-code-commands-one-kotli</li><li style='margin:2px 0'>[claude-code] Cloister – isolated Claude Code and Codex, one cell per company — https://github.com/alxpolan/cloister</li><li style='margin:2px 0'>[claude-code] Why Claude Code Stops Halfway Through Long Tasks—and the Harness I Built to Keep It Moving — https://dev.to/orwamahmoud/why-claude-code-stop</li><li style='margin:2px 0'>[claude-code] y Claude Code safety hook wasn't blocking anything — https://dev.to/ashton_dutoit_c99f445ceb/y-claude-code-safety-hook-wasnt-blocking-anythi</li></ul><p style='margin:0;font-size:11px;color:#888'>Full timestamped adjudication emails overnight (Hale kill-pass, standing order).</p><p style='color:#07076b;margin:8px 0 2px'><b>✈ Airfare Watch</b></p><p style='margin:0 0 6px;font-size:13px'>Overnight scan complete (updated 30 Jul 05:45 MT) — 27 active watches (Centrav/Kayak/Google Flights). <a href='https://itinerary.d2mluxury.quest/airfare_dashboard.html' style='color:#0000ff'>Open dashboard</a></p></div>
 ---
 
 ### FARE WATCH ARTIFACTS
 *Kept current daily — links + latest captured prices*
 
-**[Loucks Silver Nova 2027 — Flight Routing Options](https://drive.google.com/file/d/1pv3Pa7zPTTLLv3qyjDNgWhK3wsp_yzWu/view?usp=drivesdk)** — updated 2026-07-28 11:45 UTC
+**[Loucks Silver Nova 2027 — Flight Routing Options](https://drive.google.com/file/d/1pv3Pa7zPTTLLv3qyjDNgWhK3wsp_yzWu/view?usp=drivesdk)** — updated 2026-07-30 11:45 UTC
 - `ath-ist-den`: $5,770pp / $11,540 total
 - `ath-muc-den`: $5,770pp / $11,540 total
 - `den-muc-vce`: — / 
 - `den-vce-direct`: $5,024pp / $10,048 total
 
-**[Spencer Grand Tour 2027 — Flight Options All Legs](https://drive.google.com/file/d/1HjWpOjS2_yDynOynlt25RJetLF7U_rB3/view?usp=drivesdk)** — updated 2026-07-28 11:45 UTC
+**[Spencer Grand Tour 2027 — Flight Options All Legs](https://drive.google.com/file/d/1HjWpOjS2_yDynOynlt25RJetLF7U_rB3/view?usp=drivesdk)** — updated 2026-07-30 11:45 UTC
 - `spencer-leg1-den-fco-tim-business-jun2027`: $2,504pp / $10,016 total
 - `spencer-leg1-den-fco-yaggispencer-pe-jun2027`: $2,160pp / $17,280 total
 - `spencer-leg2-fco-den-tim-business-jun2027`: $2,896pp / $11,584 total
 - `spencer-leg3-zrh-den-yaggispencer-pe-jul2027`: — / 
 
-**[Thunderbird Airfare Dashboard](https://drive.google.com/file/d/10UFKH5CSFFyvhHHh1nTUCe87bu_Re838/view?usp=drivesdk)** — updated 2026-07-28 11:45 UTC
+**[Thunderbird Airfare Dashboard](https://drive.google.com/file/d/10UFKH5CSFFyvhHHh1nTUCe87bu_Re838/view?usp=drivesdk)** — updated 2026-07-30 11:45 UTC
 - 52 watches tracked, all current as of last recheck.
 
 ---
@@ -116,8 +179,7 @@ _122 non-actionable event(s) routed off Telegram → monitor: 108, sterling_queu
 ### ELON PROPOSALS
 *New technical proposals since last brief — nothing sits unseen*
 
-| 🔴 **QUEUE_FOR_COMMANDER** | PROPOSAL-20260727-d2m-icelandair-warm.md | Likely credential expiration or transient errors without graceful retry — the service crashes instead of handling predictable failure modes |
-| 🟢 **APPLY_AUTONOMOUSLY** | PROPOSAL-20260727-thunderbird-generic-remediate@d2m-icelandair-warm.md | An earlier same-day ELON pass (09:55 MT) already fixed one remediation path — it added d2m-icelandair-warm.service to SELF_ALERTING_UNITS in scripts/generic_rem |
+_No new proposals since last brief_
 
 **⚠️ 38 QUEUE_FOR_COMMANDER proposal(s) still awaiting your decision (any age):**
 - `PROPOSAL-20260516-thunderbird-telegram-gw.md` — ELON Weekly Kill Audit — 2026-05-16 | Telegram Gateway Crash Loop
@@ -166,14 +228,14 @@ _122 non-actionable event(s) routed off Telegram → monitor: 108, sterling_queu
 *Grounded predictions only — each cites a real source file. Accuracy is tracked in `OpsCenter/commander_prediction_ledger.json`, not asserted.*
 
 **Pattern-based (INFERRED — worth a glance, not a certainty):**
-- [Sterling] You'll ask for status on: Resolve Regent cookie expiration — restore session access — _P0 mission open 17d (created 2026-07-11), status=cancelled_
-- [Sterling] You'll ask for status on: Close Regent cookie expiration P0 — restore session access — _P0 mission open 16d (created 2026-07-12), status=cancelled_
-- [Sterling] You'll ask for status on: Close Regent cookie P0 — restore authenticated agent-portal session — _P0 mission open 13d (created 2026-07-15), status=cancelled_
-- [Sterling] You'll ask for status on: Close Regent P0 — restore session cookie access — _P0 mission open 13d (created 2026-07-15), status=cancelled_
-- [Sterling] You'll ask for status on: Stage air options for August 29 Grandeur trio — Furlow, Nichols, Ely/Darrow — _P0 mission open 13d (created 2026-07-15), status=cancelled_
-- [Sterling] You'll ask for status on: Close Regent P0 — restore cookie/session access (consolidate MISSION-001/011) — _P0 mission open 13d (created 2026-07-15), status=cancelled_
-- [Sterling] You'll ask for status on: Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations — _P0 mission open 10d (created 2026-07-18), status=pending_review_
-- [Sterling] You'll ask for status on: Commander review of Loucks Grandeur FPD — $24,798 due Aug 1 — _P0 mission open 10d (created 2026-07-18), status=active_
+- [Sterling] You'll ask for status on: Resolve Regent cookie expiration — restore session access — _P0 mission open 19d (created 2026-07-11), status=cancelled_
+- [Sterling] You'll ask for status on: Close Regent cookie expiration P0 — restore session access — _P0 mission open 18d (created 2026-07-12), status=cancelled_
+- [Sterling] You'll ask for status on: Close Regent cookie P0 — restore authenticated agent-portal session — _P0 mission open 15d (created 2026-07-15), status=cancelled_
+- [Sterling] You'll ask for status on: Close Regent P0 — restore session cookie access — _P0 mission open 15d (created 2026-07-15), status=cancelled_
+- [Sterling] You'll ask for status on: Stage air options for August 29 Grandeur trio — Furlow, Nichols, Ely/Darrow — _P0 mission open 15d (created 2026-07-15), status=cancelled_
+- [Sterling] You'll ask for status on: Close Regent P0 — restore cookie/session access (consolidate MISSION-001/011) — _P0 mission open 15d (created 2026-07-15), status=cancelled_
+- [Sterling] You'll ask for status on: Root-cause and fix currently-failing services triggering live CI-sentinel Telegram escalations — _P0 mission open 12d (created 2026-07-18), status=pending_review_
+- [Sterling] You'll ask for status on: Commander review of Loucks Grandeur FPD — $24,798 due Aug 1 — _P0 mission open 12d (created 2026-07-18), status=rolled_up_
 
 **Rate last cycle's predictions** (closes the accuracy loop — reply with any of these, or skip if none apply):
 - `P0AGE-MISSION-001` — You'll ask for status on: Resolve Regent cookie expiration — restore session access
@@ -196,18 +258,18 @@ _122 non-actionable event(s) routed off Telegram → monitor: 108, sterling_queu
 
 This session: Commander demanded proof before accepting the '40 proposals executed' claim, rejected 3 Tier-C asks outright ('no benefit to me'), and asked for a predictor that scores itself against outcomes rather than asserting accuracy — three real instances of the same two patterns above, same day.
 
-_Secondary signal: 23/145 feedback memories touch this month — Recency cluster only — file count is a weak proxy for importance and is NOT used to rank these patterns._
+_Secondary signal: 28/149 feedback memories touch this month — Recency cluster only — file count is a weak proxy for importance and is NOT used to rank these patterns._
 
 ---
 
 # HALE — Daily Brief
-*Generated: 2026-07-28 05:45 MT*
+*Generated: 2026-07-30 05:45 MT*
 
 ---
 
 🦅
 
-**THUNDERBIRD DAILY BRIEF — 2026-07-28 · COS MODE**
+**THUNDERBIRD DAILY BRIEF — 2026-07-30 · COS MODE**
 *— V. Hale, VCS*
 
 ---
@@ -224,13 +286,13 @@ _Secondary signal: 23/145 feedback memories touch this month — Recency cluster
 | Kyle & Rosalie Kuklinski · Roger & Dr Nicholas Kuklinski · Joshua Morton & Erica Dodge | Viking Ocean Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 9 overdue |
 | Kuklinski Group (6 guests, 3 cabins — 2 couples + father/son) | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 3 overdue |
 | Joshua Morton & Erica Dodge | Viking Viking Mars | 17 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 4 overdue |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Grandeur | 19 Dec 2026 | 👁 WATCH (6d overdue) | TP 1.1 — Voyage Preview (destination guide) ⚠️ 7 overdue |
+| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Grandeur | 19 Dec 2026 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) ⚠️ 8 overdue |
 | McLeod McGlasson | SS Grandeur (Regent Seven Seas) | 19 Dec 2026 | TBD | TP 1.1 — Voyage Preview (destination guide) ⚠️ 3 overdue |
 | John & Susan Loucks | Seven Seas Grandeur | 29 Dec 2026 | ✅ PAID | TP 1.2 — Airfare Watch ⚠️ 4 overdue |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Princess Discovery Princess | 13 Mar 2027 | DUE 13 Dec 2026 | TP 1.1 — Voyage Preview (destination guide) |
+| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Princess Discovery Princess | 13 Mar 2027 | ✅ PAID | TP 1.1 — Voyage Preview (destination guide) |
 | Colonel John Aldon Loucks & Ms Susan Dee Loucks | Silversea Silver Nova | 5 May 2027 | DUE 6 Dec 2026 | All clear |
 | Colonel John Aldon Loucks & Ms Susan Dee Loucks | Silversea Silver Nova | 5 May 2027 | DUE 6 Dec 2026 | All clear |
-| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Prestige | 18 Dec 2027 | DUE 21 Jul 2027 | All clear |
+| Erik Wiedenbach McLeod + Melissa Etola McGlasson | Regent Seven Seas SS Prestige | 18 Dec 2027 | ✅ PAID | All clear |
 | McLeod McGlasson | SS Prestige (Regent Seven Seas) | 18 Dec 2027 | TBD | All clear |
 
 ---
@@ -254,7 +316,7 @@ _Queue empty_
 
 | System | Status |
 |---|---|
-| last_health_check | 💤 2026-07-28T05:44:16.993193 |
+| last_health_check | 💤 2026-07-30T05:44:54.328526 |
 | chrome_debug_port_9222 | ✅ ONLINE |
 | mcp_server | ✅ OK: 127.0.0.1:8765 /mcp HTTP 406 in 1.7ms (live probe 2026-06-11T03:11:06Z; prior read-timeout was transient) |
 | opencode_status | ✅ ONLINE: opencode v1.16.2 CLI-on-demand; opencode-spsa-monitor.service active (probe 2026-06-11T03:12:09Z) |
@@ -315,5 +377,5 @@ _Reply APPROVED or REVISE to this email._
 
 ---
 
-*— V. Hale, VCS · Thunderbird Wing · 2026-07-28 05:45 MT*
-*Next brief: 2026-07-29 06:00 MT*
+*— V. Hale, VCS · Thunderbird Wing · 2026-07-30 05:45 MT*
+*Next brief: 2026-07-31 06:00 MT*

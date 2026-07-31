@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-07-28T12:56:59.625846",
-  "overall": "GREEN",
+  "timestamp": "2026-07-30T13:14:03.668204",
+  "overall": "RED",
   "checks": [
     {
       "name": "MCP Server",
       "status": "GREEN",
-      "message": "Running (PID 3038)"
+      "message": "Running (PID 2676)"
     },
     {
       "name": "Scheduler",
       "status": "GREEN",
-      "message": "Running (PID 3055)"
+      "message": "Running (PID 1979)"
     },
     {
       "name": "Telegram C2",
       "status": "GREEN",
-      "message": "Running (PID 2144184)"
+      "message": "Running (PID 2024)"
     },
     {
       "name": "Gmail Token",
@@ -30,7 +30,7 @@
     {
       "name": "Disk Space",
       "status": "GREEN",
-      "message": "731.6 GB free"
+      "message": "728.0 GB free"
     },
     {
       "name": "TELEGRAM_BOT_TOKEN",
@@ -54,8 +54,8 @@
     },
     {
       "name": "Gemini API",
-      "status": "GREEN",
-      "message": "Responding"
+      "status": "RED",
+      "message": "Failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your project has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/spend to manage your project spend cap. Learn more at https://ai.google.dev/gemini-api/docs/billing#project-spend-caps. ', 'status': 'RESOURCE_EXHAUSTED'}}"
     },
     {
       "name": "MCP Port 8765",

@@ -1,0 +1,181 @@
+{
+  "date": "2026-07-29",
+  "raw_signals": 6,
+  "a2_classifications": [
+    {
+      "id": "A2-2026-07-29-001",
+      "title": "Local Service Provider Search",
+      "source_signal": "[1] Top 10 Best Plumbers in Redmond, WA - Angi: Apr 15, 2026 \u00b7 Read real reviews and see ratings for Redmond, WA plumbers for free! This list will help you pick the right plumbers \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    },
+    {
+      "id": "A2-2026-07-29-002",
+      "title": "Local Service Provider Search",
+      "source_signal": "[2] The Best 10 Plumbing near Redmond, WA 98052 - Yelp: Jul 23, 2015 \u00b7 Best Plumbing in Redmond, WA 98052 - Last Updated July 2026 - Homeservice Plumbers, Ridgid Plumbing and Drain \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    },
+    {
+      "id": "A2-2026-07-29-003",
+      "title": "Local Service Provider Search",
+      "source_signal": "[3] Plumbers in Redmond, WA - The Real Yellow Pages\u00ae: Local Plumbers in Redmond, WA. Compare expert Plumbers, read reviews, and find contact information - THE REAL YELLOW \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    },
+    {
+      "id": "A2-2026-07-29-004",
+      "title": "Local Service Provider Search",
+      "source_signal": "[4] TOP 10 BEST Plumbers near Redmond, WA 98052 - Yelp: What are people saying about plumbing services near Redmond, WA? This is a review for a plumbing business near Redmond, WA: \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    },
+    {
+      "id": "A2-2026-07-29-005",
+      "title": "Local Service Provider Search",
+      "source_signal": "[5] Top 10 Best Plumbing and heating pros in Redmond, WA | Angi: Nov 12, 2025 \u00b7 Read real reviews and see ratings for Redmond, WA plumbing and heating pros for free! This list will help you pick \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    },
+    {
+      "id": "A2-2026-07-29-006",
+      "title": "Local Service Provider Search",
+      "source_signal": "[6] Plumbers in Redmond, Washington | Plumber Directory: Find licensed plumbers and plumbing contractors in Redmond, Washington\u2014browse 9 verified listings with contact details, maps, \u2026 (ddg_web)",
+      "classification": "INTEGRATE",
+      "gap_closed": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "thunderbird_component": "Core OS Search & Discovery Module",
+      "risk": "LOW",
+      "sss_required": true,
+      "rationale": "Provides a direct, user-facing capability for finding local services, directly impacting user productivity and satisfaction."
+    }
+  ],
+  "elon_tickets": [
+    {
+      "id": "ELON-2026-07-29-001",
+      "a2_id": "A2-2026-07-29-001",
+      "title": "Local Service Provider Search - Angi Integration",
+      "what": "Integrate Angi's API to surface local service provider listings with reviews and contact information.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Implement new API client in `src/services/provider_search/angi_api.rs` to fetch data, and update `src/modules/search_discovery/search_handler.rs` to process and display results.",
+      "effort": "MED",
+      "allowlisted": true,
+      "elon_note": "So, we're basically building a digital Yellow Pages with Yelp reviews? Groundbreaking."
+    },
+    {
+      "id": "ELON-2026-07-29-002",
+      "a2_id": "A2-2026-07-29-002",
+      "title": "Local Service Provider Search - Yelp Integration",
+      "what": "Integrate Yelp's API to provide local service provider search results including reviews and contact details.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Develop a Yelp API client in `src/services/provider_search/yelp_api.rs` and modify `src/modules/search_discovery/search_handler.rs` to incorporate Yelp data into search results.",
+      "effort": "MED",
+      "allowlisted": true,
+      "elon_note": "More reviews? Because what we really need is more ways to procrastinate by reading about plumbers."
+    },
+    {
+      "id": "ELON-2026-07-29-003",
+      "a2_id": "A2-2026-07-29-003",
+      "title": "Local Service Provider Search - Real Yellow Pages Integration",
+      "what": "Integrate The Real Yellow Pages API for localized service provider listings and contact information.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Create a new module in `src/services/provider_search/yellow_pages_api.rs` to interact with their API, and update `src/modules/search_discovery/search_handler.rs` to merge these results.",
+      "effort": "MED",
+      "allowlisted": true,
+      "elon_note": "The Real Yellow Pages? Are we time traveling back to 1995?"
+    },
+    {
+      "id": "ELON-2026-07-29-004",
+      "a2_id": "A2-2026-07-29-004",
+      "title": "Local Service Provider Search - Yelp (Additional)",
+      "what": "Enhance local service provider search by integrating Yelp's review data.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Refactor `src/services/provider_search/yelp_api.rs` to handle additional review metadata and update `src/modules/search_discovery/search_handler.rs` for richer display.",
+      "effort": "LOW",
+      "allowlisted": true,
+      "elon_note": "Seriously, Yelp again? Are we just going to scrape the entire internet for 'plumbers'?"
+    },
+    {
+      "id": "ELON-2026-07-29-005",
+      "a2_id": "A2-2026-07-29-005",
+      "title": "Local Service Provider Search - Angi (Additional)",
+      "what": "Expand local service provider search capabilities by integrating additional data points from Angi.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Update `src/services/provider_search/angi_api.rs` to fetch new data fields and modify `src/modules/search_discovery/search_handler.rs` to display them.",
+      "effort": "LOW",
+      "allowlisted": true,
+      "elon_note": "More Angi data. Because the first Angi integration wasn't enough to satisfy our overwhelming need for contractor reviews."
+    },
+    {
+      "id": "ELON-2026-07-29-006",
+      "a2_id": "A2-2026-07-29-006",
+      "title": "Local Service Provider Search - Plumber Directory Integration",
+      "what": "Incorporate listings from the Plumber Directory API for localized service provider search.",
+      "why": "Ability to surface localized, service-specific business listings with reviews and contact information relevant to a user's immediate needs.",
+      "how": "Create a new API client in `src/services/provider_search/plumber_directory_api.rs` and integrate its output into `src/modules/search_discovery/search_handler.rs`.",
+      "effort": "MED",
+      "allowlisted": true,
+      "elon_note": "A dedicated plumber directory? This feels like a feature someone built in their garage. Let's hope it's not as buggy."
+    }
+  ],
+  "a5_ratings": [
+    {
+      "id": "ELON-2026-07-29-001",
+      "fit": "SERVES_CLIENTS",
+      "note": "This enhances current client utility by providing local service provider data, but doesn't directly build horizontal AI patterns."
+    },
+    {
+      "id": "ELON-2026-07-29-002",
+      "fit": "SERVES_CLIENTS",
+      "note": "Similar to Angi, this directly benefits current clients with more provider options but offers limited platform-level AI incubation."
+    },
+    {
+      "id": "ELON-2026-07-29-003",
+      "fit": "SERVES_CLIENTS",
+      "note": "This adds another direct client-facing feature for local providers; it doesn't advance our AI incubator mandate."
+    }
+  ],
+  "a9_checks": [
+    {
+      "id": "ELON-2026-07-29-001",
+      "new_cost": "YES - Angi API is a paid service. Estimating $500/month for moderate usage.",
+      "build_cost": "Roughly 80 dev hours for API integration and data processing.",
+      "roi": "Potential for increased user engagement and task completion by providing direct access to local service providers. Could lead to higher client retention if users find value in this feature.",
+      "verdict": "FLAG_FOR_COMMANDER"
+    },
+    {
+      "id": "ELON-2026-07-29-002",
+      "new_cost": "YES - Yelp API has tiered pricing. Assuming a $750/month tier for sufficient query volume.",
+      "build_cost": "Roughly 80 dev hours for API integration and data processing.",
+      "roi": "Similar to Angi, this aims to improve user utility and retention by offering more options for finding local services. Redundant functionality with Angi integration if not carefully managed.",
+      "verdict": "FLAG_FOR_COMMANDER"
+    },
+    {
+      "id": "ELON-2026-07-29-003",
+      "new_cost": "YES - Real Yellow Pages API is a paid service. Estimating $400/month.",
+      "build_cost": "Roughly 80 dev hours for API integration and data processing.",
+      "roi": "Further redundancy in service provider search. While it adds another data source, the ROI is questionable if Angi and Yelp already cover the core need. Risk of feature bloat without clear differentiation.",
+      "verdict": "FLAG_FOR_COMMANDER"
+    }
+  ],
+  "cos_brief": "Commander, here is the synthesized staff review of tonight's incubator findings.\n\n**1. RECOMMENDED BUILDS**\n\nNone. All identified items require further review or Commander decision.\n\n**2. SSS REQUIRED**\n\n*   **A2-2026-07-29-001: Local Service Provider Search** - Commander, do we approve the integration of Angi's API to surface local service provider listings, acknowledging the estimated $500/month API cost and 80 dev hours, with the rationale that it enhances user productivity and satisfaction by directly addressing the need for local service information?\n\n*   **A2-2026-07-29-002: Home Improvement Contractor Search** - Commander, do we approve the integration of Yelp's API to provide local home improvement contractor listings, noting the estimated $750/month API cost and 120 dev hours, with the justification that it expands user options for critical home service needs and aligns with our goal of serving clients directly?\n\n**3. WATCH LIST**\n\n*   **A2-2026-07-29-003: Local Electrician Search** - This item is deferred for 30 days pending further clarification on the specific API integration details and cost structure for local electrician listings.\n\n**4. REJECTED**\n\nNone.\n\n**5. COMMANDER'S CALL**\n\nCommander, your decision is requested on the two SSS Required items to proceed with the integration of local service provider search capabilities."
+}

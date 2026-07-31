@@ -1,15 +1,6 @@
 [
   {
-    "ts": "2026-07-28T12:13:47.095631-06:00",
-    "event": "credentials_health_check",
-    "alert_count": 1,
-    "client_alerts": 0,
-    "details": [
-      "room_res_cookies: valid"
-    ]
-  },
-  {
-    "ts": "2026-07-28T12:38:44.339345-06:00",
+    "ts": "2026-07-30T02:39:49.497771-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -18,7 +9,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T13:08:49.483198-06:00",
+    "ts": "2026-07-30T03:09:48.695517-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -27,7 +18,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T13:28:51.043901-06:00",
+    "ts": "2026-07-30T03:29:49.834652-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -36,7 +27,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T13:58:44.375137-06:00",
+    "ts": "2026-07-30T04:00:00.525290-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -45,7 +36,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T14:18:49.116910-06:00",
+    "ts": "2026-07-30T04:20:00.078271-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -54,7 +45,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T14:49:00.257300-06:00",
+    "ts": "2026-07-30T04:49:55.911741-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -63,7 +54,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T15:14:01.989419-06:00",
+    "ts": "2026-07-30T05:14:58.520376-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -72,7 +63,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T15:38:55.857290-06:00",
+    "ts": "2026-07-30T05:44:52.239900-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -81,7 +72,7 @@
     ]
   },
   {
-    "ts": "2026-07-28T15:53:54.907431-06:00",
+    "ts": "2026-07-30T06:00:06.889652-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -90,7 +81,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T09:00:38.587236-06:00",
+    "ts": "2026-07-30T06:30:05.993680-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -99,7 +90,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T09:20:36.454100-06:00",
+    "ts": "2026-07-30T06:55:04.772080-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -108,7 +99,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T09:50:40.842552-06:00",
+    "ts": "2026-07-30T07:25:11.526384-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -117,7 +108,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T10:10:39.320096-06:00",
+    "ts": "2026-07-30T07:50:03.929526-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -126,7 +117,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T10:40:38.165212-06:00",
+    "ts": "2026-07-30T08:20:20.320016-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -135,7 +126,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T11:00:47.554132-06:00",
+    "ts": "2026-07-30T08:40:12.346207-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -144,7 +135,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T11:30:44.429650-06:00",
+    "ts": "2026-07-30T09:10:09.162601-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -153,7 +144,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T11:55:42.771793-06:00",
+    "ts": "2026-07-30T09:30:05.132668-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -162,7 +153,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T12:25:43.135541-06:00",
+    "ts": "2026-07-30T10:00:22.675727-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -171,7 +162,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T12:42:56.763504-06:00",
+    "ts": "2026-07-30T10:20:20.594471-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -180,7 +171,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T13:13:01.714719-06:00",
+    "ts": "2026-07-30T10:50:11.028573-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -189,7 +180,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T13:38:11.182593-06:00",
+    "ts": "2026-07-30T11:10:17.932717-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -198,7 +189,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T14:08:10.282192-06:00",
+    "ts": "2026-07-30T11:40:21.088176-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -207,7 +198,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T14:23:09.317976-06:00",
+    "ts": "2026-07-30T12:05:18.890513-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -216,7 +207,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T14:53:15.935598-06:00",
+    "ts": "2026-07-30T12:35:30.550910-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -225,7 +216,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T15:13:19.599582-06:00",
+    "ts": "2026-07-31T06:00:15.233183-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -234,7 +225,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T15:43:24.926159-06:00",
+    "ts": "2026-07-31T06:29:06.165355-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -243,7 +234,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T16:03:26.529734-06:00",
+    "ts": "2026-07-31T06:44:11.361188-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -252,7 +243,7 @@
     ]
   },
   {
-    "ts": "2026-07-29T16:28:22.333765-06:00",
+    "ts": "2026-07-31T07:14:09.317153-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
@@ -261,12 +252,21 @@
     ]
   },
   {
-    "ts": "2026-07-29T16:43:32.387101-06:00",
+    "ts": "2026-07-31T07:34:18.229790-06:00",
     "event": "credentials_health_check",
     "alert_count": 1,
     "client_alerts": 0,
     "details": [
       "room_res_cookies: expired"
+    ]
+  },
+  {
+    "ts": "2026-07-31T07:39:16.584265-06:00",
+    "event": "credentials_health_check",
+    "alert_count": 1,
+    "client_alerts": 0,
+    "details": [
+      "room_res_cookies: valid"
     ]
   }
 ]

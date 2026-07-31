@@ -147,3 +147,133 @@
 - **Touchpoint:** TP-4.3 — Payment Goal (FPD-7)
 - **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
 - **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-29
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-29
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-29
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-29
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-30 00:08]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-A Excursion Preferences — 2 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-30 00:08]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-B Excursion Candidates — 2 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-30 00:08]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP TP-4 Excursion Booking Window — 2 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-30 00:08]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.3 Payment Goal (FPD-7) — 5 days overdue. Staff: Hale + A9 Harlan
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-30 00:08]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Erik McLeod & Melissa McGlasson — TP TP-4.5 Payment Confirmation (FPD+7) — 1 days overdue. Staff: A9 Harlan + Dani
+**Action Required:** Immediate attention.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-30
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-30
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-30
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-30
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-31 00:41]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-A Excursion Preferences — 3 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-31 00:41]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP ARC2-B Excursion Candidates — 3 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-31 00:41]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Kyle Kuklinski — TP TP-4 Excursion Booking Window — 3 days overdue. Staff: Hale
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-31 00:41]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: John & Susan Loucks — TP TP-4.3 Payment Goal (FPD-7) — 6 days overdue. Staff: Hale + A9 Harlan
+**Action Required:** Immediate attention.
+
+
+---
+**[LIFECYCLE SCHEDULER — 2026-07-31 00:41]**
+## ⚠️ OVERDUE TOUCHPOINT
+⚠️ OVERDUE: Erik McLeod & Melissa McGlasson — TP TP-4.5 Payment Confirmation (FPD+7) — 2 days overdue. Staff: A9 Harlan + Dani
+**Action Required:** Immediate attention.
+
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-31
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating
+
+## ⚠️ HALE DRAFT ENGINE ALERT — 2026-07-31
+- **Client:** mcleod_lesser_antilles
+- **Touchpoint:** TP-4.5 — Payment Confirmation (FPD+7)
+- **Error:** No template file configured for anchor 'None' — add template reference to lifecycle config
+- **Action needed:** Template file or anchor may need updating

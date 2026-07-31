@@ -1524,5 +1524,61 @@
     "status": "open",
     "resolved_date": null,
     "resolution_note": null
+  },
+  {
+    "id": "P0AGE-MISSION-704",
+    "date_predicted": "2026-07-30",
+    "predicted_action": "You'll ask for status on: Surface Loucks FPD $24,798 to Commander \u2014 Aug 1 deadline",
+    "basis": "P0 mission open 8d (created 2026-07-22), status=pending_review",
+    "confidence": "INFERRED",
+    "domain": "Sterling",
+    "source_files": [
+      "OpsCenter/mission_board.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-89097",
+    "date_predicted": "2026-07-30",
+    "predicted_action": "Next suspense likely to pull your attention: \"room_res_cookies: expired\" appeared 15x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-30T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-16242",
+    "date_predicted": "2026-07-30",
+    "predicted_action": "Next suspense likely to pull your attention: \"room_res_cookies: valid\" appeared 15x in the ops log",
+    "basis": "heartbeat_scan_latest.json (2026-07-30T09:00), category=repeat_alert, action=Flag for root-cause pass \u2014 same shape as the 2026-07-04 credential doomsday",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
+  },
+  {
+    "id": "SUSP-70335",
+    "date_predicted": "2026-07-30",
+    "predicted_action": "Next suspense likely to pull your attention: Cruise-line Portal Access last re-evaluated 40d ago (cadence: 30d)",
+    "basis": "heartbeat_scan_latest.json (2026-07-30T09:00), category=stale_ci_tool, action=Route to Whetstone for currency check",
+    "confidence": "INFERRED",
+    "domain": "Silver",
+    "source_files": [
+      "OpsCenter/state/heartbeat_scan_latest.json"
+    ],
+    "status": "open",
+    "resolved_date": null,
+    "resolution_note": null
   }
 ]

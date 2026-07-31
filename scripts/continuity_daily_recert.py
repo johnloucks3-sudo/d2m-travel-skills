@@ -181,27 +181,15 @@ def scrape_checkpoint_pct() -> dict:
 
 # ── Alert ──────────────────────────────────────────────────────────────────────
 
+# Routed through the single gate (C2 RECALIBRATION task 8, Commander
+# directive 2026-07-29). This used to hit the bot API directly.
 def _send_telegram_alert(message: str) -> None:
-    env = _load_env()
-    bot_token = env.get("TELEGRAM_C2_BOT_TOKEN", "")
-    chat_id = env.get("TELEGRAM_COMMANDER_ID", "")
-    if not bot_token or not chat_id:
-        print("WARN: Missing Telegram credentials — alert not sent", file=sys.stderr)
-        return
-    body = json.dumps({"chat_id": chat_id, "text": message}).encode()
-    req = urllib.request.Request(
-        f"https://api.telegram.org/bot{bot_token}/sendMessage",
-        data=body,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
     try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            result = json.loads(resp.read())
-            if not result.get("ok"):
-                print(f"Telegram error: {result}", file=sys.stderr)
+        from core.comms.commander_channel import notify
+        notify("ops", message.splitlines()[0][:80] if message.strip() else "Continuity Recert",
+               message, urgency="WINDOW", source="continuity_daily_recert")
     except Exception as e:
-        print(f"Telegram send failed: {e}", file=sys.stderr)
+        print(f"notify() send failed: {e}", file=sys.stderr)
 
 
 # ── Main audit ─────────────────────────────────────────────────────────────────

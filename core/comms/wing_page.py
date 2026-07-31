@@ -269,22 +269,21 @@ def send_page(
 
 
 def _send_text(page: WingPage, token: str, chat_id: str) -> bool:
+    # Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    # 2026-07-29). This used to hit the bot API directly — one of the direct senders
+    # the gate replaced. notify() dedups, renders, and batches to the 06:30/18:30
+    # windows; P0 breaks through immediately, everything else queues.
     try:
-        import urllib.request
-        text = page.to_telegram()
-        # Split if over 4000 chars
-        chunks = [text[i:i+4000] for i in range(0, len(text), 4000)]
-        for chunk in chunks:
-            payload = json.dumps({
-                "chat_id": chat_id, "text": chunk, "parse_mode": "HTML"
-            }).encode()
-            req = urllib.request.Request(
-                f"https://api.telegram.org/bot{token}/sendMessage",
-                data=payload, headers={"Content-Type": "application/json"}, method="POST")
-            urllib.request.urlopen(req, timeout=10)
-        return True
+        from core.comms.commander_channel import notify
+        urgency = "NOW" if page.level == P0 else "WINDOW"
+        kwargs = {"urgency": urgency, "source": "wing_page", "dedup_key": _fingerprint(page)}
+        if urgency == "NOW":
+            kwargs["reason"] = f"P0 wing page: {page.problem[:120]}"
+        title = f"{LEVEL_EMOJI.get(page.level, '')} {page.level} — {page.source}: {page.problem[:80]}"
+        result = notify(page.level.lower(), title, page.to_email_sss(), **kwargs)
+        return result.get("status") in ("sent", "queued", "suppressed")
     except Exception as e:
-        log.error(f"Telegram text send failed: {e}")
+        log.error(f"notify() send failed: {e}")
         return False
 
 

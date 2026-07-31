@@ -1,133 +1,6 @@
 {
   "routine_runs": [
     {
-      "ts": "2026-07-09T12:07:06.037003+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-1533",
-        "MISSION-1535",
-        "MISSION-1542",
-        "MISSION-1547"
-      ]
-    },
-    {
-      "ts": "2026-07-09T12:15:37.088815+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-1550",
-        "MISSION-1551",
-        "MISSION-1553",
-        "MISSION-1560"
-      ]
-    },
-    {
-      "ts": "2026-07-09T16:14:56.187089+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-1561",
-        "MISSION-1567",
-        "MISSION-1568",
-        "MISSION-1569"
-      ]
-    },
-    {
-      "ts": "2026-07-09T20:20:31.062754+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-1571"
-      ]
-    },
-    {
-      "ts": "2026-07-10T16:35:35.814645+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-1575"
-      ]
-    },
-    {
-      "ts": "2026-07-11T00:41:07.436374+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-1579",
-        "MISSION-1580",
-        "MISSION-1584",
-        "MISSION-1586"
-      ]
-    },
-    {
-      "ts": "2026-07-11T04:42:41.351208+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-1581",
-        "MISSION-1582",
-        "MISSION-1583",
-        "MISSION-1588"
-      ]
-    },
-    {
-      "ts": "2026-07-11T08:43:24.602648+00:00",
-      "count": 3,
-      "succeeded": 3,
-      "missions": [
-        "MISSION-1589",
-        "MISSION-1590",
-        "MISSION-1591"
-      ]
-    },
-    {
-      "ts": "2026-07-12T00:51:45.562437+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-001",
-        "MISSION-002",
-        "MISSION-003",
-        "MISSION-004"
-      ]
-    },
-    {
-      "ts": "2026-07-12T04:54:17.942707+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-005"
-      ]
-    },
-    {
-      "ts": "2026-07-12T17:03:45.143010+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-9"
-      ]
-    },
-    {
-      "ts": "2026-07-12T21:08:32.358312+00:00",
-      "count": 1,
-      "succeeded": 1,
-      "missions": [
-        "MISSION-10"
-      ]
-    },
-    {
-      "ts": "2026-07-13T01:10:16.314703+00:00",
-      "count": 4,
-      "succeeded": 4,
-      "missions": [
-        "MISSION-001",
-        "MISSION-011",
-        "MISSION-012",
-        "MISSION-013"
-      ]
-    },
-    {
       "ts": "2026-07-13T05:11:50.125699+00:00",
       "count": 4,
       "succeeded": 4,
@@ -603,6 +476,137 @@
         "MISSION-743",
         "MISSION-744",
         "MISSION-747"
+      ]
+    },
+    {
+      "ts": "2026-07-29T18:01:43.864202+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-686",
+        "MISSION-704",
+        "MISSION-735",
+        "MISSION-740"
+      ]
+    },
+    {
+      "ts": "2026-07-29T18:30:04.744496+00:00",
+      "count": 4,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-746",
+        "MISSION-052",
+        "MISSION-623",
+        "MISSION-624"
+      ]
+    },
+    {
+      "ts": "2026-07-29T18:42:46.628392+00:00",
+      "count": 4,
+      "succeeded": 1,
+      "missions": [
+        "MISSION-746",
+        "MISSION-052",
+        "MISSION-623",
+        "MISSION-624"
+      ]
+    },
+    {
+      "ts": "2026-07-29T22:02:49.504614+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-746",
+        "MISSION-052",
+        "MISSION-623",
+        "MISSION-624"
+      ]
+    },
+    {
+      "ts": "2026-07-30T02:06:28.138449+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-656",
+        "MISSION-666",
+        "MISSION-680",
+        "MISSION-706"
+      ]
+    },
+    {
+      "ts": "2026-07-30T06:07:43.237541+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-710",
+        "MISSION-714",
+        "MISSION-729",
+        "MISSION-736"
+      ]
+    },
+    {
+      "ts": "2026-07-30T10:10:33.563833+00:00",
+      "count": 4,
+      "succeeded": 4,
+      "missions": [
+        "MISSION-743",
+        "MISSION-756",
+        "MISSION-757",
+        "MISSION-758"
+      ]
+    },
+    {
+      "ts": "2026-07-30T12:15:17.933916+00:00",
+      "count": 2,
+      "succeeded": 2,
+      "missions": [
+        "MISSION-761",
+        "MISSION-762"
+      ]
+    },
+    {
+      "ts": "2026-07-30T22:18:03.380657+00:00",
+      "count": 2,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-765",
+        "MISSION-766"
+      ]
+    },
+    {
+      "ts": "2026-07-31T02:20:03.649973+00:00",
+      "count": 2,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-765",
+        "MISSION-766"
+      ]
+    },
+    {
+      "ts": "2026-07-31T06:22:05.213736+00:00",
+      "count": 2,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-765",
+        "MISSION-766"
+      ]
+    },
+    {
+      "ts": "2026-07-31T10:24:22.843450+00:00",
+      "count": 2,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-765",
+        "MISSION-766"
+      ]
+    },
+    {
+      "ts": "2026-07-31T12:15:06.790758+00:00",
+      "count": 2,
+      "succeeded": 0,
+      "missions": [
+        "MISSION-765",
+        "MISSION-766"
       ]
     }
   ],

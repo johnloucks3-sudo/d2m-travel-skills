@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-29 15:30 UTC)
+## COMMANDER-READY (2026-07-31 12:00 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,34 +59,35 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-29 09:30
+## STATE BRIDGE BRIEFING — 2026-07-31 06:00
 
-### Since last session (2026-07-29 15:00:00 → still open)
+### Since last session (2026-07-31 11:54:27 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `8db5095f1` ci: fix d2m-github-sync gate — remove hardcoded Pexels keys, allowlist historical commit, add .mjs files  _5 hours ago_
-- `9e2792e73` TCD fusion-center: full Sheet mirror + Gmail draft cards, status-override fix  _10 hours ago_
-- `0d3af2a4b` dossier: update Loucks Dec 2026 Grandeur hotel details from portal  _17 hours ago_
-- `75b849f98` 🦅 [REORG] Swept and symlinked BRAND_SOUL and tess_config in YOGA root folder  _19 hours ago_
-- `efec9ef3f` 🦅 [REORG] Expanded YOGA deep workspace clean to sweep and symlink state and config files  _19 hours ago_
+- `4179d3018` Wing comms doctrine: brief the Commander like the Colonel he is  _7 hours ago_
+- `43d5067e1` CLAUDE.md: ADHD response-style doctrine + delegation reconciliation  _7 hours ago_
+- `7cf4998da` telegram: Commander hold — keep it until notified to dismantle  _8 hours ago_
+- `b7dcbcfae` d2m-healthcheck + portal-probe re-enabled; usage-monitor correctly left off  _9 hours ago_
+- `538e5c816` canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run  _9 hours ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (29s ago)
-- `OpsCenter/collaboration/blackboard.md` (29m ago)
-- `hale_brief.md` (49m ago)
-- `dossiers/Loucks_Grandeur_PanamaPacific_Dec2026_TRACKER.md` (17.5h ago)
-- `dossiers/Loucks_Regent_Grandeur_3122006.md` (17.6h ago)
-- `AGENTS.md` (1.7d ago)
-- `dossiers/Loucks_2027_BA_Business_Airfare_Quote.md` (1.7d ago)
-- `dossiers/GROUP_Grandeur_Scandinavia_Aug2026_TRACKER.md` (1.7d ago)
+- `hale_state.json` (26s ago)
+- `hale_brief.md` (57m ago)
+- `AGENTS.md` (6.9h ago)
+- `OpsCenter/collaboration/blackboard.md` (8.5h ago)
+- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (8.9h ago)
+- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (11.4h ago)
+- `dossiers/McLeod_Grandeur_LesserAntilles_2984034.md` (1.6d ago)
+- `dossiers/DOSSIER_Regent_LesserAntilles_Dec2026.md` (1.6d ago)
 
-**Mission board:** 165 open (15 P0, 102 P1)
+**Mission board:** 177 open (15 P0, 107 P1)
   - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
   - 🔴 MISSION-011: Close Regent cookie expiration P0 — restore session access
-  - 🔴 MISSION-033: Close Regent cookie P0 — restore
+  - 🔴 MISSION-033: Close Regent cookie P0 — restore authenticated agent-portal session
+  - 🔴 MISSION-037: Close R
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)
@@ -491,3 +492,4 @@ Built to the Zero-Latitude pipeline gates and the same quality bar as the Scandi
   - [MEDIUM] Grandeur_Scandinavia_Aug2026: departs 2026-08-29, 22d stale
 
 - **2026-07-27 08:43:56 MT [CROSS-SEAT ACKNOWLEDGMENT]**: `HALE-AG-4★` and `JET-OC-3★` have ingested and acknowledged `ops/SO_HALE_HARDENING_20260727.md`. Front-end Sterling pre-commit audit and back-end Sonnet Silver certification active.
+- **2026-07-30 [COMMANDER DIRECTIVE] Model routing & budget doctrine — Commander-owned**: New SO issued: `standing_orders/SO_MODEL_ROUTING_BUDGET_DOCTRINE_20260730.md`. Commander states he owns this strategy directly (not a CC recommendation). Key points for all seats — CC, OC, AG: (1) stingy on Claude/CC points; (2) Opus 5 = lead PM, chyron tracking pending instrumentation; (3) OC stays on DeepSeek v4 ZEN free tier; (4) AG/Google defaults to Gemini 3.5 Flash, escalate to 3.1 Pro only when the job needs it (`contact_ag.py` updated); (5) Poe reservoir target 800K-900K by 19 Aug, hard cap 1.5M, whitelist-only burn; (6) check headroom before final project allocation, not every task; (7) SILVER + adversarial review mandatory-offer on every ad hoc project/plan (wiring pending). All seats: acknowledge via routing_log.

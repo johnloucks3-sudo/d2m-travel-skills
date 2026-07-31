@@ -1,28 +1,21 @@
 {
-  "run_at": "2026-07-26T23:27:34.697857",
-  "tasks_attempted": 3,
-  "tasks_succeeded": 3,
+  "run_at": "2026-07-31T06:15:00.134721",
+  "tasks_attempted": 2,
+  "tasks_succeeded": 0,
   "results": [
     {
-      "id": "MISSION-743",
-      "title": "Complete FPD audit for Furlow and Kuklinski",
-      "success": true,
-      "elapsed": 2.8831591606140137,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-743_20260726.md"
+      "id": "MISSION-765",
+      "title": "Assign owners to all 7 unassigned P1/P2 missions",
+      "success": false,
+      "elapsed": 1.226623773574829,
+      "output_path": null
     },
     {
-      "id": "MISSION-744",
-      "title": "Produce and deliver Lyons Regent pricing refresh",
-      "success": true,
-      "elapsed": 11.163341999053955,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-744_20260726.md"
-    },
-    {
-      "id": "MISSION-747",
-      "title": "Move Kuklinski validation and insurance emails to WF-17 queue",
-      "success": true,
-      "elapsed": 3.3431034088134766,
-      "output_path": "/home/john/Thunderbird/output/executor_results/MISSION-747_20260726.md"
+      "id": "MISSION-766",
+      "title": "Stage Kuklinski validation and insurance emails to WF-17",
+      "success": false,
+      "elapsed": 1.4098641872406006,
+      "output_path": null
     }
   ]
 }

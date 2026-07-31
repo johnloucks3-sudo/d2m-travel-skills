@@ -70,9 +70,14 @@
     "19f9f09dec9426e4": 1,
     "19f9f3f7f9109318": 1,
     "19f9f7d1cfcbde2b": 1,
-    "19fae789bc55bb39": 1
+    "19fae789bc55bb39": 1,
+    "19fb4be5750e0800": 1,
+    "19fb4a70eb8c34b1": 1,
+    "19fb59234cefbf1c": 1,
+    "19fb5811979ffcd6": 1,
+    "19fb6c1f19f9e67d": 1
   },
-  "last_checkpoint": "2026-07-29T15:58:19.170945",
-  "last_checkpoint_reason": "sweep_complete",
-  "elapsed_sec": 67.7
+  "last_checkpoint": "2026-07-31T07:29:35.345120",
+  "last_checkpoint_reason": "batch_of_8_at_idx_7",
+  "elapsed_sec": 252.4
 }

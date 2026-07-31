@@ -104,6 +104,26 @@ def dispatch_task(task: dict, dry_run: bool = False) -> tuple[bool, str]:
         log.error(f"opencode CLI not found at {oc_bin} — OC lane cannot run off-meter")
         return False, f"opencode binary missing at {oc_bin}"
 
+    # OC LANE HYGIENE (2026-07-30). `opencode run` either answers in ~25s or
+    # blocks FOREVER with zero output — it never errors and never times out from
+    # the far side. Measured: three serial runs hung 400s each while other
+    # opencode processes were live; the same model answered in 24s once they were
+    # cleared. Sweeping stale runs and capping concurrency is what makes this lane
+    # usable; without it OC's observed success rate was ~38%, which looked like a
+    # model-quality problem and was not.
+    try:
+        from core.relay.oc_hygiene import before_dispatch, kill_group
+        gate = before_dispatch()
+        if not gate["ok"]:
+            log.warning(f"OC dispatch deferred: {gate['reason']}")
+            return False, gate["reason"]
+        if gate["swept"]["killed"]:
+            log.info(f"OC hygiene swept {len(gate['swept']['killed'])} stale run(s): "
+                     f"{[k['pid'] for k in gate['swept']['killed']]}")
+    except Exception as e:  # hygiene must never block real work
+        log.warning(f"OC hygiene unavailable ({e}) — dispatching unguarded")
+        kill_group = None
+
     log.info(f"Dispatching task {task['id']} → opencode ({DEFAULT_MODEL}) [off Claude meter]")
 
     try:
@@ -113,6 +133,10 @@ def dispatch_task(task: dict, dry_run: bool = False) -> tuple[bool, str]:
             text=True,
             timeout=TASK_TIMEOUT + 30,
             cwd=str(ROOT),
+            # New session so a timeout can kill the whole process GROUP. Nothing
+            # may survive holding a slot — a survivor is what makes the NEXT
+            # dispatch hang.
+            start_new_session=True,
         )
 
         if result.returncode != 0:
@@ -128,6 +152,15 @@ def dispatch_task(task: dict, dry_run: bool = False) -> tuple[bool, str]:
 
     except subprocess.TimeoutExpired:
         log.error(f"Task {task['id']} timed out after {TASK_TIMEOUT}s")
+        # A timed-out run that survives keeps its slot and hangs the NEXT
+        # dispatch. Sweep immediately rather than leaving it for the next call.
+        try:
+            from core.relay.oc_hygiene import sweep_stale
+            swept = sweep_stale(stale_after_s=TASK_TIMEOUT)
+            if swept["killed"]:
+                log.info(f"post-timeout sweep killed {[k['pid'] for k in swept['killed']]}")
+        except Exception:
+            pass
         return False, f"timeout after {TASK_TIMEOUT}s"
     except Exception as e:
         log.error(f"Dispatch error: {e}")

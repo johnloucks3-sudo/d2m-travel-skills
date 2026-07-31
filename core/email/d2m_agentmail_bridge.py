@@ -15,6 +15,7 @@ Run as a periodic job (deploy/d2m-agentmail-bridge.timer), not persistent —
 Gmail search is poll-based here, no push mechanism configured.
 """
 import json
+import socket
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -102,4 +103,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (socket.gaierror, OSError) as exc:
+        # Transient DNS / network failure — warn and exit 0 so systemd doesn't
+        # mark the unit failed and block future timer runs.
+        print(f"[bridge] WARN: transient network error, skipping this run: {exc}", file=sys.stderr)
+        sys.exit(0)

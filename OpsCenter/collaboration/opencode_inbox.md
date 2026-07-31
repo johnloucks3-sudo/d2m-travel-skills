@@ -8502,3 +8502,480 @@ status: UNREAD
 
 ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
 ---
+
+---
+## RELAY-664f7717 from CC — 2026-07-29 16:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1b967d2ea: mission board: stop the duplicate-spawn loop that produced 12 missions for one payment |  88 files changed, 7998 insertions(+), 857 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-29 16:43
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-e449275d from CC — 2026-07-29 17:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] db822d01c: mission board: harden entity dedupe against false merges, run the duplicate sweep |  3 files changed, 318 insertions(+), 41 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-29 17:16
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-4251db85 from CC — 2026-07-29 17:32 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1dce2f594: tcd: auto-reload daemons on code change; lock the status-pill contract |  2 files changed, 219 insertions(+) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-29 17:32
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-d70bb607 from CC — 2026-07-29 17:49 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] fee4251b2: silver: let the Commander close his own work; keep AI seats fully gated |  7 files changed, 572 insertions(+), 17 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-29 17:49
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-859287ea from CC — 2026-07-29 18:03 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0f4ce31a3: tcd: make the Commander's answer stick — stop re-raising alerts he already closed |  3 files changed, 245 insertions(+), 608 deletions(-) | author: Claude Haiku 4.5
+
+
+---
+## CLAUDE RESULT | MISSION-0615 | 2026-07-29 18:03
+status: UNREAD
+**Task:** |
+
+ERROR: Gemini disabled 2026-05-29 — GCP cost cap. Use Claude MAX (claude_max_oauth_sonnet).
+---
+
+---
+## RELAY-5dcea76b from CC — 2026-07-29 19:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c89df25b0: c2: cut the noise at the source — silence 12 senders, kill the Wilco promise machine |  5 files changed, 139 insertions(+), 20 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-ccc9b39a from CC — 2026-07-29 19:25 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 93dbf9ab8: c2: one gate to the Commander — dedup, render, batch, audit |  1 file changed, 371 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-bfedb311 from CC — 2026-07-29 19:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 05954369d: c2: stub audit — one real stub, one dead unit, not the epidemic feared |  2 files changed, 3209 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-483a376b from CC — 2026-07-29 19:27 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 22620e04e: oversight: stop the ledger from hiding failures |  1 file changed, 11 insertions(+), 4 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-7d0632da from CC — 2026-07-29 19:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] af21f595c: c2: ratchet guard on the gate + Slack app manifest |  3 files changed, 774 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-fe62bcb9 from CC — 2026-07-29 19:54 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f0543a15b: c2: Slack transport behind the gate, not beside it |  2 files changed, 255 insertions(+), 6 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-04b60415 from CC — 2026-07-29 20:35 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] dee9df027: c2: what the Commander closes, stays closed |  4 files changed, 1139 insertions(+), 69 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-71d2108e from CC — 2026-07-29 20:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8b341e690: c2: close three holes the security review found in the closure ledger |  1 file changed, 63 insertions(+), 14 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-a534277d from CC — 2026-07-29 20:49 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5411ef1a5: delegation: open both lanes — AG was starved of time, OC was billing Anthropic |  3 files changed, 44 insertions(+), 21 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-27586970 from CC — 2026-07-29 20:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] ffa675785: delegation: both lanes verified open — AG 4/4, OC 4/5 and honest about the miss |  1 file changed, 1 insertion(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-605d08e0 from CC — 2026-07-29 21:17 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3769dcc6c: c2: a reply now means verified work — and AG found four holes in it |  24 files changed, 890 insertions(+), 427 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-513dd547 from CC — 2026-07-29 21:26 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8a78731e5: c2: numbers must attach to something countable — claims check, designed by AG |  1 file changed, 50 insertions(+), 2 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-91603123 from CC — 2026-07-29 21:31 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8183e0add: c2: Socket Mode receiver — a tap becomes a permanent record |  2 files changed, 245 insertions(+), 6 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-bc988905 from CC — 2026-07-29 21:31 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2d0953e1d: docs: Slack activation runbook — four steps, no thread-scrolling required |  1 file changed, 86 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-677af08c from CC — 2026-07-29 21:43 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 9225d3f4c: c2: CERTIFIED — cross-Hale gate met, 12/12 on an independent engine |  1 file changed, 18 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-55c2ddf4 from CC — 2026-07-29 21:55 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] df4861906: skill: delegate — methodology + the benchmark that tested it honestly |  27 files changed, 1433 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-bc968142 from CC — 2026-07-29 22:01 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1dc670fb2: skill: cut what the benchmark said was redundant, keep the line that wasn't |  3 files changed, 19 insertions(+), 10 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-155d8cf2 from CC — 2026-07-29 22:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cce32626b: fpd: McLeod 2984034 paid 20 Jul — false OVERDUE stopped; commission hosts recorded |  17 files changed, 1414 insertions(+), 357 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-2e23251a from CC — 2026-07-29 22:39 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2d04f17eb: commission: Spencer OA 80%, Loucks Silver Nova Japan PERX zero-commission |  1 file changed, 111 insertions(+), 15 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-80c9e092 from CC — 2026-07-29 22:45 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 10422fa0a: ci: staged is not failed — stop 46 false 'COMMANDER ACTION REQUIRED' pages a day |  10 files changed, 393 insertions(+), 323 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-4859ab3f from CC — 2026-07-29 22:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 83ca89f72: c2: morning brief onto the gate; FPD standalone retired after coverage moved |  3 files changed, 28 insertions(+), 28 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-d5d9ae9d from CC — 2026-07-29 23:01 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 1fdb421f0: slack: degrade on thin scopes instead of failing shut |  1 file changed, 70 insertions(+), 16 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-b735e826 from CC — 2026-07-30 03:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c6bfaee01: slack: log every envelope so silence is diagnosable |  1 file changed, 7 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-22e1310a from CC — 2026-07-30 03:47 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 57eb05b63: tcd->slack: App Home renders the desk without hiding work |  3 files changed, 246 insertions(+), 2 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-a58cb529 from CC — 2026-07-30 03:49 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3d45fcd78: tcd->slack: parity tests + AG's adversarial parity audit |  2 files changed, 324 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-12ed6ace from CC — 2026-07-30 03:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 2c58fadf6: tcd->slack: retirement map — Phase 3 is cheaper than planned |  1 file changed, 400 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-079c196c from CC — 2026-07-30 03:52 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] f2d2c0590: tcd->slack: App Home shows the real desk, not an empty tab |  1 file changed, 105 insertions(+), 48 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-0cf9f867 from CC — 2026-07-30 03:54 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d86186d3a: tcd->slack: action adapter — actor defaults to ai, not Commander |  1 file changed, 206 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-797a772a from CC — 2026-07-30 04:02 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 12f13eaf4: slack: the Commander's tap now reaches the audit trail, not just the ledger |  2 files changed, 380 insertions(+), 7 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-924f66f7 from CC — 2026-07-30 04:19 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 0b32a08c1: slack: a closed item now actually leaves the desk |  1 file changed, 20 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## TASK: TP-ALERT-20260730
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-30 at 00:00 MT.
+  72 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## RELAY-ffd9169d from CC — 2026-07-30 22:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] e8eefad5f: fix: evening brief was queuing itself instead of sending |  1 file changed, 47 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-3f7543e8 from CC — 2026-07-30 23:50 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 6ea93cebf: slack: urgency outranks status — four P0s were invisible for up to 36 days |  1 file changed, 41 insertions(+), 3 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-02e854b8 from CC — 2026-07-30 23:53 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 60616617d: dossier: Wave Pointe Sep 6-7 booked — closes the pre-position gap; air still open |  1 file changed, 25 insertions(+), 1 deletion(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-d08ed334 from CC — 2026-07-31 00:14 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 466f27f61: silver: a path convention was holding every delegated item, forever |  3 files changed, 1193 insertions(+), 109 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-e09447d1 from CC — 2026-07-31 00:16 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 05aee8629: tcd: row-anchored sheet links, closure-aware status, gid resolution |  3 files changed, 58 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-b49931f1 from CC — 2026-07-31 00:33 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 3d5c4ed6a: dossier: air IS booked — withdraw a false cancel-by-Aug-30 warning |  1 file changed, 8 insertions(+), 4 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-d81862a1 from CC — 2026-07-31 02:51 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 86293c8ca: c2: kill a second morning brief firing 45min before the sanctioned one |  2 files changed, 18 insertions(+), 364 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-a880beba from CC — 2026-07-31 02:59 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d4ad26aa3: slack: front door, not a board — alerts, 8 links, one task button |  7 files changed, 972 insertions(+), 62 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-d9f55453 from CC — 2026-07-31 03:01 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b6adc604b: email C2 is live — Gmail tasking finally creates work |  2 files changed, 46 insertions(+), 2 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-7c1c1d64 from CC — 2026-07-31 03:03 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 07dc1aa91: grandeur: master dossier sent 3 couples to a cancelled hotel, 30 days out |  5 files changed, 793 insertions(+), 9 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-8016d682 from CC — 2026-07-31 03:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8fac0294d: slack: repoint 11 tests to the three-band contract — 44/44, then 58/58 whole suite |  2 files changed, 344 insertions(+), 66 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-2306783a from CC — 2026-07-31 03:21 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] d9668a334: telegram health: check the gateway process, not just the token |  1 file changed, 48 insertions(+), 7 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-5424d587 from CC — 2026-07-31 03:21 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] cb66bb949: xo sentinel: kill the fabricated governance SUCCESS |  1 file changed, 96 insertions(+), 6 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-19266d1a from CC — 2026-07-31 03:22 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 8d0cd772f: poe-burn-monitor: neutralize the phantom unit, recover the lost script |  2 files changed, 103 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-c1fe0b5a from CC — 2026-07-31 03:23 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 538e5c816: canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run |  2 files changed, 148 insertions(+), 3 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-33103871 from CC — 2026-07-31 03:29 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] b7dcbcfae: d2m-healthcheck + portal-probe re-enabled; usage-monitor correctly left off |  1 file changed, 12 insertions(+), 4 deletions(-) | author: Hale CC (Claude Code)
+
+---
+## RELAY-1db7f1ff from CC — 2026-07-31 03:42 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 7cf4998da: telegram: Commander hold — keep it until notified to dismantle |  1 file changed, 8 insertions(+) | author: Hale CC (Claude Code)
+
+---
+## RELAY-0ecc8c8b from CC — 2026-07-31 05:00 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 43d5067e1: CLAUDE.md: ADHD response-style doctrine + delegation reconciliation |  1 file changed, 80 insertions(+), 5 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-18110960 from CC — 2026-07-31 05:09 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 4179d3018: Wing comms doctrine: brief the Commander like the Colonel he is |  3 files changed, 119 insertions(+), 3 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## TASK: TP-ALERT-20260731
+status: UNREAD
+from: TP Alert Engine
+priority: P0
+stakes: high
+task: |
+  TP Alert Engine ran 2026-07-31 at 00:00 MT.
+  68 high-severity touchpoints require attention.
+  Review wing_comms.md for full staff tasking.
+  Expected output: Review and acknowledge in wing_comms.md
+
+
+---
+## RELAY-3d4cae06 from CC — 2026-07-31 13:38 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] c411a2b19: Close 2 confirmed OAuth leaks; verify other 2 already negligible |  3 files changed, 100 insertions(+), 102 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-e16c2817 from CC — 2026-07-31 13:39 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5fa284426: Rate-limit guard: fail-closed telemetry, 5h window, gated auto-spend |  3 files changed, 314 insertions(+), 60 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-24f4f0df from CC — 2026-07-31 13:39 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] a65211551: Fix repair/probe mismatch that paged the Commander hourly for 7h |  3 files changed, 112 insertions(+), 2 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-5895d84d from CC — 2026-07-31 13:39 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 927f7c4d6: Slack Hale front door: fix Keep icon, wire Texts link |  2 files changed, 4 insertions(+), 6 deletions(-) | author: Thunderbird Wing (seat unset)

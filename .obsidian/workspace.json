@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "fa6cfb5347324e10",
+        "id": "ce7900b13877bbbd",
         "type": "tabs",
         "children": [
           {
-            "id": "9a646f99b4a23e72",
+            "id": "40bc58aad24ebf37",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Commander_Review/07_Commission_Summary.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "07_Commission_Summary"
+              "title": "New tab"
             }
           }
         ]
@@ -41,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -74,7 +72,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -199,45 +198,47 @@
       "smart-connections:Smart Connections: Open random connection": false
     }
   },
-  "active": "9a646f99b4a23e72",
+  "active": "33852826d675ee9e",
   "lastOpenFiles": [
-    "OpsCenter/task_queue.db-wal",
-    "storage/ai_costs.db-journal",
-    "logs/sentinel/sweep_20260525_081500.json",
-    "OpsCenter/task_queue.db-shm",
-    "learning_rules.db-wal",
-    "logs/sentinel/sweep_20260525_081000.json",
-    "logs/sentinel/sweep_20260525_080500.json",
-    "logs/judge/judge_20260525_080000.json",
-    "logs/sentinel/sweep_20260525_080000.json",
-    "core/email/__pycache__/__init__.cpython-313.pyc",
-    "logs/sentinel/sweep_20260525_075500.json",
-    "ops/mission-063-prompt-formatting-study.md",
-    "ops/mission-064-anthropic-skills-ecosystem.md",
-    "ops/mission-061-findings.md",
+    "core/hale_bus/brain_bridge_board.lock",
+    "logs/crash_reports/red_star_scanner_1641846.log",
+    "logs/crash_reports/bryana_dashboard_1641407.log",
+    "logs/crash_reports/fpd_auto_update_1641388.log",
+    "logs/crash_reports/claude_usage_1641387.log",
+    "logs/crash_reports/hale_dashboard_gen_1641382.log",
+    "logs/crash_reports/claude_token_counter_1641389.log",
+    "logs/crash_reports/bryana_dashboard_1641385.log",
+    "logs/crash_reports/thunderbird_usage_monitor_1641383.log",
+    "logs/crash_reports/metrics_bot_1641376.log",
+    "logs/crash_reports/leader_1641373.log",
+    "OpsCenter/tmp_specs/deliverables/close_four_leaks_result.md",
+    "OpsCenter/tmp_specs/spec_close_four_leaks.md",
+    "OpsCenter/tmp_specs/deliverables/leak_audit_A_result.md",
+    "OpsCenter/tmp_specs/deliverables/leak_audit_B_result.md",
+    "OpsCenter/tmp_specs/spec_leak_audit_B_fallthrough.md",
+    "OpsCenter/tmp_specs/spec_leak_audit_A_inventory.md",
+    "output/directive_1785502219.md",
+    "OpsCenter/tmp_specs/deliverables/email_handling_fix_result.md",
+    "OpsCenter/tmp_specs/spec_fix_email_handling_repair_mismatch.md",
+    "output/directive_1785502037.md",
+    "OpsCenter/tmp_specs/deliverables/gap_sonnet_result.md",
+    "output/directive_1785501796.md",
+    "OpsCenter/tmp_specs/spec_close_gap_and_sonnet_bogus.md",
+    "OpsCenter/tmp_specs/deliverables/overnight_burn_result.md",
+    "OpsCenter/tmp_specs/spec_debug_overnight_burn.md",
+    "output/oc_worker/task_ci-fix-chrome-cdp-health.service-2_1785475927.md",
+    "OpsCenter/tmp_specs/deliverables/M2M3_result.md",
+    "OpsCenter/tmp_specs/deliverables/M1_result.md",
+    "OpsCenter/tmp_specs/spec_M2M3_rate_guard.md",
+    "OpsCenter/tmp_specs/spec_M1_self_observability.md",
+    "d2m-skills/plugins/cruise-cost-compare/SKILL.md",
+    "Commander_Review/D2M_4WEEK_ACCOMPLISHMENTS_2026-03.md",
+    "OpsCenter/AAR_2026-07-30_poe_burn_incident.md",
+    "OpsCenter/capacity_map_cc.md",
+    "OpsCenter/oc_model_benchmark_2026-07-30.md",
+    "cruises_web/cruise_tool_screenshot.jpg",
+    "cruises_web/assets/ports/berlin_brandenburg_gate.jpg",
     "output/invisible_pw_eval/baseline_chromium.png",
-    "output/prompt_formatting_study.md",
-    "docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md",
-    "OpsCenter/COMPLETE_AUTONOMY_INFRASTRUCTURE.md",
-    "OpsCenter/OPENCODE_BRIEFING_CLAUDE_HEADLESS.md",
-    "OpsCenter/CLAUDE_HEADLESS_ARCHITECTURE_SUMMARY.md",
-    "OpsCenter/OAUTH_QUICK_REFERENCE.md",
-    "OpsCenter/OAUTH_ALTERNATIVES_ANALYSIS.md",
-    "Personas/hale_layer_index.md",
-    "Personas/hale_governance_advanced.md",
-    "Personas/hale_operating_procedures.md",
-    "core/intel/intel/incubator_review_2026-04-23.md",
-    "OpsCenter/systemd_validation_report.md",
-    "drafts/LOUCKS_MCLEOD_DualOption_Template.md",
-    "drafts/KUKLINSKI_DualOption_Emails_Draft.md",
-    "drafts/WESTBROOK_OPTION2_Emails_Draft.md",
-    "Agents_NEW/README.md",
-    "Agents_NEW/OAUTH_HEADLESS_FOR_OPENCODE.md",
-    "output/McLeod_Discretionary_Arc_Library.md",
-    "output/Loucks_Discretionary_Arc_Library.md",
-    "output/Kuklinski_Timeline_Touchpoint_Email_Library.md",
-    "output/Kuklinski_Lifecycle_Email_Library_Full_22TP.md",
-    "output/Kuklinski_Discretionary_Arc_Library.md",
     "core/travel/data/centrav_search_first_2026-05-15.png",
     "core/travel/data/centrav_preflight_first_2026-05-15.png",
     "core/travel/data/centrav_search_premium_2026-05-15.png",
@@ -245,8 +246,6 @@
     "core/travel/data/centrav_search_economy_2026-05-15.png",
     "core/travel/data/centrav_preflight_economy_2026-05-15.png",
     "portal/portal_kuklinski_v2.png",
-    "portal/portal_kuklinski_screenshot.png",
-    "core/travel/data/centrav_search_first_2026-09-14.png",
     "Silver_Nova_Trip_Canvas.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

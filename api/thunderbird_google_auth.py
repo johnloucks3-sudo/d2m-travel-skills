@@ -172,6 +172,8 @@ def get_credentials(force_refresh: bool = False) -> Credentials:
     Raises FileNotFoundError if no token exists — run --authorize first.
     Raises ValueError if current token is missing required scopes.
     """
+    import json as _json
+    import logging as _logging
     global _cached_creds
 
     if _cached_creds and not force_refresh:
@@ -188,9 +190,24 @@ def get_credentials(force_refresh: bool = False) -> Credentials:
             "Run: python3 thunderbird_google_auth.py --authorize"
         )
 
+    # Detect tokens narrowed by another process (e.g. a gmail-only refresh that
+    # overwrote this file).  If the stored scopes are a strict subset of SCOPES,
+    # force a full-scope refresh before returning so callers like tcd-sync don't
+    # get an access token that lacks spreadsheets / drive / etc.
+    _stored = _json.loads(TOKEN_FILE.read_text())
+    _stored_scopes = set(_stored.get("scopes") or [])
+    _needs_scope_heal = bool(_stored.get("refresh_token")) and not set(SCOPES).issubset(_stored_scopes)
+
     creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
 
-    if creds.expired and creds.refresh_token:
+    if _needs_scope_heal:
+        _logging.getLogger(__name__).warning(
+            "gmail_token.json has narrower scopes than SCOPES — force-refreshing "
+            "with full scope set to heal token narrowed by another process"
+        )
+        creds.refresh(Request())
+        _save_token(creds)
+    elif creds.expired and creds.refresh_token:
         creds.refresh(Request())
         _save_token(creds)
 

@@ -55,6 +55,22 @@ pswitch() {
       echo "⚠  poe-gemini disabled — Poe Gemini forced-thinking mode returns empty content. Use: pswitch gemini"
       ;;
 
+    poe-gemini-pro|gp)
+      export ANTHROPIC_BASE_URL="$_GATEWAY"
+      export ANTHROPIC_AUTH_TOKEN="$_GATEWAY_KEY"
+      export ANTHROPIC_API_KEY="$_GATEWAY_KEY"
+      export ANTHROPIC_MODEL="poe-gemini-pro"
+      echo "✅ Provider: Gemini 3.1 Pro  (via Poe → gateway:4000)"
+      ;;
+
+    poe-gemini-36-flash|g36|gemini-36)
+      export ANTHROPIC_BASE_URL="$_GATEWAY"
+      export ANTHROPIC_AUTH_TOKEN="$_GATEWAY_KEY"
+      export ANTHROPIC_API_KEY="$_GATEWAY_KEY"
+      export ANTHROPIC_MODEL="poe-gemini-36-flash"
+      echo "✅ Provider: Gemini 3.6 Flash  (via Poe → gateway:4000)"
+      ;;
+
     r1|poe-r1)
       export ANTHROPIC_BASE_URL="$_GATEWAY"
       export ANTHROPIC_AUTH_TOKEN="$_GATEWAY_KEY"
@@ -177,7 +193,8 @@ pswitch() {
       echo "    pswitch ds         → DeepSeek V3.2     (Poe)"
       echo "    pswitch grok       → Grok 4.3           (Poe)"
       echo "    pswitch gf         → Grok 4.1 Fast      (Poe)"
-      echo "    pswitch gemini     → Gemini 2.5 Flash   (direct API key — Poe Gemini broken)"
+      echo "    pswitch gp         → Gemini 3.1 Pro     (Poe)"
+      echo "    pswitch g36        → Gemini 3.6 Flash   (Poe)"
       echo "    pswitch r1         → DeepSeek V4 Flash-E (Poe, PII-fence)"
       echo "    pswitch kimi       → Kimi K2.5 2M ctx   (Poe, PII-fence)"
       echo "    pswitch di         → DeepInfra Llama-3.3 (\$10 balance)"
@@ -202,6 +219,27 @@ pswitch() {
 # Short alias — ps <keyword> switches provider env vars only
 alias ps=pswitch
 
+# Intercept and wrap `claude` CLI command to automatically pass the selected model
+claude() {
+  if [ -n "$ANTHROPIC_MODEL" ]; then
+    # Only inject --model if the user has not explicitly overridden it with -m/--model
+    local has_model=false
+    for arg in "$@"; do
+      if [ "$arg" = "--model" ] || [ "$arg" = "-m" ]; then
+        has_model=true
+        break
+      fi
+    done
+    if $has_model; then
+      command claude "$@"
+    else
+      command claude --model "$ANTHROPIC_MODEL" "$@"
+    fi
+  else
+    command claude "$@"
+  fi
+}
+
 # ── ONE-WORD LAUNCH FUNCTIONS ───────────────────────────────────────────────
 # Each function: sets ANTHROPIC_BASE_URL + API key spoofing + model, then
 # launches `claude` (or passes args through). Completely self-contained —
@@ -218,8 +256,10 @@ _ps_launch() {
   cd ~/Thunderbird && claude "$@"
 }
 
+
 pa()      { unset ANTHROPIC_BASE_URL ANTHROPIC_AUTH_TOKEN ANTHROPIC_API_KEY ANTHROPIC_MODEL; echo "⚡ Anthropic direct (native — explicit override)"; cd ~/Thunderbird && claude "$@"; }
 poc()     { echo "⚡ OpenCode (DeepSeek direct)"; cd ~/Thunderbird && opencode "$@"; }
+og36()    { echo "⚡ OpenCode with Gemini 3.6 Flash (Direct Google Key)"; cd ~/Thunderbird && opencode -m google/gemini-3.6-flash "$@"; }
 pds()     { _ps_launch "poe-deepseek"      "DeepSeek V3.2 (Poe)"         "$@"; }
 pgrok()   { _ps_launch "poe-grok4"         "Grok 4.3 (Poe)"              "$@"; }
 pgf()     { _ps_launch "poe-grok-fast"     "Grok 4.1 Fast (Poe)"         "$@"; }
@@ -227,6 +267,8 @@ pr1()     { _ps_launch "poe-r1"            "DeepSeek V4 Flash-E (Poe·PII-fence)
 pkimi()   { _ps_launch "poe-kimi"          "Kimi K2.5 2M (Poe·PII-fence)" "$@"; }
 ppc()     { _ps_launch "poe-claude"        "Claude Sonnet 4.6 (Poe)"     "$@"; }
 pgemini() { _ps_launch "gemini-fallback"   "Gemini 2.5 Flash"            "$@"; }
+pgp()     { _ps_launch "poe-gemini-pro"    "Gemini 3.1 Pro (Poe)"        "$@"; }
+pg36()    { _ps_launch "poe-gemini-36-flash" "Gemini 3.6 Flash (Poe)"      "$@"; }
 pdi()     { _ps_launch "deepinfra-llama"   "DeepInfra Llama-3.3 (\$10)"  "$@"; }
 pdir1()   { _ps_launch "deepinfra-r1"      "DeepInfra R1 (\$10)"         "$@"; }
 pdids()   { _ps_launch "deepinfra-deepseek" "DeepInfra DeepSeek (\$10)"  "$@"; }

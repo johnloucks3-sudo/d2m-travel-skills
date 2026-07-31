@@ -21,8 +21,10 @@ AG's strengths to lean on (why you'd bring her in):
 
 Hard-won invocation (see reference_cross_hale_cli_dispatch_mechanics memory):
   • FORCE a strong model — the agy default (GPT-OSS 120B) hallucinates.
-    Default here: "Gemini 3.1 Pro (High)". Fallbacks if she's down/limited:
-    "Claude Opus 4.6 (Thinking)", "Claude Sonnet 4.6 (Thinking)", "Gemini 3.5 Flash (High)".
+    Default here: "Gemini 3.5 Flash (High)" (Commander directive 2026-07-30 —
+    cost-driven default; pass model="Gemini 3.1 Pro (High)" explicitly when the
+    job actually calls for Pro). Fallbacks if she's down/limited:
+    "Gemini 3.1 Pro (High)", "Claude Opus 4.6 (Thinking)", "Claude Sonnet 4.6 (Thinking)".
   • ABSOLUTE output paths only — relative paths land in her brain sandbox, not the repo.
   • --add-dir <repo> is mandatory; frame the ask as a peer staff action.
 
@@ -48,7 +50,23 @@ import subprocess
 from typing import Optional
 
 REPO = "/home/john/Thunderbird"
-DEFAULT_MODEL = "Gemini 3.1 Pro (High)"
+# Commander directive 2026-07-30: AG runs on Gemini 3.6 Flash.
+#
+# "Flash" is not a downgrade here. The Gemini Pro line has been FROZEN at 3.1 Pro
+# since Feb 2026 — there is no 3.5 Pro or 3.6 Pro — while Flash kept shipping and
+# passed it. Published, 3.6-Flash / 3.5-Flash / 3.1-Pro:
+#     SWE-Bench Pro      58.7% / 55.1% / 54.2%
+#     DeepSWE v1.1        49%  /  37%  /  12%     <- long-horizon agentic
+#     Terminal-bench 2.1 78.0% / 76.2% / 73.8%
+#     GDPVal-AA v2 Elo    1421 /  1349 /   965
+# It is also cheaper and faster. Verified live on this repo 2026-07-30: scored 3/3
+# on a line-number/constant extraction task via `agy --model gemini-3.6-flash-high`.
+#
+# MODEL ID FORMAT CHANGED. `agy models` now returns lowercase-hyphenated ids
+# (gemini-3.6-flash-high). The spaced-parenthetical form documented in CLAUDE.md
+# ("Gemini 3.1 Pro (High)") still resolves, but the ids below are canonical —
+# run `agy models` to confirm before adding one.
+DEFAULT_MODEL = "gemini-3.6-flash-high"
 
 # ── Input hardening (security review 2026-07-19) ────────────────────────────
 # `model` and `add_dir` become argv to `agy`; a flag-shaped value ("-x", "--foo")
@@ -84,10 +102,17 @@ def _validate_dir(add_dir: str) -> str:
     if p != repo and os.path.commonpath([p, repo]) != repo:
         raise ValueError(f"add_dir {add_dir!r} must be {REPO} or a subdirectory")
     return p
+# Fallbacks in order. Canonical ids from `agy models` (2026-07-30):
+#   gemini-3.6-flash-{high,medium,low} · gemini-3.5-flash-{high,medium,low}
+#   gemini-3.1-pro-{high,low} · claude-sonnet-4-6 · claude-opus-4-6-thinking
+#   gpt-oss-120b-medium  <-- NEVER use: hallucinates (invents paths/filenames)
+# 3.1-pro sits below 3.5-flash deliberately: it leads on GPQA-class reasoning and
+# vision, but trails badly on agentic/coding work (DeepSWE 12% vs 37%/49%).
 FALLBACK_MODELS = (
-    "Claude Opus 4.6 (Thinking)",
-    "Claude Sonnet 4.6 (Thinking)",
-    "Gemini 3.5 Flash (High)",
+    "gemini-3.6-flash-medium",
+    "gemini-3.5-flash-high",
+    "gemini-3.1-pro-high",       # reasoning/vision strength; weak on agentic
+    "claude-sonnet-4-6",
 )
 
 # Which engine each seat runs on — used only to introduce the sender honestly.
@@ -153,6 +178,23 @@ def contact_ag(
     `ok`. On a model outage, retry with a FALLBACK_MODELS entry."""
     model = _validate_model(model)
     add_dir = _validate_dir(add_dir)
+
+    # Headroom check BEFORE spending. engine_limits shipped 2026-07-29 with
+    # exactly this guard and sat uncalled for two hours while an unmetered
+    # benchmark burned ~99K Poe points — "wiring is a separate task" is what
+    # made that possible. Fails OPEN (a broken meter must not stop the work),
+    # but a real cap breach returns ok=False and is refused here.
+    try:
+        from core.relay.engine_limits import check_headroom, record_call
+        _hr = check_headroom("AG")
+        if not _hr.get("ok", True):
+            return {"ok": False, "returncode": 429, "model": model,
+                    "stdout": "", "stderr": f"AG rate cap: {_hr.get('reason', '')}",
+                    "deliverable_path": deliverable_path, "deliverable_written": False,
+                    "headroom": _hr}
+    except Exception:
+        check_headroom = record_call = None  # meter unavailable — never block on it
+
     prompt = peer_prompt(task, deliverable_path=deliverable_path,
                          from_seat=from_seat, verdict_tag=verdict_tag, strengths=strengths)
     agy_timeout_min = max(1, (timeout - 30) // 60)
@@ -172,7 +214,15 @@ def contact_ag(
         rc, out, err = 127, "", "agy CLI not found on PATH"
     written = bool(deliverable_path) and os.path.exists(deliverable_path) and (
         not before or os.path.getsize(deliverable_path) > 0)
-        
+
+    # Meter the call so check_headroom() above has something to read next time.
+    # Best-effort: a ledger failure must never affect the dispatch result.
+    try:
+        if record_call:
+            record_call("AG", ok=(rc == 0), task=verdict_tag or "contact_ag")
+    except Exception:
+        pass
+
     try:
         import datetime
         timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()

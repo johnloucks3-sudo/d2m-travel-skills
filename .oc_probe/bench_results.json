@@ -1,0 +1,29 @@
+[
+  {
+    "model": "opencode/deepseek-v4-flash-free",
+    "rc": 0,
+    "secs": 118.0,
+    "stdout_len": 33,
+    "correct": true,
+    "tail": "`opencode/deepseek-v4-flash-free`",
+    "stderr": "\u001b[0m\n> build \u00b7 deepseek-v4-flash-free\n\u001b[0m\n\u001b[0m\u2731 \u001b[0mGrep \"DEFAULT_MODEL\"\u001b[90m 5 matches\u001b[0m\n"
+  },
+  {
+    "model": "opencode/laguna-s-2.1-free",
+    "rc": 0,
+    "secs": 84.7,
+    "stdout_len": 31,
+    "correct": true,
+    "tail": "opencode/deepseek-v4-flash-free",
+    "stderr": "\u001b[0m\n> build \u00b7 laguna-s-2.1-free\n\u001b[0m\n\u001b[0m\u2192 \u001b[0mRead scripts/oc_worker.py\n"
+  },
+  {
+    "model": "opencode/ling-3.0-flash-free",
+    "rc": 0,
+    "secs": 126.4,
+    "stdout_len": 17,
+    "correct": false,
+    "tail": "claude-sonnet-4-6",
+    "stderr": "\u001b[0m\n> build \u00b7 ling-3.0-flash-free\n\u001b[0m\n"
+  }
+]

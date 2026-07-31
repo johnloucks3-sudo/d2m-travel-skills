@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-07-28T12:00:07.887367+00:00",
+  "timestamp": "2026-07-31T12:00:06.598014+00:00",
   "url": "https://poe.com/api/keys",
-  "points_available": 1233200,
-  "value_usd": 37.37,
+  "points_available": 1117165,
+  "value_usd": 33.85,
   "status": "ok",
-  "raw_sample": "Go to chat\nAPI Keys\nApplications can use API keys to query bots on Poe via your account. Only share API keys with applications you trust. Learn more.\nCreate key\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nThunderbird & Opencode\nsk-poe-...WBDkVs\n\tEnabled\t06/29/2026\t\t\nConnected bots\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nOpenCode\nsk-poe-...yaaI2c\n\tEnabled\t06/30/2026\t\t\nPoints\n1,233,200\navailable\n\u2248 $37.37 value\nAuto-recharge\nAuto-recharge is disabled. Enable auto recharge to avoid API interruptions when the approximate valu"
+  "raw_sample": "Go to chat\nAPI Keys\nApplications can use API keys to query bots on Poe via your account. Only share API keys with applications you trust. Learn more.\nCreate key\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nThunderbird & Opencode\nsk-poe-...WBDkVs\n\tEnabled\t06/29/2026\t\t\nConnected bots\nKEY\tSTATUS\tCREATED\tEXPIRES\t\n\nOpenCode\nsk-poe-...yaaI2c\n\tEnabled\t06/30/2026\t\t\nPoints\n1,117,165\navailable\n\u2248 $33.85 value\nAuto-recharge\nAuto-recharge is disabled. Enable auto recharge to avoid API interruptions when the approximate valu"
 }

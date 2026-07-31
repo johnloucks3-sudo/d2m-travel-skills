@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-30",
+  "lines": {
+    "Regent Seven Seas Cruises": {
+      "summary": "[WARN] PERPLEXITY_API_KEY not set"
+    },
+    "Silversea Cruises": {
+      "summary": "[WARN] PERPLEXITY_API_KEY not set"
+    },
+    "Viking Ocean Cruises": {
+      "summary": "[WARN] PERPLEXITY_API_KEY not set"
+    },
+    "Princess Cruises": {
+      "summary": "[WARN] PERPLEXITY_API_KEY not set"
+    },
+    "Carnival Cruise Line": {
+      "summary": "[WARN] PERPLEXITY_API_KEY not set"
+    }
+  }
+}

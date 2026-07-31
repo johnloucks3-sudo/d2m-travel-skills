@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Google",
+    "snippet": "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
+    "url": "https://www.google.com/xhtml/search",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  },
+  {
+    "title": "Search - Microsoft Bing",
+    "snippet": "Search with Microsoft Bing and use the power of AI to find information, explore webpages, images, videos, maps, and more. A smart search engine for the forever curious.",
+    "url": "https://www.bing.com/",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  },
+  {
+    "title": "Yahoo Search - Web Search",
+    "snippet": "The search engine that helps you find exactly what you're looking for. Find the most relevant information, video, images, and answers from all across the Web.",
+    "url": "https://search.yahoo.com/",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  },
+  {
+    "title": "Google Search - A new kind of help",
+    "snippet": "Explore a new kind of help for your everyday with breakthroughs in Search intelligence from Google I/O.",
+    "url": "https://search.google/",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  },
+  {
+    "title": "Yahoo",
+    "snippet": "2 days ago \u00b7 News, email and search are just the beginning. Discover more every day. Find your yodel.",
+    "url": "https://www.yahoo.com/",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  },
+  {
+    "title": "DuckDuckGo - Protection. Privacy. Peace of mind.",
+    "snippet": "That's why millions of people choose DuckDuckGo over Chrome and other browsers to search and browse online. Our built-in search engine is like Google but never tracks your searches, and our browser blocks \u2026",
+    "url": "https://duckduckgo.com/",
+    "source": "ddg_web",
+    "query": "search for recent AI/developer/tech innovation relevant to Thunderbird OS and pick the most promising one to evaluate."
+  }
+]

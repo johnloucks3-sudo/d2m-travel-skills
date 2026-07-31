@@ -1,7 +1,7 @@
 {
   "loucks_silvernova": {
     "label": "Loucks Silver Nova 2027 \u2014 Flight Routing Options",
-    "as_of": "2026-07-28T11:45:00.491721+00:00",
+    "as_of": "2026-07-30T11:45:00.220035+00:00",
     "upload": {
       "ok": true,
       "id": "1pv3Pa7zPTTLLv3qyjDNgWhK3wsp_yzWu",
@@ -48,7 +48,7 @@
   },
   "spencer_grandtour": {
     "label": "Spencer Grand Tour 2027 \u2014 Flight Options All Legs",
-    "as_of": "2026-07-28T11:45:04.824822+00:00",
+    "as_of": "2026-07-30T11:45:04.584070+00:00",
     "upload": {
       "ok": true,
       "id": "1HjWpOjS2_yDynOynlt25RJetLF7U_rB3",
@@ -95,7 +95,7 @@
   },
   "airfare_dashboard": {
     "label": "Thunderbird Airfare Dashboard",
-    "as_of": "2026-07-28T11:45:06.864964+00:00",
+    "as_of": "2026-07-30T11:45:06.917654+00:00",
     "upload": {
       "ok": true,
       "id": "10UFKH5CSFFyvhHHh1nTUCe87bu_Re838",

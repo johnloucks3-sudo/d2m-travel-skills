@@ -101,7 +101,14 @@
       "mcp__Claude_in_Chrome__navigate",
       "mcp__Claude_in_Chrome__read_page",
       "mcp__Claude_in_Chrome__computer",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "mcp__travel__gmail_search_messages",
+      "mcp__travel__gmail_read_message",
+      "mcp__travel__drive_search",
+      "mcp__plugin_context-mode_context-mode__ctx_execute",
+      "mcp__travel__keep_search_notes",
+      "Artifact",
+      "Bash(kill -0 1605031)"
     ],
     "deny": [
       "mcp__playwright__browser_evaluate",

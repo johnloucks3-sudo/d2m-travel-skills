@@ -1,16 +1,19 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-29 10:40:12 MDT
+## Generated: 2026-07-31 07:35:38 MDT
 
 ---
 
 ### Recent Commits
-- b12742d19 oversight v2: status and roadmap, with outstanding FPD flagged
-- c3ef4e73c oversight v2: add the canary, wire timers, surface the real backlog
-- 98009dd1d oversight v2: span ledger, MAST taxonomy, reaper, and fix a live green-on-silence lie
-- 8db5095f1 ci: fix d2m-github-sync gate — remove hardcoded Pexels keys, allowlist historical commit, add .mjs files
-- 9e2792e73 TCD fusion-center: full Sheet mirror + Gmail draft cards, status-override fix
+- 4179d3018 Wing comms doctrine: brief the Commander like the Colonel he is
+- 43d5067e1 CLAUDE.md: ADHD response-style doctrine + delegation reconciliation
+- 7cf4998da telegram: Commander hold — keep it until notified to dismantle
+- b7dcbcfae d2m-healthcheck + portal-probe re-enabled; usage-monitor correctly left off
+- 538e5c816 canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run
 
 ### Uncommitted Changes
+ M .claude/settings.json
+ M .claude/settings.local.json
+ M .obsidian/workspace.json
  m Blackboard
  M CLAUDE.md
  M OpsCenter/.ci_rapid_repair_notify_dedup.json
@@ -21,21 +24,18 @@
  M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
+ M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/ai_auth_probe.py
+ M OpsCenter/brief_feedback_config.json
+ M OpsCenter/bryana_usage_report_2026-07.json
+ M OpsCenter/claude_inbox.md
  M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/fare_watches/google_flights_last_check.json
- M OpsCenter/fare_watches/last_check.json
- M OpsCenter/itinerary_watchdog_status.json
- M OpsCenter/keepalive_health.json
- M OpsCenter/mission_board.json
- M OpsCenter/mission_board_sync.py
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 1016 pending task(s)
+- OpenCode inbox: 1077 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

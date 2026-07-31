@@ -1,0 +1,15 @@
+{
+  "directives": [
+    {
+      "timestamp": "2026-07-31T12:50:43.773927Z",
+      "from": "Commander (johnloucks3@gmail.com)",
+      "subject": "Morning Consolidated Brief \u2014 Stale Data",
+      "directive": "Stop sending morning consolidated brief until data integrity is verified and stale items are resolved",
+      "context": "Brief sent 06:30 MT 2026-07-31 contains historical/completed items (FPD Jul 22, Jul 6 returns, target sends from Jul 20). System pulling stale state.",
+      "priority": "P0",
+      "status": "CAPTURED",
+      "root_cause_investigation_needed": true,
+      "verification_gate": "integrity_check.verify_and_record()"
+    }
+  ]
+}

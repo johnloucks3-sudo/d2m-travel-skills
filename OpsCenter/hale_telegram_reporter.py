@@ -51,11 +51,12 @@ def send_to_commander(
         )
     """
 
-    if not D2MC2C_BOT_TOKEN:
-        logger.warning("TELEGRAM_BOT_TOKEN not set — cannot send to Telegram")
-        return False
-
-    # Format message with Hale signature
+    # Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    # 2026-07-29). This used to hit the bot API directly and, on also_email=True,
+    # separately call the Gmail send API — two of the direct senders the gate
+    # replaced. notify() is itself the delivery (email, plus Slack if configured),
+    # so also_email no longer needs a second call — it is accepted for backward
+    # compatibility and otherwise ignored.
     emoji_map = {
         "update": "📋",
         "decision": "✅",
@@ -68,44 +69,16 @@ def send_to_commander(
 
     formatted = f"{prefix}{emoji} **[Hale]** {message}"
 
-    # Try to send via Telegram API
-    telegram_sent = False
     try:
-        import requests
-        response = requests.post(
-            f"https://api.telegram.org/bot{D2MC2C_BOT_TOKEN}/sendMessage",
-            json={
-                "chat_id": COMMANDER_TELEGRAM_ID,
-                "text": formatted,
-                "parse_mode": "Markdown"
-            },
-            timeout=5
-        )
-
-        if response.status_code == 200:
-            logger.info(f"✅ Telegram message sent: {message_type}")
-            telegram_sent = True
-        else:
-            logger.error(f"Telegram API error: {response.status_code}")
-
+        from core.comms.commander_channel import notify
+        kwargs = {"urgency": "NOW" if urgent else "WINDOW", "source": "hale_telegram_reporter"}
+        if urgent:
+            kwargs["reason"] = f"urgent Hale {message_type} report"
+        result = notify(message_type, f"[Hale] {message_type.title()}", formatted, **kwargs)
+        return result.get("status") in ("sent", "queued", "suppressed")
     except Exception as e:
-        logger.error(f"Failed to send Telegram message: {e}")
-
-    # Optionally email to Commander
-    if also_email:
-        try:
-            from core.email.thunderbird_gmail import send_email
-            send_email(
-                to="johnloucks3@gmail.com",
-                subject=f"[Hale Activity] {message_type.upper()}",
-                body=message,
-                from_addr="d2mconcierge@gmail.com"
-            )
-            logger.info(f"✅ Email sent to johnloucks3: {message_type}")
-        except Exception as e:
-            logger.error(f"Failed to email Commander: {e}")
-
-    return telegram_sent
+        logger.error(f"notify() send failed: {e}")
+        return False
 
 
 def report_decision(decision: str, reasoning: str = "", next_step: str = ""):

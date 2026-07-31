@@ -16,11 +16,13 @@ Timer: cruise-quote-scanner.timer (every 15 min)
 """
 
 import json, os, re, sqlite3, base64, sys
+import socket
 from pathlib import Path
 from datetime import datetime, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import urllib.request
+import httplib2
 
 try:
     from google.oauth2.credentials import Credentials
@@ -405,4 +407,9 @@ def scan():
 
 
 if __name__ == "__main__":
-    scan()
+    try:
+        scan()
+    except (httplib2.error.ServerNotFoundError, socket.gaierror, OSError) as e:
+        # Transient network failure — DNS or connection unavailable. Timer retries in 15 min.
+        print(f"[WARN] Network unavailable, skipping run: {e}", file=sys.stderr)
+        sys.exit(0)

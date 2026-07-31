@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>D2M WAR — Week of Jul 24–Jul 30, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f7f3ea; color: #1a1a1a; }
+  .header { background: linear-gradient(135deg, #003087 0%, #000d3a 100%); color: white; padding: 40px 48px 28px; }
+  .header-eye { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #a8c4ff; margin-bottom: 6px; }
+  .header-title { font-size: 2rem; font-weight: normal; color: #fff; }
+  .header-sub { font-size: 1rem; color: #f0c040; margin-top: 6px; }
+  .header-meta { font-size: 0.75rem; color: #a8c4ff; margin-top: 10px; }
+  .accentline { height: 4px; background: linear-gradient(90deg, #003087, #a9b0b7, #fff, #a9b0b7, #003087); }
+  .stat-bar { background: #003087; padding: 12px 48px; display: flex; gap: 36px; flex-wrap: wrap; }
+  .stat { color: white; font-size: 0.75rem; }
+  .stat span { color: #f0c040; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+  .body { max-width: 940px; margin: 0 auto; padding: 36px 48px; }
+  .section-head { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2.5px; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 5px; margin: 30px 0 14px; }
+  .section-head.gold { color: #b45309; border-color: #b45309; }
+  .section-head.green { color: #15803d; border-color: #15803d; }
+  .day-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,48,135,0.07); }
+  .day-card-header { background: #003087; color: white; padding: 12px 22px; }
+  .day-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: #a8c4ff; }
+  .day-title { font-size: 1rem; color: white; margin-top: 2px; }
+  .day-card-body { padding: 16px 22px; }
+  .build-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #ede8df; font-size: 0.86rem; line-height: 1.6; }
+  .build-item:last-child { border-bottom: none; }
+  .tag { flex-shrink: 0; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 9px; height: fit-content; margin-top: 2px; letter-spacing: 0.4px; }
+  .tag-build { background: #eff6ff; color: #1d4ed8; }
+  .tag-fix { background: #fef2f2; color: #b91c1c; }
+  .tag-client { background: #f0fdf4; color: #15803d; }
+  .tag-ops { background: #fffbeb; color: #92400e; }
+  .tag-doc { background: #f5f3ff; color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+  thead tr { background: #003087; color: white; }
+  thead th { padding: 9px 13px; text-align: left; font-size: 0.68rem; letter-spacing: 0.5px; font-weight: normal; }
+  tbody tr { border-bottom: 1px solid #ede8df; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  tbody td { padding: 9px 13px; color: #333; }
+  .num { color: #003087; font-weight: bold; }
+  .footer { background: #000d3a; padding: 22px 48px; margin-top: 40px; text-align: center; }
+  .footer-brand { color: #f0c040; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+  .footer-sub { color: #a8c4ff; font-size: 0.72rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eye">Dreams2Memories Travel · Thunderbird Wing · Internal</div>
+  <div class="header-title">Weekly Activity Report</div>
+  <div class="header-sub">Week of Jul 24–Jul 30, 2026</div>
+  <div class="header-meta">Auto-generated 2026-07-30 21:27 MT · Commander Eyes Only</div>
+</div>
+<div class="accentline"></div>
+
+<div class="stat-bar">
+  <div class="stat"><span>166</span>Commits</div>
+  <div class="stat"><span>0</span>Missions Closed</div>
+  <div class="stat"><span>$18,831</span>D2M Pipeline</div>
+  <div class="stat"><span>$21,849</span>Commission Expected</div>
+  <div class="stat"><span>$0.00</span>Received (TESS)</div>
+  <div class="stat"><span>60</span>Active Missions</div>
+</div>
+
+<div class="body">
+
+  <div class="section-head">Week in Review — All Commits</div>
+  <div class="day-card">
+    <div class="day-card-header">
+      <div class="day-label">Git Log</div>
+      <div class="day-title">2026-07-24 → 2026-07-30 · 166 commits</div>
+    </div>
+    <div class="day-card-body">
+      <div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run <span style="color:#444;font-size:0.78rem;">(538e5c816)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — poe-burn-monitor: neutralize the phantom unit, recover the lost script <span style="color:#444;font-size:0.78rem;">(8d0cd772f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — xo sentinel: kill the fabricated governance SUCCESS <span style="color:#444;font-size:0.78rem;">(cb66bb949)</span></div></div>
+<div class="build-item"><span class="tag tag-ops">OPS</span><div class="item-body"><strong>2026-07-30</strong> — telegram health: check the gateway process, not just the token <span style="color:#444;font-size:0.78rem;">(d9668a334)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — slack: repoint 11 tests to the three-band contract — 44/44, then 58/58 whole suite <span style="color:#444;font-size:0.78rem;">(8fac0294d)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-30</strong> — grandeur: master dossier sent 3 couples to a cancelled hotel, 30 days out <span style="color:#444;font-size:0.78rem;">(07dc1aa91)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — email C2 is live — Gmail tasking finally creates work <span style="color:#444;font-size:0.78rem;">(b6adc604b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — slack: front door, not a board — alerts, 8 links, one task button <span style="color:#444;font-size:0.78rem;">(d4ad26aa3)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — c2: kill a second morning brief firing 45min before the sanctioned one <span style="color:#444;font-size:0.78rem;">(86293c8ca)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-30</strong> — dossier: air IS booked — withdraw a false cancel-by-Aug-30 warning <span style="color:#444;font-size:0.78rem;">(3d5c4ed6a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — tcd: row-anchored sheet links, closure-aware status, gid resolution <span style="color:#444;font-size:0.78rem;">(05aee8629)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — silver: a path convention was holding every delegated item, forever <span style="color:#444;font-size:0.78rem;">(466f27f61)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-30</strong> — dossier: Wave Pointe Sep 6-7 booked — closes the pre-position gap; air still open <span style="color:#444;font-size:0.78rem;">(60616617d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-30</strong> — slack: urgency outranks status — four P0s were invisible for up to 36 days <span style="color:#444;font-size:0.78rem;">(6ea93cebf)</span></div></div>
+<div class="build-item"><span class="tag tag-fix">FIX</span><div class="item-body"><strong>2026-07-30</strong> — fix: evening brief was queuing itself instead of sending <span style="color:#444;font-size:0.78rem;">(e8eefad5f)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — slack: a closed item now actually leaves the desk <span style="color:#444;font-size:0.78rem;">(0b32a08c1)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — slack: the Commander's tap now reaches the audit trail, not just the ledger <span style="color:#444;font-size:0.78rem;">(12f13eaf4)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — tcd->slack: action adapter — actor defaults to ai, not Commander <span style="color:#444;font-size:0.78rem;">(d86186d3a)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — tcd->slack: App Home shows the real desk, not an empty tab <span style="color:#444;font-size:0.78rem;">(f2d2c0590)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — tcd->slack: retirement map — Phase 3 is cheaper than planned <span style="color:#444;font-size:0.78rem;">(2c58fadf6)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — tcd->slack: parity tests + AG's adversarial parity audit <span style="color:#444;font-size:0.78rem;">(3d45fcd78)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — tcd->slack: App Home renders the desk without hiding work <span style="color:#444;font-size:0.78rem;">(57eb05b63)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — slack: log every envelope so silence is diagnosable <span style="color:#444;font-size:0.78rem;">(c6bfaee01)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — slack: degrade on thin scopes instead of failing shut <span style="color:#444;font-size:0.78rem;">(1fdb421f0)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: morning brief onto the gate; FPD standalone retired after coverage moved <span style="color:#444;font-size:0.78rem;">(83ca89f72)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — ci: staged is not failed — stop 46 false 'COMMANDER ACTION REQUIRED' pages a day <span style="color:#444;font-size:0.78rem;">(10422fa0a)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-29</strong> — commission: Spencer OA 80%, Loucks Silver Nova Japan PERX zero-commission <span style="color:#444;font-size:0.78rem;">(2d04f17eb)</span></div></div>
+<div class="build-item"><span class="tag tag-client">CLIENT</span><div class="item-body"><strong>2026-07-29</strong> — fpd: McLeod 2984034 paid 20 Jul — false OVERDUE stopped; commission hosts recorded <span style="color:#444;font-size:0.78rem;">(cce32626b)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — skill: cut what the benchmark said was redundant, keep the line that wasn't <span style="color:#444;font-size:0.78rem;">(1dc670fb2)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — skill: delegate — methodology + the benchmark that tested it honestly <span style="color:#444;font-size:0.78rem;">(df4861906)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: CERTIFIED — cross-Hale gate met, 12/12 on an independent engine <span style="color:#444;font-size:0.78rem;">(9225d3f4c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — docs: Slack activation runbook — four steps, no thread-scrolling required <span style="color:#444;font-size:0.78rem;">(2d0953e1d)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: Socket Mode receiver — a tap becomes a permanent record <span style="color:#444;font-size:0.78rem;">(8183e0add)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: numbers must attach to something countable — claims check, designed by AG <span style="color:#444;font-size:0.78rem;">(8a78731e5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: a reply now means verified work — and AG found four holes in it <span style="color:#444;font-size:0.78rem;">(3769dcc6c)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — delegation: both lanes verified open — AG 4/4, OC 4/5 and honest about the miss <span style="color:#444;font-size:0.78rem;">(ffa675785)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — delegation: open both lanes — AG was starved of time, OC was billing Anthropic <span style="color:#444;font-size:0.78rem;">(5411ef1a5)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: close three holes the security review found in the closure ledger <span style="color:#444;font-size:0.78rem;">(8b341e690)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: what the Commander closes, stays closed <span style="color:#444;font-size:0.78rem;">(dee9df027)</span></div></div>
+<div class="build-item"><span class="tag tag-build">BUILD</span><div class="item-body"><strong>2026-07-29</strong> — c2: Slack transport behind the gate, not beside it <span style="color:#444;font-size:0.78rem;">(f0543a15b)</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="section-head gold">Missions Closed This Week</div>
+  <table>
+    <thead><tr><th>Mission ID</th><th>Title</th></tr></thead>
+    <tbody><tr><td colspan='2' style='color:#444;'>No missions closed this week.</td></tr></tbody>
+  </table>
+
+  <div class="section-head green">Financial Pulse</div>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>D2M Pipeline (upcoming voyages)</td><td class="num">$18,830.93</td></tr>
+      <tr><td>Commission Expected (total sheet)</td><td class="num">$21,849.16</td></tr>
+      <tr><td>Checks Received (TESS)</td><td class="num">$0.00</td></tr>
+      <tr><td>Active Missions on Board</td><td class="num">60 of 211</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Dreams2Memories Travel · Thunderbird Wing</div>
+  <div class="footer-sub">WAR auto-generated every Friday at 2100 MT</div>
+</div>
+</body>
+</html>

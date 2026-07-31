@@ -132,11 +132,12 @@
       "by": "cc",
       "priority": "P1",
       "tag": "lyons",
-      "status": "open",
-      "claimed_by": null,
+      "status": "claimed",
+      "claimed_by": "oc",
       "added_at": "2026-07-03T21:44:51.568993+00:00",
       "done_at": null,
-      "note": null
+      "note": null,
+      "claimed_at": "2026-07-31T11:48:02.149070+00:00"
     },
     {
       "id": "ns-9f703c2",

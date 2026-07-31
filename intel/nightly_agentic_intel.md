@@ -1,70 +1,70 @@
-# Agentic Intel Sweep — 2026-07-28 01:05
+# Agentic Intel Sweep — 2026-07-31 01:03
 
 **11 findings** | Sources: Reddit, HN, GitHub, Serper, RSS
 
-## [CRITICAL] slopus/happy (22903 stars)
-- Source: github | Score: 22903
-- URL: https://github.com/slopus/happy
+## [CRITICAL] earendil-works/pi (81102 stars)
+- Source: github | Score: 81102
+- URL: https://github.com/earendil-works/pi
+- Keywords: coding agent
+- AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI
+
+## [HIGH] Agent-Manager: A Tmux TUI for Running Claude Code, Codex and OpenCode
+- Source: hn/topstories | Score: 95
+- URL: https://github.com/YoanWai/agent-manager
 - Keywords: claude code
-- Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured
+- HN score: 95, comments: 76
 
-## [CRITICAL] omnigent-ai/omnigent (7825 stars)
-- Source: github | Score: 7825
-- URL: https://github.com/omnigent-ai/omnigent
-- Keywords: claude code, agent framework
-- Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents — swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.
-
-## [HIGH] JimLiu/baocut (295 stars)
-- Source: github | Score: 295
-- URL: https://github.com/JimLiu/baocut
+## [HIGH] Show HN: Claude-account – switch Claude Code accounts without logging in again
+- Source: hn/topstories | Score: 49
+- URL: https://github.com/hamzarehmandeveloper/claude-account
 - Keywords: claude code
-- Open-source Agent Skill that drives the BaoCut macOS app CLI (transcribe · subtitle · translate · cut) from Claude Code, Codex, and other agents
+- HN score: 49, comments: 24
 
-## [HIGH] upstash/box (34 stars)
-- Source: github | Score: 34
-- URL: https://github.com/upstash/box
+## [HIGH] holgerleichsenring/agent-smith (23 stars)
+- Source: github | Score: 23
+- URL: https://github.com/holgerleichsenring/agent-smith
+- Keywords: coding agent, self-hosted
+- Self-hosted AI coding agent · ticket → code → PR
+
+## [HIGH] jfrog/agent-belt (17 stars)
+- Source: github | Score: 17
+- URL: https://github.com/jfrog/agent-belt
+- Keywords: claude code, coding agent
+- Reproducible evaluation for AI coding agents. Multi-turn scenarios against Claude Code, Codex, Copilot, Cursor, Gemini CLI, Goose, OpenCode, or any custom agent you plug in; verify behavior with rule checks, workspace diffs, multi-judge LLM consensus; pin reliability with pass^k variance across tria
+
+## [HIGH] kobiton/automate (12 stars)
+- Source: github | Score: 12
+- URL: https://github.com/kobiton/automate
+- Keywords: claude code, codex cli, ai coding assistant
+- AI coding assistant plugin for the Kobiton mobile testing platform. Works with Claude Code, Copilot CLI, Gemini CLI Extension, Cursor CLI and Codex CLI to manage devices, upload apps, run mobile automation, and view test results directly from your workspace.
+
+## [HIGH] noogram/cosmon (6 stars)
+- Source: github | Score: 6
+- URL: https://github.com/noogram/cosmon
 - Keywords: coding agent
-- TypeScript SDK and CLI for Upstash Box — sandboxed AI coding agents
+- Stateless CLI giving AI coding agents persistent identity, a typed lifecycle, and crash-recovery. Self-hostable, AGPL-3.0.
 
-## [HIGH] eclipse-enclave/enclave (9 stars)
-- Source: github | Score: 9
-- URL: https://github.com/eclipse-enclave/enclave
-- Keywords: coding agent
-- Sandbox for running AI coding agents autonomously: isolated, network-restricted, host-safe
+## [HIGH] binary16labs/prime-silo (5 stars)
+- Source: github | Score: 5
+- URL: https://github.com/binary16labs/prime-silo
+- Keywords: agent-to-agent, model context protocol
+- The canonical Sovereign AI Agent OS & runtime harness. Built for Model Context Protocol (MCP), Agent-to-Agent (A2A) swarms, and zero-token tax execution.
 
-## [HIGH] linny006/agent-eval-harness (8 stars)
-- Source: github | Score: 8
-- URL: https://github.com/linny006/agent-eval-harness
-- Keywords: coding agent
-- Live, open-source benchmark for comparing AI coding agents on real GitHub issues
+## [WATCH] Show HN: Bullshit Detector – agent skills that fact-check videos and articles
+- Source: hn/beststories | Score: 62
+- URL: https://github.com/SerhiiKorniienko/bullshit-detector
+- Keywords: kills
+- HN score: 62, comments: 68
 
-## [WATCH] gyunggyung/AGI-Papers (418 stars)
-- Source: github | Score: 418
-- URL: https://github.com/gyunggyung/AGI-Papers
-- Keywords: breakthrough
-- A curated archive of breakthroughs in Agents, Architecture, Training, RAG, and On-Device AI.
-
-## [WATCH] Elevated errors on Claude Opus 5
-- Source: hn/topstories | Score: 99
-- URL: https://status.claude.com/incidents/mfdtrknpxghq
+## [WATCH] Claude Opus 5 jailbreak with a 3-word prompt
+- Source: hn/topstories | Score: 13
+- URL: https://twitter.com/i/status/2082566186785480708
 - Keywords: claude opus
-- HN score: 99, comments: 72
+- HN score: 13, comments: 2
 
-## [WATCH] Google Chrome Arrives on ARM64 Linux, Widevine DRM Included
-- Source: hn/beststories | Score: 85
-- URL: https://www.omgubuntu.co.uk/2026/07/chrome-arm64-linux-available
-- Keywords: devin
-- HN score: 85, comments: 47
-
-## [WATCH] Show HN: Let's Seal – Let's Encrypt for document signing, free and self-hosted
-- Source: hn/topstories | Score: 83
-- URL: https://github.com/letsseal/letsseal
-- Keywords: self-hosted
-- HN score: 83, comments: 29
-
-## [WATCH] Elevated errors on Claude Opus 5
-- Source: hn/beststories | Score: 50
-- URL: https://status.claude.com/incidents/lhqp09kxq7pb
-- Keywords: claude opus
-- HN score: 50, comments: 24
+## [WATCH] Quoting Bruce Schneier
+- Source: rss/Simon Willison | Score: 5
+- URL: https://simonwillison.net/2026/Jul/30/bruce-schneier/#atom-everything
+- Keywords: kills
+- <blockquote cite="https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html"><p>The writing assignments I give my students are gym tasks, not work tasks. I ask them to write policy memos not because the world needs more policy memos. I assign them 
 

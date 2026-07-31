@@ -1853,19 +1853,11 @@ def build_scheduler() -> AsyncIOScheduler:
                 card += f"\n*D2M:* {action}\n"
             card += f"\n_/ask {first_word} to dig deeper_"
 
-            token = os.environ.get("TELEGRAM_C2_BOT_TOKEN", "")
-            chat_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
-            if not token or not chat_id:
-                logger.warning(
-                    "Flash Intel Card: C2 credentials not set — skipping Telegram send"
-                )
-                return
-
-            _req.post(
-                f"https://api.telegram.org/bot{token}/sendMessage",
-                json={"chat_id": chat_id, "text": card, "parse_mode": "Markdown"},
-                timeout=10,
-            )
+            # Routed through the single gate (C2 RECALIBRATION task 8, Commander
+            # directive 2026-07-29). This used to hit the bot API directly.
+            from core.comms.commander_channel import notify
+            notify("intel", f"Flash Intel Card — {source}", card,
+                   urgency="WINDOW", source="thunderbird_scheduler.flash_intel_card")
             logger.info(f"Flash Intel Card sent: {chosen.name}")
         except Exception as e:
             logger.error(f"Flash Intel Card FAILED: {e}", exc_info=True)
@@ -2307,38 +2299,17 @@ def _send_flight_report(results: list, watches: list):
 
     tg_msg = "\n".join(tg_lines)
 
-    # Send Telegram
+    # Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    # 2026-07-29). This used to fire a Telegram push AND a separate Gmail send for
+    # the same report — exactly the two-entry-point duplicate pattern the gate
+    # exists to collapse. One notify() call now covers both.
     try:
-        bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-        commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
-        if bot_token and commander_id:
-            import requests as _req
-
-            _req.post(
-                f"https://api.telegram.org/bot{bot_token}/sendMessage",
-                json={
-                    "chat_id": commander_id,
-                    "text": tg_msg,
-                    "parse_mode": "Markdown",
-                },
-                timeout=15,
-            )
-            logger.info("Flight Tracker: Telegram notification sent")
-        else:
-            logger.warning("Flight Tracker: Telegram env vars not set")
+        from core.comms.commander_channel import notify
+        notify("intel", f"Flight Price Report — {datetime.now().strftime('%b %d')}", tg_msg,
+               urgency="WINDOW", source="thunderbird_scheduler.flight_report")
+        logger.info("Flight Tracker: routed to notify() gate")
     except Exception as e:
-        logger.error(f"Flight Tracker Telegram failed: {e}")
-
-    # Create Gmail draft
-    try:
-        email_body = tg_msg.replace("*", "").replace("_", "")
-        _create_draft(
-            subject=f"Flight Price Report — {datetime.now().strftime('%b %d')}",
-            body=email_body,
-        )
-        logger.info("Flight Tracker: Gmail draft created")
-    except Exception as e:
-        logger.error(f"Flight Tracker Gmail draft failed: {e}")
+        logger.error(f"Flight Tracker notify() failed: {e}")
 
 
 async def job_fare_watch_check():
@@ -2414,38 +2385,27 @@ async def job_fare_watch_check():
             subfolder="fare_watch",
         )
 
-        # Telegram alert if any price movement detected
+        # Telegram alert if any price movement detected. Routed through the single
+        # gate (C2 RECALIBRATION task 8, Commander directive 2026-07-29) — this
+        # used to hit the bot API directly. The Gmail draft below stays a separate,
+        # direct send: it carries the JSON snapshot as an attachment, which notify()
+        # does not yet support.
         if alert_lines:
             try:
-                bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-                commander_id = os.environ.get("TELEGRAM_COMMANDER_ID", "")
-                if bot_token and commander_id:
-                    import requests as _req
-
-                    tg_body = (
-                        f"*Fare Watch Alert* — {datetime.now().strftime('%b %d %I:%M %p MT')}\n"
-                        f"{count} active watch(es)\n\n" + "\n".join(alert_lines)
-                    )
-                    _req.post(
-                        f"https://api.telegram.org/bot{bot_token}/sendMessage",
-                        json={
-                            "chat_id": commander_id,
-                            "text": tg_body,
-                            "parse_mode": "Markdown",
-                        },
-                        timeout=15,
-                    )
-                    logger.info(
-                        f"Fare Watch: Telegram alert sent ({len(alert_lines)} movement(s))"
-                    )
-                else:
-                    logger.warning(
-                        "Fare Watch: Telegram env vars not set, skipping notification"
-                    )
+                from core.comms.commander_channel import notify
+                tg_body = (
+                    f"Fare Watch Alert — {datetime.now().strftime('%b %d %I:%M %p MT')}\n"
+                    f"{count} active watch(es)\n\n" + "\n".join(alert_lines)
+                )
+                notify("fpd", "Fare Watch Alert", tg_body,
+                       urgency="WINDOW", source="thunderbird_scheduler.fare_watch")
+                logger.info(
+                    f"Fare Watch: routed to notify() gate ({len(alert_lines)} movement(s))"
+                )
             except Exception as e:
-                logger.error(f"Fare Watch Telegram failed: {e}")
+                logger.error(f"Fare Watch notify() failed: {e}")
 
-            # Gmail draft on alerts
+            # Gmail draft on alerts (kept direct: carries an attachment)
             try:
                 _create_draft(
                     subject=f"Fare Watch Alert — {len(alert_lines)} price movement(s) ({datetime.now().strftime('%b %d')})",

@@ -1,21 +1,21 @@
-2026-07-29T12:42:41.498860: 55 uncommitted files
+2026-07-30T21:47:00.666047: 219 uncommitted files
+ M .claude/settings.json
+ M .claude/settings.local.json
+ M .obsidian/workspace.json
  M Blackboard
  M CLAUDE.md
  M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
  M OpsCenter/.session_blast_fingerprint.json
+ M OpsCenter/.silversea_api_alert_dedup.json
+ M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
  M OpsCenter/a7_metrics_dashboard.json
+ M OpsCenter/ai_auth_probe.py
+ M OpsCenter/brief_feedback_config.json
+ M OpsCenter/bryana_usage_report_2026-07.json
  M OpsCenter/claude_inbox.md
+ M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
- M OpsCenter/collaboration/opencode_inbox.md
- M OpsCenter/collaboration/routing_log.md
- M OpsCenter/collaboration/sterling_inbox.md
- M OpsCenter/context_d2mc2c.json
- M OpsCenter/eod_incubator_config.json
- M OpsCenter/executor_last_run.json
- M OpsCenter/executor_run.lock
- M OpsCenter/hale_incident_signatures.json
- M OpsCenter/hale_incidents_today.json
- M OpsCenter/itinerary_watchdog_status.json

@@ -30,38 +30,25 @@ DRIVE_FOLDER_ID = os.environ.get("DRIVE_INTEL_FOLDER_ID", "")
 
 
 def send_telegram(msg: str, parse_mode: str = "HTML"):
-    """Send message — tries HTML first, falls back to plain text on 400. Retries 3x."""
-    import re
-    import time
+    """Send message to the Commander.
+
+    Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    2026-07-29). This used to hit the bot API directly — one of the direct senders
+    the gate replaced. This module already fires close to the sanctioned 06:30
+    window (d2m-intel-telegram.timer, 06:35 MDT), so it queues (urgency="WINDOW")
+    rather than breaking through, and lands in the same consolidated brief instead
+    of arriving as a near-duplicate second push.
+    """
     import logging
     log = logging.getLogger(__name__)
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    # Convert markdown bold/italic to HTML for legacy callers
-    if parse_mode == "Markdown":
-        parse_mode = "HTML"
-        msg = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', msg)
-        msg = re.sub(r'\*(.+?)\*', r'<b>\1</b>', msg)
-        msg = re.sub(r'_(.+?)_', r'<i>\1</i>', msg)
-        msg = re.sub(r'`(.+?)`', r'<code>\1</code>', msg)
-    for attempt in range(3):
-        for mode in [parse_mode, None]:
-            payload = {"chat_id": COMMANDER_ID, "text": msg}
-            if mode:
-                payload["parse_mode"] = mode
-            data = json.dumps(payload).encode()
-            req = urllib.request.Request(
-                url, data=data, headers={"Content-Type":"application/json"}
-            )
-            try:
-                urllib.request.urlopen(req, timeout=15)
-                return
-            except Exception:
-                if mode is None:
-                    if attempt < 2:
-                        time.sleep(5)
-                    else:
-                        log.warning("Telegram send failed after 3 attempts")
-                continue
+    try:
+        from core.comms.commander_channel import notify
+        title = msg.splitlines()[0][:80] if msg.strip() else "D2M Intel"
+        result = notify("intel", title, msg, urgency="WINDOW", source="thunderbird_intel_telegram")
+        if result.get("status") not in ("sent", "queued", "suppressed"):
+            log.warning(f"notify() rejected intel push: {result.get('detail')}")
+    except Exception as e:
+        log.warning(f"notify() send failed: {e}")
 
 
 def chunk_and_send(text: str, header: str = ""):

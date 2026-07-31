@@ -26,41 +26,25 @@ _COMMANDER_IDS = [
 
 
 def dm_commander(text: str) -> bool:
-    """Send a DM to the Commander via D2MC2C bot.
+    """Send a message to the Commander.
+
+    Routed through the single gate (C2 RECALIBRATION task 8, Commander directive
+    2026-07-29). This used to hit the bot API directly — one of the direct senders
+    the gate replaced. notify() dedups, renders, and batches to the 06:30/18:30
+    windows.
 
     Args:
-        text: Message text. Markdown supported (parse_mode=Markdown).
+        text: Message text. Markdown supported.
 
     Returns:
-        True if at least one send succeeded, False otherwise.
+        True if notify() accepted the message (sent, queued, or suppressed as a
+        duplicate), False otherwise.
     """
-    if not _TOKEN:
-        logger.error("telegram_c2: TELEGRAM_C2_BOT_TOKEN not set — DM skipped")
+    try:
+        from core.comms.commander_channel import notify
+        result = notify("c2", text.splitlines()[0][:80] if text.strip() else "telegram_c2",
+                        text, urgency="WINDOW", source="telegram_c2")
+        return result.get("status") in ("sent", "queued", "suppressed")
+    except Exception as e:
+        logger.error(f"telegram_c2: notify() send failed: {e}")
         return False
-
-    url = f"https://api.telegram.org/bot{_TOKEN}/sendMessage"
-    success = False
-
-    for chat_id in _COMMANDER_IDS:
-        try:
-            r = requests.post(
-                url,
-                json={"chat_id": chat_id, "text": text, "parse_mode": "Markdown"},
-                timeout=10,
-            )
-            r.raise_for_status()
-            success = True
-        except Exception as e:
-            logger.error(f"telegram_c2: Markdown send failed (id={chat_id}): {e}")
-            try:
-                plain = text.replace("*", "").replace("_", "")
-                requests.post(
-                    url,
-                    json={"chat_id": chat_id, "text": plain},
-                    timeout=10,
-                )
-                success = True
-            except Exception as e2:
-                logger.error(f"telegram_c2: Plain fallback also failed (id={chat_id}): {e2}")
-
-    return success

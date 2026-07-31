@@ -104,7 +104,7 @@ class GaugeEODAuditEngine:
 * **Active Kaizen & Implementation Rate:** `{kaizen['status']}` ({kaizen.get('implementation_rate_pct', 100)}% closure rate · {kaizen.get('open_kaizen_tickets', 0)} open Kaizen tickets)
 * **Security & Auto-Relay Gate:** `PASS` (`post-commit` auto-relay hook active · zero uncommitted protected-file edits)
 
-> **Gauge's Daily Take:** *Systems are tight. Bidirectional TCD writeback is holding 181 stage overrides without drift. Zero uncommitted enforcement gaps.*
+> **Gauge's Daily Take:** *Systems are tight. Bidirectional TCD writeback is holding {tcd.get('active_stage_overrides', 0)} stage overrides without drift. Zero uncommitted enforcement gaps.*
 """
 
         html_content = f"""
@@ -118,7 +118,7 @@ class GaugeEODAuditEngine:
     <li><b>Security & Gate Relay:</b> <span style="color: #4ade80;">PASS</span> (post-commit auto-relay active)</li>
   </ul>
   <blockquote style="margin: 10px 0 0 0; padding-left: 10px; border-left: 3px solid #60a5fa; color: #cbd5e1; font-style: italic;">
-    "Systems are tight. Bidirectional TCD writeback is holding 181 stage overrides without drift. Zero uncommitted enforcement gaps."
+    "Systems are tight. Bidirectional TCD writeback is holding {tcd.get('active_stage_overrides', 0)} stage overrides without drift. Zero uncommitted enforcement gaps."
   </blockquote>
 </div>
 """

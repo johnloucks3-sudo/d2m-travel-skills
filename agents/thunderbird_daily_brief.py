@@ -15,7 +15,7 @@ Usage:
   python3 agents/thunderbird_daily_brief.py --preview  # Write HTML to /tmp, no send
   python3 agents/thunderbird_daily_brief.py --force    # Ignore send-lock (for testing)
 
-Systemd timer: thunderbird-daily-brief.timer (0600 MT daily)
+Systemd timer: thunderbird-daily-brief.timer (0630 MT daily)
 Lock file: OpsCenter/brief_sent_YYYYMMDD.lock (MT date)
 """
 
@@ -793,7 +793,7 @@ def build_html_brief(
                   font-family:Arial Black,Arial,sans-serif;">&#x1F985; THUNDERBIRD</div>
       <div style="color:{GOLD};font-size:10pt;letter-spacing:3px;
                   font-family:Arial,sans-serif;margin-top:4px;">
-        {date_label} &nbsp;&bull;&nbsp; 0600 MT &nbsp;&bull;&nbsp; DAILY BRIEF
+        {date_label} &nbsp;&bull;&nbsp; {_mt_now().strftime("%H%M MT")} &nbsp;&bull;&nbsp; DAILY BRIEF
       </div>
     </td>
   </tr>
@@ -1134,10 +1134,17 @@ def main():
 
     date_str = _mt_date_str()
     day_label = _mt_day_label()
-    subject = f"\U0001F985 THUNDERBIRD // {day_label} · 0600 MT"
+    time_label = _mt_now().strftime("%H%M MT")
+    subject = f"\U0001F985 THUNDERBIRD // {day_label} · {time_label}"
 
     # ── SEND LOCK CHECK ───────────────────────────────────────────────────────
     if not args.preview and not args.force:
+        now_mt = _mt_now()
+        target = now_mt.replace(hour=6, minute=30, second=0, microsecond=0)
+        if abs((now_mt - target).total_seconds()) > 600:
+            logger.info(f"Guard refused: time is {now_mt.strftime('%H:%M')}, outside 06:30 window. Exiting without sending.")
+            sys.exit(0)
+            
         if _lock_exists(date_str):
             logger.info(f"Send-lock exists for {date_str} — brief already sent today. Exiting.")
             return

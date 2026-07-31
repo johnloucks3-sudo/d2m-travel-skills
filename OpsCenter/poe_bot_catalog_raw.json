@@ -1,0 +1,461 @@
+{
+ "Amazon-Nova-Canvas": [
+  "Image"
+ ],
+ "Assistant": [
+  "Official"
+ ],
+ "Canvas-Creator": [
+  "Official"
+ ],
+ "Clarity-Upscaler": [
+  "Image"
+ ],
+ "Claude-Fable-5": [
+  "Official"
+ ],
+ "Claude-Opus-4.7": [
+  "Official"
+ ],
+ "Claude-Opus-4.8": [
+  "Official"
+ ],
+ "Claude-Opus-5": [
+  "Official"
+ ],
+ "Claude-Sonnet-5": [
+  "Official"
+ ],
+ "DeepSeek-V3.2-N": [
+  "Budget"
+ ],
+ "ElevenLabs-Music-v2": [
+  "Audio"
+ ],
+ "ElevenLabs-v2.5-Turbo": [
+  "Audio"
+ ],
+ "Exa-Answer": [
+  "Search"
+ ],
+ "Exa-Search": [
+  "Search"
+ ],
+ "FLUX-2-Dev": [
+  "Image"
+ ],
+ "FLUX-2-Pro": [
+  "Image"
+ ],
+ "FLUX-pro-1.1-T": [
+  "Image"
+ ],
+ "Flux-2-Flash": [
+  "Image"
+ ],
+ "Flux-2-Turbo": [
+  "Image"
+ ],
+ "Flux-Kontext-Max": [
+  "Image"
+ ],
+ "Flux-Kontext-Pro": [
+  "Image"
+ ],
+ "Flux-Schnell-T": [
+  "Image"
+ ],
+ "GLM-4.7-Flash-N": [
+  "Budget",
+  "Programming"
+ ],
+ "GLM-5-N": [
+  "Programming"
+ ],
+ "GPT-4.1-mini": [
+  "Budget"
+ ],
+ "GPT-4o-Search": [
+  "Search"
+ ],
+ "GPT-4o-mini": [
+  "Budget"
+ ],
+ "GPT-5-mini": [
+  "Budget"
+ ],
+ "GPT-5-nano": [
+  "Budget"
+ ],
+ "GPT-5.3-Codex": [
+  "Official",
+  "Programming"
+ ],
+ "GPT-5.3-Instant": [
+  "Official"
+ ],
+ "GPT-5.4": [
+  "Image",
+  "Official",
+  "Programming"
+ ],
+ "GPT-5.4-Mini": [
+  "Image",
+  "Official"
+ ],
+ "GPT-5.4-Nano": [
+  "Budget",
+  "Image",
+  "Official"
+ ],
+ "GPT-5.4-Pro": [
+  "Image",
+  "Official",
+  "Programming"
+ ],
+ "GPT-5.5": [
+  "Image",
+  "Official",
+  "Programming"
+ ],
+ "GPT-5.5-Pro": [
+  "Image",
+  "Official",
+  "Programming"
+ ],
+ "GPT-5.6-Luna": [
+  "Official"
+ ],
+ "GPT-5.6-Sol": [
+  "Official"
+ ],
+ "GPT-5.6-Terra": [
+  "Official"
+ ],
+ "GPT-Audio": [
+  "Audio"
+ ],
+ "GPT-Audio-1.5": [
+  "Audio"
+ ],
+ "GPT-Audio-Mini": [
+  "Audio"
+ ],
+ "GPT-Image-1": [
+  "Image"
+ ],
+ "GPT-Image-1-Mini": [
+  "Image"
+ ],
+ "GPT-Image-1.5": [
+  "Image"
+ ],
+ "GPT-Image-2": [
+  "Image",
+  "Official"
+ ],
+ "GPT-OSS-120B-CS": [
+  "Budget"
+ ],
+ "GPT-Researcher": [
+  "Search"
+ ],
+ "Gemini-2.5-Flash": [
+  "Budget"
+ ],
+ "Gemini-2.5-Flash-Lite": [
+  "Budget"
+ ],
+ "Gemini-2.5-Pro": [
+  "Search"
+ ],
+ "Gemini-3-Flash": [
+  "Budget"
+ ],
+ "Gemini-3.1-Flash-Lite": [
+  "Official"
+ ],
+ "Gemini-3.1-Pro": [
+  "Official",
+  "Programming"
+ ],
+ "Gemini-3.5-Flash": [
+  "Budget",
+  "Official",
+  "Search"
+ ],
+ "Gemini-3.5-Flash-Lite": [
+  "Official"
+ ],
+ "Gemini-3.6-Flash": [
+  "Official"
+ ],
+ "Gemini-Omni-Flash": [
+  "Official",
+  "Video"
+ ],
+ "Gemma-4-26B-A4B": [
+  "Budget"
+ ],
+ "Gemma-4-31B": [
+  "Official"
+ ],
+ "Grok-3-Mini": [
+  "Budget"
+ ],
+ "Grok-4.1-Fast-Non-Reasoning": [
+  "Budget"
+ ],
+ "Grok-4.20-Multi-Agent": [
+  "Official"
+ ],
+ "Grok-4.3": [
+  "Official"
+ ],
+ "Grok-4.5": [
+  "Official"
+ ],
+ "Grok-Code-Fast-1": [
+  "Budget"
+ ],
+ "Grok-Imagine-Image": [
+  "Image"
+ ],
+ "Grok-Imagine-Video": [
+  "Video"
+ ],
+ "Hailuo-02-Pro": [
+  "Video"
+ ],
+ "Hailuo-02-Standard": [
+  "Video"
+ ],
+ "Hailuo-Music-v1.5": [
+  "Audio"
+ ],
+ "Ideogram-v3": [
+  "Image"
+ ],
+ "Inkling": [
+  "Official"
+ ],
+ "Kimi-K3": [
+  "Official"
+ ],
+ "Kling-2.0-Master": [
+  "Video"
+ ],
+ "Kling-2.1-Std": [
+  "Video"
+ ],
+ "Kling-2.5-Turbo-Pro": [
+  "Video"
+ ],
+ "Kling-2.6-Pro": [
+  "Video"
+ ],
+ "Kling-O3": [
+  "Video"
+ ],
+ "Kling-Omni": [
+  "Video"
+ ],
+ "Kling-v3-Motion-Ctrl": [
+  "Video"
+ ],
+ "Kling-v3-Pro": [
+  "Video"
+ ],
+ "LTX-2-Pro": [
+  "Video"
+ ],
+ "Linkup-Deep-Search": [
+  "Search"
+ ],
+ "Linkup-Standard": [
+  "Search"
+ ],
+ "Luma-Photon": [
+  "Image"
+ ],
+ "Luma-Photon-Flash": [
+  "Image"
+ ],
+ "Lyria": [
+  "Audio"
+ ],
+ "Lyria-3": [
+  "Audio"
+ ],
+ "MOSS-Video-and-Audio": [
+  "Video"
+ ],
+ "MiMo-V2-Flash": [
+  "Budget"
+ ],
+ "MiniMax-M2.1-N": [
+  "Programming"
+ ],
+ "MiniMax-M2.5-N": [
+  "Programming"
+ ],
+ "MiniMax-Speech-2.8": [
+  "Audio"
+ ],
+ "Mistral-Small-3.1": [
+  "Budget"
+ ],
+ "Muse-Spark-1.1": [
+  "Official"
+ ],
+ "Nano-Banana": [
+  "Image"
+ ],
+ "Nano-Banana-2": [
+  "Image",
+  "Official"
+ ],
+ "Nano-Banana-2-Lite": [
+  "Image",
+  "Official"
+ ],
+ "Nano-Banana-Pro": [
+  "Image"
+ ],
+ "Nova-Micro-1.0": [
+  "Budget"
+ ],
+ "Orpheus-TTS": [
+  "Audio"
+ ],
+ "Perplexity-Adv-Deep-Research": [
+  "Search"
+ ],
+ "Perplexity-Pro-Search": [
+  "Search"
+ ],
+ "Perplexity-Search": [
+  "Search"
+ ],
+ "Perplexity-Sonar": [
+  "Search"
+ ],
+ "Perplexity-Sonar-Pro": [
+  "Search"
+ ],
+ "Perplexity-Sonar-Rsn-Pro": [
+  "Search"
+ ],
+ "Pixverse-v4.5": [
+  "Video"
+ ],
+ "Pixverse-v5.6": [
+  "Video"
+ ],
+ "Qwen3-Coder-Next-N": [
+  "Budget",
+  "Programming"
+ ],
+ "Qwen3.5-Flash-EL": [
+  "Budget"
+ ],
+ "Qwen3.5-Omni-Flash": [
+  "Budget"
+ ],
+ "Reka-Research": [
+  "Search"
+ ],
+ "Runway-Gen-4.5": [
+  "Video"
+ ],
+ "Script-Bot-Creator": [
+  "Official"
+ ],
+ "Seed-2.0-Mini": [
+  "Budget"
+ ],
+ "SeedEdit-3.0": [
+  "Image"
+ ],
+ "Seedance-1.0-Pro": [
+  "Video"
+ ],
+ "Seedance-1.0-Pro-Fast": [
+  "Video"
+ ],
+ "Seedance-2-Fast": [
+  "Video"
+ ],
+ "Seedance-2.0": [
+  "Video"
+ ],
+ "Seedance-2.0-Fast-EL": [
+  "Video"
+ ],
+ "Seedance-2.0-Pro-EL": [
+  "Video"
+ ],
+ "Seedream-4.0": [
+  "Image"
+ ],
+ "Seedream-5.0-Lite": [
+  "Image"
+ ],
+ "Sora-2": [
+  "Video"
+ ],
+ "Sora-2-Pro": [
+  "Video"
+ ],
+ "Stable-Audio-2.0": [
+  "Audio"
+ ],
+ "Stable-Audio-2.5": [
+  "Audio"
+ ],
+ "StableDiffusion3.5-L": [
+  "Image"
+ ],
+ "Veo-3-vFast": [
+  "Video"
+ ],
+ "Veo-3.1": [
+  "Video"
+ ],
+ "Veo-3.1-Fast": [
+  "Video"
+ ],
+ "Veo-3.1-Lite": [
+  "Video"
+ ],
+ "Veo-v3.1": [
+  "Video"
+ ],
+ "Veo-v3.1-Fast": [
+  "Video"
+ ],
+ "Vidu": [
+  "Video"
+ ],
+ "Wan-2.5": [
+  "Video"
+ ],
+ "Wan-2.6": [
+  "Video"
+ ],
+ "Wan-2.7": [
+  "Video"
+ ],
+ "Wan2.7-Image": [
+  "Image"
+ ],
+ "Whisper-V3-Large-T": [
+  "Audio"
+ ],
+ "Z-Image-Lightning": [
+  "Image"
+ ],
+ "remove-background": [
+  "Image"
+ ]
+}

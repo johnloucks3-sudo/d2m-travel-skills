@@ -1404,8 +1404,33 @@ def send_briefing_email(html_content: str, subject: str):
 # MAIN PIPELINE
 # ---------------------------------------------------------------------------
 
-def run_briefing(preview: bool = False, weekly: bool = False):
+def run_briefing(preview: bool = False, weekly: bool = False, force: bool = False):
     """Execute the full briefing pipeline."""
+    import fcntl
+    
+    if not preview and not force:
+        p = _morning_brief_lock_path()
+        os.makedirs(p.parent, exist_ok=True)
+        # Open in append mode so we can flock without truncating
+        lock_fd = open(p, 'a')
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except (BlockingIOError, IOError):
+            logger.info("Morning brief send-lock exists (flock) — already sent (or sending) today. Exiting.")
+            return "Already sent (locked)"
+            
+        if p.stat().st_size > 0:
+            logger.info("Morning brief send-lock exists (size > 0) — already sent today. Exiting.")
+            fcntl.flock(lock_fd, fcntl.LOCK_UN)
+            lock_fd.close()
+            return "Already sent"
+            
+        # Write the lock BEFORE the send
+        lock_fd.write(json.dumps({"sent_at": datetime.utcnow().isoformat()}) + "\n")
+        lock_fd.flush()
+        fcntl.flock(lock_fd, fcntl.LOCK_UN)
+        lock_fd.close()
+
     today = date.today()
     now = datetime.now()
     logger.info(f"{'='*60}")
@@ -1658,17 +1683,9 @@ if __name__ == "__main__":
     parser.add_argument("--force", action="store_true", help="Ignore send-lock (testing only)")
     args = parser.parse_args()
 
-    # Send-lock guard — prevent double-send on same day
-    if not args.preview and not args.force:
-        if _morning_brief_lock_exists():
-            logger.info("Morning brief send-lock exists — already sent today. Exiting.")
-            sys.exit(0)
-
+    # Send-lock guard is now inside run_briefing()
     try:
-        result = run_briefing(preview=args.preview, weekly=args.weekly)
-        # Write lock after successful send (not preview)
-        if not args.preview:
-            _write_morning_brief_lock()
+        result = run_briefing(preview=args.preview, weekly=args.weekly, force=args.force)
         print(f"Done: {result}", file=sys.stderr)
     except Exception as e:
         logger.error(f"Briefing FAILED: {e}", exc_info=True)

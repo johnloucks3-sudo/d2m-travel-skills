@@ -183,7 +183,11 @@ def probe_claude_oauth() -> tuple[str, str]:
     try:
         result = subprocess.run(
             [str(CLAUDE_BIN), "--dangerously-skip-permissions",
-             "--model", "claude-haiku-4-5-20251001", "-p", "Reply: ok"],
+             "--model", "claude-haiku-4-5-20251001",
+             "--strict-mcp-config",
+             "--mcp-config", "/home/john/Thunderbird/config/probe_mcp_empty.json",
+             "--settings", "/home/john/Thunderbird/config/probe_settings_empty/settings.json",
+             "-p", "ok"],
             env=env, capture_output=True, text=True, timeout=45,
         )
         combined = (result.stdout + result.stderr).lower()

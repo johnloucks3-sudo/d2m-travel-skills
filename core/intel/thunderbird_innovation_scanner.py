@@ -569,23 +569,8 @@ def _write_digest(result: ScanResult, output_path: Optional[Path] = None):
     path.write_text("\n".join(lines), encoding="utf-8")
     logger.info(f"Digest written to {path}")
 
-    # Email to Commander inbox — SO 27 MAR 2026: intel reports are full sends, not drafts
-    if output_path is None:  # daily digest only, not weekly archive copies
-        try:
-            import sys as _sys
-            _sys.path.insert(0, str(THUNDERBIRD_DIR))
-            from core.email.thunderbird_gmail import gmail_send_from_wing
-            ts_label = datetime.now().strftime("%Y-%m-%d")
-            digest_text = "\n".join(lines)
-            gmail_send_from_wing(
-                to="johnloucks3@gmail.com",
-                subject=f"Innovation Scan — {result.scan_type.title()} {ts_label} ({len(result.findings)} findings)",
-                body=digest_text,
-                persona_id="A12",
-            )
-            logger.info("Innovation digest sent to johnloucks3 inbox.")
-        except Exception as _e:
-            logger.warning(f"Innovation digest email failed: {_e}")
+    # NOTE: gmail_send_from_wing was removed 2026-07-30 because it bypassed
+    # the report gate and emailed raw markdown to the Commander. File write above is correct.
 
 
 def get_digest_for_briefing(max_items: int = 5) -> str:

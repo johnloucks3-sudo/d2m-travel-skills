@@ -1,6 +1,6 @@
 {
   "probe": "home-dir-health",
-  "timestamp": "2026-07-29T22:43:48.993372+00:00",
+  "timestamp": "2026-07-29T23:59:18.106156+00:00",
   "date": "20260729",
   "overall_status": "CRITICAL",
   "exit_code": 2,
@@ -8,11 +8,11 @@
     {
       "check": "cache_bloat",
       "path": "/home/john/.cache",
-      "size_mb": 4795.0,
-      "size_gb": 4.68,
+      "size_mb": 4910.0,
+      "size_gb": 4.79,
       "threshold_gb": 2.0,
       "status": "CRITICAL",
-      "note": "~/.cache is 4.7GB \u2014 exceeds 2.0GB threshold"
+      "note": "~/.cache is 4.8GB \u2014 exceeds 2.0GB threshold"
     },
     {
       "check": "downloads_size",
@@ -25,7 +25,7 @@
     {
       "check": "local_size",
       "path": "/home/john/.local",
-      "size_mb": 38755.0,
+      "size_mb": 38756.0,
       "size_gb": 37.85,
       "threshold_gb": 35.0,
       "status": "WARNING",
@@ -365,7 +365,7 @@
     {
       "check": "major_dir_growth",
       "major_dir_sizes": {
-        "/home/john/Thunderbird": 22971.0,
+        "/home/john/Thunderbird": 23010.0,
         "/home/john/D2M": 6572.0,
         "/home/john/Downloads": 703.0,
         "/home/john/OpenMontage": 411.0,

@@ -15,16 +15,49 @@ opencode-worker.service) has NO PII fence today. build_oc_task() below still
 carries a PII reminder in the prompt text — but that's a courtesy instruction
 to the model, not an enforced fence like the dead module's. Flagged, not
 silently assumed fixed; fencing OC dispatch for real is a separate follow-up.
+
+SO-METERED-SPEND-2026 Article 9: Every task builder requires an explicit
+spend_ceiling parameter and emits a top-level CONSTRAINTS block containing:
+  1. Spend ceiling string (or 'zero spend — read-only')
+  2. Forbidden models/services (imported from engine_limits.py)
+  3. The instruction: 'if this appears to require spend beyond your ceiling, STOP and report'
 """
 from __future__ import annotations
 
 from typing import Optional
 
 from core.silver.gate import is_checkable
+from core.relay.engine_limits import POE_BROKEN_VIA_OPENCODE, POE_WHITELIST
 
 # Same category of tokens the (dead) opencode_worker.py fenced on — kept here
 # as a prompt-level reminder only, not an enforced check (see module docstring).
 _PII_REMINDER_TERMS = ("client names", "email addresses", "booking numbers", "PII")
+
+
+def _build_constraints_block(spend_ceiling: str) -> str:
+    """Build Article 9 CONSTRAINTS block for top of prompt text."""
+    if not spend_ceiling or not isinstance(spend_ceiling, str) or not spend_ceiling.strip():
+        raise ValueError(
+            "spend_ceiling parameter is required and must be a non-empty string "
+            "(e.g., 'zero', 'zero spend — read-only', or explicit point/dollar limit)."
+        )
+
+    cleaned = spend_ceiling.strip()
+    if cleaned.lower() in ("zero", "0", "zero spend", "zero spend - read-only", "zero spend -- read-only", "zero spend — read-only"):
+        ceiling_display = "zero spend — read-only"
+    else:
+        ceiling_display = cleaned
+
+    broken_models = ", ".join(sorted(POE_BROKEN_VIA_OPENCODE))
+    whitelist_models = ", ".join(sorted(POE_WHITELIST))
+
+    return (
+        "=== MANDATORY SPEND & ENGINE CONSTRAINTS ===\n"
+        f"SPEND CEILING: {ceiling_display}\n"
+        f"FORBIDDEN MODELS / SERVICES: Broken via OpenCode ({broken_models}); any Poe model not in whitelist ({whitelist_models}).\n"
+        "OVER-BUDGET INSTRUCTION: if this appears to require spend beyond your ceiling, STOP and report.\n"
+        "============================================="
+    )
 
 
 def _checkability_warning(acceptance_criteria: str) -> str:
@@ -41,6 +74,7 @@ def _checkability_warning(acceptance_criteria: str) -> str:
 def build_ag_task(
     task: str,
     *,
+    spend_ceiling: str,
     deliverable_path: Optional[str] = None,
     from_seat: str = "CC",
     verdict_tag: str = "AG",
@@ -51,6 +85,7 @@ def build_ag_task(
     take real ambiguity — thin wrapper around the existing
     contact_ag.peer_prompt(), with a non-blocking checkability warning."""
     from core.relay.contact_ag import peer_prompt
+    constraints = _build_constraints_block(spend_ceiling)
     prompt = peer_prompt(
         task, deliverable_path=deliverable_path, from_seat=from_seat,
         verdict_tag=verdict_tag, strengths=strengths,
@@ -58,12 +93,13 @@ def build_ag_task(
     if acceptance_criteria:
         prompt += f"\n\nAcceptance criteria: {acceptance_criteria}"
         prompt += _checkability_warning(acceptance_criteria)
-    return prompt
+    return f"{constraints}\n\n{prompt}"
 
 
 def build_oc_task(
     task: str,
     *,
+    spend_ceiling: str,
     acceptance_criteria: str,
     deliverable_path: Optional[str] = None,
     steps: Optional[list[str]] = None,
@@ -72,7 +108,10 @@ def build_oc_task(
     but not judgment-capable — ambiguity, not model IQ, is the real risk.
     Numbered bounded steps, explicit absolute output path, explicit
     stop-and-report condition instead of an open-ended judgment call."""
+    constraints = _build_constraints_block(spend_ceiling)
     lines = [
+        constraints,
+        "",
         "OC task — execute the numbered steps exactly. Do not improvise "
         "beyond what's written; if a step is unclear or blocked, STOP and "
         "report why instead of guessing.",
@@ -96,6 +135,7 @@ def build_oc_task(
 def build_flash_task(
     task: str,
     *,
+    spend_ceiling: str,
     acceptance_criteria: str,
     deliverable_path: Optional[str] = None,
     literal_steps: Optional[list[str]] = None,
@@ -111,7 +151,10 @@ def build_flash_task(
             f"(a count, path, ref, or artifact) — got {acceptance_criteria!r}. "
             f"Flash cannot safely fill this gap the way AG/OC might."
         )
+    constraints = _build_constraints_block(spend_ceiling)
     lines = [
+        constraints,
+        "",
         "Flash task — follow the literal steps below exactly, in order. "
         "Every step is either a command to run or exact text to produce. "
         "Do not interpret, summarize, or add anything not listed.",
@@ -125,3 +168,4 @@ def build_flash_task(
         lines.append(f"\nWrite your result to the ABSOLUTE path: {deliverable_path}")
     lines.append(f"\nDONE means exactly: {acceptance_criteria}")
     return "\n".join(lines)
+
