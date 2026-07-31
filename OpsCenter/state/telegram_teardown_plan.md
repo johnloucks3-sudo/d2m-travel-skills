@@ -357,3 +357,11 @@ them as unresolved, not clean.
 is reachable through `OpsCenter/task_processor.py` (LIVE) even though its own unit is
 dead — don't remove it as part of Phase 1/2 without checking `task_processor.py`'s call
 path first.
+
+---
+
+## 🔴 HOLD — Commander directive 2026-07-30
+
+> **"Keep Telegram until notified to dismantle it."**
+
+No phase of this teardown plan executes until the Commander explicitly authorizes it. Nothing in this file is standing permission to disable, migrate off, or revoke anything Telegram-related. `thunderbird-telegram-gw.service` stays running.
