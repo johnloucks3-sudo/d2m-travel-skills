@@ -25,10 +25,16 @@ LOG_DIR.mkdir(exist_ok=True)
 
 SERVICES = [
     "d2m-mcp.service",
-    "d2m-api.service",
+    "thunderbird-api.service",
     "thunderbird-tunnel.service",
-    "d2m-scheduler.service",
+    "thunderbird-scheduler.service",
 ]
+# NOTE (2026-07-30): d2m-api.service / d2m-scheduler.service are dead duplicate
+# unit files left over from the 2026-04-06 d2m-* -> thunderbird-* rename — same
+# ExecStart, disabled, never the ones actually running. thunderbird-api.service
+# / thunderbird-scheduler.service are the live units (matches d2m-mcp.service,
+# which is already a symlink alias to thunderbird-mcp.service). Watching the
+# old names produced two permanent false "FAILED" entries.
 
 OWNER_EMAIL = "johnloucks3@gmail.com"
 ALERT_INTERVAL_MINUTES = 30  # re-alert every 30 min if still down
@@ -61,11 +67,13 @@ def check_tunnel_roundtrip() -> bool:
     """Quick check that the tunnel is reachable."""
     try:
         result = subprocess.run(
-            ["curl", "-sf", "--max-time", "10", "-o", "/dev/null",
+            ["curl", "-s", "--max-time", "10", "-o", "/dev/null",
              "-w", "%{http_code}", "https://mcp.d2mluxury.quest/sse"],
             capture_output=True, text=True, timeout=15,
         )
-        return result.stdout.strip() in ("200", "301", "302", "307")
+        # 401 is the documented LIVE state — nginx auth_basic challenge
+        # (docs/D2MLUXURY_SUBDOMAIN_AUDIT_20260716.md), not a failure.
+        return result.stdout.strip() in ("200", "301", "302", "307", "401")
     except Exception:
         return False
 
