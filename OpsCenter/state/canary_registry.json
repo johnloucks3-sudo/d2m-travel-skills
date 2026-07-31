@@ -1,0 +1,48 @@
+{
+  "tools": [
+    {
+      "tool": "litellm_gateway",
+      "enrolled": "2026-06-24",
+      "canary_days": 7,
+      "description": "LiteLLM AI gateway on :4000 \u2014 routes AI calls for client product generation",
+      "client_path": true,
+      "internal_only": true,
+      "graduated": false,
+      "defects": []
+    },
+    {
+      "tool": "form_to_dossier",
+      "enrolled": "2026-06-24",
+      "canary_days": 7,
+      "description": "Form \u2192 dossier pipeline \u2014 ingests client intake form data",
+      "client_path": true,
+      "internal_only": true,
+      "graduated": false,
+      "defects": [
+        {
+          "ts": "2026-07-31T03:22:34.528320+00:00",
+          "detail": "--dry-run --once reported an error: ent Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]\">\nERROR: Could not locate the linked Google Sheets spreadsheet.\nSet SHEETS_ID env var or manually populate state file.\nState file: /home/john/Thunderbird/logs/form_to_dossier_state.json\nDone. Ingested: none (no new responses)"
+        },
+        {
+          "ts": "2026-07-31T03:22:44.965403+00:00",
+          "detail": "--dry-run --once reported an error: ent Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]\">\nERROR: Could not locate the linked Google Sheets spreadsheet.\nSet SHEETS_ID env var or manually populate state file.\nState file: /home/john/Thunderbird/logs/form_to_dossier_state.json\nDone. Ingested: none (no new responses)"
+        },
+        {
+          "ts": "2026-07-31T03:23:35.996636+00:00",
+          "detail": "--dry-run --once reported an error: ent Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]\">\nERROR: Could not locate the linked Google Sheets spreadsheet.\nSet SHEETS_ID env var or manually populate state file.\nState file: /home/john/Thunderbird/logs/form_to_dossier_state.json\nDone. Ingested: none (no new responses)"
+        }
+      ]
+    },
+    {
+      "tool": "email_ingestion_pipeline",
+      "enrolled": "2026-06-24",
+      "canary_days": 7,
+      "description": "Email ingestion \u2014 parses inbound client communications",
+      "client_path": true,
+      "internal_only": true,
+      "graduated": false,
+      "defects": []
+    }
+  ],
+  "last_updated": "2026-07-31T03:23:36.407129+00:00"
+}
