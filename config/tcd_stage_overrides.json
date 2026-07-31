@@ -1,6 +1,7 @@
 {
   "mission-MISSION-747": {
-    "stage": "P"
+    "stage": "T",
+    "owner": "Sterling"
   },
   "watch-prediction-ledger-stale": {
     "stage": "P"
@@ -9,6 +10,829 @@
     "status": "Closed"
   },
   "mission-MISSION-720": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "gmail-d2mconcierge-19fa953527c588d7": {
     "stage": "P"
+  },
+  "gmail-d2mconcierge-19fa948a70185600": {
+    "stage": "P"
+  },
+  "gmail-d2mconcierge-19fa94441cbf83f7": {
+    "stage": "P"
+  },
+  "gmail-d2mconcierge-19fa9426d1dead1f": {
+    "stage": "P"
+  },
+  "gmail-d2mconcierge-19fa8ccd0a9fcb80": {
+    "stage": "P"
+  },
+  "alert-LOUCKS-3122006-FPD-ALERT": {
+    "stage": "P"
+  },
+  "elon-verify-latest": {
+    "stage": "P"
+  },
+  "alert-MCLEOD-2984034-FPD-TRIGGER": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faeeda6521a983": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faedff5d8f9f4b": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faedafc1142d24": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faedacd773dde3": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faed5e7aa9bb4a": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faecca6c003f5e": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faec68bf9309bd": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faec3704a4c355": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faebc01ff4ed33": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faeb9388a47fb5": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faeb9314b4ab30": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19faab07213281e8": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faf0e990fb462f": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faf0d881224f8a": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faf0c828967656": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faf08bdf4819c0": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faf0897be49905": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faef1a24ef07fb": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19faefd323d7a026": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19fa94fa949982bf": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19fa94a3794d6e53": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19fa8c97e5904ced": {
+    "status": "Closed"
+  },
+  "alert-MISSION-1530-SKYVERN-REVIEW": {
+    "status": "Closed"
+  },
+  "mission-MISSION-9": {
+    "status": "Closed"
+  },
+  "mission-MISSION-019": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-10": {
+    "status": "Closed"
+  },
+  "mission-MISSION-017": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-24": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-025": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-26": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-027": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-034": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-038": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-040": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-041": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-042": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-002": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "gmail-johnloucks3-19f5df061c0562be": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f5e854778d62bf": {
+    "status": "Closed"
+  },
+  "alert-SCANDI-PORTAL-REVIEW": {
+    "status": "Closed"
+  },
+  "mission-MISSION-005": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5e84569d87e0c": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5e7e5e117991a": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5e7d8187b1552": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5e7c513e6377e": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61ff1b9d6f6cf": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61f265de4b9da": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61ec51f3921a6": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61d852842dfcf": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61d1aa87ae74c": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61ba7e5a060e9": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f61a231629e8b3": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f619bad7a5d2fd": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f6195bc1f55754": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5e859180b41fe": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5d7b144d2509e": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5d7571929e290": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f5d4664074a25f": {
+    "status": "Closed"
+  },
+  "alert-MCLEOD-SILVER-MUSE-WELCOME-HOME": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65f2b3c673bf4": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65eb0360c7b69": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65e5815d50691": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65e1b39250ce1": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65e0931931570": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65d775a04311e": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65cfa8e507b27": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65cf839e818f7": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65c61cde405c2": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65c2bfa3a17cd": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65c1a009c336d": {
+    "status": "Closed"
+  },
+  "gmail-johnloucks3-19f65ba2329b2cd2": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f66086b1968d5c": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f65ee578c43975": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f65e1c20f17f5e": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f65a34a506ef0b": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f64de661b0a408": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f64de6545fa067": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f64de625a4eb37": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f64d846845d61d": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f646371852f910": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f63d57ecf8eb70": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f63d09d9c9c7ab": {
+    "status": "Closed"
+  },
+  "gmail-d2mconcierge-19f63a57df729e09": {
+    "status": "Closed"
+  },
+  "alert-MCLEOD-2984034-TP11-SEND": {
+    "status": "Closed"
+  },
+  "alert-MISSION-802-ITINERARY-BUILD": {
+    "status": "Closed"
+  },
+  "alert-MISSION-802-FORMAT-REVIEW": {
+    "status": "Closed"
+  },
+  "mission-MISSION-001A": {
+    "status": "Closed"
+  },
+  "mission-MISSION-021": {
+    "status": "Closed",
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "a7metrics-continuity": {
+    "status": "Closed"
+  },
+  "proj-PROJ-NICHOLS-TP05": {
+    "status": "Closed"
+  },
+  "proj-PROJ-MCLEOD-T13": {
+    "status": "Closed"
+  },
+  "proj-PROJ-AIR-PRICING-MISSION-073": {
+    "status": "Closed"
+  },
+  "mission-MISSION-001": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-003": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-006": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-007": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-008": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-011": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-012": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-013": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-014": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-015": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-016": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-020": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-022": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-023": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-028": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-029": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-030": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-031": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-032": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-033": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-035": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-036": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-037": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-039": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-043": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-045": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-046": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-047": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-048": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-050": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-051": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-052": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-617": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-618": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-621": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-624": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-625": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-628": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-629": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-636": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-637": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-646": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-648": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-649": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-650": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-651": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-653": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-655": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-656": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-657": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-659": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-660": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-661": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-662": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-663": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-666": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-668": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-671": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-672": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-673": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-674": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-675": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-676": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-677": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-678": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-679": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-681": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-683": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-684": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-685": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-686": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-687": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-688": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-689": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-SSS-002": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-SSS-003": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-SSS-004": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-692": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-693": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-694": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-695": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-697": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-698": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-704": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-705": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-706": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-707": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-708": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-709": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-710": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-712": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-713": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-714": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-717": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-718": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-721": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-722": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-726": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-727": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-728": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-730": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-735": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-736": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-737": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-738": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-740": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-741": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-742": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-743": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-744": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-746": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-751": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-752": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-753": {
+    "stage": "T",
+    "owner": "Dembe"
+  },
+  "mission-MISSION-754": {
+    "stage": "T",
+    "owner": "Hale"
+  },
+  "mission-MISSION-755": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-SSS-005": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-SSS-006": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-756": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-757": {
+    "stage": "T",
+    "owner": "Sterling"
+  },
+  "mission-MISSION-758": {
+    "stage": "T",
+    "owner": "Harlan"
+  },
+  "mission-MISSION-761": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-762": {
+    "stage": "T",
+    "owner": "Dani"
+  },
+  "mission-MISSION-764": {
+    "stage": "T",
+    "owner": "Dani"
   }
 }
