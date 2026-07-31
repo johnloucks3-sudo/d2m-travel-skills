@@ -18,17 +18,26 @@ which is broader than the first-pass summary this file shipped under:
      silently passed — tested against the real gate in core/silver/gate.py, not a
      reimplementation of its rule.
   4. NO-SILENT-TRUNCATION (core/comms/slack_home.py's build_home_view) — for 150
-     synthetic items, the rendered-vs-hidden split on the Awaiting You overflow
+     synthetic items, the rendered-vs-hidden split on Band 1's ("Alerts") overflow
      footer is asserted EXACT (not "a footer exists"), the top summary line's
-     total/awaiting counts are cross-checked against home_item_count() so items
+     total/alert counts are cross-checked against home_item_count() so items
      outside the rendered set are still accounted for, and the block count never
-     exceeds Slack's MAX_VIEW_BLOCKS. Two real, already-fixed bugs live in this
+     exceeds Slack's MAX_VIEW_BLOCKS. Three real, already-fixed bugs live in this
      file's own history: the original 5-section version once rendered 96/150,
      claimed 17 hidden when 54 actually were, and dropped the Watch section's
      header entirely; the 2026-07-29 AG parity audit then found even a CORRECT
      5-section render goes invisible past ~50 items against a 200+ item board,
-     which is why the view was rescoped to Awaiting-You-only — these tests target
-     that current, rescoped contract.
+     which is why the view was rescoped to Awaiting-You-only; then on 2026-07-30
+     the Commander redirected the whole surface again — "I do not need the design
+     we spent so much time on... I just need a link to the sheet" — collapsing it
+     to a three-band FRONT DOOR: Band 1 ALERTS (only priority=='p0' or a past
+     suspense date — narrower even than the old Awaiting-You grouping, which also
+     swept in pending_review/deferred/Strategic), Band 2 FRONT DOOR (one fixed
+     row per tool: Sheet/Gmail/Drive/Calendar/Keep/Texts/Evernote/Obsidian, never
+     truncated), Band 3 TASK (one button). These tests target that current
+     three-band contract: the block-budget reservation now covers all of Band 2
+     + Band 3 by construction, so only Band 1 items can ever truncate, and only
+     after that reserve.
 
 SLACK-PATH PARITY — TWO SEPARATE FINDINGS, both load-bearing for #23 (retiring
 AppSheet polling): task #20 (core/comms/tcd_actions.py, "the adapter") landed
@@ -338,19 +347,26 @@ class TestSilverBackGate:
 # 4. NO-SILENT-TRUNCATION — core/comms/slack_home.py build_home_view()
 # ─────────────────────────────────────────────────────────────────────────────
 
-def _parse_home_view(view: dict) -> dict:
+def _parse_band1(view: dict) -> dict:
     """Count rendered item ("section"-type) blocks and pull the exact "+N more
-    in SECTION" overflow count, if any, from the blocks between the "Awaiting
-    You" header and the trailing sheet-link footer."""
+    in Alerts" overflow count, if any, scoped strictly to Band 1.
+
+    Band 2 (Front Door) also emits "section"-type blocks -- one fixed row per
+    tool -- so counting every "section" block in the view would silently fold
+    those 9 fixed-chrome blocks into the item count. Scope to the blocks
+    between the FIRST header (Band 1's own title, "Alerts" or the all-clear
+    text) and the SECOND header ("Front Door") -- Band 1's own extent, nothing
+    else.
+    """
+    blocks = view["blocks"]
+    header_idx = [i for i, b in enumerate(blocks) if b["type"] == "header"]
+    assert header_idx, "no header block found -- view has no Band 1 title"
+    band1_start = header_idx[0] + 1
+    band1_end = header_idx[1] if len(header_idx) > 1 else len(blocks)
+
     rendered = 0
     hidden = 0
-    seen_header = False
-    for b in view["blocks"]:
-        if b["type"] == "header":
-            seen_header = True
-            continue
-        if not seen_header:
-            continue
+    for b in blocks[band1_start:band1_end]:
         if b["type"] == "section":
             rendered += 1
         elif b["type"] == "context":
@@ -361,10 +377,10 @@ def _parse_home_view(view: dict) -> dict:
 
 
 def _parse_summary(view: dict) -> tuple[int, int]:
-    """(total, awaiting) parsed out of the top "{total} open · {awaiting}
-    awaiting your decision · full board in Sheets" context block."""
+    """(total, alerts) parsed out of the top "{total} open on the board ·
+    {alerts} alert(s) right now" context block."""
     text = view["blocks"][0]["elements"][0]["text"]
-    m = re.match(r"(\d+) open · (\d+) awaiting your decision", text)
+    m = re.match(r"(\d+) open on the board · (\d+) alerts? right now", text)
     assert m, f"summary line changed shape, update the parser: {text!r}"
     return int(m.group(1)), int(m.group(2))
 
@@ -377,49 +393,54 @@ def _synth_items(n: int, *, id_prefix: str, status: str, inbox: str, priority: s
 
 
 class TestNoSilentTruncation:
-    """core/comms/slack_home.py's build_home_view() (rewritten post-2026-07-29 AG
-    parity audit, OpsCenter/state/ag_tcd_slack_parity.md) renders ONLY the
-    "Awaiting You" set -- not all 5 inbox sections -- because the 100-block cap
-    made a full-board render itself go silently invisible past ~50 items. The
-    invariant carried over unchanged: rendered + declared-hidden == the awaiting
-    set's real size, always, and the top summary line's totals must never drift
-    from home_item_count()'s own numbers -- so even the sections this view
-    doesn't render (Strategic/Operational/Reference/Watch) are still accounted
-    for, just not itemized. These tests pin the EXACT counts, not "a footer/
-    summary line exists.\""""
+    """core/comms/slack_home.py's build_home_view() (rewritten again 2026-07-30
+    into a three-band FRONT DOOR at the Commander's direction) renders ONLY
+    Band 1 "Alerts" -- priority=='p0' or a past suspense date, see
+    slack_home._alert_items() -- as itemized rows; Band 2 (Front Door, one
+    fixed row per tool) and Band 3 (Task, one button) never truncate, so the
+    100-block budget is reserved for them FIRST by construction and only
+    Band 1 items can ever be cut. The invariant carried over unchanged from
+    every prior version of this view: rendered + declared-hidden == the
+    alert set's real size, always, and the top summary line's totals must
+    never drift from home_item_count()'s own numbers -- so even items this
+    view doesn't itemize (anything not p0/overdue) are still accounted for.
+    These tests pin the EXACT counts, not "a footer/summary line exists.\""""
 
     @pytest.fixture(autouse=True)
     def _no_live_sheet_config(self, tmp_path, monkeypatch):
-        # _sheet_footer_block() reads config/tcd_sheet_config.json (a real repo
+        # Band 2's Sheet row reads config/tcd_sheet_config.json (a real repo
         # file) for a URL to embed; read-only and harmless, but pinning it to a
-        # path that doesn't exist keeps the footer text deterministic instead
+        # path that doesn't exist keeps that row's text deterministic instead
         # of depending on whatever happens to be configured live.
         monkeypatch.setattr(slack_home, "SHEET_CONFIG_PATH", tmp_path / "no_such_config.json")
 
-    def test_150_awaiting_items_footer_exact(self):
-        # All 150 land in "Awaiting You" (inbox=strategic satisfies the test).
-        # reserved=4 (summary + header + sheet-footer + one overflow slot) ->
-        # budget=96 -> 150-96=54 hidden.
+    def test_150_alert_items_footer_exact(self):
+        # All 150 are p0 -> all land in Band 1 (Alerts), regardless of inbox
+        # or status (urgency outranks workflow state by design). reserved =
+        # 3 (summary + Band-1 header + one overflow slot) + 9 (Band 2: header
+        # + 8 fixed tool rows) + 2 (Band 3: header + actions) = 14 ->
+        # budget=86 -> 150-86=64 hidden.
         items = _synth_items(150, id_prefix="aw", status="Open",
-                             inbox="strategic", priority="p1")
+                             inbox="strategic", priority="p0")
         view = slack_home.build_home_view(items)
         assert len(view["blocks"]) <= slack_home.MAX_VIEW_BLOCKS
-        parsed = _parse_home_view(view)
-        assert parsed["rendered"] == 96
-        assert parsed["hidden"] == 54
+        parsed = _parse_band1(view)
+        assert parsed["rendered"] == 86
+        assert parsed["hidden"] == 64
         assert parsed["rendered"] + parsed["hidden"] == 150
-        assert len(view["blocks"]) == 100  # summary + header + 96 items + overflow + sheet-footer
-        total, awaiting = _parse_summary(view)
-        assert (total, awaiting) == (150, 150)
+        # summary(1) + Band1 header(1) + 86 items + overflow(1) + Band2(9) + Band3(2)
+        assert len(view["blocks"]) == 100
+        total, alerts = _parse_summary(view)
+        assert (total, alerts) == (150, 150)
 
-    def test_150_items_mixed_only_awaiting_renders_but_total_never_drifts(self):
-        # 60 land in Awaiting You (inbox=strategic); 30 each in Operational/
-        # Reference/Watch (deliberately NOT awaiting -- plain status=Open with
-        # a non-strategic inbox and non-p0 priority). Those 90 are intentionally
-        # not itemized in this scoped view, but must still be counted in the
-        # summary line -- the actual no-silent-loss guarantee this view makes.
+    def test_150_items_mixed_only_alerts_render_but_total_never_drifts(self):
+        # 60 are p0 (Band 1 alerts); 30 each in Operational/Reference/Watch
+        # (deliberately non-alert: plain status=Open, non-p0 priority, no
+        # suspense date). Those 90 are intentionally not itemized in this
+        # scoped view, but must still be counted in the summary line -- the
+        # actual no-silent-loss guarantee this view makes.
         items = (
-            _synth_items(60, id_prefix="aw", status="Open", inbox="strategic", priority="p1")
+            _synth_items(60, id_prefix="aw", status="Open", inbox="strategic", priority="p0")
             + _synth_items(30, id_prefix="op", status="Open", inbox="operational", priority="p2")
             + _synth_items(30, id_prefix="rf", status="Open", inbox="reference", priority="p3")
             + _synth_items(30, id_prefix="wa", status="Open", inbox="", priority="p3")
@@ -434,41 +455,66 @@ class TestNoSilentTruncation:
 
         view = slack_home.build_home_view(items)
         assert len(view["blocks"]) <= slack_home.MAX_VIEW_BLOCKS
-        parsed = _parse_home_view(view)
+        parsed = _parse_band1(view)
 
-        # Awaiting You itself is under budget (60 < 96) -- no truncation, no
-        # overflow footer, everything in that set renders.
+        # The 60 alerts are under budget (60 < 86) -- no truncation, no
+        # overflow footer, everything in Band 1 renders.
         assert parsed == {"rendered": 60, "hidden": 0}
 
-        # The 90 non-awaiting items aren't itemized here, but the summary line
+        # The 90 non-alert items aren't itemized here, but the summary line
         # still carries the true total -- this is what "no silent" means for a
         # deliberately scoped view: never itemized without being counted.
-        total, awaiting = _parse_summary(view)
-        assert (total, awaiting) == (150, 60)
+        total, alerts = _parse_summary(view)
+        assert (total, alerts) == (150, 60)
 
-    def test_no_awaiting_items_still_reports_the_true_total(self):
-        # 5 real items exist, none of them Awaiting You -- must not render as
-        # a bare empty state that implies zero items exist anywhere.
+    def test_no_alert_items_still_reports_the_true_total(self):
+        # 5 real items exist, none of them p0/overdue -- must not render as
+        # a bare empty state that implies zero items exist anywhere, and must
+        # show the all-clear header rather than a blank tab.
         items = _synth_items(5, id_prefix="op", status="Open",
                              inbox="operational", priority="p2")
         view = slack_home.build_home_view(items)
         assert view["blocks"][1] == {"type": "header", "text": {
-            "type": "plain_text", "text": "Nothing awaiting your decision", "emoji": True}}
-        total, awaiting = _parse_summary(view)
-        assert (total, awaiting) == (5, 0)
+            "type": "plain_text", "text": "All clear — no P0s, nothing overdue",
+            "emoji": True}}
+        total, alerts = _parse_summary(view)
+        assert (total, alerts) == (5, 0)
 
     def test_zero_items_reports_zero_not_a_stale_number(self):
         view = slack_home.build_home_view([])
-        total, awaiting = _parse_summary(view)
-        assert (total, awaiting) == (0, 0)
+        total, alerts = _parse_summary(view)
+        assert (total, alerts) == (0, 0)
 
-    def test_small_awaiting_batch_no_truncation_no_spurious_footer(self):
+    def test_p0_and_overdue_always_render_regardless_of_status(self):
+        # The exact bug this whole surface exists to prevent: 4 P0s and 10
+        # overdue items sat invisible for up to 36 days because a workflow
+        # gate ran BEFORE the urgency check. Pin it directly: a deferred P0
+        # and an overdue-but-closed item must both still render in Band 1.
+        items = [
+            {"id": "P0-DEFERRED", "status": "deferred", "inbox": "operational",
+             "priority": "p0", "title": "deferred P0", "source": "test",
+             "date": "2026-07-01"},
+            {"id": "OVERDUE-CLOSED-WORKFLOW", "status": "in_coordination",
+             "inbox": "operational", "priority": "p2", "title": "overdue item",
+             "source": "test", "date": "2026-07-01",
+             "suspense_date": "2020-01-01"},
+        ]
+        view = slack_home.build_home_view(items)
+        text = json.dumps(view["blocks"])
+        assert "P0-DEFERRED" in text, "deferred P0 must still render as an alert"
+        assert "OVERDUE-CLOSED-WORKFLOW" in text, (
+            "overdue item must render as an alert regardless of workflow status"
+        )
+        total, alerts = _parse_summary(view)
+        assert (total, alerts) == (2, 2)
+
+    def test_small_alert_batch_no_truncation_no_spurious_footer(self):
         # Below the budget entirely -- must render everything and add no
         # overflow footer.
         items = _synth_items(5, id_prefix="aw", status="Open",
-                             inbox="strategic", priority="p1")
+                             inbox="strategic", priority="p0")
         view = slack_home.build_home_view(items)
-        parsed = _parse_home_view(view)
+        parsed = _parse_band1(view)
         assert parsed == {"rendered": 5, "hidden": 0}
 
 
