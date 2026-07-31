@@ -8979,3 +8979,10 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 927f7c4d6: Slack Hale front door: fix Keep icon, wire Texts link |  2 files changed, 4 insertions(+), 6 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-e025d332 from CC — 2026-07-31 13:41 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 037023e88: State sync: overnight Wing operational updates (bulk, no review) |  262 files changed, 70850 insertions(+), 2993 deletions(-) | author: Thunderbird Wing (seat unset)
