@@ -265,6 +265,20 @@ def publish_home(user_id: str, view: dict) -> dict:
     return _call("views.publish", {"user_id": user_id, "view": view})
 
 
+def open_modal(trigger_id: str, view: dict) -> dict:
+    """views.open — push a modal in response to a trigger_id (a button click).
+
+    trigger_id is single-use and expires ~3 seconds after Slack issues it, so the
+    caller must invoke this immediately from the interaction handler — no board
+    reads, no lock acquisition, nothing else first.
+
+    Like the rest of this module, open_modal is on the test_no_direct_sends
+    ALLOWLIST because it IS a transport — the thing the interactive handler calls.
+    It must never be called directly by feature code.
+    """
+    return _call("views.open", {"trigger_id": trigger_id, "view": view})
+
+
 def selftest() -> int:
     """`python3 -m core.comms.slack_transport` — proves the wiring end to end."""
     if not is_configured():

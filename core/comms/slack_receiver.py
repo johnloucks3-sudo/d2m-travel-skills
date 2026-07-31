@@ -93,6 +93,80 @@ def open_connection() -> str:
 # Interaction handling
 # ─────────────────────────────────────────────────────────────────────────────────
 
+def _new_task_modal_view() -> dict:
+    """Block Kit for the App Home 'File a task' modal — title required, priority
+    and owner optional. The title input ships WITHOUT "optional": true, so Slack's
+    own client refuses to submit an empty title before it ever reaches us; that
+    matters because by the time handle_view_submission runs, the envelope has
+    already been acked with no payload (see _run_once), so there is no way to
+    reject back into the modal via response_action at that point."""
+    return {
+        "type": "modal",
+        "callback_id": "new_task",
+        "title": {"type": "plain_text", "text": "File a Task"},
+        "submit": {"type": "plain_text", "text": "Create"},
+        "close": {"type": "plain_text", "text": "Cancel"},
+        "blocks": [
+            {
+                "type": "input",
+                "block_id": "task_title",
+                "label": {"type": "plain_text", "text": "Title"},
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "value",
+                    "placeholder": {"type": "plain_text", "text": "What needs doing?"},
+                },
+            },
+            {
+                "type": "input",
+                "block_id": "task_priority",
+                "optional": True,
+                "label": {"type": "plain_text", "text": "Priority"},
+                "element": {
+                    "type": "static_select",
+                    "action_id": "value",
+                    "placeholder": {"type": "plain_text", "text": "P2 (default)"},
+                    "options": [
+                        {"text": {"type": "plain_text", "text": "P0 — now"}, "value": "P0"},
+                        {"text": {"type": "plain_text", "text": "P1 — today"}, "value": "P1"},
+                        {"text": {"type": "plain_text", "text": "P2 — routine"}, "value": "P2"},
+                    ],
+                },
+            },
+            {
+                "type": "input",
+                "block_id": "task_owner",
+                "optional": True,
+                "label": {"type": "plain_text", "text": "Owner"},
+                "element": {
+                    "type": "plain_text_input",
+                    "action_id": "value",
+                    "placeholder": {"type": "plain_text", "text": "unassigned"},
+                },
+            },
+        ],
+    }
+
+
+def _handle_open_task_modal(payload: dict, user: str) -> dict:
+    """action_id == "open_task_modal" — push the new-task modal.
+
+    Must be fast and do nothing else first: trigger_id expires ~3s after Slack
+    issues it, and it is one-shot (a second views.open with the same trigger_id
+    fails).
+    """
+    trigger_id = payload.get("trigger_id")
+    if not trigger_id:
+        return _audit(status="error", detail="open_task_modal carried no trigger_id",
+                      user=user)
+    try:
+        tx.open_modal(trigger_id, _new_task_modal_view())
+    except Exception as exc:
+        return _audit(status="error", detail=f"open_modal failed: "
+                      f"{type(exc).__name__}: {exc}", user=user)
+    return _audit(status="ok", detail="task modal opened", user=user)
+
+
 def handle_block_action(payload: dict) -> Optional[dict]:
     """Turn one button tap into a ledger entry.
 
@@ -106,8 +180,15 @@ def handle_block_action(payload: dict) -> Optional[dict]:
         return None
     action = actions[0]
     action_id = action.get("action_id")
-    item_id = (action.get("value") or "").strip()
     user = (payload.get("user") or {}).get("username") or (payload.get("user") or {}).get("id", "?")
+
+    # "File a task" opens a modal — it carries a trigger_id, not an item_id, so it
+    # is dispatched before the item_id extraction below (which every Approve/
+    # Close/Defer button relies on).
+    if action_id == "open_task_modal":
+        return _handle_open_task_modal(payload, user)
+
+    item_id = (action.get("value") or "").strip()
 
     if not item_id:
         return _audit(status="ignored", detail="button carried no item id", action_id=action_id)
@@ -228,11 +309,86 @@ def handle_app_home_opened(payload: dict) -> Optional[dict]:
     return _audit(status="ok", detail="app_home published", user=user_id)
 
 
+def _field(values: dict, block_id: str) -> Optional[str]:
+    """Pull one value out of view.state.values — a plain_text_input keys its value
+    under "value", a static_select keys it under "selected_option"."""
+    block = values.get(block_id) or {}
+    for element in block.values():
+        v = element.get("value")
+        if v:
+            return v.strip()
+        opt = element.get("selected_option")
+        if opt:
+            return opt.get("value")
+    return None
+
+
+def handle_view_submission(payload: dict) -> Optional[dict]:
+    """callback_id == "new_task" — file a REAL mission from the modal.
+
+    Goes through OpsCenter/mission_board_sync.py's own add_mission() — the single
+    creation + open-duplicate-check path that module documents as "the ONE place
+    mission-creation ... logic lives" — never mission_board.json directly, and
+    respects the module's own fcntl lock (acquire_lock/save_board), same as every
+    other real caller (cmd_add, tcd/writeback.py's create-task path).
+
+    A failed creation must not crash the receiver — this is live C2. Anything that
+    goes wrong lands as an _audit row, never an exception that reaches _dispatch.
+
+    Note on the 3-second ack: by the time this runs, _run_once has already acked
+    the envelope with no payload (ACK FIRST — see that function's comment), so
+    there is no response_action available here to reject back into the modal.
+    That is why the title field in _new_task_modal_view is a required (non-
+    optional) input block — Slack's client enforces it before submission ever
+    reaches this handler.
+    """
+    view = payload.get("view") or {}
+    if view.get("callback_id") != "new_task":
+        return None  # some other modal's submission — not ours
+
+    user = (payload.get("user") or {}).get("username") or (payload.get("user") or {}).get("id", "?")
+    values = (view.get("state") or {}).get("values") or {}
+
+    title = _field(values, "task_title")
+    priority = _field(values, "task_priority") or "P2"
+    owner = _field(values, "task_owner") or "unassigned"
+
+    if not title:
+        # Defensive only — the modal's required input block should prevent this.
+        return _audit(status="error", detail="new_task submitted with no title",
+                      user=user)
+
+    try:
+        from tcd._imports import load_mission_board_sync
+        mbs = load_mission_board_sync()
+        fd = mbs.acquire_lock()
+        try:
+            board = mbs.load_board()
+            message, mission_id = mbs.add_mission(
+                board, title, description="Filed from Slack App Home (New Task modal)",
+                priority=priority, assigned_to=owner, source="slack",
+            )
+            mbs.save_board(board, fd)
+        except Exception:
+            mbs.release_lock(fd)
+            raise
+    except Exception as exc:
+        return _audit(status="error", detail=f"mission creation failed: "
+                      f"{type(exc).__name__}: {exc}", user=user, title=title,
+                      priority=priority, owner=owner)
+
+    return _audit(status="ok", detail="mission created via Slack modal", user=user,
+                  mission_id=mission_id, title=title, priority=priority, owner=owner,
+                  board_message=message)
+
+
 def _dispatch(envelope: dict) -> None:
     etype = envelope.get("type")
     payload = envelope.get("payload") or {}
     if etype == "interactive" and payload.get("type") == "block_actions":
         handle_block_action(payload)
+    elif etype == "interactive" and payload.get("type") == "view_submission":
+        handle_view_submission(payload)
     elif etype == "slash_commands":
         _audit(status="ignored", detail="slash command received; no handler wired yet",
                command=payload.get("command"))

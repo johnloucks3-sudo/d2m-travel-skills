@@ -8,6 +8,18 @@ MAX_VIEW_BLOCKS = 100
 
 SHEET_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config" / "tcd_sheet_config.json"
 
+# Band 2 well-known URLs. Only these -- never invent a link (see _front_door_blocks).
+GMAIL_URL = "https://mail.google.com/mail/u/0/#inbox"
+DRIVE_URL = "https://drive.google.com/drive/my-drive"
+CALENDAR_URL = "https://calendar.google.com/"
+KEEP_URL = "https://keep.google.com/"
+EVERNOTE_URL = "https://www.evernote.com/client/web"
+# Obsidian deep-link. The vault name is inferred from this repo's own basename
+# -- a ".obsidian" config dir lives at the repo root, confirming it IS the
+# vault -- so this only resolves on a machine that already has that vault
+# open locally; on any other machine the tap is a no-op, not an error.
+OBSIDIAN_URL = "obsidian://open?vault=Thunderbird"
+
 _PRIORITY_RANK = {"p0": 0, "p1": 1, "p2": 2, "p3": 3}
 
 
@@ -42,6 +54,25 @@ def _is_overdue(item: dict) -> bool:
 def _sort_key(item: dict):
     return (_priority_key(item.get("priority", "")),
             _parse_date(item.get("date", "")))
+
+
+def _alert_items(items: list[dict]) -> list[dict]:
+    """Band 1 selection: only what urgency itself puts on screen.
+
+    Mirrors the P0/overdue short-circuit in _assign_items exactly -- priority
+    P0 or a past suspense date, the two conditions nothing about workflow
+    status can hide. Deliberately narrower than the old "Awaiting You"
+    grouping (which also pulled in pending_review/deferred and any Strategic-
+    inbox item): this tab is a front door, not a board, so only genuine
+    alerts render here. Everything else lives in the Sheet, one tap away via
+    Band 2.
+    """
+    alerts = [
+        it for it in items
+        if (it.get("priority", "") or "").strip().lower() == "p0" or _is_overdue(it)
+    ]
+    alerts.sort(key=_sort_key)
+    return alerts
 
 
 def home_item_count(items: list[dict]) -> dict:
@@ -86,6 +117,11 @@ def _assign_items(items: list[dict]) -> OrderedDict:
     # NEW RULE: urgency outranks workflow status. A P0 or a past-suspense item is
     # shown REGARDLESS of status — being deferred does not make an overdue P0 stop
     # mattering. `deferred` is now also a legitimately open state in its own right.
+    #
+    # NOTE (2026-07-30 three-band rework): this "Awaiting You" grouping is retained
+    # here ONLY because home_item_count() must keep counting every section of the
+    # board for the top summary line's total. build_home_view() no longer renders
+    # this grouping as Band 1 -- see _alert_items() for what Band 1 actually shows.
     _OPEN = {"open", "pending_review", "in_coordination", "deferred"}
     _AWAITING_STATUS = {"pending_review", "deferred"}
 
@@ -196,91 +232,147 @@ def _overflow_block(section: str, count: int) -> dict:
     }
 
 
-def _sheet_url() -> str:
-    """spreadsheet_url from config/tcd_sheet_config.json, or "" if absent.
+def _sheet_config() -> dict:
+    """Parsed config/tcd_sheet_config.json, or {} if absent/unreadable.
 
-    Never invent a link — a wrong URL sends the Commander to a blank tab looking for
-    the board he was just told exists. Absent config degrades to plain text below.
+    Single read shared by the Sheet row's URL and its live row count (see
+    _front_door_blocks) so that "cheap to compute" stays true -- one file
+    read, no network call, never re-parsed twice for the same row.
     """
     try:
-        cfg = json.loads(SHEET_CONFIG_PATH.read_text(encoding="utf-8"))
+        return json.loads(SHEET_CONFIG_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
-        return ""
-    url = cfg.get("spreadsheet_url")
-    return url.strip() if isinstance(url, str) and url.strip() else ""
+        return {}
 
 
-def _summary_block(total: int, awaiting: int) -> dict:
-    """Top-of-tab context block: the count this scoped view does NOT show.
+def _tool_row(emoji: str, name: str, url: str, count: str = "") -> dict:
+    """One Band 2 front-door row: emoji + name + optional cheap count + link.
 
-    App Home renders Awaiting You only (see build_home_view), so without this line
-    scoping the view down would cost the Commander his sense of the total board —
-    trading "items aging unseen" for "items he doesn't know exist." This line is the
-    fix: he always sees the full-board number even though he isn't looking at it.
+    Always exactly one block (a section, no accessory) -- the "one block, not
+    two" constraint the Commander asked for is then trivially true rather
+    than something to keep re-verifying. A missing url degrades to plain
+    text, never a broken link -- never invent what isn't configured.
     """
-    text = f"{total} open · {awaiting} awaiting your decision · full board in Sheets"
-    return {"type": "context", "elements": [{"type": "mrkdwn", "text": text}]}
+    suffix = f"  ·  {count}" if count else ""
+    if url:
+        text = f"{emoji} *{name}*{suffix} — <{url}|Open>"
+    else:
+        text = f"{emoji} *{name}*{suffix} — (no link configured)"
+    return {"type": "section", "text": {"type": "mrkdwn", "text": text}}
 
 
-def _sheet_footer_block() -> dict:
-    """Bottom-of-tab link out to the Sheet for bulk work App Home cannot do.
-
-    App Home is single-item buttons only — no drag-fill, no multi-select. Anything
-    beyond a one-off Close belongs in the Sheet, so the way there is always on screen.
+def _front_door_blocks() -> list[dict]:
+    """Band 2: THE FRONT DOOR. One row per tool -- this tab links out, it does
+    not replace any of these. The Sheet leads because it IS the board (PDTAC
+    lives there and works); its row is the only one that gets a live count,
+    because that count (last_row_count) is already sitting in the same config
+    read as its URL -- genuinely free, unlike every other tool here, which
+    would need a network call this function deliberately never makes.
     """
-    url = _sheet_url()
-    text = f"<{url}|Full board: Google Sheets>" if url else "Full board: Google Sheets"
+    cfg = _sheet_config()
+    sheet_url = cfg.get("spreadsheet_url") or ""
+    if not isinstance(sheet_url, str):
+        sheet_url = ""
+    row_count = cfg.get("last_row_count")
+    sheet_count = f"{row_count} rows synced" if isinstance(row_count, int) else ""
+
+    rows = [
+        _tool_row(":bar_chart:", "Sheet — the board", sheet_url, sheet_count),
+        _tool_row(":email:", "Gmail", GMAIL_URL),
+        _tool_row(":file_folder:", "Drive", DRIVE_URL),
+        _tool_row(":calendar:", "Calendar", CALENDAR_URL),
+        _tool_row(":notepad_spiral:", "Keep", KEEP_URL),
+        # No number is configured for a general "Texts" inbox (distinct from
+        # the Commander's own cell) anywhere in this repo -- skip rather than
+        # invent one. Flip this to sms:<number> the day a real source exists.
+        _tool_row(":speech_balloon:", "Texts", ""),
+        _tool_row(":elephant:", "Evernote", EVERNOTE_URL),
+        _tool_row(":large_blue_diamond:", "Obsidian", OBSIDIAN_URL),
+    ]
+    return [_header_block("Front Door")] + rows
+
+
+def _task_band_blocks() -> list[dict]:
+    """Band 3: TASK. A single button; another agent wires the modal behind
+    action_id="open_task_modal" -- this function only emits the entry point.
+    """
+    return [
+        _header_block("Task"),
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {"type": "plain_text", "text": "+ New Task", "emoji": True},
+                    "action_id": "open_task_modal",
+                    "value": "new",
+                }
+            ],
+        },
+    ]
+
+
+def _summary_block(total: int, alerts: int) -> dict:
+    """Top-of-tab context block: what the board holds and what's on fire.
+
+    `total` covers every item passed in, across all sections -- so scoping
+    Band 1 down to alerts-only never costs the Commander his sense of how
+    much is on the board; that count is still on screen even though this
+    view doesn't itemize it (the full board is one tap away in Band 2).
+    """
+    plural = "" if alerts == 1 else "s"
+    text = f"{total} open on the board · {alerts} alert{plural} right now"
     return {"type": "context", "elements": [{"type": "mrkdwn", "text": text}]}
 
 
 def build_home_view(items: list[dict]) -> dict:
-    """Render ONLY what needs the Commander's decision — not the whole board.
+    """Render the Commander's Slack App Home as a three-band FRONT DOOR.
 
-    2026-07-29 AG parity audit (OpsCenter/state/ag_tcd_slack_parity.md): App Home is
-    hard-capped at 100 blocks and cannot be threaded or tabbed. Rendering every section
-    (Strategic/Operational/Reference/Watch) at 2 blocks/item hits that cap around 50
-    items — with 200+ items on the board, ~150 go invisible behind a footer. That is
-    the exact "items aging unseen" failure TCD existed to prevent. So this view no
-    longer tries to be the whole board: it shows Awaiting You (status=='Open' and
-    (priority=='P0' or inbox=='Strategic')) and nothing else. Bulk/tabbed work stays in
-    the Sheet, one link away (see _sheet_footer_block).
+    This is NOT the board -- the Google Sheet is the board (PDTAC is embedded
+    there and works). Slack's job here is narrower and stays that way:
 
-    THE INVARIANT THIS FUNCTION EXISTS TO HOLD (unchanged from the prior version):
-        items rendered + items declared hidden == items in
-    for the Awaiting You set, always — the budget is reserved up front, never consumed
-    first-come-first-served, so a full list can never disappear silently.
+      Band 1 ALERTS       -- only what urgency itself surfaces: P0 or past
+                              suspense (see _alert_items). Empty most days;
+                              emptiness is the signal the Commander is
+                              actually clear, not that nothing was checked.
+      Band 2 FRONT DOOR    -- one row per tool, deep link + cheap count where
+                              one exists, Sheet first because it's the board.
+      Band 3 TASK          -- one button that opens the task-intake modal.
 
-    The Commander must never lose sight of the total board just because this view is
-    scoped: _summary_block carries the ALL-inboxes open count and the Awaiting You count
-    every time, sourced from home_item_count() so the header line and the section content
-    can never drift apart from double bookkeeping.
+    THE INVARIANT (unchanged since the single-band version, 2026-07-29 AG
+    parity audit, OpsCenter/state/ag_tcd_slack_parity.md): items rendered +
+    items declared hidden == alerts in, always. The item budget is reserved
+    against the fixed chrome FIRST -- top summary, Band 1 header, one
+    overflow slot, all of Band 2, all of Band 3 -- never consumed
+    first-come-first-served, so a real P0 can never disappear silently behind
+    the 100-block cap. Slack's hard cap (MAX_VIEW_BLOCKS) is enforced by
+    construction: fixed chrome + item_budget can never exceed it.
     """
     counts = home_item_count(items)
     total = sum(counts.values())
-    awaiting: list[dict] = _assign_items(items)["Awaiting You"]
-    awaiting_total = counts.get("Awaiting You", 0)
+    alerts = _alert_items(items)
+    alerts_total = len(alerts)
 
-    top = _summary_block(total, awaiting_total)
-    footer = _sheet_footer_block()
+    band2 = _front_door_blocks()
+    band3 = _task_band_blocks()
 
-    if not awaiting:
-        return {"type": "home", "blocks": [
-            top, _header_block("Nothing awaiting your decision"), footer,
-        ]}
-
-    # Reserve the non-negotiable chrome first: top summary, section header, sheet
-    # footer, and one slot in case an overflow footer is needed. Whatever survives is
-    # the item budget — the same "reserve first" fix that closed the silent-loss bug.
-    reserved = 4
+    # Reserve every non-negotiable block first: top summary (1), Band 1
+    # header (1), one overflow slot in case Band 1 truncates (1), then all of
+    # Band 2 and Band 3 in full -- they never get cut. Whatever's left is the
+    # item budget for Band 1.
+    reserved = 3 + len(band2) + len(band3)
     item_budget = max(0, MAX_VIEW_BLOCKS - reserved)
-    show = min(len(awaiting), item_budget)
-    withheld = len(awaiting) - show
+    show = min(alerts_total, item_budget)
+    withheld = alerts_total - show
 
-    blocks: list[dict] = [top, _header_block("Awaiting You")]
-    for it in awaiting[:show]:
+    band1_title = "Alerts" if alerts_total else "All clear — no P0s, nothing overdue"
+
+    blocks: list[dict] = [_summary_block(total, alerts_total), _header_block(band1_title)]
+    for it in alerts[:show]:
         blocks.append(_item_block(it))
     if withheld:
-        blocks.append(_overflow_block("Awaiting You", withheld))
-    blocks.append(footer)
+        blocks.append(_overflow_block("Alerts", withheld))
+    blocks.extend(band2)
+    blocks.extend(band3)
 
     return {"type": "home", "blocks": blocks}

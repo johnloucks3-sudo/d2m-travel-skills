@@ -45,12 +45,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Optional
 
+from core.comms.email_mode_classifier import (
+    MODE_CC,
+    MODE_FYI,
+    MODE_TASKING,
+    classify_email_mode,
+)
+
 ROOT = Path(__file__).resolve().parents[2]
 LOG_PATH = ROOT / "OpsCenter" / "directive_executions.jsonl"
 
 DONE = "DONE"
 FAILED = "FAILED"
 UNVERIFIED = "UNVERIFIED"
+TASKED = "TASKED"
+LOGGED = "LOGGED"
 
 
 def _now() -> str:
@@ -91,6 +100,71 @@ def _capture(directive_text: str, source: str) -> None:
         _log({"ts": _now(), "status": "CAPTURE_FALLBACK", "source": source,
               "directive": directive_text[:500],
               "detail": f"directive_ledger.capture failed: {type(exc).__name__}: {exc}"})
+
+
+def _create_email_mission(title: str, description: str, priority: str = "P1") -> tuple[str, Optional[str]]:
+    """Create a real mission through mission_board_sync's own locked add_mission —
+    the one place mission-creation + dedup logic lives (see its docstring). Tagged
+    source="email" so TASKING-mode email tasking is distinguishable on the board
+    from every other origin. Not called for FYI/CC — those create no work."""
+    from OpsCenter import mission_board_sync as mbs
+
+    fd = mbs.acquire_lock()
+    try:
+        board = mbs.load_board()
+        message, mission_id = mbs.add_mission(
+            board, title, description, priority, assigned_to="unassigned", source="email",
+        )
+        mbs.save_board(board, fd)
+        return message, mission_id
+    except Exception:
+        mbs.release_lock(fd)
+        raise
+
+
+def route_email(
+    directive_text: str,
+    *,
+    subject: str = "",
+    to_addr: str = "",
+    cc_addr: str = "",
+    source: str = "commander_email",
+    priority: str = "P1",
+) -> dict:
+    """Gmail as C2: classify an inbound Commander email into TASKING / FYI / CC
+    and route it accordingly (Commander directive, directive ledger: "I want to
+    use Gmail as a C2 tasking and FYI and CC capability").
+
+    TASKING creates a real mission (source="email", via the locked add_mission
+    path). FYI and CC create NO work — captured to the directive ledger (every
+    Commander message, mandate-eligible) and logged here, nothing more.
+
+    This is the entry point the inbound sweep should call per message; it does
+    not send any reply — the reply path stays silent until verified, per
+    execute_directive's rule above.
+    """
+    _capture(directive_text, source)
+    mode, reason = classify_email_mode(
+        subject=subject, body=directive_text, to_addr=to_addr, cc_addr=cc_addr
+    )
+    base: dict[str, Any] = {
+        "ts": _now(), "source": source, "mode": mode, "reason": reason,
+        "subject": (subject or "")[:200], "directive": directive_text[:500],
+    }
+
+    if mode != MODE_TASKING:
+        # FYI / CC: informational. No mission, no reply — just the record.
+        return _log({**base, "status": LOGGED, "mission_id": None,
+                     "detail": f"{mode} — no work created ({reason})"})
+
+    title = (subject or directive_text).strip()[:80] or "(no subject)"
+    try:
+        message, mission_id = _create_email_mission(title, directive_text[:2000], priority)
+    except Exception as exc:
+        return _log({**base, "status": FAILED, "mission_id": None,
+                     "detail": f"{type(exc).__name__}: {exc}"})
+
+    return _log({**base, "status": TASKED, "mission_id": mission_id, "detail": message})
 
 
 # Commands that cannot falsify anything. AG review 2026-07-29, finding 1: the caller
