@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """
 Telegram Bot Health Check — OC-YOGA-BUILD-001
-Pings active bots via getMe, writes status to hale_state.json wing_health.telegram_bots.
+Pings active bots via getMe (token liveness) AND checks
+thunderbird-telegram-gw.service (local gateway process liveness).
+Writes status to hale_state.json wing_health.telegram_bots.
 Runs every 60 seconds via thunderbird-telegram-health.timer.
 No LLM required.
 """
 import json
 import os
+import subprocess
 import urllib.request
 import urllib.error
 from datetime import datetime
@@ -20,6 +23,8 @@ BOTS = {
     "D2MC2C": "TELEGRAM_BOT_TOKEN",
     "Dani": "TELEGRAM_CHANNELS_BOT_TOKEN",
 }
+
+GATEWAY_SERVICE = "thunderbird-telegram-gw.service"
 
 TELEGRAM_API = "https://api.telegram.org/bot{token}/getMe"
 
@@ -60,6 +65,21 @@ def _ping_bot(token: str) -> dict:
         return {"status": "DEAD", "error": str(e)[:120], "last_check": datetime.now().isoformat()}
 
 
+def _check_gateway_active() -> bool:
+    """Check whether thunderbird-telegram-gw.service (the local process that
+    polls and dispatches Commander messages) is running. A valid bot token
+    says nothing about this — the process can be dead while the token
+    stays valid forever."""
+    try:
+        result = subprocess.run(
+            ["systemctl", "--user", "is-active", "--quiet", GATEWAY_SERVICE],
+            timeout=5,
+        )
+        return result.returncode == 0
+    except Exception:
+        return False
+
+
 def _load_hale_state() -> dict:
     try:
         return json.loads(HALE_STATE.read_text())
@@ -73,13 +93,14 @@ def _save_hale_state(state: dict):
 
 def run():
     env = _load_env()
-    results = {}
+    bot_results = {}
 
     for bot_name, env_key in BOTS.items():
         token = env.get(env_key, "").strip()
         if not token:
-            results[bot_name] = {
+            bot_results[bot_name] = {
                 "status": "UNKNOWN",
+                "token_valid": False,
                 "error": f"Token env var {env_key} not set",
                 "last_check": datetime.now().isoformat(),
             }
@@ -87,10 +108,30 @@ def run():
             continue
 
         result = _ping_bot(token)
-        results[bot_name] = result
-        icon = "✅" if result["status"] == "LIVE" else "❌"
+        result["token_valid"] = result["status"] == "LIVE"
+        bot_results[bot_name] = result
+        icon = "✅" if result["token_valid"] else "❌"
         print(f"{icon} {bot_name}: {result['status']} (@{result.get('username', 'n/a')})")
 
+    gateway_active = _check_gateway_active()
+    gateway_icon = "✅" if gateway_active else "❌"
+    print(f"{gateway_icon} gateway: {GATEWAY_SERVICE} {'active' if gateway_active else 'INACTIVE'}")
+
+    all_tokens_valid = all(v.get("token_valid") for v in bot_results.values())
+    if all_tokens_valid and gateway_active:
+        overall_status = "HEALTHY"
+    elif all_tokens_valid and not gateway_active:
+        overall_status = "DEGRADED"
+    else:
+        overall_status = "DOWN"
+
+    results = dict(bot_results)
+    results["gateway"] = {
+        "service": GATEWAY_SERVICE,
+        "active": gateway_active,
+        "last_check": datetime.now().isoformat(),
+    }
+    results["overall_status"] = overall_status
     results["last_health_check"] = datetime.now().isoformat()
 
     # Write to hale_state.json
@@ -104,9 +145,9 @@ def run():
     state["_meta"]["last_updated"] = datetime.now().astimezone().isoformat()
     _save_hale_state(state)
 
-    live_count = sum(1 for v in results.values() if isinstance(v, dict) and v.get("status") == "LIVE")
+    live_count = sum(1 for v in bot_results.values() if v.get("token_valid"))
     total = len(BOTS)
-    print(f"📊 Telegram health: {live_count}/{total} LIVE — written to hale_state.json")
+    print(f"📊 Telegram health: {live_count}/{total} tokens valid, gateway {'active' if gateway_active else 'INACTIVE'} — overall {overall_status} — written to hale_state.json")
     return results
 
 
