@@ -1,3 +1,23 @@
+# DISABLED 2026-07-30 (Wing repair, teammate CC): this unit was `linked` in
+# ~/.config/systemd/user/ but had ZERO journal entries ever — Wants=
+# poe-burn-monitor.timer below points at a timer unit that does not exist
+# anywhere in ~/.config/systemd/user/, and its ExecStart script
+# (core/cost_dashboard/daemons/poe_burn_monitor.py) was deleted from the live
+# tree in commit db4e497ae ("mass cleanup — kill 80+ dead files"). It gave the
+# false impression that Poe burn-rate monitoring was active when it never ran.
+# `systemctl --user disable poe-burn-monitor.service` was run to unlink it
+# from ~/.config/systemd/user/ (systemd's standard behavior for a unit
+# registered via `systemctl link`: disable removes the link, so
+# `systemctl --user is-enabled` now correctly reports not-found instead of
+# linked). This file (the actual unit definition) was left intact, not
+# deleted. The script was recovered from a stale worktree copy and restored
+# to core/cost_dashboard/daemons/poe_burn_monitor.py — it is a complete,
+# working monitor (reads logs/poe_api_calls.jsonl + storage/ai_costs.db
+# poe_snapshots table, checks daily/weekly burn thresholds, projects
+# depletion) but logs/poe_api_calls.jsonl does not currently exist, so it
+# would report zero burn even if run. Re-wiring this (recreating the timer,
+# re-linking this service, and producing the JSONL log it reads) is a
+# Commander decision, not made here.
 [Unit]
 Description=Poe API Burn Rate Monitor
 After=network.target
