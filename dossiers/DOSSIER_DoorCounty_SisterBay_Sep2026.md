@@ -95,7 +95,7 @@ completed_tps_basis: "TP 0.5 Welcome & Validation sent 2026-06-24 to johnloucks3
 | Date | Milestone | Status |
 |------|-----------|--------|
 | Jun 10, 2026 | Dossier created | ✅ |
-| Sep 6, 2026 | Fly COS→GRB — **AIR STILL NOT BOOKED** | 🔴 NOT BOOKED |
+| Sep 6, 2026 | Fly COS→GRB | ✅ BOOKED |
 | **Sep 6–7, 2026** | **Pre-position overnight — Wave Pointe Marina & Resort, Sturgeon Bay** | ✅ **CONFIRMED #5XMKEFFT9D** |
 | **Sep 7, 2026** | **CHECK-IN — Country House Resort · 3:00–10:00 PM** | ✅ Confirmed |
 | Sep 7–13, 2026 | Door County activities | ⏳ Planning |
@@ -141,15 +141,19 @@ Added 2026-07-30 from Commander's forwarded confirmation. **This closes the "ove
 
 **Cancellation:** refund minus the greater of 10% or $20, and only if cancelled **7+ days before arrival** — i.e. **by Aug 30, 2026**. Inside 7 days it is non-refundable. Date changes are free if requested 72+ hours ahead.
 
-⚠️ **Timing risk worth naming:** the cancellation deadline (Aug 30) falls *before* any realistic air-booking deadline pressure eases. If COS→GRB air proves unworkable for a Sep 6 arrival, this room must be cancelled by Aug 30 or it is a total loss of $346.18.
+**Cancellation deadline Aug 30, 2026** — noted for the record only. Air is booked (see below), so there is no cancel-by decision pending.
+
+> **Correction, 2026-07-30.** An earlier version of this note warned that the room should be cancelled by Aug 30 if air did not materialize. **That warning was wrong and is withdrawn.** The Commander confirmed air is booked. The error: a Gmail search was run against two of three mailboxes and the negative result was reported as if the search had been complete — the confirmation is in an account that was not searched.
 
 ### Air — COS ↔ GRB
 *(Origin corrected 2026-07-16 — was DEN, see banner above. COS = Colorado Springs, Commander's actual home airport.)*
 
 | Leg | Route | Date | Status | Notes |
 |-----|-------|------|--------|-------|
-| Outbound | COS → GRB | Sep 6, 2026 (Sun) | 🔴 NOT BOOKED | Via ORD (United) or MSP/DEN (Delta). Business class recommended. |
-| Return | GRB → COS | Sep 14, 2026 (Mon) | 🔴 NOT BOOKED | Check-out 11am → airport. Afternoon departure. |
+| Outbound | COS → GRB | Sep 6, 2026 (Sun) | ✅ **BOOKED** | Confirmed by Commander 2026-07-30. Flight numbers/times/layover pending — confirmation to be supplied. |
+| Return | GRB → COS | Sep 14, 2026 (Mon) | ✅ **BOOKED** | Confirmed by Commander 2026-07-30. Details pending. |
+
+> **Status corrected 2026-07-30.** Both legs read `🔴 NOT BOOKED` until now. That was stale — the dossier had not been updated since 2026-07-16 and no automated path existed to notice a booking confirmation arriving by email. Flight numbers, times and layovers are the only outstanding detail; **the booking itself is not in question.**
 
 **Recommended carriers (re-verify connecting hub from COS, not DEN):**
 - United: COS→[hub]→GRB · Business ~$1,100–$1,800 RT pp (estimate carried over from DEN version — unverified for COS)
