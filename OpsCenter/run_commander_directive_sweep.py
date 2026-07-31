@@ -459,6 +459,43 @@ try:
             safe_subject = sanitize_prompt_input(subject, max_len=200, field_name="subject")
             safe_body = sanitize_prompt_input(body_text, max_len=2000, field_name="body")
 
+            # ── Gmail as C2: TASKING / FYI / CC ──────────────────────────────────
+            # Commander directive (directive ledger): "I want to use Gmail as a C2
+            # tasking and FYI and CC capability" — three distinct modes.
+            #
+            # This file is PROTECTED. Edited 2026-07-30 under the Commander's
+            # explicit authorization ("overriding the prohibition for
+            # run_commander_directive_sweep.py"), which is the exact condition the
+            # banner above requires.
+            #
+            # WHY IT HAD TO CHANGE: email tasking had produced ZERO missions in its
+            # entire existence. Measured — no mission on the board carried an email
+            # origin. On 2026-07-30 the Commander emailed "Add to Loucks dossier,
+            # confirm flight arrangements" and it existed nowhere: no mission, no
+            # dossier entry, no reply. The sweep ingested and dropped it. A classifier
+            # was built for this and left with no caller; this is that caller.
+            #
+            # Classification is deliberately biased to TASKING when ambiguous — a
+            # dropped order costs more than a spare queue item now that closing is a
+            # single tap in Slack. FYI and CC log only and create no work.
+            #
+            # Wrapped: a classifier fault must never stop the sweep from processing
+            # the rest of the inbox.
+            try:
+                from core.comms.directive_executor import route_email
+                _routed = route_email(
+                    body_text,
+                    subject=subject,
+                    to_addr=to_addr,
+                    cc_addr=cc_addr,
+                    source="commander_email",
+                )
+                log_line(f"   C2 mode={_routed.get('mode')} "
+                         f"mission={_routed.get('mission_id') or '—'}")
+            except Exception as _exc:
+                log_line(f"   C2 routing failed (non-fatal): "
+                         f"{type(_exc).__name__}: {_exc}")
+
             wing_ctx = load_wing_context()
             task_prompt = (
                 f"You are Hale, COS for John Loucks (Commander / 'Yoda') at Dreams2Memories Travel, LLC. "

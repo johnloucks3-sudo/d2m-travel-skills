@@ -106,9 +106,16 @@ def _create_email_mission(title: str, description: str, priority: str = "P1") ->
     """Create a real mission through mission_board_sync's own locked add_mission —
     the one place mission-creation + dedup logic lives (see its docstring). Tagged
     source="email" so TASKING-mode email tasking is distinguishable on the board
-    from every other origin. Not called for FYI/CC — those create no work."""
-    from OpsCenter import mission_board_sync as mbs
+    from every other origin. Not called for FYI/CC — those create no work.
 
+    Goes through tcd._imports.load_mission_board_sync() — the SAME intake path
+    core/comms/slack_receiver.py's handle_view_submission() and tcd/writeback.py
+    use, so Slack, Sheet, and Email converge on one store rather than three
+    parallel mission-creation implementations (repo-layout/box-layout import
+    shim included, not just the locking discipline)."""
+    from tcd._imports import load_mission_board_sync
+
+    mbs = load_mission_board_sync()
     fd = mbs.acquire_lock()
     try:
         board = mbs.load_board()
