@@ -13,6 +13,7 @@ GMAIL_URL = "https://mail.google.com/mail/u/0/#inbox"
 DRIVE_URL = "https://drive.google.com/drive/my-drive"
 CALENDAR_URL = "https://calendar.google.com/"
 KEEP_URL = "https://keep.google.com/"
+TEXTS_URL = "https://messages.google.com/web/conversations"
 EVERNOTE_URL = "https://www.evernote.com/client/web"
 # Obsidian deep-link. The vault name is inferred from this repo's own basename
 # -- a ".obsidian" config dir lives at the repo root, confirming it IS the
@@ -281,11 +282,8 @@ def _front_door_blocks() -> list[dict]:
         _tool_row(":email:", "Gmail", GMAIL_URL),
         _tool_row(":file_folder:", "Drive", DRIVE_URL),
         _tool_row(":calendar:", "Calendar", CALENDAR_URL),
-        _tool_row(":notepad_spiral:", "Keep", KEEP_URL),
-        # No number is configured for a general "Texts" inbox (distinct from
-        # the Commander's own cell) anywhere in this repo -- skip rather than
-        # invent one. Flip this to sms:<number> the day a real source exists.
-        _tool_row(":speech_balloon:", "Texts", ""),
+        _tool_row(":spiral_notepad:", "Keep", KEEP_URL),
+        _tool_row(":speech_balloon:", "Texts", TEXTS_URL),
         _tool_row(":elephant:", "Evernote", EVERNOTE_URL),
         _tool_row(":large_blue_diamond:", "Obsidian", OBSIDIAN_URL),
     ]
