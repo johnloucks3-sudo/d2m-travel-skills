@@ -126,8 +126,19 @@ def _live_sync(include_gmail: bool, include_keep: bool = True, include_sms: bool
         spreadsheetId=sheet_id, range=f"{TAB_NAME}!A1",
         valueInputOption="RAW", body={"values": values}).execute()
 
+    gid = cfg.get("spreadsheet_gid")
+    if gid is None:
+        ss = sheets.spreadsheets().get(spreadsheetId=sheet_id, fields="sheets.properties").execute()
+        for sheet in ss.get("sheets", []):
+            props = sheet.get("properties", {})
+            if props.get("title") == TAB_NAME:
+                gid = props.get("sheetId")
+                cfg["spreadsheet_gid"] = gid
+                break
+
     cfg["last_sync_at"] = datetime.now(timezone.utc).isoformat()
     cfg["last_row_count"] = len(rows)
+    cfg["item_rows"] = {r.get("id"): idx + 2 for idx, r in enumerate(rows) if r.get("id")}
     _save_config(cfg)
 
     print(f"{'Created' if created else 'Updated'} Sheet: {url}")

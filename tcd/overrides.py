@@ -96,5 +96,12 @@ def apply_status(item_id: str, derived_status: str, overrides: dict) -> str:
     reasoning as apply_override for stage. Delete isn't stored here; a
     disposed row's SOURCE is gone, so it stops being collected at all and
     never reaches this function again."""
+    try:
+        from core.comms import commander_queue
+        if commander_queue.is_closed(item_id):
+            return "Closed"
+    except Exception:
+        pass
+
     entry = overrides.get(item_id) or {}
     return entry.get("status") or derived_status

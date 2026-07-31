@@ -165,3 +165,43 @@ def derive_source_path(item: dict) -> str:
     if fid.startswith("mission-"):
         return "OpsCenter/mission_board.json:missions"
     return ""
+
+def sheet_row_link(item_id: str, cfg: dict = None) -> str:
+    """Returns a row-anchored URL for an item in the TCD Items sheet.
+    
+    Returns "" if item_id is missing, or if last_sync_at is > 20 minutes old.
+    """
+    if not item_id:
+        return ""
+    if cfg is None:
+        try:
+            import json
+            from . import _imports
+            CONFIG_PATH = _imports.ROOT / "config" / "tcd_sheet_config.json"
+            cfg = json.loads(CONFIG_PATH.read_text())
+        except Exception:
+            return ""
+            
+    last_sync = cfg.get("last_sync_at")
+    if not last_sync:
+        return ""
+        
+    try:
+        from datetime import datetime, timezone
+        sync_dt = datetime.fromisoformat(last_sync)
+        if (datetime.now(timezone.utc) - sync_dt).total_seconds() > 20 * 60:
+            return ""
+    except ValueError:
+        return ""
+        
+    item_rows = cfg.get("item_rows", {})
+    row = item_rows.get(item_id)
+    if not row:
+        return ""
+        
+    url = cfg.get("spreadsheet_url")
+    gid = cfg.get("spreadsheet_gid")
+    if not url or gid is None:
+        return ""
+        
+    return f"{url}#gid={gid}&range=A{row}"
