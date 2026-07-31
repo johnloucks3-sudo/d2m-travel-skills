@@ -4,9 +4,40 @@
 #   */90 * * * * /home/john/Thunderbird/hooks/claude_oauth_keepalive.sh
 LOG="/home/john/Thunderbird/logs/oauth_keepalive.log"
 mkdir -p /home/john/Thunderbird/logs
-RESULT=$(env -u ANTHROPIC_API_KEY /home/john/.local/bin/claude --dangerously-skip-permissions --model claude-opus-4-8 -p "Reply with: ok" 2>&1 | head -2)
-if echo "$RESULT" | grep -qi "ok"; then
-  echo "[$(date '+%Y-%m-%d %H:%M')] keepalive OK" >> "$LOG"
-else
-  echo "[$(date '+%Y-%m-%d %H:%M')] keepalive WARN: $RESULT" >> "$LOG"
-fi
+# Local token freshness check — reads ~/.claude/.credentials.json directly without LLM inference
+python3 -c '
+import json, os, time, datetime
+cred_path = os.path.expanduser("~/.claude/.credentials.json")
+log_path = "/home/john/Thunderbird/logs/oauth_keepalive.log"
+os.makedirs(os.path.dirname(log_path), exist_ok=True)
+now_ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
+if not os.path.exists(cred_path):
+    with open(log_path, "a") as f:
+        f.write(f"[{now_ts}] keepalive WARN: credentials file missing\n")
+    exit(1)
+
+try:
+    with open(cred_path) as f:
+        data = json.load(f)
+    oauth = data.get("claudeAiOauth", {})
+    exp_ms = oauth.get("expiresAt", 0)
+    ref_exp_ms = oauth.get("refreshTokenExpiresAt", 0)
+    now_ms = time.time() * 1000
+    
+    exp_hours = (exp_ms - now_ms) / (1000 * 3600)
+    ref_days = (ref_exp_ms - now_ms) / (1000 * 86400)
+    
+    if exp_hours > 0 or ref_days > 0:
+        msg = f"[{now_ts}] keepalive OK (OAuth token valid, expires in {exp_hours:.1f}h, refresh in {ref_days:.1f}d)\n"
+    else:
+        msg = f"[{now_ts}] keepalive WARN: OAuth token expired\n"
+    
+    with open(log_path, "a") as f:
+        f.write(msg)
+except Exception as e:
+    with open(log_path, "a") as f:
+        f.write(f"[{now_ts}] keepalive WARN: check failed: {e}\n")
+    exit(1)
+'
+
