@@ -24,6 +24,7 @@ RESTART_THRESHOLD = 5          # restarts in the unit's lifetime counter delta
 ERROR_THRESHOLD = 100          # journal error/warning lines in the window
 ERROR_WINDOW_MIN = 10
 DISPATCH_COOLDOWN_MIN = 30     # don't re-dispatch a fixer for the same unit within this
+MAX_REPAIR_ATTEMPTS = 3
 
 
 # ---------- pure, testable logic ----------
@@ -43,7 +44,11 @@ def classify(nrestarts: int, errors: int,
 def should_dispatch(unit: str, state: dict, now: datetime,
                     cooldown_min: int = DISPATCH_COOLDOWN_MIN) -> bool:
     """True unless a fixer was dispatched for this unit within the cooldown."""
-    last = state.get(unit, {}).get("last_dispatch")
+    u_state = state.get(unit, {})
+    if u_state.get("attempts", 0) > MAX_REPAIR_ATTEMPTS:
+        return False
+        
+    last = u_state.get("last_dispatch")
     if not last:
         return True
     dt = datetime.fromisoformat(last)
@@ -128,8 +133,23 @@ def _load_state() -> dict:
     return {}
 
 
-def _save_state(state: dict) -> None:
+def _save_state(state: dict, preserve_disk_attempts: bool = True) -> None:
     STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    
+    if preserve_disk_attempts and STATE_PATH.exists():
+        try:
+            with open(STATE_PATH, "r") as f:
+                fcntl.flock(f, fcntl.LOCK_SH)
+                disk_state = json.load(f)
+            for u, disk_u in disk_state.items():
+                if isinstance(disk_u, dict) and "attempts" in disk_u:
+                    if u in state and isinstance(state[u], dict):
+                        state[u]["attempts"] = disk_u["attempts"]
+                    else:
+                        state[u] = {"attempts": disk_u["attempts"]}
+        except Exception:
+            pass
+
     with open(STATE_PATH, "w") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         f.write(json.dumps(state, indent=2) + "\n")
@@ -263,12 +283,40 @@ def assess(unit: str) -> dict:
     baseline = _load_baseline().get(unit, r["nrestarts"])
     r["restarts_recent"] = max(0, r["nrestarts"] - baseline)
     residual = fuse(r)
-    return {"unit": unit, "resolved": not residual, "residual": residual, "reading": r}
+    resolved = not residual
+    
+    if resolved:
+        st = _load_state()
+        if unit in st and st[unit].get("attempts", 0) > 0:
+            st[unit]["attempts"] = 0
+            _save_state(st, preserve_disk_attempts=False)
+            
+    return {"unit": unit, "resolved": resolved, "residual": residual, "reading": r}
 
 
 ALERT_TIER = "sonnet"          # the alert bird's capability (fix-grade reasoning)
 QRA_FLIGHT_SIZE = 3            # max scrambles per sentinel cycle (a storm waits its turn)
 MANAGED_STRIKE_TIMEOUT_S = 300  # hard cap on a managed strike (< 10-min timer) — CRIT-2
+
+
+def _claude_spend_allowed() -> bool:
+    """Fail-closed guard: True only if the 5-hour OAuth usage window has headroom.
+    Reads the SAME live usage cache the Commander's status bar reads. Any failure
+    to read/parse it, or a missing figure, or a reported error, means NOT allowed —
+    never default to permissive on a broken read."""
+    import json as _json
+    from pathlib import Path as _Path
+    cache_path = _Path.home() / ".claude" / "hud" / ".usage-cache.json"
+    try:
+        raw = _json.loads(cache_path.read_text())
+    except Exception:
+        return False
+    if raw.get("error"):
+        return False
+    five_hour = raw.get("data", {}).get("fiveHour")
+    if five_hour is None:
+        return False
+    return five_hour < 85
 
 
 def _fix_prompt(breach: dict) -> str:
@@ -313,7 +361,37 @@ def dispatch_remediation(breach: dict) -> dict:
     the agent reports it cannot fix (sudo/spend/client-send). Falls back to a cold
     headless spawn if the managed API is unavailable (slow strike beats no strike)."""
     unit = breach["unit"]
+    
+    st = _load_state()
+    u_st = st.setdefault(unit, {})
+    u_st["attempts"] = u_st.get("attempts", 0) + 1
+    _save_state(st, preserve_disk_attempts=False)
+    
+    if u_st["attempts"] > MAX_REPAIR_ATTEMPTS:
+        msg = f"Max repair attempts ({MAX_REPAIR_ATTEMPTS}) reached for {unit}. Escalate to human."
+        notify_hale("ESCALATE_CAP_HIT", unit, msg)
+        escalate_to_commander(unit, msg)
+        return {"unit": unit, "dispatched": False, "escalate": True, "error": msg}
+
     prompt = _fix_prompt(breach)
+    if not _claude_spend_allowed():
+        try:
+            from core.relay.dispatch_oc import dispatch_to_oc
+            tid = f"ci-fix-{unit}-{u_st['attempts']}"
+            res = dispatch_to_oc(
+                task=prompt,
+                acceptance_criteria=f"Service {unit} is no longer crash-looping or error-spiking.",
+                ticket_id=tid,
+                task_type="ci-remediation",
+            )
+            return {"unit": unit, "dispatched": True, "via": "oc_async_budget_guard",
+                    "ticket_id": res.get("ticket_id")}
+        except Exception as oc_e:
+            notify_hale("CLAUDE_BUDGET_GUARD_BLOCKED", unit,
+                        f"5h usage guard blocked auto-Claude spend; OC dispatch also failed: {oc_e}")
+            return {"unit": unit, "dispatched": False, "escalate": True,
+                    "error": f"claude_budget_guard_active; oc_dispatch_failed: {oc_e}"}
+
     # Primary: scramble the managed-agent alert bird (fast) — under a HARD wall-clock
     # timeout so a hung managed API can never wedge the oneshot sentinel (CRIT-2).
     try:
@@ -330,20 +408,28 @@ def dispatch_remediation(breach: dict) -> dict:
                 "escalate": is_escalation(output), "cost_usd": res.get("cost_usd"),
                 "output": output[:1200]}
     except Exception as e:
-        # Fallback: cold headless spawn (detached). Slower, $0 MAX, but it still strikes.
+        # Fallback: route to OC for attempts 1-2, or cold headless spawn (detached) for attempt 3.
+        oc_err = ""
+        if u_st["attempts"] < MAX_REPAIR_ATTEMPTS:
+            try:
+                from core.relay.dispatch_oc import dispatch_to_oc
+                tid = f"ci-fix-{unit}-{u_st['attempts']}"
+                res = dispatch_to_oc(
+                    task=prompt,
+                    acceptance_criteria=f"Service {unit} is no longer crash-looping or error-spiking.",
+                    ticket_id=tid,
+                    task_type="ci-remediation"
+                )
+                return {"unit": unit, "dispatched": True, "via": "oc_async", "ticket_id": res.get("ticket_id")}
+            except Exception as oc_e:
+                oc_err = str(oc_e)
+        
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         out = OUTPUT_DIR / f"fix_{unit.replace('.', '_')}.md"
-        try:
-            proc = subprocess.Popen(
-                ["python3", DISPATCH_CLAUDE, "--task", f"ci-fix-{unit}",
-                 "--output", str(out), "--prompt", prompt + f"\nWRITE your report to {out}",
-                 "--model", "sonnet"],
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
-            return {"unit": unit, "dispatched": True, "via": "headless_fallback",
-                    "managed_error": str(e), "pid": proc.pid, "report": str(out),
-                    "escalate": False}
-        except Exception as e2:
-            return {"unit": unit, "dispatched": False, "error": f"managed:{e} headless:{e2}"}
+        
+        notify_hale("FALLBACK_ESCALATION", unit, f"Managed agent failed: {e}; OC dispatch failed: {oc_err}")
+        escalate_to_commander(unit, f"Managed agent strike failed: {e}. OC dispatch failed: {oc_err or 'N/A'}")
+        return {"unit": unit, "dispatched": False, "escalate": True, "error": str(e), "report": str(out)}
 
 
 HALE_AWARENESS_LOG = Path("/home/john/Thunderbird/OpsCenter/ci_awareness.jsonl")

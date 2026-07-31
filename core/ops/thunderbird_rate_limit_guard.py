@@ -36,6 +36,7 @@ STATE_FILE       = CONFIG_DIR / "rate_guard_state.json"
 LOG_DIR          = THUNDERBIRD_DIR / "logs"
 LOG_FILE         = LOG_DIR / "rate_limit_guard.log"
 COST_DB          = THUNDERBIRD_DIR / "storage" / "ai_costs.db"
+HUD_CACHE_PATH   = Path.home() / ".claude" / "hud" / ".usage-cache.json"
 
 POE_ENV_FILE     = CONFIG_DIR / "poe.env"
 MAIN_ENV_FILE    = THUNDERBIRD_DIR / ".env"
@@ -45,6 +46,10 @@ WEEKLY_LIMIT_ALL = 680_000_000   # tokens — all-models rolling 7-day
 SONNET_WARN      = 70    # % — Sonnet weekly heads-up
 SONNET_CRIT      = 85    # % — Sonnet graceful degradation
 SONNET_STOP      = 95    # % — Sonnet hard block
+
+FIVE_HOUR_WARN   = 70    # % — 5h window heads-up
+FIVE_HOUR_CRIT   = 85    # % — 5h window graceful degradation engages
+FIVE_HOUR_STOP   = 90    # % — 5h window hard guard
 
 THRESH_WARN      = 70    # % — all-models heads-up
 THRESH_CRIT      = 85    # % — all-models graceful degradation engages
@@ -90,28 +95,67 @@ def _get_telegram_creds() -> tuple[str, str]:
 
 # ── Token usage ────────────────────────────────────────────────────────────────
 
-def get_sonnet_weekly_pct() -> float:
+def get_sonnet_weekly_pct(max_age_hours: float = 24.0) -> Optional[float]:
     """Read Sonnet weekly % from claude_usage_reports table.
-    Returns 0.0 if unavailable.
+    Returns None if unavailable or if newest reading is older than max_age_hours (default 24h).
     """
     if not COST_DB.exists():
-        return 0.0
+        return None
     try:
         conn = sqlite3.connect(str(COST_DB), timeout=3)
         row = conn.execute(
-            "SELECT sonnet_weekly_pct FROM claude_usage_reports ORDER BY ts DESC LIMIT 1"
+            "SELECT ts, sonnet_weekly_pct FROM claude_usage_reports ORDER BY ts DESC LIMIT 1"
         ).fetchone()
         conn.close()
-        if row and row[0] is not None:
-            return float(row[0])
-    except Exception:
-        pass
-    return 0.0
+        if row and row[0] is not None and row[1] is not None:
+            ts_str = str(row[0])
+            if "Z" in ts_str:
+                ts_str = ts_str.replace("Z", "+00:00")
+            dt = datetime.fromisoformat(ts_str)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            now = datetime.now(timezone.utc)
+            age_hours = (now - dt).total_seconds() / 3600.0
+            if age_hours > max_age_hours:
+                logger.warning(
+                    "get_sonnet_weekly_pct: newest row is %.1f hours old (> %.1fh threshold) — treating as stale/None",
+                    age_hours, max_age_hours
+                )
+                return None
+            return float(row[1])
+    except Exception as e:
+        logger.error("get_sonnet_weekly_pct: %s", e)
+    return None
 
 
-def get_weekly_pct() -> tuple[float, int]:
+def get_five_hour_pct() -> Optional[float]:
+    """Read the live 5-hour OAuth usage % from the existing HUD cache
+    (~/.claude/hud/.usage-cache.json), refreshed every 60s by an unrelated tool.
+    Returns None if the file is missing, unreadable, malformed, reports an error,
+    or is missing the fiveHour figure — never guess.
+    """
+    if not HUD_CACHE_PATH.exists():
+        return None
+    try:
+        data = json.loads(HUD_CACHE_PATH.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return None
+        if data.get("error"):
+            return None
+        inner = data.get("data")
+        if not isinstance(inner, dict):
+            return None
+        if "fiveHour" not in inner or inner["fiveHour"] is None:
+            return None
+        return float(inner["fiveHour"])
+    except Exception as e:
+        logger.error("get_five_hour_pct: %s", e)
+        return None
+
+
+def get_weekly_pct() -> tuple[Optional[float], int]:
     """Return (weekly_consumption_pct, total_tokens_used).
-    Returns (0.0, 0) on failure.
+    Returns (None, 0) on failure — None means UNKNOWN, never treat it as zero.
     """
     try:
         result = subprocess.run(
@@ -119,12 +163,12 @@ def get_weekly_pct() -> tuple[float, int]:
             capture_output=True, text=True, timeout=15,
         )
         if result.returncode != 0:
-            return 0.0, 0
+            return None, 0
 
         data  = json.loads(result.stdout)
         weeks = data.get("weekly", [])
         if not weeks:
-            return 0.0, 0
+            return None, 0
 
         current = weeks[-1]
         total   = current.get("totalTokens", 0)
@@ -133,11 +177,13 @@ def get_weekly_pct() -> tuple[float, int]:
 
     except Exception as e:
         logger.error("get_weekly_pct: %s", e)
-        return 0.0, 0
+        return None, 0
 
 
-def tokens_remaining(used_pct: float) -> int:
+def tokens_remaining(used_pct: Optional[float]) -> int:
     """Tokens remaining in weekly budget."""
+    if used_pct is None:
+        return 0
     return max(0, int(WEEKLY_LIMIT_ALL * (100.0 - used_pct) / 100.0))
 
 
@@ -283,10 +329,11 @@ def _send_telegram(message: str) -> bool:
 
 def _alert_message(
     new_state: GuardState,
-    used_pct: float,
+    used_pct: Optional[float],
     total_tokens: int,
     prev_state: GuardState,
-    sonnet_pct: float = 0.0,
+    sonnet_pct: Optional[float] = None,
+    five_hour_pct: Optional[float] = None,
 ) -> str:
     remaining = tokens_remaining(used_pct)
     rem_m = remaining // 1_000_000
@@ -303,17 +350,35 @@ def _alert_message(
     }
 
     icon = state_icons.get(new_state, "ℹ️")
-    bar_filled = min(int(used_pct / 5), 20)
-    bar = "█" * bar_filled + "░" * (20 - bar_filled)
-    sonnet_filled = min(int(sonnet_pct / 5), 20)
-    sonnet_bar = "█" * sonnet_filled + "░" * (20 - sonnet_filled)
+
+    if used_pct is None:
+        weekly_line = "All models weekly: [UNKNOWN — telemetry unavailable]"
+    else:
+        bar_filled = min(max(0, int(used_pct / 5)), 20)
+        bar = "█" * bar_filled + "░" * (20 - bar_filled)
+        weekly_line = f"All models weekly: [{bar}] {used_pct:.1f}%"
+
+    if five_hour_pct is None:
+        five_hour_line = "5-hour window:    [UNKNOWN — telemetry unavailable]"
+    else:
+        fh_filled = min(max(0, int(five_hour_pct / 5)), 20)
+        fh_bar = "█" * fh_filled + "░" * (20 - fh_filled)
+        five_hour_line = f"5-hour window:    [{fh_bar}] {five_hour_pct:.1f}%"
+
+    if sonnet_pct is None:
+        sonnet_line = "Sonnet weekly:      [UNKNOWN — telemetry unavailable]"
+    else:
+        sonnet_filled = min(max(0, int(sonnet_pct / 5)), 20)
+        sonnet_bar = "█" * sonnet_filled + "░" * (20 - sonnet_filled)
+        sonnet_line = f"Sonnet weekly:      [{sonnet_bar}] {sonnet_pct:.1f}%"
 
     lines = [
         f"{icon} <b>Rate-Limit Guard — {new_state.value}</b>",
         f"━━━━━━━━━━━━━━━━━━━━",
         f"Transition: {prev_state.value} → <b>{new_state.value}</b>",
-        f"All models weekly: [{bar}] {used_pct:.1f}%",
-        f"Sonnet weekly:      [{sonnet_bar}] {sonnet_pct:.1f}%",
+        weekly_line,
+        five_hour_line,
+        sonnet_line,
         f"Tokens used: {total_tokens:,}",
         f"Remaining:  <b>{rem_m}M {rem_k:03d}K tokens</b>",
         f"",
@@ -353,22 +418,62 @@ def _alert_message(
 
 # ── State transition engine ────────────────────────────────────────────────────
 
-def _compute_target_state(pct: float, sonnet_pct: float = 0.0) -> GuardState:
-    # Sonnet weekly can independently trigger CRIT/STOP (Sonnet-only caps)
-    if sonnet_pct >= SONNET_STOP:
-        return GuardState.STOP
-    if sonnet_pct >= SONNET_CRIT:
-        return GuardState.CRIT
-    # All-models thresholds
-    if pct < THRESH_ROLLBACK:
-        return GuardState.ROLLBACK
-    if pct < THRESH_WARN:
-        return GuardState.NORMAL
-    if pct < THRESH_CRIT:
-        return GuardState.WARN
-    if pct < THRESH_STOP:
-        return GuardState.CRIT
-    return GuardState.STOP
+STATE_SEVERITY = {
+    GuardState.ROLLBACK: 0,
+    GuardState.NORMAL:   1,
+    GuardState.WARN:     2,
+    GuardState.CRIT:     3,
+    GuardState.STOP:     4,
+}
+
+
+def _compute_target_state(
+    pct: Optional[float],
+    sonnet_pct: Optional[float] = None,
+    five_hour_pct: Optional[float] = None,
+) -> GuardState:
+    # 1. Weekly axis
+    if pct is None:
+        weekly_state = GuardState.CRIT
+    elif pct < THRESH_ROLLBACK:
+        weekly_state = GuardState.ROLLBACK
+    elif pct < THRESH_WARN:
+        weekly_state = GuardState.NORMAL
+    elif pct < THRESH_CRIT:
+        weekly_state = GuardState.WARN
+    elif pct < THRESH_STOP:
+        weekly_state = GuardState.CRIT
+    else:
+        weekly_state = GuardState.STOP
+
+    # 2. Sonnet axis
+    if sonnet_pct is None:
+        sonnet_state = GuardState.ROLLBACK
+    elif sonnet_pct >= SONNET_STOP:
+        sonnet_state = GuardState.STOP
+    elif sonnet_pct >= SONNET_CRIT:
+        sonnet_state = GuardState.CRIT
+    elif sonnet_pct >= SONNET_WARN:
+        sonnet_state = GuardState.WARN
+    else:
+        sonnet_state = GuardState.ROLLBACK
+
+    # 3. Five-hour axis
+    if five_hour_pct is None:
+        five_hour_state = GuardState.WARN
+    elif five_hour_pct >= FIVE_HOUR_STOP:
+        five_hour_state = GuardState.STOP
+    elif five_hour_pct >= FIVE_HOUR_CRIT:
+        five_hour_state = GuardState.CRIT
+    elif five_hour_pct >= FIVE_HOUR_WARN:
+        five_hour_state = GuardState.WARN
+    else:
+        five_hour_state = GuardState.ROLLBACK
+
+    return max(
+        [weekly_state, sonnet_state, five_hour_state],
+        key=lambda s: STATE_SEVERITY[s],
+    )
 
 
 def _degradation_mode(state: GuardState) -> str:
@@ -388,8 +493,9 @@ def evaluate(send_alerts: bool = True) -> dict:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     pct, total = get_weekly_pct()
+    five_hour_pct = get_five_hour_pct()
     sonnet_pct = get_sonnet_weekly_pct()
-    target     = _compute_target_state(pct, sonnet_pct)
+    target     = _compute_target_state(pct, sonnet_pct, five_hour_pct)
     state_data = load_state()
     prev_state = GuardState(state_data.get("state", GuardState.NORMAL.value))
 
@@ -414,22 +520,23 @@ def evaluate(send_alerts: bool = True) -> dict:
             "degradation_mode":   _degradation_mode(target),
         })
 
-        logger.info("State transition: %s → %s (%.1f%%)", prev_state.value, target.value, pct)
+        logger.info("State transition: %s → %s (pct=%s, 5h=%s)", prev_state.value, target.value, pct, five_hour_pct)
 
         if send_alerts:
             # CRIT/STOP → D2MC2C (Commander action needed — model routing degraded)
             # WARN/NORMAL → silent (logged in state file, surfaced in AM brief)
             if target in (GuardState.CRIT, GuardState.STOP, GuardState.ROLLBACK):
-                msg  = _alert_message(target, pct, total, prev_state, sonnet_pct)
+                msg  = _alert_message(target, pct, total, prev_state, sonnet_pct, five_hour_pct)
                 sent = _send_telegram(msg)
                 state_data["last_telegram_sent"] = now_iso if sent else ""
             else:
                 logger.info("State WARN/NORMAL — suppressing D2MC2C, will surface in AM brief")
 
     state_data.update({
-        "last_pct":     pct,
-        "last_total":   total,
-        "last_updated": now_iso,
+        "last_pct":           pct,
+        "last_five_hour_pct": five_hour_pct,
+        "last_total":         total,
+        "last_updated":       now_iso,
     })
     save_state(state_data)
 
@@ -439,6 +546,7 @@ def evaluate(send_alerts: bool = True) -> dict:
         "prev_state":          prev_state.value,
         "transitioned":        transitioned,
         "weekly_pct":          pct,
+        "five_hour_pct":       five_hour_pct,
         "sonnet_weekly_pct":   sonnet_pct,
         "total_tokens":        total,
         "tokens_remaining":    remaining,
