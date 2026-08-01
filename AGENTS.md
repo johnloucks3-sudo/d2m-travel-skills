@@ -18,6 +18,8 @@
 - **Background task timers & RDD are mandatory (SO 2026-07-31).** Whenever launching a background task or subagent, calculate and display an explicit Required Delivery Date/Time (RDD) and set a `schedule` timer with `TimerCondition=<task-id>` or `DurationSeconds`.
 - **Systemd User-Session Target Rule (SO 2026-08-01):** In user systemd units (`~/.config/systemd/user/*.service`), NEVER use `Requires=network-online.target` or `After=network-online.target`. Use `Wants=network.target` and `Type=oneshot` for batch scripts.
 - **Strict Audit Closure Rule (SO 2026-08-01):** NEVER run `reset-failed` without reading `journalctl` for every failing unit first. Audit closure requires a 3-point check (0 failed units, zero journal errors in past 1h, all active timers verified).
+- **OpenRouter $10/mo Hard Cap (Directive 2026-08-01):** OpenRouter API spend is capped at $10.00/month (`OPENROUTER_MONTHLY_HARD_CAP = 10.00`). Paid models block at $10.00; free models (`x-ai/grok-2:free`) remain active.
+
 
 - **USAF Staff Memo standard (SO 2026-07-31).** "SSS Required" pipeline is universally deleted for internal staff interaction; simple USAF Staff Memo / Point Paper format governs all staff comms up and down the chain of command.
 

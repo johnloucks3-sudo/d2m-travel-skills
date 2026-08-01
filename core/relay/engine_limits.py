@@ -20,6 +20,13 @@ DEFAULT_CAPS = {
 
 DEFAULT_LEDGER_PATH = Path("/home/john/Thunderbird/OpsCenter/engine_usage_ledger.jsonl")
 
+# ── OPENROUTER SPEND GUARD (Commander Directive 2026-08-01) ─────────────────
+# OPENROUTER MUST HAVE A HARD CAP OF $10.00 PER MONTH.
+# All paid OpenRouter model traffic is blocked if monthly spend hits $10.00.
+# OpenRouter Free Tier models (e.g. x-ai/grok-2:free, deepseek-r1:free) remain $0.00.
+OPENROUTER_MONTHLY_HARD_CAP = 10.00  # USD hard spend ceiling per month
+
+
 # ── POE SPEND GUARD ───────────────────────────────────────────────────────────
 # 2026-07-30: ~99,147 Poe points (~1/3 of the Commander's August reserve) were
 # burned in five minutes by an agentic benchmark. The first version of this guard

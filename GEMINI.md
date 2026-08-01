@@ -61,6 +61,11 @@ Whenever launching a background task or subagent, you MUST:
      b. `journalctl --user -p err --since "1 hour ago"` returns no unaddressed service crashes.
      c. All active timers show a valid `NEXT` run timestamp.
 
+3. **OpenRouter Hard Cap Rule (Directive 2026-08-01):**
+   - OpenRouter API spend is strictly capped at **$10.00 / month** (`OPENROUTER_MONTHLY_HARD_CAP = 10.00`).
+   - If monthly spend reaches $10.00, paid OpenRouter routes are immediately blocked; only OpenRouter Free models (`x-ai/grok-2:free`, `deepseek-r1:free`) are permitted.
+
+
 
 ---
 
