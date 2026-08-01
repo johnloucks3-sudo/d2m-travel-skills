@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 14. Stage 4 Search Prompt Development Report
-    s4_report_md = Path("/home/john/Thunderbird/output/stage4_recon_report.md").read_text()
-    s4_report_html = HTML_TEMPLATE.format(
-        title="Stage 4: Search Prompt Development & Multi-Vector Reconnaissance",
-        subtitle="OODA Phase 4 • Search Vectors & Query Formulations",
-        badge_text="Stage 4 Complete",
-        body_html=simple_markdown_to_html(s4_report_md)
+    # 15. Stage 5 Capability Recognition Report
+    s5_report_md = Path("/home/john/Thunderbird/output/stage5_selection_report.md").read_text()
+    s5_report_html = HTML_TEMPLATE.format(
+        title="Stage 5: Capability Recognition & Winning Selection",
+        subtitle="OODA Phase 5 • Architecture Evaluation & Stack Selection",
+        badge_text="Stage 5 Complete",
+        body_html=simple_markdown_to_html(s5_report_md)
     )
-    (OUTPUT_HTML_DIR / "stage4_recon_report.html").write_text(s4_report_html)
+    (OUTPUT_HTML_DIR / "stage5_selection_report.html").write_text(s5_report_html)
 
-    # 15. Master Executive Portal Index
+    # 16. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Stage 5 Selection Report</strong></td>
+          <td>Stage 5 Winner</td>
+          <td><span style="color:#4ade80; font-weight:600;">100% EXECUTED</span></td>
+          <td><a href="http://localhost:9090/output/html/stage5_selection_report.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Stage 4 Reconnaissance Report</strong></td>
