@@ -237,81 +237,82 @@
       <div class="subtitle">OODA Expansion • Thought-to-Implementation Architecture</div>
 
       <div class="content-body">
-        <h1>Plan: 10-Stage End-to-End Capability Lifecycle Framework</h1>
+        <h1>Plan: 10-Stage End-to-End Capability Lifecycle & Incubation Framework</h1>
 <br>
 <pre><code>
 CAPABILITY LIFECYCLE FRAMEWORK DASHBOARD
 [████████░░░░░░░░░░░░] 40% OVERALL
 
-Stage 1: Thought Ingestion (Observe)                 [████████████████████] 100% SPECIFIED
-Stage 2: Strategic Sculpting (Orient)               [████████████████████] 100% SPECIFIED
-Stage 3: Whetstone Gap Analysis                     [████████████████████] 100% SPECIFIED
-Stage 4: Recon & Search Prompting                   [████████████████████] 100% SPECIFIED
-Stage 5: Capability Recognition & Selection         [████████████████████] 100% SPECIFIED
-Stage 6: Proposal Formulation & Portal Transmission  [████████████████████] 100% SPECIFIED
-Stage 7: Commander Decision Surface & Approval Gate  [████████████████████] 100% SPECIFIED
-Stage 8: Architectural Design & Plan Drafting       [░░░░░░░░░░░░░░░░░░░░]   0% IN PROGRESS
-Stage 9: Delegated Build & 3-Point Test Validation  [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
-Stage 10: Terminal Reporting & Shared Memory Commit  [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Pillar 1: Naia AgentMail Executive Channel            [████████████████████] SPECIFIED (core/email/agentmail_client.py)
+Pillar 2: Historical Archeology (Dec 2025 Roadmaps)    [████████████████████] SPECIFIED (EARA/TITAN Audit)
+Pillar 3: Known Capability Categories Catalog          [████████████████████] SPECIFIED (Established Schema)
+Pillar 4: ELON 2x Daily (0430/1630 MT) & YOGA Guard    [████████████████████] SPECIFIED (0630-1030 MT Blackout)
+
+10-Stage OODA Execution Loop:
+Stage 1: Thought Ingestion (Naia AgentMail Ingest)    [░░░░░░░░░░░░░░░░░░░░]   0% IN PROGRESS
+Stage 2: Strategic Sculpting (Target State Definition)[░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 3: Whetstone Gap Analysis vs Codebase Ground Truth[░░░░░░░░░░░░░░░░░░░░] 0% PENDING
+Stage 4: Recon & Search Prompting (PyPI/GitHub/arXiv)  [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 5: Capability Recognition & Selection ($0 Cost)  [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 6: Proposal & Executive HTML Portal Delivery     [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 7: Commander Decision Surface & Approval Gate    [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 8: Architectural Design & Plan Drafting          [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 9: Delegated Build (JET) & 3-Point Test Audit   [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
+Stage 10: Terminal Reporting & Shared Memory Commit    [░░░░░░░░░░░░░░░░░░░░]   0% PENDING
 </code></pre>
 <br>
 <p>---</p>
 <br>
 <h2>1. GOAL DESCRIPTION</h2>
 <br>
-<p>Establish a formal <strong>10-Stage End-to-End Capability Lifecycle Framework<strong> (an expanded USAF OODA Loop) that takes a raw Commander thought, sculpts it into strategy, identifies the gap, searches for the exact tool, formats a proposal, presents a decision surface, obtains Commander approval, builds, validates, and commits to persistent memory.</p>
+<p>Establish a comprehensive <strong>10-Stage Capability Lifecycle & Incubation Engine<strong> (`core/innovation/incubation_engine.py`) that captures thoughts from the Commander (via Naia AgentMail or chat), sculpts them into strategy, performs Whetstone gap analysis against EARA/TITAN/Thunderbird roadmaps back to December 2025, runs ELON 2x daily OODA sweeps (at <strong>04:30 MT<strong> and <strong>16:30 MT<strong>), enforces a <strong>06:30–10:30 MT YOGA Work-Window Blackout<strong>, and delivers interactive executive briefings with decision surfaces.</p>
 <br>
 <p>---</p>
 <br>
-<h2>2. THE 10-STAGE OPERATIONAL LOOP</h2>
+<h2>2. USER REVIEW REQUIRED & REFINED PILLARS</h2>
 <br>
-<pre><code>
-graph TD
-    S1[1. Thought Ingestion] --&gt; S2[2. Strategic Sculpting]
-    S2 --&gt; S3[3. Whetstone Gap Analysis]
-    S3 --&gt; S4[4. Search Prompting & Recon]
-    S4 --&gt; S5[5. Capability Recognition]
-    S5 --&gt; S6[6. Proposal & Portal Delivery]
-    S6 --&gt; S7[7. Commander Decision Surface]
-    S7 --&gt;|Approved| S8[8. Design & Plan Drafting]
-    S8 --&gt; S9[9. Delegated Build & Test]
-    S9 --&gt; S10[10. Terminal Report & Memory Commit]
-</code></pre>
+<p>> [!IMPORTANT]</p>
+<p>> <strong>Pillar 1: Naia AgentMail Executive Channel<strong>  </p>
+<p>> - <strong>Naia<strong> (Executive Assistant / EA to HALE-AG & Commander) owns internal executive tasking, AgentMail inbox management (`core/email/agentmail_client.py`), and closed-loop email dispatches.</p>
+<p>> - <strong>Dani<strong> is strictly client-facing (travel products, itineraries, client emails). Dani NEVER handles internal ops or staff tasking.</p>
 <br>
-<h3>Breakdown of Stages:</h3>
+<p>> [!IMPORTANT]</p>
+<p>> <strong>Pillar 2: Historical Archeology (Dec 2025 – Present)<strong>  </p>
+<p>> - Deep-scan all EARA, TITAN, and Thunderbird roadmaps (`docs/roadmap_status.md`, `data/EARA_D2M_Thunderbird_v2.xlsx`) and chat logs back to Dec 2025.</p>
+<p>> - Value: Audits *what is already built* vs. *what is open*, refining baseline understanding and preventing redundant builds.</p>
 <br>
-<p>1. <strong>Stage 1: Thought Ingestion (Observe I)<strong>  </p>
-<p>   Captures raw Commander thoughts verbatim from chat, voice logs, or emails. Assigns tracking ID `CAP-YYYYMMDD-XX`.</p>
-<p>2. <strong>Stage 2: Strategic Sculpting (Orient I)<strong>  </p>
-<p>   Refines raw thought into a clear, strategic outcome statement ("What does victory look like?").</p>
-<p>3. <strong>Stage 3: Whetstone Gap Analysis (Orient II)<strong>  </p>
-<p>   Cross-checks existing codebase, tools, and subagents to isolate the exact technical gap.</p>
-<p>4. <strong>Stage 4: Recon & Search Prompting (Orient III)<strong>  </p>
-<p>   Formulates targeted multi-vector search queries (Anansi / PyPI / GitHub / arXiv) to locate candidate tools.</p>
-<p>5. <strong>Stage 5: Capability Recognition (Orient IV)<strong>  </p>
-<p>   Evaluates candidates against Thunderbird rules ($0.00 off-meter cost, Python/systemd fit, safety).</p>
-<p>6. <strong>Stage 6: Proposal & Portal Delivery (Decide I)<strong>  </p>
-<p>   Formats USAF Point Paper with HALE-AG 4-Star Lead comments. Renders to Executive HTML Portal + 3-tier notification.</p>
-<p>7. <strong>Stage 7: Commander Decision Surface & Gate (Decide II)<strong>  </p>
-<p>   Presents explicit decision buttons/text. Waits for explicit Commander text approval in chat (`Approve` / `Wilco`).</p>
-<p>8. <strong>Stage 8: Architectural Design & Plan Drafting (Act I)<strong>  </p>
-<p>   Drafts durable `<plan_name>.md` and `walkthrough.md` with ASCII progress bars.</p>
-<p>9. <strong>Stage 9: Delegated Build & 3-Point Test Validation (Act II)<strong>  </p>
-<p>   Delegates mechanical build to JET (OpenCode @ $0.00). Runs 3-point systemd audit linter & live tests.</p>
-<p>10. <strong>Stage 10: Terminal Reporting & Memory Commit (Act III)<strong>  </p>
-<p>    Reports in terminal past tense ("Done. Did X, Y, Z."). Writes persistent memory to `~/.claude/projects/.../memory/` and updates `MEMORY.md`.</p>
+<p>> [!IMPORTANT]</p>
+<p>> <strong>Pillar 3: Known Capability Categories Catalog<strong>  </p>
+<p>> Must use established capability categories (Travel Research, Flight/Fare Watch, Cruise Scrapers, Client Dossiers, Financial/Commission Reconciliation, OSINT/Academic, Agentic Infrastructure/Orchestration).</p>
+<br>
+<p>> [!IMPORTANT]</p>
+<p>> <strong>Pillar 4: ELON 2x Daily (04:30 & 16:30 MT) & YOGA Load Protection<strong>  </p>
+<p>> - ELON runs OODA + Whetstone sweeps twice daily at <strong>04:30 MT<strong> and <strong>16:30 MT<strong>.</p>
+<p>> - <strong>06:30–10:30 MT BLACKOUT WINDOW:<strong> Absolutely ZERO heavy background sweeps, linter runs, or multi-agent spawns during the Commander's 06:30–10:30 MT computer hours. YOGA stays 100% responsive.</p>
 <br>
 <p>---</p>
 <br>
 <h2>3. PROPOSED CHANGES</h2>
 <br>
-<h3>Component 1: Capability Lifecycle Framework Module</h3>
-<h4>[NEW] `core/innovation/capability_lifecycle.py`</h4>
-<p>Automates state tracking across all 10 stages from thought ingestion to memory commit.</p>
+<h3>Component 1: Naia AgentMail Integration & Incubation Engine</h3>
+<h4>[NEW] `core/innovation/incubation_engine.py`</h4>
+<p>Integrated with `core/email/agentmail_client.py` under Naia's persona configuration.</p>
+<br>
+<pre><code>
+async def run_elon_ooda_whetstone_sweep(schedule_slot: str) -&gt; dict:
+    """Executes ELON's 2x daily OODA + Whetstone sweep (04:30 / 16:30 MT)."""
+    ...
+</code></pre>
 <br>
 <p>---</p>
 <br>
-<h3>Component 2: Executive HTML Portal Update</h3>
+<h3>Component 2: Temporal Cron Schedule</h3>
+<h4>[MODIFY] `core/orchestration/temporal_worker.py`</h4>
+<p>Register `ELONScansWorkflow` with cron schedules for `30 4 * * *` (04:30 MT) and `30 16 * * *` (16:30 MT). Enforce blackout check for `06:30–10:30 MT`.</p>
+<br>
+<p>---</p>
+<br>
+<h3>Component 3: Executive HTML Briefing Portal</h3>
 <h4>[MODIFY] `scripts/render_executive_html.py`</h4>
 <p>Render `capability_lifecycle_plan.html` on `http://localhost:9090/output/html/capability_lifecycle_plan.html`.</p>
 <br>
@@ -320,11 +321,12 @@ graph TD
 <h2>4. VERIFICATION PLAN</h2>
 <br>
 <h3>Automated Tests</h3>
-<ul><li>Run `python3 core/innovation/capability_lifecycle.py` to verify 10-stage execution state transitions.</li></ul>
+<ul><li>Run `python3 core/innovation/incubation_engine.py` to verify Naia AgentMail round-trip and ELON OODA logic.</li></ul>
+<ul><li>Verify `06:30-10:30 MT` blackout guard blocks heavy background tasks.</li></ul>
 <ul><li>Run `python3 scripts/systemd_user_unit_linter.py` to verify zero systemd failures.</li></ul>
 <br>
 <h3>Manual Verification</h3>
-<ul><li>View Executive HTML Portal on `http://localhost:9090/output/html/index.html`.</li></ul>
+<ul><li>View Executive HTML Portal at `http://localhost:9090/output/html/index.html`.</li></ul>
       </div>
     </div>
 

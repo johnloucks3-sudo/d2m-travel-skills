@@ -73,6 +73,15 @@ Whenever launching a background task or subagent, you MUST:
    - Outbound alerts, report broadcasts, and workflow updates MUST follow strict priority order:
      **1. Email** (Primary Briefings & Reports) $\rightarrow$ **2. Slack** (Team & Ops) $\rightarrow$ **3. Telegram** (C2 & Mobile Alerts).
 
+6. **Naia AgentMail Executive Ownership (Directive 2026-08-01):**
+   - **Naia** (Executive Assistant / EA to HALE-AG & Commander) owns internal executive tasking, AgentMail inbox management (`core/email/agentmail_client.py`), and internal closed-loop email dispatches.
+   - **Dani** is strictly client-facing (travel products, itineraries, client emails). Dani NEVER handles internal ops or staff tasking.
+
+7. **YOGA Work-Window Load Protection (Directive 2026-08-01):**
+   - **06:30–10:30 MT BLACKOUT WINDOW:** NO heavy background tasks, bulk sweeps, linter runs, or multi-agent spawns are permitted during the Commander's 06:30–10:30 MT computer hours.
+   - ELON Tech Vanguard scans run twice daily at **04:30 MT** and **16:30 MT** (completely outside the blackout window).
+
+
 
 
 
