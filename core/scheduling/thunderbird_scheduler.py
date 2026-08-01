@@ -2698,7 +2698,7 @@ def main():
             Path(f"/proc/{existing_pid}").stat()
             # Process is alive — check it's actually this script
             cmdline = Path(f"/proc/{existing_pid}/cmdline").read_text()
-            if "thunderbird_scheduler" in cmdline:
+            if "thunderbird_scheduler" in cmdline and existing_pid != os.getpid():
                 print(f"Scheduler already running as PID {existing_pid} — exiting.")
                 sys.exit(0)
         except (ValueError, FileNotFoundError, OSError):
