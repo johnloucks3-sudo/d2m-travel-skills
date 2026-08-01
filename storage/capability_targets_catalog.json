@@ -22,7 +22,7 @@
       "id": "CAP-03",
       "name": "Naia AgentMail Executive Tasking & Closed-Loop Bridge",
       "category": "Agentic Infrastructure/Orchestration",
-      "status": "SPECIFIED_PENDING_BUILD",
+      "status": "LIVE_PARTIAL_GAP_MAINTENANCE",
       "description": "Closed-loop email discussion and task ingestion directly to johnloucks3@gmail.com.",
       "assigned_seat": "HALE-AG / Naia"
     },
