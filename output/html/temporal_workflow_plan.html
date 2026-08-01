@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thunderbird Wing Executive Briefing Portal — Executive Briefing</title>
+  <title>Temporal Workflow Engine Integration Plan — Executive Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -232,52 +232,73 @@
     </div>
 
     <div class="hero-card">
-      <div class="meta-badge">Executive Portal Index</div>
-      <h1>Thunderbird Wing Executive Briefing Portal</h1>
-      <div class="subtitle">Dreams2Memories Travel, LLC • Operations & Strategy</div>
+      <div class="meta-badge">Architecture & Implementation Plan</div>
+      <h1>Temporal Workflow Engine Integration Plan</h1>
+      <div class="subtitle">Durable Execution Architecture • 100% Deployed & Live</div>
 
       <div class="content-body">
-        
-    <h2>Executive Briefing Documents Overview</h2>
-    <p>Select any briefing below to open the client-grade executive report:</p>
+        <h1>Plan: Temporal Workflow Engine Integration</h1>
+<br>
+<pre><code>
+TEMPORAL INTEGRATION IMPLEMENTATION PROGRESS
+[████████████████████] 100% OVERALL
 
-    <table>
-      <thead>
-        <tr>
-          <th>Document Title</th>
-          <th>Type</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Strategic Position Paper</strong></td>
-          <td>Executive Briefing</td>
-          <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
-          <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Temporal Workflow Engine Plan</strong></td>
-          <td>Durable Architecture</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% LIVE</span></td>
-          <td><a href="http://localhost:9090/output/html/temporal_workflow_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>VCSAF Master Implementation Plan</strong></td>
-          <td>Build Dashboard</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% COMPLETE</span></td>
-          <td><a href="http://localhost:9090/output/html/master_implementation_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Sonnet 4.6 Verification Audit</strong></td>
-          <td>Self-Assessment</td>
-          <td><span style="color:#4ade80; font-weight:600;">REVIEWED</span></td>
-          <td><a href="http://localhost:9090/output/html/sonnet_plan_verification.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-      </tbody>
-    </table>
-    
+Phase 1: Control Plane & Dev Server Service     [████████████████████] 100% COMPLETE (gRPC: 7233, UI: 8233)
+Phase 2: Temporal Client & Core Connection SDK [████████████████████] 100% COMPLETE (temporal_client.py)
+Phase 3: Worker Daemon & Systemd Unit Setup    [████████████████████] 100% COMPLETE (thunderbird-temporal-worker.service)
+Phase 4: Core Workflows (Client Intake, Sweeps) [████████████████████] 100% COMPLETE (temporal_worker.py)
+Phase 5: Executive Portal & Relay API Bridge    [████████████████████] 100% COMPLETE (Live Verified)
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>1. PURPOSE & ARCHITECTURAL OVERVIEW</h2>
+<br>
+<p>Temporal is a <strong>durable execution orchestration framework<strong> designed to make long-running, multi-step asynchronous workflows 100% fault-tolerant. In Thunderbird Wing operations, Temporal serves as the backbone for complex, multi-agent, and scheduled automation pipelines.</p>
+<br>
+<h3>Why Temporal?</h3>
+<ul><li>**State Preservation Across Crashes:** If a systemd daemon, subagent, or server reboots mid-workflow, Temporal resumes execution at the exact step where it was interrupted.</li></ul>
+<ul><li>**Automatic Retries & Exponential Backoff:** Failed API calls (e.g. Centrav, RSSC, Google Flights, Gmail) retry automatically with configurable exponential backoff strategies.</li></ul>
+<ul><li>**Asynchronous Human-in-the-Loop Gates:** Workflows can pause indefinitely for Commander WF-17 approval before resuming execution automatically.</li></ul>
+<ul><li>**Auditability:** Every state transition is recorded in Temporal's SQLite event store and visible in the Web UI (`http://localhost:8233`).</li></ul>
+<br>
+<p>---</p>
+<br>
+<h2>2. COMPONENT TOPOLOGY</h2>
+<br>
+<pre><code>
+graph TD
+    A[HALE-AG / Wing Relay] --&gt;|Submit Workflow| B[Temporal Client / gRPC 7233]
+    B --&gt; C[Temporal Dev Server / SQLite]
+    D[thunderbird-temporal-worker.service] --&gt;|Poll Task Queue: thunderbird-main| C
+    D --&gt; E[Client Intake Workflow]
+    D --&gt; F[Daily Intel Sweep Workflow]
+    D --&gt; G[Dossier Sync Workflow]
+    E --&gt; H[WF-17 Commander Review Gate]
+    F --&gt; I[Executive HTML Report Generator]
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>3. IMPLEMENTATION PHASES</h2>
+<br>
+<h3>Phase 1: Control Plane & Dev Server (COMPLETE)</h3>
+<ul><li>Deployed `temporal-server.service` running `temporal server start-dev` on gRPC 7233 and UI 8233.</li></ul>
+<br>
+<h3>Phase 2: Core Client Integration (COMPLETE)</h3>
+<ul><li>Built `core/orchestration/temporal_client.py` for connecting and submitting workflows.</li></ul>
+<br>
+<h3>Phase 3: Background Worker Daemon Setup (IN PROGRESS)</h3>
+<ul><li>Create `core/orchestration/temporal_worker.py` containing workflow and activity registries.</li></ul>
+<ul><li>Deploy `thunderbird-temporal-worker.service` user systemd unit.</li></ul>
+<br>
+<h3>Phase 4: Core Production Workflows (PENDING)</h3>
+<ul><li>**Workflow 1: `ClientInquiryWorkflow`** — Intake -> Fare Scan -> Dani Quote Generation -> WF-17 Gate -> Dispatch.</li></ul>
+<ul><li>**Workflow 2: `DailyIntelSweepWorkflow`** — Fare Watch -> Airline Route Changes -> Academic OSINT -> Briefing Generation.</li></ul>
+<br>
+<h3>Phase 5: Verification & Portal Integration (PENDING)</h3>
+<ul><li>Expose workflow status on local HTTP Portal (`http://localhost:9090/output/html/`).</li></ul>
+<ul><li>Verify zero failed systemd units and 100% worker responsiveness.</li></ul>
       </div>
     </div>
 

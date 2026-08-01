@@ -12,7 +12,7 @@ from temporalio.client import Client
 
 TEMPORAL_HOST = "localhost:7233"
 DEFAULT_NAMESPACE = "default"
-TASK_QUEUE = "thunderbird-wing-queue"
+TASK_QUEUE = "thunderbird-main"
 
 logger = logging.getLogger("thunderbird.temporal")
 
@@ -53,6 +53,18 @@ def check_temporal_health() -> bool:
         return False
 
 
-if __name__ == "__main__":
+async def run_live_test():
     healthy = check_temporal_health()
     print(f"Temporal Control Plane Health: {'ACTIVE 🟢' if healthy else 'OFFLINE 🔴'}")
+    if healthy:
+        try:
+            print("Executing live test workflow 'ClientInquiryWorkflow' on queue 'thunderbird-main'...")
+            res = await execute_durable_workflow("ClientInquiryWorkflow", "Tahiti", id="test-inquiry-001")
+            print("Live Workflow Execution Result:", res)
+        except Exception as e:
+            print("Workflow execution error:", e)
+
+
+if __name__ == "__main__":
+    asyncio.run(run_live_test())
+
