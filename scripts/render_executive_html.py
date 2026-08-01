@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 4. Temporal Workflow Integration Plan
-    temp_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_temporal_workflow_orchestration.md").read_text()
-    temp_plan_html = HTML_TEMPLATE.format(
-        title="Temporal Workflow Engine Integration Plan",
-        subtitle="Durable Execution Architecture • 100% Deployed & Live",
-        badge_text="Architecture & Implementation Plan",
-        body_html=simple_markdown_to_html(temp_plan_md)
+    # 5. Temporal vs n8n Architecture Position Paper
+    n8n_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_temporal_vs_n8n_architecture.md").read_text()
+    n8n_plan_html = HTML_TEMPLATE.format(
+        title="Temporal vs. n8n Architectural Division & Workflow Allocation",
+        subtitle="Durable Execution vs. Visual Webhook Integration Framework",
+        badge_text="Architectural Assessment",
+        body_html=simple_markdown_to_html(n8n_plan_md)
     )
-    (OUTPUT_HTML_DIR / "temporal_workflow_plan.html").write_text(temp_plan_html)
+    (OUTPUT_HTML_DIR / "temporal_vs_n8n_architecture.html").write_text(n8n_plan_html)
 
-    # 5. Master Executive Portal Index
+    # 6. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Temporal vs. n8n Architecture</strong></td>
+          <td>Architectural Assessment</td>
+          <td><span style="color:#4ade80; font-weight:600;">RECOMMENDED</span></td>
+          <td><a href="http://localhost:9090/output/html/temporal_vs_n8n_architecture.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Temporal Workflow Engine Plan</strong></td>
