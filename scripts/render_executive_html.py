@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 16. Stage 6 Proposal Package Report
-    s6_report_md = Path("/home/john/Thunderbird/output/stage6_proposal_package.md").read_text()
-    s6_report_html = HTML_TEMPLATE.format(
-        title="Stage 6: Proposal Formulation & Executive Portal Delivery Package",
-        subtitle="OODA Phase 6 • USAF Point Paper Proposals & Decision Package",
-        badge_text="Stage 6 Complete",
-        body_html=simple_markdown_to_html(s6_report_md)
+    # 17. Stage 7 Decision Surface Record
+    s7_report_md = Path("/home/john/Thunderbird/output/stage7_decision_surface.md").read_text()
+    s7_report_html = HTML_TEMPLATE.format(
+        title="Stage 7: Commander Decision Surface & Approval Gate Record",
+        subtitle="OODA Phase 7 • Commander Build Authorization Matrix",
+        badge_text="Stage 7 Approved",
+        body_html=simple_markdown_to_html(s7_report_md)
     )
-    (OUTPUT_HTML_DIR / "stage6_proposal_package.html").write_text(s6_report_html)
+    (OUTPUT_HTML_DIR / "stage7_decision_surface.html").write_text(s7_report_html)
 
-    # 17. Master Executive Portal Index
+    # 18. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Stage 7 Decision Surface Record</strong></td>
+          <td>Stage 7 Gate</td>
+          <td><span style="color:#4ade80; font-weight:600;">100% APPROVED</span></td>
+          <td><a href="http://localhost:9090/output/html/stage7_decision_surface.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Stage 6 Proposal Package</strong></td>
