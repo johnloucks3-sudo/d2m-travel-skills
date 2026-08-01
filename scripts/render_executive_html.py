@@ -390,10 +390,16 @@ def render_all_executive_pages():
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
+          <td><strong>Stage 9 Systemd Audit Report</strong></td>
+          <td>Stage 9 Audit</td>
+          <td><span style="color:#4ade80; font-weight:600;">100% CLEAN</span></td>
+          <td><a href="http://localhost:9090/output/html/index.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
           <td><strong>Stage 8 Architectural Build Report</strong></td>
           <td>Stage 8 Build</td>
           <td><span style="color:#4ade80; font-weight:600;">100% EXECUTED</span></td>
-          <td><a href="http://localhost:9090/output/html/stage7_decision_surface.html" style="color:#38bdf8;">View Executive HTML</a></td>
+          <td><a href="http://localhost:9090/output/html/index.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Stage 7 Decision Surface Record</strong></td>
