@@ -1,0 +1,18 @@
+{
+  "quota-circuit-breaker": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 /home/john/Thunderbird/.agents/scripts/quota_circuit_breaker.py",
+        "timeout": 15
+      }
+    ],
+    "PostInvocation": [
+      {
+        "type": "command",
+        "command": "python3 /home/john/Thunderbird/.agents/scripts/quota_circuit_breaker.py",
+        "timeout": 15
+      }
+    ]
+  }
+}

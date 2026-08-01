@@ -56,8 +56,10 @@ def _build_constraints_block(spend_ceiling: str) -> str:
         f"SPEND CEILING: {ceiling_display}\n"
         f"FORBIDDEN MODELS / SERVICES: Broken via OpenCode ({broken_models}); any Poe model not in whitelist ({whitelist_models}).\n"
         "OVER-BUDGET INSTRUCTION: if this appears to require spend beyond your ceiling, STOP and report.\n"
+        "MANDATORY DELIVERABLES & PROGRESS FORMAT: Non-trivial work MUST produce durable markdown artifacts (<plan_name>.md and walkthrough.md). Status updates, plans, and reports MUST feature ASCII/Unicode visual progress bars ([████████░░░░░░░░░░░░] 40%) (SO 2026-07-31).\n"
         "============================================="
     )
+
 
 
 def _checkability_warning(acceptance_criteria: str) -> str:
@@ -166,6 +168,67 @@ def build_flash_task(
         lines.extend(f"  {i}. {s}" for i, s in enumerate(literal_steps, 1))
     if deliverable_path:
         lines.append(f"\nWrite your result to the ABSOLUTE path: {deliverable_path}")
+    lines.append(f"\nDONE means exactly: {acceptance_criteria}")
+    return "\n".join(lines)
+
+
+def build_haiku_task(
+    task: str,
+    *,
+    deliverable_path: str,
+    acceptance_criteria: str,
+    literal_steps: Optional[list[str]] = None,
+) -> str:
+    """Headless Claude Haiku (claude-haiku-4-5-20251001) — the CC-side
+    counterpart to build_flash_task(). Closes the gap flagged in
+    docs/CROSS_HALE_TASK_DELEGATION_DESIGN_20260716.md §1.7: the
+    Haiku-vs-Sonnet-vs-Opus choice was happening ad hoc at the headless-spawn
+    --model flag with no spec discipline, while OC/AG already had
+    build_oc_task()/build_flash_task() gating them.
+
+    UNLIKE build_oc_task/build_ag_task: Haiku draws the SAME Claude MAX/OAuth
+    meter as interactive CC work (per the design doc's usage analysis — "CC
+    and OC draw the SAME MAX meter... only AG adds throughput without
+    touching the MAX bucket"). Delegating to Haiku buys precision-at-low-
+    complexity and parallelism, NOT budget relief. Do not reach for it under
+    the assumption it is free the way OC or AG's own meter is.
+
+    No spend_ceiling param — this lane has no metered/points cost model,
+    only the shared MAX weekly cap tracked separately.
+
+    Mirrors build_flash_task's hard gate: raises immediately on
+    non-checkable acceptance criteria rather than warning, and additionally
+    REQUIRES deliverable_path — per docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md /
+    .claude/CLAUDE.md, a headless Haiku prompt with no explicit WRITE [PATH]
+    instruction silently loses its output. There is no optional/no-deliverable
+    form of this builder for that reason."""
+    if not deliverable_path or not deliverable_path.strip():
+        raise ValueError(
+            "build_haiku_task requires deliverable_path — a headless Haiku "
+            "spawn with no explicit WRITE [PATH] instruction silently loses "
+            "its output (docs/HEADLESS_CLAUDE_SPAWN_GUIDE.md)."
+        )
+    if not is_checkable(acceptance_criteria):
+        raise ValueError(
+            f"build_haiku_task requires checkable acceptance_criteria "
+            f"(a count, path, ref, or artifact) — got {acceptance_criteria!r}. "
+            f"Haiku cannot safely fill this gap the way CC/Sonnet/Opus might."
+        )
+    lines = [
+        "Haiku task — follow the literal steps below exactly, in order. "
+        "Do not interpret, summarize, or add anything not listed. If a step "
+        "is unclear or blocked, STOP and report why instead of guessing.",
+        "",
+        f"TASK: {task}",
+    ]
+    if literal_steps:
+        lines.append("\nLITERAL STEPS:")
+        lines.extend(f"  {i}. {s}" for i, s in enumerate(literal_steps, 1))
+    lines.append(f"\nWRITE your result to the ABSOLUTE path: {deliverable_path}")
+    lines.append(
+        "(Mandatory — if this prompt does not end with an explicit WRITE "
+        "instruction naming an absolute path, your output is discarded.)"
+    )
     lines.append(f"\nDONE means exactly: {acceptance_criteria}")
     return "\n".join(lines)
 

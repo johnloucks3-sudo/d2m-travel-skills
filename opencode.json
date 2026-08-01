@@ -276,17 +276,21 @@
     }
   },
   "command": {
-    "ask": {
-      "description": "Route a peer verification/audit task to Anti-Gravity (Gemini Flash/Pro) via contact_ag.py. Usage: /ask <your request>",
+    "ask-gemini": {
+      "description": "Route a peer verification/audit task to Anti-Gravity (Gemini 3.6 Flash default) via contact_ag.py. Renamed 2026-08-01 from 'ask' — the old name collided with the unrelated shell-level 'ask' (real headless Claude Sonnet, MAX-metered, prohibited from OC/AG). Usage: /ask-gemini <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_ask_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-ASK"
     },
-    "ask-opus": {
-      "description": "Route a deep peer reasoning/audit task to Anti-Gravity (Gemini 3.1 Pro) via contact_ag.py. Usage: /ask-opus <your request>",
+    "ask-gemini-pro": {
+      "description": "Route a deep peer reasoning/audit task to Anti-Gravity (Gemini 3.1 Pro) via contact_ag.py. Renamed 2026-08-01 from 'ask-opus' — the old name falsely implied Claude Opus; this has always been Gemini. Usage: /ask-gemini-pro <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_opus_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-OPUS --model \"Gemini 3.1 Pro (High)\""
     },
-    "ask-haiku": {
-      "description": "Route a quick peer task to Anti-Gravity (Gemini 3.6 Flash) via contact_ag.py. Usage: /ask-haiku <your request>",
+    "ask-gemini-flash": {
+      "description": "Route a quick peer task to Anti-Gravity (Gemini 3.6 Flash) via contact_ag.py. Renamed 2026-08-01 from 'ask-haiku' — the old name falsely implied Claude Haiku; this has always been Gemini. Usage: /ask-gemini-flash <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_flash_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-FLASH"
+    },
+    "ask-claude": {
+      "description": "Route Claude-grade judgment to REAL Claude Sonnet 4.6 (Thinking) via Antigravity's contact_ag.py — off the Claude MAX bucket entirely (Google-side billing, approved 2026-07-29). The only command in this family that is actual Claude. Usage: /ask-claude <your request>",
+      "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_sonnet_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-SONNET --model \"Claude Sonnet 4.6 (Thinking)\""
     },
     "zen-status": {
       "description": "Check ZEN usage + cache stats. Reads real data from opencode SQLite DB.",

@@ -27,9 +27,19 @@ DEFAULT_LEDGER_PATH = Path("/home/john/Thunderbird/OpsCenter/engine_usage_ledger
 OPENROUTER_MONTHLY_HARD_CAP = 10.00  # USD hard spend ceiling per month
 
 
-def check_headroom(engine: str = 'AG') -> dict:
-    """Pre-flight headroom check for engine capacity. Dynamically calculates real headroom from transcript logs & ledger."""
+def check_headroom(engine: str = 'AG', **kwargs) -> dict:
+    """Pre-flight headroom check for engine activity volume.
+
+    NOTE: For AG and OC, this function is a rough local-activity proxy derived from
+    transcript line counts or local ledgers against DEFAULT_CAPS.
+    For CC (Claude Code), it delegates to core.relay.cc_capacity.get_cc_capacity(),
+    which queries live server-reported OAuth usage telemetry and local cache.
+    """
     engine_key = engine.upper()
+    if engine_key == 'CC':
+        from core.relay.cc_capacity import get_cc_capacity
+        return get_cc_capacity()
+
     cap = DEFAULT_CAPS.get(engine_key, {'hourly': 20, 'daily': 150})
     
     now = time.time()
@@ -82,16 +92,33 @@ def check_headroom(engine: str = 'AG') -> dict:
     hourly_headroom_pct = max(0.0, round((1.0 - (hourly_used / hourly_limit)) * 100, 1))
     daily_headroom_pct = max(0.0, round((1.0 - (daily_used / daily_limit)) * 100, 1))
     headroom_pct = min(hourly_headroom_pct, daily_headroom_pct)
-    
+    used_pct = round(100.0 - headroom_pct, 1)
+
+    # 18:00 MT reset is an assumption based on task-1977's schedule, NOT confirmed by any Google API — no such API exists.
+    import datetime
+    mt_tz = datetime.timezone(datetime.timedelta(hours=-6))
+    now_mt = datetime.datetime.now(mt_tz)
+    reset_dt = now_mt.replace(hour=18, minute=0, second=0, microsecond=0)
+    if now_mt >= reset_dt:
+        reset_dt += datetime.timedelta(days=1)
+    time_diff = reset_dt - now_mt
+    hours, remainder = divmod(int(time_diff.total_seconds()), 3600)
+    minutes, _ = divmod(remainder, 60)
+    reset_str = f"{reset_dt.strftime('%Y-%m-%d 18:00:00 MT')} (in ~{hours}h {minutes}m)"
+    reset_note = "18:00 MT reset is an assumption based on task-1977's schedule, NOT confirmed by any Google API — no such API exists."
+
     return {
         'engine': engine_key,
         'status': 'OK' if headroom_pct > 15.0 else 'LIMITED_WARN',
         'headroom_pct': headroom_pct,
+        'used_pct': used_pct,
         'hourly_used': hourly_used,
         'hourly_cap': hourly_limit,
         'daily_used': daily_used,
         'daily_cap': daily_limit,
-        'ok': headroom_pct > 0.0
+        'ok': headroom_pct > 0.0,
+        'reset_str': reset_str,
+        'reset_note': reset_note,
     }
 
 
