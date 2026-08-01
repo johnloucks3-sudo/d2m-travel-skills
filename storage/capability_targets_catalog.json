@@ -28,11 +28,12 @@
     },
     {
       "id": "CAP-04",
-      "name": "Live Flight & Fare Watch Monitor",
+      "name": "Skybird Travel Primary Airfare & Flight Watch Monitor",
       "category": "Flight/Fare Watch",
       "status": "LIVE_MAINTENANCE",
-      "description": "Centrav, Kiwi, and Google Flights price tracking and alert system.",
-      "assigned_seat": "Intel"
+      "description": "Primary consolidator engine (https://skybird.mywingsbooking.com/agent-login/ & skybirdtravel.com) with Centrav, Kiwi, and Google Flights fallbacks.",
+      "assigned_seat": "Intel",
+      "primary_url": "https://skybird.mywingsbooking.com/agent-login/"
     },
     {
       "id": "CAP-05",

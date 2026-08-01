@@ -1,12 +1,11 @@
-# Stage 2: Strategic Sculpting & Goal Definition Report
+# Stage 2: Strategic Sculpting & Top 10 Capability Targets Report (Revised)
 
 ## Executive Summary
-Strategic sculpting completed for Top 10 Capability Targets. Each capability has been assigned a formal ID, established category, status, and assigned seat.
+Strategic sculpting updated to enforce **Skybird Travel (mywingsbooking.com)** as Primary Airfare Engine per Commander directive.
 
 - **Total Cataloged Targets:** 10
-- **Live / Operational:** 3
-- **Live / Maintenance:** 4
-- **Specified / Pending Build:** 3
+- **Primary Airfare Engine:** Skybird Travel (skybird.mywingsbooking.com)
+- **Secondary Fallbacks:** Centrav, Kiwi, Google Flights
 
 ---
 
@@ -29,11 +28,11 @@ Strategic sculpting completed for Top 10 Capability Targets. Each capability has
 - **Assigned Seat:** HALE-AG / Naia
 - **Description:** Closed-loop email discussion and task ingestion directly to johnloucks3@gmail.com.
 
-### CAP-04: Live Flight & Fare Watch Monitor
+### CAP-04: Skybird Travel Primary Airfare & Flight Watch Monitor
 - **Category:** Flight/Fare Watch
 - **Status:** LIVE_MAINTENANCE
 - **Assigned Seat:** Intel
-- **Description:** Centrav, Kiwi, and Google Flights price tracking and alert system.
+- **Description:** Primary consolidator engine (https://skybird.mywingsbooking.com/agent-login/ & skybirdtravel.com) with Centrav, Kiwi, and Google Flights fallbacks.
 
 ### CAP-05: Cruise Voyage & Cabin Availability Tracker
 - **Category:** Cruise Scrapers
