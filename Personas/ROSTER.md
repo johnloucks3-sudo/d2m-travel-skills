@@ -1,6 +1,7 @@
 # THUNDERBIRD WING — PERSONA ROSTER
 ## Dreams2Memories Travel, LLC · Quick Reference Index
-*Last updated 2026-05-13 — Staff Transformation Evaluation recharters applied*
+*Last updated 2026-07-31 — Luna Voss & Naia Solberg-Vega 5-Star Executive Briefing Pipeline active*
+
 
 All full character sheets live in this directory. This file is the index — roles, triggers, and file locations.
 

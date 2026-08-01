@@ -64,6 +64,13 @@ existed already, and their absence was his to correct, not staff's to improvise 
    made to the plan-mode flow or ad hoc task dispatch this session; needs its own scoping
    pass (likely an addition alongside the existing `plan_mode_mandates.py` PreToolUse hook).
 
+9. **HEADLESS CLAUDE & MODEL ROUTING IN OC & AG (Directive 2026-07-31).**
+   OpenCode (OC) and Anti-Gravity (AG) sessions must NEVER dispatch raw `ask` or `ask-opus` CLI calls.
+   Claude capacity in CC is limit-rated at 25% of capacity (5X MAX bucket, $100/mo).
+   **APPROVED EXCEPTION (Commander directive 2026-07-31):** Cross-engine validation using Claude Sonnet through AG (`contact_ag.py --model "Claude Sonnet 4.6 (Thinking)"` or native AG Sonnet subagent) IS explicitly APPROVED for validation and audits. Routine verifications default to AG Gemini 3.6 Flash / 3.1 Pro or OC DeepSeek v4.
+
+
+
 ## Why this fixes what it responds to
 
 The 2026-07-30 burn happened because no guard existed between "run a benchmark" and

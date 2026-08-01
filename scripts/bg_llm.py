@@ -48,7 +48,8 @@ def _post_json(url: str, payload: dict, headers: dict, timeout: int = 60) -> dic
 
 
 def _gemini_complete(prompt: str, system: str, max_tokens: int, temperature: float) -> str:
-    """Call Gemini 2.5 Flash-Lite via Google AI direct API. Free tier, no IP restrictions."""
+    """Call Gemini 2.5 Flash-Lite / 3.6 Flash via Google AI direct API with HTTP 429 exponential backoff."""
+    import time, random
     api_key = os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
         raise RuntimeError("GEMINI_API_KEY not set")
@@ -67,10 +68,83 @@ def _gemini_complete(prompt: str, system: str, max_tokens: int, temperature: flo
         },
     }
     url = f"{GEMINI_API_URL}?key={api_key}"
-    result = _post_json(url, payload, {}, timeout=90)
-    text = result.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+
+    # Retries on 429 rate limit with exponential backoff
+    for attempt in range(4):
+        try:
+            result = _post_json(url, payload, {}, timeout=90)
+            text = result.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+            if not text:
+                raise RuntimeError(f"Gemini returned empty content: {result}")
+            return text
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 3:
+                sleep_time = (2 ** attempt) + random.uniform(0.5, 1.5)
+                print(f"[bg_llm] HTTP 429 Rate Limit. Retrying in {sleep_time:.1f}s (attempt {attempt+1}/4)...", file=sys.stderr)
+                time.sleep(sleep_time)
+            else:
+                raise
+
+
+
+def _poe_complete(prompt: str, system: str, max_tokens: int, temperature: float) -> str:
+    """Call Poe.com API (Gemini-2.5-Flash) with daily 12,000 point budget cap until Aug 19th, 2026."""
+    import time
+    from datetime import datetime
+    
+    api_key = os.environ.get("POE_API_KEY", "")
+    if not api_key:
+        raise RuntimeError("POE_API_KEY not set")
+
+    # Point Budget Tracking
+    ledger_path = ROOT / "logs" / "poe_point_ledger.json"
+    ledger_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    ledger = {}
+    if ledger_path.exists():
+        try:
+            ledger = json.loads(ledger_path.read_text())
+        except Exception:
+            ledger = {}
+    
+    daily_used = ledger.get(today_str, 0)
+    DAILY_CAP = 12000
+    
+    if daily_used >= DAILY_CAP:
+        raise RuntimeError(f"Poe daily point budget reached ({daily_used}/{DAILY_CAP} points used today)")
+
+    url = "https://api.poe.com/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+
+    payload = {
+        "model": "Gemini-2.5-Flash",
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens
+    }
+
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
+    resp = urllib.request.urlopen(req, timeout=60)
+    data = json.loads(resp.read())
+
+    text = data.get("choices", [{}])[0].get("message", {}).get("content", "")
     if not text:
-        raise RuntimeError(f"Gemini returned empty content: {result}")
+        raise RuntimeError(f"Poe returned empty content: {data}")
+
+    # Estimate point cost (~20 points per Flash call) and update ledger
+    estimated_points = 20
+    ledger[today_str] = daily_used + estimated_points
+    ledger_path.write_text(json.dumps(ledger, indent=2))
+    
     return text
 
 
@@ -91,21 +165,30 @@ def bg_complete(
 ) -> str:
     """Return completion text. Raises on all-provider failure.
 
-    Provider chain (both $0, confirmed working from yoga's IP):
-      1. Gemini 2.5 Flash-Lite — Google AI free tier, 1M tok/day
-      2. GitHub Models Mistral Small — Azure-backed, free with GITHUB_TOKEN
+    Provider Fail-Over Chain:
+      1. Direct Gemini API (Gemini 2.5 Flash-Lite / 3.6 Flash with 429 backoff)
+      2. Poe.com API (Gemini-2.5-Flash — capped at 12,000 points/day until Aug 19th)
+      3. GitHub Models Mistral Small (Azure-backed, free tier)
     """
     _load_env()
 
-    # 1. Gemini primary
+    # 1. Direct Gemini primary
     try:
         text = _gemini_complete(prompt, system, max_tokens, temperature)
-        print(f"[bg_llm] Gemini 2.5 Flash-Lite", file=sys.stderr)
+        print(f"[bg_llm] Direct Gemini API", file=sys.stderr)
         return text
     except Exception as e:
-        print(f"[bg_llm] Gemini failed ({e}), trying GitHub Models", file=sys.stderr)
+        print(f"[bg_llm] Direct Gemini failed ({e}), trying Poe.com fail-over...", file=sys.stderr)
 
-    # 2. GitHub Models fallback (free, Azure-backed, no IP block)
+    # 2. Poe.com fail-over (Gemini-2.5-Flash, max 12,000 pts/day)
+    try:
+        text = _poe_complete(prompt, system, max_tokens, temperature)
+        print(f"[bg_llm] Poe.com Gemini-2.5-Flash (Fail-over)", file=sys.stderr)
+        return text
+    except Exception as e:
+        print(f"[bg_llm] Poe.com fail-over failed ({e}), trying GitHub Models...", file=sys.stderr)
+
+    # 3. GitHub Models fallback (free, Azure-backed, no IP block)
     try:
         gh_model = GITHUB_FALLBACK_MODEL
         text = _github_complete(prompt, system, gh_model, max_tokens)
@@ -114,7 +197,8 @@ def bg_complete(
     except Exception as e:
         print(f"[bg_llm] GitHub Models failed: {e}", file=sys.stderr)
 
-    raise RuntimeError("All LLM providers failed (Gemini + GitHub Models)")
+    raise RuntimeError("All LLM providers failed (Direct Gemini + Poe.com + GitHub Models)")
+
 
 
 def main():
