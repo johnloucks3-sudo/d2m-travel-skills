@@ -32,19 +32,9 @@ def send_email(subject: str, body_html: str, recipient: str = COMMANDER_EMAIL) -
         from core.email.agentmail_client import send_email_agentmail
         return send_email_agentmail(recipient=recipient, subject=subject, body=body_html, html=True)
     except Exception as e:
-        logger.warning(f"AgentMail dispatch failed, falling back to smtplib: {e}")
-        try:
-            msg = MIMEMultipart("alternative")
-            msg["Subject"] = subject
-            msg["From"] = "hale@d2mluxury.quest"
-            msg["To"] = recipient
-            msg.attach(MIMEText(body_html, "html"))
-            # Smtplib fallback simulation / direct pass
-            logger.info(f"Email staged for {recipient}: {subject}")
-            return True
-        except Exception as ex:
-            logger.error(f"Tier 1 Email dispatch failed: {ex}")
-            return False
+        logger.warning(f"AgentMail dispatch unavailable: {e}")
+        # F-02 Fix: Return False when AgentMail unavailable so Tier 2 Slack fallback fires cleanly
+        return False
 
 
 def send_slack(message: str, webhook_url: Optional[str] = None) -> bool:
@@ -92,12 +82,17 @@ def dispatch_notification(subject: str, content: str, level: str = "INFO") -> Di
     if email_ok:
         results["primary_delivered"] = "Tier 1: Email"
         logger.info("Successfully delivered via Tier 1 Email.")
+        # F-01 Fix: True fallback for INFO level (prevent duplicate alerts across channels)
+        if level == "INFO":
+            return results
 
     # 2. Tier 2 Slack (Operational Alerts)
     slack_ok = send_slack(f"*{subject}*\n{content}")
     results["slack"] = slack_ok
     if slack_ok and not results["primary_delivered"]:
         results["primary_delivered"] = "Tier 2: Slack"
+        if level == "INFO":
+            return results
 
     # 3. Tier 3 Telegram (C2 Mobile Alerts)
     if level in ["CRITICAL", "WARN"] or not results["primary_delivered"]:
