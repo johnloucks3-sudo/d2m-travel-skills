@@ -71,7 +71,8 @@ Whenever launching a background task or subagent, you MUST:
 
 5. **Multi-Channel Notification Hierarchy (Directive 2026-08-01):**
    - Outbound alerts, report broadcasts, and workflow updates MUST follow strict priority order:
-     **1. Email** (Primary Briefings & Reports) $\rightarrow$ **2. Slack** (Team & Ops) $\rightarrow$ **3. SMS** (Urgent Escalations) $\rightarrow$ **4. Telegram** (C2 & Fallback).
+     **1. Email** (Primary Briefings & Reports) $\rightarrow$ **2. Slack** (Team & Ops) $\rightarrow$ **3. Telegram** (C2 & Mobile Alerts).
+
 
 
 

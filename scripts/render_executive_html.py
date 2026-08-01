@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 7. Multi-Channel Notification Hierarchy Plan
-    chan_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_channel_notification_hierarchy.md").read_text()
-    chan_plan_html = HTML_TEMPLATE.format(
-        title="Multi-Channel Notification Hierarchy Architecture",
-        subtitle="Email -> Slack -> SMS -> Telegram Dispatch Order",
-        badge_text="Notification Directive",
-        body_html=simple_markdown_to_html(chan_plan_md)
+    # 8. Multi-Channel Gateway Integration Plan
+    multi_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_multi_channel_temporal_n8n_integration.md").read_text()
+    multi_plan_html = HTML_TEMPLATE.format(
+        title="Multi-Channel Notification Gateway & Temporal Integration Plan",
+        subtitle="Email -> Slack -> SMS -> Telegram Priority Dispatch Engine",
+        badge_text="Master Integration Plan",
+        body_html=simple_markdown_to_html(multi_plan_md)
     )
-    (OUTPUT_HTML_DIR / "channel_notification_hierarchy.html").write_text(chan_plan_html)
+    (OUTPUT_HTML_DIR / "multi_channel_plan.html").write_text(multi_plan_html)
 
-    # 8. Master Executive Portal Index
+    # 9. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Channel Gateway Plan</strong></td>
+          <td>Master Plan</td>
+          <td><span style="color:#fbbf24; font-weight:600;">PENDING APPROVAL</span></td>
+          <td><a href="http://localhost:9090/output/html/multi_channel_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Notification Hierarchy Plan</strong></td>
