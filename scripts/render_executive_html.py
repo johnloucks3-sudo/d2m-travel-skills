@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 6. Intel Reports Temporal & n8n Migration Plan
-    rep_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_intel_reports_temporal_n8n_migration.md").read_text()
-    rep_plan_html = HTML_TEMPLATE.format(
-        title="Intel Reports & Sweeps Migration to Temporal & n8n",
-        subtitle="Durable Report Pipelines & Multi-Channel Broadcast Architecture",
-        badge_text="Migration Plan",
-        body_html=simple_markdown_to_html(rep_plan_md)
+    # 7. Multi-Channel Notification Hierarchy Plan
+    chan_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_channel_notification_hierarchy.md").read_text()
+    chan_plan_html = HTML_TEMPLATE.format(
+        title="Multi-Channel Notification Hierarchy Architecture",
+        subtitle="Email -> Slack -> SMS -> Telegram Dispatch Order",
+        badge_text="Notification Directive",
+        body_html=simple_markdown_to_html(chan_plan_md)
     )
-    (OUTPUT_HTML_DIR / "intel_reports_migration_plan.html").write_text(rep_plan_html)
+    (OUTPUT_HTML_DIR / "channel_notification_hierarchy.html").write_text(chan_plan_html)
 
-    # 7. Master Executive Portal Index
+    # 8. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Notification Hierarchy Plan</strong></td>
+          <td>Communication Standard</td>
+          <td><span style="color:#4ade80; font-weight:600;">CODIFIED</span></td>
+          <td><a href="http://localhost:9090/output/html/channel_notification_hierarchy.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Intel Reports Temporal/n8n Plan</strong></td>

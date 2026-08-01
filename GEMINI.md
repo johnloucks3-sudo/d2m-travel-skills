@@ -69,6 +69,11 @@ Whenever launching a background task or subagent, you MUST:
    - All substantive reports, position papers, and audits MUST be rendered into client-grade Executive HTML Briefings via `scripts/render_executive_html.py` and served on the local HTTP portal (`http://localhost:9090/output/html/`).
    - Executive top navigation includes direct Drive access (`https://files.d2mluxury.quest`).
 
+5. **Multi-Channel Notification Hierarchy (Directive 2026-08-01):**
+   - Outbound alerts, report broadcasts, and workflow updates MUST follow strict priority order:
+     **1. Email** (Primary Briefings & Reports) $\rightarrow$ **2. Slack** (Team & Ops) $\rightarrow$ **3. SMS** (Urgent Escalations) $\rightarrow$ **4. Telegram** (C2 & Fallback).
+
+
 
 
 

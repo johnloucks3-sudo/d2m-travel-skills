@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thunderbird Wing Executive Briefing Portal — Executive Briefing</title>
+  <title>Multi-Channel Notification Hierarchy Architecture — Executive Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -232,70 +232,59 @@
     </div>
 
     <div class="hero-card">
-      <div class="meta-badge">Executive Portal Index</div>
-      <h1>Thunderbird Wing Executive Briefing Portal</h1>
-      <div class="subtitle">Dreams2Memories Travel, LLC • Operations & Strategy</div>
+      <div class="meta-badge">Notification Directive</div>
+      <h1>Multi-Channel Notification Hierarchy Architecture</h1>
+      <div class="subtitle">Email -> Slack -> SMS -> Telegram Dispatch Order</div>
 
       <div class="content-body">
-        
-    <h2>Executive Briefing Documents Overview</h2>
-    <p>Select any briefing below to open the client-grade executive report:</p>
+        <h1>Implementation Plan: Multi-Channel Notification Hierarchy</h1>
+<br>
+<pre><code>
+NOTIFICATION HIERARCHY PROGRESS DASHBOARD
+[████████████████████] 100% SPECIFIED
 
-    <table>
-      <thead>
-        <tr>
-          <th>Document Title</th>
-          <th>Type</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Strategic Position Paper</strong></td>
-          <td>Executive Briefing</td>
-          <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
-          <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Notification Hierarchy Plan</strong></td>
-          <td>Communication Standard</td>
-          <td><span style="color:#4ade80; font-weight:600;">CODIFIED</span></td>
-          <td><a href="http://localhost:9090/output/html/channel_notification_hierarchy.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Intel Reports Temporal/n8n Plan</strong></td>
-          <td>Report Migration</td>
-          <td><span style="color:#4ade80; font-weight:600;">RECOMMENDED</span></td>
-          <td><a href="http://localhost:9090/output/html/intel_reports_migration_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Temporal vs. n8n Architecture</strong></td>
-          <td>Architectural Assessment</td>
-          <td><span style="color:#4ade80; font-weight:600;">RECOMMENDED</span></td>
-          <td><a href="http://localhost:9090/output/html/temporal_vs_n8n_architecture.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Temporal Workflow Engine Plan</strong></td>
-          <td>Durable Architecture</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% LIVE</span></td>
-          <td><a href="http://localhost:9090/output/html/temporal_workflow_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>VCSAF Master Implementation Plan</strong></td>
-          <td>Build Dashboard</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% COMPLETE</span></td>
-          <td><a href="http://localhost:9090/output/html/master_implementation_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Sonnet 4.6 Verification Audit</strong></td>
-          <td>Self-Assessment</td>
-          <td><span style="color:#4ade80; font-weight:600;">REVIEWED</span></td>
-          <td><a href="http://localhost:9090/output/html/sonnet_plan_verification.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-      </tbody>
-    </table>
-    
+Tier 1: Email (Primary Briefings & Reports)      [████████████████████] ACTIVE
+Tier 2: Slack (Operational Updates & Workflows) [████████████████████] INTEGRATED
+Tier 3: SMS (P0/P1 Urgent Mobile Escalations)   [████████████████████] INTEGRATED
+Tier 4: Telegram (C2 Bot & Command Interface)   [████████████████████] ACTIVE
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>1. EXECUTIVE SUMMARY & STANDING DIRECTIVE</h2>
+<br>
+<p>By directive of the Commander (2026-08-01), all Thunderbird Wing outbound communications, report broadcasts, system alerts, and notification dispatches follow a strict 4-tier channel hierarchy:</p>
+<br>
+<p>$$\text{1. Email} \longrightarrow \text{2. Slack} \longrightarrow \text{3. SMS} \longrightarrow \text{4. Telegram}$$</p>
+<br>
+<p>---</p>
+<br>
+<h2>2. CHANNEL PRIORITY MATRIX & ALLOCATION</h2>
+<br>
+<table><thead><tr><th>Priority Tier</th><th>Channel</th><th>Target / Destination</th><th>Use Cases</th><th>Primary Gateway Engine</th></tr></thead><tbody>
+<tr><td>**Tier 1 (Primary)**</td><td>**Email**</td><td>`johnloucks3@gmail.com` / Client Address</td><td>Executive HTML Briefings, Client Quotes, Financial Audits, WF-17 Reviews</td><td>Gmail API / HTML Portal</td></tr>
+<tr><td>**Tier 2 (Secondary)**</td><td>**Slack**</td><td>`#thunderbird-ops`, `#c2-briefings`</td><td>Operational updates, Temporal workflow completions, subagent alerts</td><td>n8n Slack Nodes / API</td></tr>
+<tr><td>**Tier 3 (Urgent)**</td><td>**SMS**</td><td>Mobile Phone</td><td>P0/P1 system down, time-sensitive fare drops (>20%), urgent alerts</td><td>n8n Twilio / SMS Gateway</td></tr>
+<tr><td>**Tier 4 (Fallback)**</td><td>**Telegram**</td><td>`@D2MC2C_bot`</td><td>Command & Control bot interaction, mobile quick commands, backup alerts</td><td>`telegram_send_message` / n8n</td></tr>
+</tbody></table>
+<br>
+<p>---</p>
+<br>
+<h2>3. INTEGRATION WITH TEMPORAL & N8N</h2>
+<br>
+<pre><code>
+graph TD
+    A[Temporal Workflow Complete] --&gt; B[n8n Notification Gateway]
+    B --&gt;|1. Primary| C[Email Dispatch via Gmail API]
+    B --&gt;|2. Secondary| D[Slack Post to #thunderbird-ops]
+    B --&gt;|3. Urgent Filter| E[SMS Alert to Mobile]
+    B --&gt;|4. C2 Sync| F[Telegram Post to @D2MC2C_bot]
+</code></pre>
+<br>
+<h3>Automatic Escalation Rules:</h3>
+<p>1. <strong>Routine Reports (Morning Briefing, Innovation Digest):<strong> Email (Tier 1) + Slack `#c2-briefings` (Tier 2).</p>
+<p>2. <strong>Workflow Completion & Task Updates:<strong> Slack `#thunderbird-ops` (Tier 2) + Telegram (Tier 4).</p>
+<p>3. <strong>P0/P1 Emergency / High-Value Fare Drop:<strong> Email (Tier 1) + Slack (Tier 2) + SMS (Tier 3) + Telegram (Tier 4).</p>
       </div>
     </div>
 
