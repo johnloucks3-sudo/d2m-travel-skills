@@ -65,6 +65,11 @@ Whenever launching a background task or subagent, you MUST:
    - OpenRouter API spend is strictly capped at **$10.00 / month** (`OPENROUTER_MONTHLY_HARD_CAP = 10.00`).
    - If monthly spend reaches $10.00, paid OpenRouter routes are immediately blocked; only OpenRouter Free models (`x-ai/grok-2:free`, `deepseek-r1:free`) are permitted.
 
+4. **Executive Briefing Portal Standard (Directive 2026-08-01):**
+   - All substantive reports, position papers, and audits MUST be rendered into client-grade Executive HTML Briefings via `scripts/render_executive_html.py` and served on the local HTTP portal (`http://localhost:9090/output/html/`).
+   - Executive top navigation includes direct Drive access (`https://files.d2mluxury.quest`).
+
+
 
 
 ---

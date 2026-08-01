@@ -75,12 +75,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      margin-left: 20px;
+      margin-left: 16px;
       transition: color 0.2s;
     }}
 
     .nav-links a:hover {{
       color: var(--accent-teal);
+    }}
+
+    .nav-links a.drive-btn {{
+      background: rgba(45, 212, 191, 0.15);
+      color: var(--accent-teal);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+    }}
+
+    .nav-links a.drive-btn:hover {{
+      background: rgba(45, 212, 191, 0.3);
+      color: #ffffff;
     }}
 
     .hero-card {{
@@ -229,6 +243,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html">Strategic Position Paper</a>
         <a href="http://localhost:9090/output/html/master_implementation_plan.html">Master Plan</a>
         <a href="http://localhost:9090/output/html/sonnet_plan_verification.html">Sonnet Audit</a>
+        <a href="https://files.d2mluxury.quest" target="_blank" class="drive-btn">📁 D2M Drive Access</a>
       </div>
     </div>
 
