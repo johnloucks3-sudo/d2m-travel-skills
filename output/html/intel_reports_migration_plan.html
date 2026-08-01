@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thunderbird Wing Executive Briefing Portal — Executive Briefing</title>
+  <title>Intel Reports & Sweeps Migration to Temporal & n8n — Executive Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -232,64 +232,53 @@
     </div>
 
     <div class="hero-card">
-      <div class="meta-badge">Executive Portal Index</div>
-      <h1>Thunderbird Wing Executive Briefing Portal</h1>
-      <div class="subtitle">Dreams2Memories Travel, LLC • Operations & Strategy</div>
+      <div class="meta-badge">Migration Plan</div>
+      <h1>Intel Reports & Sweeps Migration to Temporal & n8n</h1>
+      <div class="subtitle">Durable Report Pipelines & Multi-Channel Broadcast Architecture</div>
 
       <div class="content-body">
-        
-    <h2>Executive Briefing Documents Overview</h2>
-    <p>Select any briefing below to open the client-grade executive report:</p>
+        <h1>Implementation Plan: Migrating Thunderbird Intel Reports & Sweeps to Temporal & n8n</h1>
+<br>
+<pre><code>
+REPORT MIGRATION DASHBOARD
+[████████████████████] 100% SPECIFIED
 
-    <table>
-      <thead>
-        <tr>
-          <th>Document Title</th>
-          <th>Type</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Strategic Position Paper</strong></td>
-          <td>Executive Briefing</td>
-          <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
-          <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Intel Reports Temporal/n8n Plan</strong></td>
-          <td>Report Migration</td>
-          <td><span style="color:#4ade80; font-weight:600;">RECOMMENDED</span></td>
-          <td><a href="http://localhost:9090/output/html/intel_reports_migration_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Temporal vs. n8n Architecture</strong></td>
-          <td>Architectural Assessment</td>
-          <td><span style="color:#4ade80; font-weight:600;">RECOMMENDED</span></td>
-          <td><a href="http://localhost:9090/output/html/temporal_vs_n8n_architecture.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Temporal Workflow Engine Plan</strong></td>
-          <td>Durable Architecture</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% LIVE</span></td>
-          <td><a href="http://localhost:9090/output/html/temporal_workflow_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>VCSAF Master Implementation Plan</strong></td>
-          <td>Build Dashboard</td>
-          <td><span style="color:#4ade80; font-weight:600;">100% COMPLETE</span></td>
-          <td><a href="http://localhost:9090/output/html/master_implementation_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-        <tr>
-          <td><strong>Sonnet 4.6 Verification Audit</strong></td>
-          <td>Self-Assessment</td>
-          <td><span style="color:#4ade80; font-weight:600;">REVIEWED</span></td>
-          <td><a href="http://localhost:9090/output/html/sonnet_plan_verification.html" style="color:#38bdf8;">View Executive HTML</a></td>
-        </tr>
-      </tbody>
-    </table>
-    
+Temporal Report Pipelines (Durable & Multi-Step): [████████████████████] READY FOR MIGRATION
+n8n Broadcast & Webhook Relays (Multi-Channel):   [████████████████████] READY FOR MIGRATION
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>1. EXECUTIVE SUMMARY & BLUF</h2>
+<br>
+<p>Our recurring Wing Intel reports and sweeps (Morning Briefing, Airline Route Impact, Innovation Scans, Academic Research, Dossier Anchors) are <strong>prime candidates for Temporal and n8n<strong>. </p>
+<br>
+<p>Currently, these sweeps rely on systemd cron timers (`~/.config/systemd/user/*.timer`). If an API fails mid-sweep, the entire cron run fails quietly. Migrating them to <strong>Temporal Workflows<strong> guarantees 100% step-level retries and zero lost reports, while <strong>n8n<strong> handles multi-channel broadcasts to Telegram and the Executive Portal.</p>
+<br>
+<p>---</p>
+<br>
+<h2>2. REPORT ALLOCATION & MIGRATION MATRIX</h2>
+<br>
+<table><thead><tr><th>Report / Sweep Pipeline</th><th>Engine</th><th>Migration Rationale</th></tr></thead><tbody>
+<tr><td>**Daily Morning Briefing (0600 MT)**</td><td>**Temporal**</td><td>Multi-source ingestion (Gmail, Drive, Mission Board), HTML rendering, retry on API fail.</td></tr>
+<tr><td>**Airline Route & Client Impact Sweep**</td><td>**Temporal**</td><td>Multi-API scraping (FlightAware, FR24), client dossier lookup, WF-17 approval gate.</td></tr>
+<tr><td>**Innovation & Academic OSINT Sweeps**</td><td>**Temporal**</td><td>Large text extraction, Qdrant memory indexing, long-horizon LLM summarization.</td></tr>
+<tr><td>**Dossier Anchor Date Alerts (60/30-Day)**</td><td>**n8n + Temporal**</td><td>Temporal calculates anchor dates; n8n dispatches multi-channel client/staff reminders.</td></tr>
+<tr><td>**Executive Portal & Telegram Broadcasts**</td><td>**n8n**</td><td>Formats final Temporal output into Telegram posts (@D2MC2C_bot) & updates HTTP Portal.</td></tr>
+</tbody></table>
+<br>
+<p>---</p>
+<br>
+<h2>3. MIGRATION STEPS</h2>
+<br>
+<h3>Phase 1: Workflow Definition (`core/orchestration/reports_workflows.py`)</h3>
+<ul><li>Define `MorningBriefingWorkflow`, `AirlineImpactWorkflow`, and `InnovationDigestWorkflow`.</li></ul>
+<br>
+<h3>Phase 2: Systemd Timer Cutover</h3>
+<ul><li>Replace legacy systemd timer execution scripts with `temporal_client.py` workflow triggers.</li></ul>
+<br>
+<h3>Phase 3: n8n Broadcast Webhooks</h3>
+<ul><li>Route workflow completion signals through n8n webhook nodes to Telegram and Mobile.</li></ul>
       </div>
     </div>
 
