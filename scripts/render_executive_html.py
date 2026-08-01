@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 12. Stage 2 Strategic Sculpting Report
-    s2_report_md = Path("/home/john/Thunderbird/output/stage2_strategic_sculpting_report.md").read_text()
-    s2_report_html = HTML_TEMPLATE.format(
-        title="Stage 2: Strategic Sculpting & Top 10 Capability Targets",
-        subtitle="OODA Phase 2 • Catalog Matrix & Seat Allocation",
-        badge_text="Stage 2 Complete",
-        body_html=simple_markdown_to_html(s2_report_md)
+    # 13. Stage 3 Whetstone Gap Identification Report
+    s3_report_md = Path("/home/john/Thunderbird/output/stage3_whetstone_gap_report.md").read_text()
+    s3_report_html = HTML_TEMPLATE.format(
+        title="Stage 3: Whetstone Gap Identification & Codebase Cross-Check",
+        subtitle="OODA Phase 3 • Ground-Truth Gap Audit",
+        badge_text="Stage 3 Complete",
+        body_html=simple_markdown_to_html(s3_report_md)
     )
-    (OUTPUT_HTML_DIR / "stage2_sculpting_report.html").write_text(s2_report_html)
+    (OUTPUT_HTML_DIR / "stage3_whetstone_report.html").write_text(s3_report_html)
 
-    # 13. Master Executive Portal Index
+    # 14. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Stage 3 Whetstone Gap Report</strong></td>
+          <td>Stage 3 Audit</td>
+          <td><span style="color:#4ade80; font-weight:600;">100% EXECUTED</span></td>
+          <td><a href="http://localhost:9090/output/html/stage3_whetstone_report.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Stage 2 Strategic Sculpting Report</strong></td>
