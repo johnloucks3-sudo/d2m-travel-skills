@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "created": "2026-08-01T13:29:21-06:00",
+  "targets": [
+    {
+      "id": "CAP-01",
+      "name": "Interactive Multi-Channel Notification Gateway",
+      "vectors": [
+        {
+          "vector": "PyPI / Python SDK",
+          "query": "slack-sdk python email-validator python-telegram-bot async fallback gateway"
+        },
+        {
+          "vector": "GitHub Architecture",
+          "query": "multi channel notification gateway fallback email slack telegram python"
+        },
+        {
+          "vector": "Temporal Patterns",
+          "query": "temporal.io activity retry policy notification gateway python"
+        }
+      ]
+    },
+    {
+      "id": "CAP-02",
+      "name": "ELON 2x Daily OODA + Whetstone Sweep Engine",
+      "category": "OSINT/Academic & Tech Vanguard",
+      "vectors": [
+        {
+          "vector": "PyPI / Python SDK",
+          "query": "arxiv-python google-generativeai pypi-search github-api python"
+        },
+        {
+          "vector": "GitHub Architecture",
+          "query": "autonomous tech scanner ooda loop gap detector python"
+        },
+        {
+          "vector": "Temporal Patterns",
+          "query": "temporal.io cron schedule workflow python daily sweep"
+        }
+      ]
+    }
+  ]
+}
