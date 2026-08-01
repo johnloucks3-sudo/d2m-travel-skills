@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "created": "2026-08-01T13:23:34-06:00",
+  "capabilities": [
+    {
+      "id": "CAP-01",
+      "name": "Interactive Multi-Channel Notification Gateway",
+      "category": "Agentic Infrastructure/Orchestration",
+      "status": "SPECIFIED_PENDING_BUILD",
+      "description": "Email -> Slack -> Telegram priority fallback with interactive decision triggers.",
+      "assigned_seat": "JET"
+    },
+    {
+      "id": "CAP-02",
+      "name": "ELON 2x Daily OODA + Whetstone Sweep Engine",
+      "category": "OSINT/Academic & Tech Vanguard",
+      "status": "SPECIFIED_PENDING_BUILD",
+      "description": "Autonomous tech scan at 04:30 & 16:30 MT with codebase gap detection.",
+      "assigned_seat": "JET"
+    },
+    {
+      "id": "CAP-03",
+      "name": "Naia AgentMail Executive Tasking & Closed-Loop Bridge",
+      "category": "Agentic Infrastructure/Orchestration",
+      "status": "SPECIFIED_PENDING_BUILD",
+      "description": "Closed-loop email discussion and task ingestion directly to johnloucks3@gmail.com.",
+      "assigned_seat": "HALE-AG / Naia"
+    },
+    {
+      "id": "CAP-04",
+      "name": "Live Flight & Fare Watch Monitor",
+      "category": "Flight/Fare Watch",
+      "status": "LIVE_MAINTENANCE",
+      "description": "Centrav, Kiwi, and Google Flights price tracking and alert system.",
+      "assigned_seat": "Intel"
+    },
+    {
+      "id": "CAP-05",
+      "name": "Cruise Voyage & Cabin Availability Tracker",
+      "category": "Cruise Scrapers",
+      "status": "LIVE_MAINTENANCE",
+      "description": "Regent, Silversea, and Viking live voyage and cabin availability search.",
+      "assigned_seat": "Intel"
+    },
+    {
+      "id": "CAP-06",
+      "name": "Client Dossier Pre-Distribution Hotel Status Probe",
+      "category": "Client Dossiers",
+      "status": "SPECIFIED_PENDING_BUILD",
+      "description": "Automated pre-flight validation of hotel booking status before dossier dispatch.",
+      "assigned_seat": "Dani"
+    },
+    {
+      "id": "CAP-07",
+      "name": "TESS & Host Agency Commission Cross-Checker",
+      "category": "Financial/Commission Reconciliation",
+      "status": "LIVE_MAINTENANCE",
+      "description": "OA, Nexion, and C&TU trailing-12mo commission tier reconciliation.",
+      "assigned_seat": "Harlan"
+    },
+    {
+      "id": "CAP-08",
+      "name": "Temporal Durable Workflows Server Integration",
+      "category": "Agentic Infrastructure/Orchestration",
+      "status": "LIVE_OPERATIONAL",
+      "description": "gRPC 7233 worker server running durable client inquiry & intel workflows.",
+      "assigned_seat": "JET"
+    },
+    {
+      "id": "CAP-09",
+      "name": "Academic OSINT ArXiv & PubMed Literature Sweeper",
+      "category": "OSINT/Academic",
+      "status": "LIVE_MAINTENANCE",
+      "description": "Automated academic paper scanning and PDF extraction.",
+      "assigned_seat": "Intel"
+    },
+    {
+      "id": "CAP-10",
+      "name": "Executive HTML Briefing Portal Engine",
+      "category": "Agentic Infrastructure/Orchestration",
+      "status": "LIVE_OPERATIONAL",
+      "description": "Client-grade executive HTML portal served on http://localhost:9090/output/html/.",
+      "assigned_seat": "HALE-AG"
+    }
+  ]
+}
