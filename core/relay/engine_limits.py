@@ -27,6 +27,68 @@ DEFAULT_LEDGER_PATH = Path("/home/john/Thunderbird/OpsCenter/engine_usage_ledger
 OPENROUTER_MONTHLY_HARD_CAP = 10.00  # USD hard spend ceiling per month
 
 
+def check_headroom(engine: str = 'AG') -> dict:
+    """Pre-flight headroom check for engine capacity. Dynamically calculates real headroom from usage ledger."""
+    engine_key = engine.upper()
+    cap = DEFAULT_CAPS.get(engine_key, {'hourly': 20, 'daily': 150})
+    
+    hourly_limit = cap['hourly']
+    daily_limit = cap['daily']
+    
+    now = time.time()
+    one_hour_ago = now - 3600
+    one_day_ago = now - 86400
+    
+    hourly_used = 0
+    daily_used = 0
+    
+    ledger_path = DEFAULT_LEDGER_PATH
+    if ledger_path.exists():
+        try:
+            with open(ledger_path) as f:
+                for line in f:
+                    if not line.strip():
+                        continue
+                    try:
+                        data = json.loads(line)
+                        ts = data.get('ts', 0)
+                        eng = data.get('engine', '').upper() or data.get('seat', '').upper()
+                        if eng == engine_key:
+                            if ts >= one_hour_ago:
+                                hourly_used += 1
+                            if ts >= one_day_ago:
+                                daily_used += 1
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+    # Record current call if headroom is checked
+    try:
+        with open(ledger_path, 'a') as f:
+            f.write(json.dumps({'ts': now, 'engine': engine_key, 'tokens': 0, 'ok': True}) + '\n')
+        hourly_used += 1
+        daily_used += 1
+    except Exception:
+        pass
+
+    hourly_headroom_pct = max(0.0, round((1.0 - (hourly_used / hourly_limit)) * 100, 1))
+    daily_headroom_pct = max(0.0, round((1.0 - (daily_used / daily_limit)) * 100, 1))
+    headroom_pct = min(hourly_headroom_pct, daily_headroom_pct)
+    
+    return {
+        'engine': engine_key,
+        'status': 'OK' if headroom_pct > 10.0 else 'WARN',
+        'headroom_pct': headroom_pct,
+        'hourly_used': hourly_used,
+        'hourly_cap': hourly_limit,
+        'daily_used': daily_used,
+        'daily_cap': daily_limit,
+        'ok': headroom_pct > 0.0
+    }
+
+
+
 # ── POE SPEND GUARD ───────────────────────────────────────────────────────────
 # 2026-07-30: ~99,147 Poe points (~1/3 of the Commander's August reserve) were
 # burned in five minutes by an agentic benchmark. The first version of this guard
