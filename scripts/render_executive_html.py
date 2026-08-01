@@ -348,12 +348,16 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "master_implementation_plan.html").write_text(plan_html)
 
-    # 7. Claude Sonnet 4.6 Verification Audit Report
-    sonnet_md = Path("/home/john/Thunderbird/output/claude_sonnet_audit_full_10stages.md").read_text()
+    # 7. Claude Sonnet 4.6 Verification Audit Report (Pending TALON CC Run)
+    sonnet_path = Path("/home/john/Thunderbird/output/real_claude_sonnet_audit_10stages.md")
+    if sonnet_path.exists():
+        sonnet_md = sonnet_path.read_text()
+    else:
+        sonnet_md = "# Real Claude Sonnet 4.6 Verification Audit\n\nTask dispatched to TALON (Claude Code engine) via BrainBridge (Ticket `bb-79072169`). Awaiting genuine output."
     sonnet_html = HTML_TEMPLATE.format(
         title="Claude Sonnet 4.6 Independent Verification Audit Report",
         subtitle="10-Stage Capability Lifecycle Framework • Cross-Engine Validation",
-        badge_text="Sonnet Audit 100% PASS",
+        badge_text="Audit Pending Real Run",
         body_html=simple_markdown_to_html(sonnet_md)
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
