@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 9. Innovation, Incubation & Technical Proposal Plan
-    inno_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_innovation_incubation_pipeline.md").read_text()
-    inno_plan_html = HTML_TEMPLATE.format(
-        title="Innovation, Incubation & Technical Proposal Engine Plan",
-        subtitle="Ideas Are Our Lifeblood • 5-Stream Harvest Architecture",
-        badge_text="Incubation Architecture",
-        body_html=simple_markdown_to_html(inno_plan_md)
+    # 10. 10-Stage Capability Lifecycle Framework Plan
+    cap_plan_md = Path("/home/john/.gemini/antigravity-cli/brain/f154ffc1-0955-441f-8143-83fd6b39afe4/plan_end_to_end_capability_lifecycle.md").read_text()
+    cap_plan_html = HTML_TEMPLATE.format(
+        title="10-Stage End-to-End Capability Lifecycle Framework Plan",
+        subtitle="OODA Expansion • Thought-to-Implementation Architecture",
+        badge_text="Lifecycle Framework Plan",
+        body_html=simple_markdown_to_html(cap_plan_md)
     )
-    (OUTPUT_HTML_DIR / "innovation_incubation_plan.html").write_text(inno_plan_html)
+    (OUTPUT_HTML_DIR / "capability_lifecycle_plan.html").write_text(cap_plan_html)
 
-    # 10. Master Executive Portal Index
+    # 11. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Capability Lifecycle Framework Plan</strong></td>
+          <td>10-Stage OODA Loop</td>
+          <td><span style="color:#fbbf24; font-weight:600;">PENDING APPROVAL</span></td>
+          <td><a href="http://localhost:9090/output/html/capability_lifecycle_plan.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Innovation & Incubation Engine Plan</strong></td>
