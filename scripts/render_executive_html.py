@@ -358,17 +358,17 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
 
-    # 15. Stage 5 Capability Recognition Report
-    s5_report_md = Path("/home/john/Thunderbird/output/stage5_selection_report.md").read_text()
-    s5_report_html = HTML_TEMPLATE.format(
-        title="Stage 5: Capability Recognition & Winning Selection",
-        subtitle="OODA Phase 5 • Architecture Evaluation & Stack Selection",
-        badge_text="Stage 5 Complete",
-        body_html=simple_markdown_to_html(s5_report_md)
+    # 16. Stage 6 Proposal Package Report
+    s6_report_md = Path("/home/john/Thunderbird/output/stage6_proposal_package.md").read_text()
+    s6_report_html = HTML_TEMPLATE.format(
+        title="Stage 6: Proposal Formulation & Executive Portal Delivery Package",
+        subtitle="OODA Phase 6 • USAF Point Paper Proposals & Decision Package",
+        badge_text="Stage 6 Complete",
+        body_html=simple_markdown_to_html(s6_report_md)
     )
-    (OUTPUT_HTML_DIR / "stage5_selection_report.html").write_text(s5_report_html)
+    (OUTPUT_HTML_DIR / "stage6_proposal_package.html").write_text(s6_report_html)
 
-    # 16. Master Executive Portal Index
+    # 17. Master Executive Portal Index
     index_body = """
     <h2>Executive Briefing Documents Overview</h2>
     <p>Select any briefing below to open the client-grade executive report:</p>
@@ -388,6 +388,12 @@ def render_all_executive_pages():
           <td>Executive Briefing</td>
           <td><span style="color:#4ade80; font-weight:600;">APPROVED</span></td>
           <td><a href="http://localhost:9090/output/html/position_paper_strategic_initiatives.html" style="color:#38bdf8;">View Executive HTML</a></td>
+        </tr>
+        <tr>
+          <td><strong>Stage 6 Proposal Package</strong></td>
+          <td>Stage 6 Proposal</td>
+          <td><span style="color:#4ade80; font-weight:600;">100% EXECUTED</span></td>
+          <td><a href="http://localhost:9090/output/html/stage6_proposal_package.html" style="color:#38bdf8;">View Executive HTML</a></td>
         </tr>
         <tr>
           <td><strong>Stage 5 Selection Report</strong></td>
