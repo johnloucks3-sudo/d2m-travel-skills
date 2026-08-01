@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path("/home/john/Thunderbird")
 sys.path.insert(0, str(ROOT))
 
-from core.email.thunderbird_gmail import gmail_send_from_wing
+from core.comms.commander_channel import notify
 
 def run_daily_watch():
     now_dt = datetime.datetime.now()
@@ -135,9 +135,16 @@ def run_daily_watch():
 </body>
 </html>"""
 
-    print("Sending Weather Eye Daily Airfare Survey email to johnloucks3@gmail.com...")
-    msg_id = gmail_send_from_wing("johnloucks3@gmail.com", subject, body_html)
-    print(f"✅ Weather Eye email sent successfully! Message ID: {msg_id}")
+    print("Sending Weather Eye Daily Airfare Survey notification to Commander...")
+    result = notify(
+        kind="pricing",
+        title=subject,
+        body_md=body_html,
+        dedup_key=f"weather-eye-daily-{now_str.split()[0]}",
+        source="Weather Eye",
+        urgency="WINDOW",
+    )
+    print(f"✅ Weather Eye notification sent successfully!")
 
 if __name__ == "__main__":
     run_daily_watch()
