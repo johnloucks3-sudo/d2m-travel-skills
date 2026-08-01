@@ -348,12 +348,12 @@ def render_all_executive_pages():
     )
     (OUTPUT_HTML_DIR / "master_implementation_plan.html").write_text(plan_html)
 
-    # 3. Sonnet Verification Audit Report
-    sonnet_md = Path("/home/john/Thunderbird/output/sonnet_plan_verification_vcsaf.md").read_text()
+    # 7. Claude Sonnet 4.6 Verification Audit Report
+    sonnet_md = Path("/home/john/Thunderbird/output/claude_sonnet_audit_full_10stages.md").read_text()
     sonnet_html = HTML_TEMPLATE.format(
-        title="Claude Sonnet 4.6 Independent Peer Verification Audit",
-        subtitle="Target: VCSAF Master Plan • Verdict: Grade A Approved",
-        badge_text="Independent Audit Report",
+        title="Claude Sonnet 4.6 Independent Verification Audit Report",
+        subtitle="10-Stage Capability Lifecycle Framework • Cross-Engine Validation",
+        badge_text="Sonnet Audit 100% PASS",
         body_html=simple_markdown_to_html(sonnet_md)
     )
     (OUTPUT_HTML_DIR / "sonnet_plan_verification.html").write_text(sonnet_html)
