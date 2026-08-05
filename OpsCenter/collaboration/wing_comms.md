@@ -33658,3 +33658,8 @@ SESSION=IDLE | TOKEN=STALE (24809s old) | INBOX_PENDING=1077 | ACTIVE_TASKS=60 |
 
 ## ⚠️ [CRITICAL] Supervisor Alert — 2026-07-31 06:44:52
 Token health issue: Token expiring in 12 min (CRITICAL)
+
+---
+## METRONOME NUDGE — 2026-08-05 15:00 UTC
+[HALE-ROUTE] LIFECYCLE WINDOWS — 2026-08-05 09:00 MT
+• **McLeod McGlasson** (Discovery Princess) T+220d → `arc5/a` — Dining Preferences — task A2 research dining options + A8 recommend | Route: a2 → a8 → a3 → exec [client-facing] [cos-review]

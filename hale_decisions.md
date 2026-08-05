@@ -237668,3 +237668,2445 @@ Scanned: 39 proposals | Active: 39 | Closed: 0
 <!-- /PLAN:CLOSE -->
 
 - **CHIEF SILVER** [2026-07-31T13:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-682c0b tier=trivial session_id=none opened_at=2026-08-05T14:44:59.678221+00:00 -->
+**Plan Opened:** PLN-682c0b
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-682c0b verdict=FAIL quality_tier=none closed_at=2026-08-05T14:44:59.684047+00:00 -->
+**Plan Closed:** PLN-682c0b
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-c2-sweep verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3549d0 tier=trivial session_id=none opened_at=2026-08-05T14:45:11.535046+00:00 -->
+**Plan Opened:** PLN-3549d0
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3549d0 verdict=FAIL quality_tier=none closed_at=2026-08-05T14:45:11.539888+00:00 -->
+**Plan Closed:** PLN-3549d0
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-inbox-sweep verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1c5ae4 tier=trivial session_id=none opened_at=2026-08-05T14:47:04.753313+00:00 -->
+**Plan Opened:** PLN-1c5ae4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1c5ae4 verdict=PASS quality_tier=none closed_at=2026-08-05T14:47:04.758980+00:00 -->
+**Plan Closed:** PLN-1c5ae4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd65ee tier=trivial session_id=none opened_at=2026-08-05T14:47:54.916434+00:00 -->
+**Plan Opened:** PLN-bd65ee
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd65ee verdict=PASS quality_tier=none closed_at=2026-08-05T14:47:54.921274+00:00 -->
+**Plan Closed:** PLN-bd65ee
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd2af1 tier=trivial session_id=none opened_at=2026-08-05T14:49:08.514849+00:00 -->
+**Plan Opened:** PLN-bd2af1
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd2af1 verdict=PASS quality_tier=none closed_at=2026-08-05T14:49:08.519957+00:00 -->
+**Plan Closed:** PLN-bd2af1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-138945 tier=trivial session_id=none opened_at=2026-08-05T14:50:55.226531+00:00 -->
+**Plan Opened:** PLN-138945
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-138945 verdict=PASS quality_tier=none closed_at=2026-08-05T14:50:55.233816+00:00 -->
+**Plan Closed:** PLN-138945
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-50a0f2 tier=trivial session_id=none opened_at=2026-08-05T14:51:08.612321+00:00 -->
+**Plan Opened:** PLN-50a0f2
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-50a0f2 verdict=PASS quality_tier=none closed_at=2026-08-05T14:51:08.617020+00:00 -->
+**Plan Closed:** PLN-50a0f2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T14:52Z] delegated OC (ci-fix-thunderbird-c2-sweep.service-1) → PENDING
+
+- **CHIEF WING-OPS** [2026-08-05T14:52Z] delegated OC (ci-fix-thunderbird-inbox-sweep.service-1) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-b6a8e4 tier=trivial session_id=none opened_at=2026-08-05T14:53:09.071736+00:00 -->
+**Plan Opened:** PLN-b6a8e4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b6a8e4 verdict=PASS quality_tier=none closed_at=2026-08-05T14:53:09.076631+00:00 -->
+**Plan Closed:** PLN-b6a8e4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e830b9 tier=trivial session_id=none opened_at=2026-08-05T14:53:32.777821+00:00 -->
+**Plan Opened:** PLN-e830b9
+**Task:** generic long-tail remediation: zen-usage-guard -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e830b9 verdict=FAIL quality_tier=none closed_at=2026-08-05T14:53:32.782712+00:00 -->
+**Plan Closed:** PLN-e830b9
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** zen-usage-guard verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f1b3fe tier=trivial session_id=none opened_at=2026-08-05T14:53:55.542470+00:00 -->
+**Plan Opened:** PLN-f1b3fe
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f1b3fe verdict=PASS quality_tier=none closed_at=2026-08-05T14:53:55.547524+00:00 -->
+**Plan Closed:** PLN-f1b3fe
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fc613d tier=trivial session_id=none opened_at=2026-08-05T14:55:09.188270+00:00 -->
+**Plan Opened:** PLN-fc613d
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fc613d verdict=PASS quality_tier=none closed_at=2026-08-05T14:55:09.193178+00:00 -->
+**Plan Closed:** PLN-fc613d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-78faba tier=trivial session_id=none opened_at=2026-08-05T14:56:55.871257+00:00 -->
+**Plan Opened:** PLN-78faba
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-78faba verdict=PASS quality_tier=none closed_at=2026-08-05T14:56:55.878173+00:00 -->
+**Plan Closed:** PLN-78faba
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fdc245 tier=trivial session_id=none opened_at=2026-08-05T14:57:09.295101+00:00 -->
+**Plan Opened:** PLN-fdc245
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fdc245 verdict=PASS quality_tier=none closed_at=2026-08-05T14:57:09.299608+00:00 -->
+**Plan Closed:** PLN-fdc245
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7a21c5 tier=trivial session_id=none opened_at=2026-08-05T14:58:00.696689+00:00 -->
+**Plan Opened:** PLN-7a21c5
+**Task:** generic long-tail remediation: drawdown-regression-guard -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7a21c5 verdict=FAIL quality_tier=none closed_at=2026-08-05T14:58:00.701486+00:00 -->
+**Plan Closed:** PLN-7a21c5
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** drawdown-regression-guard verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c624ba tier=trivial session_id=none opened_at=2026-08-05T14:58:03.272027+00:00 -->
+**Plan Opened:** PLN-c624ba
+**Task:** generic long-tail remediation: claude-process-watch -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c624ba verdict=FAIL quality_tier=none closed_at=2026-08-05T14:58:03.276389+00:00 -->
+**Plan Closed:** PLN-c624ba
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** claude-process-watch verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d10418 tier=trivial session_id=none opened_at=2026-08-05T14:59:09.694350+00:00 -->
+**Plan Opened:** PLN-d10418
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d10418 verdict=PASS quality_tier=none closed_at=2026-08-05T14:59:09.700169+00:00 -->
+**Plan Closed:** PLN-d10418
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-13ce10 tier=trivial session_id=none opened_at=2026-08-05T14:59:55.961560+00:00 -->
+**Plan Opened:** PLN-13ce10
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-13ce10 verdict=PASS quality_tier=none closed_at=2026-08-05T14:59:55.967283+00:00 -->
+**Plan Closed:** PLN-13ce10
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cfa447 tier=trivial session_id=none opened_at=2026-08-05T15:00:03.180766+00:00 -->
+**Plan Opened:** PLN-cfa447
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cfa447 verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:03.189686+00:00 -->
+**Plan Closed:** PLN-cfa447
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4bca41 tier=trivial session_id=none opened_at=2026-08-05T15:00:03.711493+00:00 -->
+**Plan Opened:** PLN-4bca41
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4bca41 verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:03.717048+00:00 -->
+**Plan Closed:** PLN-4bca41
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a3529a tier=trivial session_id=none opened_at=2026-08-05T15:00:03.759962+00:00 -->
+**Plan Opened:** PLN-a3529a
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a3529a verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:03.766654+00:00 -->
+**Plan Closed:** PLN-a3529a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-96a848 tier=trivial session_id=none opened_at=2026-08-05T15:00:09.717547+00:00 -->
+**Plan Opened:** PLN-96a848
+**Task:** generic long-tail remediation: drawdown-regression-guard -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96a848 verdict=FAIL quality_tier=none closed_at=2026-08-05T15:00:09.726600+00:00 -->
+**Plan Closed:** PLN-96a848
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** drawdown-regression-guard verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d62b97 tier=trivial session_id=none opened_at=2026-08-05T15:00:11.486078+00:00 -->
+**Plan Opened:** PLN-d62b97
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d62b97 verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:11.525996+00:00 -->
+**Plan Closed:** PLN-d62b97
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3b2351 tier=trivial session_id=none opened_at=2026-08-05T15:00:20.099003+00:00 -->
+**Plan Opened:** PLN-3b2351
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3b2351 verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:20.104854+00:00 -->
+**Plan Closed:** PLN-3b2351
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6f2144 tier=trivial session_id=none opened_at=2026-08-05T15:00:20.541541+00:00 -->
+**Plan Opened:** PLN-6f2144
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6f2144 verdict=PASS quality_tier=none closed_at=2026-08-05T15:00:20.629551+00:00 -->
+**Plan Closed:** PLN-6f2144
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T15:02Z] delegated OC (ci-fix-claude-process-watch.service-1) → PENDING
+
+- **CHIEF WING-OPS** [2026-08-05T15:02Z] delegated OC (ci-fix-drawdown-regression-guard.service-1) → PENDING
+
+- **CHIEF WING-OPS** [2026-08-05T15:02Z] delegated OC (ci-fix-thunderbird-generic-remediate@drawdown-regression-guard.service-1) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-0afc04 tier=trivial session_id=none opened_at=2026-08-05T15:02:17.363136+00:00 -->
+**Plan Opened:** PLN-0afc04
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0afc04 verdict=PASS quality_tier=none closed_at=2026-08-05T15:02:17.388971+00:00 -->
+**Plan Closed:** PLN-0afc04
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-38009b tier=trivial session_id=none opened_at=2026-08-05T15:03:03.455198+00:00 -->
+**Plan Opened:** PLN-38009b
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-38009b verdict=PASS quality_tier=none closed_at=2026-08-05T15:03:03.460001+00:00 -->
+**Plan Closed:** PLN-38009b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-052f96 tier=trivial session_id=none opened_at=2026-08-05T15:04:16.149949+00:00 -->
+**Plan Opened:** PLN-052f96
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-052f96 verdict=PASS quality_tier=none closed_at=2026-08-05T15:04:16.154710+00:00 -->
+**Plan Closed:** PLN-052f96
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3fb783 tier=trivial session_id=none opened_at=2026-08-05T15:06:03.502694+00:00 -->
+**Plan Opened:** PLN-3fb783
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3fb783 verdict=PASS quality_tier=none closed_at=2026-08-05T15:06:03.508469+00:00 -->
+**Plan Closed:** PLN-3fb783
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-951786 tier=trivial session_id=none opened_at=2026-08-05T15:06:16.083546+00:00 -->
+**Plan Opened:** PLN-951786
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-951786 verdict=PASS quality_tier=none closed_at=2026-08-05T15:06:16.088392+00:00 -->
+**Plan Closed:** PLN-951786
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f03dd4 tier=trivial session_id=none opened_at=2026-08-05T15:06:26.656918+00:00 -->
+**Plan Opened:** PLN-f03dd4
+**Task:** generic long-tail remediation: tess-token-keepalive -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f03dd4 verdict=FAIL quality_tier=none closed_at=2026-08-05T15:06:26.661405+00:00 -->
+**Plan Closed:** PLN-f03dd4
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e746e0 tier=trivial session_id=none opened_at=2026-08-05T15:08:16.922079+00:00 -->
+**Plan Opened:** PLN-e746e0
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e746e0 verdict=PASS quality_tier=none closed_at=2026-08-05T15:08:16.927024+00:00 -->
+**Plan Closed:** PLN-e746e0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c07d5e tier=trivial session_id=none opened_at=2026-08-05T15:09:07.200740+00:00 -->
+**Plan Opened:** PLN-c07d5e
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c07d5e verdict=PASS quality_tier=none closed_at=2026-08-05T15:09:07.205377+00:00 -->
+**Plan Closed:** PLN-c07d5e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0d4f54 tier=trivial session_id=none opened_at=2026-08-05T15:10:01.127948+00:00 -->
+**Plan Opened:** PLN-0d4f54
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0d4f54 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:01.139219+00:00 -->
+**Plan Closed:** PLN-0d4f54
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ab999 tier=trivial session_id=none opened_at=2026-08-05T15:10:01.180657+00:00 -->
+**Plan Opened:** PLN-1ab999
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ab999 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:01.189931+00:00 -->
+**Plan Closed:** PLN-1ab999
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd7c57 tier=trivial session_id=none opened_at=2026-08-05T15:10:02.151566+00:00 -->
+**Plan Opened:** PLN-bd7c57
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd7c57 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:02.155883+00:00 -->
+**Plan Closed:** PLN-bd7c57
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2df7e5 tier=trivial session_id=none opened_at=2026-08-05T15:10:02.176894+00:00 -->
+**Plan Opened:** PLN-2df7e5
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2df7e5 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:02.181368+00:00 -->
+**Plan Closed:** PLN-2df7e5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6f18d7 tier=trivial session_id=none opened_at=2026-08-05T15:10:02.191455+00:00 -->
+**Plan Opened:** PLN-6f18d7
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6f18d7 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:02.195922+00:00 -->
+**Plan Closed:** PLN-6f18d7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-350834 tier=trivial session_id=none opened_at=2026-08-05T15:10:02.458406+00:00 -->
+**Plan Opened:** PLN-350834
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-350834 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:02.463086+00:00 -->
+**Plan Closed:** PLN-350834
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6a64b1 tier=trivial session_id=none opened_at=2026-08-05T15:10:05.610422+00:00 -->
+**Plan Opened:** PLN-6a64b1
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6a64b1 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:05.615690+00:00 -->
+**Plan Closed:** PLN-6a64b1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f25b02 tier=trivial session_id=none opened_at=2026-08-05T15:10:05.645981+00:00 -->
+**Plan Opened:** PLN-f25b02
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f25b02 verdict=PASS quality_tier=none closed_at=2026-08-05T15:10:05.650785+00:00 -->
+**Plan Closed:** PLN-f25b02
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-becf37 tier=trivial session_id=none opened_at=2026-08-05T15:12:05.767975+00:00 -->
+**Plan Opened:** PLN-becf37
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-becf37 verdict=PASS quality_tier=none closed_at=2026-08-05T15:12:05.772696+00:00 -->
+**Plan Closed:** PLN-becf37
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T15:12Z] delegated OC (ci-fix-zen-usage-guard.service-1) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-aef9f8 tier=trivial session_id=none opened_at=2026-08-05T15:12:40.442043+00:00 -->
+**Plan Opened:** PLN-aef9f8
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aef9f8 verdict=PASS quality_tier=none closed_at=2026-08-05T15:12:40.447318+00:00 -->
+**Plan Closed:** PLN-aef9f8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7973a0 tier=trivial session_id=none opened_at=2026-08-05T15:13:02.565716+00:00 -->
+**Plan Opened:** PLN-7973a0
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7973a0 verdict=PASS quality_tier=none closed_at=2026-08-05T15:13:02.570661+00:00 -->
+**Plan Closed:** PLN-7973a0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8ced09 tier=trivial session_id=none opened_at=2026-08-05T15:14:06.605124+00:00 -->
+**Plan Opened:** PLN-8ced09
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8ced09 verdict=PASS quality_tier=none closed_at=2026-08-05T15:14:06.610348+00:00 -->
+**Plan Closed:** PLN-8ced09
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cafedd tier=trivial session_id=none opened_at=2026-08-05T15:14:18.313899+00:00 -->
+**Plan Opened:** PLN-cafedd
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cafedd verdict=PASS quality_tier=none closed_at=2026-08-05T15:14:18.318495+00:00 -->
+**Plan Closed:** PLN-cafedd
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-243d61 tier=trivial session_id=none opened_at=2026-08-05T15:16:02.954138+00:00 -->
+**Plan Opened:** PLN-243d61
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-243d61 verdict=PASS quality_tier=none closed_at=2026-08-05T15:16:02.959134+00:00 -->
+**Plan Closed:** PLN-243d61
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-633a50 tier=trivial session_id=none opened_at=2026-08-05T15:16:07.938140+00:00 -->
+**Plan Opened:** PLN-633a50
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-633a50 verdict=PASS quality_tier=none closed_at=2026-08-05T15:16:07.942527+00:00 -->
+**Plan Closed:** PLN-633a50
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-906d39 tier=trivial session_id=none opened_at=2026-08-05T15:18:06.062581+00:00 -->
+**Plan Opened:** PLN-906d39
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-906d39 verdict=PASS quality_tier=none closed_at=2026-08-05T15:18:06.067324+00:00 -->
+**Plan Closed:** PLN-906d39
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4d54b0 tier=trivial session_id=none opened_at=2026-08-05T15:19:03.182862+00:00 -->
+**Plan Opened:** PLN-4d54b0
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4d54b0 verdict=PASS quality_tier=none closed_at=2026-08-05T15:19:03.189472+00:00 -->
+**Plan Closed:** PLN-4d54b0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1bca68 tier=trivial session_id=none opened_at=2026-08-05T15:20:01.732005+00:00 -->
+**Plan Opened:** PLN-1bca68
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1bca68 verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:01.736809+00:00 -->
+**Plan Closed:** PLN-1bca68
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-052231 tier=trivial session_id=none opened_at=2026-08-05T15:20:01.779289+00:00 -->
+**Plan Opened:** PLN-052231
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-052231 verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:01.784248+00:00 -->
+**Plan Closed:** PLN-052231
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9186de tier=trivial session_id=none opened_at=2026-08-05T15:20:02.464589+00:00 -->
+**Plan Opened:** PLN-9186de
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9186de verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:02.469208+00:00 -->
+**Plan Closed:** PLN-9186de
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-003d44 tier=trivial session_id=none opened_at=2026-08-05T15:20:02.497694+00:00 -->
+**Plan Opened:** PLN-003d44
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-003d44 verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:02.504004+00:00 -->
+**Plan Closed:** PLN-003d44
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-619f69 tier=trivial session_id=none opened_at=2026-08-05T15:20:06.101748+00:00 -->
+**Plan Opened:** PLN-619f69
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-619f69 verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:06.107432+00:00 -->
+**Plan Closed:** PLN-619f69
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fb9685 tier=trivial session_id=none opened_at=2026-08-05T15:20:06.128212+00:00 -->
+**Plan Opened:** PLN-fb9685
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fb9685 verdict=PASS quality_tier=none closed_at=2026-08-05T15:20:06.132824+00:00 -->
+**Plan Closed:** PLN-fb9685
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2ce475 tier=trivial session_id=none opened_at=2026-08-05T15:22:05.936097+00:00 -->
+**Plan Opened:** PLN-2ce475
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2ce475 verdict=PASS quality_tier=none closed_at=2026-08-05T15:22:05.941622+00:00 -->
+**Plan Closed:** PLN-2ce475
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T15:22Z] delegated OC (ci-fix-thunderbird-c2-sweep.service-2) → PENDING
+
+- **CHIEF WING-OPS** [2026-08-05T15:22Z] delegated OC (ci-fix-thunderbird-inbox-sweep.service-2) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-0dddcf tier=trivial session_id=none opened_at=2026-08-05T15:23:02.704740+00:00 -->
+**Plan Opened:** PLN-0dddcf
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0dddcf verdict=PASS quality_tier=none closed_at=2026-08-05T15:23:02.709702+00:00 -->
+**Plan Closed:** PLN-0dddcf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3bda34 tier=trivial session_id=none opened_at=2026-08-05T15:24:06.733887+00:00 -->
+**Plan Opened:** PLN-3bda34
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3bda34 verdict=PASS quality_tier=none closed_at=2026-08-05T15:24:06.738220+00:00 -->
+**Plan Closed:** PLN-3bda34
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e90052 tier=trivial session_id=none opened_at=2026-08-05T15:26:03.920902+00:00 -->
+**Plan Opened:** PLN-e90052
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e90052 verdict=PASS quality_tier=none closed_at=2026-08-05T15:26:03.927021+00:00 -->
+**Plan Closed:** PLN-e90052
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bb2f5e tier=trivial session_id=none opened_at=2026-08-05T15:26:06.996148+00:00 -->
+**Plan Opened:** PLN-bb2f5e
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bb2f5e verdict=PASS quality_tier=none closed_at=2026-08-05T15:26:07.000600+00:00 -->
+**Plan Closed:** PLN-bb2f5e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:27Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-4a72bf tier=trivial session_id=none opened_at=2026-08-05T15:28:07.585353+00:00 -->
+**Plan Opened:** PLN-4a72bf
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4a72bf verdict=PASS quality_tier=none closed_at=2026-08-05T15:28:07.589959+00:00 -->
+**Plan Closed:** PLN-4a72bf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-57002c tier=trivial session_id=none opened_at=2026-08-05T15:29:04.261962+00:00 -->
+**Plan Opened:** PLN-57002c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-57002c verdict=PASS quality_tier=none closed_at=2026-08-05T15:29:04.266905+00:00 -->
+**Plan Closed:** PLN-57002c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-320dea tier=trivial session_id=none opened_at=2026-08-05T15:30:02.347909+00:00 -->
+**Plan Opened:** PLN-320dea
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-320dea verdict=PASS quality_tier=none closed_at=2026-08-05T15:30:02.362083+00:00 -->
+**Plan Closed:** PLN-320dea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cd6fb8 tier=trivial session_id=none opened_at=2026-08-05T15:30:09.251570+00:00 -->
+**Plan Opened:** PLN-cd6fb8
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cd6fb8 verdict=PASS quality_tier=none closed_at=2026-08-05T15:30:09.257062+00:00 -->
+**Plan Closed:** PLN-cd6fb8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dd06c9 tier=trivial session_id=none opened_at=2026-08-05T15:32:04.286424+00:00 -->
+**Plan Opened:** PLN-dd06c9
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dd06c9 verdict=PASS quality_tier=none closed_at=2026-08-05T15:32:04.291347+00:00 -->
+**Plan Closed:** PLN-dd06c9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cfd06a tier=trivial session_id=none opened_at=2026-08-05T15:32:07.361784+00:00 -->
+**Plan Opened:** PLN-cfd06a
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cfd06a verdict=PASS quality_tier=none closed_at=2026-08-05T15:32:07.366378+00:00 -->
+**Plan Closed:** PLN-cfd06a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T15:32Z] delegated OC (ci-fix-claude-process-watch.service-2) → PENDING
+
+- **CHIEF WING-OPS** [2026-08-05T15:32Z] delegated OC (ci-fix-drawdown-regression-guard.service-2) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-1e9adf tier=trivial session_id=none opened_at=2026-08-05T15:34:07.619197+00:00 -->
+**Plan Opened:** PLN-1e9adf
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e9adf verdict=PASS quality_tier=none closed_at=2026-08-05T15:34:07.625952+00:00 -->
+**Plan Closed:** PLN-1e9adf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-283f66 tier=trivial session_id=none opened_at=2026-08-05T15:35:04.299631+00:00 -->
+**Plan Opened:** PLN-283f66
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-283f66 verdict=PASS quality_tier=none closed_at=2026-08-05T15:35:04.304572+00:00 -->
+**Plan Closed:** PLN-283f66
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cc4072 tier=trivial session_id=none opened_at=2026-08-05T15:35:06.182583+00:00 -->
+**Plan Opened:** PLN-cc4072
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc4072 verdict=PASS quality_tier=none closed_at=2026-08-05T15:35:06.188499+00:00 -->
+**Plan Closed:** PLN-cc4072
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-25c9b1 tier=trivial session_id=none opened_at=2026-08-05T15:36:08.154423+00:00 -->
+**Plan Opened:** PLN-25c9b1
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-25c9b1 verdict=PASS quality_tier=none closed_at=2026-08-05T15:36:08.159439+00:00 -->
+**Plan Closed:** PLN-25c9b1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-13430a tier=trivial session_id=none opened_at=2026-08-05T15:38:05.205736+00:00 -->
+**Plan Opened:** PLN-13430a
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-13430a verdict=PASS quality_tier=none closed_at=2026-08-05T15:38:05.210249+00:00 -->
+**Plan Closed:** PLN-13430a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8d61f1 tier=trivial session_id=none opened_at=2026-08-05T15:38:08.402452+00:00 -->
+**Plan Opened:** PLN-8d61f1
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8d61f1 verdict=PASS quality_tier=none closed_at=2026-08-05T15:38:08.406847+00:00 -->
+**Plan Closed:** PLN-8d61f1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3cc1da tier=trivial session_id=none opened_at=2026-08-05T15:38:15.866725+00:00 -->
+**Plan Opened:** PLN-3cc1da
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3787914.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3cc1da verdict=PASS quality_tier=none closed_at=2026-08-05T15:38:15.871658+00:00 -->
+**Plan Closed:** PLN-3cc1da
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_3787914.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:38Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:39Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-faf909 tier=trivial session_id=none opened_at=2026-08-05T15:40:01.799405+00:00 -->
+**Plan Opened:** PLN-faf909
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-faf909 verdict=PASS quality_tier=none closed_at=2026-08-05T15:40:01.804286+00:00 -->
+**Plan Closed:** PLN-faf909
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7b0cdf tier=trivial session_id=none opened_at=2026-08-05T15:40:01.827538+00:00 -->
+**Plan Opened:** PLN-7b0cdf
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7b0cdf verdict=PASS quality_tier=none closed_at=2026-08-05T15:40:01.833175+00:00 -->
+**Plan Closed:** PLN-7b0cdf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e8c8d6 tier=trivial session_id=none opened_at=2026-08-05T15:40:10.559436+00:00 -->
+**Plan Opened:** PLN-e8c8d6
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e8c8d6 verdict=PASS quality_tier=none closed_at=2026-08-05T15:40:10.565216+00:00 -->
+**Plan Closed:** PLN-e8c8d6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:40Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-d27ba9 tier=trivial session_id=none opened_at=2026-08-05T15:41:05.464117+00:00 -->
+**Plan Opened:** PLN-d27ba9
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d27ba9 verdict=PASS quality_tier=none closed_at=2026-08-05T15:41:05.469444+00:00 -->
+**Plan Closed:** PLN-d27ba9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:41Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-f5b801 tier=trivial session_id=none opened_at=2026-08-05T15:42:08.425181+00:00 -->
+**Plan Opened:** PLN-f5b801
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f5b801 verdict=PASS quality_tier=none closed_at=2026-08-05T15:42:08.430058+00:00 -->
+**Plan Closed:** PLN-f5b801
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T15:42Z] delegated OC (ci-fix-zen-usage-guard.service-2) → PENDING
+
+- **CHIEF SILVER** [2026-08-05T15:42Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:42Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:43Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-41b3b2 tier=trivial session_id=none opened_at=2026-08-05T15:44:05.689959+00:00 -->
+**Plan Opened:** PLN-41b3b2
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41b3b2 verdict=PASS quality_tier=none closed_at=2026-08-05T15:44:05.694567+00:00 -->
+**Plan Closed:** PLN-41b3b2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b9832 tier=trivial session_id=none opened_at=2026-08-05T15:44:09.636251+00:00 -->
+**Plan Opened:** PLN-0b9832
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b9832 verdict=PASS quality_tier=none closed_at=2026-08-05T15:44:09.641053+00:00 -->
+**Plan Closed:** PLN-0b9832
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:44Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:45Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+- **CHIEF SILVER** [2026-08-05T15:46Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-43126c tier=trivial session_id=none opened_at=2026-08-05T15:46:07.317461+00:00 -->
+**Plan Opened:** PLN-43126c
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-43126c verdict=PASS quality_tier=none closed_at=2026-08-05T15:46:07.322758+00:00 -->
+**Plan Closed:** PLN-43126c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fb95aa tier=trivial session_id=none opened_at=2026-08-05T15:46:18.333053+00:00 -->
+**Plan Opened:** PLN-fb95aa
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fb95aa verdict=FAIL quality_tier=none closed_at=2026-08-05T15:46:18.337645+00:00 -->
+**Plan Closed:** PLN-fb95aa
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-inbox-sweep verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2e524e tier=trivial session_id=none opened_at=2026-08-05T15:46:25.346314+00:00 -->
+**Plan Opened:** PLN-2e524e
+**Task:** generic long-tail remediation: thunderbird-supertimer -> deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-supertimer verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2e524e verdict=PASS quality_tier=none closed_at=2026-08-05T15:46:25.350893+00:00 -->
+**Plan Closed:** PLN-2e524e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-supertimer verified active after remediation attempt
+**Notes:** deferred to Lane 1 (CI Repair Warehouse already owns this unit's remediation)
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b8f26c tier=trivial session_id=none opened_at=2026-08-05T15:47:10.849655+00:00 -->
+**Plan Opened:** PLN-b8f26c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b8f26c verdict=FAIL quality_tier=none closed_at=2026-08-05T15:47:10.855439+00:00 -->
+**Plan Closed:** PLN-b8f26c
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** thunderbird-c2-sweep verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8e2204 tier=trivial session_id=none opened_at=2026-08-05T15:48:14.177775+00:00 -->
+**Plan Opened:** PLN-8e2204
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8e2204 verdict=PASS quality_tier=none closed_at=2026-08-05T15:48:14.186783+00:00 -->
+**Plan Closed:** PLN-8e2204
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d0a49f tier=trivial session_id=none opened_at=2026-08-05T15:50:02.235613+00:00 -->
+**Plan Opened:** PLN-d0a49f
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d0a49f verdict=PASS quality_tier=none closed_at=2026-08-05T15:50:02.243945+00:00 -->
+**Plan Closed:** PLN-d0a49f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6b4030 tier=trivial session_id=none opened_at=2026-08-05T15:50:05.974639+00:00 -->
+**Plan Opened:** PLN-6b4030
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6b4030 verdict=PASS quality_tier=none closed_at=2026-08-05T15:50:05.980225+00:00 -->
+**Plan Closed:** PLN-6b4030
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-78a66a tier=trivial session_id=none opened_at=2026-08-05T15:50:06.257643+00:00 -->
+**Plan Opened:** PLN-78a66a
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-78a66a verdict=PASS quality_tier=none closed_at=2026-08-05T15:50:06.262663+00:00 -->
+**Plan Closed:** PLN-78a66a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-926d42 tier=trivial session_id=none opened_at=2026-08-05T15:50:14.450269+00:00 -->
+**Plan Opened:** PLN-926d42
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-926d42 verdict=PASS quality_tier=none closed_at=2026-08-05T15:50:14.455171+00:00 -->
+**Plan Closed:** PLN-926d42
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fce4dc tier=trivial session_id=none opened_at=2026-08-05T15:52:14.438197+00:00 -->
+**Plan Opened:** PLN-fce4dc
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fce4dc verdict=PASS quality_tier=none closed_at=2026-08-05T15:52:14.442652+00:00 -->
+**Plan Closed:** PLN-fce4dc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aa5837 tier=trivial session_id=none opened_at=2026-08-05T15:53:06.792067+00:00 -->
+**Plan Opened:** PLN-aa5837
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aa5837 verdict=PASS quality_tier=none closed_at=2026-08-05T15:53:06.796711+00:00 -->
+**Plan Closed:** PLN-aa5837
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-abb8e0 tier=trivial session_id=none opened_at=2026-08-05T15:54:14.937082+00:00 -->
+**Plan Opened:** PLN-abb8e0
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-abb8e0 verdict=PASS quality_tier=none closed_at=2026-08-05T15:54:14.941813+00:00 -->
+**Plan Closed:** PLN-abb8e0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-378d55 tier=trivial session_id=none opened_at=2026-08-05T15:56:07.100968+00:00 -->
+**Plan Opened:** PLN-378d55
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-378d55 verdict=PASS quality_tier=none closed_at=2026-08-05T15:56:07.105646+00:00 -->
+**Plan Closed:** PLN-378d55
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e19bc4 tier=trivial session_id=none opened_at=2026-08-05T15:56:15.391910+00:00 -->
+**Plan Opened:** PLN-e19bc4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e19bc4 verdict=PASS quality_tier=none closed_at=2026-08-05T15:56:15.396435+00:00 -->
+**Plan Closed:** PLN-e19bc4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T15:57Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-5f14f9 tier=trivial session_id=none opened_at=2026-08-05T15:58:15.405619+00:00 -->
+**Plan Opened:** PLN-5f14f9
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f14f9 verdict=PASS quality_tier=none closed_at=2026-08-05T15:58:15.410952+00:00 -->
+**Plan Closed:** PLN-5f14f9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-80caba tier=trivial session_id=none opened_at=2026-08-05T15:59:07.409066+00:00 -->
+**Plan Opened:** PLN-80caba
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-80caba verdict=PASS quality_tier=none closed_at=2026-08-05T15:59:07.413502+00:00 -->
+**Plan Closed:** PLN-80caba
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-146483 tier=trivial session_id=none opened_at=2026-08-05T16:00:02.648061+00:00 -->
+**Plan Opened:** PLN-146483
+**Task:** generic long-tail remediation: drawdown-regression-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-146483 verdict=PASS quality_tier=none closed_at=2026-08-05T16:00:02.652517+00:00 -->
+**Plan Closed:** PLN-146483
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** drawdown-regression-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3f7e04 tier=trivial session_id=none opened_at=2026-08-05T16:00:07.790990+00:00 -->
+**Plan Opened:** PLN-3f7e04
+**Task:** generic long-tail remediation: claude-process-watch -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3f7e04 verdict=FAIL quality_tier=none closed_at=2026-08-05T16:00:07.795662+00:00 -->
+**Plan Closed:** PLN-3f7e04
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** claude-process-watch verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-54c46f tier=trivial session_id=none opened_at=2026-08-05T16:00:16.984439+00:00 -->
+**Plan Opened:** PLN-54c46f
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-54c46f verdict=PASS quality_tier=none closed_at=2026-08-05T16:00:16.991608+00:00 -->
+**Plan Closed:** PLN-54c46f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-05T16:00Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-c42ac0 tier=trivial session_id=none opened_at=2026-08-05T16:02:07.381375+00:00 -->
+**Plan Opened:** PLN-c42ac0
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c42ac0 verdict=PASS quality_tier=none closed_at=2026-08-05T16:02:07.385840+00:00 -->
+**Plan Closed:** PLN-c42ac0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b1ec6a tier=trivial session_id=none opened_at=2026-08-05T16:02:15.777891+00:00 -->
+**Plan Opened:** PLN-b1ec6a
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b1ec6a verdict=PASS quality_tier=none closed_at=2026-08-05T16:02:15.782394+00:00 -->
+**Plan Closed:** PLN-b1ec6a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T16:02Z] delegated OC (ci-fix-thunderbird-generic-remediate@claude-process-watch.service-1) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-5cfb5f tier=trivial session_id=none opened_at=2026-08-05T16:04:15.734656+00:00 -->
+**Plan Opened:** PLN-5cfb5f
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5cfb5f verdict=PASS quality_tier=none closed_at=2026-08-05T16:04:15.740134+00:00 -->
+**Plan Closed:** PLN-5cfb5f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cc1f1a tier=trivial session_id=none opened_at=2026-08-05T16:05:07.486552+00:00 -->
+**Plan Opened:** PLN-cc1f1a
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc1f1a verdict=PASS quality_tier=none closed_at=2026-08-05T16:05:07.491133+00:00 -->
+**Plan Closed:** PLN-cc1f1a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dcb2bc tier=trivial session_id=none opened_at=2026-08-05T16:05:11.774956+00:00 -->
+**Plan Opened:** PLN-dcb2bc
+**Task:** generic long-tail remediation: zen-usage-guard -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dcb2bc verdict=FAIL quality_tier=none closed_at=2026-08-05T16:05:11.779478+00:00 -->
+**Plan Closed:** PLN-dcb2bc
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** zen-usage-guard verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e127a2 tier=trivial session_id=none opened_at=2026-08-05T16:06:16.253070+00:00 -->
+**Plan Opened:** PLN-e127a2
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e127a2 verdict=PASS quality_tier=none closed_at=2026-08-05T16:06:16.258024+00:00 -->
+**Plan Closed:** PLN-e127a2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-301d4d tier=trivial session_id=none opened_at=2026-08-05T16:08:08.324130+00:00 -->
+**Plan Opened:** PLN-301d4d
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-301d4d verdict=PASS quality_tier=none closed_at=2026-08-05T16:08:08.328625+00:00 -->
+**Plan Closed:** PLN-301d4d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-073e19 tier=trivial session_id=none opened_at=2026-08-05T16:08:16.483093+00:00 -->
+**Plan Opened:** PLN-073e19
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-073e19 verdict=PASS quality_tier=none closed_at=2026-08-05T16:08:16.487710+00:00 -->
+**Plan Closed:** PLN-073e19
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8bcf26 tier=trivial session_id=none opened_at=2026-08-05T16:10:04.024299+00:00 -->
+**Plan Opened:** PLN-8bcf26
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8bcf26 verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:04.030021+00:00 -->
+**Plan Closed:** PLN-8bcf26
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-05dc8c tier=trivial session_id=none opened_at=2026-08-05T16:10:06.000184+00:00 -->
+**Plan Opened:** PLN-05dc8c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-05dc8c verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:06.009287+00:00 -->
+**Plan Closed:** PLN-05dc8c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a983aa tier=trivial session_id=none opened_at=2026-08-05T16:10:06.385197+00:00 -->
+**Plan Opened:** PLN-a983aa
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a983aa verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:06.390476+00:00 -->
+**Plan Closed:** PLN-a983aa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1e61c9 tier=trivial session_id=none opened_at=2026-08-05T16:10:07.071556+00:00 -->
+**Plan Opened:** PLN-1e61c9
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e61c9 verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:07.077307+00:00 -->
+**Plan Closed:** PLN-1e61c9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-04fa90 tier=trivial session_id=none opened_at=2026-08-05T16:10:09.144920+00:00 -->
+**Plan Opened:** PLN-04fa90
+**Task:** generic long-tail remediation: drawdown-regression-guard -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-04fa90 verdict=FAIL quality_tier=none closed_at=2026-08-05T16:10:09.154617+00:00 -->
+**Plan Closed:** PLN-04fa90
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** drawdown-regression-guard verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-172c5d tier=trivial session_id=none opened_at=2026-08-05T16:10:12.519032+00:00 -->
+**Plan Opened:** PLN-172c5d
+**Task:** generic long-tail remediation: tess-token-keepalive -> start attempted (ok=False) but not verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-172c5d verdict=FAIL quality_tier=none closed_at=2026-08-05T16:10:12.523680+00:00 -->
+**Plan Closed:** PLN-172c5d
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** tess-token-keepalive verified active after remediation attempt
+**Criteria unverified:** none
+**Notes:** start attempted (ok=False) but not verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b67c05 tier=trivial session_id=none opened_at=2026-08-05T16:10:15.216756+00:00 -->
+**Plan Opened:** PLN-b67c05
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b67c05 verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:15.221698+00:00 -->
+**Plan Closed:** PLN-b67c05
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0f8577 tier=trivial session_id=none opened_at=2026-08-05T16:10:15.267418+00:00 -->
+**Plan Opened:** PLN-0f8577
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0f8577 verdict=PASS quality_tier=none closed_at=2026-08-05T16:10:15.271838+00:00 -->
+**Plan Closed:** PLN-0f8577
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a188b tier=trivial session_id=none opened_at=2026-08-05T16:12:11.664835+00:00 -->
+**Plan Opened:** PLN-0a188b
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a188b verdict=PASS quality_tier=none closed_at=2026-08-05T16:12:11.670089+00:00 -->
+**Plan Closed:** PLN-0a188b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF WING-OPS** [2026-08-05T16:12Z] delegated OC (ci-fix-thunderbird-generic-remediate@drawdown-regression-guard.service-2) → PENDING
+
+<!-- PLAN:OPEN plan_id=PLN-014fb7 tier=trivial session_id=none opened_at=2026-08-05T16:12:39.891648+00:00 -->
+**Plan Opened:** PLN-014fb7
+**Task:** Centrav session warm-ping -> session warmed + authenticated
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** Centrav session verified authenticated after warm-ping
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-014fb7 verdict=PASS quality_tier=none closed_at=2026-08-05T16:12:39.897169+00:00 -->
+**Plan Closed:** PLN-014fb7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** Centrav session verified authenticated after warm-ping
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** session warmed + authenticated
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6ce1d0 tier=trivial session_id=none opened_at=2026-08-05T16:13:05.554943+00:00 -->
+**Plan Opened:** PLN-6ce1d0
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6ce1d0 verdict=PASS quality_tier=none closed_at=2026-08-05T16:13:05.559498+00:00 -->
+**Plan Closed:** PLN-6ce1d0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9cddb7 tier=trivial session_id=none opened_at=2026-08-05T16:14:15.741928+00:00 -->
+**Plan Opened:** PLN-9cddb7
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9cddb7 verdict=PASS quality_tier=none closed_at=2026-08-05T16:14:15.747174+00:00 -->
+**Plan Closed:** PLN-9cddb7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-35193c tier=trivial session_id=none opened_at=2026-08-05T16:16:05.811497+00:00 -->
+**Plan Opened:** PLN-35193c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-35193c verdict=PASS quality_tier=none closed_at=2026-08-05T16:16:05.816613+00:00 -->
+**Plan Closed:** PLN-35193c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f88093 tier=trivial session_id=none opened_at=2026-08-05T16:16:13.961065+00:00 -->
+**Plan Opened:** PLN-f88093
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f88093 verdict=PASS quality_tier=none closed_at=2026-08-05T16:16:13.965142+00:00 -->
+**Plan Closed:** PLN-f88093
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a0e39b tier=trivial session_id=none opened_at=2026-08-05T16:18:13.568816+00:00 -->
+**Plan Opened:** PLN-a0e39b
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a0e39b verdict=PASS quality_tier=none closed_at=2026-08-05T16:18:13.573920+00:00 -->
+**Plan Closed:** PLN-a0e39b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a61e27 tier=trivial session_id=none opened_at=2026-08-05T16:19:06.737706+00:00 -->
+**Plan Opened:** PLN-a61e27
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a61e27 verdict=PASS quality_tier=none closed_at=2026-08-05T16:19:06.742096+00:00 -->
+**Plan Closed:** PLN-a61e27
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4b13d0 tier=trivial session_id=none opened_at=2026-08-05T16:20:05.352314+00:00 -->
+**Plan Opened:** PLN-4b13d0
+**Task:** generic long-tail remediation: claude-process-watch -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4b13d0 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:05.357106+00:00 -->
+**Plan Closed:** PLN-4b13d0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-da0047 tier=trivial session_id=none opened_at=2026-08-05T16:20:06.719919+00:00 -->
+**Plan Opened:** PLN-da0047
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-5a72a5 tier=trivial session_id=none opened_at=2026-08-05T16:20:06.720256+00:00 -->
+**Plan Opened:** PLN-5a72a5
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-da0047 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:06.725516+00:00 -->
+**Plan Closed:** PLN-da0047
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5a72a5 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:06.730913+00:00 -->
+**Plan Closed:** PLN-5a72a5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-53f4f9 tier=trivial session_id=none opened_at=2026-08-05T16:20:12.187135+00:00 -->
+**Plan Opened:** PLN-53f4f9
+**Task:** generic long-tail remediation: drawdown-regression-guard -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** drawdown-regression-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-53f4f9 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:12.202691+00:00 -->
+**Plan Closed:** PLN-53f4f9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** drawdown-regression-guard verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bf8a83 tier=trivial session_id=none opened_at=2026-08-05T16:20:13.393767+00:00 -->
+**Plan Opened:** PLN-bf8a83
+**Task:** generic long-tail remediation: tess-token-keepalive -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** tess-token-keepalive verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bf8a83 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:13.401744+00:00 -->
+**Plan Closed:** PLN-bf8a83
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** tess-token-keepalive verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41e432 tier=trivial session_id=none opened_at=2026-08-05T16:20:13.745077+00:00 -->
+**Plan Opened:** PLN-41e432
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41e432 verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:13.749486+00:00 -->
+**Plan Closed:** PLN-41e432
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3bb52d tier=trivial session_id=none opened_at=2026-08-05T16:20:18.991030+00:00 -->
+**Plan Opened:** PLN-3bb52d
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3bb52d verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:18.995783+00:00 -->
+**Plan Closed:** PLN-3bb52d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1eab2b tier=trivial session_id=none opened_at=2026-08-05T16:20:19.040184+00:00 -->
+**Plan Opened:** PLN-1eab2b
+**Task:** generic long-tail remediation: zen-usage-guard -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** zen-usage-guard verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1eab2b verdict=PASS quality_tier=none closed_at=2026-08-05T16:20:19.044775+00:00 -->
+**Plan Closed:** PLN-1eab2b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** zen-usage-guard verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-31ddae tier=trivial session_id=none opened_at=2026-08-05T16:22:18.353876+00:00 -->
+**Plan Opened:** PLN-31ddae
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-31ddae verdict=PASS quality_tier=none closed_at=2026-08-05T16:22:18.358521+00:00 -->
+**Plan Closed:** PLN-31ddae
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->

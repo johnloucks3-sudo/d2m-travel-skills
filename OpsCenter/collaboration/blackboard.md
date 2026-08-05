@@ -38,7 +38,7 @@ Thanks,
 Hale
 
 <!-- COMMANDER-READY:START -->
-## COMMANDER-READY (2026-07-31 12:00 UTC)
+## COMMANDER-READY (2026-08-05 15:30 UTC)
 ### Last 24h decisions (0)
 - (none)
 
@@ -59,35 +59,33 @@ Hale
 - (none)
 
 ### Startup hook
-## STATE BRIDGE BRIEFING — 2026-07-31 06:00
+## STATE BRIDGE BRIEFING — 2026-08-05 09:30
 
-### Since last session (2026-07-31 11:54:27 → still open)
+### Since last session (2026-08-05 15:04:01 → still open)
 
 **Recent commits (no in-DB delta — showing git log):**
-- `4179d3018` Wing comms doctrine: brief the Commander like the Colonel he is  _7 hours ago_
-- `43d5067e1` CLAUDE.md: ADHD response-style doctrine + delegation reconciliation  _7 hours ago_
-- `7cf4998da` telegram: Commander hold — keep it until notified to dismantle  _8 hours ago_
-- `b7dcbcfae` d2m-healthcheck + portal-probe re-enabled; usage-monitor correctly left off  _9 hours ago_
-- `538e5c816` canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run  _9 hours ago_
+- `a398b9620` Remove OC PII fence (Commander-directed 2026-08-04) — OC now PII-cleared  _2 hours ago_
+- `26432fb66` feat(cleanup): 5-theater campaign Phase 1 — codebase orphans, systemd fixes, Gemini bypass, Evernote SSO tooling  _3 days ago_
+- `dcb0cd14f` feat(delegation): task precision ladder, AG headroom reconciliation, reactive quota circuit-breaker  _4 days ago_
+- `ba877d64b` fix(audit): 100% completion of Sonnet 4.6 audit findings F-01 through F-06  _4 days ago_
+- `ced5ab386` fix(portal): point render_executive_html.py to output/claude_sonnet_audit_full_10stages.md so genuine Sonnet 4.6 report displays on portal  _4 days ago_
 
 _No changes since last session — continuing clean._
 
 ### Current state snapshot
 **Most recently touched watched files:**
-- `hale_state.json` (26s ago)
-- `hale_brief.md` (57m ago)
-- `AGENTS.md` (6.9h ago)
-- `OpsCenter/collaboration/blackboard.md` (8.5h ago)
-- `dossiers/DOSSIER_Grandeur_Scandinavia_Aug2026.md` (8.9h ago)
-- `dossiers/DOSSIER_DoorCounty_SisterBay_Sep2026.md` (11.4h ago)
-- `dossiers/McLeod_Grandeur_LesserAntilles_2984034.md` (1.6d ago)
-- `dossiers/DOSSIER_Regent_LesserAntilles_Dec2026.md` (1.6d ago)
+- `hale_state.json` (45s ago)
+- `OpsCenter/collaboration/blackboard.md` (29m ago)
+- `hale_brief.md` (46m ago)
+- `dossiers/Westbrook_SilverNova_Personal.md` (46m ago)
+- `dossiers/Kuklinski_Viking_Panama.md` (46m ago)
+- `dossiers/Kuklinski_VikingMars_Panama_Dec2026_Excursions.md` (46m ago)
+- `dossiers/DoorCounty_Dining_Excursion_Plan_Sep2026.md` (46m ago)
+- `dossiers/DOSSIER_Loucks_SilverNova_May2027.md` (46m ago)
 
 **Mission board:** 177 open (15 P0, 107 P1)
   - 🔴 MISSION-001: Resolve Regent cookie expiration — restore session access
-  - 🔴 MISSION-011: Close Regent cookie expiration P0 — restore session access
-  - 🔴 MISSION-033: Close Regent cookie P0 — restore authenticated agent-portal session
-  - 🔴 MISSION-037: Close R
+  - 🔴 MISSION-011: Close Regent cookie e
 <!-- COMMANDER-READY:END -->
 
 ## Block 5 — Nichols Draft + McLeod TESS Verify (2026-07-16)

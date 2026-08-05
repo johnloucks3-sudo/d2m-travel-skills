@@ -20806,3 +20806,633 @@ _Auto-routed by hale_notify.py_
 **[13:40 UTC] HALE → STERLING: generic-remediate:chrome-cdp-health**
 chrome-cdp-health: CIRCUIT BREAKER TRIPPED after 5 consecutive failed remediation attempts — this is very likely an unfixable target (missing file, dead config, etc.), not a transient fault. No further automatic attempts will be made. Fix the underlying cause or retire the unit, then reset the counter.
 _Auto-routed by hale_notify.py_
+
+---
+**[14:44 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:45 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:47 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:47 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:49 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:50 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:51 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:53 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:53 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:53 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:55 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:56 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:57 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:58 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:58 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[14:59 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:00 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:02 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:03 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:04 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:06 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:06 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:06 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (1/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:08 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:09 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:10 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:12 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:12 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:13 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:14 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:16 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:16 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:18 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:19 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:20 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:22 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:23 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:24 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:26 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:26 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:28 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:29 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:30 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:30 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:32 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:32 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:34 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:35 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:35 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:36 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:38 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:38 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:40 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:41 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:42 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:44 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:46 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:47 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[15:48 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:50 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:52 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:53 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:54 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:56 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:56 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:58 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[15:59 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:00 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:02 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:02 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:04 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:05 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:05 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:06 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:08 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:08 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:drawdown-regression-guard**
+drawdown-regression-guard entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive entered failed state; generic remediation attempted but unit is NOT verified active afterward — needs manual attention (2/5 consecutive failures)
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:10 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:12 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:13 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:14 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:16 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:16 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:18 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:19 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:claude-process-watch**
+claude-process-watch failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-c2-sweep**
+thunderbird-c2-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:tess-token-keepalive**
+tess-token-keepalive failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:20 UTC] HALE → STERLING: generic-remediate:zen-usage-guard**
+zen-usage-guard failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_
+
+---
+**[16:22 UTC] HALE → STERLING: generic-remediate:thunderbird-inbox-sweep**
+thunderbird-inbox-sweep failed again within cooldown window — needs manual attention
+_Auto-routed by hale_notify.py_

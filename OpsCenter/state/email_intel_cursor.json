@@ -77,7 +77,7 @@
     "19fb5811979ffcd6": 1,
     "19fb6c1f19f9e67d": 1
   },
-  "last_checkpoint": "2026-07-31T07:29:35.345120",
-  "last_checkpoint_reason": "batch_of_8_at_idx_7",
-  "elapsed_sec": 252.4
+  "last_checkpoint": "2026-08-05T09:45:45.429018",
+  "last_checkpoint_reason": "batch_of_8_at_idx_15",
+  "elapsed_sec": 447.8
 }

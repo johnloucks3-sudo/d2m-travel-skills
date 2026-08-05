@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-07-31T13:34:10.046054+00:00",
+  "last_run": "2026-08-05T16:08:38.328914+00:00",
   "reaped": 0,
   "lost": 0,
   "abandoned": 0,
   "silent_success": 0,
-  "stale_missions": 94,
+  "stale_missions": 131,
   "spans_checked": 0,
   "dry_run": false
 }

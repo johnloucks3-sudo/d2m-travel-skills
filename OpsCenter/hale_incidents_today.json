@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-31",
+  "date": "2026-08-05",
   "summary": {
     "auto_healed": 0,
     "self_repaired": 0,
@@ -8,17 +8,8 @@
   },
   "incidents": [
     {
-      "time": "05:31",
-      "service": "chrome-debug",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: failed",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@app-\\x2fusr\\x2fbin\\x2fkalendarac@77aeb6f3bc614b39b198bb7e965e3793",
+      "time": "09:00",
+      "service": "thunderbird-generic-remediate@d2m-skybird-watch",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -26,8 +17,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@1",
+      "time": "09:00",
+      "service": "thunderbird-generic-remediate@spencer-grandtour-daily-recheck",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -35,8 +26,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@2",
+      "time": "09:00",
+      "service": "thunderbird-generic-remediate@thunderbird-nomination-half1",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -44,8 +35,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@3",
+      "time": "09:00",
+      "service": "thunderbird-nomination-half1",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -53,8 +44,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@4",
+      "time": "09:05",
+      "service": "thunderbird-generic-remediate@claude-process-watch",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -62,8 +53,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@5",
+      "time": "09:05",
+      "service": "thunderbird-generic-remediate@zen-usage-guard",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -71,8 +62,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@6",
+      "time": "09:15",
+      "service": "thunderbird-generic-remediate@drawdown-regression-guard",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -80,8 +71,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@dbus-:1.50-org.a11y.atspi.Registry@0",
+      "time": "09:15",
+      "service": "thunderbird-generic-remediate@tess-token-keepalive",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -89,8 +80,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@plasma-plasmashell",
+      "time": "09:50",
+      "service": "thunderbird-generic-remediate@thunderbird-c2-sweep",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -98,8 +89,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:31",
-      "service": "thunderbird-generic-remediate@xdg-desktop-portal-gtk",
+      "time": "10:15",
+      "service": "thunderbird-generic-remediate@claude-process-watch",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -107,17 +98,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:41",
-      "service": "chrome-debug",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: failed",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@10",
+      "time": "10:15",
+      "service": "thunderbird-generic-remediate@zen-usage-guard",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",
@@ -125,98 +107,8 @@
       "elon_invoked": false
     },
     {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@11",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@12",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@13",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@14",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@15",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@16",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@7",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@8",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@dbus-:1.1-org.kde.kded6@9",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@plasma-kded6",
-      "event_type": "auto_healed",
-      "action": "queued_for_brief",
-      "status": "YELLOW",
-      "note": "auto-heal unverified: systemctl is-active: inactive",
-      "elon_invoked": false
-    },
-    {
-      "time": "05:41",
-      "service": "thunderbird-generic-remediate@plasma-kwin_x11",
+      "time": "10:20",
+      "service": "drawdown-regression-guard",
       "event_type": "auto_healed",
       "action": "queued_for_brief",
       "status": "YELLOW",

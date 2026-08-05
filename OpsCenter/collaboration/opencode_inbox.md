@@ -8986,3 +8986,10 @@ priority: normal
 status: UNREAD
 task: |
   [POST-COMMIT] 037023e88: State sync: overnight Wing operational updates (bulk, no review) |  262 files changed, 70850 insertions(+), 2993 deletions(-) | author: Thunderbird Wing (seat unset)
+
+---
+## RELAY-0c9bd9df from CC — 2026-08-05 15:57 UTC
+priority: normal
+status: UNREAD
+task: |
+  [POST-COMMIT] 5a97807a6: fix(stop-gate): reapply STOP-GATE after silent revert by OC drive-reorg reset |  5 files changed, 189 insertions(+) | author: Thunderbird Wing (seat unset)

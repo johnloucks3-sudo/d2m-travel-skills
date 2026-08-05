@@ -1,41 +1,41 @@
 # Thunderbird Session Checkpoint
-## Generated: 2026-07-31 07:35:38 MDT
+## Generated: 2026-08-05 10:20:04 MDT
 
 ---
 
 ### Recent Commits
-- 4179d3018 Wing comms doctrine: brief the Commander like the Colonel he is
-- 43d5067e1 CLAUDE.md: ADHD response-style doctrine + delegation reconciliation
-- 7cf4998da telegram: Commander hold — keep it until notified to dismantle
-- b7dcbcfae d2m-healthcheck + portal-probe re-enabled; usage-monitor correctly left off
-- 538e5c816 canary: 29 days of READY_TO_GRADUATE was a lie — it caught a real bug on its first honest run
+- 5a97807a6 fix(stop-gate): reapply STOP-GATE after silent revert by OC drive-reorg reset
+- a398b9620 Remove OC PII fence (Commander-directed 2026-08-04) — OC now PII-cleared
+- 26432fb66 feat(cleanup): 5-theater campaign Phase 1 — codebase orphans, systemd fixes, Gemini bypass, Evernote SSO tooling
+- dcb0cd14f feat(delegation): task precision ladder, AG headroom reconciliation, reactive quota circuit-breaker
+- ba877d64b fix(audit): 100% completion of Sonnet 4.6 audit findings F-01 through F-06
 
 ### Uncommitted Changes
- M .claude/settings.json
- M .claude/settings.local.json
- M .obsidian/workspace.json
  m Blackboard
  M CLAUDE.md
  M OpsCenter/.ci_rapid_repair_notify_dedup.json
+ M OpsCenter/.lifecycle_alerted.json
  M OpsCenter/.lifecycle_last_scan_date
  M OpsCenter/.metronome_seq
  M OpsCenter/.session_blast_fingerprint.json
  M OpsCenter/.silversea_api_alert_dedup.json
- M OpsCenter/00_COMMAND_LOG.md
  M OpsCenter/CLAUDE_DESKTOP_INIT.md
  M OpsCenter/OPENCODE_INIT.md
- M OpsCenter/a7_metrics_dashboard.json
- M OpsCenter/ai_auth_probe.py
- M OpsCenter/brief_feedback_config.json
- M OpsCenter/bryana_usage_report_2026-07.json
- M OpsCenter/claude_inbox.md
  M OpsCenter/collaboration/blackboard.md
  M OpsCenter/collaboration/blackboard_summary.txt
+ M OpsCenter/collaboration/opencode_inbox.md
+ M OpsCenter/collaboration/routing_log.md
+ M OpsCenter/collaboration/sterling_inbox.md
+ M OpsCenter/collaboration/wing_comms.md
+ M OpsCenter/fare_watches/google_flights_last_check.json
+ M OpsCenter/hale_incident_signatures.json
+ M OpsCenter/hale_incidents_today.json
+ M OpsCenter/itinerary_watchdog_status.json
 
 ### Inbox Status
 - Claude inbox: 0
 0 pending task(s)
-- OpenCode inbox: 1077 pending task(s)
+- OpenCode inbox: 1083 pending task(s)
 
 ### System Health
 - Watcher: ❌ STOPPED

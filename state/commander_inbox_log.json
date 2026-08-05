@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-06-29T00:10:57.455763+00:00",
-    "msg_id": "19f10b6007df356d",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:12:58.245286+00:00",
-    "msg_id": "19f10b8d31234570",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:16:58.779124+00:00",
-    "msg_id": "19f10bba3a19d763",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:22:59.780053+00:00",
-    "msg_id": "19f10c16777f065e",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:26:59.983527+00:00",
-    "msg_id": "19f10c439735b683",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:29:00.395845+00:00",
-    "msg_id": "19f10c708b8056b5",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:33:00.635600+00:00",
-    "msg_id": "19f10c9e33d9bd2b",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
-    "timestamp": "2026-06-29T00:35:00.846776+00:00",
-    "msg_id": "19f10ccaff88c96c",
-    "subject": "(no subject)",
-    "sender": "johnloucks3@gmail.com",
-    "classification": "DIRECTION",
-    "status": "actioned"
-  },
-  {
     "timestamp": "2026-06-29T00:39:01.597659+00:00",
     "msg_id": "19f10cf81e5f481e",
     "subject": "(no subject)",
@@ -3995,6 +3931,70 @@
     "timestamp": "2026-07-31T12:33:34.779910+00:00",
     "msg_id": "19fb827306d665ed",
     "subject": "\ud83c\udf05 MORNING CONSOLIDATED BRIEF \u2014 2026-07-31",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T14:44:59.891852+00:00",
+    "msg_id": "19fd2615f1f9d6bc",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T14:45:05.430615+00:00",
+    "msg_id": "19fd2615f1f9d6bc",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T15:14:06.018981+00:00",
+    "msg_id": "19fd27cdcf24b26d",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T15:16:06.606664+00:00",
+    "msg_id": "19fd27cdcf24b26d",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T15:44:08.991963+00:00",
+    "msg_id": "19fd2985db7e9dc9",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T15:46:09.094790+00:00",
+    "msg_id": "19fd2985db7e9dc9",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T16:14:14.995224+00:00",
+    "msg_id": "19fd2b3eeaed8664",
+    "subject": "(no subject)",
+    "sender": "johnloucks3@gmail.com",
+    "classification": "DIRECTION",
+    "status": "actioned"
+  },
+  {
+    "timestamp": "2026-08-05T16:15:02.339783+00:00",
+    "msg_id": "19fd2b3eeaed8664",
+    "subject": "(no subject)",
     "sender": "johnloucks3@gmail.com",
     "classification": "DIRECTION",
     "status": "actioned"
