@@ -1,0 +1,13 @@
+{
+  "_comment": "STOP-GATE registry (Commander-approved 2026-08-03). When a sanctioned/approved plan is ACTIVE, session-startup prints a continuation notice instead of the STOP notice. Registry entries are written by the Commander or by Hale per the Commander Approval Gate. Do NOT remove the STOP-GATE behavior by deleting this file — the hook fails soft and STOPS by default.",
+  "_schema": {
+    "plan_id": "unique slug, e.g. 'stop-gate-rollout'",
+    "title": "human title",
+    "approved_by": "Commander",
+    "approved_at": "ISO-8601 datetime",
+    "status": "active | complete | revoked",
+    "summary": "one-line purpose",
+    "applies_to": "who/what this plan governs (e.g. 'all sessions', 'OC', 'CC')"
+  },
+  "plans": []
+}

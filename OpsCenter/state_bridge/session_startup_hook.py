@@ -15,6 +15,7 @@ exits 0 so a broken bridge never blocks session start.
 """
 from __future__ import annotations
 
+import json
 import logging
 import sys
 from datetime import datetime
@@ -30,8 +31,45 @@ else:
     from .delta_briefing import DeltaBriefingGenerator
 
 SESSION_FILE = THUNDERBIRD_ROOT / "OpsCenter" / "state_bridge" / "state_bridge_session.txt"
+STOP_GATE_FILE = THUNDERBIRD_ROOT / "OpsCenter" / "approved_plans.json"
 
 log = logging.getLogger("state_bridge.hook")
+
+
+def stop_gate_banner() -> str:
+    """Return the STOP-GATE banner for this session.
+
+    Consults OpsCenter/approved_plans.json. If no plan with status
+    "active" exists, prints a STOP notice — work halts after this
+    initial run until the Commander approves a plan. If an active plan
+    exists, prints a continuation notice naming it.
+
+    Fail-soft by design: any read/parse error or missing file yields the
+    STOP notice — a broken registry must never silently authorize work.
+    """
+    active = []
+    try:
+        data = json.loads(STOP_GATE_FILE.read_text(encoding="utf-8"))
+        active = [
+            p for p in data.get("plans", [])
+            if p.get("status") == "active"
+        ]
+    except Exception:  # noqa: BLE001 — fail-soft to STOP
+        active = []
+    if active:
+        names = "; ".join(
+            p.get("title") or p.get("plan_id") or "?" for p in active
+        )
+        return (
+            "STOP-GATE: ACTIVE approved plan — " + names + ". "
+            "Continue per that plan. Halt for new direction only when the "
+            "plan ends or changes."
+        )
+    return (
+        "STOP-GATE: NO approved plan is currently active. STOP after this "
+        "initial run; do not auto-continue. Await Commander feedback, a "
+        "question, or an approved plan before further work."
+    )
 
 
 def run() -> str:
@@ -63,7 +101,12 @@ def run() -> str:
 
 def main() -> int:
     try:
+        banner = stop_gate_banner()
         text = run()
+        sys.stdout.write(banner)
+        if not banner.endswith("\n"):
+            sys.stdout.write("\n")
+        sys.stdout.write("\n")
         sys.stdout.write(text)
         if not text.endswith("\n"):
             sys.stdout.write("\n")

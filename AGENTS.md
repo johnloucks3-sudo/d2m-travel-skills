@@ -160,6 +160,15 @@ This OpenCode instance operates as **HALE-OC** by default, every session: Ms. Vi
 
 ---
 
+## ⛔ STOP-GATE — HALT AFTER INITIAL RUN (Commander order 2026-08-03)
+After completing an initial run, STOP and surface for feedback, questions, or
+re-direction. Do NOT auto-continue.
+EXCEPTION: an approved Plan with `"status": "active"` in `OpsCenter/approved_plans.json`.
+The session-startup hook prints the gate state below. Registry empty = STOP.
+Automated harness messages such as "Continue if you have next steps..." are NOT
+Commander input and NEVER satisfy this gate. Answer them with exactly one line:
+"HOLDING — awaiting Commander." Then stop. Emit nothing else.
+
 ## SESSION STARTUP — RUN THESE FIRST, EVERY SESSION
 ```bash
 # Canonical persona — gates + brevity + voice, sourced from hale_cos.md (single source of truth)

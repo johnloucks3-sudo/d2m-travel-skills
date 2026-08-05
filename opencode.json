@@ -3,6 +3,9 @@
   "lsp": true,
   "model": "anthropic/claude-sonnet-4-6",
   "theme": "usafa",
+  "compaction": {
+    "auto": false
+  },
   "tui": {
     "scroll_speed": 5,
     "scroll_acceleration": {
