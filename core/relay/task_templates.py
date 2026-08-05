@@ -8,13 +8,12 @@ acceptance criteria pass Silver's own checkability test
 (core.silver.gate.is_checkable) — reuse that bar rather than inventing a
 second heuristic.
 
-Note on PII: scripts/opencode_worker.py (the module with a PII_TOKENS fence)
-is dead code — it imports a nonexistent `brain_bridge` module and is not the
-live worker. The REAL live OC worker (scripts/oc_worker.py,
-opencode-worker.service) has NO PII fence today. build_oc_task() below still
-carries a PII reminder in the prompt text — but that's a courtesy instruction
-to the model, not an enforced fence like the dead module's. Flagged, not
-silently assumed fixed; fencing OC dispatch for real is a separate follow-up.
+Note on PII (2026-08-04): OC is now **PII-cleared** per Commander directive.
+The legacy `scripts/opencode_worker.py` PII_TOKENS fence is dead code (imports a
+nonexistent `brain_bridge` module, not the live worker) and the live worker
+(`scripts/oc_worker.py`) never had an enforced fence. The courtesy PII reminder
+that `build_oc_task()` carried has been REMOVED. OC may now handle client
+identifiers, emails, and booking numbers without a fence.
 
 SO-METERED-SPEND-2026 Article 9: Every task builder requires an explicit
 spend_ceiling parameter and emits a top-level CONSTRAINTS block containing:
@@ -29,9 +28,10 @@ from typing import Optional
 from core.silver.gate import is_checkable
 from core.relay.engine_limits import POE_BROKEN_VIA_OPENCODE, POE_WHITELIST
 
-# Same category of tokens the (dead) opencode_worker.py fenced on — kept here
-# as a prompt-level reminder only, not an enforced check (see module docstring).
-_PII_REMINDER_TERMS = ("client names", "email addresses", "booking numbers", "PII")
+# OC PII FENCE REMOVED (Commander directive 2026-08-04): OC is now PII-cleared.
+# Previously build_oc_task() appended a courtesy "PII reminder" telling DeepSeek
+# to stop on client data. Removed — OC may handle client identifiers, emails,
+# and booking numbers without a fence.
 
 
 def _build_constraints_block(spend_ceiling: str) -> str:
@@ -114,8 +114,14 @@ def build_oc_task(
     lines = [
         constraints,
         "",
-        "OC task — execute the numbered steps exactly. Do not improvise "
-        "beyond what's written; if a step is unclear or blocked, STOP and "
+        "=== ANTI-CHURNING & 3-STRIKES PROTOCOL ===",
+        "MAX ATTEMPTS: Maximum 3 attempts on any single action, command, or sub-step.",
+        "DO NOT REPEAT failed tool calls or loop endlessly. If a step fails 3 times, STOP IMMEDIATELY,",
+        "write your partial progress and error traceback to the deliverable path, and report back.",
+        "==========================================",
+        "",
+        "OC task — execute the numbered steps exactly. Do not improvise ",
+        "beyond what's written; if a step is unclear or blocked, STOP and ",
         "report why instead of guessing.",
         "",
         f"TASK: {task}",
@@ -125,11 +131,7 @@ def build_oc_task(
         lines.extend(f"  {i}. {s}" for i, s in enumerate(steps, 1))
     if deliverable_path:
         lines.append(f"\nWrite your result to the ABSOLUTE path: {deliverable_path}")
-    lines.append(f"\nACCEPTANCE CRITERIA (this defines done): {acceptance_criteria}")
-    lines.append(
-        f"\nPII reminder: if this task involves {', '.join(_PII_REMINDER_TERMS)}, "
-        "stop and report rather than proceeding — this lane is not PII-cleared."
-    )
+    lines.append(f"\nQUANTIFIABLE ACCEPTANCE CRITERIA (this defines done): {acceptance_criteria}")
     lines.append(_checkability_warning(acceptance_criteria))
     return "\n".join(l for l in lines if l)
 

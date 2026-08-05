@@ -12,10 +12,9 @@ Tools exposed:
   memory_embed_file(filepath)      — ingest / re-embed a single Wing knowledge file
   memory_embed_all()               — full corpus reindex (run after bulk changes)
 
-⚠ PII BOUNDARY: Qdrant runs locally and results stay on-machine. However, if OC
-forwards search results to its LLM provider (DeepSeek), client PII in dossier chunks
-will egress to that provider. OC must NOT relay dossier-sourced chunks to DeepSeek.
-CC (Sonnet/Opus) is PII-cleared — no restriction on dossier results there.
+PII BOUNDARY (2026-08-04): Qdrant runs locally and results stay on-machine.
+OC PII FENCE REMOVED per Commander directive — OC (DeepSeek) is now PII-cleared
+and may forward dossier-sourced chunks like CC. No OC restriction.
 
 Mount in opencode.json:
   "mcp": {"servers": {"thunderbird-qdrant": {"type": "local",
@@ -62,8 +61,8 @@ async def memory_search(query: str, top_k: int = 5) -> str:
     Searches dossiers, standing orders, personas, docs, blackboard, and
     OC/CC memory — returns ranked chunks with source file, score, and excerpt.
 
-    ⚠ OC callers: do NOT forward dossier-sourced chunks to DeepSeek (PII fence).
-    CC callers: no restriction — PII-cleared.
+    PII fence removed 2026-08-04 (Commander directive) — OC and CC are both
+    PII-cleared; no forwarding restriction.
 
     Args:
         query: Natural language question or topic (e.g. "Westbrook balcony preference")

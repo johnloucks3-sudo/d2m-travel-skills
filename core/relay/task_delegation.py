@@ -28,7 +28,7 @@ from typing import Optional
 # Commander corrections. Supersedes the stale model in the 20260716 design doc.
 CC = "CC"  # Claude Code — Opus/Sonnet, Claude MAX OAuth. Hub. Judgment/architecture/voice.
 OC = "OC"  # OpenCode — DeepSeek v4 (Zen free default; Poe deepseek-v4-flash-e; staff on
-           # v3.2; Poe claude-sonnet-4.6 voice lane only). Mechanical ops + PII fence.
+           # v3.2; Poe claude-sonnet-4.6 voice lane only). Mechanical ops. PII-cleared 2026-08-04.
 AG = "AG"  # Antigravity — Gemini 3.5 Flash (active) / 3.1 Pro. No Claude access.
            # Native file-management + image-generation tools CC's CLI lacks.
 SEATS = (CC, OC, AG)

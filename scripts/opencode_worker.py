@@ -11,7 +11,10 @@ Env vars:
     WORKER_ID  (optional, default: oc-scout-1)
     LANE       (optional, default: oc)
 
-PII FENCE: tasks containing client identifiers are rejected without execution.
+PII FENCE REMOVED 2026-08-04 (Commander directive) — OC is PII-cleared; no
+client-identifier rejection. Note: this worker is legacy — it imports the
+documented-broken `brain_bridge` module (see AGENTS.md); the live OC lane is
+`scripts/oc_worker.py`.
 Non-gated infrastructure — does not touch protected email/relay files.
 """
 import os
@@ -38,12 +41,6 @@ LANE = os.environ.get("LANE", "oc").strip()
 POLL_INTERVAL = 10          # seconds between empty-queue polls
 TASK_TIMEOUT = 120          # seconds before subprocess is killed
 DEFAULT_MODEL = "deepseek-v3.2"
-
-# PII fence — any task string containing these tokens is rejected unexecuted
-PII_TOKENS = [
-    "@gmail.com", "booking", "client", "kuklinski",
-    "mcleod", "furlow", "darrow", "nichols", "loucks",
-]
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -72,13 +69,9 @@ signal.signal(signal.SIGTERM, _handle_signal)
 signal.signal(signal.SIGINT, _handle_signal)
 
 
-# ---------------------------------------------------------------------------
-# PII fence
-# ---------------------------------------------------------------------------
-def _pii_check(task_text: str) -> bool:
-    """Return True (blocked) if the task contains a PII token."""
-    lower = task_text.lower()
-    return any(tok in lower for tok in PII_TOKENS)
+# PII fence REMOVED 2026-08-04 (Commander directive) — OC is PII-cleared.
+# This worker is legacy/dead (imports nonexistent brain_bridge below); the live
+# OC lane is oc_worker.py. No PII rejection on either.
 
 
 # ---------------------------------------------------------------------------
@@ -144,14 +137,6 @@ def run():
                 if _shutdown:
                     break
                 time.sleep(1)
-            continue
-
-        # PII fence check
-        if _pii_check(task["task"]):
-            log.warning("PII-FENCE: T%s rejected — task contains PII token.", task["id"])
-            board.done(PLAN_ID, task["id"],
-                       result="PII-FENCE: task rejected",
-                       status="failed")
             continue
 
         result_snippet, status = _execute(task)

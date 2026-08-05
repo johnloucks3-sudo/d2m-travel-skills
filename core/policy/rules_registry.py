@@ -238,8 +238,6 @@ _DOLLAR_RE = re.compile(r"\$\s?\d[\d,]*(?:\.\d+)?")
 # source tags that legitimize a dollar figure
 _SOURCE_TERMS = ("portal", "tess", "dossier", "source:", "confirmed:")
 
-# booking-number-like pattern (6+ digits, optionally with a -NN suffix)
-_BOOKING_RE = re.compile(r"\b\d{6,}(?:-\d{1,3})?\b")
 # crude "personal name" pattern: two Capitalized words in a row
 _NAME_RE = re.compile(r"\b[A-Z][a-z]+\s+[A-Z][a-z]+\b")
 
@@ -251,29 +249,9 @@ def _is_client(ctx: dict) -> bool:
 # ---------------------------------------------------------------------------
 # Relay / PII detection
 # ---------------------------------------------------------------------------
-_OC_TARGETS = ("oc", "deepseek", "opencode")
-
-
-def _relay_target(ctx: dict) -> str:
-    t = _extra(ctx).get("target")
-    if isinstance(t, str) and t.strip():
-        return t.strip().lower()
-    # fall back to scanning a relay command
-    return ""
-
-
-def _is_relay(ctx: dict) -> bool:
-    if _action(ctx) == "relay":
-        return True
-    cmd = _s(ctx, "command").lower()
-    return ("relay_send" in cmd) or ("wing_relay" in cmd)
-
-
-def _payload_has_pii(ctx: dict) -> bool:
-    p = _s(ctx, "payload")
-    if not p:
-        return False
-    return bool(_BOOKING_RE.search(p) or _NAME_RE.search(p))
+# PII-EGRESS-011 and its helpers (_OC_TARGETS/_relay_target/_is_relay/
+# _payload_has_pii) REMOVED 2026-08-04 — Commander directive: OC PII fence
+# removed, OC is PII-cleared. _NAME_RE retained for other rules.
 
 
 # ---------------------------------------------------------------------------
@@ -467,18 +445,6 @@ def _p_finsource(ctx: dict) -> bool:
     return not any(s in low for s in _SOURCE_TERMS)
 
 
-# 7. PII-EGRESS-011 — DENY
-def _p_pii_egress(ctx: dict) -> bool:
-    if not _is_relay(ctx):
-        return False
-    target = _relay_target(ctx)
-    cmd = _s(ctx, "command").lower()
-    target_is_oc = any(t in target for t in _OC_TARGETS) or any(t in cmd for t in _OC_TARGETS)
-    if not target_is_oc:
-        return False
-    return _payload_has_pii(ctx)
-
-
 # 8. BROWSER-ARBIT-JS — DENY
 def _p_browser_js(ctx: dict) -> bool:
     return _tool_is(ctx, *_JS_TOOLS)
@@ -651,15 +617,6 @@ REGISTRY: Tuple[Rule, ...] = (
         predicate=_p_concierge_send,
         message="Concierge direct sends limited to within-wing allowlist.",
         so_ref="SO_EMAIL_RULES_UPDATE_20260530.md",
-    ),
-    Rule(
-        id="PII-EGRESS-011",
-        action_type=ActionType.RELAY,
-        platforms=ALL,
-        decision=Decision.DENY,
-        predicate=_p_pii_egress,
-        message="PII fence: client PII cannot egress to OC/DeepSeek.",
-        so_ref="hale_cos.md#PII-Fence",
     ),
     Rule(
         id="BROWSER-ARBIT-JS",
