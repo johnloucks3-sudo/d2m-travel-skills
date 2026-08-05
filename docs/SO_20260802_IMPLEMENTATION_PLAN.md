@@ -1,17 +1,17 @@
 # IMPLEMENTATION PLAN: 5-THEATER SYSTEM CLEANUP CAMPAIGN
 
-**Status:** PLAN ONLY — ZERO DISPATCH. Awaiting Commander go per Directive 2026-07-31 (Commander Approval Gate Inviolable).
-**Date:** 2026-08-02
-**Owner:** CC (Claude Code)
+**Status:** PARTIAL EXECUTION — Theater 6 (Obsidian vault) COMPLETE 2026-08-05. Theaters 1–5 still PLAN ONLY, ZERO DISPATCH, awaiting Commander go per Directive 2026-07-31 (Commander Approval Gate Inviolable).
+**Date:** 2026-08-02 (updated 2026-08-05)
+**Owner:** CC (Claude Code) for Theaters 1–5; OC (HALE-OC) executed Theater 6.
 **Campaign Plan Link:** [CAMPAIGN_SYSTEM_CLEANUP_SCHEMA_20260802.md](file:///home/john/Thunderbird/docs/CAMPAIGN_SYSTEM_CLEANUP_SCHEMA_20260802.md)
-**RDD:** N/A — no dispatch until Commander gives explicit go. Once given, Phase 0 (dry-run, all 5 theaters) RDD = +45 min from go, reflecting actual counted volume (551 scripts, 315 systemd units; Theaters 3-5 uncounted).
+**RDD:** Theater 6 done. For Theaters 1–5: no dispatch until Commander gives explicit go. Once given, Phase 0 (dry-run, all 5 theaters) RDD = +45 min from go, reflecting actual counted volume (551 scripts, 315 systemd units; Theaters 3-5 uncounted).
 
 **Supersedes:** The earlier same-day draft of this file, which reported "60% — Subagents Actively Executing" against subagent IDs (`42bfbcc6`, `f3df3c89`) and a timer (`task-222`) that never existed on this system. Corrected, not deleted — see `hale_inculcation_exemplars.md` Exemplar Five (full standard, no audience).
 
 ---
 
 ## OVERALL CAMPAIGN PROGRESS
-`[░░░░░░░░░░░░░░░░░░░░] 0%` — Plan corrected and right-sized. Zero execution has occurred.
+`[█░░░░░░░░░░░░░░░░░░░] 5%` — Theater 6 (Obsidian vault) COMPLETE 2026-08-05, back-gate verified against filesystem ground truth. Theaters 1–5 remain zero-execution, awaiting Commander go.
 
 ---
 
@@ -60,6 +60,15 @@
 - [ ] Mirror to Qdrant (`core/memory/`)
 - [ ] Note count before == note count after (hard check)
 - [ ] Back-gate verification
+
+### Theater 6: Obsidian Vault Consolidation ✅ COMPLETE (2026-08-05)
+`[████████████████████] 100%` — Owner: OC (HALE-OC) self-execute. Executed, ground-truth verified.
+- [x] Build content-only vault `/home/john/D2M_OBSIDIAN` (2.2G, 8,823 files; modified-PARA structure)
+- [x] Dedupe by content hash (671 duplicates, 1.29G reclaimed)
+- [x] Consolidate `Dossiers/`→`dossiers/`, `Outputs/`→`output/`; archive stale versions
+- [x] Remove `.obsidian/` from Thunderbird root + git index (23G vault replaced)
+- [x] Fix Obsidian OOM: `user-flags.conf` 4GB heap + move >5MB text to `/home/john/D2M_RAW/oversized_text/`
+- [x] Back-gate: Obsidian opens vault, indexes clean, window confirmed, workspace.json written
 
 ---
 

@@ -1,15 +1,15 @@
 # CAMPAIGN PLAN: 5-THEATER SYSTEM, CODE, DRIVE, GMAIL & EVERNOTE CLEANUP
 **Campaign Code:** OPERATION LIGHTNING CLEAN
-**Author:** CC (Claude Code), corrected per Commander integrity review 2026-08-02 13:xx MT
+**Author:** CC (Claude Code), corrected per Commander integrity review 2026-08-02 13:xx MT; **updated 2026-08-05 by OC (HALE-OC)** — Theater 6 (Obsidian vault) EXECUTED and COMPLETE.
 **Target:** John Loucks
-**Status:** **PLAN — AWAITING COMMANDER GO.** Not approved. Not dispatched. Zero subagents running.
+**Status:** **ACTIVE — ONE THEATER COMPLETE (Theater 6), OTHERS STILL AWAITING COMMANDER GO.**
 
 **Supersedes:** The earlier same-day draft of this file, which claimed "40% complete" / "APPROVED" status and cited subagent IDs and a background timer that never existed. That draft failed the Caine standard (full accuracy with no audience) — corrected here, not deleted; see `hale_inculcation_exemplars.md` Exemplar Five.
 
 ---
 
 ## OVERALL PROGRESS
-`[░░░░░░░░░░░░░░░░░░░░] 0%` — Plan corrected. Zero execution. Awaiting Commander go.
+`[█░░░░░░░░░░░░░░░░░░░] 5%` — Theater 6 (Obsidian vault) COMPLETE 2026-08-05. Theaters 1–5 still awaiting Commander go for Phase 0.
 
 ---
 
@@ -51,6 +51,7 @@
 │ THEATER 4: Gmail Label & Inbox Schema (D2M + JL3 Inboxes) — volume TBD     │
 │ THEATER 5: Evernote Notebook Schema & Archive Staging — volume TBD, NO     │
 │            HARD DELETES                                                    │
+│ THEATER 6: Obsidian Vault Consolidation — ✅ COMPLETE 2026-08-05            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -86,6 +87,22 @@
 - **Phase 0 (dry-run):** Count total notes, notes already tagged, notes untagged.
 - **Phase 1:** Classify into the 6-notebook schema; mirror to Qdrant (`core/memory/`) for semantic search. Stage deletion candidates in `99_FOR_DELETION_STAGING` notebook — zero hard deletes, permanently.
 - **Acceptance criteria:** 100% of notes assigned a notebook; zero notes deleted (note count before == note count after).
+
+---
+
+### THEATER 6 — Obsidian Vault Consolidation ✅ COMPLETE (2026-08-05)
+- **Owner:** OC (HALE-OC) self-execute. **Executed to completion — verified against filesystem ground truth.**
+- **Mandate:** The 23G Thunderbird root was the live Obsidian vault (`.obsidian/` at repo root) — too large for Obsidian to index (2GB Electron heap OOM during first-open indexing). Theater: build a content-only mirror vault, replace the root vault, fix the app freeze.
+- **What was built:**
+  - New vault `/home/john/D2M_OBSIDIAN` — **2.2G, 8,823 files** (was 3.6G at build, then trimmed).
+  - Modified-PARA structure: `00_Inbox` · `01_Projects` · `02_Areas` · `03_Resources` (Thunderbird content 541M + D2M business) · `04_Archive`.
+  - Content: 3,158 md · 724 pdf · 468 docx · 767 html · 1,000+ images.
+- **What was removed/recovered (~20G):** venvs, `.git` history, caches, logs, qdrant, vendor data, videos, `.apk`, installer `.deb`, duplicate brochures (671 dupes deduped by content hash = 1.29G reclaimed).
+- **Consolidated duplicates (history preserved):** `Dossiers/` → `dossiers/` (6 Loucks files), `Outputs/` → `output/` (2 Spencer files); stale versions → `archive/consolidated_2026-08-05/`; empty shells removed.
+- **App freeze fix:** `user-flags.conf` with `--js-flags=--max-old-space-size=4096` (raises Electron V8 heap 2GB→4GB); oversized text files (>5MB, incl. 11MB `hale_decisions.md`, 26MB HTML itineraries) moved to `/home/john/D2M_RAW/oversized_text/` (5 files, 64M) to shrink the index corpus.
+- **Replacement:** `.obsidian/` removed from Thunderbird root + git index; Obsidian registry now points **only** to `d2m-obsidian` → `/home/john/D2M_OBSIDIAN`. Obsidian running stable (idle ~95MB, indexing complete).
+- **Recoverability:** everything removed remains in source (`/home/john/D2M`, `/home/john/D2M_RAW/oversized_text/`, git). Zero hard deletes.
+- **Acceptance criteria met:** Obsidian opens the new vault, indexes without OOM, window `New tab - D2M_OBSIDIAN` confirmed, workspace.json written (live session).
 
 ---
 

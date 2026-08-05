@@ -185,22 +185,55 @@
         }
       }
     },
-    "poe-local-proxy": {
+    "poe": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Poe Local Proxy (12k pts/day)",
+      "name": "Poe Direct API (12k pts/day)",
       "options": {
-        "baseURL": "http://localhost:8000/v1",
-        "apiKey": "poe-local-dummy"
+        "baseURL": "https://api.poe.com/v1",
+        "apiKey": "{env:POE_API_KEY}"
       },
       "models": {
-        "poe-grok-2": {
-          "name": "Poe Grok 2"
+        "gemini-3.6-flash": {
+          "name": "Gemini 3.6 Flash (Poe)"
         },
-        "poe-claude-3-5-sonnet": {
-          "name": "Poe Claude 3.5 Sonnet"
+        "gemini-3.5-flash": {
+          "name": "Gemini 3.5 Flash (Poe)"
         },
-        "poe-gpt-4o": {
-          "name": "Poe GPT-4o"
+        "gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro (Poe)"
+        },
+        "claude-sonnet-4.6": {
+          "name": "Claude Sonnet 4.6 (Poe)"
+        },
+        "claude-haiku-4.5": {
+          "name": "Claude Haiku 4.5 (Poe)"
+        },
+        "claude-opus-4.8": {
+          "name": "Claude Opus 4.8 (Poe)"
+        },
+        "grok-4.3": {
+          "name": "Grok 4.3 (Poe)"
+        },
+        "grok-3": {
+          "name": "Grok 3 (Poe)"
+        },
+        "deepseek-v4-flash-e": {
+          "name": "DeepSeek V4 Flash-E (Poe)"
+        },
+        "deepseek-v3.2": {
+          "name": "DeepSeek V3.2 (Poe)"
+        },
+        "gemini-3.5-flash": {
+          "name": "Gemini 3.5 Flash (Poe) — tools work!"
+        },
+        "grok-3": {
+          "name": "Grok 3 (Poe) — backup"
+        },
+        "xai/grok-3": {
+          "name": "Grok 3 xAI (Poe) — alt name"
+        },
+        "grok-4.3": {
+          "name": "Grok 4.3 (Poe) — premium"
         }
       }
     }
