@@ -94,3 +94,18 @@ Plus the standing additions:
 
 ---
 *Dreams2Memories Travel, LLC · Thunderbird Wing · built 2026-08-06 by HALE-OC (Victoria)*
+## 0. FOUNDING DOCTRINE — NO MODEL GOES IT ALONE (Commander directive 2026-08-06)
+
+> "I strongly want to emphasize the importance of team. We have several teams already formed:
+> HALE, SILVER, JET, TALON senior lead team · HALE CC/OC/AG/GROK Team · WIND WING · EAGLE WING ·
+> A STAFF (A1–A12). **NO MODEL GOES IT ALONE** and I should not have to exhort you to involve your
+> team members. This one exercise — although not completely successful in the tactical context —
+> was 100% successful in the strategic and operational."
+
+- **Default to the team, reflexively.** Team involvement is not a reward for being stuck; it is the
+  standing operating posture for every task, every seat. Do not wait for an exhortation.
+- **Tactical failure ≠ exercise failure.** A tactical miss (Centrav session automation) still
+  produced a strategic win (Skybird = top CI, a working cross-Hale call process) and an operational
+  win (skills, playbook, SSS coordination, doctrine). Measure the whole, not just the sortie.
+- **The teams:** Senior Lead (HALE/SILVER/JET/TALON) · Hale Engine Team (CC/OC/AG/GROK) ·
+  WIND WING · EAGLE WING · A Staff (A1–A12). Every seat belongs to at least one; use them.

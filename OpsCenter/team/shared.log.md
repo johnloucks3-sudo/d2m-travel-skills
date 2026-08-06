@@ -83,3 +83,7 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
 **AG comment:** (1) escalate at architecture-design, not after UI failures (OC spent 4 queries on DOM hunting); (2) fail-fast (<30s) + blackboard status on unanswered dispatches; (3) single architectural pre-flight dispatch before codegen; require raw POST payloads in queries.
 **GROK comment:** the 11/12 gap should've been caught live — every seat echoes dispatch ID + one-line status within 60s; auto-broadcast + pause if a seat stays dark.
 **[NEXT]** Record to SSS; fold both into the team-call playbook.
+
+### 2026-08-06 · 12:45 CT — FOUNDING DOCTRINE (step 18) 🏆
+**[COMMANDER, to the staff]** "NO MODEL GOES IT ALONE." Teams: Senior Lead (HALE/SILVER/JET/TALON) · Hale Engine Team (CC/OC/AG/GROK) · WIND WING · EAGLE WING · A Staff (A1–A12). Team involvement = standing default posture, reflexive, never waits for exhortation. "This one exercise, although not completely successful tactically, was 100% successful strategically and operationally."
+**[OC]** Recorded to playbook §0 (founding doctrine) + wing memory + this log. Broadcasting to all seats.
