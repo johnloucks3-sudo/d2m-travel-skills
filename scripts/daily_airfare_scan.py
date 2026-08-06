@@ -10,11 +10,9 @@ multiple sources and regenerates the airfare dashboard.
 Install (crontab -e):
   0 3 * * * cd /home/john/Thunderbird && .venv/bin/python scripts/daily_airfare_scan.py >> logs/daily_airfare_scan.log 2>&1
 
-Sources:
-  - Amadeus (primary, via MCP search_flights)
-  - Centrav B2B (via thunderbird_centrav_search)
-  - Kayak (via kayak_scraper)
-  - Google Flights (via thunderbird_google_flights_search)
+Sources (THE TWO ENGINES — Commander directive 2026-08-06):
+  - Centrav B2B (via thunderbird_centrav_search — rides the bsk-tab live session)
+  - Skybird Travel WINGS (via skybird_scan — headless GDS Sabre, no browser)
 
 Exit codes:
   0 = all sources OK
@@ -22,9 +20,9 @@ Exit codes:
   2 = total failure (all sources failed)
 
 Flags:
-  --source amadeus | centrav | kayak | google  — run single source only
-  --dry-run                                     — log what would be done, don't execute
-  --verbose                                     — debug logging
+  --source centrav | skybird  — run single source only
+  --dry-run                   — log what would be done, don't execute
+  --verbose                   — debug logging
 """
 
 import argparse
@@ -256,6 +254,52 @@ async def _scan_centrav(watch: dict, centrav_mod) -> Optional[dict]:
         return None
 
 
+async def _scan_skybird(watch: dict) -> Optional[dict]:
+    """Run Skybird Travel WINGS (GDS Sabre B2B) headless scan.
+
+    Headless, requests-only — no browser, no CAPTCHA. One login + one search
+    per route. Multi-city watches use the semicolon ';' legs syntax.
+    """
+    if not watch.get("travel_date"):
+        logger.debug("skybird: no travel_date for %s — skipping", watch.get("id"))
+        return None
+    origin, dest = _parse_route(watch.get("route", ""))
+    if not origin or not dest:
+        return None
+
+    try:
+        sys.path.insert(0, str(THUNDERBIRD / "scripts"))
+        import skybird_scan as sk
+
+        ret = watch.get("return_date", "")
+        cabin = _infer_cabin(watch).title()
+        adults = watch.get("passengers", 2)
+        legs = None
+        if ";" in watch.get("route", ""):
+            legs = []
+            for leg in watch["route"].split(";"):
+                codes = [x for x in leg.strip().upper().split() if len(x) == 3]
+                if len(codes) >= 2:
+                    legs.append({"from": codes[0], "to": codes[1],
+                                 "date": watch.get("travel_date", "")})
+        s = sk.login()
+        flights = sk.search(s, origin, dest, watch.get("travel_date", ""),
+                            ret, cabin, adults=adults, legs=legs, limit=10)
+        if not flights:
+            return {"best_price_pp": None, "airline": None, "raw": {"flights": []}}
+        prices = [f.get("price_pp") for f in flights if f.get("price_pp")]
+        best = min(prices) if prices else None
+        best_flight = next((f for f in flights if f.get("price_pp") == best), flights[0])
+        return {
+            "best_price_pp": best,
+            "airline": best_flight.get("airline"),
+            "raw": {"flights": flights[:10], "count": len(flights)},
+        }
+    except Exception as exc:
+        logger.warning("skybird: error for %s: %s", watch.get("id"), exc)
+        return None
+
+
 async def _scan_kayak(watch: dict, kayak_mod) -> Optional[dict]:
     """Run Kayak consumer price check."""
     if not watch.get("travel_date"):
@@ -410,12 +454,12 @@ async def run_pipeline(source_filter: Optional[str] = None, dry_run: bool = Fals
         logger.warning("No active flight watches found")
         return 0
 
-    # Filter by source if specified. Centrav REMOVED from the default rotation
-    # 2026-07-16 (Commander order): browser-session-gated, CAPTCHA-blocked on
-    # every run, wasting ~10s/route nightly for zero data. Amadeus (real GDS,
-    # stateless API key, just fixed above) is the reliable primary now.
-    # Centrav remains available via --source centrav for deliberate manual use.
-    sources = ["amadeus", "kayak", "google"]
+    # Filter by source if specified. THE TWO ENGINES (Commander directive
+    # 2026-08-06): Centrav B2B + Skybird Travel WINGS. Centrav is live via the
+    # bsk-tab session keepalive (no CAPTCHA while the session rides); Skybird
+    # is fully headless (requests/GDS Sabre, no browser). Amadeus self-service
+    # retired 2026-07-17; Kayak/Google blocked or quota-bound — not in default.
+    sources = ["centrav", "skybird"]
     if source_filter:
         if source_filter not in sources:
             logger.error("Unknown source: %s (choose: %s)", source_filter, ", ".join(sources))
@@ -451,12 +495,8 @@ async def run_pipeline(source_filter: Optional[str] = None, dry_run: bool = Fals
 
         if "centrav" in sources:
             tasks["centrav"] = _scan_centrav(watch, centrav_mod)
-        if "kayak" in sources:
-            tasks["kayak"] = _scan_kayak(watch, kayak_mod)
-        if "google" in sources:
-            tasks["google"] = _scan_google(watch, google_mod)
-        if "amadeus" in sources:
-            tasks["amadeus"] = _scan_amadeus(watch, watch.get("passengers", 2))
+        if "skybird" in sources:
+            tasks["skybird"] = _scan_skybird(watch)
 
         results = {}
         if tasks:
@@ -607,7 +647,7 @@ def main():
     )
     parser.add_argument(
         "--source",
-        choices=["amadeus", "centrav", "kayak", "google"],
+        choices=["centrav", "skybird"],
         help="Run a single source only (default: all)",
     )
     parser.add_argument("--dry-run", action="store_true", help="Log what would be done")

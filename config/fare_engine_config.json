@@ -1,8 +1,7 @@
 {
-  "primary_fare_engine": "Skybird Travel WINGS (GDS Sabre B2B)",
-  "secondary_fare_engine": "Amadeus B2B",
-  "tertiary_fare_engine": "Centrav / Kayak / Google Flights",
+  "primary_fare_engine": "Centrav B2B (bsk-tab live session)",
+  "secondary_fare_engine": "Skybird Travel WINGS (GDS Sabre B2B, headless)",
   "auth_credentials": "creds/skybird_credentials.json",
   "default_layover_max_hours": 6.0,
-  "last_updated": "2026-07-27T10:08:18.201284"
+  "last_updated": "2026-08-06T09:42:00"
 }
