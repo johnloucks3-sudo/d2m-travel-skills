@@ -454,12 +454,11 @@ async def run_pipeline(source_filter: Optional[str] = None, dry_run: bool = Fals
         logger.warning("No active flight watches found")
         return 0
 
-    # Filter by source if specified. THE TWO ENGINES (Commander directive
-    # 2026-08-06): Centrav B2B + Skybird Travel WINGS. Centrav is live via the
-    # bsk-tab session keepalive (no CAPTCHA while the session rides); Skybird
-    # is fully headless (requests/GDS Sabre, no browser). Amadeus self-service
-    # retired 2026-07-17; Kayak/Google blocked or quota-bound — not in default.
-    sources = ["centrav", "skybird"]
+    # Filter by source if specified. Skybird = TOP CI, sole default (Commander
+    # directive 2026-08-06: "Skybird is the #1 choice. Use for all fare scans").
+    # Fully headless (GDS Sabre), proven one-way/RT/multi-city. Centrav remains
+    # available via --source centrav for deliberate read-only cross-checks.
+    sources = ["skybird"]
     if source_filter:
         if source_filter not in sources:
             logger.error("Unknown source: %s (choose: %s)", source_filter, ", ".join(sources))

@@ -1,7 +1,8 @@
 {
-  "primary_fare_engine": "Centrav B2B (bsk-tab live session)",
-  "secondary_fare_engine": "Skybird Travel WINGS (GDS Sabre B2B, headless)",
+  "primary_fare_engine": "Skybird Travel WINGS (GDS Sabre B2B) \u2014 TOP CI, all fare scans",
+  "secondary_fare_engine": "Centrav B2B (read-only, healthy tab required)",
   "auth_credentials": "creds/skybird_credentials.json",
   "default_layover_max_hours": 6.0,
-  "last_updated": "2026-08-06T09:42:00"
+  "last_updated": "2026-08-06T12:25:00",
+  "top_ci": true
 }
