@@ -28,6 +28,10 @@ class InfraBot(BotBase):
         Task("portal-keepalive",
              sys_py("scripts/portal_keepalive.py"),
              interval_sec=2700, timeout_sec=120),
+        Task("bsk-session-keepalive",
+             venv("scripts/bsk_session_keepalive.py", "--portal", "centrav", "--once"),
+             interval_sec=1200, timeout_sec=90,
+             allowed_rcs=(0, 1)),  # rc=1=dead session (login wall) — logged, needs human; never spam
         Task("tool-key-refresh",
              bash(f"{ROOT}/hooks/refresh_tool_api_keys.sh"),
              interval_sec=840, timeout_sec=30),
