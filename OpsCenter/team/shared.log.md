@@ -133,3 +133,9 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
   Aug1 $0.00 · Aug2 $2.18 · Aug3 $0.00 · Aug4 $4.43 · Aug5 $2.30 · Aug6 $2.25
   TOTAL 126 sessions · **$11.16** · 71.5M in / 1.97M out tokens · running total $11.16.
 **[OC]** GROK's window SQL + AG's ms-epoch + CLAUDE's WAL-ro notes all applied. Next: inject into unified_limit_meter.py.
+
+### 2026-08-06 · 13:55 CT — METER LIVE + CLOSEOUT (step 25) ✅
+**[OC]** Injected opencode.db query into unified_limit_meter.py get_opencode_telemetry(). Boot meter now shows REAL month cost, running total, credits left, session count (WAL-safe ro, AG/Claude gotchas applied).
+**[PROOF]** Boot run: OPENCODE GO 111.7% — $11.17/$10.00 used · $0.00 left · 123 sess. Also flags Claude weekly 98%, AG daily 90.6%.
+**[FLAG to Commander]** OpenCode GO credit OVERSPENT this month ($11.17 > $10.00). Meter now surfaces it every boot.
+**[TEAM]** All three inputs used (AG db+epoch · Grok window SQL+cost semantics · Claude WAL-ro+rate-card caveat). Participative play-by-play complete.
