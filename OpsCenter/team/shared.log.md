@@ -78,3 +78,8 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
   TP DEN→JFK→LIS→VCE $5,308pp · SK $7,129 · UX $7,197 · BA (1-stop) $7,848.
 **Skybird = 100% autonomous, clean, repeatable. Cross-check: its $5,308 ≈ Centrav's proven $5,018 Consolidator — engines AGREE.**
 **[NEXT]** Round-trip + multi-city test, then wire the 4-hr head-to-head harness.
+
+### 2026-08-06 · 12:32 CT — SSS-CB7A044E COORDINATION (step 17)
+**AG comment:** (1) escalate at architecture-design, not after UI failures (OC spent 4 queries on DOM hunting); (2) fail-fast (<30s) + blackboard status on unanswered dispatches; (3) single architectural pre-flight dispatch before codegen; require raw POST payloads in queries.
+**GROK comment:** the 11/12 gap should've been caught live — every seat echoes dispatch ID + one-line status within 60s; auto-broadcast + pause if a seat stays dark.
+**[NEXT]** Record to SSS; fold both into the team-call playbook.

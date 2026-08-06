@@ -66,6 +66,10 @@ Centrav B2B session dies ~2h (T2); relogin needs reCAPTCHA + email OTP; headless
 4. Synthesize with the ground-truth arbiter; cross-verify before executing.
 5. Log + update this playbook each run.
 
+4. **Escalate at architecture-design, not after UI failure** (AG addition, SSS-CB7A044E). A wall on the DOM/UI layer is a signal to query the room about the *approach*, not to burn more queries hunting elements. Pre-flight dispatch: one architectural read from the team BEFORE writing code that automates a fragile surface.
+5. **No silent drops** (Grok addition, SSS-CB7A044E). Every seat echoes its dispatch ID + one-line status within 60s. If a seat stays dark, auto-broadcast and pause until acknowledged. The 11/12 gap in ATO-006-08 should have been caught live.
+6. **Require raw payloads in queries** (AG addition). When field names / contracts are in play, send the actual response/body in the query so seats don't guess (OC's `Fare*` vs `fare*` field-name mismatch cost multiple queries).
+
 ## 6. TEAM-COMMS STANDARD (Commander-approved 2026-08-06) — COURTESIES
 
 These are the three operational tenets the Commander explicitly endorsed. Apply reflexively on
