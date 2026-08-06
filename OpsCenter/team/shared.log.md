@@ -87,3 +87,9 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
 ### 2026-08-06 · 12:45 CT — FOUNDING DOCTRINE (step 18) 🏆
 **[COMMANDER, to the staff]** "NO MODEL GOES IT ALONE." Teams: Senior Lead (HALE/SILVER/JET/TALON) · Hale Engine Team (CC/OC/AG/GROK) · WIND WING · EAGLE WING · A Staff (A1–A12). Team involvement = standing default posture, reflexive, never waits for exhortation. "This one exercise, although not completely successful tactically, was 100% successful strategically and operationally."
 **[OC]** Recorded to playbook §0 (founding doctrine) + wing memory + this log. Broadcasting to all seats.
+
+### 2026-08-06 · 12:50 CT — DOCTRINE ADOPTION (step 19)
+**[AG]** Adopted SO 2026-08-06: default-to-team reflex · trigger team at Phase-0 design not post-blocker · PROPOSES `check_team_assembly()` gate in `delegation_preflight.py` to block single-engine execution on multi-role ops.
+**[GROK]** Adopted: hard-wired default-to-team · trigger at first task receipt · PROPOSES 30-second cross-wing hail protocol on task intake.
+**[CC]** Noted (light, 88% burn).
+**[OC]** Both proposals logged — recommend Commander review for adoption into preflight.
