@@ -1,0 +1,32 @@
+{
+  "centrav": {
+    "name": "Centrav B2B",
+    "home_url": "https://www.centrav.com/",
+    "keepalive_route": "https://www.centrav.com/fares",
+    "alive_markers": ["Fares | Centrav", "John Loucks", "Change Search"],
+    "dead_markers": ["Login | Centrav", "Login to your Account", "enter the code", "verification code"],
+    "wait_s": 2,
+    "auth_cookies": ["laravel_session", "XSRF-TOKEN", "_GRECAPTCHA"],
+    "notes": "httpOnly session. Keepalive rides the authenticated bsk tab; no cookie export."
+  },
+  "google_flights": {
+    "name": "Google Flights",
+    "home_url": "https://www.google.com/travel/flights",
+    "keepalive_route": "https://www.google.com/travel/flights",
+    "alive_markers": ["Flights", "Explore"],
+    "dead_markers": ["Sign in"],
+    "wait_s": 2,
+    "auth_cookies": [],
+    "notes": "Consumer fares; tfs-token path (one-way/roundtrip cracked 8/5; multi-city unverified)."
+  },
+  "tess": {
+    "name": "TESS CRM",
+    "home_url": "https://portal.tess.example/",
+    "keepalive_route": "https://portal.tess.example/home",
+    "alive_markers": [],
+    "dead_markers": ["Login"],
+    "wait_s": 2,
+    "auth_cookies": [],
+    "notes": "Placeholder — fill real URL/markers when wired."
+  }
+}
