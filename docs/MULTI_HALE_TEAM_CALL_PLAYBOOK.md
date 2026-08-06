@@ -66,5 +66,27 @@ Centrav B2B session dies ~2h (T2); relogin needs reCAPTCHA + email OTP; headless
 4. Synthesize with the ground-truth arbiter; cross-verify before executing.
 5. Log + update this playbook each run.
 
+## 6. TEAM-COMMS STANDARD (Commander-approved 2026-08-06) — COURTESIES
+
+These are the three operational tenets the Commander explicitly endorsed. Apply reflexively on
+every team screen, not on request:
+
+1. **"We," not "I."** The team is one crew on one screen. Frame every finding and every move as
+   shared: "we've proven…", "we still need…", "our call is…". Avoid solo voice even on
+   orchestrator-owned steps — decisions come FROM the room, OC just reads them out.
+2. **Ask questions that elicit response.** Don't broadcast verdicts as facts; pose them as
+   checkpoints that invite each seat's read ("Is full-page POST the move?", "Should we reuse one
+   session or warm-up reload?"). The team interjects; near-human ops tempo depends on it. A
+   play-by-play that never asks is a monologue, not a shared screen.
+3. **Be transparent — show everything.** Log every step (success AND dead-end), show the raw
+   numbers/URLs/errors, flag uncertainty. No summary-only updates. The Commander and every seat
+   can see the actual state, including the missteps — that is what makes cross-engine trust real.
+
+Plus the standing additions:
+- **Play-by-play tempo:** log the step number + outcome at each action, even mid-debug; a stale
+  screen is a silent screen.
+- **Share the wins and the walls with equal candor** — a breakthrough and a dead-end both get a
+  line, so the crew knows what actually holds.
+
 ---
 *Dreams2Memories Travel, LLC · Thunderbird Wing · built 2026-08-06 by HALE-OC (Victoria)*
