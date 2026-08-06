@@ -93,3 +93,43 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
 **[GROK]** Adopted: hard-wired default-to-team · trigger at first task receipt · PROPOSES 30-second cross-wing hail protocol on task intake.
 **[CC]** Noted (light, 88% burn).
 **[OC]** Both proposals logged — recommend Commander review for adoption into preflight.
+
+### 2026-08-06 · 13:05 CT — OPCODE USAGE FULL-MONTH (step 20)
+**[OC]** opencode.ai usage page = React SPA, virtual-scroll table showing only latest 50 rows (Aug 4-6). Full August data locked behind Next.js `/_server` server action (needs Next-Action header). DOM-scroll and fetch-hook approaches failed; React fiber/store not exposed.
+**[AG]** Rank 1 = capture Next-Action header via CDP + direct Python replay for pagination.
+**[GROK]** (prior) = the SPA's own server action is the source; trigger a filter change to force refetch with hook armed.
+**[NEXT]** Team: re-trigger server action (change month/filter) with fetch hook armed to capture the exact Next-Action payload, then replay in Python for all of August.
+
+### 2026-08-06 · 13:30 CT — STRATEGIC PIVOT + FULL-TEAM BRIEF (step 21)
+**BRIEF-BEFORE-START (AG doctrine).** Commander: all team members on the play-by-play.
+**SITUATION:** Full-August OpenCode GO usage is locked behind opencode.ai's SPA (canvas chart + virtual-scroll table + Next-Action `/`_server` action). 3 engines (AG/Grok/Claude) all confirmed: web-scrape is fragile/blocked.
+**PIVOT (Commander):** Stop scraping the dashboard. The usage data lives in the **local opencode server/DB** — the same engine this session runs on. Query the server API directly.
+**PLAN (all-team input requested BEFORE I start):**
+  1. Locate the opencode server: SDK connects to 127.0.0.1:4096; check if a server is running or if `opencode.db` (~47GB SQLite) is the store.
+  2. If server API live → `session.list()` / `session.messages()` may expose token/cost per session → aggregate August by day.
+  3. If `opencode.db` is the store → query its tables for usage/cost.
+  4. Inject result into `OpsCenter/unified_limit_meter.py` `get_opencode_telemetry()` → shows on boot.
+**TEAM ASK:** Before I touch tools — AG: confirm server-API vs DB approach. Grok: any opencode server endpoint for usage I'm missing? Claude: SDK method that returns cost/tokens per session? 60-second answers, then I execute step 1.
+
+### 2026-08-06 · 13:35 CT — AG INPUT (step 22) 🎯
+**[AG — verbatim]:**
+- Architecture Choice (opencode.db > Server API): `opencode.db` SQLite (`~/.local/share/opencode/opencode.db`) is the definitive source. Port 4096 is inactive in CLI runs, whereas the local SQLite WAL store is live.
+- Table & Schema: Query table `session` directly. Empirical check on August 2026 (`time_created >= 1785542400000`) verified **126 sessions totaling $11.14 cost and 71.5M input tokens**. Key fields: `time_created`, `cost`, `tokens_input`, `tokens_output`, `tokens_reasoning`, `tokens_cache_read`, `tokens_cache_write`.
+- Key Gotchas: Connect with `sqlite3.connect('file:.../opencode.db?mode=ro', uri=True)` to avoid lock contention with active WAL writers (`opencode.db-wal`); `time_created` is in milliseconds (divide by 1000 for unixepoch date grouping).
+**[OC]** AG verified the data herself. This is the whole answer. Waiting on Grok + Claude inputs per brief-before-execute, then executing.
+
+### 2026-08-06 · 13:40 CT — GROK + CLAUDE INPUT (step 23)
+**[GROK — verbatim]:**
+- Query rec: `WITH daily AS (SELECT date(time_created/1000,'unixepoch') d, SUM(cost) c FROM session GROUP BY d ORDER BY d) SELECT d, c, SUM(c) OVER (ORDER BY d) running FROM daily;` — window on the grouped sum avoids row-level noise, one pass.
+- Cost semantics: field is already the final USD billed for the session (plan/GO rate card applied); cache_read/write tokens discounted inside that number — don't add them again or double-count.
+- Gotcha: `date()` on ms/1000 needs explicit `unixepoch` modifier; sessions straddling UTC midnight can split across day boundaries.
+**[CLAUDE — verbatim]:**
+- `cost`: OpenCode's own rate-card estimate at call time, NOT a billed/invoiced figure — no independent verification against provider billing. Treat as directional, not ground truth.
+- Gotcha: opencode.db runs WAL — open read connection with `?mode=ro&immutable=0` + short `busy_timeout`, or the meter read can block/fail while a live session writes.
+**[OC]** BRIEF COMPLETE — 3 inputs in. Executing step 1: query opencode.db read-only.
+
+### 2026-08-06 · 13:50 CT — ✅ FULL AUGUST CAPTURED (step 24)
+**[OC]** Executed AG's opencode.db query (read-only, WAL-safe). FULL AUGUST verified:
+  Aug1 $0.00 · Aug2 $2.18 · Aug3 $0.00 · Aug4 $4.43 · Aug5 $2.30 · Aug6 $2.25
+  TOTAL 126 sessions · **$11.16** · 71.5M in / 1.97M out tokens · running total $11.16.
+**[OC]** GROK's window SQL + AG's ms-epoch + CLAUDE's WAL-ro notes all applied. Next: inject into unified_limit_meter.py.
