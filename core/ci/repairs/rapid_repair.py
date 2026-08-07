@@ -87,6 +87,11 @@ from core.ci.repairs.schema import (  # noqa: E402
 # unconditional in run_capability; adding it here does nothing).
 ARMED_TIERS = {"SAFE"}
 
+# Commander 2026-08-07: KILL all airfare session keep-alives (Centrav etc.)
+# EXCEPT Skybird. fare-watch-centrav must NEVER auto-relogin — session keepalive
+# is Skybird-only now. Report RED, take NO auto-repair action on these.
+SUPPRESSED_AUTO_SKILLS = {"fare-watch-centrav"}
+
 
 def _load_policy() -> set:
     """Read ARMED_TIERS from the policy file; fall back to the SAFE-only default.
@@ -261,6 +266,14 @@ def run_all_red(armed_tiers: Optional[set] = None, notify: bool = True) -> dict:
             if sid not in REGISTRY:
                 summary["no_capability"].append(sid)
                 _log(f"{sid}: RED but NO RepairSpec registered — skipping (no-op)")
+                continue
+
+            if sid in SUPPRESSED_AUTO_SKILLS:
+                _log(f"{sid}: SUPPRESSED — Commander 2026-08-07 killed airfare keep-alives "
+                     f"except Skybird; Centrav on-demand only. No auto-repair.")
+                summary["per_skill"].append({
+                    "skill_id": sid, "decision": "SUPPRESSED", "note":
+                    "Centrav on-demand only; no auto-relogin (Commander 2026-08-07)"})
                 continue
 
             # SAFE-only cutover: request apply=True; the runner + armed_tiers gate
