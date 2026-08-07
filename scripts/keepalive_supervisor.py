@@ -567,6 +567,14 @@ def main() -> int:
         except Exception as e:
             log(f"WARN — could not write health file (non-fatal): {e}")
 
+    # Deadman heartbeat — supervisor alive marker (RT-KEEPALIVES deadman local)
+    try:
+        subprocess.run([sys.executable, str(Path(__file__).resolve().parents[1] / "scripts" / "deadman_ping.py"),
+                        "keepalive-supervisor"], timeout=20,
+                       capture_output=True)
+    except Exception:
+        pass
+
     return 1 if overall == RED else 0
 
 
