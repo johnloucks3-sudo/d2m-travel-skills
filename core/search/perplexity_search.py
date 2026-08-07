@@ -70,9 +70,32 @@ def search(query: str, max_results: int = 5, max_tokens_per_page: int = 512) -> 
         "max_tokens_per_page": max_tokens_per_page,
     }
     resp = requests.post(f"{API_BASE}/search", headers=_headers(), json=payload, timeout=30)
+    if resp.status_code == 401:  # direct API key expired/invalid — fall back to Poe Perplexity lane
+        try:
+            import subprocess, sys, os
+            poe = Path(__file__).resolve().parents[2] / "scripts" / "poe_call.py"
+            out = subprocess.run([sys.executable, str(poe), "--model",
+                                  "perplexity-pro-search", "--prompt", query],
+                                 capture_output=True, text=True, timeout=120)
+            text = (out.stdout or "").strip()
+            if text:
+                return [{
+                    "title": "Perplexity via Poe (fallback)",
+                    "url": "https://www.perplexity.ai/search?q=" + _q(query),
+                    "snippet": text[:1200],
+                    "date": "",
+                }]
+        except Exception:
+            pass
+        resp.raise_for_status()
     resp.raise_for_status()
     data = resp.json()
     return data.get("results", [])
+
+
+def _q(s: str) -> str:
+    from urllib.parse import quote
+    return quote(s)
 
 
 def deep_search(query: str) -> dict:

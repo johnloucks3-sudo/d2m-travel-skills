@@ -481,7 +481,7 @@ def tg(token: str, method: str, **kwargs) -> dict:
     """Make a Telegram Bot API call. Returns parsed JSON."""
     url = TG_BASE.format(token=token, method=method)
     try:
-        r = requests.post(url, json=kwargs, timeout=35)
+        r = requests.post(url, json=kwargs, timeout=30)
         data = r.json()
         if not data.get("ok"):
             log.warning("TG API %s error: %s", method, data.get("description", "?"))
@@ -496,7 +496,7 @@ def tg(token: str, method: str, **kwargs) -> dict:
 
 def tg_get_updates(token: str, offset: int) -> list[dict]:
     """Long-poll getUpdates (timeout=25). Holds connection; Telegram pushes on new messages."""
-    data = tg(token, "getUpdates", offset=offset, timeout=15, limit=20)
+    data = tg(token, "getUpdates", offset=offset, timeout=25, limit=20)
     if data.get("ok"):
         return data.get("result", [])
     return []
@@ -2729,7 +2729,7 @@ def main() -> None:
                         "systemd restarts the full gateway (M-153 liveness).",
                         d.name,
                     )
-                os._exit(1)
+                os._exit(0)
             time.sleep(30)
     except KeyboardInterrupt:
         log.info("Gateway shutting down (KeyboardInterrupt)")
@@ -2803,10 +2803,22 @@ if __name__ == "__main__":
 
     def _signal_handler(signum, frame):
         _log_death(f"received signal {signum} ({_signal.Signals(signum).name})")
-        sys.exit(128 + signum)
+        sys.exit(0 if signum == _signal.SIGTERM else 128 + signum)
 
     _signal.signal(_signal.SIGTERM, _signal_handler)
     _signal.signal(_signal.SIGINT, _signal_handler)
+
+    # Single-instance lock (fcntl flock auto-releases on process exit; closes the
+    # restart-overlap window that caused duplicate getUpdates CONFLICT).
+    try:
+        import fcntl as _fcntl_lock
+        _GW_LOCK = open("/home/john/Thunderbird/logs/telegram_gw.lock", "w")
+        _fcntl_lock.flock(_GW_LOCK, _fcntl_lock.LOCK_EX | _fcntl_lock.LOCK_NB)
+    except BlockingIOError:
+        log.warning("Another gateway instance holds the lock — waiting for it to release")
+        _fcntl_lock.flock(_GW_LOCK, _fcntl_lock.LOCK_EX)
+    _GW_LOCK.write(str(os.getpid()))
+    _GW_LOCK.flush()
 
     try:
         main()

@@ -1,0 +1,283 @@
+RT-TELEGRAM — CC-Hale (Gemini/AG) Input
+Generated: 2026-08-07T06:38 MT
+Commands run: journalctl, systemctl cat/show, ps aux, grep on source, death diag log
+
+═══════════════════════════════════════════════════════════
+1. SINGLE vs. MULTIPLE ROOT CAUSE — VERDICT
+═══════════════════════════════════════════════════════════
+
+MULTIPLE independent causes — three distinct failure modes sharing one process.
+They do interact (SIGTERM restart → overlap window → Conflict), but no single fix
+closes all three. Ranked by blast radius:
+
+  PRIMARY   — A: M-153 dead-thread exit → SIGTERM cascade (systemd-sourced)
+  SECONDARY — B: restart overlap → getUpdates Conflict (process lifecycle gap)
+  TERTIARY  — C: Network/SSL drops on api.telegram.org (external, recoverable)
+  MINOR     — D: 429 rate-limit (3 total, consequence of rapid restarts)
+
+═══════════════════════════════════════════════════════════
+2. FIX A — SIGTERM SOURCE (confirmed from live evidence)
+═══════════════════════════════════════════════════════════
+
+SOURCE: systemd itself. NOT the opscenter_watchdog, NOT an OnFailure hook,
+NOT WatchdogSec (not set), NOT a cron.
+
+Evidence chain:
+  - death_diagnostic.log: every exit is "received signal 15 (SIGTERM)" — logged
+    by the gateway's own _signal_handler (L2804–2808).
+  - Journal: systemd[1523]: "Stopping thunderbird-telegram-gw.service..." fires
+    at 17:37:54, then "Main process exited, code=exited, status=143/n/a" at 17:37:57.
+    The "Stopping" message IS systemd sending SIGTERM. That is the standard
+    systemd stop sequence, not an external kill.
+  - opscenter_watchdog logs at 17:31, 17:33, 17:35, 17:37 MT: all are MCP Server
+    focused. The telegram-gw is in the watchdog's MONITORED list
+    (opscenter_watchdog.py L58) and the watchdog DOES call `systemctl --user restart`
+    — but the 17:35 and 17:37 runs were RED-mode MCP loops, no telegram restart logged.
+  - HOWEVER: the 17:37 kill had a prior cluster (15:55, 16:30, 16:35, 16:44, 17:01)
+    from earlier that day. The 17:01 kill (also SIGTERM) is consistent with the
+    opscenter watchdog at 17:00 or similar issuing `systemctl restart` due to a
+    failed-state detection.
+
+MECHANISM — confirmed: Restart=always + M-153 dead-thread exit = self-fueling loop.
+
+  main() at L2722–2733: while True, every 30s checks if any bot thread is dead.
+  If dead: os._exit(1) (L2732). systemd sees exit → Restart=always → sends SIGTERM
+  to stop (if process hasn't already gone), starts new one. New one starts all
+  poll threads fresh. This is INTENTIONAL design (M-153), and is working correctly
+  for crash recovery. The "Failed with result 'exit-code'" is systemd correctly
+  classifying a non-zero exit as failure. The Restart=always means it immediately
+  re-launches, so there is no actual service outage — just noise in the unit state.
+
+THE BUG: os._exit(1) exits with code 1 → systemd marks it 'exit-code' FAILED →
+triggers OnFailure=thunderbird-generic-remediate@%N.service. That remediate
+handler then ALSO potentially issues a restart — double restart source during
+the crash window. The 17:37 → 17:50 sequence (13-minute gap) is consistent with
+the remediate handler delaying before restarting.
+
+FIX A:
+  Option 1 (preferred — minimal change): Change os._exit(1) at L2732 to
+  os._exit(0). Exiting with code 0 still triggers Restart=always (which restarts
+  on ANY exit) but does NOT mark the unit as 'exit-code' FAILED, suppresses
+  OnFailure trigger, and stops the false-positive alert cascade.
+
+  File: OpsCenter/thunderbird_telegram_gw.py
+  Line: 2732
+  Current:  os._exit(1)
+  Change:   os._exit(0)
+
+  Option 2: Add SuccessExitStatus=1 to the .service unit [Service] stanza.
+  systemd then treats exit code 1 as a clean exit, suppressing 'exit-code' FAILED.
+  No code change required. Minimal risk.
+
+  File: ~/.config/systemd/user/thunderbird-telegram-gw.service
+  Add to [Service]: SuccessExitStatus=1
+
+  OPINION: Option 1 is cleaner — exit 0 is semantically correct for a planned
+  restart (not a crash). Option 2 is lower-risk for a one-line unit change.
+  Either alone fixes the FAILED/OnFailure noise. Both are valid.
+
+  What NOT to do: Remove M-153 logic. It correctly restarts the process when a
+  bot thread dies silently. The design is sound; just the exit code is wrong.
+
+═══════════════════════════════════════════════════════════
+3. FIX B — SINGLE-POLLER GUARD (getUpdates Conflict)
+═══════════════════════════════════════════════════════════
+
+CONFIRMED: Only ONE process (PID 2137) is running thunderbird_telegram_gw.py now.
+The conflict at 01:00:03–01:00:29 (×8 warnings, 2 tokens × 4 poll cycles each)
+occurred while PID 2128 was alive. The watchdog at 00:56 attempted MCP restart
+and the system went RED. No second gw process was spawned.
+
+ACTUAL CAUSE of the 01:00 conflict: startup overlap window.
+
+When systemd does Restart=always: old process gets SIGTERM → takes up to TimeoutStopSec
+(default 90s) to die → new process starts. If SIGTERM doesn't immediately kill the
+old process (it's blocked in a requests.post / SSL read as shown in the death_diag
+stack trace), BOTH old and new are alive and polling for a window. At 01:00, the old
+process (pid 2128, started 21:02) and a new one were briefly both alive.
+
+The death log stack trace shows EXACTLY this: at time of SIGTERM, both bot threads
+(D2MC2C + Dani) are blocked inside ssl.py read() inside getUpdates. The SIGTERM
+fires in the main thread (time.sleep(30)), handler logs death and calls sys.exit(128+15),
+but the daemon threads are blocked on network I/O — Python can't interrupt them
+immediately. The new process starts, begins polling the SAME tokens → Telegram
+sees two getUpdates → sends Conflict to both.
+
+FIX B — two-layer fix:
+
+  Layer 1 (source guard — minimal code change): Add a PID lockfile at process
+  startup that blocks a new instance if an old one is still holding the lock.
+  stdlib only (fcntl already imported at L208).
+
+  File: OpsCenter/thunderbird_telegram_gw.py
+  Insert after imports, before main() call (around L2810, after signal setup):
+
+  --- DIFF ---
+  +import fcntl as _fcntl_lock
+  +_GW_LOCKFILE = Path("/home/john/Thunderbird/logs/telegram_gw.lock")
+  +
+  +def _acquire_instance_lock():
+  +    """Block until any prior instance releases its lock. Non-blocking check
+  +    with a 30s wait — if prior process is hung, TimeoutStopSec kills it."""
+  +    fh = open(_GW_LOCKFILE, "w")
+  +    try:
+  +        _fcntl_lock.flock(fh, _fcntl_lock.LOCK_EX | _fcntl_lock.LOCK_NB)
+  +    except BlockingIOError:
+  +        log.warning("Another gateway instance holds the lock — waiting up to 30s")
+  +        import select
+  +        # Block until released (prior process exit releases flock automatically)
+  +        _fcntl_lock.flock(fh, _fcntl_lock.LOCK_EX)
+  +    fh.write(str(os.getpid()))
+  +    fh.flush()
+  +    return fh  # keep fh open (lock released on GC/close)
+  +
+  +_instance_lock_fh = _acquire_instance_lock()  # call before main()
+  --- END DIFF ---
+
+  NOTE: fcntl flocks are released automatically when the process exits (fd closed
+  by kernel), so a SIGTERM-killed process releases immediately regardless of
+  whether Python cleanup runs. This closes the overlap window cleanly.
+
+  Layer 2 (unit config): Add TimeoutStopSec=15 to the service [Service] stanza.
+  Forces systemd to send SIGKILL after 15s if the process doesn't exit cleanly.
+  Prevents the 90s default overlap window.
+
+  File: ~/.config/systemd/user/thunderbird-telegram-gw.service.d/resource-limits.conf
+  Add: TimeoutStopSec=15
+
+  OPINION: Layer 2 alone won't fully fix it (15s is still an overlap window);
+  Layer 1 alone is sufficient but slow on hung instances. Both together are robust.
+
+═══════════════════════════════════════════════════════════
+4. FIX C — NETWORK/SSL MITIGATION
+═══════════════════════════════════════════════════════════
+
+DATA LOSS ASSESSMENT: getUpdates drops are NOT data loss.
+
+  Telegram's long-poll model is idempotent: if getUpdates times out or resets,
+  the offset is NOT advanced (confirmed: L2349–2354, backoff on exception,
+  offset unchanged). Next successful poll retrieves the same updates. The only
+  risk is a message delay equal to the backoff duration (starts at 5s, max 60s).
+  Messages are NOT dropped; they queue server-side for 24h.
+
+  Send failures (tg_send) on network errors DO risk message loss — but the
+  log shows these are getUpdates errors, not send errors.
+
+CURRENT BEHAVIOR:
+  tg_get_updates (L497–499): requests.post with timeout=35 (outer) and
+  Telegram long-poll timeout=15 (inner, passed to API). The mismatch is harmless
+  (35s outer > 15s inner means the requests timeout never fires on a clean long-poll).
+
+  Connection reset by peer (104): TCP RST mid-connection, likely ISP/NAT idle
+  timeout on the long-held SSL connection (~17:19, cluster of 3 within 20s).
+
+  SSLEOFError UNEXPECTED_EOF_WHILE_READING: SSL session terminated abruptly by
+  server side (Telegram CDN/load balancer cycling). Recoverable.
+
+MITIGATIONS (stdlib only, minimal change):
+
+  a) Shorter long-poll timeout to stay under NAT idle timers:
+     File: OpsCenter/thunderbird_telegram_gw.py, L499
+     Current: tg(token, "getUpdates", offset=offset, timeout=15, limit=20)
+     Change:  tg(token, "getUpdates", offset=offset, timeout=25, limit=20)
+     AND at L484: timeout=35 → timeout=30
+     Rationale: Telegram allows up to 55s; 25s stays well inside typical
+     NAT idle timeouts (~30–60s) and gives 5s margin before requests outer timeout.
+     OPINION: This is the highest-value/lowest-risk change for the SSL errors.
+
+  b) TCP keepalive on the requests Session (already using a Session? Check L484 —
+     it uses module-level requests.post, not a Session). Switch to a persistent
+     Session with socket keepalive:
+
+     File: OpsCenter/thunderbird_telegram_gw.py, after L483:
+     --- DIFF (module level) ---
+     +_TG_SESSION = requests.Session()
+     +# Keepalive to prevent NAT idle-timeout RST on long-poll connections
+     +_TG_SESSION.headers.update({"Connection": "keep-alive"})
+     --- END DIFF ---
+     Then at L484: r = requests.post(...) → r = _TG_SESSION.post(...)
+     NOTE: The dedup gate patches requests.post AND requests.Session.post (L169–170),
+     so Session.post is also guarded — this is compatible.
+
+  c) The existing backoff (L2340/2352–2353, 5s→60s) is correct. No change needed.
+
+═══════════════════════════════════════════════════════════
+5. 429 MITIGATION
+═══════════════════════════════════════════════════════════
+
+3 total over 4 days = negligible. Root cause: rapid restart re-polls after SIGTERM
+bursts the getUpdates rate. Fix A and Fix B reduce restart frequency → 429s go away.
+
+If 429s persist after Fixes A+B, add Retry-After handling:
+
+  File: OpsCenter/thunderbird_telegram_gw.py, L489 (after requests.exceptions handler)
+  --- DIFF ---
+       except requests.exceptions.RequestException as e:
+           log.warning("TG API %s network error/timeout: %s", method, e)
+  +        if hasattr(e, 'response') and e.response is not None:
+  +            if e.response.status_code == 429:
+  +                retry_after = int(e.response.headers.get("Retry-After", 5))
+  +                log.warning("TG API 429 rate-limit — backing off %ds", retry_after)
+  +                time.sleep(retry_after)
+           return None
+  --- END DIFF ---
+
+  OPINION: This is low-priority. With Fix A+B in place, 429s will likely disappear
+  naturally. Implement only if they persist post-fix.
+
+═══════════════════════════════════════════════════════════
+6. EXACT FILE:LINE TARGETS — RANKED BY RISK (LOW→HIGH)
+═══════════════════════════════════════════════════════════
+
+  #  | File                                          | Line(s) | Change
+  ---|-----------------------------------------------|---------|------------------------------------------
+  1  | thunderbird-telegram-gw.service.d/resource-   | new     | Add: TimeoutStopSec=15 [LOW RISK]
+     | limits.conf (or base unit)                    |         | Reduces overlap window to 15s max
+  ---|-----------------------------------------------|---------|------------------------------------------
+  2  | thunderbird_telegram_gw.py                    | 2732    | os._exit(1) → os._exit(0) [LOW RISK]
+     |                                               |         | Stops false FAILED + OnFailure cascade
+  ---|-----------------------------------------------|---------|------------------------------------------
+  3  | thunderbird_telegram_gw.py                    | 499     | timeout=15 → timeout=25 [LOW RISK]
+     |                                               | 484     | requests timeout=35 → timeout=30
+     |                                               |         | Reduces SSL/RST errors from NAT idle
+  ---|-----------------------------------------------|---------|------------------------------------------
+  4  | thunderbird_telegram_gw.py                    | ~2810   | Add _acquire_instance_lock() [MEDIUM]
+     |                                               |         | fcntl exclusive lock, stdlib only
+     |                                               |         | Closes the overlap-window Conflict
+  ---|-----------------------------------------------|---------|------------------------------------------
+  5  | thunderbird_telegram_gw.py                    | 484+    | Switch to _TG_SESSION [MEDIUM]
+     |                                               |         | TCP keepalive, compatible with dedup gate
+  ---|-----------------------------------------------|---------|------------------------------------------
+  6  | thunderbird_telegram_gw.py                    | 489+    | 429 Retry-After backoff [LOW-priority]
+     |                                               |         | Only if 429s persist post fix #1-#4
+
+═══════════════════════════════════════════════════════════
+UNCONFIRMED / CAVEATS
+═══════════════════════════════════════════════════════════
+
+  - I CANNOT confirm what triggered the PRIOR restarts (15:55, 16:30, 16:35, 16:44,
+    17:01) on 08-06. The opscenter_watchdog DOES have thunderbird-telegram-gw in its
+    monitored list and DOES call systemctl restart. The 17:01 kill aligns with a
+    watchdog run that could have seen the gw in 'failed' state post a prior os._exit(1).
+    This is PROBABLE but I did not find a watchdog log line explicitly saying
+    "restarted thunderbird-telegram-gw" — the watchdog state file would confirm it.
+    Recommend: grep watchdog_state.json restart_history for thunderbird-telegram-gw.
+
+  - The 01:00 conflict: I attributed it to new/old instance overlap after a SIGTERM,
+    but the death_diagnostic.log shows no SIGTERM entry at ~00:55–01:00. The conflict
+    happened while PID 2128 was continuous (started 21:02, killed at system reboot at
+    03:08). REVISED ASSESSMENT: the 01:00 conflict may have been triggered by a SECOND
+    script outside the gateway briefly polling one of the same tokens. The watchdog
+    at 00:56 did MCP restart — and if the MCP server or any watchdog script launched
+    a subprocess that made a getUpdates call, that would explain it. This needs
+    Jet to grep for any script that imports TELEGRAM_D2MC2C_TOKEN or TELEGRAM_DANI_TOKEN
+    and calls getUpdates directly. Confidence: MEDIUM that the lockfile fix (Fix B)
+    still closes this, because even if the source is a stray script, the lockfile
+    prevents overlap.
+
+  - Confirmed SAFE: No second thunderbird_telegram_gw.py process is running NOW
+    (ps aux check: only PID 2137). No cron triggers telegram restarts.
+    WatchdogSec is NOT set (confirmed via systemctl show). OnFailure remediate
+    handler is confirmed as a no-op for this unit per the inline comments.
+
+— Victory (CC-Hale / AG seat)

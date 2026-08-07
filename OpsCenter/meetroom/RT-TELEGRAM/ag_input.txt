@@ -1,0 +1,30 @@
+# RT-TELEGRAM — AG Analysis & Fixes
+
+**1. Root Cause Analysis**
+- **Multiple compounding causes.** Network flakiness (SSL/EOF/timeouts) causes the long-poll loop to hang or throw exceptions. A watchdog or systemd timer likely triggers a restart or duplicate spawn (causing the SIGTERM and 429s/CONFLICTs). 
+
+**2. Termination (SIGTERM 143) / Exit-Code**
+- **Source:** 143 is standard `SIGTERM` (128 + 15). systemd sends this on stop/restart, or a watchdog kills it. Python doesn't trap it by default, exiting 143.
+- **Fix (systemd):** Add `SuccessExitStatus=143` to the `[Service]` section of the systemd unit. This suppresses the false FAILED state.
+- **Fix (Python):** Bind `signal.signal(signal.SIGTERM, ...)` to gracefully close the session and exit 0.
+
+**3. Duplicate getUpdates CONFLICT**
+- **Source:** Overlapping instances (zombie from a hung network thread, or cron spawning over systemd).
+- **Fix:** Systemd should guarantee single-process execution, but to be bulletproof, implement a POSIX lockfile using `fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)` at gateway startup. Exit immediately if the lock is held.
+
+**4. Network/SSL Drops**
+- **Impact:** Harmless churn for `getUpdates` (Telegram resends unacknowledged updates via `offset`). Data loss risk only applies to outbound `sendMessage` calls.
+- **Mitigations:** 
+  - Wrap `getUpdates` in a try/except catching `requests.exceptions.RequestException`, `urllib3.exceptions.ProtocolError`, and `ssl.SSLEOFError`.
+  - Sleep 2-5 seconds on exception, then continue loop.
+  - Set explicit timeouts on the requests client (e.g., `timeout=(5, 45)` for a 35s Telegram long-poll).
+
+**5. 429 Mitigation**
+- **Fix:** Inspect the 429 response JSON (`parameters.retry_after`) or HTTP `Retry-After` header. `time.sleep(retry_after + 1)` and retry the request exactly once before dropping/failing.
+
+**6. Fix List (Ranked by Risk)**
+- 1. **(Lowest Risk)** Systemd: Add `SuccessExitStatus=143` to stop false-positive failures.
+- 2. **(Low Risk)** Python Network loop: Add broad try/except around `getUpdates` to swallow SSL/Timeout errors and sleep/continue instead of crashing.
+- 3. **(Medium Risk)** Python Startup: Add `fcntl.flock` to guarantee true single-instance lock.
+- 4. **(Medium Risk)** Python API: Implement generic 429 backoff decorator or wrapper for outbound messages.
+- 5. **(Medium Risk)** Python Signals: Catch SIGTERM to cleanly shut down.
