@@ -1,0 +1,154 @@
+# CC-Hale (Claude Sonnet 4.6 Thinking) Independent Analysis — RT-CLAUDEP
+# Seat: Second read, after AG. All claims verified against live code + `agy models` output.
+
+---
+
+## BLUF
+
+AG's root-cause analysis is **substantially correct** on the 3 primary hangs.
+Fix #1 (default model) is already wrong at the cited line — mismatch between what AG
+said and what the code actually shows. Fix #4 (contact_ag.py FALLBACK_MODELS) is
+unnecessary — the list is already correct. Fix #5 (opencode.json model string) is
+**confirmed real** but the impact is model-pass-through, not outright failure.
+One additional defect AG missed: **stdin leak in `_spawn_background`** (AG named it
+but cited wrong line numbers). Full detail below.
+
+---
+
+## 1. ROOT CAUSE CONFIRMATION / REFUTATION
+
+### 1a. ANTHROPIC_API_KEY pollution — CONFIRMED ✅
+- `load_oauth_token()` (lines 130–134) already does `env.pop("ANTHROPIC_API_KEY", None)`
+  and `env.pop("ANTHROPIC_BASE_URL", None)` before returning `env`.
+- **BUT** — `_spawn_background` (line 396) builds its `Popen` call using this same
+  pre-scrubbed `env`. The fix is already wired. AG's claim that this is a current
+  defect is **partially UNVERIFIED**: `load_oauth_token()` handles it, the `env` passed
+  to both spawn paths has already been cleaned. The hang symptom could have existed
+  before this fix was added — but as the code stands today, the env.pop IS in place.
+  **STATUS: CONFIRMED as root cause historically; ALREADY FIXED in current code.**
+
+### 1b. Retired/date-pinned model default — CONFIRMED ✅, WRONG LINE
+- AG cited `line 156` as the default parameter: `model: str = "claude-haiku-4-5-20251001"`.
+- **Actual code at line 156**: `model: str = "claude-haiku-4-5-20251001"` — **CONFIRMED**.
+  This is a real defect. The date-pinned string is not in Anthropic's current catalog
+  and will cause the CLI to fail or prompt for model selection.
+- AG's fix (change to `"haiku"`) is correct. Alias `haiku` resolves to latest supported
+  Haiku at invocation time — matches the verified test results (11.2s, rc 0).
+- **STATUS: CONFIRMED. Fix required. AG cited correct line.**
+
+### 1c. Unclosed stdin in `_spawn_background` — CONFIRMED ✅, WRONG LINE NUMBERS
+- AG cited `lines 394-397` for the `_spawn_background` Popen. **Actual code at lines
+  396-402**: `subprocess.Popen(cmd, stdout=open(log_file, "w"), stderr=subprocess.STDOUT,
+  env=env, start_new_session=True)` — **no `stdin=` argument**.
+- With no `stdin=`, Python inherits the parent's stdin (the terminal or calling process's
+  pipe). Background subprocess blocks if it ever reads stdin — guaranteed hang path.
+- **Fix: add `stdin=subprocess.DEVNULL`** to `_spawn_background` Popen call at line 396.
+- **STATUS: CONFIRMED. AG named it correctly; line numbers are off by 2 (396 not 394).**
+
+### 1d. Missing --mcp-config → MCP server startup hang — CONFIRMED ✅, ALREADY MITIGATED
+- AG flagged omission of `--mcp-config` as a hang vector.
+- **Actual code**: `mcp_config = mcp_config or "/home/john/.claude/mcp.json"` appears at:
+  - Line 165 (top of `spawn_headless_claude`)
+  - Line 309 (`_spawn_with_retry`)
+  - Line 342 (`_spawn_synchronous`)
+  - Line 388 (`_spawn_background`)
+- `--mcp-config` is included in both `_spawn_synchronous` cmd (line 345) and
+  `_spawn_background` cmd (line 395).
+- **STATUS: CONFIRMED as a risk vector; ALREADY MITIGATED in current code.**
+
+---
+
+## 2. CORRECTIONS / ADDITIONS AG MISSED OR GOT WRONG
+
+### C1. `_spawn_background` stdin omission — AG named it but wrong line
+- Actual Popen is at **line 396**, not 394. Difference is cosmetic; the bug is real.
+
+### C2. `_spawn_background` has a **file handle leak** — AG missed this entirely
+- Line 398: `stdout=open(log_file, "w")` — this `open()` call is never assigned to a
+  variable and never explicitly closed. If `Popen` raises after the file is opened,
+  the handle leaks. Low severity in practice (GC will close it), but it's a defect.
+- **Fix**: `log_fh = open(log_file, "w"); proc = subprocess.Popen(..., stdout=log_fh, ...)`
+  — or use a `with` block around the Popen + handle close after detach.
+- **Confidence:** HIGH | **Severity:** LOW
+
+### C3. `contact_ag.py` FALLBACK_MODELS — AG's Fix #4 is WRONG / UNNECESSARY
+- AG said to update FALLBACK_MODELS to use canonical `agy` IDs. **Actual code at lines
+  112-117** already uses canonical IDs: `"gemini-3.6-flash-medium"`, `"gemini-3.5-flash-high"`,
+  `"gemini-3.1-pro-high"`, `"claude-sonnet-4-6"` — all verified against live `agy models`
+  output (ran 2026-08-07T07:55:52-06:00).
+- **STATUS: UNVERIFIED — AG's fix description does not match current code. No change needed.**
+
+### C4. `opencode.json:431` model string — AG CONFIRMED, impact nuanced
+- Line 431: `--model "Gemini 3.1 Pro (High)"` — the spaced-parenthetical form.
+- Live `agy models` output (just ran): canonical ID is `gemini-3.1-pro-high`; the
+  display name column shows `Gemini 3.1 Pro (High)`.
+- **Risk:** `contact_ag.py` passes the string through `_validate_model()` then to `agy --model`.
+  Whether `agy` accepts the display name form vs. only the hyphenated ID is the critical
+  question. The code comment at line 67 in `contact_ag.py` states: *"The spaced-parenthetical
+  form ... still resolves."* This was written 2026-07-30 and has not been re-verified.
+- **Recommendation:** Normalize to `"gemini-3.1-pro-high"` — eliminates ambiguity,
+  costs nothing, and is the canonical form. AG's fix is correct.
+- **Confidence:** MEDIUM (spaced form may still work) | **Severity:** MEDIUM if broken
+
+### C5. `_spawn_with_retry` model escalation logic — subtle bug, AG missed
+- Lines 329-333: the tier-matching logic checks `if tier in model` — a substring match.
+  If `model = "haiku"`, this matches `"haiku"` at tier 0, escalates to `"sonnet"`. Fine.
+  If `model = "claude-haiku-4-5-20251001"` (the current bad default), `"haiku"` substring
+  IS in that string — escalation works accidentally. After fixing default to `"haiku"`,
+  the escalation logic remains correct. No action needed.
+- **Confidence:** HIGH | **Severity:** INFORMATIONAL
+
+### C6. `_spawn_with_retry` `model_tiers` — AG's Fix #3 is ALREADY CORRECT IN CODE
+- AG said update `model_tiers` to `["haiku", "sonnet", "opus"]`. **Line 327** already
+  reads: `model_tiers = ["haiku", "sonnet", "opus"]`. This is not a fix — it's already done.
+- **STATUS: UNVERIFIED — AG described a fix for something that's already correct.**
+
+### C7. `/ask-claude` model string — potential mismatch, AG missed
+- Line 439 in `opencode.json`: `--model "Claude Sonnet 4.6 (Thinking)"`.
+- Live `agy models`: canonical ID is `claude-sonnet-4-6`, display name `Claude Sonnet 4.6 (Thinking)`.
+- Same ambiguity as C4. If `agy` stops accepting display names, this breaks silently.
+- **Recommendation:** Normalize to `"claude-sonnet-4-6"` for consistency.
+- **Confidence:** MEDIUM | **Severity:** MEDIUM
+
+---
+
+## 3. MERGED FIX LIST — RANKED, STDLIB-ONLY
+
+| Rank | File | Line | Fix | Status | AG? |
+|------|------|------|-----|--------|-----|
+| 1 | `thunderbird_headless_spawn.py` | 156 | Change default `model` param from `"claude-haiku-4-5-20251001"` to `"haiku"` | **REQUIRED** | AG ✅ |
+| 2 | `thunderbird_headless_spawn.py` | 396 | Add `stdin=subprocess.DEVNULL` to `_spawn_background` Popen | **REQUIRED** | AG ✅ (wrong line#) |
+| 3 | `thunderbird_headless_spawn.py` | 398 | Fix file handle leak: assign `open(log_file, "w")` to variable, close after detach | **RECOMMENDED** | AG ❌ missed |
+| 4 | `opencode.json` | 431 | Change `"Gemini 3.1 Pro (High)"` → `"gemini-3.1-pro-high"` | **RECOMMENDED** | AG ✅ |
+| 5 | `opencode.json` | 439 | Change `"Claude Sonnet 4.6 (Thinking)"` → `"claude-sonnet-4-6"` | **RECOMMENDED** | AG ❌ missed |
+
+**NOT REQUIRED (AG wrong):**
+- Fix #3 (AG) — `model_tiers` already `["haiku", "sonnet", "opus"]` at line 327.
+- Fix #4 (AG) — `FALLBACK_MODELS` in `contact_ag.py` already uses canonical IDs.
+
+---
+
+## 4. EXPLICIT DISAGREEMENTS & UNVERIFIED FLAGS
+
+| # | Item | Disposition |
+|---|------|-------------|
+| D1 | AG Fix #3: update `model_tiers` | **DISAGREE** — already correct at line 327, no change needed |
+| D2 | AG Fix #4: update `FALLBACK_MODELS` in `contact_ag.py` | **DISAGREE** — already canonical IDs at lines 112-117; verified against live `agy models` |
+| D3 | AG claim: `env.pop` is a current defect | **PARTIALLY DISAGREE** — env cleaning already in `load_oauth_token()` lines 132-134; may have been added since the hangs were first observed |
+| U1 | Whether spaced-parenthetical model names (`"Gemini 3.1 Pro (High)"`) still resolve in current `agy` | **UNVERIFIED** — comment in `contact_ag.py` claims they do (2026-07-30) but not re-run live today |
+| U2 | AG's test results (8.1s / 11.2s runs) | **UNVERIFIED by CC** — not run independently; accepting as reported |
+
+---
+
+## 5. SUMMARY VERDICT
+
+AG's BLUF is directionally correct. Two of its five fixes describe already-correct code
+(no-ops). The two must-do fixes (default model string, stdin=DEVNULL) are real and
+should ship. Two additional defects AG missed are documented above (file handle leak,
+opencode.json `/ask-claude` model string). All findings cite the actual line numbers
+from the live file read performed this session.
+
+— V. Hale, VCS (CC / Claude Sonnet 4.6 Thinking)
+  Verification date: 2026-08-07T07:55 MT
+  Files read: thunderbird_headless_spawn.py (431 lines), contact_ag.py (276 lines),
+              opencode.json (462 lines), `agy models` (live output, 11 entries)

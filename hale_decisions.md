@@ -349197,3 +349197,7914 @@ Scanned: 45 proposals | Active: 45 | Closed: 0
 **Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
 **Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
 <!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0e45f4 tier=trivial session_id=none opened_at=2026-08-07T13:04:44.370590+00:00 -->
+**Plan Opened:** PLN-0e45f4
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0e45f4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:04:44.376060+00:00 -->
+**Plan Closed:** PLN-0e45f4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ac2c90 tier=trivial session_id=none opened_at=2026-08-07T13:04:54.924300+00:00 -->
+**Plan Opened:** PLN-ac2c90
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ac2c90 verdict=PASS quality_tier=none closed_at=2026-08-07T13:04:54.929008+00:00 -->
+**Plan Closed:** PLN-ac2c90
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bb3fae tier=trivial session_id=none opened_at=2026-08-07T13:05:05.660813+00:00 -->
+**Plan Opened:** PLN-bb3fae
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bb3fae verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:05.666382+00:00 -->
+**Plan Closed:** PLN-bb3fae
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ce705 tier=trivial session_id=none opened_at=2026-08-07T13:05:15.824629+00:00 -->
+**Plan Opened:** PLN-4ce705
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ce705 verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:15.829508+00:00 -->
+**Plan Closed:** PLN-4ce705
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c53e0d tier=trivial session_id=none opened_at=2026-08-07T13:05:26.270707+00:00 -->
+**Plan Opened:** PLN-c53e0d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c53e0d verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:26.276646+00:00 -->
+**Plan Closed:** PLN-c53e0d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bb3593 tier=trivial session_id=none opened_at=2026-08-07T13:05:42.645213+00:00 -->
+**Plan Opened:** PLN-bb3593
+**Task:** generic long-tail remediation: thunderbird-mcp -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bb3593 verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:42.650115+00:00 -->
+**Plan Closed:** PLN-bb3593
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** thunderbird-mcp verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f2ec1a tier=trivial session_id=none opened_at=2026-08-07T13:05:47.886363+00:00 -->
+**Plan Opened:** PLN-f2ec1a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f2ec1a verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:47.892310+00:00 -->
+**Plan Closed:** PLN-f2ec1a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1e5620 tier=trivial session_id=none opened_at=2026-08-07T13:05:50.020965+00:00 -->
+**Plan Opened:** PLN-1e5620
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e5620 verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:50.025346+00:00 -->
+**Plan Closed:** PLN-1e5620
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c70a51 tier=trivial session_id=none opened_at=2026-08-07T13:05:58.332761+00:00 -->
+**Plan Opened:** PLN-c70a51
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c70a51 verdict=PASS quality_tier=none closed_at=2026-08-07T13:05:58.337478+00:00 -->
+**Plan Closed:** PLN-c70a51
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-57a98e tier=trivial session_id=none opened_at=2026-08-07T13:06:08.705658+00:00 -->
+**Plan Opened:** PLN-57a98e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-57a98e verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:08.710400+00:00 -->
+**Plan Closed:** PLN-57a98e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1f3470 tier=trivial session_id=none opened_at=2026-08-07T13:06:19.134975+00:00 -->
+**Plan Opened:** PLN-1f3470
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1f3470 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:19.140400+00:00 -->
+**Plan Closed:** PLN-1f3470
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fb3cff tier=trivial session_id=none opened_at=2026-08-07T13:06:20.990598+00:00 -->
+**Plan Opened:** PLN-fb3cff
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_129831.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fb3cff verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:20.996142+00:00 -->
+**Plan Closed:** PLN-fb3cff
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_129831.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f7e12a tier=trivial session_id=none opened_at=2026-08-07T13:06:21.254152+00:00 -->
+**Plan Opened:** PLN-f7e12a
+**Task:** generic long-tail remediation: claude-process-watch -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f7e12a verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:21.258589+00:00 -->
+**Plan Closed:** PLN-f7e12a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d571d9 tier=trivial session_id=none opened_at=2026-08-07T13:06:45.107144+00:00 -->
+**Plan Opened:** PLN-d571d9
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d571d9 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:45.120082+00:00 -->
+**Plan Closed:** PLN-d571d9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9a09a1 tier=trivial session_id=none opened_at=2026-08-07T13:06:50.937928+00:00 -->
+**Plan Opened:** PLN-9a09a1
+**Task:** generic long-tail remediation: d2m-mcp -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9a09a1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:50.948367+00:00 -->
+**Plan Closed:** PLN-9a09a1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** d2m-mcp verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-08d86a tier=trivial session_id=none opened_at=2026-08-07T13:06:51.434530+00:00 -->
+**Plan Opened:** PLN-08d86a
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-08d86a verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:51.443830+00:00 -->
+**Plan Closed:** PLN-08d86a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-634476 tier=trivial session_id=none opened_at=2026-08-07T13:06:51.616820+00:00 -->
+**Plan Opened:** PLN-634476
+**Task:** generic long-tail remediation: loucks-silvernova-daily-recheck -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-silvernova-daily-recheck verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-634476 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:51.627163+00:00 -->
+**Plan Closed:** PLN-634476
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** loucks-silvernova-daily-recheck verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7fa3c2 tier=trivial session_id=none opened_at=2026-08-07T13:06:55.566475+00:00 -->
+**Plan Opened:** PLN-7fa3c2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7fa3c2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:55.576741+00:00 -->
+**Plan Closed:** PLN-7fa3c2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-71c185 tier=trivial session_id=none opened_at=2026-08-07T13:06:56.906014+00:00 -->
+**Plan Opened:** PLN-71c185
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-71c185 verdict=PASS quality_tier=none closed_at=2026-08-07T13:06:56.914463+00:00 -->
+**Plan Closed:** PLN-71c185
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-90fd64 tier=trivial session_id=none opened_at=2026-08-07T13:07:05.917097+00:00 -->
+**Plan Opened:** PLN-90fd64
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-90fd64 verdict=PASS quality_tier=none closed_at=2026-08-07T13:07:05.926019+00:00 -->
+**Plan Closed:** PLN-90fd64
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8711d2 tier=trivial session_id=none opened_at=2026-08-07T13:07:16.384697+00:00 -->
+**Plan Opened:** PLN-8711d2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8711d2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:07:16.394265+00:00 -->
+**Plan Closed:** PLN-8711d2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:07Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-e7c6e0 tier=trivial session_id=none opened_at=2026-08-07T13:07:55.497650+00:00 -->
+**Plan Opened:** PLN-e7c6e0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e7c6e0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:07:55.508068+00:00 -->
+**Plan Closed:** PLN-e7c6e0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c54213 tier=trivial session_id=none opened_at=2026-08-07T13:08:05.971795+00:00 -->
+**Plan Opened:** PLN-c54213
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c54213 verdict=PASS quality_tier=none closed_at=2026-08-07T13:08:05.983345+00:00 -->
+**Plan Closed:** PLN-c54213
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-48c0c5 tier=trivial session_id=none opened_at=2026-08-07T13:08:45.545284+00:00 -->
+**Plan Opened:** PLN-48c0c5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-48c0c5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:08:45.560379+00:00 -->
+**Plan Closed:** PLN-48c0c5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ae4c99 tier=trivial session_id=none opened_at=2026-08-07T13:08:56.136413+00:00 -->
+**Plan Opened:** PLN-ae4c99
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ae4c99 verdict=PASS quality_tier=none closed_at=2026-08-07T13:08:56.144536+00:00 -->
+**Plan Closed:** PLN-ae4c99
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-75c7c4 tier=trivial session_id=none opened_at=2026-08-07T13:08:57.129656+00:00 -->
+**Plan Opened:** PLN-75c7c4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-75c7c4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:08:57.151273+00:00 -->
+**Plan Closed:** PLN-75c7c4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dbd3ff tier=trivial session_id=none opened_at=2026-08-07T13:09:28.526504+00:00 -->
+**Plan Opened:** PLN-dbd3ff
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dbd3ff verdict=PASS quality_tier=none closed_at=2026-08-07T13:09:28.538783+00:00 -->
+**Plan Closed:** PLN-dbd3ff
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-094867 tier=trivial session_id=none opened_at=2026-08-07T13:09:39.770105+00:00 -->
+**Plan Opened:** PLN-094867
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-094867 verdict=PASS quality_tier=none closed_at=2026-08-07T13:09:39.781787+00:00 -->
+**Plan Closed:** PLN-094867
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cb1fb5 tier=trivial session_id=none opened_at=2026-08-07T13:09:51.422351+00:00 -->
+**Plan Opened:** PLN-cb1fb5
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cb1fb5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:09:51.432022+00:00 -->
+**Plan Closed:** PLN-cb1fb5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ca11c tier=trivial session_id=none opened_at=2026-08-07T13:10:11.239775+00:00 -->
+**Plan Opened:** PLN-1ca11c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ca11c verdict=PASS quality_tier=none closed_at=2026-08-07T13:10:11.257711+00:00 -->
+**Plan Closed:** PLN-1ca11c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9982d0 tier=trivial session_id=none opened_at=2026-08-07T13:10:21.506860+00:00 -->
+**Plan Opened:** PLN-9982d0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9982d0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:10:21.525238+00:00 -->
+**Plan Closed:** PLN-9982d0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3fb49d tier=trivial session_id=none opened_at=2026-08-07T13:10:49.886479+00:00 -->
+**Plan Opened:** PLN-3fb49d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3fb49d verdict=PASS quality_tier=none closed_at=2026-08-07T13:10:49.896680+00:00 -->
+**Plan Closed:** PLN-3fb49d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0ef812 tier=trivial session_id=none opened_at=2026-08-07T13:10:55.772683+00:00 -->
+**Plan Opened:** PLN-0ef812
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0ef812 verdict=PASS quality_tier=none closed_at=2026-08-07T13:10:55.789000+00:00 -->
+**Plan Closed:** PLN-0ef812
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-908509 tier=trivial session_id=none opened_at=2026-08-07T13:11:00.288714+00:00 -->
+**Plan Opened:** PLN-908509
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-908509 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:00.307735+00:00 -->
+**Plan Closed:** PLN-908509
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-260b86 tier=trivial session_id=none opened_at=2026-08-07T13:11:10.671304+00:00 -->
+**Plan Opened:** PLN-260b86
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-260b86 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:10.684594+00:00 -->
+**Plan Closed:** PLN-260b86
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ae7638 tier=trivial session_id=none opened_at=2026-08-07T13:11:21.079454+00:00 -->
+**Plan Opened:** PLN-ae7638
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ae7638 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:21.089434+00:00 -->
+**Plan Closed:** PLN-ae7638
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dccbe7 tier=trivial session_id=none opened_at=2026-08-07T13:11:31.563335+00:00 -->
+**Plan Opened:** PLN-dccbe7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dccbe7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:31.577695+00:00 -->
+**Plan Closed:** PLN-dccbe7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d3c0c5 tier=trivial session_id=none opened_at=2026-08-07T13:11:41.920397+00:00 -->
+**Plan Opened:** PLN-d3c0c5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d3c0c5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:41.931672+00:00 -->
+**Plan Closed:** PLN-d3c0c5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d500ea tier=trivial session_id=none opened_at=2026-08-07T13:11:46.584168+00:00 -->
+**Plan Opened:** PLN-d500ea
+**Task:** generic long-tail remediation: loucks-silvernova-daily-recheck -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** loucks-silvernova-daily-recheck verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d500ea verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:46.596667+00:00 -->
+**Plan Closed:** PLN-d500ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** loucks-silvernova-daily-recheck verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b46ca8 tier=trivial session_id=none opened_at=2026-08-07T13:11:52.337512+00:00 -->
+**Plan Opened:** PLN-b46ca8
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b46ca8 verdict=PASS quality_tier=none closed_at=2026-08-07T13:11:52.350184+00:00 -->
+**Plan Closed:** PLN-b46ca8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-35c671 tier=trivial session_id=none opened_at=2026-08-07T13:12:02.669858+00:00 -->
+**Plan Opened:** PLN-35c671
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-35c671 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:02.684579+00:00 -->
+**Plan Closed:** PLN-35c671
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a61bec tier=trivial session_id=none opened_at=2026-08-07T13:12:13.016847+00:00 -->
+**Plan Opened:** PLN-a61bec
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a61bec verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:13.036897+00:00 -->
+**Plan Closed:** PLN-a61bec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f3a235 tier=trivial session_id=none opened_at=2026-08-07T13:12:21.158482+00:00 -->
+**Plan Opened:** PLN-f3a235
+**Task:** crash captured: ensure_agent_sdk (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/ensure_agent_sdk_140312.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f3a235 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:21.170431+00:00 -->
+**Plan Closed:** PLN-f3a235
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/ensure_agent_sdk_140312.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ee71da tier=trivial session_id=none opened_at=2026-08-07T13:12:23.370775+00:00 -->
+**Plan Opened:** PLN-ee71da
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ee71da verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:23.378950+00:00 -->
+**Plan Closed:** PLN-ee71da
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d652b3 tier=trivial session_id=none opened_at=2026-08-07T13:12:33.763832+00:00 -->
+**Plan Opened:** PLN-d652b3
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d652b3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:33.772611+00:00 -->
+**Plan Closed:** PLN-d652b3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ba0723 tier=trivial session_id=none opened_at=2026-08-07T13:12:44.237287+00:00 -->
+**Plan Opened:** PLN-ba0723
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ba0723 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:44.249156+00:00 -->
+**Plan Closed:** PLN-ba0723
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-397447 tier=trivial session_id=none opened_at=2026-08-07T13:12:47.050461+00:00 -->
+**Plan Opened:** PLN-397447
+**Task:** Loucks Silver Nova daily flight-routing recheck
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-397447 verdict=FAIL quality_tier=none closed_at=2026-08-07T13:12:47.062940+00:00 -->
+**Plan Closed:** PLN-397447
+**Verdict:** FAIL
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** leg den-muc-vce: price captured; leg ath-ist-den: price captured; leg ath-muc-den: price captured; leg den-vce-direct: price captured
+**Criteria unverified:** none
+**Notes:** {"den-muc-vce": null, "ath-ist-den": null, "ath-muc-den": null, "den-vce-direct": null}
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aca6f9 tier=trivial session_id=none opened_at=2026-08-07T13:12:51.410570+00:00 -->
+**Plan Opened:** PLN-aca6f9
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aca6f9 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:51.417920+00:00 -->
+**Plan Closed:** PLN-aca6f9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-782ba2 tier=trivial session_id=none opened_at=2026-08-07T13:12:54.548272+00:00 -->
+**Plan Opened:** PLN-782ba2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-782ba2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:54.556008+00:00 -->
+**Plan Closed:** PLN-782ba2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c1b770 tier=trivial session_id=none opened_at=2026-08-07T13:12:55.109520+00:00 -->
+**Plan Opened:** PLN-c1b770
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c1b770 verdict=PASS quality_tier=none closed_at=2026-08-07T13:12:55.116526+00:00 -->
+**Plan Closed:** PLN-c1b770
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-840e9b tier=trivial session_id=none opened_at=2026-08-07T13:13:04.886131+00:00 -->
+**Plan Opened:** PLN-840e9b
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-840e9b verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:04.893725+00:00 -->
+**Plan Closed:** PLN-840e9b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-998867 tier=trivial session_id=none opened_at=2026-08-07T13:13:15.241781+00:00 -->
+**Plan Opened:** PLN-998867
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-998867 verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:15.251105+00:00 -->
+**Plan Closed:** PLN-998867
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-187a75 tier=trivial session_id=none opened_at=2026-08-07T13:13:25.560135+00:00 -->
+**Plan Opened:** PLN-187a75
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-187a75 verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:25.570277+00:00 -->
+**Plan Closed:** PLN-187a75
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:13Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-9dbac2 tier=trivial session_id=none opened_at=2026-08-07T13:13:35.912704+00:00 -->
+**Plan Opened:** PLN-9dbac2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9dbac2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:35.923154+00:00 -->
+**Plan Closed:** PLN-9dbac2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-847cfa tier=trivial session_id=none opened_at=2026-08-07T13:13:46.236717+00:00 -->
+**Plan Opened:** PLN-847cfa
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-847cfa verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:46.247045+00:00 -->
+**Plan Closed:** PLN-847cfa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e7bd5 tier=trivial session_id=none opened_at=2026-08-07T13:13:56.620056+00:00 -->
+**Plan Opened:** PLN-5e7bd5
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e7bd5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:13:56.630090+00:00 -->
+**Plan Closed:** PLN-5e7bd5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c268d tier=trivial session_id=none opened_at=2026-08-07T13:14:07.057132+00:00 -->
+**Plan Opened:** PLN-6c268d
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c268d verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:07.064223+00:00 -->
+**Plan Closed:** PLN-6c268d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6b1876 tier=trivial session_id=none opened_at=2026-08-07T13:14:17.408616+00:00 -->
+**Plan Opened:** PLN-6b1876
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6b1876 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:17.416680+00:00 -->
+**Plan Closed:** PLN-6b1876
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b299e3 tier=trivial session_id=none opened_at=2026-08-07T13:14:27.838938+00:00 -->
+**Plan Opened:** PLN-b299e3
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b299e3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:27.855879+00:00 -->
+**Plan Closed:** PLN-b299e3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d79af0 tier=trivial session_id=none opened_at=2026-08-07T13:14:38.182310+00:00 -->
+**Plan Opened:** PLN-d79af0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d79af0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:38.190184+00:00 -->
+**Plan Closed:** PLN-d79af0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c1306 tier=trivial session_id=none opened_at=2026-08-07T13:14:48.594568+00:00 -->
+**Plan Opened:** PLN-6c1306
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c1306 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:48.607875+00:00 -->
+**Plan Closed:** PLN-6c1306
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:14Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-7c7198 tier=trivial session_id=none opened_at=2026-08-07T13:14:55.373400+00:00 -->
+**Plan Opened:** PLN-7c7198
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7c7198 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:55.381260+00:00 -->
+**Plan Closed:** PLN-7c7198
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d33525 tier=trivial session_id=none opened_at=2026-08-07T13:14:58.895895+00:00 -->
+**Plan Opened:** PLN-d33525
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d33525 verdict=PASS quality_tier=none closed_at=2026-08-07T13:14:58.903902+00:00 -->
+**Plan Closed:** PLN-d33525
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-203e32 tier=trivial session_id=none opened_at=2026-08-07T13:15:09.343355+00:00 -->
+**Plan Opened:** PLN-203e32
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-203e32 verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:09.355895+00:00 -->
+**Plan Closed:** PLN-203e32
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-75e926 tier=trivial session_id=none opened_at=2026-08-07T13:15:19.896692+00:00 -->
+**Plan Opened:** PLN-75e926
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-75e926 verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:19.903896+00:00 -->
+**Plan Closed:** PLN-75e926
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6a3bec tier=trivial session_id=none opened_at=2026-08-07T13:15:30.322155+00:00 -->
+**Plan Opened:** PLN-6a3bec
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6a3bec verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:30.328860+00:00 -->
+**Plan Closed:** PLN-6a3bec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1cd730 tier=trivial session_id=none opened_at=2026-08-07T13:15:40.876124+00:00 -->
+**Plan Opened:** PLN-1cd730
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1cd730 verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:40.882887+00:00 -->
+**Plan Closed:** PLN-1cd730
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6aa669 tier=trivial session_id=none opened_at=2026-08-07T13:15:51.367158+00:00 -->
+**Plan Opened:** PLN-6aa669
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6aa669 verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:51.374155+00:00 -->
+**Plan Closed:** PLN-6aa669
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-571e25 tier=trivial session_id=none opened_at=2026-08-07T13:15:51.387099+00:00 -->
+**Plan Opened:** PLN-571e25
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-571e25 verdict=PASS quality_tier=none closed_at=2026-08-07T13:15:51.394004+00:00 -->
+**Plan Closed:** PLN-571e25
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cb9b23 tier=trivial session_id=none opened_at=2026-08-07T13:16:01.816869+00:00 -->
+**Plan Opened:** PLN-cb9b23
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cb9b23 verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:01.823470+00:00 -->
+**Plan Closed:** PLN-cb9b23
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-346e95 tier=trivial session_id=none opened_at=2026-08-07T13:16:12.426758+00:00 -->
+**Plan Opened:** PLN-346e95
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-346e95 verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:12.434016+00:00 -->
+**Plan Closed:** PLN-346e95
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f6893a tier=trivial session_id=none opened_at=2026-08-07T13:16:22.865402+00:00 -->
+**Plan Opened:** PLN-f6893a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f6893a verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:22.871027+00:00 -->
+**Plan Closed:** PLN-f6893a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ffd83a tier=trivial session_id=none opened_at=2026-08-07T13:16:33.362908+00:00 -->
+**Plan Opened:** PLN-ffd83a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ffd83a verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:33.376886+00:00 -->
+**Plan Closed:** PLN-ffd83a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5f1628 tier=trivial session_id=none opened_at=2026-08-07T13:16:43.858265+00:00 -->
+**Plan Opened:** PLN-5f1628
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f1628 verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:43.863816+00:00 -->
+**Plan Closed:** PLN-5f1628
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-578d04 tier=trivial session_id=none opened_at=2026-08-07T13:16:54.197941+00:00 -->
+**Plan Opened:** PLN-578d04
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-578d04 verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:54.218688+00:00 -->
+**Plan Closed:** PLN-578d04
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b795f5 tier=trivial session_id=none opened_at=2026-08-07T13:16:55.146011+00:00 -->
+**Plan Opened:** PLN-b795f5
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b795f5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:16:55.163013+00:00 -->
+**Plan Closed:** PLN-b795f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b6a87 tier=trivial session_id=none opened_at=2026-08-07T13:17:04.599857+00:00 -->
+**Plan Opened:** PLN-0b6a87
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b6a87 verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:04.624166+00:00 -->
+**Plan Closed:** PLN-0b6a87
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-954d87 tier=trivial session_id=none opened_at=2026-08-07T13:17:15.094727+00:00 -->
+**Plan Opened:** PLN-954d87
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-954d87 verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:15.101456+00:00 -->
+**Plan Closed:** PLN-954d87
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6de469 tier=trivial session_id=none opened_at=2026-08-07T13:17:25.621457+00:00 -->
+**Plan Opened:** PLN-6de469
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6de469 verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:25.626511+00:00 -->
+**Plan Closed:** PLN-6de469
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1f6120 tier=trivial session_id=none opened_at=2026-08-07T13:17:36.088646+00:00 -->
+**Plan Opened:** PLN-1f6120
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1f6120 verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:36.093901+00:00 -->
+**Plan Closed:** PLN-1f6120
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c4b3c6 tier=trivial session_id=none opened_at=2026-08-07T13:17:46.600927+00:00 -->
+**Plan Opened:** PLN-c4b3c6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c4b3c6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:46.613784+00:00 -->
+**Plan Closed:** PLN-c4b3c6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-01d6bf tier=trivial session_id=none opened_at=2026-08-07T13:17:57.098731+00:00 -->
+**Plan Opened:** PLN-01d6bf
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-01d6bf verdict=PASS quality_tier=none closed_at=2026-08-07T13:17:57.112145+00:00 -->
+**Plan Closed:** PLN-01d6bf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f6c5a7 tier=trivial session_id=none opened_at=2026-08-07T13:18:07.586014+00:00 -->
+**Plan Opened:** PLN-f6c5a7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f6c5a7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:07.606563+00:00 -->
+**Plan Closed:** PLN-f6c5a7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0e25ff tier=trivial session_id=none opened_at=2026-08-07T13:18:18.087250+00:00 -->
+**Plan Opened:** PLN-0e25ff
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0e25ff verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:18.101909+00:00 -->
+**Plan Closed:** PLN-0e25ff
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5c5ca8 tier=trivial session_id=none opened_at=2026-08-07T13:18:28.593511+00:00 -->
+**Plan Opened:** PLN-5c5ca8
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5c5ca8 verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:28.599521+00:00 -->
+**Plan Closed:** PLN-5c5ca8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e3e66c tier=trivial session_id=none opened_at=2026-08-07T13:18:39.099641+00:00 -->
+**Plan Opened:** PLN-e3e66c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e3e66c verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:39.122848+00:00 -->
+**Plan Closed:** PLN-e3e66c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-785304 tier=trivial session_id=none opened_at=2026-08-07T13:18:49.588352+00:00 -->
+**Plan Opened:** PLN-785304
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-785304 verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:49.597571+00:00 -->
+**Plan Closed:** PLN-785304
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-593f96 tier=trivial session_id=none opened_at=2026-08-07T13:18:52.054919+00:00 -->
+**Plan Opened:** PLN-593f96
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-593f96 verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:52.060486+00:00 -->
+**Plan Closed:** PLN-593f96
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-958b26 tier=trivial session_id=none opened_at=2026-08-07T13:18:55.321439+00:00 -->
+**Plan Opened:** PLN-958b26
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-958b26 verdict=PASS quality_tier=none closed_at=2026-08-07T13:18:55.326004+00:00 -->
+**Plan Closed:** PLN-958b26
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34e096 tier=trivial session_id=none opened_at=2026-08-07T13:19:00.133952+00:00 -->
+**Plan Opened:** PLN-34e096
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34e096 verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:00.138536+00:00 -->
+**Plan Closed:** PLN-34e096
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cd6113 tier=trivial session_id=none opened_at=2026-08-07T13:19:10.586627+00:00 -->
+**Plan Opened:** PLN-cd6113
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cd6113 verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:10.601001+00:00 -->
+**Plan Closed:** PLN-cd6113
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f69785 tier=trivial session_id=none opened_at=2026-08-07T13:19:21.082192+00:00 -->
+**Plan Opened:** PLN-f69785
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f69785 verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:21.104958+00:00 -->
+**Plan Closed:** PLN-f69785
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d70748 tier=trivial session_id=none opened_at=2026-08-07T13:19:31.640104+00:00 -->
+**Plan Opened:** PLN-d70748
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d70748 verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:31.645739+00:00 -->
+**Plan Closed:** PLN-d70748
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-973fb7 tier=trivial session_id=none opened_at=2026-08-07T13:19:42.083699+00:00 -->
+**Plan Opened:** PLN-973fb7
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-973fb7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:42.106807+00:00 -->
+**Plan Closed:** PLN-973fb7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1b5f0d tier=trivial session_id=none opened_at=2026-08-07T13:19:52.579952+00:00 -->
+**Plan Opened:** PLN-1b5f0d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1b5f0d verdict=PASS quality_tier=none closed_at=2026-08-07T13:19:52.601914+00:00 -->
+**Plan Closed:** PLN-1b5f0d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3ffbb3 tier=trivial session_id=none opened_at=2026-08-07T13:20:03.097667+00:00 -->
+**Plan Opened:** PLN-3ffbb3
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ffbb3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:03.118835+00:00 -->
+**Plan Closed:** PLN-3ffbb3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5cbac3 tier=trivial session_id=none opened_at=2026-08-07T13:20:13.598136+00:00 -->
+**Plan Opened:** PLN-5cbac3
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5cbac3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:13.602412+00:00 -->
+**Plan Closed:** PLN-5cbac3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-226225 tier=trivial session_id=none opened_at=2026-08-07T13:20:23.987058+00:00 -->
+**Plan Opened:** PLN-226225
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-226225 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:23.993043+00:00 -->
+**Plan Closed:** PLN-226225
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8922c3 tier=trivial session_id=none opened_at=2026-08-07T13:20:34.305616+00:00 -->
+**Plan Opened:** PLN-8922c3
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8922c3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:34.310165+00:00 -->
+**Plan Closed:** PLN-8922c3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ce766d tier=trivial session_id=none opened_at=2026-08-07T13:20:44.807032+00:00 -->
+**Plan Opened:** PLN-ce766d
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ce766d verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:44.811506+00:00 -->
+**Plan Closed:** PLN-ce766d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d02052 tier=trivial session_id=none opened_at=2026-08-07T13:20:55.203650+00:00 -->
+**Plan Opened:** PLN-d02052
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d02052 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:55.208753+00:00 -->
+**Plan Closed:** PLN-d02052
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e5ccb4 tier=trivial session_id=none opened_at=2026-08-07T13:20:55.283692+00:00 -->
+**Plan Opened:** PLN-e5ccb4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e5ccb4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:20:55.288127+00:00 -->
+**Plan Closed:** PLN-e5ccb4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c9ab61 tier=trivial session_id=none opened_at=2026-08-07T13:21:05.550602+00:00 -->
+**Plan Opened:** PLN-c9ab61
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c9ab61 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:05.555029+00:00 -->
+**Plan Closed:** PLN-c9ab61
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c25b62 tier=trivial session_id=none opened_at=2026-08-07T13:21:15.923205+00:00 -->
+**Plan Opened:** PLN-c25b62
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c25b62 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:15.928472+00:00 -->
+**Plan Closed:** PLN-c25b62
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d721b7 tier=trivial session_id=none opened_at=2026-08-07T13:21:26.319785+00:00 -->
+**Plan Opened:** PLN-d721b7
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d721b7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:26.334621+00:00 -->
+**Plan Closed:** PLN-d721b7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-00cc57 tier=trivial session_id=none opened_at=2026-08-07T13:21:36.716144+00:00 -->
+**Plan Opened:** PLN-00cc57
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-00cc57 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:36.720654+00:00 -->
+**Plan Closed:** PLN-00cc57
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ee4d79 tier=trivial session_id=none opened_at=2026-08-07T13:21:47.080275+00:00 -->
+**Plan Opened:** PLN-ee4d79
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ee4d79 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:47.084913+00:00 -->
+**Plan Closed:** PLN-ee4d79
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0ef8d6 tier=trivial session_id=none opened_at=2026-08-07T13:21:52.187657+00:00 -->
+**Plan Opened:** PLN-0ef8d6
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0ef8d6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:52.209486+00:00 -->
+**Plan Closed:** PLN-0ef8d6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-57c9a6 tier=trivial session_id=none opened_at=2026-08-07T13:21:57.391179+00:00 -->
+**Plan Opened:** PLN-57c9a6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-57c9a6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:21:57.395846+00:00 -->
+**Plan Closed:** PLN-57c9a6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-563168 tier=trivial session_id=none opened_at=2026-08-07T13:22:07.832452+00:00 -->
+**Plan Opened:** PLN-563168
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-563168 verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:07.846065+00:00 -->
+**Plan Closed:** PLN-563168
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e5df36 tier=trivial session_id=none opened_at=2026-08-07T13:22:18.300742+00:00 -->
+**Plan Opened:** PLN-e5df36
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e5df36 verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:18.324729+00:00 -->
+**Plan Closed:** PLN-e5df36
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2c9bbc tier=trivial session_id=none opened_at=2026-08-07T13:22:28.805140+00:00 -->
+**Plan Opened:** PLN-2c9bbc
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2c9bbc verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:28.829958+00:00 -->
+**Plan Closed:** PLN-2c9bbc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1570bb tier=trivial session_id=none opened_at=2026-08-07T13:22:39.308764+00:00 -->
+**Plan Opened:** PLN-1570bb
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1570bb verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:39.321438+00:00 -->
+**Plan Closed:** PLN-1570bb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-417faa tier=trivial session_id=none opened_at=2026-08-07T13:22:49.797559+00:00 -->
+**Plan Opened:** PLN-417faa
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-417faa verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:49.812566+00:00 -->
+**Plan Closed:** PLN-417faa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dbeb90 tier=trivial session_id=none opened_at=2026-08-07T13:22:55.328817+00:00 -->
+**Plan Opened:** PLN-dbeb90
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dbeb90 verdict=PASS quality_tier=none closed_at=2026-08-07T13:22:55.333513+00:00 -->
+**Plan Closed:** PLN-dbeb90
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8bc098 tier=trivial session_id=none opened_at=2026-08-07T13:23:00.311595+00:00 -->
+**Plan Opened:** PLN-8bc098
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8bc098 verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:00.323910+00:00 -->
+**Plan Closed:** PLN-8bc098
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-17ecc2 tier=trivial session_id=none opened_at=2026-08-07T13:23:10.787267+00:00 -->
+**Plan Opened:** PLN-17ecc2
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-17ecc2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:10.808320+00:00 -->
+**Plan Closed:** PLN-17ecc2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-669cec tier=trivial session_id=none opened_at=2026-08-07T13:23:21.311980+00:00 -->
+**Plan Opened:** PLN-669cec
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-669cec verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:21.335376+00:00 -->
+**Plan Closed:** PLN-669cec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0dda48 tier=trivial session_id=none opened_at=2026-08-07T13:23:31.804255+00:00 -->
+**Plan Opened:** PLN-0dda48
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0dda48 verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:31.826299+00:00 -->
+**Plan Closed:** PLN-0dda48
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-112253 tier=trivial session_id=none opened_at=2026-08-07T13:23:42.319908+00:00 -->
+**Plan Opened:** PLN-112253
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-112253 verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:42.330710+00:00 -->
+**Plan Closed:** PLN-112253
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-35693f tier=trivial session_id=none opened_at=2026-08-07T13:23:52.806052+00:00 -->
+**Plan Opened:** PLN-35693f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-35693f verdict=PASS quality_tier=none closed_at=2026-08-07T13:23:52.827855+00:00 -->
+**Plan Closed:** PLN-35693f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-263dca tier=trivial session_id=none opened_at=2026-08-07T13:24:03.184538+00:00 -->
+**Plan Opened:** PLN-263dca
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-263dca verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:03.204241+00:00 -->
+**Plan Closed:** PLN-263dca
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d3e759 tier=trivial session_id=none opened_at=2026-08-07T13:24:13.539022+00:00 -->
+**Plan Opened:** PLN-d3e759
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d3e759 verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:13.550385+00:00 -->
+**Plan Closed:** PLN-d3e759
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bc80a6 tier=trivial session_id=none opened_at=2026-08-07T13:24:24.063344+00:00 -->
+**Plan Opened:** PLN-bc80a6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bc80a6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:24.079283+00:00 -->
+**Plan Closed:** PLN-bc80a6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-703c73 tier=trivial session_id=none opened_at=2026-08-07T13:24:34.571106+00:00 -->
+**Plan Opened:** PLN-703c73
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-703c73 verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:34.575936+00:00 -->
+**Plan Closed:** PLN-703c73
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eab82d tier=trivial session_id=none opened_at=2026-08-07T13:24:45.050370+00:00 -->
+**Plan Opened:** PLN-eab82d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eab82d verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:45.054904+00:00 -->
+**Plan Closed:** PLN-eab82d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bd9c38 tier=trivial session_id=none opened_at=2026-08-07T13:24:52.970457+00:00 -->
+**Plan Opened:** PLN-bd9c38
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bd9c38 verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:52.989818+00:00 -->
+**Plan Closed:** PLN-bd9c38
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3880b0 tier=trivial session_id=none opened_at=2026-08-07T13:24:55.548987+00:00 -->
+**Plan Opened:** PLN-3880b0
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3880b0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:55.558515+00:00 -->
+**Plan Closed:** PLN-3880b0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2209ce tier=trivial session_id=none opened_at=2026-08-07T13:24:56.108034+00:00 -->
+**Plan Opened:** PLN-2209ce
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2209ce verdict=PASS quality_tier=none closed_at=2026-08-07T13:24:56.120463+00:00 -->
+**Plan Closed:** PLN-2209ce
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-92c684 tier=trivial session_id=none opened_at=2026-08-07T13:25:06.039941+00:00 -->
+**Plan Opened:** PLN-92c684
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-92c684 verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:06.050082+00:00 -->
+**Plan Closed:** PLN-92c684
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-11f242 tier=trivial session_id=none opened_at=2026-08-07T13:25:16.396173+00:00 -->
+**Plan Opened:** PLN-11f242
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-11f242 verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:16.400914+00:00 -->
+**Plan Closed:** PLN-11f242
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dd56d0 tier=trivial session_id=none opened_at=2026-08-07T13:25:26.830294+00:00 -->
+**Plan Opened:** PLN-dd56d0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dd56d0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:26.835142+00:00 -->
+**Plan Closed:** PLN-dd56d0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-39bb89 tier=trivial session_id=none opened_at=2026-08-07T13:25:37.123399+00:00 -->
+**Plan Opened:** PLN-39bb89
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-39bb89 verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:37.127796+00:00 -->
+**Plan Closed:** PLN-39bb89
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7f595a tier=trivial session_id=none opened_at=2026-08-07T13:25:47.582877+00:00 -->
+**Plan Opened:** PLN-7f595a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f595a verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:47.587677+00:00 -->
+**Plan Closed:** PLN-7f595a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-39990a tier=trivial session_id=none opened_at=2026-08-07T13:25:58.064698+00:00 -->
+**Plan Opened:** PLN-39990a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-39990a verdict=PASS quality_tier=none closed_at=2026-08-07T13:25:58.070532+00:00 -->
+**Plan Closed:** PLN-39990a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b4fb51 tier=trivial session_id=none opened_at=2026-08-07T13:26:08.402014+00:00 -->
+**Plan Opened:** PLN-b4fb51
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b4fb51 verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:08.412555+00:00 -->
+**Plan Closed:** PLN-b4fb51
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-24e7e6 tier=trivial session_id=none opened_at=2026-08-07T13:26:18.823456+00:00 -->
+**Plan Opened:** PLN-24e7e6
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-24e7e6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:18.831103+00:00 -->
+**Plan Closed:** PLN-24e7e6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a749da tier=trivial session_id=none opened_at=2026-08-07T13:26:21.285844+00:00 -->
+**Plan Opened:** PLN-a749da
+**Task:** generic long-tail remediation: claude-process-watch -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a749da verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:21.298341+00:00 -->
+**Plan Closed:** PLN-a749da
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41bd1f tier=trivial session_id=none opened_at=2026-08-07T13:26:29.300674+00:00 -->
+**Plan Opened:** PLN-41bd1f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41bd1f verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:29.325326+00:00 -->
+**Plan Closed:** PLN-41bd1f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-308ec2 tier=trivial session_id=none opened_at=2026-08-07T13:26:39.798324+00:00 -->
+**Plan Opened:** PLN-308ec2
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-308ec2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:39.808159+00:00 -->
+**Plan Closed:** PLN-308ec2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-603b47 tier=trivial session_id=none opened_at=2026-08-07T13:26:50.127158+00:00 -->
+**Plan Opened:** PLN-603b47
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-603b47 verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:50.136652+00:00 -->
+**Plan Closed:** PLN-603b47
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-85d80f tier=trivial session_id=none opened_at=2026-08-07T13:26:56.367764+00:00 -->
+**Plan Opened:** PLN-85d80f
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-85d80f verdict=PASS quality_tier=none closed_at=2026-08-07T13:26:56.372330+00:00 -->
+**Plan Closed:** PLN-85d80f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-007b65 tier=trivial session_id=none opened_at=2026-08-07T13:27:00.546815+00:00 -->
+**Plan Opened:** PLN-007b65
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-007b65 verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:00.551166+00:00 -->
+**Plan Closed:** PLN-007b65
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-157185 tier=trivial session_id=none opened_at=2026-08-07T13:27:11.039074+00:00 -->
+**Plan Opened:** PLN-157185
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-157185 verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:11.043823+00:00 -->
+**Plan Closed:** PLN-157185
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-abfe63 tier=trivial session_id=none opened_at=2026-08-07T13:27:21.536442+00:00 -->
+**Plan Opened:** PLN-abfe63
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-abfe63 verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:21.542760+00:00 -->
+**Plan Closed:** PLN-abfe63
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67a5cb tier=trivial session_id=none opened_at=2026-08-07T13:27:32.045899+00:00 -->
+**Plan Opened:** PLN-67a5cb
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67a5cb verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:32.052105+00:00 -->
+**Plan Closed:** PLN-67a5cb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c65955 tier=trivial session_id=none opened_at=2026-08-07T13:27:42.537066+00:00 -->
+**Plan Opened:** PLN-c65955
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c65955 verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:42.549042+00:00 -->
+**Plan Closed:** PLN-c65955
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5e512e tier=trivial session_id=none opened_at=2026-08-07T13:27:53.047911+00:00 -->
+**Plan Opened:** PLN-5e512e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:OPEN plan_id=PLN-4fd784 tier=trivial session_id=none opened_at=2026-08-07T13:27:53.068917+00:00 -->
+**Plan Opened:** PLN-4fd784
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5e512e verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:53.071424+00:00 -->
+**Plan Closed:** PLN-5e512e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4fd784 verdict=PASS quality_tier=none closed_at=2026-08-07T13:27:53.075866+00:00 -->
+**Plan Closed:** PLN-4fd784
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-40a997 tier=trivial session_id=none opened_at=2026-08-07T13:28:03.533852+00:00 -->
+**Plan Opened:** PLN-40a997
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-40a997 verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:03.541994+00:00 -->
+**Plan Closed:** PLN-40a997
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-820e1c tier=trivial session_id=none opened_at=2026-08-07T13:28:14.037315+00:00 -->
+**Plan Opened:** PLN-820e1c
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-820e1c verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:14.045583+00:00 -->
+**Plan Closed:** PLN-820e1c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b3d608 tier=trivial session_id=none opened_at=2026-08-07T13:28:24.534464+00:00 -->
+**Plan Opened:** PLN-b3d608
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b3d608 verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:24.542623+00:00 -->
+**Plan Closed:** PLN-b3d608
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-afd3fc tier=trivial session_id=none opened_at=2026-08-07T13:28:35.044893+00:00 -->
+**Plan Opened:** PLN-afd3fc
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-afd3fc verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:35.053262+00:00 -->
+**Plan Closed:** PLN-afd3fc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fa4189 tier=trivial session_id=none opened_at=2026-08-07T13:28:45.573152+00:00 -->
+**Plan Opened:** PLN-fa4189
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fa4189 verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:45.577942+00:00 -->
+**Plan Closed:** PLN-fa4189
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-486f5b tier=trivial session_id=none opened_at=2026-08-07T13:28:56.045275+00:00 -->
+**Plan Opened:** PLN-486f5b
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-486f5b verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:56.053397+00:00 -->
+**Plan Closed:** PLN-486f5b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1829e7 tier=trivial session_id=none opened_at=2026-08-07T13:28:56.048567+00:00 -->
+**Plan Opened:** PLN-1829e7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1829e7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:28:56.062200+00:00 -->
+**Plan Closed:** PLN-1829e7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-031af2 tier=trivial session_id=none opened_at=2026-08-07T13:29:06.557710+00:00 -->
+**Plan Opened:** PLN-031af2
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-031af2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:06.565872+00:00 -->
+**Plan Closed:** PLN-031af2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-52f3e2 tier=trivial session_id=none opened_at=2026-08-07T13:29:17.043858+00:00 -->
+**Plan Opened:** PLN-52f3e2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-52f3e2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:17.052093+00:00 -->
+**Plan Closed:** PLN-52f3e2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-762948 tier=trivial session_id=none opened_at=2026-08-07T13:29:27.531947+00:00 -->
+**Plan Opened:** PLN-762948
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-762948 verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:27.542379+00:00 -->
+**Plan Closed:** PLN-762948
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cc2d43 tier=trivial session_id=none opened_at=2026-08-07T13:29:38.034156+00:00 -->
+**Plan Opened:** PLN-cc2d43
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cc2d43 verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:38.043328+00:00 -->
+**Plan Closed:** PLN-cc2d43
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ab24cc tier=trivial session_id=none opened_at=2026-08-07T13:29:48.365700+00:00 -->
+**Plan Opened:** PLN-ab24cc
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ab24cc verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:48.375078+00:00 -->
+**Plan Closed:** PLN-ab24cc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27cdda tier=trivial session_id=none opened_at=2026-08-07T13:29:58.707803+00:00 -->
+**Plan Opened:** PLN-27cdda
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27cdda verdict=PASS quality_tier=none closed_at=2026-08-07T13:29:58.717672+00:00 -->
+**Plan Closed:** PLN-27cdda
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-064cbb tier=trivial session_id=none opened_at=2026-08-07T13:30:09.111930+00:00 -->
+**Plan Opened:** PLN-064cbb
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-064cbb verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:09.116410+00:00 -->
+**Plan Closed:** PLN-064cbb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c803e4 tier=trivial session_id=none opened_at=2026-08-07T13:30:19.454945+00:00 -->
+**Plan Opened:** PLN-c803e4
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c803e4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:19.460772+00:00 -->
+**Plan Closed:** PLN-c803e4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c48fe4 tier=trivial session_id=none opened_at=2026-08-07T13:30:29.809904+00:00 -->
+**Plan Opened:** PLN-c48fe4
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c48fe4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:29.817708+00:00 -->
+**Plan Closed:** PLN-c48fe4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8eef60 tier=trivial session_id=none opened_at=2026-08-07T13:30:40.312221+00:00 -->
+**Plan Opened:** PLN-8eef60
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8eef60 verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:40.316977+00:00 -->
+**Plan Closed:** PLN-8eef60
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-26b922 tier=trivial session_id=none opened_at=2026-08-07T13:30:50.680523+00:00 -->
+**Plan Opened:** PLN-26b922
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-26b922 verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:50.685266+00:00 -->
+**Plan Closed:** PLN-26b922
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9e80b1 tier=trivial session_id=none opened_at=2026-08-07T13:30:53.223237+00:00 -->
+**Plan Opened:** PLN-9e80b1
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9e80b1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:53.234526+00:00 -->
+**Plan Closed:** PLN-9e80b1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e25e3f tier=trivial session_id=none opened_at=2026-08-07T13:30:56.473054+00:00 -->
+**Plan Opened:** PLN-e25e3f
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e25e3f verdict=PASS quality_tier=none closed_at=2026-08-07T13:30:56.477556+00:00 -->
+**Plan Closed:** PLN-e25e3f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a7e36e tier=trivial session_id=none opened_at=2026-08-07T13:31:01.074723+00:00 -->
+**Plan Opened:** PLN-a7e36e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a7e36e verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:01.078539+00:00 -->
+**Plan Closed:** PLN-a7e36e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b5270f tier=trivial session_id=none opened_at=2026-08-07T13:31:11.500544+00:00 -->
+**Plan Opened:** PLN-b5270f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b5270f verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:11.512485+00:00 -->
+**Plan Closed:** PLN-b5270f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5290b8 tier=trivial session_id=none opened_at=2026-08-07T13:31:21.787086+00:00 -->
+**Plan Opened:** PLN-5290b8
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5290b8 verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:21.797368+00:00 -->
+**Plan Closed:** PLN-5290b8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-849e33 tier=trivial session_id=none opened_at=2026-08-07T13:31:32.299365+00:00 -->
+**Plan Opened:** PLN-849e33
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-849e33 verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:32.322534+00:00 -->
+**Plan Closed:** PLN-849e33
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dbbff2 tier=trivial session_id=none opened_at=2026-08-07T13:31:42.697855+00:00 -->
+**Plan Opened:** PLN-dbbff2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dbbff2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:42.706639+00:00 -->
+**Plan Closed:** PLN-dbbff2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d15127 tier=trivial session_id=none opened_at=2026-08-07T13:31:53.045008+00:00 -->
+**Plan Opened:** PLN-d15127
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d15127 verdict=PASS quality_tier=none closed_at=2026-08-07T13:31:53.054649+00:00 -->
+**Plan Closed:** PLN-d15127
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-38bb98 tier=trivial session_id=none opened_at=2026-08-07T13:32:03.541512+00:00 -->
+**Plan Opened:** PLN-38bb98
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-38bb98 verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:03.549513+00:00 -->
+**Plan Closed:** PLN-38bb98
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-21dfed tier=trivial session_id=none opened_at=2026-08-07T13:32:13.916542+00:00 -->
+**Plan Opened:** PLN-21dfed
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-21dfed verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:13.926927+00:00 -->
+**Plan Closed:** PLN-21dfed
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b55da1 tier=trivial session_id=none opened_at=2026-08-07T13:32:24.284168+00:00 -->
+**Plan Opened:** PLN-b55da1
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b55da1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:24.292606+00:00 -->
+**Plan Closed:** PLN-b55da1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bac93a tier=trivial session_id=none opened_at=2026-08-07T13:32:34.783759+00:00 -->
+**Plan Opened:** PLN-bac93a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bac93a verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:34.793994+00:00 -->
+**Plan Closed:** PLN-bac93a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-92a5c0 tier=trivial session_id=none opened_at=2026-08-07T13:32:45.296282+00:00 -->
+**Plan Opened:** PLN-92a5c0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-92a5c0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:45.305816+00:00 -->
+**Plan Closed:** PLN-92a5c0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b395ea tier=trivial session_id=none opened_at=2026-08-07T13:32:55.786338+00:00 -->
+**Plan Opened:** PLN-b395ea
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b395ea verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:55.794664+00:00 -->
+**Plan Closed:** PLN-b395ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8b4c61 tier=trivial session_id=none opened_at=2026-08-07T13:32:56.768118+00:00 -->
+**Plan Opened:** PLN-8b4c61
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8b4c61 verdict=PASS quality_tier=none closed_at=2026-08-07T13:32:56.773784+00:00 -->
+**Plan Closed:** PLN-8b4c61
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-274fd0 tier=trivial session_id=none opened_at=2026-08-07T13:33:06.296755+00:00 -->
+**Plan Opened:** PLN-274fd0
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-274fd0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:06.306916+00:00 -->
+**Plan Closed:** PLN-274fd0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-846246 tier=trivial session_id=none opened_at=2026-08-07T13:33:16.783019+00:00 -->
+**Plan Opened:** PLN-846246
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-846246 verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:16.796400+00:00 -->
+**Plan Closed:** PLN-846246
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a3c321 tier=trivial session_id=none opened_at=2026-08-07T13:33:27.281925+00:00 -->
+**Plan Opened:** PLN-a3c321
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a3c321 verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:27.304055+00:00 -->
+**Plan Closed:** PLN-a3c321
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-689f3a tier=trivial session_id=none opened_at=2026-08-07T13:33:37.786091+00:00 -->
+**Plan Opened:** PLN-689f3a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-689f3a verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:37.793592+00:00 -->
+**Plan Closed:** PLN-689f3a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9a840e tier=trivial session_id=none opened_at=2026-08-07T13:33:48.280139+00:00 -->
+**Plan Opened:** PLN-9a840e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9a840e verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:48.288292+00:00 -->
+**Plan Closed:** PLN-9a840e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3be76c tier=trivial session_id=none opened_at=2026-08-07T13:33:53.474708+00:00 -->
+**Plan Opened:** PLN-3be76c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3be76c verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:53.482943+00:00 -->
+**Plan Closed:** PLN-3be76c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7526b5 tier=trivial session_id=none opened_at=2026-08-07T13:33:58.783532+00:00 -->
+**Plan Opened:** PLN-7526b5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7526b5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:33:58.794670+00:00 -->
+**Plan Closed:** PLN-7526b5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d9feb7 tier=trivial session_id=none opened_at=2026-08-07T13:34:09.129156+00:00 -->
+**Plan Opened:** PLN-d9feb7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d9feb7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:09.140717+00:00 -->
+**Plan Closed:** PLN-d9feb7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cda49e tier=trivial session_id=none opened_at=2026-08-07T13:34:19.532249+00:00 -->
+**Plan Opened:** PLN-cda49e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cda49e verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:19.540496+00:00 -->
+**Plan Closed:** PLN-cda49e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-810730 tier=trivial session_id=none opened_at=2026-08-07T13:34:30.024800+00:00 -->
+**Plan Opened:** PLN-810730
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-810730 verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:30.037312+00:00 -->
+**Plan Closed:** PLN-810730
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-831cb3 tier=trivial session_id=none opened_at=2026-08-07T13:34:40.537254+00:00 -->
+**Plan Opened:** PLN-831cb3
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-831cb3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:40.545277+00:00 -->
+**Plan Closed:** PLN-831cb3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-29861a tier=trivial session_id=none opened_at=2026-08-07T13:34:51.038743+00:00 -->
+**Plan Opened:** PLN-29861a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-29861a verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:51.048902+00:00 -->
+**Plan Closed:** PLN-29861a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1343b7 tier=trivial session_id=none opened_at=2026-08-07T13:34:56.821835+00:00 -->
+**Plan Opened:** PLN-1343b7
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1343b7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:34:56.826410+00:00 -->
+**Plan Closed:** PLN-1343b7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-08c936 tier=trivial session_id=none opened_at=2026-08-07T13:35:01.536093+00:00 -->
+**Plan Opened:** PLN-08c936
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-08c936 verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:01.540668+00:00 -->
+**Plan Closed:** PLN-08c936
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-400e23 tier=trivial session_id=none opened_at=2026-08-07T13:35:12.033410+00:00 -->
+**Plan Opened:** PLN-400e23
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-400e23 verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:12.041501+00:00 -->
+**Plan Closed:** PLN-400e23
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c59936 tier=trivial session_id=none opened_at=2026-08-07T13:35:22.401214+00:00 -->
+**Plan Opened:** PLN-c59936
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c59936 verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:22.409610+00:00 -->
+**Plan Closed:** PLN-c59936
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-61443b tier=trivial session_id=none opened_at=2026-08-07T13:35:32.815020+00:00 -->
+**Plan Opened:** PLN-61443b
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-61443b verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:32.820110+00:00 -->
+**Plan Closed:** PLN-61443b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a2bd42 tier=trivial session_id=none opened_at=2026-08-07T13:35:43.305268+00:00 -->
+**Plan Opened:** PLN-a2bd42
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a2bd42 verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:43.312292+00:00 -->
+**Plan Closed:** PLN-a2bd42
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2997ad tier=trivial session_id=none opened_at=2026-08-07T13:35:53.802834+00:00 -->
+**Plan Opened:** PLN-2997ad
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2997ad verdict=PASS quality_tier=none closed_at=2026-08-07T13:35:53.807327+00:00 -->
+**Plan Closed:** PLN-2997ad
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-96e7ea tier=trivial session_id=none opened_at=2026-08-07T13:36:04.316676+00:00 -->
+**Plan Opened:** PLN-96e7ea
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96e7ea verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:04.325523+00:00 -->
+**Plan Closed:** PLN-96e7ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-723fb1 tier=trivial session_id=none opened_at=2026-08-07T13:36:14.671204+00:00 -->
+**Plan Opened:** PLN-723fb1
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-723fb1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:14.676691+00:00 -->
+**Plan Closed:** PLN-723fb1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eeab59 tier=trivial session_id=none opened_at=2026-08-07T13:36:24.986017+00:00 -->
+**Plan Opened:** PLN-eeab59
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eeab59 verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:24.990507+00:00 -->
+**Plan Closed:** PLN-eeab59
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9eb7c9 tier=trivial session_id=none opened_at=2026-08-07T13:36:35.315542+00:00 -->
+**Plan Opened:** PLN-9eb7c9
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9eb7c9 verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:35.328175+00:00 -->
+**Plan Closed:** PLN-9eb7c9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2bba5f tier=trivial session_id=none opened_at=2026-08-07T13:36:45.679814+00:00 -->
+**Plan Opened:** PLN-2bba5f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2bba5f verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:45.684308+00:00 -->
+**Plan Closed:** PLN-2bba5f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-490d6f tier=trivial session_id=none opened_at=2026-08-07T13:36:53.496650+00:00 -->
+**Plan Opened:** PLN-490d6f
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-490d6f verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:53.500974+00:00 -->
+**Plan Closed:** PLN-490d6f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-54be72 tier=trivial session_id=none opened_at=2026-08-07T13:36:55.995062+00:00 -->
+**Plan Opened:** PLN-54be72
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-54be72 verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:56.005831+00:00 -->
+**Plan Closed:** PLN-54be72
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-faf731 tier=trivial session_id=none opened_at=2026-08-07T13:36:57.707780+00:00 -->
+**Plan Opened:** PLN-faf731
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-faf731 verdict=PASS quality_tier=none closed_at=2026-08-07T13:36:57.721169+00:00 -->
+**Plan Closed:** PLN-faf731
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-83869a tier=trivial session_id=none opened_at=2026-08-07T13:37:06.292913+00:00 -->
+**Plan Opened:** PLN-83869a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-83869a verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:06.316503+00:00 -->
+**Plan Closed:** PLN-83869a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-32334f tier=trivial session_id=none opened_at=2026-08-07T13:37:16.792854+00:00 -->
+**Plan Opened:** PLN-32334f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-32334f verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:16.814697+00:00 -->
+**Plan Closed:** PLN-32334f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-177087 tier=trivial session_id=none opened_at=2026-08-07T13:37:27.303826+00:00 -->
+**Plan Opened:** PLN-177087
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-177087 verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:27.324488+00:00 -->
+**Plan Closed:** PLN-177087
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bcfbf7 tier=trivial session_id=none opened_at=2026-08-07T13:37:37.787245+00:00 -->
+**Plan Opened:** PLN-bcfbf7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bcfbf7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:37.810411+00:00 -->
+**Plan Closed:** PLN-bcfbf7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-24d97e tier=trivial session_id=none opened_at=2026-08-07T13:37:48.308011+00:00 -->
+**Plan Opened:** PLN-24d97e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-24d97e verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:48.328778+00:00 -->
+**Plan Closed:** PLN-24d97e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-23b9f6 tier=trivial session_id=none opened_at=2026-08-07T13:37:58.872079+00:00 -->
+**Plan Opened:** PLN-23b9f6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-23b9f6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:37:58.880653+00:00 -->
+**Plan Closed:** PLN-23b9f6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dff2cb tier=trivial session_id=none opened_at=2026-08-07T13:38:09.318440+00:00 -->
+**Plan Opened:** PLN-dff2cb
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dff2cb verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:09.323012+00:00 -->
+**Plan Closed:** PLN-dff2cb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d1771f tier=trivial session_id=none opened_at=2026-08-07T13:38:19.778519+00:00 -->
+**Plan Opened:** PLN-d1771f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d1771f verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:19.786572+00:00 -->
+**Plan Closed:** PLN-d1771f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-88e0e5 tier=trivial session_id=none opened_at=2026-08-07T13:38:30.320954+00:00 -->
+**Plan Opened:** PLN-88e0e5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-88e0e5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:30.331364+00:00 -->
+**Plan Closed:** PLN-88e0e5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8d4d9e tier=trivial session_id=none opened_at=2026-08-07T13:38:40.788884+00:00 -->
+**Plan Opened:** PLN-8d4d9e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8d4d9e verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:40.797259+00:00 -->
+**Plan Closed:** PLN-8d4d9e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cfb65a tier=trivial session_id=none opened_at=2026-08-07T13:38:51.294747+00:00 -->
+**Plan Opened:** PLN-cfb65a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cfb65a verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:51.307390+00:00 -->
+**Plan Closed:** PLN-cfb65a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2f86cb tier=trivial session_id=none opened_at=2026-08-07T13:38:57.955133+00:00 -->
+**Plan Opened:** PLN-2f86cb
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2f86cb verdict=PASS quality_tier=none closed_at=2026-08-07T13:38:57.960498+00:00 -->
+**Plan Closed:** PLN-2f86cb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-071f6d tier=trivial session_id=none opened_at=2026-08-07T13:39:01.790404+00:00 -->
+**Plan Opened:** PLN-071f6d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-071f6d verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:01.794875+00:00 -->
+**Plan Closed:** PLN-071f6d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c98e31 tier=trivial session_id=none opened_at=2026-08-07T13:39:12.287722+00:00 -->
+**Plan Opened:** PLN-c98e31
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c98e31 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:12.297978+00:00 -->
+**Plan Closed:** PLN-c98e31
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-637ca6 tier=trivial session_id=none opened_at=2026-08-07T13:39:22.818057+00:00 -->
+**Plan Opened:** PLN-637ca6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-637ca6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:22.827680+00:00 -->
+**Plan Closed:** PLN-637ca6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-771ea5 tier=trivial session_id=none opened_at=2026-08-07T13:39:33.277474+00:00 -->
+**Plan Opened:** PLN-771ea5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-771ea5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:33.285477+00:00 -->
+**Plan Closed:** PLN-771ea5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7cd3f5 tier=trivial session_id=none opened_at=2026-08-07T13:39:43.769260+00:00 -->
+**Plan Opened:** PLN-7cd3f5
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7cd3f5 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:43.778087+00:00 -->
+**Plan Closed:** PLN-7cd3f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-93e525 tier=trivial session_id=none opened_at=2026-08-07T13:39:54.016739+00:00 -->
+**Plan Opened:** PLN-93e525
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-93e525 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:54.024664+00:00 -->
+**Plan Closed:** PLN-93e525
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f38ed4 tier=trivial session_id=none opened_at=2026-08-07T13:39:54.293236+00:00 -->
+**Plan Opened:** PLN-f38ed4
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f38ed4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:39:54.301141+00:00 -->
+**Plan Closed:** PLN-f38ed4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c04502 tier=trivial session_id=none opened_at=2026-08-07T13:40:04.625845+00:00 -->
+**Plan Opened:** PLN-c04502
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c04502 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:04.633890+00:00 -->
+**Plan Closed:** PLN-c04502
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fc4ee7 tier=trivial session_id=none opened_at=2026-08-07T13:40:14.924313+00:00 -->
+**Plan Opened:** PLN-fc4ee7
+**Task:** crash captured: bsk_session_keepalive (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/bsk_session_keepalive_185009.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fc4ee7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:14.929145+00:00 -->
+**Plan Closed:** PLN-fc4ee7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/bsk_session_keepalive_185009.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d48570 tier=trivial session_id=none opened_at=2026-08-07T13:40:15.011114+00:00 -->
+**Plan Opened:** PLN-d48570
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d48570 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:15.015544+00:00 -->
+**Plan Closed:** PLN-d48570
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2ad3ce tier=trivial session_id=none opened_at=2026-08-07T13:40:25.329686+00:00 -->
+**Plan Opened:** PLN-2ad3ce
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2ad3ce verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:25.338541+00:00 -->
+**Plan Closed:** PLN-2ad3ce
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-82f079 tier=trivial session_id=none opened_at=2026-08-07T13:40:35.636588+00:00 -->
+**Plan Opened:** PLN-82f079
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-82f079 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:35.641259+00:00 -->
+**Plan Closed:** PLN-82f079
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cf9d82 tier=trivial session_id=none opened_at=2026-08-07T13:40:46.058105+00:00 -->
+**Plan Opened:** PLN-cf9d82
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cf9d82 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:46.062638+00:00 -->
+**Plan Closed:** PLN-cf9d82
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-96cfcd tier=trivial session_id=none opened_at=2026-08-07T13:40:56.385999+00:00 -->
+**Plan Opened:** PLN-96cfcd
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96cfcd verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:56.390501+00:00 -->
+**Plan Closed:** PLN-96cfcd
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1293c2 tier=trivial session_id=none opened_at=2026-08-07T13:40:57.121653+00:00 -->
+**Plan Opened:** PLN-1293c2
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1293c2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:40:57.126078+00:00 -->
+**Plan Closed:** PLN-1293c2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-650052 tier=trivial session_id=none opened_at=2026-08-07T13:41:06.791965+00:00 -->
+**Plan Opened:** PLN-650052
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-650052 verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:06.796522+00:00 -->
+**Plan Closed:** PLN-650052
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2583e6 tier=trivial session_id=none opened_at=2026-08-07T13:41:17.274503+00:00 -->
+**Plan Opened:** PLN-2583e6
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2583e6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:17.287245+00:00 -->
+**Plan Closed:** PLN-2583e6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fc71aa tier=trivial session_id=none opened_at=2026-08-07T13:41:27.766475+00:00 -->
+**Plan Opened:** PLN-fc71aa
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fc71aa verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:27.773920+00:00 -->
+**Plan Closed:** PLN-fc71aa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-598276 tier=trivial session_id=none opened_at=2026-08-07T13:41:38.275419+00:00 -->
+**Plan Opened:** PLN-598276
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-598276 verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:38.280009+00:00 -->
+**Plan Closed:** PLN-598276
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-df0313 tier=trivial session_id=none opened_at=2026-08-07T13:41:48.768733+00:00 -->
+**Plan Opened:** PLN-df0313
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-df0313 verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:48.776766+00:00 -->
+**Plan Closed:** PLN-df0313
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-66d15c tier=trivial session_id=none opened_at=2026-08-07T13:41:59.329278+00:00 -->
+**Plan Opened:** PLN-66d15c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-66d15c verdict=PASS quality_tier=none closed_at=2026-08-07T13:41:59.338120+00:00 -->
+**Plan Closed:** PLN-66d15c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bb26ef tier=trivial session_id=none opened_at=2026-08-07T13:42:09.841185+00:00 -->
+**Plan Opened:** PLN-bb26ef
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bb26ef verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:09.845615+00:00 -->
+**Plan Closed:** PLN-bb26ef
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f15c3f tier=trivial session_id=none opened_at=2026-08-07T13:42:20.282173+00:00 -->
+**Plan Opened:** PLN-f15c3f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f15c3f verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:20.293254+00:00 -->
+**Plan Closed:** PLN-f15c3f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1c0d60 tier=trivial session_id=none opened_at=2026-08-07T13:42:30.815137+00:00 -->
+**Plan Opened:** PLN-1c0d60
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1c0d60 verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:30.823292+00:00 -->
+**Plan Closed:** PLN-1c0d60
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-008562 tier=trivial session_id=none opened_at=2026-08-07T13:42:41.565079+00:00 -->
+**Plan Opened:** PLN-008562
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-008562 verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:41.569904+00:00 -->
+**Plan Closed:** PLN-008562
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7cc1d7 tier=trivial session_id=none opened_at=2026-08-07T13:42:51.835494+00:00 -->
+**Plan Opened:** PLN-7cc1d7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7cc1d7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:51.839932+00:00 -->
+**Plan Closed:** PLN-7cc1d7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ca2550 tier=trivial session_id=none opened_at=2026-08-07T13:42:54.055025+00:00 -->
+**Plan Opened:** PLN-ca2550
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ca2550 verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:54.059296+00:00 -->
+**Plan Closed:** PLN-ca2550
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-67c851 tier=trivial session_id=none opened_at=2026-08-07T13:42:57.407067+00:00 -->
+**Plan Opened:** PLN-67c851
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-67c851 verdict=PASS quality_tier=none closed_at=2026-08-07T13:42:57.412551+00:00 -->
+**Plan Closed:** PLN-67c851
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e1d7f9 tier=trivial session_id=none opened_at=2026-08-07T13:43:02.332821+00:00 -->
+**Plan Opened:** PLN-e1d7f9
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e1d7f9 verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:02.342304+00:00 -->
+**Plan Closed:** PLN-e1d7f9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f20f81 tier=trivial session_id=none opened_at=2026-08-07T13:43:12.838049+00:00 -->
+**Plan Opened:** PLN-f20f81
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f20f81 verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:12.845810+00:00 -->
+**Plan Closed:** PLN-f20f81
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-77f3af tier=trivial session_id=none opened_at=2026-08-07T13:43:23.320929+00:00 -->
+**Plan Opened:** PLN-77f3af
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-77f3af verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:23.325639+00:00 -->
+**Plan Closed:** PLN-77f3af
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3d6992 tier=trivial session_id=none opened_at=2026-08-07T13:43:33.974574+00:00 -->
+**Plan Opened:** PLN-3d6992
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3d6992 verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:33.979642+00:00 -->
+**Plan Closed:** PLN-3d6992
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c5b8f4 tier=trivial session_id=none opened_at=2026-08-07T13:43:44.360579+00:00 -->
+**Plan Opened:** PLN-c5b8f4
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c5b8f4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:44.365162+00:00 -->
+**Plan Closed:** PLN-c5b8f4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3bdba1 tier=trivial session_id=none opened_at=2026-08-07T13:43:54.829763+00:00 -->
+**Plan Opened:** PLN-3bdba1
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3bdba1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:43:54.834421+00:00 -->
+**Plan Closed:** PLN-3bdba1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bc07ea tier=trivial session_id=none opened_at=2026-08-07T13:44:05.345939+00:00 -->
+**Plan Opened:** PLN-bc07ea
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bc07ea verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:05.355108+00:00 -->
+**Plan Closed:** PLN-bc07ea
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1e7b1d tier=trivial session_id=none opened_at=2026-08-07T13:44:15.832466+00:00 -->
+**Plan Opened:** PLN-1e7b1d
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1e7b1d verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:15.840873+00:00 -->
+**Plan Closed:** PLN-1e7b1d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a691d3 tier=trivial session_id=none opened_at=2026-08-07T13:44:26.496426+00:00 -->
+**Plan Opened:** PLN-a691d3
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a691d3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:26.502530+00:00 -->
+**Plan Closed:** PLN-a691d3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fe399e tier=trivial session_id=none opened_at=2026-08-07T13:44:36.883989+00:00 -->
+**Plan Opened:** PLN-fe399e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fe399e verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:36.888879+00:00 -->
+**Plan Closed:** PLN-fe399e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1c9f58 tier=trivial session_id=none opened_at=2026-08-07T13:44:47.381699+00:00 -->
+**Plan Opened:** PLN-1c9f58
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1c9f58 verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:47.386378+00:00 -->
+**Plan Closed:** PLN-1c9f58
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ed54ae tier=trivial session_id=none opened_at=2026-08-07T13:44:57.965943+00:00 -->
+**Plan Opened:** PLN-ed54ae
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ed54ae verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:57.981608+00:00 -->
+**Plan Closed:** PLN-ed54ae
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ebe051 tier=trivial session_id=none opened_at=2026-08-07T13:44:58.323981+00:00 -->
+**Plan Opened:** PLN-ebe051
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ebe051 verdict=PASS quality_tier=none closed_at=2026-08-07T13:44:58.328607+00:00 -->
+**Plan Closed:** PLN-ebe051
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-eed32b tier=trivial session_id=none opened_at=2026-08-07T13:45:08.392226+00:00 -->
+**Plan Opened:** PLN-eed32b
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-eed32b verdict=PASS quality_tier=none closed_at=2026-08-07T13:45:08.397075+00:00 -->
+**Plan Closed:** PLN-eed32b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f7834f tier=trivial session_id=none opened_at=2026-08-07T13:45:18.754576+00:00 -->
+**Plan Opened:** PLN-f7834f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f7834f verdict=PASS quality_tier=none closed_at=2026-08-07T13:45:18.759008+00:00 -->
+**Plan Closed:** PLN-f7834f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f41ce7 tier=trivial session_id=none opened_at=2026-08-07T13:45:39.896462+00:00 -->
+**Plan Opened:** PLN-f41ce7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f41ce7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:45:39.900866+00:00 -->
+**Plan Closed:** PLN-f41ce7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7c6f88 tier=trivial session_id=none opened_at=2026-08-07T13:45:50.410478+00:00 -->
+**Plan Opened:** PLN-7c6f88
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7c6f88 verdict=PASS quality_tier=none closed_at=2026-08-07T13:45:50.415280+00:00 -->
+**Plan Closed:** PLN-7c6f88
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ffa7a tier=trivial session_id=none opened_at=2026-08-07T13:45:54.100138+00:00 -->
+**Plan Opened:** PLN-1ffa7a
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ffa7a verdict=PASS quality_tier=none closed_at=2026-08-07T13:45:54.104535+00:00 -->
+**Plan Closed:** PLN-1ffa7a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c2e5de tier=trivial session_id=none opened_at=2026-08-07T13:46:00.867308+00:00 -->
+**Plan Opened:** PLN-c2e5de
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c2e5de verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:00.872379+00:00 -->
+**Plan Closed:** PLN-c2e5de
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bbf4c4 tier=trivial session_id=none opened_at=2026-08-07T13:46:11.357419+00:00 -->
+**Plan Opened:** PLN-bbf4c4
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bbf4c4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:11.362406+00:00 -->
+**Plan Closed:** PLN-bbf4c4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f03187 tier=trivial session_id=none opened_at=2026-08-07T13:46:21.605581+00:00 -->
+**Plan Opened:** PLN-f03187
+**Task:** generic long-tail remediation: claude-process-watch -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f03187 verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:21.610084+00:00 -->
+**Plan Closed:** PLN-f03187
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6b78cc tier=trivial session_id=none opened_at=2026-08-07T13:46:21.930296+00:00 -->
+**Plan Opened:** PLN-6b78cc
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6b78cc verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:21.934599+00:00 -->
+**Plan Closed:** PLN-6b78cc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6a2c1a tier=trivial session_id=none opened_at=2026-08-07T13:46:32.421264+00:00 -->
+**Plan Opened:** PLN-6a2c1a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6a2c1a verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:32.425942+00:00 -->
+**Plan Closed:** PLN-6a2c1a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-14dfe2 tier=trivial session_id=none opened_at=2026-08-07T13:46:42.849704+00:00 -->
+**Plan Opened:** PLN-14dfe2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-14dfe2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:42.856095+00:00 -->
+**Plan Closed:** PLN-14dfe2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b0559d tier=trivial session_id=none opened_at=2026-08-07T13:46:53.236923+00:00 -->
+**Plan Opened:** PLN-b0559d
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b0559d verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:53.241485+00:00 -->
+**Plan Closed:** PLN-b0559d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-05b7c4 tier=trivial session_id=none opened_at=2026-08-07T13:46:57.792896+00:00 -->
+**Plan Opened:** PLN-05b7c4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-05b7c4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:46:57.816404+00:00 -->
+**Plan Closed:** PLN-05b7c4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-814ce1 tier=trivial session_id=none opened_at=2026-08-07T13:47:03.782194+00:00 -->
+**Plan Opened:** PLN-814ce1
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-814ce1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:47:03.788020+00:00 -->
+**Plan Closed:** PLN-814ce1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-89e141 tier=trivial session_id=none opened_at=2026-08-07T13:47:24.711276+00:00 -->
+**Plan Opened:** PLN-89e141
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-89e141 verdict=PASS quality_tier=none closed_at=2026-08-07T13:47:24.715777+00:00 -->
+**Plan Closed:** PLN-89e141
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5bee7e tier=trivial session_id=none opened_at=2026-08-07T13:47:35.146268+00:00 -->
+**Plan Opened:** PLN-5bee7e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5bee7e verdict=PASS quality_tier=none closed_at=2026-08-07T13:47:35.150982+00:00 -->
+**Plan Closed:** PLN-5bee7e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-138c47 tier=trivial session_id=none opened_at=2026-08-07T13:47:45.564387+00:00 -->
+**Plan Opened:** PLN-138c47
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-138c47 verdict=PASS quality_tier=none closed_at=2026-08-07T13:47:45.586720+00:00 -->
+**Plan Closed:** PLN-138c47
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-224674 tier=trivial session_id=none opened_at=2026-08-07T13:47:56.101537+00:00 -->
+**Plan Opened:** PLN-224674
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-224674 verdict=PASS quality_tier=none closed_at=2026-08-07T13:47:56.106074+00:00 -->
+**Plan Closed:** PLN-224674
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:47Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-1d9f88 tier=trivial session_id=none opened_at=2026-08-07T13:48:06.693605+00:00 -->
+**Plan Opened:** PLN-1d9f88
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1d9f88 verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:06.698292+00:00 -->
+**Plan Closed:** PLN-1d9f88
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9f4699 tier=trivial session_id=none opened_at=2026-08-07T13:48:17.115776+00:00 -->
+**Plan Opened:** PLN-9f4699
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9f4699 verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:17.133020+00:00 -->
+**Plan Closed:** PLN-9f4699
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-58fe8f tier=trivial session_id=none opened_at=2026-08-07T13:48:27.636580+00:00 -->
+**Plan Opened:** PLN-58fe8f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-58fe8f verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:27.641129+00:00 -->
+**Plan Closed:** PLN-58fe8f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6cb32f tier=trivial session_id=none opened_at=2026-08-07T13:48:38.118423+00:00 -->
+**Plan Opened:** PLN-6cb32f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6cb32f verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:38.122804+00:00 -->
+**Plan Closed:** PLN-6cb32f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-82ae01 tier=trivial session_id=none opened_at=2026-08-07T13:48:48.624966+00:00 -->
+**Plan Opened:** PLN-82ae01
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-82ae01 verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:48.629561+00:00 -->
+**Plan Closed:** PLN-82ae01
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-af9249 tier=trivial session_id=none opened_at=2026-08-07T13:48:54.422116+00:00 -->
+**Plan Opened:** PLN-af9249
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-af9249 verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:54.426637+00:00 -->
+**Plan Closed:** PLN-af9249
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27d65b tier=trivial session_id=none opened_at=2026-08-07T13:48:57.822468+00:00 -->
+**Plan Opened:** PLN-27d65b
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27d65b verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:57.826985+00:00 -->
+**Plan Closed:** PLN-27d65b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3d358c tier=trivial session_id=none opened_at=2026-08-07T13:48:59.143507+00:00 -->
+**Plan Opened:** PLN-3d358c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3d358c verdict=PASS quality_tier=none closed_at=2026-08-07T13:48:59.147997+00:00 -->
+**Plan Closed:** PLN-3d358c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f1e899 tier=trivial session_id=none opened_at=2026-08-07T13:49:09.626220+00:00 -->
+**Plan Opened:** PLN-f1e899
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f1e899 verdict=PASS quality_tier=none closed_at=2026-08-07T13:49:09.630990+00:00 -->
+**Plan Closed:** PLN-f1e899
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b8bde1 tier=trivial session_id=none opened_at=2026-08-07T13:49:20.117175+00:00 -->
+**Plan Opened:** PLN-b8bde1
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b8bde1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:49:20.129194+00:00 -->
+**Plan Closed:** PLN-b8bde1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4adfe3 tier=trivial session_id=none opened_at=2026-08-07T13:49:30.636489+00:00 -->
+**Plan Opened:** PLN-4adfe3
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4adfe3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:49:30.641342+00:00 -->
+**Plan Closed:** PLN-4adfe3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9e075d tier=trivial session_id=none opened_at=2026-08-07T13:49:41.161270+00:00 -->
+**Plan Opened:** PLN-9e075d
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9e075d verdict=PASS quality_tier=none closed_at=2026-08-07T13:49:41.170780+00:00 -->
+**Plan Closed:** PLN-9e075d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b4ec6b tier=trivial session_id=none opened_at=2026-08-07T13:49:51.650663+00:00 -->
+**Plan Opened:** PLN-b4ec6b
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b4ec6b verdict=PASS quality_tier=none closed_at=2026-08-07T13:49:51.676879+00:00 -->
+**Plan Closed:** PLN-b4ec6b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e4764c tier=trivial session_id=none opened_at=2026-08-07T13:50:02.100083+00:00 -->
+**Plan Opened:** PLN-e4764c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e4764c verdict=PASS quality_tier=none closed_at=2026-08-07T13:50:02.104585+00:00 -->
+**Plan Closed:** PLN-e4764c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ddeb35 tier=trivial session_id=none opened_at=2026-08-07T13:50:13.162369+00:00 -->
+**Plan Opened:** PLN-ddeb35
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ddeb35 verdict=PASS quality_tier=none closed_at=2026-08-07T13:50:13.168848+00:00 -->
+**Plan Closed:** PLN-ddeb35
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f3160e tier=trivial session_id=none opened_at=2026-08-07T13:50:55.876842+00:00 -->
+**Plan Opened:** PLN-f3160e
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f3160e verdict=PASS quality_tier=none closed_at=2026-08-07T13:50:55.891662+00:00 -->
+**Plan Closed:** PLN-f3160e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-48e4e7 tier=trivial session_id=none opened_at=2026-08-07T13:51:06.263068+00:00 -->
+**Plan Opened:** PLN-48e4e7
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-48e4e7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:51:06.272631+00:00 -->
+**Plan Closed:** PLN-48e4e7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-55acd4 tier=trivial session_id=none opened_at=2026-08-07T13:51:07.363798+00:00 -->
+**Plan Opened:** PLN-55acd4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-55acd4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:51:07.381502+00:00 -->
+**Plan Closed:** PLN-55acd4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:51Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-90ae6b tier=trivial session_id=none opened_at=2026-08-07T13:51:30.568881+00:00 -->
+**Plan Opened:** PLN-90ae6b
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-90ae6b verdict=PASS quality_tier=none closed_at=2026-08-07T13:51:30.577278+00:00 -->
+**Plan Closed:** PLN-90ae6b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7401e2 tier=trivial session_id=none opened_at=2026-08-07T13:51:42.178024+00:00 -->
+**Plan Opened:** PLN-7401e2
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7401e2 verdict=PASS quality_tier=none closed_at=2026-08-07T13:51:42.189073+00:00 -->
+**Plan Closed:** PLN-7401e2
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-87274d tier=trivial session_id=none opened_at=2026-08-07T13:51:54.504005+00:00 -->
+**Plan Opened:** PLN-87274d
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-87274d verdict=PASS quality_tier=none closed_at=2026-08-07T13:51:54.514593+00:00 -->
+**Plan Closed:** PLN-87274d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f2ecad tier=trivial session_id=none opened_at=2026-08-07T13:52:11.490591+00:00 -->
+**Plan Opened:** PLN-f2ecad
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f2ecad verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:11.498178+00:00 -->
+**Plan Closed:** PLN-f2ecad
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8fa3f3 tier=trivial session_id=none opened_at=2026-08-07T13:52:21.974230+00:00 -->
+**Plan Opened:** PLN-8fa3f3
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8fa3f3 verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:21.978576+00:00 -->
+**Plan Closed:** PLN-8fa3f3
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-77b7fc tier=trivial session_id=none opened_at=2026-08-07T13:52:32.351796+00:00 -->
+**Plan Opened:** PLN-77b7fc
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-77b7fc verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:32.356570+00:00 -->
+**Plan Closed:** PLN-77b7fc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fcfc0e tier=trivial session_id=none opened_at=2026-08-07T13:52:42.864868+00:00 -->
+**Plan Opened:** PLN-fcfc0e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fcfc0e verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:42.869244+00:00 -->
+**Plan Closed:** PLN-fcfc0e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1fe0f6 tier=trivial session_id=none opened_at=2026-08-07T13:52:53.348076+00:00 -->
+**Plan Opened:** PLN-1fe0f6
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1fe0f6 verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:53.352291+00:00 -->
+**Plan Closed:** PLN-1fe0f6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e0b9d4 tier=trivial session_id=none opened_at=2026-08-07T13:52:59.338461+00:00 -->
+**Plan Opened:** PLN-e0b9d4
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e0b9d4 verdict=PASS quality_tier=none closed_at=2026-08-07T13:52:59.343106+00:00 -->
+**Plan Closed:** PLN-e0b9d4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d020ad tier=trivial session_id=none opened_at=2026-08-07T13:53:03.861410+00:00 -->
+**Plan Opened:** PLN-d020ad
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d020ad verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:03.865765+00:00 -->
+**Plan Closed:** PLN-d020ad
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-24c011 tier=trivial session_id=none opened_at=2026-08-07T13:53:14.346992+00:00 -->
+**Plan Opened:** PLN-24c011
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-24c011 verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:14.351576+00:00 -->
+**Plan Closed:** PLN-24c011
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-127141 tier=trivial session_id=none opened_at=2026-08-07T13:53:24.843659+00:00 -->
+**Plan Opened:** PLN-127141
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-127141 verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:24.848286+00:00 -->
+**Plan Closed:** PLN-127141
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3ad244 tier=trivial session_id=none opened_at=2026-08-07T13:53:35.345065+00:00 -->
+**Plan Opened:** PLN-3ad244
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3ad244 verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:35.352575+00:00 -->
+**Plan Closed:** PLN-3ad244
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dba589 tier=trivial session_id=none opened_at=2026-08-07T13:53:45.899136+00:00 -->
+**Plan Opened:** PLN-dba589
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dba589 verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:45.903719+00:00 -->
+**Plan Closed:** PLN-dba589
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bf5327 tier=trivial session_id=none opened_at=2026-08-07T13:53:56.333417+00:00 -->
+**Plan Opened:** PLN-bf5327
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bf5327 verdict=PASS quality_tier=none closed_at=2026-08-07T13:53:56.338139+00:00 -->
+**Plan Closed:** PLN-bf5327
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:53Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-8a92a0 tier=trivial session_id=none opened_at=2026-08-07T13:54:07.025338+00:00 -->
+**Plan Opened:** PLN-8a92a0
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8a92a0 verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:07.030094+00:00 -->
+**Plan Closed:** PLN-8a92a0
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T13:54Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-fd3438 tier=trivial session_id=none opened_at=2026-08-07T13:54:17.367149+00:00 -->
+**Plan Opened:** PLN-fd3438
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fd3438 verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:17.371902+00:00 -->
+**Plan Closed:** PLN-fd3438
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cb943f tier=trivial session_id=none opened_at=2026-08-07T13:54:27.904432+00:00 -->
+**Plan Opened:** PLN-cb943f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cb943f verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:27.909016+00:00 -->
+**Plan Closed:** PLN-cb943f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-bca5be tier=trivial session_id=none opened_at=2026-08-07T13:54:38.348709+00:00 -->
+**Plan Opened:** PLN-bca5be
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-bca5be verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:38.355362+00:00 -->
+**Plan Closed:** PLN-bca5be
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aa74d1 tier=trivial session_id=none opened_at=2026-08-07T13:54:48.954701+00:00 -->
+**Plan Opened:** PLN-aa74d1
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aa74d1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:48.959738+00:00 -->
+**Plan Closed:** PLN-aa74d1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e5936a tier=trivial session_id=none opened_at=2026-08-07T13:54:54.493507+00:00 -->
+**Plan Opened:** PLN-e5936a
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e5936a verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:54.497999+00:00 -->
+**Plan Closed:** PLN-e5936a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-71e9f7 tier=trivial session_id=none opened_at=2026-08-07T13:54:59.359018+00:00 -->
+**Plan Opened:** PLN-71e9f7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-71e9f7 verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:59.363872+00:00 -->
+**Plan Closed:** PLN-71e9f7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-255079 tier=trivial session_id=none opened_at=2026-08-07T13:54:59.945110+00:00 -->
+**Plan Opened:** PLN-255079
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-255079 verdict=PASS quality_tier=none closed_at=2026-08-07T13:54:59.949693+00:00 -->
+**Plan Closed:** PLN-255079
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ee773e tier=trivial session_id=none opened_at=2026-08-07T13:55:09.903229+00:00 -->
+**Plan Opened:** PLN-ee773e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ee773e verdict=PASS quality_tier=none closed_at=2026-08-07T13:55:09.907603+00:00 -->
+**Plan Closed:** PLN-ee773e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34e6bd tier=trivial session_id=none opened_at=2026-08-07T13:55:20.214060+00:00 -->
+**Plan Opened:** PLN-34e6bd
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34e6bd verdict=PASS quality_tier=none closed_at=2026-08-07T13:55:20.221632+00:00 -->
+**Plan Closed:** PLN-34e6bd
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dd5c71 tier=trivial session_id=none opened_at=2026-08-07T13:55:30.531075+00:00 -->
+**Plan Opened:** PLN-dd5c71
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dd5c71 verdict=PASS quality_tier=none closed_at=2026-08-07T13:55:30.535474+00:00 -->
+**Plan Closed:** PLN-dd5c71
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-105993 tier=trivial session_id=none opened_at=2026-08-07T13:55:40.871395+00:00 -->
+**Plan Opened:** PLN-105993
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-105993 verdict=PASS quality_tier=none closed_at=2026-08-07T13:55:40.875927+00:00 -->
+**Plan Closed:** PLN-105993
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-959ce8 tier=trivial session_id=none opened_at=2026-08-07T13:55:51.263872+00:00 -->
+**Plan Opened:** PLN-959ce8
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-959ce8 verdict=PASS quality_tier=none closed_at=2026-08-07T13:55:51.268342+00:00 -->
+**Plan Closed:** PLN-959ce8
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ad3574 tier=trivial session_id=none opened_at=2026-08-07T13:56:01.753091+00:00 -->
+**Plan Opened:** PLN-ad3574
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ad3574 verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:01.757475+00:00 -->
+**Plan Closed:** PLN-ad3574
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e6769c tier=trivial session_id=none opened_at=2026-08-07T13:56:12.120491+00:00 -->
+**Plan Opened:** PLN-e6769c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e6769c verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:12.124997+00:00 -->
+**Plan Closed:** PLN-e6769c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-34798c tier=trivial session_id=none opened_at=2026-08-07T13:56:22.501121+00:00 -->
+**Plan Opened:** PLN-34798c
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-34798c verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:22.505547+00:00 -->
+**Plan Closed:** PLN-34798c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-27bf3f tier=trivial session_id=none opened_at=2026-08-07T13:56:32.861866+00:00 -->
+**Plan Opened:** PLN-27bf3f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-27bf3f verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:32.877948+00:00 -->
+**Plan Closed:** PLN-27bf3f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8a602c tier=trivial session_id=none opened_at=2026-08-07T13:56:43.359615+00:00 -->
+**Plan Opened:** PLN-8a602c
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8a602c verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:43.371383+00:00 -->
+**Plan Closed:** PLN-8a602c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dabb68 tier=trivial session_id=none opened_at=2026-08-07T13:56:53.685078+00:00 -->
+**Plan Opened:** PLN-dabb68
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dabb68 verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:53.706543+00:00 -->
+**Plan Closed:** PLN-dabb68
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-802aee tier=trivial session_id=none opened_at=2026-08-07T13:56:59.417246+00:00 -->
+**Plan Opened:** PLN-802aee
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-802aee verdict=PASS quality_tier=none closed_at=2026-08-07T13:56:59.421985+00:00 -->
+**Plan Closed:** PLN-802aee
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-15c379 tier=trivial session_id=none opened_at=2026-08-07T13:57:04.083553+00:00 -->
+**Plan Opened:** PLN-15c379
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-15c379 verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:04.095315+00:00 -->
+**Plan Closed:** PLN-15c379
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-86879b tier=trivial session_id=none opened_at=2026-08-07T13:57:14.826174+00:00 -->
+**Plan Opened:** PLN-86879b
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-86879b verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:14.832047+00:00 -->
+**Plan Closed:** PLN-86879b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0fb8df tier=trivial session_id=none opened_at=2026-08-07T13:57:34.767968+00:00 -->
+**Plan Opened:** PLN-0fb8df
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0fb8df verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:34.772717+00:00 -->
+**Plan Closed:** PLN-0fb8df
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-642d08 tier=trivial session_id=none opened_at=2026-08-07T13:57:45.340811+00:00 -->
+**Plan Opened:** PLN-642d08
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-642d08 verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:45.345267+00:00 -->
+**Plan Closed:** PLN-642d08
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a133a1 tier=trivial session_id=none opened_at=2026-08-07T13:57:55.055604+00:00 -->
+**Plan Opened:** PLN-a133a1
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a133a1 verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:55.060110+00:00 -->
+**Plan Closed:** PLN-a133a1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-41535c tier=trivial session_id=none opened_at=2026-08-07T13:57:55.823251+00:00 -->
+**Plan Opened:** PLN-41535c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-41535c verdict=PASS quality_tier=none closed_at=2026-08-07T13:57:55.827913+00:00 -->
+**Plan Closed:** PLN-41535c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-125f95 tier=trivial session_id=none opened_at=2026-08-07T13:58:06.327220+00:00 -->
+**Plan Opened:** PLN-125f95
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-125f95 verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:06.331888+00:00 -->
+**Plan Closed:** PLN-125f95
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7ba1bd tier=trivial session_id=none opened_at=2026-08-07T13:58:16.864585+00:00 -->
+**Plan Opened:** PLN-7ba1bd
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7ba1bd verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:16.869266+00:00 -->
+**Plan Closed:** PLN-7ba1bd
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ba1ef tier=trivial session_id=none opened_at=2026-08-07T13:58:27.346962+00:00 -->
+**Plan Opened:** PLN-4ba1ef
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ba1ef verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:27.351668+00:00 -->
+**Plan Closed:** PLN-4ba1ef
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-f26001 tier=trivial session_id=none opened_at=2026-08-07T13:58:37.836068+00:00 -->
+**Plan Opened:** PLN-f26001
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-f26001 verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:37.840919+00:00 -->
+**Plan Closed:** PLN-f26001
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-330a34 tier=trivial session_id=none opened_at=2026-08-07T13:58:48.352453+00:00 -->
+**Plan Opened:** PLN-330a34
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-330a34 verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:48.356721+00:00 -->
+**Plan Closed:** PLN-330a34
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-36ac7e tier=trivial session_id=none opened_at=2026-08-07T13:58:58.846318+00:00 -->
+**Plan Opened:** PLN-36ac7e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-36ac7e verdict=PASS quality_tier=none closed_at=2026-08-07T13:58:58.854487+00:00 -->
+**Plan Closed:** PLN-36ac7e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d6746d tier=trivial session_id=none opened_at=2026-08-07T13:59:00.269699+00:00 -->
+**Plan Opened:** PLN-d6746d
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d6746d verdict=PASS quality_tier=none closed_at=2026-08-07T13:59:00.274309+00:00 -->
+**Plan Closed:** PLN-d6746d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-47551b tier=trivial session_id=none opened_at=2026-08-07T13:59:09.340338+00:00 -->
+**Plan Opened:** PLN-47551b
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-47551b verdict=PASS quality_tier=none closed_at=2026-08-07T13:59:09.348533+00:00 -->
+**Plan Closed:** PLN-47551b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-278c54 tier=trivial session_id=none opened_at=2026-08-07T13:59:19.837053+00:00 -->
+**Plan Opened:** PLN-278c54
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-278c54 verdict=PASS quality_tier=none closed_at=2026-08-07T13:59:19.841776+00:00 -->
+**Plan Closed:** PLN-278c54
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3f859c tier=trivial session_id=none opened_at=2026-08-07T13:59:30.350840+00:00 -->
+**Plan Opened:** PLN-3f859c
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3f859c verdict=PASS quality_tier=none closed_at=2026-08-07T13:59:30.359309+00:00 -->
+**Plan Closed:** PLN-3f859c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b41e15 tier=trivial session_id=none opened_at=2026-08-07T13:59:40.909171+00:00 -->
+**Plan Opened:** PLN-b41e15
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b41e15 verdict=PASS quality_tier=none closed_at=2026-08-07T13:59:40.913975+00:00 -->
+**Plan Closed:** PLN-b41e15
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d48d54 tier=trivial session_id=none opened_at=2026-08-07T14:00:03.084029+00:00 -->
+**Plan Opened:** PLN-d48d54
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d48d54 verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:03.090551+00:00 -->
+**Plan Closed:** PLN-d48d54
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a7b349 tier=trivial session_id=none opened_at=2026-08-07T14:00:13.767177+00:00 -->
+**Plan Opened:** PLN-a7b349
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a7b349 verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:13.771882+00:00 -->
+**Plan Closed:** PLN-a7b349
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-773e7c tier=trivial session_id=none opened_at=2026-08-07T14:00:24.106259+00:00 -->
+**Plan Opened:** PLN-773e7c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-773e7c verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:24.112576+00:00 -->
+**Plan Closed:** PLN-773e7c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3b275a tier=trivial session_id=none opened_at=2026-08-07T14:00:34.473088+00:00 -->
+**Plan Opened:** PLN-3b275a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3b275a verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:34.478055+00:00 -->
+**Plan Closed:** PLN-3b275a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-8de119 tier=trivial session_id=none opened_at=2026-08-07T14:00:44.797707+00:00 -->
+**Plan Opened:** PLN-8de119
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-8de119 verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:44.802206+00:00 -->
+**Plan Closed:** PLN-8de119
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-287688 tier=trivial session_id=none opened_at=2026-08-07T14:00:55.041797+00:00 -->
+**Plan Opened:** PLN-287688
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-287688 verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:55.046470+00:00 -->
+**Plan Closed:** PLN-287688
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6c1292 tier=trivial session_id=none opened_at=2026-08-07T14:00:55.365192+00:00 -->
+**Plan Opened:** PLN-6c1292
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6c1292 verdict=PASS quality_tier=none closed_at=2026-08-07T14:00:55.369957+00:00 -->
+**Plan Closed:** PLN-6c1292
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c36207 tier=trivial session_id=none opened_at=2026-08-07T14:01:00.418268+00:00 -->
+**Plan Opened:** PLN-c36207
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c36207 verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:00.422845+00:00 -->
+**Plan Closed:** PLN-c36207
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d9c760 tier=trivial session_id=none opened_at=2026-08-07T14:01:05.729482+00:00 -->
+**Plan Opened:** PLN-d9c760
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d9c760 verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:05.733886+00:00 -->
+**Plan Closed:** PLN-d9c760
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9d2106 tier=trivial session_id=none opened_at=2026-08-07T14:01:16.141394+00:00 -->
+**Plan Opened:** PLN-9d2106
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9d2106 verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:16.145957+00:00 -->
+**Plan Closed:** PLN-9d2106
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b8858e tier=trivial session_id=none opened_at=2026-08-07T14:01:26.622486+00:00 -->
+**Plan Opened:** PLN-b8858e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b8858e verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:26.627384+00:00 -->
+**Plan Closed:** PLN-b8858e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a7b37c tier=trivial session_id=none opened_at=2026-08-07T14:01:46.270964+00:00 -->
+**Plan Opened:** PLN-a7b37c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a7b37c verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:46.275593+00:00 -->
+**Plan Closed:** PLN-a7b37c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a16489 tier=trivial session_id=none opened_at=2026-08-07T14:01:56.845501+00:00 -->
+**Plan Opened:** PLN-a16489
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a16489 verdict=PASS quality_tier=none closed_at=2026-08-07T14:01:56.850987+00:00 -->
+**Plan Closed:** PLN-a16489
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7f5c99 tier=trivial session_id=none opened_at=2026-08-07T14:02:07.345879+00:00 -->
+**Plan Opened:** PLN-7f5c99
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7f5c99 verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:07.350293+00:00 -->
+**Plan Closed:** PLN-7f5c99
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aaa541 tier=trivial session_id=none opened_at=2026-08-07T14:02:17.831283+00:00 -->
+**Plan Opened:** PLN-aaa541
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aaa541 verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:17.836043+00:00 -->
+**Plan Closed:** PLN-aaa541
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3a663a tier=trivial session_id=none opened_at=2026-08-07T14:02:28.357719+00:00 -->
+**Plan Opened:** PLN-3a663a
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3a663a verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:28.362403+00:00 -->
+**Plan Closed:** PLN-3a663a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-308f17 tier=trivial session_id=none opened_at=2026-08-07T14:02:38.858121+00:00 -->
+**Plan Opened:** PLN-308f17
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-308f17 verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:38.862780+00:00 -->
+**Plan Closed:** PLN-308f17
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4bd1f4 tier=trivial session_id=none opened_at=2026-08-07T14:02:49.359582+00:00 -->
+**Plan Opened:** PLN-4bd1f4
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4bd1f4 verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:49.364314+00:00 -->
+**Plan Closed:** PLN-4bd1f4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-6451b4 tier=trivial session_id=none opened_at=2026-08-07T14:02:59.878290+00:00 -->
+**Plan Opened:** PLN-6451b4
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-6451b4 verdict=PASS quality_tier=none closed_at=2026-08-07T14:02:59.882840+00:00 -->
+**Plan Closed:** PLN-6451b4
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-560d21 tier=trivial session_id=none opened_at=2026-08-07T14:03:00.473939+00:00 -->
+**Plan Opened:** PLN-560d21
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-560d21 verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:00.478424+00:00 -->
+**Plan Closed:** PLN-560d21
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-53ffcf tier=trivial session_id=none opened_at=2026-08-07T14:03:10.367310+00:00 -->
+**Plan Opened:** PLN-53ffcf
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-53ffcf verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:10.371738+00:00 -->
+**Plan Closed:** PLN-53ffcf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9f345a tier=trivial session_id=none opened_at=2026-08-07T14:03:20.866238+00:00 -->
+**Plan Opened:** PLN-9f345a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9f345a verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:20.870865+00:00 -->
+**Plan Closed:** PLN-9f345a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-aed1eb tier=trivial session_id=none opened_at=2026-08-07T14:03:31.351375+00:00 -->
+**Plan Opened:** PLN-aed1eb
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-aed1eb verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:31.355843+00:00 -->
+**Plan Closed:** PLN-aed1eb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-218829 tier=trivial session_id=none opened_at=2026-08-07T14:03:41.864810+00:00 -->
+**Plan Opened:** PLN-218829
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-218829 verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:41.869291+00:00 -->
+**Plan Closed:** PLN-218829
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-71d2ab tier=trivial session_id=none opened_at=2026-08-07T14:03:52.351627+00:00 -->
+**Plan Opened:** PLN-71d2ab
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-71d2ab verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:52.359546+00:00 -->
+**Plan Closed:** PLN-71d2ab
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d1a2ec tier=trivial session_id=none opened_at=2026-08-07T14:03:55.920534+00:00 -->
+**Plan Opened:** PLN-d1a2ec
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d1a2ec verdict=PASS quality_tier=none closed_at=2026-08-07T14:03:55.925570+00:00 -->
+**Plan Closed:** PLN-d1a2ec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-350d63 tier=trivial session_id=none opened_at=2026-08-07T14:04:02.855203+00:00 -->
+**Plan Opened:** PLN-350d63
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-350d63 verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:02.859509+00:00 -->
+**Plan Closed:** PLN-350d63
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-4ea326 tier=trivial session_id=none opened_at=2026-08-07T14:04:13.340411+00:00 -->
+**Plan Opened:** PLN-4ea326
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-4ea326 verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:13.356893+00:00 -->
+**Plan Closed:** PLN-4ea326
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-daf67a tier=trivial session_id=none opened_at=2026-08-07T14:04:23.864317+00:00 -->
+**Plan Opened:** PLN-daf67a
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-daf67a verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:23.872767+00:00 -->
+**Plan Closed:** PLN-daf67a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ef0767 tier=trivial session_id=none opened_at=2026-08-07T14:04:34.345613+00:00 -->
+**Plan Opened:** PLN-ef0767
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ef0767 verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:34.353751+00:00 -->
+**Plan Closed:** PLN-ef0767
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ac3b7f tier=trivial session_id=none opened_at=2026-08-07T14:04:44.865878+00:00 -->
+**Plan Opened:** PLN-ac3b7f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ac3b7f verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:44.873908+00:00 -->
+**Plan Closed:** PLN-ac3b7f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-77886f tier=trivial session_id=none opened_at=2026-08-07T14:04:55.362123+00:00 -->
+**Plan Opened:** PLN-77886f
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-77886f verdict=PASS quality_tier=none closed_at=2026-08-07T14:04:55.370100+00:00 -->
+**Plan Closed:** PLN-77886f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b1daca tier=trivial session_id=none opened_at=2026-08-07T14:05:00.807992+00:00 -->
+**Plan Opened:** PLN-b1daca
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b1daca verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:00.815995+00:00 -->
+**Plan Closed:** PLN-b1daca
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c300cf tier=trivial session_id=none opened_at=2026-08-07T14:05:05.878039+00:00 -->
+**Plan Opened:** PLN-c300cf
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c300cf verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:05.882675+00:00 -->
+**Plan Closed:** PLN-c300cf
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-5478a9 tier=trivial session_id=none opened_at=2026-08-07T14:05:16.372006+00:00 -->
+**Plan Opened:** PLN-5478a9
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5478a9 verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:16.376490+00:00 -->
+**Plan Closed:** PLN-5478a9
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0a4784 tier=trivial session_id=none opened_at=2026-08-07T14:05:26.831575+00:00 -->
+**Plan Opened:** PLN-0a4784
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0a4784 verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:26.836510+00:00 -->
+**Plan Closed:** PLN-0a4784
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-94bb60 tier=trivial session_id=none opened_at=2026-08-07T14:05:37.230146+00:00 -->
+**Plan Opened:** PLN-94bb60
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-94bb60 verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:37.234644+00:00 -->
+**Plan Closed:** PLN-94bb60
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-312a36 tier=trivial session_id=none opened_at=2026-08-07T14:05:47.670232+00:00 -->
+**Plan Opened:** PLN-312a36
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-312a36 verdict=PASS quality_tier=none closed_at=2026-08-07T14:05:47.674570+00:00 -->
+**Plan Closed:** PLN-312a36
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d50a6f tier=trivial session_id=none opened_at=2026-08-07T14:06:04.032874+00:00 -->
+**Plan Opened:** PLN-d50a6f
+**Task:** generic long-tail remediation: thunderbird-mcp -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d50a6f verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:04.037392+00:00 -->
+**Plan Closed:** PLN-d50a6f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** thunderbird-mcp verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-e3b2ad tier=trivial session_id=none opened_at=2026-08-07T14:06:07.303414+00:00 -->
+**Plan Opened:** PLN-e3b2ad
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-e3b2ad verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:07.307920+00:00 -->
+**Plan Closed:** PLN-e3b2ad
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d5da24 tier=trivial session_id=none opened_at=2026-08-07T14:06:17.843067+00:00 -->
+**Plan Opened:** PLN-d5da24
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d5da24 verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:17.847325+00:00 -->
+**Plan Closed:** PLN-d5da24
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b94d1c tier=trivial session_id=none opened_at=2026-08-07T14:06:21.756078+00:00 -->
+**Plan Opened:** PLN-b94d1c
+**Task:** generic long-tail remediation: claude-process-watch -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b94d1c verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:21.760808+00:00 -->
+**Plan Closed:** PLN-b94d1c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-709d80 tier=trivial session_id=none opened_at=2026-08-07T14:06:23.134882+00:00 -->
+**Plan Opened:** PLN-709d80
+**Task:** crash captured: -c (main thread)
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_234951.log
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-709d80 verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:23.139563+00:00 -->
+**Plan Closed:** PLN-709d80
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** crash report written to /home/john/Thunderbird/logs/crash_reports/-c_234951.log
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** none
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9bde8c tier=trivial session_id=none opened_at=2026-08-07T14:06:23.399109+00:00 -->
+**Plan Opened:** PLN-9bde8c
+**Task:** generic long-tail remediation: claude-process-watch -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** claude-process-watch verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9bde8c verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:23.403913+00:00 -->
+**Plan Closed:** PLN-9bde8c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** claude-process-watch verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-56f4ec tier=trivial session_id=none opened_at=2026-08-07T14:06:23.439893+00:00 -->
+**Plan Opened:** PLN-56f4ec
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-56f4ec verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:23.444321+00:00 -->
+**Plan Closed:** PLN-56f4ec
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cd6c2d tier=trivial session_id=none opened_at=2026-08-07T14:06:27.788622+00:00 -->
+**Plan Opened:** PLN-cd6c2d
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cd6c2d verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:27.793098+00:00 -->
+**Plan Closed:** PLN-cd6c2d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-7664ed tier=trivial session_id=none opened_at=2026-08-07T14:06:36.168579+00:00 -->
+**Plan Opened:** PLN-7664ed
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-7664ed verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:36.180122+00:00 -->
+**Plan Closed:** PLN-7664ed
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1be172 tier=trivial session_id=none opened_at=2026-08-07T14:06:46.560958+00:00 -->
+**Plan Opened:** PLN-1be172
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1be172 verdict=PASS quality_tier=none closed_at=2026-08-07T14:06:46.566814+00:00 -->
+**Plan Closed:** PLN-1be172
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-09217b tier=trivial session_id=none opened_at=2026-08-07T14:07:03.081073+00:00 -->
+**Plan Opened:** PLN-09217b
+**Task:** generic long-tail remediation: d2m-mcp -> recovered — verified active
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-09217b verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:03.086550+00:00 -->
+**Plan Closed:** PLN-09217b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** d2m-mcp verified active after remediation attempt
+**Criteria missed:** none
+**Criteria unverified:** none
+**Notes:** recovered — verified active
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c9bc9c tier=trivial session_id=none opened_at=2026-08-07T14:07:07.558161+00:00 -->
+**Plan Opened:** PLN-c9bc9c
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c9bc9c verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:07.566733+00:00 -->
+**Plan Closed:** PLN-c9bc9c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T14:07Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-5f9832 tier=trivial session_id=none opened_at=2026-08-07T14:07:17.929623+00:00 -->
+**Plan Opened:** PLN-5f9832
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-5f9832 verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:17.951267+00:00 -->
+**Plan Closed:** PLN-5f9832
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-11abfe tier=trivial session_id=none opened_at=2026-08-07T14:07:28.362309+00:00 -->
+**Plan Opened:** PLN-11abfe
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-11abfe verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:28.382614+00:00 -->
+**Plan Closed:** PLN-11abfe
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-990824 tier=trivial session_id=none opened_at=2026-08-07T14:07:38.879678+00:00 -->
+**Plan Opened:** PLN-990824
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-990824 verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:38.890877+00:00 -->
+**Plan Closed:** PLN-990824
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-29bc14 tier=trivial session_id=none opened_at=2026-08-07T14:07:49.378091+00:00 -->
+**Plan Opened:** PLN-29bc14
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-29bc14 verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:49.398937+00:00 -->
+**Plan Closed:** PLN-29bc14
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-df20f5 tier=trivial session_id=none opened_at=2026-08-07T14:07:59.864817+00:00 -->
+**Plan Opened:** PLN-df20f5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-df20f5 verdict=PASS quality_tier=none closed_at=2026-08-07T14:07:59.887274+00:00 -->
+**Plan Closed:** PLN-df20f5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-1ffe5b tier=trivial session_id=none opened_at=2026-08-07T14:08:10.347219+00:00 -->
+**Plan Opened:** PLN-1ffe5b
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-1ffe5b verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:10.367737+00:00 -->
+**Plan Closed:** PLN-1ffe5b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-74b993 tier=trivial session_id=none opened_at=2026-08-07T14:08:20.864659+00:00 -->
+**Plan Opened:** PLN-74b993
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-74b993 verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:20.879493+00:00 -->
+**Plan Closed:** PLN-74b993
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-3d6a77 tier=trivial session_id=none opened_at=2026-08-07T14:08:28.611092+00:00 -->
+**Plan Opened:** PLN-3d6a77
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-3d6a77 verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:28.615766+00:00 -->
+**Plan Closed:** PLN-3d6a77
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-941e1b tier=trivial session_id=none opened_at=2026-08-07T14:08:31.421019+00:00 -->
+**Plan Opened:** PLN-941e1b
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-941e1b verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:31.425611+00:00 -->
+**Plan Closed:** PLN-941e1b
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-666033 tier=trivial session_id=none opened_at=2026-08-07T14:08:41.864758+00:00 -->
+**Plan Opened:** PLN-666033
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-666033 verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:41.869250+00:00 -->
+**Plan Closed:** PLN-666033
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dffbd7 tier=trivial session_id=none opened_at=2026-08-07T14:08:52.349210+00:00 -->
+**Plan Opened:** PLN-dffbd7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dffbd7 verdict=PASS quality_tier=none closed_at=2026-08-07T14:08:52.357185+00:00 -->
+**Plan Closed:** PLN-dffbd7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b4633 tier=trivial session_id=none opened_at=2026-08-07T14:09:02.704101+00:00 -->
+**Plan Opened:** PLN-0b4633
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b4633 verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:02.709251+00:00 -->
+**Plan Closed:** PLN-0b4633
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0b7217 tier=trivial session_id=none opened_at=2026-08-07T14:09:13.050912+00:00 -->
+**Plan Opened:** PLN-0b7217
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0b7217 verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:13.055417+00:00 -->
+**Plan Closed:** PLN-0b7217
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-234f5c tier=trivial session_id=none opened_at=2026-08-07T14:09:23.428940+00:00 -->
+**Plan Opened:** PLN-234f5c
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-234f5c verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:23.433035+00:00 -->
+**Plan Closed:** PLN-234f5c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-a5c3bc tier=trivial session_id=none opened_at=2026-08-07T14:09:23.532667+00:00 -->
+**Plan Opened:** PLN-a5c3bc
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-a5c3bc verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:23.537591+00:00 -->
+**Plan Closed:** PLN-a5c3bc
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-c8d191 tier=trivial session_id=none opened_at=2026-08-07T14:09:33.927875+00:00 -->
+**Plan Opened:** PLN-c8d191
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-c8d191 verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:33.932742+00:00 -->
+**Plan Closed:** PLN-c8d191
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-609221 tier=trivial session_id=none opened_at=2026-08-07T14:09:44.497252+00:00 -->
+**Plan Opened:** PLN-609221
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-609221 verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:44.506401+00:00 -->
+**Plan Closed:** PLN-609221
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-96a780 tier=trivial session_id=none opened_at=2026-08-07T14:09:54.984023+00:00 -->
+**Plan Opened:** PLN-96a780
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-96a780 verdict=PASS quality_tier=none closed_at=2026-08-07T14:09:54.989818+00:00 -->
+**Plan Closed:** PLN-96a780
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2b7ef5 tier=trivial session_id=none opened_at=2026-08-07T14:10:05.478925+00:00 -->
+**Plan Opened:** PLN-2b7ef5
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2b7ef5 verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:05.483837+00:00 -->
+**Plan Closed:** PLN-2b7ef5
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T14:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-52b9f1 tier=trivial session_id=none opened_at=2026-08-07T14:10:16.160742+00:00 -->
+**Plan Opened:** PLN-52b9f1
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-52b9f1 verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:16.165709+00:00 -->
+**Plan Closed:** PLN-52b9f1
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2614bb tier=trivial session_id=none opened_at=2026-08-07T14:10:26.553772+00:00 -->
+**Plan Opened:** PLN-2614bb
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2614bb verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:26.561341+00:00 -->
+**Plan Closed:** PLN-2614bb
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-de300a tier=trivial session_id=none opened_at=2026-08-07T14:10:28.232927+00:00 -->
+**Plan Opened:** PLN-de300a
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-de300a verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:28.240178+00:00 -->
+**Plan Closed:** PLN-de300a
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-b061e7 tier=trivial session_id=none opened_at=2026-08-07T14:10:36.974899+00:00 -->
+**Plan Opened:** PLN-b061e7
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-b061e7 verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:36.979616+00:00 -->
+**Plan Closed:** PLN-b061e7
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-90040c tier=trivial session_id=none opened_at=2026-08-07T14:10:47.468437+00:00 -->
+**Plan Opened:** PLN-90040c
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-90040c verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:47.473096+00:00 -->
+**Plan Closed:** PLN-90040c
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T14:10Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-07b49f tier=trivial session_id=none opened_at=2026-08-07T14:10:57.803215+00:00 -->
+**Plan Opened:** PLN-07b49f
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-07b49f verdict=PASS quality_tier=none closed_at=2026-08-07T14:10:57.811698+00:00 -->
+**Plan Closed:** PLN-07b49f
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-d98dfa tier=trivial session_id=none opened_at=2026-08-07T14:11:16.660927+00:00 -->
+**Plan Opened:** PLN-d98dfa
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-d98dfa verdict=PASS quality_tier=none closed_at=2026-08-07T14:11:16.669415+00:00 -->
+**Plan Closed:** PLN-d98dfa
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-fbf10e tier=trivial session_id=none opened_at=2026-08-07T14:11:27.036024+00:00 -->
+**Plan Opened:** PLN-fbf10e
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-fbf10e verdict=PASS quality_tier=none closed_at=2026-08-07T14:11:27.043000+00:00 -->
+**Plan Closed:** PLN-fbf10e
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-ea1dce tier=trivial session_id=none opened_at=2026-08-07T14:11:37.432371+00:00 -->
+**Plan Opened:** PLN-ea1dce
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-ea1dce verdict=PASS quality_tier=none closed_at=2026-08-07T14:11:37.442803+00:00 -->
+**Plan Closed:** PLN-ea1dce
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-0dfb99 tier=trivial session_id=none opened_at=2026-08-07T14:11:48.145008+00:00 -->
+**Plan Opened:** PLN-0dfb99
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-0dfb99 verdict=PASS quality_tier=none closed_at=2026-08-07T14:11:48.158329+00:00 -->
+**Plan Closed:** PLN-0dfb99
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-abf278 tier=trivial session_id=none opened_at=2026-08-07T14:12:12.464758+00:00 -->
+**Plan Opened:** PLN-abf278
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-abf278 verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:12.474186+00:00 -->
+**Plan Closed:** PLN-abf278
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+- **CHIEF SILVER** [2026-08-07T14:12Z] BACK INTERNAL-OPS → PASS — wing machinery
+
+<!-- PLAN:OPEN plan_id=PLN-9721ba tier=trivial session_id=none opened_at=2026-08-07T14:12:22.920784+00:00 -->
+**Plan Opened:** PLN-9721ba
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9721ba verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:22.931455+00:00 -->
+**Plan Closed:** PLN-9721ba
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-575182 tier=trivial session_id=none opened_at=2026-08-07T14:12:23.509390+00:00 -->
+**Plan Opened:** PLN-575182
+**Task:** generic long-tail remediation: thunderbird-c2-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-c2-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-575182 verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:23.540834+00:00 -->
+**Plan Closed:** PLN-575182
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-c2-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-2d5205 tier=trivial session_id=none opened_at=2026-08-07T14:12:33.727864+00:00 -->
+**Plan Opened:** PLN-2d5205
+**Task:** generic long-tail remediation: thunderbird-inbox-sweep -> circuit breaker open (5 consecutive failures) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-inbox-sweep verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-2d5205 verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:33.742435+00:00 -->
+**Plan Closed:** PLN-2d5205
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-inbox-sweep verified active after remediation attempt
+**Notes:** circuit breaker open (5 consecutive failures) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9dcf03 tier=trivial session_id=none opened_at=2026-08-07T14:12:48.494003+00:00 -->
+**Plan Opened:** PLN-9dcf03
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9dcf03 verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:48.503154+00:00 -->
+**Plan Closed:** PLN-9dcf03
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+## 2026-08-07 (Weapons Free — continued)
+- **RT-CLAUDEP fixed + verified:** headless `claude -p` hang = env pollution + retired model-id + unclosed stdin; applied default model→haiku + stdin=DEVNULL in thunderbird_headless_spawn.py; verified `FIX_OK` rc0. /ask → contact_ag claude-sonnet-4-6 (Sonnet-5 doesn't exist). HOLD was lifted; resumption per Commander.
+- **Limit governor + batching + OC→Haiku→Sonnet ladder + preview-mandatory:** encoded in WAR_ROOM_STANDING.md (2026-08-07 addendum). TPM/RPH/RPD self-monitor/refuse/grace per seat (rt_dispatch).
+- **Recorder (Haiku-built) verified:** RT_transcript.md 2987 words.
+- **BLUF preview generator verified:** bluf.md 94 words (CC/AG/OC/brooks).
+
+<!-- PLAN:OPEN plan_id=PLN-dae400 tier=trivial session_id=none opened_at=2026-08-07T14:12:59.139003+00:00 -->
+**Plan Opened:** PLN-dae400
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dae400 verdict=PASS quality_tier=none closed_at=2026-08-07T14:12:59.148339+00:00 -->
+**Plan Closed:** PLN-dae400
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-cb3dd6 tier=trivial session_id=none opened_at=2026-08-07T14:13:32.761245+00:00 -->
+**Plan Opened:** PLN-cb3dd6
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-cb3dd6 verdict=PASS quality_tier=none closed_at=2026-08-07T14:13:32.770485+00:00 -->
+**Plan Closed:** PLN-cb3dd6
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-9b5106 tier=trivial session_id=none opened_at=2026-08-07T14:13:43.105393+00:00 -->
+**Plan Opened:** PLN-9b5106
+**Task:** generic long-tail remediation: d2m-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** d2m-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-9b5106 verdict=PASS quality_tier=none closed_at=2026-08-07T14:13:43.116102+00:00 -->
+**Plan Closed:** PLN-9b5106
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** d2m-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->
+
+<!-- PLAN:OPEN plan_id=PLN-dfe55d tier=trivial session_id=none opened_at=2026-08-07T14:13:53.603006+00:00 -->
+**Plan Opened:** PLN-dfe55d
+**Task:** generic long-tail remediation: thunderbird-mcp -> cooldown active (3600s) — not re-attempting
+**Tier:** trivial
+**Compliance checks:** none
+**Criteria:** thunderbird-mcp verified active after remediation attempt
+<!-- /PLAN:OPEN -->
+
+<!-- PLAN:CLOSE plan_id=PLN-dfe55d verdict=PASS quality_tier=none closed_at=2026-08-07T14:13:53.610549+00:00 -->
+**Plan Closed:** PLN-dfe55d
+**Verdict:** PASS
+**Quality tier:** none
+**Criteria met:** none
+**Criteria missed:** none
+**Criteria unverified:** thunderbird-mcp verified active after remediation attempt
+**Notes:** cooldown active (3600s) — not re-attempting
+<!-- /PLAN:CLOSE -->

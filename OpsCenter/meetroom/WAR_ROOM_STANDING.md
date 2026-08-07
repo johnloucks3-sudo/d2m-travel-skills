@@ -40,3 +40,10 @@ Fold the best of the found tools INTO the War Room rather than importing their p
 5. **Structured debate rounds (from llm-war-room):** session may open a rebuttal round after all cards — Commander presides, seats re-file a `REBUTTAL` block on the card; recorder nets the disagree/agree.
 6. **Web canvas fallback (from ChatDev):** if we want a maintained web WYSIWYG over our file deck, ChatDev 2.0 (already proto'd) is the backplane option. Do NOT adopt its platform wholesale.
 Adopt = small config/code on our rtmp+R t deck; these are DOCTRINE, not new infra.
+
+## 2026-08-07 ADDENDUM (Commander directives)
+- **PREVIEW-MANDATORY:** every RT session (Commander- or HALE-invoked) MUST generate {session}_bluf.md preview BEFORE the playback deck opens. No preview = session not ready for playback.
+- **DISPATCH LADDER (standing):** OC fills the standard form → **headless Haiku (MAX, lenient)** relays/synthesizes → **Sonnet** only for final judgment. OC data-assembles first (never sends raw work to Sonnet).
+- **LIMIT GOVERNOR (per-seat):** each lane monitors its own TPM/RPH/RPD and, before dispatch, chooses REFUSE (hard if over) · ADVISE (proceed+flag) · GRACE (degrade to healthier lane / self-exclude). Wired via rt_dispatch.py.
+- **BATCHING:** sequential seats share one brief round (shared context, ~15-25% dispatch-token savings); parallel seats share one parallel batch. Avoid N separate full re-briefs.
+- **WAR ROOM to fix `claude -p` + `/ask`** routing (known broken: claude CLI hangs, ask-lane confusion) — OPEN RT-CLAUDEP.

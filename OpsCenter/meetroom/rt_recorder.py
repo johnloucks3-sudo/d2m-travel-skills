@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""rt_recorder.py — ROUND TABLE transcript recorder (receipts + replay timeline).
+
+Merges per-seat point papers ({ag,cc,oc,grok}_hale_input.md) into a session
+transcript {session}_transcript.md. Pure stdlib, 0 tokens. Launcher-owned
+(file: OpsCenter/meetroom/rt_recorder.py). Owned by launcher/OC, not a seat.
+
+Usage:  rt_recorder.py [session]      (session default 'RT')
+"""
+import re
+import sys
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+ROOM = Path(__file__).resolve().parent
+SEATS = [("AG", "ag_hale_input.md"), ("CC", "cc_hale_input.md"),
+         ("OC", "oc_hale_input.md"), ("GROK", "grok_hale_input.md")]
+
+def bluf(text: str) -> str:
+    m = re.search(r"^##+\s*BLUF\s*\n+(.+?)(?=\n#|\Z)", text, re.M | re.S)
+    if m:
+        return " ".join(m.group(1).split())[:280]
+    m = re.search(r"\*\*BLUF:?\*\*\s*(.+)", text, re.M)
+    if m:
+        return m.group(1).strip()[:280]
+    return next((l.strip() for l in text.splitlines() if l.strip()), "")[:140]
+
+def engine_hint(text: str) -> str:
+    for kw in ("claude", "gemini", "deepseek", "grok"):
+        if re.search(rf"\b{kw}\b", text, re.I):
+            return kw.title()
+    return "?"
+
+def main():
+    session = sys.argv[1] if len(sys.argv) > 1 else "RT"
+    out = ROOM / f"{session}_transcript.md"
+    now = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d %H:%M MT")
+    L = [f"# {session} — WAR ROOM TRANSCRIPT", f"**Recorded:** {now}", ""]
+    total = 0
+    for seat, fname in SEATS:
+        fp = ROOM / fname
+        if not fp.exists():
+            L.append(f"## {seat.title()} — (MISSING, no card)")
+            L.append("")
+            continue
+        text = fp.read_text().strip()
+        words = len((" ".join(text.split())).split())
+        total += words
+        L.append(f"## {seat.title()}")
+        L.append(f"- receipt: seat={seat} · file={fname} · words={words} · engine={engine_hint(text)} · captured={now}")
+        L.append("")
+        L.append(f"- BLUF: {bluf(text)}")
+        L.append("")
+        rb = re.search(r"^##+\s*REBUTTAL\s*\n+(.+)$", text, re.M | re.S)
+        if rb:
+            L.append("- REBUTTAL: " + " ".join(rb.group(1).split())[:400])
+            L.append("- DISAGREES: yes")
+            L.append("")
+    L.append(f"**total_word_count={total}**")
+    L.append("Timeline (canonical): " + " → ".join(s for s, _ in SEATS))
+    out.write_text("\n".join(L))
+    print(out)
+    print(f"total_word_count={total}")
+
+if __name__ == "__main__":
+    main()

@@ -153,7 +153,7 @@ def load_oauth_token() -> tuple[str, Dict[str, Any]]:
 def spawn_headless_claude(
     prompt: str,
     output_file: str,
-    model: str = "claude-haiku-4-5-20251001",
+    model: str = "haiku",
     task_name: str = "task",
     background: bool = False,
     timeout: int = 300,
@@ -397,6 +397,7 @@ def _spawn_background(prompt, output_path, log_file, model, task_name, env, usag
             cmd,
             stdout=open(log_file, "w"),
             stderr=subprocess.STDOUT,
+            stdin=subprocess.DEVNULL,
             env=env,
             start_new_session=True,
         )

@@ -1,0 +1,63 @@
+# AG-Hale (Gemini 3.6 Flash / Talon) Independent Analysis — RT-CLAUDEP
+
+**BLUF:** Headless `claude -p` hangs stem from 3 root causes: (1) `ANTHROPIC_API_KEY` environment pollution overriding OAuth tokens, (2) retired/invalid model date strings (e.g. `claude-3-5-haiku-20241022` / `claude-haiku-4-5-20251001`), and (3) unclosed `stdin` in background Popen spawns causing non-TTY read hangs.
+
+---
+
+### 1. Root Cause Analysis: Headless `claude -p` Hangs
+
+* **Environment Pollution (`ANTHROPIC_API_KEY`)**: When `ANTHROPIC_API_KEY` is set in parent env (even if invalid/expired), `claude` CLI prioritizes it over `CLAUDE_CODE_OAUTH_TOKEN`. In non-interactive mode without TTY, API key auth failure prints `Invalid API key` and hangs or exits ungracefully.
+* **Retired/Invalid Model Identifier**: Anthropic retired `claude-3-5-haiku-20241022` on Feb 19, 2026. Passing outdated model date strings or unmapped aliases forces `claude` CLI to output model catalog warnings and wait for model selection input. Pinned model aliases must be `haiku`, `sonnet`, or `opus` (or active canonical IDs).
+* **Unclosed STDIN in Popen Background Spawns**: Background subprocesses (`_spawn_background` in `thunderbird_headless_spawn.py`) launched without `stdin=subprocess.DEVNULL` hang waiting for EOF on inherited stdin pipes.
+* **Unresponsive MCP Host Init**: Omitting `--mcp-config` or `--strict-mcp-config` causes `claude` CLI to initialize all user MCP servers, hanging if any server blocks.
+
+**Ground Truth Test Verified:**
+* Test A (with `ANTHROPIC_API_KEY` active): `claude -p "Say test"` → Failed with `Invalid API key` (code 1).
+* Test B (with `env.pop("ANTHROPIC_API_KEY")` + `CLAUDE_CODE_OAUTH_TOKEN` + `--model sonnet`): Executed cleanly in 8.1s (`STDOUT: Hey there, Yoda!`, returncode 0).
+* Test C (with `env.pop("ANTHROPIC_API_KEY")` + `CLAUDE_CODE_OAUTH_TOKEN` + `--model haiku`): Executed cleanly in 11.2s (`STDOUT: Hello, Commander. Standing by.`, returncode 0).
+
+---
+
+### 2. `/ask`-Family Mapping & Destination Alignment
+
+* **Current Reality:**
+  - `agy` CLI exposes 11 models: `gemini-3.6-flash-{high,medium,low}`, `gemini-3.5-flash-{high,medium,low}`, `gemini-3.1-pro-{high,low}`, `claude-sonnet-4-6`, `claude-opus-4-6-thinking`, `gpt-oss-120b-medium`.
+  - **UNCERTAINTY/DISAGREEMENT:** "Sonnet 5" does NOT exist in Anthropic's model catalog or `agy` as of today. References to Sonnet 5 in documentation or intent are invalid. Pinned target must remain `claude-sonnet-4-6`.
+* **Correct OpenCode In-App Command Mapping (`opencode.json`):**
+  - `/ask-gemini`: `contact_ag.py "{0}" --deliverable "${OUTF}" --from OC --tag AG-ASK --model "gemini-3.6-flash-high"` (Gemini Flash default)
+  - `/ask-gemini-pro`: `contact_ag.py "{0}" --deliverable "${OUTF}" --from OC --tag AG-OPUS --model "gemini-3.1-pro-high"` (Gemini Pro)
+  - `/ask-gemini-flash`: `contact_ag.py "{0}" --deliverable "${OUTF}" --from OC --tag AG-FLASH --model "gemini-3.6-flash-high"` (Gemini Flash fast)
+  - `/ask-claude`: `contact_ag.py "{0}" --deliverable "${OUTF}" --from OC --tag AG-SONNET --model "claude-sonnet-4-6"` (REAL Claude Sonnet via AG SDK / Google billing, $0 MAX meter impact)
+* **Shell-Level CLI (`~/.local/bin/ask`, `ask-opus`):**
+  - Reserved for Commander's direct terminal use. Prohibited for OC/AG automated usage per 2026-07-31 5X MAX capacity directive.
+
+---
+
+### 3. Best Headless Dispatch Pattern Evaluation
+
+1. **Top Recommendation for OC → Claude Judgment:** `contact_ag.py` with `--model claude-sonnet-4-6` (or `/ask-claude`).
+   - *Rationale:* Bypasses local MAX bucket ($0 cost on MAX meter), avoids local `claude` CLI Popen state issues, enforces 900s timeout, and delivers clean file outputs + stdout.
+2. **Top Recommendation for Direct Local `claude -p` Execution (when local CLI is required):**
+   - Must use `thunderbird_headless_spawn.py` with stdlib Popen:
+     - `env.pop("ANTHROPIC_API_KEY", None)`
+     - `CLAUDE_CODE_OAUTH_TOKEN` injected
+     - Active aliases: `--model sonnet` or `--model haiku`
+     - Explicit `--mcp-config /home/john/.claude/mcp.json`
+     - `stdin=subprocess.DEVNULL` (for background) or `proc.communicate(input=prompt, timeout=timeout)` (for sync).
+
+---
+
+### 4. Minimal Stdlib Fix Set (Ranked)
+
+1. **`core/ai_infra/thunderbird_headless_spawn.py:156`**
+   - **Fix:** Change default parameter `model: str = "claude-haiku-4-5-20251001"` to `model: str = "haiku"`.
+2. **`core/ai_infra/thunderbird_headless_spawn.py:394-397`**
+   - **Fix:** Add `stdin=subprocess.DEVNULL` to `subprocess.Popen` in `_spawn_background` to prevent background EOF hangs.
+3. **`core/ai_infra/thunderbird_headless_spawn.py:328`**
+   - **Fix:** Update `model_tiers` in `_spawn_with_retry` to `["haiku", "sonnet", "opus"]` (removing date-pinned legacy names).
+4. **`core/relay/contact_ag.py:106-117`**
+   - **Fix:** Update `FALLBACK_MODELS` to use canonical `agy` IDs: `("gemini-3.6-flash-high", "gemini-3.1-pro-high", "claude-sonnet-4-6", "claude-opus-4-6-thinking")`.
+5. **`opencode.json:431`**
+   - **Fix:** Update `/ask-gemini-pro` template `--model` flag from `"Gemini 3.1 Pro (High)"` to canonical `"gemini-3.1-pro-high"`.
+
+— Victory (HALE-AG / Talon)
