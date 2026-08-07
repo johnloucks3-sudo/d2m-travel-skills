@@ -577,6 +577,7 @@ app.mount("/buddy", StaticFiles(directory="/srv/www/htdocs/buddy", html=True), n
 # claude.ai artifact link in the sent family email is login-walled; this is the
 # open replacement his family can actually reach.
 app.mount("/american-spirit", StaticFiles(directory=str(ROOT / "american_spirit_web"), html=True), name="american_spirit")
+app.mount("/meetroom", StaticFiles(directory=str(ROOT / "OpsCenter" / "meetroom"), html=True), name="meetroom")
 
 
 if __name__ == "__main__":
