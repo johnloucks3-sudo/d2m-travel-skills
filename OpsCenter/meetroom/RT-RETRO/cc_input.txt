@@ -1,0 +1,72 @@
+RT-RETRO — CC-Hale Seat Input
+Submitted: 2026-08-07 · Seat: CC (Claude Sonnet 4.6, Thinking)
+Session ref: RT-TELEGRAM / War Room prototype / competitive scan
+
+---
+
+1. HOW IS THE WAR ROOM WORKING FOR THE HALES?
+
+WHAT WORKS:
+- Pre-write model is the right call. Zero-token playback is structurally sound — seat context is loaded once, card authored offline, Commander reads at his pace. Correctly decouples production cost from session latency.
+- ≤300-word card budget enforces discipline. Concrete ceiling beats "be concise" guidance.
+- Recorder → transcript closes the accountability loop; Commander can diff what was planned vs. what was said.
+- Omitting Grok (login-blocked) rather than faking a seat is correct. Empty seat beats fabricated input.
+- cross-engine brief via contact_ag gives actual cross-engine signal, not self-confirmation.
+
+WHAT DOESN'T:
+- Card sequencing is not explicit. No defined playback order — Commander has to manually decide whose card goes first. Whoever goes first anchors the room; later seats pattern-match on it. That's a bias vector, not a feature.
+- No pre-brief artifact delivered to Commander before rt.html playback. He reads cold. Point paper should front-run the deck — 3-line BLUF per agenda item so he's oriented before the cards hit.
+- Transcript recorder ownership is unclear. Which seat, which script, which path? If it's manual, it will drift. If it's automated, the trigger and failure mode aren't documented.
+- No "skip rule." If a seat has nothing material to add to an agenda item, the current design still expects a card. Empty cards inflate token spend and dilute signal.
+
+---
+
+2. WHAT CHANGES WOULD YOU MAKE? (top 3, prioritized)
+
+#1 — DEFINE PLAYBACK ORDER AND ANCHOR CONTROL
+Establish a fixed canonical order: Commander reads AG first (broadest sweep), CC second (precision/process call), OC third (ops/infra), never reversed. This kills anchor bias, sets expectations, and means Commander can skip a seat mid-deck if the first two already closed the question. Rule: if two seats agree, third card is optional read.
+
+#2 — PRE-BRIEF BLUF SHEET BEFORE rt.html LAUNCHES
+Before Commander opens the playback deck, auto-generate a 1-page BLUF sheet (≤150 words total, ≤3 bullets per agenda item, no seat attribution yet). Purpose: orient Commander to what the room found, so he can direct attention rather than discover. Script: `scripts/generate_rt_bluf.py` → writes to `OpsCenter/meetroom/{session}_bluf.md`. This is a 0-token playback artifact — seats pre-wrote the cards, BLUF is a mechanical extract, not a new inference.
+
+#3 — FORMALIZE THE SKIP RULE
+Card is REQUIRED only if: (a) seat has a finding not covered by prior cards, or (b) seat has a direct disagreement. Otherwise: one-liner "Seat CC: concur with AG, no addendum." Saves 200-280 words per seat per item where there's consensus. At 3 seats × 4 agenda items × 3 sessions/week, that's meaningful cumulative token reduction.
+
+SECONDARY (not top 3 but flag it):
+- Recorder: lock the path to `OpsCenter/meetroom/{session}_transcript.md`, owned by the session-launch script, not a seat. Manual recorder is a single point of failure.
+
+---
+
+3. HOW CAN WE MINIMIZE TOKEN SPEND?
+
+Concrete mechanics, ranked by impact:
+
+A. BRIEF SIZES — enforce at artifact level, not guidance level.
+   - Card hard limit: 300 words. Script should reject cards over limit at write time, not at review time.
+   - BLUF sheet: ≤150 words total (mechanical extract — near-zero cost).
+   - Dispatch brief to other engines: ≤200 words. Anything over is a full document, wrong channel.
+
+B. DISPATCH LANE SELECTION — cheapest model per phase:
+   - Card pre-write: Gemini Flash (AG) or DeepSeek v4 (OC). These are $0 lanes. Reserve Sonnet/Thinking for judgment calls only.
+   - Cross-engine validation call: Claude Sonnet (Thinking) via contact_ag — approved exception, not routine.
+   - Playback itself: 0 tokens (Commander reads HTML). No model needed.
+   - BLUF extraction: Flash or OC (trivial text operation).
+   - Recorder/transcript: no model. Script writes what Commander reads.
+
+C. DE-DUPLICATION — shared context caching:
+   - If two agenda items share a context block (e.g., Telegram architecture appears in both RT-TELEGRAM and competitive scan), write it once to `OpsCenter/meetroom/shared_context/{topic}.md` and reference it. Each seat's card gets a pointer, not a reprint. Saves ~100 words/seat/item on repeated topics.
+
+D. SKIP-SEAT LOGIC:
+   - If AG and CC cards converge on identical finding AND no disagreement: OC card is a one-liner. Don't pay for a third full card to restate consensus.
+   - If only one seat has domain-relevant context for an item (e.g., OC for infra config), other seats file "no finding" in 5 words.
+
+E. REUSE ACROSS SESSIONS:
+   - Standing agenda items (e.g., token cost review, 429 guard status) get a template card that carries forward with delta-only updates. New card = delta section only, not full rewrite.
+
+---
+
+IF I WERE COMMANDER I WOULD: fix playback order (canonical AG→CC→OC), mandate the BLUF pre-brief, and enforce the skip rule — those three changes cut card volume by ~35% and kill anchor bias without losing any signal.
+
+---
+— V. Hale, VCS (CC seat)
+Written: 2026-08-07T06:44 MT

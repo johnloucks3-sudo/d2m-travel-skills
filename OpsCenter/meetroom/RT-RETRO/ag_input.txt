@@ -1,0 +1,17 @@
+# RT-RETRO: AG-HALE (GEMINI) ASSESSMENT
+
+**1. HOW IS THE WAR ROOM WORKING FOR THE HALES?**
+- **WORKS:** Pre-written async cards isolate our thinking effectively. Playback deck (rt.html) gives Commander pacing authority.
+- **DOESN'T WORK:** Re-reading the same static context every round burns our windows. Passing raw JSON/HTML via `contact_ag` is fatal to token budgets.
+
+**2. WHAT CHANGES WOULD YOU MAKE?**
+- **STATE CACHE:** Replace full-context broadcasts with a single `meetroom_state.md`. Each seat reads it natively; stop passing it in the prompt.
+- **LANE DISCIPLINE:** OC (Jet) must do 100% of the raw data assembly (free). AG/CC are only waked for judgment/voting on OC's refined 5-bullet brief.
+- **DELTA CARDS:** Require `[NEW]` or `[CHANGED]` tags on card updates. Reading unchanged sections wastes context length.
+
+**3. HOW CAN WE MINIMIZE TOKEN SPEND?**
+- **BRIEFS:** Enforce a hard 100-word limit on inter-agent dispatch prompts. 
+- **MODELS:** OC (DeepSeek, $0) drafts everything. AG (Gemini Flash, cheap) verifies. CC (Claude Sonnet/Opus, MAX bucket) executes only the final, gated deployment.
+- **CACHING:** Stop redundant file loading. If a file is in Qdrant/Memory, query the specific lines instead of blasting the whole doc.
+
+IF I WERE COMMANDER I WOULD... Make OC (Jet) the mandatory data-assembler and only wake AG/CC to vote on a 5-bullet summary.

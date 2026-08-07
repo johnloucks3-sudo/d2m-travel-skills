@@ -81,3 +81,11 @@ OpsCenter/meetroom/
 
 ---
 *Draft by OC-Hale (Jet) from 3 peer inputs. Prepared for Commander design-gate decision.*
+
+## 9. RETRO-adopted doctrine (RT-RETRO 2026-08-07, seats CC+AG, point papers encouraged)
+- **Cards = defense-style point papers.** BLUF first, ≤300 words, reject at write-time (not review).
+- **Canonical playback order AG → CC → OC** (broad → precision → ops); two-seat convergence closes item, third = one-liner.
+- **BLUF pre-brief sheet** (`{session}_bluf.md`, ≤150 words, mechanical extract, 0-token) generated before Commander opens the deck.
+- **Skip rule:** card required only if new finding OR disagreement; else "concur, no addendum."
+- **Recorder:** owned by launcher script → `{session}_transcript.md` (not a seat).
+- **Token doctrine by stage:** OC (DeepSeek $0) = assembly/draft; AG (cheap) = verify; CC (MAX) = final judgment only; playback/BLUF/recorder = 0 tokens. Dispatch briefs ≤200 words. Shared context → `shared_context/{topic}.md` pointers, no reprints. Delta-only standing cards.
