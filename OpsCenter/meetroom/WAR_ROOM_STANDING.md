@@ -30,3 +30,13 @@
 - Every War Room session MUST produce: brief · per-seat inputs · consolidated transcript · decision/verdict · committed to git. **Never** chat-scroll-only; a session with no durable artifact did not happen.
 - Every new provision / configuration change MUST be documented (what, why, file:line, owner, date) before/with execution.
 - Record all Commander directives and Weapons-Free decisions to `hale_decisions.md`.
+
+## STANDS — acquired from competitive scan (2026-08-06; adopt-ready, config-only)
+Fold the best of the found tools INTO the War Room rather than importing their platforms:
+1. **Receipts / attribution (from ATO):** every seat action carries a machine-readable receipt (seat, model, tool-calls, cost, file:line) appended to the session transcript — no claim without a receipt.
+2. **Live shared room (from ATO):** when Commander wants real-time (not pre-write), allow a seat's card to append live during a session; tag `[LIVE]`; recorder still owns the final transcript.
+3. **Kill-the-runaway (from ATO):** works in-scope on the playback deck — Commander `K` aborts the current card/session, `X` requests rebuttal. Documented in rt.html key map.
+4. **Session replay/timeline (from AgentOps):** recorder emits a timeline of seat→model→tool per agenda item for diffing planned vs said.
+5. **Structured debate rounds (from llm-war-room):** session may open a rebuttal round after all cards — Commander presides, seats re-file a `REBUTTAL` block on the card; recorder nets the disagree/agree.
+6. **Web canvas fallback (from ChatDev):** if we want a maintained web WYSIWYG over our file deck, ChatDev 2.0 (already proto'd) is the backplane option. Do NOT adopt its platform wholesale.
+Adopt = small config/code on our rtmp+R t deck; these are DOCTRINE, not new infra.

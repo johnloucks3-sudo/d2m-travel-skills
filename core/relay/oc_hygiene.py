@@ -81,6 +81,17 @@ def _oc_processes() -> list[tuple[int, int]]:
             continue
         if pid == me:
             continue
+        # NEVER touch an interactive (TTY-attached) OpenCode session — that is
+        # the Commander's live window, not a dispatch worker. Sweeping it was
+        # the "auto-logoff" bug (fixed 2026-08-07). Headless `opencode run`
+        # dispatchers are detached (tty '?') and ARE the correct sweep target.
+        try:
+            tty = subprocess.run(["ps", "-o", "tty=", "-p", str(pid)],
+                                 capture_output=True, text=True, timeout=5).stdout.strip()
+        except Exception:
+            tty = ""
+        if tty and tty != "?":
+            continue
         try:
             age = subprocess.run(["ps", "-o", "etimes=", "-p", str(pid)],
                                  capture_output=True, text=True, timeout=5)
