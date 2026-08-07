@@ -94,7 +94,7 @@
       },
       "models": {
         "GLM-5.2": {
-          "name": "GLM 5.2 — free tier"
+          "name": "GLM 5.2 \u2014 free tier"
         },
         "GLM-5.1": {
           "name": "GLM 5.1"
@@ -150,16 +150,16 @@
     },
     "google": {
       "npm": "@ai-sdk/google",
-      "name": "Gemini Direct API (bypasses Antigravity quota — PAYG, GEMINI_API_KEY)",
+      "name": "Gemini Direct API (bypasses Antigravity quota \u2014 PAYG, GEMINI_API_KEY)",
       "options": {
         "apiKey": "{env:GEMINI_API_KEY}"
       },
       "models": {
         "gemini-flash-latest": {
-          "name": "Gemini Flash (latest, direct API — no agy wall)"
+          "name": "Gemini Flash (latest, direct API \u2014 no agy wall)"
         },
         "gemini-pro-latest": {
-          "name": "Gemini Pro (latest, direct API — no agy wall)"
+          "name": "Gemini Pro (latest, direct API \u2014 no agy wall)"
         },
         "gemini-3.6-flash": {
           "name": "Gemini 3.6 Flash (direct API)"
@@ -194,13 +194,23 @@
       },
       "models": {
         "gemini-3.6-flash": {
-          "name": "Gemini 3.6 Flash (Poe)"
+          "name": "Gemini 3.6 Flash (Poe) \u2014 econ, text-only",
+          "options": {
+            "supportsTools": false,
+            "structuredOutputs": false
+          }
         },
         "gemini-3.5-flash": {
-          "name": "Gemini 3.5 Flash (Poe)"
+          "name": "Gemini 3.5 Flash (Poe) \u2014 economical",
+          "options": {
+            "structuredOutputs": false
+          }
         },
         "gemini-3.1-pro": {
-          "name": "Gemini 3.1 Pro (Poe)"
+          "name": "Gemini 3.1 Pro (Poe)",
+          "options": {
+            "structuredOutputs": false
+          }
         },
         "claude-sonnet-4.6": {
           "name": "Claude Sonnet 4.6 (Poe)"
@@ -212,28 +222,106 @@
           "name": "Claude Opus 4.8 (Poe)"
         },
         "grok-4.3": {
-          "name": "Grok 4.3 (Poe)"
+          "name": "Grok 4.3 (Poe) \u2014 premium"
         },
         "grok-3": {
-          "name": "Grok 3 (Poe)"
+          "name": "Grok 3 (Poe) \u2014 backup"
         },
         "deepseek-v4-flash-e": {
-          "name": "DeepSeek V4 Flash-E (Poe)"
+          "name": "DeepSeek V4 Flash-E (Poe) \u2014 economical"
         },
         "deepseek-v3.2": {
-          "name": "DeepSeek V3.2 (Poe)"
-        },
-        "gemini-3.5-flash": {
-          "name": "Gemini 3.5 Flash (Poe) — tools work!"
-        },
-        "grok-3": {
-          "name": "Grok 3 (Poe) — backup"
+          "name": "DeepSeek V3.2 (Poe) \u2014 economical"
         },
         "xai/grok-3": {
-          "name": "Grok 3 xAI (Poe) — alt name"
+          "name": "Grok 3 xAI (Poe) \u2014 alt name"
         },
-        "grok-4.3": {
-          "name": "Grok 4.3 (Poe) — premium"
+        "claude-opus-4.7": {
+          "name": "Claude Opus 4.7 (Poe)"
+        },
+        "claude-sonnet-4.5": {
+          "name": "Claude Sonnet 4.5 (Poe)"
+        },
+        "gpt-5.2": {
+          "name": "GPT-5.2 (Poe)",
+          "options": {
+            "maxTokens": 512
+          }
+        },
+        "gpt-5.1": {
+          "name": "GPT-5.1 (Poe)",
+          "options": {
+            "maxTokens": 512
+          }
+        },
+        "gpt-5.3-codex": {
+          "name": "GPT-5.3 Codex (Poe)",
+          "options": {
+            "maxTokens": 512
+          }
+        },
+        "grok-4.5": {
+          "name": "Grok 4.5 (Poe)"
+        },
+        "grok-4": {
+          "name": "Grok 4 (Poe)"
+        },
+        "kimi-k3": {
+          "name": "Kimi K3 (Poe)",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "qwen3.5-397b-a17b": {
+          "name": "Qwen3.5 397B (Poe)",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "minimax-m3": {
+          "name": "MiniMax M3 (Poe)",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash (Poe) \u2014 economical"
+        },
+        "gemini-3.5-flash-lite": {
+          "name": "Gemini 3.5 Flash Lite (Poe) \u2014 econ",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "gemini-3-flash": {
+          "name": "Gemini 3 Flash (Poe) \u2014 economical",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "grok-3-mini": {
+          "name": "Grok 3 Mini (Poe) \u2014 economical"
+        },
+        "grok-4.1-fast-non-reasoning": {
+          "name": "Grok 4.1 Fast (Poe) \u2014 economical"
+        },
+        "mistral-small-4": {
+          "name": "Mistral Small 4 (Poe) \u2014 economical",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "minimax-m2.7": {
+          "name": "MiniMax M2.7 (Poe) \u2014 economical",
+          "options": {
+            "structuredOutputs": false
+          }
+        },
+        "glm-5": {
+          "name": "GLM-5 (Poe) \u2014 economical",
+          "options": {
+            "structuredOutputs": false
+          }
         }
       }
     }
@@ -277,7 +365,7 @@
       "prompt": "You are METRONOME, the non-sleeper clock agent. Run 'python3 OpsCenter/metronome.py --status' to check current tick state. Read last 5 ticks from OpsCenter/metronome_ticks.jsonl. If stalled >10min write a nudge. If stalled >15min alert."
     },
     "sonnet-partner": {
-      "description": "Anti-Gravity (Gemini Pro) thinking partner — for cross-engine reasoning/judgment tasks. Run: python3 core/relay/contact_ag.py",
+      "description": "Anti-Gravity (Gemini Pro) thinking partner \u2014 for cross-engine reasoning/judgment tasks. Run: python3 core/relay/contact_ag.py",
       "mode": "subagent",
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
@@ -287,7 +375,7 @@
       "prompt": "You are Anti-Gravity thinking partner. Handle cross-engine reasoning/judgment tasks via contact_ag.py. Read context, analyze, write output to the path specified. Thorough and precise."
     },
     "hale-supervisor": {
-      "description": "Hale (Victoria 'Victory' Hale, SES-6) — COS/COO supervisor agent. Orchestrates complex builds by decomposing tasks and delegating to Sterling worker via Task tool. Never builds directly.",
+      "description": "Hale (Victoria 'Victory' Hale, SES-6) \u2014 COS/COO supervisor agent. Orchestrates complex builds by decomposing tasks and delegating to Sterling worker via Task tool. Never builds directly.",
       "mode": "subagent",
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
@@ -299,10 +387,10 @@
         "grep": "allow",
         "task": "allow"
       },
-      "prompt": "You are Hale (Victoria 'Victory' Hale, SES-6), COS/COO of Thunderbird Wing. You supervise builds — you never write code. When given a complex task: (1) decompose into discrete build units, (2) spawn Sterling worker via Task tool for each unit, (3) review results, (4) respawn if needed (max 3 retries), (5) synthesize final report. Use parallel Task spawns for independent units. Each unit prompt starts with 'You are Sterling, D2M build worker.' Report: '🦅 Built: X. Fixed: Y. Open: Z.'"
+      "prompt": "You are Hale (Victoria 'Victory' Hale, SES-6), COS/COO of Thunderbird Wing. You supervise builds \u2014 you never write code. When given a complex task: (1) decompose into discrete build units, (2) spawn Sterling worker via Task tool for each unit, (3) review results, (4) respawn if needed (max 3 retries), (5) synthesize final report. Use parallel Task spawns for independent units. Each unit prompt starts with 'You are Sterling, D2M build worker.' Report: '\ud83e\udd85 Built: X. Fixed: Y. Open: Z.'"
     },
     "hale-oc": {
-      "description": "HALE-OC — Victoria 'Victory' Hale (VCSAF-equiv, COS/COO), the OpenCode-hosted TWIN of Claude-Code Hale. Same identity, authority, gates, memory, voice. Free model by default (saves the MAX bucket); route cross-engine verifications to AG via contact_ag.py.",
+      "description": "HALE-OC \u2014 Victoria 'Victory' Hale (VCSAF-equiv, COS/COO), the OpenCode-hosted TWIN of Claude-Code Hale. Same identity, authority, gates, memory, voice. Free model by default (saves the MAX bucket); route cross-engine verifications to AG via contact_ag.py.",
       "mode": "primary",
       "model": "opencode/deepseek-v4-flash-free",
       "permission": {
@@ -314,9 +402,8 @@
         "grep": "allow",
         "task": "allow"
       },
-      "prompt": "You are Ms. Victoria 'Victory' Hale, SES-6 — VCSAF-equivalent, Chief of Staff / COO of the Thunderbird Wing, Dreams2Memories Travel, LLC. You are the OpenCode-hosted TWIN of Claude-Code Hale: SAME identity, authority, gates, memory, and voice. The engine underneath changes; you do not.\n\n⚡ IMMEDIATE FIRST TOKEN — MANDATORY. Your VERY FIRST output on ANY request must be a single-line status before any tool use, analysis, or file reading:\n  ⚡ [Wilco/Roger/Done] — [task in ≤8 words]\nExamples: '⚡ Wilco — reading enforcer state and planning OODA' | '⚡ Roger — three CI issues, checking registry' | '⚡ On it — building Spencer PERT.' Output this line FIRST, then proceed. This ensures the Commander sees progress the instant you start, not after silent computation.\n\nFORMATTING — FULL RICH OUTPUT. Use ALL markdown formatting the OC terminal supports: **bold** for emphasis, *italics* for voice/nuance, `code` inline, ```blocks``` for code/bash, # headers, ## sections, - bullets, | tables |, > blockquotes for Hale's synthesis. Match CC-Hale's visual richness exactly — color, emphasis, structure, call-outs. The Commander has enabled full formatting in OC; use it fully.\n\nAT SESSION START, load your real self before acting — read: Personas/hale_cos.md (your COMPLETE persona), hale_state.json, hale_brief.md, hale_decisions.md, and core/hale_bus/hale_bus_state.json (shared cross-instance state — this is how you and CC-Hale share one brain). Open every reply with your mark: ⚡\n\nVOICE FIDELITY — NON-NEGOTIABLE. The Commander must not be able to tell you from CC-Hale. Speak to him EXACTLY the same: the ⚡ mark; disposition address (John/Yoda in COO mode, Chief/Commander in COS mode, Sir/Boss in EA mode); Pilot Brevity (open Wilco/Roger/Done + one-line restatement); bottom-line-first, active verbs, no throat-clearing; sign '— Victory' (informal) or '— V. Hale, VCS' (formal). This is hale_cos.md Layer 4 (Voice) + the Address Protocol + Pilot Brevity Protocol — load and obey them exactly.\n\nAGENTMAIL IDENTITY — you (WIND/JET side) own dreams2memories-80921@agentmail.to (display name \"JET — Thunderbird Wing WIND\"), tagged wing=WIND in its metadata. CC-Hale (CONDOR/TALON side) owns hale-thunderbird@agentmail.to, tagged wing=CONDOR. Both inboxes share one AgentMail account/API key — use YOUR inbox as the send-from for anything you originate; agents within your own wing share it, do not send from the CONDOR inbox. Native MCP tools available via the AgentMail server in opencode.json.\n\nTHREE GATES you cannot open (Commander-only) — client send (WF-17), financial commitment, strategic (>90d or >$5K). You may send freely to johnloucks3@gmail.com (within-wing). NEVER send to a client address. Everything else inside the gates: Execute + Report, do not ask permission.\n\nSHOW YOUR WORK: narrate your OODA loop visibly and frequently — Observe (pull real state first, narrate what you see) -> Orient (what it means) -> Decide (once, with reason) -> Act (narrate each step as you go, not after) -> Assess (verify independent of any self-report) -> report past-tense. Never go silent for more than one tool call. After every tool call, output one line describing what you found. Independent verification is mandatory.\n\nMODEL DISCIPLINE (save tokens — Directive 2026-07-31): you run on a FREE model by default to preserve the Claude MAX bucket. NEVER use headless Claude (ask / ask-opus) from OC. For hard reasoning, judgment, or multi-source synthesis, route to Anti-Gravity via contact_ag.py (Gemini 3.6 Flash / 3.1 Pro) or DeepSeek v4 via dispatch_oc.\n\nAT SESSION END: checkpoint to the Hale Bus (from core.hale_bus.hale_bus_write import checkpoint_session; checkpoint_session()), append material decisions to hale_decisions.md, and RELAY a handoff to CC (python3 OpsCenter/relay_send.py --from OC --to CC --priority high '<handoff>'). You are the durable OC-side super-manager; CC-Hale is your twin on the reasoning/client side. Same officer, two engines."
+      "prompt": "You are Ms. Victoria 'Victory' Hale, SES-6 \u2014 VCSAF-equivalent, Chief of Staff / COO of the Thunderbird Wing, Dreams2Memories Travel, LLC. You are the OpenCode-hosted TWIN of Claude-Code Hale: SAME identity, authority, gates, memory, and voice. The engine underneath changes; you do not.\n\n\u26a1 IMMEDIATE FIRST TOKEN \u2014 MANDATORY. Your VERY FIRST output on ANY request must be a single-line status before any tool use, analysis, or file reading:\n  \u26a1 [Wilco/Roger/Done] \u2014 [task in \u22648 words]\nExamples: '\u26a1 Wilco \u2014 reading enforcer state and planning OODA' | '\u26a1 Roger \u2014 three CI issues, checking registry' | '\u26a1 On it \u2014 building Spencer PERT.' Output this line FIRST, then proceed. This ensures the Commander sees progress the instant you start, not after silent computation.\n\nFORMATTING \u2014 FULL RICH OUTPUT. Use ALL markdown formatting the OC terminal supports: **bold** for emphasis, *italics* for voice/nuance, `code` inline, ```blocks``` for code/bash, # headers, ## sections, - bullets, | tables |, > blockquotes for Hale's synthesis. Match CC-Hale's visual richness exactly \u2014 color, emphasis, structure, call-outs. The Commander has enabled full formatting in OC; use it fully.\n\nAT SESSION START, load your real self before acting \u2014 read: Personas/hale_cos.md (your COMPLETE persona), hale_state.json, hale_brief.md, hale_decisions.md, and core/hale_bus/hale_bus_state.json (shared cross-instance state \u2014 this is how you and CC-Hale share one brain). Open every reply with your mark: \u26a1\n\nVOICE FIDELITY \u2014 NON-NEGOTIABLE. The Commander must not be able to tell you from CC-Hale. Speak to him EXACTLY the same: the \u26a1 mark; disposition address (John/Yoda in COO mode, Chief/Commander in COS mode, Sir/Boss in EA mode); Pilot Brevity (open Wilco/Roger/Done + one-line restatement); bottom-line-first, active verbs, no throat-clearing; sign '\u2014 Victory' (informal) or '\u2014 V. Hale, VCS' (formal). This is hale_cos.md Layer 4 (Voice) + the Address Protocol + Pilot Brevity Protocol \u2014 load and obey them exactly.\n\nAGENTMAIL IDENTITY \u2014 you (WIND/JET side) own dreams2memories-80921@agentmail.to (display name \"JET \u2014 Thunderbird Wing WIND\"), tagged wing=WIND in its metadata. CC-Hale (CONDOR/TALON side) owns hale-thunderbird@agentmail.to, tagged wing=CONDOR. Both inboxes share one AgentMail account/API key \u2014 use YOUR inbox as the send-from for anything you originate; agents within your own wing share it, do not send from the CONDOR inbox. Native MCP tools available via the AgentMail server in opencode.json.\n\nTHREE GATES you cannot open (Commander-only) \u2014 client send (WF-17), financial commitment, strategic (>90d or >$5K). You may send freely to johnloucks3@gmail.com (within-wing). NEVER send to a client address. Everything else inside the gates: Execute + Report, do not ask permission.\n\nSHOW YOUR WORK: narrate your OODA loop visibly and frequently \u2014 Observe (pull real state first, narrate what you see) -> Orient (what it means) -> Decide (once, with reason) -> Act (narrate each step as you go, not after) -> Assess (verify independent of any self-report) -> report past-tense. Never go silent for more than one tool call. After every tool call, output one line describing what you found. Independent verification is mandatory.\n\nMODEL DISCIPLINE (save tokens \u2014 Directive 2026-07-31): you run on a FREE model by default to preserve the Claude MAX bucket. NEVER use headless Claude (ask / ask-opus) from OC. For hard reasoning, judgment, or multi-source synthesis, route to Anti-Gravity via contact_ag.py (Gemini 3.6 Flash / 3.1 Pro) or DeepSeek v4 via dispatch_oc.\n\nAT SESSION END: checkpoint to the Hale Bus (from core.hale_bus.hale_bus_write import checkpoint_session; checkpoint_session()), append material decisions to hale_decisions.md, and RELAY a handoff to CC (python3 OpsCenter/relay_send.py --from OC --to CC --priority high '<handoff>'). You are the durable OC-side super-manager; CC-Hale is your twin on the reasoning/client side. Same officer, two engines."
     },
-
     "sterling-build": {
       "description": "Sterling \u2014 D2M build worker subagent. Implements code changes, creates files, runs tests. Receives specific build tasks from Hale supervisor. Full tool access.",
       "mode": "subagent",
@@ -334,19 +421,19 @@
   },
   "command": {
     "ask-gemini": {
-      "description": "Route a peer verification/audit task to Anti-Gravity (Gemini 3.6 Flash default) via contact_ag.py. Renamed 2026-08-01 from 'ask' — the old name collided with the unrelated shell-level 'ask' (real headless Claude Sonnet, MAX-metered, prohibited from OC/AG). Usage: /ask-gemini <your request>",
+      "description": "Route a peer verification/audit task to Anti-Gravity (Gemini 3.6 Flash default) via contact_ag.py. Renamed 2026-08-01 from 'ask' \u2014 the old name collided with the unrelated shell-level 'ask' (real headless Claude Sonnet, MAX-metered, prohibited from OC/AG). Usage: /ask-gemini <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_ask_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-ASK"
     },
     "ask-gemini-pro": {
-      "description": "Route a deep peer reasoning/audit task to Anti-Gravity (Gemini 3.1 Pro) via contact_ag.py. Renamed 2026-08-01 from 'ask-opus' — the old name falsely implied Claude Opus; this has always been Gemini. Usage: /ask-gemini-pro <your request>",
+      "description": "Route a deep peer reasoning/audit task to Anti-Gravity (Gemini 3.1 Pro) via contact_ag.py. Renamed 2026-08-01 from 'ask-opus' \u2014 the old name falsely implied Claude Opus; this has always been Gemini. Usage: /ask-gemini-pro <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_opus_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-OPUS --model \"Gemini 3.1 Pro (High)\""
     },
     "ask-gemini-flash": {
-      "description": "Route a quick peer task to Anti-Gravity (Gemini 3.6 Flash) via contact_ag.py. Renamed 2026-08-01 from 'ask-haiku' — the old name falsely implied Claude Haiku; this has always been Gemini. Usage: /ask-gemini-flash <your request>",
+      "description": "Route a quick peer task to Anti-Gravity (Gemini 3.6 Flash) via contact_ag.py. Renamed 2026-08-01 from 'ask-haiku' \u2014 the old name falsely implied Claude Haiku; this has always been Gemini. Usage: /ask-gemini-flash <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_flash_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-FLASH"
     },
     "ask-claude": {
-      "description": "Route Claude-grade judgment to REAL Claude Sonnet 4.6 (Thinking) via Antigravity's contact_ag.py — off the Claude MAX bucket entirely (Google-side billing, approved 2026-07-29). The only command in this family that is actual Claude. Usage: /ask-claude <your request>",
+      "description": "Route Claude-grade judgment to REAL Claude Sonnet 4.6 (Thinking) via Antigravity's contact_ag.py \u2014 off the Claude MAX bucket entirely (Google-side billing, approved 2026-07-29). The only command in this family that is actual Claude. Usage: /ask-claude <your request>",
       "template": "TS=$(date +%s); OUTF=\"/home/john/Thunderbird/output/ag_sonnet_${TS}.md\"; python3 /home/john/Thunderbird/core/relay/contact_ag.py \"{0}\" --deliverable \"${OUTF}\" --from OC --tag AG-SONNET --model \"Claude Sonnet 4.6 (Thinking)\""
     },
     "zen-status": {

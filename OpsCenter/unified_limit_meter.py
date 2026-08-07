@@ -125,8 +125,23 @@ def get_opencode_telemetry() -> dict:
                FROM session WHERE time_created >= ? AND time_created < ?""",
             (month_start, month_end),
         ).fetchone()
+        # per-provider/model cost split (model col is JSON {providerID,id})
+        prov_rows = con.execute(
+            """SELECT model, SUM(cost), COUNT(*) FROM session
+               WHERE time_created >= ? AND time_created < ? GROUP BY model
+               ORDER BY SUM(cost) DESC""", (month_start, month_end),
+        ).fetchall()
         con.close()
         sessions, cost, tin, tout = row[0], row[1] or 0.0, row[2] or 0, row[3] or 0
+        by_provider = {}
+        for model, c, n in prov_rows:
+            try:
+                m = json.loads(model or "{}")
+                prov, mid = m.get("providerID", "?"), m.get("id", "?")
+            except Exception:
+                prov, mid = "?", str(model)[:30]
+            key = f"{prov}/{mid}"
+            by_provider[key] = {"cost": round(c or 0, 4), "sessions": n}
         usage.update({
             "month_cost_usd": round(cost, 4),
             "month_sessions": sessions,
@@ -134,6 +149,7 @@ def get_opencode_telemetry() -> dict:
             "month_output_tokens": int(tout),
             "running_total_usd": round(cost, 4),
             "go_credits_remaining_usd": round(max(0.0, go_credits_starting - cost), 4),
+            "by_provider": by_provider,
         })
     except Exception as e:
         usage["note"] = f"query failed: {e}"

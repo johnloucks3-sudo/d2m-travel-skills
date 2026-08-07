@@ -139,3 +139,26 @@ Real navigation → native `<script>` exec → startFareSearch runs → **fares 
 **[PROOF]** Boot run: OPENCODE GO 111.7% — $11.17/$10.00 used · $0.00 left · 123 sess. Also flags Claude weekly 98%, AG daily 90.6%.
 **[FLAG to Commander]** OpenCode GO credit OVERSPENT this month ($11.17 > $10.00). Meter now surfaces it every boot.
 **[TEAM]** All three inputs used (AG db+epoch · Grok window SQL+cost semantics · Claude WAL-ro+rate-card caveat). Participative play-by-play complete.
+
+### 2026-08-06 · 14:05 CT — SPEND HANDLE (step 26)
+**[OC]** Per-provider Aug breakdown from opencode.db (model col = JSON):
+  opencode deepseek-v4-flash-free $4.89 (44%) · opencode-go deepseek-v4-flash $4.10 (37%) · google gemini-flash-latest $1.88 (17%) · others ~2%.
+  TOTAL $11.18. Top single session: "Google Flights logon automation" $1.93 / 20M tokens.
+  DEEPSEEK LANES = 80% of spend. The $4.10 opencode-go is the billable GO burn.
+
+### 2026-08-06 · 14:20 CT — MULTI-DELIVERABLE BRIEF (step 27)
+**BRIEF-BEFORE-START.** Three deliverables, team input requested on each:
+  D1 SPEND HANDLE: full-Aug Aug GO usage by day/provider/running total → meter. STATUS: mostly done ($11.16, per-provider $4.89 deepseek-free/$4.10 deepseek-go/$1.88 gemini). 
+  D2 POE MODEL CONFIG: make Gemini + Kimi work in OpenCode. GROUND TRUTH just verified: Poe API (api.poe.com/v1, openai-compatible) ACCEPTS gemini-3.6-flash, gemini-3.5-flash, kimi-k3, deepseek-v4-flash-e — all return 200. So the model IDs are valid; the blocker is in the @ai-sdk/openai-compatible adapter or config.
+  D3 METER: wire per-provider view into unified_limit_meter.py (done for oc; needs display).
+**TEAM ASK (before I touch more):** AG — why would openai-compatible adapter fail on Gemini/Kimi when the raw API accepts them? Grok — known Poe/openai-compatible gotcha (max_tokens? tool schema? param)? Claude — the config model list: is a model entry required AND does an entry with no options work? 60s each, 3 bullets max.
+
+### 2026-08-06 · 14:25 CT — AG INPUT (step 28) 🎯
+**[AG — empirical matrix, tested live vs Poe API:]**
+  deepseek-v4-flash-e: tools ✅ response_format ✅ (why it works today)
+  gemini-3.5-flash / 3.1-pro: tools ✅ response_format 🔴
+  gemini-3.6-flash: tools 🔴 response_format 🔴 (pure text on Poe)
+  kimi-k3: tools ✅ response_format 🔴
+  claude-sonnet-4.6: both ✅
+  ROOT CAUSE: opencode's agent injects tools+response_format; Poe's Gemini/Kimi reject them.
+  FIX: per-model options in opencode.json — gemini-3.6: supportsTools:false+structuredOutputs:false; others: structuredOutputs:false.
