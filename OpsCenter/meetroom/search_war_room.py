@@ -22,9 +22,17 @@ LANES = [
 ]
 
 def lane_scan(query: str) -> str:
-    from core.search.perplexity_search import intel_sweep
+    # Poe Perplexity lane (direct API key expired/401 since 2026-08-06).
+    # Use perplexity-pro-search (verified answering 2026-08-07).
+    import subprocess, sys
     try:
-        return intel_sweep(topic=query)
+        out = subprocess.run(
+            [sys.executable, str(HERE.parent.parent / "scripts" / "poe_call.py"),
+             "--model", "perplexity-pro-search", "--prompt", query],
+            capture_output=True, text=True, timeout=180,
+        )
+        res = (out.stdout or "").strip()
+        return res or f"EMPTY REPLY (stderr: {out.stderr[-300:]})"
     except Exception as e:
         return f"LANE ERROR: {e}"
 
