@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """rt_view.py — ROUND TABLE Commander view builder (zero deps).
 
-Reads {cc,ag,oc,grok}_hale_input.md from this dir and emits a self-contained
-rt.html: color-coded, BLUF-then-expand cards, SPACE/click advance.
-Open rt.html in a browser (file://). No server needed.
+Reads {cc,ag,oc,grok}_hale_input.md and emits self-contained rt.html with:
+  - FULL point-paper text shown (no truncation)
+  - clickable links to each seat's source paper + the session transcript
+  - color-coded, Commander-paced (SPACE next / view transcript / papers)
+Served live at /meetroom/rt.html. Rerun after seats file/update papers, then refresh.
 """
 import json, re
 from pathlib import Path
@@ -11,113 +13,81 @@ from datetime import datetime, timezone, timedelta
 
 HERE = Path(__file__).resolve().parent
 SEATS = [
-    ("cc",   "cc_hale_input.md",   "#1f6feb", "CC-Hale · Claude"),
-    ("ag",   "ag_hale_input.md",   "#2ea043", "AG-Hale · Gemini"),
-    ("oc",   "oc_hale_input.md",   "#d29922", "OC-Hale · DeepSeek"),
-    ("grok", "grok_hale_input.md", "#f73b9f", "Grok-Hale · xAI"),
+    ("CC",   "cc_hale_input.md",   "#1f6feb", "CC-Hale · Claude (MAX, sonnet)"),
+    ("AG",   "ag_hale_input.md",   "#2ea043", "AG-Hale · Gemini 3.6 Flash"),
+    ("OC",   "oc_hale_input.md",   "#d29922", "OC-Hale · DeepSeek (Jet)"),
+    ("GROK", "grok_hale_input.md", "#f73b9f", "Grok-Hale · xAI (seat pending login)"),
 ]
-
-def bluf(text: str) -> str:
-    m = re.search(r"^##*\s*BLUF[:\s]*(.+)$", text, re.M | re.I)
-    if m:
-        return m.group(1).strip()
-    first = next((l.strip() for l in text.splitlines() if l.strip()), "")
-    return first[:160]
 
 def esc(s: str) -> str:
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
              .replace('"', "&quot;"))
 
+def explore_heading(text: str) -> str:
+    m = re.search(r"^##\s*(.+)", text, re.M)
+    return m.group(1).strip()[:120] if m else ""
+
 cards = []
-for seat, fname, color, label in SEATS:
+for label, fname, color, who in SEATS:
     fp = HERE / fname
     if not fp.exists():
-        cards.append({"seat": seat, "color": color, "label": label,
-                      "present": False,
-                      "bluf": "(no card filed — seat deferred)",
-                      "body": "This seat has not filed a card yet."})
+        cards.append({"label": label, "color": color, "who": who, "fname": fname,
+                      "present": False, "body": "(no point paper filed)"})
         continue
     body = fp.read_text().strip()
-    cards.append({"seat": seat, "color": color, "label": label,
-                  "present": True, "bluf": bluf(body), "body": body})
+    cards.append({"label": label, "color": color, "who": who, "fname": fname,
+                  "present": True, "body": body})
 
-data = {
-    "session": "Round Table v0 — Commander view",
-    "built": datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d %H:%M MT"),
-    "present": sum(1 for c in cards if c["present"]),
-    "cards": cards,
-}
+papers = sorted({fname for _, fname, *_ in SEATS if (HERE / fname).exists()})
+transcripts = sorted(p.name for p in HERE.glob("*_transcript.md"))
+blufs = sorted(p.name for p in HERE.glob("bluf.md"))
 
 HTML = """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ROUND TABLE</title>
+<title>ROUND TABLE — War Room</title>
 <style>
- body{margin:0 0 80px;font-family:Georgia,serif;background:#0d1117;color:#e6edf3;padding:24px}
- h1{font-size:20px;letter-spacing:.12em;color:#58a6ff;border-bottom:1px solid #30363d;padding-bottom:8px}
- .meta{color:#8b949e;font-size:12px;margin:10px 0 18px}
- .card{border:1px solid #30363d;border-left:6px solid var(--c);border-radius:6px;
-       padding:16px 18px;margin:14px 0;background:#161b22;display:none}
- .card.active{display:block}
- .seat{font-weight:bold;font-size:13px;letter-spacing:.04em;color:var(--c)}
- .bluf{font-size:16px;font-weight:bold;color:#f0f6fc;margin:8px 0 4px;border-left:2px solid rgba(255,255,255,.18);padding-left:12px;cursor:pointer}
- .hint{color:#8b949e;font-size:11px;margin-left:12px;font-weight:400}
- .body{white-space:pre-wrap;font-size:13px;line-height:1.55;color:#c9d1d9;margin-top:10px;display:none}
- .body.open{display:block}
- .bar{position:fixed;bottom:0;left:0;right:0;background:#161b22;border-top:1px solid #30363d;
-      padding:12px 24px;font-size:12px;color:#8b949e;display:flex;gap:26px;align-items:center}
- .kbd{border:1px solid #30363d;border-radius:4px;padding:1px 7px;background:#0d1117}
- #pos{font-weight:bold;color:#e6edf3}
+ body{margin:0 0 70px;font-family:Georgia,serif;background:#0d1117;color:#e6edf3;padding:24px}
+ h1{font-size:22px;letter-spacing:.12em;color:#58a6ff;border-bottom:1px solid #30363d;padding-bottom:10px}
+ .top{display:flex;flex-wrap:wrap;gap:18px;margin:12px 0 24px;font-size:13px;color:#8b949e}
+ .top a{color:#58a6ff}
+ .card{border:1px solid #30363d;border-left:7px solid var(--c);border-radius:6px;
+       padding:18px 22px;margin:16px 0;background:#161b22}
+ .seat{font-weight:bold;letter-spacing:.05em;color:var(--c);font-size:15px;display:flex;justify-content:space-between}
+ .paplink{color:#8b949e;font-weight:400;font-size:12px}
+ .body{white-space:pre-wrap;font-size:14px;line-height:1.6;color:#c9d1d9;margin-top:10px}
+ .absent{color:#f85149}
+ .paper{color:#58a6ff;text-decoration:none}
+ b,strong{color:#f0f6fc}
 </style></head><body>
-<h1>ROUND TABLE &mdash; play-by-play</h1>
-<div class="meta">__META__</div>
-<div id="deck"></div>
-<div class="bar">
- <span><span class="kbd">SPACE</span> next card</span>
- <span><span class="kbd">P</span> previous</span>
- <span><span class="kbd">E</span> expand / collapse card</span>
- <span id="pos"></span>
+<h1>ROUND TABLE &mdash; War Room playback</h1>
+<div class="top">
+  <span>Session papers:</span> __PAPERS__ ·
+  <span>transcripts: __TRANSCRIPTS__</span> ·
+  <span>previews: __BLUFS__</span>
 </div>
-<script>
-const DATA=__DATA__;
-const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const deck=document.getElementById('deck');
-let i=-1;
-DATA.cards.forEach(c=>{
-  const el=document.createElement('div');
-  el.className='card';
-  el.style.setProperty('--c',c.color);
-  el.dataset.seat=c.seat;
-  const absent=c.present?'':' <span style="color:#f85149">(absent)</span>';
-  el.innerHTML=
-    '<div class="seat">'+esc(c.label)+absent+'</div>'+
-    '<div class="bluf">'+(c.present?'':'<span class="hint">expand &raquo;</span> ')+esc(c.bluf)+'</div>'+
-    '<div class="body">'+esc(c.body)+'</div>';
-  el.querySelector('.bluf').addEventListener('click',()=>toggleBody(el));
-  el.querySelector('.body').addEventListener('click',()=>toggleBody(el));
-  deck.appendChild(el);
-});
-function toggleBody(el){const b=el.querySelector('.body');b.classList.toggle('open')}
-function show(n){
-  i=(n+DATA.cards.length)%DATA.cards.length;
-  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
-  document.querySelectorAll('.card')[i].classList.add('active');
-  document.getElementById('pos').textContent='card '+(i+1)+' of '+DATA.cards.length;
-}
-show(0);
-document.addEventListener('keydown',e=>{
-  if(e.code==='Space'){show(i+1);e.preventDefault()}
-  else if(e.key==='p'||e.key==='P'){show(i-1)}
-  else if(e.key==='e'||e.key==='E'){
-    const el=document.querySelector('.card.active .body'); if(el)el.classList.toggle('open');
-  }
-});
-</script></body></html>"""
+__CARDS__
+</body></html>"""
 
-meta = (f"{data['session']} &mdash; {data['built']} &nbsp;·&nbsp; "
-        f"{data['present']} of 4 seats filed")
-out = (HTML.replace("__DATA__", json.dumps(data).replace("</", "<\\u002F"))
-           .replace("__META__", meta))
+papers_html = " · ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in papers) or "&mdash;"
+tr_html = " ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in transcripts) or "&mdash;"
+bl_html = " ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in blufs) or "&mdash;"
 
-target = HERE / "rt.html"
-target.write_text(out)
-print(f"built {target} — {data['present']}/4 seats, {len(out)//1024}KB")
+cards_html = []
+for c in cards:
+    if c["present"]:
+        link = f'<span class="paplink">full paper: <a class="paper" href="{c["fname"]}">{c["fname"]}</a></span>'
+        body = f'<div class="body">{esc(c["body"])}</div>'
+    else:
+        link = ""
+        body = f'<div class="body absent">{esc(c["body"])}</div>'
+    cards_html.append(
+        f'<div class="card" style="--c:{c["color"]}">'
+        f'<div class="seat">{esc(c["who"])} {link}</div>{body}</div>')
+
+out = (HTML
+       .replace("__PAPERS__", papers_html)
+       .replace("__TRANSCRIPTS__", tr_html)
+       .replace("__BLUFS__", bl_html)
+       .replace("__CARDS__", "\n".join(cards_html)))
+(HERE / "rt.html").write_text(out)
+print(f"built rt.html — {sum(1 for c in cards if c['present'])}/4 papers, {len(out)//1024}KB")
