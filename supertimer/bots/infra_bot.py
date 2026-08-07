@@ -25,9 +25,11 @@ class InfraBot(BotBase):
         Task("tess-token",
              sys_py("scripts/tess_token_keepalive.py"),
              interval_sec=5400, timeout_sec=90),
-        Task("portal-keepalive",
-             sys_py("scripts/portal_keepalive.py"),
-             interval_sec=2700, timeout_sec=120),
+        # portal-keepalive REMOVED 2026-08-07 — retired by Commander's 2026-07-16 order;
+        # was resurrected + running here (zombie). Super+systemd duplication. (RT-KEEPALIVES CC/AG)
+        # Task("portal-keepalive",
+        #      sys_py("scripts/portal_keepalive.py"),
+        #      interval_sec=2700, timeout_sec=120),
         Task("bsk-session-keepalive",
              venv("scripts/bsk_session_keepalive.py", "--portal", "centrav", "--once"),
              interval_sec=1200, timeout_sec=90,
@@ -51,10 +53,12 @@ class InfraBot(BotBase):
         Task("silversea-session",
              venv("scripts/silversea_cookie_refresh.py"),
              interval_sec=86400, timeout_sec=120),
-        Task("centrav-warm",
-             venv("scripts/centrav_session_warm.py"),
-             interval_sec=3060, timeout_sec=120,
-             allowed_rcs=(0, 3)),  # rc=3=profile-missing/locked: graceful skip. rc=2=dead-session: FAIL → infra_bot RED → alarm (FIX-2 2026-06-27)
+        # centrav-warm REMOVED 2026-08-07 (Commander) — 30-min attention spam: session dead,
+        # headless relogin fails (browser profile locked), pages repeatedly. Go on-demand re-auth only.
+        # Task("centrav-warm",
+        #      venv("scripts/centrav_session_warm.py"),
+        #      interval_sec=3060, timeout_sec=120,
+        #      allowed_rcs=(0, 3)),
         Task("fare-watch-deadman",
              venv("scripts/fare_watch_deadman.py"),
              interval_sec=10800, timeout_sec=30,

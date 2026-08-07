@@ -1,0 +1,62 @@
+# KEEPALIVES SLIM PLAN — AG (Gemini 3.6 Flash) Arm
+**Seat:** AG-Hale (Lead Orchestrator / AG Arm) · **Date:** 2026-08-07 · **Status:** READY FOR CC/OC SYNTHESIS
+
+## 1. KEEP / MERGE / KILL Table (Ground Truth)
+
+| Component / Unit | Layer | Disposition | Rationale |
+|---|---|---|---|
+| `claude-oauth-keepalive` | systemd | **KEEP (Independent)** | Load-bearing Claude MAX OAuth refresh. Independent security boundary & failure isolation. |
+| `d2mconcierge-oauth-keepalive` | systemd | **MERGE** | Fold with `johnloucks3-oauth` into single `google-oauth-keepalive.service`. Halves timer churn. |
+| `johnloucks3-oauth-keepalive` | systemd | **MERGE** | Fold with `d2mconcierge-oauth` into single `google-oauth-keepalive.service`. |
+| `tess-token-keepalive` | systemd | **KEEP** | Pure HTTPS token refresh. 90-min cadence. Low overhead, zero browser dependency. |
+| `keepalive-supervisor` | systemd | **KEEP (Evolve)** | Load-bearing meta-watchdog and single status aggregator. Does NOT run heavy tasks; monitors state. |
+| `d2m-centrav-warm` | systemd + supertimer | **KILL** | Root cause of 30-min attention spam (browser profile locks + headless relogin failures). Disabled; delete permanently. |
+| `bsk-session-keepalive` | systemd + supertimer | **MERGE** | Convert from browser session to pure HTTPS cookie probe; fold execution into portal probe. |
+| `d2m-portal-live-probe` | systemd | **KEEP** | Essential endpoint verification. Decoupled from heavy browser relaunch loops. |
+| `portal-keepalive` (Playwright) | supertimer / script | **MERGE / STRIP** | Strip headless Playwright loops. Replace with lightweight HTTP endpoint probes. |
+| `supertimer` duplicate tasks | supertimer | **KILL Duplicates** | Supertimer duplicating 5+ systemd timers causes race conditions and alert spam. Systemd is the single scheduler. |
+
+---
+
+## 2. Consolidation & Isolation Architecture
+
+- **Independent OAuth Layer (MUST stay decoupled):**
+  - `claude-oauth` and `google-oauth` (combining d2mconcierge + johnloucks3) MUST run in separate units so token-endpoint rate limits or transient Google auth errors never block Claude MAX CLI/IDE access.
+- **Supervisor Layer (`keepalive-supervisor`):**
+  - Acts strictly as passive auditor and atomic status writer (`OpsCenter/keepalive_health.json`).
+  - Implements **alert deadband / anti-flap**: Transient probe drops (1-2 consecutive misses) log `YELLOW` silently; only sustained multi-cycle failures (`RED`) trigger Telegram/alert escalation.
+- **Deduplication:**
+  - Remove all duplicate timers from `supertimer_infra_bot_state.json`. `systemd --user` is native Linux ground truth.
+
+---
+
+## 3. Straight-Linux Adaptation (Kill GUI / Browser Hangs)
+
+- **Eliminate Playwright/Chromium from background timers:**
+  - `centrav-warm`: Centrav uses Cloudflare/reCAPTCHA + OTP. Automated headless background loops inevitably fail. Replace with explicit on-demand CLI script (`scripts/centrav_reauth.py`) triggered only when token expires.
+  - `tess-token`: Pure HTTP REST/Bearer token refresh already functional; remove lingering Playwright fallback paths.
+  - `perx` & `bsk`: Convert to pure HTTP requests/cURL sending stored session cookies and inspecting HTTP response codes (200 OK vs 302/401 redirect).
+
+---
+
+## 4. NEW Software Search (2026 Evaluation)
+
+| Candidate / Tool | Purpose / Architecture | Verdict | Rationale |
+|---|---|---|---|
+| **Healthchecks.io / Gotify Deadman Snitch** | Centralized heartbeat monitoring & ping bus | **ADOPT** | Solves the 30-min alert spam. Scripts ping a local/remote deadman webhook on success. Alerts fire ONLY when a timer goes completely silent for >2h. |
+| **`oauth2-token-daemon` / Unified `oauth_hub`** | Single local daemon refreshing multi-provider OAuth tokens | **PARTIAL** | Concept is right, but 3rd-party daemon adds dependency bloat. Implement as a 60-line idempotent Python script `scripts/oauth_refresh_all.py` under systemd. |
+| **Supercronic / Ofelia** | Alternative container/Linux cron daemons | **SKIP** | Redundant. Native Linux `systemd --user` timers provide superior journalctl logging, isolation, and process management. |
+
+---
+
+## 5. Minimal New Script Set
+
+1. `scripts/oauth_refresh_all.py` — Idempotent, sequential refresh for Google accounts (`johnloucks3`, `d2mconcierge`) and token validation.
+2. `scripts/portal_http_probe.py` — Headless, zero-browser HTTPS session validator for BSK, Regent, and portal endpoints.
+3. `scripts/centrav_reauth.py` — Dedicated on-demand interactive re-auth CLI (no background auto-looping).
+4. **Archive/Retire:** `centrav_session_auto_keepalive.py`, `d2mconcierge_mcp_oauth_refresh.py.bak*`, redundant Playwright hooks.
+
+---
+**UNVERIFIED FLAGS:**
+- `tess_token_keepalive.py` fallback branch requires verification that Playwright dependency is completely bypassed in production execution.
+- Systemd timer unit files must be cleaned of `supertimer` parallel invocations.
