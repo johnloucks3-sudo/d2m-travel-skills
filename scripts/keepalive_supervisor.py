@@ -468,7 +468,15 @@ def evaluate(item: Item, heal: bool, heal_services: bool) -> Result:
     """Fully isolated per-item evaluation — never raises out."""
     try:
         if item.name == "centrav-session":
-            return _centrav_health(item)
+            # Centrav (Commander 2026-08-07): on-demand re-auth ONLY. Auto
+            # keep-alive/warm retired (RT-KEEPALIVES). Do NOT auto-flag or
+            # escalate a dead session — that was the recurring attention ping.
+            res = Result(name=item.name, expected_state=item.expected_state,
+                         interval_min=item.interval_min)
+            res.status = GREEN
+            res.detail = "Centrav on-demand re-auth only (Commander 2026-08-07); no auto keepalive monitored."
+            res.escalation = None
+            return res
         if item.kind == "timer":
             return _timer_health(item, heal, heal_services)
         # Generic credential-cookie (none currently besides centrav).
