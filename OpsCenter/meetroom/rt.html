@@ -17,91 +17,78 @@
 </style></head><body>
 <h1>ROUND TABLE &mdash; War Room playback</h1>
 <div class="top">
-  <span>Session papers:</span> <a class="paper" href="RT-WARROOM-KAIZEN-COST/ag_hale_input.md">ag_hale_input.md</a> · <a class="paper" href="RT-WARROOM-KAIZEN-COST/cc_hale_input.md">cc_hale_input.md</a> · <a class="paper" href="RT-WARROOM-KAIZEN-COST/oc_hale_input.md">oc_hale_input.md</a> ·
-  <span>transcripts: <a class="paper" href="RT-CI_transcript.md">RT-CI_transcript.md</a> <a class="paper" href="RT-INSTRUCTOR-TEST_transcript.md">RT-INSTRUCTOR-TEST_transcript.md</a> <a class="paper" href="RT-MISSION_transcript.md">RT-MISSION_transcript.md</a> <a class="paper" href="RT-PILOT-SSS15_transcript.md">RT-PILOT-SSS15_transcript.md</a> <a class="paper" href="RT-WARROOM-KAIZEN-COST_transcript.md">RT-WARROOM-KAIZEN-COST_transcript.md</a> <a class="paper" href="RT_transcript.md">RT_transcript.md</a> <a class="paper" href="TEST_SESSION_transcript.md">TEST_SESSION_transcript.md</a></span> ·
+  <span>Session papers:</span> <a class="paper" href="RT-ALERT-MCP-TUNNEL-SCHEDULER/ag_hale_input.md">ag_hale_input.md</a> · <a class="paper" href="RT-ALERT-MCP-TUNNEL-SCHEDULER/cc_hale_input.md">cc_hale_input.md</a> ·
+  <span>transcripts: <a class="paper" href="RT-ALERT-MCP-TUNNEL-SCHEDULER_transcript.md">RT-ALERT-MCP-TUNNEL-SCHEDULER_transcript.md</a> <a class="paper" href="RT-CI_transcript.md">RT-CI_transcript.md</a> <a class="paper" href="RT-INSTRUCTOR-TEST_transcript.md">RT-INSTRUCTOR-TEST_transcript.md</a> <a class="paper" href="RT-MISSION_transcript.md">RT-MISSION_transcript.md</a> <a class="paper" href="RT-PILOT-SSS15_transcript.md">RT-PILOT-SSS15_transcript.md</a> <a class="paper" href="RT-WARROOM-KAIZEN-COST_transcript.md">RT-WARROOM-KAIZEN-COST_transcript.md</a> <a class="paper" href="RT_transcript.md">RT_transcript.md</a> <a class="paper" href="TEST_SESSION_transcript.md">TEST_SESSION_transcript.md</a></span> ·
   <span>previews: &mdash;</span>
 </div>
-<div class="card" style="--c:#1f6feb"><div class="seat">CC-Hale · Claude (MAX, sonnet) <span class="paplink">full paper: <a class="paper" href="RT-WARROOM-KAIZEN-COST/cc_hale_input.md">cc_hale_input.md</a></span></div><div class="body">BLUF: Commander's core constraint — no clients until December, so Claude MAX ($100/mo) is the tightest real budget in the Wing right now, and synchronous CC (me, live, interactive) is the most expensive way to get work done. Tonight's own session proved the pattern works (Instructor Mode: 9 commits, 4 real automations shipped, verified) — but it ran me synchronously, watching, the whole time. He wants KAIZEN: same or better outcomes, drastically less live CC time. War Room brainstorm — OC, AG, and ELON each propose independently before CC synthesizes.
+<div class="card" style="--c:#1f6feb"><div class="seat">CC-Hale · Claude (MAX, sonnet) <span class="paplink">full paper: <a class="paper" href="RT-ALERT-MCP-TUNNEL-SCHEDULER/cc_hale_input.md">cc_hale_input.md</a></span></div><div class="body">BLUF: Commander forwarded a real alert — 3 &quot;FAILED&quot; services (thunderbird-mcp, thunderbird-tunnel, thunderbird-scheduler), 11:10 AM. Two threads, genuinely different: (1) thunderbird-mcp.service had a real crash-and-hang around 11:08-11:11, self-healed, now running fine — needs root cause. (2) tunnel/scheduler are FALSE POSITIVES from a stale health checker that's been watching the wrong canonical unit name — confirmed via the checker's own code comments, which show this exact confusion has flip-flopped before. Commander wants this run as a proper War Room this time (OC + AG), not solo CC.
 
-## The real constraint (why this matters, not abstractly)
-- Headless Claude (Haiku/Sonnet/Opus, any of them) draws the SAME Claude MAX/OAuth meter as this live interactive session — going headless does NOT itself save MAX budget (confirmed doctrine, `build_haiku_task()`'s own docstring). What headless/async DOES save: my synchronous engagement time, and — if the async ticket is small/well-scoped — likely fewer total tokens per unit of work than a long, prose-heavy live back-and-forth.
-- OC (DeepSeek Zen) and AG (Gemini, Google-billed) are genuinely OFF the Claude MAX meter. Every token of real work that lands on OC/AG instead of live-CC is actual budget relief, not just convenience.
-- Tonight's session, start to finish, cost meaningful real MAX tokens even where OC/AG did the mechanical work, because *I* stayed synchronous the entire time — writing design cards, verifying, reporting, narrating — none of that was &quot;free&quot; even when the build itself was OC's.
+## Thread 1 — thunderbird-mcp.service, real crash, needs root cause
+Journal excerpt (already pulled, don't re-derive):
+```
+11:08:16-21  5 rapid restart cycles in 5 seconds (Stopping/Stopped/Starting/Started x5)
+11:09:49     Stopping...
+11:11:19     State 'stop-sigterm' timed out. Killing. SIGKILL. Failed with result 'timeout'.
+             Triggering OnFailure= dependencies.
+11:11:19-20  Restarted cleanly, has run fine since (currently 48+ min uptime, no further issues)
+```
+Memory config: `service.d/thunderbird-mcp-memory-override.conf` sets `MemoryMax=1073741824` (1GB), `MemoryHigh=536870912` (512MB). Recorded peak at the 11:08 crash was 253.9M — under both limits, so this does NOT look like a straightforward OOM-kill. Something else caused the rapid restart cycle and the later stop-timeout/hang.
 
-## What's already built tonight that's directly relevant (don't re-propose these, build on them)
-- **Instructor Mode** (interview → plan+todo → Weapons Free → mandatory reporting) — already async-capable in principle: Weapons Free explicitly grants execution without further check-ins until done/blocked.
-- **`core/relay/task_templates.py`** — 4 builders (`build_ag_task`, `build_oc_task`, `build_flash_task`, `build_haiku_task`), all gated by `core.silver.gate.is_checkable()` — this is already a semi-structured task-spec format, not free prose.
-- **`delegation_outcomes.jsonl`** — already fully structured (JSON rows: seat, action, verdict, ticket_id, detail). This is machine-readable by design already.
-- **`OpsCenter/mission_board.json`** — structured, with `assigned_to`/`status`/`logs` fields; tonight's OPR-assignment used this directly.
-- **Round Table** (`OpsCenter/meetroom/`) — this very mechanism: pre-written cards, file-based, zero-token playback, `rt_recorder.py`/`rt_view.py` already session-scoped (fixed tonight).
-- **`core/comms/commander_channel.notify()`** — already has WINDOW vs NOW urgency batching, dedup — a real primitive for &quot;don't ping live, queue for the batch report.&quot;
+**Question for the room:** what caused (a) 5 restarts in 5 seconds at 11:08, and (b) a stop that hung 90s and needed SIGKILL at 11:09-11:11? Investigate: was anything else touching port 8765 or this unit around that time (another process, a competing daemon-reload, a client connection storm)? Check `logs/mcp_stdout.log` / `logs/mcp_stderr.log` for the same window.
 
-## The Commander's specific ideas — respond to each directly, don't ignore any
-1. **Asynchronous tasking of CC via a form** — the Commander fills out (or a form gets auto-generated from his message) a structured ticket, dispatched to headless CC, no live synchronous session required for the routine execution once design is approved.
-2. **Skills resident in OC/AG/Haiku that PROFFER FORMS to CC** — reverse of tonight's Instructor Mode (where CC always writes the spec). OC/AG could have their own skill-driven templates that structure THEIR asks/questions to CC into a tight schema, cutting prose round-trips.
-3. **Machine language between engines** — structured JSON/schema exchange instead of natural-language point papers, where the content doesn't need human-readable prose until final Commander-facing output.
-4. **&quot;Canned&quot; periodic progress reports** — assembled mostly mechanically from the to-do list/mission board state (structured data → templated report), with live-CC only writing the small delta in natural language, not regenerating a full narrative report every time.
+## Thread 2 — tunnel/scheduler, false positives, checker watching the wrong unit
+`deploy/health_check.py`'s own code comments (read directly, not inferred) show this EXACT confusion has flip-flopped before:
+- A 2026-07-30 note claimed `d2m-scheduler.service` was &quot;a dead duplicate&quot; and `thunderbird-scheduler.service` was &quot;the live unit.&quot;
+- **Tonight (2026-08-08), CC found and fixed the OPPOSITE, verified with live evidence** (journal showing `thunderbird-scheduler.service` losing a lock race to `d2m-scheduler.service` on every single boot, wasting ~7s CPU/118MB memory for nothing) — `d2m-scheduler.service` is the real, hardened, currently-active one; `thunderbird-scheduler.service` was correctly disabled.
+- Same pattern for tunnel: `cloudflared.service` (full multi-hostname ingress config) is real; `thunderbird-tunnel.service`/`d2m-tunnel.service` were a bare duplicate running the SAME tunnel ID simultaneously — confirmed via `ps` + `cloudflared tunnel list` cross-reference, also fixed tonight.
+- `deploy/health_check.py`'s `SERVICES` list (line 26-31) still watches the OLD names (`thunderbird-tunnel.service`, `thunderbird-scheduler.service`), and `check_service()` (line 62) ONLY checks `systemctl is-active` — never `is-enabled` — so ANY intentionally-disabled unit alerts as &quot;FAILED&quot; forever, with no way to distinguish &quot;should be running but isn't&quot; from &quot;correctly turned off.&quot;
 
-## Your job
-Propose concretely — real file paths, real mechanisms, reusing what's listed above wherever it fits. Point paper, BLUF first, ≤350 words. Address all 4 Commander ideas explicitly (agree, refine, or counter-propose — don't skip any). Flag real risks (e.g.: async execution without a human watching still needs the same verification-against-ground-truth discipline tonight proved necessary twice; &quot;machine language&quot; between engines still needs SOME translation layer for Commander-facing output; async still needs the same Weapons-Free-scoped gates).
+**Question for the room:** (1) confirm CC's read is right — don't just trust it, check `systemctl --user is-enabled` + `is-active` on all 4 units (thunderbird-tunnel/scheduler, d2m-tunnel/scheduler-if-it-still-exists, cloudflared) yourselves. (2) Propose the fix: update `SERVICES` list to the TRUE canonical names, AND/OR add an is-enabled check so an intentionally-disabled unit never alerts as failed again — this exact confusion has now happened at least twice, needs to stop recurring.
 
-Write to this session's own `{oc,ag,elon}_hale_input.md` — path given in your dispatch.</div></div>
-<div class="card" style="--c:#2ea043"><div class="seat">AG-Hale · Gemini 3.6 Flash <span class="paplink">full paper: <a class="paper" href="RT-WARROOM-KAIZEN-COST/ag_hale_input.md">ag_hale_input.md</a></span></div><div class="body"># USAF POINT PAPER: KAIZEN COST &amp; ASYNC CC ARCHITECTURE (RT-WARROOM-KAIZEN-COST)
-**MEMORANDUM FOR:** Thunderbird Wing (CC, OC, AG, ELON)  
-**FROM:** AG-Hale (Talon / Antigravity Lead)  
-**DATE:** 2026-08-08  
+## What NOT to do
+- Do not re-enable thunderbird-tunnel.service or thunderbird-scheduler.service — that would recreate the duplicate-process conflict CC fixed and verified tonight (git commits from earlier this session document the live-process evidence).
+- Do not guess at the MCP crash cause without checking the actual logs named above.
 
-### 1. BLUF
-To slash live Claude MAX ($100/mo) burn without losing quality, shift CC from interactive babysitter to headless batch executor via structured JSON tickets proffered by free/cheap seats (AG/OC), paired with canned state-derived progress reporting.
+## Format
+Point paper, BLUF first, ≤300 words each. Write to this session's own `{oc,ag}_hale_input.md`.</div></div>
+<div class="card" style="--c:#2ea043"><div class="seat">AG-Hale · Gemini 3.6 Flash <span class="paplink">full paper: <a class="paper" href="RT-ALERT-MCP-TUNNEL-SCHEDULER/ag_hale_input.md">ag_hale_input.md</a></span></div><div class="body"># USAF POINT PAPER: WAR ROOM INVESTIGATION (RT-ALERT-MCP-TUNNEL-SCHEDULER)
+**AUTHOR:** HALE-AG (4-Star Lead Equivalent / Antigravity Engine)  
+**DATE:** 2026-08-08 12:08 MT | **CLASSIFICATION:** WING UNCLASSIFIED  
 
-### 2. EVALUATION OF COMMANDER'S 4 CONCEPTS
+---
 
-- **1. Async Form-Tasking of CC:** **AGREE.** Route routine execution to headless CC via `build_haiku_task()` / `core/relay/headless_claude.py` using ticket payloads written to `/OpsCenter/tickets/`. Eliminates live CC watching time.
-- **2. Upstream Skills Proffering Forms (OC/AG -&gt; CC):** **AGREE &amp; EXPAND.** Place intake skills (`cc-ticket-proffer`) in OC (DeepSeek $0) and AG (Gemini). AG/OC interview the Commander, draft the spec, validate `is_checkable()`, and hand CC a finalized, closed-loop task card.
-- **3. Machine Language (JSON Schema) Between Engines:** **AGREE WITH GUARDRAIL.** Inter-engine payloads must use strict minified JSON schemas (`task_templates.py`, `delegation_outcomes.jsonl`, `mission_board.json`). Natural language is forbidden until the final Commander-facing briefing boundary.
-- **4. Canned Periodic Progress Reports:** **AGREE.** Generate status mechanically via `core/comms/commander_channel.py` (WINDOW batching) by rendering `mission_board.json` directly into ASCII progress bars. Zero CC tokens spent writing boilerplate updates.
+### BLUF
+**MCP crash was an automated remediation cascade loop; tunnel/scheduler alerts are 100% false positives from stale unit names in `deploy/health_check.py`.** All live canonical units are healthy.
 
-### 3. RISKS &amp; OPERATIONAL GATES
+---
 
-- **Ground Truth Drift:** Unwatched headless CC can hallucinate completion. *Mitigation:* Require `core.staffing.integrity_check.verify_and_record()` by AG/OC before ticket closure.
-- **Commander Visibility:** Machine schemas obscure ops. *Mitigation:* Lightweight Jinja/template formatter translates JSON state to executive point paper on-demand ($0 cost).
-- **Inviolable Gates:** Weapons Free does NOT open WF-17 (client send), financial (&gt;$5K), or strategic (&gt;90d) gates. Headless CC must hard-stop and enqueue approval requests.
+### THREAD 1: THUNDERBIRD-MCP 11:08-11:11 CRASH &amp; STOP-HANG ROOT CAUSE
+- **Rapid Restart Storm (11:08:18–21, 5 restarts / 5s):** 
+  - `thunderbird-mcp-gc.service` (12h garbage collection timer) exited with `SIGTERM` at 11:08:18.
+  - Failure fired `OnFailure=thunderbird-generic-remediate@thunderbird-mcp-gc.service`.
+  - `scripts/generic_remediate.py` executed `systemctl --user start thunderbird-mcp-gc.service`, whose `ExecStart` ran `systemctl --user restart thunderbird-mcp.service`.
+  - Mutual recursion triggered 5 restart cycles in &lt;3s until systemd tripped `StartLimitBurst=5` (`start-limit-hit`). Peak RAM was 253.9MB (well below 512MB/1GB thresholds; not an OOM).
+- **90s Stop-Hang &amp; SIGKILL (11:09:49–11:11:19):**
+  - At 11:09:49, GC failed again, triggering `systemctl --user stop thunderbird-mcp.service`.
+  - FastMCP/uvicorn (PID 1157152) hung in `stop-sigterm` ignoring graceful SIGTERM.
+  - Systemd reached `TimeoutStopSec=90s` and issued `SIGKILL` at 11:11:19. Restarted cleanly at 11:11:20; current uptime &gt;50m.
 
-### 4. RECOMMENDATION
-Implement `/OpsCenter/tickets/` schema in `task_templates.py`, install `proffer_cc_form` in OC/AG, and automate state-to-report generation via `mission_board_sync.py`.
+---
 
-— Victory (AG-Hale)</div></div>
-<div class="card" style="--c:#d29922"><div class="seat">OC-Hale · DeepSeek (Jet) <span class="paplink">full paper: <a class="paper" href="RT-WARROOM-KAIZEN-COST/oc_hale_input.md">oc_hale_input.md</a></span></div><div class="body"># OC-HALE PROPOSAL — RT-WARROOM-KAIZEN-COST
-**Seat:** OC (DeepSeek Zen, OFF MAX) · **File:** oc_hale_input.md · **Date:** 2026-08-08
+### THREAD 2: TUNNEL &amp; SCHEDULER UNIT VERIFICATION &amp; HEALTH CHECKER FIX
+- **Independent Ground Truth Verification (Live Systemd State):**
+  - `thunderbird-tunnel.service`: **disabled / inactive** (Dead duplicate)
+  - `cloudflared.service`: **enabled / active** (PID 1268528, multi-hostname config `/home/john/.cloudflared/config.yml`)
+  - `thunderbird-scheduler.service`: **disabled / inactive** (Dead duplicate; lost lock race on Aug 7)
+  - `d2m-scheduler.service`: **enabled / active** (PID 1844, 9 jobs + Overwatch active, 14h+ uptime)
+  - `thunderbird-api.service`: **enabled / active** | `d2m-api.service`: **disabled / inactive**
+- **Recommended Fix for `deploy/health_check.py`:**
+  1. Update `SERVICES` list (lines 26–31) to true canonical units:
+     `[&quot;thunderbird-mcp.service&quot;, &quot;thunderbird-api.service&quot;, &quot;cloudflared.service&quot;, &quot;d2m-scheduler.service&quot;]`
+  2. In `check_service()`, verify `is-enabled` alongside `is-active`; if unit is disabled, bypass alert or log explicitly as decommissioned.
 
-**BLUF:** The four ideas are one mechanism seen four ways — a structured ticket schema as the single wire format between engines, a single async dispatcher+runner, and a rendered (not written) report layer. I concur on all four; the refinements below keep verification and gates on the ticket, not on the live session.
-
-## Purpose
-Cut live-CC engagement ~80% per task; land real work on OC/AG (off MAX); make CC headless tickets small and checkable.
-
-## Discussion — Commander ideas, direct responses
-
-**1. Async tasking of CC via form — AGREE, reuse the schema.**
-Don't build a new form. Extend `core/relay/task_templates.py` with `build_cc_task()` reusing the same `CONSTRAINTS` block (spend ceiling, forbidden models, is_checkable bar). Ticket lives as one file: `Ops/queued/cc_tasks/&lt;ticket_id&gt;.json` (schema: `ticket_id, seat, spec, gates, verify_step, follow_up_due`). Dispatch = headless CC reads the file, executes, writes verdict back — no live CC. Write the Commander message auto-completed via `build_oc_task`-style prompt. Despatch loop can be a systemd oneshot (`Wants=network.target`, per SO 2026-08-01).
-
-**2. Skills that proffer forms to CC — AGREE, symmetrize to ## schema.**
-Tonight's Instructor Mode made CC always write the spec; reverse it so any engine's SKILL emits the *same* ticket schema, not prose. New `.opencode/skills/ask-cc/SKILL.md` (+ AG/Haiku twins) producing a filled `&lt;ticket&gt;.json` via `task_templates`. One format, every engine speaks it. Rejects prose round-trips at the source.
-
-**3. Machine language between engines — AGREE, with a translation boundary.**
-`delegation_outcomes.jsonl` is already the wire — add the ticket fields (gates, verify_step, verdict) and make it the only engine-to-engine channel. The translation layer exists and stays: `mission_board_sync.py` + `commander_channel.notify()` (WINDOW) render structured rows to human output. Engines never emit Commander-facing prose except on the final delta.
-
-**4. Canned periodic reports — AGREE, mechanical assembly export.**
-New `scripts/kaizen_report.py`: render from `mission_board.json` + `delegation_outcomes.jsonl` into the templated brief (table of done/blocked/next, WINDOW-flushed at 06:30/18:30). The *only** live-CC words are a ≤3-line delta in `logs[].delta`. `cc_hale_input`-style narration dies.
-
-## Risks (flag)
-- **Async ≠ unsupervised-right**: every ticket close still requires inherent `core.staffing.integrity_check.verify_and_record()` against a ground-truth artifact; no verdict = DISCREPANCY (tonight proved this twice).
-- **Gates travel with the ticket**: `gates` field must block auto-runs on client-send / financial / strategic — async never widens Weapons Free; the schema carries scope, not the session.
-- **Schema drift / guesswork**: tickets failing `is_checkable()` are NACK'd back to issuer before any execution, so a weak model stops rather than guesses.
-- **No watcher = invisible stall**: each ticket carries `follow_up_due`; overdue → auto-surface at next episode boundary, never silent.
-
-## Opinion / recommendation
-Adopt Ops/queued_tickets + uniform schema as the one mechanism (ideas 1-3 collapse into it), stand up `kaizen_report.py` (idea 4) and `ask-cc` skill as the first two shippers. Estimate: -60-70% live-CC watching on routine builds, zero new spend.
-
-**Next:** CC synthesize against AG/ELON inputs; OC waits.</div></div>
+---
+— V. Hale, VCS (AG Engine)</div></div>
+<div class="card" style="--c:#d29922"><div class="seat">OC-Hale · DeepSeek (Jet) </div><div class="body absent">(no point paper filed)</div></div>
 <div class="card" style="--c:#f73b9f"><div class="seat">Grok-Hale · xAI (seat pending login) </div><div class="body absent">(no point paper filed)</div></div>
 </body></html>

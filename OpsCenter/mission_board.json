@@ -532,10 +532,12 @@
         "2026-08-08T15:11:19.571500+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T15:42:37.801123+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
         "2026-08-08T16:12:38.431773+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
-        "2026-08-08T16:42:48.777825+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
+        "2026-08-08T16:42:48.777825+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T17:12:38.092714+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here",
+        "2026-08-08T17:42:10.792049+00:00: duplicate creation attempt blocked \u2014 \"(no subject) Commander\" already tracked here"
       ],
       "created_at": "2026-07-13T03:21:06.722989+00:00",
-      "updated_at": "2026-08-08T16:42:48.777835+00:00"
+      "updated_at": "2026-08-08T17:42:10.792061+00:00"
     },
     {
       "id": "MISSION-001A",
@@ -5903,6 +5905,22 @@
       "created_at": "2026-08-08T17:08:04.183903+00:00",
       "updated_at": "2026-08-08T17:08:04.183906+00:00",
       "source": "instructor-mode-session-20260808"
+    },
+    {
+      "id": "MISSION-816",
+      "title": "thunderbird-mcp-gc.service restart-cascade \u2014 11:08 crash, self-healed, root cause understood but not fixed",
+      "status": "in_progress",
+      "priority": "P2",
+      "assigned_to": "Sterling",
+      "description": "2026-08-08 11:08-11:11: thunderbird-mcp-gc.service (12h GC restart timer) failed, triggered OnFailure=thunderbird-generic-remediate@..., whose remediation restarted thunderbird-mcp-gc.service, whose own ExecStart restarts thunderbird-mcp.service -- 5 restart cycles in <3s, then a 90s stop-hang requiring SIGKILL. Self-healed at 11:11:20, stable since (50+ min uptime at time of investigation). Root cause confirmed via AG War Room investigation (RT-ALERT-MCP-TUNNEL-SCHEDULER) + direct unit-file verification. NOT fixed tonight -- this exact cascade risk was already partially patched once before (service.d/async-restart.conf, burst limit raised 5->10, made async) -- too fragile/history-laden an area to modify further blind at this point in the session. Needs a fresh look at why the burst-10 config didn't prevent this specific recurrence.",
+      "deliverables": [],
+      "dependencies": [],
+      "suspense_date": null,
+      "escalation_rule": null,
+      "logs": [],
+      "created_at": "2026-08-08T18:09:47.415778+00:00",
+      "updated_at": "2026-08-08T18:09:47.415791+00:00",
+      "source": "war-room-20260808-alert-investigation"
     }
   ],
   "last_updated": "2026-08-08T16:21:04.045449+00:00",

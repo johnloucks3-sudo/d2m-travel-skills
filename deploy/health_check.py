@@ -26,9 +26,21 @@ LOG_DIR.mkdir(exist_ok=True)
 SERVICES = [
     "thunderbird-mcp.service",
     "thunderbird-api.service",
-    "thunderbird-tunnel.service",
-    "thunderbird-scheduler.service",
+    "cloudflared.service",
+    "d2m-scheduler.service",
 ]
+# CORRECTION (2026-08-08, War Room RT-ALERT-MCP-TUNNEL-SCHEDULER, AG-verified
+# against live systemd state): the prior SERVICES list watched
+# thunderbird-tunnel.service and thunderbird-scheduler.service — both were
+# INTENTIONALLY disabled the same day (found + fixed live: thunderbird-tunnel
+# was a duplicate cloudflared process running the SAME tunnel ID as
+# cloudflared.service simultaneously; thunderbird-scheduler lost a lock race
+# to d2m-scheduler.service on every single boot, wasting CPU/memory for
+# nothing). The 2026-08-07 F-3 correction above already caught the same
+# class of confusion once (thunderbird-mcp.service vs d2m-mcp.service) — this
+# is the SAME recurring failure mode: a monitor watching a name instead of
+# re-verifying which unit is actually live. check_service() below is fixed
+# to check is-enabled alongside is-active for exactly this reason.
 # CORRECTION (2026-08-07, PROPOSAL-20260807-thunderbird-mcp F-3): the prior
 # 2026-07-30 note below claimed d2m-mcp.service "is already a symlink alias to
 # thunderbird-mcp.service." That was never verified and is FALSE — inode check
@@ -60,14 +72,30 @@ def _user_systemd_env() -> dict:
 
 
 def check_service(name: str) -> bool:
-    """Return True if service is active."""
+    """Return True if service is healthy: active, OR intentionally disabled.
+
+    A disabled unit is not a failure — it's a decision. Checking is-active
+    alone (the old behavior) alerts forever on any unit someone correctly
+    turned off (confirmed live 2026-08-08: thunderbird-tunnel.service and
+    thunderbird-scheduler.service both false-alerted this way after being
+    deliberately disabled the same day). Only a unit that's ENABLED (expected
+    to be running) and NOT active is a real failure."""
     try:
-        result = subprocess.run(
+        active = subprocess.run(
             ["systemctl", "--user", "is-active", name],
             capture_output=True, text=True, timeout=10,
             env=_user_systemd_env(),
-        )
-        return result.stdout.strip() == "active"
+        ).stdout.strip()
+        if active == "active":
+            return True
+        enabled = subprocess.run(
+            ["systemctl", "--user", "is-enabled", name],
+            capture_output=True, text=True, timeout=10,
+            env=_user_systemd_env(),
+        ).stdout.strip()
+        if enabled in ("disabled", "masked"):
+            return True  # intentionally off — not a failure
+        return False
     except Exception:
         return False
 
