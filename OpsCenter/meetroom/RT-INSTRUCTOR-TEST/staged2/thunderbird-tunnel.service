@@ -1,0 +1,13 @@
+[Unit]
+Description=Cloudflare Tunnel for api.d2mluxury.quest
+Wants=network.target
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudflared tunnel run thunderbird
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

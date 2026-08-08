@@ -1,0 +1,15 @@
+[Unit]
+Description=D2M Thunderbird Fare Watch — Daily Price Check
+Documentation=file:///home/john/Thunderbird/OpsCenter/fare_watch_registry.md
+Wants=network.target thunderbird-mcp.service
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/scripts/fare_watch_amadeus.py
+StandardOutput=append:/home/john/Thunderbird/OpsCenter/fare_watches/fare_watch.log
+StandardError=append:/home/john/Thunderbird/OpsCenter/fare_watches/fare_watch.log
+TimeoutStartSec=600

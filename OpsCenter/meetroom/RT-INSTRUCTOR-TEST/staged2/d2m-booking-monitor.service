@@ -1,0 +1,14 @@
+[Unit]
+Description=D2M Booking Monitor — Playwright portal scraper
+Wants=network.target
+StartLimitBurst=3
+StartLimitIntervalSec=300
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/booking/thunderbird_booking_monitor.py
+EnvironmentFile=-/home/john/Thunderbird/.env
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+TimeoutStartSec=300

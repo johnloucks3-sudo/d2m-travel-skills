@@ -35,6 +35,63 @@ Budget hit 11% seven_day_pct (2% short of today's 13% stop-line) after investiga
 
 **Opinion:** Correct call to stop rather than push a rushed change into mission-close integrity code — that system already carries a real anti-theater gate (delegation certification) and a bad edit there is worse than a missed tranche. Next session: get Commander's ruling on sentinel rebuild scope for #7, then finish 23/15/3/9 with full daily budget before touching #14's gate logic.
 
+## TRANCHE 3 (RESUMED 2026-08-08) — #23, #15, #3, #9 investigated, none cleanly buildable tonight
+
+Same rigor as the rest of the triage — read the real code, don't guess. Every
+item hit a genuine, evidenced blocker; none is "too hard," each needs one
+specific missing piece before a build is safe.
+
+| # | Idea | Finding |
+|---|---|---|
+| 23 | Chop-chain auto-advance | **Blocked on a real scope boundary.** `coordinate()`/`decide()` in `core/staffing/staff_summary_sheet.py` already auto-advance STATE (sheet moves to `coordinated` the moment every OCR in the chain has chopped, then to `tasked` on decision) — that part isn't missing. The actual gap is nobody automatically notifies the *next* office that it's their turn. Went looking for where SSS sheets are actually persisted (needed to build a watcher) — `staff_summary_sheet.py` is pure in-memory logic, no `SSS_DIR`, no JSON store anywhere in this repo. The `mcp__travel__sss_*` tools that create/list real sheets live in a **separate MCP server codebase**, not this Thunderbird repo — I don't have visibility into where that state actually lives. Building a watcher against storage I can't locate would be guessing. |
+| 15 | Auto-generated status papers from action log | **Same blocker as #23** — `sss_render.py` can render a sheet into a paper, but "from the action log" implies reading the same persisted-sheet state #23 couldn't locate. Blocked for the same reason. |
+| 3 | Credential monitor w/ predictive auto-heal | **Partially already better than the ask, but the real gap is a hard limit, not a build gap.** `scripts/keepalive_supervisor.py` already does exactly this pattern for Claude's own OAuth token — reads `expiresAt` from the credential JSON, warns 10 minutes ahead, not just file-age. TESS is tracked in the same supervisor but without that predictive field wired in, even though `creds/tess_token.json` has an `expires_at` field — wiring it in is a small, real fix. **But it wouldn't have caught tonight's actual TESS failure**: the outage was the *refresh token* dying, and OAuth refresh-token expiry is typically never exposed by the provider — there's no field to predict from. Wiring the access-token predictor is still worth doing (closes a real, smaller gap) but isn't the 48h-predictive save the item description implies; flagging the limit honestly rather than overselling the fix. |
+| 9 | Adaptive lane concurrency sizing | **Re-scoped by tonight's own evidence.** `billing-budget-guard.timer` (checked) is a *different* system entirely — Google Cloud API billing kill-switch, not OC/AG/CC lane throttling; the real target is `DEFAULT_CAPS` in `core/relay/engine_limits.py`. But tonight's actual OC investigation showed the real bottleneck was never the daily/hourly *throughput* cap (200/day, rarely approached) — it was `oc_hygiene.py`'s `MAX_CONCURRENT=2` *process-slot* gate, which already worked correctly all night once the stuck process was cleared. AG, by contrast, genuinely ran tight (14-17% headroom, real constraint). Adaptive throttling of a rarely-hit cap is lower value than the item description assumed; if anything, AG's cap deserves the adaptive-sizing attention more than OC's. |
+
+**Opinion:** Every item needs one more piece of groundwork before a safe build — locating the real SSS persistence layer (#23/#15, likely a Commander question: where does that MCP server's state actually live), accepting a partial/honest fix on #3 (wire what's fixable, say plainly what isn't), and re-scoping #9 toward AG rather than OC given what tonight actually showed. Recommend holding the build for a session with that groundwork done rather than guessing at any of the four tonight, especially after a long session where the discipline of "verify before extending" caught two real near-misses already.
+
+**Shipped from #3 anyway — the honest partial fix.** Wired TESS's `expires_at`
+field into `scripts/keepalive_supervisor.py`'s existing predictive-expiry
+pattern (same mechanism Claude's own OAuth token already used). Verified
+live: correctly shows `tess-token-keepalive` as YELLOW with the real reading
+("-9725min" — ~6.75 days expired), instead of silently missing it. Docstring
+states plainly this only covers the access token, not the refresh token that
+actually died — real, useful, honestly scoped, not oversold.
+
+## #7 SENTINEL REBUILD SCOPE (Commander-requested 2026-08-07)
+Original `thunderbird_sentinel.py` was deleted 2026-06-10 and never committed to git — but its **compiled bytecode survived** at `OpsCenter/sentinel/__pycache__/thunderbird_sentinel.cpython-313.pyc`. Recovered the exact original design (docstrings, thresholds, service lists, regex patterns) by disassembling the bytecode rather than guessing — no decompiler available on this box, `dis`/`marshal` were enough.
+
+**Original design (v1.0, 2026-05-07), recovered exactly:**
+- Alert tiers: PASS → WARN → FAIL → CONFLICT. Rate-limited Telegram alerting (30-min cooldown per key).
+- Thresholds: WARN at 3 restarts / FAIL at 6 restarts within a 600s window; log-error scan window 120s.
+- **Telegram Gateway deep check** (the one genuinely unique piece): service status, restart count, **duplicate-process detection** (`find_telegram_processes`), **409 Conflict pattern scan** in the gateway log (`409.*Conflict`, `terminated by other getUpdates`, `conflict.*getUpdates`, `ConflictError`), live Telegram `getMe` API probe, and **auto-remediation: kills all but the most-recently-started gateway process** on CONFLICT.
+- **nginx check**: service status, config validity, HTTP probe on :8099 (ttyd proxy chain), error-log scan.
+- **ttyd check**: service status, port 3100 direct probe, WebSocket upgrade probe.
+- **Generic log-pattern scanner** (`scan_log_file`) — regex severity tiers CRITICAL (`Unhandled exception`, `Traceback`, `ConnectionRefusedError`, `fatal error`) / ERROR (`\bERROR\b`, `failed to connect`, `authentication.*failed`, `token.*expired`, `401 Unauthorized`, `500 Internal Server`) / WARNING (`retry attempt`, `slow response`, `429 Too Many Requests`, `timeout`) — this catches silent application-level errors systemd status alone misses.
+- Watched 7 services (telegram-gw, mcp, tasking-watcher, spsa-monitor, cloudflared, coo-watchdog, ttyd — 3 with auto-restart) + 3 timers (oauth-monitor, oauth-keepalive, **itself**).
+- Ran every 60s.
+
+**What's changed since 2026-05-07 that matters for a rebuild:**
+- `thunderbird_coo_watchdog.py` (built after the sentinel died) already does generic tiered self-heal + restart-count escalation across 13+ services — broader than the sentinel's 7. **Rebuilding that half would be pure duplication.**
+- `heal_oauth()` already exists (`core/ops/thunderbird_oauth_self_heal.py`) — covers OAuth-specific remediation the old sentinel only alerted on.
+- Nothing in the current codebase does: (a) Telegram gateway duplicate-process/409-Conflict detection+kill, (b) content-level log-pattern scanning (vs. systemd-status-only), (c) nginx/ttyd proxy-chain-specific checks. **These three are the actual gap** — everything else the old sentinel did has since been rebuilt elsewhere, better.
+
+**Recommended rebuild scope (opinion):** Don't restore the full original — restore only the 3 genuinely non-duplicated pieces, and make it a *playbook*, not a monitor:
+1. Telegram gateway conflict detector + auto-kill-duplicates (highest value — this exact failure mode, "duplicate process fighting over a shared resource," is a recurring pattern in this codebase per git log: keepalive zombie-task kills, supertimer duplicate kills).
+2. Log-pattern scanner wired to `core.comms.commander_channel.notify()` instead of a bespoke Telegram sender (reuse the dedup/audit-trail gateway already used for everything else, don't rebuild alerting).
+3. nginx + ttyd proxy-chain checks, since nothing else in the wing checks the WebSocket/proxy layer specifically.
+Skip rebuilding: generic service/timer restart-count logic (coo_watchdog already owns this, better).
+
+This becomes the actual **playbook registry** #7 was missing: anomaly type → named action (CONFLICT → kill-duplicates, log-pattern-match → notify with matched line, proxy-chain-down → restart+notify), extensible for `escalate_with_context()` later.
+
+**Estimate:** small-medium — most of the hard part (thresholds, regex, service list) is already recovered verbatim from the bytecode, not re-derived from scratch. Real work is: rewrite in current patterns (notify() instead of raw Telegram, current systemd unit names — some renamed since May), test kill-duplicates logic carefully (it's the one destructive action in this build), wire timer.
+
+**Status: SHIPPED 2026-08-08.** Commander approved the 3-piece scope. Rebuilt `OpsCenter/sentinel/thunderbird_sentinel.py`, replaced the `/bin/true` stub in `thunderbird-sentinel.service` with the real ExecStart, timer re-enabled (5-min cadence, existing timer unit unchanged). Verified via a live manual run: exit 0/SUCCESS, all 3 checks PASS (1 real gateway process, 0 log-pattern hits, proxy chain all responding).
+
+**Safety bug caught and fixed during build, before any kill logic ran:** the original bytecode's `find_telegram_gw_pids()` design used `pgrep -af <pattern>` — tested live and it self-matched a shell wrapper process whose own command line happened to contain the search string, which would have produced a false "2 processes running" and triggered the kill-duplicates path against a phantom. Rewrote to cross-check each PID's actual `/proc/<pid>/cmdline` (real argv, not the `-a` display text) before counting it as a match. Verified fix live: correctly detects exactly 1 real process. This is exactly the kind of destructive-action risk flagged in the original scope proposal — caught it in testing, not in production.
+
+Alerting routed through `core.comms.commander_channel.notify()` (dedup + audit trail) instead of rebuilding a bespoke Telegram sender. nginx error-log scan (the one piece of the original 3-piece design not fully restored) is skipped — `/var/log/nginx/error.log` needs root and this process has no passwordless sudo; HTTP-probe + systemctl-status still catch "nginx is down," just not "nginx is up but logging errors." Flagging as a known gap, not silently working around it.
+
 ## METHOD
 Each item classified before sequencing:
 - **WIRE** — capability exists, just needs a trigger/timer connected. Minutes-hours.

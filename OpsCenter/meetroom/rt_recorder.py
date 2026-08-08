@@ -6,6 +6,17 @@ transcript {session}_transcript.md. Pure stdlib, 0 tokens. Launcher-owned
 (file: OpsCenter/meetroom/rt_recorder.py). Owned by launcher/OC, not a seat.
 
 Usage:  rt_recorder.py [session]      (session default 'RT')
+
+SESSION-DIRECTORY FIX (2026-08-08): confirmed live during Instructor Mode's
+first real session (RT-INSTRUCTOR-TEST) — this previously always read cards
+from the meetroom ROOT regardless of the `session` argument, so it merged
+whatever stale {seat}_hale_input.md files happened to sit at the root (left
+over from an unrelated earlier session) instead of the actual session's own
+cards in OpsCenter/meetroom/{session}/. If OpsCenter/meetroom/{session}/
+exists, cards are now read from there; otherwise falls back to the root
+(unchanged behavior for any caller not yet using a session subdirectory).
+The output transcript still lands at OpsCenter/meetroom/{session}_transcript.md
+(unchanged) so existing links/callers keep working.
 """
 import re
 import sys
@@ -33,12 +44,15 @@ def engine_hint(text: str) -> str:
 
 def main():
     session = sys.argv[1] if len(sys.argv) > 1 else "RT"
+    session_dir = ROOM / session
+    card_root = session_dir if session_dir.is_dir() else ROOM
     out = ROOM / f"{session}_transcript.md"
     now = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d %H:%M MT")
-    L = [f"# {session} — WAR ROOM TRANSCRIPT", f"**Recorded:** {now}", ""]
+    L = [f"# {session} — WAR ROOM TRANSCRIPT", f"**Recorded:** {now}",
+         f"**Cards read from:** {card_root}", ""]
     total = 0
     for seat, fname in SEATS:
-        fp = ROOM / fname
+        fp = card_root / fname
         if not fp.exists():
             L.append(f"## {seat.title()} — (MISSING, no card)")
             L.append("")

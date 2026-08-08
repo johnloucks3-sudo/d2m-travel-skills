@@ -1,0 +1,16 @@
+[Unit]
+Description=Thunderbird Email Intelligence Sweep
+Wants=network.target
+StartLimitBurst=3
+StartLimitIntervalSec=300
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/email/thunderbird_email_intel.py --sweep --hours=1
+EnvironmentFile=/home/john/Thunderbird/.env
+Environment=PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/.venv
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+TimeoutStartSec=300

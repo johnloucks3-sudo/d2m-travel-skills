@@ -1,0 +1,27 @@
+[Unit]
+Description=Thunderbird Telegram Gateway — D2MC2C (P0 C2) + Dani (client) + Relay (system). HaleD2M retired 2026-06-19 — conversational C2 moved to SMS.
+After=network.target goose-mcp-http.service
+Wants=network.target
+# M-153 burst guard (must live in [Unit]): if the process dies 5+ times within
+# 5 min, stop trying — a tight crash-loop is a code/auth fault that restarting
+# cannot fix. Surfaces via `systemctl --user status` = failed instead of churning.
+StartLimitIntervalSec=300
+StartLimitBurst=5
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+EnvironmentFile=/home/john/Thunderbird/.env
+EnvironmentFile=/home/john/Thunderbird/config/telegram_gw.env
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+Environment=HOME=/home/john
+ExecStart=/home/john/Thunderbird/.venv/bin/python /home/john/Thunderbird/OpsCenter/thunderbird_telegram_gw.py
+# M-153 — self-heal: restart on any exit (clean or crash), not just failures.
+Restart=always
+RestartSec=10s
+StandardOutput=append:/home/john/Thunderbird/logs/telegram_gw_stdout.log
+StandardError=append:/home/john/Thunderbird/logs/telegram_gw_stderr.log
+
+[Install]
+WantedBy=default.target

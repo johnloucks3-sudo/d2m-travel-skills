@@ -1,0 +1,21 @@
+[Unit]
+Description=Thunderbird MCP HTTP Server
+Wants=network.target
+OnFailure=thunderbird-alert@%n.service
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+[Service]
+Type=simple
+WorkingDirectory=/home/john/Thunderbird
+ExecStartPre=/bin/bash -c 'fuser -k 8765/tcp 2>/dev/null; sleep 1; true'
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/core/mcp/travel_mcp_server.py --http --port=8765
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/john/Thunderbird/logs/mcp_stdout.log
+StandardError=append:/home/john/Thunderbird/logs/mcp_stderr.log
+EnvironmentFile=/home/john/Thunderbird/.env
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+
+[Install]
+WantedBy=default.target

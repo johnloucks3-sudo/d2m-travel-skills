@@ -6,12 +6,20 @@ Reads {cc,ag,oc,grok}_hale_input.md and emits self-contained rt.html with:
   - clickable links to each seat's source paper + the session transcript
   - color-coded, Commander-paced (SPACE next / view transcript / papers)
 Served live at /meetroom/rt.html. Rerun after seats file/update papers, then refresh.
+
+Usage: rt_view.py [session]   — optional; if OpsCenter/meetroom/{session}/
+exists, cards are read from there (same session-directory fix as
+rt_recorder.py, 2026-08-08). rt.html always regenerates at the meetroom root
+so the existing served URL keeps working regardless of session.
 """
-import json, re
+import json, re, sys
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
 HERE = Path(__file__).resolve().parent
+_session_arg = sys.argv[1] if len(sys.argv) > 1 else ""
+_session_dir = HERE / _session_arg if _session_arg else None
+CARD_ROOT = _session_dir if (_session_dir and _session_dir.is_dir()) else HERE
 SEATS = [
     ("CC",   "cc_hale_input.md",   "#1f6feb", "CC-Hale · Claude (MAX, sonnet)"),
     ("AG",   "ag_hale_input.md",   "#2ea043", "AG-Hale · Gemini 3.6 Flash"),
@@ -29,7 +37,7 @@ def explore_heading(text: str) -> str:
 
 cards = []
 for label, fname, color, who in SEATS:
-    fp = HERE / fname
+    fp = CARD_ROOT / fname
     if not fp.exists():
         cards.append({"label": label, "color": color, "who": who, "fname": fname,
                       "present": False, "body": "(no point paper filed)"})
@@ -38,9 +46,9 @@ for label, fname, color, who in SEATS:
     cards.append({"label": label, "color": color, "who": who, "fname": fname,
                   "present": True, "body": body})
 
-papers = sorted({fname for _, fname, *_ in SEATS if (HERE / fname).exists()})
+papers = sorted({fname for _, fname, *_ in SEATS if (CARD_ROOT / fname).exists()})
 transcripts = sorted(p.name for p in HERE.glob("*_transcript.md"))
-blufs = sorted(p.name for p in HERE.glob("bluf.md"))
+blufs = sorted(p.name for p in CARD_ROOT.glob("*bluf.md"))
 
 HTML = """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -68,14 +76,18 @@ HTML = """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 __CARDS__
 </body></html>"""
 
-papers_html = " · ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in papers) or "&mdash;"
+# hrefs are relative to rt.html, which always lives at the meetroom root —
+# prefix with the session dir name when cards were read from a subdirectory.
+_href_prefix = f"{_session_arg}/" if CARD_ROOT != HERE else ""
+
+papers_html = " · ".join(f'<a class="paper" href="{esc(_href_prefix + f)}">{esc(f)}</a>' for f in papers) or "&mdash;"
 tr_html = " ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in transcripts) or "&mdash;"
-bl_html = " ".join(f'<a class="paper" href="{esc(f)}">{esc(f)}</a>' for f in blufs) or "&mdash;"
+bl_html = " ".join(f'<a class="paper" href="{esc(_href_prefix + f)}">{esc(f)}</a>' for f in blufs) or "&mdash;"
 
 cards_html = []
 for c in cards:
     if c["present"]:
-        link = f'<span class="paplink">full paper: <a class="paper" href="{c["fname"]}">{c["fname"]}</a></span>'
+        link = f'<span class="paplink">full paper: <a class="paper" href="{esc(_href_prefix + c["fname"])}">{c["fname"]}</a></span>'
         body = f'<div class="body">{esc(c["body"])}</div>'
     else:
         link = ""

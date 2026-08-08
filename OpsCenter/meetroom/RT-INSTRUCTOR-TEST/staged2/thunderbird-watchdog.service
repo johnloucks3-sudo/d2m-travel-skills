@@ -1,0 +1,15 @@
+[Unit]
+Description=OpsCenter Self-Healing Watchdog
+After=network.target
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird/OpsCenter
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/opscenter_watchdog.py
+EnvironmentFile=/home/john/Thunderbird/.env
+EnvironmentFile=/home/john/Thunderbird/.env.telegram
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=120

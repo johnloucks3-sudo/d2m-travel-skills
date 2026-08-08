@@ -1,0 +1,14 @@
+[Unit]
+Description=Thunderbird Google Drive Mirror — d2mconcierge
+Wants=network.target
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/john/Thunderbird/scripts/thunderbird-rclone-sync.sh
+TimeoutStartSec=1800
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

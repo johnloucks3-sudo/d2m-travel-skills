@@ -1,0 +1,32 @@
+[Unit]
+Description=ttyd Web Terminal — code.d2mluxury.quest
+After=network.target
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+ExecStart=/home/john/bin/ttyd \
+  --port 3100 \
+  --interface 127.0.0.1 \
+  --writable \
+  --terminal-type xterm-256color \
+  --client-option rendererType=webgl \
+  --client-option cursorBlink=true \
+  --client-option cursorStyle=bar \
+  --client-option scrollback=10000 \
+  --client-option copyOnSelect=false \
+  --client-option rightClickSelectsWord=true \
+  --client-option fastScrollModifier=alt \
+  --client-option fontSize=15 \
+  --client-option lineHeight=1.2 \
+  --client-option fontFamily="'Menlo, Monaco, Consolas, Liberation Mono, monospace'" \
+  -- tmux new-session -A -s thunderbird
+Restart=always
+RestartSec=5
+WorkingDirectory=/home/john/Thunderbird
+Environment=HOME=/home/john
+Environment=PATH=/home/john/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=COLORTERM=truecolor
+Environment=TERM=xterm-256color
+
+[Install]
+WantedBy=default.target

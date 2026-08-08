@@ -131,9 +131,17 @@ REGISTRY: list[Item] = [
         name="tess-token-keepalive", kind="timer",
         unit="tess-token-keepalive.timer", service="tess-token-keepalive.service",
         expected_state="active", interval_min=90,
+        cred_file=ROOT / "creds" / "tess_token.json",
+        expiry_json_path="expires_at", expiry_unit="s", expiry_warn_min=120,
         auto_renewable=True,
         reauth_cmd="python3 thunderbird_tess.py --authorize",
-        note="TESS CRM token — auto-refresh; human re-auth if refresh token dead.",
+        note="TESS CRM access token — expires_at is a top-level unix-seconds "
+             "field (verified live 2026-08-08, currently expired). Predictive "
+             "warning is on the ACCESS token only — the underlying refresh "
+             "token's own expiry is not exposed by TESS's OAuth responses, so "
+             "this cannot predict a refresh-token death (the actual cause of "
+             "the 2026-08-08 outage) ahead of time, only the shorter-lived "
+             "access token. Human re-auth still required if the refresh fails.",
     ),
     Item(
         name="johnloucks3-oauth-keepalive", kind="timer",

@@ -1,0 +1,18 @@
+[Unit]
+Description=Hale Daily Brief Generation — 06:45 MT
+Wants=network.target
+OnFailure=thunderbird-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStartPre=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/hale_state_updater.py
+ExecStartPre=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/hale_context_scan.py
+ExecStart=/home/john/Thunderbird/.venv/bin/python3 /home/john/Thunderbird/OpsCenter/hale_dispatcher.py generate_brief
+EnvironmentFile=/home/john/Thunderbird/.env
+Environment=PATH=/home/john/Thunderbird/.venv/bin:/usr/local/bin:/usr/bin
+Environment=VIRTUAL_ENV=/home/john/Thunderbird/.venv
+EnvironmentFile=/home/john/Thunderbird/deploy/thunderbird_pythonpath.env
+TimeoutStartSec=120
+StandardOutput=append:/home/john/Thunderbird/OpsCenter/hale_brief.log
+StandardError=append:/home/john/Thunderbird/OpsCenter/hale_brief.log
