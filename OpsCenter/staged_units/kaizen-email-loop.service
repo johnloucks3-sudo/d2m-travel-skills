@@ -1,0 +1,8 @@
+[Unit]
+Description=KAIZEN email reply loop — draft/send ticket answers, ingest follow-up replies
+Wants=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/john/Thunderbird
+ExecStart=/usr/bin/python3 /home/john/Thunderbird/core/email/kaizen_email_loop.py --live

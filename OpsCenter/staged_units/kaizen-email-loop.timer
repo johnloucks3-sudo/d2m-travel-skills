@@ -1,0 +1,10 @@
+[Unit]
+Description=Run KAIZEN email reply loop every 2 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=2min
+Persistent=false
+
+[Install]
+WantedBy=timers.target

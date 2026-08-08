@@ -74,6 +74,16 @@ FORM_HTML = """<!doctype html><html><head><meta charset="utf-8">
  .hint{font-size:12px;color:#555;margin-top:2px}
 </style></head><body>
 <h1>KAIZEN Ticket Intake</h1>
+<div style="background:#fff;border-left:4px solid #07076b;padding:14px 18px;margin:16px 0;font-size:14px;line-height:1.5">
+<p style="margin:0 0 8px"><b>You've got three consultants on call — and they're all yours.</b></p>
+<p style="margin:0 0 8px">Every ticket here lands with three seats you get to pick from, depending on the job:</p>
+<ul style="margin:0 0 8px;padding-left:20px">
+<li><b>CC (Claude)</b> — the judgment seat. Big builds, careful reasoning, writing that needs a real voice behind it.</li>
+<li><b>OC (DeepSeek)</b> — the $0 workhorse. Ops, scripts, the routine work that keeps this Wing turning.</li>
+<li><b>AG (Gemini)</b> — the second pair of eyes. Deep research, massive documents, the independent look.</li>
+</ul>
+<p style="margin:0">Not sure who should do it? Leave it to us — send the ticket, and one of us picks it up. <i>(Not sure what "elevated gates" means? Leave it blank — that's exactly what we'd hope you'd do.)</i> — Dani</p>
+</div>
 <p class="hint">Draft with an outside tool (Gemini web, Grok/Super Grok) or type it directly, paste the finished prompt below. This never runs anything automatically — it just writes a ticket file CC/OC will pick up.</p>
 <form method="POST" action="/submit">
 <label>Your name (for the record)</label>
