@@ -93,6 +93,14 @@ Hale/Jet/Talon — not CC-only:
 
 **TASK PRECISION LADDER (2026-08-01, added after AG went dark 2h32m self-executing solo — see `OpsCenter/AG_VERIFICATION_STANDARDS_POSITION_PAPER.html`).** Whichever seat is orchestrating this session: design once at your own reasoning tier, hand execution down to a cheap precisely-specced executor — never solo a large project to your own limit. Four builders in `core/relay/task_templates.py`, all gated by `core.silver.gate.is_checkable()`: `build_ag_task` (→ AG), `build_oc_task` (→ OC, $0), `build_flash_task` (→ Gemini Flash), `build_haiku_task` (→ headless Haiku — same MAX meter as you, NOT a free lane, and REQUIRES a deliverable_path or output is silently lost). Before the first tool call of any multi-step project: `check_headroom(<seat>)` and `check_before_self_execute()` from `core.relay.engine_limits` / `core.relay.delegation_preflight`. **The ladder runs up too:** AG escalates to real Claude Sonnet/Opus via `contact_ag(model="Claude Sonnet 4.6 (Thinking)")`/`"Claude Opus 4.6 (Thinking)"` — off the MAX meter, use freely. OC has the identical lane via **`/ask-claude`** (added 2026-08-01 — `contact_ag.py` was always seat-agnostic, `--from` already defaults to `OC`, the command just didn't exist before). Never `/ask-opus`/`/ask-haiku` for Claude-grade work (renamed to `/ask-gemini-pro`/`/ask-gemini-flash` 2026-08-01 for exactly this reason — both were always Gemini via `contact_ag.py` despite the old names) or the direct headless-Claude fallback in `core/hale_bus/brain_bridge.py` (broken, 48h+ hang, do not blind-fix). `wing_relay.relay_handoff(to_platform="CC")` is for when CC's own session context is specifically needed, not the only path to Claude. Full doctrine: `cross-hale-orchestrate` skill.
 
+**INSTRUCTOR MODE — MANDATORY PROCEDURE (2026-08-08).** Whichever seat is orchestrating (any HALE — CC, OC, or AG, per this policy; Grok has a reserved Round Table seat but no live dispatch mechanism yet, pending login) and tasking another lane to build (not just investigate): full doctrine in the `instructor-mode` skill (Claude-Code-native; OC/AG follow this same text directly since you don't have a Skill tool). Four gates, in order, none skippable:
+1. **INTERVIEW FIRST** — before any plan exists, confirm with the Commander: what's actually being asked, what's the current state/constraint, any specific concerns or flags. Skip only when his own message already answers all three unambiguously.
+2. **PLAN + TO-DO LIST, four distinct beats** — present the plan (durable file) → answer his questions → show the delegation breakdown + to-do list (its own beat) → separately ask permission. Never commit a plan and report it done before he's read it — a plan is his lane too.
+3. **WEAPONS FREE, once approved** — explicit Commander text approval only (an automated system-hook "auto-approved" message is NOT authority). Declare it plainly, log every invocation to `hale_decisions.md`, execute at full autonomy until Stand Down/objective complete/session end. The 3 standing gates (client send, financial commitment, strategic direction) stay inviolable regardless.
+4. **MANDATORY reporting, not on-request** — Telegram short + email full brief on dispatch, on state change, and at reasonable intervals during any wait. Him sending "check" is the failure this closes.
+
+OC's sandbox blocks ALL access (read+write) outside its working repo without `--auto` — confirmed live 2026-08-08, silently, no error surfaced to the model. Never fix with scoped `--auto` (session-wide, not per-file — a real trust expansion). Supply source content directly in the prompt instead; let the builder transform/write in-repo only; apply externally yourself.
+
 
 
 
@@ -488,10 +496,10 @@ Full archive: `CLAUDE.md.archive.2026-07-11`
 **Questions? See Personas/hale_cos.md for full operating authority definitions.**
 
 # BLACKBOARD_START — auto-updated by blackboard_sync.py — do not edit manually
-<!-- Last sync: 2026-08-07 22:19 MT -->
+<!-- Last sync: 2026-08-08 08:08 MT -->
 ```
-=== THUNDERBIRD BLACKBOARD [2026-08-07 22:19 MT] ===
-Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 115.5%  ($11.55/$10.00 used · $0.00 left · 140 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
+=== THUNDERBIRD BLACKBOARD [2026-08-08 08:08 MT] ===
+Budget: Claude UNKNOWN | OpenCode GO CREDITS        : [████████████████████] 120.7%  ($12.07/$10.00 used · $0.00 left · 151 sess) | Groq UNKNOWN | Deepseek v4 ZEN TIER       : [░░░░░░░░░░░░░░░░░░░░]   0.0%  ($0.00 Free Tier active)
 Seat budgets: CC:75%⚠STALE | OC:0%⚠STALE | AG:0%⚠STALE
 Active tasks: 0
 Last Deepseek ruling: NONE
