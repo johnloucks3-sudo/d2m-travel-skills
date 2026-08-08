@@ -127,12 +127,19 @@ class Handler(BaseHTTPRequestHandler):
         from core.relay.task_templates import build_cc_task, write_ticket
 
         try:
-            ticket = build_cc_task(spec, seat=seat, verify_step=verify_step, gates=gates)
+            ticket = build_cc_task(
+                spec, seat=seat, verify_step=verify_step, gates=gates,
+                require_checkable=False,  # this form is Basic-Auth gated to the
+                # Commander himself — his direct tasking never needed machine
+                # checkability anywhere else in this system; the checkable gate
+                # exists to stop OC/AG writing themselves vague tickets, not to
+                # block the Commander's own.
+            )
             ticket["origin"] = origin
             path = write_ticket(ticket)
             msg = f"Ticket created: {ticket['ticket_id']} -> {path}"
         except ValueError as e:
-            msg = f"REJECTED (not checkable): {e}"
+            msg = f"REJECTED: {e}"
 
         body = (
             f"<!doctype html><html><body style='font-family:Georgia,serif;max-width:600px;"

@@ -274,11 +274,20 @@ def build_cc_task(
     gates: Optional[list[str]] = None,
     ticket_id: Optional[str] = None,
     follow_up_hours: float = 4.0,
+    require_checkable: bool = True,
 ) -> dict:
     """Build a KAIZEN async ticket dict (does not write it — see write_ticket()).
     Raises on non-checkable verify_step, same hard gate as build_haiku_task —
-    a ticket that can't be mechanically checked shouldn't exist, sync or async."""
-    if not is_checkable(verify_step):
+    a ticket that can't be mechanically checked shouldn't exist, sync or async.
+
+    require_checkable=False is for Commander-originated tickets ONLY (the
+    KAIZEN intake form, already Basic-Auth gated to the Commander) — his own
+    direct orders never went through is_checkable() anywhere else in this
+    system either; the gate exists to stop a WEAK MODEL (OC/AG) from writing
+    itself a vague escape-valve ticket, not to constrain the Commander's own
+    tasking. Programmatic callers (ask-cc, OC/AG building tickets for CC) must
+    keep the default True — that direction is exactly what the gate protects."""
+    if require_checkable and not is_checkable(verify_step):
         raise ValueError(
             f"build_cc_task requires checkable verify_step (a count, path, "
             f"ref, or artifact) — got {verify_step!r}. An uncheckable ticket "
