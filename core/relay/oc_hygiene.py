@@ -43,6 +43,7 @@ import os
 import signal
 import subprocess
 import time
+from core.staffing.delegation_outcomes import _read_rows
 
 OC_PROC_NAME = "opencode"
 
@@ -196,6 +197,50 @@ def kill_group(proc) -> None:
             proc.kill()
         except Exception:
             pass
+
+
+def oc_health_gate(window: int = 5, path=None) -> dict:
+    """Rolling recent-outcome health check for the OC lane — GREEN/YELLOW/RED
+    from the last `window` recorded delegation_outcomes rows for seat=='OC'
+    with a real verdict (PASS/DISCREPANCY/UNVERIFIED). Fails open (GREEN) when
+    there's no data yet, matching this repo's existing convention (a broken
+    or empty meter must not block real work).
+
+    GREEN: most recent recorded outcome was PASS, or no data at all.
+    YELLOW: most recent outcome failed, but not two in a row.
+    RED: the most recent 2+ outcomes in the window are all failures — a real
+    streak, not a single bad result. Caller should route to Haiku instead of
+    OC for this dispatch.
+    """
+    rows = [r for r in _read_rows(path)
+            if r.get("seat") == "OC" and r.get("verdict") in ("PASS", "DISCREPANCY", "UNVERIFIED")]
+    rows.sort(key=lambda r: r.get("ts", ""))
+    recent = rows[-window:]
+
+    if not recent:
+        return {"status": "GREEN", "window": window, "sample": 0,
+                "reason": "no recorded OC outcomes yet — fails open"}
+
+    last = recent[-1]
+    if last.get("verdict") == "PASS":
+        return {"status": "GREEN", "window": window, "sample": len(recent),
+                "reason": f"most recent OC outcome was PASS (ticket={last.get('ticket_id', '?')})"}
+
+    consecutive_fails = 0
+    for r in reversed(recent):
+        if r.get("verdict") in ("DISCREPANCY", "UNVERIFIED"):
+            consecutive_fails += 1
+        else:
+            break
+
+    if consecutive_fails >= 2:
+        return {"status": "RED", "window": window, "sample": len(recent),
+                "consecutive_fails": consecutive_fails,
+                "reason": f"{consecutive_fails} consecutive OC failures — route to Haiku instead"}
+
+    return {"status": "YELLOW", "window": window, "sample": len(recent),
+            "consecutive_fails": consecutive_fails,
+            "reason": f"most recent OC outcome was {last.get('verdict')} — proceed with caution"}
 
 
 if __name__ == "__main__":
