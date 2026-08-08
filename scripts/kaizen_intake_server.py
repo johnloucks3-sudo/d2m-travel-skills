@@ -329,8 +329,15 @@ class Handler(BaseHTTPRequestHandler):
                 seat=parent.get("seat", "CC"),
                 verify_step=parent.get("verify_step", ""),
                 gates=parent.get("gates") or [],
-                require_checkable=True,  # machine-correlated, not human-typed
-                # from scratch — keeps the hard gate the main form doesn't need.
+                # Mirror the PARENT's own checkability, don't force strict on
+                # inherited content: a machine-to-machine parent (real
+                # verify_step_checkable=True) keeps the hard gate on its
+                # follow-ups too; a human-form parent's soft verify_step
+                # ("Send me detailed analysis...") was never checkable and
+                # forcing True here rejected every single reply to a human
+                # ticket (found live, 2026-08-08 — the parent's own text is
+                # being re-validated, not new content this handler wrote).
+                require_checkable=bool(parent.get("verify_step_checkable")),
             )
         except ValueError as e:
             return self._send_html(f"<h2>REJECTED: {html.escape(str(e))}</h2>", status=400)
