@@ -22,6 +22,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 BOARD_PATH = Path(__file__).resolve().parent.parent / "OpsCenter" / "mission_board.json"
 
 IN_COORDINATION = "in_coordination"
@@ -69,7 +71,7 @@ def format_report(report: dict) -> str:
     return json.dumps(report, indent=2, ensure_ascii=False)
 
 
-def notify_live_body(report: dict) -> str:
+def main() -> int:
     parser = argparse.ArgumentParser(
         description="Report SSS sheets awaiting coordination (read-only scan of the mission board)."
     )
@@ -85,7 +87,7 @@ def notify_live_body(report: dict) -> str:
         action="store_true",
         help="Also queue one WINDOW notification to the Commander for the whole batch.",
     )
-    args = parser.parse_args(argv)
+    args = parser.parse_args()
 
     report = scan_board()
     print(format_report(report))
@@ -96,7 +98,7 @@ def notify_live_body(report: dict) -> str:
 
         notify(
             kind="ops",
-            title=f"SSS chain — {len(needs_notify)} sheet(s) awaiting coordination",
+            title=f"SSS chain — {len(needs_notify)} office sheet(s) awaiting coordination",
             body_md=notify_live_body(report),
             urgency="WINDOW",
             dedup_key="sss-chain-notify-scan",
