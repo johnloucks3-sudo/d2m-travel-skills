@@ -1,0 +1,13 @@
+{
+  "ticket_id": "kzn-20260808204429-9bce56",
+  "seat": "CC",
+  "spec": "CC peer review: RT_INTEROP_SCHEMA_V2.md (/home/john/Thunderbird/OpsCenter/meetroom/RT_INTEROP_SCHEMA_V2.md). V1 was rejected by Commander for silhouette-mapping. V2 extracts 7 real capability gaps (sealed ballot, file claims, fanout, fresh-context-per-scope, push egress/webhook, budget-informed routing) from the FULL 26-item HALE survey. Your verdict: (a) confirm or refute each of G1-G6 is a genuine delta RT lacks, (b) confirm the 3 adopt-pilots (sealed vote, CLAIM, FANOUT) for build-worthiness, (c) flag anything you think changes your session ticket on RT build gate. Interop schema only, no code changes. Deliver verdict to PROOF PATH. You are CC; OC orchestrated; Commander explicitly involved you this round.",
+  "gates": [
+    "RT build gate",
+    "no code change without block"
+  ],
+  "verify_step": "> 0 non-empty md lines in verdict file OpsCenter/meetroom/cc_hale_rt_interop_v2_verdict.md",
+  "follow_up_due": "2026-08-09T00:44:29.440010+00:00",
+  "status": "open",
+  "created_at": "2026-08-08T20:44:29.440010+00:00"
+}
