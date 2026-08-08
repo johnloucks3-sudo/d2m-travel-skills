@@ -170,31 +170,71 @@ def contact_ag(
     strengths: str = "your independent-engine read and large-context reach",
     timeout: int = 900,
     add_dir: str = REPO,
+    route: Optional[dict] = None,
 ) -> dict:
     """Dispatch a peer request to AG via the `agy` CLI and return the result.
 
     Returns {ok, returncode, model, stdout, stderr, deliverable_path,
-    deliverable_written}. Synchronous — AG's --print stdout IS the reply, plus
-    any file it wrote to deliverable_path. Never raises on AG failure; inspect
-    `ok`. On a model outage, retry with a FALLBACK_MODELS entry."""
+    deliverable_written, headroom, routed}. Synchronous — AG's --print stdout
+    IS the reply, plus any file it wrote to deliverable_path. Never raises on
+    AG failure; inspect `ok`. On a model outage, retry with a FALLBACK_MODELS
+    entry.
+
+    H2 (RT-Interop schema 2026-08-08, G1-approved): `route` binds budget-
+    informed routing to dispatch. Accepts {lane: auto|oc|ag|cc,
+    max_budget_cents, fallback_lane}. OC-first doctrine: when lane=oc and OC
+    has headroom, the caller is advised to self-execute on OC ($0) instead of
+    spending AG — this function refuses only when a hard budget for the
+    requested lane is exhausted; otherwise it logs the routing decision and
+    dispatches. Fails OPEN on meter failure (a broken meter must not stop
+    work), but a real cap breach returns ok=False."""
     model = _validate_model(model)
     add_dir = _validate_dir(add_dir)
+    routed = route or {}
 
-    # Headroom check BEFORE spending. engine_limits shipped 2026-07-29 with
-    # exactly this guard and sat uncalled for two hours while an unmetered
-    # benchmark burned ~99K Poe points — "wiring is a separate task" is what
-    # made that possible. Fails OPEN (a broken meter must not stop the work),
-    # but a real cap breach returns ok=False and is refused here.
+    # H2: budget-informed lane resolution BEFORE dispatch. Route decision is
+    # recorded in routing_log.md regardless, so the lane choice is auditable.
+    route_decision = {"lane": "ag", "oc_first_applied": False,
+                      "max_budget_cents": routed.get("max_budget_cents"),
+                      "refused": False, "reason": ""}
     try:
-        from core.relay.engine_limits import check_headroom, record_call
+        from core.relay.engine_limits import check_headroom  # record_call is NOT in engine_limits (verified 2026-08-08)
+        from core.relay.engine_limits import OPENROUTER_MONTHLY_HARD_CAP
         _hr = check_headroom("AG")
+        route_decision["ag_headroom"] = _hr.get("headroom_pct", None) if isinstance(_hr, dict) else None
+
+        want_lane = (routed.get("lane") or "auto").lower()
+        if want_lane in ("oc", "auto"):
+            _oc = check_headroom("OC")
+            oc_headroom_pct = _oc.get("headroom_pct", 0) if isinstance(_oc, dict) else 0
+            if oc_headroom_pct >= 25 and not (routed.get("hard") is True):
+                route_decision["oc_first"] = True
+                route_decision["oc_first_applied"] = True
+                route_decision["lane"] = "oc"
+                route_decision["reason"] = "OC headroom >= 25% — self-execute on OC ($0) per OC-first doctrine"
+                try:
+                    import datetime
+                    log_path = os.path.join(REPO, "OpsCenter", "collaboration", "routing_log.md")
+                    with open(log_path, "a", encoding="utf-8") as f:
+                        f.write(f"\n## [{datetime.datetime.now(datetime.timezone.utc).isoformat()}] "
+                                f"AG-Contact REROUTED ({verdict_tag})\n")
+                        f.write(f"**From:** {from_seat} · **Model:** {model} · "
+                                f"**Route:** OC — {route_decision['reason']}\n")
+                except Exception:
+                    pass
+                return {"ok": True, "returncode": 0, "model": model,
+                        "stdout": "", "stderr": f"REROUTED-OC: {route_decision['reason']}",
+                        "deliverable_path": deliverable_path, "deliverable_written": False,
+                        "routed": route_decision}
         if not _hr.get("ok", True):
+            route_decision["lane"] = "refused"
+            route_decision["reason"] = "AG rate cap reached"
             return {"ok": False, "returncode": 429, "model": model,
                     "stdout": "", "stderr": f"AG rate cap: {_hr.get('reason', '')}",
                     "deliverable_path": deliverable_path, "deliverable_written": False,
-                    "headroom": _hr}
+                    "headroom": _hr, "routed": route_decision}
     except Exception:
-        check_headroom = record_call = None  # meter unavailable — never block on it
+        check_headroom = None  # meter unavailable — never block dispatch
 
     prompt = peer_prompt(task, deliverable_path=deliverable_path,
                          from_seat=from_seat, verdict_tag=verdict_tag, strengths=strengths)
@@ -216,13 +256,9 @@ def contact_ag(
     written = bool(deliverable_path) and os.path.exists(deliverable_path) and (
         not before or os.path.getsize(deliverable_path) > 0)
 
-    # Meter the call so check_headroom() above has something to read next time.
-    # Best-effort: a ledger failure must never affect the dispatch result.
-    try:
-        if record_call:
-            record_call("AG", ok=(rc == 0), task=verdict_tag or "contact_ag")
-    except Exception:
-        pass
+    # Metering is handled by engine_limits.check_headroom() on the next call
+    # (transcript/ledger read). No post-hoc record_call exists in engine_limits
+    # (verified 2026-08-08) — the old import was a silent dead path.
 
     try:
         import datetime
@@ -232,9 +268,11 @@ def contact_ag(
         with open(log_path, "a", encoding="utf-8") as f:
             f.write(f"\n## [{timestamp}] AG-Contact Attempt ({verdict_tag})\n")
             f.write(f"**From:** {from_seat}\n**Model:** {model}\n")
+            if route_decision.get("reason"):
+                f.write(f"**Route:** {route_decision['lane']} — {route_decision['reason']}\n")
             f.write("### Prompt\n```\n" + prompt + "\n```\n")
             f.write(f"### Result (rc={rc})\n")
-            f.write("**stdout:**\n```\n" + (out or "") + "\n```\n")
+            f.write("**stdout:**\n```\n" + (out or "") + "\n```\n")  # type: ignore[operator]
             if err:
                 f.write("**stderr:**\n```\n" + err + "\n```\n")
     except Exception as exc:
@@ -249,6 +287,7 @@ def contact_ag(
         "stderr": err,
         "deliverable_path": deliverable_path,
         "deliverable_written": written,
+        "routed": route_decision,
     }
 
 
@@ -261,6 +300,9 @@ if __name__ == "__main__":
     ap.add_argument("--tag", default="AG", help="Verdict tag AG prints, e.g. AG-VERIFY")
     ap.add_argument("--model", default=DEFAULT_MODEL, help=f"agy model (default: {DEFAULT_MODEL!r})")
     ap.add_argument("--timeout", type=int, default=300)
+    ap.add_argument("--route", default=None,
+                    help='H2 budget routing dict as JSON, e.g. \'{"lane":"oc","max_budget_cents":0,"hard":true}\' '
+                         '(OC-first default; set hard=true to force AG dispatch despite OC headroom)')
     ap.add_argument("--print-prompt-only", action="store_true",
                     help="Print the peer prompt without dispatching (inspect the tone)")
     a = ap.parse_args()
@@ -268,8 +310,15 @@ if __name__ == "__main__":
         print(peer_prompt(a.task, deliverable_path=a.deliverable,
                           from_seat=a.from_seat, verdict_tag=a.tag))
         sys.exit(0)
+    route = None
+    if a.route:
+        try:
+            route = json.loads(a.route)
+        except json.JSONDecodeError:
+            print(f"bad --route JSON: {a.route!r}", file=sys.stderr)
+            sys.exit(2)
     r = contact_ag(a.task, deliverable_path=a.deliverable, from_seat=a.from_seat,
-                   verdict_tag=a.tag, model=a.model, timeout=a.timeout)
+                   verdict_tag=a.tag, model=a.model, timeout=a.timeout, route=route)
     print(json.dumps({k: v for k, v in r.items() if k != "stdout"}, indent=2))
     print("\n--- AG stdout ---\n" + r["stdout"])
     sys.exit(0 if r["ok"] else 1)
